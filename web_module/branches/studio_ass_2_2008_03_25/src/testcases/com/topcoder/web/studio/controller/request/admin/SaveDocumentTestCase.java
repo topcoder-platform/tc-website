@@ -17,14 +17,16 @@ import com.topcoder.web.studio.mock.MockHttpSession;
 import com.topcoder.web.common.SimpleResponse;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.SimpleRequest;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.util.StringUtil;
 import com.topcoder.db.connectionfactory.DBConnectionFactoryImpl;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Map;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import junit.framework.Assert;
 
@@ -172,7 +174,6 @@ public class SaveDocumentTestCase extends TCHibernateTestCase {
      *
      * @throws Exception if an unexpected error occurs.
      */
-/*
     public void testProcess_InValidRequests() throws Exception {
         // Test setup
         long contestId = 12;
@@ -180,17 +181,32 @@ public class SaveDocumentTestCase extends TCHibernateTestCase {
         long newDocTypeId = 1;
         String newDescription = "This is a contest document description";
 
-        Map<String, String> invalidArgs = new HashMap<String, String>();
-        invalidArgs.put(Constants.CONTEST_ID, "");
-        invalidArgs.put(Constants.CONTEST_ID, "121212121");
-        invalidArgs.put(Constants.CONTEST_ID, "xxxxx");
-        invalidArgs.put(Constants.DOCUMENT_ID, "");
-        invalidArgs.put(Constants.DOCUMENT_ID, "121212121");
-        invalidArgs.put(Constants.DOCUMENT_ID, "xxxxx");
+        Map<String, String[]> invalidArgs = new LinkedHashMap<String, String[]>();
+        invalidArgs.put(Constants.CONTEST_ID, new String[] {"", "true"});
+        invalidArgs.put(Constants.CONTEST_ID, new String[] {"121212121", "true"});
+        invalidArgs.put(Constants.CONTEST_ID, new String[] {"xxxxx", "true"});
+        invalidArgs.put(Constants.CONTEST_ID, new String[] {null, "true"});
+        invalidArgs.put(Constants.DOCUMENT_ID, new String[] {"", "true"});
+        invalidArgs.put(Constants.DOCUMENT_ID, new String[] {"121212121", "true"});
+        invalidArgs.put(Constants.DOCUMENT_ID, new String[] {"xxxxx", "true"});
+        invalidArgs.put(Constants.DOCUMENT_ID, new String[] {null, "true"});
+        invalidArgs.put(Constants.DOCUMENT_TYPE_ID, new String[] {"xxxxx", "true"});
+        invalidArgs.put(Constants.DOCUMENT_TYPE_ID, new String[] {"-1", "false"});
+        invalidArgs.put(Constants.DOCUMENT_TYPE_ID, new String[] {"", "false"});
+        invalidArgs.put(Constants.DOCUMENT_TYPE_ID, new String[] {null, "false"});
+        invalidArgs.put(Constants.DOC_DESC,
+                        new String[] {StringUtil.padLeft("Desc", Constants.MAX_DOCUMENT_DESC_VALUE_LENGTH + 10, '?'),
+                                      "false"});
 
-        for (Map.Entry<String, String> args : invalidArgs.entrySet()) {
+        for (Map.Entry<String, String[]> args : invalidArgs.entrySet()) {
             MockHttpServletRequest.releaseState();
-            
+            MockHttpServletRequest.setMethodResult("getContentType", "multipart/form-data, boundary=AaB03x");
+            MockHttpServletRequest.setMethodResult("getServerName", "studiodev.topcoder.com");
+            MockHttpServletRequest.setMethodResult("getContextPath", "studio");
+            MockHttpServletRequest.setMethodResult("getServletPath", "");
+            MockHttpServletRequest.setMethodResult("getQueryString", "");
+            MockHttpServletRequest.setMethodResult("getSession", new MockHttpSession());
+
             SimpleRequest request = new SimpleRequest(new MockHttpServletRequest());
             this.testedInstance.setRequest(request);
 
@@ -207,19 +223,28 @@ public class SaveDocumentTestCase extends TCHibernateTestCase {
 
             // Set the invalid parameter value
             String paramName = args.getKey();
-            String paramValue = args.getValue();
+            String paramValue = args.getValue()[0];
+            String paramType = args.getValue()[1];
             MockHttpServletRequest.setMethodResultPerArgs("getParameter_String", paramName, paramValue);
 
-            // Execution
-            try {
+            if ("true".equalsIgnoreCase(paramType)) {
+                // Execution
+                try {
+                    this.testedInstance.process();
+                    Assert.fail("Should have thrown NavigationException for invalid argument [" + paramName
+                                + "] with value [" + paramValue + "]");
+                } catch (NavigationException e) {
+                    // Expected behavior
+                } finally {
+                    super.tearDown();
+                    super.setUp();
+                }
+            } else {
                 this.testedInstance.process();
-            } catch (Navigat e) {
-
-            } finally {
-                super.tearDown();
-                super.setUp();
+                String nextPage = this.testedInstance.getNextPage();
+                Assert.assertEquals("Should have return error message for invalid argument [" + paramName
+                                    + "] with value [" + paramValue + "]", "/admin/editContest.jsp", nextPage);
             }
         }
     }
-*/
 }

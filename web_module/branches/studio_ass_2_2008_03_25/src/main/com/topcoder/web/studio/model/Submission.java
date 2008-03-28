@@ -32,11 +32,11 @@ public class Submission extends Base {
     private Set<Prize> prizes = new TreeSet<Prize>();
 
     /**
-     * <p>A <code>boolean</code> flag indicating whether the submission has the preview image provided or not.</p>
+     * <p>A <code>Boolean</code> flag indicating whether the submission has the preview image provided or not.</p>
      *
      * @since TopCoder Studio Modifications Assembly v2 (Req# 5.3)
      */
-    private boolean hasPreviewImage = false;
+    private Boolean hasPreviewImage = false;
 
     public Long getId() {
         return id;
@@ -200,7 +200,7 @@ public class Submission extends Base {
      * @return <code>true</code> if submission has preview image provided; <code>false</code> otherwise.
      * @since TopCoder Studio Modifications Assembly v2 (Req# 5.2)
      */
-    public boolean getHasPreviewImage() {
+    public Boolean getHasPreviewImage() {
         return this.hasPreviewImage;
     }
 
@@ -210,7 +210,7 @@ public class Submission extends Base {
      * @param hasPreviewImage <code>true</code> if submission has preview image provided; <code>false</code> otherwise.
      * @since TopCoder Studio Modifications Assembly v2 (Req# 5.2)
      */
-    public void setHasPreviewImage(boolean hasPreviewImage) {
+    public void setHasPreviewImage(Boolean hasPreviewImage) {
         this.hasPreviewImage = hasPreviewImage;
     }
 }

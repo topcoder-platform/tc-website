@@ -13,7 +13,7 @@ import com.topcoder.web.studio.Constants;
 /**
  * <p>A validator for the contest configuration properties.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1)
  */

@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 
 /**
- * @author dok, TCSDEVELOPER
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 1, 2006
  */
@@ -26,13 +26,14 @@ public class AddDocument extends Base {
         } else {
 
             String dt = getRequest().getParameter(Constants.DOCUMENT_TYPE_ID);
+            DocumentType docType = null;
             if ("".equals(StringUtils.checkNull(dt))) {
                 addError(Constants.DOCUMENT, "No document type specified");
-            }
-
-            DocumentType docType = StudioDAOUtil.getFactory().getDocumentTypeDAO().find(new Integer(dt));
-            if (docType == null) {
-                addError(Constants.DOCUMENT, "Unknown document type specified");
+            } else {
+                docType = StudioDAOUtil.getFactory().getDocumentTypeDAO().find(new Integer(dt));
+                if (docType == null) {
+                    addError(Constants.DOCUMENT, "Unknown document type specified");
+                }
             }
 
             // Since TopCoder Studio Modifications v2 Assembly - the [optional] document description is persisted
@@ -63,11 +64,9 @@ public class AddDocument extends Base {
 
             Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
             if (hasErrors()) {
-
                 loadEditContestData(contest);
-
-
-                setNextPage("/editContest.jsp");
+                setDefault(Constants.DOC_DESC, desc);
+                setNextPage("/admin/editContest.jsp");
                 setIsNextPageInContext(true);
             } else {
                 Document d = new Document();

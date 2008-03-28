@@ -12,7 +12,7 @@ import com.topcoder.web.studio.dao.MediumDAO;
 /**
  * <p>A unit test for {@link StudioDAOFactoryHibernate} class.</p>
  *
- * @author isv, TCSDEVELOPER
+ * @author isv
  * @version 2.0
  * @since TopCoder Studio Modifications Assembly (Req# 5.1, 5.2)
  */

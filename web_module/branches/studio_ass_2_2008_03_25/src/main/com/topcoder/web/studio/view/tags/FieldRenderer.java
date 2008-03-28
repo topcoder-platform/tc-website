@@ -12,7 +12,7 @@ import javax.servlet.jsp.JspException;
  * <p>A custom tag used for outputting the pre-formatted text having the new line characters replaced with
  * <code>BREAK LINE</code> HTML tag for preventing the text formatting when including the text into page content.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly v2 (Req# 5.14)
  */

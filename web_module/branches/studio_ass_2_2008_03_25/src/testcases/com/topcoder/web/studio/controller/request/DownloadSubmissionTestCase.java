@@ -1193,8 +1193,8 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
      * @throws IOException if an I/O error occurs while reading the image file content.
      */
     private byte[] readSubmissionFile(long contestId, String handle, long userId, String file) throws IOException {
-        InputStream content = new FileInputStream("./" + Constants.ROOT_STORAGE_PATH + "/submissions/"
-                                                  + contestId + "/" + handle + "_" + userId + "/" + file);
+        InputStream content = new FileInputStream(Constants.ROOT_STORAGE_PATH + "/submissions/" + contestId + "/"
+                                                  + handle + "_" + userId + "/" + file);
         ByteArrayOutputStream baos;
         try {
             baos = new ByteArrayOutputStream();

@@ -231,9 +231,8 @@ public class AddDocumentTestCase extends TCHibernateTestCase {
      * @throws IOException if an I/O error occurs while reading the image file content.
      */
     private byte[] readDocumentFile(long contestId, String file) throws IOException {
-        InputStream content = new FileInputStream("./" + Constants.ROOT_STORAGE_PATH + "/"
-                                                  + Constants.DOCUMENTS_DIRECTORY_NAME + "/"
-                                                  + contestId + "/" + file);
+        InputStream content = new FileInputStream(Constants.ROOT_STORAGE_PATH + "/" + Constants.DOCUMENTS_DIRECTORY_NAME
+                                                  + "/" + contestId + "/" + file);
         ByteArrayOutputStream baos;
         try {
             baos = new ByteArrayOutputStream();

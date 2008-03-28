@@ -18,7 +18,7 @@ import java.util.HashSet;
 /**
  * <p>A unit test for {@link Contest} class.</p>
  *
- * @author isv, TCSDEVELOPER
+ * @author isv
  * @version 2.0
  * @since TopCoder Studio Modifications Assembly (Req# 5.3, 5.4)
  */

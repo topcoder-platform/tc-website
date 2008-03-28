@@ -18,7 +18,7 @@ import java.util.Set;
  * <p>A request processor to be used for servicing the requests for updating the contest document details by the
  * administrator. The administrators may update the document type and description.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly v2 (Req# 5.7)
  */
@@ -53,9 +53,13 @@ public class SaveDocument extends Base {
             if ("".equals(StringUtils.checkNull(dt))) {
                 addError(Constants.DOCUMENT_TYPE_ID + '_' + documentId, "No document type specified");
             } else {
-                docType = StudioDAOUtil.getFactory().getDocumentTypeDAO().find(new Integer(dt));
-                if (docType == null) {
-                    addError(Constants.DOCUMENT_TYPE_ID + '_' + documentId, "Unknown document type specified");
+                try {
+                    docType = StudioDAOUtil.getFactory().getDocumentTypeDAO().find(new Integer(dt));
+                    if (docType == null) {
+                        addError(Constants.DOCUMENT_TYPE_ID + '_' + documentId, "Unknown document type specified");
+                    }
+                } catch (NumberFormatException e) {
+                    throw new NavigationException("The document ID is not numeric");
                 }
             }
 
@@ -66,32 +70,37 @@ public class SaveDocument extends Base {
             }
             
             ContestDAO contestDAO = StudioDAOUtil.getFactory().getContestDAO();
-            Contest contest = contestDAO.find(new Long(contestId));
-            if (contest != null) {
-                if (hasErrors()) {
-                    loadEditContestData(contest);
-                    setNextPage("/editContest.jsp");
-                    setIsNextPageInContext(true);
-                } else {
-                    boolean documentFound = false;
-                    Set<Document> documents = contest.getDocuments();
-                    for (Document document : documents) {
-                        if (document.getId().equals(new Long(documentId))) {
-                            documentFound = true;
-                            document.setType(docType);
-                            document.setDescription(desc);
+            try {
+                Contest contest = contestDAO.find(new Long(contestId));
+                if (contest != null) {
+                    if (hasErrors()) {
+                        loadEditContestData(contest);
+                        setNextPage("/admin/editContest.jsp");
+                        setIsNextPageInContext(true);
+                    } else {
+                        boolean documentFound = false;
+                        Set<Document> documents = contest.getDocuments();
+                        for (Document document : documents) {
+                            if (documentId.equals(String.valueOf(document.getId()))) {
+                                documentFound = true;
+                                document.setType(docType);
+                                document.setDescription(desc);
+                                break;
+                            }
                         }
+                        if (!documentFound) {
+                            throw new NavigationException("The requested document is not found");
+                        }
+                        contestDAO.saveOrUpdate(contest);
+                        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
+                                "=AdminViewContest&" + Constants.CONTEST_ID + "=" + contestId);
+                        setIsNextPageInContext(false);
                     }
-                    if (!documentFound) {
-                        throw new NavigationException("The requested document is not found");
-                    }
-                    contestDAO.saveOrUpdate(contest);
-                    setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
-                            "=AdminViewContest&" + Constants.CONTEST_ID + "=" + contestId);
-                    setIsNextPageInContext(false);
+                } else {
+                    throw new NavigationException("The requested contest is not found");
                 }
-            } else {
-                throw new NavigationException("The requested contest is not found");
+            } catch (NumberFormatException e) {
+                throw new NavigationException("The contest ID is not numeric");
             }
         }
     }

@@ -12,6 +12,7 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.MediumDAO;
 import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.model.Medium;
+import com.topcoder.web.studio.Constants;
 
 import java.util.List;
 import java.util.Iterator;
@@ -19,7 +20,7 @@ import java.util.Iterator;
 /**
  * <p>A validator for intended medium types for submissions for the created contests.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.5)
  */
@@ -41,7 +42,7 @@ public class MediumValidator implements Validator {
     public ValidationResult validate(ValidationInput input) {
         List mediums = (List) input.getInput();
         if (mediums == null || mediums.isEmpty()) {
-            return new BasicResult(false, "Please select at least one medium.");
+            return new BasicResult(false, Constants.ERROR_MSG_NO_MEDIUM);
         } else {
             try {
                 MediumDAO dao = StudioDAOUtil.getFactory().getMediumDAO();
@@ -49,12 +50,12 @@ public class MediumValidator implements Validator {
                 for (Iterator it = mediums.iterator(); it.hasNext();) {
                     medium = dao.find(new Integer((String) it.next()));
                     if (medium == null) {
-                        return new BasicResult(false, "Please select valid medium.");
+                        return new BasicResult(false, Constants.ERROR_MSG_MEDIUM_INVALID);
                     }
                 }
                 return ValidationResult.SUCCESS;
             } catch (NumberFormatException e) {
-                return new BasicResult(false, "Please select valid medium.");
+                return new BasicResult(false, Constants.ERROR_MSG_MEDIUM_INVALID);
             }
         }
     }

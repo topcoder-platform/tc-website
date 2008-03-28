@@ -7,8 +7,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.model.EventType;
-import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.ContestPropertyDAO;
@@ -26,7 +24,7 @@ import java.util.Set;
 import java.sql.Timestamp;
 
 /**
- * @author dok, TCSDEVELOPER
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 2, 2006
  */
@@ -56,10 +54,10 @@ public abstract class Base extends ShortHibernateProcessor {
 
         // Since TopCoder Studio Modifications Assembly - a workaround for incomplete database schema
         // see: http://forums.topcoder.com/?module=Thread&threadID=603475
-        getRequest().setAttribute("forums", getForumList());
-//        getRequest().setAttribute("forums", new ArrayList());
-        getRequest().setAttribute("events", DAOUtil.getFactory().getEventDAO().getEvents(EventType.STUDIO_TOURNAMENT_ID));
-//        getRequest().setAttribute("events", new ArrayList());
+//        getRequest().setAttribute("forums", getForumList());
+        getRequest().setAttribute("forums", new ResultSetContainer());
+//        getRequest().setAttribute("events", DAOUtil.getFactory().getEventDAO().getEvents(EventType.STUDIO_TOURNAMENT_ID));
+        getRequest().setAttribute("events", new ArrayList());
 
         ArrayList<ListSelectTag.Option> viewSubmissionAnswers = new ArrayList<ListSelectTag.Option>();
         viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
@@ -73,8 +71,8 @@ public abstract class Base extends ShortHibernateProcessor {
 
         // Since TopCoder Studio Modifications Assembly - a workaround for incomplete database schema
         // see: http://forums.topcoder.com/?module=Thread&threadID=603475
-        getRequest().setAttribute("projects", getProjectList());
-//        getRequest().setAttribute("projects", new ResultSetContainer());
+//        getRequest().setAttribute("projects", getProjectList());
+        getRequest().setAttribute("projects", new ResultSetContainer());
 
         getRequest().setAttribute("prizeTypes", StudioDAOUtil.getFactory().getPrizeTypeDAO().getPrizeTypes());
 
@@ -163,8 +161,8 @@ public abstract class Base extends ShortHibernateProcessor {
 
         // Since TopCoder Studio Modifications Assembly - a workaround for incomplete database schema
         // see: http://forums.topcoder.com/?module=Thread&threadID=603475
-        getRequest().setAttribute("resultsReady", onlineReviewResultsReady(contest.getId()));
-//        getRequest().setAttribute("resultsReady", false);
+//        getRequest().setAttribute("resultsReady", onlineReviewResultsReady(contest.getId()));
+        getRequest().setAttribute("resultsReady", false);
 
     }
 

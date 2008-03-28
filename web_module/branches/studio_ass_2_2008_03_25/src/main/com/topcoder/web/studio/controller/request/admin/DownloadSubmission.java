@@ -88,7 +88,7 @@ public class DownloadSubmission extends Base {
             // Locate the file corresponding to requested alternate presentation
             File dir = new File(s.getPath().getPath());
             String[] fileNames = dir.list(new SubmissionPresentationFilter(submissionType, s.getId()));
-            if (fileNames.length < 1) {
+            if ((fileNames == null)  || (fileNames.length < 1)) {
                 throw new NavigationException(MessageFormat.format(Constants.ERROR_MSG_PRESENTATION_NOT_FOUND,
                                                                    submissionType));
             } else {

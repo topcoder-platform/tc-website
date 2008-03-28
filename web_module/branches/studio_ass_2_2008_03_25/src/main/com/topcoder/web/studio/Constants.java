@@ -263,6 +263,86 @@ public class Constants implements WebConstants {
      */
     public static final String DOC_DESC = "docdesc";
 
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to administrators in case the winner announcement
+     * time fails to pass the validation as it is set before the contest end time.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2
+     */
+    public static String ERROR_MSG_WIN_ANNOUNCE_BEFORE_END;
+
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to administrators in case the winner announcement
+     * time fails to pass the validation as it is set to invalid value.</p> 
+     *
+     * @since TopCoder Studio Modifications Assembly v2
+     */
+    public static String ERROR_MSG_WIN_ANNOUNCE_INVALID;
+
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to administrators in case the winner announcement
+     * time fails to pass the validation as it is not set.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2
+     */
+    public static String ERROR_MSG_NO_WIN_ANNOUNCE;
+
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to administrators in case the winner announcement
+     * time can not be validated since contest end time is invalid.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2
+     */
+    public static String ERROR_MSG_WIN_ANNOUNCE_UNABLE_TO_CHECK;
+
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to administrators in case the contest medium type
+     * can not be validated since it is not set.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2
+     */
+    public static String ERROR_MSG_NO_MEDIUM;
+
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to administrators in case the contest medium type
+     * fails to pass the validation since it does not refer to existing medium type or is not valid.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2
+     */
+    public static String ERROR_MSG_MEDIUM_INVALID;
+
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to administrators in case the contest type can not
+     * be validated since it is not set.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2
+     */
+    public static String ERROR_MSG_NO_CONTEST_TYPE;
+
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to administrators in case the contest type fails
+     * to pass the validation since it does not refer to existing contest type or is not valid.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2
+     */
+    public static String ERROR_MSG_CONTEST_TYPE_INVALID;
+
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to administrators in case the contest channel can
+     * not be validated since it is not set.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2
+     */
+    public static String ERROR_MSG_NO_CONTEST_CHANNEL;
+
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to administrators in case the contest channel
+     * fails to pass the validation since it does not refer to existing contest channel or is not valid.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2
+     */
+    public static String ERROR_MSG_CONTEST_CHANNEL_INVALID;
+
     static {
         initialize();
     }

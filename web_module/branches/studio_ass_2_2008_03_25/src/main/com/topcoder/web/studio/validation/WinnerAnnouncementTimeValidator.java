@@ -17,7 +17,7 @@ import java.util.Date;
 /**
  * <p>A validator for times of announcing of a winner for the created contests.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.2)
  */
@@ -57,17 +57,16 @@ public class WinnerAnnouncementTimeValidator implements Validator {
                     Date end = sdf.parse(this.endTime);
                     Date winnerAnnouncmene = sdf.parse((String) input.getInput());
                     if (winnerAnnouncmene.before(end) || winnerAnnouncmene.equals(end)) {
-                        return new BasicResult(false, "The winner announcement time must be after the end time.");
+                        return new BasicResult(false, Constants.ERROR_MSG_WIN_ANNOUNCE_BEFORE_END);
                     }
                 } catch (ParseException e) {
-                    return new BasicResult(false, "Either end or winner announcement time is invalid.");
+                    return new BasicResult(false, Constants.ERROR_MSG_WIN_ANNOUNCE_INVALID);
                 }
             } else {
-                return new BasicResult(false, "Unable to check if the winner announcement time is valid because the end"
-                                              + " time is not.");
+                return new BasicResult(false, Constants.ERROR_MSG_WIN_ANNOUNCE_UNABLE_TO_CHECK);
             }
         } else {
-            return new BasicResult(false, "Please enter a valid winner announcement time.");
+            return new BasicResult(false, Constants.ERROR_MSG_NO_WIN_ANNOUNCE);
         }
         return ValidationResult.SUCCESS;
     }

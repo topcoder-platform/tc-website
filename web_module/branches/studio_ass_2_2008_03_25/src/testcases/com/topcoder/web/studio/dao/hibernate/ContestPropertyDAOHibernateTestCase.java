@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * <p>A unit test for {@link ContestPropertyDAOHibernate} class.</p>
  *
- * @author isv, TCSDEVELOPER
+ * @author isv
  * @version 2.0
  * @since TopCoder Studio Modifications Assembly (Req# 5.4)
  */

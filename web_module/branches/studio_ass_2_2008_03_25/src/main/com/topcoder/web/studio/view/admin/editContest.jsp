@@ -637,7 +637,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
         <p>
     <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
         <br/></tc-webtag:errorIterator></span>
-        <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
+        <span class="bigRed"><tc-webtag:errorIterator id="err" name="${docDesc}">${err}
             <br/></tc-webtag:errorIterator></span>
             <tc-webtag:objectSelect name="${docType}" list="${docTypes}" valueField="id" textField="description"/>
             <tc-webtag:textInput name="${docDesc}"/>

@@ -35,7 +35,7 @@ import junit.framework.Assert;
 /**
  * <p>A unit test case for {@link EditContest} class.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.1, 5.1.2)
  */

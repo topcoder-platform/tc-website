@@ -5,13 +5,11 @@ package com.topcoder.web.studio.model;
 
 import junit.framework.TestCase;
 import junit.framework.Assert;
-import com.topcoder.web.studio.dao.ContestPropertyDAO;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
 
 /**
  * <p>A unit test for {@link Submission} class.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly v2 (Req# 5.3)
  */
@@ -53,14 +51,14 @@ public class SubmissionTestCase extends TestCase {
     }
 
     /**
-     * <p>Accuracy test. Tests the {@link Submission#setHasPreviewImage(boolean)} and
+     * <p>Accuracy test. Tests the {@link Submission#setHasPreviewImage(Boolean)} and
      * {@link Submission#getHasPreviewImage()} methods for accurate behavior.</p>
      *
-     * <p>Passses the valid values to {@link Submission#setHasPreviewImage(boolean)} method and reads them back through
+     * <p>Passses the valid values to {@link Submission#setHasPreviewImage(Boolean)} method and reads them back through
      * {@link Submission#getHasPreviewImage()} methods and verifies that the read value is matching the set value.</p>
      */
-    public void testSetGetDirectProjectId() {
-        boolean[] validValues = new boolean[] {false, true};
+    public void testSetGetHasPreviewImage() {
+        Boolean[] validValues = new Boolean[] {false, true, null};
         for (int i = 0; i < validValues.length; i++) {
             this.testedInstance.setHasPreviewImage(validValues[i]);
             Assert.assertEquals("The [hasPreviewImage] property is not set and read correctly",

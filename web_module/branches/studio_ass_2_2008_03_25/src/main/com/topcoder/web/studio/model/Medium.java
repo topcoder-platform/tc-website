@@ -10,7 +10,7 @@ import com.topcoder.web.common.model.Base;
  * description. A medium describes how the competitor submission will be used. For example, it might be used in a poster
  * and a brochure.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications v2 Assembly (Req# 5.1.5)
  */

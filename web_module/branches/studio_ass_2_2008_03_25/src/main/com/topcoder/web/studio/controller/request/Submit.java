@@ -67,7 +67,7 @@ import java.util.Date;
  * alternate presentations for the submission and generates the passing review for those submissions which come from
  * <code>TopCoder Direct</code> contests.</p>
  *
- * @author dok, isv, TCSDEVELOPER
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
@@ -253,9 +253,9 @@ public class Submit extends BaseSubmissionDataProcessor {
                     BundledFileAnalyzer analyzer = SubmissionValidator.getBundledFileParser(s.getMimeType());
                     analyzer.analyze(submissionFile.getInputStream(), true);
                     if (analyzer.isPreviewImageAvailable()) {
-                        s.setHasPreviewImage(true);
+                        s.setHasPreviewImage(Boolean.TRUE);
                     } else {
-                        s.setHasPreviewImage(false);
+                        s.setHasPreviewImage(Boolean.FALSE);
                     }
 
                     if (maxRank == null) {

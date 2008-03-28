@@ -30,8 +30,9 @@ import java.io.IOException;
  * Overrides the protected methods declared by a super-class. The overridden methods are declared with package private access
  * so only the test cases could invoke them. The overridden methods simply call the corresponding method of a super-class.
  *
- * @author  TCSDEVELOPER
+ * @author  isv
  * @version 1.0
+ * @since TopCoder Studio Modifications Assembly v2
  */
 public class MockPageContext extends PageContext {
 

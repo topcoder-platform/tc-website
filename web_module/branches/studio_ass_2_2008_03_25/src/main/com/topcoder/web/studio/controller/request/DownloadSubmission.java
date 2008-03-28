@@ -11,6 +11,7 @@ import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.util.SubmissionPresentationFilter;
+import com.topcoder.web.studio.util.Util;
 import com.topcoder.web.studio.validation.SubmissionValidator;
 
 import javax.servlet.ServletOutputStream;
@@ -23,7 +24,7 @@ import java.util.Map;
 import java.text.MessageFormat;
 
 /**
- * @author dok, isv, TCSDEVELOPER
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00 Create Date: Aug 29, 2006
  */
 public class DownloadSubmission extends BaseSubmissionDataProcessor {
@@ -80,7 +81,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             // submission if it already has been purchased
             boolean originalSubmissionRequested = "original".equalsIgnoreCase(submissionType);
             boolean isPurchaser = originalSubmissionRequested && (contest.getCreateUserId() == currentUserId)
-                                  && (com.topcoder.web.studio.controller.request.admin.DeleteSubmission.isSubmissionPurchased(String.valueOf(submissionId)));
+                                  && (Util.isSubmissionPurchased(String.valueOf(submissionId)));
             if (!isOver && !isOwner && !isTopCoderDirect && !isPurchaser) {
                 throw new NavigationException("Submissions are not available until the contest is over.");
             }

@@ -16,7 +16,7 @@ import java.util.List;
  * <p>Currently the interface defines the method for getting the list of all existing medium types and looking up for
  * a particular medium type referenced by the provided ID.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly v2
  */

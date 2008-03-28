@@ -41,7 +41,7 @@ import org.mockejb.jndi.MockContextFactory;
 /**
  * <p>A unit test case for {@link DeleteSubmission} class.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly v2 (Req# 5.2)
  */
@@ -143,77 +143,6 @@ public class DeleteSubmissionTestCase extends TCHibernateTestCase {
             throw new IllegalArgumentException("The tearDown() fails", e);
         }
         this.addedContests = null;
-    }
-
-    /**
-     * <p>Accuracy test. Tests the {@link DeleteSubmission#isSubmissionPurchased(String)} method for accurate behavior.
-     * </p>
-     *
-     * <p>Passes the ID of a submission which has a payment with <code>Paid</code> status and verifies that the method
-     * returns <code>true</code>.</p>
-     *
-     * @throws Exception if an unexpected error occurs.
-     */
-    public void testIsSubmissionPurchased_Paid() throws Exception {
-        String[] submissionIds = new String[] {"3", "4"};
-        for (int i = 0; i < submissionIds.length; i++) {
-            String submissionId = submissionIds[i];
-            Assert.assertTrue("Wrong result for paid submission", DeleteSubmission.isSubmissionPurchased(submissionId));
-        }
-    }
-
-    /**
-     * <p>Accuracy test. Tests the {@link DeleteSubmission#isSubmissionPurchased(String)} method for accurate behavior.
-     * </p>
-     *
-     * <p>Passes the ID of a submission which has a payment with <code>UnPaid</code> status and verifies that the method
-     * returns <code>false</code>.</p>
-     *
-     * @throws Exception if an unexpected error occurs.
-     */
-    public void testIsSubmissionPurchased_UnPaid() throws Exception {
-        String[] submissionIds = new String[] {"5", "6"};
-        for (int i = 0; i < submissionIds.length; i++) {
-            String submissionId = submissionIds[i];
-            Assert.assertFalse("Wrong result for unpaid submission",
-                               DeleteSubmission.isSubmissionPurchased(submissionId));
-        }
-    }
-
-    /**
-     * <p>Accuracy test. Tests the {@link DeleteSubmission#isSubmissionPurchased(String)} method for accurate behavior.
-     * </p>
-     *
-     * <p>Passes the ID of a submission which has a payment with <code>Marked For Purchase</code> status and verifies
-     * that the method returns <code>false</code>.</p>
-     *
-     * @throws Exception if an unexpected error occurs.
-     */
-    public void testIsSubmissionPurchased_MarkedForPurchase() throws Exception {
-        String[] submissionIds = new String[] {"7", "8"};
-        for (int i = 0; i < submissionIds.length; i++) {
-            String submissionId = submissionIds[i];
-            Assert.assertFalse("Wrong result for marked for purchase submission",
-                               DeleteSubmission.isSubmissionPurchased(submissionId));
-        }
-    }
-
-    /**
-     * <p>Accuracy test. Tests the {@link DeleteSubmission#isSubmissionPurchased(String)} method for accurate behavior.
-     * </p>
-     *
-     * <p>Passes the ID of a submission which has no associated payment and verifies that the method returns
-     * <code>false</code>.</p>
-     *
-     * @throws Exception if an unexpected error occurs.
-     */
-    public void testIsSubmissionPurchased_NoPayment() throws Exception {
-        String[] submissionIds = new String[] {"1", "2"};
-        for (int i = 0; i < submissionIds.length; i++) {
-            String submissionId = submissionIds[i];
-            Assert.assertFalse("Wrong result for submission with no payment",
-                               DeleteSubmission.isSubmissionPurchased(submissionId));
-        }
     }
 
     /**

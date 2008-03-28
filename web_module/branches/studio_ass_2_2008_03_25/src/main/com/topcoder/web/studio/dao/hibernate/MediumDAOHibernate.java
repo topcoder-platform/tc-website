@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * <p>A default implementation of {@link MediumDAO} interface built on top of <code>Hibernate ORM</code> framework.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly (Req# 5.1.5)
  */

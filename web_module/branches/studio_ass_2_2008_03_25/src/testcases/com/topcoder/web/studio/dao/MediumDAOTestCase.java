@@ -14,7 +14,7 @@ import java.io.Serializable;
 /**
  * <p>A unit test for default implementation of {@link MediumDAO} interface.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.5)
  */
