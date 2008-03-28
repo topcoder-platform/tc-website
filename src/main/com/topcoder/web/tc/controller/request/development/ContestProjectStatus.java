@@ -14,8 +14,8 @@ import com.topcoder.web.tc.Constants;
  */
 public class ContestProjectStatus extends Base {
     
-    private static final String ASSEMBLY_TYPE_ID = "7";
-    private static final String ARCHITECTURE_TYPE_ID = "14";
+    public static final String ASSEMBLY_TYPE_ID = "7";
+    public static final String ARCHITECTURE_TYPE_ID = "14";
 
     protected void developmentProcessing() throws TCWebException {
         try {
