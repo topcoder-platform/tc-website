@@ -14,13 +14,16 @@ import com.topcoder.web.tc.Constants;
  */
 public class ContestProjectStatus extends Base {
     
-    public static final String ASSEMBLY_TYPE_ID = "7";
-    public static final String ARCHITECTURE_TYPE_ID = "14";
+    public static final String DESIGN_TYPE_ID = "1";
+    public static final String DEVELOPMENT_TYPE_ID = "2";
+    public static final String ASSEMBLY_TYPE_ID = "14";
+    public static final String ARCHITECTURE_TYPE_ID = "7";
 
     protected void developmentProcessing() throws TCWebException {
         try {
             String projectTypeId = getRequest().getParameter(Constants.PROJECT_TYPE_ID);
-            if (ASSEMBLY_TYPE_ID.equals(projectTypeId) || ARCHITECTURE_TYPE_ID.equals(projectTypeId)) {
+            if (DESIGN_TYPE_ID.equals(projectTypeId) || DEVELOPMENT_TYPE_ID.equals(projectTypeId) ||
+                ASSEMBLY_TYPE_ID.equals(projectTypeId) || ARCHITECTURE_TYPE_ID.equals(projectTypeId)) {
                 Request r = new Request();
                 r.setContentHandle("contest_project_status");
                 r.setProperties(getRequest().getParameterMap());
