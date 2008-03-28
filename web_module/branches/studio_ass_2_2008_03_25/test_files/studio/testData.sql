@@ -125,7 +125,7 @@ INSERT INTO contest_prize_xref (contest_id,prize_id,create_date) VALUES (4, 12, 
 
 INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (4, 1, 1, CURRENT);
 
-INSERT INTO path (path_id, path, modify_date) VALUES (1, 'studiofiles/submissions/4/dok_test_1/', CURRENT);
+INSERT INTO path (path_id, path, modify_date) VALUES (1, 'test_files/studio/submissions/4/dok_test_1/', CURRENT);
 
 INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (1,1,4,CURRENT,'tcs.zip', 'tcs_submission.zip', 1, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
 
@@ -164,7 +164,7 @@ INSERT INTO contest_prize_xref (contest_id,prize_id,create_date) VALUES (5, 15, 
 
 INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (5, 1, 1, CURRENT);
 
-INSERT INTO path (path_id, path, modify_date) VALUES (2, 'studiofiles/submissions/5/dok_test_1/', CURRENT);
+INSERT INTO path (path_id, path, modify_date) VALUES (2, 'test_files/studio/submissions/5/dok_test_1/', CURRENT);
 
 INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (2,1,5,CURRENT,'tcs.zip', 'tcs_submission.zip', 2, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
 
@@ -202,7 +202,7 @@ INSERT INTO contest_prize_xref (contest_id,prize_id,create_date) VALUES (6, 18, 
 
 INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (6, 1, 1, CURRENT);
 
-INSERT INTO path (path_id, path, modify_date) VALUES (3, 'studiofiles/submissions/6/dok_test_1/', CURRENT);
+INSERT INTO path (path_id, path, modify_date) VALUES (3, 'test_files/studio/submissions/6/dok_test_1/', CURRENT);
 
 INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (3,1,6,CURRENT,'tcs.zip', 'tcs_submission.zip', 3, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
 
@@ -243,7 +243,7 @@ INSERT INTO contest_prize_xref (contest_id,prize_id,create_date) VALUES (7, 21, 
 INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (7, 1, 1, CURRENT);
 INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (7, 132456, 1, CURRENT);
 
-INSERT INTO path (path_id, path, modify_date) VALUES (4, 'studiofiles/submissions/7/dok_test_1/', CURRENT);
+INSERT INTO path (path_id, path, modify_date) VALUES (4, 'test_files/studio/submissions/7/dok_test_1/', CURRENT);
 
 INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (4,1,7,CURRENT,'tcs.zip', '4_full.zip', 4, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
 
@@ -284,7 +284,7 @@ INSERT INTO contest_prize_xref (contest_id,prize_id,create_date) VALUES (8, 24, 
 INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (8, 1, 1, CURRENT);
 INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (8, 132456, 1, CURRENT);
 
-INSERT INTO path (path_id, path, modify_date) VALUES (5, 'studiofiles/submissions/8/dok_test_1/', CURRENT);
+INSERT INTO path (path_id, path, modify_date) VALUES (5, 'test_files/studio/submissions/8/dok_test_1/', CURRENT);
 
 INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (5,1,8,CURRENT,'tcs.zip', 'tcs_submission.zip', 5, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
 
@@ -325,7 +325,7 @@ INSERT INTO contest_prize_xref (contest_id,prize_id,create_date) VALUES (9, 27, 
 INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (9, 1, 1, CURRENT);
 INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (9, 132456, 1, CURRENT);
 
-INSERT INTO path (path_id, path, modify_date) VALUES (6, 'studiofiles/submissions/9/dok_test_1/', CURRENT);
+INSERT INTO path (path_id, path, modify_date) VALUES (6, 'test_files/studio/submissions/9/dok_test_1/', CURRENT);
 
 INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (6,1,9,CURRENT,'tcs.zip', 'tcs_submission.zip', 6, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
 
@@ -360,7 +360,7 @@ INSERT INTO contest_prize_xref (contest_id,prize_id,create_date) VALUES (10, 30,
 INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (10, 1, 1, CURRENT);
 INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (10, 132456, 1, CURRENT);
 
-INSERT INTO path (path_id, path, modify_date) VALUES (7, 'studiofiles/submissions/10/dok_test_1/', CURRENT);
+INSERT INTO path (path_id, path, modify_date) VALUES (7, 'test_files/studio/submissions/10/dok_test_1/', CURRENT);
 
 INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (7,1,10,CURRENT,'tcs.zip', 'tcs_submission.zip', 7, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
 
@@ -401,7 +401,7 @@ INSERT INTO contest_prize_xref (contest_id,prize_id,create_date) VALUES (11, 33,
 INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (11, 1, 1, CURRENT);
 INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (11, 132456, 1, CURRENT);
 
-INSERT INTO path (path_id, path, modify_date) VALUES (8, 'studiofiles/submissions/11/dok_test_1/', CURRENT);
+INSERT INTO path (path_id, path, modify_date) VALUES (8, 'test_files/studio/submissions/11/dok_test_1/', CURRENT);
 
 INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (8,1,11,CURRENT,'tcs.zip', 'tcs_submission.zip', 8, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
 
@@ -436,8 +436,8 @@ INSERT INTO contest_prize_xref (contest_id,prize_id,create_date) VALUES (12, 36,
 INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (12, 1, 1, CURRENT);
 INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date) VALUES (12, 132456, 1, CURRENT);
 
-INSERT INTO path (path_id, path, modify_date) VALUES (9, 'studiofiles/submissions/12/dok_test_1/', CURRENT);
-INSERT INTO path (path_id, path, modify_date) VALUES (10, 'studiofiles/documents/12/', CURRENT);
+INSERT INTO path (path_id, path, modify_date) VALUES (9, 'test_files/studio/submissions/12/dok_test_1/', CURRENT);
+INSERT INTO path (path_id, path, modify_date) VALUES (10, 'test_files/studio/documents/12/', CURRENT);
 
 INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (9,1,12,CURRENT,'tcs.zip', '9_full.zip', 9, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
 
