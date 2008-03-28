@@ -53,8 +53,10 @@ public class ViewSubmissions extends ShortHibernateProcessor {
 
         getRequest().setAttribute("isOver", String.valueOf(isOver));
 
+        //not caching anymore, it doesn't gain much, and we're showing submissions for direct contests on the fly.
+        //DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         //load up the submissions
-        DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("submissions");
         r.setProperty(Constants.CONTEST_ID, contestId);
