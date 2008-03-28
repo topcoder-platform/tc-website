@@ -130,7 +130,7 @@ public class SubmissionValidatorTestCase extends TCHibernateTestCase {
             ValidationResult validationResult = this.testedInstance.validate(new ObjectInput(uploadedFile));
             Assert.assertFalse("Invalid submission is accepted", validationResult.isValid());
             Assert.assertEquals("Wrong validation message",
-                                "No preview file provided with the submission", validationResult.getMessage());
+                                Constants.ERROR_MSG_NO_PREVIEW_FILE, validationResult.getMessage());
         }
     }
 
@@ -180,7 +180,7 @@ public class SubmissionValidatorTestCase extends TCHibernateTestCase {
             ValidationResult validationResult = this.testedInstance.validate(new ObjectInput(uploadedFile));
             Assert.assertFalse("Invalid submission is accepted", validationResult.isValid());
             Assert.assertEquals("Wrong validation message",
-                                "No preview image provided with the submission", validationResult.getMessage());
+                                Constants.ERROR_MSG_NO_PREVIEW_IMAGE, validationResult.getMessage());
         }
     }
 
@@ -233,7 +233,7 @@ public class SubmissionValidatorTestCase extends TCHibernateTestCase {
                 ValidationResult validationResult = this.testedInstance.validate(new ObjectInput(uploadedFile));
                 Assert.assertFalse("Invalid submission is accepted", validationResult.isValid());
                 Assert.assertEquals("Wrong validation message",
-                                    "No source submission provided with the submission", validationResult.getMessage());
+                                    Constants.ERROR_MSG_NO_NATIVE_SUBMISSION, validationResult.getMessage());
             }
         }
     }
@@ -261,7 +261,7 @@ public class SubmissionValidatorTestCase extends TCHibernateTestCase {
                 ValidationResult validationResult = this.testedInstance.validate(new ObjectInput(uploadedFile));
                 Assert.assertFalse("Invalid submission is accepted", validationResult.isValid());
                 Assert.assertEquals("Wrong validation message",
-                                    "No source submission provided with the submission", validationResult.getMessage());
+                                    Constants.ERROR_MSG_NO_NATIVE_SUBMISSION, validationResult.getMessage());
             }
         }
     }
