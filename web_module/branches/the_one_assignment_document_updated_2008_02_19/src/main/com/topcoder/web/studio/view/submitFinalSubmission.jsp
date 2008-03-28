@@ -67,7 +67,10 @@
 
             <div align="center">
                     <c:if test="${not empty has_hard_copy && !has_hard_copy}">
+                        <%--
                         <p><strong>Remember that in order to get paid you must send a signed copy of the Assignment document</strong></p>
+                        --%>
+                        <p><strong>Remember that in order to submit your entry you must send a signed copy of the Assignment Document</strong></p>
                     </c:if>
                     
                     <c:if test="${not empty assignment_document}">

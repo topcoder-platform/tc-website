@@ -35,9 +35,9 @@
 
                 <div align="center">
                     <div style="width:500px; padding: 50px 0px 100px 0px;">
-                        <b>You cannot submit because you don't have a Global AD on file  </b>
+                        <strong>You cannot submit because you don't have a Global Assignment Document (GAD) on file.</strong>
                         <br /><br />
-                        -Text explaining the error- maybe a link to the AD help page.
+                        You must have a signed GAD on file before we can accept your submission.  If you have questions regarding the GAD, visit the <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">FAQ</a>.
                     </div>
                     <%=new Date().toString()%>
                 </div>

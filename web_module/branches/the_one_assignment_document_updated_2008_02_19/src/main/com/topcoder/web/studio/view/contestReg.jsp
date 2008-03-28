@@ -59,7 +59,7 @@
                     <br/></tc-webtag:errorIterator></span>
                         <c:if test="${not empty has_global_ad and not has_global_ad}">
                             <span class="bigRed">
-                                 You have not yet signed the Assignment Document that is required in order to submit for this contest.  Please go <a href="/?module=Static&d1=support&d2=assignmentDocFaq">here</a> to read more about Assignment Documents and what you need to do.  You will not be able to submit for this contest without first sending in the signed Assignment Document.
+                                 You have not yet signed the Assignment Document that is required in order to submit for this contest.  Please go <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">here</a> to read more about Assignment Documents and what you need to do.  You will not be able to submit for this contest without first sending in the signed Assignment Document.
                             <br/></span>
                         </c:if>
                         <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_AGREE%>"/>I agree
