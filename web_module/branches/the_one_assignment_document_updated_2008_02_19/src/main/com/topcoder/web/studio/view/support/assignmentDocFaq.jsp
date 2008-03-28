@@ -67,7 +67,7 @@
 
                 <div>
                     <p><strong>What is the Assignment?</strong></p>
-                    <p>The Assignment is a document by which you confirm that you transfer your rights in a winning entry to TopCoder, Inc.  The Assignment: (i) documents your assignment of all rights in all of your previous winning entries, if any, in exchange for the applicable prize; (ii) documents your assignment of all rights in your current winning entry in exchange for receiving the applicable prize; and (iii) establishes a procedure by which you will be able to easily confirm your assignment of rights in any <a href="#futurewinnings">future winning entry</a>.  The Assignment does NOT cover any entries for which you are not compensated, and you still retain the ownership of such entries.  TopCoder will require this written assignment document for all winning entries in competitions which start after June 18, 2007.</p>
+                    <p><%--The Assignment is a document by which you confirm that you transfer your rights in a winning entry to TopCoder, Inc.  --%>The Assignment: (i) documents your assignment of all rights in all of your previous winning entries, if any, in exchange for the applicable prize; (ii) documents your assignment of all rights in your current winning entry in exchange for receiving the applicable prize; and (iii) must be sent to TopCoder prior to submitting for a contest.<%--establishes a procedure by which you will be able to easily confirm your assignment of rights in any <a href="#futurewinnings">future winning entry</a>.--%>  The Assignment does NOT cover any entries for which you are not compensated, and you still retain the ownership of such entries.  TopCoder will require this written assignment document for all winning entries in competitions which start after June 18, 2007.</p>
                 </div>
                 <div>
                     <p><strong>For which competitions will the Assignment be required?</strong></p>
@@ -87,7 +87,7 @@
                 </div>
                 <div>
                     <p><strong>How do I return the Assignment?</strong></p>
-                    <p>Each individual member's assignment must be signed and either (i) scanned as a PDF file and emailed to <a href="mailto:payments@topcoder.com?subject=Assignment Documents FAQ">payments@topcoder.com</a> or (ii) mailed to:  TopCoder, Inc., Attn: Payments, 95 Glastonbury Blvd, Glastonbury, CT 06033.  However, please keep in mind that we must actually receive the Assignment before the expiration of the contest submission phase.</p>
+                    <p>Each individual member's assignment must be signed and either (i) scanned as a PDF file and emailed to <a href="mailto:payments@topcoder.com?subject=Assignment Documents FAQ">payments@topcoder.com</a> or (ii) mailed to:  TopCoder, Inc., Attn: Payments, 95 Glastonbury Blvd, Glastonbury, CT 06033.</p>
                 </div>
                 <%--
                 <div>
@@ -101,7 +101,7 @@
                 </div>
                 <div>
                     <p><strong><a name="futurewinnings">Why does the Assignment also include my future winning entries after submitting it<%--on-line ratification/confirmation--%>?</a></strong></p>
-                    <p>We have set up the assignment to cover future entries for two reasons.  First, having the Assignment cover future entries reduces the amount of paperwork for members and TopCoder because members do not sign and return a paper Assignment after every win.  Second, the process of submitting<%--confirming/ratifying--%> the Assignment <%--on-line--%> is in line with our current process and paperwork (i.e., notarized affidavit, tax forms, etc...).   We have included an electronic ratification/confirmation step to make sure that we clearly communicate with you about what is being assigned.</p>
+                    <p>We have set up the assignment to cover future entries for two reasons.  First, having the Assignment cover future entries reduces the amount of paperwork for members and TopCoder because members do not sign and return a paper Assignment after every win.  Second, the process of submitting<%--confirming/ratifying--%> the Assignment <%--on-line--%> is in line with our current process and paperwork (i.e., notarized affidavit, tax forms, etc...).<%--  We have included an electronic ratification/confirmation step to make sure that we clearly communicate with you about what is being assigned.--%></p>
                 </div>
                 <%--
                 <div>
@@ -113,10 +113,12 @@
                     <p><strong>Does this mean I own my past winning entries?</strong></p>
                     <p>No.  Under the rules for each competition, you agreed to assign your rights in any previous winning entries by participating in the competition.  The Assignment is a confirmation of your assignment of those rights.</p>
                 </div>
+                <%--
                 <div>
                     <p><strong>I won a competition which started before June 18, 2007, do I need to sign the Assignment?</strong></p>
                     <p>No.  At this time, we are only requiring members who win competitions which start after June 18, 2007 to sign the Assignment.</p>
                 </div>
+                --%>
 
                         <br clear="all"/>
                     </div>                
