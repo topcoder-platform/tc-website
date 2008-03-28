@@ -24,8 +24,8 @@ DELETE FROM contest;
 DELETE FROM prize;
 
 DELETE FROM email WHERE user_id = 1;
-DELETE FROM common_oltp:user_group_xref WHERE login_id = 1;
-DELETE FROM informixoltp:coder WHERE coder_id = 1;
-DELETE FROM common_oltp:security_user WHERE login_id = 1;
-DELETE FROM common_oltp:user WHERE user_id = 1;
+DELETE FROM comp1_common_oltp:user_group_xref WHERE login_id = 1;
+DELETE FROM comp1_informixoltp:coder WHERE coder_id = 1;
+DELETE FROM comp1_common_oltp:security_user WHERE login_id = 1;
+DELETE FROM comp1_common_oltp:user WHERE user_id = 1;
 
