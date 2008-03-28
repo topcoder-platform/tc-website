@@ -35,16 +35,18 @@
 <tr valign="top">
 <!-- Left Column Begins-->
 <td width="180">
-   <jsp:include page="/includes/global_left.jsp">
       <c:choose>
         <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
-            <jsp:param name="node" value="architecture_contest_status"/>
+           <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="architecture_contest_status"/>
+           </jsp:include>
         </c:when>
         <c:when test="${pt == ASSEMBLY_TYPE_ID}">
+           <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="assembly_contest_status"/>
+           </jsp:include>
         </c:when>
       </c:choose>
-   </jsp:include>
 </td>
 <!-- Left Column Ends -->
 
@@ -55,26 +57,38 @@
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyText">
 
-<jsp:include page="/page_title.jsp">
       <c:choose>
         <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
-            <jsp:param name="image" value="architecture"/>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="architecture"/>
+                <jsp:param name="title" value="Contest Status"/>
+            </jsp:include>
         </c:when>
         <c:when test="${pt == ASSEMBLY_TYPE_ID}">
-            <jsp:param name="image" value="assembly"/>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="assembly"/>
+                <jsp:param name="title" value="Contest Status"/>
+            </jsp:include>
         </c:when>
       </c:choose>
-    <jsp:param name="title" value="Contest Status"/>
-</jsp:include>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="9">Contest Status</td>
+        <c:choose>
+        <c:when test="${pt == ARCHITECTURE_TYPE_ID || pt == ARCHITECTURE_TYPE_ID}">
+            <td class="title" colspan="8">Contest Status</td>
+        </c:when>
+        <c:otherwise>
+            <td class="title" colspan="9">Contest Status</td>
+        </c:otherwise>
+        </c:choose>
     </tr>
     <tr>
-        <td class="headerC">
-            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
-        </td>
+        <c:if test="${pt == ARCHITECTURE_TYPE_ID || pt == ARCHITECTURE_TYPE_ID}">
+            <td class="headerC">
+                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
+            </td>
+        </c:if>
         <td class="header" colspan="2">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("component_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Contest</a>
         </td>
@@ -102,6 +116,7 @@
     <% boolean even = false; %>
     <rsc:iterator list="<%=contests%>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
+            <c:if test="${pt == ARCHITECTURE_TYPE_ID || pt == ARCHITECTURE_TYPE_ID}">
             <td class="valueC">
                 <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
                 <img src="/i/development/smAOL.gif"/>
@@ -121,6 +136,7 @@
                 <rsc:item name="catalog_name" row="<%=resultRow%>"/>
                 <% } %>
             </td>
+            </c:if>
             <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
                     <rsc:item name="component_name" row="<%=resultRow%>"/> <rsc:item name="version_text" row="<%=resultRow%>"/>
@@ -134,7 +150,13 @@
                  <% } %>
             </td>
             <td class="valueC">
-               <A href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>"><rsc:item name="rated_count" row="<%=resultRow%>"/> / <rsc:item name="unrated_count" row="<%=resultRow%>"/></A>
+             <% if (resultRow.getIntItem("unrated_count") > 0 || resultRow.getIntItem("rated_count") > 0) { %>
+             <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
+             <% } %>
+             <rsc:item name="rated_count" row="<%=resultRow%>"/> / <rsc:item name="unrated_count" row="<%=resultRow%>"/>
+             <% if (resultRow.getIntItem("unrated_count") > 0 || resultRow.getIntItem("rated_count") > 0) { %>
+             </a>
+             <% } %>
             </td>
             <td class="valueC" nowrap="nowrap">
                 <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy"/>
