@@ -214,7 +214,7 @@
     </table>
     
     <c:if test="${not empty has_global_ad && has_global_ad}">
-        * You already have a global Assignment Document on file
+        <span class="bigRed">* You already have a global Assignment Document on file</span>
     </c:if>
     
          <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AssignmentDocumentHistory"/>
