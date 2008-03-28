@@ -68,9 +68,12 @@
                                     </p>
                                 </c:when>
                                 <c:otherwise>
+                                    <%--
                                     <p>
                                         You will need to send a signed hard copy of the Assignment Document Document in order to be able to affirm it in the future with the system. You can get a printer friendly version <a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">here</a>.
                                     </p>
+                                    --%>
+                                    <p>You will need to send a signed hard copy of the Global Assignment Document before you can submit your entry. You can get a printer friendly version <a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">here</a>.</p>
                                 </c:otherwise>
                             </c:choose>
                         </c:if>
