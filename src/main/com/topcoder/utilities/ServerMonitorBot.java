@@ -345,14 +345,14 @@ public class ServerMonitorBot {
 
 
     private final static String[] badFiles = {
-            "dashboard.action", "Dashboard.jspa", "index.html", "login.jsp", "openaim"};
+            "dashboard.action", "Dashboard.jspa", "index.html", "login.jsp", "openaim", "longcontest"};
 
     private void wack() {
         File[] files = new File(".").listFiles();
         int i = 0;
         try {
             for (; i < files.length; i++) {
-                for (String s : badFiles) {
+                for (String s : badFiles) { 
                     if (files[i].getName().startsWith(s)) {
                         files[i].delete();
                     }
