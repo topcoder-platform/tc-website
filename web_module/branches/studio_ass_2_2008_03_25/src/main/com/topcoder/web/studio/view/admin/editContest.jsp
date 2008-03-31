@@ -3,13 +3,14 @@
 <%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
 <%@ page import="com.topcoder.web.studio.model.PrizeType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
-<%--
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
---%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.CONTEST_OVERVIEW_TEXT%>" var="overviewText"/>
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.PRIZE_DESCRIPTION%>" var="prizeDesc"/>
+
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -33,6 +34,42 @@
                     $('textarea.resizable:not(.processed)').TextAreaResizer();
             });
     </script>
+    <script language="javascript" type="text/javascript">
+        var defaults = new Array();
+        defaults['${overviewText}'] ="General description of the contest goes here. Give background info, overview about what the client " +
+                              "is seeking, and general look and feel info.\n\n" +
+                              "Entries must be your original work, and must not infringe on the copyright or licenses of others. Stock art, clip art, " +
+                              "templates and other design elements from other sources are prohibited unless specifically permitted in the " +
+                              "Specification Document."
+        defaults['${prizeDesc}'] ="TopCoder Studio will compensate the member with the first place submission, as selected " +
+                               "by the client.  The payment will be distributed in one full installment once the final vector-based version of " +
+                               "the winning submission has been received by TopCoder Studio.";
+        function setDefault(fieldName) {
+            $(fieldname).val(defaults[fieldName]);
+        }
+
+    </script>
+    <script type="text/javascript" xml:space="preserve">
+        var contestTypeImageFlag = new Array();
+        var contestTypeFileFlag = new Array();
+        contestTypeImageFlag[0] = '';
+        contestTypeFileFlag[0] = '';
+        <c:forEach items="${contestTypes}" var="type" varStatus="index">
+            contestTypeImageFlag[${index.index + 1}] = '${type.previewImageRequired ? 'true' : 'false'}';
+            contestTypeFileFlag[${index.index + 1}] = '${type.previewFileRequired ? 'true' : 'false'}';
+        </c:forEach>
+        function chooseType() {
+            var formName = "document.editForm";
+            var selectedType = getSelectedOption(formName, "<%=Constants.CONTEST_TYPE%>");
+            setSelectedOption(formName, '<%=Constants.CONTEST_PROPERTY + ContestProperty.REQUIRE_PREVIEW_IMAGE%>', contestTypeImageFlag[selectedType.index]);
+            setSelectedOption(formName, '<%=Constants.CONTEST_PROPERTY + ContestProperty.REQUIRE_PREVIEW_FILE%>', contestTypeFileFlag[selectedType.index]);
+        }
+        function updateDocument(docId) {
+            var formName = "document.removeDocForm";
+            putValue(formName, '<%=Constants.MODULE_KEY%>', 'AdminUpdateDocument');
+            putValue(formName, '<%=Constants.DOCUMENT_ID%>', '' + docId);
+        }
+    </script>
     <style type="text/css">
             div.grippie {
                     background:#EEEEEE url(/i/layout/grippie.png) no-repeat scroll center 2px;
@@ -55,27 +92,7 @@
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    <script type="text/javascript" xml:space="preserve">
-        var contestTypeImageFlag = new Array();
-        var contestTypeFileFlag = new Array();
-        contestTypeImageFlag[0] = '';
-        contestTypeFileFlag[0] = '';
-        <c:forEach items="${contestTypes}" var="type" varStatus="index">
-            contestTypeImageFlag[${index.index + 1}] = '${type.previewImageRequired ? 'true' : 'false'}';
-            contestTypeFileFlag[${index.index + 1}] = '${type.previewFileRequired ? 'true' : 'false'}';
-        </c:forEach>
-        function chooseType() {
-            var formName = "document.editForm";
-            var selectedType = getSelectedOption(formName, "<%=Constants.CONTEST_TYPE%>");
-            setSelectedOption(formName, '<%=Constants.CONTEST_PROPERTY + ContestProperty.REQUIRE_PREVIEW_IMAGE%>', contestTypeImageFlag[selectedType.index]);
-            setSelectedOption(formName, '<%=Constants.CONTEST_PROPERTY + ContestProperty.REQUIRE_PREVIEW_FILE%>', contestTypeFileFlag[selectedType.index]);
-        }
-        function updateDocument(docId) {
-            var formName = "document.removeDocForm";
-            putValue(formName, '<%=Constants.MODULE_KEY%>', 'AdminUpdateDocument');
-            putValue(formName, '<%=Constants.DOCUMENT_ID%>', '' + docId);
-        }
-    </script>
+
 </head>
 
 <body>
@@ -557,55 +574,17 @@
 </script>
 
 
-<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.CONTEST_OVERVIEW_TEXT%>" var="overviewText"/>
+<button onClick="setDefault(${overviewText})">
+ Use Default Overview Text
+</button>
+<studio_tags:editContestProperty name="${overviewText}" title="Contest Overview:"/>
 
-<p>
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${overviewText}">${err}
-                    <br/></tc-webtag:errorIterator></span>
-    <strong>Contest Overview:</strong> You may include HTML, the content entered here is exactly what will be inserted
-    into the contest
-    details page.<br/><br/>
-    <tc-webtag:textArea name="${overviewText}" rows="2" cols="80" styleClass="resizable"/>
-</p>
+<button onClick="setDefault(${prizeDesc})">
+ Use Default Prize Description
+</button>
+<studio_tags:editContestProperty name="${prizeDesc}" title="Prize Description:"/>
 
 
-<script language="javascript" type="text/javascript">
-    <!--
-var defaultOverview= "General description of the contest goes here. Give background info, overview about what the client " +
-"is seeking, and general look and feel info.\n\n" +
-"Entries must be your original work, and must not infringe on the copyright or licenses of others. Stock art, clip art, " +
-"templates and other design elements from other sources are prohibited unless specifically permitted in the " +
-"Specification Document."
-var overviewText = getValue("document.editForm", "${overviewText}");
-                       if ( overviewText==null || overviewText.length==0) {
-                         putValue("document.editForm", "${overviewText}", defaultOverview);
-                        }
-                -->
-</script>
-
-<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.PRIZE_DESCRIPTION%>" var="prizeDesc"/>
-
-<p>
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeDesc}">${err}
-                    <br/></tc-webtag:errorIterator></span>
-    <strong>Prize Description:</strong> You may include HTML, the content entered here is exactly what will be inserted
-    into the contest
-    details page.
-    <br/><br/>
-    <tc-webtag:textArea name="${prizeDesc}" rows="2" cols="80" styleClass="resizable"/>
-</p>
-
-<script language="javascript" type="text/javascript">
-    <!--
-var defaultPrizeDesc= "TopCoder Studio will compensate the member with the first place submission, as selected "+
-"by the client.  The payment will be distributed in one full installment once the final vector-based version of " +
-"the winning submission has been received by TopCoder Studio.";
-var prizeDesc = getValue("document.editForm", "${prizeDesc}");
-                       if ( prizeDesc==null || prizeDesc.length==0) {
-                         putValue("document.editForm", "${prizeDesc}", defaultPrizeDesc);
-                        }
-                -->
-</script>
 
 <p>
     <button name="submit" value="submit" type="submit">Save</button>
