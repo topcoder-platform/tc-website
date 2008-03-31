@@ -5,8 +5,10 @@
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.web.common.model.SoftwareComponent"%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.web.tc.controller.request.development.ContestStatus"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer contests = (ResultSetContainer)request.getAttribute("contests");%>
 
@@ -21,6 +23,11 @@
 
 <body>
 
+<c:set value="<%=ContestStatus.DESIGN_TYPE_ID%>" var="DESIGN_TYPE_ID"/>
+<c:set value="<%=ContestStatus.DEVELOPMENT_TYPE_ID%>" var="DEVELOPMENT_TYPE_ID"/>
+<c:set value="<%=ContestStatus.ARCHITECTURE_TYPE_ID%>" var="ARCHITECTURE_TYPE_ID"/>
+<c:set value="<%=ContestStatus.ASSEMBLY_TYPE_ID%>" var="ASSEMBLY_TYPE_ID"/>
+
 
 <jsp:include page="../top.jsp">
     <jsp:param name="level1" value="development"/>
@@ -30,10 +37,30 @@
 <tr valign="top">
 <!-- Left Column Begins-->
 <td width="180">
-   <jsp:include page="/includes/global_left.jsp">
-      <jsp:param name="node" value="<%= String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID)) ? "des_contest_status" : "dev_contest_status"%>"/>
-   </jsp:include>
+      <c:choose>
+        <c:when test="${pt == DESIGN_TYPE_ID}">
+           <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="des_contest_status"/>
+           </jsp:include>
+        </c:when>
+        <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
+           <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="dev_contest_status"/>
+           </jsp:include>
+        </c:when>
+        <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
+           <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="architecture_contest_status"/>
+           </jsp:include>
+        </c:when>
+        <c:when test="${pt == ASSEMBLY_TYPE_ID}">
+           <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="assembly_contest_status"/>
+           </jsp:include>
+        </c:when>
+      </c:choose>
 </td>
+
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
@@ -43,19 +70,50 @@
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyText">
 
-<jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="<%= String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID)) ? "comp_design" : "comp_development"%>"/>
-    <jsp:param name="title" value="Contest Status"/>
-</jsp:include>
+      <c:choose>
+        <c:when test="${pt == DESIGN_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="comp_design"/>
+                <jsp:param name="title" value="Contest Status"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="comp_development"/>
+                <jsp:param name="title" value="Contest Status"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="architecture"/>
+                <jsp:param name="title" value="Contest Status"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == ASSEMBLY_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="assembly"/>
+                <jsp:param name="title" value="Contest Status"/>
+            </jsp:include>
+        </c:when>
+      </c:choose>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="9">Contest Status</td>
+        <c:choose>
+        <c:when test="${pt == ARCHITECTURE_TYPE_ID || pt == ASSEMBLY_TYPE_ID}">
+            <td class="title" colspan="8">Contest Status</td>
+        </c:when>
+        <c:otherwise>
+            <td class="title" colspan="9">Contest Status</td>
+        </c:otherwise>
+        </c:choose>
     </tr>
     <tr>
-        <td class="headerC">
-            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
-        </td>
+        <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID}">
+            <td class="headerC">
+                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
+            </td>
+        </c:if>
         <td class="header" colspan="2">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("component_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Contest</a>
         </td>
@@ -83,6 +141,7 @@
     <% boolean even = false; %>
     <rsc:iterator list="<%=contests%>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
+            <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID}">
             <td class="valueC">
                 <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
                 <img src="/i/development/smAOL.gif"/>
@@ -102,6 +161,7 @@
                 <rsc:item name="catalog_name" row="<%=resultRow%>"/>
                 <% } %>
             </td>
+            </c:if>
             <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
                     <rsc:item name="component_name" row="<%=resultRow%>"/> <rsc:item name="version_text" row="<%=resultRow%>"/>
@@ -115,7 +175,13 @@
                  <% } %>
             </td>
             <td class="valueC">
-               <A href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>"><rsc:item name="rated_count" row="<%=resultRow%>"/> / <rsc:item name="unrated_count" row="<%=resultRow%>"/></A>
+             <% if (resultRow.getIntItem("unrated_count") > 0 || resultRow.getIntItem("rated_count") > 0) { %>
+             <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
+             <% } %>
+             <rsc:item name="rated_count" row="<%=resultRow%>"/> / <rsc:item name="unrated_count" row="<%=resultRow%>"/>
+             <% if (resultRow.getIntItem("unrated_count") > 0 || resultRow.getIntItem("rated_count") > 0) { %>
+             </a>
+             <% } %>
             </td>
             <td class="valueC" nowrap="nowrap">
                 <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy"/>
