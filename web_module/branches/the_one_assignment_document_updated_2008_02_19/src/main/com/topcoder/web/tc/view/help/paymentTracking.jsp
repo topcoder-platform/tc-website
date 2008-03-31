@@ -59,11 +59,13 @@ Our payment tracking tool (PACTs) will display one of the following categories:
         <li><strong>Waiting for hard copy IP Transfer</strong> - The payment is attached to an intellectual property assignment document that TopCoder has not yet received.</li>
         <li><strong>Attached to Parent</strong> - The payment is associated with another payment that is on hold for one of the above reasons.<!--  For example, a referral payment.--></li>
         --%>
-        <li><strong>Waiting for signed assignment document AND/OR Waiting for affirmed assignment document</strong></li>
+        <li><strong>Waiting for signed assignment document</strong></li>
             <ul>
-                <li>This is caused by sending in an old assignment document, AND</li>
-                <li>The assignment document has not been affirmed online</li>
+                <li>This is caused when the old assignment document (hard copy) has not been sent AND/OR</li>
+                <li>This is caused when the new assignment document has not been sent</li>
             </ul>
+        <li><strong>Waiting for affirmed assignment document</strong> - This is caused when the assignment document hs not been affirmed</li>
+            
       </ul>
     </li>
 
