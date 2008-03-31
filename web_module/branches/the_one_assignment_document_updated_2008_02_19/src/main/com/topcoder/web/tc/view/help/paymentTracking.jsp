@@ -52,11 +52,18 @@ Our payment tracking tool (PACTs) will display one of the following categories:
 
     <li><strong>On Hold</strong> - A payment may be put on hold for a number of reasons.
         <ul>
+        <%--
         <li><strong>Waiting for Tax form</strong> - TopCoder has not yet received the paymet recipient's tax form.</li>
         <li><strong>Waiting for affirmed Affidavit</strong> - The payment is attached to an affidavit that has not yet been affirmed.</li>
         <li><strong>Waiting for affirmed IP Transfer</strong> - The payment is attached to an intellectual property assignment document that has not yet been affirmed.</li>
         <li><strong>Waiting for hard copy IP Transfer</strong> - The payment is attached to an intellectual property assignment document that TopCoder has not yet received.</li>
         <li><strong>Attached to Parent</strong> - The payment is associated with another payment that is on hold for one of the above reasons.<!--  For example, a referral payment.--></li>
+        --%>
+        <li><strong>Waiting for signed assignment document AND/OR Waiting for affirmed assignment document</strong></li>
+            <ul>
+                <li>This is caused by sending in an old assignment document, AND</li>
+                <li>The assignment document has not been affirmed online</li>
+            </ul>
       </ul>
     </li>
 
