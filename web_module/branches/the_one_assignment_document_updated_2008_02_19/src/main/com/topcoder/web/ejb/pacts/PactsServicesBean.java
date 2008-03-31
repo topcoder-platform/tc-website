@@ -1303,7 +1303,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public List<AssignmentDocumentType> getAssignmentDocumentTypes() throws SQLException {
-        List<AssignmentDocumentType> assignmentDocumentTypes = new ArrayList<AssignmentDocumentType>();
+        List<AssignmentDocumentType> assignmentDocumentTypes = new ArrayList<Type>();
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT assignment_document_type_id, assignment_document_type_desc FROM assignment_document_type_lu ORDER BY 2");
 
@@ -4806,6 +4806,26 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+    public long getGlobalADId(long userId) throws SQLException {
+        StringBuffer query = new StringBuffer(300);
+        query.append("SELECT assignment_document_id FROM assignment_document WHERE user_id = " + userId);
+        query.append(" and assignment_document_type_id = " + AssignmentDocumentType.GLOBAL_TYPE_ID);
+        query.append(" and assignment_document_status_id = " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID);
+
+        long ret = 0;
+
+        Connection c = null;
+        try {
+            c = DBMS.getConnection(trxDataSource);
+            ResultSetContainer rsc = runSelectQuery(c, query.toString());
+            if (rsc.size() > 0) {
+                ret = rsc.getLongItem(0, 0);
+            }
+        } finally {
+            close(c);
+        }
+        return ret;
+    }
 
     private int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
             throws IllegalUpdateException, SQLException {

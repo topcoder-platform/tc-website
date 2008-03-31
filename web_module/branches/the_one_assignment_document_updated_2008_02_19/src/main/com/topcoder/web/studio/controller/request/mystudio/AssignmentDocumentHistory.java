@@ -3,7 +3,9 @@ package com.topcoder.web.studio.controller.request.mystudio;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.BaseProcessor;
@@ -57,8 +59,12 @@ public class AssignmentDocumentHistory extends BaseProcessor {
             setDefault(DataAccessConstants.END_RANK, endRank);
 
             boolean hasGlobalAd = false;
+            long globalAdId = 0;
             if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
                 hasGlobalAd = PactsServicesLocator.getService().hasGlobalAD(getUser().getId());
+                if (hasGlobalAd) {
+                    globalAdId = PactsServicesLocator.getService().getGlobalADId(getUser().getId());
+                }
             }
 
             // if the user has global AD, we don't need to show anything in the "current" tab
@@ -78,6 +84,7 @@ public class AssignmentDocumentHistory extends BaseProcessor {
             
             if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
                 getRequest().setAttribute("has_global_ad", hasGlobalAd);
+                getRequest().setAttribute("global_ad_id", globalAdId);
             }
 
             getRequest().setAttribute(ASSIGNMENT_DOCUMENTS, result);

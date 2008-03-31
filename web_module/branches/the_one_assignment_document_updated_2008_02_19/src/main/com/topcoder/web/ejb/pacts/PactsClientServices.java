@@ -94,6 +94,15 @@ public interface PactsClientServices extends EJBObject {
     boolean hasGlobalAD(long coderId) throws RemoteException, SQLException;
 
     /**
+     * Looks for the global AD id for a particular user
+     *
+     * @param coderId the coder to find the global AD.
+     * @return true if the global AD exists and it's affirmed
+     * @throws SQLException
+     */
+    long getGlobalADId(long coderId) throws RemoteException, SQLException;
+
+    /**
      * Find the payments of the specified type for a coder.
      *
      * @param coderId the coder to find payments for.

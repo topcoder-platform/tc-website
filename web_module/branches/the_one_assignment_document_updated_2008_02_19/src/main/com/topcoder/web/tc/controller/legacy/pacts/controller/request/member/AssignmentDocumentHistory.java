@@ -61,8 +61,12 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
             DataInterfaceBean dib = new DataInterfaceBean();
             
             boolean hasGlobalAd = false;
+            long globalAdId = 0;
             if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
                 hasGlobalAd = dib.hasGlobalAD(getUser().getId());
+                if (hasGlobalAd) {
+                    globalAdId = dib.getGlobalADId(getUser().getId());
+                }
             }
 
             // if the user has global AD, we don't need to show anything in the "current" tab
@@ -81,6 +85,7 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
             
             if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
                 getRequest().setAttribute("has_global_ad", hasGlobalAd);
+                getRequest().setAttribute("global_ad_id", globalAdId);
             }
             
             getRequest().setAttribute(ASSIGNMENT_DOCUMENTS, result);

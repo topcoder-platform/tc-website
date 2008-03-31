@@ -1373,6 +1373,11 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.hasGlobalAD(userId);
     }
 
+    public long getGlobalADId(long userId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getGlobalADId(userId);
+    }
+
     public int requiresClient(int paymentTypeId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.requiresClient(paymentTypeId);

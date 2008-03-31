@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.pacts;
 
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -208,6 +209,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
     boolean hasTaxForm(long userId) throws SQLException;
 
     boolean hasGlobalAD(long userId) throws SQLException;
+    
+    public long getGlobalADId(long userId) throws SQLException;
 
     Payment getEmptyPayment(long userId) throws SQLException;
 
