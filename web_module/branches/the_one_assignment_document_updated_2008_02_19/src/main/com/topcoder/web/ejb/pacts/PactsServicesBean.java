@@ -1303,7 +1303,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public List<AssignmentDocumentType> getAssignmentDocumentTypes() throws SQLException {
-        List<AssignmentDocumentType> assignmentDocumentTypes = new ArrayList<Type>();
+        List<AssignmentDocumentType> assignmentDocumentTypes = new ArrayList<AssignmentDocumentType>();
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT assignment_document_type_id, assignment_document_type_desc FROM assignment_document_type_lu ORDER BY 2");
 
