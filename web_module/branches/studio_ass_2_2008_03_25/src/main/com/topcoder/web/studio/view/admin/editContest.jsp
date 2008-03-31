@@ -574,14 +574,10 @@
 </script>
 
 
-<button onClick="setDefault(${overviewText})">
- Use Default Overview Text
-</button>
+<a href="javascript:setDefault('${overviewText}')">Use Default Overview Text</a>
 <studio_tags:editContestProperty name="${overviewText}" title="Contest Overview:"/>
 
-<button onClick="setDefault(${prizeDesc})">
- Use Default Prize Description
-</button>
+<a href="javascript:setDefault('${prizeDesc}')">Use Default Prize Description</a>
 <studio_tags:editContestProperty name="${prizeDesc}" title="Prize Description:"/>
 
 
