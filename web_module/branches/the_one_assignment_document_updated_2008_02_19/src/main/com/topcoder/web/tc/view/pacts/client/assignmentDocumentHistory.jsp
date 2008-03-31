@@ -90,6 +90,22 @@
 
 </div>
 
+<div>
+    <div align="right">
+        <span class="bigRed"><a class="bcLink" href="#">Download Assignment Document</a></span><br /><br />
+    </div>
+    <table class="stat" cellpadding="0" cellspacing="0" width="100%">
+    <tbody>
+        <tr><td class="title" colspan="4">Assignment Document Status</td></tr>
+        <tr class="light">
+            <td class="value"><strong>Assignment Document Received (Y/N)</strong></td>
+            <td class="valueC">( <img src="/i/interface/redXDk.png" alt="Assignment Document - No" /> / <img src="/i/interface/greenCheckDk.png" alt="Assignment Document - Yes" /> ) | <a href="#">View Submitted Assignment Document</a>
+            <%-- I think the View Submitted Assignment Document link should only show up when a Check Mark is present --%></td>
+        </tr>
+    </tbody>
+    </table>
+</div><br /><br />
+
 <br clear="all" />
 
 <c:choose>
