@@ -239,7 +239,7 @@
     </tbody>
     </table>
     
-    <c:if test="${not empty has_global_ad && has_global_ad}">
+    <c:if test="${not empty has_global_ad && has_global_ad && not empty assignment_documents}">
         <span class="bigRed">* You already have an Assignment Document on file</span>
     </c:if>
     
