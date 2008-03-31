@@ -82,7 +82,7 @@
             <tr class="light">
                 <td class="valueW"><div>&nbsp;</div></td>
                 <td class="value"><strong>Assignment Document Received (Y/N)</strong></td>
-                <td class="valueC"><img src="/i/v2/interface/iconNo.png" alt="Assignment Document - No" /> / <img src="/i/v2/interface/iconYes.png" alt="Assignment Document - Yes" /> | <a href="#">View Submitted Assignment Document</a>
+                <td class="valueC">( <img src="/i/v2/interface/iconNo.png" alt="Assignment Document - No" /> / <img src="/i/v2/interface/iconYes.png" alt="Assignment Document - Yes" /> ) | <a href="#">View Submitted Assignment Document</a>
                 <%-- I think the View Submitted Assignment Document link should only show up when a Check Mark is present --%></td>
                 <td class="valueE"><div>&nbsp;</div></td>
             </tr>
