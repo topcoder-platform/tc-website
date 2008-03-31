@@ -11,7 +11,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentType;
-import com.topcoder.web.studio.controller.request.PactsServicesLocator;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;

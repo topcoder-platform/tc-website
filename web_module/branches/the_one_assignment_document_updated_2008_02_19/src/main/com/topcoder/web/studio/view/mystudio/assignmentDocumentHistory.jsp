@@ -85,14 +85,14 @@
                     <td class="value"><strong>Assignment Document Received (Y/N)</strong></td>
                     <td class="valueC">
                         <c:choose>
-                            <c:when test="has_global_ad">
+                            <c:when test="${has_global_ad}">
                                 <img src="/i/v2/interface/iconYes.png" alt="Assignment Document - Yes" /> | <a href="${sessionInfo.servletPath}?module=AssignmentDocumentDetails&amp;assignment_document_id=${global_ad_id}">View Submitted Assignment Document</a>
                             </c:when>
                             <c:otherwise>
                                 <img src="/i/v2/interface/iconNo.png" alt="Assignment Document - No" />
                             </c:otherwise>
                         </c:choose>
-                    <%-- I think the View Submitted Assignment Document link should only show up when a Check Mark is present --%></td>
+                    </td>
                     <td class="valueE"><div>&nbsp;</div></td>
                 </tr>
             </tbody>
