@@ -61,7 +61,7 @@
                 }).each(function() {
                    var currId = this.id.substring(spanPrefix.length);
                    if (defaults[currId]) {
-                      $(this).html("<a href=\"javascript:setDefault('" + currId + "')\">use default</a>");
+                      $(this).html("(<a href=\"javascript:setDefault('" + currId + "')\">use default</a>)");
                    }
                 })
             });
@@ -362,11 +362,11 @@
 </tr>
 
 <studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.OTHER_FILE_TYPES%>"
-                                 title="Other File Types:"/>
+                                 title="Other File Types"/>
 <studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.FULL_DESCRIPTION%>"
-                                 title="Full Description:"/>
+                                 title="Full Description"/>
 <studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.SUBMISSION_FILE_FORMAT%>"
-                                 title="Notes on Submission File(s):"/>
+                                 title="Notes on Submission File(s)"/>
 
 <c:set value="<%=Constants.FILE_TYPE%>" var="fileType"/>
 <tr>
@@ -487,19 +487,19 @@
 --%>
 
 <studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.SIZE_REQUIREMENTS%>"
-                                 title="Other Notes on Size:"/>
+                                 title="Other Notes on Size"/>
 <studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.FONT_REQUIREMENTS%>"
-                                 title="Notes on Fonts:"/>
+                                 title="Notes on Fonts"/>
 <studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.COLOR_REQUIREMENTS%>"
-                                 title="Notes on Color Palettes:"/>
+                                 title="Notes on Color Palettes"/>
 <studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.CONTENT_REQUIREMENTS%>"
-                                 title="Content Requirements:"/>
+                                 title="Content Requirements"/>
 <studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.OTHER_REQUIREMENTS%>"
-                                 title="Other Requirements:"/>
+                                 title="Other Requirements"/>
 <studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.ELIGIBILITY%>"
-                                 title="Eligibility:"/>
+                                 title="Eligibility"/>
 <studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.WINNER_SELECTION%>"
-                                 title="Notes on Winners Selection:"/>
+                                 title="Notes on Winners Selection"/>
 
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.VIEWABLE_SUBMISSIONS%>" var="viewSubmissions"/>
 
@@ -592,8 +592,8 @@
             );
 </script>
 
-<studio_tags:editContestProperty name="${overviewText}" title="Contest Overview:"/>
-<studio_tags:editContestProperty name="${prizeDesc}" title="Prize Description:"/>
+<studio_tags:editContestProperty name="${overviewText}" title="Contest Overview"/>
+<studio_tags:editContestProperty name="${prizeDesc}" title="Prize Description"/>
 
 
 
