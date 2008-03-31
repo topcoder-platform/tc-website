@@ -39,12 +39,14 @@
                         <p>
                             <a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Assignment Document</a>
                         </p>
-        
+                        
+                        <%--
                         <h3>Tools</h3>
         
                         <p>
                             <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Online Review</a>
                         </p>
+                        --%>
 
 
                         <br clear="all"/>
