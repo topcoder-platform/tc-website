@@ -13,7 +13,7 @@
             <tc-webtag:errorIterator id="err" name="${name}">
                 <span class="bigRed">${err}<br/></span>
             </tc-webtag:errorIterator>
-            <strong>${title}</strong><span id="defaultSpan_${name}"/>:<br/><br/>
+            <strong>${title}</strong><span id="defaultSpan_${name}"></span>:<br/><br/>
             <tc-webtag:textArea id="${name}" name="${name}" rows="2" cols="80" styleClass="resizable"/>
         </p>
     </td>
