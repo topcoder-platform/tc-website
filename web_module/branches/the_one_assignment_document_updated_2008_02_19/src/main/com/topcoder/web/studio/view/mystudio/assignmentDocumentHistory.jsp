@@ -69,30 +69,40 @@
         <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">What is an Assignment Document?</a><br /><br />
     </div>
     
-    <div>
-        <div class="statHolder" style="clear: both;">
-        <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
-        <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
-        <div align="right">
-            <span class="bigRed"><a href="#">Download Assignment Document</a></span><br />
-        </div>
-        <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-        <tbody>
-            <tr><td class="title" colspan="4">Assignment Document Status</td></tr>
-            <tr class="light">
-                <td class="valueW"><div>&nbsp;</div></td>
-                <td class="value"><strong>Assignment Document Received (Y/N)</strong></td>
-                <td class="valueC">( <img src="/i/v2/interface/iconNo.png" alt="Assignment Document - No" /> / <img src="/i/v2/interface/iconYes.png" alt="Assignment Document - Yes" /> ) | <a href="#">View Submitted Assignment Document</a>
-                <%-- I think the View Submitted Assignment Document link should only show up when a Check Mark is present --%></td>
-                <td class="valueE"><div>&nbsp;</div></td>
-            </tr>
-        </tbody>
-        </table>
-        <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
-        <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
-        </div>
-    </div><br /><br />
-
+    <c:if test="${not empty has_global_ad}">
+        <div>
+            <div class="statHolder" style="clear: both;">
+            <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+            <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
+            <div align="right">
+                <span class="bigRed"><a href="#">Download Assignment Document</a></span><br />
+            </div>
+            <table class="stat" cellpadding="0" cellspacing="0" width="100%">
+            <tbody>
+                <tr><td class="title" colspan="4">Assignment Document Status</td></tr>
+                <tr class="light">
+                    <td class="valueW"><div>&nbsp;</div></td>
+                    <td class="value"><strong>Assignment Document Received (Y/N)</strong></td>
+                    <td class="valueC">
+                        <c:choose>
+                            <c:when test="has_global_ad">
+                                <img src="/i/v2/interface/iconYes.png" alt="Assignment Document - Yes" /> | <a href="${sessionInfo.servletPath}?module=AssignmentDocumentDetails&amp;assignment_document_id=${global_ad_id}">View Submitted Assignment Document</a>
+                            </c:when>
+                            <c:otherwise>
+                                <img src="/i/v2/interface/iconNo.png" alt="Assignment Document - No" />
+                            </c:otherwise>
+                        </c:choose>
+                    <%-- I think the View Submitted Assignment Document link should only show up when a Check Mark is present --%></td>
+                    <td class="valueE"><div>&nbsp;</div></td>
+                </tr>
+            </tbody>
+            </table>
+            <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+            <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+            </div>
+        </div><br /><br />
+    </c:if>
+    
         <c:if test="${full_list}" >
             <div class="tableTabOff" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory&amp;full_list=false">Current</a></div>
             <div class="tableTabOn"><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory&amp;full_list=true">All</a></div>
