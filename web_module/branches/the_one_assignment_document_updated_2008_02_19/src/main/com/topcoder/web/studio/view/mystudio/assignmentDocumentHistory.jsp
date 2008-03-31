@@ -238,7 +238,7 @@
         </table>
         
         <c:if test="${not empty has_global_ad && has_global_ad}">
-            <span class="bigRed">* You already have a global Assignment Document on file</span>
+            <span class="bigRed">* You already have an Assignment Document on file</span>
         </c:if>
         
         <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
