@@ -35,6 +35,8 @@ public class ContestStatus extends Base {
                 Request r = new Request();
                 r.setContentHandle("contest_project_status");
                 r.setProperties(getRequest().getParameterMap());
+                r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
+                
                 r.setProperty(DataAccessConstants.SORT_QUERY, "contest_project_status");
                 getRequest().setAttribute("contests", getDataAccess().getData(r).get("contest_project_status"));
 
