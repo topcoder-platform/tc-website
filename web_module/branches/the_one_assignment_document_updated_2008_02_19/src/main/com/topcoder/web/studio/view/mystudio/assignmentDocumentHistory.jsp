@@ -65,7 +65,7 @@
                     <div class="contentMiddle">
 
 
-<h1>Assignment Documents</h1>
+<h1>Assignment Document</h1>
     <div align="right">
         <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">What is an Assignment Document?</a><br /><br />
     </div>
@@ -83,7 +83,7 @@
                 <tr><td class="title" colspan="4">Assignment Document Status</td></tr>
                 <tr class="light">
                     <td class="valueW"><div>&nbsp;</div></td>
-                    <td class="value"><strong>Assignment Document Received (Y/N)</strong></td>
+                    <td class="value"><strong>Assignment Document Received</strong></td>
                     <td class="valueC">
                         <c:choose>
                             <c:when test="${has_global_ad}">

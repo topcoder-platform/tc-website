@@ -37,7 +37,7 @@
         
                         <p><span class="bigRed"><a href="#">Download Assignment Document</a></span></p>
                         <p>
-                            <a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Assignment Documents</a>
+                            <a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Assignment Document</a>
                         </p>
         
                         <h3>Tools</h3>
