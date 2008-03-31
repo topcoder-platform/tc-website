@@ -68,6 +68,29 @@
     <div align="right">
         <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">What is an Assignment Document?</a><br /><br />
     </div>
+    
+    <div>
+        <div class="statHolder" style="clear: both;">
+        <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+        <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
+        <div align="right">
+            <span class="bigRed"><a href="">Download Assignment Document</a></span>
+        </div>
+        <table class="stat" cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+            <tr><td class="title" colspan="4">Assignment Document Status</td></tr>
+            <tr class="light">
+                <td class="valueW"><div>&nbsp;</div></td>
+                <td><strong>Assignment Document Received (Y/N)</strong></td>
+                <td>Code for checks and X graphics goes around here Pablo</td>
+                <td class="valueE"><div>&nbsp;</div></td>
+            </tr>
+        </tbody>
+        </table>
+        <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+        <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+        </div>
+    </div><br /><br />
 
         <c:if test="${full_list}" >
             <div class="tableTabOff" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory&amp;full_list=false">Current</a></div>
