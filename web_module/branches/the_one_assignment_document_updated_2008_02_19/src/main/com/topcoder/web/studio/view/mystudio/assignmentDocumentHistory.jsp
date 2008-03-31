@@ -74,7 +74,7 @@
         <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
         <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
         <div align="right">
-            <span class="bigRed"><a href="">Download Assignment Document</a></span>
+            <span class="bigRed"><a href="#">Download Assignment Document</a></span>
         </div>
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tbody>
