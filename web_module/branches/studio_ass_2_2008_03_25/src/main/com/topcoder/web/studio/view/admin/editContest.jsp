@@ -34,12 +34,6 @@
             $(document).ready(function() {
                     $('textarea.resizable:not(.processed)').TextAreaResizer();
             });
-        var spanPrefix = "defaultSpan_";
-            $(document).ready(function() {
-                $("span").filter(function() {
-                    return this.id.indexOf(spanPrefix)==0?true:false;
-                }).html("<a href=\"javascript:setDefault('" + this.id.substring(spanPrefix.length()) + "')\">use default</a>");
-            });
         //]]>
     </script>
     <script language="javascript" type="text/javascript">
@@ -56,6 +50,21 @@
         function setDefault(fieldName) {
             $("#"+fieldName).val(defaults[fieldName]);
         }
+        /*
+        go through and find all the spans that are on top of the text areas for the default text link.  If
+        we have default text, then put the link in there, if we don't, then don't.
+         */
+        var spanPrefix = "defaultSpan_";
+            $(document).ready(function() {
+                $("span").filter(function() {
+                    return this.id && this.id.indexOf(spanPrefix) == 0;
+                }).each(function() {
+                   var currId = this.id.substring(spanPrefix.length);
+                   if (defaults[currId]) {
+                      $(this).html("<a href=\"javascript:setDefault('" + currId + "')\">use default</a>");
+                   }
+                })
+            });
         //]]>
     </script>
     <script type="text/javascript" xml:space="preserve">
@@ -255,7 +264,6 @@
                                 textField="description"/>
     </td>
 </tr>
-<tr>
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME%>"><span class="bigRed">${err}
