@@ -45,7 +45,7 @@
                                "by the client.  The payment will be distributed in one full installment once the final vector-based version of " +
                                "the winning submission has been received by TopCoder Studio.";
         function setDefault(fieldName) {
-            $(fieldName).val(defaults[fieldName]);
+            $("#"+fieldName).val(defaults[fieldName]);
         }
 
     </script>
