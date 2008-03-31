@@ -29,12 +29,21 @@
     <script language="javascript" type="text/javascript" src="/js/jquery.textarearesizer.compressed-1.0.4.js"></script>
 
     <script type="text/javascript">
+        //<![CDATA[[
             /* jQuery textarea resizer plugin usage */
             $(document).ready(function() {
                     $('textarea.resizable:not(.processed)').TextAreaResizer();
             });
+        var spanPrefix = "defaultSpan_";
+            $(document).ready(function() {
+                $("span").filter(function() {
+                    return this.id.indexOf(spanPrefix)==0?true:false;
+                }).html("<a href=\"javascript:setDefault('" + this.id.substring(spanPrefix.length()) + "')\">use default</a>");
+            });
+        //]]>
     </script>
     <script language="javascript" type="text/javascript">
+        //<![CDATA[[
         var defaults = new Array();
         defaults['${overviewText}'] ="General description of the contest goes here. Give background info, overview about what the client " +
                               "is seeking, and general look and feel info.\n\n" +
@@ -47,9 +56,10 @@
         function setDefault(fieldName) {
             $("#"+fieldName).val(defaults[fieldName]);
         }
-
+        //]]>
     </script>
     <script type="text/javascript" xml:space="preserve">
+        //<![CDATA[[
         var contestTypeImageFlag = new Array();
         var contestTypeFileFlag = new Array();
         contestTypeImageFlag[0] = '';
@@ -69,6 +79,7 @@
             putValue(formName, '<%=Constants.MODULE_KEY%>', 'AdminUpdateDocument');
             putValue(formName, '<%=Constants.DOCUMENT_ID%>', '' + docId);
         }
+        //]]>
     </script>
     <style type="text/css">
             div.grippie {
@@ -573,11 +584,7 @@
             );
 </script>
 
-
-<a href="javascript:setDefault('${overviewText}')">Use Default Overview Text</a>
 <studio_tags:editContestProperty name="${overviewText}" title="Contest Overview:"/>
-
-<a href="javascript:setDefault('${prizeDesc}')">Use Default Prize Description</a>
 <studio_tags:editContestProperty name="${prizeDesc}" title="Prize Description:"/>
 
 
