@@ -9,7 +9,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder - Help</title>
     <jsp:include page="/script.jsp"/>
-    a
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_main"/>
     </jsp:include>
@@ -44,6 +43,14 @@
     <jsp:param name="image1" value="white"/>
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
+
+<p>
+    5.14.11 - 2008.03.xx
+<ul>
+    <li>Going back to the old assembly registration pages -pulky</li>
+    <li>Added contest status pages for assembly and architecture -pulky</li>
+</ul>
+</p>
 
 <p>
     5.14.10 - 2008.03.24
