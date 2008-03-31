@@ -35,7 +35,7 @@
         
                         <h3>Documentation:</h3>
         
-                        <p><span class="bigRed"><a href="">Download Assignment Document</a></span></p>
+                        <p><span class="bigRed"><a href="#">Download Assignment Document</a></span></p>
                         <p>
                             <a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Assignment Documents</a>
                         </p>
