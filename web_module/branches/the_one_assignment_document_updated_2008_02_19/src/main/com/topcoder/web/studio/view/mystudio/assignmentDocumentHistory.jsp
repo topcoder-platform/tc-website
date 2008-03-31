@@ -74,7 +74,7 @@
         <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
         <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
         <div align="right">
-            <span class="bigRed"><a href="#">Download Assignment Document</a></span>
+            <span class="bigRed"><a href="#">Download Assignment Document</a></span><br />
         </div>
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tbody>
@@ -82,7 +82,8 @@
             <tr class="light">
                 <td class="valueW"><div>&nbsp;</div></td>
                 <td class="value"><strong>Assignment Document Received (Y/N)</strong></td>
-                <td class="valueC">Code for Check Mark and X graphics goes around here Pablo</td>
+                <td class="valueC"><img src="/i/v2/interface/iconNo.png" alt="Assignment Document - No" /> / <img src="/i/v2/interface/iconYes.png" alt="Assignment Document - Yes" /> | <a href="#">View Submitted Assignment Document</a>
+                <%-- I think the View Submitted Assignment Document link should only show up when a Check Mark is present --%></td>
                 <td class="valueE"><div>&nbsp;</div></td>
             </tr>
         </tbody>
