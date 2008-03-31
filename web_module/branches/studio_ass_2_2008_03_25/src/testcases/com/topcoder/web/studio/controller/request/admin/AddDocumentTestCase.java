@@ -152,7 +152,7 @@ public class AddDocumentTestCase extends TCHibernateTestCase {
         String newLine2 = newLine + newLine;
 
         byte[] submitted = readSubmissionFile("submission.zip");
-        String content = "--AaB03x" + newLine
+        String content1 = "--AaB03x" + newLine
                          + "content-disposition: form-data; name=\"ct\"" + newLine2 + contestId + newLine
                          + "--AaB03x" + newLine
                          + "content-disposition: form-data; name=\"doctid\"" + newLine2 + docTypeId + newLine
@@ -160,10 +160,17 @@ public class AddDocumentTestCase extends TCHibernateTestCase {
                          + "content-disposition: form-data; name=\"docdesc\"" + newLine2 + description + newLine
                          + "--AaB03x" + newLine
                          + "content-disposition: form-data; name=\"doc\"; filename=\"submission.zip\"" + newLine
-                         + "Content-Type: application/zip" + newLine + "Content-Transfer-Encoding: binary" + newLine2
-                         + new String(submitted) + newLine
-                         + "--AaB03x--" + newLine;
-        ByteArrayInputStream bais = new ByteArrayInputStream(content.getBytes());
+                         + "Content-Type: application/zip" + newLine + "Content-Transfer-Encoding: binary" + newLine2;
+        String content2 = newLine + "--AaB03x--" + newLine;
+        byte[] b1 = content1.getBytes();
+        byte[] b2 = content2.getBytes();
+
+        byte[] B = new byte[b1.length + b2.length + submitted.length];
+        System.arraycopy(b1, 0, B, 0, b1.length);
+        System.arraycopy(submitted, 0, B, b1.length, submitted.length);
+        System.arraycopy(b2, 0, B, b1.length + submitted.length, b2.length);
+
+        ByteArrayInputStream bais = new ByteArrayInputStream(B);
         MockHttpServletRequest.setMethodResult("getInputStream", new ServletInputStreamImpl(bais));
 
         MultipartRequest request = new MultipartRequest(new MockHttpServletRequest());
