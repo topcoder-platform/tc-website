@@ -14,6 +14,7 @@
 <c:set value="<%=AssignmentDocumentHistory.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
 <c:set value="<%=DataAccessConstants.END_RANK%>" var="endRank"/>
+<c:set var="show_asterix" value="false" />
 
 <c:set var="PENDING_STATUS_ID" value="<%= AssignmentDocumentStatus.PENDING_STATUS_ID + "" %>" />
 <c:set var="AFFIRMED_STATUS_ID" value="<%= AssignmentDocumentStatus.AFFIRMED_STATUS_ID + "" %>" />
@@ -199,6 +200,7 @@
                                 <td class="valueC">
                                     No need to Affirm *
                                 </td>
+                                <c:set var="show_asterix" value="true" />
                             </c:when>
                             <c:otherwise>
                                 <td class="valueC">
@@ -239,7 +241,7 @@
     </tbody>
     </table>
     
-    <c:if test="${not empty has_global_ad && has_global_ad && not empty assignment_documents}">
+    <c:if test="${not empty has_global_ad && has_global_ad && show_asterix}">
         <span class="bigRed">* You already have an Assignment Document on file</span>
     </c:if>
     
