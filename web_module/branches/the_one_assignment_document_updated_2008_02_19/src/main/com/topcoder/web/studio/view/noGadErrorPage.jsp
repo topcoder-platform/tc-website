@@ -35,9 +35,12 @@
 
                 <div align="center">
                     <div style="width:500px; padding: 50px 0px 100px 0px;">
-                        <strong>You cannot submit because you don't have an Assignment Document on file.</strong>
-                        <br /><br />
-                        You must have a signed Assignment Document on file before we can accept your submission.  If you have questions regarding the Assignment, visit the <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">FAQ</a>.
+                        <p style="text-align:center;"><strong>Before you can submit for this contest you must send us<br />a signed copy of the Assignment Document:</strong><br /><br />
+                        <a href="#">Download the Assignment Document</a> and <a href="#">Send in your signed copy</a><br /><br />
+                        <strong>If you've already sent us your document:</strong><br /><br />
+                        <a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Check on the status of my Assignment Document</a><br /><br />
+                        <strong>For any other questions:</strong><br /><br />
+                        <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Read the FAQ</a></p>
                     </div>
                     <%=new Date().toString()%>
                 </div>

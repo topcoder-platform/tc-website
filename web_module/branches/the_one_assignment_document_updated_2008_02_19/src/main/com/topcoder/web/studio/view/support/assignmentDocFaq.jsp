@@ -65,6 +65,13 @@
 
                 <h1>Assignment Documents FAQ</h1>
 
+                <div style="float: right; text-align: left; margin: 0px 0px 10px 10px;">
+                    Assignment Document FAQ
+                    <br /><a href="#">Download Assignment Document</a>
+                    <br /><a href="#">Send Assignment Document</a>
+                    <br /><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Assignment Document Status</a>
+                </div>
+                
                 <div>
                     <p><strong>What is the Assignment?</strong></p>
                     <p><%--The Assignment is a document by which you confirm that you transfer your rights in a winning entry to TopCoder, Inc.  --%>The Assignment: (i) documents your assignment of all rights in all of your previous winning entries, if any, in exchange for the applicable prize; (ii) documents your assignment of all rights in your current winning entry in exchange for receiving the applicable prize; and (iii) must be sent to TopCoder prior to submitting for a contest.<%--establishes a procedure by which you will be able to easily confirm your assignment of rights in any <a href="#futurewinnings">future winning entry</a>.--%>  The Assignment does NOT cover any entries for which you are not compensated, and you still retain the ownership of such entries.  TopCoder will require this written assignment document for all winning entries in competitions which start after June 18, 2007.</p>
