@@ -57,7 +57,15 @@
                                "the winning submission has been received by TopCoder Studio.";
         defaults['${winnerSelection}'] = "Submissions go through an initial screening process during the submission phase. " +
                                          "Passing submissions are then presented to the client. Winners are selected by the " +
-                                         "client and are chosen solely at the Client's discretion." 
+                                         "client and are chosen solely at the Client's discretion."
+        defaults['${eligibility}'] = "You must be a TopCoder Studio member, at least 18 years of age, meeting all of the " +
+                                     " membership requirements. In addition, you must fit into one of the following categories. " +
+                                   " If you reside in the United States, you must be either: "
+                                " <ul><li>A US Citizen</li> " +
+                                " <li>A Lawful Permanent Resident of the US</li> " +
+                                " <li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S.</li></ul> " +
+                                " If you do not reside in the United States: " +
+                                " <ul><li>You must be authorized to perform services as an independent contractor. (Note: In most cases you will not need to do anything to become authorized)</li></ul>";
         function setDefault(fieldName) {
             $("#"+fieldName).val(defaults[fieldName]);
         }
