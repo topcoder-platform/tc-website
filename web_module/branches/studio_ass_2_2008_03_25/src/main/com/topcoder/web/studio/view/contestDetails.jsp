@@ -143,13 +143,13 @@
     <c:if test="${not empty contest.type}">
         <tr>
             <td class="field">Contest Type:</td>
-            <td class="value">${conest.type.description}</td>
+            <td class="value">${contest.type.description}</td>
         </tr>
     </c:if>
     <c:if test="${fn:length(contest.mediums)>0}">
         <tr>
             <td class="field">Design Medium:</td>
-            <td class="value">${contest.mediumNamesList}
+            <td class="value">
                 <c:forEach items="${contest.mediums}" var="medium">
                     ${medium.description} <br />
                 </c:forEach>
