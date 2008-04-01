@@ -140,14 +140,22 @@
         <td class="field">Contest Name:</td>
         <td class="value">${contest.name}</td>
     </tr>
-    <tr>
-        <td class="field">Contest Type:</td>
-        <td class="value">Logo TODO </td>
-    </tr>
-    <tr>
-        <td class="field">Design Medium:</td>
-        <td class="value">${contest.mediumNamesList}</td>
-    </tr>
+    <c:if test="${not empty contest.type}">
+        <tr>
+            <td class="field">Contest Type:</td>
+            <td class="value">${conest.type.description}</td>
+        </tr>
+    </c:if>
+    <c:if test="${fn:length(contest.mediums)>0}">
+        <tr>
+            <td class="field">Design Medium:</td>
+            <td class="value">${contest.mediumNamesList}
+                <c:forEach items="${contest.mediums}" var="medium">
+                    ${medium.description} <br />
+                </c:forEach>
+            </td>
+        </tr>
+    </c:if>
 <c:choose>
     <c:when test="${fn:length(contest.prizes)==1}">
         <c:forEach items="${contest.prizes}" var="prize">
