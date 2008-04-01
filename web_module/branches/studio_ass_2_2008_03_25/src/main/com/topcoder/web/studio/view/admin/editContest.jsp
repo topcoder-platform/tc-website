@@ -10,7 +10,16 @@
 
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.CONTEST_OVERVIEW_TEXT%>" var="overviewText"/>
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.PRIZE_DESCRIPTION%>" var="prizeDesc"/>
-
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.OTHER_FILE_TYPES%>" var="otherFileTypes"/>
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.FULL_DESCRIPTION%>" var="fullDescription"/>
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.SUBMISSION_FILE_FORMAT%>" var="submissionFileFormat"/>
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.SIZE_REQUIREMENTS%>" var="sizeRequirements"/>
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.FONT_REQUIREMENTS%>" var="fontRequirements"/>
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.COLOR_REQUIREMENTS%>" var="colorRequirements"/>
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.CONTENT_REQUIREMENTS%>" var="contentRequirements"/>
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.OTHER_REQUIREMENTS%>" var="otherRequirements"/>
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.ELIGIBILITY%>" var="eligibility"/>
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.WINNER_SELECTION%>" var="winnerSelection"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -47,6 +56,9 @@
         defaults['${prizeDesc}'] ="TopCoder Studio will compensate the member with the first place submission, as selected " +
                                "by the client.  The payment will be distributed in one full installment once the final vector-based version of " +
                                "the winning submission has been received by TopCoder Studio.";
+        defaults['${winnerSelection}'] = "Submissions go through an initial screening process during the submission phase. " +
+                                         "Passing submissions are then presented to the client. Winners are selected by the " +
+                                         "client and are chosen solely at the Client's discretion." 
         function setDefault(fieldName) {
             $("#"+fieldName).val(defaults[fieldName]);
         }
@@ -361,12 +373,9 @@
     </td>
 </tr>
 
-<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.OTHER_FILE_TYPES%>"
-                                 title="Other File Types"/>
-<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.FULL_DESCRIPTION%>"
-                                 title="Full Description"/>
-<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.SUBMISSION_FILE_FORMAT%>"
-                                 title="Notes on Submission File(s)"/>
+<studio_tags:editContestProperty name="${otherFileTypes}" title="Other File Types"/>
+<studio_tags:editContestProperty name="${fullDescription}" title="Full Description"/>
+<studio_tags:editContestProperty name="${submissionFileFormat}" title="Notes on Submission File(s)"/>
 
 <c:set value="<%=Constants.FILE_TYPE%>" var="fileType"/>
 <tr>
@@ -486,20 +495,13 @@
 </tr>
 --%>
 
-<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.SIZE_REQUIREMENTS%>"
-                                 title="Other Notes on Size"/>
-<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.FONT_REQUIREMENTS%>"
-                                 title="Notes on Fonts"/>
-<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.COLOR_REQUIREMENTS%>"
-                                 title="Notes on Color Palettes"/>
-<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.CONTENT_REQUIREMENTS%>"
-                                 title="Content Requirements"/>
-<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.OTHER_REQUIREMENTS%>"
-                                 title="Other Requirements"/>
-<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.ELIGIBILITY%>"
-                                 title="Eligibility"/>
-<studio_tags:editContestProperty name="<%=Constants.CONTEST_PROPERTY + ContestProperty.WINNER_SELECTION%>"
-                                 title="Notes on Winners Selection"/>
+<studio_tags:editContestProperty name="${sizeRequirements}" title="Other Notes on Size"/>
+<studio_tags:editContestProperty name="${fontRequirements}" title="Notes on Fonts"/>
+<studio_tags:editContestProperty name="${colorRequirements}" title="Notes on Color Palettes"/>
+<studio_tags:editContestProperty name="${contentRequirements}" title="Content Requirements"/>
+<studio_tags:editContestProperty name="${otherRequirements}" title="Other Requirements"/>
+<studio_tags:editContestProperty name="${eligibility}" title="Eligibility"/>
+<studio_tags:editContestProperty name="${winnerSelection}" title="Notes on Winners Selection"/>
 
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.VIEWABLE_SUBMISSIONS%>" var="viewSubmissions"/>
 
