@@ -60,7 +60,7 @@
                                          "client and are chosen solely at the Client's discretion."
         defaults['${eligibility}'] = "You must be a TopCoder Studio member, at least 18 years of age, meeting all of the " +
                                      " membership requirements. In addition, you must fit into one of the following categories. " +
-                                   " If you reside in the United States, you must be either: "
+                                   " If you reside in the United States, you must be either: " +
                                 " <ul><li>A US Citizen</li> " +
                                 " <li>A Lawful Permanent Resident of the US</li> " +
                                 " <li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S.</li></ul> " +
