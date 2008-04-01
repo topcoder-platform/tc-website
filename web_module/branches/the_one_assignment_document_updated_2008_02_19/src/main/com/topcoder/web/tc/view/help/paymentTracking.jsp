@@ -61,8 +61,8 @@ Our payment tracking tool (PACTs) will display one of the following categories:
         --%>
         <li><strong>Waiting for signed assignment document</strong></li>
             <ul>
-                <li>This is caused when the old assignment document (hard copy) has not been sent AND/OR</li>
-                <li>This is caused when the new assignment document has not been sent</li>
+                <li>This is caused when the Assignment Version 1.0 (hard copy) has not been sent AND/OR</li>
+                <li>This is caused when the Assignment Version 2.0 has not been sent</li>
             </ul>
         <li><strong>Waiting for affirmed assignment document</strong> - This is caused when the assignment document hs not been affirmed</li>
             
