@@ -48,11 +48,10 @@
     <script language="javascript" type="text/javascript">
         //<![CDATA[[
         var defaults = new Array();
-        defaults['${overviewText}'] ="General description of the contest goes here. Give background info, overview about what the client " +
-                              "is seeking, and general look and feel info.\n\n" +
-                              "Entries must be your original work, and must not infringe on the copyright or licenses of others. Stock art, clip art, " +
-                              "templates and other design elements from other sources are prohibited unless specifically permitted in the " +
-                              "Specification Document."
+        defaults['${overviewText}'] ="[Copy Project Overview info from Spec into this area.]\n\n" +
+                "<p><b>Entries must be your original work, and must not infringe on the copyright or licenses of others. " +
+                                     "Stock art, clip art, templates and other design elements from other sources are " +
+                                     " prohibited unless specifically permitted in the Specification Document.</b></p>"
         defaults['${prizeDesc}'] ="TopCoder Studio will compensate the member with the first place submission, as selected " +
                                "by the client.  The payment will be distributed in one full installment once the final vector-based version of " +
                                "the winning submission has been received by TopCoder Studio.";
