@@ -33,16 +33,17 @@ public class ContestStatus extends Base {
             if (DESIGN_TYPE_ID.equals(projectTypeId) || DEVELOPMENT_TYPE_ID.equals(projectTypeId) ||
                 ASSEMBLY_TYPE_ID.equals(projectTypeId) || ARCHITECTURE_TYPE_ID.equals(projectTypeId)) {
                 Request r = new Request();
+                String commandName = "contest_project_status";
                 if (ARCHITECTURE_TYPE_ID.equals(projectTypeId)) {
-                    r.setContentHandle("architecture_project_status");
-                } else {
-                    r.setContentHandle("contest_project_status");
+                    commandName = "architecture_project_status";
                 }
+
+                r.setContentHandle(commandName);
                 r.setProperties(getRequest().getParameterMap());
                 r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
                 
-                r.setProperty(DataAccessConstants.SORT_QUERY, "contest_project_status");
-                getRequest().setAttribute("contests", getDataAccess().getData(r).get("contest_project_status"));
+                r.setProperty(DataAccessConstants.SORT_QUERY, commandName);
+                getRequest().setAttribute("contests", getDataAccess().getData(r).get(commandName));
 
                 getRequest().setAttribute(Constants.PROJECT_TYPE_ID, projectTypeId);
 
