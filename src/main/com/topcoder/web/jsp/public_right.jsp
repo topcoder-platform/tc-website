@@ -36,8 +36,11 @@ function find(n) {
 <%-- NSA 
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa"><img src="/i/tournament/tco08/right_nsa.png" alt="NSA" /></a>
 --%>
-<%-- Lilly --%>
+<%-- Lilly 
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly"><img src="/i/tournament/tco08/right_lilly.png" alt="Lilly" /></a>
+--%>
+<%-- AOL --%>
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=aol"><img src="/i/tournament/tco08/right_aol.png" alt="AOL" /></a>
 
     </div>
 
