@@ -63,13 +63,13 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-                <h1>Assignment Documents FAQ</h1>
+                <h1>Assignment Document FAQ</h1>
 
                 <div style="float: right; text-align: left; margin: 0px 0px 10px 10px;">
-                    Assignment Document FAQ
-                    <br /><a href="#">Download Assignment Document</a>
-                    <br /><a href="#">Send Assignment Document</a>
-                    <br /><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Assignment Document Status</a>
+                    Assignment FAQ
+                    <br /><a href="#">Download Assignment</a>
+                    <br /><a href="gadContactPage">Send Assignment</a>
+                    <br /><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Assignment Status</a>
                 </div>
                 
                 <div>
