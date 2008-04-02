@@ -45,7 +45,7 @@
 </jsp:include>
 
 <p>
-    5.14.11 - 2008.03.xx
+    5.14.11 - 2008.04.02
 <ul>
     <li>Going back to the old assembly registration pages -pulky</li>
     <li>Added contest status pages for assembly and architecture -pulky</li>
