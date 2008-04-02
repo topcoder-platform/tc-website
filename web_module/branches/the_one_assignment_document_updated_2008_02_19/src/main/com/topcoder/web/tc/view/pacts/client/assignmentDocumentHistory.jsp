@@ -94,7 +94,7 @@
 <c:if test="${not empty has_global_ad}">
     <div>
         <div align="right">
-            <span class="bigRed"><a class="bcLink" href="#">Download Assignment Document</a></span><br /><br />
+            <span class="bigRed"><a class="bcLink" target="_blank" href="/wiki/display/tc/The+Assignment+Document">Download Assignment Document</a></span><br /><br />
         </div>
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tbody>
