@@ -7,6 +7,7 @@
 <%@ page import="java.util.Date" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="currentTime" value="<%=new Date()%>"/>
 <c:set var="passed" value="<%=ReviewStatus.PASSED%>"/>
