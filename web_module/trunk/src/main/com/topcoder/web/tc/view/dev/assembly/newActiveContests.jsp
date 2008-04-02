@@ -43,7 +43,7 @@
 </jsp:include>
 
 <div align="right" style="margin: 6px 0px;">
-    <a href="<%=ApplicationServer.WIKI_SERVER_NAME%>/display/tc/How+to+Compete+in+Assembly+Competitions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
+    <a href="http://<%=ApplicationServer.WIKI_SERVER_NAME%>/display/tc/How+to+Compete+in+Assembly+Competitions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
 </div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
