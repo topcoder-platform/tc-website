@@ -78,7 +78,7 @@
     <div style="float:right;">
        <A href="/wiki/display/tc/How+to+Get+Paid+for+Competing"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
     </div>
-    <span class="bodySubtitle">Assignment Documents > </span><br />
+    <span class="bodySubtitle">Assignment Document > </span><br />
     <c:if test="${full_list}" >
         View all | <a href="/PactsMemberServlet?module=AssignmentDocumentHistory&full_list=false" class="bcLink">View pending</a>
     </c:if>
@@ -86,7 +86,7 @@
         <a href="/PactsMemberServlet?module=AssignmentDocumentHistory&full_list=true" class="bcLink">View all</a> | View pending
     </c:if>
     <div align="center">
-        <a class="bcLink" href="/tc?module=Static&d1=help&d2=assignmentDocFaq">What is an Assignment Document?</a><br /><br />
+        <a class="bcLink" href="/tc?module=Static&amp;d1=help&amp;d2=assignmentDocFaq">What is an Assignment Document?</a><br /><br />
     </div>
 
 </div>
@@ -278,7 +278,7 @@
     </c:when>
     <c:otherwise>
         <div align="center">
-        <strong>No Assignment Documents Found</strong>
+        <strong>No Assignment Document Found</strong>
         </div>
     </c:otherwise>
 </c:choose>

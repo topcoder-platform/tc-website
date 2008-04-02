@@ -40,7 +40,9 @@
 
                 <div class="bigTitle">Assignment Documents FAQ</div>
                 
-                <div align="right"><a target="_blank" href="/wiki/display/tc/The+Assignment+Document">Download the Assignment</a></div>
+                <div align="right">
+                    <a target="_blank" href="/wiki/display/tc/The+Assignment+Document">Download Assignment</a><br />
+                    <a href="/PactsMemberServlet?module=AssignmentDocumentHistory">Assignment Status</a></div>
                     
                 <div>
                     <p><strong>What is the Assignment?</strong></p>
