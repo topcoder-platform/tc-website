@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">04.02.08 5:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly">NSA chat before SRM 396</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.26.08 4:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa">NSA chat before SRM 395</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.26.08 9:30 AM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about">TCO08 Finalists Documents Due at 5:00 PM EST</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.19.08 3:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisignChat20080311">VeriSign SRM 393 Chat Transcript Available</a></td></tr>
