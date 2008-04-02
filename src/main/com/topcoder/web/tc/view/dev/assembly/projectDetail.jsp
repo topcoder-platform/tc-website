@@ -79,8 +79,8 @@
          $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br>
          <rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/>
          </div>
-      <strong>Winning Team:<br>
-      Second Place Team:<br>
+      <strong>1st Place:<br>
+      2nd Place:<br>
       Due date:</strong> 
       </div>
       </td>
@@ -134,12 +134,6 @@
     after you successfully register for this competition.
 </p>
 
-<p>
-Please use 
-<a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=19">these forums</a>
-to form your team.
-</p>
-
 <br>
 <span class="bigRed">NOTE: Please see the eligibility requirements below. Competitors must sign a non-disclosure agreement before being admitted into this competition.   If you have previously completed these documents, no further action is needed.</span>
 
@@ -185,16 +179,16 @@ to form your team.
     </tr>
 </table>
 <p>
-TopCoder will compensate teams with first and second place submissions. 
-Initial payment for the winning team will be distributed in two installments. 
+TopCoder will compensate the first and second place submissions. 
+Initial payment for the winner will be distributed in two installments. 
 First Milestone: When the winning solution is submitted and review board suggestions are integrated. 
 Second Milestone: Marked by the completion of the Deployment phase of the project.</p>
 
-<p><strong>Winning Team</strong><br>
+<p><strong>Winner</strong><br>
     Total Payment - $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br>
 </p>
 
-<p><strong>Second Place Team</strong><br>
+<p><strong>2nd Place</strong><br>
     Total Payment - $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br>
 </p>
 
