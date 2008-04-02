@@ -77,7 +77,7 @@
             <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
             <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
             <div align="right">
-                <span class="bigRed"><a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/download/attachments/22249776/TopCoder+Competition+Assignment+ver2.0.pdf">Download Assignment Document</a></span><br />
+                <span class="bigRed"><a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/The+Assignment+Document">Download Assignment Document</a></span><br />
             </div>
             <table class="stat" cellpadding="0" cellspacing="0" width="100%">
             <tbody>
