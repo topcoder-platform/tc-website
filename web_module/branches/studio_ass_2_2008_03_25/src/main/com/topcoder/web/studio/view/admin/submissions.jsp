@@ -144,7 +144,7 @@ Show submissions by (Enter Handle):
     <td class="header">
         Submission
         <br /><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_handle")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Sort by handle</a> |
-        <a href="">Sort by submission ID</a>
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submission_id")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Sort by submission ID</a>
     </td>
     <td class="headerC">
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_rank")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter<br />Rank</a>
@@ -182,12 +182,6 @@ Show submissions by (Enter Handle):
             </c:otherwise>
         </c:choose>
     </td>
-        <c:if test="${currentTime>contest.endTime}">
-    <td class="headerC">
-        OR
-    </td>
-        </c:if>
-
     <td class="headerE">
         <div>&nbsp;</div>
     </td>
@@ -210,8 +204,8 @@ Show submissions by (Enter Handle):
         </c:choose>
         </td>
         <td class="value">
-            <span class="coderText"><rsc:item name="submitter_handle" row="<%=resultRow%>"/></span>
-            <br /><strong><a href=""><rsc:item name="submission_id" row="<%=resultRow%>"/></a></strong>
+            <span class="coderText"><studio:handle coderId="${resultRow.map['submitter_id']}"/></span>
+            <br /><strong><rsc:item name="submission_id" row="<%=resultRow%>"/></strong>
             <br /><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>"><rsc:item name="original_file_name" row="<%=resultRow%>"/></a>
             <%if (resultRow.getIntItem("submission_type_id") != SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
             <br /><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissionDetail&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
@@ -230,7 +224,7 @@ Show submissions by (Enter Handle):
                                     </c:choose>
     
                                 </button>
-                        </c:when>
+                        </c:when>contest
                         <c:otherwise>
                             &nbsp;
                         </c:otherwise>
