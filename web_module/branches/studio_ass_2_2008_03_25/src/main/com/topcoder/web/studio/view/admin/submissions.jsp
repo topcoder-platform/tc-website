@@ -225,7 +225,7 @@ Show submissions by (Enter Handle):
                                     </c:choose>
     
                                 </button>
-                        </c:when>contest
+                        </c:when>
                         <c:otherwise>
                             &nbsp;
                         </c:otherwise>
