@@ -216,7 +216,7 @@ Show submissions by (Enter Handle):
             <%if (resultRow.getIntItem("submission_type_id") != SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
             <br /><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissionDetail&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
             <% } %>
-            <c:if test="${currentTime>contest.endTime && not empty contest.projectId}">
+            <c:if test="${currentTime>contest.endTime && not empty contest.project}">
                     <c:choose>
                         <c:when test="${resultRow.map['review_status_id']==passed}">
                                 <button name="submit${resultRow.map['submission_id']}" value="submit" type="submit" onclick="sendToReview(${resultRow.map['submission_id']})">
