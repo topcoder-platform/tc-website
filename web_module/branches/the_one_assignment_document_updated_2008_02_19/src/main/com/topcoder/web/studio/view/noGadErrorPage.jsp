@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.common.BaseServlet" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="java.util.Date" %>
 <%@ page isErrorPage="true" %>
 <?xml version="1.0" encoding="utf-8"?>
@@ -36,7 +37,7 @@
                 <div align="center">
                     <div style="width:500px; padding: 50px 0px 100px 0px;">
                         <p style="text-align:center;"><strong>Before you can submit for this contest you must send us<br />a signed copy of the Assignment Document:</strong><br /><br />
-                        <a href="#">Download the Assignment Document</a> and <a href="${sessionInfo.servletPath}?module=Static&amp;d1=gadContactPage">Send in your signed copy</a><br /><br />
+                        <a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/download/attachments/22249776/TopCoder+Competition+Assignment+ver2.0.pdf">Download the Assignment Document</a> and <a href="${sessionInfo.servletPath}?module=Static&amp;d1=gadContactPage">Send in your signed copy</a><br /><br />
                         <strong>If you've already sent us your document:</strong><br /><br />
                         <a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Check on the status of my Assignment Document</a><br /><br />
                         <strong>For any other questions:</strong><br /><br />
