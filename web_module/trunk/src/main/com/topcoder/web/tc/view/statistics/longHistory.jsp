@@ -2,6 +2,7 @@
 <%@ page import="java.util.Map" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <% ResultSetContainer results = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("long_comp_history"); %>
 
@@ -69,12 +70,19 @@
         <TD CLASS="headerR" align="right">&#160;</TD>
     </tr>
     <%boolean even = true;%>
+    <c:set value="<%=Constants.LONG_ROUND_TOURNAMENT_TYPE_ID%>" var="tourneyRound"/>
+
     <rsc:iterator list="<%=results%>" id="resultRow">
         <tr class="<%=even?"light":"dark"%>">
             <td class="value"><a href="/longcontest/stats/?module=ViewOverview&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>">
-                    <%= com.topcoder.web.codinginterface.longcontest.Helper.displayName(
-                            resultRow.getIntItem("round_type_id"), resultRow.getStringItem("contest_name"), resultRow.getStringItem("round_name"))
-                             %>                                        
+                <c:choose>
+                    <c:when test="${resultRow.map['round_type_id']==19}">
+                        ${resultRow.map['contest_name']} ${resultRow.map['round_name']}
+                    </c:when>
+                    <c:otherwise>
+                        ${resultRow.map['round_name']}
+                    </c:otherwise>
+                </c:choose>
                 </a>
             </td>
             <td class="valueR"><rsc:item row="<%=resultRow%>" name="placed"/></TD>
