@@ -539,7 +539,9 @@
         <antcall target="deploy-email"/>
         <antcall target="deploy-corp"/>
         <antcall target="deploy-privatelabel"/>
+<!-- don't deploy this on the main site anymore
         <antcall target="deploy-longcontest"/>
+-->
         <antcall target="deploy-reg"/>
         <antcall target="deploy-ep"/>
 
@@ -557,7 +559,9 @@
         <antcall target="expand-email"/>
         <antcall target="expand-corp"/>
         <antcall target="expand-privatelabel"/>
+<!-- don't deploy this on the main site anymore
         <antcall target="expand-longcontest"/>
+-->
         <antcall target="expand-reg"/>
         <antcall target="expand-ep"/>
 
@@ -589,7 +593,9 @@
                 <include name="cache.properties"/>
                 <include name="Email.properties"/>
                 <include name="EmailEngineConfig.properties"/>
+                <!-- don't deploy this on the main site anymore
                 <include name="LongContest.properties"/>
+                -->
             </fileset>
         </copy>
         <copy todir="${jboss_conf}">
@@ -638,10 +644,11 @@
                 <include name="fileconvert.jar"/>
                 <include name="httpunit.jar"/>
                 <include name="itext-1.1.jar"/>
-
+<!-- don't deploy this on the main site anymore
                 <include name="tc.jar"/>
                 <include name="TestServices.jar"/>
                 <include name="asyncservices.jar"/>
+                -->
             </fileset>
             <fileset dir="${jars.dir}/tcs/id_generator/3.0">
                 <include name="id_generator.jar"/>
