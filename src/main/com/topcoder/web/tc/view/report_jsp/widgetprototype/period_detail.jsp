@@ -5,7 +5,6 @@
     <title>Report Widget</title>
     <link href="/css/widgets/cost_report/reportStyles.css" rel="stylesheet" type="text/css" />
 
-
 <%@ include file="remote.jsp" %>
 <script>
 
@@ -64,9 +63,32 @@ function prepareCloses() {
 
 function openwindow(projId)
 {
-    window.open("/tc?module=Static&d1=cost_report&d2=component_detail&pj="+projId,"mywindow","menubar=1,resizable=1,width=700,height=500,scrollbars=yes");
+    window.open("/tc?module=Static&d1=report_jsp&d2=widgetprototype&d3=component_detail&pj="+projId,"mywindow","menubar=1,resizable=1,width=700,height=500,scrollbars=yes");
 }
 
+function parseParams() {
+    var params = [];
+
+    qs=location.search.substring(1,location.search.length)
+    if (qs.length == 0) return params;
+
+    qs = qs.replace(/\+/g, ' ')
+    var args = qs.split('&')
+
+    for (var i=0;i<args.length;i++) {
+        var value;
+        var pair = args[i].split('=')
+        var name = unescape(pair[0])
+
+        if (pair.length == 2)
+            value = unescape(pair[1])
+        else
+            value = name
+
+        params[name] = value
+    }
+    return params;
+}
 
 function addCommas(nStr)
 {
@@ -82,22 +104,6 @@ function addCommas(nStr)
 }
 
 
-function formatDate(d) {
-   if (d == undefined || d.length < 10) return '';
-
-   return d.substring(5,7) + '/' + d.substring(8,10)+ '/'+ d.substring(0,4);
-}
-
-
-
-
-function formatAmount(a) {
-   if (a == undefined || a.length == 0) return '';
-   
-   return addCommas(parseFloat(a).toFixed(2));
-
-}
-
 function getNum(n) {
    if (n  == undefined || n == '') return 0.0;
    try {
@@ -109,52 +115,69 @@ function getNum(n) {
       return 0;
    }
 }
+
+function formatDate(d) {
+   if (d == undefined || d.length < 10) return '';
+
+   return d.substring(5,7) + '/' + d.substring(8,10)+ '/'+ d.substring(0,4);
+}
+
+
+
 function display(root) {
+
     var entries = root.data || [];
+    var sumCost = 0;
+    var sumReviewCost = 0;
 
     var html = ['<table width="100%" border="0" cellspacing="0" cellpadding="0" id="report">',
         '<colgroup class="align_left"></colgroup>',
         '<colgroup span="7" class="align_right"></colgroup>',
         '<tr>',
-            '<th>Payment Type</th>',
-            '<th>Member</th>',
-            '<th>Gross Amount</th>',
-            '<th>Payment Status</th>',
-            '<th>Phase</th>',
-            '<th>Due Date</th>',
-            '<th>Paid Date</th>',
-            '<th>Client Name</th>',
+            '<th>Component</th>',
+            '<th>Ver</th>',
+            '<th>Catalog</th>',
+            '<th>Total Cost</th>',
+            '<th>Review Cost</th>',
+            '<th>Competition End</th>',
+            '<th>Design Posts</th>',
+            '<th>Dev Posts</th>',
         '</tr>'];
 
-    var total=0;
-    
+
     for (var i = 0; i < entries.length; ++i) {
         var e = entries[i];
 
         html.push('<tr', (i % 2 ==0 ? '' : ' class="alter"'),'>');
-        html.push('<td align="left">', e.payment_type_desc ,'</td>');
-        html.push('<td align="left">', e.member_handle ,'</td>');
-        html.push('<td align="right">', formatAmount(e.gross_amount) ,'</td>');
-        html.push('<td align="left">', e.payment_status_desc ,'</td>');
-        html.push('<td align="left">', e.phase_desc ,'</td>');
-        html.push('<td align="right">', formatDate(e.due_date),'</td>');
-        html.push('<td align="right">', formatDate(e.paid_date) ,'</td>');
-        html.push('<td align="left">', e.client_name ,'</td>');
+        html.push('<td align="left">', e.component_name ,'</td>');
+        html.push('<td align="left">', e.version_text ,'</td>');
+        html.push('<td>', e.category_desc ,'</td>');
+        html.push('<td align="right">','<a href="javascript: openwindow(',e.project_id,')">', addCommas(parseFloat(e.total_cost).toFixed(0)), '</a>','</td>');
+        html.push('<td align="right">', addCommas(parseFloat(e.review_cost).toFixed(0)),'</td>');
+        html.push('<td align="right">', formatDate(e.complete_date) ,'</td>');
+        html.push('<td align="right">', e.num_design_contests ,'</td>');
+        html.push('<td align="right">', e.num_dev_contests ,'</td>');
         html.push('</tr>');
         
-        total += getNum(e.gross_amount);
+        
+        
+        sumCost += getNum(e.total_cost);
+        sumReviewCost += getNum(e.review_cost);
     }
-
+    
     html.push('<tr>');
     html.push('<td><b>Total</b></td>');
     html.push('<td></td>');
-    html.push('<td align="right">', addCommas(parseFloat(total).toFixed(2)),'</td>');
     html.push('<td></td>');
-    html.push('<td></td>');
+    html.push('<td align="right">', addCommas(parseFloat(sumCost).toFixed(0)),'</td>');
+    html.push('<td align="right">', addCommas(parseFloat(sumReviewCost).toFixed(0)),'</td>');
     html.push('<td></td>');
     html.push('<td></td>');
     html.push('<td></td>');
     html.push('</tr>');
+
+
+
 
     html.push('</table>');
     document.getElementById("data").innerHTML = html.join("");
@@ -162,19 +185,24 @@ function display(root) {
 }
 
 
+
 function runReport() {
+   
     var url = 'http://<%= request.getServerName() %>/tc';
     
     var req = new Remote.XHR(url); 
     req.setResponse("text");
     req.setQuery("module", "BasicData");
-    req.setQuery("c", "dd_project_payments_scrubbed");
+    req.setQuery("c", "dd_all_projects_cost_by_date");
     req.setQuery("json", "true");
     
-    req.setQuery("pj", "${param.pj}" );
+    req.setQuery("sdt", "${param.sdt}" );
+    req.setQuery("edt", "${param.edt}");
+    if ("${param.catn}" != "") req.setQuery("catn", "${param.catn}");
     
     req.callback("display"); 
-
+    
+    
 }
 
 </script>
@@ -188,11 +216,9 @@ function runReport() {
 <div id='runJS'></div>
 </form>
 
-
 <div class="wrapper" id="data">
 Please wait while the report is being generated
-</div>
-
+    </div>
 <!-- End wrapper -->
 </body>
 </html>
