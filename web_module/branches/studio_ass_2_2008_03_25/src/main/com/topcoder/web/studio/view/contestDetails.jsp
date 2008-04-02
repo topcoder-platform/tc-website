@@ -51,7 +51,7 @@
 </div>
 
 <div style="float:right;">
-    <a href="FORUM LINK"><img src="/i/v2/interface/btnContestForum.png" alt="Visit Contest Forum" /></a>
+    <studio:forumLink forumID="${contest.forumId}" message="<img src='/i/v2/interface/btnContestForum.png' alt='Visit Contest Forum' />"/>
 </div>
 
 <h1>Contest Details</h1>
