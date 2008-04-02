@@ -44,7 +44,7 @@ crappy looking to save space on the transmission
 ${submission.originalFileName}
 </c:when>
 <c:otherwise>
-<nobr><img src="/i/v2/selection.png" alt="Selection" /> ${submission.originalFileName}</nobr>
+<nobr><img src="/i/v2/selection.png" alt="Selection" /> <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=original">${submission.originalFileName}</a></nobr>
 </c:otherwise>
 </c:choose>
 </td>
