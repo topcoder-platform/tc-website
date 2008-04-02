@@ -273,10 +273,10 @@ Show submissions by (Enter Handle):
                     &#160;
                 </c:when>
                 <c:when test="${resultRow.map['review_status_id']==passed}">
-                    <span class="bigGreen"><rsc:item name="review_status_desc" row="<%=resultRow%>" ifNull="-"/></span>
+                    <div class="bigGreen"><rsc:item name="review_status_desc" row="<%=resultRow%>" ifNull="-"/></div>
                 </c:when>
                 <c:otherwise>
-                    <span class="bigRed"><rsc:item name="review_status_desc" row="<%=resultRow%>" ifNull="-"/></span>
+                    <div class="bigRed"><rsc:item name="review_status_desc" row="<%=resultRow%>" ifNull="-"/></div>
                 </c:otherwise>
             </c:choose>
             <c:choose>
