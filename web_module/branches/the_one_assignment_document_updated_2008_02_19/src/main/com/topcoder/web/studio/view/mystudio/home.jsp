@@ -35,7 +35,7 @@
         
                         <h3>Documentation:</h3>
         
-                        <p><span class="bigRed"><a href="#">Download Assignment Document</a></span></p>
+                        <p><span class="bigRed"><a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/download/attachments/22249776/TopCoder+Competition+Assignment+ver2.0.pdf">Download Assignment Document</a></span></p>
                         <p>
                             <a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Assignment Document</a>
                         </p>

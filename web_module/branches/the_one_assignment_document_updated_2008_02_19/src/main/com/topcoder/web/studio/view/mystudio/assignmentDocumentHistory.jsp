@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <%@ page import="com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentStatus" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.controller.request.mystudio.AssignmentDocumentHistory" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -76,7 +77,7 @@
             <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
             <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
             <div align="right">
-                <span class="bigRed"><a href="#">Download Assignment Document</a></span><br />
+                <span class="bigRed"><a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/download/attachments/22249776/TopCoder+Competition+Assignment+ver2.0.pdf">Download Assignment Document</a></span><br />
             </div>
             <table class="stat" cellpadding="0" cellspacing="0" width="100%">
             <tbody>

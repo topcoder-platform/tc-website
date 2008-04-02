@@ -46,7 +46,7 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-                        <h1>Assignment Documents</h1>
+                        <h1>Assignment Document</h1>
                         
                         <p align="right"><a href="${sessionInfo.servletPath}?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">Printer friendly version</a></p>
                         <div align="center">
