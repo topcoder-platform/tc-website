@@ -81,11 +81,15 @@ function addCommas(nStr)
     return x1 + x2;
 }
 
+
 function formatDate(d) {
    if (d == undefined || d.length < 10) return '';
-   
-   return d.substring(8,10), '/', d.substring(5,7), '/', d.substring(0,4);
+
+   return d.substring(5,7) + '/' + d.substring(8,10)+ '/'+ d.substring(0,4);
 }
+
+
+
 
 function formatAmount(a) {
    if (a == undefined || a.length == 0) return '';

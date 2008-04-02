@@ -116,6 +116,14 @@ function getNum(n) {
    }
 }
 
+function formatDate(d) {
+   if (d == undefined || d.length < 10) return '';
+
+   return d.substring(5,7) + '/' + d.substring(8,10)+ '/'+ d.substring(0,4);
+}
+
+
+
 function display(root) {
 
     var entries = root.data || [];
@@ -146,7 +154,7 @@ function display(root) {
         html.push('<td>', e.category_desc ,'</td>');
         html.push('<td align="right">','<a href="javascript: openwindow(',e.project_id,')">', addCommas(parseFloat(e.total_cost).toFixed(0)), '</a>','</td>');
         html.push('<td align="right">', addCommas(parseFloat(e.review_cost).toFixed(0)),'</td>');
-        html.push('<td align="right">', e.complete_date.substring(8,10), '/', e.complete_date.substring(5,7), '/', e.complete_date.substring(0,4) ,'</td>');
+        html.push('<td align="right">', formatDate(e.complete_date) ,'</td>');
         html.push('<td align="right">', e.num_design_contests ,'</td>');
         html.push('<td align="right">', e.num_dev_contests ,'</td>');
         html.push('</tr>');
