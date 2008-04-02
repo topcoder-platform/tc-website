@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <%@ page import="com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentStatus" %>
 <%@ page import="com.topcoder.web.studio.controller.request.mystudio.AssignmentDocumentHistory" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -67,8 +68,8 @@
 
                 <div style="float: right; text-align: left; margin: 0px 0px 10px 10px;">
                     Assignment FAQ
-                    <br /><a href="#">Download Assignment</a>
-                    <br /><a href="gadContactPage">Send Assignment</a>
+                    <br /><a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/download/attachments/22249776/TopCoder+Competition+Assignment+ver2.0.pdf">Download Assignment</a>
+                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=gadContactPage">Send Assignment</a>
                     <br /><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Assignment Status</a>
                 </div>
                 
