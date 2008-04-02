@@ -53,12 +53,16 @@ public abstract class Base extends LongHibernateProcessor {
             }
         }
 
-        if (getNewRegistration() == null) {
-            boolean newReg = !userLoggedIn();
-            if (!userLoggedIn() && getRequest().getParameter(Constants.NEW_REG) != null) {
-                newReg = String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.NEW_REG));
-            }
-            setNewRegistration(newReg);
+        //this flag rules all, if it's set, we assume it's set for a good reason.
+        if (getRequest().getParameter(Constants.NEW_REG) != null) {
+            setNewRegistration(String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.NEW_REG)));
+        } else {
+            setNewRegistration(!userLoggedIn());
+        }
+
+        if (!isNewRegistration() && userLoggedIn()) {
+            throw new NavigationException("It appears as though you are attempting to create a new account, but you " +
+                    "already have one.  TopCoder only allows one account per person.");
         }
 
         if (!isNewRegistration() && !userLoggedIn()) {
