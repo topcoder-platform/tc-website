@@ -100,7 +100,7 @@
         <tbody>
             <tr><td class="title" colspan="4">Assignment Document Status</td></tr>
             <tr class="light">
-                <td class="value"><strong>Assignment Document Received (Y/N)</strong></td>
+                <td class="value"><strong>Assignment Document Received</strong></td>
                 <td class="valueC">
                     <c:choose>
                         <c:when test="${has_global_ad}">
