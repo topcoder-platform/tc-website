@@ -34,15 +34,15 @@
                 <h1>Send Assignment Document</h1>
 
                 <div align="center">
-                    <div style="width:500px; padding: 50px 0px 100px 0px;">
+                    <div style="width:500px; padding: 50px 0px 100px 0px; text-align:left;">
                         <p><strong>You can email it to us at:</strong><br /><br />
                         <a href="mailto:payments@topcoder.com?subject=Assignment Document">payments@topcoder.com</a><br /><br />
                         <strong>You can also send it to us by mail at:</strong><br /><br />
                         TopCoder, Inc.<br />
                         95 Glastonbury Blvd<br />
-                        Glastonbury, CT 06033 U.S.A.<br />
+                        Glastonbury, CT 06033 U.S.A.<br /><br />
                         <strong>You can also send it to us by fax at:</strong><br /><br />
-                        860.657.4276<br />
+                        860.657.4276<br /><br />
                         Upon receipt, the Assignment Document is processed immediately in order of arrival. You can view the status of your assignment document <a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">here</a>.</p>
                     </div>
                     <%=new Date().toString()%>
