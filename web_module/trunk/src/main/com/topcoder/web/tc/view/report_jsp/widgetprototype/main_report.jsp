@@ -201,7 +201,7 @@ function display(root) {
             var linkParams = 'sdt=' + periodsData[p].sdt + '&edt=' + periodsData[p].edt + '&catn=' + categories[i].replace(/\+/g, '%2B');
 
             html.push('<td align="right">',
-                        '<a href="/tc?module=Static&d1=cost_report&d2=period_detail&', linkParams,'">', (x == undefined || x == 0? '&nbsp' : addCommas(x.toFixed(0))), '</a></td>');
+                        '<a href="/tc?module=Static&d1=report_jsp&d2=widgetprototype&d3=period_detail&', linkParams,'">', (x == undefined || x == 0? '&nbsp' : addCommas(x.toFixed(0))), '</a></td>');
         }
 
         var summary;
@@ -211,7 +211,7 @@ function display(root) {
 
         var summaryParams = 'sdt=' + prepareDate(document.main.from.value) + '&edt=' + prepareDate(document.main.to.value) + '&catn=' + categories[i].replace(/\+/g, '%2B');
 
-        html.push('<td align="right">','<a href="/tc?module=Static&d1=cost_report&d2=period_detail&', summaryParams,'">',
+        html.push('<td align="right">','<a href="/tc?module=Static&d1=report_jsp&d2=widgetprototype&d3=period_detail&', summaryParams,'">',
                 (summary == undefined || summary == 0? '&nbsp' : addCommas(summary.toFixed(0))), '</a></td>');
 
         html.push('</tr>');
@@ -237,7 +237,7 @@ function display(root) {
     
         var linkParams = 'sdt=' + periodsData[p].sdt + '&edt=' + periodsData[p].edt;
         html.push('<td align="right">',
-                '<a href="/tc?module=Static&d1=cost_report&d2=period_detail&', linkParams,'">',
+                '<a href="/tc?module=Static&d1=report_jsp&d2=widgetprototype&d3=period_detail&', linkParams,'">',
                 
                 addCommas(tot.toFixed(0)), '</a></td>');
     }
@@ -249,7 +249,7 @@ function display(root) {
 
     var summaryParams = 'sdt=' + prepareDate(document.main.from.value) + '&edt=' + prepareDate(document.main.to.value);
     html.push('<td align="right">',
-            '<a href="/tc?module=Static&d1=cost_report&d2=period_detail&', summaryParams,'">',
+            '<a href="/tc?module=Static&d1=report_jsp&d2=widgetprototype&d3=period_detail&', summaryParams,'">',
 
             addCommas(tot.toFixed(0)), '</a></td>');
 
