@@ -70,8 +70,6 @@
         <TD CLASS="headerR" align="right">&#160;</TD>
     </tr>
     <%boolean even = true;%>
-    <c:set value="<%=Constants.LONG_ROUND_TOURNAMENT_TYPE_ID%>" var="tourneyRound"/>
-
     <rsc:iterator list="<%=results%>" id="resultRow">
         <tr class="<%=even?"light":"dark"%>">
             <td class="value"><a href="/longcontest/stats/?module=ViewOverview&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>">
