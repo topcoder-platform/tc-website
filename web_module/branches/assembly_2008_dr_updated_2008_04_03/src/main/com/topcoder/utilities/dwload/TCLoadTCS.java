@@ -874,8 +874,8 @@ public class TCLoadTCS extends TCLoad {
                             //todo again...none of this aggregate data should come from transactional
                             "   ,(select avg(case when raw_score is null then 0 else raw_score end) from project_result where project_id = p.project_id and raw_score is not null) as avg_raw_score " +
                             "   ,(select avg(case when final_score is null then 0 else final_score end) from project_result where project_id = p.project_id and final_score is not null) as avg_final_score " +
-                            "   ,case when p.project_category_id = 1 then 112 when p.project_category_id = 2 then 113 else null end  as phase_id " +
-                            "   ,case when p.project_category_id = 1 then 'Design' when p.project_category_id = 2 then 'Development' else null end as phase_desc " +
+                            "   ,case when p.project_category_id = 1 then 112 when p.project_category_id = 2 then 113 when p.project_category_id = 14 then 114 else null end  as phase_id " +
+                            "   ,case when p.project_category_id = 1 then 'Design' when p.project_category_id = 2 then 'Development' when p.project_category_id = 14 then 'Assembly' else null end as phase_desc " +
                             "   ,cat.category_id " +
                             "   ,cat.category_name as category_desc " +
                             "   ,case when ppd.actual_start_time is not null then ppd.actual_start_time else psd.actual_start_time end as posting_date " +
