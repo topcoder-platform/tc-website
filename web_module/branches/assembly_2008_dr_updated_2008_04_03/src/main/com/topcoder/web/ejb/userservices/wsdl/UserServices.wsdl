@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name='UserServices' targetNamespace='http://userservices.ejb.web.topcoder.com/' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:ns1='http://userservices.ejb.web.topcoder.com/types' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://userservices.ejb.web.topcoder.com/' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <schema targetNamespace='http://userservices.ejb.web.topcoder.com/types' xmlns='http://www.w3.org/2001/XMLSchema' xmlns:soap11-enc='http://schemas.xmlsoap.org/soap/encoding/' xmlns:tns='http://userservices.ejb.web.topcoder.com/types' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+   <complexType name='int.Array'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='value' type='int'/>
+    </sequence>
+   </complexType>
+  </schema>
+ </types>
+ <message name='UserServicesWS_isRated'>
+  <part name='long_1' type='xsd:long'/>
+ </message>
+ <message name='UserServicesWS_isRatedResponse'>
+  <part name='result' type='xsd:boolean'/>
+ </message>
+ <message name='UserServicesWS_hasCompetitionRegistration'>
+  <part name='long_1' type='xsd:long'/>
+  <part name='int_2' type='xsd:int'/>
+  <part name='arrayOfint_3' type='ns1:int.Array'/>
+ </message>
+ <message name='UserServicesWS_hasCompetitionRegistrationResponse'>
+  <part name='result' type='xsd:boolean'/>
+ </message>
+ <portType name='UserServicesWS'>
+  <operation name='isRated' parameterOrder='long_1'>
+   <input message='tns:UserServicesWS_isRated'/>
+   <output message='tns:UserServicesWS_isRatedResponse'/>
+  </operation>
+  <operation name='hasCompetitionRegistration' parameterOrder='long_1 int_2 arrayOfint_3'>
+   <input message='tns:UserServicesWS_hasCompetitionRegistration'/>
+   <output message='tns:UserServicesWS_hasCompetitionRegistrationResponse'/>
+  </operation>
+ </portType>
+ <binding name='UserServicesWSBinding' type='tns:UserServicesWS'>
+  <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='isRated'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://userservices.ejb.web.topcoder.com/' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://userservices.ejb.web.topcoder.com/' use='literal'/>
+   </output>
+  </operation>
+  <operation name='hasCompetitionRegistration'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://userservices.ejb.web.topcoder.com/' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://userservices.ejb.web.topcoder.com/' use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='UserServices'>
+  <port binding='tns:UserServicesWSBinding' name='UserServicesWSPort'>
+   <soap:address location='REPLACE_WITH_ACTUAL_URL'/>
+  </port>
+ </service>
+</definitions>
