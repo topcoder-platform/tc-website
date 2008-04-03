@@ -1,16 +1,18 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.model.Referral" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
-<%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="reg-tags" prefix="rt" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-<html>
+<%@ page contentType="text/html;charset=utf-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Registration</title>
     <jsp:include page="script.jsp"/>
     <jsp:include page="style.jsp">
@@ -81,29 +83,36 @@
 </head>
 
 <body
-        <c:if test="${cf:contains(fields, referral)}">onLoad="referralSelection()"</c:if>
+        <c:if test="${cf:contains(fields, referral)}">onload="referralSelection()"</c:if>
         >
 
-<div align="center" style="padding:6px 0px 6px; 0px;">
-    <A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder"
-                                                             border="0"/></A>
+<%-- THE align="center" IS REQUIRED TO EVER CENTER IT, BUT THAT CAN BE OVERRULED TO LEFT OR RIGHT WITH CSS --%>
+<div id="pageBranding" align="center">
+    <a href="http://<%=ApplicationServer.SERVER_NAME%>">&nbsp;</a>
 </div>
 
-<div align="center">
-<div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
+<div id="pageAligner" align="center">
+    <div id="pageSpacer">
+    
+    <div id="pageTitle"><div>&nbsp;</div></div>
 
-<jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="registration_w"/>
-    <jsp:param name="title" value="&#160;"/>
-</jsp:include>
+    <c:choose>
+    <c:when test="${!sessionInfo.loggedIn}">
+        <div align="center" class="topMessage small">
+            (<a href="/reg/?nrg=false">Click here</a> if you're already a registered member and would like to update
+            your profile.)
+        </div>
+    </c:when>
+    <c:otherwise>
+        <div id="logoutLink">
+            <a href="${sessionInfo.servletPath}?module=Logout">Log out</a>
+        </div>
+    </c:otherwise>
+    </c:choose>
 
 <div id="regBcContainer">
     <div class="regBc">
         <div class="title">
-            <c:if test="${sessionInfo.loggedIn}">
-                <div style="float:left;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A>
-                </div>
-            </c:if>
             Step <strong>3</strong> of
             <c:choose>
                 <c:when test="${isNewReg}">
@@ -128,6 +137,10 @@
             <div class="off">Activation</div>
         </c:if>
     </div>
+</div>
+
+<div class="regSection">
+    Demographics Information
 </div>
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" name="secondaryForm"
@@ -162,22 +175,22 @@
     <tc-webtag:hiddenInput name="${schoolType}"/>
 </c:if>
 
-<table cellpadding="0" cellspacing="0" border="0" class="regFields" style="width:400px; margin-right: 200px;">
+<table cellpadding="0" cellspacing="0" border="0" class="regFields">
 <tbody>
-
+<%int i = 0;%>
 
 <%--Demographics--%>
 <c:set value="<%=Constants.DEMOG_PREFIX%>" var="demogPrefix"/>
 <c:if test="${cf:contains(fields, demogPrefix)}">
     <rt:questionIterator id="assignment" list="${demographicAssignments}">
-        <tr>
-            <td colspan="2"><span class="bigRed">
+        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
+            <td colspan="2">
                         <tc-webtag:errorIterator id="err" name="${demogPrefix}${assignment.question.id}">${err}
-                            <br></tc-webtag:errorIterator></span>
+                            <br /></tc-webtag:errorIterator>
             </td>
         </tr>
-        <tr>
-            <td class="name">
+        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
+            <td class="field">
                 <c:if test="${assignment.required}">
                     *
                 </c:if>
@@ -186,27 +199,28 @@
             </td>
             <td class="value">
                 <rt:demographicInput question="${assignment.question}"/>
-                <c:if test="${assignment.question.description!=null}"><br>
+                <c:if test="${assignment.question.description!=null}"><br />
                     <span class="small">${assignment.question.description}</span></c:if>
             </td>
         </tr>
+        <%i++;%>
     </rt:questionIterator>
 </c:if>
 
 
 <c:if test="${cf:contains(fields, schoolName)}">
-    <tr>
-        <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="${schoolName}">${err}<br></tc-webtag:errorIterator>
-            <tc-webtag:errorIterator id="err" name="${schoolCity}">${err}<br></tc-webtag:errorIterator>
-            <tc-webtag:errorIterator id="err" name="${schoolProvince}">${err}<br></tc-webtag:errorIterator>
-            <tc-webtag:errorIterator id="err" name="${schoolCountry}">${err}<br></tc-webtag:errorIterator>
-            <tc-webtag:errorIterator id="err" name="${schoolState}">${err}<br></tc-webtag:errorIterator>
-            <tc-webtag:errorIterator id="err" name="${schoolId}">${err}<br></tc-webtag:errorIterator>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
+            <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="${schoolName}">${err}<br /></tc-webtag:errorIterator>
+            <tc-webtag:errorIterator id="err" name="${schoolCity}">${err}<br /></tc-webtag:errorIterator>
+            <tc-webtag:errorIterator id="err" name="${schoolProvince}">${err}<br /></tc-webtag:errorIterator>
+            <tc-webtag:errorIterator id="err" name="${schoolCountry}">${err}<br /></tc-webtag:errorIterator>
+            <tc-webtag:errorIterator id="err" name="${schoolState}">${err}<br /></tc-webtag:errorIterator>
+            <tc-webtag:errorIterator id="err" name="${schoolId}">${err}<br /></tc-webtag:errorIterator>
         </td>
     </tr>
-    <tr>
-        <td class="name">
+    <tr class="<%=(i%2==0 ? "odd" : "even")%>">
+        <td class="field">
             <c:if test="${cf:contains(reqFields, schoolName)}">*</c:if>
             School:
         </td>
@@ -215,31 +229,33 @@
                                                        maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>"
                                                        editable="false"/></span>
                 <%--School widget--%>
-            <br>
+            <br />
             <a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',600,500);">Choose
                 School</a>
         </td>
     </tr>
+        <%i++;%>
     <c:set value="<%=Constants.VISIBLE_SCHOOL%>" var="visibleSchool"/>
     <c:if test="${cf:contains(fields, visibleSchool)}">
-        <tr>
-            <td colspan="2"><span class="bigRed">
-            <tc-webtag:errorIterator id="err" name="${visibleSchool}">${err}<br></tc-webtag:errorIterator></span>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
+            <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="${visibleSchool}">${err}<br /></tc-webtag:errorIterator>
             </td>
         </tr>
-        <tr>
-            <td class="name">
+        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
+            <td class="field">
                 <c:if test="${cf:contains(reqFields, visibleSchool)}">*</c:if>
                 Show / hide my school:
             </td>
             <td class="value">
                 <tc-webtag:radioButton name="${visibleSchool}" value="show"/>
                 Show
-                <br/>
+                <br />
                 <tc-webtag:radioButton name="${visibleSchool}" value="hide"/>
                 Hide
             </td>
         </tr>
+        <%i++;%>
     </c:if>
 
 
@@ -248,77 +264,82 @@
 
 <c:set value="<%=Constants.GPA%>" var="gpa"/>
 <c:if test="${cf:contains(fields, gpa)}">
-<tr>
-    <td colspan="2"><span class="bigRed">
-            <tc-webtag:errorIterator id="err" name="<%=Constants.GPA%>"><%=err%><br></tc-webtag:errorIterator></span>
-    </td>
-</tr>
-<tr>
-<td class="name">
-    <c:if test="${cf:contains(reqFields, gpa)}">*</c:if>
-    GPA:
-</td>
-<td class="value">
-    <tc-webtag:textInput name="<%=Constants.GPA%>" size="4" maxlength="<%=Constants.MAX_GPA_LENGTH%>" editable="true"/>
-</td>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
+            <td colspan="2">
+                <tc-webtag:errorIterator id="err" name="<%=Constants.GPA%>"><%=err%><br /></tc-webtag:errorIterator>
+            </td>
+        </tr>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
+            <td class="field">
+                <c:if test="${cf:contains(reqFields, gpa)}">*</c:if>
+                GPA:
+            </td>
+            <td class="value">
+                <tc-webtag:textInput name="<%=Constants.GPA%>" size="4" maxlength="<%=Constants.MAX_GPA_LENGTH%>" editable="true"/>
+            </td>
+        </tr>
+        <%i++;%>
 </c:if>
 
 <c:set value="<%=Constants.GPA_SCALE%>" var="gpaScale"/>
 <c:if test="${cf:contains(fields, gpaScale)}">
-<tr>
-    <td colspan="2"><span class="bigRed">
-            <tc-webtag:errorIterator id="err" name="<%=Constants.GPA_SCALE%>"><%=err%><br>
-            </tc-webtag:errorIterator></span>
-    </td>
-</tr>
-<tr>
-    <td class="name">
-        <c:if test="${cf:contains(reqFields, gpaScale)}">*</c:if>
-        GPA Scale:
-    </td>
-    <td class="value">
-        <c:set value="<%=Constants.GPA_SCALES%>" var="scales"/>
-        <tc-webtag:stringSelect name="${gpaScale}" list="${scales}"/>
-    </td>
-</tr>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
+            <td colspan="2">
+                <tc-webtag:errorIterator id="err" name="<%=Constants.GPA_SCALE%>"><%=err%><br />
+                </tc-webtag:errorIterator>
+            </td>
+        </tr>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
+            <td class="field">
+                <c:if test="${cf:contains(reqFields, gpaScale)}">*</c:if>
+                GPA Scale:
+            </td>
+            <td class="value">
+                <c:set value="<%=Constants.GPA_SCALES%>" var="scales"/>
+                <tc-webtag:stringSelect name="${gpaScale}" list="${scales}"/>
+            </td>
+        </tr>
+        <%i++;%>
 </c:if>
 
 
 <c:set value="<%=Constants.TITLE%>" var="title"/>
 <c:if test="${cf:contains(fields, title)}">
-<tr>
-    <td colspan="2"><span class="bigRed">
-            <tc-webtag:errorIterator id="err" name="${title}">${err}<br></tc-webtag:errorIterator></span>
-    </td>
-</tr>
-<tr>
-    <td class="name">
-        <c:if test="${cf:contains(reqFields, title)}">*</c:if>
-        Title:
-    </td>
-    <td class="value">
-        <tc-webtag:textInput name="${title}" size="15" maxlength="<%=Constants.MAX_TITLE_LENGTH%>" editable="true"/>
-    </td>
-</tr>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
+            <td colspan="2">
+                <tc-webtag:errorIterator id="err" name="${title}">${err}<br /></tc-webtag:errorIterator>
+            </td>
+        </tr>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
+            <td class="field">
+                <c:if test="${cf:contains(reqFields, title)}">*</c:if>
+                Title:
+            </td>
+            <td class="value">
+                <tc-webtag:textInput name="${title}" size="15" maxlength="<%=Constants.MAX_TITLE_LENGTH%>" editable="true"/>
+            </td>
+        </tr>
+        <%i++;%>
 </c:if>
 
 <c:set value="<%=Constants.COMPANY_NAME%>" var="companyName"/>
 <c:if test="${cf:contains(fields, companyName)}">
-<tr>
-    <td colspan="2"><span class="bigRed">
-            <tc-webtag:errorIterator id="err" name="<%=Constants.COMPANY_NAME%>"><%=err%><br>
-            </tc-webtag:errorIterator></span>
-    </td>
-</tr>
-<tr>
-    <td class="name">
-        <c:if test="${cf:contains(reqFields, companyName)}">*</c:if>
-        Company:
-    </td>
-    <td class="value">
-        <tc-webtag:textInput name="<%=Constants.COMPANY_NAME%>" size="15" maxlength="<%=Constants.MAX_COMPANY_NAME_LENGTH%>" editable="true"/>
-    </td>
-</tr>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
+            <td colspan="2">
+                <tc-webtag:errorIterator id="err" name="<%=Constants.COMPANY_NAME%>"><%=err%><br />
+                </tc-webtag:errorIterator>
+            </td>
+        </tr>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
+            <td class="field">
+                <c:if test="${cf:contains(reqFields, companyName)}">*</c:if>
+                Company:
+            </td>
+            <td class="value">
+                <tc-webtag:textInput name="<%=Constants.COMPANY_NAME%>" size="15" maxlength="<%=Constants.MAX_COMPANY_NAME_LENGTH%>" editable="true"/>
+            </td>
+        </tr>
+        <%i++;%>
 </c:if>
 
 
@@ -327,71 +348,71 @@
     <%--
     <tc-webtag:hiddenInput name="<%=Constants.FILE_NAME%>"/>
     --%>
-<tr>
-    <td colspan="2"><span class="bigRed">
-            <tc-webtag:errorIterator id="err" name="${resume}"><%=err%><br></tc-webtag:errorIterator></span>
-    </td>
-</tr>
-<tr>
-    <td class="name">
-        <c:if test="${cf:contains(reqFields, resume)}">*</c:if>
-        Resume:
-    </td>
-    <td class="value">
-            <%--there should be only one--%>
-        <c:forEach items="${regUser.coder.resumes}" var="res">
-            <a href="${sessionInfo.servletPath}?module=DownloadResume" target="_blank">${res.fileName}</a>
-        </c:forEach>
-        <input type="file" name="${resume}">
-    </td>
-</tr>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
+            <td colspan="2">
+                <tc-webtag:errorIterator id="err" name="${resume}"><%=err%><br /></tc-webtag:errorIterator>
+            </td>
+        </tr>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
+            <td class="field">
+                <c:if test="${cf:contains(reqFields, resume)}">*</c:if>
+                Resume:
+            </td>
+            <td class="value">
+                <%--there should be only one--%>
+                <c:forEach items="${regUser.coder.resumes}" var="res">
+                <a href="${sessionInfo.servletPath}?module=DownloadResume" target="_blank">${res.fileName}</a>
+                </c:forEach>
+                <input type="file" name="${resume}"/>
+            </td>
+        </tr>
+        <%i++;%>
 </c:if>
 
 
 <c:if test="${cf:contains(fields, referral)}">
-<tr>
-    <td colspan="2"><span class="bigRed">
-            <tc-webtag:errorIterator id="err" name="${referral}"><%=err%><br></tc-webtag:errorIterator></span>
-    </td>
-</tr>
-<tr>
-    <td class="name">
-        <c:if test="${cf:contains(reqFields, referral)}">*</c:if>
-        How did you hear<br>about TopCoder?:
-    </td>
-    <td class="value">
-        <tc-webtag:objectSelect name="${referral}" list="${referrals}" valueField="id" textField="description" onChange="referralSelection()"/>
-
-        <div id="${referralCoder}_div">
-            <span class="bigRed">Referring member's handle:</span><br>
-            <tc-webtag:textInput name="${referralCoder}" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="true"/>
-        </div>
-
-        <div id="${referralOther}_div">
-            <span class="bigRed">Details:</span><br>
-            <tc-webtag:textInput name="${referralOther}" size="25" maxlength="<%=Constants.MAX_REFERRAL_OTHER_LENGTH%>" editable="true"/>
-        </div>
-    </td>
-</tr>
-
+        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
+            <td colspan="2">
+                <tc-webtag:errorIterator id="err" name="${referral}"><%=err%><br /></tc-webtag:errorIterator>
+            </td>
+        </tr>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
+            <td class="field">
+                <c:if test="${cf:contains(reqFields, referral)}">*</c:if>
+                How did you hear<br />about TopCoder?:
+            </td>
+            <td class="value">
+                <tc-webtag:objectSelect name="${referral}" list="${referrals}" valueField="id" textField="description" onChange="referralSelection()"/>
+                
+                <div id="${referralCoder}_div">
+                <span class="bigRed">Referring member's handle:</span><br />
+                <tc-webtag:textInput name="${referralCoder}" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="true"/>
+                </div>
+                
+                <div id="${referralOther}_div">
+                <span class="bigRed">Details:</span><br />
+                <tc-webtag:textInput name="${referralOther}" size="25" maxlength="<%=Constants.MAX_REFERRAL_OTHER_LENGTH%>" editable="true"/>
+                </div>
+            </td>
+        </tr>
+        <%i++;%>
 </c:if>
 
 </tbody>
 </table>
-* = required
 
-<br><br>
+    <div align="center" id="legend">
+        * = required
+    </div>
 
-<div align="center">
-    <a href="javascript:void submitForm();">Submit</a>
-</div>
+    <div align="center" id="submitContainer">
+        <button onclick="submitForm();">Submit</button>
+    </div>
 
 </form>
 
+    </div>
 </div>
-</div>
-
-<br><br>
 
 </body>
 </html>

@@ -35,7 +35,7 @@
     <div class="regBc">
         <div class="title">
             <c:if test="${sessionInfo.loggedIn}">
-                <div style="float:left;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A>
+                <div style="float:left;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">Log out</A>
                 </div>
             </c:if>
             Step <strong>4</strong> of

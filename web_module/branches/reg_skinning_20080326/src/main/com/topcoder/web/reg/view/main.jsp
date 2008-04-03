@@ -187,7 +187,6 @@
         <%i++;%>
     </c:if>
     
-<%--
     <c:set value="<%=Constants.TITLE%>" var="title"/>
     <c:if test="${cf:contains(fields, title)}">
         <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
@@ -206,7 +205,6 @@
         </tr>
         <%i++;%>
     </c:if>
---%>
     
     <c:set value="<%=Constants.ADDRESS1%>" var="address1"/>
     <c:if test="${cf:contains(fields, address1)}">
@@ -364,7 +362,6 @@
         <%i++;%>
     </c:if>
 
-<%--
     <c:set value="<%=Constants.COMP_COUNTRY_CODE%>" var="compCountryCode"/>
     <c:if test="${cf:contains(fields, compCountryCode)}">
         <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
@@ -422,7 +419,6 @@
         </tr>
         <%i++;%>
     </c:if>
---%>
     
     </tbody>
     </table>
@@ -450,7 +446,7 @@
             <td class="value">
                 <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="${isNewReg}"/>
                 <c:if test="${isNewReg}">
-                    <br/>
+                    <br />
                 <div id="handleWarning" class="small">
                     Please choose carefully.   Your handle can <b>not</b> be changed, and it is a violation of our
                     terms of use to create more than one account.
@@ -514,7 +510,7 @@
             </td>
             <td class="value">
                 <tc-webtag:textInput name="<%=Constants.SECRET_QUESTION%>" size="30" editable="true"/>
-                <br/>
+                <br />
             <div id="secretWarning" class="small">
                 If you ever forget your password and you do not have access to the email address in our system,
                 you will be asked to answer this question in order to reset your password.
@@ -545,7 +541,6 @@
     </c:if>
     
     
-<%--    
     <c:set value="<%=Constants.NOTIFICATION%>" var="notification"/>
     <c:if test="${cf:contains(fields, notification)}">
         <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
@@ -586,7 +581,7 @@
             <td class="value">
                 <tc-webtag:radioButton name="<%=Constants.MEMBER_CONTACT%>" value="yes"/>
                 Yes
-                <br/>
+                <br />
                 <tc-webtag:radioButton name="<%=Constants.MEMBER_CONTACT%>" value="no"/>
                 No
                 <br />
@@ -615,7 +610,7 @@
             <td class="value">
                 <tc-webtag:radioButton name="<%=Constants.SHOW_EARNINGS%>" value="show"/>
                 Show
-                <br/>
+                <br />
                 <tc-webtag:radioButton name="<%=Constants.SHOW_EARNINGS%>" value="hide"/>
                 Hide
             </td>
@@ -724,7 +719,7 @@
         </tr>
         <%i++;%>
     </c:if>
---%>
+
     </tbody>
     </table>
 
@@ -732,19 +727,19 @@
         * = required
     </div>
 
-<%--
     <c:if test="${!cf:contains(regUser.terms, regTerms)}">
-        <strong>Terms of Use</strong>
-        <br />
+        <p>
+            <strong>Terms of Use</strong>
+        </p>
+
         <iframe src="/tc?<%=Constants.MODULE_KEY%>=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.REG_TERMS_ID%>"></iframe>
         <div align="center">
-            <tc-webtag:errorIterator id="err" name="${termsId}">${err}
-                <br/></tc-webtag:errorIterator>
+            <div class="error">
+                <tc-webtag:errorIterator id="err" name="${termsId}">${err}</tc-webtag:errorIterator>
+            </div>
             <input type="checkbox" name="<%=Constants.TERMS_OF_USE_ID%>"/>I agree
-            <br /><br />
         </div>
     </c:if>
---%>
 
     <div align="center" id="submitContainer">
         <button onclick="document.mainForm.submit();return false;">Submit</button>
