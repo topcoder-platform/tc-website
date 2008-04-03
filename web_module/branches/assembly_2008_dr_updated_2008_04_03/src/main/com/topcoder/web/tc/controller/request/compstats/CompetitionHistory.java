@@ -54,7 +54,8 @@ public class CompetitionHistory extends BaseProcessor {
         }
 
         if (!getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) &&
-                !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
+            !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE)) &&
+            !getRequest().getParameter(Constants.PHASE_ID).equals("114")) {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
         setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
