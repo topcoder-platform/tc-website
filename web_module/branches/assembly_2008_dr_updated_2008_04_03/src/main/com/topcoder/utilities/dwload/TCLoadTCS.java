@@ -4883,10 +4883,12 @@ public class TCLoadTCS extends TCLoad {
         try {
             selectResults = prepareStatement(SELECT_RESULTS, SOURCE_DB);
             selectResults.setInt(1, phaseId);
-            selectResults.setInt(2, phaseId - 111);
+            selectResults.setInt(2, phaseId == 114 ? 14 : (phaseId - 111));
             selectResults.setTimestamp(3, startDate);
             selectResults.setTimestamp(4, endDate);
 
+            log.debug("execute query ");
+            log.debug("execute query ");
             insert = prepareStatement(INSERT, TARGET_DB);
 
             ContestResultCalculator calc = (ContestResultCalculator) Class.forName(className).newInstance();
@@ -4900,7 +4902,7 @@ public class TCLoadTCS extends TCLoad {
             }
 
             rs = selectResults.executeQuery();
-
+            log.debug("execute query ");
             List<ProjectResult> pr = new ArrayList<ProjectResult>();
             int count = 0;
             while (rs.next()) {
@@ -4911,6 +4913,9 @@ public class TCLoadTCS extends TCLoad {
                 if (rs.getDouble("amount") < 0.01) {
                     log.warn("Project: " + rs.getLong("project_id") + " has zero amount!");
                 }
+                
+                log.debug("Project: " + rs.getLong("project_id") + ", " + rs.getDouble("final_score") + ", " + rs.getDouble("amount") + ", " + rs.getBoolean("passed_review_ind"));
+                
                 ProjectResult res = new ProjectResult(rs.getLong("project_id"), rs.getInt("project_status_id"), rs.getLong("user_id"),
                         rs.getDouble("final_score"), rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"),
                         rs.getInt("num_submissions_passed_review"), rs.getBoolean("passed_review_ind"));
