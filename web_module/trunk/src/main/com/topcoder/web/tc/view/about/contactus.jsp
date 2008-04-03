@@ -1,19 +1,16 @@
-<%@  page
- language="java"
- errorPage="/errorPage.jsp"
-  import="com.topcoder.common.web.data.Navigation,
-          com.topcoder.shared.util.ApplicationServer"
-%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<%@ page contentType="text/html;charset=utf-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
-<title>TopCoder - Contact us</title>
-
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_main"/>
-</jsp:include>
-
+    <title>TopCoder :: Contact Us</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="../script.jsp" />
+    <jsp:include page="../style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
 </head>
 
 <body>
@@ -23,143 +20,62 @@
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr valign="top">
-
-<!-- Left Column Begins-->
+<tbody>
+    <tr valign="top">
+<%-- Left Column Begins--%>
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="node" value="contact_us"/>
             </jsp:include>
         </td>
-<!-- Left Column Ends -->
+<%-- Left Column Ends --%>
 
-<!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
-<!-- Gutter Ends -->
+<%-- Center Column Begins --%>
+        <td width="100%" align="center" class="bodyColumn">
+            <div class="fixedWidthBody">
 
-<!-- Center Column Begins -->
-        <td class="bodyText" width="99%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
       <jsp:include page="/page_title.jsp">
-          <jsp:param name="image" value="about"/>
-          <jsp:param name="title" value="Contact Us"/>
+          <jsp:param name="image" value="contact_us"/>
+          <jsp:param name="title" value="&nbsp;"/>
       </jsp:include>
 
-<p>TopCoder is dedicated to servicing members, partnering companies, the media and anyone else interested in what 
-TopCoder is about. Please contact the appropriate individuals below for more information or assistance.</p>
+        <p>TopCoder is dedicated to servicing members, partnering companies, the media and anyone else interested in what 
+        TopCoder is about. Please feel free to contact us using your preferred method:</p>
 
-<div align="center">
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
- <tr valign="top">
-     <td width="50%" align="left" class="bodyText">
-         <p><strong>Corporate Address</strong><br />
-         TopCoder, Inc.<br/>
-         95 Glastonbury Blvd<br/>
-         Glastonbury, CT 06033 U.S.A.<br/>
-         tel: 860.633.5540<br/>
-         fax: 860.657.4276<br/>
-         &#160;</p>
-     </td>
-         
-     <td width="50%" align="left" class="bodyText">
-         <p><strong>Contact us by email</strong><br />
-         <A href="mailto:service@topcoder.com" class="bodyText">Membership</A><br />
-         <A href="mailto:jdamato@topcoder.com" class="bodyText">High School Competitions</A><br />
-         <A href="mailto:service@topcoder.com" class="bodyText">General Questions</A><br />
-         <A href="mailto:service@topcoder.com" class="bodyText">Competition Tech Support</A><br />
-         <A href="mailto:service@topcodersoftware.com" class="bodyText">Software Tech Support</A></p>
-     </td>
- </tr>
- 
- <tr valign="top">
-     <td width="50%" align="left" class="bodyText">
-         <p><a href="mailto:sponsorship@topcoder.com" class="bodyText">Sponsorship and Private Label Events</a><br/>
-         Paul Moriarty<br />
-         tel: 860.633.5540<br />
-         fax: 860.657.4276<br />
-         &#160;</p>
-     </td>
-         
-     <td width="50%" align="left" class="bodyText">
-         <p><a href="mailto:jmckeown@topcoder.com" class="bodyText">Public Relations</a><br />
-         Jim McKeown<br />
-         tel: 860.633.5540<br />
-         fax: 860.657.4276<br />
-         &#160;</p>
-     </td>
- </tr>
+        <p><strong>By mail:</strong><br />
+        TopCoder, Inc.<br />
+        95 Glastonbury Blvd<br />
+        Glastonbury, CT 06033 U.S.A.</p>
+        
+        <p><strong>By phone or fax:</strong><br />
+        tel: 860.633.5540<br />
+        fax: 860.657.4276</p>
+        
+        <p><strong>By email:</strong><br />
+        <a href="mailto:service@topcoder.com">Support & Service</a><br />
+        <a href="mailto:sales@topcoder.com">Sales</a><br />
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=mediaRequestForm">Public Relations</a></p>
 
- <tr valign="top">
-     <td width="50%" align="left" class="bodyText">
-         <p><a href="mailto:service@topcoder.com" class="bodyText">TopCoder Arena / Web Site Technical Support </a><br />
-         Mike Lydon<br />
-         tel: 860.633.5540<br />
-         fax: 860.657.4276<br />
-         &#160;</p>
-     </td>
-         
-     <td width="50%" align="left" class="bodyText">
-         <p><a href="mailto:tces@topcoder.com" class="bodyText">Employment Services</a><br />
-         Paul Moriarty<br />
-         tel: 860.633.5540<br />
-         fax: 860.657.4276<br />
-         &#160;</p>
-     </td>
- </tr>
 
- <tr valign="top">
-     <td width="50%" align="left" class="bodyText">
-         <p><a href="mailto:sales@topcodersoftware.com" class="bodyText">TopCoder Software</a><br />
-         Mike Morris<br />
-         tel: 866.TOP.CODE<br />
-         fax: 860.657.4276<br />
-         &#160;</p>
-     </td>
-         
-     <td width="50%" align="left" class="bodyText">
-         <p><a href="mailto:jdamato@topcoder.com" class="bodyText">TopCoder Events &amp; High School Competitions</a><br />
-         Jessie D'Amato Ford<br />
-         tel: 860.633.5540<br />
-         fax: 860.657.4276<br />
-         &#160;</p>
-     </td>
- </tr>
- <%--
- <tr valign="top">
-     <td width="50%" align="left" class="bodyText">
-         <p><a href="mailto:mluce@topcoder.com" class="bodyText">High School Competitions</a><br />
-         MaryBeth Luce<br />
-         tel: 866.TOP.CODE<br />
-         fax: 860.657.4276<br />
-         &#160;</p>
-     </td>
-   </tr>
-   --%>
-
-</table>
-
-            <p><br></p>
+            </div>
         </td>
-<!-- Center Column Ends -->
-
-<!-- Gutter -->
-         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Right Column Begins -->
-         <td width="170">
+<%-- Center Column Ends --%>
+       
+<%-- Right Column Begins --%>
+        <td width="170">
             <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="about"/>
+                <jsp:param name="level1" value="default"/>
             </jsp:include>
-         </td>
-<!-- Right Column Ends -->
-
-<!-- Gutter -->
-         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<!-- Gutter Ends -->
+        </td>
+<%-- Right Column Ends --%>
+       
     </tr>
+</tbody>
 </table>
 
 <jsp:include page="../foot.jsp" />
+
+<script type="text/javascript" src="http://cetrk.com/pages/scripts/0004/0536.js"> </script>
 
 </body>
 
