@@ -31,25 +31,31 @@
     <a href="http://<%=ApplicationServer.SERVER_NAME%>">&nbsp;</a>
 </div>
 
-<div align="center" id="pageAligner">
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="post" name="mainForm">
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Secondary"/>
+
+<div id="pageAligner" align="center">
     <div id="pageSpacer">
     
     <div id="pageTitle"><div>&nbsp;</div></div>
     
-    <c:if test="${!sessionInfo.loggedIn}">
+    <c:choose>
+    <c:when test="${!sessionInfo.loggedIn}">
         <div align="center" class="topMessage small">
             (<a href="/reg/?nrg=false">Click here</a> if you're already a registered member and would like to update
             your profile.)
         </div>
-    </c:if>
+    </c:when>
+    <c:otherwise>
+        <div id="logoutLink">
+            <a href="${sessionInfo.servletPath}?module=Logout">Log out</a>
+        </div>
+    </c:otherwise>
+    </c:choose>
     
     <div id="regBcContainer">
         <div class="regBc">
             <div class="title">
-                <c:if test="${sessionInfo.loggedIn}">
-                    <div style="float:left;"><a href="${sessionInfo.servletPath}?module=Logout" class="small">logout</a>
-                    </div>
-                </c:if>
                 Step <strong>2</strong> of
                 <c:choose>
                     <c:when test="${isNewReg}">
@@ -76,13 +82,14 @@
         </div>
     </div>
     
-    <form action="${sessionInfo.secureAbsoluteServletPath}" method="post" name="mainForm">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Secondary"/>
-    
+    <div class="regSection">
+        Personal Information
+    </div>
+
     <table cellpadding="0" cellspacing="0" border="0" class="regFields">
     <tbody>
-    
     <%int i = 0;%>
+    
     <c:set value="<%=Constants.GIVEN_NAME%>" var="givenName"/>
     <c:if test="${cf:contains(fields, givenName)}">
         <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
@@ -93,7 +100,7 @@
         <tr class="<%=(i%2==0 ? "odd" : "even")%>">
             <td class="field">
                 <c:if test="${cf:contains(reqFields, givenName)}">*</c:if>
-                Given Name:
+                <span class="global">Given Name:</span><span class="justUS">First Name:</span>
             </td>
             <td class="value">
                 <tc-webtag:textInput name="<%=Constants.GIVEN_NAME%>" size="15" maxlength="<%=Constants.MAX_GIVEN_NAME_LENGTH%>" editable="true"/>
@@ -112,7 +119,7 @@
         <tr class="<%=(i%2==0 ? "odd" : "even")%>">
             <td class="field">
                 <c:if test="${cf:contains(reqFields, surname)}">*</c:if>
-                Surname:
+                <span class="global">Surname:</span><span class="justUS">Last Name:</span>
             </td>
             <td class="value">
                 <tc-webtag:textInput name="<%=Constants.SURNAME%>" size="15" maxlength="<%=Constants.MAX_SURNAME_LENGTH%>" editable="true"/>
@@ -121,20 +128,40 @@
         <%i++;%>
     </c:if>
     
-    <c:set value="<%=Constants.TITLE%>" var="title"/>
-    <c:if test="${cf:contains(fields, title)}">
+    <c:set value="<%=Constants.EMAIL%>" var="email"/>
+    <c:if test="${cf:contains(fields, email)}">
         <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
             <td colspan="2">
-            <tc-webtag:errorIterator id="err" name="<%=Constants.TITLE%>"><%=err%><br /></tc-webtag:errorIterator>
+            <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br /></tc-webtag:errorIterator>
             </td>
         </tr>
         <tr class="<%=(i%2==0 ? "odd" : "even")%>">
             <td class="field">
-                <c:if test="${cf:contains(reqFields, title)}">*</c:if>
-                Job Title:
+                <c:if test="${cf:contains(reqFields, email)}">*</c:if>
+                Email Address:
             </td>
             <td class="value">
-                <tc-webtag:textInput name="<%=Constants.TITLE%>" size="15" maxlength="<%=Constants.MAX_TITLE_LENGTH%>" editable="true"/>
+                <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
+            </td>
+        </tr>
+        <%i++;%>
+    </c:if>
+    
+    <c:set value="<%=Constants.EMAIL_CONFIRM%>" var="emailConfirm"/>
+    <c:if test="${cf:contains(fields, emailConfirm)}">
+        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
+            <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL_CONFIRM%>"><%=err%><br />
+            </tc-webtag:errorIterator>
+            </td>
+        </tr>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
+            <td class="field">
+                <c:if test="${cf:contains(reqFields, emailConfirm)}">*</c:if>
+                Confirm Email Address:
+            </td>
+            <td class="value">
+                <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
             </td>
         </tr>
         <%i++;%>
@@ -159,6 +186,27 @@
         </tr>
         <%i++;%>
     </c:if>
+    
+<%--
+    <c:set value="<%=Constants.TITLE%>" var="title"/>
+    <c:if test="${cf:contains(fields, title)}">
+        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
+            <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%=Constants.TITLE%>"><%=err%><br /></tc-webtag:errorIterator>
+            </td>
+        </tr>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
+            <td class="field">
+                <c:if test="${cf:contains(reqFields, title)}">*</c:if>
+                Job Title:
+            </td>
+            <td class="value">
+                <tc-webtag:textInput name="<%=Constants.TITLE%>" size="15" maxlength="<%=Constants.MAX_TITLE_LENGTH%>" editable="true"/>
+            </td>
+        </tr>
+        <%i++;%>
+    </c:if>
+--%>
     
     <c:set value="<%=Constants.ADDRESS1%>" var="address1"/>
     <c:if test="${cf:contains(fields, address1)}">
@@ -315,8 +363,8 @@
         </tr>
         <%i++;%>
     </c:if>
-    
-    
+
+<%--
     <c:set value="<%=Constants.COMP_COUNTRY_CODE%>" var="compCountryCode"/>
     <c:if test="${cf:contains(fields, compCountryCode)}">
         <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
@@ -374,46 +422,130 @@
         </tr>
         <%i++;%>
     </c:if>
+--%>
     
-    <c:set value="<%=Constants.EMAIL%>" var="email"/>
-    <c:if test="${cf:contains(fields, email)}">
+    </tbody>
+    </table>
+
+    <div class="regSection">
+        Create Your TopCoder Account
+    </div>
+
+    <table cellpadding="0" cellspacing="0" border="0" class="regFields">
+    <tbody>
+    <% i = 0;%>
+
+    <c:set value="<%=Constants.HANDLE%>" var="handle"/>
+    <c:if test="${cf:contains(fields, handle)}">
         <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
             <td colspan="2">
-            <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br /></tc-webtag:errorIterator>
+            <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br /></tc-webtag:errorIterator>
             </td>
         </tr>
         <tr class="<%=(i%2==0 ? "odd" : "even")%>">
             <td class="field">
-                <c:if test="${cf:contains(reqFields, email)}">*</c:if>
-                Email Address:
+                <c:if test="${cf:contains(reqFields, handle)}">*</c:if>
+                User Name:
             </td>
             <td class="value">
-                <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
+                <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="${isNewReg}"/>
+                <c:if test="${isNewReg}">
+                    <br/>
+                <div id="handleWarning" class="small">
+                    Please choose carefully.   Your handle can <b>not</b> be changed, and it is a violation of our
+                    terms of use to create more than one account.
+                </div>
+                </c:if>
             </td>
         </tr>
         <%i++;%>
     </c:if>
     
-    <c:set value="<%=Constants.EMAIL_CONFIRM%>" var="emailConfirm"/>
-    <c:if test="${cf:contains(fields, emailConfirm)}">
+    <c:set value="<%=Constants.PASSWORD%>" var="password"/>
+    <c:if test="${cf:contains(fields, password)}">
         <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
             <td colspan="2">
-            <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL_CONFIRM%>"><%=err%><br />
+            <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD%>"><%=err%><br /></tc-webtag:errorIterator>
+            </td>
+        </tr>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
+            <td class="field">
+                <c:if test="${cf:contains(reqFields, password)}">*</c:if>
+                Password:
+            </td>
+            <td class="value">
+                <tc-webtag:textInput name="<%=Constants.PASSWORD%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
+            </td>
+        </tr>
+        <%i++;%>
+    </c:if>
+    
+    <c:set value="<%=Constants.PASSWORD_CONFIRM%>" var="passwordConfirm"/>
+    <c:if test="${cf:contains(fields, passwordConfirm)}">
+        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
+            <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD_CONFIRM%>"><%=err%><br /></tc-webtag:errorIterator>
+            </td>
+        </tr>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
+            <td class="field">
+                <c:if test="${cf:contains(reqFields, passwordConfirm)}">*</c:if>
+                Confirm Password:
+            </td>
+            <td class="value">
+                <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
+            </td>
+        </tr>
+        <%i++;%>
+    </c:if>
+
+    <c:set value="<%=Constants.SECRET_QUESTION%>" var="secretQuestion"/>
+    <c:if test="${cf:contains(fields, secretQuestion)}">
+        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
+            <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%=Constants.SECRET_QUESTION%>"><%=err%><br />
             </tc-webtag:errorIterator>
             </td>
         </tr>
         <tr class="<%=(i%2==0 ? "odd" : "even")%>">
             <td class="field">
-                <c:if test="${cf:contains(reqFields, emailConfirm)}">*</c:if>
-                Confirm Email Address:
+                <c:if test="${cf:contains(reqFields, secretQuestion)}">*</c:if>
+                Secret Question:
             </td>
             <td class="value">
-                <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
+                <tc-webtag:textInput name="<%=Constants.SECRET_QUESTION%>" size="30" editable="true"/>
+                <br/>
+            <div id="secretWarning" class="small">
+                If you ever forget your password and you do not have access to the email address in our system,
+                you will be asked to answer this question in order to reset your password.
+            </div>
             </td>
         </tr>
         <%i++;%>
     </c:if>
     
+    <c:set value="<%=Constants.SECRET_QUESTION_RESPONSE%>" var="secretQuestionResponse"/>
+    <c:if test="${cf:contains(fields, secretQuestionResponse)}">
+        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
+            <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%=Constants.SECRET_QUESTION_RESPONSE%>"><%=err%><br />
+            </tc-webtag:errorIterator>
+            </td>
+        </tr>
+        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
+            <td class="field">
+                <c:if test="${cf:contains(reqFields, secretQuestionResponse)}">*</c:if>
+                Secret Question Response:
+            </td>
+            <td class="value">
+                <tc-webtag:textInput name="<%=Constants.SECRET_QUESTION_RESPONSE%>" size="15" editable="true"/>
+            </td>
+        </tr>
+        <%i++;%>
+    </c:if>
+    
+    
+<%--    
     <c:set value="<%=Constants.NOTIFICATION%>" var="notification"/>
     <c:if test="${cf:contains(fields, notification)}">
         <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
@@ -501,7 +633,7 @@
             <c:set var="fieldName" value="${ansPrefix}${question.id}"/>
             <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
                 <td colspan="2">
-    		       <tc-webtag:errorIterator id="err" name="${fieldName}"><%=err%><br />
+                   <tc-webtag:errorIterator id="err" name="${fieldName}"><%=err%><br />
                    </tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -529,112 +661,6 @@
         <%i++;%>
         </tc:questionIterator>
     
-    </c:if>
-    
-    
-    <c:set value="<%=Constants.HANDLE%>" var="handle"/>
-    <c:if test="${cf:contains(fields, handle)}">
-        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
-            <td colspan="2">
-            <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br /></tc-webtag:errorIterator>
-            </td>
-        </tr>
-        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
-            <td class="field">
-                <c:if test="${cf:contains(reqFields, handle)}">*</c:if>
-                User Name:
-            </td>
-            <td class="value">
-                <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="${isNewReg}"/>
-                <c:if test="${isNewReg}">
-                    <br/>
-     <span class="small">Please choose carefully.   Your user name can <b>not</b> be changed, and it is a violation of our
-         terms of use to create more than one account.</span>
-                </c:if>
-            </td>
-        </tr>
-        <%i++;%>
-    </c:if>
-    
-    <c:set value="<%=Constants.PASSWORD%>" var="password"/>
-    <c:if test="${cf:contains(fields, password)}">
-        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
-            <td colspan="2">
-            <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD%>"><%=err%><br /></tc-webtag:errorIterator>
-            </td>
-        </tr>
-        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
-            <td class="field">
-                <c:if test="${cf:contains(reqFields, password)}">*</c:if>
-                Password:
-            </td>
-            <td class="value">
-                <tc-webtag:textInput name="<%=Constants.PASSWORD%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
-            </td>
-        </tr>
-        <%i++;%>
-    </c:if>
-    
-    <c:set value="<%=Constants.PASSWORD_CONFIRM%>" var="passwordConfirm"/>
-    <c:if test="${cf:contains(fields, passwordConfirm)}">
-        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
-            <td colspan="2">
-            <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD_CONFIRM%>"><%=err%><br /></tc-webtag:errorIterator>
-            </td>
-        </tr>
-        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
-            <td class="field">
-                <c:if test="${cf:contains(reqFields, passwordConfirm)}">*</c:if>
-                Confirm Password:
-            </td>
-            <td class="value">
-                <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
-            </td>
-        </tr>
-        <%i++;%>
-    </c:if>
-    
-    <c:set value="<%=Constants.SECRET_QUESTION%>" var="secretQuestion"/>
-    <c:if test="${cf:contains(fields, secretQuestion)}">
-        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
-            <td colspan="2">
-            <tc-webtag:errorIterator id="err" name="<%=Constants.SECRET_QUESTION%>"><%=err%><br />
-            </tc-webtag:errorIterator>
-            </td>
-        </tr>
-        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
-            <td class="field">
-                <c:if test="${cf:contains(reqFields, secretQuestion)}">*</c:if>
-                Secret Question:
-            </td>
-            <td class="value">
-                <tc-webtag:textInput name="<%=Constants.SECRET_QUESTION%>" size="30" editable="true"/>
-                <br/>
-             <span class="small">If you ever forget your password and you do not have access to the email address in our system,
-                 you will be asked to answer this question in order to reset your password.</span>
-            </td>
-        </tr>
-        <%i++;%>
-    </c:if>
-    
-    <c:set value="<%=Constants.SECRET_QUESTION_RESPONSE%>" var="secretQuestionResponse"/>
-    <c:if test="${cf:contains(fields, secretQuestionResponse)}">
-        <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
-            <td colspan="2">
-            <tc-webtag:errorIterator id="err" name="<%=Constants.SECRET_QUESTION_RESPONSE%>"><%=err%><br />
-            </tc-webtag:errorIterator>
-            </td>
-        </tr>
-        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
-            <td class="field">
-                <c:if test="${cf:contains(reqFields, secretQuestionResponse)}">*</c:if>
-                Secret Question Response:
-            </td>
-            <td class="value">
-                <tc-webtag:textInput name="<%=Constants.SECRET_QUESTION_RESPONSE%>" size="15" editable="true"/>
-            </td>
-        </tr>
-        <%i++;%>
     </c:if>
     
     <c:set value="<%=Constants.QUOTE%>" var="quote"/>
@@ -690,7 +716,7 @@
         <tr class="<%=(i%2==0 ? "odd" : "even")%>">
             <td class="field">
                 <c:if test="${cf:contains(reqFields, coderType)}">*</c:if>
-                Student/<br />Professional:
+                Student/Professional:
             </td>
             <td class="value">
                 <tc-webtag:objectSelect name="${coderType}" list="${coderTypes}" valueField="id" textField="description"/>
@@ -698,11 +724,15 @@
         </tr>
         <%i++;%>
     </c:if>
+--%>
     </tbody>
     </table>
-    * = required
 
-    <div id="section3">
+    <div align="center" id="legend">
+        * = required
+    </div>
+
+<%--
     <c:if test="${!cf:contains(regUser.terms, regTerms)}">
         <strong>Terms of Use</strong>
         <br />
@@ -714,17 +744,16 @@
             <br /><br />
         </div>
     </c:if>
-    </div>
+--%>
 
-    <div align="center">
+    <div align="center" id="submitContainer">
         <button onclick="document.mainForm.submit();return false;">Submit</button>
     </div>
     
-    </form>
-    
     </div>
 </div>
-<br /><br />
+</form>
+    
 
 </body>
 </html>
