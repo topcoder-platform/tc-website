@@ -333,8 +333,7 @@
     pay out to our winners! Please note
     that custom components do not get added to the catalog and therefore do not have royalties.</p>
 
-<p><br /></p>
-
+<br />
 
             <%--
             </div>
