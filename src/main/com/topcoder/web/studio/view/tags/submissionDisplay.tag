@@ -23,7 +23,7 @@
         <c:if test="${actuallyIncludeLink}">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=${processor}&amp;<%=Constants.SUBMISSION_ID%>=${submissionId}">
         </c:if>
-        <img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=${processor}&amp;<%=Constants.SUBMISSION_ID%>=${submissionId}" alt="${submissionId}" style="display: block;" width="${width}" height="<fmt:formatNumber value="${height}" maxFractionDigits="0"/>"/>
+        <img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=${processor}&amp;<%=Constants.SUBMISSION_ID%>=${submissionId}" alt="${submissionId}" style="display: block;" width="${width}" height="<fmt:formatNumber value="${height}" groupingUsed="false" maxFractionDigits="0"/>"/>
         <c:if test="${actuallyIncludeLink}">
             </a>
         </c:if>
@@ -32,7 +32,7 @@
         <c:if test="${actuallyIncludeLink}">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=${processor}&amp;<%=Constants.SUBMISSION_ID%>=${submissionId}">
         </c:if>
-        <img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=${processor}&amp;<%=Constants.SUBMISSION_ID%>=${submissionId}" alt="${submissionId}" style="display: block;" width="${300}" height="<fmt:formatNumber value="${height*300/width}" maxFractionDigits="0"/>"/>
+        <img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=${processor}&amp;<%=Constants.SUBMISSION_ID%>=${submissionId}" alt="${submissionId}" style="display: block;" width="${300}" height="<fmt:formatNumber value="${height*300/width}" groupingUsed="false" maxFractionDigits="0"/>"/>
         <c:if test="${actuallyIncludeLink}">
             </a>
         </c:if>
