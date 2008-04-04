@@ -50,10 +50,19 @@
 <jsp:param name="image" value="architecture"/>
     <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
-
+<%--
 <div align="right" style="margin: 6px 0px;">
     <a href="/wiki/display/tc/How+to+Compete+in+Architecture+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
 </div>
+--%>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:10px;">
+    <tr>
+        <td width="100%" height="23px">&nbsp;</td>
+        <td align="right">
+            <a href="/wiki/display/tc/How+to+Compete+in+Architecture+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
+        </td>
+    </tr>
+</table>
 
 <div align="right" style="padding-top: 10px">
     Competition opportunities via RSS - <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28">Subscribe Now</a>
