@@ -61,6 +61,14 @@
       <td class="headerC" style="width: 130px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Registration Ends</a></td>
       <td class="headerC" style="width: 80px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Submissions</a></td>
       <td class="headerR" style="width: 65px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Payment</a></td>
+        <td class="headerC" width="10%">
+            <div align="center">
+                <a href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/interface/emblem/digitalrun.png" alt="" onmouseover="postPopUpText('globalPopupText','The Digital Run'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+            </div>
+            <div align="center">
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="11" includeParams="true"/>">Points</a>
+            </div>
+        </td>
       <td class="headerC" style="width: 130px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a></td>
    </tr>
 
@@ -95,6 +103,9 @@
             </td>
             <td class="valueR">
                 <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
+            <td class="valueC">
+                <rsc:item name="dr_points" row="<%=resultRow%>" format="######"/>
+            </td>
             <td class="valueC" nowrap="nowrap">
                 <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/></td>
         </tr>
