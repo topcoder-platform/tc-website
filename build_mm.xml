@@ -103,7 +103,7 @@
         <pathelement location="${jars.dir}/hibernate-3.2/cglib-2.1.3.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.2/asm.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.2/ant-antlr-1.6.5.jar"/>
-        <pathelement location="${jars.dir}/hibernate-3.2/antlr-2.7.6.jar"/>
+        <pathelement location="${jars.dir}/hicbernate-3.2/antlr-2.7.6.jar"/>
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-commons-annotations.jar"/>
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
@@ -125,8 +125,7 @@
     </target>
 
 
-
-    <target name="compile" depends="init, compile_shared">
+    <target name="compile" depends="init, compile_shared, build_common" unless="compile_set">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -139,12 +138,17 @@
             <include name="com/topcoder/web/codinginterface/**"/>
             <include name="com/topcoder/web/ejb/roundregistration/**"/>
         </javac>
+        <property name="compile_set" value="true"/>
     </target>
 
     <target name="compile_shared" depends="init" unless="compile_shared_set">
         <ant dir="${shared.build}" target="jar"/>
         <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${shared.jar}"/>
         <property name="compile_shared_set" value="true"/>
+    </target>
+
+    <target name="build_common">
+        <ant antfile="build_common.xml" target="build-dist"/>
     </target>
 
 
