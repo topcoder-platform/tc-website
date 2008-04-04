@@ -2,7 +2,7 @@
     This build script provides targets to assist in the
     moving of code to a production environment
  -->
-<project name="topcoder" default="" basedir=".">
+<project name="topcoder" basedir=".">
 
     <property name="jboss_home" value="../jboss-4.0.2"/>
     <property name="tempMoveDir" value="move"/>
@@ -57,7 +57,9 @@
                 <include name="resources/xsl/**"/>
                 <include name="resources/taglib/**"/>
                 <include name="resources/tc/**"/>
+<!--
                 <include name="resources/longcontest/**"/>
+-->
                 <include name="resources/stat/**"/>
                 <include name="resources/corp/**"/>
                 <include name="resources/email/**"/>
@@ -66,7 +68,9 @@
                 <include name="resources/PrivateLabel*.properties"/>
                 <include name="resources/PactsInternalServlet.properties"/>
                 <include name="resources/Registration.properties"/>
+<!--
                 <include name="resources/LongContest.properties"/>
+-->
                 <include name="resources/CorpConstants.properties"/>
                 <include name="resources/DataAccess.properties"/>
                 <include name="resources/EP.properties"/>
@@ -173,31 +177,15 @@
         </jar>
     </target>
 
-    <target name="package-forums-full" >
-        <antcall target="package-forums"/>
-        <ant antfile="build_forums.xml" target="build-security"/>
-
-        <jar destfile="forums.jar" update="true">
-            <fileset dir=".">
-                <include name="lib/jars/jive/**"/>
-                <include name="lib/jars/tcs/file_upload/2.0/file_upload.jar"/>
-                <include name="build/ears/security.ear"/>
-            </fileset>
-        </jar>
-    </target>
-
     <target name="package-forums" >
-        <!--
-                <delete dir="src"/>
-        -->
         <delete dir="build"/>
-        <delete dir="../shared/src"/>
         <delete file="forums.jar"/>
 
         <cvs command="update -Pd" package="src"/>
         <cvs command="update -Pd" package="resources"/>
         <cvs command="update -Pd" package="lib"/>
         <cvs command="update -Pd" package="build_forums.xml"/>
+        <cvs command="update -Pd" package="build_common.xml"/>
 
         <exec dir="../shared" executable="cvs">
             <arg line="update -dP"/>
@@ -210,24 +198,18 @@
 
         <ant antfile="build_forums.xml" target="build-forums"/>
 
-        <!--
-                <copy todir="../jboss-4.0.2/server/default/lib">
-                    <fileset dir="lib/bin">
-                        <include name="shared.jar"/>
-                    </fileset>
-                </copy>
-        -->
-
         <jar destfile="forums.jar" update="true">
             <fileset dir=".">
-                <include name="lib/jars/tcjive.jar"/>
                 <include name="build/wars/forums.war"/>
                 <include name="build/ejb_jars/messagehistory.jar"/>
                 <include name="build/ejb_jars/User.jar"/>
+                <include name="build/ears/security.ear"/>
                 <include name="build/ejb_jars/Email.jar"/>
                 <include name="build/ejb_jars/forums.jar"/>
+                <include name="build/ejb_jars/security.jar"/>
                 <include name="lib/bin/shared.jar"/>
                 <include name="lib/bin/tcwebcommon.jar"/>
+                <include name="lib/bin/tcjive.jar"/>
                 <include name="build_forums.xml"/>
             </fileset>
         </jar>
@@ -478,7 +460,43 @@
 
 
 
+    <target name="package-mm" >
 
+        <delete dir="build"/>
+        <delete file="mm.jar"/>
+
+        <cvs command="update -Pd" package="src"/>
+        <cvs command="update -Pd" package="resources"/>
+        <cvs command="update -Pd" package="lib"/>
+        <cvs command="update -Pd" package="build_mm.xml"/>
+
+        <exec dir="../shared" executable="cvs">
+            <arg line="update -dP"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="cvs">
+            <arg line="update -dP"/>
+        </exec>
+
+        <ant antfile="build_mm.xml" target="build"/>
+
+        <jar destfile="mm.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/**"/>
+                <include name="build/wars/**"/>
+                <include name="build/ears/security.ear"/>
+                <include name="resources/longcontest/**"/>
+                <include name="resources/LongContest.properties"/>
+                <include name="resources/DataAccess.properties"/>
+                <include name="resources/problem.xsd"/>
+                <include name="move.xml"/>
+                <include name="build_mm.xml"/>
+                <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/tcwebcommon.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
 
 
 </project>

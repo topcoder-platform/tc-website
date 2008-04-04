@@ -11,7 +11,7 @@ import com.topcoder.web.common.datafeed.RSCDataFeed;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.model.DataResource;
+import com.topcoder.web.common.security.DataResource;
 
 /**
  * @author dok

@@ -16,7 +16,7 @@ import com.topcoder.web.common.datafeed.DateFormatter;
 import com.topcoder.web.common.datafeed.RSCDataFeed;
 import com.topcoder.web.common.datafeed.Value;
 import com.topcoder.web.common.security.TCSAuthorization;
-import com.topcoder.web.tc.model.DataResource;
+import com.topcoder.web.common.security.DataResource;
 
 /**
  * Data feed to show history and results for a coder in a round.
