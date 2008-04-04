@@ -5,8 +5,11 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.model.DataResource;
-import org.xml.sax.helpers.AttributesImpl;
+import com.topcoder.web.common.security.DataResource;
+import com.topcoder.web.common.security.TCSAuthorization;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
@@ -17,9 +20,9 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * @author dok
- * @version $Revision$ $Date$
- *          Create Date: Jul 27, 2005
+ * @author  dok
+ * @version  $Revision$ $Date$
+ * Create Date: Jul 27, 2005
  */
 abstract class RatingDistribution extends Base {
 
