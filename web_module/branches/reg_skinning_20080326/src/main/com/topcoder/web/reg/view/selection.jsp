@@ -43,13 +43,13 @@
 
         <c:choose>
         <c:when test="${!sessionInfo.loggedIn}">
-            <div align="center" class="topMessage small">
+            <div id="topMessage" class="small" align="center">
                 (<a href="/reg/?nrg=false">Click here</a> if you're already a registered member and would like to update
                 your profile.)
             </div>
         </c:when>
         <c:otherwise>
-            <div id="logoutLink">
+            <div id="logoutLink" class="small" align="center">
                 <a href="${sessionInfo.servletPath}?module=Logout">Log out</a>
             </div>
         </c:otherwise>

@@ -1,10 +1,12 @@
 <%@ page import="com.topcoder.web.reg.Constants" %>
-<%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+
+<%@ page contentType="text/html;charset=utf-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -53,55 +55,59 @@
 </head>
 
 <body>
-<div align="center">
-    <div style="width:500px;padding:15px;text-align:left;">
+<div id="schoolPageAligner" align="center">
+    <div id="schoolPageSpacer">
 
-        <jsp:include page="/page_title.jsp">
-            <jsp:param name="image" value="registration_w"/>
-            <jsp:param name="title" value="School Selection"/>
-        </jsp:include>
+        <div id="pageTitle"><div>&nbsp;</div></div>
 
-        <form action="" method="POST" name="schoolAddForm">
-            <p>If you are being home schooled, please click <a href="#" onClick="homeSchooled();return false;">here</a></p>
-            <span class="subtitle">School Search</span>
-            <br><br>
-            <strong>* School Name:</strong><br>
-            <tc-webtag:errorIterator id="err" name="${schoolName}"><%=err%><br/></tc-webtag:errorIterator>
-            <tc-webtag:textInput name="${schoolName}" size="50" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
-            <br><br>
-            <strong>* Country:</strong><br>
-            <tc-webtag:errorIterator id="err" name="${countryCode}"><%=err%><br/></tc-webtag:errorIterator>
-            <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
-            <br><br>
-            <strong>State (US Only):</strong><br>
-            <tc-webtag:errorIterator id="err" name="${stateCode}"><%=err%><br/></tc-webtag:errorIterator>
-            <tc-webtag:textInput name="${stateCode}" size="2" maxlength="2" editable="true"/>
-            <br><br>
-            <strong>Province:</strong><br>
-            <tc-webtag:errorIterator id="err" name="${province}"><%=err%><br/></tc-webtag:errorIterator>
-            <tc-webtag:textInput name="${province}" size="36" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/>
-            <br><br>
-            <strong>* City:</strong><br>
-            <tc-webtag:errorIterator id="err" name="${city}"><%=err%><br/></tc-webtag:errorIterator>
-            <tc-webtag:textInput name="${city}" size="36" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/>
-            <br><br>
+        <form action="" method="post" name="schoolAddForm">
+            <p>
+                If you are being home schooled, please click <a href="#" onclick="homeSchooled();return false;">here</a>
+            </p>
+            <div class="regSection">
+                School Search
+            </div>
+            <p>
+                <strong>* School Name:</strong><br />
+                <tc-webtag:errorIterator id="err" name="${schoolName}"><%=err%><br /></tc-webtag:errorIterator>
+                <tc-webtag:textInput name="${schoolName}" size="50" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
+            </p>
+            <p>
+                <strong>* Country:</strong><br />
+                <tc-webtag:errorIterator id="err" name="${countryCode}"><%=err%><br /></tc-webtag:errorIterator>
+                <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
+            </p>
+            <p>
+                <strong>State (US Only):</strong><br />
+                <tc-webtag:errorIterator id="err" name="${stateCode}"><%=err%><br /></tc-webtag:errorIterator>
+                <tc-webtag:textInput name="${stateCode}" size="2" maxlength="2" editable="true"/>
+            </p>
+            <p>
+                <strong>Province:</strong><br />
+                <tc-webtag:errorIterator id="err" name="${province}"><%=err%><br /></tc-webtag:errorIterator>
+                <tc-webtag:textInput name="${province}" size="36" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/>
+            </p>
+            <p>
+                <strong>* City:</strong><br />
+                <tc-webtag:errorIterator id="err" name="${city}"><%=err%><br /></tc-webtag:errorIterator>
+                <tc-webtag:textInput name="${city}" size="36" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/>
+            </p>
+            <p>
+                 <strong>* School Type:</strong><br />
+                 <tc-webtag:errorIterator id="err" name="${schoolType}"><%=err%><br /></tc-webtag:errorIterator>
+                 <tc-webtag:objectSelect name="${schoolType}" list="${schoolTypes}" valueField="id" textField="description"/>
+            </p>
 
-
-
-            <br><br>
-             * School Type:
-             <tc-webtag:errorIterator id="err" name="${schoolType}"><%=err%><br/></tc-webtag:errorIterator>
-             <tc-webtag:objectSelect name="${schoolType}" list="${schoolTypes}" valueField="id" textField="description"/>
-
-
-            <br><br>
-            <div align="center">
-            <a href="Javascript:submit();">Submit</a>
+            <div align="center" id="legend">
+                * = required
             </div>
 
+            <div align="center" id="submitContainer">
+                <button onclick="submit();">Submit</button>
+            </div>
         </form>
 
-* = required
+
     </div>
 </div>
 </body>

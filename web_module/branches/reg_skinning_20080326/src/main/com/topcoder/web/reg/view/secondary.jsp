@@ -96,19 +96,19 @@
     
     <div id="pageTitle"><div>&nbsp;</div></div>
 
-    <c:choose>
-    <c:when test="${!sessionInfo.loggedIn}">
-        <div align="center" class="topMessage small">
-            (<a href="/reg/?nrg=false">Click here</a> if you're already a registered member and would like to update
-            your profile.)
-        </div>
-    </c:when>
-    <c:otherwise>
-        <div id="logoutLink">
-            <a href="${sessionInfo.servletPath}?module=Logout">Log out</a>
-        </div>
-    </c:otherwise>
-    </c:choose>
+        <c:choose>
+        <c:when test="${!sessionInfo.loggedIn}">
+            <div id="topMessage" class="small" align="center">
+                (<a href="/reg/?nrg=false">Click here</a> if you're already a registered member and would like to update
+                your profile.)
+            </div>
+        </c:when>
+        <c:otherwise>
+            <div id="logoutLink" class="small" align="center">
+                <a href="${sessionInfo.servletPath}?module=Logout">Log out</a>
+            </div>
+        </c:otherwise>
+        </c:choose>
 
 <div id="regBcContainer">
     <div class="regBc">
@@ -230,7 +230,7 @@
                                                        editable="false"/></span>
                 <%--School widget--%>
             <br />
-            <a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',600,500);">Choose
+            <a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',600,560);">Choose
                 School</a>
         </td>
     </tr>
