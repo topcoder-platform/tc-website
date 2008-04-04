@@ -122,6 +122,7 @@
                                 </a>
                             </td>
                             <td class="value">
+                                <%-- todo no scriptlet code!, fix this--%>
                                 <% if ("3008".equals(resultRow.getStringItem("event_id"))) { %>
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=description"><img src="/i/tournament/tco08/emblem.png" alt="" onmouseover="popUp(this,'popTCO08')" onmouseout="popHide()" style="display: block; margin: 4px;"/></a>
                                 <% } else { %>
@@ -141,19 +142,7 @@
                                 <rsc:item name="registrants" row="<%=resultRow%>"/>
                             </td>
                             <td class="valueC">
-                                <%-- Since TopCoder Studio Modifications v2 Assembly - the submissions for active
-                                     TopCoder Direct contests may be viewable --%>
-                                <c:set var="TopCoderDirectChannelId" value="<%=ContestChannel.TOPCODER_DIRECT%>"/>
-                                <c:choose>
-                                    <c:when test="${TopCoderDirectChannelId eq resultRow.map['contest_channel_id'] and resultRow.map['show_submissions']}">
-                                        <a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
-                                            <rsc:item name="submission_count" row="<%=resultRow%>"/>
-                                        </a>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <rsc:item name="submission_count" row="<%=resultRow%>"/>
-                                    </c:otherwise>
-                                </c:choose>
+                                <rsc:item name="submission_count" row="<%=resultRow%>"/>
                             </td>
         
                             <td class="valueC" nowrap="nowrap">
