@@ -252,19 +252,19 @@
         <tr class="<%=even?"dark":"light"%>">
             <td class="valueC">
                 <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
-                <img src="/i/development/smAOL.gif"/>
+                <img src="/i/development/smAOL.gif" alt="AOL" />
                 <% } else if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smJava.gif"/>
+                <img src="/i/development/smJava.gif" alt="Java" />
                 <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smJavaCustom.gif"/>
+                <img src="/i/development/smJavaCustom.gif" alt="Java Custom" />
                 <% } else if (".NET".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/netSm.gif"/>
+                <img src="/i/development/netSm.gif" alt="netSm" />
                 <% } else if (".NET Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smNetCustom.gif"/>
+                <img src="/i/development/smNetCustom.gif" alt="smNetCustom" />
                 <% } else if ("Flash".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/flashSm.gif"/>
+                <img src="/i/development/flashSm.gif" alt="flashSm" />
                 <% } else if ("C++".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smCpp.png"/>
+                <img src="/i/development/smCpp.png" alt="smCpp" />
                 <% } else { %>
                 <rsc:item name="catalog_name" row="<%=resultRow%>"/>
                 <% } %>
