@@ -22,14 +22,24 @@
         </div>
     </div>
 
+
     <div class="catBox">
+        <p align="center">
+            <a href="/openaim/?module=ViewActiveContests">Current registration numbers</a>
+        </p>
         <strong>Browse:</strong>
-        <a href="/openaim/?myframe=category%2fnews%2f">news</a>,
         <a href="/openaim/?myframe=category%2fall-submissions%2f">all submissions</a>,
+        <a href="/openaim/?myframe=category%2fbots%2f">bots</a>,
+        <a href="/openaim/?myframe=category%2fcalculator%2f">calculators</a>,
+        <a href="/openaim/?myframe=category%2fdesktop-sharing%2f">desktop-sharing</a>,
+        <a href="/openaim/?myframe=category%2fgames%2f">games</a>,
+        <a href="/openaim/?myframe=category%2fnews%2f">news</a>,
         <a href="/openaim/?myframe=category%2fplugins%2f">plugins</a>,
+        <a href="/openaim/?myframe=category%2frss%2f">rss</a>,
+        <a href="/openaim/?myframe=category%2ftranslation%2f">translation</a>,
+        <a href="/openaim/?myframe=category%2fvideo%2f">video</a>,
         <a href="/openaim/?myframe=category%2fvoice%2f">voice</a>,
-        <a href="/openaim/?myframe=category%2fweb-applications%2f">web applications</a>,
-        <a href="/openaim/?myframe=category%2fvideo%2f">video</a>
+        <a href="/openaim/?myframe=category%2fweb-applications%2f">web applications</a>
     </div>
 
 </div>
