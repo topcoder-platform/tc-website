@@ -70,7 +70,7 @@
       <td class="header" width="20%">&#160;</td>
       <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Register by</a></td>
       <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a></td>
-      <td class="headerR" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Payment</a></td>
+      <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Payment</a></td>
       <td class="headerC" width="10%">
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Registrants</a><br />
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Rated</a>/
@@ -98,7 +98,7 @@
             </td>
             <td class="valueC" nowrap="nowrap">
                 <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
-            <td class="valueR">
+            <td class="valueC">
                 <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
             <td class="valueC">
          <% if (resultRow.getIntItem("total_inquiries") > 0) { %>

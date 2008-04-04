@@ -82,7 +82,7 @@
       <td class="header" width="10%">&#160;</td>
       <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Register by</a></td>
       <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a></td>
-      <td class="headerR" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Payment</a></td>
+      <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Payment</a></td>
       <td class="headerC" width="10%">
           <div align="center">
               <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/interface/emblem/digitalrun.png" alt="" onmouseover="postPopUpText('globalPopupText','The Digital Run'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
@@ -119,7 +119,7 @@
             </td>
             <td class="valueC" nowrap="nowrap">
                 <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
-            <td class="valueR">
+            <td class="valueC">
                 <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
             <td class="valueC">
                 <rsc:item name="dr_points" row="<%=resultRow%>" format="######"/>

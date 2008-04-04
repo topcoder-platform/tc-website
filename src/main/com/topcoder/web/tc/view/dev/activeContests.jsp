@@ -285,7 +285,7 @@
             </td>
             <td class="valueC" nowrap="nowrap">
                 <% if (resultRow.getBooleanItem("is_reg_closed")) { %>
-                <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy'<br />'HH:mm z"/>
+                <rsc:item name="reg_end_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
                 <% } else { %>
                 <strong>
                     <rsc:item name="reg_end_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
