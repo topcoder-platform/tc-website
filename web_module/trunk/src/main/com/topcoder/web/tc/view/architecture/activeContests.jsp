@@ -46,7 +46,7 @@
 </jsp:include>
 
 <div align="right" style="margin: 6px 0px;">
-    <a href="/wiki/display/tc/How+to+Compete+in+Architecture+Competitions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
+    <a href="/wiki/display/tc/How+to+Compete+in+Architecture+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
 </div>
 
 <div align="right" style="padding-top: 10px">
