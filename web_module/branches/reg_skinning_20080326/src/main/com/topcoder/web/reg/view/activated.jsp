@@ -1,9 +1,11 @@
 <%@ page import="com.topcoder.web.reg.Constants"%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-<html>
+<%@ page contentType="text/html;charset=utf-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -14,22 +16,23 @@
 </head>
 
 <body>
-<div align="center" style="padding:6px 0px 6px; 0px;">
-<A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /></A>
-</div>
-<div align="center">
-   <div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
 
-     <jsp:include page="/page_title.jsp">
-         <jsp:param name="image" value="registration_w"/>
-         <jsp:param name="title" value="&#160;"/>
-     </jsp:include>
-
-   <div>
-   <strong>Your have successfully activated your account. Thank You!</strong>
-   </div>
+<%-- THE align="center" IS REQUIRED TO EVER CENTER IT, BUT THAT CAN BE OVERRULED TO LEFT OR RIGHT WITH CSS --%>
+<div id="pageBranding" align="center">
+    <a href="http://<%=ApplicationServer.SERVER_NAME%>">&nbsp;</a>
 </div>
 
-<br><br>
+<div id="pageAligner" align="center">
+    <div id="pageSpacer">
+    
+    <div id="pageTitle"><div>&nbsp;</div></div>
+
+    <p align="center">
+        <strong>Your have successfully activated your account. Thank You!</strong>
+    </p>
+
+    </div>
+</div>
+
 </body>
 </html>
