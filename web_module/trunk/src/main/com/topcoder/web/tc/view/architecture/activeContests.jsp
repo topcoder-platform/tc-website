@@ -1,6 +1,8 @@
 <%@ page language="java" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<%@ page contentType="text/html;charset=utf-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -12,11 +14,13 @@
 
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>
-<title>Active Contests</title>
-<jsp:include page="/script.jsp"/>
-<jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_stats"/>
-</jsp:include>
+    <title>TopCoder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="/script.jsp"/>
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
 </head>
 
 <body>
@@ -26,20 +30,22 @@
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-<tr valign="top">
-<!-- Left Column Begins-->
-<td width="180">
-   <jsp:include page="/includes/global_left.jsp">
-        <jsp:param name="node" value="architecture_compete"/>
-   </jsp:include>
-</td>
+<tbody>
+    <tr valign="top">
+<%-- Left Column Begins--%>
+        <td width="180">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="architecture_compete"/>
+            </jsp:include>
+        </td>
+<%-- Left Column Ends --%>
 
-<!-- Center Column Begins -->
+<%-- Center Column Begins --%>
         <td width="100%" align="center" class="bodyColumn">
             <%--
-            <div class="maxWidthBody">
+            <div class="fixedWidthBody">
             --%>
-
+           
 <jsp:include page="/page_title.jsp">
 <jsp:param name="image" value="architecture"/>
     <jsp:param name="title" value="Active Contests"/>
@@ -51,26 +57,26 @@
 
 <div align="right" style="padding-top: 10px">
     Competition opportunities via RSS - <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28">Subscribe Now</a>
-    <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
+    <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" /></a>
     <br /><br />
 </div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="8">Active Software Architecture Contests</td>
+        <td class="title" colspan="7">Active Software Architecture Contests</td>
     </tr>
    <tr>
-      <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Contest</a></td>
-      <td class="header">&#160;</td>
-      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Register by</a></td>
-      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a></td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Payment</a></td>
-      <td class="headerC">
+      <td class="header" width="30%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Contest</a></td>
+      <td class="header" width="20%">&#160;</td>
+      <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Register by</a></td>
+      <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a></td>
+      <td class="headerR" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Payment</a></td>
+      <td class="headerC" width="10%">
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Registrants</a><br />
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Rated</a>/
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Unrated</a>
       </td>
-      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Submissions</a></td>
+      <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Submissions</a></td>
    </tr>
 
     <% boolean even = false; %>
@@ -85,13 +91,13 @@
             </td>
             <td class="valueC" nowrap="nowrap">
                 <% if (resultRow.getBooleanItem("is_reg_closed")) { %>
-                <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy'<br />'HH:mm z"/>
+                <rsc:item name="reg_end_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
                 <% } else { %>
                 <rsc:item name="reg_end_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
                 <% } %>
             </td>
             <td class="valueC" nowrap="nowrap">
-                <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy'<br />'HH:mm z"/></td>
+                <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
             <td class="valueR">
                 <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
             <td class="valueC">
@@ -113,30 +119,31 @@
 
 <div align="right" style="padding-top: 10px">
     Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Contests page</a> or subscribe to the RSS feed
-    <a href="/tc?module=BasicRSS&c=rss_Upcoming_Contests&dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
+    <a href="/tc?module=BasicRSS&amp;c=rss_Upcoming_Contests&amp;dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" /></a>
 </div>
 
-    <%--
-    </div>
-    --%>
-</td>
-<!-- Center Column Ends -->
+<br />
 
-<!-- Right Column Begins -->
-<td width="180">
-    <jsp:include page="../public_right.jsp">
-        <jsp:param name="level1" value="branded"/>
-    </jsp:include>
-</td>
 
-<!-- Gutter -->
-<td width="2"><img src="/i/clear.gif" width="2" height="1" border="0"></td>
-<!-- Gutter Ends -->
-
-</tr>
+            <%--
+            </div>
+            --%>
+        </td>
+<%-- Center Column Ends --%>
+       
+<%-- Right Column Begins --%>
+        <td width="170">
+            <jsp:include page="../public_right.jsp">
+                <jsp:param name="level1" value="branded"/>
+            </jsp:include>
+        </td>
+<%-- Right Column Ends --%>
+       
+    </tr>
+</tbody>
 </table>
 
-<jsp:include page="../foot.jsp"/>
+<jsp:include page="../foot.jsp" />
 
 </body>
 
