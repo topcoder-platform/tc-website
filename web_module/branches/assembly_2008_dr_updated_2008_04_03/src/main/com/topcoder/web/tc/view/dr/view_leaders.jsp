@@ -10,8 +10,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-<c:set var="phaseName" value='${isDevelopment? "Development" : "Design" }' />
-<c:set var="context" value='${isDevelopment? "development" : "design" }' />
+<c:set var="phaseName" value='${isDevelopment ? "Development" : isDesign ? "Design" : "Assembly" }' />
+<c:set var="context" value='${isDevelopment ? "development" : isDesign ? "design" : "component"}' />
 
 <html>
 <head>
@@ -101,10 +101,12 @@
             <A href="/tc?&ph=112&module=LeaderBoard&staid=${staid}" class="bcLink">Design Cup Series Leaderboard</a><br>
             Development Cup Series Leaderboard</a><br>
         </c:when>
-        <c:otherwise>
+        <c:when test="${isDesign}">
             Design Cup Series Leaderboard<br>
             <A href="/tc?&ph=113&module=LeaderBoard&staid=${staid}" class="bcLink">Development Cup Series Leaderboard</a><br>
-        </c:otherwise>
+        </c:when>
+        <c:when test="${isAssembly}">
+        </c:when>
     </c:choose>
     <c:if test="${hasRookieCompetition }" >
         <A href="/tc?module=RookieBoard&ph=112&seid=${seid}" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>

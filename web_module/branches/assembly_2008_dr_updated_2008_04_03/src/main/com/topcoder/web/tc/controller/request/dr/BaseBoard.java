@@ -109,6 +109,7 @@ public abstract class BaseBoard extends BaseProcessor {
         setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
         getRequest().setAttribute("isDesign", phaseId == 112);
         getRequest().setAttribute("isDevelopment", phaseId == 113);
+        getRequest().setAttribute("isAssembly", phaseId == 114);
         
         boardProcessing();
     }
