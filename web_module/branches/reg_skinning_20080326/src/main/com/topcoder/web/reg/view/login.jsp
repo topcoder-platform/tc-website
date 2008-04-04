@@ -15,7 +15,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Registration</title>
     <jsp:include page="/style.jsp">
-        <jsp:param name="key" value="tc_reg"/>
+        <jsp:param name="key" value="cockpit_reg"/>
     </jsp:include>
 
     <script type="text/javascript">
