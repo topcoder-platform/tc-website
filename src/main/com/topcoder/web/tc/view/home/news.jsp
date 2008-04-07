@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Tournament News" border="0" /><br />04.07.08<br />12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/longcontest/stats/?module=ViewOverview&amp;rd=12166">AMD Multicore Threadfest Competition 1 Winners Announced!</a></span><br /><br />
+        AMD and TopCoder&reg; are excited to announce the first winners of the <a href="/threadfest">AMD Multicore Threadfest</a>.  Congratulations to <tc-webtag:handle coderId="15155743" /> who brings home $2,500.  See all the winners <a href="/longcontest/stats/?module=ViewOverview&amp;rd=12166">here</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/longcontest/stats/?module=ViewOverview&amp;rd=12166">details</a> | 
+        <tc-webtag:forumLink forumID="520302" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />04.07.08<br />11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyChat20080403">Eli Lilly SRM 396 Chat Transcript Available</a></span><br /><br />
@@ -149,17 +162,4 @@
         <a href="/registration/actions/Registration.do?method=openRegistrations">details</a> | 
         <tc-webtag:forumLink forumID="520543" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />03.20.08<br />11:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=calendar&amp;d2=apr_08">Seven Marathon Matches added to Event Calendar</a></span><br /><br />
-        Check out the Event Calendar to see the Marathon Matches added through July 2008.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=calendar&amp;d2=apr_08">details</a> | 
-        <tc-webtag:forumLink forumID="520539" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
