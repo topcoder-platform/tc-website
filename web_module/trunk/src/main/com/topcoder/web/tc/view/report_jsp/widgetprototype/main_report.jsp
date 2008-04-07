@@ -5,6 +5,12 @@
     <title>Report Widget</title>
     <link href="/css/widgets/cost_report/reportStyles.css" rel="stylesheet" type="text/css" />
 
+    <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
+    <script type="text/javascript" src="/js/jscal/calendar.js"></script>
+    <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
+    <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+
 
 <%@ include file="remote.jsp" %>
 <script>
@@ -340,14 +346,18 @@ function runReport() {
                 <label>
                     From:
                     <input name="from" type="text" class="date" id="from" value="01/01/2000" />
-                    <a href="#"><img src="/i/widgets/cost_report/cal.png" alt="Cal" width="26" height="18" /></a>             </label>
-            </div>
+                    <img src="/i/widgets/cost_report/cal.png" alt="Cal" width="26" height="18" id="trigger_start_date" />
+                 </label>
+           </div>
             <div>
                 <label>
                     To: &nbsp; &nbsp;
                     <input name="to" type="text" class="date" id="to" value="12/31/2020" />
                 </label>
-                <a href="#"><img src="/i/widgets/cost_report/cal.png" alt="Cal" width="26" height="18" /></a>         </div>
+                <img src="/i/widgets/cost_report/cal.png" alt="Cal" width="26" height="18" id="trigger_end_date" />
+                
+                
+                </div>
         </div>
     </div>
     <div class="parameter">
@@ -370,6 +380,34 @@ function runReport() {
 </div><!-- End iframe-sub-->
 </div><!-- End iframe-content-->
 
+<script language="javascript" type="text/javascript">
+    <!--
+Calendar.setup(
+{
+ inputField  : "from",  
+                    ifFormat    : "%m/%d/%Y",    
+                    button      : "trigger_start_date",     
+                    showsTime   : false,
+                    singleClick  : false,
+                    cache       : true
+}
+);
+
+
+
+Calendar.setup(
+{
+ inputField  : "to",  
+                    ifFormat    : "%m/%d/%Y",    
+                    button      : "trigger_end_date",     
+                    showsTime   : false,
+                    singleClick  : false,
+                    cache       : true
+}
+);
+
+                -->
+</script>
 
 
 </body>
