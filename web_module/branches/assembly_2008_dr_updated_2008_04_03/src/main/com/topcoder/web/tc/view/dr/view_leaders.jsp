@@ -128,7 +128,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
           list="${stages}" fieldText="complete_name" fieldValue="stage_id" useTopValue="false" />
 
 <c:choose>
-<c:when test="${results is empty}">
+<c:when test="${empty results}">
     <br><br>
     There are no results for the selected stage.
 </c:when>

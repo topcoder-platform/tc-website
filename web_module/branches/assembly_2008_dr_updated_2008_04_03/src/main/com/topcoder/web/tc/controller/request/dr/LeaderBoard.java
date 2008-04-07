@@ -105,13 +105,13 @@ public class LeaderBoard extends BaseBoard {
             }
             getRequest().setAttribute("hasRookieCompetition", hasRookie);
             getRequest().setAttribute("results", cropped);
+            getRequest().setAttribute("topTripWinners", numToLetters(ct[2]));
         } else {
             getRequest().setAttribute("hasRookieCompetition", false);
             getRequest().setAttribute("results", null);            
         }
         
         getRequest().setAttribute(Constants.STAGE_ID, stageId);
-        getRequest().setAttribute("topTripWinners", numToLetters(ct[2]));
 
         setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
         setIsNextPageInContext(true);        
