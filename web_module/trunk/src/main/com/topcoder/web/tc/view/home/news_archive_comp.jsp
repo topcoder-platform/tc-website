@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">04.07.08 2:30 PM - </td><td width="100%"><a href="/openaim/">One Month Into the Open AIM Developer Challenge</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.20.08 2:30 PM - </td><td width="100%"><a href="/registration/actions/Registration.do?method=openRegistrations">Two Assembly Comps Launched with over $10,000 in Prizes</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.05.08 11:00 AM - </td><td width="100%"><a href="/openaim/">Introducing the Open AIM Developer Challenge</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.25.08 9:00 PM - </td><td width="100%"><a href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003815">Mobile Development on Three Platforms</a><br /></td></tr>

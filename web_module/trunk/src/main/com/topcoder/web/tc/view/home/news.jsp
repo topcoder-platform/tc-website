@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Tournament News" border="0" /><br />04.07.08<br />2:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">One Month Into the Open AIM Developer Challenge</a></span><br /><br />
+        We're one month in with one month to go in the $100,000 Open AIM Developer Challenge. Already we have seen some great submissions by TopCoder members to this exciting competition, but it's not too late for you to get in on the action as well. Check out <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">topcoder.com/openaim</a> for all the details, or just browse all the <a href="/openaim/?myframe=category/all-submissions">cool apps</a> that have been submitted thus far – because even if you don't compete, we'll be asking you to vote for your favorite at the end of the competition!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">details</a> | 
+        <a href="/openaim/forums">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Tournament News" border="0" /><br />04.07.08<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/longcontest/stats/?module=ViewOverview&amp;rd=12166">AMD Multicore Threadfest Competition 1 Winners Announced!</a></span><br /><br />
@@ -149,17 +162,4 @@
         <a href="/tc?module=Static&amp;d1=features&amp;d2=032008">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=607889">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />03.20.08<br />2:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/registration/actions/Registration.do?method=openRegistrations">Two Assembly Comps Launched with over $10,000 in Prizes</a></span><br /><br />
-        The Castor <a href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003988">Installer Client</a> and <a href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003989">Web Assembly</a> competitions are now open for registration. Both of these applications have been converted into working prototypes and now need to be integrated with the backend components. For more information, please look at the <a href="/registration/actions/Registration.do?method=openRegistrations">assembly registration site</a>. Good Luck!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/registration/actions/Registration.do?method=openRegistrations">details</a> | 
-        <tc-webtag:forumLink forumID="520543" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
