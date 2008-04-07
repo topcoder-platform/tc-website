@@ -41,7 +41,7 @@ You need to be logged as an admin in order to access Report Widget.<br>
 <!-- End Branding -->
     <div class="wrapper-content">
         <div class="wrapper-sub">
-            <div class="frame"><iframe src="/tc?module=Static&d1=report_jsp&d2=widgetprototype&d3=main_report" name="frame" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto" height="278" width="568"></iframe></div>
+            <div class="frame"><iframe src="/tc?module=Static&d1=report_jsp&d2=widgetprototype&d3=main_report" name="frame" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto" height="400" width="568"></iframe></div>
         </div>
         <div class="footer">
             <div class="footer-btn">
