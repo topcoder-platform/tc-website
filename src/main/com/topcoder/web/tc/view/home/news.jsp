@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />04.07.08<br />11:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyChat20080403">Eli Lilly SRM 396 Chat Transcript Available</a></span><br /><br />
+        Before SRM 396, members spoke with Lilly representatives about their career opportunities.  See more info about Lilly <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly">here</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyChat20080403">details</a> | 
+        <tc-webtag:forumLink forumID="516707" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />04.03.08<br />11:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -148,18 +161,5 @@
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&amp;d1=calendar&amp;d2=apr_08">details</a> | 
         <tc-webtag:forumLink forumID="520539" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />03.20.08<br />9:15 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2201">How's Your Javascript?</a></span><br /><br />
-        We have just launched a contest over on <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2201">Studio</a> to build a TopCoder Widget using the Yahoo Konfabulator 4.5 API. You will be provided with all elements for the look &amp; feel of the widget, just put it together using the Yahoo tools and win up to $1,500. Register now, this contest only runs for 7 days!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2201">details</a> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&amp;forumID=161">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
