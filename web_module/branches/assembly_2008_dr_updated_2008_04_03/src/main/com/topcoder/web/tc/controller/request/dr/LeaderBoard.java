@@ -106,9 +106,10 @@ public class LeaderBoard extends BaseBoard {
             getRequest().setAttribute("hasRookieCompetition", hasRookie);
             getRequest().setAttribute("results", cropped);
             getRequest().setAttribute("topTripWinners", numToLetters(ct[2]));
+            getRequest().setAttribute("stageExists", true);            
         } else {
             getRequest().setAttribute("hasRookieCompetition", false);
-            getRequest().setAttribute("results", null);            
+            getRequest().setAttribute("stageExists", false);            
         }
         
         getRequest().setAttribute(Constants.STAGE_ID, stageId);
