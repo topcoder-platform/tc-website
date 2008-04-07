@@ -86,7 +86,7 @@
 <c:set value="<%=Constants.REG_TYPES%>" var="regTypes"/>
 <c:if test="${cf:contains(requestScope[regTypes], competition)}">
     <div class="regHead">As a Registered Competitor</div>
-    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
+    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo">
     <tbody>
         <tr>
             <td class="image">
@@ -115,7 +115,7 @@
 <c:set value="<%=RegistrationType.HIGH_SCHOOL_ID%>" var="hs"/>
 <c:if test="${cf:contains(requestScope[regTypes], hs)}">
     <div class="regHead">As a Registered High School Competitor</div>
-    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
+    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo">
     <tbody>
         <tr>
             <td class="image">
@@ -141,7 +141,7 @@
 <c:set value="<%=RegistrationType.SOFTWARE_ID%>" var="tcs"/>
 <c:if test="${cf:contains(requestScope[regTypes], tcs)}">
     <div class="regHead">As a Registered TopCoder Software Customer</div>
-    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
+    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo">
     <tbody>
         <tr>
             <td class="image">
@@ -162,7 +162,7 @@
 <c:set value="<%=RegistrationType.CORPORATE_ID%>" var="corp"/>
 <c:if test="${cf:contains(requestScope[regTypes], corp)}">
     <div class="regHead">As a Registered Corporate Services Member</div>
-    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
+    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo">
     <tbody>
         <tr>
             <td class="image">
@@ -182,7 +182,7 @@
 <c:set value="<%=RegistrationType.STUDIO_ID%>" var="studio"/>
 <c:if test="${cf:contains(requestScope[regTypes], studio)}">
     <div class="regHead">As a Registered TopCoder Studio Member</div>
-    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
+    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo">
     <tbody>
         <tr>
             <td class="image">
@@ -204,7 +204,7 @@
 <c:set value="<%=RegistrationType.TEACHER_ID%>" var="teacher"/>
 <c:if test="${cf:contains(requestScope[regTypes], teacher)}">
     <div class="regHead">As a Registered Professor</div>
-    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
+    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo">
     <tbody>
         <tr>
             <td class="image">
@@ -222,7 +222,7 @@
 <c:set value="<%=RegistrationType.OPENAIM_ID%>" var="openAIM"/>
 <c:if test="${cf:contains(requestScope[regTypes], openAIM)}">
     <div class="regHead">As an Open AIM Developer Challenge Competitor</div>
-    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
+    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo">
     <tbody>
         <tr>
             <td class="image">
@@ -237,7 +237,7 @@
 </c:if>
 
 <div class="regHead">As a Registered TopCoder Member</div>
-<table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
+<table cellpadding="0" cellspacing="0" border="0" class="whatToDo">
 <tbody>
     <tr>
         <td class="image">

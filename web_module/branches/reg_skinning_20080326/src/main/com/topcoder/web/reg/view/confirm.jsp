@@ -64,9 +64,18 @@
 <p align="center">
     <strong>Is this information correct?</strong>
 </p>
-<div id="confirmWarning" class="error">
-    NOTE: You have not updated your information yet.<br />You MUST click CONFIRM at the bottom<br />of this page to complete registration.
-</div>
+        <c:choose>
+        <c:when test="${!sessionInfo.loggedIn}">
+            <div id="confirmWarning" class="error">
+                WARNING: You are not registered yet.<br />You MUST click CONFIRM at the bottom of the page.
+            </div>
+        </c:when>
+        <c:otherwise>
+            <div id="confirmWarning" class="error">
+                WARNING: Your profile has NOT been updated.<br />You must click CONFIRM at the bottom of the page.
+            </div>
+        </c:otherwise>
+        </c:choose>
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="post" name="confirmForm">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
