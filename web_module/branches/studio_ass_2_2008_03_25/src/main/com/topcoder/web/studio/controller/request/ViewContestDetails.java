@@ -1,9 +1,6 @@
 package com.topcoder.web.studio.controller.request;
 
-import com.topcoder.security.TCPrincipal;
-import com.topcoder.security.TCSubject;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -12,9 +9,9 @@ import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestStatus;
+import com.topcoder.web.studio.util.Util;
 
 import java.util.Date;
-import java.util.Iterator;
 
 /**
  * @author dok, isv
@@ -39,7 +36,7 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             // Since TopCoder Studio Modifications Assembly - the contest creator may also view the contest
             // details (for preview) (Req# 5.5)
             long userId = getUser().getId();
-            if (isAdmin() || (userId == contest.getCreateUserId())) {
+            if (Util.isAdmin(userId) || (userId == contest.getCreateUserId())) {
                 getRequest().setAttribute("contest", contest);
             } else {
                 if (ContestStatus.ACTIVE.equals(contest.getStatus().getId())) {
@@ -70,15 +67,5 @@ public class ViewContestDetails extends ShortHibernateProcessor {
         }
 
     }
-
-    private boolean isAdmin() throws Exception {
-        TCSubject subject = SecurityHelper.getUserSubject(getUser().getId());
-        boolean found = false;
-        for (Iterator it = subject.getPrincipals().iterator(); it.hasNext() && !found;) {
-            found = ((TCPrincipal) it.next()).getId() == Constants.CONTEST_ADMIN_ROLE_ID;
-        }
-        return found;
-    }
-
 
 }

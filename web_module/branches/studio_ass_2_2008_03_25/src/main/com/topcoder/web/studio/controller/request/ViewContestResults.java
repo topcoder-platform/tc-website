@@ -1,18 +1,19 @@
 package com.topcoder.web.studio.controller.request;
 
-import com.topcoder.security.TCPrincipal;
-import com.topcoder.security.TCSubject;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestStatus;
+import com.topcoder.web.studio.util.Util;
 
 import java.util.Date;
-import java.util.Iterator;
 
 /**
  * @author dok
@@ -32,9 +33,9 @@ public class ViewContestResults extends ShortHibernateProcessor {
                 throw new NavigationException("Invalid contest specified");
             }
             Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);
-            getRequest().setAttribute("hasScores", contest.getProject()!=null);
+            getRequest().setAttribute("hasScores", contest.getProject() != null);
 
-            if (isAdmin()) {
+            if (Util.isAdmin(getUser().getId())) {
                 getRequest().setAttribute("contest", contest);
                 loadData(cid);
             } else {
@@ -64,15 +65,5 @@ public class ViewContestResults extends ShortHibernateProcessor {
         r.setProperty(Constants.CONTEST_ID, cid.toString());
         getRequest().setAttribute("results", da.getData(r).get("contest_results"));
     }
-
-    private boolean isAdmin() throws Exception {
-        TCSubject subject = SecurityHelper.getUserSubject(getUser().getId());
-        boolean found = false;
-        for (Iterator it = subject.getPrincipals().iterator(); it.hasNext() && !found;) {
-            found = ((TCPrincipal) it.next()).getId() == Constants.CONTEST_ADMIN_ROLE_ID;
-        }
-        return found;
-    }
-
 
 }
