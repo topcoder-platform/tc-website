@@ -3,35 +3,29 @@
  */
 package com.topcoder.web.studio.controller.request;
 
-import com.topcoder.web.studio.TCHibernateTestCase;
-import com.topcoder.web.studio.DatabaseUtil;
-import com.topcoder.web.studio.ServletOutputStreamImpl;
+import com.topcoder.db.connectionfactory.DBConnectionFactoryImpl;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.sql.InformixSimpleDataSource;
+import com.topcoder.util.config.ConfigManager;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.SimpleRequest;
+import com.topcoder.web.common.SimpleResponse;
 import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.mock.MockWebAuthentication;
+import com.topcoder.web.studio.DatabaseUtil;
+import com.topcoder.web.studio.TCHibernateTestCase;
 import com.topcoder.web.studio.mock.MockHttpServletRequest;
 import com.topcoder.web.studio.mock.MockHttpServletResponse;
 import com.topcoder.web.studio.mock.MockHttpSession;
-import com.topcoder.web.common.SimpleRequest;
-import com.topcoder.web.common.SimpleResponse;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.shared.security.User;
-import com.topcoder.shared.security.SimpleUser;
-import com.topcoder.shared.util.sql.InformixSimpleDataSource;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.db.connectionfactory.DBConnectionFactoryImpl;
-import com.topcoder.util.config.ConfigManager;
-
-import javax.sql.DataSource;
-import javax.naming.InitialContext;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Arrays;
-import java.io.ByteArrayOutputStream;
-
-import org.mockejb.jndi.MockContextFactory;
+import com.topcoder.web.studio.mock.MockWebAuthentication;
 import junit.framework.Assert;
+import org.mockejb.jndi.MockContextFactory;
+
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+import java.util.HashSet;
 
 /**
  * <p>A unit test case for {@link ViewSubmissions} class.</p>
@@ -123,7 +117,7 @@ public class ViewSubmissionsTestCase extends TCHibernateTestCase {
         MockContextFactory.revertSetAsInitial();
         try {
             DBConnectionFactoryImpl connectionFactory
-                = new DBConnectionFactoryImpl("com.topcoder.db.connectionfactory.DBConnectionFactoryImpl");
+                    = new DBConnectionFactoryImpl("com.topcoder.db.connectionfactory.DBConnectionFactoryImpl");
             DatabaseUtil.clearTables(connectionFactory);
         } catch (Exception e) {
             throw new IllegalArgumentException("The tearDown() fails", e);
@@ -132,9 +126,9 @@ public class ViewSubmissionsTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link ViewSubmissions#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for viewing submissions for a running <code>TopCoder Direct</code> contest and expects the
-     * method to allow viewing the submissions for contest.</p>
+     * method to disallow viewing the submissions for contest.</p>
      *
      * @throws Exception if an unexpected error occurs.
      */
@@ -143,68 +137,26 @@ public class ViewSubmissionsTestCase extends TCHibernateTestCase {
         long contestId = 1;
 
         MockHttpServletRequest.setMethodResultPerArgs("getParameter_String",
-                                                      Constants.CONTEST_ID, String.valueOf(contestId));
+                Constants.CONTEST_ID, String.valueOf(contestId));
 
         // Execution
-        this.testedInstance.process();
-        super.tearDown();
-        super.setUp();
-
-        // Test verification
-        Assert.assertEquals("The submissions are not returned", "/submissions.jsp", this.testedInstance.getNextPage());
-        boolean submissionsBound = false;
-        List args = MockHttpServletRequest.getMethodArguments("setAttribute_String_Object");
-        for (int i = 0; i < args.size(); i++) {
-            Map callArgs = (Map) args.get(i);
-            String attrName = (String) callArgs.get("1");
-            Object attrValue = callArgs.get("2");
-            if ("submissions".equals(attrName)) {
-                submissionsBound = true;
-                Assert.assertTrue("The submissions are not bound", attrValue instanceof List);
-            }
+        try {
+            this.testedInstance.process();
+            Assert.fail("Viewing submissions is not prohibited for running contest");
+        } catch (NavigationException e) {
+            // Expected behavior
+            Assert.assertEquals("Wrong exception message is returned",
+                    "Submissions are not available until the contest is over.", e.getMessage());
+        } finally {
+            super.tearDown();
+            super.setUp();
         }
-        Assert.assertTrue("The submissions are not returned", submissionsBound);
     }
+
 
     /**
      * <p>Accuracy test. Tests the {@link ViewSubmissions#dbProcessing()} method for accurate behavior.</p>
-     *
-     * <p>Passes a request for viewing submissions for a non-running <code>TopCoder Direct</code> contest and expects
-     * the method to allow viewing the submissions for contest.</p>
-     *
-     * @throws Exception if an unexpected error occurs.
-     */
-    public void testDbProcessing_NonRunning_TCDirect() throws Exception {
-        // Test setup
-        long contestId = 8;
-
-        MockHttpServletRequest.setMethodResultPerArgs("getParameter_String",
-                                                      Constants.CONTEST_ID, String.valueOf(contestId));
-
-        // Execution
-        this.testedInstance.process();
-        super.tearDown();
-        super.setUp();
-
-        // Test verification
-        Assert.assertEquals("The submissions are not returned", "/submissions.jsp", this.testedInstance.getNextPage());
-        boolean submissionsBound = false;
-        List args = MockHttpServletRequest.getMethodArguments("setAttribute_String_Object");
-        for (int i = 0; i < args.size(); i++) {
-            Map callArgs = (Map) args.get(i);
-            String attrName = (String) callArgs.get("1");
-            Object attrValue = callArgs.get("2");
-            if ("submissions".equals(attrName)) {
-                submissionsBound = true;
-                Assert.assertTrue("The submissions are not bound", attrValue instanceof List);
-            }
-        }
-        Assert.assertTrue("The submissions are not returned", submissionsBound);
-    }
-
-    /**
-     * <p>Accuracy test. Tests the {@link ViewSubmissions#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for viewing submissions for a running <code>Studio Admin</code> contest and expects the
      * method to deny viewing the submissions for contest.</p>
      *
@@ -215,7 +167,7 @@ public class ViewSubmissionsTestCase extends TCHibernateTestCase {
         long contestId = 2;
 
         MockHttpServletRequest.setMethodResultPerArgs("getParameter_String",
-                                                      Constants.CONTEST_ID, String.valueOf(contestId));
+                Constants.CONTEST_ID, String.valueOf(contestId));
 
         // Execution
         try {
@@ -224,7 +176,7 @@ public class ViewSubmissionsTestCase extends TCHibernateTestCase {
         } catch (NavigationException e) {
             // Expected behavior
             Assert.assertEquals("Wrong exception message is returned",
-                                "Submissions are not available until the contest is over.", e.getMessage());
+                    "Submissions are not available until the contest is over.", e.getMessage());
         } finally {
             super.tearDown();
             super.setUp();
@@ -233,7 +185,7 @@ public class ViewSubmissionsTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link ViewSubmissions#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for viewing submissions for a running <code>Studio Admin V1</code> contest and expects the
      * method to deny viewing the submissions for contest.</p>
      *
@@ -244,7 +196,7 @@ public class ViewSubmissionsTestCase extends TCHibernateTestCase {
         long contestId = 7;
 
         MockHttpServletRequest.setMethodResultPerArgs("getParameter_String",
-                                                      Constants.CONTEST_ID, String.valueOf(contestId));
+                Constants.CONTEST_ID, String.valueOf(contestId));
 
         // Execution
         try {
@@ -253,7 +205,7 @@ public class ViewSubmissionsTestCase extends TCHibernateTestCase {
         } catch (NavigationException e) {
             // Expected behavior
             Assert.assertEquals("Wrong exception message is returned",
-                                "Submissions are not available until the contest is over.", e.getMessage());
+                    "Submissions are not available until the contest is over.", e.getMessage());
         } finally {
             super.tearDown();
             super.setUp();
