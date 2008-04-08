@@ -49,7 +49,7 @@ public class Contest extends Base {
 
     /**
      * <p>An <code>Integer</code> providing the ID of a project this contest is associated with. Such a project is
-     * created by the means of <code>TopCoder Direct</code> application.</p> 
+     * created by the means of <code>TopCoder Direct</code> application.</p>
      *
      * @see ContestChannel#TOPCODER_DIRECT
      * @since TopCoder Studio Modifications Assembly (Req# 5.3)
@@ -58,6 +58,7 @@ public class Contest extends Base {
 
     /**
      * <p>A <code>Long</code> providing the ID of a user who have created this contest.</p>
+     *
      * @since TopCoder Studio Modifications Assembly (Req# 5.4)
      */
     private Long createUserId = null;
@@ -281,7 +282,7 @@ public class Contest extends Base {
     /**
      * <p>Gets the type of this studio contest.</p>
      *
-     * @return a <code>ContestType</code> representing the type of this contest. 
+     * @return a <code>ContestType</code> representing the type of this contest.
      * @since TopCoder Studio Modifications Assembly (Req# 5.3)
      */
     public ContestType getType() {
@@ -291,7 +292,7 @@ public class Contest extends Base {
     /**
      * <p>Sets the type of this studio contest.</p>
      *
-     * @param type a <code>ContestType</code> representing the type of this contest. 
+     * @param type a <code>ContestType</code> representing the type of this contest.
      * @since TopCoder Studio Modifications Assembly (Req# 5.3)
      */
     public void setType(ContestType type) {
@@ -303,7 +304,7 @@ public class Contest extends Base {
      * be used for those contests which originated from <code>TopCoder Direct</code> application.</p>
      *
      * @return an <code>Integer</code> providing the ID of <code>TopCoder Direct</code> project.
-     * @see ContestChannel#TOPCODER_DIRECT 
+     * @see ContestChannel#TOPCODER_DIRECT
      * @since TopCoder Studio Modifications Assembly (Req# 5.3)
      */
     public Integer getDirectProjectId() {
@@ -356,7 +357,7 @@ public class Contest extends Base {
      * <p>Sets the date and time of an announcement of a winner for this contest.</p>
      *
      * @param winnerAnnouncementTime a <code>Timestamp</code> providing the time of announcement of a winner for this
-     *        contest.
+     *                               contest.
      * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.2)
      */
     public void setWinnerAnnouncementTime(Timestamp winnerAnnouncementTime) {
@@ -376,7 +377,7 @@ public class Contest extends Base {
     /**
      * <p>Sets the intended mediums for the submissions submitted for this contest.</p>
      *
-     * @param mediums a <code>Set</code> of medium types for this contest. 
+     * @param mediums a <code>Set</code> of medium types for this contest.
      * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.5)
      */
     public void setMediums(Set<Medium> mediums) {
@@ -387,7 +388,7 @@ public class Contest extends Base {
      * <p>Adds specified medium type to list of medium types already set for this contest.</p>
      *
      * @param medium a <code>Medium</code> providing the details for the medium to be added to this contest.
-     * @throws IllegalArgumentException if specified <code>medium</code> is <code>null</code>. 
+     * @throws IllegalArgumentException if specified <code>medium</code> is <code>null</code>.
      * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.5)
      */
     public void addMedium(Medium medium) {
@@ -535,21 +536,4 @@ public class Contest extends Base {
         return getConfig(ContestProperty.CLIENT);
     }
 
-    /**
-     * <p>Gets the list of names of medium types set for this contest.</p>
-     *
-     * @return a <code>String</code> collecting the names of medium types for this contest separated with
-     *         <code>back-slash</code> character.
-     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.2)
-     */
-    public String getMediumNamesList() {
-        StringBuilder b = new StringBuilder();
-        for (Medium medium : this.mediums) {
-            if (b.length() > 0) {
-                b.append('/');
-            }
-            b.append(medium.getDescription());
-        }
-        return b.toString();
-    }
 }
