@@ -6,10 +6,10 @@ import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestChannel;
+import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.MimeType;
 import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.util.SubmissionPresentationFilter;
 import com.topcoder.web.studio.util.Util;
 import com.topcoder.web.studio.validation.SubmissionValidator;
@@ -18,10 +18,10 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
-import java.util.Date;
-import java.util.Set;
-import java.util.Map;
 import java.text.MessageFormat;
+import java.util.Date;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author dok, isv
@@ -46,7 +46,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         }
 
         Submission s = StudioDAOUtil.getFactory().getSubmissionDAO().find(submissionId);
-        
+
         Contest contest = s.getContest();
         ContestChannel channel = contest.getChannel();
 
@@ -80,21 +80,33 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             // Since TopCoder Studio Modifications v2 Assembly (Req# 5.11)- the contest creator may download the
             // submission if it already has been purchased
             boolean originalSubmissionRequested = "original".equalsIgnoreCase(submissionType);
-            boolean isPurchaser = originalSubmissionRequested && (contest.getCreateUserId() == currentUserId)
-                                  && (Util.isSubmissionPurchased(String.valueOf(submissionId)));
+            boolean isContestCreator = contest.getCreateUserId() == currentUserId;
+            boolean isPurchaser = originalSubmissionRequested && isContestCreator
+                    && (Util.isSubmissionPurchased(String.valueOf(submissionId)));
             if (!isOver && !isOwner && !isTopCoderDirect && !isPurchaser) {
                 throw new NavigationException("Submissions are not available until the contest is over.");
             }
 
-            // Allow to download submission only if the contest submissions are viewable and any of following conditions
-            // is met:
-            // 1. The non-original submission is requested and user is a submitter or contest is over or contest is
-            //    TC Direct contest
-            // 2. The original submission is requested and user is either a submitter
-            // 3. The original submission is requested and user is contest creator and submission is purchased
-            if ("true".equals(s.getContest().getViewableSubmissions().getValue())
-                && ((isOwner || isTopCoderDirect || isOver) && !originalSubmissionRequested
-                    || originalSubmissionRequested && (isPurchaser || isOwner))) {
+            boolean canDownload;
+            if (Util.isAdmin(getUser().getId())) {
+                //admins can download anything
+                canDownload = true;
+            } else if (isOwner) {
+                //submitters can always download their own work
+                canDownload = true;
+            } else if (originalSubmissionRequested) {
+                //if the original is requested, then they can only download it if they bought it
+                canDownload = isPurchaser;
+            } else if (isContestCreator) {
+                //if it's not the original, then the contest creator can download it, it doesn't matter if the contest is over or not
+                canDownload = true;
+            } else if (String.valueOf(true).equals(s.getContest().getViewableSubmissions().getValue())) {
+                //if submissions are viewable, then they can only be downloaded if the contest is over
+                canDownload = isOver;
+            } else {
+                canDownload = false;
+            }
+            if (canDownload) {
                 // Since TopCoder Studio Modifications Assembly Req# 5.8
                 String targetFileName;
                 String destFileName;
@@ -102,7 +114,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
                 // Determine if the "imagew" presentation must be used in case the "full" presentation is requested but
                 // contest does not require preview file. So the user may get the watermarked image
-                Map<Integer,String> contestConfig = contest.getConfigMap();
+                Map<Integer, String> contestConfig = contest.getConfigMap();
                 boolean previewFileRequired
                         = Boolean.parseBoolean(contestConfig.get(ContestProperty.REQUIRE_PREVIEW_FILE));
                 if ("full".equalsIgnoreCase(submissionType) && !previewFileRequired) {
@@ -116,18 +128,17 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                     // Locate the file corresponding to requested alternate presentation
                     File dir = new File(s.getPath().getPath());
                     String[] fileNames = dir.list(new SubmissionPresentationFilter(submissionType, s.getId()));
-                    if ((fileNames == null)  || (fileNames.length < 1)) {
+                    if ((fileNames == null) || (fileNames.length < 1)) {
                         throw new NavigationException(MessageFormat.format(Constants.ERROR_MSG_PRESENTATION_NOT_FOUND,
-                                                                           submissionType));
+                                submissionType));
                     } else {
                         // tiny, small, medium and full
                         targetFileName = s.getPath().getPath() + fileNames[0];
                         destFileName = fileNames[0];
                         StudioFileType fileType = SubmissionValidator.getFileType(destFileName);
                         Set<MimeType> mimeTypes = fileType.getMimeTypes();
-                        for (MimeType mimeType : mimeTypes) {
-                            contentType = mimeType.getDescription();
-                            break;
+                        if (!mimeTypes.isEmpty()) {
+                            contentType = mimeTypes.iterator().next().getDescription();
                         }
                     }
                 } else {
@@ -147,7 +158,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 TCResponse response = getResponse();
                 if (isOwner && originalSubmissionRequested) {
                     response.addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName()
-                                                                   + "\"");
+                            + "\"");
                     if (log.isDebugEnabled()) {
                         log.debug("content-disposition = inline; filename=\"" + s.getOriginalFileName() + "\"");
                     }
@@ -184,7 +195,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
     /**
      * <p>Processes the contests originated from the <code>Studio Administrator v.1</code> contest channel.</p>
      *
-     * @param s a <code>Submission</code> reprsenting the submission to be downloaded. 
+     * @param s a <code>Submission</code> reprsenting the submission to be downloaded.
      * @throws Exception if an unexpected error occurs.
      * @since TopCoder Studio Modifications Assembly (Req# 5.8)
      */
@@ -210,8 +221,8 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 response.addHeader("content-disposition", "inline; filename=\"" + origFileName + "\"");
             } else {
                 response.addHeader("content-disposition", "inline; filename=\"" + s.getId()
-                                                               + origFileName.substring(origFileName.lastIndexOf('.'))
-                                                               + "\"");
+                        + origFileName.substring(origFileName.lastIndexOf('.'))
+                        + "\"");
             }
             //resetting the cache-control header to empty.  IE freaks out and doesn't save when the
             //cache-control header is set the way we do for an uncached response.
