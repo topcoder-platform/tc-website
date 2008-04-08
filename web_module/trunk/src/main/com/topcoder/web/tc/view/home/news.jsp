@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />04.08.08<br />9:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm396">SRM 396 - Problem Set &amp; Analysis</a></span><br /><br />
+      In division I, <tc-webtag:handle coderId="19849563" context="algorithm"/> immediatly took the lead with the fastest 250. Few minutes afterwards, <tc-webtag:handle coderId="15868491" context="algorithm"/> with an excellent performance on the 500 managed to reach the top. However, an extremely fast 1000 and a successful challenge granted <tc-webtag:handle coderId="19849563" context="algorithm"/> the victory.</td>
+         <td class="newsPhoto"><%--<img src="/i/m/Xixas_big2.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="21052072" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm396">details</a> | 
+        <tc-webtag:forumLink forumID="520704" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Tournament News" border="0" /><br />04.07.08<br />2:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">One Month Into the Open AIM Developer Challenge</a></span><br /><br />
@@ -151,15 +167,3 @@
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />03.20.08<br />5:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=032008">Meet the February 2008 Coders of the Month: oninkxronda</a></span><br /><br />
-        We caught up with <tc-webtag:handle coderId="22418135" />, February's Studio Designer of the Month, to learn a little bit more about him, his proudest TopCoder moments, and anything else he wishes to share with the community.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=032008">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=607889">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
-   </td></tr>
