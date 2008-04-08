@@ -17,52 +17,6 @@ import com.topcoder.web.common.model.Base;
 public class Medium extends Base {
 
     /**
-     * <p>An <code>Integer</code> referencing the <code>Web</code> medium type.</p>
-     */
-    public static final Integer WEB = 1;
-
-    /**
-     * <p>An <code>Integer</code> referencing the <code>Computer Screen</code> medium type.</p>
-     */
-    public static final Integer COMPUTER_SCREEN = 2;
-
-    /**
-     * <p>An <code>Integer</code> referencing the <code>Print</code> medium type.</p>
-     */
-    public static final Integer PRINT = 3;
-
-    /**
-     * <p>An <code>Integer</code> referencing the <code>Sign/Banner (Large Print)</code> medium type.</p>
-     */
-    public static final Integer LARGE_PRINT = 4;
-
-    /**
-     * <p>An <code>Integer</code> referencing the <code>Aparrel (T-Shirt, Embroidery, Hat etc.)</code> medium type.</p>
-     */
-    public static final Integer APPAREL = 5;
-
-    /**
-     * <p>An <code>Integer</code> referencing the <code>Poster</code> medium type.</p>
-     */
-    public static final Integer POSTER = 6;
-
-    /**
-     * <p>An <code>Integer</code> referencing the <code>Email Newsletter</code> medium type.</p>
-     */
-    public static final Integer EMAIL_NEWSLETTER = 7;
-
-    /**
-     * <p>An <code>Integer</code> referencing the <code>Stationary (letterhead, business cards, envelopes, etc.)</code>
-     * medium type.</p>
-     */
-    public static final Integer STATIONARY = 8;
-
-    /**
-     * <p>An <code>Integer</code> referencing the <code>Brochure</code> medium type.</p>
-     */
-    public static final Integer BROCHURE = 9;
-
-    /**
      * <p>An <code>Integer</code> maintaining the ID of this medium type.</p>
      */
     private Integer id = null;

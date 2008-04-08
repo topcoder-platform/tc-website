@@ -1,8 +1,8 @@
 package com.topcoder.web.studio.dao;
 
 import com.topcoder.db.connectionfactory.DBConnectionFactoryImpl;
-import com.topcoder.web.studio.TCHibernateTestCase;
 import com.topcoder.web.studio.DatabaseUtil;
+import com.topcoder.web.studio.TCHibernateTestCase;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestChannel;
 import com.topcoder.web.studio.model.ContestConfig;
@@ -12,9 +12,9 @@ import com.topcoder.web.studio.model.ContestType;
 import com.topcoder.web.studio.model.Document;
 import com.topcoder.web.studio.model.DocumentType;
 import com.topcoder.web.studio.model.FilePath;
+import com.topcoder.web.studio.model.Medium;
 import com.topcoder.web.studio.model.Prize;
 import com.topcoder.web.studio.model.PrizeType;
-import com.topcoder.web.studio.model.Medium;
 import junit.framework.Assert;
 
 import java.sql.Timestamp;
@@ -52,7 +52,7 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Tears down the fixture. This method is called after a test is executed.</p>
-     * 
+     *
      * @since TopCoder Studio Modifications Assembly (Req# 5.3, 5.4)
      */
     public void tearDown() {
@@ -73,10 +73,10 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests {@link ContestDAO#saveOrUpdate(Contest)} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Adds new contest to persistent data store and verifies that the contest is saved to persistent data store and
      * new attributes added since <code>TopCoder Studio Modifications Assembly</code> are saved correctly.</p>
-     * 
+     *
      * @since 1.0
      */
     public void testSave() {
@@ -96,10 +96,11 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setType(type);
 
         MediumDAO mediumDAO = StudioDAOUtil.getFactory().getMediumDAO();
+        List<Medium> allMediums = mediumDAO.findAll();
         Set<Medium> mediums = new HashSet<Medium>();
-        mediums.add(mediumDAO.find(Medium.APPAREL));
-        mediums.add(mediumDAO.find(Medium.BROCHURE));
-        mediums.add(mediumDAO.find(Medium.COMPUTER_SCREEN));
+        mediums.add(allMediums.iterator().next());
+        mediums.add(allMediums.iterator().next());
+        mediums.add(allMediums.iterator().next());
         c.setMediums(mediums);
 
         Integer directProjectId = 493294;
@@ -136,16 +137,16 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
 
         // Since TopCoder Studio Modifications v2 Assembly
         Assert.assertEquals("The winner announcement time is not set correctly",
-                            c.getWinnerAnnouncementTime(), c1.getWinnerAnnouncementTime());
+                c.getWinnerAnnouncementTime(), c1.getWinnerAnnouncementTime());
         assertMediums(mediums, c1.getMediums());
     }
 
     /**
      * <p>Accuracy test. Tests {@link ContestDAO#saveOrUpdate(Contest)} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Updates the existing contest in persistent data store and verifies that the contest data is updated in
      * persistent data store correctly.</p>
-     * 
+     *
      * @since 1.0
      */
     public void testUpdate() {
@@ -194,10 +195,11 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setCreateUserId(createUserId);
 
         MediumDAO mediumDAO = StudioDAOUtil.getFactory().getMediumDAO();
+        List<Medium> allMediums = mediumDAO.findAll();
         Set<Medium> mediums = new HashSet<Medium>();
-        mediums.add(mediumDAO.find(Medium.WEB));
-        mediums.add(mediumDAO.find(Medium.POSTER));
-        mediums.add(mediumDAO.find(Medium.COMPUTER_SCREEN));
+        mediums.add(allMediums.iterator().next());
+        mediums.add(allMediums.iterator().next());
+        mediums.add(allMediums.iterator().next());
         c.setMediums(mediums);
 
         ContestProperty previewImageProperty
@@ -237,9 +239,10 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
 
         mediumDAO = StudioDAOUtil.getFactory().getMediumDAO();
         Set<Medium> newMediums = new HashSet<Medium>();
-        newMediums.add(mediumDAO.find(Medium.LARGE_PRINT));
-        newMediums.add(mediumDAO.find(Medium.COMPUTER_SCREEN));
+        newMediums.add(allMediums.iterator().next());
+        newMediums.add(allMediums.iterator().next());
         c1.setMediums(newMediums);
+
 
         previewImageConf = getConfig(c1, previewImageProperty);
         previewImageConf.setValue("f");
@@ -263,13 +266,13 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
 
         // Since TopCoder Studio Modifications v2 Assembly
         Assert.assertEquals("The winner announcement time is not set correctly",
-                            c.getWinnerAnnouncementTime(), c2.getWinnerAnnouncementTime());
+                c.getWinnerAnnouncementTime(), c2.getWinnerAnnouncementTime());
         assertMediums(newMediums, c2.getMediums());
     }
 
     /**
      * <p>Accuracy test. Tests {@link ContestDAO#saveOrUpdate(Contest)} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Adds new contest to persistent data store and verifies that the basic contest data like prizes and
      * configuration are saved to persistent data store and new attributes added since <code>TopCoder Studio
      * Modifications Assembly</code> are saved correctly.</p>
@@ -322,10 +325,11 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setCreateUserId(createUserId);
 
         MediumDAO mediumDAO = StudioDAOUtil.getFactory().getMediumDAO();
+        List<Medium> allMediums = mediumDAO.findAll();
         Set<Medium> mediums = new HashSet<Medium>();
-        mediums.add(mediumDAO.find(Medium.STATIONARY));
-        mediums.add(mediumDAO.find(Medium.EMAIL_NEWSLETTER));
-        mediums.add(mediumDAO.find(Medium.COMPUTER_SCREEN));
+        mediums.add(allMediums.iterator().next());
+        mediums.add(allMediums.iterator().next());
+        mediums.add(allMediums.iterator().next());
         c.setMediums(mediums);
 
         ContestProperty previewImageProperty
@@ -358,13 +362,13 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
 
         // Since TopCoder Studio Modifications v2 Assembly
         Assert.assertEquals("The winner announcement time is not set correctly",
-                            c.getWinnerAnnouncementTime(), c1.getWinnerAnnouncementTime());
+                c.getWinnerAnnouncementTime(), c1.getWinnerAnnouncementTime());
         assertMediums(mediums, c1.getMediums());
     }
 
     /**
      * <p>Accuracy test. Tests {@link ContestDAO#saveOrUpdate(Contest)} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Adds new contest to persistent data store and verifies that the basic contest data like assignment documents
      * are saved to persistent data store and new attributes added since <code>TopCoder Studio Modifications Assembly
      * </code> are saved correctly.</p>
@@ -389,14 +393,14 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         d.setType(StudioDAOUtil.getFactory().getDocumentTypeDAO().find(DocumentType.SPECIFICTION));
 
         c.addDocument(d);
-        
+
         ContestChannel channel
                 = StudioDAOUtil.getFactory().getContestChannelDAO().find(ContestChannel.STUDIO_ADMINISTRATOR);
         c.setChannel(channel);
 
         ContestType type = StudioDAOUtil.getFactory().getContestTypeDAO().find(ContestType.STORYBOARD);
         c.setType(type);
-        
+
         Integer directProjectId = null;
         c.setDirectProjectId(directProjectId);
 
@@ -418,8 +422,9 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.addConfig(previewFileConf);
 
         MediumDAO mediumDAO = StudioDAOUtil.getFactory().getMediumDAO();
+        List<Medium> allMediums = mediumDAO.findAll();
         Set<Medium> mediums = new HashSet<Medium>();
-        mediums.add(mediumDAO.find(Medium.APPAREL));
+        mediums.add(allMediums.iterator().next());
         c.setMediums(mediums);
 
         StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
@@ -437,10 +442,10 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         Assert.assertEquals("The create user ID is not set correctly", createUserId, c1.getCreateUserId());
         assertContestProperty(c1, previewImageProperty, "f");
         assertContestProperty(c1, previewFileProperty, "f");
-        
+
         // Since TopCoder Studio Modifications v2 Assembly
         Assert.assertEquals("The winner announcement time is not set correctly",
-                            c.getWinnerAnnouncementTime(), c1.getWinnerAnnouncementTime());
+                c.getWinnerAnnouncementTime(), c1.getWinnerAnnouncementTime());
         assertMediums(mediums, c1.getMediums());
     }
 
@@ -454,57 +459,57 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
      * <p>Verifies that the specified channels are equal.</p>
      *
      * @param expected a <code>ContestChannel</code> providing the expected data for the channel.
-     * @param actual a <code>ContestChannel</code> providing the actual data for the channel.
+     * @param actual   a <code>ContestChannel</code> providing the actual data for the channel.
      * @since TopCoder Studio Modifications Assembly
      */
     private void assertContestChannels(ContestChannel expected, ContestChannel actual) {
         Assert.assertNotNull("The contest channel is not set", actual);
         Assert.assertEquals("The contest channel is not set correctly", expected.getId(), actual.getId());
         Assert.assertEquals("The contest channel is not set correctly",
-                            expected.getDescription(), actual.getDescription());
+                expected.getDescription(), actual.getDescription());
     }
 
     /**
      * <p>Verifies that the specified contest types are equal.</p>
      *
      * @param expected a <code>ContestType</code> providing the expected data for the contest type.
-     * @param actual a <code>ContestType</code> providing the actual data for the contest type.
+     * @param actual   a <code>ContestType</code> providing the actual data for the contest type.
      * @since TopCoder Studio Modifications Assembly
      */
     private void assertContestTypes(ContestType expected, ContestType actual) {
         Assert.assertNotNull("The contest type is not set", actual);
         Assert.assertEquals("The contest type is not set correctly", expected.getId(), actual.getId());
         Assert.assertEquals("The contest type is not set correctly",
-                            expected.getDescription(), actual.getDescription());
+                expected.getDescription(), actual.getDescription());
         Assert.assertEquals("The contest type is not set correctly",
-                            expected.getPreviewImageRequired(), actual.getPreviewImageRequired());
+                expected.getPreviewImageRequired(), actual.getPreviewImageRequired());
         Assert.assertEquals("The contest type is not set correctly",
-                            expected.getPreviewFileRequired(), actual.getPreviewFileRequired());
+                expected.getPreviewFileRequired(), actual.getPreviewFileRequired());
     }
 
     /**
      * <p>Verifies that the specified contest has the specified property set.</p>
      *
-     * @param contest a <code>Contest</code> to verify.
+     * @param contest          a <code>Contest</code> to verify.
      * @param expectedProperty a <code>ContestType</code> providing the expected data for the contest type.
-     * @param expectedValue a <code>String</code> providing the expected value of specified property.
+     * @param expectedValue    a <code>String</code> providing the expected value of specified property.
      * @since TopCoder Studio Modifications Assembly
      */
     private void assertContestProperty(Contest contest, ContestProperty expectedProperty, String expectedValue) {
-        Map<Integer,String> config = contest.getConfigMap();
+        Map<Integer, String> config = contest.getConfigMap();
         Assert.assertTrue("The [" + expectedProperty.getDescription() + "] property is not set",
-                          config.containsKey(expectedProperty.getId()));
+                config.containsKey(expectedProperty.getId()));
         Assert.assertEquals("The [" + expectedProperty.getDescription() + "] property is not set correctly",
-                            expectedValue, config.get(expectedProperty.getId()));
+                expectedValue, config.get(expectedProperty.getId()));
     }
 
     /**
      * <p>Gets the configured value for specified property from the specified contest.</p>
      *
-     * @param contest a <code>Contest</code> representing the contest to get the value from.
+     * @param contest  a <code>Contest</code> representing the contest to get the value from.
      * @param property a <code>ContestProperty</code> representing the property to get value for.
      * @return a <code>ContestConfig</code> matching the specified property in specified contest or <code>null</code> if
-     *         such a configuration is not found. 
+     *         such a configuration is not found.
      * @since TopCoder Studio Modifications Assembly
      */
     private ContestConfig getConfig(Contest contest, ContestProperty property) {
@@ -521,7 +526,7 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
      * <p>Verifies that the specified contest submission medium types are equal.</p>
      *
      * @param expected a <code>Set</code> providing the expected data for the medium types.
-     * @param actual a <code>Set</code> providing the actual data for the medium types.
+     * @param actual   a <code>Set</code> providing the actual data for the medium types.
      * @since TopCoder Studio Modifications Assembly v2
      */
     private void assertMediums(Set<Medium> expected, Set<Medium> actual) {
@@ -533,7 +538,7 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
                 if (expectedMedium.getId().equals(actualMedium.getId())) {
                     found = true;
                     Assert.assertEquals("The medium type is not set correctly",
-                                        expectedMedium.getDescription(), actualMedium.getDescription());
+                            expectedMedium.getDescription(), actualMedium.getDescription());
                 }
             }
             Assert.assertTrue("The specific medium is not set", found);
