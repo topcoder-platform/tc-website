@@ -5,15 +5,15 @@ package com.topcoder.web.studio.model;
 
 import com.topcoder.web.studio.TCHibernateTestCase;
 import com.topcoder.web.studio.dao.ContestChannelDAO;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.dao.ContestTypeDAO;
 import com.topcoder.web.studio.dao.ContestPropertyDAO;
+import com.topcoder.web.studio.dao.ContestTypeDAO;
 import com.topcoder.web.studio.dao.MediumDAO;
+import com.topcoder.web.studio.dao.StudioDAOUtil;
 import junit.framework.Assert;
 
 import java.sql.Timestamp;
-import java.util.Set;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  * <p>A unit test for {@link Contest} class.</p>
@@ -29,13 +29,13 @@ public class ContestTestCase extends TCHibernateTestCase {
      */
     protected static final Integer[] CONTEST_PROPS
             = {ContestProperty.MIN_HEIGHT, ContestProperty.MAX_HEIGHT, ContestProperty.MIN_WIDTH,
-               ContestProperty.MAX_WIDTH, ContestProperty.CONTEST_OVERVIEW_TEXT, ContestProperty.PRIZE_DESCRIPTION,
-               ContestProperty.VIEWABLE_SUBMISSIONS, ContestProperty.MAX_SUBMISSIONS,
-               ContestProperty.VIEWABLE_SUBMITTERS, ContestProperty.CLIENT, ContestProperty.FULL_DESCRIPTION,
-               ContestProperty.COLOR_REQUIREMENTS, ContestProperty.FONT_REQUIREMENTS, ContestProperty.SIZE_REQUIREMENTS,
-               ContestProperty.CONTENT_REQUIREMENTS, ContestProperty.OTHER_REQUIREMENTS,
-               ContestProperty.SUBMISSION_FILE_FORMAT, ContestProperty.WINNER_SELECTION, ContestProperty.ELIGIBILITY,
-               ContestProperty.OTHER_FILE_TYPES};
+            ContestProperty.MAX_WIDTH, ContestProperty.CONTEST_OVERVIEW_TEXT, ContestProperty.PRIZE_DESCRIPTION,
+            ContestProperty.VIEWABLE_SUBMISSIONS, ContestProperty.MAX_SUBMISSIONS,
+            ContestProperty.VIEWABLE_SUBMITTERS, ContestProperty.CLIENT, ContestProperty.FULL_DESCRIPTION,
+            ContestProperty.COLOR_REQUIREMENTS, ContestProperty.FONT_REQUIREMENTS, ContestProperty.SIZE_REQUIREMENTS,
+            ContestProperty.CONTENT_REQUIREMENTS, ContestProperty.OTHER_REQUIREMENTS,
+            ContestProperty.SUBMISSION_FILE_FORMAT, ContestProperty.WINNER_SELECTION, ContestProperty.ELIGIBILITY,
+            ContestProperty.OTHER_FILE_TYPES};
 
     /**
      * <p>The instance of {@link Contest} which is tested. This instance is initialized in {@link #setUp()} method
@@ -77,7 +77,7 @@ public class ContestTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link Contest} constructor for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Verifies that instance fields are initialized to <code>null</code>.</p>
      */
     public void testConstructor() {
@@ -89,79 +89,79 @@ public class ContestTestCase extends TCHibernateTestCase {
     /**
      * <p>Accuracy test. Tests the {@link Contest#setChannel(ContestChannel)} and {@link Contest#getChannel()} methods
      * for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passses the valid values to {@link Contest#setChannel(ContestChannel)} method and reads them back through
      * {@link Contest#getChannel()} methods and verifies that the read value is matching the set value.</p>
      */
     public void testSetGetChannel() {
         ContestChannelDAO channelDAO = StudioDAOUtil.getFactory().getContestChannelDAO();
-        ContestChannel[] validValues = new ContestChannel[] {null,
-                                                             channelDAO.find(ContestChannel.STUDIO_ADMINISTRATOR),
-                                                             channelDAO.find(ContestChannel.TOPCODER_DIRECT),
-                                                             channelDAO.find(ContestChannel.STUDIO_ADMINISTRATOR_V1)};
+        ContestChannel[] validValues = new ContestChannel[]{null,
+                channelDAO.find(ContestChannel.STUDIO_ADMINISTRATOR),
+                channelDAO.find(ContestChannel.TOPCODER_DIRECT),
+                channelDAO.find(ContestChannel.STUDIO_ADMINISTRATOR_V1)};
         for (int i = 0; i < validValues.length; i++) {
             this.testedInstance.setChannel(validValues[i]);
             Assert.assertEquals("The [channel] property is not set and read correctly",
-                                validValues[i], this.testedInstance.getChannel());
+                    validValues[i], this.testedInstance.getChannel());
         }
     }
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#setType(ContestType)} and {@link Contest#getType()} methods for
      * accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passses the valid values to {@link Contest#setType(ContestType)} method and reads them back through
      * {@link Contest#getType()} methods and verifies that the read value is matching the set value.</p>
      */
     public void testSetGetType() {
         ContestTypeDAO typeDAO = StudioDAOUtil.getFactory().getContestTypeDAO();
-        ContestType[] validValues = new ContestType[] {null,
-                                                       typeDAO.find(ContestType.STORYBOARD),
-                                                       typeDAO.find(ContestType.PROTOTYPE),
-                                                       typeDAO.find(ContestType.LOGO)};
+        ContestType[] validValues = new ContestType[]{null,
+                typeDAO.find(ContestType.STORYBOARD),
+                typeDAO.find(ContestType.PROTOTYPE),
+                typeDAO.find(ContestType.LOGO)};
         for (int i = 0; i < validValues.length; i++) {
             this.testedInstance.setType(validValues[i]);
             Assert.assertEquals("The [type] property is not set and read correctly",
-                                validValues[i], this.testedInstance.getType());
+                    validValues[i], this.testedInstance.getType());
         }
     }
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#setDirectProjectId(Integer)} and {@link Contest#getDirectProjectId()}
      * methods for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passses the valid values to {@link Contest#setDirectProjectId(Integer)} method and reads them back through
      * {@link Contest#getDirectProjectId()} methods and verifies that the read value is matching the set value.</p>
      */
     public void testSetGetDirectProjectId() {
-        Integer[] validValues = new Integer[] {null, 1, 0, -1, 1000, -1398329, 5937858};
+        Integer[] validValues = new Integer[]{null, 1, 0, -1, 1000, -1398329, 5937858};
         for (int i = 0; i < validValues.length; i++) {
             this.testedInstance.setDirectProjectId(validValues[i]);
             Assert.assertEquals("The [directProjectId] property is not set and read correctly",
-                                validValues[i], this.testedInstance.getDirectProjectId());
+                    validValues[i], this.testedInstance.getDirectProjectId());
         }
     }
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#setCreateUserId(Long)} and {@link Contest#getCreateUserId()}
      * methods for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passses the valid values to {@link Contest#setCreateUserId(Long)} method and reads them back through
      * {@link Contest#getCreateUserId()} methods and verifies that the read value is matching the set value.</p>
      */
     public void testSetGetCreateUserId() {
-        Long[] validValues = new Long[] {null, 1L, 0L, -1L, 1000L, -1398329L, 5937858L, 49294949494949L};
+        Long[] validValues = new Long[]{null, 1L, 0L, -1L, 1000L, -1398329L, 5937858L, 49294949494949L};
         for (int i = 0; i < validValues.length; i++) {
             this.testedInstance.setCreateUserId(validValues[i]);
             Assert.assertEquals("The [createUserId] property is not set and read correctly",
-                                validValues[i], this.testedInstance.getCreateUserId());
+                    validValues[i], this.testedInstance.getCreateUserId());
         }
     }
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#setWinnerAnnouncementTime(Timestamp)} and
      * {@link Contest#getWinnerAnnouncementTime()} methods for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passses the valid values to {@link Contest#setWinnerAnnouncementTime(Timestamp)} method and reads them back
      * through {@link Contest#getWinnerAnnouncementTime()} methods and verifies that the read value is matching the set
      * value.</p>
@@ -169,18 +169,18 @@ public class ContestTestCase extends TCHibernateTestCase {
      * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.2)
      */
     public void testSetGetWinnerAnnouncementTime() {
-        Timestamp[] validValues = new Timestamp[] {null, new Timestamp(System.currentTimeMillis())};
+        Timestamp[] validValues = new Timestamp[]{null, new Timestamp(System.currentTimeMillis())};
         for (int i = 0; i < validValues.length; i++) {
             this.testedInstance.setWinnerAnnouncementTime(validValues[i]);
             Assert.assertEquals("The [winnerAnnouncementTime] property is not set and read correctly",
-                                validValues[i], this.testedInstance.getWinnerAnnouncementTime());
+                    validValues[i], this.testedInstance.getWinnerAnnouncementTime());
         }
     }
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#setMediums(Set)} and {@link Contest#getMediums()} methods for accurate
      * behavior.</p>
-     *
+     * <p/>
      * <p>Passses the valid values to {@link Contest#setMediums(Set)} method and reads them back through
      * {@link Contest#getMediums()} methods and verifies that the read value is matching the set value.</p>
      *
@@ -196,20 +196,20 @@ public class ContestTestCase extends TCHibernateTestCase {
         for (int i = 0; i < validValues.length; i++) {
             this.testedInstance.setMediums(validValues[i]);
             Assert.assertEquals("The [mediums] property is not set and read correctly",
-                                validValues[i], this.testedInstance.getMediums());
+                    validValues[i], this.testedInstance.getMediums());
         }
     }
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#addMedium(Medium)} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passses the valid values to {@link Contest#addMedium(Medium)} method and reads them back through
      * {@link Contest#getMediums()} methods and verifies that the provided medium has been added to contest.</p>
      *
      * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.5)
      */
     public void testAddMedium() {
-        Medium[] validValues = new Medium[] {new Medium(), new Medium(), new Medium(), new Medium()};
+        Medium[] validValues = new Medium[]{new Medium(), new Medium(), new Medium(), new Medium()};
         for (int i = 0; i < validValues.length; i++) {
             Medium validValue = validValues[i];
             this.testedInstance.addMedium(validValue);
@@ -219,7 +219,7 @@ public class ContestTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#getConfig(Integer)} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passses the IDs of contest properties which are set for the tested contest and expects the method to return
      * the appropriate contest configuration.</p>
      *
@@ -231,20 +231,20 @@ public class ContestTestCase extends TCHibernateTestCase {
             ContestConfig contestConfig = this.testedInstance.getConfig(validValues[i]);
             Assert.assertNotNull("The contest configuration is not found", contestConfig);
             Assert.assertEquals("Wrong contest configuration is returned",
-                                validValues[i], contestConfig.getProperty().getId());
+                    validValues[i], contestConfig.getProperty().getId());
         }
     }
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#getConfig(Integer)} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passses the IDs of contest properties which are set for the tested contest and expects the method to return
      * the appropriate contest configuration.</p>
      *
      * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.5)
      */
     public void testGetConfig_Integer_NonExistingProperty() {
-        Integer[] invalidValues = new Integer[] {-1, 0, - 1000, 1000, 100, 30303};
+        Integer[] invalidValues = new Integer[]{-1, 0, -1000, 1000, 100, 30303};
         for (int i = 0; i < invalidValues.length; i++) {
             ContestConfig contestConfig = this.testedInstance.getConfig(invalidValues[i]);
             Assert.assertNull("The non-existing contest configuration is found", contestConfig);
@@ -253,7 +253,7 @@ public class ContestTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#getOtherFileTypes()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Sets the tested contest with configuration for target property and expects the method to return the
      * appropriate contest configuration.</p>
      *
@@ -268,7 +268,7 @@ public class ContestTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#getFullDescription()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Sets the tested contest with configuration for target property and expects the method to return the
      * appropriate contest configuration.</p>
      *
@@ -283,7 +283,7 @@ public class ContestTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#getColorRequirements()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Sets the tested contest with configuration for target property and expects the method to return the
      * appropriate contest configuration.</p>
      *
@@ -298,7 +298,7 @@ public class ContestTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#getFontRequirements()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Sets the tested contest with configuration for target property and expects the method to return the
      * appropriate contest configuration.</p>
      *
@@ -313,7 +313,7 @@ public class ContestTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#getSizeRequirements()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Sets the tested contest with configuration for target property and expects the method to return the
      * appropriate contest configuration.</p>
      *
@@ -328,7 +328,7 @@ public class ContestTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#getContentRequirements()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Sets the tested contest with configuration for target property and expects the method to return the
      * appropriate contest configuration.</p>
      *
@@ -343,7 +343,7 @@ public class ContestTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#getOtherRequirements()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Sets the tested contest with configuration for target property and expects the method to return the
      * appropriate contest configuration.</p>
      *
@@ -358,7 +358,7 @@ public class ContestTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#getSubmissionFileFormat()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Sets the tested contest with configuration for target property and expects the method to return the
      * appropriate contest configuration.</p>
      *
@@ -373,7 +373,7 @@ public class ContestTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#getWinnerSelection()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Sets the tested contest with configuration for target property and expects the method to return the
      * appropriate contest configuration.</p>
      *
@@ -388,7 +388,7 @@ public class ContestTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#getEligibility()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Sets the tested contest with configuration for target property and expects the method to return the
      * appropriate contest configuration.</p>
      *
@@ -403,7 +403,7 @@ public class ContestTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#getClientName()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Sets the tested contest with configuration for target property and expects the method to return the
      * appropriate contest configuration.</p>
      *
@@ -418,7 +418,7 @@ public class ContestTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link Contest#getMediumNamesList()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Sets the tested contest with various medium types and expects the method to return the appropriate list of
      * medium names.</p>
      *
@@ -426,14 +426,10 @@ public class ContestTestCase extends TCHibernateTestCase {
      */
     public void testGetMediumNamesList() {
         MediumDAO mediumDAO = StudioDAOUtil.getFactory().getMediumDAO();
-        Integer[] mediumIds = new Integer[] {Medium.APPAREL, Medium.BROCHURE, Medium.EMAIL_NEWSLETTER,
-                                             Medium.LARGE_PRINT, Medium.STATIONARY};
-        for (int i = 0; i < mediumIds.length; i++) {
-            Integer mediumId = mediumIds[i];
-            Medium medium = mediumDAO.find(mediumId);
-            this.testedInstance.addMedium(medium);
+        for (Medium m : mediumDAO.findAll()) {
+            this.testedInstance.addMedium(m);
         }
-        
+
         StringBuilder b = new StringBuilder();
         Set<Medium> mediums = this.testedInstance.getMediums();
         for (Medium medium : mediums) {
@@ -444,6 +440,6 @@ public class ContestTestCase extends TCHibernateTestCase {
         }
 
         Assert.assertEquals("Wrong medium names list is returned",
-                            b.toString(), this.testedInstance.getMediumNamesList());
+                b.toString(), this.testedInstance.getMediumNamesList());
     }
 }
