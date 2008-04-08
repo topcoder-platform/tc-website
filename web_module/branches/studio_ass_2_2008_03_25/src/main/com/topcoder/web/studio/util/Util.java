@@ -3,11 +3,16 @@
  */
 package com.topcoder.web.studio.util;
 
+import com.topcoder.security.TCPrincipal;
+import com.topcoder.security.TCSubject;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.studio.Constants;
+
+import java.util.Iterator;
 
 /**
  * <p>A helper class providing various utility methods to be utilized throughout the application.</p>
@@ -42,5 +47,14 @@ public class Util {
             }
         }
         return false;
+    }
+
+    public static boolean isAdmin(long userId) throws Exception {
+        TCSubject subject = SecurityHelper.getUserSubject(userId);
+        boolean found = false;
+        for (Iterator it = subject.getPrincipals().iterator(); it.hasNext() && !found;) {
+            found = ((TCPrincipal) it.next()).getId() == Constants.CONTEST_ADMIN_ROLE_ID;
+        }
+        return found;
     }
 }
