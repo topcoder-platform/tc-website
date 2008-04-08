@@ -72,8 +72,6 @@ public class MediumDAOTestCase extends TCHibernateTestCase {
      * matching the provided IDs.</p>
      */
     public void testFind_Integer() {
-        int cnt = this.descriptions.length;
-
         Integer firstMediumId = 1;
 
         Medium type = this.testedInstance.find(firstMediumId);

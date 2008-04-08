@@ -72,15 +72,12 @@ public class MediumDAOHibernateTestCase extends TCHibernateTestCase {
      * matching the provided IDs.</p>
      */
     public void testFind_Integer() {
-        int cnt = this.descriptions.length;
         Integer firstMediumId = 1;
 
-        for (int i = 0; i < cnt; i++) {
-            Medium type = this.testedInstance.find(firstMediumId);
-            Assert.assertNotNull("The existing medium type is not found", type);
-            Assert.assertEquals("Wrong medium type ID retrieved", firstMediumId, type.getId());
-            Assert.assertEquals("Wrong medium type description retrieved", this.descriptions[i], type.getDescription());
-        }
+        Medium type = this.testedInstance.find(firstMediumId);
+        Assert.assertNotNull("The existing medium type is not found", type);
+        Assert.assertEquals("Wrong medium type ID retrieved", firstMediumId, type.getId());
+        Assert.assertEquals("Wrong medium type description retrieved", this.descriptions[0], type.getDescription());
     }
 
     /**
