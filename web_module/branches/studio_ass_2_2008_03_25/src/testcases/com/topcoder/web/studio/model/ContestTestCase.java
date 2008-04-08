@@ -7,7 +7,6 @@ import com.topcoder.web.studio.TCHibernateTestCase;
 import com.topcoder.web.studio.dao.ContestChannelDAO;
 import com.topcoder.web.studio.dao.ContestPropertyDAO;
 import com.topcoder.web.studio.dao.ContestTypeDAO;
-import com.topcoder.web.studio.dao.MediumDAO;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import junit.framework.Assert;
 
@@ -416,30 +415,5 @@ public class ContestTestCase extends TCHibernateTestCase {
         Assert.assertEquals("Wrong contest configuration is returned", propertyId, contestConfig.getProperty().getId());
     }
 
-    /**
-     * <p>Accuracy test. Tests the {@link Contest#getMediumNamesList()} method for accurate behavior.</p>
-     * <p/>
-     * <p>Sets the tested contest with various medium types and expects the method to return the appropriate list of
-     * medium names.</p>
-     *
-     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.2)
-     */
-    public void testGetMediumNamesList() {
-        MediumDAO mediumDAO = StudioDAOUtil.getFactory().getMediumDAO();
-        for (Medium m : mediumDAO.findAll()) {
-            this.testedInstance.addMedium(m);
-        }
 
-        StringBuilder b = new StringBuilder();
-        Set<Medium> mediums = this.testedInstance.getMediums();
-        for (Medium medium : mediums) {
-            if (b.length() > 0) {
-                b.append('/');
-            }
-            b.append(medium.getDescription());
-        }
-
-        Assert.assertEquals("Wrong medium names list is returned",
-                b.toString(), this.testedInstance.getMediumNamesList());
-    }
 }
