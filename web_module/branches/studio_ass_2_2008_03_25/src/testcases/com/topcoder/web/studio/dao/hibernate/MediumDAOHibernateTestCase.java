@@ -32,7 +32,6 @@ public class MediumDAOHibernateTestCase extends TCHibernateTestCase {
             "Large Print",
             "Mobile",
             "Apparel",
-            "MediaSize",
             "Other"
     };
     /**

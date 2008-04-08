@@ -31,7 +31,6 @@ public class MediumDAOTestCase extends TCHibernateTestCase {
             "Large Print",
             "Mobile",
             "Apparel",
-            "MediaSize",
             "Other"
     };
 
