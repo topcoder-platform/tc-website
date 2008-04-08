@@ -68,7 +68,7 @@ public class MediumDAOTestCase extends TCHibernateTestCase {
     /**
      * <p>Accuracy test. Tests the {@link MediumDAO#find(Serializable)} method for accurate behavior.</p>
      * <p/>
-     * <p>Passes the IDs of existing medium types and expects the method to return the valid {@link Medium} instances
+     * <p>Passes the IDs of existing medium type and expects the method to return the valid {@link Medium} instances
      * matching the provided IDs.</p>
      */
     public void testFind_Integer() {
