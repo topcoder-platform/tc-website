@@ -6,7 +6,7 @@
 <html>
 <head>
     <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
-    <link type="text/css" rel="stylesheet" href="/css/home20080311.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/home20080409.css"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <STYLE TYPE="text/css">
         body {
@@ -130,7 +130,7 @@
 </div>
 
 <div align="center" style="margin-bottom: 20px;">
-    <a href="<tc-webtag:linkTracking link='http://software.topcoder.com/tcs?module=Static&d1=tour&d2=page1' refer='plugInto01' />"><img src="/i/home/plugInto01.jpg" alt="Plug into TopCoder" style="display: block;" /></a>
+    <a style="display: block; width: 900px; height: 150px;" href="<tc-webtag:linkTracking link='http://software.topcoder.com/tcs?module=Static&d1=tour&d2=page1' refer='plugInto01' />"><img src="/i/home/plugInto01.jpg" alt="Plug into TopCoder" style="display: block;" /></a>
 </div>
 
 <table border="0" cellpadding="0" cellspacing="0" class="centerer">
