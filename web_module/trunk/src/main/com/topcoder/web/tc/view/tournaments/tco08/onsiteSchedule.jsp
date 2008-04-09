@@ -34,28 +34,32 @@
                 <tr>
                     <th colspan="2">Sunday, May 11, 2008</th>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>6:00 PM - 8:00 PM</td>
                     <td>Dinner</td>
                 </tr>
                 <tr>
                     <th colspan="2">Monday, May 12, 2008</th>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>7:00 AM - 8:30 AM</td>
                     <td>Breakfast</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td>8:00 AM - 11:00 AM</td>
                     <td>Studio Design Competition</td>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>9:00 AM - 5:00 PM</td>
                     <td>Marathon Competition</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td>11:30 AM - 1:30 PM</td>
                     <td>Lunch</td>
+                </tr>
+                <tr class="light">
+                    <td>2:00 PM - 3:00 PM</td>
+                    <td>NSA Presentation</td>
                 </tr>
                 <tr class="dark">
                     <td>12:00 PM - 6:00 PM</td>
@@ -68,13 +72,17 @@
                 <tr>
                     <th colspan="2">Tuesday, May 13, 2008</th>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>7:00 AM - 8:30 AM</td>
                     <td>Breakfast</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td>8:00 AM - 10:00 AM</td>
                     <td>Algorithm Competition Semi Final Room 1</td>
+                </tr>
+                <tr class="light">
+                    <td>10:00 AM - 11:00 AM</td>
+                    <td>AOL Presentation</td>
                 </tr>
                 <tr class="dark">
                     <td>11:00 AM - 1:00 PM</td>
@@ -99,17 +107,21 @@
                 <tr>
                     <th colspan="2">Wednesday, May 14, 2008</th>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>7:00 AM - 8:30 AM</td>
                     <td>Breakfast</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td>8:30 AM - 1:00 PM</td>
                     <td>Studio Design</td>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>8:30 AM - 5:00 PM</td>
                     <td>Component Development</td>
+                </tr>
+                <tr class="dark">
+                    <td>10:00 AM - 11:00 AM</td>
+                    <td>Eli Lilly Presentation</td>
                 </tr>
                 <tr class="light">
                     <td>11:30 AM - 1:30 PM</td>
@@ -122,23 +134,23 @@
                 <tr>
                     <th colspan="2">Thursday, May 15, 2008</th>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>7:00 AM - 8:30 AM</td>
                     <td>Breakfast</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td>10:00 AM - Noon</td>
                     <td>Algorithm Finals</td>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>11:30 AM - 1:30 PM</td>
                     <td>Lunch</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td>2:00 PM - 3:00 PM</td>
                     <td>All Champion Announcements and Awards</td>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>3:00 PM - 4:00 PM</td>
                     <td>Closing Reception</td>
                 </tr>
