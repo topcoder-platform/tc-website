@@ -95,28 +95,30 @@
     </div>
     <div class="section">Downloads:</div>
     <div class="padder">
-        <%-- CASE 1: DOWNLOADS, USER REGISTERED --%>
-<c:if test="${registered || currentTime>contest.endTime}">
-    <c:if test="${fn:length(contest.documents)>0}">
-        <c:forEach items="${contest.documents}" var="document">
-        <p>
-            <strong>${document.type.description}:</strong>
-            <br /><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">${document.originalFileName}</a>
-        </p>
-        </c:forEach>
-    </c:if>
-</c:if>
-        <%-- CASE 2: DOWNLOADS, BUT USER NOT REGISTERED 
-        <p align="center" class="bigRed">
-            You must register for the contest<br />to download any attached files.
-        </p>
-        --%>
-        <%-- CASE 3: NO DOWNLOADS
-        <p>
-            None
-        </p>
-        --%>
-        
+        <c:choose>
+            <c:when test="${fn:length(contest.documents)>0}">
+                <c:choose>
+                    <c:when test="${registered || currentTime>contest.endTime}">
+                        <c:forEach items="${contest.documents}" var="document">
+                            <p>
+                                <strong>${document.type.description}:</strong>
+                                <br/><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">${document.originalFileName}</a>
+                            </p>
+                        </c:forEach>
+                    </c:when>
+                    <c:otherwise>
+                        <p align="center" class="bigRed">
+                            You must register for the contest<br/>to download any attached files.
+                        </p>
+                    </c:otherwise>
+                </c:choose>
+            </c:when>
+            <c:otherwise>
+                <p>
+                    None
+                </p>
+            </c:otherwise>
+        </c:choose>
     </div>
     <div class="section">Submission File Format(s):</div>
     <div class="padder">
