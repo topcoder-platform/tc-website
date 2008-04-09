@@ -125,7 +125,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         MockContextFactory.revertSetAsInitial();
         try {
             DBConnectionFactoryImpl connectionFactory
-                = new DBConnectionFactoryImpl("com.topcoder.db.connectionfactory.DBConnectionFactoryImpl");
+                    = new DBConnectionFactoryImpl("com.topcoder.db.connectionfactory.DBConnectionFactoryImpl");
             DatabaseUtil.clearTables(connectionFactory);
         } catch (Exception e) {
             throw new IllegalArgumentException("The tearDown() fails", e);
@@ -134,7 +134,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission for a closed contest which originated from <code>Studio
      * Administrator V1</code> channel and verifies that the method returns the appropriate content and sets the
      * response content type correctly when submission owner is requesting a download.</p>
@@ -161,13 +161,13 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
         // Test verification
         Assert.assertTrue("The response content type is not set",
-                          MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                MockHttpServletResponse.wasMethodCalled("setContentType_String"));
         List args = MockHttpServletResponse.getMethodArguments("setContentType_String");
         Map callArgs = (Map) args.get(0);
         String contentType = (String) callArgs.get("1");
         Assert.assertTrue("Wrong response content type set", "application/zip".equals(contentType)
-                                                             || "application/x-zip".equals(contentType)
-                                                             || "application/x-zip-compressed".equals(contentType));
+                || "application/x-zip".equals(contentType)
+                || "application/x-zip-compressed".equals(contentType));
 
         byte[] expectedContent = readSubmissionFile(contestId, handle, userId, "tcs_submission.zip");
         byte[] actualContent = baos.toByteArray();
@@ -176,7 +176,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission of various alternate form for a closed contest which
      * originated from <code>Studio Administrator V1</code> channel and verifies that the method returns the
      * appropriate content and sets the response content type correctly when submission owner is requesting a download.
@@ -209,13 +209,13 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
             // Test verification
             Assert.assertTrue("The response content type is not set",
-                              MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                    MockHttpServletResponse.wasMethodCalled("setContentType_String"));
             List args = MockHttpServletResponse.getMethodArguments("setContentType_String");
             Map callArgs = (Map) args.get(0);
             String contentType = (String) callArgs.get("1");
             Assert.assertTrue("Wrong response content type set", "application/zip".equals(contentType)
-                                                                 || "application/x-zip".equals(contentType)
-                                                                 || "application/x-zip-compressed".equals(contentType));
+                    || "application/x-zip".equals(contentType)
+                    || "application/x-zip-compressed".equals(contentType));
 
             byte[] expectedContent = readSubmissionFile(contestId, handle, userId, "tcs_submission.zip");
             byte[] actualContent = baos.toByteArray();
@@ -225,7 +225,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission for a closed contest which originated from <code>TC Direct
      * </code> channel and verifies that the method returns the appropriate content and sets the response content type
      * correctly when submission owner is requesting a download.</p>
@@ -252,13 +252,13 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
         // Test verification
         Assert.assertTrue("The response content type is not set",
-                          MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                MockHttpServletResponse.wasMethodCalled("setContentType_String"));
         List args = MockHttpServletResponse.getMethodArguments("setContentType_String");
         Map callArgs = (Map) args.get(0);
         String contentType = (String) callArgs.get("1");
         Assert.assertTrue("Wrong response content type set", "application/zip".equals(contentType)
-                                                             || "application/x-zip".equals(contentType)
-                                                             || "application/x-zip-compressed".equals(contentType));
+                || "application/x-zip".equals(contentType)
+                || "application/x-zip-compressed".equals(contentType));
 
         byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_full.zip");
         byte[] actualContent = baos.toByteArray();
@@ -267,7 +267,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission of various alternate forms for a closed contest which
      * originated from <code>Studio Administrator V1</code> channel and verifies that the method returns the appropriate
      * content and sets the response content type correctly when submission owner is requesting a download.</p>
@@ -282,7 +282,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         String handle = "dok_test";
         String[] types = {"tiny", "small", "medium", "full", "original"};
         String[] files = {submissionId + "_tiny.jpg", submissionId + "_small.png", submissionId + "_medium.png",
-                          submissionId + "_full.zip", "tcs_submission.zip"};
+                submissionId + "_full.zip", "tcs_submission.zip"};
 
         for (int i = 0; i < types.length; i++) {
             String type = types[i];
@@ -300,7 +300,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
             // Test verification
             Assert.assertTrue("The response content type is not set",
-                              MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                    MockHttpServletResponse.wasMethodCalled("setContentType_String"));
             byte[] expectedContent = readSubmissionFile(contestId, handle, userId, files[i]);
             byte[] actualContent = baos.toByteArray();
             Assert.assertTrue("Wrong content is returned " + files[i], Arrays.equals(expectedContent, actualContent));
@@ -309,7 +309,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission for a closed contest which originated from <code>Studio
      * Administrator</code> channel and verifies that the method returns the appropriate content and sets the response
      * content type correctly when submission owner is requesting a download.</p>
@@ -336,13 +336,13 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
         // Test verification
         Assert.assertTrue("The response content type is not set",
-                          MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                MockHttpServletResponse.wasMethodCalled("setContentType_String"));
         List args = MockHttpServletResponse.getMethodArguments("setContentType_String");
         Map callArgs = (Map) args.get(0);
         String contentType = (String) callArgs.get("1");
         Assert.assertTrue("Wrong response content type set", "application/zip".equals(contentType)
-                                                             || "application/x-zip".equals(contentType)
-                                                             || "application/x-zip-compressed".equals(contentType));
+                || "application/x-zip".equals(contentType)
+                || "application/x-zip-compressed".equals(contentType));
 
         byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_full.zip");
         byte[] actualContent = baos.toByteArray();
@@ -351,7 +351,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission of various alternate forms for a closed contest which
      * originated from <code>Studio Administrator</code> channel and verifies that the method returns the appropriate
      * content and sets the response content type correctly when submission owner is requesting a download.</p>
@@ -364,10 +364,10 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         long submissionId = 7;
         long userId = 1;
         String handle = "dok_test";
-        
+
         String[] types = {"tiny", "small", "medium", "full", "original"};
         String[] files = {submissionId + "_tiny.jpg", submissionId + "_small.png", submissionId + "_medium.png",
-                          submissionId + "_full.zip", "tcs_submission.zip"};
+                submissionId + "_full.zip", "tcs_submission.zip"};
 
         for (int i = 0; i < types.length; i++) {
             String type = types[i];
@@ -385,7 +385,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
             // Test verification
             Assert.assertTrue("The response content type is not set",
-                              MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                    MockHttpServletResponse.wasMethodCalled("setContentType_String"));
             byte[] expectedContent = readSubmissionFile(contestId, handle, userId, files[i]);
             byte[] actualContent = baos.toByteArray();
             Assert.assertTrue("Wrong content is returned " + files[i], Arrays.equals(expectedContent, actualContent));
@@ -394,7 +394,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission for a running contest which originated from <code>Studio
      * Administrator V1</code> channel and verifies that the method returns the appropriate content and sets the
      * response content type correctly when submission owner is requesting a download.</p>
@@ -421,22 +421,22 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
         // Test verification
         Assert.assertTrue("The response content type is not set",
-                          MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                MockHttpServletResponse.wasMethodCalled("setContentType_String"));
         List args = MockHttpServletResponse.getMethodArguments("setContentType_String");
         Map callArgs = (Map) args.get(0);
         String contentType = (String) callArgs.get("1");
         Assert.assertTrue("Wrong response content type set", "application/zip".equals(contentType)
-                                                             || "application/x-zip".equals(contentType)
-                                                             || "application/x-zip-compressed".equals(contentType));
+                || "application/x-zip".equals(contentType)
+                || "application/x-zip-compressed".equals(contentType));
 
-        byte[] expectedContent = readSubmissionFile(contestId, handle, userId,  "4_full.zip");
+        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, "4_full.zip");
         byte[] actualContent = baos.toByteArray();
         Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
     }
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission of various alternate forms for a running contest which
      * originated from <code>Studio Administrator V1</code> channel and verifies that the method returns the appropriate
      * content and sets the response content type correctly when submission owner is requesting a download.</p>
@@ -468,15 +468,15 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
             // Test verification
             Assert.assertTrue("The response content type is not set",
-                              MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                    MockHttpServletResponse.wasMethodCalled("setContentType_String"));
             List args = MockHttpServletResponse.getMethodArguments("setContentType_String");
             Map callArgs = (Map) args.get(0);
             String contentType = (String) callArgs.get("1");
             Assert.assertTrue("Wrong response content type set", "application/zip".equals(contentType)
-                                                                 || "application/x-zip".equals(contentType)
-                                                                 || "application/x-zip-compressed".equals(contentType));
+                    || "application/x-zip".equals(contentType)
+                    || "application/x-zip-compressed".equals(contentType));
 
-            byte[] expectedContent = readSubmissionFile(contestId, handle, userId,  "4_full.zip");
+            byte[] expectedContent = readSubmissionFile(contestId, handle, userId, "4_full.zip");
             byte[] actualContent = baos.toByteArray();
             Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
         }
@@ -484,7 +484,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission for a running contest which originated from <code>TopCoder
      * Direct</code> channel and verifies that the method returns the appropriate content and sets the response content
      * type correctly when submission owner is requesting a download.</p>
@@ -511,13 +511,13 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
         // Test verification
         Assert.assertTrue("The response content type is not set",
-                          MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                MockHttpServletResponse.wasMethodCalled("setContentType_String"));
         List args = MockHttpServletResponse.getMethodArguments("setContentType_String");
         Map callArgs = (Map) args.get(0);
         String contentType = (String) callArgs.get("1");
         Assert.assertTrue("Wrong response content type set", "application/zip".equals(contentType)
-                                                             || "application/x-zip".equals(contentType)
-                                                             || "application/x-zip-compressed".equals(contentType));
+                || "application/x-zip".equals(contentType)
+                || "application/x-zip-compressed".equals(contentType));
 
         byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_full.zip");
         byte[] actualContent = baos.toByteArray();
@@ -526,7 +526,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission of various alternate forms for a running contest which
      * originated from <code>TopCoder Direct</code> channel and verifies that the method returns the appropriate
      * content and sets the response content type correctly when submission owner is requesting a download.</p>
@@ -542,7 +542,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
         String[] types = {"tiny", "small", "medium", "full", "original"};
         String[] files = {submissionId + "_tiny.jpg", submissionId + "_small.png", submissionId + "_medium.png",
-                          submissionId + "_full.zip", "tcs_submission.zip"};
+                submissionId + "_full.zip", "tcs_submission.zip"};
 
         for (int i = 0; i < types.length; i++) {
             String type = types[i];
@@ -560,7 +560,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
             // Test verification
             Assert.assertTrue("The response content type is not set",
-                              MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                    MockHttpServletResponse.wasMethodCalled("setContentType_String"));
             byte[] expectedContent = readSubmissionFile(contestId, handle, userId, files[i]);
             byte[] actualContent = baos.toByteArray();
             Assert.assertTrue("Wrong content is returned " + files[i], Arrays.equals(expectedContent, actualContent));
@@ -569,7 +569,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission for a running contest which originated from <code>Studio
      * Administrator</code> channel and verifies that the method returns the appropriate content and sets the response
      * content type correctly when submission owner is requesting a download.</p>
@@ -596,13 +596,13 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
         // Test verification
         Assert.assertTrue("The response content type is not set",
-                          MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                MockHttpServletResponse.wasMethodCalled("setContentType_String"));
         List args = MockHttpServletResponse.getMethodArguments("setContentType_String");
         Map callArgs = (Map) args.get(0);
         String contentType = (String) callArgs.get("1");
         Assert.assertTrue("Wrong response content type set", "application/zip".equals(contentType)
-                                                             || "application/x-zip".equals(contentType)
-                                                             || "application/x-zip-compressed".equals(contentType));
+                || "application/x-zip".equals(contentType)
+                || "application/x-zip-compressed".equals(contentType));
 
         byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_full.zip");
         byte[] actualContent = baos.toByteArray();
@@ -611,7 +611,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission of various alternate forms for a running contest which
      * originated from <code>Studio Administrator</code> channel and verifies that the method returns the appropriate
      * content and sets the response content type correctly when submission owner is requesting a download.</p>
@@ -627,7 +627,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
         String[] types = {"tiny", "small", "medium", "full", "original"};
         String[] files = {submissionId + "_tiny.jpg", submissionId + "_small.png", submissionId + "_medium.png",
-                          submissionId + "_full.zip", "tcs_submission.zip"};
+                submissionId + "_full.zip", "tcs_submission.zip"};
 
         for (int i = 0; i < types.length; i++) {
             String type = types[i];
@@ -645,7 +645,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
             // Test verification
             Assert.assertTrue("The response content type is not set",
-                              MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                    MockHttpServletResponse.wasMethodCalled("setContentType_String"));
             byte[] expectedContent = readSubmissionFile(contestId, handle, userId, files[i]);
             byte[] actualContent = baos.toByteArray();
             Assert.assertTrue("Wrong content is returned " + files[i], Arrays.equals(expectedContent, actualContent));
@@ -654,7 +654,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission for a closed contest which originated from <code>Studio
      * Administrator V1</code> channel and verifies that the method returns the appropriate content and sets the
      * response content type correctly when not submission owner is requesting a download.</p>
@@ -686,13 +686,13 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
         // Test verification
         Assert.assertTrue("The response content type is not set",
-                          MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                MockHttpServletResponse.wasMethodCalled("setContentType_String"));
         List args = MockHttpServletResponse.getMethodArguments("setContentType_String");
         Map callArgs = (Map) args.get(0);
         String contentType = (String) callArgs.get("1");
         Assert.assertTrue("Wrong response content type set", "application/zip".equals(contentType)
-                                                             || "application/x-zip".equals(contentType)
-                                                             || "application/x-zip-compressed".equals(contentType));
+                || "application/x-zip".equals(contentType)
+                || "application/x-zip-compressed".equals(contentType));
 
         byte[] expectedContent = readSubmissionFile(contestId, handle, userId, "tcs_submission.zip");
         byte[] actualContent = baos.toByteArray();
@@ -701,7 +701,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission for a closed contest which originated from <code>TopCoder
      * Direct</code> channel and verifies that the method returns the appropriate content and sets the
      * response content type correctly when not submission owner is requesting a download.</p>
@@ -710,14 +710,13 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
      */
     public void testDbProcessing_TCDirect_Over_Alien() throws Exception {
         // Test setup
-        log.debug("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx");
         User user = new SimpleUser(-1, "anonymous", "password");
         MockWebAuthentication.setMethodResult("getUser", user);
         MockWebAuthentication.setMethodResult("getActiveUser", user);
         MockWebAuthentication.setMethodResult("isKnownUser", true);
 
-        long contestId = 9;
-        long submissionId = 6;
+        long contestId = 8;
+        long submissionId = 5;
         long userId = 1;
         String handle = "dok_test";
 
@@ -734,13 +733,13 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
         // Test verification
         Assert.assertTrue("The response content type is not set",
-                          MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                MockHttpServletResponse.wasMethodCalled("setContentType_String"));
         List args = MockHttpServletResponse.getMethodArguments("setContentType_String");
         Map callArgs = (Map) args.get(0);
         String contentType = (String) callArgs.get("1");
         Assert.assertTrue("Wrong response content type set", "application/zip".equals(contentType)
-                                                             || "application/x-zip".equals(contentType)
-                                                             || "application/x-zip-compressed".equals(contentType));
+                || "application/x-zip".equals(contentType)
+                || "application/x-zip-compressed".equals(contentType));
 
         byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_full.zip");
         byte[] actualContent = baos.toByteArray();
@@ -749,7 +748,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission of various alternate forms for a closed contest which
      * originated from <code>TopCoder Direct</code> channel and verifies that the method returns the appropriate content
      * and sets the response content type correctly when not submission owner is requesting a download.</p>
@@ -763,14 +762,14 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         MockWebAuthentication.setMethodResult("getActiveUser", user);
         MockWebAuthentication.setMethodResult("isKnownUser", true);
 
-        long contestId = 9;
-        long submissionId = 6;
+        long contestId = 8;
+        long submissionId = 5;
         long userId = 1;
         String handle = "dok_test";
 
         String[] types = {"tiny", "small", "medium", "full"};
         String[] files = {submissionId + "_tiny.jpg", submissionId + "_small.png", submissionId + "_medium.png",
-                          submissionId + "_full.zip", "tcs_submission.zip"};
+                submissionId + "_full.zip", "tcs_submission.zip"};
 
         for (int i = 0; i < types.length; i++) {
             String type = types[i];
@@ -788,7 +787,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
             // Test verification
             Assert.assertTrue("The response content type is not set",
-                              MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                    MockHttpServletResponse.wasMethodCalled("setContentType_String"));
             byte[] expectedContent = readSubmissionFile(contestId, handle, userId, files[i]);
             byte[] actualContent = baos.toByteArray();
             Assert.assertTrue("Wrong content is returned " + files[i], Arrays.equals(expectedContent, actualContent));
@@ -797,7 +796,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission for a closed contest which originated from <code>Studio
      * Administrator</code> channel and verifies that the method returns the appropriate content and sets the
      * response content type correctly when not submission owner is requesting a download.</p>
@@ -829,13 +828,13 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
         // Test verification
         Assert.assertTrue("The response content type is not set",
-                          MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                MockHttpServletResponse.wasMethodCalled("setContentType_String"));
         List args = MockHttpServletResponse.getMethodArguments("setContentType_String");
         Map callArgs = (Map) args.get(0);
         String contentType = (String) callArgs.get("1");
         Assert.assertTrue("Wrong response content type set", "application/zip".equals(contentType)
-                                                             || "application/x-zip".equals(contentType)
-                                                             || "application/x-zip-compressed".equals(contentType));
+                || "application/x-zip".equals(contentType)
+                || "application/x-zip-compressed".equals(contentType));
 
         byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_full.zip");
         byte[] actualContent = baos.toByteArray();
@@ -844,7 +843,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission of various alternate forms for a closed contest which
      * originated from <code>Studio Administrator</code> channel and verifies that the method returns the appropriate
      * content and sets the response content type correctly when not submission owner is requesting a download.</p>
@@ -865,7 +864,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
         String[] types = {"tiny", "small", "medium", "full"};
         String[] files = {submissionId + "_tiny.jpg", submissionId + "_small.png", submissionId + "_medium.png",
-                          submissionId + "_full.zip", "tcs_submission.zip"};
+                submissionId + "_full.zip", "tcs_submission.zip"};
 
         for (int i = 0; i < types.length; i++) {
             String type = types[i];
@@ -883,7 +882,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
             // Test verification
             Assert.assertTrue("The response content type is not set",
-                              MockHttpServletResponse.wasMethodCalled("setContentType_String"));
+                    MockHttpServletResponse.wasMethodCalled("setContentType_String"));
             byte[] expectedContent = readSubmissionFile(contestId, handle, userId, files[i]);
             byte[] actualContent = baos.toByteArray();
             Assert.assertTrue("Wrong content is returned " + files[i], Arrays.equals(expectedContent, actualContent));
@@ -893,7 +892,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
     /**
      * <p>Failure test. Tests the {@link DownloadSubmission#dbProcessing()} method for proper handling invalid usage.
      * </p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission for a running contest which originated from <code>Studio
      * Administrator V1</code> channel and verifies that the method raises <code>NavigationException</code>.</p>
      *
@@ -905,7 +904,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         MockWebAuthentication.setMethodResult("getUser", user);
         MockWebAuthentication.setMethodResult("getActiveUser", user);
         MockWebAuthentication.setMethodResult("isKnownUser", true);
-        
+
         long submissionId = 4;
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -916,7 +915,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         try {
             this.testedInstance.process();
             Assert.fail("NavigationException should have been thrown as non-owner can not request submission while" +
-                        "contest is running");
+                    "contest is running");
         } catch (NavigationException e) {
             // expected behavior
         }
@@ -925,7 +924,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
     /**
      * <p>Failure test. Tests the {@link DownloadSubmission#dbProcessing()} method for proper handling invalid usage.
      * </p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission of various alternate forms for a running contest which
      * originated from <code>Studio Administrator V1</code> channel and verifies that the method throws
      * <code>NavigationException</code> when non submission owner is requesting a download.</p>
@@ -954,7 +953,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
             try {
                 this.testedInstance.process();
                 Assert.fail("NavigationException should have been thrown as non-owner can not request submission while" +
-                            "contest is running");
+                        "contest is running");
             } catch (NavigationException e) {
                 // expected behavior
             }
@@ -963,7 +962,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission for a closed contest which originated from <code>TopCoder
      * Direct</code> channel and verifies that the method returns the appropriate content and sets the
      * response content type correctly when not submission owner is requesting a download.</p>
@@ -989,28 +988,18 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         MockHttpServletResponse.setMethodResult("getOutputStream", new ServletOutputStreamImpl(baos));
 
         // Execution
-        this.testedInstance.process();
-        super.tearDown();
-        super.setUp();
-
-        // Test verification
-        Assert.assertTrue("The response content type is not set",
-                          MockHttpServletResponse.wasMethodCalled("setContentType_String"));
-        List args = MockHttpServletResponse.getMethodArguments("setContentType_String");
-        Map callArgs = (Map) args.get(0);
-        String contentType = (String) callArgs.get("1");
-        Assert.assertTrue("Wrong response content type set", "application/zip".equals(contentType)
-                                                             || "application/x-zip".equals(contentType)
-                                                             || "application/x-zip-compressed".equals(contentType));
-
-        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_full.zip");
-        byte[] actualContent = baos.toByteArray();
-        Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
+        try {
+            this.testedInstance.process();
+            Assert.fail("NavigationException should have been thrown as non-owner can not request submission while" +
+                    "contest is running");
+        } catch (NavigationException e) {
+            // expected behavior
+        }
     }
 
     /**
      * <p>Accuracy test. Tests the {@link DownloadSubmission#dbProcessing()} method for accurate behavior.</p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission of various alternate forms for a runng contest which
      * originated from <code>TopCoder Direct</code> channel and verifies that the method returns the appropriate content
      * and sets the response content type correctly when not submission owner is requesting a download.</p>
@@ -1031,7 +1020,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
 
         String[] types = {"tiny", "small", "medium", "full"};
         String[] files = {submissionId + "_tiny.jpg", submissionId + "_small.png", submissionId + "_medium.png",
-                          submissionId + "_full.zip", "tcs_submission.zip"};
+                submissionId + "_full.zip", "tcs_submission.zip"};
 
         for (int i = 0; i < types.length; i++) {
             String type = types[i];
@@ -1043,23 +1032,20 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
             MockHttpServletResponse.setMethodResult("getOutputStream", new ServletOutputStreamImpl(baos));
 
             // Execution
-            this.testedInstance.process();
-            super.tearDown();
-            super.setUp();
-
-            // Test verification
-            Assert.assertTrue("The response content type is not set",
-                              MockHttpServletResponse.wasMethodCalled("setContentType_String"));
-            byte[] expectedContent = readSubmissionFile(contestId, handle, userId, files[i]);
-            byte[] actualContent = baos.toByteArray();
-            Assert.assertTrue("Wrong content is returned " + files[i], Arrays.equals(expectedContent, actualContent));
+            try {
+                this.testedInstance.process();
+                Assert.fail("NavigationException should have been thrown as non-owner can not request submission while" +
+                        "contest is running");
+            } catch (NavigationException e) {
+                // expected behavior
+            }
         }
     }
 
     /**
      * <p>Failure test. Tests the {@link DownloadSubmission#dbProcessing()} method for proper handling invalid usage.
      * </p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission for a running contest which originated from <code>Studio
      * Administrator</code> channel and verifies that the method raises <code>NavigationException</code>.</p>
      *
@@ -1082,7 +1068,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         try {
             this.testedInstance.process();
             Assert.fail("NavigationException should have been thrown as non-owner can not request submission while" +
-                        "contest is running");
+                    "contest is running");
         } catch (NavigationException e) {
             // expected behavior
         }
@@ -1091,7 +1077,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
     /**
      * <p>Failure test. Tests the {@link DownloadSubmission#dbProcessing()} method for proper handling invalid usage.
      * </p>
-     *
+     * <p/>
      * <p>Passes a request for downloading the submission of various alternate forms for a running contest which
      * originated from <code>Studio Administrator</code> channel and verifies that the method throws
      * <code>NavigationException</code> when non submission owner is requesting a download.</p>
@@ -1121,7 +1107,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
             try {
                 this.testedInstance.process();
                 Assert.fail("NavigationException should have been thrown as non-owner can not request submission while" +
-                            "contest is running");
+                        "contest is running");
             } catch (NavigationException e) {
                 // expected behavior
             }
@@ -1132,15 +1118,15 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
      * <p>Gets the content of the sample submissions file to be used for testing from the disk.</p>
      *
      * @param contestId a <code>long</code> providing the ID of a contest.
-     * @param handle a <code>String</code> providing the submitter handle.
-     * @param userId a <code>long</code> providing the user ID.
-     * @param file a <code>String</code> providing the name of the file.
+     * @param handle    a <code>String</code> providing the submitter handle.
+     * @param userId    a <code>long</code> providing the user ID.
+     * @param file      a <code>String</code> providing the name of the file.
      * @return a <code>byte</code> array providing the content of the sample submission file.
      * @throws IOException if an I/O error occurs while reading the image file content.
      */
     private byte[] readSubmissionFile(long contestId, String handle, long userId, String file) throws IOException {
         InputStream content = new FileInputStream(Constants.ROOT_STORAGE_PATH + "/submissions/" + contestId + "/"
-                                                  + handle + "_" + userId + "/" + file);
+                + handle + "_" + userId + "/" + file);
         ByteArrayOutputStream baos;
         try {
             baos = new ByteArrayOutputStream();
