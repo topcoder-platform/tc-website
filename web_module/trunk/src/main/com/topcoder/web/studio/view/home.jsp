@@ -146,8 +146,9 @@
 
                 <!-- news box -->
                 <div style="width: 525px; height: 150px; margin-bottom: 20px; background: transparent;">
-                    <a href="${sessionInfo.servletPath}?module=ViewActiveContests"><img src="/i/v2/home/studiov3.png" alt="Welcome to TopCoder Studio" /></a>
+                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&amp;threadID=1541&amp;start=0"><img src="/i/v2/home/tco08studioBracket.png" alt="TCO08 Studio Finalists" /></a>
                     <%--
+                    <a href="${sessionInfo.servletPath}?module=ViewActiveContests"><img src="/i/v2/home/studiov3.png" alt="Welcome to TopCoder Studio" /></a>
                     <a href="${sessionInfo.servletPath}?module=ViewActiveContests"><img src="/i/v2/home/widgetWednesday.png" alt="Widget Wednesday" /></a>
                     --%>
                 </div>
