@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />04.09.08<br />3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about">2008 TCO Finalist Brackets are Announced!</a></span><br /><br />
+        Announcing the 120 finalists for the 2008 TopCoder Open!  Through the hard work, sweat, creativity, fast fingers, sleep deprivation and determination by the best of the best, the field has been narrowed down.  See who you'll be cheering for!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=bracket">algorithm</a> | 
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=desBracket">design</a> | 
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=devBracket">development</a> | 
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=marathon&amp;d4=bracket">marathon</a> | 
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=bracket">studio</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />04.08.08<br />9:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -151,19 +168,6 @@
    <tr><td class="newsLinksCell">
         <a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/qandas/article.aspx?editorialsid=123' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="520559" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.24.08<br />4:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_032408">washingtonpost.com - Multicore boom needs new developer skills</a></span><br /><br />
-        Microsoft exec warns of "a worldwide shortage of people experienced in parallel computing experience."</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_032408">details</a> | 
-        <tc-webtag:forumLink forumID="520558" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
    
