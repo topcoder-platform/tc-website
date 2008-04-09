@@ -84,21 +84,32 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
         boolean canDownload;
         if (Util.isAdmin(getUser().getId())) {
+            log.debug("allow download, they're an admin");
             //admins can download anything
             canDownload = true;
         } else if (isOwner) {
+            log.debug("allow download, they're the submitter");
             //submitters can always download their own work
             canDownload = true;
         } else if (originalSubmissionRequested) {
             //if the original is requested, then they can only download it if they bought it
             canDownload = isPurchaser;
+            if (log.isDebugEnabled()) {
+                log.debug("original requested, and they " + (isPurchaser?"have":"have not") + " purchased it");
+            }
         } else if (isContestCreator) {
+            log.debug("allow download, they're the contest creator");
             //if it's not the original, then the contest creator can download it, it doesn't matter if the contest is over or not
             canDownload = true;
         } else if (String.valueOf(true).equals(s.getContest().getViewableSubmissions().getValue())) {
+            log.debug("submissions are viewable");
             //if submissions are viewable, then they can only be downloaded if the contest is over
             canDownload = isOver;
+            if (log.isDebugEnabled()) {
+                log.debug("the contest " + (isOver?"is over":"is not over") + " so they " + (isOver?"can":"can not") + " download");
+            }
         } else {
+            log.debug("not allowed");
             canDownload = false;
         }
 
