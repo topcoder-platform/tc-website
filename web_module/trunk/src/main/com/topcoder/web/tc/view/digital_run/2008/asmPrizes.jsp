@@ -53,10 +53,10 @@ For each Stage, competitors will accumulate placement points according to the <A
 <strong>4th</strong> - $3,000<br />
 <strong>5th</strong> - $2,000
 <br /><br />
-If there is a tie for a position among the top 5 finishers, the tie will be resolved in the following manner (in order):
+If there is a tie for a position among the top five finishers, the tie will be resolved in the following manner (in order):
 <ol>
-<li>The win will go to the competitor whose submissions placed higher, on average, during the Stage.</li>
-<li>If a tie still remains, the win will then go to the competitor with the highest average per-component score over the course of the Stage.</li>
+<li>The competitor who has the most higher-placed submissions in the Stage.</li>
+<li>If a tie still remains, then the competitor with the highest average individual component score of the lesser number of components used to develop the placement scores for the tied competitors.</li>
 <li>If a tie still remains, then the tied competitors will share equally the prize money at hand.</li>
 </ol>
 <strong>Top Third Stage Prizes</strong><br />
