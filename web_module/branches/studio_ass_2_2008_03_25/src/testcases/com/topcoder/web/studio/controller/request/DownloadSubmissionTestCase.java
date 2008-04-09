@@ -8,10 +8,11 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.sql.InformixSimpleDataSource;
+import com.topcoder.util.config.ConfigManager;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.SimpleRequest;
 import com.topcoder.web.common.SimpleResponse;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.DatabaseUtil;
 import com.topcoder.web.studio.ServletOutputStreamImpl;
@@ -20,8 +21,8 @@ import com.topcoder.web.studio.mock.MockHttpServletRequest;
 import com.topcoder.web.studio.mock.MockHttpServletResponse;
 import com.topcoder.web.studio.mock.MockHttpSession;
 import com.topcoder.web.studio.mock.MockWebAuthentication;
-import com.topcoder.util.config.ConfigManager;
 import junit.framework.Assert;
+import org.mockejb.jndi.MockContextFactory;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -33,8 +34,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-
-import org.mockejb.jndi.MockContextFactory;
 
 /**
  * <p>A unit test case for {@link DownloadSubmission} class.</p>
@@ -664,7 +663,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
      */
     public void testDbProcessing_OldContest_Over_Alien() throws Exception {
         // Test setup
-        User user = new SimpleUser(132456, "dok", "password");
+        User user = new SimpleUser(-1, "anonymous", "password");
         MockWebAuthentication.setMethodResult("getUser", user);
         MockWebAuthentication.setMethodResult("getActiveUser", user);
         MockWebAuthentication.setMethodResult("isKnownUser", true);
@@ -711,7 +710,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
      */
     public void testDbProcessing_TCDirect_Over_Alien() throws Exception {
         // Test setup
-        User user = new SimpleUser(132456, "dok", "password");
+        User user = new SimpleUser(-1, "anonymous", "password");
         MockWebAuthentication.setMethodResult("getUser", user);
         MockWebAuthentication.setMethodResult("getActiveUser", user);
         MockWebAuthentication.setMethodResult("isKnownUser", true);
@@ -758,7 +757,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
      */
     public void testDbProcessing_TCDirect_Over_Alien_Alternate() throws Exception {
         // Test setup
-        User user = new SimpleUser(132456, "dok", "password");
+        User user = new SimpleUser(-1, "anonymous", "password");
         MockWebAuthentication.setMethodResult("getUser", user);
         MockWebAuthentication.setMethodResult("getActiveUser", user);
         MockWebAuthentication.setMethodResult("isKnownUser", true);
@@ -806,7 +805,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
      */
     public void testDbProcessing_Studio_Over_Alien() throws Exception {
         // Test setup
-        User user = new SimpleUser(132456, "dok", "password");
+        User user = new SimpleUser(-1, "anonymous", "password");
         MockWebAuthentication.setMethodResult("getUser", user);
         MockWebAuthentication.setMethodResult("getActiveUser", user);
         MockWebAuthentication.setMethodResult("isKnownUser", true);
@@ -853,7 +852,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
      */
     public void testDbProcessing_Studio_Over_Alien_Alternate() throws Exception {
         // Test setup
-        User user = new SimpleUser(132456, "dok", "password");
+        User user = new SimpleUser(-1, "anonymous", "password");
         MockWebAuthentication.setMethodResult("getUser", user);
         MockWebAuthentication.setMethodResult("getActiveUser", user);
         MockWebAuthentication.setMethodResult("isKnownUser", true);
@@ -901,7 +900,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
      */
     public void testDbProcessing_OldContest_Running_Alien() throws Exception {
         // Test setup
-        User user = new SimpleUser(132456, "dok", "password");
+        User user = new SimpleUser(-1, "anonymous", "password");
         MockWebAuthentication.setMethodResult("getUser", user);
         MockWebAuthentication.setMethodResult("getActiveUser", user);
         MockWebAuthentication.setMethodResult("isKnownUser", true);
@@ -934,7 +933,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
      */
     public void testDbProcessing_OldContest_Running_Alien_Alternate() throws Exception {
         // Test setup
-        User user = new SimpleUser(132456, "dok", "password");
+        User user = new SimpleUser(-1, "anonymous", "password");
         MockWebAuthentication.setMethodResult("getUser", user);
         MockWebAuthentication.setMethodResult("getActiveUser", user);
         MockWebAuthentication.setMethodResult("isKnownUser", true);
@@ -972,7 +971,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
      */
     public void testDbProcessing_TCDirect_Running_Alien() throws Exception {
         // Test setup
-        User user = new SimpleUser(132456, "dok", "password");
+        User user = new SimpleUser(-1, "anonymous", "password");
         MockWebAuthentication.setMethodResult("getUser", user);
         MockWebAuthentication.setMethodResult("getActiveUser", user);
         MockWebAuthentication.setMethodResult("isKnownUser", true);
@@ -1019,7 +1018,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
      */
     public void testDbProcessing_TCDirect_Running_Alien_Alternate() throws Exception {
         // Test setup
-        User user = new SimpleUser(132456, "dok", "password");
+        User user = new SimpleUser(-1, "anonymous", "password");
         MockWebAuthentication.setMethodResult("getUser", user);
         MockWebAuthentication.setMethodResult("getActiveUser", user);
         MockWebAuthentication.setMethodResult("isKnownUser", true);
@@ -1067,7 +1066,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
      */
     public void testDbProcessing_Studio_Running_Alien() throws Exception {
         // Test setup
-        User user = new SimpleUser(132456, "dok", "password");
+        User user = new SimpleUser(-1, "anonymous", "password");
         MockWebAuthentication.setMethodResult("getUser", user);
         MockWebAuthentication.setMethodResult("getActiveUser", user);
         MockWebAuthentication.setMethodResult("isKnownUser", true);
@@ -1100,7 +1099,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
      */
     public void testDbProcessing_Studio_Running_Alien_Alternate() throws Exception {
         // Test setup
-        User user = new SimpleUser(132456, "dok", "password");
+        User user = new SimpleUser(-1, "anonymous", "password");
         MockWebAuthentication.setMethodResult("getUser", user);
         MockWebAuthentication.setMethodResult("getActiveUser", user);
         MockWebAuthentication.setMethodResult("isKnownUser", true);
