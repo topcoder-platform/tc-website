@@ -18,6 +18,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.Date;
 import java.util.Map;
@@ -50,194 +51,188 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         Contest contest = s.getContest();
         ContestChannel channel = contest.getChannel();
 
-        boolean isTopCoderDirect = false;
         boolean isStudioAdminV1 = true;
         if (channel != null) {
-            isTopCoderDirect = ContestChannel.TOPCODER_DIRECT.equals(channel.getId());
             isStudioAdminV1 = ContestChannel.STUDIO_ADMINISTRATOR_V1.equals(channel.getId());
         }
 
-        if (!isStudioAdminV1) {
-            long currentUserId = getUser().getId();
-            boolean isOwner = s.getSubmitter().getId().equals(currentUserId);
-            boolean isOver = new Date().after(s.getContest().getEndTime());
+        long currentUserId = getUser().getId();
+        boolean isOwner = s.getSubmitter().getId().equals(currentUserId);
+        boolean isOver = new Date().after(s.getContest().getEndTime());
 
-            // Determine the type of requested submission presentation, "full" is the default type
-            String submissionType = getRequest().getParameter(Constants.SUBMISSION_ALT_TYPE);
-            if (submissionType == null) {
-                submissionType = "full";
-            } else {
-                // Validate that the correct type of presentation is requested
-                boolean valid = false;
-                for (int i = 0; !valid && (i < ALTERNATE_SUBMISSION_TYPES.length); i++) {
-                    valid = (ALTERNATE_SUBMISSION_TYPES[i].equalsIgnoreCase(submissionType));
-                }
-                if (!valid) {
-                    throw new NavigationException(
-                            MessageFormat.format(Constants.ERROR_MSG_INVALID_PRESENTATION_TYPE, submissionType));
-                }
+        // Determine the type of requested submission presentation, "full" is the default type
+        String submissionType = getRequest().getParameter(Constants.SUBMISSION_ALT_TYPE);
+        if (submissionType == null) {
+            submissionType = "full";
+        } else {
+            // Validate that the correct type of presentation is requested
+            boolean valid = false;
+            for (int i = 0; !valid && (i < ALTERNATE_SUBMISSION_TYPES.length); i++) {
+                valid = (ALTERNATE_SUBMISSION_TYPES[i].equalsIgnoreCase(submissionType));
             }
-            // Since TopCoder Studio Modifications v2 Assembly (Req# 5.11)- the contest creator may download the
-            // submission if it already has been purchased
-            boolean originalSubmissionRequested = "original".equalsIgnoreCase(submissionType);
-            boolean isContestCreator = contest.getCreateUserId() == currentUserId;
-            boolean isPurchaser = originalSubmissionRequested && isContestCreator
-                    && (Util.isSubmissionPurchased(String.valueOf(submissionId)));
-
-            boolean canDownload;
-            if (Util.isAdmin(getUser().getId())) {
-                //admins can download anything
-                canDownload = true;
-            } else if (isOwner) {
-                //submitters can always download their own work
-                canDownload = true;
-            } else if (originalSubmissionRequested) {
-                //if the original is requested, then they can only download it if they bought it
-                canDownload = isPurchaser;
-            } else if (isContestCreator) {
-                //if it's not the original, then the contest creator can download it, it doesn't matter if the contest is over or not
-                canDownload = true;
-            } else if (String.valueOf(true).equals(s.getContest().getViewableSubmissions().getValue())) {
-                //if submissions are viewable, then they can only be downloaded if the contest is over
-                canDownload = isOver;
-            } else {
-                canDownload = false;
+            if (!valid) {
+                throw new NavigationException(
+                        MessageFormat.format(Constants.ERROR_MSG_INVALID_PRESENTATION_TYPE, submissionType));
             }
-            if (canDownload) {
-                // Since TopCoder Studio Modifications Assembly Req# 5.8
-                String targetFileName;
-                String destFileName;
-                String contentType = "application/zip";
+        }
+        // Since TopCoder Studio Modifications v2 Assembly (Req# 5.11)- the contest creator may download the
+        // submission if it already has been purchased
+        boolean originalSubmissionRequested = "original".equalsIgnoreCase(submissionType);
+        boolean isContestCreator = contest.getCreateUserId() == currentUserId;
+        boolean isPurchaser = originalSubmissionRequested && isContestCreator
+                && (Util.isSubmissionPurchased(String.valueOf(submissionId)));
 
-                // Determine if the "imagew" presentation must be used in case the "full" presentation is requested but
-                // contest does not require preview file. So the user may get the watermarked image
-                Map<Integer, String> contestConfig = contest.getConfigMap();
-                boolean previewFileRequired
-                        = Boolean.parseBoolean(contestConfig.get(ContestProperty.REQUIRE_PREVIEW_FILE));
-                if ("full".equalsIgnoreCase(submissionType) && !previewFileRequired) {
-                    submissionType = "imagew";
-                }
+        boolean canDownload;
+        if (Util.isAdmin(getUser().getId())) {
+            //admins can download anything
+            canDownload = true;
+        } else if (isOwner) {
+            //submitters can always download their own work
+            canDownload = true;
+        } else if (originalSubmissionRequested) {
+            //if the original is requested, then they can only download it if they bought it
+            canDownload = isPurchaser;
+        } else if (isContestCreator) {
+            //if it's not the original, then the contest creator can download it, it doesn't matter if the contest is over or not
+            canDownload = true;
+        } else if (String.valueOf(true).equals(s.getContest().getViewableSubmissions().getValue())) {
+            //if submissions are viewable, then they can only be downloaded if the contest is over
+            canDownload = isOver;
+        } else {
+            canDownload = false;
+        }
 
-                // Determine tha name of requested file and it's mime type
-                if (!originalSubmissionRequested) {
-                    // Thealternate presentation is requested
-
-                    // Locate the file corresponding to requested alternate presentation
-                    File dir = new File(s.getPath().getPath());
-                    String[] fileNames = dir.list(new SubmissionPresentationFilter(submissionType, s.getId()));
-                    if ((fileNames == null) || (fileNames.length < 1)) {
-                        throw new NavigationException(MessageFormat.format(Constants.ERROR_MSG_PRESENTATION_NOT_FOUND,
-                                submissionType));
-                    } else {
-                        // tiny, small, medium and full
-                        targetFileName = s.getPath().getPath() + fileNames[0];
-                        destFileName = fileNames[0];
-                        StudioFileType fileType = SubmissionValidator.getFileType(destFileName);
-                        Set<MimeType> mimeTypes = fileType.getMimeTypes();
-                        if (!mimeTypes.isEmpty()) {
-                            contentType = mimeTypes.iterator().next().getDescription();
-                        }
-                    }
-                } else {
-                    // The original submission is requested
-                    targetFileName = s.getPath().getPath() + s.getSystemFileName();
-                    destFileName
-                            = s.getId() + s.getOriginalFileName().substring(s.getOriginalFileName().lastIndexOf('.'));
-                    contentType = s.getMimeType().getDescription();
-                }
-
-                //create the file input stream first so that if there is a problem, we'll get the error and be able to
-                // go to an error page.  if we work with the output stream, we won't be able to do that.
-                FileInputStream fis = new FileInputStream(targetFileName);
-
-                log.debug("not done");
-
-                TCResponse response = getResponse();
-                if (isOwner && originalSubmissionRequested) {
-                    response.addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName()
-                            + "\"");
-                    if (log.isDebugEnabled()) {
-                        log.debug("content-disposition = inline; filename=\"" + s.getOriginalFileName() + "\"");
-                    }
-                } else {
-                    if (log.isDebugEnabled()) {
-                        log.debug("content-disposition = inline; filename=\"" + destFileName + "\"");
-                    }
-                    response.addHeader("content-disposition", "inline; filename=\"" + destFileName + "\"");
-                }
-                //resetting the cache-control header to empty.  IE freaks out and doesn't save when the
-                //cache-control header is set the way we do for an uncached response.
-                response.setHeader("Cache-Control", "");
-
-                response.setContentType(contentType);
-                ServletOutputStream sos = response.getOutputStream();
-                int b;
-                int size = 0;
-                while ((b = fis.read()) >= 0) {
-                    sos.write(b);
-                    size++;
-                }
-                response.addHeader("Content-Length", String.valueOf(size));
-                response.setStatus(HttpServletResponse.SC_OK);
-                response.flushBuffer();
-                log.debug("flushed");
+        if (canDownload) {
+            if (isStudioAdminV1) {
+                dbProcessingV1(s, isOwner);
             } else {
-                throw new NavigationException("Sorry, you can not download submissions for this contest.");
+                sendSubmission(contest, originalSubmissionRequested, submissionType, s, isOwner);
             }
         } else {
-            dbProcessingV1(s);
+            throw new NavigationException("Sorry, you can not download submissions for this contest.");
         }
     }
 
     /**
      * <p>Processes the contests originated from the <code>Studio Administrator v.1</code> contest channel.</p>
      *
-     * @param s a <code>Submission</code> reprsenting the submission to be downloaded.
+     * @param s       a <code>Submission</code> reprsenting the submission to be downloaded.
+     * @param isOwner whether or not the current user is the submitter for the requested submission
      * @throws Exception if an unexpected error occurs.
      * @since TopCoder Studio Modifications Assembly (Req# 5.8)
      */
-    private void dbProcessingV1(Submission s) throws Exception {
-        boolean isOwner = s.getSubmitter().getId().equals(getUser().getId());
+    private void dbProcessingV1(Submission s, boolean isOwner) throws Exception {
+        //create the file input stream first so that if there is a problem, we'll get the error and be able to go
+        //to an error page.  if we work with the output stream, we won't be able to do that.
+        FileInputStream fis = new FileInputStream(s.getPath().getPath() + s.getSystemFileName());
 
-        boolean isOver = new Date().after(s.getContest().getEndTime());
-
-        if (!isOver && !isOwner) {
-            throw new NavigationException("Submissions are not available until the contest is over.");
-        }
-
-        if ("true".equals(s.getContest().getViewableSubmissions().getValue()) || isOwner) {
-
-            //create the file input stream first so that if there is a problem, we'll get the error and be able to go
-            //to an error page.  if we work with the output stream, we won't be able to do that.
-            FileInputStream fis = new FileInputStream(s.getPath().getPath() + s.getSystemFileName());
-
-            log.debug("not done");
-            String origFileName = s.getOriginalFileName();
-            TCResponse response = getResponse();
-            if (isOwner) {
-                response.addHeader("content-disposition", "inline; filename=\"" + origFileName + "\"");
-            } else {
-                response.addHeader("content-disposition", "inline; filename=\"" + s.getId()
-                        + origFileName.substring(origFileName.lastIndexOf('.'))
-                        + "\"");
-            }
-            //resetting the cache-control header to empty.  IE freaks out and doesn't save when the
-            //cache-control header is set the way we do for an uncached response.
-            response.setHeader("Cache-Control", "");
-            response.setContentType(s.getMimeType().getDescription());
-
-            ServletOutputStream sos = response.getOutputStream();
-            int b;
-            int size = 0;
-            while ((b = fis.read()) >= 0) {
-                sos.write(b);
-                size++;
-            }
-            response.addHeader("Content-Length", String.valueOf(size));
-            response.setStatus(HttpServletResponse.SC_OK);
-            response.flushBuffer();
+        log.debug("not done");
+        String origFileName = s.getOriginalFileName();
+        TCResponse response = getResponse();
+        if (isOwner) {
+            response.addHeader("content-disposition", "inline; filename=\"" + origFileName + "\"");
         } else {
-            throw new NavigationException("Sorry, you can not download submissions for this contest.");
+            response.addHeader("content-disposition", "inline; filename=\"" + s.getId()
+                    + origFileName.substring(origFileName.lastIndexOf('.'))
+                    + "\"");
         }
+        //resetting the cache-control header to empty.  IE freaks out and doesn't save when the
+        //cache-control header is set the way we do for an uncached response.
+        response.setHeader("Cache-Control", "");
+        response.setContentType(s.getMimeType().getDescription());
+
+        ServletOutputStream sos = response.getOutputStream();
+        int b;
+        int size = 0;
+        while ((b = fis.read()) >= 0) {
+            sos.write(b);
+            size++;
+        }
+        response.addHeader("Content-Length", String.valueOf(size));
+        response.setStatus(HttpServletResponse.SC_OK);
+        response.flushBuffer();
     }
+
+
+    private void sendSubmission(Contest contest, boolean originalSubmissionRequested, String submissionType,
+                                Submission s, boolean isOwner) throws NavigationException, IOException {
+        // Since TopCoder Studio Modifications Assembly Req# 5.8
+        String targetFileName;
+        String destFileName;
+        String contentType = "application/zip";
+
+        // Determine if the "imagew" presentation must be used in case the "full" presentation is requested but
+        // contest does not require preview file. So the user may get the watermarked image
+        Map<Integer, String> contestConfig = contest.getConfigMap();
+        boolean previewFileRequired
+                = Boolean.parseBoolean(contestConfig.get(ContestProperty.REQUIRE_PREVIEW_FILE));
+        if ("full".equalsIgnoreCase(submissionType) && !previewFileRequired) {
+            submissionType = "imagew";
+        }
+
+        // Determine tha name of requested file and it's mime type
+        if (!originalSubmissionRequested) {
+            // Thealternate presentation is requested
+
+            // Locate the file corresponding to requested alternate presentation
+            File dir = new File(s.getPath().getPath());
+            String[] fileNames = dir.list(new SubmissionPresentationFilter(submissionType, s.getId()));
+            if ((fileNames == null) || (fileNames.length < 1)) {
+                throw new NavigationException(MessageFormat.format(Constants.ERROR_MSG_PRESENTATION_NOT_FOUND,
+                        submissionType));
+            } else {
+                // tiny, small, medium and full
+                targetFileName = s.getPath().getPath() + fileNames[0];
+                destFileName = fileNames[0];
+                StudioFileType fileType = SubmissionValidator.getFileType(destFileName);
+                Set<MimeType> mimeTypes = fileType.getMimeTypes();
+                if (!mimeTypes.isEmpty()) {
+                    contentType = mimeTypes.iterator().next().getDescription();
+                }
+            }
+        } else {
+            // The original submission is requested
+            targetFileName = s.getPath().getPath() + s.getSystemFileName();
+            destFileName
+                    = s.getId() + s.getOriginalFileName().substring(s.getOriginalFileName().lastIndexOf('.'));
+            contentType = s.getMimeType().getDescription();
+        }
+
+        //create the file input stream first so that if there is a problem, we'll get the error and be able to
+        // go to an error page.  if we work with the output stream, we won't be able to do that.
+        FileInputStream fis = new FileInputStream(targetFileName);
+
+        log.debug("not done");
+
+        TCResponse response = getResponse();
+        if (isOwner && originalSubmissionRequested) {
+            response.addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName()
+                    + "\"");
+            if (log.isDebugEnabled()) {
+                log.debug("content-disposition = inline; filename=\"" + s.getOriginalFileName() + "\"");
+            }
+        } else {
+            if (log.isDebugEnabled()) {
+                log.debug("content-disposition = inline; filename=\"" + destFileName + "\"");
+            }
+            response.addHeader("content-disposition", "inline; filename=\"" + destFileName + "\"");
+        }
+        //resetting the cache-control header to empty.  IE freaks out and doesn't save when the
+        //cache-control header is set the way we do for an uncached response.
+        response.setHeader("Cache-Control", "");
+
+        response.setContentType(contentType);
+        ServletOutputStream sos = response.getOutputStream();
+        int b;
+        int size = 0;
+        while ((b = fis.read()) >= 0) {
+            sos.write(b);
+            size++;
+        }
+        response.addHeader("Content-Length", String.valueOf(size));
+        response.setStatus(HttpServletResponse.SC_OK);
+        response.flushBuffer();
+        log.debug("flushed");
+    }
+
 }
