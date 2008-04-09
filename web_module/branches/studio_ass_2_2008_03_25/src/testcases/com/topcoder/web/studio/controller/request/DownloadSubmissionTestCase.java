@@ -358,7 +358,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
      *
      * @throws Exception if an unexpected error occurs.
      */
-    public void testDbProcessing_Studio_Over_Owner_ALternate() throws Exception {
+    public void testDbProcessing_Studio_Over_Owner_Alternate() throws Exception {
         // Test setup
         long contestId = 10;
         long submissionId = 7;
@@ -710,6 +710,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
      */
     public void testDbProcessing_TCDirect_Over_Alien() throws Exception {
         // Test setup
+        log.debug("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx");
         User user = new SimpleUser(-1, "anonymous", "password");
         MockWebAuthentication.setMethodResult("getUser", user);
         MockWebAuthentication.setMethodResult("getActiveUser", user);
@@ -1124,60 +1125,6 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
             } catch (NavigationException e) {
                 // expected behavior
             }
-        }
-    }
-
-    /**
-     * <p>Failure test. Tests the {@link DownloadSubmission#dbProcessing()} method for proper handling invalid usage.
-     * </p>
-     *
-     * <p>Passes a request for downloading the original submission for a running contest which originated from <code>
-     * Studio Administrator</code> channel and verifies that the method returns the appropriate content and sets the
-     * response content type correctly when submission purchaser is requesting a download.</p>
-     *
-     * @throws Exception if an unexpected error occurs.
-     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.11)
-     */
-    public void testDbProcessing_Studio_Running_Purchaser_Original() throws Exception {
-        // Test setup
-        User user = new SimpleUser(132456, "dok", "password");
-        MockWebAuthentication.setMethodResult("getUser", user);
-        MockWebAuthentication.setMethodResult("getActiveUser", user);
-        MockWebAuthentication.setMethodResult("isKnownUser", true);
-
-        long contestId = 12;
-        long submissionId = 9;
-        long userId = 1;
-        String handle = "dok_test";
-
-        String[] types = {"original"};
-
-        for (int i = 0; i < types.length; i++) {
-            String type = types[i];
-
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            MockHttpServletRequest.setMethodResultPerArgs("getParameter_String", "sbmid", String.valueOf(submissionId));
-            MockHttpServletRequest.setMethodResultPerArgs("getParameter_String", "sbt", type);
-            MockHttpServletResponse.setMethodResult("getOutputStream", new ServletOutputStreamImpl(baos));
-
-            // Execution
-            this.testedInstance.process();
-            super.tearDown();
-            super.setUp();
-
-            // Test Verification
-            Assert.assertTrue("The response content type is not set",
-                              MockHttpServletResponse.wasMethodCalled("setContentType_String"));
-            List args = MockHttpServletResponse.getMethodArguments("setContentType_String");
-            Map callArgs = (Map) args.get(0);
-            String contentType = (String) callArgs.get("1");
-            Assert.assertTrue("Wrong response content type set", "application/zip".equals(contentType)
-                                                                 || "application/x-zip".equals(contentType)
-                                                                 || "application/x-zip-compressed".equals(contentType));
-
-            byte[] expectedContent = readSubmissionFile(contestId, handle, userId,  "9_full.zip");
-            byte[] actualContent = baos.toByteArray();
-            Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
         }
     }
 
