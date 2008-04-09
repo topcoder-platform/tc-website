@@ -42,16 +42,16 @@
     </c:when>
     <c:otherwise>
         <div align="center">
-            <c:set var="imageRequired" value="<%=resultRow.getMap().get("require_preview_image")%>"/>
-            <c:set var="fileRequired" value="<%=resultRow.getMap().get("require_preview_file")%>"/>
+            <c:set var="hasImage" value="${resultRow.map['has_preview_image']}"/>
+            <c:set var="fileRequired" value="${resultRow.map['require_preview_file']}"/>
             <strong>ID:</strong>
             <rsc:item name="submission_id" row="<%=resultRow%>"/>
             <br/>
-            <c:if test="${imageRequired or fileRequired}">
-            <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                </c:if>
+            <c:if test="${hasImage or fileRequired}">
+                <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+            </c:if>
                 <c:choose>
-                    <c:when test="${imageRequired}">
+                    <c:when test="${hasImage}">
                         <img src="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=small&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>"
                              alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()"/>
                     </c:when>
@@ -67,8 +67,8 @@
                         </c:choose>
                     </c:otherwise>
                 </c:choose>
-                <c:if test="${imageRequired or fileRequired}">
-            </a>
+            <c:if test="${hasImage or fileRequired}">
+                </a>
             </c:if>
         </div>
     </c:otherwise>
