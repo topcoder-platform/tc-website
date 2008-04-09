@@ -83,9 +83,6 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             boolean isContestCreator = contest.getCreateUserId() == currentUserId;
             boolean isPurchaser = originalSubmissionRequested && isContestCreator
                     && (Util.isSubmissionPurchased(String.valueOf(submissionId)));
-            if (!isOver && !isOwner && !isTopCoderDirect && !isPurchaser) {
-                throw new NavigationException("Submissions are not available until the contest is over.");
-            }
 
             boolean canDownload;
             if (Util.isAdmin(getUser().getId())) {
