@@ -33,6 +33,10 @@ import com.topcoder.web.tc.model.dr.IBoardRow;
  */
 public abstract class BaseBoard extends BaseProcessor {
 
+    private static final String DESIGN_PROJECT_TYPE = "1";
+    private static final String DEVELOPMENT_PROJECT_TYPE = "2";
+    private static final String ASSEMBLY_PROJECT_TYPE = "14";
+
     /**
      * The coder handle column
      */
@@ -66,6 +70,7 @@ public abstract class BaseBoard extends BaseProcessor {
      * Common parameters for board.
      */
     protected int phaseId;
+    protected int projectTypeId;
     protected boolean invert;
     protected String sortCol; 
     protected int startRank;
@@ -73,15 +78,25 @@ public abstract class BaseBoard extends BaseProcessor {
     
     protected void businessProcessing() throws Exception {
         
-        if (!getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) &&
-                !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE)) &&
-                !getRequest().getParameter(Constants.PHASE_ID).equals("114")) {
+        if (hasParameter(Constants.PHASE_ID) && !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) &&
+                !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
-        
-        phaseId = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID));
-        
+        if (!hasParameter(Constants.PHASE_ID)) {
+            if (!getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(DESIGN_PROJECT_TYPE) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(DEVELOPMENT_PROJECT_TYPE) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(ASSEMBLY_PROJECT_TYPE)) {
+                throw new TCWebException("invalid " + Constants.PROJECT_TYPE_ID + " parameter.");
+            }
+            
+            projectTypeId = Integer.parseInt(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
+            phaseId = projectTypeId + 111;
+        } else {
+            phaseId = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID));
+            projectTypeId = phaseId - 111;
+        }
+            
         invert = "desc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
@@ -107,9 +122,10 @@ public abstract class BaseBoard extends BaseProcessor {
 
         
         setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
-        getRequest().setAttribute("isDesign", phaseId == 112);
-        getRequest().setAttribute("isDevelopment", phaseId == 113);
-        getRequest().setAttribute("isAssembly", phaseId == 114);
+        setDefault(Constants.PROJECT_TYPE_ID, getRequest().getParameter(Constants.PROJECT_TYPE_ID));
+        getRequest().setAttribute("isDesign", projectTypeId == 1);
+        getRequest().setAttribute("isDevelopment", projectTypeId == 2);
+        getRequest().setAttribute("isAssembly", projectTypeId == 14);
         
         boardProcessing();
     }

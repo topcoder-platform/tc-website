@@ -13,7 +13,6 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.CachedDataAccess;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.IBoardRow;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
@@ -60,7 +59,7 @@ public class LeaderBoard extends BaseBoard {
 
         boolean stageExists = true;
         try {
-            ct = getContestsForStage(stageId, phaseId);
+            ct = getContestsForStage(stageId, projectTypeId);
         } catch (Exception e) {
             // this stage doesn't exist
             stageExists = false;
@@ -81,7 +80,7 @@ public class LeaderBoard extends BaseBoard {
             // Put the results in a list
             List<LeaderBoardRow> results = new ArrayList<LeaderBoardRow>();
             for (ResultSetContainer.ResultSetRow row : rsc) {
-                LeaderBoardRow lbr = new LeaderBoardRow(stageId, phaseId, row.getIntItem("current_place"), row.getLongItem("coder_id"),row.getStringItem("handle"),
+                LeaderBoardRow lbr = new LeaderBoardRow(stageId, projectTypeId, row.getIntItem("current_place"), row.getLongItem("coder_id"),row.getStringItem("handle"),
                          row.getDoubleItem("final_points"), row.getDoubleItem("potential_points"), 
                          row.getStringItem("current_top_performer_prize") == null? 0.0 : row.getDoubleItem("current_top_performer_prize"),
                          row.getStringItem("current_top_n_prize") == null? 0.0 : row.getDoubleItem("current_top_n_prize"),
@@ -160,19 +159,19 @@ public class LeaderBoard extends BaseBoard {
 
 
     /**
-     * Get the stage and top performers contest for the specified stage and phase
+     * Get the stage and top performers contest for the specified stage and project type
      * 
      * @param stageId
-     * @param phaseId
+     * @param projectTypeId
      * @return an array with element 0 being the contest_id for the stage contest and element 1 for top performers contest
      * @throws Exception
      */
-    private int[] getContestsForStage(int stageId, int phaseId) throws Exception {
+    private int[] getContestsForStage(int stageId, int projectTypeId) throws Exception {
         
         Request r = new Request();
         r.setContentHandle("dr_contests_for_stage");
         r.setProperty(Constants.STAGE_ID, stageId + "");
-        r.setProperty(Constants.PHASE_ID, phaseId + "");
+        r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId + "");
         
         DataAccessInt dai = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME); 
         ResultSetContainer contests= dai.getData(r).get("dr_contests_for_stage");
@@ -190,8 +189,8 @@ public class LeaderBoard extends BaseBoard {
             if (row.getIntItem("contest_type_id") == DR_TOP_PERFORMERS_CONTEST_TYPE) result[1] = row.getIntItem("contest_id");
         }
         
-        if (result[0] < 0) throw new Exception("Missing a contest type dr stage for stage id " + stageId + " phase " + phaseId);
-        if (result[1] < 0) throw new Exception("Missing a contest type top performers for stage id " + stageId + " phase " + phaseId);
+        if (result[0] < 0) throw new Exception("Missing a contest type dr stage for stage id " + stageId + " project type " + projectTypeId);
+        if (result[1] < 0) throw new Exception("Missing a contest type top performers for stage id " + stageId + " project type " + projectTypeId);
         
         return result;
 
