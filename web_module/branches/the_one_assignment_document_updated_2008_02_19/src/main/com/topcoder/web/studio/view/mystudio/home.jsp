@@ -35,10 +35,8 @@
         
                         <h3>Documentation:</h3>
         
-                        <p><span class="bigRed"><a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/The+Assignment+Document">Download Assignment Document</a></span></p>
-                        <p>
-                            <a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Assignment Document</a>
-                        </p>
+                        <p><a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/The+Assignment+Document">Download Assignment Document</a></p>
+                        <p><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">View Assignment Document Status</a></p>
                         
                         <%--
                         <h3>Tools</h3>
