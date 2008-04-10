@@ -137,11 +137,11 @@ l
                 <c:when test="${empty contest.maxSubmissions or empty contest.maxSubmissions.value}">
                     <strong>Unlimited</strong>
                 </c:when>
-                <c:when test="${contest.maxSubmissions eq 1}">
+                <c:when test="${contest.maxSubmissions.value eq 1}">
                     <strong>1</strong> submission
                 </c:when>
                 <c:otherwise>
-                    <strong>${contest.maxSubmissions}</strong> submissions
+                    <strong>${contest.maxSubmissions.value}</strong> submissions
                 </c:otherwise>
             </c:choose>
 
