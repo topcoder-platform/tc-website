@@ -49,10 +49,10 @@ public class BasicAuthentication implements WebAuthentication {
     private boolean knownUser;
 
     public static final Resource MAIN_SITE = new SimpleResource("main");
+    public static final Resource REG_SITE = new SimpleResource("reg");
     /*
     just use main site now, with SSO
         public static final Resource CORP_SITE = new SimpleResource("corp");
-        public static final Resource REG_SITE = new SimpleResource("reg");
         public static final Resource EP_SITE = new SimpleResource("ep");
         public static final Resource HS_SITE = new SimpleResource("hs");
     */
