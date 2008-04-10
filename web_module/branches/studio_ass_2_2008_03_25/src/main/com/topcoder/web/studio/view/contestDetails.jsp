@@ -132,7 +132,7 @@
 
     <div class="section">Submission Limit:</div>
     <div class="padder">
-        <p align="center"><strong>1</strong> submission</p>
+        <p align="center"><strong>${contest.maxSubmissions}</strong> submission<c:if test="${contest.maxSubmissions>1}">s</c:if></p>
     </div>
 </div>
 
