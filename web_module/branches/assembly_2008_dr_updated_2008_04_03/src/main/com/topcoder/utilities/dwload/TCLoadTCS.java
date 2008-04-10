@@ -3,16 +3,6 @@
  */
 package com.topcoder.utilities.dwload;
 
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.dwload.CacheClearer;
-import com.topcoder.shared.util.dwload.TCLoad;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.utilities.dwload.contestresult.ContestResult;
-import com.topcoder.utilities.dwload.contestresult.ContestResultCalculator;
-import com.topcoder.utilities.dwload.contestresult.ProjectResult;
-import com.topcoder.utilities.dwload.contestresult.RookieContest;
-import com.topcoder.utilities.dwload.contestresult.TopPerformersCalculator;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,7 +20,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Set;
+
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.dwload.CacheClearer;
+import com.topcoder.shared.util.dwload.TCLoad;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.utilities.dwload.contestresult.ContestResult;
+import com.topcoder.utilities.dwload.contestresult.ContestResultCalculator;
+import com.topcoder.utilities.dwload.contestresult.ProjectResult;
+import com.topcoder.utilities.dwload.contestresult.TopPerformersCalculator;
 
 /**
  * <strong>Purpose</strong>:
@@ -80,14 +78,14 @@ public class TCLoadTCS extends TCLoad {
      *
      * @since 1.1.0
      */
-    private static final String FIRST_CUT_DATE = "2006-5-11";
+//    private static final String FIRST_CUT_DATE = "2006-5-11";
 
     /**
      * Id of the first season for rookies.
      *
      * @since 1.1.0
      */
-    private static final long FIRST_SEASON_ID = 1;
+//    private static final long FIRST_SEASON_ID = 1;
 
     /**
      * Confirmed status.
@@ -187,7 +185,7 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadProjectResults();
 
-            doLoadRookies();
+//            doLoadRookies();
 
             doLoadSubmissionScreening();
 
@@ -272,7 +270,7 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadStage();
 
-            doLoadSeasonResults();
+//            doLoadSeasonResults();
 
             doLoadStageResults();
 
@@ -308,9 +306,11 @@ public class TCLoadTCS extends TCLoad {
                 "coder_all_ratings", "tco05", "coder_dev", "coder_des", "coder_algo",
                 "dd_design", "dd_development", "dd_component", "comp_list", "find_projects", "get_review_scorecard",
                 "get_screening_scorecard", "project_info", "reviewers_for_project", "scorecard_details", "submissions",
-                "comp_contest_details", "dr_leader_board", "dr_rookie_board", "competition_history", "algo_competition_history",
+//                "comp_contest_details", "dr_leader_board", "dr_rookie_board", "competition_history", "algo_competition_history",
+                "comp_contest_details", "dr_leader_board", "competition_history", "algo_competition_history",
                 "dr_current_period", "dr_stages", "dr_seasons", "component_color_change", "stage_outstanding_projects",
-                "season_outstanding_projects", "dr_results", "dr_rookie_results", "dr_rookie_seasons", "dr_stages", "dr_contests_for_stage",
+//                "season_outstanding_projects", "dr_results", "dr_rookie_results", "dr_rookie_seasons", "dr_stages", "dr_contests_for_stage",
+                "season_outstanding_projects", "dr_results", "dr_stages", "dr_contests_for_stage",
                 "outstanding_projects"
         };
 
@@ -1342,8 +1342,7 @@ public class TCLoadTCS extends TCLoad {
                         "             from comp_version_dates cvd  " +
                         "             , project_info pi_ci " +
                         "             where pi_ci.value = cvd.comp_vers_id " +
-                        // TODO: check if this is good for assemblies
-                        "             and cvd.phase_id = p.project_category_id+111 " +
+                        "             and cvd.phase_id = case when p.project_category_id = 1 then 112 when p.project_category_id = 2 then 113 when p.project_category_id = 14 then 112 else null end " +
                         "             and pi_ci.project_id = p.project_id  " +
                         "             and pi_ci.project_info_type_id = 1), " +
                         "          (select value from project_info pi_am where pi_am.project_info_type_id = 16 and pi_am.project_id = p.project_id) " +
@@ -1660,7 +1659,7 @@ public class TCLoadTCS extends TCLoad {
      * @since 1.1.0
      *        </p>
      */
-    public void doLoadRookies() throws Exception {
+/*    public void doLoadRookies() throws Exception {
         log.info("regenerating rookies");
         PreparedStatement selectEdge = null;
         PreparedStatement selectUsers = null;
@@ -1819,7 +1818,7 @@ public class TCLoadTCS extends TCLoad {
             close(insert);
             close(delete);
         }
-    }
+    } 
 
     private Map<Integer, Integer> getRookieNextSeasonMap() throws Exception {
         Map<Integer, Integer> result = new HashMap<Integer, Integer>();
@@ -1839,7 +1838,7 @@ public class TCLoadTCS extends TCLoad {
             close(ps);
         }
         return result;
-    }
+    }*/
 
     public void doLoadSubmissionReview() throws Exception {
         log.info("load submission review");
@@ -4746,7 +4745,7 @@ public class TCLoadTCS extends TCLoad {
      *
      * @throws Exception
      */
-    public void doLoadSeasonResults() throws Exception {
+/*    public void doLoadSeasonResults() throws Exception {
         log.debug("load season results");
 
         final String SELECT_SEASONS =
@@ -4827,7 +4826,7 @@ public class TCLoadTCS extends TCLoad {
             close(rsSeasons);
         }
 
-    }
+    } */
 
 
     /**
@@ -4914,11 +4913,11 @@ public class TCLoadTCS extends TCLoad {
             if (calc instanceof TopPerformersCalculator) {
                 ((TopPerformersCalculator) calc).setFactor(factor);
             }
-            if (calc instanceof RookieContest) {
+/*            if (calc instanceof RookieContest) {
                 Set<Long> rookies = getRookies(seasonId, projectCategoryId + 111);
                 log.debug(rookies.size() + " rookies found for season " + seasonId + " phase " + projectCategoryId + 111);
                 ((RookieContest) calc).setRookies(rookies);
-            }
+            }*/
 
             rs = selectResults.executeQuery();
             log.debug("execute query ");
@@ -4988,7 +4987,7 @@ public class TCLoadTCS extends TCLoad {
      * @return
      * @throws Exception
      */
-    private Set<Long> getRookies(int seasonId, int phaseId) throws Exception {
+/*    private Set<Long> getRookies(int seasonId, int phaseId) throws Exception {
         PreparedStatement st = null;
         Set<Long> rookies = new HashSet<Long>();
         ResultSet rs = null;
@@ -5009,7 +5008,7 @@ public class TCLoadTCS extends TCLoad {
             close(st);
         }
         return rookies;
-    }
+    }*/
 
     /**
      * Get the prizes for the specified contest.
