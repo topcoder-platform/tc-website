@@ -1497,7 +1497,7 @@ public class TCLoadTCS extends TCLoad {
                             (projectResults.getInt("project_stat_id") == 7 ||  // COMPLETED
                                     projectResults.getInt("project_stat_id") == 1) && // ACTIVE
                             projectResults.getInt("rating_ind") == 1 &&
-                            !"Off".equals(projectResults.getString("dr_ind"))) {
+                            "On".equals(projectResults.getString("dr_ind"))) {
 
                         hasDR = true;
                         ContestResultCalculator crc = stageCalculators.get(stage);
@@ -4862,17 +4862,17 @@ public class TCLoadTCS extends TCLoad {
                         "           and pi_ci.project_id = p.project_id)," +
                         "           (select value from project_info pi_am where pi_am.project_info_type_id = 16 and pi_am.project_id = p.project_id) " +
                         "            )) as amount " +
-                        "       ,pi_dr.value as dr_ind " +
                         "       ,(select count(*) from submission s, upload u  " +
                         "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
                         "         and submission_status_id in (1, 4) " +
                         "        ) as num_submissions_passed_review  " +
                         " from project p " +
                         "    ,project_result pr " +
-                        "    ,project_info pi_el " +     // The digital run flag should be enough, but since it's not always set, we're checking for open projects as well.
-                        "    ,outer project_info pi_dr " +
+                        "    ,project_info pi_el " +
+                        "    ,project_info pi_dr " +
                         " where pi_dr.project_id = p.project_id " +
                         " and pi_dr.project_info_type_id = 26 " +
+                        " and pi_dr.value = 'On' " +
                         " and p.project_id = pr.project_id " +
                         " and pr.rating_ind=1 " +
                         " and p.project_category_id = ? " +
@@ -4924,10 +4924,6 @@ public class TCLoadTCS extends TCLoad {
             List<ProjectResult> pr = new ArrayList<ProjectResult>();
             int count = 0;
             while (rs.next()) {
-                // Skip non Digital Run projects
-                if ("Off".equals(rs.getString("dr_ind"))) {
-                    continue;
-                }
                 if (rs.getDouble("amount") < 0.01) {
                     log.warn("Project: " + rs.getLong("project_id") + " has zero amount!");
                 }
