@@ -7,7 +7,7 @@
 <html>
 
 <head>
-    <title>TopCoder</title>
+    <title>TopCoder :: Submit a Photo</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="../script.jsp" />
@@ -46,14 +46,10 @@
                 <a href="mailto:memberphotos@topcoder.com?subject=${user.activationCode}%20|%20[%20${user.handle}%20]%20|%20${user.id}%20<c:if test="${user.coder.memberPhoto!=null}">RE</c:if>SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT" class="button" style="width: 120px;">Submit a photo</a>
             </div>
 
-            <h3>You can process your own photo</h3>
+            <h3>How to process your own photo</h3>
 
             <p>
-                You can help speed up the process and ensure that you are happy with the results by processing your photo yourself.  It only takes a few minutes.
-            </p>
-
-            <p>
-                It's easy:
+                To keep the look of our member photos consistent, we've prepared a set of guidelines and styles for you to follow.  It's easy and only takes a few minutes:
             </p>
 
             <ul>
@@ -74,13 +70,9 @@
                 (except of course your photo will be of you,<br />not this random male model guy)
             </p>
 
-            <p>
-                Remember that if you'd prefer to have TopCoder process your photo, you can submit the unprocessed photo of yourself.
-            </p>
-
             <h3>Timeframe for Photo Processing</h3>
             <p>
-            Since the photos are processed manually, it's unpredictable how soon your profile will be updated. On average, they get processed every other week. Please note that these dates may change as a result of holidays or other major TopCoder events.
+                Once we receive a batch of processed photos, it takes a little time to screen and activate them.  On average, they get processed every other week. Please note that these dates may change as a result of holidays or other major TopCoder events.
             </p>            
 
             <h3>Guidelines for Photo Content</h3>
