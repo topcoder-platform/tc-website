@@ -54,52 +54,87 @@
 
 <%
     ResultSetContainer rsc2 = (ResultSetContainer) request.getAttribute(Constants.HISTORY_LIST_KEY);
-    String type = (String) request.getAttribute(Constants.TYPE_KEY);
-    String phaseId = (String) request.getParameter(Constants.PHASE_ID);
-    String coderId = (String) request.getParameter(Constants.CODER_ID);
+    //String type = (String) request.getAttribute(Constants.TYPE_KEY);
+    //String projectTypeId = (String) request.getParameter(Constants.PROJECT_TYPE_ID);
+    //String coderId = (String) request.getParameter(Constants.CODER_ID);
 %>
+
+<c:set value="<%=Constants.DESIGN_PROJECT_TYPE%>" var="DESIGN_PROJECT_TYPE"/>
+<c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_PROJECT_TYPE"/>
+<c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_PROJECT_TYPE"/>
 
 <TD WIDTH="180">
     <!-- Left nav begins -->
-    <% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
-    <jsp:include page="/includes/global_left.jsp">
-        <jsp:param name="node" value="m_dev_competitions"/>
-    </jsp:include>
-    <% } else { %>
-    <jsp:include page="/includes/global_left.jsp">
-        <jsp:param name="node" value="m_des_competitions"/>
-    </jsp:include>
-    <% } %>
+    <c:choose>
+        <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_des_competitions"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${projectTypeId == DEVELOPMENT_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_dev_competitions"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${projectTypeId == ASSEMBLY_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="assembly_compete"/>
+            </jsp:include>
+        </c:when>        
+    </c:choose>
     <!-- Left nav ends -->
 </TD>
 
 <!-- Center Column Begins -->
 <td class="statTableSpacer" width="100%" valign="top">
 
-<% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
-<jsp:include page="../page_title.jsp">
-    <jsp:param name="image" value="comp_development"/>
-    <jsp:param name="title" value="Component Development Competition History"/>
-</jsp:include>
-<% } else { %>
-<jsp:include page="../page_title.jsp">
-    <jsp:param name="image" value="comp_design"/>
-    <jsp:param name="title" value="Component Design Competition History"/>
-</jsp:include>
-<% } %>
+    <c:choose>
+        <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="comp_design"/>
+                <jsp:param name="title" value="Component Design Competition History"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${projectTypeId == DEVELOPMENT_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="comp_development"/>
+                <jsp:param name="title" value="Component Development Competition History"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${projectTypeId == ASSEMBLY_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="assembly"/>
+                <jsp:param name="title" value="Assembly Competition History"/>
+            </jsp:include>
+        </c:when>        
+    </c:choose>
 
-<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/></span>
+<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='${coderId}' context='${type}'/></span>
 <br>
-<% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
-<span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
-<% } else { %>
-<span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
-<% } %>
+    <c:choose>
+        <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
+            <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
+        </c:when>
+        <c:when test="${projectTypeId == DEVELOPMENT_PROJECT_TYPE}">
+            <span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
+        </c:when>
+        <c:when test="${projectTypeId == ASSEMBLY_PROJECT_TYPE}">
+            <span class="bodySubtitle">Assembly Statistics&#160;>&#160;</span><br>
+        </c:when>        
+    </c:choose>
+
     <span class="bc">
-    <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
+    <A HREF="/tc?module=MemberProfile&cr=${coderId}" class="bcLink">Member Profile</A>
  | Competition History
- | <A HREF="/tc?module=OutstandingProjects&cr=<%=coderId%>&ph=<%=phaseId%>" class="bcLink">Current Contests</A>
- | <A HREF="/tc?module=ReliabilityDetail&ph=<%=phaseId%>&uid=<%=coderId%>" class="bcLink">Reliability Detail</A>
+ | <A HREF="/tc?module=OutstandingProjects&cr=${coderId}&pt=${pt}" class="bcLink">Current Contests</A>
+    <c:choose>
+        <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
+             | <A HREF="/tc?module=ReliabilityDetail&ph=112&uid=${coderId}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${projectTypeId == DEVELOPMENT_PROJECT_TYPE}">
+             | <A HREF="/tc?module=ReliabilityDetail&ph=113&uid=${coderId}" class="bcLink">Reliability Detail</A>
+        </c:when>
+    </c:choose>
 </span>
 
 
@@ -114,19 +149,25 @@
 
 <form name="competitionHistoryForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CompetitionHistory"/>
-    <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
+    <tc-webtag:hiddenInput name="<%=Constants.PROJECT_TYPE_ID%> value="${projectTypeId}"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
-    <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>"/>
+    <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%> value="${coderId}"/>
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tr><td class="title" colspan="10">
-            <% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) {%>
-            Development
-            <% } else { %>
-            Design
-            <% } %>
+            <c:choose>
+                <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
+                    Design
+                </c:when>
+                <c:when test="${projectTypeId == DEVELOPMENT_PROJECT_TYPE}">
+                    Development
+                </c:when>
+                <c:when test="${projectTypeId == ASSEMBLY_PROJECT_TYPE}">
+                    Assembly
+                </c:when>        
+            </c:choose>
             Competition History
         </td></tr>
         <tr>

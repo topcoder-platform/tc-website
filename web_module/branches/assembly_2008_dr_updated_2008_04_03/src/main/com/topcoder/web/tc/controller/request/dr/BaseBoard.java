@@ -32,11 +32,6 @@ import com.topcoder.web.tc.model.dr.IBoardRow;
  * @version 1.0.3
  */
 public abstract class BaseBoard extends BaseProcessor {
-
-    private static final String DESIGN_PROJECT_TYPE = "1";
-    private static final String DEVELOPMENT_PROJECT_TYPE = "2";
-    private static final String ASSEMBLY_PROJECT_TYPE = "14";
-
     /**
      * The coder handle column
      */
@@ -84,9 +79,9 @@ public abstract class BaseBoard extends BaseProcessor {
         }
 
         if (!hasParameter(Constants.PHASE_ID)) {
-            if (!getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(DESIGN_PROJECT_TYPE) &&
-                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(DEVELOPMENT_PROJECT_TYPE) &&
-                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(ASSEMBLY_PROJECT_TYPE)) {
+            if (!getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(Constants.DESIGN_PROJECT_TYPE) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(Constants.DEVELOPMENT_PROJECT_TYPE) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
                 throw new TCWebException("invalid " + Constants.PROJECT_TYPE_ID + " parameter.");
             }
             

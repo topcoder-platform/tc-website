@@ -242,7 +242,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br />
         <td class="valueR">
             <c:if test="${boardRow.points>0}">
                 <c:if test="${not isAssembly}">
-                    <a href="/tc?module=CompetitionHistory&amp;ph=${ph}&amp;cr=${boardRow.userId}" class="bcLink">
+                    <a href="/tc?module=CompetitionHistory&amp;pt=${boardRow.projectTypeId}&amp;cr=${boardRow.userId}" class="bcLink">
                 </c:if>
                                 <fmt:formatNumber value="${boardRow.points}"  minFractionDigits="2" maxFractionDigits="2"/>
                 <c:if test="${not isAssembly}">
@@ -267,7 +267,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br />
         <td class="valueR">
             <c:if test="${boardRow.potentialPoints>0}">
                 <c:if test="${not isAssembly}">
-                <a href="/tc?module=OutstandingProjects&amp;ph=${ph}&amp;staid=${boardRow.period}&amp;cr=${boardRow.userId}" class="bcLink">
+                <a href="/tc?module=OutstandingProjects&amp;pt=${boardRow.projectTypeId}&amp;staid=${boardRow.period}&amp;cr=${boardRow.userId}" class="bcLink">
                 </c:if>
                     <fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
                 <c:if test="${not isAssembly}">
