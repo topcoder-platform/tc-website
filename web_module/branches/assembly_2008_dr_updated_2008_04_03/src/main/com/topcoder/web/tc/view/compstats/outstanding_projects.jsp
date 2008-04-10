@@ -20,6 +20,11 @@
     <script type="text/javascript" src="/js/popup.js"></script>
 </HEAD>
 
+
+<c:set value="<%=Constants.DESIGN_PROJECT_TYPE%>" var="DESIGN_PROJECT_TYPE"/>
+<c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_PROJECT_TYPE"/>
+<c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_PROJECT_TYPE"/>
+
 <BODY>
 <jsp:include page="../top.jsp"/>
 
@@ -27,24 +32,24 @@
 <TR valign="top">
 <%
     ResultSetContainer rsc2 = (ResultSetContainer) request.getAttribute(Constants.HISTORY_LIST_KEY);
-    String type = (String) request.getAttribute(Constants.TYPE_KEY);
+    //String type = (String) request.getAttribute(Constants.TYPE_KEY);
 %>
 <TD WIDTH="180">
     <!-- Left nav begins -->
     <c:choose>
-        <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
+        <c:when test="${pt == DESIGN_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_des_competitions"/>
             </jsp:include>
         </c:when>
-        <c:when test="${projectTypeId == DEVELOPMENT_PROJECT_TYPE}">
+        <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_dev_competitions"/>
             </jsp:include>
         </c:when>
-        <c:when test="${projectTypeId == ASSEMBLY_PROJECT_TYPE}">
+        <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="assembly_compete"/>
+                <jsp:param name="node" value="m_assembly_competitions"/>
             </jsp:include>
         </c:when>        
     </c:choose>
@@ -56,19 +61,19 @@
 
 
     <c:choose>
-        <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
+        <c:when test="${pt == DESIGN_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="comp_design"/>
                 <jsp:param name="title" value="Component Design Competition History"/>
             </jsp:include>
         </c:when>
-        <c:when test="${projectTypeId == DEVELOPMENT_PROJECT_TYPE}">
+        <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="comp_development"/>
                 <jsp:param name="title" value="Component Development Competition History"/>
             </jsp:include>
         </c:when>
-        <c:when test="${projectTypeId == ASSEMBLY_PROJECT_TYPE}">
+        <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="assembly"/>
                 <jsp:param name="title" value="Assembly Competition History"/>
@@ -79,13 +84,13 @@
     <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='${cr}' context='${type}'/></span>
     <br>
     <c:choose>
-        <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
+        <c:when test="${pt == DESIGN_PROJECT_TYPE}">
             <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
         </c:when>
-        <c:when test="${projectTypeId == DEVELOPMENT_PROJECT_TYPE}">
+        <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
             <span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
         </c:when>
-        <c:when test="${projectTypeId == ASSEMBLY_PROJECT_TYPE}">
+        <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
             <span class="bodySubtitle">Assembly Statistics&#160;>&#160;</span><br>
         </c:when>        
     </c:choose>
@@ -94,10 +99,10 @@
  | <A HREF="/tc?module=CompetitionHistory&pt=${pt}>&cr=${cr}" class="bcLink">Competition History</A>
  | Current Contests
      <c:choose>
-        <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
+        <c:when test="${pt == DESIGN_PROJECT_TYPE}">
              | <A HREF="/tc?module=ReliabilityDetail&ph=112&uid=${cr}" class="bcLink">Reliability Detail</A>
         </c:when>
-        <c:when test="${projectTypeId == DEVELOPMENT_PROJECT_TYPE}">
+        <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
              | <A HREF="/tc?module=ReliabilityDetail&ph=113&uid=${cr}" class="bcLink">Reliability Detail</A>
         </c:when>
     </c:choose>
@@ -109,13 +114,13 @@
         <tr><td class="title" colspan="10">
             Current
             <c:choose>
-                <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
+                <c:when test="${pt == DESIGN_PROJECT_TYPE}">
                     Design
                 </c:when>
-                <c:when test="${projectTypeId == DEVELOPMENT_PROJECT_TYPE}">
+                <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
                     Development
                 </c:when>
-                <c:when test="${projectTypeId == ASSEMBLY_PROJECT_TYPE}">
+                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
                     Assembly
                 </c:when>        
             </c:choose>
@@ -142,7 +147,7 @@
         <% if (rsc2.isEmpty()) {%>
         <tr class="light">
             <TD class="value" colspan="5">
-                <tc-webtag:handle coderId='${cr}' context='<%=type%>'/> has no current contests.
+                <tc-webtag:handle coderId='${cr}' context='${type}>'/> has no current contests.
             </TD>
         </tr>
         <% } else { %>

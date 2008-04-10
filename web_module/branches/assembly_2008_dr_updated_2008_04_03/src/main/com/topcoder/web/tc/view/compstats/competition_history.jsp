@@ -66,19 +66,19 @@
 <TD WIDTH="180">
     <!-- Left nav begins -->
     <c:choose>
-        <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
+        <c:when test="${pt == DESIGN_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_des_competitions"/>
             </jsp:include>
         </c:when>
-        <c:when test="${projectTypeId == DEVELOPMENT_PROJECT_TYPE}">
+        <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_dev_competitions"/>
             </jsp:include>
         </c:when>
-        <c:when test="${projectTypeId == ASSEMBLY_PROJECT_TYPE}">
+        <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="assembly_compete"/>
+                <jsp:param name="node" value="m_assembly_competitions"/>
             </jsp:include>
         </c:when>        
     </c:choose>
@@ -89,19 +89,19 @@
 <td class="statTableSpacer" width="100%" valign="top">
 
     <c:choose>
-        <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
+        <c:when test="${pt == DESIGN_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="comp_design"/>
                 <jsp:param name="title" value="Component Design Competition History"/>
             </jsp:include>
         </c:when>
-        <c:when test="${projectTypeId == DEVELOPMENT_PROJECT_TYPE}">
+        <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="comp_development"/>
                 <jsp:param name="title" value="Component Development Competition History"/>
             </jsp:include>
         </c:when>
-        <c:when test="${projectTypeId == ASSEMBLY_PROJECT_TYPE}">
+        <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="assembly"/>
                 <jsp:param name="title" value="Assembly Competition History"/>
@@ -112,13 +112,13 @@
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='${cr}' context='${type}'/></span>
 <br>
     <c:choose>
-        <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
+        <c:when test="${pt == DESIGN_PROJECT_TYPE}">
             <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
         </c:when>
-        <c:when test="${projectTypeId == DEVELOPMENT_PROJECT_TYPE}">
+        <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
             <span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
         </c:when>
-        <c:when test="${projectTypeId == ASSEMBLY_PROJECT_TYPE}">
+        <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
             <span class="bodySubtitle">Assembly Statistics&#160;>&#160;</span><br>
         </c:when>        
     </c:choose>
@@ -128,10 +128,10 @@
  | Competition History
  | <A HREF="/tc?module=OutstandingProjects&cr=${cr}&pt=${pt}" class="bcLink">Current Contests</A>
     <c:choose>
-        <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
+        <c:when test="${pt == DESIGN_PROJECT_TYPE}">
              | <A HREF="/tc?module=ReliabilityDetail&ph=112&uid=${cr}" class="bcLink">Reliability Detail</A>
         </c:when>
-        <c:when test="${projectTypeId == DEVELOPMENT_PROJECT_TYPE}">
+        <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
              | <A HREF="/tc?module=ReliabilityDetail&ph=113&uid=${cr}" class="bcLink">Reliability Detail</A>
         </c:when>
     </c:choose>
@@ -149,7 +149,7 @@
 
 <form name="competitionHistoryForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CompetitionHistory"/>
-    <tc-webtag:hiddenInput name="<%=Constants.PROJECT_TYPE_ID%>" value="${projectTypeId}"/>
+    <tc-webtag:hiddenInput name="<%=Constants.PROJECT_TYPE_ID%>" value="${pt}"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
@@ -158,13 +158,13 @@
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tr><td class="title" colspan="10">
             <c:choose>
-                <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
+                <c:when test="${pt == DESIGN_PROJECT_TYPE}">
                     Design
                 </c:when>
-                <c:when test="${projectTypeId == DEVELOPMENT_PROJECT_TYPE}">
+                <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
                     Development
                 </c:when>
-                <c:when test="${projectTypeId == ASSEMBLY_PROJECT_TYPE}">
+                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
                     Assembly
                 </c:when>        
             </c:choose>
@@ -229,11 +229,13 @@
                     <% } %>
                 </TD>
                 <TD class="valueR" nowrap="nowrap">
-                    <% if (resultRow.getItem("project_id").getResultData() != null) { %>
-                    <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
-                        Contest Details
-                    </A>
-                    <% } %>
+                    <c:if test="${pt != ASSEMBLY_PROJECT_TYPE}">
+                        <% if (resultRow.getItem("project_id").getResultData() != null) { %>
+                        <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
+                            Contest Details
+                        </A>
+                        <% } %>
+                    </c:if>
                 </TD>
             </tr>
             <%even = !even;%>
