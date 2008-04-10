@@ -43,6 +43,13 @@
     <jsp:param name="image1" value="white"/>
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
+<p>
+    5.14.12 - 2008.04.xx
+<ul>
+    <li>[TCWEB-111] - registration session problem -dok</li>
+</ul>
+</p>
+
 
 <p>
     5.14.11 - 2008.04.02
