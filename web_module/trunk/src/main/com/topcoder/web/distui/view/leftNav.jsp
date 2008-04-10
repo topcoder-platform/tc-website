@@ -90,7 +90,7 @@
         // switch next two lines to use the old registration          
 //         nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/registration/actions/Registration.do?method=openRegistrations", "Active Contests", "assembly_compete"));
        nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewAssemblyActiveContests", "Active Contests", "assembly_compete"));
-//       nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=14", "Contest Status", "assembly_contest_status"));
+       nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=14", "Contest Status", "assembly_contest_status"));
          nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/review", "Submit &amp; Review", "assembly_submit"));
          nav.search("m_assembly_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_assembly_support')", "Support / FAQs", "m_assembly_support"));
             nav.search("m_assembly_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Assembly+Competitions", "How to Compete", "assembly_how_to_compete"));
