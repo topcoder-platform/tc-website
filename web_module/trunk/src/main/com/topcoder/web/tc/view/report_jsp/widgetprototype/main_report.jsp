@@ -138,13 +138,23 @@ function display(root) {
          var sdt = new Date();
          var edt = new Date();
 
-         sdt.setFullYear(entry.year,entry.period * timescale - timescale, 1);
-         edt.setFullYear(entry.year,entry.period * timescale , 1);
+         if (sdt.__msh_oldSetFullYear) {
+            sdt.__msh_oldSetFullYear(entry.year,entry.period * timescale - timescale, 1);
+            edt.__msh_oldSetFullYear(entry.year,entry.period * timescale , 1);
+         } else {
+            sdt.setFullYear(entry.year,entry.period * timescale - timescale, 1);
+            edt.setFullYear(entry.year,entry.period * timescale , 1);
+         }
+         
          edt.setDate(edt.getDate() - 1);
 
 
-         periodsData[period]['sdt'] = sdt.getFullYear() + '-' + (sdt.getMonth()+1) + '-' + sdt.getDate();
-         periodsData[period]['edt'] = edt.getFullYear() + '-' + (edt.getMonth()+1) + '-' + edt.getDate();
+         // changed due to a patch in the calendar
+         //periodsData[period]['sdt'] = sdt.getFullYear() + '-' + (sdt.getMonth()+1) + '-' + sdt.getDate();
+         //periodsData[period]['edt'] = edt.getFullYear() + '-' + (edt.getMonth()+1) + '-' + edt.getDate();
+         periodsData[period]['sdt'] = sdt.print("%Y-%m-%d");
+         periodsData[period]['edt'] = edt.print("%Y-%m-%d");
+
 
       }
 
@@ -345,14 +355,14 @@ function runReport() {
             <div>
                 <label>
                     From:
-                    <input name="from" type="text" class="date" id="from" value="01/01/2000" />
+                    <input name="from" type="text" class="date" id="from" value="01/01/<%= new java.util.Date().getYear()+1900 %>" />
                     <img src="/i/widgets/cost_report/cal.png" alt="Cal" width="26" height="18" id="trigger_start_date" />
                  </label>
            </div>
             <div>
                 <label>
                     To: &nbsp; &nbsp;
-                    <input name="to" type="text" class="date" id="to" value="12/31/2020" />
+                    <input name="to" type="text" class="date" id="to" value="12/31/<%= new java.util.Date().getYear()+1900 %>" />
                 </label>
                 <img src="/i/widgets/cost_report/cal.png" alt="Cal" width="26" height="18" id="trigger_end_date" />
                 
