@@ -8,7 +8,7 @@
 <c:set value="<%=ContestChannel.TOPCODER_DIRECT%>" var="direct"/>
 <c:choose>
     <c:when test="${row.map['contest_channel_id']==direct}">
-        <img src="i/tcdirectEmblem.png" alt="" width="26" height="18"/>
+        <img src="/i/tcdirectEmblem.png" alt="" class="inlineEmblem" />
     </c:when>
-    <c:otherwise><img src="i/studioEmblem.png" alt="" width="26" height="18"/></c:otherwise>
+    <c:otherwise><img src="/i/studioEmblem.png" alt="" class="inlineEmblem" /></c:otherwise>
 </c:choose>
