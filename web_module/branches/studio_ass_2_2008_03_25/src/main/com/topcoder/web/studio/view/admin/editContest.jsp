@@ -754,30 +754,33 @@
 </form>
 <br/><br/>
 
+    <c:if test="${not empty contest.project}">
 
-<div class="header">After Contest</div>
+
+        <div class="header">After Contest</div>
 
 
-<form action="${sessionInfo.servletPath}" method="POST" name="sendToReviewForm">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSendToReview"/>
-    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-    <button name="submit" value="submit" type="submit">
-        Send Submissions to Online Review
-    </button>
+        <form action="${sessionInfo.servletPath}" method="POST" name="sendToReviewForm">
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSendToReview"/>
+            <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+            <button name="submit" value="submit" type="submit">
+                Send Submissions to Online Review
+            </button>
 
-</form>
+        </form>
 
-<c:if test="${resultsReady}">
-    <form action="${sessionInfo.servletPath}" method="POST" name="loadromReviewForm">
-        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminLoadFromReview"/>
-        <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-        <button name="submit" value="submit" type="submit">
-            Load Results From Online Review
-        </button>
+        <c:if test="${resultsReady}">
+            <form action="${sessionInfo.servletPath}" method="POST" name="loadromReviewForm">
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminLoadFromReview"/>
+                <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+                <button name="submit" value="submit" type="submit">
+                    Load Results From Online Review
+                </button>
 
-    </form>
+            </form>
 
-</c:if>
+        </c:if>
+    </c:if>
 
 </c:if>
 
