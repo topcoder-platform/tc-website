@@ -36,7 +36,7 @@ public class TCLoadDR extends TCLoadTCS {
             
             doLoadStageResults();
             
-            doLoadSeasonResults();
+//            doLoadSeasonResults();
             
             doClearCache();
 

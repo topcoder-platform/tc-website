@@ -140,7 +140,7 @@
 
 <form name="leaderBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="LeaderBoard"/>
-<tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
+<tc-webtag:hiddenInput name="<%=Constants.PROJECT_TYPE_ID%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
@@ -242,7 +242,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br />
         <td class="valueR">
             <c:if test="${boardRow.points>0}">
                 <c:if test="${not isAssembly}">
-                    <a href="/tc?module=CompetitionHistory&amp;ph=${boardRow.phase}&amp;cr=${boardRow.userId}" class="bcLink">
+                    <a href="/tc?module=CompetitionHistory&amp;ph=${boardRow.projectTypeId}&amp;cr=${boardRow.userId}" class="bcLink">
                 </c:if>
                                 <fmt:formatNumber value="${boardRow.points}"  minFractionDigits="2" maxFractionDigits="2"/>
                 <c:if test="${not isAssembly}">
@@ -267,7 +267,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br />
         <td class="valueR">
             <c:if test="${boardRow.potentialPoints>0}">
                 <c:if test="${not isAssembly}">
-                <a href="/tc?module=OutstandingProjects&amp;ph=${boardRow.phase}&amp;staid=${boardRow.period}&amp;cr=${boardRow.userId}" class="bcLink">
+                <a href="/tc?module=OutstandingProjects&amp;ph=${boardRow.projectTypeId}&amp;staid=${boardRow.period}&amp;cr=${boardRow.userId}" class="bcLink">
                 </c:if>
                     <fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
                 <c:if test="${not isAssembly}">
