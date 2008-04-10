@@ -107,26 +107,26 @@
         </div>
     <c:choose>
         <c:when test="${isDevelopment}">
-            <a href="/tc?&amp;ph=112&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Design Cup Series Leaderboard</a><br />
+            <a href="/tc?&amp;pt=1&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Design Cup Series Leaderboard</a><br />
             Development Cup Series Leaderboard</a><br />
             <%--  uncomment when assembly DR is launched
             <c:if test="${staid >= 7}">
-                <a href="/tc?&amp;ph=114&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Assembly Cup Series Leaderboard</a><br />
+                <a href="/tc?&amp;pt=11&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Assembly Cup Series Leaderboard</a><br />
             </c:if>
             --%>
         </c:when>
         <c:when test="${isDesign}">
             Design Cup Series Leaderboard<br />
-            <a href="/tc?&amp;ph=113&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Development Cup Series Leaderboard</a><br />
+            <a href="/tc?&amp;pt=2&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Development Cup Series Leaderboard</a><br />
             <%--  uncomment when assembly DR is launched
             <c:if test="${staid >= 7}">
-                <a href="/tc?&amp;ph=114&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Assembly Cup Series Leaderboard</a><br />
+                <a href="/tc?&amp;pt=14&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Assembly Cup Series Leaderboard</a><br />
             </c:if>
             --%>
         </c:when>
         <c:when test="${isAssembly}">
-            <a href="/tc?&amp;ph=112&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Design Cup Series Leaderboard</a><br />
-            <a href="/tc?&amp;ph=113&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Development Cup Series Leaderboard</a><br />
+            <a href="/tc?&amp;pt=1&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Design Cup Series Leaderboard</a><br />
+            <a href="/tc?&amp;pt=2&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Development Cup Series Leaderboard</a><br />
             Assembly Cup Series Leaderboard<br />
         </c:when>
     </c:choose>
@@ -242,7 +242,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br />
         <td class="valueR">
             <c:if test="${boardRow.points>0}">
                 <c:if test="${not isAssembly}">
-                    <a href="/tc?module=CompetitionHistory&amp;ph=${boardRow.projectTypeId}&amp;cr=${boardRow.userId}" class="bcLink">
+                    <a href="/tc?module=CompetitionHistory&amp;ph=${ph}&amp;cr=${boardRow.userId}" class="bcLink">
                 </c:if>
                                 <fmt:formatNumber value="${boardRow.points}"  minFractionDigits="2" maxFractionDigits="2"/>
                 <c:if test="${not isAssembly}">
@@ -267,7 +267,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br />
         <td class="valueR">
             <c:if test="${boardRow.potentialPoints>0}">
                 <c:if test="${not isAssembly}">
-                <a href="/tc?module=OutstandingProjects&amp;ph=${boardRow.projectTypeId}&amp;staid=${boardRow.period}&amp;cr=${boardRow.userId}" class="bcLink">
+                <a href="/tc?module=OutstandingProjects&amp;ph=${ph}&amp;staid=${boardRow.period}&amp;cr=${boardRow.userId}" class="bcLink">
                 </c:if>
                     <fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
                 <c:if test="${not isAssembly}">
