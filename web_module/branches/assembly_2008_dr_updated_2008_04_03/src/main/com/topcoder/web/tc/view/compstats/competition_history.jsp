@@ -149,12 +149,12 @@
 
 <form name="competitionHistoryForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CompetitionHistory"/>
-    <tc-webtag:hiddenInput name="<%=Constants.PROJECT_TYPE_ID%> value="${projectTypeId}"/>
+    <tc-webtag:hiddenInput name="<%=Constants.PROJECT_TYPE_ID%>" value="${projectTypeId}"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
-    <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%> value="${coderId}"/>
+    <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>" value="${coderId}"/>
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tr><td class="title" colspan="10">
             <c:choose>

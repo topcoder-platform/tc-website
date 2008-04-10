@@ -66,8 +66,8 @@ public class CompetitionHistory extends BaseProcessor {
             throw new TCWebException("parameter " + Constants.CODER_ID + " expected.");
         }
 
-        setDefault(Constants.PROJECT_TYPE_ID, projectTypeId);
-        setDefault(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
+        getRequest().setAttribute(Constants.PROJECT_TYPE_ID, projectTypeId);
+        getRequest().setAttribute(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
 
         // Gets the rest of the optional parameters.
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
