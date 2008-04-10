@@ -124,7 +124,7 @@
     <div class="padder">
         <studio:formatField text="${contest.submissionFileFormat.value}"/>
     </div>
-
+l
     <c:if test="${not empty contest.otherFileTypes.value}">
         <div class="section">Other File Types:</div>
         <div class="padder"><p align="center"><studio:formatField text="${contest.otherFileTypes.value}"/></p></div>
@@ -132,7 +132,20 @@
 
     <div class="section">Submission Limit:</div>
     <div class="padder">
-        <p align="center"><strong>${contest.maxSubmissions}</strong> submission<c:if test="${contest.maxSubmissions>1}">s</c:if></p>
+        <p align="center">
+            <c:choose>
+                <c:when test="${empty contest.maxSubmissions or empty contest.maxSubmissions.value}">
+                    <strong>Unlimited</strong>
+                </c:when>
+                <c:when test="${contest.maxSubmissions eq 1}">
+                    <strong>1</strong> submission
+                </c:when>
+                <c:otherwise>
+                    <strong>${contest.maxSubmissions}</strong> submissions
+                </c:otherwise>
+            </c:choose>
+
+            </p>
     </div>
 </div>
 
