@@ -121,8 +121,8 @@ public abstract class BaseBoard extends BaseProcessor {
         }
 
         
-        setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
-        setDefault(Constants.PROJECT_TYPE_ID, getRequest().getParameter(Constants.PROJECT_TYPE_ID));
+        setDefault(Constants.PHASE_ID, phaseId);
+        setDefault(Constants.PROJECT_TYPE_ID, projectTypeId);
         getRequest().setAttribute("isDesign", projectTypeId == 1);
         getRequest().setAttribute("isDevelopment", projectTypeId == 2);
         getRequest().setAttribute("isAssembly", projectTypeId == 14);
