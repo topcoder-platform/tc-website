@@ -119,6 +119,7 @@ public class OutstandingProjects extends BaseProcessor {
                 break;
         }
         getRequest().setAttribute(Constants.TYPE_KEY, handleType);
+        getRequest().setAttribute(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
 
         setNextPage(Constants.VIEW_CURRENT_PROJECTS_PAGE);
         setIsNextPageInContext(true);

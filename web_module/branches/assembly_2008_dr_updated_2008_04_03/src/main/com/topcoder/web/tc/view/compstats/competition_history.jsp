@@ -109,7 +109,7 @@
         </c:when>        
     </c:choose>
 
-<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='${coderId}' context='${type}'/></span>
+<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='${cr}' context='${type}'/></span>
 <br>
     <c:choose>
         <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
@@ -124,15 +124,15 @@
     </c:choose>
 
     <span class="bc">
-    <A HREF="/tc?module=MemberProfile&cr=${coderId}" class="bcLink">Member Profile</A>
+    <A HREF="/tc?module=MemberProfile&cr=${cr}" class="bcLink">Member Profile</A>
  | Competition History
- | <A HREF="/tc?module=OutstandingProjects&cr=${coderId}&pt=${pt}" class="bcLink">Current Contests</A>
+ | <A HREF="/tc?module=OutstandingProjects&cr=${cr}&pt=${pt}" class="bcLink">Current Contests</A>
     <c:choose>
         <c:when test="${projectTypeId == DESIGN_PROJECT_TYPE}">
-             | <A HREF="/tc?module=ReliabilityDetail&ph=112&uid=${coderId}" class="bcLink">Reliability Detail</A>
+             | <A HREF="/tc?module=ReliabilityDetail&ph=112&uid=${cr}" class="bcLink">Reliability Detail</A>
         </c:when>
         <c:when test="${projectTypeId == DEVELOPMENT_PROJECT_TYPE}">
-             | <A HREF="/tc?module=ReliabilityDetail&ph=113&uid=${coderId}" class="bcLink">Reliability Detail</A>
+             | <A HREF="/tc?module=ReliabilityDetail&ph=113&uid=${cr}" class="bcLink">Reliability Detail</A>
         </c:when>
     </c:choose>
 </span>
@@ -154,7 +154,7 @@
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
-    <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>" value="${coderId}"/>
+    <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>" value="${cr}"/>
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tr><td class="title" colspan="10">
             <c:choose>
