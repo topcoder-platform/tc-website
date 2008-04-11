@@ -228,6 +228,9 @@
     <td class="value" width="100%">
         <tc-webtag:objectSelect name="<%=Constants.CONTEST_TYPE%>" list="${contestTypes}" valueField="id"
                                 onChange="chooseType()" textField="description"/>
+<%-- ONLY SHOW IF USER SELECTS "Other"
+        <input name="NAME" value="Other" type="text" />
+--%>
     </td>
 </tr>
 
@@ -380,7 +383,7 @@
     </td>
 </tr>
 
-<studio_tags:editContestProperty name="${otherFileTypes}" title="Other File Types"/>
+<studio_tags:editContestProperty name="${otherFileTypes}" title="Submission file formats"/>
 <studio_tags:editContestProperty name="${fullDescription}" title="Full Description"/>
 <studio_tags:editContestProperty name="${submissionFileFormat}" title="Notes on Submission File(s)"/>
 
