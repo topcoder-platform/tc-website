@@ -142,6 +142,11 @@
     </div>
 </c:if>
 
+<%-- GAD CHECK --%>
+<p>
+GAD on records: Yes
+</p>
+
 <div class="header">Project Overview</div>
 ${contest.overview.value}
 <br /><br />
