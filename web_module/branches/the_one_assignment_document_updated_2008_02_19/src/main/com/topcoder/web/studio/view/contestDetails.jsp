@@ -115,6 +115,7 @@
         <div id="conDetInstructionsBox">
             <ul>
 
+
             <c:choose>
             <c:when test="${registered}">
             <%-- REGISTERED --%>
@@ -137,29 +138,40 @@
             </c:otherwise>
             </c:choose>
 
-            <%-- HAS APPROVED GAD ON FILE --%>
-            <li>
-                <div>
-                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="icon"><img src="/i/v2/interface/2NA.png" alt="2" /></a>
-                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="grayedOut">Sign & submit an Assignment Document</a> <span class="grayedOut">if this is your first competition.</span>
-                </div>
-            </li>
 
-            <%-- DOES NOT HAVE APPROVED GAD ON FILE
-            <li>
-                <div>
-                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="icon"><img src="/i/v2/interface/2.png" alt="2" /></a>
-                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Sign & submit an Assignment Document</a> if this is your first competition.
-                </div>
-            </li>
-            --%>
+            <c:choose>
+                <c:when test="${not empty has_global_ad}">
+                    <li>
+                        <div>
+                            <c:choose>
+                                <c:when test="${has_global_ad}">
+                                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="icon"><img src="/i/v2/interface/2NA.png" alt="2" /></a>
+                                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="grayedOut">Sign & submit an Assignment Document</a> <span class="grayedOut">if this is your first competition.</span>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="icon"><img src="/i/v2/interface/2.png" alt="2" /></a>
+                                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Sign & submit an Assignment Document</a> if this is your first competition.
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/3.png" alt="3" /></a>
+                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit your entry.</a>
+                        </div>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li>
+                        <div>
+                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/2.png" alt="2" /></a>
+                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit your entry.</a>
+                        </div>
+                    </li>
+                </c:otherwise>
+            </c:choose>
 
-            <li>
-                <div>
-                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/3.png" alt="3" /></a>
-                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit your entry.</a>
-                </div>
-            </li>
             </ul>
         </div>
     </div>
