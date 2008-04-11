@@ -57,6 +57,11 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                 }
             }
 
+            if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                getRequest().setAttribute("has_global_ad", PactsServicesLocator.getService().hasGlobalAD(getUser().getId()));
+            }
+
+            
             getRequest().setAttribute("registered", registered);
 
             getRequest().setAttribute("currentTime", new Date());
