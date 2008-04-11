@@ -14,6 +14,7 @@ import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.SubmissionType;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author dok
@@ -47,12 +48,23 @@ public class ViewSubmission extends BaseSubmissionDataProcessor {
                 throw new NavigationException("User not registered for the contest");
             }
 
-            setDefault(Constants.CONTEST_ID, contestId.toString());
-            setDefault(Constants.SUBMISSION_RANK, "1");
-            loadSubmissionData(u, c, cFactory.getSubmissionDAO(), SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE);
-            setNextPage("/submit.jsp");
-            setIsNextPageInContext(true);
+            boolean hasGlobalAd = true;
+            if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                hasGlobalAd = PactsServicesLocator.getService().hasGlobalAD(getUser().getId());
+            }
 
+            // maybe change for a custom error page
+            if (!hasGlobalAd) {
+                // throw new NavigationException("You cannot submit because you don't have a Global AD on file");
+                setNextPage("/noGadErrorPage.jsp");
+                setIsNextPageInContext(true);
+            } else {
+                setDefault(Constants.CONTEST_ID, contestId.toString());
+                setDefault(Constants.SUBMISSION_RANK, "1");
+                loadSubmissionData(u, c, cFactory.getSubmissionDAO(), SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE);
+                setNextPage("/submit.jsp");
+                setIsNextPageInContext(true);
+            }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }

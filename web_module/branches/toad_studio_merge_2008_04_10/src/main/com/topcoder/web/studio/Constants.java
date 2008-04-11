@@ -343,6 +343,9 @@ public class Constants implements WebConstants {
      */
     public static String ERROR_MSG_CONTEST_CHANNEL_INVALID;
 
+    // Flag to turn on/off the global AD feature
+    public static String GLOBAL_AD_FLAG;
+
     static {
         initialize();
     }
