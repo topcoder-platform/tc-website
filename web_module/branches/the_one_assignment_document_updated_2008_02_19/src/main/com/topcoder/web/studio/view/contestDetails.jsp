@@ -108,44 +108,62 @@
                             </c:choose>
                         </div>
                     </td>
-                    <c:choose>
-                    <c:when test="${registered}">
-                    <td style="padding: 10px 5px 10px 20px;" align="right">
-                        <img src="/i/v2/interface/btnRegisterNA.png" alt="Register" />
-                    </td>
-                    <td style="padding: 10px 0px 10px 5px;" align="right">
-                        <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/v2/interface/btnSubmit.png" alt="Submit" /></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="padding-top: 10px;" align="center">
-                        You are registered for this project.<br />
-                    </td>
-                    </c:when>
-                    <c:otherwise>
-                    <td style="padding: 10px 5px 10px 20px;" align="right">
-                        <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/v2/interface/btnRegister.png" alt="Register" /></a>
-                    </td>
-                    <td style="padding: 10px 0px 10px 5px;" align="right">
-                        <img src="/i/v2/interface/btnSubmitNA.png" alt="Submit" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="padding-top: 10px;" align="center">
-                        Register to get info necessary to submit your design.<br />
-                    </td>
-                    </c:otherwise>
-                    </c:choose>
                 </tr>
             </tbody>
         </table>
+
+        <div id="conDetInstructionsBox">
+            <ul>
+
+            <c:choose>
+            <c:when test="${registered}">
+            <%-- REGISTERED --%>
+            <li>
+                <div>
+                    <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/1NA.png" alt="1" /></a>
+                    <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="grayedOut">Register for this contest.</a>
+                </div>
+            </li>
+    
+            </c:when>
+            <c:otherwise>
+            <%-- UNREGISTERED --%>
+            <li>
+                <div>
+                    <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/1.png" alt="1" /></a>
+                    <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Register for this contest.</a>
+                </div>
+            </li>
+            </c:otherwise>
+            </c:choose>
+
+            <%-- HAS APPROVED GAD ON FILE --%>
+            <li>
+                <div>
+                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="icon"><img src="/i/v2/interface/2NA.png" alt="2" /></a>
+                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="grayedOut">Sign & submit an Assignment Document</a> <span class="grayedOut">if this is your first competition.</span>
+                </div>
+            </li>
+
+            <%-- DOES NOT HAVE APPROVED GAD ON FILE
+            <li>
+                <div>
+                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="icon"><img src="/i/v2/interface/2.png" alt="2" /></a>
+                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Sign & submit an Assignment Document</a> if this is your first competition.
+                </div>
+            </li>
+            --%>
+
+            <li>
+                <div>
+                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/3.png" alt="3" /></a>
+                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit your entry.</a>
+                </div>
+            </li>
+            </ul>
+        </div>
     </div>
 </c:if>
-
-<%-- GAD CHECK --%>
-<p>
-GAD on records: Yes
-</p>
 
 <div class="header">Project Overview</div>
 ${contest.overview.value}
