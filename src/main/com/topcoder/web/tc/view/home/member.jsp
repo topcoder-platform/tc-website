@@ -12,6 +12,7 @@
 
 <script type="text/javascript" src="/js/main.js"  ></script>
 <script type="text/javascript" src="/js/cookie.js"  ></script>
+<script type="text/javascript" src="/js/slashtc20080411.js"  ></script>
 <script type="text/javascript">
 var currTopTen = null;
 function swapTopTen(topTenID){
@@ -38,7 +39,6 @@ function init() {
    
    swapTopTen(id);
 }
-
 </script>
 </head>
 
