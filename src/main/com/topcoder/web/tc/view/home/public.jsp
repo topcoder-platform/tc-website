@@ -65,7 +65,10 @@ function init() {
 </script>
 </head>
 
+<body onload="init()">
+<%--
 <body onload="init();MM_preloadImages('/i/home/catcDigitalRun.png','/i/home/catcDesign.png','/i/home/catcDevelopment.png','/i/home/catcAssembly.png','/i/home/catcBugraces.png','/i/home/catcMarathon.png','/i/home/catcAlgorithm.png','/i/home/catcStudio.png')">
+--%>
 
 <%--
 <div style="position:absolute; left:200px; top:190px;">
