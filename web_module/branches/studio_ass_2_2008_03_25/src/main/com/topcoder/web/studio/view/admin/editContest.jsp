@@ -181,12 +181,16 @@
      of the contest --%>
 <p>Created by ${contestCreatorHandle}</p>
 
+<p>
+    * = required
+</p>
+
 <table cellpadding="0" cellspacing="0" class="input">
 <tbody>
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_NAME%>">
-            <span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
+            <span class="bigRed">${err}<br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -202,7 +206,7 @@
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_PROPERTY + ContestProperty.CLIENT%>">
-            <span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
+            <span class="bigRed">${err}<br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -218,7 +222,7 @@
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_TYPE%>">
-            <span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
+            <span class="bigRed">${err}<br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -228,9 +232,7 @@
     <td class="value" width="100%">
         <tc-webtag:objectSelect name="<%=Constants.CONTEST_TYPE%>" list="${contestTypes}" valueField="id"
                                 onChange="chooseType()" textField="description"/>
-<%-- ONLY SHOW IF USER SELECTS "Other"
         <input name="NAME" value="Other" type="text" />
---%>
     </td>
 </tr>
 
@@ -238,7 +240,7 @@
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_CHANNEL%>">
-            <span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
+            <span class="bigRed">${err}<br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -257,7 +259,7 @@
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.MEDIUM%>">
-            <span class="bigRed">${err}<br/></span></tc-webtag:errorIterator>
+            <span class="bigRed">${err}<br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -274,7 +276,7 @@
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_STATUS_ID%>"> <span class="bigRed">${err}
-            <br/></span></tc-webtag:errorIterator>
+            <br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -289,7 +291,7 @@
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME%>"><span class="bigRed">${err}
-            <br/></span></tc-webtag:errorIterator>
+            <br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -304,7 +306,7 @@
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.END_TIME%>"><span class="bigRed">${err}
-            <br/></span></tc-webtag:errorIterator>
+            <br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -320,7 +322,7 @@
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.WINNER_ANNOUNCEMENT_TIME%>"><span class="bigRed">${err}
-            <br/></span></tc-webtag:errorIterator>
+            <br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -336,7 +338,7 @@
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.FORUM_ID%>"><span class="bigRed">${err}
-            <br/></span></tc-webtag:errorIterator>
+            <br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -352,7 +354,7 @@
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.EVENT_ID%>"><span class="bigRed">${err}</span>
-            <br/></tc-webtag:errorIterator>
+            <br /></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -391,7 +393,7 @@
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="${fileType}"><span class="bigRed">${err}
-            <br/></span></tc-webtag:errorIterator>
+            <br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -409,7 +411,7 @@
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${reqPreviewImage}">${err}
-                    <br/></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
@@ -426,7 +428,7 @@
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${reqPreviewFile}">${err}
-                    <br/></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
@@ -458,13 +460,13 @@
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${minHeight}">${err}
-                    <br/></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${maxHeight}">${err}
-                    <br/></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
@@ -484,13 +486,13 @@
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${minWidth}">${err}
-                    <br/></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${maxWidth}">${err}
-                    <br/></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
@@ -518,7 +520,7 @@
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${viewSubmissions}">${err}
-                    <br/></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
@@ -536,7 +538,7 @@
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${viewSubmitters}">${err}
-                    <br/></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
@@ -554,7 +556,7 @@
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${maxSubmissions}">${err}
-                    <br/></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
@@ -569,7 +571,6 @@
 
 </tbody>
 </table>
-
 
 <script language="javascript" type="text/javascript">
     Calendar.setup(
@@ -626,7 +627,7 @@
     </p>
 
 
-    <br/><br/>
+    <br /><br />
 
     <c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
     <c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
@@ -641,9 +642,9 @@
 
         <p>
             <c:forEach items="${contest.documents}" var="document">
-                <tc-webtag:errorIterator id="err" name="${docType}_${document.id}"><span class="bigRed">${err}</span><br/></tc-webtag:errorIterator>
+                <tc-webtag:errorIterator id="err" name="${docType}_${document.id}"><span class="bigRed">${err}</span><br /></tc-webtag:errorIterator>
                 <tc-webtag:objectSelect name="${docType}_${document.id}" list="${docTypes}" valueField="id" textField="description" useTopValue="false"/>
-                <tc-webtag:errorIterator id="err" name="${docType}_${document.id}"><span class="bigRed">${err}</span><br/></tc-webtag:errorIterator>
+                <tc-webtag:errorIterator id="err" name="${docType}_${document.id}"><span class="bigRed">${err}</span><br /></tc-webtag:errorIterator>
                 <tc-webtag:textInput name="${docDesc}_${document.id}" maxlength="<%=Constants.MAX_DOCUMENT_DESC_VALUE_LENGTH%>"/>
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
                         ${document.originalFileName}</a>
@@ -653,7 +654,7 @@
                 <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
                     Remove
                 </button>
-                <br/>
+                <br />
             </c:forEach>
         </p>
     </form>
@@ -666,14 +667,14 @@
 
         <p>
     <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
-        <br/></tc-webtag:errorIterator></span>
+        <br /></tc-webtag:errorIterator></span>
         <span class="bigRed"><tc-webtag:errorIterator id="err" name="${docDesc}">${err}
-            <br/></tc-webtag:errorIterator></span>
+            <br /></tc-webtag:errorIterator></span>
             <tc-webtag:objectSelect name="${docType}" list="${docTypes}" valueField="id" textField="description"/>
             <tc-webtag:textInput name="${docDesc}"/>
             <input type="file" name="${doc}">
             <button name="submit" value="submit" type="submit">Add</button>
-            <br/><br/>
+            <br /><br />
             Only certain file formats are accepted, if there is something you need to upload that doesn't work, ask
             around
             to get it added.
@@ -701,7 +702,7 @@
             <button onClick="document.removePrizeForm.<%=Constants.PRIZE_ID%>.value ='${prize.id}'">
                 Remove
             </button>
-            <br/>
+            <br />
         </c:forEach>
     </p>
 </form>
@@ -717,9 +718,9 @@
         <tr>
             <td colspan="2">
       <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizePlace}">${err}
-          <br/></tc-webtag:errorIterator></span>
+          <br /></tc-webtag:errorIterator></span>
       <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeValue}">${err}
-          <br/></tc-webtag:errorIterator></span>
+          <br /></tc-webtag:errorIterator></span>
             </td>
         </tr>
         <tr>
@@ -754,8 +755,12 @@
 
     </table>
 
+    <p>
+        * = required
+    </p>
+
 </form>
-<br/><br/>
+<br /><br />
 
     <c:if test="${not empty contest.project}">
 
