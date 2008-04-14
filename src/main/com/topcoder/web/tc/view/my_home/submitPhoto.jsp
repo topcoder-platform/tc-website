@@ -90,17 +90,6 @@
             <li>copyrighted to another party</li>
             </ul>
 
-            <p>
-            Here are two examples of acceptable and unacceptable photos:
-            </p>
-            <div align="center">
-            <img src="/i/my_home/mGood1.jpg" alt="" />
-            <img src="/i/my_home/mGood2.jpg" alt="" />
-            <img src="/i/clear.gif" alt="" width="50" height="128" />
-            <img src="/i/mpbad1.jpg" alt="" width="86" height="128" />
-            <img src="/i/mpbad2.jpg" alt="" width="86" height="128" />
-            </div>
-
             </div>
         </td>
 <%-- Center Column Ends --%>
