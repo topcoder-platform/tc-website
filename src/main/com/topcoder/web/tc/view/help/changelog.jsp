@@ -44,7 +44,7 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
-    5.14.12 - 2008.04.xx
+    5.14.12 - 2008.04.14
 <ul>
     <li>[TCWEB-111] - registration session problem -dok</li>
     <li>2008 Assembly DR -pulky</li>
