@@ -3,16 +3,6 @@
  */
 package com.topcoder.utilities.dwload;
 
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.dwload.CacheClearer;
-import com.topcoder.shared.util.dwload.TCLoad;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.utilities.dwload.contestresult.ContestResult;
-import com.topcoder.utilities.dwload.contestresult.ContestResultCalculator;
-import com.topcoder.utilities.dwload.contestresult.ProjectResult;
-import com.topcoder.utilities.dwload.contestresult.RookieContest;
-import com.topcoder.utilities.dwload.contestresult.TopPerformersCalculator;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,7 +20,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Set;
+
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.dwload.CacheClearer;
+import com.topcoder.shared.util.dwload.TCLoad;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.utilities.dwload.contestresult.ContestResult;
+import com.topcoder.utilities.dwload.contestresult.ContestResultCalculator;
+import com.topcoder.utilities.dwload.contestresult.ProjectResult;
+import com.topcoder.utilities.dwload.contestresult.TopPerformersCalculator;
 
 /**
  * <strong>Purpose</strong>:
@@ -60,6 +58,8 @@ import java.util.Set;
  * @version 1.1.2
  */
 public class TCLoadTCS extends TCLoad {
+    private static final String LOAD_CATEGORIES = "(1, 2, 14)";
+
     private static Logger log = Logger.getLogger(TCLoadTCS.class);
 
     private static final int OVERALL_RATING_RANK_TYPE_ID = 1;
@@ -78,14 +78,14 @@ public class TCLoadTCS extends TCLoad {
      *
      * @since 1.1.0
      */
-    private static final String FIRST_CUT_DATE = "2006-5-11";
+//    private static final String FIRST_CUT_DATE = "2006-5-11";
 
     /**
      * Id of the first season for rookies.
      *
      * @since 1.1.0
      */
-    private static final long FIRST_SEASON_ID = 1;
+//    private static final long FIRST_SEASON_ID = 1;
 
     /**
      * Confirmed status.
@@ -185,7 +185,7 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadProjectResults();
 
-            doLoadRookies();
+//            doLoadRookies();
 
             doLoadSubmissionScreening();
 
@@ -270,7 +270,7 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadStage();
 
-            doLoadSeasonResults();
+//            doLoadSeasonResults();
 
             doLoadStageResults();
 
@@ -306,9 +306,11 @@ public class TCLoadTCS extends TCLoad {
                 "coder_all_ratings", "tco05", "coder_dev", "coder_des", "coder_algo",
                 "dd_design", "dd_development", "dd_component", "comp_list", "find_projects", "get_review_scorecard",
                 "get_screening_scorecard", "project_info", "reviewers_for_project", "scorecard_details", "submissions",
-                "comp_contest_details", "dr_leader_board", "dr_rookie_board", "competition_history", "algo_competition_history",
+//                "comp_contest_details", "dr_leader_board", "dr_rookie_board", "competition_history", "algo_competition_history",
+                "comp_contest_details", "dr_leader_board", "competition_history", "algo_competition_history",
                 "dr_current_period", "dr_stages", "dr_seasons", "component_color_change", "stage_outstanding_projects",
-                "season_outstanding_projects", "dr_results", "dr_rookie_results", "dr_rookie_seasons", "dr_stages", "dr_contests_for_stage",
+//                "season_outstanding_projects", "dr_results", "dr_rookie_results", "dr_rookie_seasons", "dr_stages", "dr_contests_for_stage",
+                "season_outstanding_projects", "dr_results", "dr_stages", "dr_contests_for_stage",
                 "outstanding_projects"
         };
 
@@ -556,7 +558,7 @@ public class TCLoadTCS extends TCLoad {
                             "where s.upload_id = u.upload_id " +
                             "   and u.project_id = p.project_id " +
                             "   and p.project_status_id <> 3 " +
-                            "   and p.project_category_id in (1, 2) " +
+                            "   and p.project_category_id in " + LOAD_CATEGORIES +
                             "   and u.resource_id = r.resource_id " +
                             "   and r.resource_id = ri.resource_id " +
                             "   and ri.resource_info_type_id = 1 " +
@@ -891,6 +893,8 @@ public class TCLoadTCS extends TCLoad {
                             "   ,case when pivt.value is not null then substr(pivt.value,1,20) else null end as winner_id" +
                             "   ,case when pict.value is not null then substr(pict.value,1,4) else 'On' end as digital_run_ind   " +
                             "   ,cv.suspended_ind " +
+                            "   ,p.project_category_id " +
+                            "   ,pcl.name " +
                             "   from project p , " +
                             "   project_info pir, " +
                             "   project_info piel, " +
@@ -905,7 +909,8 @@ public class TCLoadTCS extends TCLoad {
                             "   comp_versions cv, " +
                             "   project_status_lu psl, " +
                             "   OUTER project_phase psd, " +
-                            "   OUTER project_phase ppd " +
+                            "   OUTER project_phase ppd, " +
+                            "   project_category_lu pcl " +
                             " where pir.project_id = p.project_id " +
                             "   and pir.project_info_type_id = 2 " +
                             "   and pivi.project_id = p.project_id " +
@@ -927,6 +932,7 @@ public class TCLoadTCS extends TCLoad {
                             "   and cc.component_id = pir.value " +
                             "   and cc.root_category_id = cat.category_id " +
                             "   and psl.project_status_id = p.project_status_id " +
+                            "   and pcl.project_category_id = p.project_category_id " +
                             "   and psd.project_id = p.project_id " +
                             "   and psd.phase_type_id = 2 " +
                             "   and ppd.project_id = p.project_id " +
@@ -934,7 +940,7 @@ public class TCLoadTCS extends TCLoad {
                             // we need to process deleted project, otherwise there's a possibility
                             // they will keep living in the DW.
                             //" and p.project_status_id <> 3 " +
-                            "   and p.project_category_id in (1, 2) " +
+                            "   and p.project_category_id in " + LOAD_CATEGORIES +
                             "   and (p.modify_date > ? " +
                             // comp versions with modified date
                             "   or cv.modify_date > ? " +
@@ -956,19 +962,19 @@ public class TCLoadTCS extends TCLoad {
                     "phase_id = ?, phase_desc = ?, category_id = ?, category_desc = ?, posting_date = ?, submitby_date " +
                     "= ?, complete_date = ?, component_id = ?, review_phase_id = ?, review_phase_name = ?, " +
                     "status_id = ?, status_desc = ?, level_id = ?, viewable_category_ind = ?, version_id = ?, version_text = ?, " +
-                    "rating_date = ?, num_submissions_passed_review=?, winner_id=?, stage_id = ?, digital_run_ind = ?, suspended_ind = ? where project_id = ? ";
+                    "rating_date = ?, num_submissions_passed_review=?, winner_id=?, stage_id = ?, digital_run_ind = ?, suspended_ind = ?, project_category_id = ?, project_category_name = ? where project_id = ? ";
 
             final String INSERT = "insert into project (project_id, component_name, num_registrations, num_submissions, " +
                     "num_valid_submissions, avg_raw_score, avg_final_score, phase_id, phase_desc, " +
                     "category_id, category_desc, posting_date, submitby_date, complete_date, component_id, " +
                     "review_phase_id, review_phase_name, status_id, status_desc, level_id, viewable_category_ind, version_id, " +
-                    "version_text, rating_date, num_submissions_passed_review, winner_id, stage_id, digital_run_ind, suspended_ind) " +
+                    "version_text, rating_date, num_submissions_passed_review, winner_id, stage_id, digital_run_ind, suspended_ind, project_category_id, project_category_name) " +
                     "values (?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
-                    "?, ?, ?, ?) ";
+                    "?, ?, ?, ?, ?, ?) ";
 
             select = prepareStatement(SELECT, SOURCE_DB);
             select.setTimestamp(1, fLastLogTime);
@@ -1050,7 +1056,10 @@ public class TCLoadTCS extends TCLoad {
                     update.setInt(27, "On".equals(digitRun) || "Yes".equals(digitRun) ? 1 : 0);
                     update.setInt(28, rs.getInt("suspended_ind"));
 
-                    update.setLong(29, rs.getLong("project_id"));
+                    update.setInt(29, rs.getInt("project_category_id"));
+                    update.setString(30, rs.getString("name"));
+
+                    update.setLong(31, rs.getLong("project_id"));
                     int retVal = update.executeUpdate();
 
                     if (retVal == 0) {
@@ -1107,6 +1116,8 @@ public class TCLoadTCS extends TCLoad {
                         digitRun = rs.getString("digital_run_ind");
                         insert.setInt(28, "On".equals(digitRun) || "Yes".equals(digitRun) ? 1 : 0);
                         insert.setInt(29, rs.getInt("suspended_ind"));
+                        insert.setInt(30, rs.getInt("project_category_id"));
+                        insert.setString(31, rs.getString("name"));
 
                         insert.executeUpdate();
                     }
@@ -1262,7 +1273,7 @@ public class TCLoadTCS extends TCLoad {
                         "where p.project_id = pr.project_id " +
                         "and p.project_id = pi.project_id " +
                         "and p.project_status_id <> 3 " +
-                        "and p.project_category_id in (1, 2) " +
+                        "and p.project_category_id in " + LOAD_CATEGORIES +
                         "and pi.project_info_type_id = 1 " +
                         "and cv.comp_vers_id= pi.value " +
                         "and cc.component_id = cv.component_id " +
@@ -1331,7 +1342,7 @@ public class TCLoadTCS extends TCLoad {
                         "             from comp_version_dates cvd  " +
                         "             , project_info pi_ci " +
                         "             where pi_ci.value = cvd.comp_vers_id " +
-                        "             and cvd.phase_id = p.project_category_id+111 " +
+                        "             and cvd.phase_id = case when p.project_category_id = 1 then 112 when p.project_category_id = 2 then 113 when p.project_category_id = 14 then 112 else null end " +
                         "             and pi_ci.project_id = p.project_id  " +
                         "             and pi_ci.project_info_type_id = 1), " +
                         "          (select value from project_info pi_am where pi_am.project_info_type_id = 16 and pi_am.project_id = p.project_id) " +
@@ -1486,7 +1497,7 @@ public class TCLoadTCS extends TCLoad {
                             (projectResults.getInt("project_stat_id") == 7 ||  // COMPLETED
                                     projectResults.getInt("project_stat_id") == 1) && // ACTIVE
                             projectResults.getInt("rating_ind") == 1 &&
-                            !"Off".equals(projectResults.getString("dr_ind"))) {
+                            "On".equals(projectResults.getString("dr_ind"))) {
 
                         hasDR = true;
                         ContestResultCalculator crc = stageCalculators.get(stage);
@@ -1648,7 +1659,7 @@ public class TCLoadTCS extends TCLoad {
      * @since 1.1.0
      *        </p>
      */
-    public void doLoadRookies() throws Exception {
+/*    public void doLoadRookies() throws Exception {
         log.info("regenerating rookies");
         PreparedStatement selectEdge = null;
         PreparedStatement selectUsers = null;
@@ -1807,7 +1818,7 @@ public class TCLoadTCS extends TCLoad {
             close(insert);
             close(delete);
         }
-    }
+    } 
 
     private Map<Integer, Integer> getRookieNextSeasonMap() throws Exception {
         Map<Integer, Integer> result = new HashMap<Integer, Integer>();
@@ -1827,7 +1838,7 @@ public class TCLoadTCS extends TCLoad {
             close(ps);
         }
         return result;
-    }
+    }*/
 
     public void doLoadSubmissionReview() throws Exception {
         log.info("load submission review");
@@ -1875,7 +1886,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and u.upload_id = s.upload_id " +
                         "   and u.project_id = p.project_id " +
                         "   and p.project_status_id <> 3 " +
-                        "   and p.project_category_id in (1, 2) " +
+                        "   and p.project_category_id in " + LOAD_CATEGORIES +
                         "   and res.resource_id = r.resource_id " +
                         "   and resource_role_id in (4, 5, 6, 7) " +
                         "   and ri1.resource_id = u.resource_id " +
@@ -2099,7 +2110,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and u.upload_id = s.upload_id " +
                         "   and u.project_id = p.project_id " +
                         "   and p.project_status_id <> 3 " +
-                        "   and p.project_category_id in (1, 2) " +
+                        "   and p.project_category_id in " + LOAD_CATEGORIES +
                         "   and res.resource_id = r.resource_id " +
                         "   and resource_role_id in (2, 3) " +
                         "   and ri1.resource_id = u.resource_id " +
@@ -2283,15 +2294,19 @@ public class TCLoadTCS extends TCLoad {
                     "c.contest_type_id, " +
                     "ct.contest_type_desc," +
                     "c.phase_id," +
-                    "c.event_id  " +
+                    "c.event_id," +
+                    "c.project_category_id," +
+                    "pcl.name " +
                     "from contest c, " +
-                    "contest_type_lu ct " +
+                    "contest_type_lu ct, " +
+                    "project_category_lu pcl " +
                     "where ct.contest_type_id = c.contest_type_id " +
+                    "and pcl.project_category_id = c.project_category_id " +
                     "and (c.modify_date > ?)";
-            final String UPDATE = "update contest set contest_name = ?,  contest_start_timestamp = ?, contest_end_timestamp = ?, contest_type_id = ?, contest_type_desc = ?, phase_id = ?, event_id = ? " +
+            final String UPDATE = "update contest set contest_name = ?,  contest_start_timestamp = ?, contest_end_timestamp = ?, contest_type_id = ?, contest_type_desc = ?, phase_id = ?, event_id = ?, project_category_id = ?, project_category_name = ? " +
                     " where contest_id = ? ";
-            final String INSERT = "insert into contest (contest_id, contest_name, contest_start_timestamp, contest_end_timestamp, contest_type_id, contest_type_desc, phase_id, event_id) " +
-                    "values (?, ?, ?, ?, ?, ?, ?, ?) ";
+            final String INSERT = "insert into contest (contest_id, contest_name, contest_start_timestamp, contest_end_timestamp, contest_type_id, contest_type_desc, phase_id, event_id, project_category_id, project_category_name) " +
+                    "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
             select = prepareStatement(SELECT, SOURCE_DB);
             select.setTimestamp(1, fLastLogTime);
@@ -2313,7 +2328,9 @@ public class TCLoadTCS extends TCLoad {
                 update.setObject(5, rs.getObject("contest_type_desc"));
                 update.setObject(6, rs.getObject("phase_id"));
                 update.setObject(7, rs.getObject("event_id"));
-                update.setLong(8, rs.getLong("contest_id"));
+                update.setObject(8, rs.getObject("project_category_id"));
+                update.setObject(9, rs.getObject("name"));
+                update.setLong(10, rs.getLong("contest_id"));
 
                 int retVal = update.executeUpdate();
 
@@ -2328,6 +2345,8 @@ public class TCLoadTCS extends TCLoad {
                     insert.setObject(6, rs.getObject("contest_type_desc"));
                     insert.setObject(7, rs.getObject("phase_id"));
                     insert.setObject(8, rs.getObject("event_id"));
+                    insert.setObject(9, rs.getObject("project_category_id"));
+                    insert.setObject(10, rs.getObject("name"));
 
                     insert.executeUpdate();
                 }
@@ -3493,7 +3512,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and u.upload_id = s.upload_id " +
                         "   and u.project_id = p.project_id " +
                         "   and p.project_status_id <> 3 " +
-                        "   and p.project_category_id in (1, 2) " +
+                        "   and p.project_category_id in " + LOAD_CATEGORIES +
                         "   and sq.scorecard_question_type_id in (1,2,4) " +
                         "   and answer <> '' " +
                         "   and piel.project_info_type_id = 14 " +
@@ -3639,7 +3658,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and u.upload_id = s.upload_id " +
                         "   and u.project_id = p.project_id " +
                         "   and p.project_status_id <> 3 " +
-                        "   and p.project_category_id in (1, 2) " +
+                        "   and p.project_category_id in " + LOAD_CATEGORIES +
                         "   and sq.scorecard_question_id = ri.scorecard_question_id " +
                         "   and sq.scorecard_question_type_id = 3 " +
                         "   and ri1.resource_id = u.resource_id " +
@@ -3792,7 +3811,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and u.upload_id = s.upload_id " +
                         "   and u.project_id = p.project_id " +
                         "   and p.project_status_id <> 3 " +
-                        "   and p.project_category_id in (1, 2) " +
+                        "   and p.project_category_id in " + LOAD_CATEGORIES +
                         "   and r.resource_id = res.resource_id " +
                         "   and res.resource_role_id in (2, 3, 4, 5, 6, 7) " +
                         "   and ric.comment_type_id in (1, 2, 3) " +
@@ -3953,7 +3972,7 @@ public class TCLoadTCS extends TCLoad {
                         "   u.upload_id = s.upload_id and " +
                         "   u.project_id = p.project_id and " +
                         "   p.project_status_id <> 3 and " +
-                        "   p.project_category_id in (1, 2) and " +
+                        "   p.project_category_id in " + LOAD_CATEGORIES + " and " +
                         "   r.resource_id = res.resource_id and " +
                         "   res.resource_role_id in (4, 5, 6, 7) and " +
                         "   res1.resource_id = u.resource_id and " +
@@ -4180,7 +4199,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and u.upload_id = s.upload_id " +
                         "   and u.project_id = p.project_id " +
                         "   and p.project_status_id <> 3 " +
-                        "   and p.project_category_id in (1, 2) " +
+                        "   and p.project_category_id in " + LOAD_CATEGORIES +
                         "   and r.resource_id = res.resource_id " +
                         "   and res.resource_role_id in (4, 5, 6, 7) " +
                         "   and ri.scorecard_question_id = sq.scorecard_question_id " +
@@ -4374,6 +4393,7 @@ public class TCLoadTCS extends TCLoad {
                 " and pr.valid_submission_ind = 1  " +
                 " and pr.rating_ind = 1  " +
                 " and p.status_id in (4,5,7)  " +
+                " and p.phase_id in (112,113)  " +
                 " order by pr.user_id, pr.rating_order";
 
         final String INSERT = "INSERT INTO streak (coder_id, streak_type_id, phase_id, start_project_id, end_project_id, length, is_current) " +
@@ -4652,7 +4672,7 @@ public class TCLoadTCS extends TCLoad {
                         "      project_info piel " +
                         " where p.project_id = pr.project_id  " +
                         " and p.project_status_id <> 3  " +
-                        " and p.project_category_id in (1, 2)  " +
+                        " and p.project_category_id in " + LOAD_CATEGORIES +
                         " and piel.project_info_type_id = 14  " +
                         " and piel.value = 'Open'  " +
                         " and p.project_id = piel.project_id  " +
@@ -4670,7 +4690,7 @@ public class TCLoadTCS extends TCLoad {
                         " and p.project_id = pr.project_id) between s.start_date and s.end_date ";
 
         final String SELECT_CONTESTS =
-                " select c.contest_id, c.phase_id, c.contest_type_id, crc.class_name, x.top_performers_factor " +
+                " select c.contest_id, c.project_category_id, c.contest_type_id, crc.class_name, x.top_performers_factor " +
                         " from contest_stage_xref x " +
                         " ,contest c " +
                         " ,contest_result_calculator_lu crc " +
@@ -4703,7 +4723,7 @@ public class TCLoadTCS extends TCLoad {
                 int seasonId = rsStages.getInt("season_id");
 
                 while (rsContests.next()) {
-                    loadDRContestResults(seasonId, startDate, endDate, rsContests.getInt("phase_id"), rsContests.getInt("contest_id"),
+                    loadDRContestResults(seasonId, startDate, endDate, rsContests.getInt("project_category_id"), rsContests.getInt("contest_id"),
                             rsContests.getString("class_name"), rsContests.getDouble("top_performers_factor"));
                 }
 
@@ -4725,7 +4745,7 @@ public class TCLoadTCS extends TCLoad {
      *
      * @throws Exception
      */
-    public void doLoadSeasonResults() throws Exception {
+/*    public void doLoadSeasonResults() throws Exception {
         log.debug("load season results");
 
         final String SELECT_SEASONS =
@@ -4738,7 +4758,7 @@ public class TCLoadTCS extends TCLoad {
                         "      project_info piel   " +
                         " where p.project_id = pr.project_id    " +
                         " and p.project_status_id <> 3    " +
-                        " and p.project_category_id in (1, 2)    " +
+                        " and p.project_category_id in " + LOAD_CATEGORIES +
                         " and piel.project_info_type_id = 14   " +
                         " and piel.value = 'Open'   " +
                         " and p.project_id = piel.project_id  " +
@@ -4758,7 +4778,7 @@ public class TCLoadTCS extends TCLoad {
                         "      (select max(end_date) from stage st where st.season_id = s.season_id)  ";
 
         final String SELECT_CONTESTS =
-                " select c.contest_id, c.phase_id, c.contest_type_id, crc.class_name " +
+                " select c.contest_id, c.project_category_id, c.contest_type_id, crc.class_name " +
                         " from contest_season_xref x " +
                         " ,contest c " +
                         " ,contest_result_calculator_lu crc " +
@@ -4791,7 +4811,7 @@ public class TCLoadTCS extends TCLoad {
                 Timestamp endDate = rsSeasons.getTimestamp("end_date");
 
                 while (rsContests.next()) {
-                    loadDRContestResults(seasonId, startDate, endDate, rsContests.getInt("phase_id"), rsContests.getInt("contest_id"),
+                    loadDRContestResults(seasonId, startDate, endDate, rsContests.getInt("project_category_id"), rsContests.getInt("contest_id"),
                             rsContests.getString("class_name"), 0.0);
                 }
 
@@ -4806,7 +4826,7 @@ public class TCLoadTCS extends TCLoad {
             close(rsSeasons);
         }
 
-    }
+    } */
 
 
     /**
@@ -4821,10 +4841,10 @@ public class TCLoadTCS extends TCLoad {
      * @param factor
      * @throws Exception
      */
-    private void loadDRContestResults(int seasonId, Timestamp startDate, Timestamp endDate, int phaseId,
+    private void loadDRContestResults(int seasonId, Timestamp startDate, Timestamp endDate, int projectCategoryId,
                                       int contestId, String className, double factor) throws Exception {
 
-        log.debug("loading contest_result for dr contest_id=" + contestId + ", phase=" + phaseId + " from " + startDate + " to " + endDate);
+        log.debug("loading contest_result for dr contest_id=" + contestId + ", project category=" + projectCategoryId + " from " + startDate + " to " + endDate);
         final String SELECT_RESULTS =
                 " select p.project_id " +
                         "       ,p.project_status_id " +
@@ -4842,17 +4862,17 @@ public class TCLoadTCS extends TCLoad {
                         "           and pi_ci.project_id = p.project_id)," +
                         "           (select value from project_info pi_am where pi_am.project_info_type_id = 16 and pi_am.project_id = p.project_id) " +
                         "            )) as amount " +
-                        "       ,pi_dr.value as dr_ind " +
                         "       ,(select count(*) from submission s, upload u  " +
                         "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
                         "         and submission_status_id in (1, 4) " +
                         "        ) as num_submissions_passed_review  " +
                         " from project p " +
                         "    ,project_result pr " +
-                        "    ,project_info pi_el " +     // The digital run flag should be enough, but since it's not always set, we're checking for open projects as well.
-                        "    ,outer project_info pi_dr " +
+                        "    ,project_info pi_el " +
+                        "    ,project_info pi_dr " +
                         " where pi_dr.project_id = p.project_id " +
                         " and pi_dr.project_info_type_id = 26 " +
+                        " and pi_dr.value = 'On' " +
                         " and p.project_id = pr.project_id " +
                         " and pr.rating_ind=1 " +
                         " and p.project_category_id = ? " +
@@ -4880,8 +4900,8 @@ public class TCLoadTCS extends TCLoad {
 
         try {
             selectResults = prepareStatement(SELECT_RESULTS, SOURCE_DB);
-            selectResults.setInt(1, phaseId);
-            selectResults.setInt(2, phaseId - 111);
+            selectResults.setInt(1, projectCategoryId == 14 ? 112 : projectCategoryId + 111);
+            selectResults.setInt(2, projectCategoryId);
             selectResults.setTimestamp(3, startDate);
             selectResults.setTimestamp(4, endDate);
 
@@ -4891,24 +4911,21 @@ public class TCLoadTCS extends TCLoad {
             if (calc instanceof TopPerformersCalculator) {
                 ((TopPerformersCalculator) calc).setFactor(factor);
             }
-            if (calc instanceof RookieContest) {
-                Set<Long> rookies = getRookies(seasonId, phaseId);
-                log.debug(rookies.size() + " rookies found for season " + seasonId + " phase " + phaseId);
+/*            if (calc instanceof RookieContest) {
+                Set<Long> rookies = getRookies(seasonId, projectCategoryId + 111);
+                log.debug(rookies.size() + " rookies found for season " + seasonId + " phase " + projectCategoryId + 111);
                 ((RookieContest) calc).setRookies(rookies);
-            }
+            }*/
 
             rs = selectResults.executeQuery();
 
             List<ProjectResult> pr = new ArrayList<ProjectResult>();
             int count = 0;
             while (rs.next()) {
-                // Skip non Digital Run projects
-                if ("Off".equals(rs.getString("dr_ind"))) {
-                    continue;
-                }
                 if (rs.getDouble("amount") < 0.01) {
                     log.warn("Project: " + rs.getLong("project_id") + " has zero amount!");
                 }
+                
                 ProjectResult res = new ProjectResult(rs.getLong("project_id"), rs.getInt("project_status_id"), rs.getLong("user_id"),
                         rs.getDouble("final_score"), rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"),
                         rs.getInt("num_submissions_passed_review"), rs.getBoolean("passed_review_ind"));
@@ -4962,7 +4979,7 @@ public class TCLoadTCS extends TCLoad {
      * @return
      * @throws Exception
      */
-    private Set<Long> getRookies(int seasonId, int phaseId) throws Exception {
+/*    private Set<Long> getRookies(int seasonId, int phaseId) throws Exception {
         PreparedStatement st = null;
         Set<Long> rookies = new HashSet<Long>();
         ResultSet rs = null;
@@ -4983,7 +5000,7 @@ public class TCLoadTCS extends TCLoad {
             close(st);
         }
         return rookies;
-    }
+    }*/
 
     /**
      * Get the prizes for the specified contest.
