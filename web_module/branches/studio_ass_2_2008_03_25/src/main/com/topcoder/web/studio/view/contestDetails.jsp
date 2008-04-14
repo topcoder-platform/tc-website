@@ -134,7 +134,7 @@ l
     <div class="padder">
         <p align="center">
             <c:choose>
-                <c:when test="${empty contest.maxSubmissions or empty contest.maxSubmissions.value}">
+                <c:when test="${empty contest.maxSubmissions.value}">
                     <strong>Unlimited</strong>
                 </c:when>
                 <c:when test="${contest.maxSubmissions.value eq 1}">
@@ -155,10 +155,12 @@ l
         <td class="field">Contest:</td>
         <td class="value">${contest.name}</td>
     </tr>
-    <tr>
-        <td class="field">Client:</td>
-        <td class="value">${contest.clientName.value}</td>
-    </tr>
+    <c:if test="${not empty contst.clientName.value}">
+        <tr>
+            <td class="field">Client:</td>
+            <td class="value">${contest.clientName.value}</td>
+        </tr>
+    </c:if>
     <c:if test="${not empty contest.type}">
         <tr>
             <td class="field">Contest Type:</td>
