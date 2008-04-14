@@ -92,8 +92,8 @@ public class BoardRowComparator implements Comparator {
         }
 
         // compares placements
-        ResultSetContainer rsc0 = retrieveInfo(placementCommand, lbr0.getPeriod(), lbr0.getPhase(), lbr0.getUserId());
-        ResultSetContainer rsc1 = retrieveInfo(placementCommand, lbr1.getPeriod(), lbr1.getPhase(), lbr1.getUserId());
+        ResultSetContainer rsc0 = retrieveInfo(placementCommand, lbr0.getPeriod(), lbr0.getProjectTypeId(), lbr0.getUserId());
+        ResultSetContainer rsc1 = retrieveInfo(placementCommand, lbr1.getPeriod(), lbr1.getProjectTypeId(), lbr1.getUserId());
 
         Iterator it0 = rsc0.iterator();
         Iterator it1 = rsc1.iterator();
@@ -133,8 +133,8 @@ public class BoardRowComparator implements Comparator {
         }
 
         // compares scores
-        rsc0 = retrieveInfo(scoreCommand, lbr0.getPeriod(), lbr0.getPhase(), lbr0.getUserId());
-        rsc1 = retrieveInfo(scoreCommand, lbr1.getPeriod(), lbr1.getPhase(), lbr1.getUserId());
+        rsc0 = retrieveInfo(scoreCommand, lbr0.getPeriod(), lbr0.getProjectTypeId(), lbr0.getUserId());
+        rsc1 = retrieveInfo(scoreCommand, lbr1.getPeriod(), lbr1.getProjectTypeId(), lbr1.getUserId());
 
         long score0 = 0;
         long score1 = 0;

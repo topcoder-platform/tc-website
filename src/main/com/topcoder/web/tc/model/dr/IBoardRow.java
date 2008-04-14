@@ -14,14 +14,14 @@ package com.topcoder.web.tc.model.dr;
 public interface IBoardRow {
 
     /**
-     * @return Returns the phase.
+     * @return Returns the project type.
      */
-    long getPhase();
+    long getProjectTypeId();
 
     /**
-     * @param phase The phase to set.
+     * @param projectTypeId The project type to set.
      */
-    void setPhase(long phase);
+    void setProjectTypeId(long projectTypeId);
 
     /**
      * @return Returns the period.

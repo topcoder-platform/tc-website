@@ -619,7 +619,7 @@ public class ProjectUtil {
         createProjectInfo(ps, projectId, 16, String.valueOf(price), modUserId);
 
         //digital run
-        if (projectTypeId==1 || projectTypeId ==2) {
+        if (projectTypeId==1 || projectTypeId ==2 || projectTypeId ==14) {
             createProjectInfo(ps, projectId, 26, "On", modUserId);
         }
 

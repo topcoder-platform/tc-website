@@ -43,7 +43,7 @@ public class RookieBoardRow extends BaseBoardRow implements IBoardRow {
                            double placementPrize, boolean potential) {
         super();
         this.period = period;
-        this.phase = phase;
+        this.projectTypeId = phase;
         this.rank = rank;
         this.userId = userId;
         this.userName = userName;

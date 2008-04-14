@@ -39,26 +39,35 @@ public class CompetitionHistory extends BaseProcessor {
         //todo smarten this up.  if we do the sorting in memory, we wouldn't have to make a db hit for every
         //todo different sort.  we'd cache less, and hit the db less.  WAY better
 
+        int projectTypeId;
         // user should be authenticated.
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-        // Phase ID and coder ID are required.
+        if (hasParameter(Constants.PHASE_ID) && !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) &&
+                !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
+            throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
+        }
+
         if (!hasParameter(Constants.PHASE_ID)) {
-            throw new TCWebException("parameter " + Constants.PHASE_ID + " expected.");
+            if (!getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(Constants.DESIGN_PROJECT_TYPE) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(Constants.DEVELOPMENT_PROJECT_TYPE) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
+                throw new TCWebException("invalid " + Constants.PROJECT_TYPE_ID + " parameter.");
+            }
+            
+            projectTypeId = Integer.parseInt(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
+        } else {
+            projectTypeId = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID)) - 111;
         }
 
         if (!hasParameter(Constants.CODER_ID)) {
             throw new TCWebException("parameter " + Constants.CODER_ID + " expected.");
         }
 
-        if (!getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) &&
-                !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
-            throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
-        }
-        setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
-        setDefault(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
+        getRequest().setAttribute(Constants.PROJECT_TYPE_ID, projectTypeId);
+        getRequest().setAttribute(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
 
         // Gets the rest of the optional parameters.
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
@@ -90,7 +99,7 @@ public class CompetitionHistory extends BaseProcessor {
             r.setProperty(DataAccessConstants.SORT_QUERY, Constants.COMPETITION_HISTORY_QUERY);
         }
         r.setProperty(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
-        r.setProperty(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
+        r.setProperty(Constants.PROJECT_TYPE_ID, String.valueOf(projectTypeId));
         r.setContentHandle(Constants.COMPETITION_HISTORY_COMMAND);
 
         // retrieves data from DB
@@ -107,9 +116,20 @@ public class CompetitionHistory extends BaseProcessor {
 
         // sets attributes for the jsp
         getRequest().setAttribute(Constants.HISTORY_LIST_KEY, rsc);
-        getRequest().setAttribute(Constants.TYPE_KEY,
-                (getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) ?
-                        HandleTag.DEVELOPMENT : HandleTag.DESIGN));
+
+        String handleType = ""; 
+        switch (projectTypeId) {
+            case 1:
+                handleType = HandleTag.DESIGN;
+                break;
+            case 2:
+                handleType = HandleTag.DEVELOPMENT;
+                break;
+            case 14:
+                handleType = HandleTag.COMPONENT;
+                break;
+        }
+        getRequest().setAttribute(Constants.TYPE_KEY, handleType);
 
         setNextPage(Constants.VIEW_COMPETITION_HISTORY_PAGE);
         setIsNextPageInContext(true);
