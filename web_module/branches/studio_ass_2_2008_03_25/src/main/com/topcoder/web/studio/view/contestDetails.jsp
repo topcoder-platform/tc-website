@@ -155,7 +155,7 @@ l
         <td class="field">Contest:</td>
         <td class="value">${contest.name}</td>
     </tr>
-    <c:if test="${not empty contst.clientName.value}">
+    <c:if test="${not empty contest.clientName.value}">
         <tr>
             <td class="field">Client:</td>
             <td class="value">${contest.clientName.value}</td>
