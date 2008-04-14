@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br />04.14.08<br />10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=MatchDetails&amp;rd=12170">SRM 398 is sponsored by Eli Lilly</a></span><br /><br />
+        Join Lilly representatives in the arena one hour prior to the match for a discussion about thier job opportunities in Asia.  <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly">Learn more</a>
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=MatchDetails&amp;rd=12170">details</a> | 
+        <tc-webtag:forumLink forumID="516707" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_alg">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br />04.11.08<br />12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=MatchDetails&amp;rd=12169">SRM 397 is sponsored by BT with $5,000 in Prizes!</a></span><br /><br />
@@ -155,18 +169,3 @@
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />03.25.08<br />3:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm394">SRM 394 - Problem Set &amp; Analysis</a></span><br /><br />
-      A healthy turnout of 1500 coders was faced with tough problemsets in both divisions. However, that was no obstacle for <tc-webtag:handle coderId="10574855" context="algorithm"/> to show impressive times on both medium and hard and to win Division 1 achieving the best-ever rating of 3799 (and with such high rating revealing a bug in the rating distribution application, as well :)).</td>
-         <td class="newsPhoto"><img src="/i/m/Xixas_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="22629218" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm394">details</a> | 
-        <tc-webtag:forumLink forumID="520546" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
