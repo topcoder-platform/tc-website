@@ -47,6 +47,7 @@
     5.14.12 - 2008.04.xx
 <ul>
     <li>[TCWEB-111] - registration session problem -dok</li>
+    <li>2008 Assembly DR -pulky</li>
 </ul>
 </p>
 
