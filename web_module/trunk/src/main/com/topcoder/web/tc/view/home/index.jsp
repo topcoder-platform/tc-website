@@ -186,10 +186,10 @@
 
                 <%-- SRM SPONSOR --%>
                 <map name="mm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=12169" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&amp;d1=sponsors&amp;d2=bt" />
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=12170" />
+                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly" />
                 </map>
-                <img src="/i/home/srm397_bt.png" alt="SRM 397 brought to you by BT" border="0" style="display:block;" usemap="#mm"/>
+                <img src="/i/home/srm398_lilly.png" alt="SRM 398 brought to you by Eli Lilly" border="0" style="display:block;" usemap="#mm"/>
                 
                 
                 <%-- UML Tool 
