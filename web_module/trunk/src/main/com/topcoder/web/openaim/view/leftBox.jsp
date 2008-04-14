@@ -31,7 +31,7 @@
         <a href="/openaim/?myframe=category%2fall-submissions%2f">all submissions</a>,
         <a href="/openaim/?myframe=category%2fanswers%2f">answers</a>,
         <a href="/openaim/?myframe=category%2fbots%2f">bots</a>,
-        <a href="/openaim/?myframe=category%2fcalculator%2f">calculators</a>,
+        <a href="/openaim/?myframe=category%2fcalculators%2f">calculators</a>,
         <a href="/openaim/?myframe=category%2fcoding%2f">coding</a>,
         <a href="/openaim/?myframe=category%2fdating%2f">dating</a>,
         <a href="/openaim/?myframe=category%2fdesktop-sharing%2f">desktop-sharing</a>,
