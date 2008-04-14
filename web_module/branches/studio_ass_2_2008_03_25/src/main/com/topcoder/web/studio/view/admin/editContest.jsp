@@ -215,6 +215,7 @@
     </td>
     <td class="value" width="100%">
         <tc-webtag:textInput name="<%=Constants.CONTEST_PROPERTY + ContestProperty.CLIENT%>"/>
+        <div><strong>WARNING:</STRONG> Please be aware that anything you enter in this field will be visible to the public, as part of the Contest Details.</div>
     </td>
 </tr>
 
