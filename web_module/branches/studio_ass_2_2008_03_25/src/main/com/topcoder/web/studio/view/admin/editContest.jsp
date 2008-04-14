@@ -508,9 +508,9 @@
 </tr>
 --%>
 
-<studio_tags:editContestProperty name="${sizeRequirements}" title="Other Notes on Size"/>
+<studio_tags:editContestProperty name="${sizeRequirements}" title="Notes on Size"/>
 <studio_tags:editContestProperty name="${fontRequirements}" title="Notes on Fonts"/>
-<studio_tags:editContestProperty name="${colorRequirements}" title="Notes on Color Palettes"/>
+<studio_tags:editContestProperty name="${colorRequirements}" title="Notes on Colors"/>
 <studio_tags:editContestProperty name="${contentRequirements}" title="Content Requirements"/>
 <studio_tags:editContestProperty name="${otherRequirements}" title="Other Requirements"/>
 <studio_tags:editContestProperty name="${eligibility}" title="Eligibility"/>
