@@ -39,7 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">04.09.08 3:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about">2008 TCO Finalist Brackets are Announced!</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.14.08 10:30 AM - </td><td width="100%"><a href="/tc?module=MatchDetails&amp;rd=12170">SRM 398 is sponsored by Eli Lilly</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.07.08 11:30 AM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyChat20080403">Eli Lilly SRM 396 Chat Transcript Available</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.02.08 5:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly">Eli Lilly chat before SRM 396</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.26.08 4:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa">NSA chat before SRM 395</a></td></tr>
