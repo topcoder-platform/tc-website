@@ -82,7 +82,7 @@
     <c:if test="${contest.winnerAnnouncementTime ne null}"> 
     <tr>
         <td class="field">
-            Winner(s) Announced:
+            Winner(s)<br />Announced:
         </td>
         <td class="value">
             <tc-webtag:format object="${contest.winnerAnnouncementTime}"
@@ -139,8 +139,12 @@
 <table cellspacing="0" cellpadding="0" class="conDetIntro">
 <tbody>
     <tr>
-        <td class="field">Contest Name:</td>
+        <td class="field">Contest:</td>
         <td class="value">${contest.name}</td>
+    </tr>
+    <tr>
+        <td class="field">Client:</td>
+        <td class="value">Company XYZ</td>
     </tr>
     <c:if test="${not empty contest.type}">
         <tr>
