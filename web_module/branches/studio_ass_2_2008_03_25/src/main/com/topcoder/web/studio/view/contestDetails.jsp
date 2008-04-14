@@ -101,8 +101,9 @@
                     <c:when test="${registered || currentTime>contest.endTime}">
                         <c:forEach items="${contest.documents}" var="document">
                             <p>
-                                <strong>${document.type.description}:</strong>
-                                <br/><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">${document.originalFileName}</a>
+                                <strong><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">${document.originalFileName}</a></strong>
+                                <br /><em>${document.type.description}</em>
+                                <br />Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed dui. Donec ultricies tincidunt ligula. Sed auctor tellus quis lacus. Fusce ultricies interdum nisl. Praesent quis orci. Integer in nibh et nisi aliquet hendrerit.
                             </p>
                         </c:forEach>
                     </c:when>
@@ -124,7 +125,7 @@
     <div class="padder">
         <studio:formatField text="${contest.submissionFileFormat.value}"/>
     </div>
-l
+
     <c:if test="${not empty contest.otherFileTypes.value}">
         <div class="section">Other File Types:</div>
         <div class="padder"><p align="center"><studio:formatField text="${contest.otherFileTypes.value}"/></p></div>
