@@ -59,13 +59,15 @@ public class LeaderBoard extends BaseBoard {
         if (WebConstants.ASSEMBLY_PROJECT_TYPE.equals(String.valueOf(projectTypeId)) &&
                 stageId == 5) {
             setNextPage("/digital_run/2007dot5/asmLeaderboardS1.jsp");
-            setIsNextPageInContext(true);        
+            setIsNextPageInContext(true);
+            return;
         }
 
         if (WebConstants.ASSEMBLY_PROJECT_TYPE.equals(String.valueOf(projectTypeId)) &&
                 stageId == 6) {
             setNextPage("/digital_run/2007dot5/asmLeaderboardS2.jsp");
             setIsNextPageInContext(true);        
+            return;
         }
                 
         // Get the stage and top performer contests
