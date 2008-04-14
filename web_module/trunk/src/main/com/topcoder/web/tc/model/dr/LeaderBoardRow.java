@@ -29,7 +29,7 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
      * Constructor setting properties.
      *
      * @param period         The period to set.
-     * @param phase          The phase to set.
+     * @param projectTypeId          The project type to set.
      * @param rank           The rank to set.
      * @param userId         The userId to set.
      * @param userName       The userName to set.
@@ -42,11 +42,11 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
      * @param outstandingPoints     The outstandingPoints to set.
      * @param winTrip        The winTrip flag to set.
      */
-    public LeaderBoardRow(long period, long phase, long rank, long userId, String userName, double points, double potentialPoints,
+    public LeaderBoardRow(long period, long projectTypeId, long rank, long userId, String userName, double points, double potentialPoints,
                           double pointsPrize, double placementPrize, boolean winTrip) {
         super();
         this.period = period;
-        this.phase = phase;
+        this.projectTypeId = projectTypeId;
         this.rank = rank;
         this.userId = userId;
         this.userName = userName;

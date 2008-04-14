@@ -58,7 +58,7 @@ public class RookieBoard extends BaseBoard {
         List<RookieBoardRow> results = new ArrayList<RookieBoardRow>();
         
         for (ResultSetContainer.ResultSetRow row : rsc) {
-            RookieBoardRow lbr = new RookieBoardRow(seasonId, phaseId, row.getIntItem("current_place"), row.getLongItem("coder_id"),row.getStringItem("handle"),
+            RookieBoardRow lbr = new RookieBoardRow(seasonId, projectTypeId, row.getIntItem("current_place"), row.getLongItem("coder_id"),row.getStringItem("handle"),
                      row.getDoubleItem("final_points"), row.getDoubleItem("potential_points"), 
                      row.getStringItem("current_prize") == null? 0.0 : row.getDoubleItem("current_prize"),
                      row.getIntItem("confirmed_ind") == 0);

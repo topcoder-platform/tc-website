@@ -14,9 +14,9 @@ package com.topcoder.web.tc.model.dr;
 public abstract class BaseBoardRow implements IBoardRow {
 
     /**
-     * Property containing the phase
+     * Property containing the project type
      */
-    protected long phase;
+    protected long projectTypeId;
 
     /**
      * Property containing the period
@@ -81,17 +81,17 @@ public abstract class BaseBoardRow implements IBoardRow {
     }
 
     /**
-     * @return Returns the phase.
+     * @return Returns the project type.
      */
-    public long getPhase() {
-        return phase;
+    public long getProjectTypeId() {
+        return projectTypeId;
     }
 
     /**
-     * @param phase The phase to set.
+     * @param project type The project type to set.
      */
-    public void setPhase(long phase) {
-        this.phase = phase;
+    public void setProjectTypeId(long projectTypeId) {
+        this.projectTypeId = projectTypeId;
     }
 
     /**

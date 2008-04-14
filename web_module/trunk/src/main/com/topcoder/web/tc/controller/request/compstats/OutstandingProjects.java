@@ -36,23 +36,31 @@ public class OutstandingProjects extends BaseProcessor {
      * Retrieves the current projects list for development or design for a particular coder.
      */
     protected void businessProcessing() throws Exception {
+        int projectTypeId;
         // user should be authenticated.
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-        // Phase ID and coder ID are required.
+        if (hasParameter(Constants.PHASE_ID) && !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) &&
+                !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
+            throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
+        }
+
         if (!hasParameter(Constants.PHASE_ID)) {
-            throw new TCWebException("parameter " + Constants.PHASE_ID + " expected.");
+            if (!getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(Constants.DESIGN_PROJECT_TYPE) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(Constants.DEVELOPMENT_PROJECT_TYPE) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
+                throw new TCWebException("invalid " + Constants.PROJECT_TYPE_ID + " parameter.");
+            }
+            
+            projectTypeId = Integer.parseInt(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
+        } else {
+            projectTypeId = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID)) - 111;
         }
 
         if (!hasParameter(Constants.CODER_ID)) {
             throw new TCWebException("parameter " + Constants.CODER_ID + " expected.");
-        }
-
-        if (!getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) &&
-                !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
-            throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
         // Gets the rest of the optional parameters.
@@ -74,7 +82,7 @@ public class OutstandingProjects extends BaseProcessor {
             r.setProperty(DataAccessConstants.SORT_QUERY, outstandingProjectCommand);
         }
         r.setProperty(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
-        r.setProperty(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
+        r.setProperty(Constants.PROJECT_TYPE_ID, String.valueOf(projectTypeId));
         if (hasParameter(Constants.STAGE_ID)) {
             r.setProperty(Constants.STAGE_ID, getRequest().getParameter(Constants.STAGE_ID));
         } else if (hasParameter(Constants.SEASON_ID)) {
@@ -93,9 +101,21 @@ public class OutstandingProjects extends BaseProcessor {
 
         // sets attributes for the jsp
         getRequest().setAttribute(Constants.HISTORY_LIST_KEY, history);
-        getRequest().setAttribute(Constants.TYPE_KEY,
-                (getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) ?
-                        HandleTag.DEVELOPMENT : HandleTag.DESIGN));
+        String handleType = ""; 
+        switch (projectTypeId) {
+            case 1:
+                handleType = HandleTag.DESIGN;
+                break;
+            case 2:
+                handleType = HandleTag.DEVELOPMENT;
+                break;
+            case 14:
+                handleType = HandleTag.COMPONENT;
+                break;
+        }
+        getRequest().setAttribute(Constants.TYPE_KEY, handleType);
+        getRequest().setAttribute(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
+        getRequest().setAttribute(Constants.PROJECT_TYPE_ID, projectTypeId);
 
         setNextPage(Constants.VIEW_CURRENT_PROJECTS_PAGE);
         setIsNextPageInContext(true);
