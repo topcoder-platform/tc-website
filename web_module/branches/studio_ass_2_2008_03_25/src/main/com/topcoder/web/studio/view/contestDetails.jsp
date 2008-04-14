@@ -223,13 +223,7 @@ l
             </li>
             <li>
                 <div>
-                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="icon"><img src="/i/v2/interface/2.png" alt="2" /></a>
-                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Sign & submit an Assignment Document</a> if this is your first competition.</a>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/3.png" alt="3" /></a>
+                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/2.png" alt="2" /></a>
                     <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit your entry.</a>
                 </div>
             </li>
@@ -250,13 +244,7 @@ l
             </li>
             <li>
                 <div>
-                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="icon"><img src="/i/v2/interface/2.png" alt="2" /></a>
-                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Sign & submit an Assignment Document</a> if this is your first competition.</a>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/3.png" alt="3" /></a>
+                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/2.png" alt="2" /></a>
                     <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit your entry.</a>
                 </div>
             </li>
