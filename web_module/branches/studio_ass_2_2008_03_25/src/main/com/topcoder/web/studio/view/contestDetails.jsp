@@ -82,7 +82,7 @@
     <c:if test="${contest.winnerAnnouncementTime ne null}"> 
     <tr>
         <td class="field">
-            Winner(s) Announced:
+            Winner(s)<br />Announced:
         </td>
         <td class="value">
             <tc-webtag:format object="${contest.winnerAnnouncementTime}"
