@@ -13,6 +13,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.IBoardRow;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
@@ -54,6 +55,19 @@ public class LeaderBoard extends BaseBoard {
         }
         setDefault(Constants.STAGE_ID, stageId);
 
+        // handle old assembly boards
+        if (WebConstants.ASSEMBLY_PROJECT_TYPE.equals(String.valueOf(projectTypeId)) &&
+                stageId == 5) {
+            setNextPage("/digital_run/2007dot5/asmLeaderboardS1.jsp");
+            setIsNextPageInContext(true);        
+        }
+
+        if (WebConstants.ASSEMBLY_PROJECT_TYPE.equals(String.valueOf(projectTypeId)) &&
+                stageId == 6) {
+            setNextPage("/digital_run/2007dot5/asmLeaderboardS2.jsp");
+            setIsNextPageInContext(true);        
+        }
+                
         // Get the stage and top performer contests
         int []ct = null;
 
