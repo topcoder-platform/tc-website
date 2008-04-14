@@ -26,7 +26,6 @@ public class ComponentCatalog extends Base {
     protected void businessProcessing() throws Exception {
         Request r = new Request();
         r.setContentHandle("dd_component_catalog");
-        r.setProperty(Constants.COMPONENT_ID, getRequest().getParameter(Constants.COMPONENT_ID));
 
         DataResource resource = new DataResource(r.getContentHandle(), Constants.TCS_OLTP_DATASOURCE_ID);
         if (new TCSAuthorization(getUser()).hasPermission(resource)) {
