@@ -387,8 +387,11 @@
 </tr>
 
 <studio_tags:editContestProperty name="${otherFileTypes}" title="Submission file formats"/>
-<studio_tags:editContestProperty name="${fullDescription}" title="Full Description"/>
 <studio_tags:editContestProperty name="${submissionFileFormat}" title="Notes on Submission File(s)"/>
+<studio_tags:editContestProperty name="${overviewText}" title="Contest Summary"/>
+<studio_tags:editContestProperty name="${fullDescription}" title="Full Description"/>
+<studio_tags:editContestProperty name="${eligibility}" title="Eligibility"/>
+<studio_tags:editContestProperty name="${winnerSelection}" title="Notes on Winners Selection"/>
 
 <c:set value="<%=Constants.FILE_TYPE%>" var="fileType"/>
 <tr>
@@ -513,8 +516,6 @@
 <studio_tags:editContestProperty name="${colorRequirements}" title="Notes on Colors"/>
 <studio_tags:editContestProperty name="${contentRequirements}" title="Content Requirements"/>
 <studio_tags:editContestProperty name="${otherRequirements}" title="Other Requirements"/>
-<studio_tags:editContestProperty name="${eligibility}" title="Eligibility"/>
-<studio_tags:editContestProperty name="${winnerSelection}" title="Notes on Winners Selection"/>
 
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.VIEWABLE_SUBMISSIONS%>" var="viewSubmissions"/>
 
@@ -606,7 +607,6 @@
             );
 </script>
 
-<studio_tags:editContestProperty name="${overviewText}" title="Contest Overview"/>
 <studio_tags:editContestProperty name="${prizeDesc}" title="Prize Description"/>
 
 
