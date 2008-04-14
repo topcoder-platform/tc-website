@@ -195,7 +195,7 @@
 </tr>
 <tr>
     <td class="name">
-        Contest Name:
+        Contest:
     </td>
     <td class="value" width="100%">
         <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
@@ -211,7 +211,7 @@
 </tr>
 <tr>
     <td class="name">
-        Client Name:
+        Client:
     </td>
     <td class="value" width="100%">
         <tc-webtag:textInput name="<%=Constants.CONTEST_PROPERTY + ContestProperty.CLIENT%>"/>
@@ -635,51 +635,80 @@
     
     <div class="header">Documentation</div>
 
+    <p><strong>Currently Attached</strong></p>
+
     <form action="${sessionInfo.servletPath}" method="POST" name="removeDocForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveDocument"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
         <tc-webtag:hiddenInput name="<%=Constants.DOCUMENT_ID%>"/>
 
-        <p>
+        <div id="docList">
             <c:forEach items="${contest.documents}" var="document">
-                <tc-webtag:errorIterator id="err" name="${docType}_${document.id}"><span class="bigRed">${err}</span><br /></tc-webtag:errorIterator>
-                <tc-webtag:objectSelect name="${docType}_${document.id}" list="${docTypes}" valueField="id" textField="description" useTopValue="false"/>
-                <tc-webtag:errorIterator id="err" name="${docType}_${document.id}"><span class="bigRed">${err}</span><br /></tc-webtag:errorIterator>
-                <tc-webtag:textInput name="${docDesc}_${document.id}" maxlength="<%=Constants.MAX_DOCUMENT_DESC_VALUE_LENGTH%>"/>
-                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
-                        ${document.originalFileName}</a>
-                <button onClick="updateDocument(${document.id})">
-                    Save
-                </button>
-                <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
-                    Remove
-                </button>
-                <br />
+                <div class="editConDoc">
+                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
+                        ${document.originalFileName}
+                    </a>
+                    <div class="editConDocIndent">
+                        <div>
+                            <tc-webtag:errorIterator id="err" name="${docType}_${document.id}"><span class="bigRed">${err}</span></tc-webtag:errorIterator>
+                        </div>
+                        <div>
+                            Type: <tc-webtag:objectSelect name="${docType}_${document.id}" list="${docTypes}" valueField="id" textField="description" useTopValue="false"/>
+                        </div>
+                        <div>
+                            <tc-webtag:errorIterator id="err" name="${docType}_${document.id}"><span class="bigRed">${err}</span><br /></tc-webtag:errorIterator>
+                        </div>
+                        <div>
+                            Description: <tc-webtag:textInput name="${docDesc}_${document.id}" maxlength="<%=Constants.MAX_DOCUMENT_DESC_VALUE_LENGTH%>"/>
+                        </div>
+                        <div>
+                        <button onClick="updateDocument(${document.id})">
+                            Save changes
+                        </button>
+                        <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
+                            Remove
+                        </button>
+                        </div>
+                    </div>
+                </div>
             </c:forEach>
-        </p>
+        </div>
     </form>
 
+    <p><strong>Add Document</strong></p>
 
     <form action="${sessionInfo.servletPath}" method="POST" name="addDocumentForm"
           enctype="multipart/form-data">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddDocument"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
-        <p>
-    <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
-        <br /></tc-webtag:errorIterator></span>
-        <span class="bigRed"><tc-webtag:errorIterator id="err" name="${docDesc}">${err}
-            <br /></tc-webtag:errorIterator></span>
-            <tc-webtag:objectSelect name="${docType}" list="${docTypes}" valueField="id" textField="description"/>
-            <tc-webtag:textInput name="${docDesc}"/>
-            <input type="file" name="${doc}">
-            <button name="submit" value="submit" type="submit">Add</button>
-            <br /><br />
-            Only certain file formats are accepted, if there is something you need to upload that doesn't work, ask
-            around
-            to get it added.
-        </p>
+        <div class="editConDoc">
+            <div>
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${docDesc}">${err}</tc-webtag:errorIterator></span>
+            </div>
+            <div>
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}<br /></tc-webtag:errorIterator></span>
+            </div>
+            <div>
+                File: <input type="file" name="${doc}"/>
+            </div>
+            <div class="editConDocIndent">
+                <div>
+                    Type: <tc-webtag:objectSelect name="${docType}" list="${docTypes}" valueField="id" textField="description"/>
+                </div>
+                <div>
+                    Description: <tc-webtag:textInput name="${docDesc}"/>
+                </div>
+                <div>
+                    <button name="submit" value="submit" type="submit">Add</button>
+                </div>
+            </div>
+            <p>
+                Only certain file formats are accepted, if there is something you need to upload that doesn't work, ask around to get it added.
+            </p>
+        </div>
     </form>
+
 
 
 
