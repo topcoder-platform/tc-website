@@ -74,6 +74,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static final int DESIGN_PROJECT = 1;
     private static final int DEVELOPMENT_PROJECT = 2;
     private static final double DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
+    private static final double DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT = 0.75;
 
     public static final Long COLLEGE_MAJOR_DESC = 14l;
     public static final Long DEGREE_PROGRAM = 16l;
@@ -4846,62 +4847,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new IllegalUpdateException("Data already generated for project " + projectId + "!");
         }
 
+        int projectType = getProjectType(projectId);
+
         // Get winning designers/developers to be paid for completed projects
         if (status == 7) {
-            log.info("Project complete, generating payments for winners");
-
-            StringBuffer getWinners = new StringBuffer(300);
-            getWinners.append("select pr.placed, pr.user_id, payment as paid, pcl.name ");
-            getWinners.append("from tcs_catalog:project_result pr, tcs_catalog:project p, tcs_catalog:project_category_lu pcl ");
-            getWinners.append("where pr.project_id = " + projectId + " ");
-            getWinners.append("and pr.project_id = p.project_id ");
-            getWinners.append("and p.project_category_id = pcl.project_category_id ");
-            getWinners.append("and pr.placed IN (1,2) ");
-            getWinners.append("and pr.payment > 0 ");
-            getWinners.append("order by pr.placed");
-
-            rsc = runSelectQuery(getWinners.toString());
-            for (int i = 0; i < rsc.size(); i++) {
-                long coderId = Long.parseLong(rsc.getItem(i, "user_id").toString());
-                double amount = rsc.getDoubleItem(i, "paid");
-                int placed = rsc.getIntItem(i, "placed");
-                log.info("coder: " + coderId + " placed: " + placed + " amount: " + amount);
-                payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed, devSupportCoderId, payDevSupport, devSupportProjectId));
-            }
+            payments.addAll(generateComponentUserPayments(client, projectId, devSupportCoderId, payDevSupport, devSupportProjectId, projectType));
         }
 
-        // Get review board members to be paid
-        StringBuffer getReviewers = new StringBuffer(300);
-        getReviewers.append("select ri_u.value as user_id, sum(round(ri_p.value)) as paid, max(pcl.name) as project_type_name ");
-        getReviewers.append("from tcs_catalog:project p ");
-        getReviewers.append("inner join tcs_catalog:resource r ");
-        getReviewers.append("on p.project_id = r.project_id ");
-        getReviewers.append("and (r.resource_role_id >= 2 and r.resource_role_id <= 9) ");
-        getReviewers.append("inner join tcs_catalog:resource_info ri_u ");
-        getReviewers.append("on r.resource_id = ri_u.resource_id ");
-        getReviewers.append("and ri_u.resource_info_type_id = 1 ");
-        getReviewers.append("and ri_u.value <> '0' ");
-        getReviewers.append("inner join tcs_catalog:resource_info ri_p ");
-        getReviewers.append("on r.resource_id = ri_p.resource_id ");
-        getReviewers.append("and ri_p.resource_info_type_id = 7 ");
-        getReviewers.append("inner join tcs_catalog: resource_info ri_ps "); // this is to filter by the payments that were marked as paid.
-        getReviewers.append("on r.resource_id = ri_ps.resource_id  ");
-        getReviewers.append("and ri_ps.resource_info_type_id = 8 ");
-        getReviewers.append("and ri_ps.value = 'Yes' ");
-        getReviewers.append("inner join tcs_catalog:project_category_lu pcl ");
-        getReviewers.append("on pcl.project_category_id = p.project_category_id ");
-        getReviewers.append("where p.project_id = " + projectId + " ");
-        getReviewers.append("group by ri_u.value");
-        rsc = runSelectQuery(getReviewers.toString());
-
-        for (int i = 0; i < rsc.size(); i++) {
-            long coderId = Long.parseLong(rsc.getStringItem(i, "user_id"));
-            double amount = rsc.getDoubleItem(i, "paid");
-            ReviewBoardPayment rbp = new ReviewBoardPayment(coderId, amount, client, projectId);
-
-            payments.add(rbp);
-        }
-
+        payments.addAll(generateComponentReviewerPayments(client, projectId, payDevSupport, devSupportProjectId, projectType));
+        
         return payments;
     }
 
@@ -5821,41 +5775,124 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * For a 1st place design project, it just creates a payment consisting in the 75% of the amount.
      * For a 1st place dev project, it finds the associated design project and creates a payment for the project.
      *
-     * @param coderId     coder to be paid.
-     * @param grossAmount amount to be paid.
-     * @param client      the client of the project.
-     * @param projectId   project that is being paid.
-     * @param placed      the place of the coder in the contest.
+     * @param coderId             coder to be paid.
+     * @param grossAmount         amount to be paid.
+     * @param client              the client of the project.
+     * @param projectId           project that is being paid.
+     * @param placed              the place of the coder in the contest.
+     * @param devSupportCoderId   the id of the coder that did development support, or 0 to use the designer. This parameter is just used when paying dev components.
+     * @param payDevSupport       whether to pay dev support if needed
+     * @param devSupportProjectId if dev support needs to be paid and this value is positive, that project is paid as dev support. If the value is 0, the design project
+     *                            is automatically retrieved.
      */
-    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed)
-            throws SQLException, EventFailureException {
-        return generateComponentUserPayments(coderId, grossAmount, client, projectId, placed, 0);
+    private List generateComponentUserPayments(String client, long projectId, long devSupportCoderId,
+                                              boolean payDevSupport, long devSupportProjectId, int projectType) throws SQLException, EventFailureException, DevSupportException {
+
+        log.info("Project complete, generating payments for winners");
+
+        StringBuffer getWinners = new StringBuffer(300);
+        getWinners.append("select pr.placed, pr.user_id, payment as paid, pcl.name ");
+        getWinners.append("from tcs_catalog:project_result pr, tcs_catalog:project p, tcs_catalog:project_category_lu pcl ");
+        getWinners.append("where pr.project_id = " + projectId + " ");
+        getWinners.append("and pr.project_id = p.project_id ");
+        getWinners.append("and p.project_category_id = pcl.project_category_id ");
+        getWinners.append("and pr.placed IN (1,2) ");
+        getWinners.append("and pr.payment > 0 ");
+        getWinners.append("order by pr.placed");
+
+        List l = new ArrayList();
+
+        ResultSetContainer rsc = runSelectQuery(getWinners.toString());
+        for (int i = 0; i < rsc.size(); i++) {
+            long coderId = Long.parseLong(rsc.getItem(i, "user_id").toString());
+            double grossAmount = rsc.getDoubleItem(i, "paid");
+            int placed = rsc.getIntItem(i, "placed");
+            log.info("coder: " + coderId + " placed: " + placed + " amount: " + grossAmount);
+
+            // If it's not first place, just add the payment to the list and return it.
+            if (placed != 1) {
+                ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
+                l.add(cwp);
+                return l;
+            }
+    
+            if (projectType == DESIGN_PROJECT) {
+                BasePayment p = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
+                p.setGrossAmount(grossAmount * DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT);
+                l.add(p);
+            } else if (projectType == DEVELOPMENT_PROJECT) {
+                // add the development payment as it is
+                ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
+                l.add(cwp);
+    
+                if (payDevSupport) {
+                    long designProject = devSupportProjectId > 0 ? devSupportProjectId : getDesignProject(projectId);
+                    log.info("1st place for dev project, will pay 2nd installment to project id: " + designProject);
+    
+                    if (designProject <= 0) {
+                        throw new DevSupportException("Can't find a design project for dev project " + projectId);
+                    }
+    
+                    l.addAll(generateUserDevSupportPayments(devSupportCoderId, designProject));
+                }    
+            } else throw new IllegalArgumentException("Project " + projectId + " not found or is not a dev/des component");
+        } 
+        return l;
     }
 
-    /**
-     * Create payments for a design/dev project.
-     * For a 1st place design project, it just creates a payment consisting in the 75% of the amount.
-     * For a 1st place dev project, it finds the associated design project and creates a payment for the project.
-     *
-     * @param coderId           coder to be paid.
-     * @param grossAmount       amount to be paid.
-     * @param client            the client of the project.
-     * @param projectId         project that is being paid.
-     * @param devSupportCoderId the id of the coder that did development support, or 0 to use the designer. This parameter is just used when paying dev components.
-     * @param placed            the place of the coder in the contest.
-     */
-    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId)
-            throws SQLException, EventFailureException {
-        try {
-            return generateComponentUserPayments(coderId, grossAmount, client, projectId, placed, devSupportCoderId, true, 0);
-        } catch (DevSupportException e) {
-            // Done this way in order to avoid changing the interface
-            throw new IllegalArgumentException(e);
+    private List generateUserDevSupportPayments(long devSupportCoderId,
+            long designProject) throws SQLException, DevSupportException {
+
+        List l = new ArrayList();
+
+        String query = "SELECT sum(gross_amount) as amount_paid " +
+                "     , max(total_amount) as total_amount " +
+                "     , max(installment_number) as installment_number " +
+                "       , max(client) as client " +
+                "       , max(user_id) as user_id " +
+                "       , max(payment_method_id) as payment_method_id " +
+                " FROM payment p, payment_detail pd " +
+                " WHERE p.most_recent_detail_id = pd.payment_detail_id " +
+                " AND pd.payment_type_id = " + Constants.COMPONENT_PAYMENT + " " +
+                " AND pd.component_project_id = " + designProject +
+                " AND gross_amount <> total_amount ";
+   
+        ResultSetContainer rsc = runSelectQuery(query);
+   
+        if (rsc.getItem(0, "amount_paid").getResultData() == null) {
+            throw new DevSupportException("Can't find any previous payment for design project " + designProject);
         }
+   
+        int installment = rsc.getIntItem(0, "installment_number") + 1;
+        double totalAmount = rsc.getDoubleItem(0, "total_amount");
+        double paid = rsc.getDoubleItem(0, "amount_paid");
+        String client2 = rsc.getStringItem(0, "client");
+        long coderId2 = rsc.getLongItem(0, "user_id");
+        int methodId = rsc.getIntItem(0, "payment_method_id");
+   
+        log.info("installment: " + installment + " total: " + totalAmount + " paid: " + paid);
+        if (totalAmount > paid) {
+            if (devSupportCoderId > 0) {
+                coderId2 = devSupportCoderId;
+            }
+   
+            // create the design project
+            BasePayment p = new ComponentWinningPayment(coderId2, totalAmount, client2, designProject, 1);
+            p.setGrossAmount(totalAmount - paid);
+            p.setInstallmentNumber(installment);
+   
+            if (devSupportCoderId == 0) {
+                p.setMethodId(methodId);
+            }
+            log.info("Pay to: " + coderId2 + " $ " + (totalAmount - paid) + " for project " + designProject);
+            l.add(p);
+        }
+        
+        return l;
     }
 
     /**
-     * Create payments for a design/dev project.
+     * Create payments for a design/dev project. For reviewers.
      * For a 1st place design project, it just creates a payment consisting in the 75% of the amount.
      * For a 1st place dev project, it finds the associated design project and creates a payment for the project.
      *
@@ -5869,84 +5906,107 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param devSupportProjectId if dev support needs to be paid and this value is positive, that project is paid as dev support. If the value is 0, the design project
      *                            is automatically retrieved.
      */
-    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId,
-                                              boolean payDevSupport, long devSupportProjectId) throws SQLException, EventFailureException, DevSupportException {
-        int projectType = getProjectType(projectId);
-
+    private List generateComponentReviewerPayments(String client, long projectId,
+            boolean payDevSupport, long devSupportProjectId, int projectType) throws SQLException, EventFailureException, DevSupportException {
 
         List l = new ArrayList();
 
-        // If it's not first place, just add the payment to the list and return it.
-        if (placed != 1) {
-            ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
-            l.add(cwp);
-            return l;
+        // Get review board members to be paid
+        StringBuffer getReviewers = new StringBuffer(300);
+        getReviewers.append("select ri_u.value as user_id, sum(round(ri_p.value)) as paid, max(pcl.name) as project_type_name ");
+        getReviewers.append("from tcs_catalog:project p ");
+        getReviewers.append("inner join tcs_catalog:resource r ");
+        getReviewers.append("on p.project_id = r.project_id ");
+        getReviewers.append("and (r.resource_role_id >= 2 and r.resource_role_id <= 9) ");
+        getReviewers.append("inner join tcs_catalog:resource_info ri_u ");
+        getReviewers.append("on r.resource_id = ri_u.resource_id ");
+        getReviewers.append("and ri_u.resource_info_type_id = 1 ");
+        getReviewers.append("and ri_u.value <> '0' ");
+        getReviewers.append("inner join tcs_catalog:resource_info ri_p ");
+        getReviewers.append("on r.resource_id = ri_p.resource_id ");
+        getReviewers.append("and ri_p.resource_info_type_id = 7 ");
+        getReviewers.append("inner join tcs_catalog: resource_info ri_ps "); // this is to filter by the payments that were marked as paid.
+        getReviewers.append("on r.resource_id = ri_ps.resource_id  ");
+        getReviewers.append("and ri_ps.resource_info_type_id = 8 ");
+        getReviewers.append("and ri_ps.value = 'Yes' ");
+        getReviewers.append("inner join tcs_catalog:project_category_lu pcl ");
+        getReviewers.append("on pcl.project_category_id = p.project_category_id ");
+        getReviewers.append("where p.project_id = " + projectId + " ");
+        getReviewers.append("group by ri_u.value");
+        ResultSetContainer rsc = runSelectQuery(getReviewers.toString());
+
+        for (int i = 0; i < rsc.size(); i++) {
+            long coderId = Long.parseLong(rsc.getStringItem(i, "user_id"));
+            double grossAmount = rsc.getDoubleItem(i, "paid");
+
+            ReviewBoardPayment p = null; 
+            if (projectType == DESIGN_PROJECT) {
+                p = new ReviewBoardPayment(coderId, grossAmount, client, projectId);
+                p.setGrossAmount(grossAmount * DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT);
+            } else if (projectType == DEVELOPMENT_PROJECT) {
+                p = new ReviewBoardPayment(coderId, grossAmount, client, projectId);
+            }
+            
+            if (p != null) {
+                l.add(p);
+            }
         }
 
-        if (projectType == DESIGN_PROJECT) {
-            BasePayment p = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
-            p.setGrossAmount(grossAmount * DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT);
-            l.add(p);
-        } else if (projectType == DEVELOPMENT_PROJECT) {
-            // add the development payment as it is
-            ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
-            l.add(cwp);
+        if (projectType == DEVELOPMENT_PROJECT && payDevSupport) {
+            long designProject = devSupportProjectId > 0 ? devSupportProjectId : getDesignProject(projectId);
+            log.info("paying reviewers development support for original design: " + designProject);
 
-            if (payDevSupport) {
-                long designProject = devSupportProjectId > 0 ? devSupportProjectId : getDesignProject(projectId);
-                log.info("1st place for dev project, will pay 2nd installment to project id: " + designProject);
-
-                if (designProject <= 0) {
-                    throw new DevSupportException("Can't find a design project for dev project " + projectId);
-                }
-
-                String query = "SELECT sum(gross_amount) as amount_paid " +
-                        "     , max(total_amount) as total_amount " +
-                        "     , max(installment_number) as installment_number " +
-                        "       , max(client) as client " +
-                        "       , max(user_id) as user_id " +
-                        "       , max(payment_method_id) as payment_method_id " +
-                        " FROM payment p, payment_detail pd " +
-                        " WHERE p.most_recent_detail_id = pd.payment_detail_id " +
-                        " AND pd.payment_type_id = 6 " +
-                        " AND pd.component_project_id = " + designProject +
-                        " AND gross_amount <> total_amount ";
-
-                ResultSetContainer rsc = runSelectQuery(query);
-
-                if (rsc.getItem(0, "amount_paid").getResultData() == null) {
-                    throw new DevSupportException("Can't find any previous payment for design project " + designProject);
-                }
-
-                int installment = rsc.getIntItem(0, "installment_number") + 1;
-                double totalAmount = rsc.getDoubleItem(0, "total_amount");
-                double paid = rsc.getDoubleItem(0, "amount_paid");
-                String client2 = rsc.getStringItem(0, "client");
-                long coderId2 = rsc.getLongItem(0, "user_id");
-                int methodId = rsc.getIntItem(0, "payment_method_id");
-
-                log.info("installment: " + installment + " total: " + totalAmount + " paid: " + paid);
-                if (totalAmount > paid) {
-                    if (devSupportCoderId > 0) {
-                        coderId2 = devSupportCoderId;
-                    }
-
-                    // create the design project
-                    BasePayment p = new ComponentWinningPayment(coderId2, totalAmount, client2, designProject, 1);
-                    p.setGrossAmount(totalAmount - paid);
-                    p.setInstallmentNumber(installment);
-
-                    if (devSupportCoderId == 0) {
-                        p.setMethodId(methodId);
-                    }
-                    log.info("Pay to: " + coderId2 + " $ " + (totalAmount - paid) + " for project " + designProject);
-                    l.add(p);
-                }
-
-
+            if (designProject <= 0) {
+                throw new DevSupportException("Can't find a design project for dev project " + projectId);
             }
-        } else throw new IllegalArgumentException("Project " + projectId + " not found or is not a dev/des component");
 
+            l.addAll(generateReviewersDevSupportPayments(designProject));
+        }    
+
+        return l;
+    }
+
+    private List generateReviewersDevSupportPayments(long designProject) throws SQLException, DevSupportException {
+
+        List l = new ArrayList();
+
+        String query = "SELECT sum(gross_amount) as amount_paid " +
+                "     , max(total_amount) as total_amount " +
+                "     , max(installment_number) as installment_number " +
+                "       , max(client) as client " +
+                "       , user_id " +
+                "       , max(payment_method_id) as payment_method_id " +
+                " FROM payment p, payment_detail pd " +
+                " WHERE p.most_recent_detail_id = pd.payment_detail_id " +
+                " AND pd.payment_type_id = " + Constants.REVIEW_BOARD_PAYMENT + " " +
+                " AND pd.component_project_id = " + designProject +
+                " AND gross_amount <> total_amount " +
+                " group by user_id ";
+   
+        ResultSetContainer rsc = runSelectQuery(query);
+   
+        if (rsc.getItem(0, "amount_paid").getResultData() == null) {
+            throw new DevSupportException("Can't find any previous payment for design project " + designProject);
+        }
+   
+        int installment = rsc.getIntItem(0, "installment_number") + 1;
+        double totalAmount = rsc.getDoubleItem(0, "total_amount");
+        double paid = rsc.getDoubleItem(0, "amount_paid");
+        String client2 = rsc.getStringItem(0, "client");
+        long coderId2 = rsc.getLongItem(0, "user_id");
+        int methodId = rsc.getIntItem(0, "payment_method_id");
+   
+        log.info("installment: " + installment + " total: " + totalAmount + " paid: " + paid);
+        if (totalAmount > paid) {   
+            // create the design project
+            BasePayment p = new ComponentWinningPayment(coderId2, totalAmount, client2, designProject, 1);
+            p.setGrossAmount(totalAmount - paid);
+            p.setInstallmentNumber(installment);
+            p.setMethodId(methodId);
+            log.info("Pay to: " + coderId2 + " $ " + (totalAmount - paid) + " for project " + designProject);
+            l.add(p);
+        }
+        
         return l;
     }
 
