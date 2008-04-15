@@ -19,7 +19,7 @@
 
   
      <c:choose>
-            <c:when test="${(type == REVIEW_BOARD_PAYMENT or (type == COMPONENT_WINNING and (placed == 1 or isUpdating))) and isDesign}">
+            <c:when test="${(type == REVIEW_BOARD or (type == COMPONENT_WINNING and (placed == 1 or isUpdating))) and isDesign}">
 			    <taconite-replace contextNodeID="trAmount1" parseInBrowser="true">
 			        <tr id="trAmount1">
 			        <td><b>Total Gross Amount:</b></td>

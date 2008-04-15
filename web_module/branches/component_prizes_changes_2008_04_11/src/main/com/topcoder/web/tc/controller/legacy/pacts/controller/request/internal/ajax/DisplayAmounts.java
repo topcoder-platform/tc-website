@@ -29,6 +29,7 @@ public class DisplayAmounts extends BaseProcessor implements PactsConstants {
             getRequest().setAttribute("placed", placed + "");
             
             log.debug("isDesign: " + String.valueOf(isDesign));
+            log.debug("type: " + type);
             
             getRequest().setAttribute("isDesign", String.valueOf(isDesign));
             getRequest().setAttribute("isUpdating", String.valueOf(isUpdating));
