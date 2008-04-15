@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />04.15.08<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">AIM Apps by TopCoder Members, for TopCoder Members</a></span><br /><br />
+        With less than three weeks to go in the $100,000 Open AIM Developer Challenge, the submissions from your fellow TopCoder members are coming in fast and furious. While it is still not too late to take a shot at one of the nine, $10,000 prizes, you may just want to take a look at some of the recent apps that may appeal to TC coders, including <a href="/openaim/?myframe=2008/04/11/popschat-an-aim-plugin-for-the-topcoder-arena/">PopsChat</a> (an AIM plugin for the TopCoder Arena), <a href="/openaim/?myframe=2008/04/15/from-aim-to-the-database-with-aimysql/">AIMySQL</a>, <a href="/openaim/?myframe=2008/04/13/test-your-code-in-aim-with-coderemote/">CodeRemote</a>, and others. Good luck everyone!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">details</a> | 
+        <a href="/openaim/forums">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />04.14.08<br />10:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=MatchDetails&amp;rd=12170">SRM 398 is sponsored by Eli Lilly</a></span><br /><br />
@@ -64,7 +77,7 @@
    
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Tournament News" border="0" /><br />04.07.08<br />2:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />04.07.08<br />2:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">One Month Into the Open AIM Developer Challenge</a></span><br /><br />
         We're one month in with one month to go in the $100,000 Open AIM Developer Challenge. Already we have seen some great submissions by TopCoder members to this exciting competition, but it's not too late for you to get in on the action as well. Check out <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">topcoder.com/openaim</a> for all the details, or just browse all the <a href="/openaim/?myframe=category/all-submissions">cool apps</a> that have been submitted thus far – because even if you don't compete, we'll be asking you to vote for your favorite at the end of the competition!</td>
@@ -155,17 +168,3 @@
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />03.25.08<br />5:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://blogs.zdnet.com/enterprisealley/?p=124' refer='/tc' />">ZDNet - TopCoder: breaking the development cost rules</a></span><br /><br />
-        The company takes the idea of community, applies a heavy dose of competition for skills and then applies that formula to the business of development.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://blogs.zdnet.com/enterprisealley/?p=124' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="520572" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
