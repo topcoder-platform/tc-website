@@ -30,6 +30,7 @@
         <strong>Browse:</strong>
         <a href="/openaim/?myframe=category%2fall-submissions%2f">all submissions</a>,
         <a href="/openaim/?myframe=category%2fanswers%2f">answers</a>,
+        <a href="/openaim/?myframe=category%2fblogging%2f">blogging</a>,
         <a href="/openaim/?myframe=category%2fbots%2f">bots</a>,
         <a href="/openaim/?myframe=category%2fcalculators%2f">calculators</a>,
         <a href="/openaim/?myframe=category%2fcoding%2f">coding</a>,
@@ -39,6 +40,7 @@
         <a href="/openaim/?myframe=category%2ffonts%2f">fonts</a>,
         <a href="/openaim/?myframe=category%2fgames%2f">games</a>,
         <a href="/openaim/?myframe=category%2flinks%2f">links</a>,
+        <a href="/openaim/?myframe=category%2fMySQL%2f">MySQL</a>,
         <a href="/openaim/?myframe=category%2fnews%2f">news</a>,
         <a href="/openaim/?myframe=category%2fplugins%2f">plugins</a>,
         <a href="/openaim/?myframe=category%2frss%2f">rss</a>,
@@ -46,10 +48,10 @@
         <a href="/openaim/?myframe=category%2fTopCoder-arena%2f">TopCoder-arena</a>,
         <a href="/openaim/?myframe=category%2ftranslation%2f">translation</a>,
         <a href="/openaim/?myframe=category%2ftyping%2f">typing</a>,
+        <a href="/openaim/?myframe=category%2fupdated%2f">updated</a>,
         <a href="/openaim/?myframe=category%2fvideo%2f">video</a>,
         <a href="/openaim/?myframe=category%2fvoice%2f">voice</a>,
         <a href="/openaim/?myframe=category%2fweb-applications%2f">web applications</a>
-
     </div>
 
 </div>
