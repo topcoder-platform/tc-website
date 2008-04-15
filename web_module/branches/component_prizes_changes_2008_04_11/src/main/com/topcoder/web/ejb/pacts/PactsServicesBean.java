@@ -4833,7 +4833,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     private List generateComponentPayments(long projectId, long status, String client, boolean payDevSupport, long devSupportCoderId, long devSupportProjectId)
             throws IllegalUpdateException, SQLException, EventFailureException {
-        log.debug("generateComponentPayments called...");
+        log.debug("NEW !!!!!!!!!!!!!!!!!! generateComponentPayments called...");
         List payments = new ArrayList();
 
         // Make sure we haven't done this before for this project.
