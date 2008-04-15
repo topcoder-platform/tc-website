@@ -30,6 +30,8 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
 import javax.ejb.EJBException;
 import javax.ejb.SessionContext;
+
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -4851,7 +4853,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         // Get winning designers/developers to be paid for completed projects
         if (status == 7) {
-            payments.addAll(generateComponentUserPayments(client, projectId, devSupportCoderId, payDevSupport, devSupportProjectId, projectType));
+            payments.addAll(generateComponentUserPayments(0, client, projectId, devSupportCoderId, payDevSupport, devSupportProjectId, projectType));
         }
 
         payments.addAll(generateComponentReviewerPayments(client, projectId, payDevSupport, devSupportProjectId, projectType));
@@ -5770,6 +5772,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return rsc.size() == 0 ? -1 : rsc.getIntItem(0, 0);
     }
 
+    // this just generates one payment
+    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws RemoteException, SQLException, EventFailureException, DevSupportException {
+        return generateComponentUserPayments(coderId, client, projectId, devSupportCoderId, true, 0l, getProjectType(projectId));
+    }
+
     /**
      * Create payments for a design/dev project.
      * For a 1st place design project, it just creates a payment consisting in the 75% of the amount.
@@ -5785,10 +5792,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param devSupportProjectId if dev support needs to be paid and this value is positive, that project is paid as dev support. If the value is 0, the design project
      *                            is automatically retrieved.
      */
-    private List generateComponentUserPayments(String client, long projectId, long devSupportCoderId,
+    private List generateComponentUserPayments(long coderId, String client, long projectId, long devSupportCoderId,
                                               boolean payDevSupport, long devSupportProjectId, int projectType) throws SQLException, EventFailureException, DevSupportException {
 
-        log.info("Project complete, generating payments for winners");
+            log.info("Project complete, generating payments for winners");
 
         StringBuffer getWinners = new StringBuffer(300);
         getWinners.append("select pr.placed, pr.user_id, payment as paid, pcl.name ");
@@ -5798,31 +5805,34 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getWinners.append("and p.project_category_id = pcl.project_category_id ");
         getWinners.append("and pr.placed IN (1,2) ");
         getWinners.append("and pr.payment > 0 ");
+        if (coderId > 0) {
+            getWinners.append("and p.user_id = " + coderId);
+        }        
         getWinners.append("order by pr.placed");
 
         List l = new ArrayList();
 
         ResultSetContainer rsc = runSelectQuery(getWinners.toString());
         for (int i = 0; i < rsc.size(); i++) {
-            long coderId = Long.parseLong(rsc.getItem(i, "user_id").toString());
+            long userId = Long.parseLong(rsc.getItem(i, "user_id").toString());
             double grossAmount = rsc.getDoubleItem(i, "paid");
             int placed = rsc.getIntItem(i, "placed");
-            log.info("coder: " + coderId + " placed: " + placed + " amount: " + grossAmount);
+            log.info("coder: " + userId + " placed: " + placed + " amount: " + grossAmount);
 
             // If it's not first place, just add the payment to the list and return it.
             if (placed != 1) {
-                ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
+                ComponentWinningPayment cwp = new ComponentWinningPayment(userId, grossAmount, client, projectId, placed);
                 l.add(cwp);
                 return l;
             }
     
             if (projectType == DESIGN_PROJECT) {
-                BasePayment p = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
+                BasePayment p = new ComponentWinningPayment(userId, grossAmount, client, projectId, placed);
                 p.setGrossAmount(grossAmount * DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT);
                 l.add(p);
             } else if (projectType == DEVELOPMENT_PROJECT) {
                 // add the development payment as it is
-                ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
+                ComponentWinningPayment cwp = new ComponentWinningPayment(userId, grossAmount, client, projectId, placed);
                 l.add(cwp);
     
                 if (payDevSupport) {
@@ -5839,7 +5849,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } 
         return l;
     }
-
+    
     private List generateUserDevSupportPayments(long devSupportCoderId,
             long designProject) throws SQLException, DevSupportException {
 

@@ -1414,11 +1414,6 @@ public class DataInterfaceBean implements PactsConstants {
     }
 
 
-    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws RemoteException, SQLException, EventFailureException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.generateComponentUserPayments(coderId, grossAmount, client, projectId, placed);
-    }
-
     public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws RemoteException, SQLException, EventFailureException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.generateComponentUserPayments(coderId, grossAmount, client, projectId, placed, devSupportCoderId);
