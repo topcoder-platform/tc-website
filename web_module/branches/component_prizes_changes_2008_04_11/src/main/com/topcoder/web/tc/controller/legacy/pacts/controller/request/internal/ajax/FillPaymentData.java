@@ -46,8 +46,10 @@ public class FillPaymentData extends BaseProcessor implements PactsConstants {
 
             if (payment instanceof ComponentWinningPayment || payment instanceof ReviewBoardPayment) {
             	getRequest().setAttribute("isDesign", ((ComponentProjectReferencePayment) payment).isDesign() + "");
+            	log.debug("is component or review and isDesign");
             } else {
             	getRequest().setAttribute("isDesign", "");
+                log.debug("is not component or review and isDesign");
             }
             
             setNextPage(INTERNAL_AJAX_FILL_PAYMENT_DATA);
