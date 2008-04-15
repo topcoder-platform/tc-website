@@ -4,6 +4,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.datafeed.AllColumns;
+import com.topcoder.web.common.datafeed.CommaExpander;
 import com.topcoder.web.common.datafeed.CommandRunner;
 import com.topcoder.web.common.datafeed.DataFeeder;
 import com.topcoder.web.common.datafeed.RSCDataFeed;
@@ -37,6 +38,7 @@ public class ComponentCatalog extends Base {
             // Add general project information
             RSCDataFeed compCatalog = new RSCDataFeed(null, "component", cmd, "dd_component_catalog");
             AllColumns ac = new AllColumns("N/A");
+            ac.replace("category_list", new CommaExpander("category_list", "categories", "category"));
             compCatalog.add(ac);
 
             df.add(compCatalog);
