@@ -4,7 +4,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br />04.14.08<br />10:30 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />04.14.08<br />10:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=MatchDetails&amp;rd=12170">SRM 398 is sponsored by Eli Lilly</a></span><br /><br />
         Join Lilly representatives in the arena one hour prior to the match for a discussion about thier job opportunities in Asia.  <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly">Learn more</a>
@@ -13,7 +13,7 @@
    <tr><td class="newsLinksCell">
         <a href="/tc?module=MatchDetails&amp;rd=12170">details</a> | 
         <tc-webtag:forumLink forumID="516707" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_alg">archive</a>
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
 <%--------------------------------------------------------%>
