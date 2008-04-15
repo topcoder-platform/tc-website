@@ -5773,8 +5773,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     // this just generates one payment
-    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws RemoteException, SQLException, EventFailureException, DevSupportException {
-        return generateComponentUserPayments(coderId, client, projectId, devSupportCoderId, true, 0l, getProjectType(projectId));
+    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws RemoteException, SQLException, EventFailureException {
+        try {
+            return generateComponentUserPayments(coderId, client, projectId, devSupportCoderId, true, 0l, getProjectType(projectId));
+        } catch (DevSupportException e) {
+            // Done this way in order to avoid changing the interface
+            throw new IllegalArgumentException(e);
+        }
     }
 
     /**
