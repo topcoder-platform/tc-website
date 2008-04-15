@@ -74,6 +74,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static final int DESIGN_PROJECT = 1;
     private static final int DEVELOPMENT_PROJECT = 2;
     private static final double DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
+    private static final double DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT = 0.75;
 
     public static final Long COLLEGE_MAJOR_DESC = 14l;
     public static final Long DEGREE_PROGRAM = 16l;
@@ -4897,9 +4898,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         for (int i = 0; i < rsc.size(); i++) {
             long coderId = Long.parseLong(rsc.getStringItem(i, "user_id"));
             double amount = rsc.getDoubleItem(i, "paid");
-            ReviewBoardPayment rbp = new ReviewBoardPayment(coderId, amount, client, projectId);
 
-            payments.add(rbp);
+            ReviewBoardPayment p = null; 
+            int projectType = getProjectType(projectId);
+
+            if (projectType == DESIGN_PROJECT) {
+                p = new ReviewBoardPayment(coderId, amount, client, projectId);
+                p.setGrossAmount(amount * DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT);
+            } else if (projectType == DEVELOPMENT_PROJECT) {
+                p = new ReviewBoardPayment(coderId, amount, client, projectId);
+            }
+
+            payments.add(p);
         }
 
         return payments;
@@ -5908,7 +5918,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         "       , max(payment_method_id) as payment_method_id " +
                         " FROM payment p, payment_detail pd " +
                         " WHERE p.most_recent_detail_id = pd.payment_detail_id " +
-                        " AND pd.payment_type_id = 6 " +
+                        " AND pd.payment_type_id = " + Constants.COMPONENT_PAYMENT + " " +
                         " AND pd.component_project_id = " + designProject +
                         " AND gross_amount <> total_amount ";
 
@@ -5943,10 +5953,56 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     l.add(p);
                 }
 
+                l.addAll(generateReviewersDevSupportPayments(designProject));
 
             }
         } else throw new IllegalArgumentException("Project " + projectId + " not found or is not a dev/des component");
 
+        return l;
+    }
+
+    private List generateReviewersDevSupportPayments(long designProject) throws SQLException, DevSupportException {
+
+        List l = new ArrayList();
+
+        String query = "SELECT sum(gross_amount) as amount_paid " +
+                "     , max(total_amount) as total_amount " +
+                "     , max(installment_number) as installment_number " +
+                "       , max(client) as client " +
+                "       , user_id " +
+                "       , max(payment_method_id) as payment_method_id " +
+                " FROM payment p, payment_detail pd " +
+                " WHERE p.most_recent_detail_id = pd.payment_detail_id " +
+                " AND pd.payment_type_id = " + Constants.REVIEW_BOARD_PAYMENT + " " +
+                " AND pd.component_project_id = " + designProject +
+                " AND gross_amount <> total_amount " +
+                " group by user_id ";
+   
+        ResultSetContainer rsc = runSelectQuery(query);
+   
+        for (ResultSetRow rsr : rsc) {
+            if (rsr.getItem("amount_paid").getResultData() == null) {
+                throw new DevSupportException("Can't find any previous payment for design project " + designProject);
+            }
+       
+            int installment = rsr.getIntItem("installment_number") + 1;
+            double totalAmount = rsr.getDoubleItem("total_amount");
+            double paid = rsr.getDoubleItem("amount_paid");
+            String client2 = rsr.getStringItem("client");
+            long coderId2 = rsr.getLongItem("user_id");
+            int methodId = rsr.getIntItem("payment_method_id");
+       
+            log.info("installment: " + installment + " total: " + totalAmount + " paid: " + paid);
+            if (totalAmount > paid) {   
+                BasePayment p = new ReviewBoardPayment(coderId2, totalAmount, client2, designProject);
+                p.setGrossAmount(totalAmount - paid);
+                p.setInstallmentNumber(installment);
+                p.setMethodId(methodId);
+                log.info("Pay to: " + coderId2 + " $ " + (totalAmount - paid) + " for project " + designProject);
+                l.add(p);
+            }
+        }
+        
         return l;
     }
 
