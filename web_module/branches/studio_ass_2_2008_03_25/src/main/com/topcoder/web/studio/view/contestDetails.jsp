@@ -103,8 +103,9 @@
                             <p>
                                 <strong><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">${document.originalFileName}</a></strong>
                                 <br /><em>${document.type.description}</em>
-                                <%-- EXCLUDE THE FOLLOWING LINE IF THERE IS NO DESCRIPTION --%>
-                                <br />Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed dui. Donec ultricies tincidunt ligula. Sed auctor tellus quis lacus. Fusce ultricies interdum nisl. Praesent quis orci. Integer in nibh et nisi aliquet hendrerit.
+                                <c:if test="${not empty document.description}">
+                                    <br />${document.description}
+                                </c:if>
                             </p>
                         </c:forEach>
                     </c:when>
