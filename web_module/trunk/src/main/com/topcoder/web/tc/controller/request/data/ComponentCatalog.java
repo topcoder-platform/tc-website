@@ -30,7 +30,7 @@ public class ComponentCatalog extends Base {
 
         DataResource resource = new DataResource(r.getContentHandle(), Constants.TCS_OLTP_DATASOURCE_ID);
         if (new TCSAuthorization(getUser()).hasPermission(resource)) {
-            DataAccessInt da = getDataAccess(BasicData.getDataSource(Constants.TCS_OLTP_DATASOURCE_ID), false);
+            DataAccessInt da = getDataAccess(BasicData.getDataSource(Constants.TCS_OLTP_DATASOURCE_ID), true);
             CommandRunner cmd = new CommandRunner(da, r);
 
             DataFeeder df = new DataFeeder("component_catalog");
