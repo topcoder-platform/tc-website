@@ -99,6 +99,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- PricewaterhouseCoopers - TopCoder's network drives innovation begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/pwc_20080415.pdf' refer='pr_index' />"><img src="/i/pressroom/pwc_logo.png" alt="PricewaterhouseCoopers logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.globalbestpractices.com/Home/Document.aspx?Q=273,4383,205,3FB60597-A4BD-47AA-9F61-3E96E6E3E10D' refer='pr_index' />">TopCoder's network drives innovation</a></h3>
+                        <p>Innovation requires a sophisticated awareness of myriad resources that can influence new product and service development.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.globalbestpractices.com/Home/Document.aspx?Q=273,4383,205,3FB60597-A4BD-47AA-9F61-3E96E6E3E10D' refer='pr_index' />">[April 15]</a> | <a target="_blank" href="/i/pressroom/pdfs/pwc_20080415.pdf">PDF</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- PricewaterhouseCoopers - TopCoder's network drives innovation end --%>
+                
                 <%-- ZDNet - TopCoder: breaking the development cost rules begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">

@@ -73,6 +73,7 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd>TopCoder's network drives innovation [April 15 - PricewaterhouseCoopers] <br /><a target="_blank" href="<tc-webtag:linkTracking link='http://www.globalbestpractices.com/Home/Document.aspx?Q=273,4383,205,3FB60597-A4BD-47AA-9F61-3E96E6E3E10D' refer='art_archive' />">original article</a> | <a target="_blank" href="/i/pressroom/pdfs/pwc_20080415.pdf">PDF</a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://blogs.zdnet.com/enterprisealley/?p=124' refer='art_archive' />">TopCoder: breaking the development cost rules <br /><small style="margin-left:10px;">[March 25 - ZDNet]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://reddevnews.com/qandas/article.aspx?editorialsid=123' refer='art_archive' />">Open Counsel <br /><small style="margin-left:10px;">[March 24 - Redmond Developer News]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_032408">Multicore boom needs new developer skills <br /><small style="margin-left:10px;">[March 24 - washingtonpost.com]</small></a></dd>
