@@ -38,7 +38,8 @@ public class ViewExampleResults extends Base {
             if (getUser().getId()==Long.parseLong(coder) ||
                     isRoundOver(Long.parseLong(round)) ||
                     roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID ||
-                    roundType==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
+                    roundType==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID ||
+                    roundType==Constants.AMD_LONG_PRACTICE_ROUND_TYPE_ID) {
                 Request r = new Request();
                 r.setContentHandle("long_contest_example_results");
                 r.setProperty(Constants.CODER_ID, coder);

@@ -104,7 +104,8 @@ public class Submit extends Base {
             int roundTypeID = info.getIntItem(0, "round_type_id");
 
             boolean practiceRound = (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID ||
-                    roundTypeID == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID);
+                    roundTypeID == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID ||
+                    roundTypeID ==Constants.AMD_LONG_PRACTICE_ROUND_TYPE_ID);
 
             // If the user is not registered s/he cannot submit code, unless this is a practice round.
             if (!practiceRound && !isUserRegistered(uid, rid)) {
@@ -336,7 +337,8 @@ public class Submit extends Base {
         log.debug("isNearEnd called on round: " + roundId);
         ResultSetContainer rsc = getRoundInfo(roundId);
         if (rsc.getIntItem(0, "round_type_id") == Constants.LONG_PRACTICE_ROUND_TYPE_ID ||
-                rsc.getIntItem(0, "round_type_id") == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
+                rsc.getIntItem(0, "round_type_id") == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID ||
+                rsc.getIntItem(0, "round_type_id") == Constants.AMD_LONG_PRACTICE_ROUND_TYPE_ID) {
             return false;
         } else {
             long end = rsc.getTimestampItem(0, "end_time").getTime();
