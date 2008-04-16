@@ -56,8 +56,8 @@ public class WebResponsePool extends ResponsePool {
                     //print something out to the client every DEFAULT_PRINT_WAIT so that it doesn't time out
                     long curr = System.currentTimeMillis();
                     if ((lastPrint+DEFAULT_PRINT_WAIT)<curr) {
-                        response.getWriter().print(SPACE);
-                        response.getWriter().flush();
+                            response.getWriter().print(SPACE);
+                            response.getWriter().flush();
                         lastPrint =curr;
                     }
                     wait(waitTime);

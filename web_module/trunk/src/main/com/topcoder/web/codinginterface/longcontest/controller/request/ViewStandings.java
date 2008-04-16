@@ -59,7 +59,8 @@ public class ViewStandings extends Base {
                 Request r = new Request();
 
                 if (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID ||
-                        roundTypeID == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
+                        roundTypeID == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID ||
+                        roundTypeID == Constants.AMD_LONG_PRACTICE_ROUND_TYPE_ID) {
                     r.setContentHandle("long_contest_round_practice_standings");
                     //r.setProperty(DataAccessConstants.SORT_QUERY, "long_contest_round_practice_standings");
                 } else {
@@ -89,7 +90,9 @@ public class ViewStandings extends Base {
 
                 // If this is a practice contest than let it pass
 
-                if (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID || roundTypeID == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
+                if (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID ||
+                        roundTypeID == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID ||
+                        roundTypeID == Constants.AMD_LONG_PRACTICE_ROUND_TYPE_ID) {
                     started = true;
                     over = false;
                 }
@@ -105,7 +108,9 @@ public class ViewStandings extends Base {
                 } else {
                     // Get contest's name
                     ResultSetContainer standings;
-                    if (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID || roundTypeID == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
+                    if (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID ||
+                            roundTypeID == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID ||
+                            roundTypeID == Constants.AMD_LONG_PRACTICE_ROUND_TYPE_ID) {
                         standings = (ResultSetContainer) m.get("long_contest_round_practice_standings");
                     } else {
                         standings = (ResultSetContainer) m.get("long_contest_round_standings");

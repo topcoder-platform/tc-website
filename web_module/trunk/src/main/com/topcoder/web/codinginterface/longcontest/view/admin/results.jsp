@@ -11,7 +11,7 @@
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
 <% String myNode = "long_compete";
     String image = "long_comps_topcoder";
-     if (roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
+     if (roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID || roundType==Constants.AMD_LONG_PRACTICE_ROUND_TYPE_ID) {
          myNode="long_practice";
      } else if (roundType ==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
          myNode="long_intelmtcs_practice";
