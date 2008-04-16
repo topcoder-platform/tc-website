@@ -29,7 +29,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Studio</title>
-    <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
+    <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css" />
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
@@ -171,11 +171,9 @@
 <h1>Edit Contest Details</h1>
 
 
-<form action="${sessionInfo.servletPath}" method="POST" name="editForm">
+<form action="${sessionInfo.servletPath}" method="post" name="editForm">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditContest"/>
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-
-<div class="header">Contest Details</div>
 
 <%-- Since TopCoder Studio Modifications v2 Assembly (Req# 5.13) - displaying the username for the creator
      of the contest --%>
@@ -185,6 +183,8 @@
     * = required
 </p>
 
+<fieldset>
+<legend>General Information</legend>
 <table cellpadding="0" cellspacing="0" class="input">
 <tbody>
 <tr>
@@ -194,14 +194,13 @@
     </td>
 </tr>
 <tr>
-    <td class="name">
-        Contest:
+    <td class="field">
+        <div>Contest:</div>
     </td>
     <td class="value" width="100%">
         <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
     </td>
 </tr>
-
 <%-- Since TopCoder Studio Modifications Assembly v2 (Req# 5.1.1) - the client name is added --%>
 <tr>
     <td colspan="2">
@@ -210,12 +209,12 @@
     </td>
 </tr>
 <tr>
-    <td class="name">
-        Client:
+    <td class="field">
+        <div>Client:</div>
     </td>
     <td class="value" width="100%">
         <tc-webtag:textInput name="<%=Constants.CONTEST_PROPERTY + ContestProperty.CLIENT%>"/>
-        <div><strong>WARNING:</STRONG> Please be aware that anything you enter in this field will be visible to the public, as part of the Contest Details.</div>
+        <div><strong>WARNING:</strong> Please be aware that anything you enter in this field will be visible to the public, as part of the Contest Details.</div>
     </td>
 </tr>
 
@@ -227,8 +226,8 @@
     </td>
 </tr>
 <tr>
-    <td class="name">
-        Contest Type:
+    <td class="field">
+        <div>Contest Type:</div>
     </td>
     <td class="value" width="100%">
         <tc-webtag:objectSelect name="<%=Constants.CONTEST_TYPE%>" list="${contestTypes}" valueField="id"
@@ -245,8 +244,8 @@
     </td>
 </tr>
 <tr>
-    <td class="name">
-        Contest Channel:
+    <td class="field">
+        <div>Contest Channel:</div>
     </td>
     <td class="value" width="100%">
         <tc-webtag:objectSelect name="<%=Constants.CONTEST_CHANNEL%>" list="${contestChannels}" valueField="id"
@@ -264,8 +263,8 @@
     </td>
 </tr>
 <tr>
-    <td class="name">
-        Medium: (Check all that apply)
+    <td class="field">
+        <div>Medium: (Check all that apply)</div>
     </td>
     <td class="value" width="100%">
         <c:forEach items="${mediumTypes}" var="medium">
@@ -281,14 +280,15 @@
     </td>
 </tr>
 <tr>
-    <td class="name">
-        Status:
+    <td class="field">
+        <div>Status:</div>
     </td>
     <td class="value">
         <tc-webtag:objectSelect name="<%=Constants.CONTEST_STATUS_ID%>" list="${contestStatuses}" valueField="id"
                                 textField="description"/>
     </td>
 </tr>
+
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME%>"><span class="bigRed">${err}
@@ -296,8 +296,8 @@
     </td>
 </tr>
 <tr>
-    <td class="name" nowrap="nowrap">
-        Contest Start (Eastern Time):
+    <td class="field">
+        <div>Contest Start (Eastern Time):</div>
     </td>
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
@@ -311,8 +311,8 @@
     </td>
 </tr>
 <tr>
-    <td class="name" nowrap="nowrap">
-        Contest End (Eastern Time):
+    <td class="field">
+        <div>Contest End (Eastern Time):</div>
     </td>
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
@@ -327,8 +327,8 @@
     </td>
 </tr>
 <tr>
-    <td class="name" nowrap="nowrap">
-        Winner(s) Announced (Eastern Time):
+    <td class="field">
+        <div>Winner(s) Announced (Eastern Time):</div>
     </td>
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.WINNER_ANNOUNCEMENT_TIME%>" id="<%=Constants.WINNER_ANNOUNCEMENT_TIME%>"/>
@@ -343,8 +343,8 @@
     </td>
 </tr>
 <tr>
-    <td class="name">
-        Forum:
+    <td class="field">
+        <div>Forum:</div>
     </td>
     <td class="value">
         <tc-webtag:rscSelect name="<%=Constants.FORUM_ID%>" list="${forums}" fieldText="name"
@@ -359,8 +359,8 @@
     </td>
 </tr>
 <tr>
-    <td class="name">
-        Event:
+    <td class="field">
+        <div>Event:</div>
     </td>
     <td class="value">
         <tc-webtag:objectSelect name="<%=Constants.EVENT_ID%>" list="${events}" valueField="id" textField="description"/>
@@ -377,39 +377,124 @@
 </tr>
 
 <tr>
-    <td class="name">
-        Project:
+    <td class="field">
+        <div>Project:</div>
     </td>
     <td class="value">
         <tc-webtag:rscSelect name="${projectId}" list="${projects}" fieldText="project_name"
                              fieldValue="project_id"/>
     </td>
 </tr>
+</tbody>
+</table>
+</fieldset>
 
-<studio_tags:editContestProperty name="${otherFileTypes}" title="Submission file formats"/>
-<studio_tags:editContestProperty name="${submissionFileFormat}" title="Notes on Submission File(s)"/>
+
+<fieldset>
+<legend>Automatic Screening & Admin Functions </legend>
+
+<table cellpadding="0" cellspacing="0" class="input">
+<tbody>
+
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.VIEWABLE_SUBMISSIONS%>" var="viewSubmissions"/>
+
+<tr>
+    <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${viewSubmissions}">${err}
+                    <br /></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+    <td class="field">
+        <div>Are submissions viewable?:</div>
+    </td>
+    <td class="value">
+        <tc-webtag:listSelect name="${viewSubmissions}" useTopValue="false" list="${viewSubmissionAnswers}"/>
+    </td>
+</tr>
+
+
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.VIEWABLE_SUBMITTERS%>" var="viewSubmitters"/>
+
+<tr>
+    <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${viewSubmitters}">${err}
+                    <br /></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+    <td class="field">
+        <div>Are submitter user names viewable?:</div>
+    </td>
+    <td class="value">
+        <tc-webtag:listSelect name="${viewSubmitters}" useTopValue="false" list="${viewSubmitterAnswers}"/>
+    </td>
+</tr>
+
+
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MAX_SUBMISSIONS%>" var="maxSubmissions"/>
+
+<tr>
+    <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${maxSubmissions}">${err}
+                    <br /></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+    <td class="field">
+        <div>Max # of submissions<br />(leave empty if there should be no max):</div>
+    </td>
+    <td class="value">
+        <tc-webtag:textInput name="${maxSubmissions}" size="4"/>
+    </td>
+</tr>
+</tbody>
+</table>
+
+</fieldset>
+
+<fieldset>
+<legend>Details of Contest</legend>
+
+<table>
+<tbody>
 <studio_tags:editContestProperty name="${overviewText}" title="Contest Summary"/>
 <studio_tags:editContestProperty name="${fullDescription}" title="Full Description"/>
 <studio_tags:editContestProperty name="${eligibility}" title="Eligibility"/>
 <studio_tags:editContestProperty name="${winnerSelection}" title="Notes on Winners Selection"/>
+<studio_tags:editContestProperty name="${prizeDesc}" title="Prize Description"/>
+</tbody>
+</table>
 
-<c:set value="<%=Constants.FILE_TYPE%>" var="fileType"/>
-<tr>
-    <td colspan="2">
-        <tc-webtag:errorIterator id="err" name="${fileType}"><span class="bigRed">${err}
-            <br /></span></tc-webtag:errorIterator>
-    </td>
-</tr>
-<tr>
-    <td class="name">
-        Final File(s) Format:
-    </td>
-    <td class="value">
-        <tc-webtag:objectSelect name='${fileType}' size="4" useTopValue="false" multiple="true" list="${fileTypes}"
-                                valueField="id" textField="description"/>
-    </td>
-</tr>
+</fieldset>
 
+<fieldset>
+<legend>Design Restrictions and Requirements</legend>
+
+<table>
+<tbody>
+<studio_tags:editContestProperty name="${sizeRequirements}" title="Notes on Size"/>
+<studio_tags:editContestProperty name="${fontRequirements}" title="Notes on Fonts"/>
+<studio_tags:editContestProperty name="${colorRequirements}" title="Notes on Colors"/>
+<studio_tags:editContestProperty name="${contentRequirements}" title="Content Requirements"/>
+<studio_tags:editContestProperty name="${otherRequirements}" title="Other Requirements"/>
+</tbody>
+</table>
+
+</fieldset>
+
+<fieldset>
+<legend>Submission File Format</legend>
+
+<table>
+<tbody>
+<studio_tags:editContestProperty name="${otherFileTypes}" title="Submission file formats"/>
+<studio_tags:editContestProperty name="${submissionFileFormat}" title="Notes on Submission File(s)"/>
+</tbody>
+</table>
+
+<table cellpadding="0" cellspacing="0" class="input">
+<tbody>
 <%-- Since TopCoder Studio Modifications Assembly v2 (Req# 5.6) - the Require Preview Image flag is added --%>
 <c:set value="<%=Constants.CONTEST_PROPERTY + ContestProperty.REQUIRE_PREVIEW_IMAGE%>" var="reqPreviewImage"/>
 <tr>
@@ -419,8 +504,8 @@
     </td>
 </tr>
 <tr>
-    <td class="name">
-        Require Preview Image?:
+    <td class="field">
+        <div>Require Preview Image?:</div>
     </td>
     <td class="value">
         <tc-webtag:listSelect name="${reqPreviewImage}" useTopValue="true" list="${requirePreviewImageAnswers}"/>
@@ -436,14 +521,44 @@
     </td>
 </tr>
 <tr>
-    <td class="name">
-        Require Preview File?:
+    <td class="field">
+        <div>Require Preview File?:</div>
     </td>
     <td class="value">
         <tc-webtag:listSelect name="${reqPreviewFile}" useTopValue="true" list="${requirePreviewFileAnswers}"/>
     </td>
 </tr>
+</tbody>
+</table>
 
+</fieldset>
+
+
+<fieldset>
+<legend>Final File Formats</legend>
+
+<table cellpadding="0" cellspacing="0" class="input">
+<tbody>
+<c:set value="<%=Constants.FILE_TYPE%>" var="fileType"/>
+<tr>
+    <td colspan="2">
+        <tc-webtag:errorIterator id="err" name="${fileType}"><span class="bigRed">${err}
+            <br /></span></tc-webtag:errorIterator>
+    </td>
+</tr>
+<tr>
+    <td class="field">
+        <div>Final File(s) Format:</div>
+    </td>
+    <td class="value">
+        <tc-webtag:objectSelect name='${fileType}' size="4" useTopValue="false" multiple="true" list="${fileTypes}"
+                                valueField="id" textField="description"/>
+    </td>
+</tr>
+</tbody>
+</table>
+
+</fieldset>
 
 <%-- Since TopCoder Studio Modifications v2 Assembly (Req.# 5.1.3, 5.1.4)
      - the width and height are replaced with size requirements --%>
@@ -474,8 +589,8 @@
     </td>
 </tr>
 <tr>
-    <td class="name">
-        Height Requirements (px):
+    <td class="field">
+        <div>Height Requirements (px):</div>
     </td>
     <td class="value">
         <tc-webtag:textInput name="${minHeight}" size="4"/>
@@ -500,8 +615,8 @@
     </td>
 </tr>
 <tr>
-    <td class="name">
-        Width Requirements (px):
+    <td class="field">
+        <div>Width Requirements (px):</div>
     </td>
     <td class="value">
         <tc-webtag:textInput name="${minWidth}" size="4"/>
@@ -510,69 +625,6 @@
     </td>
 </tr>
 --%>
-
-<studio_tags:editContestProperty name="${sizeRequirements}" title="Notes on Size"/>
-<studio_tags:editContestProperty name="${fontRequirements}" title="Notes on Fonts"/>
-<studio_tags:editContestProperty name="${colorRequirements}" title="Notes on Colors"/>
-<studio_tags:editContestProperty name="${contentRequirements}" title="Content Requirements"/>
-<studio_tags:editContestProperty name="${otherRequirements}" title="Other Requirements"/>
-
-<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.VIEWABLE_SUBMISSIONS%>" var="viewSubmissions"/>
-
-<tr>
-    <td colspan="2">
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${viewSubmissions}">${err}
-                    <br /></tc-webtag:errorIterator></span>
-    </td>
-</tr>
-<tr>
-    <td class="name">
-        Are submissions viewable?:
-    </td>
-    <td class="value">
-        <tc-webtag:listSelect name="${viewSubmissions}" useTopValue="false" list="${viewSubmissionAnswers}"/>
-    </td>
-</tr>
-
-
-<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.VIEWABLE_SUBMITTERS%>" var="viewSubmitters"/>
-
-<tr>
-    <td colspan="2">
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${viewSubmitters}">${err}
-                    <br /></tc-webtag:errorIterator></span>
-    </td>
-</tr>
-<tr>
-    <td class="name">
-        Are submitter user names viewable?:
-    </td>
-    <td class="value">
-        <tc-webtag:listSelect name="${viewSubmitters}" useTopValue="false" list="${viewSubmitterAnswers}"/>
-    </td>
-</tr>
-
-
-<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MAX_SUBMISSIONS%>" var="maxSubmissions"/>
-
-<tr>
-    <td colspan="2">
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${maxSubmissions}">${err}
-                    <br /></tc-webtag:errorIterator></span>
-    </td>
-</tr>
-<tr>
-    <td class="name">
-        Max # of submissions<br />(leave empty if there should be no max):
-    </td>
-    <td class="value">
-        <tc-webtag:textInput name="${maxSubmissions}" size="4"/>
-    </td>
-</tr>
-
-
-</tbody>
-</table>
 
 <script language="javascript" type="text/javascript">
     Calendar.setup(
@@ -607,10 +659,6 @@
             );
 </script>
 
-<studio_tags:editContestProperty name="${prizeDesc}" title="Prize Description"/>
-
-
-
 <p>
     <button name="submit" value="submit" type="submit">Save</button>
 </p>
@@ -628,20 +676,20 @@
     </p>
 
 
-    <br /><br />
-
     <c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
     <c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
     <c:set value="<%=Constants.DOC_DESC%>" var="docDesc"/>
     
-    <div class="header">Documentation</div>
 
-    <p><strong>Currently Attached</strong></p>
+<h2>Documentation</h2>
 
-    <form action="${sessionInfo.servletPath}" method="POST" name="removeDocForm">
+    <form action="${sessionInfo.servletPath}" method="post" name="removeDocForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveDocument"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
         <tc-webtag:hiddenInput name="<%=Constants.DOCUMENT_ID%>"/>
+
+<fieldset>
+<legend>Currently Attached</legend>
 
         <div id="docList">
             <c:forEach items="${contest.documents}" var="document">
@@ -663,10 +711,10 @@
                             Description: <tc-webtag:textInput name="${docDesc}_${document.id}" maxlength="<%=Constants.MAX_DOCUMENT_DESC_VALUE_LENGTH%>"/>
                         </div>
                         <div>
-                        <button onClick="updateDocument(${document.id})">
+                        <button onclick="updateDocument(${document.id})">
                             Save changes
                         </button>
-                        <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
+                        <button onclick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
                             Remove
                         </button>
                         </div>
@@ -674,15 +722,16 @@
                 </div>
             </c:forEach>
         </div>
+</fieldset>
+
     </form>
 
-    <p><strong>Add Document</strong></p>
-
-    <form action="${sessionInfo.servletPath}" method="POST" name="addDocumentForm"
+    <form action="${sessionInfo.servletPath}" method="post" name="addDocumentForm"
           enctype="multipart/form-data">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddDocument"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-
+<fieldset>
+<legend>Add Document</legend>
         <div class="editConDoc">
             <div>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${docDesc}">${err}</tc-webtag:errorIterator></span>
@@ -708,20 +757,22 @@
                 Only certain file formats are accepted, if there is something you need to upload that doesn't work, ask around to get it added.
             </p>
         </div>
+</fieldset>
     </form>
 
 
 
-
 <c:set value="<%=PrizeType.CONTEST%>" var="contestPrize"/>
-<div class="header">Prizes</div>
 
-<form action="${sessionInfo.servletPath}" method="POST" name="removePrizeForm">
+<h2>Prize(s)</h2>
+
+<form action="${sessionInfo.servletPath}" method="post" name="removePrizeForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemovePrize"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
     <tc-webtag:hiddenInput name="<%=Constants.PRIZE_ID%>"/>
 
-    <p>
+<fieldset>
+<legend>Current Prizes</legend>
         <c:forEach items="${contest.prizes}" var="prize">
             Type: ${prize.type.description}
             <c:if test="${prize.type.id==contestPrize}">
@@ -729,21 +780,23 @@
             </c:if>
             Prize Amount:
             <fmt:formatNumber value="${prize.amount}" type="currency"/>
-            <button onClick="document.removePrizeForm.<%=Constants.PRIZE_ID%>.value ='${prize.id}'">
+            <button onclick="document.removePrizeForm.<%=Constants.PRIZE_ID%>.value ='${prize.id}'">
                 Remove
             </button>
             <br />
         </c:forEach>
-    </p>
+</fieldset>
 </form>
 
 <c:set value="<%=Constants.PRIZE_PLACE%>" var="prizePlace"/>
 <c:set value="<%=Constants.PRIZE_VALUE%>" var="prizeValue"/>
 <c:set value="<%=Constants.PRIZE_TYPE_ID%>" var="prizeType"/>
-<form action="${sessionInfo.servletPath}" method="POST" name="addPrizeForm">
+<form action="${sessionInfo.servletPath}" method="post" name="addPrizeForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddPrize"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
+<fieldset>
+<legend>Add Prize</legend>
     <table cellpadding="0" cellspacing="0" class="input">
         <tr>
             <td colspan="2">
@@ -754,16 +807,16 @@
             </td>
         </tr>
         <tr>
-            <td class="name">
-                Place #:
+            <td class="field">
+                <div>Place #:</div>
             </td>
             <td class="value">
                 <tc-webtag:textInput name="${prizePlace}"/>
             </td>
         </tr>
         <tr>
-            <td class="name">
-                Amount:
+            <td class="field">
+                <div>Amount:</div>
             </td>
             <td class="value">
                 <tc-webtag:textInput name="${prizeValue}"/>
@@ -771,34 +824,37 @@
         </tr>
 
         <tr>
-            <td class="name">
-                Prize Type:
+            <td class="field">
+                <div>Prize Type:</div>
             </td>
             <td class="value">
                 <tc-webtag:objectSelect name='${prizeType}' list="${prizeTypes}" valueField="id" textField="description"/>
-                <button name="submit" value="submit" type="submit">
-                    Add
-                </button>
             </td>
         </tr>
-
-
+        <tr>
+            <td>&nbsp;</td>
+            <td class="value">
+                <button name="submit" value="submit" type="submit">Add</button>
+            </td>
+        </tr>
     </table>
 
-    <p>
-        * = required
-    </p>
+</fieldset>
 
 </form>
-<br /><br />
+
+
+<p>
+    * = required
+</p>
+
 
     <c:if test="${not empty contest.project}">
-
 
         <div class="header">After Contest</div>
 
 
-        <form action="${sessionInfo.servletPath}" method="POST" name="sendToReviewForm">
+        <form action="${sessionInfo.servletPath}" method="post" name="sendToReviewForm">
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSendToReview"/>
             <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
             <button name="submit" value="submit" type="submit">
@@ -808,7 +864,7 @@
         </form>
 
         <c:if test="${resultsReady}">
-            <form action="${sessionInfo.servletPath}" method="POST" name="loadromReviewForm">
+            <form action="${sessionInfo.servletPath}" method="post" name="loadromReviewForm">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminLoadFromReview"/>
                 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
                 <button name="submit" value="submit" type="submit">
