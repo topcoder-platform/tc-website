@@ -24,6 +24,8 @@
 <c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_PROJECT_TYPE"/>
 <c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_PROJECT_TYPE"/>
 <c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_PROJECT_TYPE"/>
+<c:set value="<%=Constants.COMPONENT_TESTING_PROJECT_TYPE%>" var="COMPONENT_TESTING_PROJECT_TYPE"/>
+<c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_PROJECT_TYPE"/>
 
 <body>
 
@@ -54,6 +56,16 @@
                 <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="architecture_compete"/>
+                    </jsp:include>
+                </c:when>        
+                <c:when test="${pt == COMPONENT_TESTING_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="component_testing_compete"/>
+                    </jsp:include>
+                </c:when>        
+                <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="application_testing_compete"/>
                     </jsp:include>
                 </c:when>        
             </c:choose>
@@ -92,6 +104,18 @@
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>        
+                <c:when test="${pt == COMPONENT_TESTING_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="component_testing"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>        
+                <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="application_testing"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>        
             </c:choose>
 
             <form action="${sessionInfo.servletPath}" method="POST" name="regForm">
@@ -99,12 +123,9 @@
                     <c:when test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectRegister"/>
                     </c:when>
-                    <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
-                        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="AssemblyProjectRegister"/>
-                    </c:when>        
-                    <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
-                        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ArchitectureProjectRegister"/>
-                    </c:when>        
+                    <c:otherwise>
+                        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Register"/>
+                    </c:otherwise>>        
                 </c:choose>
                 
                 <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID%>"/>
