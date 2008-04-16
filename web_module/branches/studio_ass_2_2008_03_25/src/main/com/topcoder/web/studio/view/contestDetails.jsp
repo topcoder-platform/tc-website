@@ -264,9 +264,11 @@
     <studio:formatField text="${contest.overview.value}"/>
 <br /><br />
 
-<div class="header">Full Description & Project Guide</div>
-<studio:formatField text="${contest.fullDescription.value}"/>
-<br /><br />
+<c:if test="${not empty contest.fullDescription.value}">
+    <div class="header">Full Description & Project Guide</div>
+    <studio:formatField text="${contest.fullDescription.value}"/>
+    <br /><br />
+</c:if>
 
 <c:if test="${not empty contest.sizeRequirements.value or not empty contest.fontRequirements.value 
              or not empty contest.colorRequirements.value or not empty contest.contentRequirements.value
