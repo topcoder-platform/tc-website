@@ -406,7 +406,7 @@
 </tr>
 <tr>
     <td class="field">
-        <div>Are submissions viewable?:</div>
+        <div>* Are submissions viewable?:</div>
     </td>
     <td class="value">
         <tc-webtag:listSelect name="${viewSubmissions}" useTopValue="false" list="${viewSubmissionAnswers}"/>
@@ -424,7 +424,7 @@
 </tr>
 <tr>
     <td class="field">
-        <div>Are submitter user names viewable?:</div>
+        <div>* Are submitter user names viewable?:</div>
     </td>
     <td class="value">
         <tc-webtag:listSelect name="${viewSubmitters}" useTopValue="false" list="${viewSubmitterAnswers}"/>
