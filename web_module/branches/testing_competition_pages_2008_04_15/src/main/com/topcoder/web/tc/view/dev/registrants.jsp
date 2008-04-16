@@ -219,7 +219,7 @@
                 </c:when>
                 <c:otherwise>
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=(resultRow.getIntItem("dev_rating") > resultRow.getIntItem("des_rating") ? "Development" : "Design")%>'/>
-                </c:otherwise>>        
+                </c:otherwise>        
             </c:choose>
               </td>
              <c:if test="${pt == DESIGN_PROJECT_TYPE or pt == DEVELOPMENT_PROJECT_TYPE}">
