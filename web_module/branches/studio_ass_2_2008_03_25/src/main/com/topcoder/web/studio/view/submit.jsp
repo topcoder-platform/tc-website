@@ -95,12 +95,30 @@
 
 <div align="center">
     <div align="left" style="width:500px; margin-top: 20px;">
-        <p>Thank you for accepting the terms of the contest. Please use the form below to upload your
-            submission:</p>
 
-        <p>The maximum file size per submission is 2MB.</p>
+        <p>
+            Thank you for accepting the terms of the contest. Please use the form below to upload your submission.
+        </p>
 
-        <p>Only the following file types will be accepted:</p>
+        <p>
+            Your submission must contain both your submission file(s) and your final source file(s) contained in one ZIP file. You must follow the following directory format within your ZIP file: 
+        </p>
+
+        <p>
+            /submission
+            <br />/source
+        </p>
+
+        <p>
+            <strong>Submission Folder:</strong> All of your submission files go in this folder. Only files in this folder are shown on the Studio web site.
+            <br /><strong>Source Folder:</strong> All of your final files/source files go in this folder. 
+            <br /><strong>Preview Image:</strong> Place your preview image in the submission folder.
+            <br />(Example: /submission/storyboard1.jpg)
+            <br /><strong>Preview File:</strong> Place your submission into a ZIP file and place it in your submission folder.
+            <br />(Example: /submission/storyboards.zip)
+        </p>
+
+        <p>Only the following file formats will be accepted in your /source folder of your ZIP file:</p>
         <ul>
             <c:forEach items="${contest.fileTypes}" var="fileType">
                 <li>
@@ -114,7 +132,7 @@
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
                 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
                 <p>
-                    <b>My design:</b><br/>
+                    <strong>My design:</strong><br />
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
                         <br /></tc-webtag:errorIterator>
                     <input type="file" name="<%=Constants.SUBMISSION%>">
@@ -158,7 +176,7 @@
                                  <c:when test="${not empty contest.maxSubmissions.value}">
                                      Up to ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
                                      will count for this contest.  They will be indicated by
-                                    <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr>.  Those submissions that do not have the icon will <b>NOT</b> count and
+                                    <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr>.  Those submissions that do not have the icon will <strong>NOT</strong> count and
                                      they will neither be screened nor reviewed.
                                      If you make more than ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
                                      for this contest, you can rearrange the order of your submissions until the end of the Submission Phase.
