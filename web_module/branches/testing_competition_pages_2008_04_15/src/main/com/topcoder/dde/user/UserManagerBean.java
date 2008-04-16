@@ -69,7 +69,9 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
     public static final int ASSEMBLY_PROJECT_TYPE = 14;
     public static final int ARCHITECTURE_PROJECT_TYPE = 7;
-
+    public static final int COMPONENT_TESTING_PROJECT_TYPE = 5;
+    public static final int APPLICATION_TESTING_PROJECT_TYPE = 13;
+    
     /*
      * This group (which all new users are put into) is assumed to be in the
      * database.  If it's not there, an exception will be thrown.
@@ -1039,8 +1041,12 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
                 rating = 0;
             }
 
+
             registerInquiry(userId, componentId, rating, userId, comments, true, 
-                (projectCategory == ASSEMBLY_PROJECT_TYPE || projectCategory == ARCHITECTURE_PROJECT_TYPE) ? null : new Long(phase), 
+                (projectCategory == ASSEMBLY_PROJECT_TYPE || 
+                        projectCategory == ARCHITECTURE_PROJECT_TYPE  || 
+                        projectCategory == COMPONENT_TESTING_PROJECT_TYPE  || 
+                        projectCategory == APPLICATION_TESTING_PROJECT_TYPE) ? null : new Long(phase), 
                 version, projectId);
 
             Object objTechTypes = ctx.lookup(ComponentManagerHome.EJB_REF_NAME);
