@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2001-2008 TopCoder Inc.  All Rights Reserved.
  */
-package com.topcoder.web.tc.controller.request;
+package com.topcoder.web.tc.controller.request.contest;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;

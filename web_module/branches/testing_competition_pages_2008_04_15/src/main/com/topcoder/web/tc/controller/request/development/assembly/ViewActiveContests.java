@@ -1,6 +1,6 @@
 package com.topcoder.web.tc.controller.request.development.assembly;
 
-import com.topcoder.web.tc.controller.request.ActiveContestsBase;
+import com.topcoder.web.tc.controller.request.contest.ActiveContestsBase;
 
 /**
  * Copyright (c) 2001-2008 TopCoder, Inc. All rights reserved.
