@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />04.16.08<br />11:45 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm397">SRM 397 - Problem Set &amp; Analysis</a></span><br /><br />
+      This prime numbered SRM gathered together 1352 coders that were faced with a rather hard problem set. However, <tc-webtag:handle coderId="19849563" context="algorithm"/> rushed through the set achieving his new highest rating. Congratulations!</td>
+         <td class="newsPhoto"><img src="/i/m/mateuszek_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="11801002" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm397">details</a> | 
+        <tc-webtag:forumLink forumID="520816" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature News" border="0" /><br />04.15.08<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a target="blank" href="<tc-webtag:linkTracking link='http://www.globalbestpractices.com/Home/Document.aspx?Q=273,4383,205,3FB60597-A4BD-47AA-9F61-3E96E6E3E10D' refer='/tc' />">PricewaterhouseCoopers - TopCoder's network drives innovation</a></span><br /><br />
@@ -153,18 +169,5 @@
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly">details</a> | 
         <tc-webtag:forumLink forumID="516707" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />03.26.08<br />4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa">NSA chat before SRM 395</a></span><br /><br />
-        Chat with NSA representatives at 8:00 PM EDT (GMT/UTC -4) for information about their exciting job opportunities.  Read more <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa">here</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa">details</a> | 
-        <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
