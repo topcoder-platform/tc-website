@@ -195,7 +195,7 @@
 </tr>
 <tr>
     <td class="field">
-        <div>Contest:</div>
+        <div>* Contest:</div>
     </td>
     <td class="value" width="100%">
         <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
@@ -227,7 +227,7 @@
 </tr>
 <tr>
     <td class="field">
-        <div>Contest Type:</div>
+        <div>* Contest Type:</div>
     </td>
     <td class="value" width="100%">
         <tc-webtag:objectSelect name="<%=Constants.CONTEST_TYPE%>" list="${contestTypes}" valueField="id"
@@ -264,7 +264,7 @@
 </tr>
 <tr>
     <td class="field">
-        <div>Medium: (Check all that apply)</div>
+        <div>* Medium: (Check all that apply)</div>
     </td>
     <td class="value" width="100%">
         <c:forEach items="${mediumTypes}" var="medium">
@@ -297,7 +297,7 @@
 </tr>
 <tr>
     <td class="field">
-        <div>Contest Start (Eastern Time):</div>
+        <div>* Contest Start (Eastern Time):</div>
     </td>
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
@@ -312,7 +312,7 @@
 </tr>
 <tr>
     <td class="field">
-        <div>Contest End (Eastern Time):</div>
+        <div>* Contest End (Eastern Time):</div>
     </td>
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
@@ -328,7 +328,7 @@
 </tr>
 <tr>
     <td class="field">
-        <div>Winner(s) Announced (Eastern Time):</div>
+        <div>* Winner(s) Announced (Eastern Time):</div>
     </td>
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.WINNER_ANNOUNCEMENT_TIME%>" id="<%=Constants.WINNER_ANNOUNCEMENT_TIME%>"/>
@@ -458,11 +458,11 @@
 
 <table>
 <tbody>
-<studio_tags:editContestProperty name="${overviewText}" title="Contest Summary"/>
-<studio_tags:editContestProperty name="${fullDescription}" title="Full Description"/>
-<studio_tags:editContestProperty name="${eligibility}" title="Eligibility"/>
-<studio_tags:editContestProperty name="${winnerSelection}" title="Notes on Winners Selection"/>
-<studio_tags:editContestProperty name="${prizeDesc}" title="Prize Description"/>
+<studio_tags:editContestProperty name="${overviewText}" title="* Contest Summary"/>
+<studio_tags:editContestProperty name="${fullDescription}" title="* Full Description"/>
+<studio_tags:editContestProperty name="${eligibility}" title="* Eligibility"/>
+<studio_tags:editContestProperty name="${winnerSelection}" title="* Notes on Winners Selection"/>
+<studio_tags:editContestProperty name="${prizeDesc}" title="* Prize Description"/>
 </tbody>
 </table>
 
@@ -489,7 +489,7 @@
 <table>
 <tbody>
 <studio_tags:editContestProperty name="${otherFileTypes}" title="Submission file formats"/>
-<studio_tags:editContestProperty name="${submissionFileFormat}" title="Notes on Submission File(s)"/>
+<studio_tags:editContestProperty name="${submissionFileFormat}" title="* Notes on Submission File(s)"/>
 </tbody>
 </table>
 
@@ -505,7 +505,7 @@
 </tr>
 <tr>
     <td class="field">
-        <div>Require Preview Image?:</div>
+        <div>* Require Preview Image?:</div>
     </td>
     <td class="value">
         <tc-webtag:listSelect name="${reqPreviewImage}" useTopValue="true" list="${requirePreviewImageAnswers}"/>
@@ -522,7 +522,7 @@
 </tr>
 <tr>
     <td class="field">
-        <div>Require Preview File?:</div>
+        <div>* Require Preview File?:</div>
     </td>
     <td class="value">
         <tc-webtag:listSelect name="${reqPreviewFile}" useTopValue="true" list="${requirePreviewFileAnswers}"/>
