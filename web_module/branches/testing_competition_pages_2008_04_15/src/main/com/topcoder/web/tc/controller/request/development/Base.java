@@ -40,7 +40,7 @@ public abstract class Base extends ShortHibernateProcessor {
             return "/architecture/projectDetail.jsp";
         } else if (String.valueOf(projectTypeId).equals(Constants.COMPONENT_TESTING_PROJECT_TYPE) || 
                    String.valueOf(projectTypeId).equals(Constants.APPLICATION_TESTING_PROJECT_TYPE)) {
-            return "/testing/projectDetail.jsp";
+            return "/dev/testing/projectDetail.jsp";
         } else {
             return "";
         }
