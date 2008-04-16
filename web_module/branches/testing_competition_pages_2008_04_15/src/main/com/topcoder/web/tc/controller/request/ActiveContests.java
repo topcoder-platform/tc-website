@@ -46,7 +46,7 @@ public class ActiveContests extends ActiveContestsBase {
         } else if (getProjectType().equals(Constants.ARCHITECTURE_PROJECT_TYPE)) {
             return "/architecture/activeContests.jsp";            
         } else {
-            return super.getCommandName();
+            return super.getActiveContestsPage();
         }
     }
 

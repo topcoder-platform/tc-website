@@ -57,9 +57,9 @@ public abstract class ActiveContestsBase extends Base {
             if (!(sortCol.equals("") || sortDir.equals(""))) {  
                 r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
                 r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
-                r.setProperty(Constants.PROJECT_TYPE_ID, getProjectType());
             }
 
+            r.setProperty(Constants.PROJECT_TYPE_ID, getProjectType());
             r.setProperty(DataAccessConstants.SORT_QUERY, getCommandName());
             Map result = getDataAccess().getData(r);
             getRequest().setAttribute("contests", result.get(getCommandName()));
