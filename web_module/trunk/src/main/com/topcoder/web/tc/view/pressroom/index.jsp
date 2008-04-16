@@ -99,6 +99,32 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- Courant.com - Glastonbury Firm's Online Software Contests Attract High-Rolling Sponsors begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.courant.com/business/hc-cornershop0416.artapr16,0,6766513.story' refer='pr_index' />"><img src="/i/pressroom/courant_logo.png" alt="courant.com logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.courant.com/business/hc-cornershop0416.artapr16,0,6766513.story' refer='pr_index' />">Glastonbury Firm's Online Software Contests Attract High-Rolling Sponsors</a></h3>
+                        <p>TopCoder is a nontraditional workplace, staging online competitions for software design, many sponsored by Fortune 1000 companies.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.courant.com/business/hc-cornershop0416.artapr16,0,6766513.story' refer='pr_index' />">[April 16]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Courant.com - Glastonbury Firm's Online Software Contests Attract High-Rolling Sponsors end --%>
+                
+                <%-- Finalists Announced for 2008 TopCoder Open May 12-15 in Las Vegas begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_041508"><img src="/i/pressroom/tco08_logo.png" alt="TopCoder Open 2008" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_041508">Finalists Announced for 2008 TopCoder Open May 12-15 in Las Vegas</a></h3>
+                        <p>TopCoder Members Representing 30 Countries to Compete for Recognition, Honors and Share of $260,000 in Prize Money  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_041508">[April 15]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Finalists Announced for 2008 TopCoder Open May 12-15 in Las Vegas end --%>
+                
                 <%-- PricewaterhouseCoopers - TopCoder's network drives innovation begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
