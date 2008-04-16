@@ -308,7 +308,7 @@
 <li>You may submit as many times as you'd like during the submission phase, but only the number of files listed above in the Required Elements that you rank the highest will be considered.  On the submission page, you will see a table of all the designs you have submitted, ranked by YOUR preference.  You can change the order of submissions on that table at any time during the submission phase. If you make revisions to your design, please delete submissions you are replacing.</li>
 </ul>
 
-<c:if test="${contest.winnerSelection.value}">
+<c:if test="${not empty contest.winnerSelection.value}">
     <div class="header">Winner Selection</div>
         <studio:formatField text="${contest.winnerSelection.value}"/>
     <br /><br />
