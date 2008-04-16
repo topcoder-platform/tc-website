@@ -1,9 +1,10 @@
 <%@ page language="java" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<% int projectTypeId = ((Integer) request.getAttribute(Constants.PROJECT_TYPE_ID)).intValue(); %>
-<html>
 <%@ page import="com.topcoder.web.tc.Constants"%>
-<%@ page import="com.topcoder.web.tc.controller.request.development.Base"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
 <head>
     <title>TopCoder - Message</title>
     <jsp:include page="../script.jsp"/>
@@ -13,6 +14,11 @@
     
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
+
+<c:set value="<%=Constants.DESIGN_PROJECT_TYPE%>" var="DESIGN_PROJECT_TYPE"/>
+<c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_PROJECT_TYPE"/>
+<c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_PROJECT_TYPE"/>
 
 <body>
 
@@ -24,31 +30,28 @@
     <tr valign="top">
         <!-- Left Column Begins-->
         <td width="180">
-               <%                 
-                    switch (projectTypeId) {
-                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="des_compete"/>
-                            </jsp:include>
-                <%      break;
-                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="dev_compete"/>
-                            </jsp:include>
-                <%      break;
-                        case Base.ASSEMBLY_PROJECT_TYPE: %>
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="assembly_compete"/>
-                            </jsp:include>
-                <%      break;
-                        case Base.ARCHITECTURE_PROJECT_TYPE: %>
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="architecture_compete"/>
-                            </jsp:include>
-                <%      break;
-
-                    }
-                %>
+            <c:choose>
+                <c:when test="${pt == DESIGN_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="des_compete"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="dev_compete"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="assembly_compete"/>
+                    </jsp:include>
+                </c:when>        
+                <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="architecture_compete"/>
+                    </jsp:include>
+                </c:when>        
+            </c:choose>
         </td>
         <!-- Left Column Ends -->
 
@@ -58,37 +61,32 @@
 
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
-               <%                 
-                    switch (projectTypeId) {
-                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
-                			<jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="comp_design"/>
-                			    <jsp:param name="title" value="Active Contests"/>
-                			</jsp:include>
-                <%      break;
-                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
-                			<jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="comp_development"/>
-                			    <jsp:param name="title" value="Active Contests"/>
-                			</jsp:include>
-                <%      break;
-                        case Base.ASSEMBLY_PROJECT_TYPE: %>
-                			<jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="assembly"/>
-                			    <jsp:param name="title" value="Active Contests"/>
-                			</jsp:include>
-                <%      break;
-                        case Base.ARCHITECTURE_PROJECT_TYPE: %>
-                            <jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="architecture"/>
-                                <jsp:param name="title" value="Active Contests"/>
-                            </jsp:include>
-                <%      break;
-
-                    }
-                %>                
-
-
+            <c:choose>
+                <c:when test="${pt == DESIGN_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="comp_design"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="comp_development"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="assembly"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>        
+                <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="architecture"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>        
+            </c:choose>
             <p style="width: 510px;">
                 <strong><%=(String)request.getAttribute(Constants.MESSAGE)%></strong>
             </p>

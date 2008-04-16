@@ -40,22 +40,28 @@
     <tr valign="top">
 <%-- Left Column Begins--%>
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                  <c:choose>
-                    <c:when test="${pt == COMPONENT_TESTING_TYPE_ID}">
-                        <jsp:param name="node" value="component_testing_compete"/>
-                    </c:when>
-                    <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
-                        <jsp:param name="node" value="application_testing_compete"/>
-                    </c:when>
-                    <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
-                        <jsp:param name="node" value="architecture_compete"/>
-                    </c:when>
-                    <c:when test="${pt == ASSEMBLY_TYPE_ID}">
-                        <jsp:param name="node" value="assembly_compete"/>
-                    </c:when>
-                  </c:choose>
-            </jsp:include>
+          <c:choose>
+            <c:when test="${pt == COMPONENT_TESTING_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="component_testing_compete"/>
+                </jsp:include>
+            </c:when>
+            <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="application_testing_compete"/>
+                </jsp:include>
+            </c:when>
+            <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="architecture_compete"/>
+                </jsp:include>
+            </c:when>
+            <c:when test="${pt == ASSEMBLY_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="assembly_compete"/>
+                </jsp:include>
+            </c:when>
+          </c:choose>
         </td>
 <%-- Left Column Ends --%>
 
@@ -65,23 +71,32 @@
             <div class="fixedWidthBody">
             --%>
            
-<jsp:include page="/page_title.jsp">
       <c:choose>
         <c:when test="${pt == COMPONENT_TESTING_TYPE_ID}">
-            <jsp:param name="image" value="component_testing"/>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="component_testing"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
         </c:when>
         <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
-            <jsp:param name="image" value="application_testing"/>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="application_testing"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
         </c:when>
         <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
-            <jsp:param name="image" value="architecture"/>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="architecture"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
         </c:when>
         <c:when test="${pt == ASSEMBLY_TYPE_ID}">
-            <jsp:param name="image" value="assembly"/>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="assembly"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
         </c:when>
       </c:choose>
-    <jsp:param name="title" value="Active Contests"/>
-</jsp:include>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:10px;">
     <tr>

@@ -1,4 +1,5 @@
 <%@ page language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -23,6 +24,11 @@
 
 </head>
 
+<c:set value="<%=Constants.DESIGN_PROJECT_TYPE%>" var="DESIGN_PROJECT_TYPE"/>
+<c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_PROJECT_TYPE"/>
+<c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_PROJECT_TYPE"/>
+
 <body>
 
 <jsp:include page="../top.jsp">
@@ -33,30 +39,28 @@
     <tr valign="top">
         <!-- Left Column Begins-->
         <td width="180">
-        <%                 
-             switch (projectTypeId) {
-                 case Base.COMPONENT_DESIGN_PROJECT_TYPE: %>
-                     <jsp:include page="/includes/global_left.jsp">
-                         <jsp:param name="node" value="des_compete"/>
-                     </jsp:include>
-         <%      break;
-                 case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
-                     <jsp:include page="/includes/global_left.jsp">
-                         <jsp:param name="node" value="dev_compete"/>
-                     </jsp:include>
-         <%      break;
-                 case Base.ASSEMBLY_PROJECT_TYPE: %>
-                     <jsp:include page="/includes/global_left.jsp">
-                         <jsp:param name="node" value="assembly_compete"/>
-                     </jsp:include>
-         <%      break;
-                 case Base.ARCHITECTURE_PROJECT_TYPE: %>
-                     <jsp:include page="/includes/global_left.jsp">
-                         <jsp:param name="node" value="architecture_compete"/>
-                     </jsp:include>
-         <%      break;
-             }
-         %>
+            <c:choose>
+                <c:when test="${pt == DESIGN_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="des_compete"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="dev_compete"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="assembly_compete"/>
+                    </jsp:include>
+                </c:when>        
+                <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="architecture_compete"/>
+                    </jsp:include>
+                </c:when>        
+            </c:choose>
         </td>
         <!-- Left Column Ends -->
 
@@ -66,34 +70,32 @@
 
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
-               <%                 
-                    switch (projectTypeId) {
-                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
-                			<jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="comp_design"/>
-                			    <jsp:param name="title" value="Active Contests"/>
-                			</jsp:include>
-                <%      break;
-                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
-                			<jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="comp_development"/>
-                			    <jsp:param name="title" value="Active Contests"/>
-                			</jsp:include>
-                <%      break;
-                        case Base.ASSEMBLY_PROJECT_TYPE: %>
-                			<jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="assembly"/>
-                			    <jsp:param name="title" value="Active Contests"/>
-                			</jsp:include>
-                <%      break;
-                        case Base.ARCHITECTURE_PROJECT_TYPE: %>
-                            <jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="architecture"/>
-                                <jsp:param name="title" value="Active Contests"/>
-                            </jsp:include>
-                <%      break;
-                    }
-                %>    
+            <c:choose>
+                <c:when test="${pt == DESIGN_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="comp_design"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="comp_development"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="assembly"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>        
+                <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="architecture"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>        
+            </c:choose>
 
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
@@ -101,37 +103,31 @@
 <td class="divider">
     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
         <tr><td class="tableTitle" colspan="2">
-               <%                 
-                    switch (projectTypeId) {
-                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
-			              Design
-                <%      break;
-                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
-			              Development
-                <%      break;
-                        case Base.ASSEMBLY_PROJECT_TYPE: %>
-			              Assembly
-                <%      break;
-                        case Base.ARCHITECTURE_PROJECT_TYPE: %>
-                          Architecture
-                <%      break;
-                    }
-                %>
+            <c:choose>
+                <c:when test="${pt == DESIGN_PROJECT_TYPE}">
+                      Design
+                </c:when>
+                <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
+                      Development
+                </c:when>
+                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                      Assembly
+                </c:when>        
+                <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+                      Architecture
+                </c:when>        
+            </c:choose>
                  Contest Details</td></tr>
         <tr>
             <td class="cat" nowrap="nowrap">Contest:</td>
             <td class="stat" align="right" nowrap="nowrap">
-                <rsc:item name="component_name" set="<%=registrants%>"/> 
-               <% if (projectTypeId == Base.COMPONENT_DESIGN_PROJECT_TYPE ||
-                       projectTypeId == Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE) {
-               %>
+                <rsc:item name="component_name" set="<%=registrants%>"/>
+                <c:if test="${pt == DESIGN_PROJECT_TYPE or pt == DEVELOPMENT_PROJECT_TYPE}">
                 	<rsc:item name="version_text" set="<%=registrants%>"/>
-                <% } %>
+                </c:if>
             </td>
         </tr>
-        <% if (projectTypeId == Base.COMPONENT_DESIGN_PROJECT_TYPE ||
-                projectTypeId == Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE) {
-        %>
+        <c:if test="${pt == DESIGN_PROJECT_TYPE or pt == DEVELOPMENT_PROJECT_TYPE}">
 	        <tr>
 	            <td class="cat" nowrap="nowrap">Component:</td>
 	            <td class="stat" align="right" nowrap="nowrap">
@@ -144,7 +140,7 @@
 	                <% } %>
 	            </td>
 	        </tr>
-        <% } %>
+        </c:if>
         <tr>
             <td class="cat" nowrap="nowrap" style="padding-top: 3px">Catalog:</td>
             <td class="stat" align="right" nowrap="nowrap" style="padding-top: 3px">
@@ -174,41 +170,39 @@
         <tr><td class="tableTitle" colspan="10">Registrants</td></tr>
         <tr>
             <td CLASS="tableHeader">Handle</td>
-            <%if (projectTypeId==Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE||projectTypeId==Base.COMPONENT_DESIGN_PROJECT_TYPE) { %>
-            <td CLASS="tableHeader" align="right">Rating</td>
-            <td CLASS="tableHeader" align="right">Reliability</td>
-            <% }%>
-              <td CLASS="tableHeader" align="center">Registration Date</td>
+            <c:if test="${pt == DESIGN_PROJECT_TYPE or pt == DEVELOPMENT_PROJECT_TYPE}">
+                <td CLASS="tableHeader" align="right">Rating</td>
+                <td CLASS="tableHeader" align="right">Reliability</td>
+            </c:if>
+            <td CLASS="tableHeader" align="center">Registration Date</td>
             <td CLASS="tableHeader" align="center">Submission Date</td>
          </tr>
           <rsc:iterator list="<%=registrants%>" id="resultRow">
           <tr>
               <td class="statDk">
-               <%                 
-                    switch (projectTypeId) {
-                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
-		                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Design'/>
-                <%      break;
-                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
-		                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Development'/>
-                <%      break;
-                        case Base.ASSEMBLY_PROJECT_TYPE: %>
-			                <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=(resultRow.getIntItem("dev_rating") > resultRow.getIntItem("des_rating") ? "Development" : "Design")%>'/>
-                <%      break;
-                        case Base.ARCHITECTURE_PROJECT_TYPE: %>
-                            <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=(resultRow.getIntItem("dev_rating") > resultRow.getIntItem("des_rating") ? "Development" : "Design")%>'/>
-                <%      break;
-                    }
-                %>
+            <c:choose>
+                <c:when test="${pt == DESIGN_PROJECT_TYPE}">
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Design'/>
+                </c:when>
+                <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Development'/>
+                </c:when>
+                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=(resultRow.getIntItem("dev_rating") > resultRow.getIntItem("des_rating") ? "Development" : "Design")%>'/>
+                </c:when>        
+                <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=(resultRow.getIntItem("dev_rating") > resultRow.getIntItem("des_rating") ? "Development" : "Design")%>'/>
+                </c:when>        
+            </c:choose>
               </td>
-              <%if (projectTypeId==Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE||projectTypeId==Base.COMPONENT_DESIGN_PROJECT_TYPE) { %>
-              <td class="statDk" align="right" nowrap="0">
-                  <rsc:item name="rating" row="<%=resultRow%>" format="####" ifNull="not rated"/>
-              </td>
-              <td class="statDk" align="right" nowrap="0">
-                  <rsc:item name="reliability" row="<%=resultRow%>" format="#.##%" ifNull="n/a"/>
-              </td>
-              <% } %>
+             <c:if test="${pt == DESIGN_PROJECT_TYPE or pt == DEVELOPMENT_PROJECT_TYPE}">
+                  <td class="statDk" align="right" nowrap="0">
+                      <rsc:item name="rating" row="<%=resultRow%>" format="####" ifNull="not rated"/>
+                  </td>
+                  <td class="statDk" align="right" nowrap="0">
+                      <rsc:item name="reliability" row="<%=resultRow%>" format="#.##%" ifNull="n/a"/>
+                  </td>
+              </c:if>
               <td class="statDk" align="center" nowrap="0">
                   <rsc:item name="inquiry_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
               </td>

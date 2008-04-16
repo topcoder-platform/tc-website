@@ -1,10 +1,9 @@
 <%@ page language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<% List questionInfo = (List) request.getAttribute("questionInfo");
-   int projectTypeId = ((Integer) request.getAttribute(Constants.PROJECT_TYPE_ID)).intValue();
-%>
+<% List questionInfo = (List) request.getAttribute("questionInfo");%>
 <html>
 <%@ page import="com.topcoder.web.tc.controller.request.development.Base"%>
 <%@ page import="com.topcoder.web.common.model.SoftwareComponent" %>
@@ -21,6 +20,11 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
 
+<c:set value="<%=Constants.DESIGN_PROJECT_TYPE%>" var="DESIGN_PROJECT_TYPE"/>
+<c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_PROJECT_TYPE"/>
+<c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_PROJECT_TYPE"/>
+
 <body>
 
 <jsp:include page="../top.jsp">
@@ -31,30 +35,28 @@
     <tr valign="top">
         <!-- Left Column Begins-->
         <td width="180">
-               <%                 
-                    switch (projectTypeId) {
-                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="des_compete"/>
-                            </jsp:include>
-                <%      break;
-                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="dev_compete"/>
-                            </jsp:include>
-                <%      break;
-                        case Base.ASSEMBLY_PROJECT_TYPE: %>
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="assembly_compete"/>
-                            </jsp:include>
-                <%      break;
-                        case Base.ARCHITECTURE_PROJECT_TYPE: %>
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="architecture_compete"/>
-                            </jsp:include>
-                <%      break;
-                    }
-                %>
+            <c:choose>
+                <c:when test="${pt == DESIGN_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="des_compete"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="dev_compete"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="assembly_compete"/>
+                    </jsp:include>
+                </c:when>        
+                <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="architecture_compete"/>
+                    </jsp:include>
+                </c:when>        
+            </c:choose>
         </td>
         <!-- Left Column Ends -->
 
@@ -65,92 +67,89 @@
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
 
-               <%                 
-                    switch (projectTypeId) {
-                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
-                			<jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="comp_design"/>
-                			    <jsp:param name="title" value="Active Contests"/>
-                			</jsp:include>
-                <%      break;
-                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
-                			<jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="comp_development"/>
-                			    <jsp:param name="title" value="Active Contests"/>
-                			</jsp:include>
-                <%      break;
-                        case Base.ASSEMBLY_PROJECT_TYPE: %>
-                            <jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="assembly"/>
-                                <jsp:param name="title" value="Active Contests"/>
-                            </jsp:include>
-                <%      break;
-                        case Base.ARCHITECTURE_PROJECT_TYPE: %>
-                            <jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="architecture"/>
-                                <jsp:param name="title" value="Active Contests"/>
-                            </jsp:include>
-                <%      break;
-                    }
-                %>                
+            <c:choose>
+                <c:when test="${pt == DESIGN_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="comp_design"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="comp_development"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="assembly"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>        
+                <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="architecture"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>        
+            </c:choose>
 
             <form action="${sessionInfo.servletPath}" method="POST" name="regForm">
-               <%                 
-                    switch (projectTypeId) {
-                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:
-                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
-                            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectRegister"/>
-                <%      break;
-                        case Base.ASSEMBLY_PROJECT_TYPE: %>
-                            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="AssemblyProjectRegister"/>
-                <%      break;
-                        case Base.ARCHITECTURE_PROJECT_TYPE: %>
+                <c:choose>
+                    <c:when test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
+                        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectRegister"/>
+                    </c:when>
+                    <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="AssemblyProjectRegister"/>
+                    </c:when>        
+                    <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ArchitectureProjectRegister"/>
-                <%      break;
-                    }
-                %>                
+                    </c:when>        
+                </c:choose>
+                
                 <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID%>"/>
-                <% if (projectTypeId == 1 || projectTypeId == 2) { %>
-                        <tc:questionIterator list="<%=questionInfo%>" id="question">
-                            <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
-                                <tr>
-                                    <td colspan="2" class="bodySubtitle" valign="top" width="100%">
-                                        <jsp:getProperty name="question" property="text"/>
-                                        <br/><br/>
-                                        <hr width="100%" size="1" noshade/>
+
+                <c:if test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
+                    <tc:questionIterator list="<%=questionInfo%>" id="question">
+                        <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
+                            <tr>
+                                <td colspan="2" class="bodySubtitle" valign="top" width="100%">
+                                    <jsp:getProperty name="question" property="text"/>
+                                    <br/><br/>
+                                    <hr width="100%" size="1" noshade/>
+                                </td>
+    
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="errorText">
+                                    <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>
+                                        <br/></tc-webtag:errorIterator>
+                                </td>
+                            </tr>
+                            <% boolean even = false; %>
+                            <tc:answerInput id="answerInput" question="<%=question%>">
+                                <tr class="<%=even?"formTextOdd":"formTextEven"%>">
+                                    <td width="100%">
+                                        <%=answerText%>
                                     </td>
-        
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="errorText">
-                                        <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>
-                                            <br/></tc-webtag:errorIterator>
+                                    <td align="center">
+                                        <%=answerInput%>
                                     </td>
                                 </tr>
-                                <% boolean even = false; %>
-                                <tc:answerInput id="answerInput" question="<%=question%>">
-                                    <tr class="<%=even?"formTextOdd":"formTextEven"%>">
-                                        <td width="100%">
-                                            <%=answerText%>
-                                        </td>
-                                        <td align="center">
-                                            <%=answerInput%>
-                                        </td>
-                                    </tr>
-                                    <% even = !even; %>
-                                </tc:answerInput>
-                            </table>
-                            <p><br/></p>
-                        </tc:questionIterator>
-                <% } %>
+                                <% even = !even; %>
+                            </tc:answerInput>
+                        </table>
+                        <p><br/></p>
+                    </tc:questionIterator>
+                </c:if>
                 <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="10" cols="60"/>
 
                 <p style="width: 510px;">
-                    <% if ((projectTypeId == 1 || projectTypeId == 2) && request.getAttribute("notRegistered") != null) { %>
-                    <span class="errorText">
-                     Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
-                     </span><br><br>
-                    <% }%>
+                    <c:if test="${(pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE) and not empty notRegistered}">
+                        <span class="errorText">
+                         Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
+                         </span><br><br>
+                    </c:if>
                     <span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%>
                         <br/></tc-webtag:errorIterator></span>
 
