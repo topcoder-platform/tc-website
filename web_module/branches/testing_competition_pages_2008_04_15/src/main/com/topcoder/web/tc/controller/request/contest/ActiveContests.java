@@ -31,35 +31,17 @@ public class ActiveContests extends ActiveContestsBase {
     }
     
     protected String getCommandName() {
-        if (getProjectType().equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
-            return "active_assembly_contests";
-        } else if (getProjectType().equals(Constants.ARCHITECTURE_PROJECT_TYPE)) {
+        if (getProjectType().equals(Constants.ARCHITECTURE_PROJECT_TYPE)) {
             return "active_architecture_contests";            
         } else {
             return super.getCommandName();
         }
     }
     
-    protected String getActiveContestsPage() {
-        if (getProjectType().equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
-            return "/dev/assembly/activeContests.jsp";
-        } else if (getProjectType().equals(Constants.ARCHITECTURE_PROJECT_TYPE)) {
-            return "/architecture/activeContests.jsp";            
-        } else {
-            return super.getActiveContestsPage();
-        }
-    }
-
     @Override
     protected Boolean hasDR() {
         if (getProjectType().equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
             return Boolean.TRUE;
-        } else if (getProjectType().equals(Constants.ARCHITECTURE_PROJECT_TYPE)) {
-            return Boolean.FALSE;
-        } else if (getProjectType().equals(Constants.COMPONENT_TESTING_PROJECT_TYPE)) {
-            return Boolean.FALSE;
-        } else if (getProjectType().equals(Constants.APPLICATION_TESTING_PROJECT_TYPE)) {
-            return Boolean.FALSE;
         } else {
             return Boolean.FALSE;
         }

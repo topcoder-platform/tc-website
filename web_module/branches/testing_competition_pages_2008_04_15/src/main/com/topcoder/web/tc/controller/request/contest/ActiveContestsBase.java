@@ -38,7 +38,7 @@ public abstract class ActiveContestsBase extends Base {
     }
     
     protected String getActiveContestsPage() {
-        return "/contests/activeContests.jsp";
+        return "/contest/activeContests.jsp";
     }
 
     protected abstract Boolean hasDR();
