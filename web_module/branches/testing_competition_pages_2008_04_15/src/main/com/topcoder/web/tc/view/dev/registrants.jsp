@@ -28,6 +28,8 @@
 <c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_PROJECT_TYPE"/>
 <c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_PROJECT_TYPE"/>
 <c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_PROJECT_TYPE"/>
+<c:set value="<%=Constants.COMPONENT_TESTING_PROJECT_TYPE%>" var="COMPONENT_TESTING_PROJECT_TYPE"/>
+<c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_PROJECT_TYPE"/>
 
 <body>
 
@@ -58,6 +60,16 @@
                 <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="architecture_compete"/>
+                    </jsp:include>
+                </c:when>        
+                <c:when test="${pt == COMPONENT_TESTING_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="component_testing_compete"/>
+                    </jsp:include>
+                </c:when>        
+                <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="application_testing_compete"/>
                     </jsp:include>
                 </c:when>        
             </c:choose>
@@ -95,6 +107,18 @@
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>        
+                <c:when test="${pt == COMPONENT_TESTING_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="component_testing"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>        
+                <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="application_testing"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>        
             </c:choose>
 
 
@@ -115,6 +139,12 @@
                 </c:when>        
                 <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
                       Architecture
+                </c:when>        
+                <c:when test="${pt == COMPONENT_TESTING_PROJECT_TYPE}">
+                      Component Testing
+                </c:when>        
+                <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+                      Application Testing
                 </c:when>        
             </c:choose>
                  Contest Details</td></tr>
@@ -187,12 +217,9 @@
                 <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Development'/>
                 </c:when>
-                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                <c:otherwise>
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=(resultRow.getIntItem("dev_rating") > resultRow.getIntItem("des_rating") ? "Development" : "Design")%>'/>
-                </c:when>        
-                <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
-                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=(resultRow.getIntItem("dev_rating") > resultRow.getIntItem("des_rating") ? "Development" : "Design")%>'/>
-                </c:when>        
+                </c:otherwise>>        
             </c:choose>
               </td>
              <c:if test="${pt == DESIGN_PROJECT_TYPE or pt == DEVELOPMENT_PROJECT_TYPE}">
