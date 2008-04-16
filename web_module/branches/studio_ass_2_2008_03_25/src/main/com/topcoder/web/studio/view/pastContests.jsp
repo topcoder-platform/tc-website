@@ -101,12 +101,12 @@
                 </td>
                 <td class="value">
                     <%-- Since TopCoder Studio Modifications assembly Req# 5.2 --%>
-                    <studio_tags:contestIcon row="${resultRow}"/>
-                    <strong><a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
+                    <div class="contestEmblem"><studio_tags:contestIcon row="${resultRow}"/></div>
+                    <div class="contestTitle"><a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
                         <rsc:item name="name" row="<%=resultRow%>"/>
-                    </a></strong>
+                    </a></div>
 
-                    <div style="margin: 6px 10px;">
+                    <div class="contestLinks">
                         <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">contest
                             details</a>
                         <c:if test="${resultRow.map['forum_id']!=null}">| <studio:forumLink forumID="${resultRow.map['forum_id']}" message="discuss"/></c:if>

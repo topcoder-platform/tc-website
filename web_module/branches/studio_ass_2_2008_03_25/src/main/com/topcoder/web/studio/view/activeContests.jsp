@@ -116,10 +116,12 @@
                             </td>
                             <td class="value">
                                 <%-- Since TopCoder Studio Modifications assembly Req# 5.2 --%>
-                                <studio_tags:contestIcon row="${resultRow}"/>
-                                <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
-                                    <rsc:item name="name" row="<%=resultRow%>"/>
-                                </a>
+                                <div class="contestEmblem"><studio_tags:contestIcon row="${resultRow}"/></div>
+                                <div class="contestTitle">
+                                    <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
+                                        <rsc:item name="name" row="<%=resultRow%>"/>
+                                    </a>
+                                </div>
                             </td>
                             <td class="value">
                                 <%-- todo no scriptlet code!, fix this--%>
