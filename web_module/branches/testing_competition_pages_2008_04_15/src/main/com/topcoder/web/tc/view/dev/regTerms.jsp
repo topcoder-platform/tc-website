@@ -125,7 +125,7 @@
                     </c:when>
                     <c:otherwise>
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Register"/>
-                    </c:otherwise>>        
+                    </c:otherwise>        
                 </c:choose>
                 
                 <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID%>"/>
