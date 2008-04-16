@@ -123,10 +123,12 @@
             </c:otherwise>
         </c:choose>
     </div>
-    <div class="section">Notes on Submission File Formats:</div>
-    <div class="padder">
-        <studio:formatField text="${contest.submissionFileFormat.value}"/>
-    </div>
+    <c:if test="${not empty contest.submissionFileFormat.value}">
+        <div class="section">Notes on Submission File Formats:</div>
+        <div class="padder">
+            <studio:formatField text="${contest.submissionFileFormat.value}"/>
+        </div>
+    </c:if>
 
     <c:if test="${not empty contest.otherFileTypes.value}">
         <div class="section">Submission File Formats:</div>
