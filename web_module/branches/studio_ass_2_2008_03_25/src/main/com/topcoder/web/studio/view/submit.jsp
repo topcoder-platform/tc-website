@@ -136,6 +136,7 @@
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
                         <br /></tc-webtag:errorIterator>
                     <input type="file" name="<%=Constants.SUBMISSION%>">
+                    <br />(must be a Zip file)
                 </p>
 
                 <p>
