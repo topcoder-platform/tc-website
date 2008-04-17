@@ -123,6 +123,7 @@ public class DistanceFeed extends Base {
         	
 	        ret = new Coder(String.valueOf(ID), handle, rating );
 	        ret.overlap = shared_rounds;    	
+		ret.dist.add(0.0);
 		} catch (Exception e) { throw new RuntimeException(e); }
         
         return ret;			
