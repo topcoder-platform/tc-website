@@ -138,7 +138,9 @@
     <div class="section">Final File Format:</div>
     <div class="padder">
         <p align="center">
-            <strong>Vector (AI and/or EPS)</strong>
+            <c:forEach items="${contest.fileTypes}" var="fileType">
+                <strong>${fileType.description}</strong>
+            </c:forEach>
         </p>
         <p align="left">
             You must include all source files with your submission.
