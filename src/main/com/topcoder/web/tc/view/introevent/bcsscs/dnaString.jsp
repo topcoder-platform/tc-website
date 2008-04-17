@@ -40,12 +40,14 @@
             <div align="left" style="margin-bottom: 20px;">
                 <img src="/i/introevent/bcsLogo.png" alt="" />
             </div>
-            <h2>Problem Statement for GuitarChords</h2>
+            <h2>Problem Statement for DNAString</h2>
 
             <div>
             <strong>
             Problem Statement 
+            <%--
             | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=dnaStringSol" class="bcLink">Solution</a>
+            --%>
             </strong>
             </div>
             
