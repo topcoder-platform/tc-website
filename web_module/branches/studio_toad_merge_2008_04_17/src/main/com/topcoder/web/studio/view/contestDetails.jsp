@@ -135,6 +135,16 @@
         <div class="padder"><p align="center"><studio:formatField text="${contest.otherFileTypes.value}"/></p></div>
     </c:if>
 
+    <div class="section">Final File Format:</div>
+    <div class="padder">
+        <p align="center">
+            <strong>Vector (AI and/or EPS)</strong>
+        </p>
+        <p align="left">
+            You must include all source files with your submission.
+        </p>
+    </div>
+
     <div class="section">Submission Limit:</div>
     <div class="padder">
         <p align="center">
