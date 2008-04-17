@@ -58,12 +58,12 @@
                     <td>Lunch</td>
                 </tr>
                 <tr class="light">
-                    <td>2:00 PM - 3:00 PM</td>
-                    <td>NSA Presentation</td>
-                </tr>
-                <tr class="dark">
                     <td>12:00 PM - 6:00 PM</td>
                     <td>Component Design</td>
+                </tr>
+                <tr class="dark">
+                    <td>2:00 PM - 3:00 PM</td>
+                    <td>NSA Presentation</td>
                 </tr>
                 <tr class="light">
                     <td>7:00 PM - 9:00 PM</td>
