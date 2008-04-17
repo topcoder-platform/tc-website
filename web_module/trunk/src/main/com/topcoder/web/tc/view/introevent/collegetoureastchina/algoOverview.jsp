@@ -105,45 +105,38 @@
     (i.e., greater than zero) points will finish in 1st place. The overall winner will receive the 1st
     place prize, the 2nd place finisher will receive the 2nd place prize, and the 3rd place finisher
     will receive the 3rd place prize.
-    
+
     <h3>Participating Schools</h3>
-    Peking University<br />
-    Tsinghua University<br />
-    Beihang University<br />
-    Beijing Institute of Technology<br />
-    Beijing Normal University<br />
-    Beijing University of Post and Telecommunications<br />
-    Beijing Jiaotong University<br />
-    Renmin University of China<br />
-    China Agricultural University<br />
-    Communication University of China<br />
-    University of Science and Technology Beijing<br />
-    Beijing Information Science and Technology<br />
-    Beijing Forestry University<br />
-    China University of Mining and Technology,Beijing<br />
-    China University of Geosciences<br />
-    Beijing University of Technology<br />
-    Beijing University of Chemical Technology
+    Tongji University<br />
+    Fudan University<br />
+    Zhejiang University<br />
+    Nanjing University<br />
+    University of Science and Technology of China<br />
+    SouthEast University<br />
+    Nanjing University of Aeronautics and Astronautics<br />
+    East China University of Science and Technology<br />
+    Donghua University<br />
+    Shanghai Jiao Tong University<br />
+    East China Normal University<br />
+    Soochow University<br />
+    Jiangsu University<br />
+    Nanjing University of Science and Technology<br />
+    Zhejiang University of Technology<br />
+    Nanjing University of Post and Telecommunication<br />
+    Jiangnan University
     
     <br /><br />
     
     <h3>Co-host Schools</h3>
-    Tsinghua University<br />
-    Beihang University<br />
-    Beijing Institute of Technology<br />
-    Beijing Normal University<br />
-    Beijing University of Post and Telecommunications<br />
-    Beijing Jiaotong University<br />
-    Renmin University of China<br />
-    China Agricultural University<br />
-    Communication University of China<br />
-    University of Science and Technology Beijing<br />
-    Beijing Information Science and Technology<br />
-    Beijing Forestry University<br />
-    China University of Mining and Technology,Beijing<br />
-    China University of Geosciences<br />
-    Beijing University of Technology<br />
-    Beijing University of Chemical Technology
+    Fudan University<br />
+    Zhejiang University<br />
+    Nanjing University<br />
+    University of Science and Technology of China<br />
+    SouthEast University<br />
+    Nanjing University of Aeronautics and Astronautics<br />
+    East China University of Science and Technology<br />
+    Donghua University<br />
+    Shanghai Jiao Tong University
 
     <br><br>
 
