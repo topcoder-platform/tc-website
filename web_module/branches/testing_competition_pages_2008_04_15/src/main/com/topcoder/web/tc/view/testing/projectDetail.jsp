@@ -10,7 +10,7 @@
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail");%>
 <% ResultSetContainer technologies = (ResultSetContainer) request.getAttribute("technologies");%>
 <head>
-<title>TopCoder Component Testing Competitions</title>
+<title>TopCoder Application Testing Competitions</title>
 
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
@@ -21,7 +21,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp">
+<jsp:include page="../top.jsp">
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
@@ -234,7 +234,7 @@ Final payment is conditional on acceptance .......
 
 <%-- Right Column Begins --%>
 <td width="180">
-    <jsp:include page="../../public_right.jsp">
+    <jsp:include page="../public_right.jsp">
         <jsp:param name="level1" value="default"/>
     </jsp:include>
 </td>
@@ -243,7 +243,7 @@ Final payment is conditional on acceptance .......
 </tr>
 </table>
 
-<jsp:include page="../../foot.jsp"/>
+<jsp:include page="../foot.jsp"/>
 
 </body>
 
