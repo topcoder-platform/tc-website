@@ -21,6 +21,114 @@ import com.topcoder.web.tc.controller.request.Base;
  */
 public class DistanceFeed extends Base {
 
+    protected void businessProcessing() throws Exception {
+    	Vector<Coder> them = getOverlapCoders();
+    	Coder me = getOverlapMe();
+                
+        CoderOverlap co = new CoderOverlap(me, them);
+        co.process();
+        
+        getResponse().setContentType("text/xml");
+        writeAsXML(me, them);
+	                
+        getResponse().flushBuffer();
+    }
+	
+    private void writeAsXML(Coder first, Vector<Coder> v)	
+	{
+    	try { 
+			ServletOutputStream os = getResponse().getOutputStream();
+	
+			os.println("<map>");
+			
+			writeCoder(os, first);
+			
+			for(Coder c : v)
+			{
+				writeCoder(os, c);
+			}
+	
+			os.println("</map>");
+    	} catch (IOException e) { throw new RuntimeException(e); }
+	}
+    
+    private void writeCoder(ServletOutputStream os, Coder cur)
+    {
+    	try { 
+		os.print("<coder>\n");
+		os.print("<coder_id>");
+		os.print(cur.ID);
+		os.print("</coder_id>\n");	
+		os.print("<handle>");
+		os.print(cur.handle);
+		os.print("</handle>\n");
+		os.print("<rating>");
+		os.print(String.valueOf(cur.rating));
+		os.print("</rating>\n");
+		os.print("<image>placeholder</image>\n");
+		os.print("<distance>");
+		os.print(String.valueOf(cur.dist.get(0)));
+		os.print("</distance>\n");
+		os.print("<desc>");
+		os.print(cur.desc);
+		os.print("</desc>");
+		os.print("</coder>\n");
+    	} catch (IOException e) { throw new RuntimeException(e); }
+    }		
+
+	private Vector<Coder> getOverlapCoders()
+	{
+		Vector<Coder> ret = new Vector<Coder>();	
+		try {
+	    	Request r = new Request();
+	    	
+	    	r.setContentHandle("dd_fast_overlap");
+	        r.setProperty("cr", getRequest().getParameter("cr"));
+	        DataAccessInt da = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
+	        CommandRunner cmd = new CommandRunner(da, r);        
+	        Map<String, ResultSetContainer> dm = cmd.getData();
+		
+	        ResultSetContainer rsc = dm.get("dd_fast_overlap");
+	        for (ResultSetContainer.ResultSetRow row : rsc) {        	
+	        	long ID = row.getLongItem("coder_id");
+	        	String handle = row.getStringItem("handle");
+	        	int rating = row.getIntItem("rating");
+	        	int shared_rounds = row.getIntItem("shared_rounds");
+	        	
+	        	Coder c = new Coder(String.valueOf(ID), handle, rating );
+	        	c.overlap = shared_rounds;    	
+	        	
+	        	ret.add(c);
+	        }
+		} catch (Exception e) { throw new RuntimeException(e); }
+        
+        return ret;	
+	}
+	
+	private Coder getOverlapMe()
+	{
+		Coder ret = null;	
+		try {
+	    	Request r = new Request();	    	
+	    	r.setContentHandle("dd_fast_overlap_me");
+	        r.setProperty("cr", getRequest().getParameter("cr"));
+	        
+	        DataAccessInt da = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
+	        CommandRunner cmd = new CommandRunner(da, r);        
+	        Map<String, ResultSetContainer> dm = cmd.getData();	        
+	        ResultSetContainer rsc = dm.get("dd_fast_overlap_me");
+	        long ID = rsc.get(0).getLongItem("coder_id");
+        	String handle = rsc.get(0).getStringItem("handle");
+        	int rating = rsc.get(0).getIntItem("rating");
+        	int shared_rounds = rsc.get(0).getIntItem("shared_rounds");
+        	
+	        ret = new Coder(String.valueOf(ID), handle, rating );
+	        ret.overlap = shared_rounds;    	
+		} catch (Exception e) { throw new RuntimeException(e); }
+        
+        return ret;			
+	}
+    
 	protected class Coder {
 		public String handle;
 		public long rating;
@@ -88,118 +196,5 @@ public class DistanceFeed extends Base {
 		}
 	}
 
-	private Vector<Coder> getOverlapCoders()
-	{
-		Vector<Coder> ret = new Vector<Coder>();	
-		try {
-	    	Request r = new Request();
-	    	
-	    	r.setContentHandle("dd_fast_overlap");
-	        r.setProperty("cr", getRequest().getParameter("cr"));
-	        DataAccessInt da = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
-	        CommandRunner cmd = new CommandRunner(da, r);        
-	        Map<String, ResultSetContainer> dm = cmd.getData();
-		
-	        ResultSetContainer rsc = dm.get("dd_fast_overlap");
-	        for (ResultSetContainer.ResultSetRow row : rsc) {        	
-	        	long ID = row.getLongItem("coder_id");
-	        	String handle = row.getStringItem("handle");
-	        	int rating = row.getIntItem("rating");
-	        	int shared_rounds = row.getIntItem("shared_rounds");
-	        	
-	        	Coder c = new Coder(String.valueOf(ID), handle, rating );
-	        	c.overlap = shared_rounds;    	
-	        	
-	        	ret.add(c);
-	        }
-		} catch (Exception e) {}
-        
-        return ret;	
-	}
-	
-	private Coder getOverlapMe()
-	{
-		Coder ret = null;	
-		try {
-	    	Request r = new Request();	    	
-	    	r.setContentHandle("dd_fast_overlap_me");
-	        r.setProperty("cr", getRequest().getParameter("cr"));
-	        
-	        DataAccessInt da = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
-	        CommandRunner cmd = new CommandRunner(da, r);        
-	        Map<String, ResultSetContainer> dm = cmd.getData();	        
-	        ResultSetContainer rsc = dm.get("dd_fast_overlap_me");
-	        long ID = rsc.get(0).getLongItem("coder_id");
-        	String handle = rsc.get(0).getStringItem("handle");
-        	int rating = rsc.get(0).getIntItem("rating");
-        	int shared_rounds = rsc.get(0).getIntItem("shared_rounds");
-        	
-	        ret = new Coder(String.valueOf(ID), handle, rating );
-	        ret.overlap = shared_rounds;    	
-		} catch (Exception e) {}
-        
-        return ret;			
-	}
-	
-    protected void businessProcessing() throws Exception {
-    	try {
-
-    	Vector<Coder> them = getOverlapCoders();
-    	Coder me = getOverlapMe();
-                
-        CoderOverlap co = new CoderOverlap(me, them);
-        co.process();
-        
-        getResponse().setContentType("text/xml");
-        writeAsXML(me, them);
-	                
-        getResponse().flushBuffer();
-    	} catch (Exception e)
-    	{
-    		getResponse().getOutputStream().println("exception: " + e.getMessage());
-    	}
-    }
-	
-    private void writeAsXML(Coder first, Vector<Coder> v)	
-	{
-    	try { 
-		ServletOutputStream os = getResponse().getOutputStream();
-
-		os.println("<map>");
-		
-		writeCoder(os, first);
-		
-		for(Coder c : v)
-		{
-			writeCoder(os, c);
-		}
-
-		os.println("</map>");
-    	} catch (IOException e) {}
-	}
     
-    private void writeCoder(ServletOutputStream os, Coder cur)
-    {
-    	try { 
-		os.print("<coder>\n");
-		os.print("<coder_id>");
-		os.print(cur.ID);
-		os.print("</coder_id>\n");	
-		os.print("<handle>");
-		os.print(cur.handle);
-		os.print("</handle>\n");
-		os.print("<rating>");
-		os.print(String.valueOf(cur.rating));
-		os.print("</rating>\n");
-		os.print("<image>placeholder</image>\n");
-		os.print("<distance>");
-		os.print(String.valueOf(cur.dist.get(0)));
-		os.print("</distance>\n");
-		os.print("<desc>");
-		os.print(cur.desc);
-		os.print("</desc>");
-		os.print("</coder>\n");
-    	} catch (IOException e) {}
-    }		
-
 }
