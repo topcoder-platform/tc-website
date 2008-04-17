@@ -30,9 +30,6 @@ public class DistanceFeed extends Base {
         
         getResponse().setContentType("text/xml");
         writeAsXML(me, them);
-
-	getResponse().getOutputStream().println("<map></map>");	
-
         getResponse().flushBuffer();
     }
 	
