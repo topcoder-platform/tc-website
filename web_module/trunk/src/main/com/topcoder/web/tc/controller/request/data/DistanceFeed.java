@@ -25,12 +25,14 @@ public class DistanceFeed extends Base {
     	Vector<Coder> them = getOverlapCoders();
     	Coder me = getOverlapMe();
                 
-        CoderOverlap co = new CoderOverlap(me, them);
-        co.process();
+        //CoderOverlap co = new CoderOverlap(me, them);
+        //co.process();
         
         getResponse().setContentType("text/xml");
-        writeAsXML(me, them);
-	                
+        //writeAsXML(me, them);
+
+	getResponse().getOutputStream().println("<map></map>");	
+
         getResponse().flushBuffer();
     }
 	
