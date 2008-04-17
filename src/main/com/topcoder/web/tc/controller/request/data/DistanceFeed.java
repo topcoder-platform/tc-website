@@ -27,22 +27,28 @@ import java.util.Map;
 public class DistanceFeed extends Base {
 
     protected void businessProcessing() throws Exception {
-        Request r = new Request();
+    	try {
+    	Request r = new Request();
         r.setContentHandle("dd_fast_overlap");
         r.setProperty("cr", getRequest().getParameter("cr"));
-        DataAccessInt da = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, false);
+        DataAccessInt da = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
         CommandRunner cmd = new CommandRunner(da, r);
-	Map<String, ResultSetContainer> dm = cmd.getData();
+        
+        Map<String, ResultSetContainer> dm = cmd.getData();
 	
-	ResultSetContainer rsc = dm.get("dd_fast_overlap");
+        ResultSetContainer rsc = dm.get("dd_fast_overlap");
         getResponse().setContentType("text/xml");
         getResponse().getOutputStream().println("<map>");
 
 
-	for (ResultSetContainer.ResultSetRow row : rsc) {
-		getResponse().getOutputStream().println("<row>" + row.toString() + "</row>");		
-	}
-	getResponse().getOutputStream().println("</map>");
+        for (ResultSetContainer.ResultSetRow row : rsc) {
+        	getResponse().getOutputStream().println("<row>" + row.toString() + "</row>");		
+        }
+        getResponse().getOutputStream().println("</map>");
         getResponse().flushBuffer();
+    	} catch (Exception e)
+    	{
+    		getResponse().getOutputStream().println("exception: " + e.getMessage());
+    	}
     }
 }
