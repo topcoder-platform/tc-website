@@ -15,10 +15,6 @@ public class ViewActiveContests extends ActiveContestsBase {
     protected String getCommandName() {
         return "active_architecture_contests";
     }
-    
-    protected String getActiveContestsPage() {
-        return "/architecture/activeContests.jsp";
-    }
 
     @Override
     protected Boolean hasDR() {

@@ -11,15 +11,6 @@ import com.topcoder.web.tc.controller.request.contest.ActiveContestsBase;
  * Create Date: Apr 16, 2008
  */
 public class ViewActiveContests extends ActiveContestsBase {
-
-    protected String getCommandName() {
-        return "active_assembly_contests";
-    }
-    
-    protected String getActiveContestsPage() {
-        return "/dev/assembly/activeContests.jsp";
-    }
-
     @Override
     protected Boolean hasDR() {
         return Boolean.TRUE;
