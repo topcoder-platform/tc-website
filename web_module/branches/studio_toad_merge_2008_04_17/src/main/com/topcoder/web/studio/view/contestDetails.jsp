@@ -214,50 +214,68 @@
 </table>
 
 <c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
-    <c:choose>
-    <c:when test="${registered}">
-    <%-- REGISTERED --%>
+        <div id="conDetInstructionsBox">
+            <ul>
 
-    <div id="conDetInstructionsBox">
-        <ul>
+
+            <c:choose>
+            <c:when test="${registered}">
+            <%-- REGISTERED --%>
             <li>
                 <div>
                     <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/1NA.png" alt="1" /></a>
                     <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="grayedOut">Register for this contest.</a>
                 </div>
             </li>
-            <li>
-                <div>
-                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/2.png" alt="2" /></a>
-                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit your entry.</a>
-                </div>
-            </li>
-        </ul>
-    </div>
 
-    </c:when>
-    <c:otherwise>
-    <%-- UNREGISTERED --%>
-
-    <div id="conDetInstructionsBox">
-        <ul>
+            </c:when>
+            <c:otherwise>
+            <%-- UNREGISTERED --%>
             <li>
                 <div>
                     <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/1.png" alt="1" /></a>
                     <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Register for this contest.</a>
                 </div>
             </li>
-            <li>
-                <div>
-                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/2.png" alt="2" /></a>
-                    <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit your entry.</a>
-                </div>
-            </li>
-        </ul>
-    </div>
+            </c:otherwise>
+            </c:choose>
 
-    </c:otherwise>
-    </c:choose>
+
+            <c:choose>
+                <c:when test="${not empty has_global_ad}">
+                    <li>
+                        <div>
+                            <c:choose>
+                                <c:when test="${has_global_ad}">
+                                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="icon"><img src="/i/v2/interface/2NA.png" alt="2" /></a>
+                                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="grayedOut">Sign & submit an Assignment Document</a> <span class="grayedOut">if this is your first competition.</span>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="icon"><img src="/i/v2/interface/2.png" alt="2" /></a>
+                                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Sign & submit an Assignment Document</a> if this is your first competition.
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/3.png" alt="3" /></a>
+                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit your entry.</a>
+                        </div>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li>
+                        <div>
+                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/2.png" alt="2" /></a>
+                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit your entry.</a>
+                        </div>
+                    </li>
+                </c:otherwise>
+            </c:choose>
+
+            </ul>
+        </div>
 </c:if>
 
 <div class="header">Contest Summary</div>

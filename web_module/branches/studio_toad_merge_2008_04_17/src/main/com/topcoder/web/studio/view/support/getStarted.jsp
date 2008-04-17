@@ -39,6 +39,7 @@
                         Getting Started
                         <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
                         <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=competitionFaq">Competition FAQs</a>
+                        <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Assignment FAQ</a>
                     </div>
             
                     <h3>Creative and exciting projects that pay off big.</h3>
@@ -110,26 +111,23 @@
                     <div style="float:left; margin: 0px 6px 4px 0px;">
                     <img src="/i/layout/step7.gif" alt="Step 7"/>
                     </div>
-                    <strong>Submissions that pass screening are sent to Online Review</strong>:
-                    All submissions that pass screening (i.e., conform to the project specifications) will be sent
-                    to a Review Board, which will score them. The highest scoring submission will win the contest.
+                    <strong>Submissions that pass screening are sent to Client</strong>:
+                    All submissions that pass screening (i.e., conform to the project specifications) will be sent to the client for review.
                     <br /><br />
                     
                     <div style="float:left; margin: 0px 6px 4px 0px;">
                     <img src="/i/layout/step8.gif" alt="Step 8"/>
                     </div>
                     
-                    <strong>A client selection prize is awarded</strong>:
-                    Passing submissions and their scores are sent to the client. At this time, the client can choose to award a prize (or multiple prizes) for their selection. The client selection prize can be given to the Studio contestant with the highest score, or to another competitor of the client's choosing. 
+                    <strong>Client selection prizes are awarded</strong>:
+                    The client reviews all passing submissions and chooses a winner (or winners) solely at their discretion.
                     <br /><br />
                     
                     <div style="float:left; margin: 0px 6px 4px 0px;">
                     <img src="/i/layout/step9.gif" alt="Step 9"/>
                     </div>
                     <strong>Winner is compensated for their work</strong>:
-                    Winners of the contest and the client selection prize(s) are notified via email. In order for winners to be compensated for their work, they must submit the required files or other deliverables detailed in the Specification Document. They must also sign an Assignment Document and the appropriate tax form. Once TopCoder Studio receives the
-                    required files, the winners will be paid the amount specified in the Project
-                    Details.
+                    Winners of the contest are notified via email. In order for winners to be compensated for their work, they must submit the required files or other deliverables detailed in the Specification Document during the submission phase. They must also sign an Assignment Document and the appropriate tax form. The payment will be distributed in one full installment once the final version of the winning submission has been downloaded by the client. Payment is released according to the payment schedule table found in the Competition FAQs.
                     <br /><br />
                     
                     Get started now by checking out the current <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Contests</a>!

@@ -30,6 +30,11 @@
                             </SELECT>
                         </td> 
                     </tr>
+                    <tr>        
+                        <td><b>Template name:</b>
+                            <tc-webtag:textInput name="assignment_document_template_name" id="assignment_document_template_name" editable="true" maxlength="50"/> 
+                        </td>
+                    </tr>
                     <tr><td>
                         <textarea class=codingArea name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_TEMPLATE_TEXT%>" rows="20" cols="60" wrap="off"></textarea>
                     </td></tr>

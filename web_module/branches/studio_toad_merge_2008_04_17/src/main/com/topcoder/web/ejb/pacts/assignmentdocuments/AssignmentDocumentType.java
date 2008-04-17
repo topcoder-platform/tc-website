@@ -16,10 +16,11 @@ public class AssignmentDocumentType implements Serializable, Cloneable {
      * serialization for this object, i.e. when data members are changed.
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     public static final Long COMPONENT_COMPETITION_TYPE_ID = new Long(1);
     public static final Long STUDIO_CONTEST_TYPE_ID = new Long(2);
+    public static final Long GLOBAL_TYPE_ID = new Long(3);
 
     private Long id;
     private String description;

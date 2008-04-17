@@ -65,16 +65,16 @@
                         <input type="submit" value="Affirm"/>
                     </form>
 
-                    <p>If the personal information in this document is incorrect,<br>please <A href="/reg/?nrg=false">update your profile</A> before affirming.</p>
+                    <p>If the personal information in this document is incorrect,<br />please <A href="/reg/?nrg=false">update your profile</A> before affirming.</p>
                     <c:choose>
                         <c:when test="${has_hard_copy}">
                             <p>
-                                You have already sent a a signed hard copy of the Assignment Document Document.
+                                You have already sent a signed hard copy of the Assignment Document.
                             </p>
                         </c:when>
                         <c:otherwise>
                             <p>
-                                You will need to send a signed hard copy of the Assignment Document Document in order to be able to affirm it in the future. You can get a printer friendly version <a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">here</a>.
+                                You will need to send a signed hard copy of the Assignment Document in order to be able to affirm it in the future. You can get a printer friendly version <a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">here</a>.
                             </p>
                         </c:otherwise>
                     </c:choose>
