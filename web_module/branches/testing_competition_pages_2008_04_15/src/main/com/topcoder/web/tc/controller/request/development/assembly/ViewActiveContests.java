@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.request.development.assembly;
 
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.contest.ActiveContestsBase;
 
 /**
@@ -11,6 +13,12 @@ import com.topcoder.web.tc.controller.request.contest.ActiveContestsBase;
  * Create Date: Apr 16, 2008
  */
 public class ViewActiveContests extends ActiveContestsBase {
+
+    protected void developmentProcessing() throws TCWebException {
+        setProjectType(Constants.ASSEMBLY_PROJECT_TYPE);
+        super.developmentProcessing();
+    }
+
     @Override
     protected Boolean hasDR() {
         return Boolean.TRUE;

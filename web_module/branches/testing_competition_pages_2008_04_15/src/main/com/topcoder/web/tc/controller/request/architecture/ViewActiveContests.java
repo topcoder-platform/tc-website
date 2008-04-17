@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.request.architecture;
 
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.contest.ActiveContestsBase;
 
 /**
@@ -16,6 +18,11 @@ public class ViewActiveContests extends ActiveContestsBase {
         return "active_architecture_contests";
     }
 
+    protected void developmentProcessing() throws TCWebException {
+        setProjectType(Constants.ARCHITECTURE_PROJECT_TYPE);
+        super.developmentProcessing();
+    }
+    
     @Override
     protected Boolean hasDR() {
         return Boolean.FALSE;
