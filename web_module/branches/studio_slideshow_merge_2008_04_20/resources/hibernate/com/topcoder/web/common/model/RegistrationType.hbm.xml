@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="RegistrationType" table="registration_type_lu" mutable="false">
+        <id name="id" column="registration_type_id" access="field"/>
+        <property name="description" column="registration_type_desc" access="field"/>
+        <property name="name" column="registration_type_name" access="field"/>
+        <property name="sort" access="field"/>
+        <property name="active" column="active_ind" type="boolean" access="field"/>
+        <many-to-one name="securityGroup" column="security_group_id" class="SecurityGroup" access="field"/>
+        <set name="notifications" table="registration_type_notify_xref" cascade="none" access="field">
+            <key column="registration_type_id" not-null="true"/>
+            <many-to-many column="notify_id" class="Notification"/>
+        </set>
+        <set name="preferences" table="registration_type_preference_xref" cascade="none" access="field">
+            <key column="registration_type_id" not-null="true"/>
+            <many-to-many column="preference_id" class="Preference"/>
+        </set>
+    </class>
+</hibernate-mapping>
