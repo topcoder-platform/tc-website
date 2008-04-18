@@ -214,7 +214,8 @@
                 <a href="http://www.topcoder.com/reg/?nrg=false">Update my profile</a>
             </p>
         </c:otherwise>
-        <!-- JSP END --> </c:choose>
+        </c:choose>
+        <!-- JSP END --> 
         <div></div>
     </div>
 
