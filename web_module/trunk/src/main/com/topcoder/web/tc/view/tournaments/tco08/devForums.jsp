@@ -57,7 +57,7 @@
             Code reviews have long been recognized as an effective means to build quality software, but suffers from perennial staff and time shortages.  At TopCoder, our built-in review mechanism ensures reviews are conducted not only at the code development level, but throughout all stages of the SDLC.  This ubiquitous open-review process allows TopCoder to build the highest-quality components.  This discussion will walk you through the review mechanism and metrics.</p>
             
             <h3>Thursday, May 15, 2008</h3>
-            <h4>9:00 AM - 9:45 PM</h4>
+            <h4>9:00 AM - 9:45 AM</h4>
             <p><strong>Corporate Forum with Ron Burkhart, CFO, On Point Technology</strong></p>
             
             <h4>10:30 AM - 11:15 AM</h4>

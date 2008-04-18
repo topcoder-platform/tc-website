@@ -97,10 +97,14 @@
                     <td>Algorithm Competition Semi Final Room 3</td>
                 </tr>
                 <tr class="light">
+                    <td>4:00 PM - 4:45 PM</td>
+                    <td>From Assembly to Architecture with Greg Eldridge,<br />Project Manager, TopCoder, Inc.</td>
+                </tr>
+                <tr class="dark">
                     <td>5:00 PM - 7:00 PM</td>
                     <td>Dinner</td>
                 </tr>
-                <tr class="dark">
+                <tr class="light">
                     <td>7:00 PM - 9:00 PM</td>
                     <td>Wildcard Round</td>
                 </tr>
@@ -128,6 +132,22 @@
                     <td>Lunch</td>
                 </tr>
                 <tr class="dark">
+                    <td>1:00 PM - 1:45 PM</td>
+                    <td>Crowd Sourcing, Collaboration and Innovation</td>
+                </tr>
+                <tr class="light">
+                    <td>2:00 PM - 2:45 PM</td>
+                    <td>TC Direct &amp; Cockpit and Widget Innerworkings with<br />Denis Horgan, VP of Community Development, TopCoder, Inc.<br />and Sean Campion, Project Manager, TopCoder, Inc.</td>
+                </tr>
+                <tr class="dark">
+                    <td>3:00 PM - 3:45 PM</td>
+                    <td>Corporate Forum with Grady Bryant, Vice President of<br />Research &amp; Development, VeriSign</td>
+                </tr>
+                <tr class="light">
+                    <td>4:00 PM - 4:45 PM</td>
+                    <td>Quality Through Review with Sean Campion,<br />Project Manager, TopCoder, Inc.</td>
+                </tr>
+                <tr class="dark">
                     <td>5:00 PM - 7:00 PM</td>
                     <td>Dinner</td>
                 </tr>
@@ -139,18 +159,30 @@
                     <td>Breakfast</td>
                 </tr>
                 <tr class="dark">
+                    <td>9:00 AM - 9:45AM</td>
+                    <td>Corporate Forum with Ron Burkhart, CFO, On Point Technology</td>
+                </tr>
+                <tr class="light">
                     <td>10:00 AM - Noon</td>
                     <td>Algorithm Finals</td>
+                </tr>
+                <tr class="dark">
+                    <td>10:30 AM - 11:15 AM</td>
+                    <td>Corporate Forum with Nic Perez, Technical Director of<br />Competitive Software Development, AOL</td>
                 </tr>
                 <tr class="light">
                     <td>11:30 AM - 1:30 PM</td>
                     <td>Lunch</td>
                 </tr>
                 <tr class="dark">
+                    <td>1:30 PM - 2:00 PM</td>
+                    <td>Key Note Speaker, Jack Hughes, Founder, TopCoder, Inc.</td>
+                </tr>
+                <tr class="light">
                     <td>2:00 PM - 3:00 PM</td>
                     <td>All Champion Announcements and Awards</td>
                 </tr>
-                <tr class="light">
+                <tr class="dark">
                     <td>3:00 PM - 4:00 PM</td>
                     <td>Closing Reception</td>
                 </tr>
