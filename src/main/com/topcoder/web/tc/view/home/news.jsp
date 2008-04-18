@@ -4,7 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature News" border="0" /><br />04.16.08<br />4:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />04.18.08<br />4:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=041808">Meet the March 2008 Coders of the Month: PaulJefferys &amp; oton</a></span><br /><br />
+        We caught up with <tc-webtag:handle coderId="7394165" context="algorithm" />, March's Algorithm Coder of the Month, and <tc-webtag:handle coderId="22076237" />, March's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=041808">details</a> | 
+        <tc-webtag:forumLink forumID="520918" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />04.16.08<br />4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a target="blank" href="<tc-webtag:linkTracking link='http://www.courant.com/business/hc-cornershop0416.artapr16,0,6766513.story' refer='/tc' />">Courant.com - Glastonbury Firm's Online Software Contests Attract High-Rolling Sponsors</a></span><br /><br />
         TopCoder is a nontraditional workplace, staging online competitions for software design, many sponsored by Fortune 1000 companies. The winner is determined by peer review in the self-regulated online community.</td>
@@ -33,7 +46,7 @@
    
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature News" border="0" /><br />04.15.08<br />5:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />04.15.08<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a target="blank" href="<tc-webtag:linkTracking link='http://www.globalbestpractices.com/Home/Document.aspx?Q=273,4383,205,3FB60597-A4BD-47AA-9F61-3E96E6E3E10D' refer='/tc' />">PricewaterhouseCoopers - TopCoder's network drives innovation</a></span><br /><br />
         Innovation requires a sophisticated awareness of myriad resources that can influence new product and service development.</td>
@@ -156,18 +169,3 @@
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />04.03.08<br />11:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm395">SRM 395 - Problem Set &amp; Analysis</a></span><br /><br />
-      <tc-webtag:handle coderId="272072" context="algorithm"/> seeked out his 42nd victory in a very close match. <tc-webtag:handle coderId="15982182" context="algorithm"/> came in second, only 10 points behind, followed by <tc-webtag:handle coderId="20286298" context="algorithm"/> only 7 points behind him.</td>
-         <td class="newsPhoto"><%--<img src="/i/m/Xixas_big2.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="7296000" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm395">details</a> | 
-        <tc-webtag:forumLink forumID="520577" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
