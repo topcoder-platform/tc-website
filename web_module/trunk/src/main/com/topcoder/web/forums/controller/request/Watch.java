@@ -4,6 +4,7 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
+import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.WatchManager;
@@ -66,6 +67,16 @@ public class Watch extends ForumsProcessor {
                     }
                     nextPage.append("?module=Category&").append(ForumConstants.CATEGORY_ID).append("=").append(category.getID());
                 }
+                break;
+            case JiveConstants.FORUM:
+                Forum forum = forumFactory.getForum(id);
+                if (cmd.equals("add")) {
+                    watchManager.createWatch(user, forum);
+                } else {
+                    com.jivesoftware.forum.Watch watch = watchManager.getWatch(user, forum);
+                    watchManager.deleteWatch(watch);
+                }
+                nextPage.append("?module=ThreadList&").append(ForumConstants.FORUM_ID).append("=").append(forum.getID());
                 break;
         }
 

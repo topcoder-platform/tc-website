@@ -1,11 +1,6 @@
 <%@ page import="com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.JiveGlobals,
                  com.jivesoftware.base.User,
-                 com.jivesoftware.forum.ForumCategory,
-                 com.jivesoftware.forum.ForumMessage,
-                 com.jivesoftware.forum.ReadTracker,
-                 com.jivesoftware.forum.ResultFilter,
-                 com.jivesoftware.forum.WatchManager,
                  com.jivesoftware.forum.action.util.Page,
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.stats.ViewCountManager,
@@ -17,6 +12,7 @@
 <%@ page import="com.topcoder.web.forums.model.ImageData" %>
 <%@ page import="com.topcoder.web.forums.model.Paging" %>
 <%@ page import="java.util.Iterator" %>
+<%@ page import="com.jivesoftware.forum.*" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -76,6 +72,19 @@
         linkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(sortOrder);
     }
     String link = linkBuffer.toString();
+
+    String cmd = "";
+    String watchMessage = "";
+    if (!authToken.isAnonymous() && watchManager.isWatched(user, forum)) {
+       watchMessage = "Stop Watching Thread";
+       cmd = "remove";
+    } else {
+       watchMessage = "Watch Thread";
+       cmd = "add";
+    }
+
+
+
 %>
 
 <html>
@@ -137,6 +146,7 @@
             <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="rtbcLink">Post
                 Announcement</A>&#160; |&#160;
             <% } %>
+            <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.FORUM%>&<%=ForumConstants.WATCH_ID%>=<%=forum.getID()%>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>" class="rtbcLink"><%=watchMessage%></A>&#160;&#160;|&#160;&#160;
             <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="rtbcLink">Post
                 New Thread</A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My
             Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
