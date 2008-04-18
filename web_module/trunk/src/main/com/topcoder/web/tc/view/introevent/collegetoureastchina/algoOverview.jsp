@@ -170,7 +170,7 @@
     <a href="/download/misc/College_Tour_Presentation.ppt">The presentation</a> is available for download.
 
     <br><br>
-
+<%--
     <h3>Lecture Schedule</h3>
 
     <c:set var="lectureDate" value="<%=IntroEventConfig.LECTURE_DATE%>"/>
@@ -181,7 +181,7 @@
     TopCoder is also sponsoring a lecture at ${mainEvent.school.name} on ${mainEvent.config[lectureDate].value}.  The lecture is from ${mainEvent.config[lectureStartTime].value} until ${mainEvent.config[lectureEndTime].value} in ${mainEvent.config[lectureLocation].value}.
 
     <br><br>
-    
+    --%>
 </p>
 
 
