@@ -135,17 +135,19 @@
         <div class="padder"><p align="center"><studio:formatField text="${contest.otherFileTypes.value}"/></p></div>
     </c:if>
 
-    <div class="section">Source Files:</div>
-    <div class="padder">
-        <p align="center">
-            <c:forEach items="${contest.fileTypes}" var="fileType">
-                <strong>${fileType.description}</strong>
-            </c:forEach>
-        </p>
-        <p align="left">
-            You must include all source files with your submission.
-        </p>
-    </div>
+    <c:if test="${fn:length(contest.fileTypes)>0}">
+        <div class="section">Final File Format:</div>
+        <div class="padder">
+            <p align="center">
+                <c:forEach items="${contest.fileTypes}" var="fileType" varStatus="status">
+                    <strong>${fileType.description}</strong><c:if test="${not status.last}">,</c:if>
+                </c:forEach>
+            </p>
+            <p align="left">
+                You must include all source files with your submission.
+            </p>
+        </div>
+    </c:if>
 
     <div class="section">Submission Limit:</div>
     <div class="padder">
