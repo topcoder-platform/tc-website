@@ -44,6 +44,9 @@
                 <div align="center">
 
 
+
+
+
                     <strong>Are you sure you want to register for this contest?</strong>
                     <br /><br />
                     Please be aware that you are NOT REGISTERED for the tournament that this contest is part of.
