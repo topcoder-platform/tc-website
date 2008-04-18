@@ -106,6 +106,8 @@
     place prize, the 2nd place finisher will receive the 2nd place prize, and the 3rd place finisher
     will receive the 3rd place prize.
     
+    <br /><br />
+    
     <h3>Participating Schools</h3>
     Peking University<br />
     Tsinghua University<br />
