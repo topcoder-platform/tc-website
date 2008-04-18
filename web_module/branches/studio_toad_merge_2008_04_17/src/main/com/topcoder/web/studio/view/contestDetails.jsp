@@ -135,7 +135,7 @@
         <div class="padder"><p align="center"><studio:formatField text="${contest.otherFileTypes.value}"/></p></div>
     </c:if>
 
-    <div class="section">Final File Format:</div>
+    <div class="section">Source Files:</div>
     <div class="padder">
         <p align="center">
             <c:forEach items="${contest.fileTypes}" var="fileType">
