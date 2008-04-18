@@ -94,10 +94,12 @@
             <li>3rd place prize - ${mainEvent.thirdPlacePrize}
             </li>
         </c:if>
+        <%--
             <li>Best Female Performer - 1 GB MP4 Player
             </li>
             <li>Event Organizer - 1 GB MP4 Player
             </li>
+        --%>
     </ul>
 
     All competitors will receive a TopCoder t-shirt. Placement in the SRM will be determined by the
