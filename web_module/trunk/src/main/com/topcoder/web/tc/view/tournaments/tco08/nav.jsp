@@ -50,6 +50,7 @@
         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa"><img src="/i/tournament/tco08/nsa_logo_nav.png" width="186" height="80" alt="NSA" /></a></li>
         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=aol"><img src="/i/tournament/tco08/aol_logo_nav.png" width="186" height="80" alt="AOL" /></a></li>
         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign"><img src="/i/tournament/tco08/verisign_logo_nav.png" width="186" height="80" alt="VeriSign" /></a></li>
+        <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=bt"><img src="/i/tournament/tco08/bt_logo_nav.png" width="186" height="80" alt="BT" /></a></li>
     </ul>
         
 </div>
@@ -133,9 +134,7 @@
                     <% if (tabLev1.equals("overview")) {%>
                         <% if (tabLev2.equals("joinus")) {%>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=onsiteSchedule"<% if (tabLev3.equals("onsiteschedule")) {%> class="on"<% } %>>Onsite Schedule</a></li>
-                            <%--
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=devForums"<% if (tabLev3.equals("devforums")) {%> class="on"<% } %>>Developer Forums</a></li>
-                            --%>
                             <li><a target="_blank" href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early"<% if (tabLev3.equals("getvisa")) {%> class="on"<% } %>>Getting a Visa</a></li>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=transportation"<% if (tabLev3.equals("transportation")) {%> class="on"<% } %>>Travel Information</a></li>
                             <%--
@@ -153,9 +152,7 @@
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly"<% if (tabLev3.equals("lilly")) {%> class="on"<% } %>>Lilly</a></li>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=aol"<% if (tabLev3.equals("aol")) {%> class="on"<% } %>>AOL</a></li>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign"<% if (tabLev3.equals("verisign")) {%> class="on"<% } %>>VeriSign</a></li>
-                            <%--
-                            <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=db"<% if (tabLev3.equals("db")) {%> class="on"<% } %>>Deutsche Bank</a></li>
-                            --%>
+                            <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=bt"<% if (tabLev3.equals("bt")) {%> class="on"<% } %>>BT</a></li>
                         <% } else if (tabLev2.equals("eventpatrons")) { %>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa"<% if (tabLev3.equals("nsa")) {%> class="on"<% } %>>NSA</a></li>
                     <% } %>
