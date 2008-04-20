@@ -25,6 +25,7 @@ import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionReview;
 import com.topcoder.web.studio.model.SubmissionType;
+import com.topcoder.web.studio.model.SubmissionImage;
 import junit.framework.Assert;
 
 import java.io.ByteArrayInputStream;
@@ -35,12 +36,13 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * <p>A unit test case for {@link Submit} class.</p>
  *
  * @author isv
- * @version 1.0
+ * @version 1.1
  * @since TopCoder Studio Modifications Assembly (Req# 5.12)
  */
 public class SubmitTestCase extends TCHibernateTestCase {
@@ -110,6 +112,8 @@ public class SubmitTestCase extends TCHibernateTestCase {
      * <p>Tears down the fixture. This method is called after a test is executed.</p>
      */
     public void tearDown() {
+        joinThreads();
+
         super.tearDown();
         this.testedInstance = null;
         MockWebAuthentication.releaseState();
@@ -118,12 +122,14 @@ public class SubmitTestCase extends TCHibernateTestCase {
         MockHttpSession.releaseState();
         try {
             DBConnectionFactoryImpl connectionFactory
-                = new DBConnectionFactoryImpl("com.topcoder.db.connectionfactory.DBConnectionFactoryImpl");
+                    = new DBConnectionFactoryImpl("com.topcoder.db.connectionfactory.DBConnectionFactoryImpl");
             DatabaseUtil.deleteTableRecords(connectionFactory, "submission_review", "submission_id",
                                             this.addedSubmissions);
             DatabaseUtil.deleteTableRecords(connectionFactory, "contest_result", "submission_id",
                                             this.addedSubmissions);
             DatabaseUtil.deleteTableRecords(connectionFactory, "submission_prize_xref", "submission_id",
+                                            this.addedSubmissions);
+            DatabaseUtil.deleteTableRecords(connectionFactory, "submission_image", "submission_id",
                                             this.addedSubmissions);
             DatabaseUtil.deleteTableRecords(connectionFactory, "submission", "submission_id", this.addedSubmissions);
             DatabaseUtil.clearTables(connectionFactory);
@@ -155,12 +161,12 @@ public class SubmitTestCase extends TCHibernateTestCase {
 
         byte[] submitted = readSubmissionFile("submission.zip");
         String content1 = "--AaB03x" + newLine
-                         + "content-disposition: form-data; name=\"ct\"" + newLine2 + contestId + newLine
-                         + "--AaB03x" + newLine
-                         + "content-disposition: form-data; name=\"srank\"" + newLine2 + "999" + newLine
-                         + "--AaB03x" + newLine
-                         + "content-disposition: form-data; name=\"sbm\"; filename=\"submission.zip\"" + newLine
-                         + "Content-Type: application/zip" + newLine + "Content-Transfer-Encoding: binary" + newLine2;
+                          + "content-disposition: form-data; name=\"ct\"" + newLine2 + contestId + newLine
+                          + "--AaB03x" + newLine
+                          + "content-disposition: form-data; name=\"srank\"" + newLine2 + "999" + newLine
+                          + "--AaB03x" + newLine
+                          + "content-disposition: form-data; name=\"sbm\"; filename=\"submission.zip\"" + newLine
+                          + "Content-Type: application/zip" + newLine + "Content-Transfer-Encoding: binary" + newLine2;
         String content2 = newLine + "--AaB03x--" + newLine;
         byte[] b1 = content1.getBytes();
         byte[] b2 = content2.getBytes();
@@ -182,6 +188,7 @@ public class SubmitTestCase extends TCHibernateTestCase {
 
         // Execution
         this.testedInstance.process();
+        joinThreads();
         super.tearDown();
         super.setUp();
 
@@ -204,7 +211,7 @@ public class SubmitTestCase extends TCHibernateTestCase {
                             "TopCoder Direct, Automatic pass", review.getText());
         Assert.assertEquals("Incorrect reviewer",
                             userDAO.find(contest.getCreateUserId()).getId(), review.getReviewer().getId());
-        Assert.assertFalse("The submission is marked as having the preview image provided",
+        Assert.assertTrue("The submission is not marked as having the preview image provided",
                            submission.getHasPreviewImage());
     }
 
@@ -229,6 +236,76 @@ public class SubmitTestCase extends TCHibernateTestCase {
         String newLine2 = newLine + newLine;
 
         byte[] submitted = readSubmissionFile("submission.zip");
+        String content1 = "--AaB03x" + newLine
+                          + "content-disposition: form-data; name=\"ct\"" + newLine2 + contestId + newLine
+                          + "--AaB03x" + newLine
+                          + "content-disposition: form-data; name=\"srank\"" + newLine2 + "999" + newLine
+                          + "--AaB03x" + newLine
+                          + "content-disposition: form-data; name=\"sbm\"; filename=\"submission.zip\"" + newLine
+                          + "Content-Type: application/zip" + newLine + "Content-Transfer-Encoding: binary" + newLine2;
+        String content2 = newLine + "--AaB03x--" + newLine;
+        byte[] b1 = content1.getBytes();
+        byte[] b2 = content2.getBytes();
+
+        byte[] B = new byte[b1.length + b2.length + submitted.length];
+        System.arraycopy(b1, 0, B, 0, b1.length);
+        System.arraycopy(submitted, 0, B, b1.length, submitted.length);
+        System.arraycopy(b2, 0, B, b1.length + submitted.length, b2.length);
+
+        ByteArrayInputStream bais = new ByteArrayInputStream(B);
+        MockHttpServletRequest.setMethodResult("getInputStream", new ServletInputStreamImpl(bais));
+
+        MultipartRequest request = new MultipartRequest(new MockHttpServletRequest());
+        this.testedInstance.setRequest(request);
+
+        SessionInfo sessionInfo = new SessionInfo(request, new MockWebAuthentication(), new HashSet());
+        MockHttpServletRequest.setMethodResultPerArgs("getAttribute_String", "sessionInfo", sessionInfo);
+
+        // Execution
+        this.testedInstance.process();
+        joinThreads();
+        super.tearDown();
+        super.setUp();
+
+        // Test verification
+        ContestDAO contestDAO = StudioDAOUtil.getFactory().getContestDAO();
+        SubmissionDAO submissionDAO = StudioDAOUtil.getFactory().getSubmissionDAO();
+
+        Contest contest = contestDAO.find(contestId);
+        List<Submission> submissions = submissionDAO.getSubmissions(contest.getId(), userId,
+                                                                    SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE);
+        Assert.assertFalse("The submission is not added to database", submissions.isEmpty());
+        Assert.assertEquals("Incorrect number of submissions added", 1, submissions.size());
+
+        Submission submission = submissions.get(0);
+        this.addedSubmissions.add(submission.getId());
+        SubmissionReview review = submission.getReview();
+        Assert.assertNull("The automatic screening review is added by mistake", review);
+        Assert.assertFalse("The submission is marked as having the preview image provided",
+                           submission.getHasPreviewImage());
+    }
+
+    /**
+     * <p>Accuracy test. Tests the {@link Submit} request processor for accurate processing of the incoming request and
+     * meeting the <code>Req# 5.12</code> from the <code>TopCoder Studio Modifications</code> requirements specification
+     * document.</p>
+     *
+     * <p>Passes the request with submission for a contest originated from <code>Studio Administrator</code> contest
+     * channel and verifies that the submission is stored to database successfully and no screening review is
+     * auto-generated.</p>
+     *
+     * @throws Exception if an unexpected error occurs.
+     */
+    public void testProcess_StudioAdminContest_Gallery() throws Exception {
+        // Test setup
+        long contestId = 2;
+        long userId = 1;
+        //file upload looks to have a bug, when parsing the request without an \r, it'll go out of bounds
+        //String newLine = System.getProperties().getProperty("line.separator");
+        String newLine = "\r\n";
+        String newLine2 = newLine + newLine;
+
+        byte[] submitted = readSubmissionFile("slideshow/gallery.zip");
         String content1 = "--AaB03x" + newLine
                          + "content-disposition: form-data; name=\"ct\"" + newLine2 + contestId + newLine
                          + "--AaB03x" + newLine
@@ -256,6 +333,7 @@ public class SubmitTestCase extends TCHibernateTestCase {
 
         // Execution
         this.testedInstance.process();
+        joinThreads();
         super.tearDown();
         super.setUp();
 
@@ -273,8 +351,11 @@ public class SubmitTestCase extends TCHibernateTestCase {
         this.addedSubmissions.add(submission.getId());
         SubmissionReview review = submission.getReview();
         Assert.assertNull("The automatic screening review is added by mistake", review);
-        Assert.assertFalse("The submission is marked as having the preview image provided",
+        Assert.assertTrue("The submission is not marked as having the preview image provided",
                            submission.getHasPreviewImage());
+
+        Set<SubmissionImage> images = submission.getImages();
+        Assert.assertEquals("Wrong number of images assigned to submission", 4 * 7, images.size());
     }
 
     /**
@@ -298,5 +379,19 @@ public class SubmitTestCase extends TCHibernateTestCase {
             content.close();
         }
         return baos.toByteArray();
+    }
+
+    /**
+     * <p>Waits for all threads launched by the tested instance to finish.</p>
+     */
+    private void joinThreads() {
+        List<Thread> threads = this.testedInstance.getGeneratorThreads();
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

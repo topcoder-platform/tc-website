@@ -206,22 +206,22 @@ public class SubmissionValidator implements Validator {
                                                String originalFileName, String type) {
         String sep = System.getProperty("file.separator");
         String ext = originalFileName.substring(originalFileName.lastIndexOf('.'));
-        StringBuilder buf = new StringBuilder(80);
-        buf.append(Constants.ROOT_STORAGE_PATH);
-        buf.append(sep);
-        buf.append(Constants.SUBMISSIONS_DIRECTORY_NAME);
-        buf.append(sep);
-        buf.append(contest.getId());
-        buf.append(sep);
-        buf.append(user.getHandle().toLowerCase());
-        buf.append("_");
-        buf.append(user.getId());
-        buf.append(sep);
-        buf.append(submission.getId());
-        buf.append("_");
-        buf.append(type);
-        buf.append(ext);
-        return buf.toString();
+        StringBuilder buffer = new StringBuilder(80);
+        buffer.append(Constants.ROOT_STORAGE_PATH);
+        buffer.append(sep);
+        buffer.append(Constants.SUBMISSIONS_DIRECTORY_NAME);
+        buffer.append(sep);
+        buffer.append(contest.getId());
+        buffer.append(sep);
+        buffer.append(user.getHandle().toLowerCase());
+        buffer.append("_");
+        buffer.append(user.getId());
+        buffer.append(sep);
+        buffer.append(submission.getId());
+        buffer.append("_");
+        buffer.append(type);
+        buffer.append(ext);
+        return buffer.toString();
     }
 
     /**
@@ -243,6 +243,44 @@ public class SubmissionValidator implements Validator {
             }
         }
         return null;
+    }
+
+    /**
+     * <p>Gets the name of the file from the specified full path to the file.</p>
+     *
+     * @param fullPath a <code>Contest</code> representing the full path to the file.
+     * @return a <code>String</code> providing just the name of the file referenced by the specified path. 
+     * @since Studio Submission Slideshow
+     */
+    public static String getFileName(String fullPath) {
+        String sep = System.getProperty("file.separator");
+        int pos = fullPath.lastIndexOf(sep);
+        return fullPath.substring(pos + 1);
+    }
+
+    /**
+     * <p>Gets the parser for the bundled file corresponding to specified file path.</p>
+     *
+     * @param filePath a <code>MimeType</code> providing the path to file.
+     * @return a <code>BundledFileAnalyzer</code> which could be used for parsing the provided bundled file.
+     * @throws IllegalArgumentException if specified mime type does not correspond to bundled files or there is no
+     *         parser mapped to specified mime type.
+     * @since Studio Submission Slideshow
+     */
+    public static BundledFileAnalyzer getBundledFileParser(String filePath) {
+        StudioFileType fileType = getFileType(filePath);
+        Integer fileTypeId = fileType.getId();
+        if (!fileType.isBundledFile()) {
+            throw new IllegalArgumentException(MessageFormat.format(Constants.ERROR_MSG_NOT_BUNDLED_FILE, fileTypeId));
+        }
+        if (StudioFileType.ZIP_ARCHIVE_TYPE_ID.equals(fileTypeId)) {
+            return new ZipFileAnalyzer();
+        } else if (StudioFileType.JAR_ARCHIVE_TYPE_ID.equals(fileTypeId)) {
+            return new JarFileAnalyzer();
+        } else {
+            throw new IllegalArgumentException(MessageFormat.format(Constants.ERROR_MSG_NO_BUNDLED_FILE_PARSER,
+                                                                    fileTypeId));
+        }
     }
 
     /**

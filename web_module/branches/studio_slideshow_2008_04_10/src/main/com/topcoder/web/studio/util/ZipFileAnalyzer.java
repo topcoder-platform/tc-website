@@ -12,8 +12,11 @@ import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ByteArrayInputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+import java.util.Map;
+import java.util.HashMap;
 
 /**
  * <p>An analyzer for <code>ZIP</code> archives. Maps to {@link StudioFileType#ZIP_ARCHIVE_TYPE_ID} file type.</p>
@@ -191,6 +194,42 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
             throw new IllegalStateException("There is no preview image available from the submission");
         }
         return this.previewImageFileType;
+    }
+
+    /**
+     * <p>Gets the details for the files bundled withing the ana</p>
+     *
+     * @param content a <code>byte</code> array providing the content of the
+     * @return a <code>Map</code> mapping the names of the files to content of the respective files.
+     * @throws IOException if an I/O error occurs while reading the content.
+     * @since Studio Submission Slideshow
+     */
+    public Map<String, byte[]> getFiles(byte[] content) throws IOException {
+        return getFiles(new ZipInputStream(new ByteArrayInputStream(content)));
+    }
+
+    /**
+     * <p>Gets the details for the files bundled within the specified content of the bundled file.</p>
+     *
+     * @param content a <code>byte</code> array providing the content of the bundled file.
+     * @return a <code>Map</code> mapping the names of the files to content of the respective files.
+     * @throws IOException if an I/O error occurs while reading the content.
+     * @since Studio Submission Slideshow
+     */
+    protected Map<String, byte[]> getFiles(ZipInputStream content) throws IOException {
+        Map<String, byte[]> files = new HashMap<String, byte[]>();
+        try {
+            ZipEntry entry = content.getNextEntry();
+            while (entry != null) {
+                if (!entry.isDirectory()) {
+                    files.put(entry.getName(), retrieveFileContent(content));
+                }
+                entry = content.getNextEntry();
+            }
+        } finally {
+            content.close();
+        }
+        return files;
     }
 
     /**
