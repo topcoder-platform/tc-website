@@ -21,5 +21,6 @@
             <key column="image_id"/>
             <many-to-many column="coder_id" class="Coder"/>
         </set>
+        <property name="originalFileName" column="original_file_name" access="field"/>
     </class>
 </hibernate-mapping>
