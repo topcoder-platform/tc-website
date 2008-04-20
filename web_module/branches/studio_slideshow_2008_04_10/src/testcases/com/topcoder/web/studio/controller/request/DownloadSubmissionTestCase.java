@@ -92,15 +92,15 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
             SessionInfo sessionInfo = new SessionInfo(request, new MockWebAuthentication(), new HashSet());
             MockHttpServletRequest.setMethodResultPerArgs("getAttribute_String", "sessionInfo", sessionInfo);
 
-            String dbNamespcae = "com.topcoder.db.connectionfactory.DBConnectionFactoryImpl";
-            DBConnectionFactoryImpl connectionFactory = new DBConnectionFactoryImpl(dbNamespcae);
+            String dbNamespace = "com.topcoder.db.connectionfactory.DBConnectionFactoryImpl";
+            DBConnectionFactoryImpl connectionFactory = new DBConnectionFactoryImpl(dbNamespace);
             DatabaseUtil.clearTables(connectionFactory);
             DatabaseUtil.populateTables(connectionFactory);
 
             ConfigManager cm = ConfigManager.getInstance();
-            String jdbcUrl = cm.getString(dbNamespcae, "connections.TestingConnection.parameters.jdbc_url");
-            String jdbcUser = cm.getString(dbNamespcae, "connections.TestingConnection.parameters.user");
-            String jdbcPassword = cm.getString(dbNamespcae, "connections.TestingConnection.parameters.password");
+            String jdbcUrl = cm.getString(dbNamespace, "connections.TestingConnection.parameters.jdbc_url");
+            String jdbcUser = cm.getString(dbNamespace, "connections.TestingConnection.parameters.user");
+            String jdbcPassword = cm.getString(dbNamespace, "connections.TestingConnection.parameters.password");
 
             DataSource ds = new InformixSimpleDataSource(jdbcUrl, jdbcUser, jdbcPassword);
             MockContextFactory.setAsInitial();
@@ -260,7 +260,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
                 || "application/x-zip".equals(contentType)
                 || "application/x-zip-compressed".equals(contentType));
 
-        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_full.zip");
+        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_preview.zip");
         byte[] actualContent = baos.toByteArray();
         Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
     }
@@ -280,9 +280,9 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         long submissionId = 5;
         long userId = 1;
         String handle = "dok_test";
-        String[] types = {"tiny", "small", "medium", "full", "original"};
-        String[] files = {submissionId + "_tiny.jpg", submissionId + "_small.png", submissionId + "_medium.png",
-                submissionId + "_full.zip", "tcs_submission.zip"};
+        String[] types = {"tiny", "small", "medium", null, "original", "full"};
+        String[] files = {submissionId + "_25_1.jpg", submissionId + "_29_1.png", submissionId + "_30_1.png",
+                submissionId + "_preview.zip", "tcs_submission.zip", submissionId + "_31_1.png"};
 
         for (int i = 0; i < types.length; i++) {
             String type = types[i];
@@ -344,7 +344,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
                 || "application/x-zip".equals(contentType)
                 || "application/x-zip-compressed".equals(contentType));
 
-        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_full.zip");
+        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_preview.zip");
         byte[] actualContent = baos.toByteArray();
         Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
     }
@@ -365,9 +365,9 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         long userId = 1;
         String handle = "dok_test";
 
-        String[] types = {"tiny", "small", "medium", "full", "original"};
-        String[] files = {submissionId + "_tiny.jpg", submissionId + "_small.png", submissionId + "_medium.png",
-                submissionId + "_full.zip", "tcs_submission.zip"};
+        String[] types = {"tiny", "small", "medium", null, "original", "full"};
+        String[] files = {submissionId + "_18_1.jpg", submissionId + "_22_1.png", submissionId + "_23_1.png",
+                submissionId + "_preview.zip", "tcs_submission.zip", submissionId + "_24_1.png"};
 
         for (int i = 0; i < types.length; i++) {
             String type = types[i];
@@ -429,7 +429,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
                 || "application/x-zip".equals(contentType)
                 || "application/x-zip-compressed".equals(contentType));
 
-        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, "4_full.zip");
+        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, "4_preview.zip");
         byte[] actualContent = baos.toByteArray();
         Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
     }
@@ -476,7 +476,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
                     || "application/x-zip".equals(contentType)
                     || "application/x-zip-compressed".equals(contentType));
 
-            byte[] expectedContent = readSubmissionFile(contestId, handle, userId, "4_full.zip");
+            byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_preview.zip");
             byte[] actualContent = baos.toByteArray();
             Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
         }
@@ -519,7 +519,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
                 || "application/x-zip".equals(contentType)
                 || "application/x-zip-compressed".equals(contentType));
 
-        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_full.zip");
+        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_preview.zip");
         byte[] actualContent = baos.toByteArray();
         Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
     }
@@ -540,9 +540,9 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         long userId = 1;
         String handle = "dok_test";
 
-        String[] types = {"tiny", "small", "medium", "full", "original"};
-        String[] files = {submissionId + "_tiny.jpg", submissionId + "_small.png", submissionId + "_medium.png",
-                submissionId + "_full.zip", "tcs_submission.zip"};
+        String[] types = {"tiny", "small", "medium", null, "original", "full"};
+        String[] files = {submissionId + "_25_1.jpg", submissionId + "_29_1.png", submissionId + "_30_1.png",
+                submissionId + "_preview.zip", "tcs_submission.zip", submissionId + "_31_1.png"};
 
         for (int i = 0; i < types.length; i++) {
             String type = types[i];
@@ -604,7 +604,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
                 || "application/x-zip".equals(contentType)
                 || "application/x-zip-compressed".equals(contentType));
 
-        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_full.zip");
+        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_preview.zip");
         byte[] actualContent = baos.toByteArray();
         Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
     }
@@ -625,9 +625,9 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         long userId = 1;
         String handle = "dok_test";
 
-        String[] types = {"tiny", "small", "medium", "full", "original"};
-        String[] files = {submissionId + "_tiny.jpg", submissionId + "_small.png", submissionId + "_medium.png",
-                submissionId + "_full.zip", "tcs_submission.zip"};
+        String[] types = {"tiny", "small", "medium", null, "original", "full"};
+        String[] files = {submissionId + "_18_1.jpg", submissionId + "_22_1.png", submissionId + "_23_1.png",
+                submissionId + "_preview.zip", "tcs_submission.zip", submissionId + "_24_1.png"};
 
         for (int i = 0; i < types.length; i++) {
             String type = types[i];
@@ -741,7 +741,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
                 || "application/x-zip".equals(contentType)
                 || "application/x-zip-compressed".equals(contentType));
 
-        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_full.zip");
+        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_preview.zip");
         byte[] actualContent = baos.toByteArray();
         Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
     }
@@ -767,9 +767,9 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         long userId = 1;
         String handle = "dok_test";
 
-        String[] types = {"tiny", "small", "medium", "full"};
-        String[] files = {submissionId + "_tiny.jpg", submissionId + "_small.png", submissionId + "_medium.png",
-                submissionId + "_full.zip", "tcs_submission.zip"};
+        String[] types = {"tiny", "small", "medium", null, "full"};
+        String[] files = {submissionId + "_25_1.jpg", submissionId + "_29_1.png", submissionId + "_30_1.png",
+                submissionId + "_preview.zip", submissionId + "_31_1.png"};
 
         for (int i = 0; i < types.length; i++) {
             String type = types[i];
@@ -836,7 +836,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
                 || "application/x-zip".equals(contentType)
                 || "application/x-zip-compressed".equals(contentType));
 
-        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_full.zip");
+        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_preview.zip");
         byte[] actualContent = baos.toByteArray();
         Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
     }
@@ -862,9 +862,9 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         long userId = 1;
         String handle = "dok_test";
 
-        String[] types = {"tiny", "small", "medium", "full"};
-        String[] files = {submissionId + "_tiny.jpg", submissionId + "_small.png", submissionId + "_medium.png",
-                submissionId + "_full.zip", "tcs_submission.zip"};
+        String[] types = {"tiny", "small", "medium", null, "full"};
+        String[] files = {submissionId + "_18_1.jpg", submissionId + "_22_1.png", submissionId + "_23_1.png",
+                submissionId + "_preview.zip", submissionId + "_24_1.png"};
 
         for (int i = 0; i < types.length; i++) {
             String type = types[i];
@@ -976,10 +976,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         MockWebAuthentication.setMethodResult("getActiveUser", user);
         MockWebAuthentication.setMethodResult("isKnownUser", true);
 
-        long contestId = 9;
         long submissionId = 6;
-        long userId = 1;
-        String handle = "dok_test";
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
@@ -1013,14 +1010,9 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         MockWebAuthentication.setMethodResult("getActiveUser", user);
         MockWebAuthentication.setMethodResult("isKnownUser", true);
 
-        long contestId = 9;
         long submissionId = 6;
-        long userId = 1;
-        String handle = "dok_test";
 
         String[] types = {"tiny", "small", "medium", "full"};
-        String[] files = {submissionId + "_tiny.jpg", submissionId + "_small.png", submissionId + "_medium.png",
-                submissionId + "_full.zip", "tcs_submission.zip"};
 
         for (int i = 0; i < types.length; i++) {
             String type = types[i];
@@ -1034,8 +1026,8 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
             // Execution
             try {
                 this.testedInstance.process();
-                Assert.fail("NavigationException should have been thrown as non-owner can not request submission while" +
-                        "contest is running");
+                Assert.fail("NavigationException should have been thrown as non-owner can not request submission while"
+                            + "contest is running");
             } catch (NavigationException e) {
                 // expected behavior
             }

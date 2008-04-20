@@ -11,7 +11,7 @@ import java.io.FilenameFilter;
  * submission.</p>
  *
  * @author isv
- * @version 1.0
+ * @version 1.1
  * @since TopCoder Studio Modifications Assembly (Req# 5.8, 5.11)
  */
 public class SubmissionPresentationFilter implements FilenameFilter {
@@ -20,6 +20,17 @@ public class SubmissionPresentationFilter implements FilenameFilter {
      * <p>A <code>String</code> providing the prefix for the filenames to be used for filtering the files.</p>
      */
     private String filenamePrefix = null;
+
+    /**
+     * <p>Constructs new <code>SubmissionPresentationFilter</code> instance for finding the file matching the specified
+     * prefix.</p>
+     *
+     * @param filenamePrefix a <code>String</code> providing the filter for file names.
+     * @since Studio Submission Slideshow
+     */
+    public SubmissionPresentationFilter(String filenamePrefix) {
+        this.filenamePrefix = filenamePrefix;
+    }
 
     /**
      * <p>Constructs new <code>SubmissionPresentationFilter</code> instance for finding the file for specified type

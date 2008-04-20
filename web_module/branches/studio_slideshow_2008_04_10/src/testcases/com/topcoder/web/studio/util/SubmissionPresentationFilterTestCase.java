@@ -12,7 +12,7 @@ import java.io.File;
  * <p>A unit test for {@link SubmissionPresentationFilter} class.</p>
  *
  * @author isv
- * @version 1.0
+ * @version 1.1
  * @since TopCoder Studio Modifications Assembly (Req# 5.11)
  */
 public class SubmissionPresentationFilterTestCase extends TestCase {
@@ -22,6 +22,12 @@ public class SubmissionPresentationFilterTestCase extends TestCase {
      * {@link #setUp()} method and released in {@link #tearDown()} method.</p>
      */
     private SubmissionPresentationFilter testedInstance = null;
+
+    /**
+     * <p>The instance of {@link SubmissionPresentationFilter} which is tested. This instance is initialized in
+     * {@link #setUp()} method and released in {@link #tearDown()} method.</p>
+     */
+    private SubmissionPresentationFilter testedInstance2 = null;
 
     /**
      * <p>Constructs new <code>SubmissionPresentationFilterTestCase</code> instance with specified test name.</p>
@@ -40,6 +46,7 @@ public class SubmissionPresentationFilterTestCase extends TestCase {
     public void setUp() throws Exception {
         super.setUp();
         this.testedInstance = new SubmissionPresentationFilter("tiny", 12L);
+        this.testedInstance2 = new SubmissionPresentationFilter("12_tiny");
     }
 
     /**
@@ -64,6 +71,7 @@ public class SubmissionPresentationFilterTestCase extends TestCase {
         for (int i = 0; i < names.length; i++) {
             String name = names[i];
             Assert.assertTrue("The valid file name is not accepted", this.testedInstance.accept(dir, name));
+            Assert.assertTrue("The valid file name is not accepted", this.testedInstance2.accept(dir, name));
         }
     }
 
@@ -80,6 +88,7 @@ public class SubmissionPresentationFilterTestCase extends TestCase {
         for (int i = 0; i < names.length; i++) {
             String name = names[i];
             Assert.assertFalse("The invalid file name is accepted", this.testedInstance.accept(dir, name));
+            Assert.assertFalse("The invalid file name is accepted", this.testedInstance2.accept(dir, name));
         }
     }
 }

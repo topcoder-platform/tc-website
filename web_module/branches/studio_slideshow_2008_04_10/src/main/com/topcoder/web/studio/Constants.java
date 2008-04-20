@@ -264,6 +264,30 @@ public class Constants implements WebConstants {
     public static final String DOC_DESC = "docdesc";
 
     /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the index of the submission file to
+     * be downloaded.</p>
+     *
+     * @since Studio Submission Slideshow
+     */
+    public static final String SUBMISSION_FILE_INDEX = "sfi";
+
+    /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the flag whether the watermarked
+     * submission is to be downloaded or not.</p>
+     *
+     * @since Studio Submission Slideshow
+     */
+    public static final String SUBMISSION_FILE_WATERMARKED = "sfw";
+
+    /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the number of the images in the
+     * gallery.</p>
+     *
+     * @since Studio Submission Slideshow
+     */
+    public static final String GALLERY_IMAGES_COUNT = "icnt";
+
+    /**
      * <p>A <code>String</code> providing the message to be displayed to administrators in case the winner announcement
      * time fails to pass the validation as it is set before the contest end time.</p>
      *
@@ -374,8 +398,8 @@ public class Constants implements WebConstants {
                 }
                 if (f[i].get(null) == null)
                     log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
-                else
-                    log.debug(f[i].getName() + " <== " + f[i].get(null));
+//                else
+//                    log.debug(f[i].getName() + " <== " + f[i].get(null));
 
             } catch (Exception e) {
                 /* probably harmless, could just be a type or modifier mismatch */
