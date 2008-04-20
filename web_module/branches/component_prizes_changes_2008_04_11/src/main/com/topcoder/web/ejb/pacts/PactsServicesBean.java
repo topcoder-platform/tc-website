@@ -4902,11 +4902,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ReviewBoardPayment p = null; 
             int projectType = getProjectType(projectId);
 
+            log.debug("projectType: " + projectType);
             if (projectType == DESIGN_PROJECT) {
                 p = new ReviewBoardPayment(coderId, amount, client, projectId);
                 p.setGrossAmount(amount * DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT);
+                log.debug("amount (2): " + amount * DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT);
             } else if (projectType == DEVELOPMENT_PROJECT) {
                 p = new ReviewBoardPayment(coderId, amount, client, projectId);
+                log.debug("amount (2): " + amount);
             }
 
             payments.add(p);
