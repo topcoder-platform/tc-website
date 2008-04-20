@@ -8,5 +8,6 @@
         <property name="description" column="contest_type_desc"/>
         <property name="previewImageRequired" type="boolean" column="require_preview_image"/>
         <property name="previewFileRequired" type="boolean" column="require_preview_file"/>
+        <property name="includeGallery" type="boolean" column="include_gallery"/>
     </class>
 </hibernate-mapping>

@@ -10,7 +10,7 @@ import com.topcoder.web.common.model.Base;
  * indicating whether the image or file preview is required for contest type or not.</p>
  *
  * @author isv
- * @version 1.0
+ * @version 1.1
  * @since TopCoder Studio Modifications Assembly (Req# 5.1)
  */
 public class ContestType extends Base {
@@ -49,6 +49,13 @@ public class ContestType extends Base {
      * <p>A <code>Boolean</code> flag indicating whether the preview file is required for this contest type or not.</p>
      */
     private Boolean previewFileRequired = null;
+
+    /**
+     * <p>A <code>Boolean</code> flag indicating whether submissions should have a gallery displayed/built or not.</p>
+     *
+     * @since Studio Submission Slideshow
+     */
+    private Boolean includeGallery = null;
 
     /**
      * <p>Constructs new <code>ContestType</code> instance. This implementation does nothing.</p>
@@ -128,5 +135,26 @@ public class ContestType extends Base {
      */
     public void setPreviewFileRequired(Boolean previewFileRequired) {
         this.previewFileRequired = previewFileRequired;
+    }
+
+    /**
+     * <p>Gets the flag indicating whether the submissions should have a gallery displayed/built or not.</p>
+     *
+     * @return a <code>Boolean</code> flag indicating whether submissions should have a gallery displayed/built or not.
+     * @since Studio Submission Slideshow
+     */
+    public Boolean getIncludeGallery() {
+        return this.includeGallery;
+    }
+
+    /**
+     * <p>Sets the flag indicating whether the submissions should have a gallery displayed/built or not.</p>
+     *
+     * @param includeGallery a <code>Boolean</code> flag indicating whether submissions should have a gallery
+     *        displayed/built or not.
+     * @since Studio Submission Slideshow
+     */
+    public void setIncludeGallery(Boolean includeGallery) {
+        this.includeGallery = includeGallery;
     }
 }
