@@ -29,6 +29,9 @@
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
     <script type="text/javascript" src="/js/v2/popup.js"></script>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/thickbox.js"></script>
+    <link rel="stylesheet" href="/css/thickbox.css" type="text/css" media="screen" />
     <script type="text/javascript"><!--
     function next() {
     <%--we're using sublist on the back end, so we need to work with 0 based indexes rather than 1 --%>

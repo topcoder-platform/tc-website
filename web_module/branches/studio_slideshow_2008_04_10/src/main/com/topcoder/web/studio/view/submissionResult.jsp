@@ -23,7 +23,15 @@
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
     <script type="text/javascript" src="/js/v2/popup.js"></script>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/thickbox.js"></script>
+    <link rel="stylesheet" href="/css/thickbox.css" type="text/css" media="screen" />
 </head>
+
+<c:set var="subAltType" value="<%=Constants.SUBMISSION_ALT_TYPE%>"/>
+<c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
+<c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
+<c:set var="modKey" value="<%=Constants.MODULE_KEY%>"/>
 
 <body>
     <!-- wrapper -->
@@ -45,7 +53,7 @@
                 <div class="linkBox"><studio:forumLink forumID="${submission.contest.forumId}"/></div>
                 
                 <div class="breadcrumb">
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests">Past Contests</a> &gt;
+                    <a href="${sessionInfo.servletPath}?${modKey}=ViewPastContests">Past Contests</a> &gt;
                     ${submission.contest.name}
                 </div>
 
@@ -61,19 +69,26 @@
 
 <c:set var="contestType" value="${submission.contest.type}"/>
 
+<c:set var="showSubmissions" value="${submission.contest.viewableSubmissions.value}"/>
+<c:set var="hasPreviewImage" value="${submission.hasPreviewImage}"/>
+<c:set var="submissionId" value="${submission.id}"/>
+<c:set var="contestId" value="${submission.contest.id}"/>
+<c:set var="galleryImageCount" value="${submission.mediumWatermarkedGalleryImagesCount}"/>
+
 <div align="center" style="margin-bottom: 20px;">
     <div style="overflow: hidden; width: 300px;">
         <c:choose>
-            <c:when test="${submission.contest.viewableSubmissions.value}">
+            <c:when test="${showSubmissions}">
                 <c:choose>
                     <c:when test="${submission.contest.channel.id eq 3}">
+                        <%-- Old Studio V1 contests --%>
                         <c:choose>
                             <c:when test="${submission.mimeType.fileType.imageFile}">
-                                <studio_tags:submissionDisplay submissionId="${submission.id}" width="${submission.width}" height="${submission.height}"/>
+                                <studio_tags:submissionDisplay submissionId="${submissionId}" width="${submission.width}" height="${submission.height}"/>
                             </c:when>
                             <c:otherwise>
                                 <div id="popIt" class="popUp"><div>View submission</div></div>
-                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
+                                    <a href="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}">
                                         <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'popIt')" onmouseout="popHide()"/>
                                     </a>
                             </c:otherwise>
@@ -81,12 +96,28 @@
                     </c:when>
                     <c:otherwise>
                         <%-- Since TopCoder Modifications Assembly Req# 5.9, 5.10 --%>
+                        <%-- All newer contests --%>
+                        <c:choose>
+                            <c:when test="${showSubmissions}">
+                                <studio_tags:viewSubmissionLink hasPreviewImage="${hasPreviewImage}"
+                                                                submissionId="${submissionId}"
+                                                                galleryImageCount="${galleryImageCount}"
+                                                                targetPresentationType="medium"
+                                                                previewPresentationType="small"
+                                                                contestId="${contestId}"/>
+                            </c:when>
+                            <c:otherwise>
+                                <img src="/i/v2/interface/magnifyFade.png" alt="" />
+                            </c:otherwise>
+                        </c:choose>
+<%--
+
                         <c:if test="${contestType.previewImageRequired or contestType.previewFileRequired}">
-                            <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
+                            <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;${subId}=${submission.id}">
                         </c:if>
                         <c:choose>
                             <c:when test="${contestType.previewImageRequired}">
-                                <img src="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=small&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()"/>
+                                <img src="${sessionInfo.servletPath}?module=DownloadSubmission&amp;${subAltType}=small&amp;${subId}=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()"/>
                             </c:when>
                             <c:otherwise>
                                 <c:choose>
@@ -102,6 +133,7 @@
                         <c:if test="${contestType.previewImageRequired or contestType.previewFileRequired}">
                             </a>
                         </c:if>
+--%>
                     </c:otherwise>
                 </c:choose>
             </c:when>

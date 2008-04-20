@@ -102,7 +102,17 @@
 
     <servlet-mapping>
         <servlet-name>creativeservlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/studio</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>creativeservlet</servlet-name>
+        <url-pattern>/studio.jpg</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>creativeservlet</servlet-name>
+        <url-pattern>/studio.png</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
