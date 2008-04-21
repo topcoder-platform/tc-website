@@ -692,7 +692,6 @@ public class Submit extends BaseSubmissionDataProcessor {
 
                 // Generate image and save it to persistent data store
                 Path imagePath = new Path();
-                imagePath.setId(this.submission.getPath().getId());
                 imagePath.setPath(this.submission.getPath().getPath());
 
                 com.topcoder.web.common.model.Image image = new com.topcoder.web.common.model.Image();

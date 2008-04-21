@@ -201,7 +201,6 @@ public class SubmissionDAOTestCase extends TCHibernateTestCase {
 
         // Generate image and save it to persistent data store
         Path imagePath = new Path();
-        imagePath.setId(p.getId());
         imagePath.setPath(p.getPath());
 
         ImageDAO imageDAO = DAOUtil.getFactory().getImageDAO();
