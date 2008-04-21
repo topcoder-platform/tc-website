@@ -5,6 +5,7 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="java.util.Map" %>
 <% ResultSetContainer recentWinners = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("recent_winners");%>
+<% ResultSetContainer activeContests = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("active_contests");%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -80,21 +81,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="first"><a href="#">Hermes Bracket Integration Storyboard</a></td>
-                        <td class="second">$500</td>
-                        <td class="last">04.22.2008<br />13:00 EDT</td>
-                    </tr>
-                    <tr>
-                        <td class="first"><a href="#">Argus VP Chart Interaction/Animation Phase 3</a></td>
-                        <td class="second">$1200</td>
-                        <td class="last">04.22.2008<br />1:00 EDT</td>
-                    </tr>
-                    <tr class="last_row">
-                        <td class="first"><a href="#">AIM Expressions Prototype</a></td>
-                        <td class="second">$1250</td>
-                        <td class="last">04.22.2008<br />23:00 EDT</td>
-                    </tr>
+                    <rsc:iterator list="${contests}" id="resultRow">
+                        <tr>
+                            <td class="first">
+                                    <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">
+                                    <rsc:item name="name" row="<%=resultRow%>"/></a></td>
+                            <td class="second"><rsc:item name="prize_total" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/></td>
+                            <td class="last"><rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
+                        </tr>
+                    </rsc:iterator>
                 </tbody>
             </table>
             <div>
