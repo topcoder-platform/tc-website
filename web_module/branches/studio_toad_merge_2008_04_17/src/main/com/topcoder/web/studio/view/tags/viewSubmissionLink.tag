@@ -44,14 +44,6 @@
                     </a>
                 </c:forEach>
             </div>
-            <%-- TODO : Remove that --%>
-            <c:if test="${showFullVersionLink}">
-                <c:set var="galImgCount" value="<%=Constants.GALLERY_IMAGES_COUNT%>"/>
-                <c:set var="cid" value="<%=Constants.CONTEST_ID%>"/>
-                <c:set var="contestId" value="${contestId}"/>
-                <a href="${sessionInfo.servletPath}?${modKey}=Static&amp;d1=slideshow&amp;${cid}=${contestId}&amp;${subId}=${submissionId}&amp;${subFileIdx}=1&amp;${galImgCount}=${galleryImageCount}">
-                    Full Version</a>
-            </c:if>
         </c:if>
     </c:when>
     <c:otherwise>
