@@ -530,6 +530,9 @@ public class Submit extends BaseSubmissionDataProcessor {
 
                     // Since Studio Submission Slideshow - generate gallery images if necessary
                     ContestType contestType = this.contest.getType();
+                    //reload the contest type from the db since this object was created in another session.
+                    //there may be reason to reload all of the objects given to this inner class, but we'll start here.
+                    HibernateUtils.getSession().refresh(contestType);
                     if (contestType.getIncludeGallery()) {
                         BundledFileAnalyzer previewFileAnalyzer
                                 = SubmissionValidator.getBundledFileParser(analyzer.getPreviewFilePath());
