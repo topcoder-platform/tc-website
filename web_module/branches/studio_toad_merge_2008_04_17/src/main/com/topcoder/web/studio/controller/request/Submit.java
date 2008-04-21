@@ -693,6 +693,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                 // Generate image and save it to persistent data store
                 Path imagePath = new Path();
                 imagePath.setPath(this.submission.getPath().getPath());
+                DAOUtil.getFactory().getPathDAO().saveOrUpdate(imagePath);
 
                 com.topcoder.web.common.model.Image image = new com.topcoder.web.common.model.Image();
                 String justFileName = SubmissionValidator.getFileName(imageFileName);
