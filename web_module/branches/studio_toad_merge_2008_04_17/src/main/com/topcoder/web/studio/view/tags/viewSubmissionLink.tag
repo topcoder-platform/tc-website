@@ -26,16 +26,14 @@
         <c:if test="${galleryImageCount <= 0}">
             <a href="${sessionInfo.servletPath}studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${targetPresentationType}"
                title="" class="thickbox">
-                <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${previewPresentationType}"
-                     alt="+" onmouseover="popUp(this,'myPopup')" onmouseout="popHide()" />
+                <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${previewPresentationType}" alt="+"/>
             </a>
         </c:if>
         <c:if test="${galleryImageCount > 0}">
             <%-- There is a gallery of the images --%>
             <a href="${sessionInfo.servletPath}studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${targetPresentationType}&amp;${subFileIdx}=1"
                title="" class="thickbox" rel="gal${submissionId}">
-                <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${previewPresentationType}"
-                     alt="+" onmouseover="popUp(this,'myPopup')" onmouseout="popHide()" />
+                <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${previewPresentationType}" alt="+" />
             </a>
             <div style="visibility:hidden;display:inline;">
                 <c:forEach begin="2" end="${galleryImageCount}" step="1" varStatus="index">
