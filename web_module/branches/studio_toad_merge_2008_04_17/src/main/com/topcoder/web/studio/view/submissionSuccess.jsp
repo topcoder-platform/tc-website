@@ -17,9 +17,9 @@
     <script type="text/javascript" src="/js/taconite-parser.js"></script>
     <script type="text/javascript" src="/js/fat.js"></script>
     <script type="text/javascript" src="/js/v2/popup.js"></script>
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/thickbox.js"></script>
-    <link rel="stylesheet" href="/css/thickbox.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
+    <script type="text/javascript" src="/js/thickbox-3.1/thickbox-compressed-3.1.js"></script>
+    <link rel="stylesheet" href="/css/thickbox-3.1/thickbox-3.1.css" type="text/css" media="screen" />
 
     <title>TopCoder Studio</title>
     <jsp:include page="style.jsp">
