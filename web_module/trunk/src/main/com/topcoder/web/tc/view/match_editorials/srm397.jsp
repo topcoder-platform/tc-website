@@ -61,8 +61,8 @@ The match in division one started slowly, as the easy problem was not so easy to
 the beginning of the coding phase, we could saw the first submissions on the medium. From then, until the last minute of the coding phase,
 solutions to the medium and the hard were coming in. After the coding phase
 <tc-webtag:handle coderId="19849563" context="algorithm"/> was on top, with <tc-webtag:handle coderId="22285847" context="algorithm"/> and
-<tc-webtag:handle coderId="14768757" context="algorithm"/> being close behind. Challenge phase was rather quiet, but unfortunately
-<tc-webtag:handle coderId="14768757" context="algorithm"/>'s hard failed system test and <tc-webtag:handle coderId="251074" context="algorithm"/>
+<tc-webtag:handle coderId="20812309" context="algorithm"/> being close behind. Challenge phase was rather quiet, but unfortunately
+<tc-webtag:handle coderId="20812309" context="algorithm"/>'s hard got challenged and <tc-webtag:handle coderId="251074" context="algorithm"/>
 took his spot. <tc-webtag:handle coderId="20289202" context="algorithm"/> and <tc-webtag:handle coderId="7390224" context="algorithm"/> rounded
 up the top five.<br /><br />
 In division two, the whole match passed by rather smoothly, although there weren't too many submissions to the medium and hard problems (and out
