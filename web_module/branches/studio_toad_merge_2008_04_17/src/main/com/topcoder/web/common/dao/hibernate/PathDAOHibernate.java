@@ -11,5 +11,5 @@ import com.topcoder.web.common.dao.PathDAO;
  * @version $Id$
  *          Create Date: Apr 21, 2008
  */
-public class PathDAOHibernate extends GenericBase<Path, Integer> implements PathDAO {
+public class PathDAOHibernate extends GenericBase<Path, Long> implements PathDAO {
 }
