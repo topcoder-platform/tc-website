@@ -5,7 +5,7 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="java.util.Map" %>
 <% ResultSetContainer recentWinners = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("recent_winners");%>
-<% ResultSetContainer activeContests = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("active_contests");%>
+<% ResultSetContainer contests = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("active_contests");%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
