@@ -102,7 +102,7 @@
 
     <servlet-mapping>
         <servlet-name>creativeservlet</servlet-name>
-        <url-pattern>/studio</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
