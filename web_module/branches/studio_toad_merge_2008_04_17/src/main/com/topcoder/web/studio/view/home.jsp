@@ -102,37 +102,42 @@
     <div class="winners">
         <div>
             <h2><span>RECENT WINNERS</span></h2>
-            <span class="more"><a href="/?module=ViewActiveContests">View All</a></span>
+            <span class="more"><a href="/?module=ViewPastContests">View All</a></span>
             <table>
                 <tbody>
-                    <tr>
-                        <td class="img"><a href="#"><img alt="winner 1" src="/i/v3/winners/winner_2.png"/></a></td>
-                        <td>
-                            <i>rutam</i><br />
-                            <a href="/?module=ViewPastContests">AIM Expressions Storyboard</a><br />
-                            $1500.00
-                        </td>
-                    </tr>
-                    <tr class="last_row">
-                        <td class="img">
-                            <a href="/?module=ViewPastContests"><img alt="winner 2" src="/i/v3/winners/winner_3.png"/></a>
-                        </td>
-                        <td>
-                            <i>bohuss</i><br />
-                            <a href="#">Argus VP Chart Interaction/Animation Phase 2</a><br />
-                            $800.00
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="img">
-                            <a href="/?module=ViewPastContests"><img alt="winner 3" src="/i/v3/winners/winner_1.png"/></a>
-                        </td>
-                        <td>
-                            <i>dafei</i><br />
-                            <a href="#">TC Pipeline Yahoo Widget Storyboard</a><br />
-                            $450.00
-                        </td>
-                    </tr>
+
+                    <rsc:iterator list="<%=recentWinners%>" id="resultRow">
+                        <c:set var="showSubmissions" value="${resultRow.map['show_submissions']}"/>
+                        <c:set var="hasPreviewImage" value="${resultRow.map['has_preview_image']}"/>
+                        <c:set var="submissionId" value="${resultRow.map['submission_id']}"/>
+                        <c:set var="contestId" value="${resultRow.map['contest_id']}"/>
+                        <c:set var="galleryImageCount" value="${resultRow.map['gallery_image_count']}"/>
+
+
+                        <tr>
+                            <td class="img">
+                                <c:choose>
+                                    <c:when test="${showSubmissions}">
+                                        <studio_tags:viewSubmissionLink hasPreviewImage="${hasPreviewImage}"
+                                                                        submissionId="${submissionId}"
+                                                                        galleryImageCount="${galleryImageCount}"
+                                                                        targetPresentationType="medium"
+                                                                        previewPresentationType="tiny"
+                                                                        contestId="${contestId}"/>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <img src="/i/v2/interface/magnifyFade.png" alt=""/>
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
+                            <td>
+                                <studio:handle coderId="${resultRow.map['user_id']}"/><br/>
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${submissionId}">
+                                        ${resultRow.map['name']}</a><br/>
+                                <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
+                            </td>
+                        </tr>
+                    </rsc:iterator>
                 </tbody>
             </table>
             <div>
@@ -183,51 +188,7 @@
                                         <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/" title="Register"><img src="/i/v2/interface/btnRegister.png" alt="Register" /></a>
                                     </td>
                                 </tr>
-                                <% boolean even = true;
-                                    int i = 0; %>
-                                <rsc:iterator list="<%=recentWinners%>" id="resultRow">
-                                    <c:set var="showSubmissions" value="${resultRow.map['show_submissions']}"/>
-                                    <c:set var="hasPreviewImage" value="${resultRow.map['has_preview_image']}"/>
-                                    <c:set var="submissionId" value="${resultRow.map['submission_id']}"/>
-                                    <c:set var="contestId" value="${resultRow.map['contest_id']}"/>
-                                    <c:set var="galleryImageCount" value="${resultRow.map['gallery_image_count']}"/>
 
-                                    <tr><td class="space" colspan="6">&nbsp;</td></tr>
-                                    <tr class="<%=even?"light":"dark"%>">
-                                        <td class="valueW"><div>&nbsp;</div></td>
-                                        <td class="value">
-                                            <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
-                                        </td>
-                                        <td class="valueR">
-                                            <c:choose>
-                                                <c:when test="${showSubmissions}">
-                                                    <studio_tags:viewSubmissionLink hasPreviewImage="${hasPreviewImage}"
-                                                                                    submissionId="${submissionId}"
-                                                                                    galleryImageCount="${galleryImageCount}"
-                                                                                    targetPresentationType="medium"
-                                                                                    previewPresentationType="tiny"
-                                                                                    contestId="${contestId}"/>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <img src="/i/v2/interface/magnifyFade.png" alt="" />
-                                                </c:otherwise>
-                                            </c:choose>
-                                        </td>
-                                        <td class="value">
-                                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${submissionId}">
-                                                <rsc:item name="name" row="<%=resultRow%>"/></a>
-                                        </td>
-                                        <td class="valueR">
-                                            <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
-                                        </td>
-                                        <td class="valueE"><div>&nbsp;</div></td>
-                                    </tr>
-                                    <% even = !even;
-                                        i++; %>
-                                </rsc:iterator>
-                                <tr>
-                                    <td class="btnRight" colspan="6"><div><a href="${sessionInfo.servletPath}?module=ViewPastContests"><img src="/i/v2/btn_more.png" alt="More..." /></a></div></td>
-                                </tr>
                             </tbody>
                         </table>
                         </span>
