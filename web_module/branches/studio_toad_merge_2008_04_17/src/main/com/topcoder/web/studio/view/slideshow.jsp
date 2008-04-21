@@ -29,10 +29,10 @@
   Image ${imageIndex} of ${imagesCnt}
   <br/>
   <c:if test="${imageIndex > 1}">
-      <a href="${sessionInfo.servletPath}?${modKey}=Static&amp;d1=full&amp;${cid}=${contestId}&amp;${subId}=${submissionId}&amp;${subFileIdx}=${imageIndex-1}&amp;${galImgCount}=${imagesCnt}">Prev</a>&nbsp;
+      <a href="${sessionInfo.servletPath}?${modKey}=Static&amp;d1=slideshow&amp;${cid}=${contestId}&amp;${subId}=${submissionId}&amp;${subFileIdx}=${imageIndex-1}&amp;${galImgCount}=${imagesCnt}">Prev</a>&nbsp;
   </c:if>
   <c:if test="${imageIndex < imagesCnt}">
-      <a href="${sessionInfo.servletPath}?${modKey}=Static&amp;d1=full&amp;${cid}=${contestId}&amp;${subId}=${submissionId}&amp;${subFileIdx}=${imageIndex+1}&amp;${galImgCount}=${imagesCnt}">Next</a>&nbsp;
+      <a href="${sessionInfo.servletPath}?${modKey}=Static&amp;d1=slideshow&amp;${cid}=${contestId}&amp;${subId}=${submissionId}&amp;${subFileIdx}=${imageIndex+1}&amp;${galImgCount}=${imagesCnt}">Next</a>&nbsp;
   </c:if>
   <br/>
   <br/>
