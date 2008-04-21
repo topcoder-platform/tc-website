@@ -84,8 +84,8 @@
                 --%>
                 <% } else if (tabLev2.equals("results")) {%>
                 <td class="subnav"><a href="/pl/?module=Static&amp;d1=vicc&amp;d2=resultsSrm1"><% if (tabLev3.equals("srm1")) {%><img src="/i/events/vicc/tabs/ver_L3_srm1On.gif" border="0" width="52"/><% } else { %><img src="/i/events/vicc/tabs/ver_L3_srm1Off.gif" border="0" width="52"/><% } %></a></td>
-                <%--
                 <td class="subnav"><a href="/pl/?module=Static&amp;d1=vicc&amp;d2=resultsSrm2"><% if (tabLev3.equals("srm2")) {%><img src="/i/events/vicc/tabs/ver_L3_srm2On.gif" border="0" width="52"/><% } else { %><img src="/i/events/vicc/tabs/ver_L3_srm2Off.gif" border="0" width="52"/><% } %></a></td>
+                <%--
                 <td class="subnav"><a href="/pl/?module=Static&amp;d1=vicc&amp;d2=resultsSponsorTrack"><% if (tabLev3.equals("sponsortrack")) {%><img src="/i/events/vicc/tabs/ver_L3_sponsortrackOn.gif" border="0" width="90"/><% } else { %><img src="/i/events/vicc/tabs/ver_L3_sponsortrackOff.gif" border="0" width="90"/><% } %></a></td>
                 <td class="subnav"><a href="/pl/?module=Static&amp;d1=vicc&amp;d2=resultsSrm3"><% if (tabLev3.equals("srm3")) {%><img src="/i/events/vicc/tabs/ver_L3_srm3On.gif" border="0" width="52"/><% } else { %><img src="/i/events/vicc/tabs/ver_L3_srm3Off.gif" border="0" width="52"/><% } %></a></td>
                 --%>

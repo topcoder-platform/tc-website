@@ -65,7 +65,7 @@ Check back in August to find who the winner will be!
                <td class="sidebarText"><strong>H2O</strong></td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText"><strong>&nbsp;</strong></td>
+               <td class="sidebarText"><strong>sjovanovski</strong></td>
             </tr>
             <tr valign="top">
                <td class="sidebarText"><strong>&nbsp;</strong></td>
@@ -78,7 +78,7 @@ Check back in August to find who the winner will be!
             <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             <br /><br /><br /><br /><br />
             To find out more detailed information about the VeriSign&#174; Code Fest, including a list of the
-            prizes, please read the <a href="/pl/?&module=Static&d1=vicc&d2=rules">Terms and Conditions</a>.
+            prizes, please read the <a href="/pl/?&amp;module=Static&amp;d1=vicc&amp;d2=rules">Terms and Conditions</a>.
         </div>    
       </td>
 
