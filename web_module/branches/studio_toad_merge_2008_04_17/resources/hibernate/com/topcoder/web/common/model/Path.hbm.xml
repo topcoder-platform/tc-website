@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="com.topcoder.web.common.model">
 
-    <class name="Path" table="path" mutable="false">
+    <class name="Path" table="informixoltp:path">
         <id name="id" column="path_id">
             <generator class="com.topcoder.web.common.model.IdGenerator">
                 <param name="sequence_name">PATH_SEQ</param>
