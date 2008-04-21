@@ -138,9 +138,9 @@ table {
                 <div>
                     <%--<a href="/tco0"><img src="/i/tournament/tco08/rsvp/schedule.png" alt="" /></a>--%>
                 </div>
-
+<%--
     <p>Rooms are available at The Mirage for all attendees.  Click <a target="_blank" href="<tc-webtag:linkTracking link='https://reservations.mgmmirage.com/bookingengine.aspx?host=group&pid=160&code=topcod08' refer='tco08_rsvp' />">here</a> to book a room.
-    <br />Contact Jessie D'Amato Ford for additional questions.
+    <br />--%><p>Contact Jessie D'Amato Ford for questions.
     <br />Phone:  866-TOP-CODE   Email:  <a href="mailto:jford@topcoder.com">jford@topcoder.com</a></p>
     
                 <div style="margin: 20px 0px 20px 0px;">
