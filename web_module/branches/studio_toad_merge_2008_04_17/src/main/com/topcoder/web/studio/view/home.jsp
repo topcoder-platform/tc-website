@@ -25,6 +25,7 @@ ding="utf-8"?>
     <script type="text/javascript" src="/js/v2/popup.js"></script>
     <script type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
     <script type="text/javascript" src="/js/thickbox-3.1/thickbox-compressed-3.1.js"></script>
+    <link rel="stylesheet" href="/js/thickbox-3.1/thickbox-3.1.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="/css/v2/home.css" media="all" type="text/css"/>
 </head>
 
