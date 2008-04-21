@@ -30,6 +30,8 @@ public class ContestType extends Base {
      */
     public static final Integer LOGO = 3;
 
+    public static final Integer OTHER = 18;
+
     /**
      * <p>An <code>Integer</code> maintaining the ID of this contest type.</p>
      */
@@ -112,7 +114,7 @@ public class ContestType extends Base {
      * <p>Sets the flag indicating whether the image preview is required for this contest type or not.</p>
      *
      * @param previewImageRequired a <code>Boolean</code> indicating whether the preview image is required for this
-     *        contest type or not.
+     *                             contest type or not.
      */
     public void setPreviewImageRequired(Boolean previewImageRequired) {
         this.previewImageRequired = previewImageRequired;
@@ -131,7 +133,7 @@ public class ContestType extends Base {
      * <p>Sets the flag indicating whether the preview file is required for this contest type or not.</p>
      *
      * @param previewFileRequired a <code>Boolean</code> indicating whether the preview file is required for this
-     *        contest type or not.
+     *                            contest type or not.
      */
     public void setPreviewFileRequired(Boolean previewFileRequired) {
         this.previewFileRequired = previewFileRequired;
@@ -151,7 +153,7 @@ public class ContestType extends Base {
      * <p>Sets the flag indicating whether the submissions should have a gallery displayed/built or not.</p>
      *
      * @param includeGallery a <code>Boolean</code> flag indicating whether submissions should have a gallery
-     *        displayed/built or not.
+     *                       displayed/built or not.
      * @since Studio Submission Slideshow
      */
     public void setIncludeGallery(Boolean includeGallery) {
