@@ -2,6 +2,7 @@ package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.model.Image;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
@@ -10,6 +11,7 @@ import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.MimeType;
 import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.SubmissionImage;
 import com.topcoder.web.studio.util.SubmissionPresentationFilter;
 import com.topcoder.web.studio.util.Util;
 import com.topcoder.web.studio.validation.SubmissionValidator;
@@ -60,10 +62,10 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         boolean isOwner = s.getSubmitter().getId().equals(currentUserId);
         boolean isOver = new Date().after(s.getContest().getEndTime());
 
-        // Determine the type of requested submission presentation, "full" is the default type
+        // Determine the type of requested submission presentation, "preview" is the default type
         String submissionType = getRequest().getParameter(Constants.SUBMISSION_ALT_TYPE);
         if (submissionType == null) {
-            submissionType = "full";
+            submissionType = "preview";
         } else {
             // Validate that the correct type of presentation is requested
             boolean valid = false;
@@ -153,12 +155,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         response.setContentType(s.getMimeType().getDescription());
 
         ServletOutputStream sos = response.getOutputStream();
-        int b;
-        int size = 0;
-        while ((b = fis.read()) >= 0) {
-            sos.write(b);
-            size++;
-        }
+        int size = copyFile(fis, sos);
         response.addHeader("Content-Length", String.valueOf(size));
         response.setStatus(HttpServletResponse.SC_OK);
         response.flushBuffer();
@@ -166,34 +163,46 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
 
     private void sendSubmission(Contest contest, boolean originalSubmissionRequested, String submissionType,
-                                Submission s, boolean isOwner) throws NavigationException, IOException {
+                                Submission submission, boolean isOwner) throws NavigationException, IOException {
         // Since TopCoder Studio Modifications Assembly Req# 5.8
         String targetFileName;
         String destFileName;
         String contentType = "application/zip";
 
-        // Determine if the "imagew" presentation must be used in case the "full" presentation is requested but
+        // Determine if the "imagew" presentation must be used in case the "preview" presentation is requested but
         // contest does not require preview file. So the user may get the watermarked image
         Map<Integer, String> contestConfig = contest.getConfigMap();
         boolean previewFileRequired
                 = Boolean.parseBoolean(contestConfig.get(ContestProperty.REQUIRE_PREVIEW_FILE));
-        if ("full".equalsIgnoreCase(submissionType) && !previewFileRequired) {
+        if ("preview".equalsIgnoreCase(submissionType) && !previewFileRequired) {
             submissionType = "imagew";
         }
 
         // Determine tha name of requested file and it's mime type
         if (!originalSubmissionRequested) {
-            // Thealternate presentation is requested
+            // The alternate presentation is requested
 
             // Locate the file corresponding to requested alternate presentation
-            File dir = new File(s.getPath().getPath());
-            String[] fileNames = dir.list(new SubmissionPresentationFilter(submissionType, s.getId()));
+            File dir = new File(submission.getPath().getPath());
+
+            // Since Studio Slideshow Submission - map the literal submission type to image type ID and determine the
+            // filename based on submission image data
+            int fileIndex = getRequestedFileIndex();
+            int imageTypeId = getImageTypeId(submissionType, contest.getType().getIncludeGallery());
+            String[] fileNames;
+            if (imageTypeId > 0) {
+                SubmissionImage image = getSubmissionImage(submission, imageTypeId, fileIndex);
+                fileNames = dir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
+            } else {
+                fileNames = dir.list(new SubmissionPresentationFilter(submissionType, submission.getId()));
+            }
+
             if ((fileNames == null) || (fileNames.length < 1)) {
                 throw new NavigationException(MessageFormat.format(Constants.ERROR_MSG_PRESENTATION_NOT_FOUND,
                         submissionType));
             } else {
                 // tiny, small, medium and full
-                targetFileName = s.getPath().getPath() + fileNames[0];
+                targetFileName = submission.getPath().getPath() + fileNames[0];
                 destFileName = fileNames[0];
                 StudioFileType fileType = SubmissionValidator.getFileType(destFileName);
                 Set<MimeType> mimeTypes = fileType.getMimeTypes();
@@ -203,10 +212,10 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             }
         } else {
             // The original submission is requested
-            targetFileName = s.getPath().getPath() + s.getSystemFileName();
+            targetFileName = submission.getPath().getPath() + submission.getSystemFileName();
             destFileName
-                    = s.getId() + s.getOriginalFileName().substring(s.getOriginalFileName().lastIndexOf('.'));
-            contentType = s.getMimeType().getDescription();
+                    = submission.getId() + submission.getOriginalFileName().substring(submission.getOriginalFileName().lastIndexOf('.'));
+            contentType = submission.getMimeType().getDescription();
         }
 
         //create the file input stream first so that if there is a problem, we'll get the error and be able to
@@ -217,10 +226,10 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
         TCResponse response = getResponse();
         if (isOwner && originalSubmissionRequested) {
-            response.addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName()
+            response.addHeader("content-disposition", "inline; filename=\"" + submission.getOriginalFileName()
                     + "\"");
             if (log.isDebugEnabled()) {
-                log.debug("content-disposition = inline; filename=\"" + s.getOriginalFileName() + "\"");
+                log.debug("content-disposition = inline; filename=\"" + submission.getOriginalFileName() + "\"");
             }
         } else {
             if (log.isDebugEnabled()) {
@@ -234,16 +243,116 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
         response.setContentType(contentType);
         ServletOutputStream sos = response.getOutputStream();
-        int b;
-        int size = 0;
-        while ((b = fis.read()) >= 0) {
-            sos.write(b);
-            size++;
-        }
+        int size = copyFile(fis, sos);
         response.addHeader("Content-Length", String.valueOf(size));
         response.setStatus(HttpServletResponse.SC_OK);
         response.flushBuffer();
         log.debug("flushed");
     }
 
+    /**
+     * <p>Gets the image associated with the specified submission and located at specified index in the group of images
+     * of specified type.</p>
+     *
+     * @param submission a <code>Submission</code> to get the image for.
+     * @param imageTypeId an <code>int</code> referencing the type of desired image to get.
+     * @param fileIndex an <code>int</code> providing the relative index of the image of the specified type to get.
+     * @return a <code>SubmissionImage</code> providing the details for the image of specified type associated with the
+     *         specified submission. 
+     * @throws NavigationException if there is no image of specified type at specified index associated with the
+     *         specified submission.
+     * @since Studio Submission Slideshow
+     */
+    private SubmissionImage getSubmissionImage(Submission submission, int imageTypeId, int fileIndex)
+            throws NavigationException {
+        int currentIndex = 0;
+        Set<SubmissionImage> images = submission.getImages();
+        for (SubmissionImage image : images) {
+            if (image.getImage().getImageTypeId() == imageTypeId) {
+                currentIndex++;
+                if (currentIndex == fileIndex) {
+                    return image;
+                }
+            }
+        }
+        throw new NavigationException(MessageFormat.format(Constants.ERROR_MSG_PRESENTATION_NOT_FOUND, imageTypeId));
+    }
+
+    /**
+     * <p>Maps the specified type of requested submission presentation to type of an image.</p>
+     *
+     * @param submissionType a <code>String</code> referencing the type of requested submission presentation.
+     * @param galleryRequired <code>true</code> if contest requires the gallery image to be provided; <code>false</code>
+     *        otherwise.
+     * @return an <code>int</code> providing the ID of an image mapped to specified type of submission presentation or
+     *         <code>0</code> if specified presentation type does not map to image type. 
+     * @since Studio Submission Slideshow
+     */
+    private int getImageTypeId(String submissionType, boolean galleryRequired) {
+        if ("tiny".equalsIgnoreCase(submissionType)) {
+            if (galleryRequired) {
+                return Image.GALLERY_THUMBNAIL_TYPE_ID;
+            } else {
+                return Image.PREVIEW_THUMBNAIL_TYPE_ID;
+            }
+        } else if ("small".equalsIgnoreCase(submissionType)) {
+            if (galleryRequired) {
+                return Image.GALLERY_SMALL_WATERMARKED_TYPE_ID;
+            } else {
+                return Image.PREVIEW_SMALL_WATERMARKED_TYPE_ID;
+            }
+        } else if ("medium".equalsIgnoreCase(submissionType)) {
+            if (galleryRequired) {
+                return Image.GALLERY_MEDIUM_WATERMARKED_TYPE_ID;
+            } else {
+                return Image.PREVIEW_MEDIUM_WATERMARKED_TYPE_ID;
+            }
+        } else if ("full".equalsIgnoreCase(submissionType)) {
+            if (galleryRequired) {
+                return Image.GALLERY_FULL_WATERMARKED_TYPE_ID;
+            } else {
+                return Image.PREVIEW_FULL_WATERMARKED_TYPE_ID;
+            }
+        }
+        return 0;
+    }
+
+    /**
+     * <p>Gets the index of the requested file from the parameter of incoming request.</p>
+     *  
+     * @return an <code>int</code> providing the index of the requested file. The returned indexes are 1-based
+     * @since Studio Submission Slideshow
+     */
+    private int getRequestedFileIndex() {
+        String param = getRequest().getParameter(Constants.SUBMISSION_FILE_INDEX);
+        if ((param == null) || (param.trim().length() == 0)) {
+            return 1;
+        } else {
+            return Integer.parseInt(param);
+        }
+    }
+
+    /**
+     * <p>Copies the specified file to specified servlet response stream.</p>
+     *
+     * @param from a <code>FileInputStream</code> to be copied.
+     * @param to a <code>File</code> referencing the new location of the copy.
+     * @return an <code>int</code> providing the size of the specified file.
+     * @throws IOException if an I/O error occurs while writing file content to disk.
+     * @since Studio Submission Slideshow
+     */
+    private static int copyFile(FileInputStream from, ServletOutputStream to) throws IOException {
+        try {
+            byte[] buf = new byte[4096];
+            int count = -1;
+            int size = 0;
+            while ((count = from.read(buf)) != -1) {
+                to.write(buf, 0, count);
+                size += count;
+            }
+            return size;
+        } finally {
+            from.close();
+        }
+    }
 }

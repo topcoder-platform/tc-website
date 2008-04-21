@@ -33,7 +33,7 @@ import java.util.Map;
  * <p>A unit test case for {@link DownloadSubmission} class.</p>
  *
  * @author isv
- * @version 1.0
+ * @version 1.1
  * @since TopCoder Studio Modifications Assembly (Req# 5.11)
  */
 public class DownloadSubmissionTestCase extends TCHibernateTestCase {
@@ -194,7 +194,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         Assert.assertTrue("Wrong response content type set", "image/jpeg".equals(contentType)
                                                              || "image/pjpeg".equals(contentType));
 
-        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_tiny.jpg");
+        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_18_1.jpg");
         byte[] actualContent = baos.toByteArray();
         Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
     }
@@ -235,7 +235,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         Assert.assertTrue("Wrong response content type set", "image/png".equals(contentType)
                                                              || "image/x-png".equals(contentType));
 
-        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_small.png");
+        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_19_1.png");
         byte[] actualContent = baos.toByteArray();
         Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
     }
@@ -276,7 +276,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         Assert.assertTrue("Wrong response content type set", "image/png".equals(contentType)
                                                              || "image/x-png".equals(contentType));
 
-        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_medium.png");
+        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_20_1.png");
         byte[] actualContent = baos.toByteArray();
         Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
     }
@@ -318,7 +318,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         Assert.assertTrue("Wrong response content type set", "image/jpeg".equals(contentType)
                                                              || "image/pjpeg".equals(contentType));
 
-        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_image.jpg");
+        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_21_1.jpg");
         byte[] actualContent = baos.toByteArray();
         Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
     }
@@ -398,11 +398,10 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         List args = MockHttpServletResponse.getMethodArguments("setContentType_String");
         Map callArgs = (Map) args.get(0);
         String contentType = (String) callArgs.get("1");
-        Assert.assertTrue("Wrong response content type set", "application/zip".equals(contentType)
-                                                             || "application/x-zip".equals(contentType)
-                                                             || "application/x-zip-compressed".equals(contentType));
+        Assert.assertTrue("Wrong response content type set", "image/jpeg".equals(contentType)
+                                                             || "image/pjpeg".equals(contentType));
 
-        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_full.zip");
+        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_21_1.jpg");
         byte[] actualContent = baos.toByteArray();
         Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
     }
@@ -444,7 +443,7 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
                                                              || "application/x-zip".equals(contentType)
                                                              || "application/x-zip-compressed".equals(contentType));
 
-        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_full.zip");
+        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_preview.zip");
         byte[] actualContent = baos.toByteArray();
         Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
     }

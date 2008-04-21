@@ -1,6 +1,7 @@
 package com.topcoder.web.studio.controller.request.admin;
 
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.model.Image;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
@@ -9,6 +10,7 @@ import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.MimeType;
 import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.SubmissionImage;
 import com.topcoder.web.studio.util.SubmissionPresentationFilter;
 import com.topcoder.web.studio.validation.SubmissionValidator;
 
@@ -56,7 +58,7 @@ public class DownloadSubmission extends Base {
         // Determine the type of requested submission presentation
         String submissionType = getRequest().getParameter(Constants.SUBMISSION_ALT_TYPE);
         if (submissionType == null) {
-            submissionType = "full";
+            submissionType = "preview";
         } else {
             // Validate that the correct type of presentation is requested
             boolean valid = false;
@@ -77,17 +79,29 @@ public class DownloadSubmission extends Base {
             && !ContestChannel.STUDIO_ADMINISTRATOR_V1.equals(contestChannel.getId())) {
             // The alternate presentation is requested
             
-            // Determine if the "image" presentation must be used in case the "full" presentation is requested but
+            // Determine if the "image" presentation must be used in case the "preview" presentation is requested but
             // contest does not require preview file. So the admin may get the non-watermarked image
             Map<Integer,String> contestConfig = contest.getConfigMap();
             boolean previewFileRequired = Boolean.parseBoolean(contestConfig.get(ContestProperty.REQUIRE_PREVIEW_FILE));
-            if ("full".equalsIgnoreCase(submissionType) && !previewFileRequired) {
+            if ("preview".equalsIgnoreCase(submissionType) && !previewFileRequired) {
                 submissionType = "image";
             }
 
             // Locate the file corresponding to requested alternate presentation
             File dir = new File(s.getPath().getPath());
-            String[] fileNames = dir.list(new SubmissionPresentationFilter(submissionType, s.getId()));
+
+            // Since Studio Slideshow Submission - map the literal submission type to image type ID and determine the
+            // filename based on submission image data
+            int fileIndex = getRequestedFileIndex();
+            int imageTypeId = getImageTypeId(submissionType);
+            String[] fileNames;
+            if (imageTypeId > 0) {
+                SubmissionImage image = getSubmissionImage(s, imageTypeId, fileIndex);
+                fileNames = dir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
+            } else {
+                fileNames = dir.list(new SubmissionPresentationFilter(submissionType, s.getId()));
+            }
+
             if ((fileNames == null)  || (fileNames.length < 1)) {
                 throw new NavigationException(MessageFormat.format(Constants.ERROR_MSG_PRESENTATION_NOT_FOUND,
                                                                    submissionType));
@@ -127,5 +141,117 @@ public class DownloadSubmission extends Base {
         getResponse().addHeader("Content-Length", String.valueOf(size));
         getResponse().setStatus(HttpServletResponse.SC_OK);
         getResponse().flushBuffer();
+    }
+
+    /**
+     * <p>Maps the specified type of requested submission presentation to type of an image.</p>
+     *
+     * @param submissionType a <code>String</code> referencing the type of requested submission presentation.
+     * @return an <code>int</code> providing the ID of an image mapped to specified type of submission presentation or
+     *         <code>0</code> if specified presentation type does not map to image type.
+     * @since Studio Submission Slideshow
+     */
+    private int getImageTypeId(String submissionType) {
+        boolean galleryImageRequested = false;
+        String fileIndexParam = getRequest().getParameter(Constants.SUBMISSION_FILE_INDEX);
+        String fileWatermarkParam = getRequest().getParameter(Constants.SUBMISSION_FILE_WATERMARKED);
+        if ((fileIndexParam != null) && (fileIndexParam.trim().length() > 0)) {
+            galleryImageRequested = true;
+        }
+        boolean watermarkRequested = Boolean.valueOf(fileWatermarkParam);
+        
+        if ("tiny".equalsIgnoreCase(submissionType)) {
+            if (galleryImageRequested) {
+                return Image.GALLERY_THUMBNAIL_TYPE_ID;
+            } else {
+                return Image.PREVIEW_THUMBNAIL_TYPE_ID;
+            }
+        } else if ("small".equalsIgnoreCase(submissionType)) {
+            if (galleryImageRequested) {
+                if (watermarkRequested) {
+                    return Image.GALLERY_SMALL_WATERMARKED_TYPE_ID;
+                } else {
+                    return Image.GALLERY_SMALL_TYPE_ID;
+                }
+            } else {
+                if (watermarkRequested) {
+                    return Image.PREVIEW_SMALL_WATERMARKED_TYPE_ID;
+                } else {
+                    return Image.PREVIEW_SMALL_TYPE_ID;
+                }
+            }
+        } else if ("medium".equalsIgnoreCase(submissionType)) {
+            if (galleryImageRequested) {
+                if (watermarkRequested) {
+                    return Image.GALLERY_MEDIUM_WATERMARKED_TYPE_ID;
+                } else {
+                    return Image.GALLERY_MEDIUM_TYPE_ID;
+                }
+            } else {
+                if (watermarkRequested) {
+                    return Image.PREVIEW_MEDIUM_WATERMARKED_TYPE_ID;
+                } else {
+                    return Image.PREVIEW_MEDIUM_TYPE_ID;
+                }
+            }
+        } else if ("full".equalsIgnoreCase(submissionType)) {
+            if (galleryImageRequested) {
+                if (watermarkRequested) {
+                    return Image.GALLERY_FULL_WATERMARKED_TYPE_ID;
+                } else {
+                    return Image.GALLERY_FULL_TYPE_ID;
+                }
+            } else {
+                if (watermarkRequested) {
+                    return Image.PREVIEW_FULL_WATERMARKED_TYPE_ID;
+                } else {
+                    return Image.PREVIEW_FULL_TYPE_ID;
+                }
+            }
+        }
+        return 0;
+    }
+
+    /**
+     * <p>Gets the index of the requested file from the parameter of incoming request.</p>
+     *
+     * @return an <code>int</code> providing the index of the requested file. The returned indexes are 1-based
+     * @since Studio Submission Slideshow
+     */
+    private int getRequestedFileIndex() {
+        String param = getRequest().getParameter(Constants.SUBMISSION_FILE_INDEX);
+        if ((param == null) || (param.trim().length() == 0)) {
+            return 1;
+        } else {
+            return Integer.parseInt(param);
+        }
+    }
+
+    /**
+     * <p>Gets the image associated with the specified submission and located at specified index in the group of images
+     * of specified type.</p>
+     *
+     * @param submission a <code>Submission</code> to get the image for.
+     * @param imageTypeId an <code>int</code> referencing the type of desired image to get.
+     * @param fileIndex an <code>int</code> providing the relative index of the image of the specified type to get.
+     * @return a <code>SubmissionImage</code> providing the details for the image of specified type associated with the
+     *         specified submission.
+     * @throws NavigationException if there is no image of specified type at specified index associated with the
+     *         specified submission.
+     * @since Studio Submission Slideshow
+     */
+    private SubmissionImage getSubmissionImage(Submission submission, int imageTypeId, int fileIndex)
+            throws NavigationException {
+        int currentIndex = 0;
+        Set<SubmissionImage> images = submission.getImages();
+        for (SubmissionImage image : images) {
+            if (image.getImage().getImageTypeId() == imageTypeId) {
+                currentIndex++;
+                if (currentIndex == fileIndex) {
+                    return image;
+                }
+            }
+        }
+        throw new NavigationException(MessageFormat.format(Constants.ERROR_MSG_PRESENTATION_NOT_FOUND, imageTypeId));
     }
 }

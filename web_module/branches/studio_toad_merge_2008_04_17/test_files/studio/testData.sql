@@ -3,11 +3,11 @@
 --
 
 -- User #1
-INSERT INTO comp1_common_oltp:user (user_id, first_name, last_name, handle, status, timezone_id) VALUES (1, 'dok', 'dok', 'dok_test', 'A', 143);
-INSERT INTO comp1_common_oltp:security_user VALUES (1, 'dok_test', '4EjPjy6o+/C+dqNPnxIy9A==', null);
-INSERT INTO comp1_informixoltp:coder (coder_id, member_since, coder_type_id) VALUES (1, current, 2);
-INSERT INTO comp1_common_oltp:user_group_xref (user_group_id, login_id, group_id, security_status_id) VALUES (1, 1, 14, 1);
-INSERT INTO comp1_common_oltp:user_group_xref (user_group_id, login_id, group_id, security_status_id) VALUES (2, 1, 2000118, 1);
+INSERT INTO common_oltp:user (user_id, first_name, last_name, handle, status, timezone_id) VALUES (1, 'dok', 'dok', 'dok_test', 'A', 143);
+INSERT INTO common_oltp:security_user VALUES (1, 'dok_test', '4EjPjy6o+/C+dqNPnxIy9A==', null);
+INSERT INTO informixoltp:coder (coder_id, member_since, coder_type_id) VALUES (1, current, 2);
+INSERT INTO common_oltp:user_group_xref (user_group_id, login_id, group_id, security_status_id) VALUES (1, 1, 14, 1);
+INSERT INTO common_oltp:user_group_xref (user_group_id, login_id, group_id, security_status_id) VALUES (2, 1, 2000118, 1);
 INSERT INTO email (user_id, email_id, email_type_id, address, primary_ind, status_id) VALUES (1, 1,1, 'fake@fake.com', 1, 1);
 
 -- Contest #1 - TopCoder Direct channel
@@ -135,6 +135,19 @@ INSERT INTO contest_result (submission_id, contest_id, create_date, placed, fina
 
 INSERT INTO submission_review (submission_id, reviewer_id, text, review_status_id, modify_date) VALUES (1, 1, 'Pass', 1, CURRENT);
 
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (17, '1_18_1.jpg', 18, 1, '', 100, 100, CURRENT, '1.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (18, '1_22_1.png', 22, 1, '', 100, 100, CURRENT, '2.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (19, '1_23_1.png', 23, 1, '', 100, 100, CURRENT, '3.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (20, '1_19_1.png', 19, 1, '', 100, 100, CURRENT, '3.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (21, '1_20_1.png', 20, 1, '', 100, 100, CURRENT, '3.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (22, '1_21_1.jpg', 21, 1, '', 100, 100, CURRENT, '3.jpg');
+
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (1, 17, 1);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (1, 18, 2);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (1, 19, 3);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (1, 20, 4);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (1, 21, 5);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (1, 22, 6);
 
 -- Contest #5 - Studio Administrator channel, Logo, closed, requires file 
 INSERT INTO contest (contest_id,name,start_time,end_time,contest_status_id,contest_channel_id,contest_type_id,tc_direct_project_id,create_user_id) VALUES (5,'TC Studio Administrator #5','2008-02-01 17:04:25','2008-02-20 16:11:00',2,1,2,103,1);
@@ -173,6 +186,10 @@ INSERT INTO submission_prize_xref (submission_id, prize_id, create_date) VALUES 
 INSERT INTO contest_result (submission_id, contest_id, create_date, placed, final_score) VALUES (2, 5, CURRENT, 1, 98.00);
 
 INSERT INTO submission_review (submission_id, reviewer_id, text, review_status_id, modify_date) VALUES (2, 1, 'Pass', 1, CURRENT);
+
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (23, '2_21_1.jpg', 21, 2, '', 100, 100, CURRENT, '3.jpg');
+
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (2, 23, 1);
 
 -- Contest #6 - Studio Administrator channel V1, Storyboard, closed, requires preview file
 INSERT INTO contest (contest_id,name,start_time,end_time,contest_status_id,contest_channel_id,contest_type_id,tc_direct_project_id,create_user_id) VALUES (6,'TC Studio Administrator #6','2008-02-01 17:04:25','2008-02-20 16:11:00',2,3,1,103,1);
@@ -245,7 +262,7 @@ INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date
 
 INSERT INTO path (path_id, path, modify_date) VALUES (4, 'test_files/studio/submissions/7/dok_test_1/', CURRENT);
 
-INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (4,1,7,CURRENT,'tcs.zip', '4_full.zip', 4, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
+INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (4,1,7,CURRENT,'tcs.zip', '4_preview.zip', 4, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
 
 INSERT INTO submission_prize_xref (submission_id, prize_id, create_date) VALUES (4, 19, CURRENT);
 
@@ -296,6 +313,16 @@ INSERT INTO submission_review (submission_id, reviewer_id, text, review_status_i
 
 INSERT INTO submission_payment (submission_id, payment_status_id, price) VALUES (5, 2, 100.00);
 
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (1, '5_25_1.jpg', 25, 5, '', 100, 100, CURRENT, '1.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (2, '5_29_1.png', 29, 5, '', 100, 100, CURRENT, '2.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (3, '5_30_1.png', 30, 5, '', 100, 100, CURRENT, '3.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (13, '5_31_1.png', 31, 5, '', 100, 100, CURRENT, '4.jpg');
+
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (5, 1, 1);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (5, 2, 2);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (5, 3, 3);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (5, 13, 4);
+
 -- Contest #9 - TopCoder Direct channel, running
 INSERT INTO contest (contest_id,name,start_time,end_time,contest_status_id, contest_channel_id,contest_type_id,tc_direct_project_id,create_user_id) VALUES (9,'TC Direct Contest #9','2008-02-01 17:04:25','2009-02-20 16:11:00',2,2,1,100,132456);
 
@@ -330,6 +357,17 @@ INSERT INTO path (path_id, path, modify_date) VALUES (6, 'test_files/studio/subm
 INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (6,1,9,CURRENT,'tcs.zip', 'tcs_submission.zip', 6, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
 
 INSERT INTO submission_payment (submission_id, payment_status_id, price) VALUES (6, 2, 100.00);
+
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (4, '6_25_1.jpg', 25, 6, '', 100, 100, CURRENT, '1.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (5, '6_29_1.png', 29, 6, '', 100, 100, CURRENT, '2.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (6, '6_30_1.png', 30, 6, '', 100, 100, CURRENT, '3.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (15, '6_31_1.png', 31, 6, '', 100, 100, CURRENT, '3.jpg');
+
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (6, 4, 1);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (6, 5, 2);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (6, 6, 3);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (6, 15, 4);
+
 
 -- Contest #10 - Studio Administrator channel, closed
 INSERT INTO contest (contest_id,name,start_time,end_time,contest_status_id,contest_channel_id,contest_type_id,tc_direct_project_id,create_user_id) VALUES (10,'TC Studio Administrator #10','2008-02-01 17:04:25','2008-02-20 16:11:00',2,1,2,102,132456);
@@ -372,6 +410,16 @@ INSERT INTO submission_review (submission_id, reviewer_id, text, review_status_i
 
 INSERT INTO submission_payment (submission_id, payment_status_id, price) VALUES (7, 3, 100.00);
 
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (7, '7_18_1.jpg', 18, 7, '', 100, 100, CURRENT, '1.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (8, '7_22_1.png', 22, 7, '', 100, 100, CURRENT, '2.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (9, '7_23_1.png', 23, 7, '', 100, 100, CURRENT, '3.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (14, '7_24_1.png', 24, 7, '', 100, 100, CURRENT, '4.jpg');
+
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (7, 7, 1);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (7, 8, 2);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (7, 9, 3);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (7, 14, 4);
+
 -- Contest #11 - Studio Administrator channel, running
 INSERT INTO contest (contest_id,name,start_time,end_time,contest_status_id,contest_channel_id,contest_type_id,tc_direct_project_id,create_user_id) VALUES (11,'TC Studio Administrator #11','2008-02-01 17:04:25','2009-02-20 16:11:00',2,1,2,102,132456);
 
@@ -407,6 +455,16 @@ INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,origin
 
 INSERT INTO submission_payment (submission_id, payment_status_id, price) VALUES (8, 3, 100.00);
 
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (10, '8_18_1.jpg', 18, 8, '', 100, 100, CURRENT, '1.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (11, '8_22_1.png', 22, 8, '', 100, 100, CURRENT, '2.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (12, '8_23_1.png', 23, 8, '', 100, 100, CURRENT, '3.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (16, '8_24_1.png', 24, 8, '', 100, 100, CURRENT, '4.jpg');
+
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (8, 10, 1);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (8, 11, 2);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (8, 12, 3);
+INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (8, 16, 4);
+
 -- Contest #12 - Studio Administrator, Storyboard, open, requires preview file
 INSERT INTO contest (contest_id,name,start_time,end_time,contest_status_id,contest_channel_id,contest_type_id,tc_direct_project_id,create_user_id) VALUES (12,'TC Studio Administrator #12','2008-02-01 17:04:25','2009-02-20 16:11:00',2,1,1,103,132456);
 
@@ -439,7 +497,7 @@ INSERT INTO contest_registration (contest_id,user_id,terms_of_use_id,create_date
 INSERT INTO path (path_id, path, modify_date) VALUES (9, 'test_files/studio/submissions/12/dok_test_1/', CURRENT);
 INSERT INTO path (path_id, path, modify_date) VALUES (10, 'test_files/studio/documents/12/', CURRENT);
 
-INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (9,1,12,CURRENT,'tcs.zip', '9_full.zip', 9, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
+INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,original_file_name,system_file_name,path_id,submission_type_id,mime_type_id,rank,submission_date,height,width,submission_status_id,modify_date,or_submission_id) VALUES (9,1,12,CURRENT,'tcs.zip', '9_preview.zip', 9, 1, 15, 1, CURRENT, null, null, 1, CURRENT, null);
 
 INSERT INTO submission_prize_xref (submission_id, prize_id, create_date) VALUES (9, 34, CURRENT);
 

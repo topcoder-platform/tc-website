@@ -1364,7 +1364,7 @@ public class MockHttpServletRequest implements HttpServletRequest {
                 if (argsResults != null) {
                     return (Object) argsResults.get(string0);
                 } else {
-                    return null;
+                    return (Object) methodResults.get(methodName);
                 }
             }
         }

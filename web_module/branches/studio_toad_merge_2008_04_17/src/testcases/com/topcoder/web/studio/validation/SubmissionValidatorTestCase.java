@@ -33,7 +33,7 @@ import java.io.InputStream;
  * <p>A unit test for {@link SubmissionValidator} class.</p>
  *
  * @author isv
- * @version 1.0
+ * @version 1.1
  * @since TopCoder Studio Modifications Assembly (Req# 5.6, 5.7, 5.11)
  */
 public class SubmissionValidatorTestCase extends TCHibernateTestCase {
@@ -414,7 +414,63 @@ public class SubmissionValidatorTestCase extends TCHibernateTestCase {
             StudioFileType fileType = SubmissionValidator.getFileType(fileName);
             Assert.assertNull("File type is mapped to unsupported file", fileType);
         }
+    }
 
+    /**
+     * <p>Accuracy test. Tests the {@link SubmissionValidator#getFileName(String)} method for accurate behavior.</p>
+     *
+     * <p>Passes the full paths and expects the appropriate file names to be returned.</p>
+     * 
+     * @since Studio Submission Slideshow
+     */
+    public void testGetFileName() {
+        String sep = System.getProperty("file.separator");
+        String[] filePaths = {"", "studiofiles" + sep + "submissions", "1" + sep + "2" + sep + "3" + sep + "4", "1"};
+        String[] fileNames = {"1.par", "2.www", "3.cgi"};
+
+        for (int i = 0; i < fileNames.length; i++) {
+            for (int j = 0; j < filePaths.length; j++) {
+                String fileName = fileNames[i];
+                String name = SubmissionValidator.getFileName(filePaths[j] + sep + fileName);
+                Assert.assertEquals("Wrong file name returned", fileName, name);
+            }
+        }
+    }
+
+    /**
+     * <p>Accuracy test. Tests the {@link SubmissionValidator#getBundledFileParser(String)} method for accurate
+     * behavior.</p>
+     *
+     * <p>Verifies that for filenames associated with bundled file types the method returns the file parser of
+     * appropriate type.</p>
+     *
+     * @since Studio Submission Slideshow
+     */
+    public void testGetBundledFileParser_String_BundledFileTypes() {
+        String sep = System.getProperty("file.separator");
+        String[] filePaths = {"", "studiofiles" + sep + "submissions", "1" + sep + "2" + sep + "3" + sep + "4", "1"};
+
+        String[] zipFileNames = {"1.zip", "2.zip", "3381238136.1.zip"};
+        for (int i = 0; i < zipFileNames.length; i++) {
+            for (int j = 0; j < filePaths.length; j++) {
+                String fileName = zipFileNames[i];
+                BundledFileAnalyzer fileParser
+                        = SubmissionValidator.getBundledFileParser(filePaths[j] + sep + fileName);
+                Assert.assertEquals("Wrong type of file parser",
+                                    ZipFileAnalyzer.class.getName(), fileParser.getClass().getName());
+            }
+        }
+
+        String[] jarFileNames = {"1.jar", "2.jar", "3381238136.1.jar"};
+        for (int i = 0; i < jarFileNames.length; i++) {
+            for (int j = 0; j < filePaths.length; j++) {
+                String fileName = jarFileNames[i];
+                BundledFileAnalyzer fileParser
+                        = SubmissionValidator.getBundledFileParser(filePaths[j] + sep + fileName);
+                Assert.assertEquals("Wrong type of file parser",
+                                    JarFileAnalyzer.class.getName(), fileParser.getClass().getName());
+            }
+        }
     }
 
     /**

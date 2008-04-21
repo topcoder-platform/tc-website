@@ -58,35 +58,38 @@ public class TestFilesHandler {
      * @throws IOException if an I/O error occurs while initializing the test files.
      */
     private static void initDirectory(File dir, LinkedList<String> path) throws IOException {
-        char sep = File.separatorChar;
-        String submissionsDirName = Constants.ROOT_STORAGE_PATH + sep + Constants.SUBMISSIONS_DIRECTORY_NAME;
-        File submissionsDir = new File(submissionsDirName);
-        
-        String[] files = dir.list();
-        if (files != null) {
-            for (int i = 0; i < files.length; i++) {
-                String fileName = files[i];
-                StringBuilder b = new StringBuilder();
-                for (String p : path) {
-                    if (b.length() > 0) {
-                        b.append(sep);
+        String dirName = dir.getName();
+        if (!dirName.equals("CVS") && !dirName.equals(".svn")) {
+            char sep = File.separatorChar;
+            String submissionsDirName = Constants.ROOT_STORAGE_PATH + sep + Constants.SUBMISSIONS_DIRECTORY_NAME;
+            File submissionsDir = new File(submissionsDirName);
+
+            String[] files = dir.list();
+            if (files != null) {
+                for (int i = 0; i < files.length; i++) {
+                    String fileName = files[i];
+                    StringBuilder b = new StringBuilder();
+                    for (String p : path) {
+                        if (b.length() > 0) {
+                            b.append(sep);
+                        }
+                        b.append(p);
                     }
-                    b.append(p);
-                }
-                File target = new File(submissionsDir.getAbsolutePath() + sep + b.toString() + sep + fileName);
-                File original = new File(dir.getAbsolutePath() + sep + fileName);
-                if (original.isDirectory()) {
-                    if (!target.exists()) {
-                        target.mkdirs();
-                        copiedDirectories.add(target);
-                    }
-                    path.addLast(fileName);
-                    initDirectory(original, path);
-                    path.removeLast();
-                } else {
-                    if (!target.exists()) {
-                        copyFiles(original, target);
-                        copiedFiles.add(target);
+                    File target = new File(submissionsDir.getAbsolutePath() + sep + b.toString() + sep + fileName);
+                    File original = new File(dir.getAbsolutePath() + sep + fileName);
+                    if (original.isDirectory()) {
+                        if (!target.exists()) {
+                            target.mkdirs();
+                            copiedDirectories.add(target);
+                        }
+                        path.addLast(fileName);
+                        initDirectory(original, path);
+                        path.removeLast();
+                    } else {
+                        if (!target.exists()) {
+                            copyFiles(original, target);
+                            copiedFiles.add(target);
+                        }
                     }
                 }
             }

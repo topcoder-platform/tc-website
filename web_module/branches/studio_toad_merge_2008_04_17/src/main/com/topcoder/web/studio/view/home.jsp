@@ -2,12 +2,14 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.controller.request.Login" %>
+<%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="java.util.Map" %>
 <% ResultSetContainer recentWinners = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("recent_winners");%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -19,9 +21,15 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>Welcome to TopCoder Studio</title>
 
-    <link rel="stylesheet" href="/css/v2/home.css" media="all" type="text/css"/>
-
+    <script type="text/javascript" src="/js/v2/popup.js"></script>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/thickbox.js"></script>
+    <link rel="stylesheet" href="/css/thickbox.css" type="text/css" media="screen" />
 </head>
+
+<c:set var="subAltType" value="<%=Constants.SUBMISSION_ALT_TYPE%>"/>
+<c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
+<c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 
 <body>
 <div id="wrapper">
@@ -180,10 +188,50 @@
                                         <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/" title="Register"><img src="/i/v2/interface/btnRegister.png" alt="Register" /></a>
                                     </td>
                                 </tr>
-                                <tr class="pd">
-                                    <td align="center" valign="top" colspan="2">
-                                        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" title="Forgot your password?">Forgot
-                                            your password?</a></td>
+                                <% boolean even = true;
+                                    int i = 0; %>
+                                <rsc:iterator list="<%=recentWinners%>" id="resultRow">
+                                    <c:set var="showSubmissions" value="${resultRow.map['show_submissions']}"/>
+                                    <c:set var="hasPreviewImage" value="${resultRow.map['has_preview_image']}"/>
+                                    <c:set var="submissionId" value="${resultRow.map['submission_id']}"/>
+                                    <c:set var="contestId" value="${resultRow.map['contest_id']}"/>
+                                    <c:set var="galleryImageCount" value="${resultRow.map['gallery_image_count']}"/>
+
+                                    <tr><td class="space" colspan="6">&nbsp;</td></tr>
+                                    <tr class="<%=even?"light":"dark"%>">
+                                        <td class="valueW"><div>&nbsp;</div></td>
+                                        <td class="value">
+                                            <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
+                                        </td>
+                                        <td class="valueR">
+                                            <c:choose>
+                                                <c:when test="${showSubmissions}">
+                                                    <studio_tags:viewSubmissionLink hasPreviewImage="${hasPreviewImage}"
+                                                                                    submissionId="${submissionId}"
+                                                                                    galleryImageCount="${galleryImageCount}"
+                                                                                    targetPresentationType="medium"
+                                                                                    previewPresentationType="tiny"
+                                                                                    contestId="${contestId}"/>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <img src="/i/v2/interface/magnifyFade.png" alt="" />
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </td>
+                                        <td class="value">
+                                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${submissionId}">
+                                                <rsc:item name="name" row="<%=resultRow%>"/></a>
+                                        </td>
+                                        <td class="valueR">
+                                            <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
+                                        </td>
+                                        <td class="valueE"><div>&nbsp;</div></td>
+                                    </tr>
+                                    <% even = !even;
+                                        i++; %>
+                                </rsc:iterator>
+                                <tr>
+                                    <td class="btnRight" colspan="6"><div><a href="${sessionInfo.servletPath}?module=ViewPastContests"><img src="/i/v2/btn_more.png" alt="More..." /></a></div></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -198,7 +246,7 @@
             </p>
         </c:otherwise>
         </c:choose>
-        <!-- JSP END --> 
+        <!-- JSP END -->
         <div></div>
     </div>
 

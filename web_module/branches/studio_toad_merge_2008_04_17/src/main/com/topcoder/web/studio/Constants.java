@@ -72,7 +72,7 @@ public class Constants implements WebConstants {
      * @since TopCoder Studio Modifications Assembly (Req# 5.7)
      */
     public static String WATERMARK_FILE_PATH;
-    
+
     /**
      * <p>A <code>String</code> referencing the type of a file to be used for watermarking the images. Must be mapped to
      * values introduced by {@link ImagePersistenceHandler} interface.</p>
@@ -112,7 +112,7 @@ public class Constants implements WebConstants {
      * @since TopCoder Studio Modifications Assembly (Req# 5.7)
      */
     public static int WATERMARK_OVERLAY_IMAGE_GREEN;
-    
+
     /**
      * <p>An <code>int</code> specifying the value of blue color when performing the watermarking. Must be in range
      * [0, 255]</p>
@@ -123,7 +123,7 @@ public class Constants implements WebConstants {
 
     /**
      * <p>A <code>String</code> providing the path to a directory where the temporary files can be put to (for example,
-     * such files are used while generating the watermarked copies of images).</p>  
+     * such files are used while generating the watermarked copies of images).</p>
      *
      * @since TopCoder Studio Modifications Assembly (Req# 5.7)
      */
@@ -148,7 +148,7 @@ public class Constants implements WebConstants {
     /**
      * <p>A <code>String</code> providing the message for the exception to be thrown in case the submitted file does not
      * represent the bundled file.</p>
-     * 
+     *
      * @since TopCoder Studio Modifications Assembly
      */
     public static String ERROR_MSG_NOT_BUNDLED_FILE;
@@ -264,6 +264,30 @@ public class Constants implements WebConstants {
     public static final String DOC_DESC = "docdesc";
 
     /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the index of the submission file to
+     * be downloaded.</p>
+     *
+     * @since Studio Submission Slideshow
+     */
+    public static final String SUBMISSION_FILE_INDEX = "sfi";
+
+    /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the flag whether the watermarked
+     * submission is to be downloaded or not.</p>
+     *
+     * @since Studio Submission Slideshow
+     */
+    public static final String SUBMISSION_FILE_WATERMARKED = "sfw";
+
+    /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the number of the images in the
+     * gallery.</p>
+     *
+     * @since Studio Submission Slideshow
+     */
+    public static final String GALLERY_IMAGES_COUNT = "icnt";
+
+    /**
      * <p>A <code>String</code> providing the message to be displayed to administrators in case the winner announcement
      * time fails to pass the validation as it is set before the contest end time.</p>
      *
@@ -273,7 +297,7 @@ public class Constants implements WebConstants {
 
     /**
      * <p>A <code>String</code> providing the message to be displayed to administrators in case the winner announcement
-     * time fails to pass the validation as it is set to invalid value.</p> 
+     * time fails to pass the validation as it is set to invalid value.</p>
      *
      * @since TopCoder Studio Modifications Assembly v2
      */
@@ -377,8 +401,8 @@ public class Constants implements WebConstants {
                 }
                 if (f[i].get(null) == null)
                     log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
-                else
-                    log.debug(f[i].getName() + " <== " + f[i].get(null));
+//                else
+//                    log.debug(f[i].getName() + " <== " + f[i].get(null));
 
             } catch (Exception e) {
                 /* probably harmless, could just be a type or modifier mismatch */

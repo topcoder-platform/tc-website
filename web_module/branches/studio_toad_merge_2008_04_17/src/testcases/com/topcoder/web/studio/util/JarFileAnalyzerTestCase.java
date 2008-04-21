@@ -8,12 +8,16 @@ import junit.framework.Assert;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.io.IOException;
+import java.io.ByteArrayOutputStream;
+import java.util.Map;
+import java.util.Arrays;
 
 /**
  * <p>A unit test for {@link JarFileAnalyzer} class.</p>
  *
  * @author isv
- * @version 1.0
+ * @version 1.1
  * @since TopCoder Studio Modifications Assembly (Req# 5.7)
  */
 public class JarFileAnalyzerTestCase extends TCHibernateTestCase {
@@ -127,5 +131,57 @@ public class JarFileAnalyzerTestCase extends TCHibernateTestCase {
                                   this.testedInstance.getPreviewFileContent());
             }
         }
+    }
+
+    /**
+     * <p>Accuracy test. Tests the {@link JarFileAnalyzer#getFiles(byte[])} method for accurate behavior.</p>
+     *
+     * <p>Passes content for various JAR files and expects the method to analyze the content of the provided files
+     * correctly.</p>
+     *
+     * @throws Exception if an unexpected error occurs.
+     * @since Studio Submission Slideshow
+     */
+    public void testGetFiles() throws Exception {
+        String path = "test_files/studio/slideshow/";
+        String[] fileNames = {"preview.jar"};
+        String[] expectedFiles = new String[] {"1.jpg", "2.jpg", "3.css", "4.jpg"};
+
+        for (int i = 0; i < fileNames.length; i++) {
+            String fileName = fileNames[i];
+            Map<String, byte[]> files = this.testedInstance.getFiles(readFile(path + fileName));
+            Assert.assertEquals("Wrong number of files is retrieved", expectedFiles.length, files.size());
+            for (int j = 0; j < expectedFiles.length; j++) {
+                String expectedFile = expectedFiles[j];
+                Assert.assertTrue("The file [" + expectedFile + "] is not retrieved from archive",
+                                  files.containsKey(expectedFile));
+                byte[] expectedContent = readFile(path + "/" + expectedFile);
+                Assert.assertTrue("The content for file [" + expectedFile + "] is wrong",
+                                  Arrays.equals(expectedContent, files.get(expectedFile)));
+            }
+        }
+    }
+
+    /**
+     * <p>Gets the content of the sample submissions file to be used for testing from the disk.</p>
+     *
+     * @param fileName a <code>String</code> providing the name of the file to load.
+     * @return a <code>byte</code> array providing the content of the sample submission file.
+     * @throws IOException if an I/O error occurs while reading the image file content.
+     */
+    private byte[] readFile(String fileName) throws IOException {
+        InputStream content = new FileInputStream(fileName);
+        ByteArrayOutputStream baos;
+        try {
+            baos = new ByteArrayOutputStream();
+            byte[] buf = new byte[4096];
+            int count = -1;
+            while ((count = content.read(buf)) != -1) {
+                baos.write(buf, 0, count);
+            }
+        } finally {
+            content.close();
+        }
+        return baos.toByteArray();
     }
 }

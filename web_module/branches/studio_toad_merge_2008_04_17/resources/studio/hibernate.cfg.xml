@@ -122,6 +122,7 @@
         <mapping resource="com/topcoder/web/studio/model/ReviewStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/StudioFileType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/Submission.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/SubmissionImage.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/SubmissionReview.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/SubmissionStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/SubmissionType.hbm.xml"/>

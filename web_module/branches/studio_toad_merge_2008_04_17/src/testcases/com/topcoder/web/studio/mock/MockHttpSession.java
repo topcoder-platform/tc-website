@@ -48,6 +48,12 @@ public class MockHttpSession implements HttpSession {
     private static Throwable globalException = null;
 
     /**
+     * <p>A <code>Map</code> mapping the <code>String</code> method signatures to <code>Object</code>s to be returned by
+     * methods.</p>
+     */
+    private static Map<String, Map> methodArgumentResults = new HashMap();
+
+    /**
      * <p>A mock implementation of the method. The method either throws an exception which might have been specified
      * through {@link #throwException(String,Throwable)} method or return a result specified through {@link
      * #setMethodResult(String,Object)} method.</p>
@@ -477,7 +483,25 @@ public class MockHttpSession implements HttpSession {
             if (exception != null) {
                 throw new RuntimeException("The test may not be configured properly", exception);
             }
+//            setMethodResultPerArgs("getAttribute_String", string0, object0);
         }
+    }
+
+    /**
+     * <p>Sets the result to be returned by the specified method.</p>
+     *
+     * @param methodSignature a <code>String</code> uniquelly distinguishing the target method among other methods
+     *        declared by the implemented interface/class.
+     * @param args a <code>String</code> provding the concatenated values of method arguments.
+     * @param result an <code>Object</code> representing the result to be returned by specified method.
+     */
+    public static void setMethodResultPerArgs(String methodSignature, String args, Object result) {
+        Map map = MockHttpSession.methodArgumentResults.get(methodSignature);
+        if (map == null) {
+            map = new HashMap();
+            MockHttpSession.methodArgumentResults.put(methodSignature, map);
+        }
+        map.put(args, result);
     }
 
     /**
@@ -563,6 +587,7 @@ public class MockHttpSession implements HttpSession {
         MockHttpSession.methodResults.clear();
         MockHttpSession.throwExceptions.clear();
         MockHttpSession.globalException = null;
+        MockHttpSession.methodArgumentResults.clear();
     }
 
     /**

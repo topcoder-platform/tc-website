@@ -16,6 +16,9 @@
     <script type="text/javascript" src="/js/taconite-client.js"></script>
     <script type="text/javascript" src="/js/taconite-parser.js"></script>
     <script type="text/javascript" src="/js/fat.js"></script>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/thickbox.js"></script>
+    <link rel="stylesheet" href="/css/thickbox.css" type="text/css" media="screen" />
 
     <title>TopCoder Studio</title>
     <jsp:include page="style.jsp">

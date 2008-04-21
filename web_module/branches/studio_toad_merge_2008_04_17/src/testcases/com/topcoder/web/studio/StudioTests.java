@@ -50,6 +50,8 @@ import com.topcoder.web.studio.model.ContestChannelTestCase;
 import com.topcoder.web.studio.model.MediumTestCase;
 import com.topcoder.web.studio.model.SubmissionTestCase;
 import com.topcoder.web.studio.model.DocumentTestCase;
+import com.topcoder.web.studio.model.SubmissionImageTestCase;
+import com.topcoder.web.studio.model.SubmissionImageIdentifierTestCase;
 import com.topcoder.web.studio.util.SubmissionPresentationFilterTestCase;
 import com.topcoder.web.studio.util.ZipFileAnalyzerTestCase;
 import com.topcoder.web.studio.util.JarFileAnalyzerTestCase;
@@ -81,7 +83,6 @@ public class StudioTests extends TCHibernateTestCase {
         final TestSuite suite = new TestSuite();
 
         suite.addTest(new TestSuite(SubmissionDAOTestCase.class));
-
         suite.addTest(new TestSuite(MimeTypeDAOTestCase.class));
         suite.addTest(new TestSuite(ContestDAOTestCase.class));
         suite.addTest(new TestSuite(FileTypeDAOTestCase.class));
@@ -139,6 +140,10 @@ public class StudioTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(SaveDocumentTestCase.class));
         suite.addTest(new TestSuite(ViewSubmissionsTestCase.class));
         suite.addTest(new TestSuite(UtilTestCase.class));
+
+        // Since Studio Submission Slideshow
+        suite.addTest(new TestSuite(SubmissionImageTestCase.class));
+        suite.addTest(new TestSuite(SubmissionImageIdentifierTestCase.class));
 
         return suite;
     }

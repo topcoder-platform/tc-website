@@ -10,7 +10,7 @@ import junit.framework.Assert;
  * <p>A unit test for {@link ContestType} class.</p>
  *
  * @author isv
- * @version 1.0
+ * @version 1.1
  * @since TopCoder Studio Modifications Assembly (Req# 5.1)
  */
 public class ContestTypeTestCase extends TestCase {
@@ -68,7 +68,7 @@ public class ContestTypeTestCase extends TestCase {
      * <p>Accuracy test. Tests the {@link ContestType#setId(Integer)} and {@link ContestType#getId()} methods for
      * accurate behavior.</p>
      *
-     * <p>Passses the valid values to {@link ContestType#setId(Integer)} method and reads them back through
+     * <p>Passes the valid values to {@link ContestType#setId(Integer)} method and reads them back through
      * {@link ContestType#getId()} methods and verifies that the read value is matching the set value.</p>
      */
     public void testSetGetId() {
@@ -84,7 +84,7 @@ public class ContestTypeTestCase extends TestCase {
      * <p>Accuracy test. Tests the {@link ContestType#setDescription(String)} and {@link ContestType#getDescription()}
      * methods for accurate behavior.</p>
      *
-     * <p>Passses the valid values to {@link ContestType#setDescription(String)} method and reads them back through
+     * <p>Passes the valid values to {@link ContestType#setDescription(String)} method and reads them back through
      * {@link ContestType#getDescription()} methods and verifies that the read value is matching the set value.</p>
      */
     public void testSetGetDescription() {
@@ -98,10 +98,10 @@ public class ContestTypeTestCase extends TestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link ContestType#setPreviewImageRequired(Boolean)} and
-     * {@link ContestType# getPreviewImageRequired ()} methods for accurate behavior.</p>
+     * {@link ContestType#getPreviewImageRequired()} methods for accurate behavior.</p>
      *
-     * <p>Passses the valid values to {@link ContestType# setPreviewImageRequired (Boolean)} method and reads them back
-     * through {@link ContestType# getPreviewImageRequired ()} methods and verifies that the read value is matching the
+     * <p>Passes the valid values to {@link ContestType#setPreviewImageRequired(Boolean)} method and reads them back
+     * through {@link ContestType#getPreviewImageRequired()} methods and verifies that the read value is matching the
      * set value.</p>
      */
     public void testSetGetImagePreviewRequired() {
@@ -115,10 +115,10 @@ public class ContestTypeTestCase extends TestCase {
 
     /**
      * <p>Accuracy test. Tests the {@link ContestType#setPreviewFileRequired(Boolean)} and
-     * {@link ContestType# getPreviewFileRequired ()} methods for accurate behavior.</p>
+     * {@link ContestType#getPreviewFileRequired()} methods for accurate behavior.</p>
      *
-     * <p>Passses the valid values to {@link ContestType# setPreviewFileRequired (Boolean)} method and reads them back
-     * through {@link ContestType# getPreviewFileRequired ()} methods and verifies that the read value is matching the
+     * <p>Passes the valid values to {@link ContestType# setPreviewFileRequired(Boolean)} method and reads them back
+     * through {@link ContestType#getPreviewFileRequired()} methods and verifies that the read value is matching the
      * set value.</p>
      */
     public void testSetGetFilePreviewRequired() {
@@ -127,6 +127,24 @@ public class ContestTypeTestCase extends TestCase {
             this.testedInstance.setPreviewFileRequired(validValues[i]);
             Assert.assertEquals("The [filePreviewRequired] property is not set and read correctly",
                                 validValues[i], this.testedInstance.getPreviewFileRequired());
+        }
+    }
+
+    /**
+     * <p>Accuracy test. Tests the {@link ContestType#setIncludeGallery(Boolean)} and
+     * {@link ContestType#getIncludeGallery()} methods for accurate behavior.</p>
+     *
+     * <p>Passes the valid values to {@link ContestType#setIncludeGallery(Boolean)}(Boolean)} method and reads them
+     * back through {@link ContestType#getIncludeGallery()} methods and verifies that the read value is matching the
+     * set value.</p>
+     * @since Studio Submission Slideshow
+     */
+    public void testSetGetIncludeGallery() {
+        Boolean[] validValues = new Boolean[] {null, Boolean.TRUE, Boolean.FALSE};
+        for (int i = 0; i < validValues.length; i++) {
+            this.testedInstance.setIncludeGallery(validValues[i]);
+            Assert.assertEquals("The [includeGallery] property is not set and read correctly",
+                                validValues[i], this.testedInstance.getIncludeGallery());
         }
     }
 }
