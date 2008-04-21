@@ -46,7 +46,7 @@ public class ContestStatus extends Base {
                 SortInfo s = new SortInfo();
                 getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
-                setNextPage("/dev/contestStatus.jsp");
+                setNextPage("/contest/contestStatus.jsp");
                 setIsNextPageInContext(true);
             } else {
                 throw new TCWebException("Invalid project type specified " + projectTypeId);

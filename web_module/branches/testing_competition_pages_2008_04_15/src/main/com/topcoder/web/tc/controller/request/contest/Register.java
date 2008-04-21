@@ -63,10 +63,10 @@ public class Register extends ViewRegistration {
                         log.debug("they are eligible");
                     }
                     register();
-                    setNextPage("/dev/regSuccess.jsp");
+                    setNextPage("/contest/regSuccess.jsp");
                     setIsNextPageInContext(true);
                 } else {
-                    setNextPage("/dev/message.jsp");
+                    setNextPage("/contest/message.jsp");
                     setIsNextPageInContext(true);
                 }
             } else {
@@ -76,7 +76,7 @@ public class Register extends ViewRegistration {
                 setDefault(Constants.TERMS, getTerms());
                 //we're assuming if we got here, we had a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                setNextPage("/dev/regTerms.jsp");
+                setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             }
 

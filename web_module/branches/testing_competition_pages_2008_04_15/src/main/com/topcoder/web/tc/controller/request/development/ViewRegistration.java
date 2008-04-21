@@ -19,7 +19,6 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.CoderSessionInfo;
-import com.topcoder.web.common.model.CoderType;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.common.model.Question;
@@ -58,10 +57,10 @@ public class ViewRegistration extends Base {
                 setDefault(Constants.TERMS, getTerms());
                 //we're assuming that if we're here, we got a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                setNextPage("/dev/regTerms.jsp");
+                setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
-                setNextPage("/dev/message.jsp");
+                setNextPage("/contest/message.jsp");
                 setIsNextPageInContext(true);
             }
 
