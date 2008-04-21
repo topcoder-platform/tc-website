@@ -24,7 +24,7 @@
 <c:choose>
     <c:when test="${hasPreviewImage}">
         <c:if test="${galleryImageCount <= 0}">
-            <a href="${sessionInfo.servletPath}.jpg?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${targetPresentationType}"
+            <a href="${sessionInfo.servletPath}studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${targetPresentationType}"
                title="" class="thickbox">
                 <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${previewPresentationType}"
                      alt="+" onmouseover="popUp(this,'myPopup')" onmouseout="popHide()" />
@@ -32,14 +32,14 @@
         </c:if>
         <c:if test="${galleryImageCount > 0}">
             <%-- There is a gallery of the images --%>
-            <a href="${sessionInfo.servletPath}.jpg?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${targetPresentationType}&amp;${subFileIdx}=1"
+            <a href="${sessionInfo.servletPath}studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${targetPresentationType}&amp;${subFileIdx}=1"
                title="" class="thickbox" rel="gal${submissionId}">
                 <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${previewPresentationType}"
                      alt="+" onmouseover="popUp(this,'myPopup')" onmouseout="popHide()" />
             </a>
             <div style="visibility:hidden;display:inline;">
                 <c:forEach begin="2" end="${galleryImageCount}" step="1" varStatus="index">
-                    <a href="${sessionInfo.servletPath}.jpg?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${targetPresentationType}&amp;${subFileIdx}=${index.index}"
+                    <a href="${sessionInfo.servletPath}studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${targetPresentationType}&amp;${subFileIdx}=${index.index}"
                        title="" class="thickbox" rel="gal${submissionId}" style="visibility:hidden;display:inline;">
                     </a>
                 </c:forEach>
