@@ -12,7 +12,8 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encok/ant
+ding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -132,7 +133,7 @@
                             </td>
                             <td>
                                 <studio:handle coderId="${resultRow.map['user_id']}"/><br/>
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${submissionId}">
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">
                                         ${resultRow.map['name']}</a><br/>
                                 <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
                             </td>
