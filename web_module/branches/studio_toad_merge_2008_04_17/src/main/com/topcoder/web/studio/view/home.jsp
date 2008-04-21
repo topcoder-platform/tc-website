@@ -2,10 +2,9 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.controller.request.Login" %>
-<%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="java.util.Map" %>
 <% ResultSetContainer recentWinners = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("recent_winners");%>
-<% ResultSetContainer contests = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("active_contests");%>
+<% ResultSetContainer activeContests = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("active_contests");%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -29,6 +28,7 @@ ding="utf-8"?>
     <link rel="stylesheet" href="/css/v2/home.css" media="all" type="text/css"/>
 </head>
 
+<c:set var="contests" value="<%=activeContests%>"/>
 <c:set var="subAltType" value="<%=Constants.SUBMISSION_ALT_TYPE%>"/>
 <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
@@ -83,7 +83,7 @@ ding="utf-8"?>
                     </tr>
                 </thead>
                 <tbody>
-                    <rsc:iterator list="<%=contests%>" id="resultRow">
+                    <rsc:iterator list="<%=activeContests%>" id="resultRow">
                         <tr>
                             <td class="first">
                                     <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">
