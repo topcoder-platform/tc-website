@@ -109,7 +109,36 @@ ding="utf-8"?>
             <span class="more"><a href="/?module=ViewPastContests">View All</a></span>
             <table>
                 <tbody>
+                    <tr>
+                        <td class="img"><a href="#"><img alt="winner 1" src="/i/v3/winners/winner_2.png"/></a></td>
+                        <td>
+                            <i>rutam</i><br />
+                            <a href="/?module=ViewPastContests">AIM Expressions Storyboard</a><br />
+                            $1500.00
+                        </td>
+                    </tr>
+                    <tr class="last_row">
+                        <td class="img">
+                            <a href="/?module=ViewPastContests"><img alt="winner 2" src="/i/v3/winners/winner_3.png"/></a>
+                        </td>
+                        <td>
+                            <i>bohuss</i><br />
+                            <a href="#">Argus VP Chart Interaction/Animation Phase 2</a><br />
+                            $800.00
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="img">
+                            <a href="/?module=ViewPastContests"><img alt="winner 3" src="/i/v3/winners/winner_1.png"/></a>
+                        </td>
+                        <td>
+                            <i>dafei</i><br />
+                            <a href="#">TC Pipeline Yahoo Widget Storyboard</a><br />
+                            $450.00
+                        </td>
+                    </tr>
 
+<%--
                     <rsc:iterator list="<%=recentWinners%>" id="resultRow">
                         <c:set var="showSubmissions" value="${resultRow.map['show_submissions']}"/>
                         <c:set var="hasPreviewImage" value="${resultRow.map['has_preview_image']}"/>
@@ -142,6 +171,7 @@ ding="utf-8"?>
                             </td>
                         </tr>
                     </rsc:iterator>
+--%>
                 </tbody>
             </table>
             <div>
