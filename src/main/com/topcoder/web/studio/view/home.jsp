@@ -70,7 +70,7 @@ ding="utf-8"?>
 
     <!-- banner -->
     <div class="banner">
-        <p></p>
+        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&d4=bracket"><img src="/i/v3/tco_finalists.png" alt="TCO08" /></a>
     </div>
 
     <!-- contest box -->
