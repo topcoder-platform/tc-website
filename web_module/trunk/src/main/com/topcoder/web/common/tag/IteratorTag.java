@@ -14,7 +14,7 @@ import java.util.Iterator;
 /**
  * Custom tag that iterates through a collection of Objects
  *
- * @author	James Lee (jameslee@cs.stanford.edu)
+ * @author James Lee (jameslee@cs.stanford.edu)
  */
 public class IteratorTag extends BodyTagSupport {
 
@@ -25,6 +25,20 @@ public class IteratorTag extends BodyTagSupport {
     protected Iterator iterator;
 
     protected String type;
+
+    protected Integer begin;
+
+    protected Integer end;
+
+    private int currIndex = 0;
+
+    public void setBegin(Integer begin) {
+        this.begin = begin;
+    }
+
+    public void setEnd(Integer end) {
+        this.end = end;
+    }
 
     public void setCollection(Collection collection) {
         // if the collection is null, use an empty list
@@ -37,7 +51,7 @@ public class IteratorTag extends BodyTagSupport {
     }
 
     public void setIterator(Iterator iterator) {
-        if (iterator==null) {
+        if (iterator == null) {
             this.iterator = new ArrayList().iterator();
         } else {
             this.iterator = iterator;
@@ -51,23 +65,31 @@ public class IteratorTag extends BodyTagSupport {
 
     public int doStartTag() throws JspException {
         //log.debug("doStartTag() called, collection = " + collection + " iterator = " + iterator);
-        return iterator.hasNext() ? EVAL_BODY_TAG : SKIP_BODY;
+        return iterator.hasNext() ? EVAL_BODY_AGAIN : SKIP_BODY;
     }
 
     public void doInitBody() throws JspException {
-        //log.debug("doInitBody() called, collection = " + collection + " iterator = " + iterator);
+        log.debug("doInitBody() called, collection = " + collection + " iterator = " + iterator);
+        if (begin != null && begin > currIndex) {
+            while (currIndex <= begin) {
+                iterator.next();
+                currIndex++;
+            }
+        }
         if (iterator.hasNext()) {
             pageContext.setAttribute(getId(), iterator.next());
         }
     }
 
     public int doAfterBody() throws JspException {
-        //log.debug("doAfterBody() called, collection = " + collection + " iterator = " + iterator);
-        if (iterator.hasNext()) {
+        log.debug("doAfterBody() called, collection = " + collection + " iterator = " + iterator);
+        boolean indexOk = end == null || end >= currIndex;
+        if (iterator.hasNext() && indexOk) {
             pageContext.setAttribute(getId(), iterator.next());
-            //log.debug("get attribute " + getId() + " " + pageContext.getAttribute(getId()));
-            return EVAL_BODY_TAG;
-            } else {
+            log.debug("get attribute " + getId() + " " + pageContext.getAttribute(getId()));
+            currIndex++;
+            return EVAL_BODY_AGAIN;
+        } else {
             try {
                 if (bodyContent != null) {
                     bodyContent.writeOut(getPreviousOut());
@@ -79,16 +101,15 @@ public class IteratorTag extends BodyTagSupport {
         }
     }
 
-    /**
-     * Just in case the app server is caching tag (jboss!!!)
-     * we have to clear out all the instance variables at the
-     * end of execution
-     */
-    public int doEndTag() throws JspException {
+    public void release() {
         this.collection = null;
         this.iterator = null;
         this.type = null;
-        return super.doEndTag();
+        this.begin = null;
+        this.end = null;
+        super.release();
     }
+
+
 }
 
