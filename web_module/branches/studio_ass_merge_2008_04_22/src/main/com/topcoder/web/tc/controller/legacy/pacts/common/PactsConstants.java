@@ -152,6 +152,8 @@ public interface PactsConstants extends Constants {
 
     public static final String ACCRUAL_AMOUNT = "accrual_amount";
     public static final String ASSIGNMENT_DOCUMENT_TYPE_LIST = "assignment_document_type_list";
+    public static final String ASSIGNMENT_DOCUMENT_TEMPLATE_LIST = "assignment_document_template_list";
+    
     public static final String ASSIGNMENT_DOCUMENT_STATUS_LIST = "assignment_document_status_list";
     public static final String AFFIDAVIT_TYPE_LIST = "affidavit_type_list";
     public static final String CONTRACT_TYPE_LIST = "contract_type_list";
@@ -379,6 +381,7 @@ public interface PactsConstants extends Constants {
     // request attributes
     public static final String PACTS_INTERNAL_RESULT = "pacts_internal_result";
     public static final String PACTS_MEMBER_RESULT = "pacts_member_result";
+    public static final String HAS_GLOBAL_AD = "has_global_ad";
 
     // member jsp page names
     public static final String AFFIDAVIT_HISTORY_JSP = MEMBER_JSP_DIR + "AffidavitHistory.jsp";
@@ -427,6 +430,7 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_USER_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/viewUserTaxForm.jsp";
     public static final String INTERNAL_ADD_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/addAssignmentDocument.jsp";
     public static final String INTERNAL_EDIT_ACCRUAL_AMOUNT_JSP = INTERNAL_JSP_DIR + "/editAccrualAmount.jsp";
+    public static final String INTERNAL_ADD_GLOBAL_AD_JSP = INTERNAL_JSP_DIR + "/addGlobalAD.jsp";
     public static final String INTERNAL_SEARCH_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/searchAssignmentDocument.jsp";
     public static final String INTERNAL_LIST_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/assignmentDocumentList.jsp";
     public static final String INTERNAL_ADD_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/addAffidavit.jsp";
@@ -512,5 +516,6 @@ public interface PactsConstants extends Constants {
 
     // Minimum points in order to win a prize
     public static final int INTRO_EVENT_MIN_POINTS = 5;
+
 }
 

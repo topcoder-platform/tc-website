@@ -21,5 +21,6 @@
         <many-to-one name="mimeType" column="mime_type_id" class="MimeType"
                      cascade="none"/>
         <many-to-one name="type" column="document_type_id" class="DocumentType"/>
+        <property name="description" column="description"/>
     </class>
 </hibernate-mapping>

@@ -6,7 +6,6 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.Equals;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
@@ -18,7 +17,7 @@ import com.topcoder.web.studio.model.Contest;
 import java.util.Date;
 
 /**
- * @author dok
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 31, 2006
  */
@@ -48,8 +47,11 @@ public class ViewSubmissions extends ShortHibernateProcessor {
 
         getRequest().setAttribute("isOver", String.valueOf(isOver));
 
+        //not caching anymore, it doesn't gain much.  perhaps we can in the future if we figure out exactly how the admins
+        //use the system so we know when to refresh the cache
+        //DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         //load up the submissions
-        DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("submissions");
         r.setProperty(Constants.CONTEST_ID, contestId);
@@ -58,7 +60,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
             r.setProperty(Constants.SUBMISSION_RANK, c.getMaxSubmissions().getValue());
         }
 
-        getRequest().setAttribute("hasScores", c.getProject()!=null);
+        getRequest().setAttribute("hasScores", c.getProject() != null);
 
         String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String dir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));

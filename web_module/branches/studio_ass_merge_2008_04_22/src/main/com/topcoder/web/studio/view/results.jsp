@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.PrizeType" %>
+<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -22,6 +23,9 @@
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
     <script type="text/javascript" src="/js/v2/popup.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
+    <script type="text/javascript" src="/js/thickbox-3.1/thickbox-compressed-3.1.js"></script>
+    <link rel="stylesheet" href="/js/thickbox-3.1/thickbox-3.1.css" type="text/css" media="screen" />
 </head>
 
 <body>
@@ -123,7 +127,6 @@
             <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
         </td>
         <td class="valueR">
-
             <c:choose>
                 <c:when test="${hasScores}">
                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissionResults&amp;<%=Constants.SUBMISSION_ID%>=${resultRow.map['submission_id']}">
@@ -138,25 +141,7 @@
         <td class="valueC">
             <c:choose>
                 <c:when test="${resultRow.map['show_submissions']}">
-                    <c:choose>
-                        <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
-                            <div align="center">
-                                <strong>ID:</strong> <rsc:item name="submission_id" row="<%=resultRow%>"/>
-                                <div style="overflow: hidden; width: 300px;">
-                                    <studio_tags:submissionDisplay submissionId="${resultRow.map['submission_id']}" width="${resultRow.map['width']}" height="${resultRow.map['height']}"/>
-                                </div>
-                            </div>
-                        </c:when>
-                        <c:otherwise>
-                            <div align="center">
-                                <strong>ID:</strong> <rsc:item name="submission_id" row="<%=resultRow%>"/>
-                                <br />
-                                <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                    <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()"/>
-                                </a>
-                            </div>
-                        </c:otherwise>
-                    </c:choose>
+                    <studio_tags:submissionLink row="${resultRow}"/>
                 </c:when>
                 <c:otherwise>
                     <img src="/i/v2/interface/magnifyFade.png" alt="" />

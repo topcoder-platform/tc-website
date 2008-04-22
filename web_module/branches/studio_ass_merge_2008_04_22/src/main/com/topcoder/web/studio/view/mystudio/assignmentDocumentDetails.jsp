@@ -46,7 +46,7 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-                        <h1>Assignment Documents</h1>
+                        <h1>Assignment Document</h1>
                         
                         <p align="right"><a href="${sessionInfo.servletPath}?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">Printer friendly version</a></p>
                         <div align="center">
@@ -64,13 +64,16 @@
                             <c:choose>
                                 <c:when test="${has_hard_copy}">
                                     <p>
-                                        You have already sent a a signed hard copy of the Assignment Document Document.
+                                        You have already sent a signed hard copy of the Assignment Document.
                                     </p>
                                 </c:when>
                                 <c:otherwise>
+                                    <%--
                                     <p>
                                         You will need to send a signed hard copy of the Assignment Document Document in order to be able to affirm it in the future with the system. You can get a printer friendly version <a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">here</a>.
                                     </p>
+                                    --%>
+                                    <p>You will need to send a signed hard copy of the Assignment Document before you can submit your entry. You can get a printer friendly version <a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">here</a>.</p>
                                 </c:otherwise>
                             </c:choose>
                         </c:if>

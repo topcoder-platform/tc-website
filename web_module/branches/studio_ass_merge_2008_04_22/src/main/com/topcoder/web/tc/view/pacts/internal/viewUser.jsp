@@ -153,6 +153,13 @@
         <td>$<fmt:formatNumber value="${user.header.accrualAmount}" pattern="###,##0.00" /></td>
     </tr>
 
+<% if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {%>
+    <tr>
+        <td><b>Global AD:</b></td>
+        <td>${has_global_ad}</td>
+    </tr>
+<%}%>
+
 
 
 </table>
@@ -238,6 +245,13 @@
 
         <a href="${pacts:updateUserAccrual(user.header.id)}">Edit user accrual amount</a>
         <br/>
+        
+<% if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {%>
+        <c:if test="${not has_global_ad}">
+            <a href="${pacts:addGlobalAD(user.header.id)}">Add Global AD</a>
+            <br/>
+        </c:if>
+<%}%>
 
 <jsp:include page="InternalFooter.jsp" flush="true" />
 
