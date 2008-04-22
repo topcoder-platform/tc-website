@@ -84,8 +84,8 @@ public class IteratorTag extends BodyTagSupport {
 
     public int doAfterBody() throws JspException {
         //log.debug("doAfterBody() called, collection = " + collection + " iterator = " + iterator);
-        log.debug("doAfterBody called index " + currIndex + " begin " + begin + " end " + end);
-        boolean indexOk = end == null || end >= currIndex;
+        boolean indexOk = (end == null || end >= currIndex);
+        log.debug("doAfterBody called index " + currIndex + " begin " + begin + " end " + end + "indexok " + indexOk);
         if (iterator.hasNext() && indexOk) {
             pageContext.setAttribute(getId(), iterator.next());
             //log.debug("get attribute " + getId() + " " + pageContext.getAttribute(getId()));
