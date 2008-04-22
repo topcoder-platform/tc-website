@@ -595,7 +595,7 @@ public class Submit extends BaseSubmissionDataProcessor {
             }
             if (log.isInfoEnabled()) {
                 log.info(new StringBuilder(100).append("generating images for submission ").
-                        append(submissionId).append(" took ").append(start - System.currentTimeMillis()).append(" ms"));
+                        append(submissionId).append(" took ").append(System.currentTimeMillis()-start).append(" ms"));
             }
 
         }
