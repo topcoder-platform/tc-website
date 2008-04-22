@@ -25,10 +25,11 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.dao.ImageDAO;
-import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.dao.UserDAO;
+import static com.topcoder.web.common.model.Image.*;
 import com.topcoder.web.common.model.Path;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.IntegerValidator;
 import com.topcoder.web.common.validation.ObjectInput;
 import com.topcoder.web.common.validation.StringInput;
@@ -37,50 +38,24 @@ import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.ContestChannel;
-import com.topcoder.web.studio.model.ContestStatus;
-import com.topcoder.web.studio.model.FilePath;
-import com.topcoder.web.studio.model.MimeType;
-import com.topcoder.web.studio.model.ReviewStatus;
-import com.topcoder.web.studio.model.StudioFileType;
-import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.SubmissionReview;
-import com.topcoder.web.studio.model.SubmissionStatus;
-import com.topcoder.web.studio.model.SubmissionType;
-import com.topcoder.web.studio.model.SubmissionImage;
-import com.topcoder.web.studio.model.ContestType;
+import com.topcoder.web.studio.model.*;
 import com.topcoder.web.studio.util.BundledFileAnalyzer;
 import com.topcoder.web.studio.validation.SubmissionValidator;
-import static com.topcoder.web.common.model.Image.PREVIEW_FULL_TYPE_ID;
-import static com.topcoder.web.common.model.Image.PREVIEW_FULL_WATERMARKED_TYPE_ID;
-import static com.topcoder.web.common.model.Image.PREVIEW_MEDIUM_TYPE_ID;
-import static com.topcoder.web.common.model.Image.PREVIEW_MEDIUM_WATERMARKED_TYPE_ID;
-import static com.topcoder.web.common.model.Image.PREVIEW_SMALL_TYPE_ID;
-import static com.topcoder.web.common.model.Image.PREVIEW_SMALL_WATERMARKED_TYPE_ID;
-import static com.topcoder.web.common.model.Image.PREVIEW_THUMBNAIL_TYPE_ID;
-import static com.topcoder.web.common.model.Image.GALLERY_FULL_TYPE_ID;
-import static com.topcoder.web.common.model.Image.GALLERY_FULL_WATERMARKED_TYPE_ID;
-import static com.topcoder.web.common.model.Image.GALLERY_MEDIUM_TYPE_ID;
-import static com.topcoder.web.common.model.Image.GALLERY_MEDIUM_WATERMARKED_TYPE_ID;
-import static com.topcoder.web.common.model.Image.GALLERY_SMALL_TYPE_ID;
-import static com.topcoder.web.common.model.Image.GALLERY_SMALL_WATERMARKED_TYPE_ID;
-import static com.topcoder.web.common.model.Image.GALLERY_THUMBNAIL_TYPE_ID;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.FileInputStream;
 import java.io.InputStream;
-import java.io.ByteArrayOutputStream;
-import java.util.Date;
-import java.util.Map;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>A request processor to be used for servicing the requests for uploading the submissions to server. The main
@@ -132,8 +107,8 @@ public class Submit extends BaseSubmissionDataProcessor {
      * @since Studio Submission Slideshow
      */
     private static final Integer[] PREVIEW_PLAIN_IMAGE_TYPE_IDS
-            = new Integer[] {PREVIEW_THUMBNAIL_TYPE_ID, PREVIEW_SMALL_TYPE_ID, PREVIEW_MEDIUM_TYPE_ID,
-                             PREVIEW_FULL_TYPE_ID};
+            = new Integer[]{PREVIEW_THUMBNAIL_TYPE_ID, PREVIEW_SMALL_TYPE_ID, PREVIEW_MEDIUM_TYPE_ID,
+            PREVIEW_FULL_TYPE_ID};
 
     /**
      * <p>An <code>Integer</code> array providing the sizes of the non-watermarked preview images.</p>
@@ -141,7 +116,7 @@ public class Submit extends BaseSubmissionDataProcessor {
      * @since Studio Submission Slideshow
      */
     private static final int[] PREVIEW_PLAIN_IMAGE_SIZES
-            = new int[] {TINY_IMAGE_SIZE, SMALL_IMAGE_SIZE, MEDIUM_IMAGE_SIZE, ORIGINAL_IMAGE_SIZE};
+            = new int[]{TINY_IMAGE_SIZE, SMALL_IMAGE_SIZE, MEDIUM_IMAGE_SIZE, ORIGINAL_IMAGE_SIZE};
 
     /**
      * <p>An <code>Integer</code> array referencing the image types corresponding to watermarked preview images.</p>
@@ -149,8 +124,8 @@ public class Submit extends BaseSubmissionDataProcessor {
      * @since Studio Submission Slideshow
      */
     private static final Integer[] PREVIEW_WATERMARKED_IMAGE_TYPE_IDS
-            = new Integer[] {PREVIEW_SMALL_WATERMARKED_TYPE_ID, PREVIEW_MEDIUM_WATERMARKED_TYPE_ID,
-                             PREVIEW_FULL_WATERMARKED_TYPE_ID};
+            = new Integer[]{PREVIEW_SMALL_WATERMARKED_TYPE_ID, PREVIEW_MEDIUM_WATERMARKED_TYPE_ID,
+            PREVIEW_FULL_WATERMARKED_TYPE_ID};
 
     /**
      * <p>An <code>Integer</code> array providing the sizes of the watermarked preview images.</p>
@@ -158,7 +133,7 @@ public class Submit extends BaseSubmissionDataProcessor {
      * @since Studio Submission Slideshow
      */
     private static final int[] PREVIEW_WATERMARKED_IMAGE_SIZES
-            = new int[] {SMALL_IMAGE_SIZE, MEDIUM_IMAGE_SIZE, ORIGINAL_IMAGE_SIZE};
+            = new int[]{SMALL_IMAGE_SIZE, MEDIUM_IMAGE_SIZE, ORIGINAL_IMAGE_SIZE};
 
     /**
      * <p>An <code>Integer</code> array referencing the image types corresponding to non-watermarked image galleries.
@@ -167,8 +142,8 @@ public class Submit extends BaseSubmissionDataProcessor {
      * @since Studio Submission Slideshow
      */
     private static final Integer[] GALLERY_PLAIN_IMAGE_TYPE_IDS
-            = new Integer[] {GALLERY_THUMBNAIL_TYPE_ID, GALLERY_SMALL_TYPE_ID, GALLERY_MEDIUM_TYPE_ID,
-                             GALLERY_FULL_TYPE_ID};
+            = new Integer[]{GALLERY_THUMBNAIL_TYPE_ID, GALLERY_SMALL_TYPE_ID, GALLERY_MEDIUM_TYPE_ID,
+            GALLERY_FULL_TYPE_ID};
 
     /**
      * <p>An <code>Integer</code> array providing the sizes of the non-watermarked gallery images.</p>
@@ -176,7 +151,7 @@ public class Submit extends BaseSubmissionDataProcessor {
      * @since Studio Submission Slideshow
      */
     private static final int[] GALLERY_PLAIN_IMAGE_SIZES
-            = new int[] {TINY_IMAGE_SIZE, SMALL_IMAGE_SIZE, MEDIUM_IMAGE_SIZE, ORIGINAL_IMAGE_SIZE};
+            = new int[]{TINY_IMAGE_SIZE, SMALL_IMAGE_SIZE, MEDIUM_IMAGE_SIZE, ORIGINAL_IMAGE_SIZE};
 
     /**
      * <p>An <code>Integer</code> array referencing the image types corresponding to watermarked image galleries.</p>
@@ -184,8 +159,8 @@ public class Submit extends BaseSubmissionDataProcessor {
      * @since Studio Submission Slideshow
      */
     private static final Integer[] GALLERY_WATERMARKED_IMAGE_TYPE_IDS
-            = new Integer[] {GALLERY_SMALL_WATERMARKED_TYPE_ID, GALLERY_MEDIUM_WATERMARKED_TYPE_ID,
-                             GALLERY_FULL_WATERMARKED_TYPE_ID};
+            = new Integer[]{GALLERY_SMALL_WATERMARKED_TYPE_ID, GALLERY_MEDIUM_WATERMARKED_TYPE_ID,
+            GALLERY_FULL_WATERMARKED_TYPE_ID};
 
     /**
      * <p>An <code>Integer</code> array providing the sizes of the watermarked gallery images.</p>
@@ -193,7 +168,7 @@ public class Submit extends BaseSubmissionDataProcessor {
      * @since Studio Submission Slideshow
      */
     private static final int[] GALLERY_WATERMARKED_IMAGE_SIZES
-            = new int[] {SMALL_IMAGE_SIZE, MEDIUM_IMAGE_SIZE, ORIGINAL_IMAGE_SIZE};
+            = new int[]{SMALL_IMAGE_SIZE, MEDIUM_IMAGE_SIZE, ORIGINAL_IMAGE_SIZE};
 
     /**
      * <p>A <code>File</code> referencing the uploaded submission as stored in the local file system.</p>
@@ -207,7 +182,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 
     /**
      * <p>Implements the business logic for request processing.</p>
-     *
+     * <p/>
      * <p>Validates the submission submitted by the user to server and stores it in local file system. Launches a
      * separate thread for generating the alternate presentations of the submission. Also for submissions from <code>
      * TopCoder Direct</code> contests generates the passing review.</p>
@@ -415,7 +390,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                 f.delete();
             } catch (Throwable e) {
                 log.error("Error attempting to remove file (" + f.getPath() + f.getName() + ") after exception: "
-                          + e.getMessage());
+                        + e.getMessage());
             }
         }
     }
@@ -424,10 +399,10 @@ public class Submit extends BaseSubmissionDataProcessor {
      * <p>Generates the alternate representations for the submission submitted by the specified user for specified
      * contest.</p>
      *
-     * @param contest a <code>Contest</code> representing the contest which the submission belongs to.
-     * @param submission a <code>Submission</code> providing the details for the submission.
+     * @param contest        a <code>Contest</code> representing the contest which the submission belongs to.
+     * @param submission     a <code>Submission</code> providing the details for the submission.
      * @param submissionFile an <code>UploadedFile</code> representing the submission.
-     * @param submitter a <code>User</code> representing the submitter.
+     * @param submitter      a <code>User</code> representing the submitter.
      * @since TopCoder Studio Modifications Assembly (Req# 5.7)
      */
     private void generateAlternateRepresentations(Contest contest, Submission submission, UploadedFile submissionFile,
@@ -463,8 +438,8 @@ public class Submit extends BaseSubmissionDataProcessor {
          */
         private static final String[] IMAGE_OVERLAY_SUPPORTED_TYPES
                 = {ImagePersistenceHandler.BMP_FORMAT, ImagePersistenceHandler.GIF_FORMAT,
-                   ImagePersistenceHandler.JPG_FORMAT, ImagePersistenceHandler.PNG_FORMAT,
-                   ImagePersistenceHandler.PNM_FORMAT, ImagePersistenceHandler.TIFF_FORMAT};
+                ImagePersistenceHandler.JPG_FORMAT, ImagePersistenceHandler.PNG_FORMAT,
+                ImagePersistenceHandler.PNM_FORMAT, ImagePersistenceHandler.TIFF_FORMAT};
 
         /**
          * <p>A <code>Contest</code> representing the contest which the submission belongs to.</p>
@@ -490,10 +465,10 @@ public class Submit extends BaseSubmissionDataProcessor {
          * <p>Constructs new <code>FileGenerator</code> instance to be used for generating the alternate representations
          * for specified submission.</p>
          *
-         * @param contest a <code>Contest</code> representing the contest which the submission belongs to.
-         * @param submission a <code>Submission</code> representing the submission submitted to server.
+         * @param contest        a <code>Contest</code> representing the contest which the submission belongs to.
+         * @param submission     a <code>Submission</code> representing the submission submitted to server.
          * @param submissionFile an <code>UploadedFile</code> providing the original content of submission.
-         * @param submitter a <code>User</code> representing the user who have submitted the submission.
+         * @param submitter      a <code>User</code> representing the user who have submitted the submission.
          */
         private FileGenerator(Contest contest, Submission submission, UploadedFile submissionFile, User submitter) {
             this.contest = contest;
@@ -507,6 +482,8 @@ public class Submit extends BaseSubmissionDataProcessor {
          * representations of the submission.</p>
          */
         public void run() {
+            long start = System.currentTimeMillis();
+            long submissionId = this.submission.getId();
             HibernateUtils.begin();
             boolean success = false;
             try {
@@ -523,9 +500,9 @@ public class Submit extends BaseSubmissionDataProcessor {
                 if (analyzer.isPreviewFileAvailable()) {
                     byte[] previewFileContent = analyzer.getPreviewFileContent();
                     String fullName = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter,
-                                                                                this.submission,
-                                                                                analyzer.getPreviewFilePath(),
-                                                                                "preview");
+                            this.submission,
+                            analyzer.getPreviewFilePath(),
+                            "preview");
                     writeFile(fullName, previewFileContent);
 
                     // Since Studio Submission Slideshow - generate gallery images if necessary
@@ -544,17 +521,17 @@ public class Submit extends BaseSubmissionDataProcessor {
                             StudioFileType fileType = SubmissionValidator.getFileType(fileName);
                             if ((fileType != null) && fileType.isImageFile()) {
                                 generateImages(fileName, fileContent, fileType,
-                                               GALLERY_PLAIN_IMAGE_TYPE_IDS, GALLERY_PLAIN_IMAGE_SIZES, false,
-                                               fileIndex);
+                                        GALLERY_PLAIN_IMAGE_TYPE_IDS, GALLERY_PLAIN_IMAGE_SIZES, false,
+                                        fileIndex);
                                 generateImages(fileName, fileContent, fileType,
-                                               GALLERY_WATERMARKED_IMAGE_TYPE_IDS, GALLERY_WATERMARKED_IMAGE_SIZES,
-                                               true, fileIndex);
+                                        GALLERY_WATERMARKED_IMAGE_TYPE_IDS, GALLERY_WATERMARKED_IMAGE_SIZES,
+                                        true, fileIndex);
 
                                 // If the preview image is not provided then use the first image from the gallery
                                 // as preview image
                                 if ((fileIndex == 1) && !analyzer.isPreviewImageAvailable()) {
                                     generatePreviewImagePresentations(fileContent, fileType, fileName,
-                                                                      analyzer.isPreviewFileAvailable());
+                                            analyzer.isPreviewFileAvailable());
                                     this.submission.setHasPreviewImage(true);
                                 }
 
@@ -570,9 +547,9 @@ public class Submit extends BaseSubmissionDataProcessor {
                 // provided
                 if (analyzer.isPreviewImageAvailable()) {
                     generatePreviewImagePresentations(analyzer.getPreviewImageContent(),
-                                                      analyzer.getPreviewImageFileType(),
-                                                      analyzer.getPreviewImagePath(),
-                                                      analyzer.isPreviewFileAvailable());
+                            analyzer.getPreviewImageFileType(),
+                            analyzer.getPreviewImagePath(),
+                            analyzer.isPreviewFileAvailable());
                     submissionUpdated = true;
                 }
 
@@ -583,28 +560,28 @@ public class Submit extends BaseSubmissionDataProcessor {
                 success = true;
             } catch (IOException e) {
                 log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                          e);
+                        e);
             } catch (PersistenceException e) {
                 log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                          e);
+                        e);
             } catch (FileDoesNotExistException e) {
                 log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                          e);
+                        e);
             } catch (ImageException e) {
                 log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                          e);
+                        e);
             } catch (ImagePersistenceException e) {
                 log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                          e);
+                        e);
             } catch (UnsupportedFormatException e) {
                 log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                          e);
+                        e);
             } catch (ImageOverlayProcessingException e) {
                 log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                          e);
+                        e);
             } catch (Throwable e) {
                 log.error("Could not generate alternate presentations for submission [" + this.submission + "]",
-                          e);
+                        e);
             } finally {
                 if (success) {
                     HibernateUtils.getSession().flush();
@@ -616,79 +593,85 @@ public class Submit extends BaseSubmissionDataProcessor {
                 }
                 HibernateUtils.closeSession();
             }
+            if (log.isInfoEnabled()) {
+                log.info(new StringBuilder(100).append("generating images for submission ").
+                        append(submissionId).append(" took ").append(start - System.currentTimeMillis()).append(" ms"));
+            }
+
         }
 
         /**
          * <p>Generates the alternate presentations for the specified preview image.</p>
          *
-         * @param imageContent a <code>byte</code> array providing the content of the original image.
+         * @param imageContent         a <code>byte</code> array providing the content of the original image.
          * @param previewImageFileType a <code>StudioFileType</code> representing the type of the preview image.
-         * @param previewImagePath a <code>String</code> providing the path to preview image within submission.
+         * @param previewImagePath     a <code>String</code> providing the path to preview image within submission.
          * @param previewFileAvailable <code>true</code> if preview file is available in the submission;
-         *        <code>false</code> otherwise.
-         * @throws IOException if an I/O error occurs while reading or writing image content.
-         * @throws ImageException if original image can not be resized to specified size.
-         * @throws ImagePersistenceException if original image can not be resized to specified size.
+         *                             <code>false</code> otherwise.
+         * @throws IOException                if an I/O error occurs while reading or writing image content.
+         * @throws ImageException             if original image can not be resized to specified size.
+         * @throws ImagePersistenceException  if original image can not be resized to specified size.
          * @throws UnsupportedFormatException if original image can not be resized to specified size.
-         * @throws ImageOverlayProcessingException if original image can not be resized to specified size.
+         * @throws ImageOverlayProcessingException
+         *                                    if original image can not be resized to specified size.
          */
         private void generatePreviewImagePresentations(byte[] imageContent, StudioFileType previewImageFileType,
                                                        String previewImagePath, boolean previewFileAvailable)
-            throws IOException, ImageException, ImagePersistenceException, UnsupportedFormatException,
-                   ImageOverlayProcessingException {
+                throws IOException, ImageException, ImagePersistenceException, UnsupportedFormatException,
+                ImageOverlayProcessingException {
             generateImages(previewImagePath, imageContent, previewImageFileType,
-                           PREVIEW_PLAIN_IMAGE_TYPE_IDS, PREVIEW_PLAIN_IMAGE_SIZES, false, 1);
+                    PREVIEW_PLAIN_IMAGE_TYPE_IDS, PREVIEW_PLAIN_IMAGE_SIZES, false, 1);
             generateImages(previewImagePath, imageContent, previewImageFileType,
-                           PREVIEW_WATERMARKED_IMAGE_TYPE_IDS, PREVIEW_WATERMARKED_IMAGE_SIZES, true, 1);
+                    PREVIEW_WATERMARKED_IMAGE_TYPE_IDS, PREVIEW_WATERMARKED_IMAGE_SIZES, true, 1);
 
             String imageName = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter,
-                                                                         this.submission, previewImagePath,
-                                                                         "image");
+                    this.submission, previewImagePath,
+                    "image");
             String watermarkedImageName
                     = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter, this.submission,
-                                                                previewImagePath, "imagew");
+                    previewImagePath, "imagew");
             writeFile(imageName, imageContent);
             createPresentation(watermarkedImageName, true, ORIGINAL_IMAGE_SIZE, imageContent,
-                               previewImageFileType);
+                    previewImageFileType);
 
             if (!previewFileAvailable) {
                 String fullName = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter,
-                                                                            this.submission, previewImagePath,
-                                                                            "preview");
+                        this.submission, previewImagePath,
+                        "preview");
                 createPresentation(fullName, true, ORIGINAL_IMAGE_SIZE, imageContent, previewImageFileType);
             }
         }
 
         /**
-         *
          * @param originalImagePath a <code>String</code> providing the path to original image file.
-         * @param imageContent a <code>byte</code> array providing the content of the original image.
-         * @param imageFileType a <code>StudioFileType</code> representing the type of the original image.
-         * @param imageTypeIds a <code>Integer</code> array listing the IDs of type for the images to be generated.
-         * @param imageTypeSizes an <code>int</code> array listing the sizes of the images to be generated.
-         * @param watermark <code>true</code> if generated images must be watermarked; <code>false</code> otherwise.
-         * @param fileIndex an <code>int</code> providing the index of the original image in collection of images of
-         *        same image_type.
-         * @throws IOException if an I/O error occurs while reading or writing image content.
-         * @throws ImageException if original image can not be resized to specified size.
-         * @throws ImagePersistenceException if original image can not be resized to specified size.
+         * @param imageContent      a <code>byte</code> array providing the content of the original image.
+         * @param imageFileType     a <code>StudioFileType</code> representing the type of the original image.
+         * @param imageTypeIds      a <code>Integer</code> array listing the IDs of type for the images to be generated.
+         * @param imageTypeSizes    an <code>int</code> array listing the sizes of the images to be generated.
+         * @param watermark         <code>true</code> if generated images must be watermarked; <code>false</code> otherwise.
+         * @param fileIndex         an <code>int</code> providing the index of the original image in collection of images of
+         *                          same image_type.
+         * @throws IOException                if an I/O error occurs while reading or writing image content.
+         * @throws ImageException             if original image can not be resized to specified size.
+         * @throws ImagePersistenceException  if original image can not be resized to specified size.
          * @throws UnsupportedFormatException if original image can not be resized to specified size.
-         * @throws ImageOverlayProcessingException if original image can not be resized to specified size.
+         * @throws ImageOverlayProcessingException
+         *                                    if original image can not be resized to specified size.
          */
         private void generateImages(String originalImagePath, byte[] imageContent, StudioFileType imageFileType,
                                     Integer[] imageTypeIds, int[] imageTypeSizes, boolean watermark, int fileIndex)
                 throws IOException, ImageException, ImagePersistenceException, UnsupportedFormatException,
-                       ImageOverlayProcessingException {
+                ImageOverlayProcessingException {
             ImageDAO imageDAO = DAOUtil.getFactory().getImageDAO();
             for (int i = 0; i < imageTypeIds.length; i++) {
                 int imageTypeId = imageTypeIds[i];
                 int imageSize = imageTypeSizes[i];
                 String imageFileName
                         = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter, this.submission,
-                                                                    originalImagePath,
-                                                                    String.valueOf(imageTypeId) + "_" + fileIndex);
+                        originalImagePath,
+                        String.valueOf(imageTypeId) + "_" + fileIndex);
                 Image presentation = createPresentation(imageFileName, watermark, imageSize, imageContent,
-                                                        imageFileType);
+                        imageFileType);
 
                 // Generate image and save it to persistent data store
                 Path imagePath = new Path();
@@ -698,7 +681,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                 com.topcoder.web.common.model.Image image = new com.topcoder.web.common.model.Image();
                 String justFileName = SubmissionValidator.getFileName(imageFileName);
                 if (watermark) { // If the image is watermarked then the extension must be changed to match the type of
-                                 // watermarked image
+                    // watermarked image
                     int pos = justFileName.lastIndexOf(".");
                     image.setFileName(justFileName.substring(0, pos + 1) + Constants.WATERMARK_FILE_TYPE.toLowerCase());
                 } else {
@@ -725,26 +708,27 @@ public class Submit extends BaseSubmissionDataProcessor {
         /**
          * <p>Generates the alternate representation of specified type for the specified image.</p>
          *
-         * @param path a <code>String</code> providing the name of the file.
-         * @param watermark <code>true</code> if create image copy must be watermarked; <code>false</code> otherwise.
-         * @param maxSize an <code>int</code> providing the maximum size (in pixels) of the created copy or
-         *        <code>-1</code> if original image size must be used.
-         * @param imageContent a <code>byte</code> array providing the content of original image.
+         * @param path          a <code>String</code> providing the name of the file.
+         * @param watermark     <code>true</code> if create image copy must be watermarked; <code>false</code> otherwise.
+         * @param maxSize       an <code>int</code> providing the maximum size (in pixels) of the created copy or
+         *                      <code>-1</code> if original image size must be used.
+         * @param imageContent  a <code>byte</code> array providing the content of original image.
          * @param imageFileType a <code>StudioFileType</code> representing the file type for the image to be
-         *        watermarked.
+         *                      watermarked.
          * @return an <code>Image</code> representing the image providing the requested presentation of the specified
          *         image.
-         * @throws IOException if an I/O error occurs while reading or writing image content.
-         * @throws ImageException if original image can not be resized to specified size.
-         * @throws ImagePersistenceException if original image can not be resized to specified size.
+         * @throws IOException                if an I/O error occurs while reading or writing image content.
+         * @throws ImageException             if original image can not be resized to specified size.
+         * @throws ImagePersistenceException  if original image can not be resized to specified size.
          * @throws UnsupportedFormatException if original image can not be resized to specified size.
-         * @throws ImageOverlayProcessingException if original image can not be resized to specified size.
+         * @throws ImageOverlayProcessingException
+         *                                    if original image can not be resized to specified size.
          */
         private Image createPresentation(final String path, boolean watermark, int maxSize, final byte[] imageContent,
                                          final StudioFileType imageFileType) throws IOException, ImageException,
-                                                                             ImagePersistenceException,
-                                                                             UnsupportedFormatException,
-                                                                             ImageOverlayProcessingException {
+                ImagePersistenceException,
+                UnsupportedFormatException,
+                ImageOverlayProcessingException {
             // Map the image file type to image type supported by the Image Overlay components
             String imageFormat = null;
             String extension = imageFileType.getExtension();
@@ -755,7 +739,7 @@ public class Submit extends BaseSubmissionDataProcessor {
             }
             if (imageFormat == null) {
                 throw new IllegalArgumentException("The image file type [" + extension + "] is not supported by Image "
-                                                   + "Overlay component");
+                        + "Overlay component");
             }
 
             // A file which will hold the resized/watermarked image once the whole process succeeds
@@ -785,13 +769,13 @@ public class Submit extends BaseSubmissionDataProcessor {
                     // Watermark the original image
                     TransparencySpecification transSpec = new TransparencySpecification();
                     transSpec.setColorTransparency(Constants.WATERMARK_OVERLAY_IMAGE_RED,
-                                                   Constants.WATERMARK_OVERLAY_IMAGE_GREEN,
-                                                   Constants.WATERMARK_OVERLAY_IMAGE_BLUE,
-                                                   Constants.WATERMARK_OVERLAY_IMAGE_TRANSPARENCY);
+                            Constants.WATERMARK_OVERLAY_IMAGE_GREEN,
+                            Constants.WATERMARK_OVERLAY_IMAGE_BLUE,
+                            Constants.WATERMARK_OVERLAY_IMAGE_TRANSPARENCY);
                     transSpec.setImageTransparency(Constants.WATERMARK_BASE_IMAGE_TRANSPARENCY);
                     OverlaySpecification overlaySpec = new OverlaySpecification(transSpec,
-                                                                                OverlayType.CROP_OVERLAY_IMAGE,
-                                                                                widthOffset, heightOffset);
+                            OverlayType.CROP_OVERLAY_IMAGE,
+                            widthOffset, heightOffset);
                     Watermarker watermarker = new Watermarker(manager, overlayImage, overlaySpec);
                     Image watermarkedImage = watermarker.watermarkImage(targetImage);
                     manager.storeImage(watermarkedImage, Constants.WATERMARK_FILE_TYPE, tempFile);
@@ -816,7 +800,7 @@ public class Submit extends BaseSubmissionDataProcessor {
         /**
          * <p>Writes the specified content to specified file on disk.</p>
          *
-         * @param path a <code>String</code> providing the name of the file.
+         * @param path    a <code>String</code> providing the name of the file.
          * @param content a <code>byte</code> array providing the content of the file to be written.
          * @throws IOException if an I/O error occurs while writing file content to disk.
          */
@@ -859,7 +843,7 @@ public class Submit extends BaseSubmissionDataProcessor {
          * <p>Copies the specified file to specified one.</p>
          *
          * @param from a <code>File</code> to be copied.
-         * @param to a <code>File</code> referencing the new location of the copy.
+         * @param to   a <code>File</code> referencing the new location of the copy.
          * @throws IOException if an I/O error occurs while writing file content to disk.
          */
         private static void copyFiles(File from, File to) throws IOException {
@@ -886,24 +870,24 @@ public class Submit extends BaseSubmissionDataProcessor {
          * <p>Resizes the specified image to specified width and height (if necessary) keeping the original image aspect
          * ratio.</p>
          *
-         * @param maxWidth an <code>int</code> providing the maximum width (in pixels) of the created copy or
-         *        <code>-1</code> if original image width must be used.
-         * @param maxHeight an <code>int</code> providing the maximum height (in pixels) of the created copy or
-         *        <code>-1</code> if original image height must be used.
-         * @param imageFormat a <code>String</code> referencing the type of the image.
+         * @param maxWidth     an <code>int</code> providing the maximum width (in pixels) of the created copy or
+         *                     <code>-1</code> if original image width must be used.
+         * @param maxHeight    an <code>int</code> providing the maximum height (in pixels) of the created copy or
+         *                     <code>-1</code> if original image height must be used.
+         * @param imageFormat  a <code>String</code> referencing the type of the image.
          * @param imageContent an <code>InputStream</code> providing the content of the image.
          * @return an <code>Image</code> providing the content of the specified image possibly resized to specified
          *         width and height.
-         * @throws IOException if an I/O error occurs while reading or writing image content.
-         * @throws ImageException if original image can not be resized to specified size.
-         * @throws ImagePersistenceException if original image can not be resized to specified size.
+         * @throws IOException                if an I/O error occurs while reading or writing image content.
+         * @throws ImageException             if original image can not be resized to specified size.
+         * @throws ImagePersistenceException  if original image can not be resized to specified size.
          * @throws UnsupportedFormatException if original image can not be resized to specified size.
          * @since TopCoder Studio Modifications Assembly v2 (Req# 5.10)
          */
         private static Image resizeIfNecessary(int maxWidth, int maxHeight, String imageFormat,
                                                byte[] imageContent) throws ImagePersistenceException,
-                                                                                UnsupportedFormatException, IOException,
-                                                                                ImageException {
+                UnsupportedFormatException, IOException,
+                ImageException {
             ImageOverlayManager manager = new ImageOverlayManager();
             boolean mustResizeWidth = false;
             boolean mustResizeHeight = false;
@@ -972,22 +956,22 @@ public class Submit extends BaseSubmissionDataProcessor {
          * <p>Resizes the specified image to specified width and height (if necessary) keeping the original image aspect
          * ratio.</p>
          *
-         * @param targetImage a <code>Image</code> representing the original image to be watermarked.
-         * @param overlayImageFormat a <code>String</code> referencing the type of the overlay image.
+         * @param targetImage         a <code>Image</code> representing the original image to be watermarked.
+         * @param overlayImageFormat  a <code>String</code> referencing the type of the overlay image.
          * @param overlayImageCOntent an <code>InputStream</code> providing the content of the overlay image.
          * @return an <code>Image</code> providing the content of the specified image possibly resized to specified
          *         width and height.
-         * @throws IOException if an I/O error occurs while reading or writing image content.
-         * @throws ImageException if original image can not be resized to specified size.
-         * @throws ImagePersistenceException if original image can not be resized to specified size.
+         * @throws IOException                if an I/O error occurs while reading or writing image content.
+         * @throws ImageException             if original image can not be resized to specified size.
+         * @throws ImagePersistenceException  if original image can not be resized to specified size.
          * @throws UnsupportedFormatException if original image can not be resized to specified size.
          * @since TopCoder Studio Modifications Assembly v2 (Req# 5.10)
          */
         private static Image resizeOverlayImage(Image targetImage, String overlayImageFormat,
                                                 byte[] overlayImageCOntent) throws ImagePersistenceException,
-                                                                                   UnsupportedFormatException,
-                                                                                   IOException,
-                                                                                   ImageException {
+                UnsupportedFormatException,
+                IOException,
+                ImageException {
             ImageOverlayManager manager = new ImageOverlayManager();
             Image overlayImage = manager.loadImage(overlayImageFormat, new ByteArrayInputStream(overlayImageCOntent));
 
