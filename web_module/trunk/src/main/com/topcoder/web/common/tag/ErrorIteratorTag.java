@@ -8,10 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- *
  * @author djFD molc@mail.ru
  * @version 1.02
- *
  */
 public class ErrorIteratorTag extends IteratorTag {
 
@@ -28,13 +26,10 @@ public class ErrorIteratorTag extends IteratorTag {
         return super.doStartTag();
     }
 
-    /**
-     * Just in case the app server is caching tag (jboss!!!)
-     * we have to clear out all the instance variables at the
-     * end of execution
-     */
-    public int doEndTag() throws JspException {
+    public void release() {
         this.name = null;
-        return super.doEndTag();
+        super.release();
     }
+
+
 }
