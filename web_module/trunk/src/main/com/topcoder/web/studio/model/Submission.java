@@ -2,13 +2,15 @@ package com.topcoder.web.studio.model;
 
 import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.Image;
 
 import java.sql.Timestamp;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.List;
 
 /**
- * @author dok
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jun 27, 2006
  */
@@ -31,6 +33,19 @@ public class Submission extends Base {
     private com.topcoder.web.common.model.comp.Submission ORSubmission;
     private Set<Prize> prizes = new TreeSet<Prize>();
 
+    /**
+     * <p>A <code>Boolean</code> flag indicating whether the submission has the preview image provided or not.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.3)
+     */
+    private Boolean hasPreviewImage = false;
+
+    /**
+     * <p>A <code>Set</code> containing the images associated with this submission.</p>
+     *
+     * @since Studio Submission Slideshow
+     */
+    private Set<SubmissionImage> images = new TreeSet<SubmissionImage>();
 
     public Long getId() {
         return id;
@@ -186,5 +201,112 @@ public class Submission extends Base {
         if (log.isDebugEnabled()) {
             log.debug("after size " + prizes.size());
         }
+    }
+
+    /**
+     * <p>Gets the flag indicating whether the submission has the preview image provided or not.</p>
+     *
+     * @return <code>true</code> if submission has preview image provided; <code>false</code> otherwise.
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.2)
+     */
+    public Boolean getHasPreviewImage() {
+        return this.hasPreviewImage;
+    }
+
+    /**
+     * <p>Sets the flag indicating whether the submission has the preview image provided or not.</p>
+     *
+     * @param hasPreviewImage <code>true</code> if submission has preview image provided; <code>false</code> otherwise.
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.2)
+     */
+    public void setHasPreviewImage(Boolean hasPreviewImage) {
+        this.hasPreviewImage = hasPreviewImage;
+    }
+
+    /**
+     * <p>Gets the list of images associated with this submission.</p>
+     *
+     * @return a <code>Set</code> containing the submissions associated with this submission.
+     * @since Studio Submission Slideshow
+     */
+    public Set<SubmissionImage> getImages() {
+        return this.images;
+    }
+
+    /**
+     * <p>Sets the list of images associated with this submission.</p>
+     *
+     * @param images a <code>Set</code> containing the submissions associated with this submission.
+     * @since Studio Submission Slideshow
+     */
+    public void setImages(Set<SubmissionImage> images) {
+        this.images = images;
+    }
+
+    /**
+     * <p>Adds specified image to list of images associated with this submission.</p>
+     *
+     * @param image an <code>Image</code> to be associated with this submission.
+     * @throws IllegalArgumentException if specified <code>image</code> is <code>null</code> or it is associated with
+     *         a different submission.
+     * @since Studio Submission Slideshow
+     */
+    public void addImage(SubmissionImage image) {
+        if (image == null) {
+            throw new IllegalArgumentException("The parameter [image] is NULL");
+        }
+        Submission imageSubmission = image.getSubmission();
+        if (imageSubmission == null) {
+            image.setSubmission(this);
+        } else if (!equal(this.id, imageSubmission.getId())) {
+            throw new IllegalArgumentException("The image [" + image.getImage().getId() + "] is associated with a "
+                                               + "different submission [" + imageSubmission.getId() + "]");
+        }
+        this.images.add(image);
+    }
+
+    /**
+     * <p>Evaluates the number of watermarked images from the gallery of <code>Medium</code> presentation type.</p>
+     *
+     * @return an <code>int</code> providing the number of <code>Medium</code> watermarked images from the gallery. 
+     * @since Studio Submission Slideshow
+     */
+    public int getMediumWatermarkedGalleryImagesCount() {
+        int cnt = 0;
+        for (SubmissionImage submissionImage : this.images) {
+            if (submissionImage.getImage().getImageTypeId() == Image.GALLERY_MEDIUM_WATERMARKED_TYPE_ID.intValue()) {
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+
+    /**
+     * <p>Evaluates the number of watermarked images from the gallery of <code>Small</code> presentation type.</p>
+     *
+     * @return an <code>int</code> providing the number of <code>Small</code> watermarked images from the gallery.
+     * @since Studio Submission Slideshow
+     */
+    public int getSmallWatermarkedGalleryImagesCount() {
+        int cnt = 0;
+        for (SubmissionImage submissionImage : this.images) {
+            if (submissionImage.getImage().getImageTypeId() == Image.GALLERY_SMALL_WATERMARKED_TYPE_ID.intValue()) {
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+
+    /**
+     * <p>Determines whether the specified objects are equal.</p>
+     *
+     * @param o1 an <code>Object</code> providing the first object to check.
+     * @param o2 an <code>Object</code> providing the second object to check.
+     * @return <code>true</code> if both specified objects are <code>null</code> or both of them are not
+     *        <code>null</code> and both objects are equal; <code>false</code> otherwise.
+     * @since Studio Submission Slideshow
+     */
+    private static boolean equal(Object o1, Object o2) {
+        return ((o1 == null) && (o2 == null)) || ((o1 != null) && (o2 != null) && (o1.equals(o2)));
     }
 }

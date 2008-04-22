@@ -1,5 +1,7 @@
 package com.topcoder.web.studio.controller.request;
 
+import java.util.Date;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
@@ -9,8 +11,6 @@ import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestStatus;
-
-import java.util.Date;
 
 /**
  * @author dok
@@ -43,6 +43,10 @@ public class ViewRegistration extends ShortHibernateProcessor {
                     }
                 } else {
                     throw new NavigationException("Invalid contest specified.");
+                }
+
+                if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                    getRequest().setAttribute("has_global_ad", PactsServicesLocator.getService().hasGlobalAD(getUser().getId()));
                 }
 
                 setNextPage("/contestReg.jsp");

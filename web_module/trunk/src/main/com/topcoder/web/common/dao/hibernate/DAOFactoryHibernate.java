@@ -96,6 +96,10 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new PasswordRecoveryDAOHibernate();
     }
 
+    public PathDAO getPathDAO() {
+        return new PathDAOHibernate();
+    }
+
     public PreferenceDAO getPreferenceDAO() {
         return new PreferenceDAOHibernate();
     }

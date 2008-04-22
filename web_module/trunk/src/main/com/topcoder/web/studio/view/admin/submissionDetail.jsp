@@ -8,9 +8,11 @@
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 
+<!--
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -50,6 +52,16 @@
                     }
                 }
             }
+
+        function remove(submissionId) {
+            var confirmed = confirm("You are about to delete this submission, this can not easily be undone.");
+            if (confirmed) {
+                var form = document.reviewForm;
+                form.<%=Constants.MODULE_KEY%>.value = 'AdminDeleteSubmission';
+                form.submit.click();
+            }
+        }
+
         -->
     </script>
 
@@ -83,10 +95,9 @@
 
                 <h1>Submission Detail</h1>
 
-                <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="reviewForm">
+                <form action="${sessionInfo.servletPath}" method="POST" name="reviewForm">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSubmitReview"/>
                     <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
-
 
                     <c:choose>
                         <c:when test="${submission.mimeType.fileType.imageFile}">
@@ -94,9 +105,16 @@
                         </c:when>
                         <c:otherwise>
                             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">View
-                                Submission</a>
+                                Submission</a>&nbsp;
                         </c:otherwise>
                     </c:choose>
+                    <br/>
+                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=original">
+                        Download Original Submission</a>
+                    <br/>
+                    <a style="display: block;" onfocus="this.blur();" onclick="remove(${submission.id});return false;" href="#">
+                        Delete Submission
+                    </a>
                     <br/>
 
 
@@ -128,7 +146,7 @@
                 <c:if test="${submissionReview.status.id==passedStatus}">
                     <div class="header">Contest Results</div>
 
-                    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="prizeRemoveForm">
+                    <form action="${sessionInfo.servletPath}" method="POST" name="prizeRemoveForm">
                         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveSubmissionPrize"/>
                         <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
                         <tc-webtag:hiddenInput name="<%=Constants.PRIZE_ID%>"/>
@@ -163,7 +181,7 @@
 
 
 
-                    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="placedForm">
+                    <form action="${sessionInfo.servletPath}" method="POST" name="placedForm">
                         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddSubmissionPrize"/>
                         <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
 

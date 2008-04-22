@@ -6,6 +6,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.studio.Constants;
 
 /**
  * @author dok
@@ -18,6 +19,7 @@ public class Home extends BaseProcessor {
 
         Request r = new Request();
         r.setContentHandle("studio_home_data");
+        r.setProperty(Constants.USER_ID, String.valueOf(getUser().getId()));
         DataAccessInt dai = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         getRequest().setAttribute(r.getContentHandle(), dai.getData(r));
 

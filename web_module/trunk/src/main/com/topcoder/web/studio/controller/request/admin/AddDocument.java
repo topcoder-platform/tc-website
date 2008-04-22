@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 
 /**
- * @author dok
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 1, 2006
  */
@@ -26,13 +26,20 @@ public class AddDocument extends Base {
         } else {
 
             String dt = getRequest().getParameter(Constants.DOCUMENT_TYPE_ID);
+            DocumentType docType = null;
             if ("".equals(StringUtils.checkNull(dt))) {
                 addError(Constants.DOCUMENT, "No document type specified");
+            } else {
+                docType = StudioDAOUtil.getFactory().getDocumentTypeDAO().find(new Integer(dt));
+                if (docType == null) {
+                    addError(Constants.DOCUMENT, "Unknown document type specified");
+                }
             }
 
-            DocumentType docType = StudioDAOUtil.getFactory().getDocumentTypeDAO().find(new Integer(dt));
-            if (docType == null) {
-                addError(Constants.DOCUMENT, "Unknown document type specified");
+            // Since TopCoder Studio Modifications v2 Assembly - the [optional] document description is persisted
+            String desc = getRequest().getParameter(Constants.DOC_DESC);
+            if (StringUtils.checkNull(desc).length() > Constants.MAX_DOCUMENT_DESC_VALUE_LENGTH) {
+                addError(Constants.DOC_DESC, "The document description is too long");
             }
 
             MultipartRequest r = (MultipartRequest) getRequest();
@@ -57,25 +64,25 @@ public class AddDocument extends Base {
 
             Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
             if (hasErrors()) {
-
                 loadEditContestData(contest);
-
-
-                setNextPage("/editContest.jsp");
+                setDefault(Constants.DOC_DESC, desc);
+                setNextPage("/admin/editContest.jsp");
                 setIsNextPageInContext(true);
             } else {
                 Document d = new Document();
                 d.setOriginalFileName(file.getRemoteFileName());
                 d.setMimeType(mt);
                 d.setType(docType);
+                d.setDescription(desc);
 
+                String fileSep = System.getProperty("file.separator");
                 StringBuffer buf = new StringBuffer(80);
                 buf.append(Constants.ROOT_STORAGE_PATH);
-                buf.append(System.getProperty("file.separator"));
+                buf.append(fileSep);
                 buf.append(Constants.DOCUMENTS_DIRECTORY_NAME);
-                buf.append(System.getProperty("file.separator"));
+                buf.append(fileSep);
                 buf.append(contest.getId());
-                buf.append(System.getProperty("file.separator"));
+                buf.append(fileSep);
 
                 FilePath p = new FilePath();
                 p.setPath(buf.toString());
@@ -86,6 +93,7 @@ public class AddDocument extends Base {
                 }
 
                 String ext = file.getRemoteFileName().substring(file.getRemoteFileName().lastIndexOf('.'));
+                
 
                 //root/submissions/contest_id/user_id/time.pdf
                 d.setPath(p);
@@ -108,10 +116,6 @@ public class AddDocument extends Base {
                         "=AdminViewContest&" + Constants.CONTEST_ID + "=" + contestId);
                 setIsNextPageInContext(false);
             }
-
-
         }
-
-
-    }
+   }
 }
