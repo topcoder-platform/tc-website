@@ -66,12 +66,19 @@
 
                 <h1>Assignment Document FAQ</h1>
 
-                <div style="float: right; text-align: left; margin: 0px 0px 10px 10px;">
-                    Assignment FAQ
-                    <br /><a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/The+Assignment+Document">Download Assignment</a>
-                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=gadContactPage">Send Assignment</a>
-                    <br /><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Assignment Status</a>
+                <div style="float: right; text-align: left; margin-left: 10px;">
+                    <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted">Getting Started</a>
+                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
+                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=competitionFaq">Competition FAQs</a>
+                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=formatSubmission">Formatting Your Submission</a>
+                    <br />Assignment FAQ
                 </div>
+
+                <p>
+                    <a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/The+Assignment+Document">Download Assignment Document</a>
+                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=gadContactPage">Send Assignment Document</a>
+                    <br /><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Check Assignment Document Status</a>
+                </p>
                 
                 <div>
                     <p><strong>What is the Assignment?</strong></p>
