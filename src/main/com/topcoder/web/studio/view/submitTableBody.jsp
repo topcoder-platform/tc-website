@@ -58,19 +58,11 @@ ${submission.originalFileName}
 <div>View submission</div>
 </div>
     <c:set var="hasPreviewImage" value="${submission.hasPreviewImage}"/>
-    <c:set var="submissionId" value="${submission.id}"/>
     <c:set var="contestId" value="${submission.contest.id}"/>
     <c:set var="galleryImageCount" value="${submission.mediumWatermarkedGalleryImagesCount}"/>
-    <studio_tags:viewSubmissionLink hasPreviewImage="${hasPreviewImage}" submissionId="${submissionId}"
+    <studio_tags:viewSubmissionLink hasPreviewImage="${hasPreviewImage}" submissionId="${submission.id}"
                                     contestId="${contestId}" galleryImageCount="${galleryImageCount}"
                                     targetPresentationType="medium" previewPresentationType="tiny"/>
-
-        <%--
-        <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
-        <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()"/>
-        </a>
-        --%>
-
 </td>
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <tc-webtag:format object="${submission.createDate}" format="EEEE, MMMM d, yyyy '<br />' HH:mm z" timeZone="${sessionInfo.timezone}"/>
