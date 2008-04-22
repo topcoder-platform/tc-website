@@ -34,4 +34,31 @@ public interface StudioDAOFactory {
     MimeTypeDAO getMimeTypeDAO();
 
     SubmissionStatusDAO getSubmissionStatusDAO();
+    
+    /**
+     * <p>Gets the DAO to be used for accessing/managing studio contest types.</p>
+     *
+     * @return a <code>ContestTypeDAO</code> to be used for accessing/managing contest types in underlying persistent
+     *         data store.
+     * @since TopCoder Studio Modifications Assembly
+     */
+    ContestTypeDAO getContestTypeDAO();
+
+    /**
+     * <p>Gets the DAO to be used for accessing/managing studio contest channels.</p>
+     *
+     * @return a <code>ContestChannelDAO</code> to be used for accessing/managing contest channels in underlying
+     *         persistent data store.
+     * @since TopCoder Studio Modifications Assembly
+     */
+    ContestChannelDAO getContestChannelDAO();
+
+    /**
+     * <p>Gets the DAO to be used for accessing/managing contest submission medium types.</p>
+     *
+     * @return a <code>MediumDAO</code> to be used for accessing/managing contest submission medium types in underlying
+     *         persistent data store.
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.5)
+     */
+    MediumDAO getMediumDAO();
 }

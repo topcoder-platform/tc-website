@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.web.studio.Constants, com.topcoder.web.studio.model.SubmissionType" %>
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.GregorianCalendar" %>
+<%@ page import="java.sql.Timestamp" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -15,6 +16,9 @@
     <script type="text/javascript" src="/js/taconite-client.js"></script>
     <script type="text/javascript" src="/js/taconite-parser.js"></script>
     <script type="text/javascript" src="/js/fat.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
+    <script type="text/javascript" src="/js/thickbox-3.1/thickbox-compressed-3.1.js"></script>
+    <link rel="stylesheet" href="/js/thickbox-3.1/thickbox-3.1.css" type="text/css" media="screen" />
 
     <title>TopCoder Studio</title>
     <jsp:include page="style.jsp">
@@ -94,14 +98,30 @@
 
 <div align="center">
     <div align="left" style="width:500px; margin-top: 20px;">
-        <p>Thank you for accepting the terms of the contest. Please use the form below to upload your
-            submission:</p>
 
-<%--
-        <p>The maximum file size per submission is 2MB.</p>
---%>
+        <p>
+            Thank you for accepting the terms of the contest. Please use the form below to upload your submission.
+        </p>
 
-        <p>Only the following file types will be accepted:</p>
+        <p>
+            Your submission must contain both your submission file(s) and your final source file(s) contained in one ZIP file. You must follow the following directory format within your ZIP file: 
+        </p>
+
+        <p>
+            /submission
+            <br />/source
+        </p>
+
+        <p>
+            <strong>Submission Folder:</strong> All of your submission files go in this folder. Only files in this folder are shown on the Studio web site.
+            <br /><strong>Source Folder:</strong> All of your final files/source files go in this folder. 
+            <br /><strong>Preview Image:</strong> Place your preview image in the submission folder.
+            <br />(Example: /submission/storyboard1.jpg)
+            <br /><strong>Preview File:</strong> Place your submission into a ZIP file and place it in your submission folder.
+            <br />(Example: /submission/storyboards.zip)
+        </p>
+
+        <p>Only the following file formats will be accepted in your /source folder of your ZIP file:</p>
         <ul>
             <c:forEach items="${contest.fileTypes}" var="fileType">
                 <li>
@@ -115,10 +135,11 @@
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
                 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
                 <p>
-                    <b>My design:</b><br/>
+                    <strong>My design:</strong><br />
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
                         <br /></tc-webtag:errorIterator>
                     <input type="file" name="<%=Constants.SUBMISSION%>">
+                    <br />(must be a Zip file)
                 </p>
 
                 <p>
@@ -140,7 +161,7 @@
 <%
     GregorianCalendar gc = new GregorianCalendar(2007, Calendar.JULY, 23);
 %>
-<c:set value="<%=gc.getTime()%>" var="bigStart"/>
+<c:set value="<%=new Timestamp(gc.getTime().getTime())%>" var="bigStart"/>
 
 
 <div style="margin: 40px 0px 20px 0px;">
@@ -159,7 +180,7 @@
                                  <c:when test="${not empty contest.maxSubmissions.value}">
                                      Up to ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
                                      will count for this contest.  They will be indicated by
-                                    <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr>.  Those submissions that do not have the icon will <b>NOT</b> count and
+                                    <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr>.  Those submissions that do not have the icon will <strong>NOT</strong> count and
                                      they will neither be screened nor reviewed.
                                      If you make more than ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
                                      for this contest, you can rearrange the order of your submissions until the end of the Submission Phase.

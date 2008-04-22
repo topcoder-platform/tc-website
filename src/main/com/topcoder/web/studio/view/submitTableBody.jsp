@@ -3,7 +3,12 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/xml" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 
+<c:set var="subAltType" value="<%=Constants.SUBMISSION_ALT_TYPE%>"/>
+<c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
+<c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
+<c:set var="modKey" value="<%=Constants.MODULE_KEY%>"/>
 
 <%--
 **************************************************
@@ -44,7 +49,7 @@ crappy looking to save space on the transmission
 ${submission.originalFileName}
 </c:when>
 <c:otherwise>
-<nobr><img src="/i/v2/selection.png" alt="Selection" /> ${submission.originalFileName}</nobr>
+<nobr><img src="/i/v2/selection.png" alt="Selection" /> <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=original">${submission.originalFileName}</a></nobr>
 </c:otherwise>
 </c:choose>
 </td>
@@ -52,9 +57,20 @@ ${submission.originalFileName}
 <div id="pop${submission.id}" class="popUp">
 <div>View submission</div>
 </div>
-<a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
-<img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()"/>
-</a>
+    <c:set var="hasPreviewImage" value="${submission.hasPreviewImage}"/>
+    <c:set var="submissionId" value="${submission.id}"/>
+    <c:set var="contestId" value="${submission.contest.id}"/>
+    <c:set var="galleryImageCount" value="${submission.mediumWatermarkedGalleryImagesCount}"/>
+    <studio_tags:viewSubmissionLink hasPreviewImage="${hasPreviewImage}" submissionId="${submissionId}"
+                                    contestId="${contestId}" galleryImageCount="${galleryImageCount}"
+                                    targetPresentationType="medium" previewPresentationType="tiny"/>
+
+        <%--
+        <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
+        <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()"/>
+        </a>
+        --%>
+
 </td>
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <tc-webtag:format object="${submission.createDate}" format="EEEE, MMMM d, yyyy '<br />' HH:mm z" timeZone="${sessionInfo.timezone}"/>

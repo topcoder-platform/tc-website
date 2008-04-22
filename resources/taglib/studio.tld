@@ -52,4 +52,16 @@
         </attribute>
     </tag>
 
+    <!-- Since TopCoder Studio Modifications v2 Assembly - the contest details field are pre-formatted -->
+    <tag>
+        <name>formatField</name>
+        <tag-class>com.topcoder.web.studio.view.tags.FieldRenderer</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>text</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
 </taglib>

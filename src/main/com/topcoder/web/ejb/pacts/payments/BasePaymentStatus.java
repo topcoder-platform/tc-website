@@ -251,6 +251,17 @@ public abstract class BasePaymentStatus implements java.io.Serializable {
     }
 
     /**
+     * This method will handle new global IP Transfer event
+     * 
+     * @param payment the payment to apply the event to
+     * @throws StateTransitionFailureException if anything fails
+     * @throws InvalidPaymentEventException if the event cannot take place in this condition
+     */
+    public void signedGlobalAD(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
+        // default implementation does nothing
+    }
+
+    /**
      * This method will handle new tax form event
      * 
      * @param payment the payment to apply the event to

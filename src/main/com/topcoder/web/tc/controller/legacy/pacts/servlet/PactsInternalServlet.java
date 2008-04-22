@@ -285,6 +285,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                                         && checkParam(BOOL_TYPE, request.getParameter(HAS_PENDING_AFFIDAVITS), false, pp)
                                         && checkParam(BOOL_TYPE, request.getParameter(HAS_TAX_FORMS_ON_FILE), false, pp)
                                         && checkParam(BOOL_TYPE, request.getParameter(IS_OWED_MONEY), false, pp)
+                                        && checkParam(BOOL_TYPE, request.getParameter(HAS_GLOBAL_AD), false, pp)
                                         && pp.get()) {
 
                             doUserList(request, response);
@@ -2417,6 +2418,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         search.put(USER_ID, request.getParameter(USER_ID));
         request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
+        DataInterfaceBean dib = new DataInterfaceBean();
+        request.setAttribute(HAS_GLOBAL_AD, dib.hasGlobalAD(u.getHeader().getId()));
         request.setAttribute(PACTS_INTERNAL_RESULT, u);
 
         forward(INTERNAL_USER_JSP, request, response);
@@ -2446,6 +2449,9 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             Map search = new HashMap();
             search.put(USER_ID, "" + u[0].getId());
             request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
+
+            DataInterfaceBean dib = new DataInterfaceBean();
+            request.setAttribute(HAS_GLOBAL_AD, dib.hasGlobalAD(u[0].getId()));
 
             forward(INTERNAL_USER_JSP, request, response);
         }

@@ -19,7 +19,6 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.CoderSessionInfo;
-import com.topcoder.web.common.model.CoderType;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.common.model.Question;
@@ -31,6 +30,7 @@ import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
 /**
  * @author dok
@@ -54,6 +54,11 @@ public class ViewRegistration extends Base {
 
 
             if (getRequest().getAttribute(Constants.MESSAGE) == null) {
+                
+                if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                    getRequest().setAttribute("has_global_ad", (new DataInterfaceBean()).hasGlobalAD(getUser().getId()));
+                }
+
                 getRequest().setAttribute("questionInfo", getQuestions());
                 setDefault(Constants.TERMS, getTerms());
                 //we're assuming that if we're here, we got a valid project id

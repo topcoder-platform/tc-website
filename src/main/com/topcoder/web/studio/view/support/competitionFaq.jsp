@@ -246,9 +246,13 @@
                 
                 There are three steps to getting paid:
                 <ol>
+                    <%--
                     <li>Submit the deliverables listed under the "Final Deliverables for Winner" heading on the contest
                         details page.</li>
                     <li> Complete and sign an Assignment Document. You will only need to complete and sign this document once; after TopCoder has received it, you will confirm/ratify the document each time you win a contest by clicking a checkbox when you upload your final files.</li>
+                    --%>
+                    <li>Complete and sign an Assignment Document. You will only need to complete and sign this document once.</li>
+                    <li>Submit the deliverables listed under the "Final Deliverables for Winner" heading on the contest details page.</li>
                     <li>Complete and sign an IRS tax form - either W-9 or W-8BEN, depending on where you live and 
                         your U.S. resident status. Members will only be required to submit this document once.
                     <ul>

@@ -40,7 +40,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
      * serialization for this object, i.e. when data members are changed.
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     /**
      * The loader for this class
@@ -213,8 +213,18 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
      */
     @Override
     public void expiredIPTransfer(BasePayment payment) throws InvalidPaymentEventException {
-        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS));
-        payment.getCurrentStatus().expiredIPTransfer(payment);
+        try {
+            DataInterfaceBean dib = new DataInterfaceBean();
+
+            // if the user has the global AD don't cancel anything.
+            // this will be a rare case because all old ADs will get affirmed status if the user has the global AD
+            if (!dib.hasGlobalAD(payment.getCoderId())) {
+                payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS));
+                payment.getCurrentStatus().expiredIPTransfer(payment);
+            }
+        } catch (Exception e) {
+            throw new InvalidPaymentEventException(e);
+        }
     }
 
     /**
@@ -240,10 +250,22 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
      */
     @Override
     public void affirmedIPTransfer(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
+        boolean callNextState = false;
         log.debug("affirmedIPTransfer called for payment: " + payment.getId());
-        if (reasons.contains(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason())) {
-            reasons.remove(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason());
+        if (reasons.contains(AvailableStatusReason.NO_AFFIRMED_AD_REASON.getStatusReason())) {
+            reasons.remove(AvailableStatusReason.NO_AFFIRMED_AD_REASON.getStatusReason());
+            callNextState = true;
+        }
 
+        if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {
+            if (reasons.contains(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason()) &&
+                    !reasons.contains(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason())) {
+                reasons.remove(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason());
+                callNextState = true;
+            }
+        }
+        
+        if (callNextState) {
             nextState(payment);
         }
     }
@@ -253,10 +275,47 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
      */
     @Override
     public void hardCopyIPTransfer(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
+        boolean callNextState = false;
         log.debug("hardCopyIPTransfer called for payment: " + payment.getId());
-        if (reasons.contains(AvailableStatusReason.NO_HARD_COPY_IP_TRANSFER_REASON.getStatusReason())) {
-            reasons.remove(AvailableStatusReason.NO_HARD_COPY_IP_TRANSFER_REASON.getStatusReason());
+        if (reasons.contains(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason())) {
+            reasons.remove(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason());
+            callNextState = true;
+        }
 
+        if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {
+            if (reasons.contains(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason()) &&
+                    !reasons.contains(AvailableStatusReason.NO_AFFIRMED_AD_REASON.getStatusReason())) {
+                reasons.remove(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason());
+                callNextState = true;
+            }
+        }        
+
+        if (callNextState) {
+            nextState(payment);
+        }
+    }
+
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#signedGlobalAD(com.topcoder.web.ejb.pacts.BasePayment)
+     */
+    @Override
+    public void signedGlobalAD(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
+        boolean callNextState = false;
+        log.debug("signedGlobalAD called for payment: " + payment.getId());
+        if (reasons.contains(AvailableStatusReason.NO_AFFIRMED_AD_REASON.getStatusReason())) {
+            reasons.remove(AvailableStatusReason.NO_AFFIRMED_AD_REASON.getStatusReason());
+            callNextState = true;
+        }
+        if (reasons.contains(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason())) {
+            reasons.remove(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason());
+            callNextState = true;
+        }
+        if (reasons.contains(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason())) {
+            reasons.remove(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason());
+            callNextState = true;
+        }
+        
+        if (callNextState) {
             nextState(payment);
         }
     }
@@ -305,29 +364,50 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
      * @throws RemoteException
      */
     private void checkAffirmedIPTransferDocument(BasePayment payment, DataInterfaceBean dib) throws RemoteException {
-         if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.ACTIVATE_IP_TRANSFER)) {
-             log.debug("checkAffirmedIPTransferDocument called for payment: " + payment.getId());
-             log.debug("payment.getPaymentType(): " + payment.getPaymentType());
-             if (payment.getPaymentType() == BasePayment.COMPONENT_PAYMENT) {
-                 if (!dib.hasAffirmedAssignmentDocument(payment.getPaymentType(), payment.getCoderId(), ((ComponentWinningPayment) payment).getProjectId())) {
-                     reasons.add(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason());
-                 }
-                 if (!dib.hasHardCopyAssignmentDocumentByUserId(payment.getCoderId(), AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
-                     reasons.add(AvailableStatusReason.NO_HARD_COPY_IP_TRANSFER_REASON.getStatusReason());
-                 }
-             }
+        // if the user has the global AD, no reason to stay on hold for this.
+        // otherwise keep the old checks for component and studio.
+        // finally add an on hold reason if the payment requires global AD.
 
-             if (payment.getPaymentType() == BasePayment.TC_STUDIO_PAYMENT) {
-                 if (!dib.hasAffirmedAssignmentDocument(payment.getPaymentType(), payment.getCoderId(), ((StudioContestPayment) payment).getContestId())) {
-                     reasons.add(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason());
+        try {
+            if (!dib.hasGlobalAD(payment.getCoderId())) {
+                 log.debug("checkAffirmedIPTransferDocument called for payment: " + payment.getId());
+                 log.debug("payment.getPaymentType(): " + payment.getPaymentType());
+                 if (payment.getPaymentType() == BasePayment.COMPONENT_PAYMENT) {
+                     if (!dib.hasAffirmedAssignmentDocument(payment.getPaymentType(), payment.getCoderId(), ((ComponentWinningPayment) payment).getProjectId())) {
+                         reasons.add(AvailableStatusReason.NO_AFFIRMED_AD_REASON.getStatusReason());
+                     }
+                     if (!dib.hasHardCopyAssignmentDocumentByUserId(payment.getCoderId(), AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
+                         reasons.add(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason());
+                     }
                  }
-                 if (!dib.hasHardCopyAssignmentDocumentByUserId(payment.getCoderId(), AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
-                     reasons.add(AvailableStatusReason.NO_HARD_COPY_IP_TRANSFER_REASON.getStatusReason());
+    
+                 if (payment.getPaymentType() == BasePayment.TC_STUDIO_PAYMENT) {
+                     if (!dib.hasAffirmedAssignmentDocument(payment.getPaymentType(), payment.getCoderId(), ((StudioContestPayment) payment).getContestId())) {
+                         reasons.add(AvailableStatusReason.NO_AFFIRMED_AD_REASON.getStatusReason());
+                     }
+                     if (!dib.hasHardCopyAssignmentDocumentByUserId(payment.getCoderId(), AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
+                         reasons.add(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason());
+                     }
                  }
+                 
+                 if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG) &&
+                         dib.requiresGlobalAD(payment.getPaymentType())) {
+
+                     // if component or studio payment and there is an old ad and hard copy, 
+                     // don't make it stay on hold because the global ad
+                     if (!((payment.getPaymentType() == BasePayment.COMPONENT_PAYMENT ||
+                             payment.getPaymentType() == BasePayment.TC_STUDIO_PAYMENT) && 
+                             !reasons.contains(AvailableStatusReason.NO_AFFIRMED_AD_REASON.getStatusReason()) &&
+                             !reasons.contains(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason()))) {
+                         reasons.add(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason());
+                     }
+                 }                 
+             } else {
+                 log.debug("The user has a signed global AD.");
              }
-         } else {
-             log.debug("IP transfer inactive, avoid checking IP Transfer Documents...");
-         }
+        } catch (Exception e) {
+            throw new RemoteException();
+        }
     }
 
     /**

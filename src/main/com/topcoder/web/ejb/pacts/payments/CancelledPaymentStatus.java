@@ -23,7 +23,7 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
      * serialization for this object, i.e. when data members are changed.
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     /**
      * The payment status id
@@ -85,8 +85,8 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
      */
     @Override
     public void expiredIPTransfer(BasePayment payment) {
-        if (!reasons.contains(AvailableStatusReason.EXPIRED_IP_TRANSFER_REASON.getStatusReason())) {
-            reasons.add(AvailableStatusReason.EXPIRED_IP_TRANSFER_REASON.getStatusReason());
+        if (!reasons.contains(AvailableStatusReason.EXPIRED_AD_REASON.getStatusReason())) {
+            reasons.add(AvailableStatusReason.EXPIRED_AD_REASON.getStatusReason());
         }
     }
 

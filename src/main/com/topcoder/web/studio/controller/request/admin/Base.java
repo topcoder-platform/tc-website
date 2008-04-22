@@ -6,8 +6,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.EventType;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.ContestPropertyDAO;
@@ -16,20 +15,36 @@ import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestConfig;
 import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.StudioFileType;
+import com.topcoder.web.studio.model.Medium;
+import com.topcoder.web.studio.model.Document;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Set;
+import java.sql.Timestamp;
 
 /**
- * @author dok
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 2, 2006
  */
 public abstract class Base extends ShortHibernateProcessor {
-    protected static final Integer[] CONTEST_PROPS = {ContestProperty.MIN_HEIGHT, ContestProperty.MAX_HEIGHT, ContestProperty.MIN_WIDTH,
-            ContestProperty.MAX_WIDTH, ContestProperty.CONTEST_OVERVIEW_TEXT, ContestProperty.PRIZE_DESCRIPTION,
-            ContestProperty.VIEWABLE_SUBMISSIONS, ContestProperty.MAX_SUBMISSIONS, ContestProperty.VIEWABLE_SUBMITTERS};
+
+    /**
+     * <p>An <code>Integer</code> array listing the IDs of a contest properties</p>
+     *
+     * @since 1.0
+     */
+    protected static final Integer[] CONTEST_PROPS
+            = {ContestProperty.MIN_HEIGHT, ContestProperty.MAX_HEIGHT, ContestProperty.MIN_WIDTH,
+               ContestProperty.MAX_WIDTH, ContestProperty.CONTEST_OVERVIEW_TEXT, ContestProperty.PRIZE_DESCRIPTION,
+               ContestProperty.VIEWABLE_SUBMISSIONS, ContestProperty.MAX_SUBMISSIONS,
+               ContestProperty.VIEWABLE_SUBMITTERS, ContestProperty.CLIENT, ContestProperty.FULL_DESCRIPTION,
+               ContestProperty.COLOR_REQUIREMENTS, ContestProperty.FONT_REQUIREMENTS, ContestProperty.SIZE_REQUIREMENTS,
+               ContestProperty.CONTENT_REQUIREMENTS, ContestProperty.OTHER_REQUIREMENTS,
+               ContestProperty.SUBMISSION_FILE_FORMAT, ContestProperty.WINNER_SELECTION, ContestProperty.ELIGIBILITY,
+               ContestProperty.OTHER_FILE_TYPES, ContestProperty.REQUIRE_PREVIEW_IMAGE,
+               ContestProperty.REQUIRE_PREVIEW_FILE};
 
 
     protected void loadGeneralEditContestData() throws Exception {
@@ -37,8 +52,12 @@ public abstract class Base extends ShortHibernateProcessor {
         getRequest().setAttribute("contestStatuses", StudioDAOUtil.getFactory().getContestStatusDAO().getContestStatuses());
         getRequest().setAttribute("fileTypes", StudioDAOUtil.getFactory().getFileTypeDAO().getFileTypes());
 
-        getRequest().setAttribute("forums", getForumList());
-        getRequest().setAttribute("events", DAOUtil.getFactory().getEventDAO().getEvents(EventType.STUDIO_TOURNAMENT_ID));
+        // Since TopCoder Studio Modifications Assembly - a workaround for incomplete database schema
+        // see: http://forums.topcoder.com/?module=Thread&threadID=603475
+//        getRequest().setAttribute("forums", getForumList());
+        getRequest().setAttribute("forums", new ResultSetContainer());
+//        getRequest().setAttribute("events", DAOUtil.getFactory().getEventDAO().getEvents(EventType.STUDIO_TOURNAMENT_ID));
+        getRequest().setAttribute("events", new ArrayList());
 
         ArrayList<ListSelectTag.Option> viewSubmissionAnswers = new ArrayList<ListSelectTag.Option>();
         viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
@@ -50,11 +69,28 @@ public abstract class Base extends ShortHibernateProcessor {
         viewSubmittersAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
         getRequest().setAttribute("viewSubmitterAnswers", viewSubmittersAnswers);
 
-        getRequest().setAttribute("projects", getProjectList());
+        // Since TopCoder Studio Modifications Assembly - a workaround for incomplete database schema
+        // see: http://forums.topcoder.com/?module=Thread&threadID=603475
+//        getRequest().setAttribute("projects", getProjectList());
+        getRequest().setAttribute("projects", new ResultSetContainer());
 
         getRequest().setAttribute("prizeTypes", StudioDAOUtil.getFactory().getPrizeTypeDAO().getPrizeTypes());
 
+        // Since TopCoder Studio Modifications Assembly v2 - a list of available medium types, contest types, contest
+        // channels, options for require preview image and file selections are bound to request
+        getRequest().setAttribute("mediums", StudioDAOUtil.getFactory().getMediumDAO().findAll());
+        getRequest().setAttribute("contestTypes", StudioDAOUtil.getFactory().getContestTypeDAO().findAll());
+        getRequest().setAttribute("contestChannels", StudioDAOUtil.getFactory().getContestChannelDAO().findAll());
 
+        ArrayList<ListSelectTag.Option> requirePreviewImageAnswers = new ArrayList<ListSelectTag.Option>();
+        requirePreviewImageAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
+        requirePreviewImageAnswers.add(new ListSelectTag.Option(String.valueOf(false), "No"));
+        getRequest().setAttribute("requirePreviewImageAnswers", requirePreviewImageAnswers);
+
+        ArrayList<ListSelectTag.Option> requirePreviewFileAnswers = new ArrayList<ListSelectTag.Option>();
+        requirePreviewFileAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
+        requirePreviewFileAnswers.add(new ListSelectTag.Option(String.valueOf(false), "No"));
+        getRequest().setAttribute("requirePreviewFileAnswers", requirePreviewFileAnswers);
     }
 
     protected ResultSetContainer getForumList() throws Exception {
@@ -102,8 +138,31 @@ public abstract class Base extends ShortHibernateProcessor {
         if (contest.getProject() != null) {
             setDefault(Constants.PROJECT_ID_KEY, contest.getProject().getId());
         }
+        
+        // Since TopCoder Studio Modifications Assembly v2 - new contest properties are set
+        Timestamp winnerAnnouncementTime = contest.getWinnerAnnouncementTime();
+        if (winnerAnnouncementTime != null) {
+            setDefault(Constants.WINNER_ANNOUNCEMENT_TIME, sdf.format(winnerAnnouncementTime));
+        }
 
-        getRequest().setAttribute("resultsReady", onlineReviewResultsReady(contest.getId()));
+        Set<Medium> mediums = contest.getMediums();
+        for (Medium medium : mediums) {
+            setDefault(Constants.MEDIUM + medium.getId(), "true");
+        }
+        
+        setDefault(Constants.CONTEST_TYPE, contest.getType().getId());
+        setDefault(Constants.CONTEST_CHANNEL, contest.getChannel().getId());
+
+        Set<Document> documents = contest.getDocuments();
+        for (Document document : documents) {
+            setDefault(Constants.DOCUMENT_TYPE_ID + '_' + document.getId(), document.getType().getId());
+            setDefault(Constants.DOC_DESC + '_' + document.getId(), StringUtils.checkNull(document.getDescription()));
+        }
+
+        // Since TopCoder Studio Modifications Assembly - a workaround for incomplete database schema
+        // see: http://forums.topcoder.com/?module=Thread&threadID=603475
+//        getRequest().setAttribute("resultsReady", onlineReviewResultsReady(contest.getId()));
+        getRequest().setAttribute("resultsReady", false);
 
     }
 

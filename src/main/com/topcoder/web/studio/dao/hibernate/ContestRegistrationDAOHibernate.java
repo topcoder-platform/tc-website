@@ -19,7 +19,7 @@ public class ContestRegistrationDAOHibernate extends Base implements ContestRegi
 
     public ContestRegistration find(Contest c, User u) {
         StringBuffer query = new StringBuffer(100);
-        query.append("FROM com.topcoder.web.studio.model.ContestRegistration cr WHERE ");
+        query.append("FROM ContestRegistration cr WHERE ");
         query.append("cr.user.id=? and cr.contest.id = ?");
 
         Query q = session.createQuery(query.toString());

@@ -22,7 +22,7 @@
         <c:when test="${sessionInfo.anonymous}">
             <div class="loginBox">
                 <%--have to use the constant because this page can be used with multiple servlets --%>
-                <form method="post" name="frmLogin" action="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
+                <form method="post" name="frmLogin" action="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
                     <input type="hidden" name="module" value="Login" />
                         <table class="login" cellspacing="0" cellpadding="0">
                         <tbody>
@@ -42,7 +42,7 @@
                             <td class="valueC"><input type="image" src="/i/v2/btn_go.png"/></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><span><a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/" title="Register">Register</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" title="Forgot your password?">Forgot your password?</a></span></td>
+                            <td colspan="2"><span><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" title="Register">Register</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" title="Forgot your password?">Forgot your password?</a></span></td>
                         </tr>
                         </table>
                 </form>

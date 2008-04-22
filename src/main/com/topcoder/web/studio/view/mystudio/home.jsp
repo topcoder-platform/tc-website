@@ -35,15 +35,16 @@
         
                         <h3>Documentation:</h3>
         
-                        <p>
-                            <a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Assignment Documents</a>
-                        </p>
-        
+                        <p><a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/The+Assignment+Document">Download Assignment Document</a></p>
+                        <p><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">View Assignment Document Status</a></p>
+                        
+                        <%--
                         <h3>Tools</h3>
         
                         <p>
                             <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Online Review</a>
                         </p>
+                        --%>
 
 
                         <br clear="all"/>

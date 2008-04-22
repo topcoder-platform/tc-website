@@ -106,6 +106,16 @@
     </servlet-mapping>
 
     <servlet-mapping>
+        <servlet-name>creativeservlet</servlet-name>
+        <url-pattern>/studio.jpg</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>creativeservlet</servlet-name>
+        <url-pattern>/studio.png</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
         <servlet-name>forums</servlet-name>
         <url-pattern>/forums</url-pattern>
     </servlet-mapping>

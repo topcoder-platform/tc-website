@@ -75,6 +75,8 @@ public class InternalDispatchUserProfileList implements PactsConstants {
         if (param != null && !param.equals("")) search.put(HAS_TAX_FORMS_ON_FILE, param);
         param = request.getParameter(IS_OWED_MONEY);
         if (param != null && !param.equals("")) search.put(IS_OWED_MONEY, param);
+        param = request.getParameter(HAS_GLOBAL_AD);
+        if (param != null && !param.equals("")) search.put(HAS_GLOBAL_AD, param);
 
         DataInterfaceBean dib = new DataInterfaceBean();
 

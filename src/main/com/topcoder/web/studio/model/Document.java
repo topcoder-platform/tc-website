@@ -20,6 +20,12 @@ public class Document extends Base {
     private MimeType mimeType;
     private DocumentType type;
 
+    /**
+     * <p>A <code>String</code> providing the description of the uploaded document.</p>
+     *
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.7)
+     */
+    private String description = null;
 
     public Long getId() {
         return id;
@@ -77,5 +83,24 @@ public class Document extends Base {
         this.mimeType = mimeType;
     }
 
+    /**
+     * <p>Gets the descriptin of this document.</p>
+     *
+     * @return a <code>String</code> providing the description of the document.
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.7)
+     */
+    public String getDescription() {
+        return this.description;
+    }
+
+    /**
+     * <p>Sets the descriptin of this document.</p>
+     *
+     * @param description a <code>String</code> providing the description of the document.
+     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.7)
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
 

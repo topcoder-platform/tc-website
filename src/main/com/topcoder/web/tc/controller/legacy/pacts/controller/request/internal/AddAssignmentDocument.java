@@ -59,7 +59,9 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
         DataInterfaceBean dib = new DataInterfaceBean();
 
         // Give the JSP the list of assignment document Types
-        List assignmentDocumentTypes = dib.getAssignmentDocumentTypes();
+        List<AssignmentDocumentType> assignmentDocumentTypes = dib.getAssignmentDocumentTypes();
+        // We can't use this page for Global Assignment Documents
+        assignmentDocumentTypes.remove(new AssignmentDocumentType(AssignmentDocumentType.GLOBAL_TYPE_ID));
         getRequest().setAttribute(ASSIGNMENT_DOCUMENT_TYPE_LIST, assignmentDocumentTypes);
 
         // Give the JSP the list of assignment document status
@@ -69,6 +71,11 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
         String submissionTitle = getRequest().getParameter("submission_title");
         if (hasParameter("submission_title") && submissionTitle.trim().length() == 0) {
             addError("error", "Please enter a text for the submission title.");
+        }
+
+        if (hasParameter("assignment_document_type_id") && 
+                getRequest().getParameter("assignment_document_type_id").equals(AssignmentDocumentType.GLOBAL_TYPE_ID.toString())) {
+            addError("error", "Invalid assignment document type.");
         }
 
         if (hasParameter("submission_title")) {

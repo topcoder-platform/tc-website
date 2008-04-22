@@ -105,6 +105,10 @@ public class DAOFactoryQueryTool implements DAOFactory {
         throw new RuntimeException("Not supported");
     }
 
+    public PathDAO getPathDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
     public PreferenceDAO getPreferenceDAO() {
         throw new RuntimeException("Not supported");
     }

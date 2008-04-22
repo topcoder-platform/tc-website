@@ -33,6 +33,21 @@
 
 
 <p>
+    3.0.0 - 2008.04.xx
+    <ul>
+        <li>Provide slideshow for submissions that include images in their preview file -dok</li>
+        <li>Watermark and resize image files -dok</li>
+        <li>Submissions must be zip files -dok</li>
+        <li>Contest types -dok</li>
+        <li>TC Direct integration -dok</li>
+        <li>Admin site rework -dok</li>
+        <li>Contest details rework -dok</li>
+    </ul>
+
+</p>
+
+
+<p>
     2.1.4 - 2008.01.02
     <ul>
         <li>Always refresh cache after admin reviews a submission -dok</li>

@@ -66,7 +66,16 @@
    out.println("              <input type=\"radio\" name=\""+PactsConstants.IS_OWED_MONEY+"\" value=\"\" checked>Don't"); %>
               Care</td>
           </tr>
-
+          
+<% if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {%>
+          <tr>
+            <td>Has Global AD:</td>
+<% out.println("            <td><input type=\"radio\" value=\"true\" name=\""+PactsConstants.HAS_GLOBAL_AD+"\">Yes<br>");
+   out.println("              <input type=\"radio\" name=\""+PactsConstants.HAS_GLOBAL_AD+"\" value=\"false\">No<br>");
+   out.println("              <input type=\"radio\" name=\""+PactsConstants.HAS_GLOBAL_AD+"\" value=\"\" checked>Don't"); %>
+              Care</td>
+          </tr>
+<%}%>
    <script language="javascript">
    <!--
    document.searchForm.<%=PactsConstants.HANDLE %>.focus();

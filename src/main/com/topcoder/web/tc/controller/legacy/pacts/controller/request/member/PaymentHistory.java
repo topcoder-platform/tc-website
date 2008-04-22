@@ -20,6 +20,7 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusRe
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
 
 /**
  *
@@ -97,6 +98,10 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             // now crop
             payments = cropResult(payments, Integer.parseInt(startRank), Integer.parseInt(endRank));
             
+            if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {
+                removeDuplicateReasons(payments);
+            }
+            
             setDefault(DataAccessConstants.SORT_COLUMN, sortCol + "");
             setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             
@@ -137,7 +142,25 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             return result;
         }
     }
-    
+
+    /**
+     * Remove duplicate reasons from payment list
+     *
+     * @param result the original payment list.
+     */
+    protected void removeDuplicateReasons(List<BasePayment> result) {
+        if (result.size() == 0) {
+            return;
+        }
+        
+        for (BasePayment bp : result) {
+            if (bp.getCurrentStatus().getReasons().contains(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason()) &&
+                    bp.getCurrentStatus().getReasons().contains(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason())) {
+                bp.getCurrentStatus().getReasons().remove(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason());
+            }
+        }
+    }
+
     private void sortResult(List<BasePayment> result, int sortCol, boolean sortAscending) {
         switch (sortCol) {
             case DESCRIPTION_COL:

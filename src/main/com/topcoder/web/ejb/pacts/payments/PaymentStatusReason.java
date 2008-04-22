@@ -3,8 +3,6 @@ package com.topcoder.web.ejb.pacts.payments;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
-
 
 /**
  * This class models a Payment Status reason.
@@ -21,7 +19,7 @@ public class PaymentStatusReason implements java.io.Serializable {
      * serialization for this object, i.e. when data members are changed.
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     /**
      * Enum for all the possible predefined status reasons
@@ -32,12 +30,14 @@ public class PaymentStatusReason implements java.io.Serializable {
     public enum AvailableStatusReason {
         NO_TAX_FORM_REASON (new PaymentStatusReason(10l, "Waiting for tax form")),
         NO_AFFIRMED_AFFIDAVIT_REASON (new PaymentStatusReason(11l, "Waiting for affirmed affidavit")),
-        NO_AFFIRMED_IP_TRANSFER_REASON (new PaymentStatusReason(12l, "Waiting for affirmed assignment document")),
-        NO_HARD_COPY_IP_TRANSFER_REASON (new PaymentStatusReason(13l, "Waiting for hard copy assignment document")),
+        NO_AFFIRMED_AD_REASON (new PaymentStatusReason(12l, "Waiting for affirmed assignment document")),
+        NO_HARD_COPY_AD_REASON (new PaymentStatusReason(13l, "Waiting for signed assignment document")),
+        NO_SIGNED_GLOBAL_AD_REASON (new PaymentStatusReason(14l, "Waiting for signed assignment document")),
         EXPIRED_AFFIDAVIT_REASON (new PaymentStatusReason(50l, "Expired affidavit")),
-        EXPIRED_IP_TRANSFER_REASON (new PaymentStatusReason(51l, "Expired assignment document")),
+        EXPIRED_AD_REASON (new PaymentStatusReason(51l, "Expired assignment document")),
         ACCOUNT_STATUS_REASON (new PaymentStatusReason(52l, "Account status")),
-        ATTACHED_TO_PARENT_REASON (new PaymentStatusReason(100l, "Attached to parent"));
+        ATTACHED_TO_PARENT_REASON (new PaymentStatusReason(100l, "Attached to parent")),
+        UNDER_AGE_REASON (new PaymentStatusReason(101l, "Member under 18"));
 
         /**
          * The PaymentStatusReason attached to the enum element

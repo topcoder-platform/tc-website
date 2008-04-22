@@ -67,7 +67,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 3L;
+    private static final long serialVersionUID = 4L;
 
 
     private static final Logger log = Logger.getLogger(PactsServicesBean.class);
@@ -1302,8 +1302,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return The list of assignment document types
      * @throws SQLException If there is some problem retrieving the data
      */
-    public List getAssignmentDocumentTypes() throws SQLException {
-        List assignmentDocumentTypes = new ArrayList();
+    public List<AssignmentDocumentType> getAssignmentDocumentTypes() throws SQLException {
+        List<AssignmentDocumentType> assignmentDocumentTypes = new ArrayList<AssignmentDocumentType>();
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT assignment_document_type_id, assignment_document_type_desc FROM assignment_document_type_lu ORDER BY 2");
 
@@ -1838,11 +1838,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad) {
-        AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(null, assignmentDocumentTypeId);
+        AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(null, assignmentDocumentTypeId, true).get(0);
 
         return adt.transformTemplate(ad, prepareUserAssignmentDocumentInfo(ad.getUser().getId(), ad.getSubmissionTitle()));
     }
 
+    public List<AssignmentDocumentTemplate> getAssignmentDocumentTemplate(long assignmentDocumentTypeId, boolean onlyCurrent) {
+        return getAssignmentDocumentTemplate(null, assignmentDocumentTypeId, onlyCurrent);
+    }
+    
     /**
      * Returns an assignment document template
      *
@@ -1851,7 +1855,86 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return The required assignment document template
      * @throws SQLException If there is some problem retrieving the data
      */
-    public AssignmentDocumentTemplate getAssignmentDocumentTemplate(Connection conn, long assignmentDocumentTypeId) {
+    public List<AssignmentDocumentTemplate> getAssignmentDocumentTemplate(Connection conn, long assignmentDocumentTypeId, boolean onlyCurrent) {
+        boolean closeConnection = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ResultSetContainer rsc = null;
+        List<AssignmentDocumentTemplate> adtl = new ArrayList<AssignmentDocumentTemplate>();
+
+        try {
+            if (conn == null) {
+                closeConnection = true;
+                conn = DBMS.getConnection();
+            }
+
+            log.debug("get the assignment document template from the db");
+
+            StringBuffer sb = new StringBuffer(100);
+            sb.append("select ");
+            sb.append("assignment_document_template_id, ");
+            sb.append("assignment_document_template_text, ");
+            sb.append("assignment_document_template_name, ");
+            sb.append("cur_version ");
+            sb.append("from 'informix'.assignment_document_template ");
+            sb.append("where assignment_document_type_id = ? ");
+            if (onlyCurrent) {
+                sb.append("and cur_version = 1 ");
+            }
+            sb.append("order by assignment_document_template_name ");
+
+            ps = conn.prepareStatement(sb.toString());
+
+            ps.setLong(1, assignmentDocumentTypeId);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                AssignmentDocumentTemplate adt = new AssignmentDocumentTemplate();
+                adt.setId(new Long(rs.getLong("assignment_document_template_id")));
+                adt.setName(rs.getString("assignment_document_template_name"));
+
+                byte[] bytes = rs.getBytes("assignment_document_template_text");
+                if (bytes == null)
+                    adt.setText("");
+                else
+                    adt.setText(new String(bytes));
+                
+                adt.setCurrent(rs.getBoolean("cur_version"));
+                adtl.add(adt);
+            }
+
+            if (adtl.size() == 0) {
+                throw new IllegalUpdateException("Couldn't find an assigment document type for id: " + assignmentDocumentTypeId);
+            }
+
+            return adtl;
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw (new EJBException(e.getMessage(), e));
+        } catch (Exception e) {
+            throw (new EJBException(e.getMessage(), e));
+        } finally {
+            close(rs);
+            close(ps);
+            if (closeConnection) {
+                close(conn);
+            }
+        }
+    }
+
+    public AssignmentDocumentTemplate getAssignmentDocumentTemplate(long assignmentDocumentTemplateId) {
+        return getAssignmentDocumentTemplate(null, assignmentDocumentTemplateId);
+    }
+    
+    /**
+     * Returns an assignment document template
+     *
+     * @param conn                     the Connection to use
+     * @param assignmentDocumentTypeId the Assignment Document's type id
+     * @return The required assignment document template
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public AssignmentDocumentTemplate getAssignmentDocumentTemplate(Connection conn, long assignmentDocumentTemplateId) {
         boolean closeConnection = false;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -1868,29 +1951,32 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             StringBuffer sb = new StringBuffer(100);
             sb.append("select ");
             sb.append("assignment_document_template_id, ");
-            sb.append("assignment_document_template_text ");
+            sb.append("assignment_document_template_text, ");
+            sb.append("assignment_document_template_name, ");
+            sb.append("cur_version ");
             sb.append("from 'informix'.assignment_document_template ");
-            sb.append("where assignment_document_type_id = ? ");
-            sb.append("and cur_version = 1 ");
+            sb.append("where assignment_document_template_id = ? ");
 
             ps = conn.prepareStatement(sb.toString());
 
-            ps.setLong(1, assignmentDocumentTypeId);
+            ps.setLong(1, assignmentDocumentTemplateId);
             rs = ps.executeQuery();
 
             if (!rs.next()) {
-                throw new IllegalUpdateException("Couldn't find an assigment document for id: " + assignmentDocumentTypeId);
+                throw new IllegalUpdateException("Couldn't find an assigment document template for id: " + assignmentDocumentTemplateId);
             }
-
+            
             AssignmentDocumentTemplate adt = new AssignmentDocumentTemplate();
             adt.setId(new Long(rs.getLong("assignment_document_template_id")));
-
+            adt.setName(rs.getString("assignment_document_template_name"));
 
             byte[] bytes = rs.getBytes("assignment_document_template_text");
             if (bytes == null)
                 adt.setText("");
             else
                 adt.setText(new String(bytes));
+                
+            adt.setCurrent(rs.getBoolean("cur_version"));
 
             return adt;
         } catch (SQLException e) {
@@ -1907,6 +1993,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
+            return addAssignmentDocument(ad, null);
+    }
+    
     /**
      * Inserts or updates an assignment document to the DB
      *
@@ -1915,7 +2005,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws DeleteAffirmedAssignmentDocumentException
      *          If there's an attempt to delete an affirmed assignment document
      */
-    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
+    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad, Long assignmentDocumentTemplateId) throws DeleteAffirmedAssignmentDocumentException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection c = null;
@@ -1926,8 +2016,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         // validate
-        if (ad.getSubmissionTitle() == null || ad.getSubmissionTitle().trim().length() == 0) {
-            throw new IllegalArgumentException("Assignment Document's submission title cannot be null or empty");
+        if (!ad.getType().getId().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
+            if (ad.getSubmissionTitle() == null || ad.getSubmissionTitle().trim().length() == 0) {
+                throw new IllegalArgumentException("Assignment Document's submission title cannot be null or empty");
+            }
         }
 
         if (ad.getType() == null) {
@@ -1945,12 +2037,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Boolean hasHardCopy = hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(),
                 ad.getType().getId().longValue());
 
-        if (ad.getExpireDate() == null) {
-            Calendar dueDateCal = Calendar.getInstance();
-            dueDateCal.add(Calendar.DAY_OF_YEAR, hasHardCopy.booleanValue() ? ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD : ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD);
-            ad.setExpireDate(new Timestamp(dueDateCal.getTimeInMillis()));
+        if (!ad.getType().getId().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
+            if (ad.getExpireDate() == null) {
+                Calendar dueDateCal = Calendar.getInstance();
+                dueDateCal.add(Calendar.DAY_OF_YEAR, hasHardCopy.booleanValue() ? ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD : ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD);
+                ad.setExpireDate(new Timestamp(dueDateCal.getTimeInMillis()));
+            }
         }
-
+        
         if (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) && ad.getAffirmedDate() == null) {
             Calendar dueDateCal = Calendar.getInstance();
             ad.setAffirmedDate(new Timestamp(dueDateCal.getTimeInMillis()));
@@ -2004,8 +2098,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 if (!oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
                         (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID))) {
                     // notify the payment status manager the new affirmed assignment document
-                    (new PaymentStatusManager()).affirmedIPTransfer(ad);
+                    if (!ad.getType().getId().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
+                        (new PaymentStatusManager()).affirmedIPTransfer(ad);
+                    } else {
+                        (new PaymentStatusManager()).signedGlobalAD(ad.getUser().getId());
+                    }
                 }
+                
+                if (oldAssignmentDocumentInstance.getType().getId().equals(AssignmentDocumentType.GLOBAL_TYPE_ID) &&
+                        !ad.getType().equals(oldAssignmentDocumentInstance.getType())) {
+                    throw new IllegalArgumentException("Cannot change the type of a global assignment document");
+                }
+
             }
 
             if (ad.getText() == null || ad.getText().trim().length() == 0) {
@@ -2015,9 +2119,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         (oldAssignmentDocumentInstance == null ||
                                 !oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID)))) {
 
-                    AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(c, ad.getType().getId().longValue());
+                    AssignmentDocumentTemplate adt;
+                    if (assignmentDocumentTemplateId != null) {
+                        adt = getAssignmentDocumentTemplate(c, assignmentDocumentTemplateId);
+                    } else {
+                        adt = getAssignmentDocumentTemplate(c, ad.getType().getId().longValue(), true).get(0);
+                    }
                     ad.setText(adt.transformTemplate(ad, prepareUserAssignmentDocumentInfo(ad.getUser().getId(), ad.getSubmissionTitle())));
                     updateText = true;
+
+                    // for GADs, set the template name (GAD version) as the submission title
+                    if (ad.getType().getId().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
+                        ad.setSubmissionTitle(adt.getName());
+                    }
                 }
             }
 
@@ -2090,6 +2204,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             if (!hasHardCopy && ad.isHardCopy()) {
                 (new PaymentStatusManager()).hardCopyIPTransfer(ad.getUser().getId(), ad.getComponentProject() == null ? TC_STUDIO_PAYMENT : COMPONENT_PAYMENT);
+            }
+
+            if (ad.getType().getId().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
+                (new PaymentStatusManager()).signedGlobalAD(ad.getUser().getId());
             }
 
             return ad;
@@ -3118,6 +3236,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     clause.append("        AND payment_detail.payment_status_id in (" +
                             PaymentStatus.OWED_PAYMENT_STATUS.getId() + "," +
                             PaymentStatus.ACCRUING_PAYMENT_STATUS.getId() + "))");
+                    orClauses.add(clause.toString());
+                } else if (key.equals(HAS_GLOBAL_AD)) {
+                    boolean wantExists = makeBoolean(value);
+                    StringBuffer clause = new StringBuffer(300);
+                    if (!wantExists) {
+                        clause.append("NOT ");
+                    }
+                    clause.append("EXISTS (SELECT 1 FROM assignment_document ad ");
+                    clause.append("        WHERE ad.user_id = u.user_id");
+                    clause.append("        AND ad.assignment_document_type_id = " + AssignmentDocumentType.GLOBAL_TYPE_ID);
+                    clause.append("        AND ad.assignment_document_status_id = " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID + ")");
                     orClauses.add(clause.toString());
                 }
             }
@@ -4609,6 +4738,30 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return 0;
     }
 
+    /**
+     * Get if the payment type requires globalAD.
+     *
+     * @param paymentTypeId type id of the payment
+     * @return true if the payment type requires global AD.
+     */
+    public boolean requiresGlobalAD(int paymentTypeId) throws SQLException {
+        StringBuffer query = new StringBuffer(100);
+        query.append(" SELECT global_ad_ind ");
+        query.append(" FROM payment_type_lu ");
+        query.append(" WHERE payment_type_id = " + paymentTypeId);
+
+        ResultSetContainer rsc = runSelectQuery(query.toString());
+
+        if (rsc.getRowCount() != 1) {
+            throw new IllegalArgumentException("Payment type not found: " + paymentTypeId);
+        }
+
+        if (rsc.getItem(0, "global_ad_ind").getResultData() != null) {
+            return (rsc.getBooleanItem(0, "global_ad_ind"));
+        }
+
+        return false;
+    }
     public boolean hasTaxForm(long userId) throws SQLException {
 
         // Change to also check for tax forms on file
@@ -4629,6 +4782,50 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return ret;
     }
 
+
+    public boolean hasGlobalAD(long userId) throws SQLException {
+        if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {
+            StringBuffer query = new StringBuffer(300);
+            query.append("SELECT COUNT(*) FROM assignment_document WHERE user_id = " + userId);
+            query.append(" and assignment_document_type_id = " + AssignmentDocumentType.GLOBAL_TYPE_ID);
+            query.append(" and assignment_document_status_id = " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID);
+    
+            boolean ret = false;
+    
+            Connection c = null;
+            try {
+                c = DBMS.getConnection(trxDataSource);
+                ResultSetContainer rsc = runSelectQuery(c, query.toString());
+                ret = Integer.parseInt(rsc.getItem(0, 0).toString()) > 0;
+            } finally {
+                close(c);
+            }
+            return ret;
+        } else {
+            return false;
+        }
+    }
+
+    public long getGlobalADId(long userId) throws SQLException {
+        StringBuffer query = new StringBuffer(300);
+        query.append("SELECT assignment_document_id FROM assignment_document WHERE user_id = " + userId);
+        query.append(" and assignment_document_type_id = " + AssignmentDocumentType.GLOBAL_TYPE_ID);
+        query.append(" and assignment_document_status_id = " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID);
+
+        long ret = 0;
+
+        Connection c = null;
+        try {
+            c = DBMS.getConnection(trxDataSource);
+            ResultSetContainer rsc = runSelectQuery(c, query.toString());
+            if (rsc.size() > 0) {
+                ret = rsc.getLongItem(0, 0);
+            }
+        } finally {
+            close(c);
+        }
+        return ret;
+    }
 
     private int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
             throws IllegalUpdateException, SQLException {
@@ -5157,7 +5354,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    public void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text) {
+    public void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text, String name) {
         Connection conn = null;
         PreparedStatement ps = null;
 
@@ -5176,8 +5373,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.close();
 
             StringBuffer query = new StringBuffer(1024);
-            query.append("insert into assignment_document_template (assignment_document_template_id, assignment_document_type_id, assignment_document_template_text, cur_version)");
-            query.append("values (?, ?, ?, 1)");
+            query.append("insert into assignment_document_template (assignment_document_template_id, assignment_document_type_id, assignment_document_template_text, assignment_document_template_name, cur_version)");
+            query.append("values (?, ?, ?, ?, 1)");
 
             long assignmentDocumentTemplateId = IdGeneratorClient.getSeqId("ASSIGNMENT_DOCUMENT_TEMPLATE_SEQ");
 
@@ -5185,6 +5382,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setLong(1, assignmentDocumentTemplateId);
             ps.setInt(2, assignmentdocumentTypeId);
             ps.setBytes(3, text == null ? null : DBMS.serializeTextString(text));
+            ps.setString(4, name);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {

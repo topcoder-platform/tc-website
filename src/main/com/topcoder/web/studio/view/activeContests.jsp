@@ -1,8 +1,11 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -72,7 +75,7 @@
                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End
                         Date</a></td>
                 <td class="headerR" nowrap="nowrap">
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("amount")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">First Prize</a>
+                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("prize_total")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Prize Purse</a>
                 </td>
                 <td class="headerC">
                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("registrants")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Registrants</a>
@@ -105,18 +108,23 @@
                 <c:otherwise>
         
                     <% boolean even = true;%>
-                    <rsc:iterator list="<%=contests%>" id="resultRow">
+                    <rsc:iterator list="${contests}" id="resultRow">
                         <tr><td class="space" colspan="6">&nbsp;</td></tr>
                         <tr class="<%=even?"light":"dark"%>">
                             <td class="valueW">
                                 <div>&nbsp;</div>
                             </td>
                             <td class="value">
-                                <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
-                                    <rsc:item name="name" row="<%=resultRow%>"/>
-                                </a>
+                                <%-- Since TopCoder Studio Modifications assembly Req# 5.2 --%>
+                                <div class="contestEmblem"><studio_tags:contestIcon row="${resultRow}"/></div>
+                                <div class="contestTitle">
+                                    <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
+                                        <rsc:item name="name" row="<%=resultRow%>"/>
+                                    </a>
+                                </div>
                             </td>
                             <td class="value">
+                                <%-- todo no scriptlet code!, fix this--%>
                                 <% if ("3008".equals(resultRow.getStringItem("event_id"))) { %>
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=description"><img src="/i/tournament/tco08/emblem.png" alt="" onmouseover="popUp(this,'popTCO08')" onmouseout="popHide()" style="display: block; margin: 4px;"/></a>
                                 <% } else { %>
@@ -130,7 +138,7 @@
                                 <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                             </td>
                             <td class="valueR">
-                                <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
+                                <rsc:item name="prize_total" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
                             </td>
                             <td class="valueC">
                                 <rsc:item name="registrants" row="<%=resultRow%>"/>

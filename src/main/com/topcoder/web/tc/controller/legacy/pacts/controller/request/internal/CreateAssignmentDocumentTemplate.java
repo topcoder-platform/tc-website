@@ -22,13 +22,15 @@ public class CreateAssignmentDocumentTemplate extends BaseProcessor implements P
             setIsNextPageInContext(true);
 
             if (!StringUtils.checkNull(getRequest().getParameter(ASSIGNMENT_DOCUMENT_TEMPLATE_TEXT)).equals("") &&
+                    !StringUtils.checkNull(getRequest().getParameter("assignment_document_template_name")).equals("") &&
                     !StringUtils.checkNull(getRequest().getParameter("assignment_document_type_id")).trim().equals("")) {
                 DataInterfaceBean bean = new DataInterfaceBean();
                 bean.createAssignmentDocumentTemplate(Integer.parseInt(getRequest().getParameter("assignment_document_type_id")),
-                        getRequest().getParameter(ASSIGNMENT_DOCUMENT_TEMPLATE_TEXT));
+                        getRequest().getParameter(ASSIGNMENT_DOCUMENT_TEMPLATE_TEXT),
+                        getRequest().getParameter("assignment_document_template_name"));
                 addError("error", "Success");
             } else {
-                addError("error", "Text must not be null and you must select an assignment document type");
+                addError("error", "Text and name must not be null and you must select an assignment document type");
             }
         } catch (NumberFormatException e) {
             addError("error", "Please select an assignment document type");

@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.member;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -57,8 +58,22 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
 
             
             DataInterfaceBean dib = new DataInterfaceBean();
-            List result = dib.getAssignmentDocumentByUserId(getUser().getId(), 
+            
+            boolean hasGlobalAd = false;
+            long globalAdId = 0;
+            if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                hasGlobalAd = dib.hasGlobalAD(getUser().getId());
+                if (hasGlobalAd) {
+                    globalAdId = dib.getGlobalADId(getUser().getId());
+                }
+            }
+
+            // if the user has global AD, we don't need to show anything in the "current" tab
+            List result = new ArrayList(); 
+            if (!(hasGlobalAd && !fullList)) {
+                result = dib.getAssignmentDocumentByUserId(getUser().getId(), 
                     AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID.longValue(), !fullList);
+            }
             
             sortResult(result, sortCol, sortAscending);
 
@@ -66,6 +81,11 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
 
             setDefault(DataAccessConstants.SORT_COLUMN, sortCol + "");
             setDefault(DataAccessConstants.SORT_DIRECTION, sortAscending + "");
+            
+            if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                getRequest().setAttribute("has_global_ad", hasGlobalAd);
+                getRequest().setAttribute("global_ad_id", globalAdId);
+            }
             
             getRequest().setAttribute(ASSIGNMENT_DOCUMENTS, result);
             getRequest().setAttribute(CODER, getUser().getId() + "");

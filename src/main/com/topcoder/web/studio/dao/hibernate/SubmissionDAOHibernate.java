@@ -28,7 +28,7 @@ public class SubmissionDAOHibernate extends GenericBase<Submission, Long> implem
         }
 
         StringBuffer buf = new StringBuffer(100);
-        buf.append("update com.topcoder.web.studio.model.Submission s set rank = ");
+        buf.append("update Submission s set rank = ");
         if (newRank == null && s.getRank() == null) {
             //do nothing, we're good
         } else if (newRank == null) {
@@ -92,7 +92,7 @@ public class SubmissionDAOHibernate extends GenericBase<Submission, Long> implem
 
     @SuppressWarnings("unchecked")
     public List<Submission> getSubmissions(User u, Contest c, Integer submissionTypeId) {
-        Query q = getSession().createQuery("from com.topcoder.web.studio.model.Submission s " +
+        Query q = getSession().createQuery("from Submission s " +
                 "left join fetch s.review " +
                 "left join fetch s.result " +
                 "where s.submitter.id = ? " +
@@ -108,7 +108,7 @@ public class SubmissionDAOHibernate extends GenericBase<Submission, Long> implem
 
     @SuppressWarnings("unchecked")
     public List<Submission> getSubmissions(User u, Contest c, Integer submissionTypeId, Integer submissionStatusId) {
-        Query q = getSession().createQuery("from com.topcoder.web.studio.model.Submission s " +
+        Query q = getSession().createQuery("from Submission s " +
                 "left join fetch s.review " +
                 "left join fetch s.result " +
                 "where s.submitter.id = ? " +
@@ -125,7 +125,7 @@ public class SubmissionDAOHibernate extends GenericBase<Submission, Long> implem
 
     @SuppressWarnings("unchecked")
     public List<Submission> getSubmissions(Long contestId, Long submitterId, Integer submissionTypeId) {
-        Query q = getSession().createQuery("from com.topcoder.web.studio.model.Submission s " +
+        Query q = getSession().createQuery("from Submission s " +
                 "left join fetch s.review " +
                 "left join fetch s.result " +
                 "where s.submitter.id = ? " +

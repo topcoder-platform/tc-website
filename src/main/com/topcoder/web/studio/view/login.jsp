@@ -72,7 +72,7 @@
                         will send your account activation code via email.
                         <br /><br />
 
-                        <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}">
+                        <form method="post" name="frmLogin" action="${sessionInfo.servletPath}">
                             <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
                             <input type="hidden" name="module" value="Login">
 

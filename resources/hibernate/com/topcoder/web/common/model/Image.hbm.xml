@@ -13,7 +13,7 @@
         </id>
         <property name="fileName" column="file_name" access="field"/>
         <property name="imageTypeId" column="image_type_id" access="field"/>
-        <many-to-one name="path" column="path_id" class="Path" access="field" cascade="none" fetch="join"/>
+        <many-to-one name="path" column="path_id" class="Path"/>
         <property name="link" access="field"/>
         <property name="height" access="field"/>
         <property name="width" access="field"/>
@@ -21,5 +21,6 @@
             <key column="image_id"/>
             <many-to-many column="coder_id" class="Coder"/>
         </set>
+        <property name="originalFileName" column="original_file_name" access="field"/>
     </class>
 </hibernate-mapping>

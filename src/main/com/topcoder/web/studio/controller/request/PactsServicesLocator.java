@@ -1,17 +1,16 @@
 package com.topcoder.web.studio.controller.request;
 
-import java.rmi.Remote;
-import java.rmi.RemoteException;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.ejb.pacts.PactsClientServices;
+import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
 
 import javax.ejb.CreateException;
 import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
-
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.ejb.pacts.PactsClientServices;
-import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 /**
  * Locator for pacts services

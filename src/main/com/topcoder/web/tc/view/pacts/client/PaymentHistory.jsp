@@ -73,7 +73,7 @@
 
 <div align="left">
     <div style="float:right;">
-       <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
+       <A href="/wiki/display/tc/How+to+Get+Paid+for+Competing"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
     </div>
     <span class="bodySubtitle">Payments > </span><br>
     <c:if test="${fullList}" >

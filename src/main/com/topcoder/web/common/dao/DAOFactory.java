@@ -50,6 +50,8 @@ public interface DAOFactory {
 
     PasswordRecoveryDAO getPasswordRecoveryDAO();
 
+    PathDAO getPathDAO();
+
     PreferenceDAO getPreferenceDAO();
 
     PreferenceValueDAO getPreferenceValueDAO();

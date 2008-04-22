@@ -5,14 +5,16 @@
 
 <hibernate-configuration>
 
-    <!--
+    <!-- Uncomment this block when executing ant run_studio_tests task -->
+<!--
                 <session-factory>
-                    <property name="connection.username">coder</property>
-                    <property name="connection.password">altec</property>
-                    <property name="connection.url">jdbc:informix-sqli://63.118.154.190:1526/creative_oltp:INFORMIXSERVER=devinformix10_shm</property>
+                    <property name="connection.username">informix</property>
+                    <property name="connection.password">topcoder</property>
+                    <property name="connection.url">jdbc:informix-sqli://tcsdesigner:1526/studio_oltp:INFORMIXSERVER=tcs</property>
                     <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
-    -->
+-->
 
+   <!-- Uncomment this block when executing ant deploy task -->
     <session-factory name="java:comp/env/hibernate/SessionFactory">
 
         <property name="connection.datasource">java:/JTS_STUDIO_OLTP</property>
@@ -103,20 +105,24 @@
         <mapping resource="com/topcoder/web/common/model/comp/UserContestPrize.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/studio/model/Contest.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/ContestChannel.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestConfig.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestRegistration.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestResult.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestStatus.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/ContestType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/Document.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/DocumentType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/FilePath.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/MimeType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/Medium.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/Prize.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/PrizeType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ReviewStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/StudioFileType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/Submission.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/SubmissionImage.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/SubmissionReview.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/SubmissionStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/SubmissionType.hbm.xml"/>

@@ -1,16 +1,18 @@
 package com.topcoder.web.studio.controller.request.mystudio;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentType;
+import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.controller.request.PactsServicesLocator;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * This processor handles the request for the assignment document history for a particular
@@ -54,9 +56,22 @@ public class AssignmentDocumentHistory extends BaseProcessor {
             }
             setDefault(DataAccessConstants.END_RANK, endRank);
 
-            // gets, sorts and crops data.
-            List result = PactsServicesLocator.getService().getAssignmentDocumentByUserId(getUser().getId(), 
-                    AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID.longValue(), !fullList);
+            boolean hasGlobalAd = false;
+            long globalAdId = 0;
+            if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                hasGlobalAd = PactsServicesLocator.getService().hasGlobalAD(getUser().getId());
+                if (hasGlobalAd) {
+                    globalAdId = PactsServicesLocator.getService().getGlobalADId(getUser().getId());
+                }
+            }
+
+            // if the user has global AD, we don't need to show anything in the "current" tab
+            List result = new ArrayList(); 
+            if (!(hasGlobalAd && !fullList)) {
+                // gets, sorts and crops data.
+                result = PactsServicesLocator.getService().getAssignmentDocumentByUserId(getUser().getId(), 
+                        AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID.longValue(), !fullList);
+            }
             
             sortResult(result, sortCol, sortAscending);
             result = cropResult(result, Integer.parseInt(startRank), Integer.parseInt(endRank));
@@ -65,6 +80,11 @@ public class AssignmentDocumentHistory extends BaseProcessor {
             setDefault(DataAccessConstants.SORT_COLUMN, sortCol + "");
             setDefault(DataAccessConstants.SORT_DIRECTION, sortAscending + "");
             
+            if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                getRequest().setAttribute("has_global_ad", hasGlobalAd);
+                getRequest().setAttribute("global_ad_id", globalAdId);
+            }
+
             getRequest().setAttribute(ASSIGNMENT_DOCUMENTS, result);
             getRequest().setAttribute(CODER, getUser().getId() + "");
         	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));

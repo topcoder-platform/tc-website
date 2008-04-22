@@ -15,6 +15,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
@@ -112,6 +113,11 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     // sort payments
                     sortResult(payments, sortCol, invert);
                 }                    
+
+                if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {
+                    removeDuplicateReasons(payments);
+                }
+
                 getRequest().setAttribute(PAYMENTS, payments);
                 getRequest().setAttribute(RELIABILITY, reliability);
                 getRequest().setAttribute(GROUP_RELIABILITY, Boolean.valueOf(groupRel));
@@ -214,6 +220,24 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     		}
     	}
     	return valuesStr.toString();
+    }
+
+    /**
+     * Remove duplicate reasons from payment list
+     *
+     * @param result the original payment list.
+     */
+    protected void removeDuplicateReasons(List<PaymentHeader> result) {
+        if (result.size() == 0) {
+            return;
+        }
+        
+        for (PaymentHeader ph : result) {
+            if (ph.getCurrentStatus().getReasons().contains(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason()) &&
+                    ph.getCurrentStatus().getReasons().contains(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason())) {
+                ph.getCurrentStatus().getReasons().remove(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason());
+            }
+        }
     }
 
     /**

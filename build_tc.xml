@@ -109,6 +109,13 @@
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
 
+
+        <pathelement location="${external.jars.dir}/base_exception-2.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/configuration_api-2.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/image_overlay-1.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/image_resizing-1.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/image_manipulation-1.0.0.jar"/>
+        
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/asyncservices.jar"/>
         <!-- app side dependencies...get rid of this if possible it's bad long contest design -->
@@ -1183,8 +1190,8 @@
             <fileset dir="${jars.dir}/tcs/id_generator/3.0">
                 <include name="id_generator.jar"/>
             </fileset>
-            <fileset dir="${jars.dir}/tcs">
-                <include name="base_exception.jar"/>
+            <fileset dir="${external.jars.dir}">
+                <include name="base_exception-2.0.0.jar"/>
             </fileset>
             <fileset dir="${jars.dir}/tcs/db_connection_factory/1.0">
                 <include name="db_connection_factory.jar"/>
