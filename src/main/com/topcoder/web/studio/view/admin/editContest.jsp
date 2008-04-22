@@ -232,7 +232,9 @@
     <td class="value" width="100%">
         <tc-webtag:objectSelect name="<%=Constants.CONTEST_TYPE%>" list="${contestTypes}" valueField="id"
                                 onChange="chooseType()" textField="description"/>
+<%--
         <input name="NAME" value="Other" type="text" />
+--%>
     </td>
 </tr>
 
