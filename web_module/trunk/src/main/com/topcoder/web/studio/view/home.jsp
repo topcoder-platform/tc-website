@@ -37,6 +37,8 @@ ding="utf-8"?>
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 
 <body>
+
+<div align="center">
 <div id="wrapper">
 
     <div id="header">
@@ -232,7 +234,7 @@ ding="utf-8"?>
         </c:when>
         <c:otherwise>
             <p id="login_data">
-                Hello <div style="font-size: 18px;"><studio:handle coderId="${sessionInfo.userId}"/></div>
+                Hello <studio:handle coderId="${sessionInfo.userId}"/>
                 <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Log out</a> |
                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">Update my profile</a>
             </p>
@@ -259,10 +261,10 @@ ding="utf-8"?>
 
     <!-- designer box -->
     <div class="designerBox">
-        <h2><span>DESIGNER OF THE MONTH</span></h2>
+        <h2>DESIGNER OF THE MONTH</h2>
 
         <p>
-            <img class="member" width="57" height="63" alt="Designer of the month" src="/i/m/oton_big.jpg"/>
+            <img class="member" width="57" height="63" alt="Designer of the month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/oton_big.jpg"/>
             <b>March 2008 </b><br />
             <i>oton</i><br />
             Won $2,100 in
@@ -296,5 +298,6 @@ ding="utf-8"?>
 <!-- end content -->
 </div>
 <!-- end wrapper -->
+</div>
 </body>
 </html>
