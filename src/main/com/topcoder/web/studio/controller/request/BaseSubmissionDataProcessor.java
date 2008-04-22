@@ -39,11 +39,8 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
     void loadSubmissionData(User u, Contest c, SubmissionDAO dao, Integer maxRank, Integer submissionTypeId) {
         getRequest().setAttribute("maxRank", maxRank);
 
-        List submissions = dao.getSubmissions(u, c, submissionTypeId, SubmissionStatus.ACTIVE);
-
-        Submission curr;
-        for (Object submission : submissions) {
-            curr = (Submission) submission;
+        List<Submission> submissions = dao.getSubmissions(u, c, submissionTypeId, SubmissionStatus.ACTIVE);
+        for (Submission curr : submissions) {
             setDefault(Constants.SUBMISSION_ID + curr.getId(), curr.getRank());
         }
 
