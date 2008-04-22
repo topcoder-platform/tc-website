@@ -69,7 +69,8 @@ public class IteratorTag extends BodyTagSupport {
     }
 
     public void doInitBody() throws JspException {
-        log.debug("doInitBody() called, collection = " + collection + " iterator = " + iterator);
+        //log.debug("doInitBody() called, collection = " + collection + " iterator = " + iterator);
+        log.debug("doInitBody called index " + currIndex + " begin " + begin + " end " + end);
         if (begin != null && begin > currIndex) {
             while (currIndex <= begin) {
                 iterator.next();
@@ -82,11 +83,12 @@ public class IteratorTag extends BodyTagSupport {
     }
 
     public int doAfterBody() throws JspException {
-        log.debug("doAfterBody() called, collection = " + collection + " iterator = " + iterator);
+        //log.debug("doAfterBody() called, collection = " + collection + " iterator = " + iterator);
+        log.debug("doAfterBody called index " + currIndex + " begin " + begin + " end " + end);
         boolean indexOk = end == null || end >= currIndex;
         if (iterator.hasNext() && indexOk) {
             pageContext.setAttribute(getId(), iterator.next());
-            log.debug("get attribute " + getId() + " " + pageContext.getAttribute(getId()));
+            //log.debug("get attribute " + getId() + " " + pageContext.getAttribute(getId()));
             currIndex++;
             return EVAL_BODY_AGAIN;
         } else {
