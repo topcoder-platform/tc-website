@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />04.22.08<br />12:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=onsiteSchedule">New Forums added to the TCO08 Onsite Schedule</a></span><br /><br />
+        Check out the TCO08 <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=onsiteSchedule">onsite schedule</a> to see the Corporate and Developer forums added to the agenda.  With a slew of topics and some of the best minds in the business, don't miss them if you're in Vegas!  Read more <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=devForums">here</a>.
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=onsiteSchedule">details</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />04.18.08<br />4:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=features&amp;d2=041808">Meet the March 2008 Coders of the Month: PaulJefferys &amp; oton</a></span><br /><br />
@@ -154,18 +168,5 @@
         <a href="/longcontest/stats/?module=ViewOverview&amp;rd=12166">details</a> | 
         <tc-webtag:forumLink forumID="520302" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />04.07.08<br />11:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyChat20080403">Eli Lilly SRM 396 Chat Transcript Available</a></span><br /><br />
-        Before SRM 396, members spoke with Lilly representatives about their career opportunities.  See more info about Lilly <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly">here</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyChat20080403">details</a> | 
-        <tc-webtag:forumLink forumID="516707" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
