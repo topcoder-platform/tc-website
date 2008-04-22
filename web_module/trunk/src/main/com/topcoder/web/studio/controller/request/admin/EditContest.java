@@ -1,6 +1,7 @@
 package com.topcoder.web.studio.controller.request.admin;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -238,6 +239,7 @@ public class EditContest extends Base {
                         "null" : "" + myContest.getOverview().getValue().length()));
             }
 
+            CacheClearer.removelike("studio_home_data");
 
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
                     "=AdminViewContest&" + Constants.CONTEST_ID + "=" + contest.getId());
