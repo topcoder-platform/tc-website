@@ -184,13 +184,13 @@
                 <img src="/i/home/mmtco4_verisign.png" alt="TCO07 Marathon Match 4 brought to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
                 --%>
 
-                <%-- SRM SPONSOR 
+                <%-- SRM SPONSOR --%>
                 <map name="mm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=12170" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly" />
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=12171" />
+                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=nsa" />
                 </map>
-                <img src="/i/home/srm398_lilly.png" alt="SRM 398 brought to you by Eli Lilly" border="0" style="display:block;" usemap="#mm"/>
-                --%>
+                <img src="/i/home/srm399_nsa.png" alt="SRM 399 brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
+                
                 
                 <%-- UML Tool 
                 <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></A>
@@ -200,9 +200,9 @@
                 <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=bracketInd' refer='homepage_promo' />"><img src="/i/home/tchs08Champion_promo.png" alt="TCHS08" /></A>
                 --%>
                 
-                <%-- TCO08 --%>
+                <%-- TCO08 
                 <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly' refer='homepage_promo' />"><img src="/i/home/tco08lillyPromo.png" alt="Eli Lilly sponsor of TCO08" /></A>
-                
+                --%>
                 
                 <%-- AMD Multicore Threadfest 
                 <A href="<tc-webtag:linkTracking link='/threadfest' refer='homepage_promo' />"><img src="/i/home/amdMCT_promo.png" alt="AMD Multicore Threadfest" /></A>
