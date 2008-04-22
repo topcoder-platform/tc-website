@@ -113,7 +113,7 @@
                     <p>We may use previous winning entries in developing software for a client. Because these clients may request written proof that we own rights in the components used in the software, we need the assignment from all past and future winners.</p>
                 </div>
                 <div>
-                    <p><strong><a name="futurewinnings">Why does the Assignment also include my future winning entries after submitting it<%--on-line ratification/confirmation--%>?</a></strong></p>
+                    <p><strong>Why does the Assignment also include my future winning entries after on-line ratification/confirmation?</strong></p>
                     <p>We have set up the assignment to cover future entries for two reasons. First, having the Assignment cover future entries reduces the amount of paperwork for members and TopCoder because members do not sign and return a paper Assignment after every win.</p>
                 </div>
 
