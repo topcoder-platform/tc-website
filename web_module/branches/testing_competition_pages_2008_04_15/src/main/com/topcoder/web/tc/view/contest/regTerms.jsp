@@ -1,23 +1,25 @@
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% List questionInfo = (List) request.getAttribute("questionInfo");%>
-<html>
 <%@ page import="com.topcoder.web.tc.controller.request.development.Base"%>
 <%@ page import="com.topcoder.web.common.model.SoftwareComponent" %>
 <%@ page import="com.topcoder.web.common.tag.AnswerInput" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="java.util.List" %>
-<head>
-    <title>TopCoder - Message</title>
-    <jsp:include page="../script.jsp"/>
-    <jsp:include page="/style.jsp">
-        <jsp:param name="key" value="tc_stats"/>
-    </jsp:include>
 
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<%@ page contentType="text/html;charset=utf-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>TopCoder :: Registration</title>
+    <jsp:include page="../script.jsp"/>
+    <jsp:include page="../style.jsp">
+      <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
 </head>
 
 <c:set value="<%=Constants.DESIGN_PROJECT_TYPE%>" var="DESIGN_PROJECT_TYPE"/>
@@ -34,8 +36,9 @@
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
     <tr valign="top">
-        <!-- Left Column Begins-->
+<%-- Left Column Begins--%>
         <td width="180">
             <c:choose>
                 <c:when test="${pt == DESIGN_PROJECT_TYPE}">
@@ -65,19 +68,15 @@
                 </c:when>        
                 <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
-                        <jsp:param name="node" value="application_testing_compete"/>
+                        <jsp:param name="node" value="app_testing_compete"/>
                     </jsp:include>
                 </c:when>        
             </c:choose>
         </td>
-        <!-- Left Column Ends -->
+<%-- Left Column Ends --%>
 
-        <!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
-        <!-- Gutter Ends -->
-
-        <!-- Center Column Begins -->
-        <td width="100%" align="center" class="bodyText">
+<%-- Center Column Begins --%>
+        <td width="100%" align="center" class="bodyColumn">
 
             <c:choose>
                 <c:when test="${pt == DESIGN_PROJECT_TYPE}">
@@ -112,7 +111,7 @@
                 </c:when>        
                 <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
-                        <jsp:param name="image" value="application_testing"/>
+                        <jsp:param name="image" value="app_testing"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>        
@@ -136,7 +135,7 @@
                             <tr>
                                 <td colspan="2" class="bodySubtitle" valign="top" width="100%">
                                     <jsp:getProperty name="question" property="text"/>
-                                    <br/><br/>
+                                    <br /><br />
                                     <hr width="100%" size="1" noshade/>
                                 </td>
     
@@ -144,7 +143,7 @@
                             <tr>
                                 <td colspan="2" class="errorText">
                                     <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>
-                                        <br/></tc-webtag:errorIterator>
+                                        <br /></tc-webtag:errorIterator>
                                 </td>
                             </tr>
                             <% boolean even = false; %>
@@ -160,7 +159,7 @@
                                 <% even = !even; %>
                             </tc:answerInput>
                         </table>
-                        <p><br/></p>
+                        <p><br /></p>
                     </tc:questionIterator>
                 </c:if>
                 <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="10" cols="60"/>
@@ -169,42 +168,34 @@
                     <c:if test="${(pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE) and not empty notRegistered}">
                         <span class="errorText">
                          Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
-                         </span><br><br>
+                         </span><br /><br />
                     </c:if>
                     <span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%>
-                        <br/></tc-webtag:errorIterator></span>
+                        <br /></tc-webtag:errorIterator></span>
 
                     I Agree to the Terms and Conditions stated above&#160;
                     <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
                 </p>
 
                 <p style="width: 510px;">
-                    <A href="Javascript:document.regForm.submit();">Register</A>
+                    <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Register</a>
                 </p>
 
-                <p><br></p>
             </form>
+
         </td>
-        <!-- Center Column Ends -->
-
-        <!-- Gutter -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
-        <!-- Gutter Ends -->
-
-        <!-- Right Column Begins -->
-        <td width="180">
+<%-- Center Column Ends --%>
+       
+<%-- Right Column Begins --%>
+        <td width="170">
             <jsp:include page="../public_right.jsp">
-        <jsp:param name="level1" value="default"/>
+        <jsp:param name="level1" value="branded"/>
     </jsp:include>
-
         </td>
-        <!-- Right Column Ends -->
-
-        <!-- Gutter -->
-        <td width="2"><img src="/i/clear.gif" width="2" height="1" border="0"></td>
-        <!-- Gutter Ends -->
-
+<%-- Right Column Ends --%>
+       
     </tr>
+</tbody>
 </table>
 
 <jsp:include page="../foot.jsp"/>
@@ -212,5 +203,3 @@
 </body>
 
 </html>
-
-
