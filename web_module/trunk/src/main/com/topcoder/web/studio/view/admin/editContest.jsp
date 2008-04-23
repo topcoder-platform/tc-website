@@ -672,7 +672,7 @@
 <c:if test="${contest!=null && contest.id>0}">
     <p>
         Click
-        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}"
+        <a href="/?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}"
            target="_blank">here</a>
         to see what the contest details page will look like.
     </p>
