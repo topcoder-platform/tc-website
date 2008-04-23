@@ -23,10 +23,11 @@
 
 <body>
 
-<c:set value="<%=ContestStatus.DESIGN_TYPE_ID%>" var="DESIGN_TYPE_ID"/>
-<c:set value="<%=ContestStatus.DEVELOPMENT_TYPE_ID%>" var="DEVELOPMENT_TYPE_ID"/>
-<c:set value="<%=ContestStatus.ARCHITECTURE_TYPE_ID%>" var="ARCHITECTURE_TYPE_ID"/>
-<c:set value="<%=ContestStatus.ASSEMBLY_TYPE_ID%>" var="ASSEMBLY_TYPE_ID"/>
+<c:set value="<%=Constants.DESIGN_PROJECT_TYPE%>" var="DESIGN_TYPE_ID"/>
+<c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_TYPE_ID"/>
+<c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_TYPE_ID"/>
+<c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_TYPE_ID"/>
+<c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_TYPE_ID"/>
 
 
 <jsp:include page="../top.jsp">
@@ -56,6 +57,11 @@
         <c:when test="${pt == ASSEMBLY_TYPE_ID}">
            <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="assembly_contest_status"/>
+           </jsp:include>
+        </c:when>
+        <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
+           <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="application_testing_contest_status"/>
            </jsp:include>
         </c:when>
       </c:choose>
@@ -95,12 +101,18 @@
                 <jsp:param name="title" value="Contest Status"/>
             </jsp:include>
         </c:when>
+        <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="application_testing"/>
+                <jsp:param name="title" value="Contest Status"/>
+            </jsp:include>
+        </c:when>
       </c:choose>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <c:choose>
-        <c:when test="${pt == ARCHITECTURE_TYPE_ID || pt == ASSEMBLY_TYPE_ID}">
+        <c:when test="${pt == ARCHITECTURE_TYPE_ID || pt == ASSEMBLY_TYPE_ID || pt == APPLICATION_TESTING_TYPE_ID}">
             <td class="title" colspan="8">Contest Status</td>
         </c:when>
         <c:otherwise>
@@ -109,7 +121,7 @@
         </c:choose>
     </tr>
     <tr>
-        <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID}">
+        <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != APPLICATION_TESTING_TYPE_ID}">
             <td class="headerC">
                 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
             </td>
@@ -141,7 +153,7 @@
     <% boolean even = false; %>
     <rsc:iterator list="<%=contests%>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
-            <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID}">
+            <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != APPLICATION_TESTING_TYPE_ID}">
             <td class="valueC">
                 <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
                 <img src="/i/development/smAOL.gif"/>

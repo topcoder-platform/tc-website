@@ -1,4 +1,4 @@
-package com.topcoder.web.tc.controller.request.development.assembly;
+package com.topcoder.web.tc.controller.request.contest;
 
 import java.rmi.RemoteException;
 import java.sql.Timestamp;
@@ -63,10 +63,10 @@ public class Register extends ViewRegistration {
                         log.debug("they are eligible");
                     }
                     register();
-                    setNextPage("/dev/regSuccess.jsp");
+                    setNextPage("/contest/regSuccess.jsp");
                     setIsNextPageInContext(true);
                 } else {
-                    setNextPage("/dev/message.jsp");
+                    setNextPage("/contest/message.jsp");
                     setIsNextPageInContext(true);
                 }
             } else {
@@ -76,7 +76,7 @@ public class Register extends ViewRegistration {
                 setDefault(Constants.TERMS, getTerms());
                 //we're assuming if we got here, we had a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                setNextPage("/dev/regTerms.jsp");
+                setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             }
 
@@ -104,7 +104,16 @@ public class Register extends ViewRegistration {
             ComponentManagerHome componentManagerHome =
                     (ComponentManagerHome) PortableRemoteObject.narrow(objComponentManager, ComponentManagerHome.class);
             ComponentManager componentManager = componentManagerHome.create(componentId);
-            String project = componentManager.getComponentInfo().getName() + " Assembly Project";
+            String project = componentManager.getComponentInfo().getName();
+            
+            if (String.valueOf(projectTypeId).equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
+                project += " Assembly Project";
+            } else if (String.valueOf(projectTypeId).equals(Constants.COMPONENT_TESTING_PROJECT_TYPE)) {
+                project += " Component Testing Project";
+            } else if (String.valueOf(projectTypeId).equals(Constants.APPLICATION_TESTING_PROJECT_TYPE)) {
+                project += " Application Testing Project";
+            }
+            
             long activeForumCategoryId = componentManager.getActiveForumCategory().getId();
 
             if (log.isDebugEnabled()) {
@@ -150,14 +159,22 @@ public class Register extends ViewRegistration {
                     new CalendarDateFormatMethod("MM.dd.yyyy HH:mm a z"), true);
             String date = formatter.format(cal);
           
-            mail.setBody(getUser().getUserName() + ", \n\nRegistration Complete. \n\n" +
-                    "Thank you, for your interest in the " + project + ". You now have access to the Discussion Forum ( http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=" + activeForumCategoryId + " ) which can be used to obtain documentation, as well as to ask questions regarding the project. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\n\n" +
-                    "The deadline for submitting a solution is " + date + ". Please upload your submission using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review.  If you encounter any problems, please contact us at service@topcodersoftware.com.  All late submissions will be ignored.\n\n" +
-                    "Please use these forums to form your team:\n" + 
-                    "http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=19.\n\n" +
-                    "If you have any questions please contact service@topcodersoftware.com\n\n" +
-                    "TopCoder Software Team");
-
+            if (String.valueOf(projectTypeId).equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
+                mail.setBody(getUser().getUserName() + ", \n\nRegistration Complete. \n\n" +
+                        "Thank you, for your interest in the " + project + ". You now have access to the Discussion Forum ( http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=" + activeForumCategoryId + " ) which can be used to obtain documentation, as well as to ask questions regarding the project. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\n\n" +
+                        "The deadline for submitting a solution is " + date + ". Please upload your submission using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review.  If you encounter any problems, please contact us at service@topcodersoftware.com.  All late submissions will be ignored.\n\n" +
+                        "Please use these forums to form your team:\n" + 
+                        "http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=19.\n\n" +
+                        "If you have any questions please contact service@topcodersoftware.com\n\n" +
+                        "TopCoder Software Team");
+            } else {
+                mail.setBody(getUser().getUserName() + ", \n\nRegistration Complete. \n\n" +
+                        "Thank you, for your interest in the " + project + ". You now have access to the Discussion Forum ( http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=" + activeForumCategoryId + " ) which can be used to obtain documentation, as well as to ask questions regarding the project. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\n\n" +
+                        "The deadline for submitting a solution is " + date + ". Please upload your submission using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review.  If you encounter any problems, please contact us at service@topcodersoftware.com.  All late submissions will be ignored.\n\n" +
+                        "If you have any questions please contact service@topcodersoftware.com\n\n" +
+                        "TopCoder Software Team");
+            }
+            
             EmailEngine.send(mail);
 
         } finally {
