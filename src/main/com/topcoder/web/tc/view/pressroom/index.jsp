@@ -138,6 +138,19 @@
                 </div>
                 <%-- PricewaterhouseCoopers - TopCoder's network drives innovation end --%>
                 
+                <%-- BT Joins Sponsors of 2008 TopCoder Open begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040208"><img src="/i/pressroom/tco08_logo.png" alt="TopCoder Open 2008" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040208">BT Joins Sponsors of 2008 TopCoder Open</a></h3>
+                        <p>Leading Provider of Communications Solutions Teams Up with AOL, Lilly, NSA and VeriSign in Support of Computer Programming Championship  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040208">[April 2]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- BT Joins Sponsors of 2008 TopCoder Open end --%>
+                
                 <%-- ZDNet - TopCoder: breaking the development cost rules begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">

@@ -74,6 +74,7 @@
                     <dl>
                     <dt>&nbsp;</dt>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_041508">Finalists Announced for 2008 TopCoder Open May 12-15 in Las Vegas <br /><small style="margin-left:10px;">[April 15]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040208">BT Joins Sponsors of 2008 TopCoder Open <br /><small style="margin-left:10px;">[April 2]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031708">China, US and Poland Take Honors in TopCoder High School Tournament at Purdue University <br /><small style="margin-left:10px;">[March 17]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031008">AMD and TopCoder Host a Series of Competitions to Advance Multi-Threaded Software Development <br /><small style="margin-left:10px;">[March 10]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_030508">AOL, Lilly and VeriSign Return as Sponsors &amp; NSA Returns as Patron of 2008 TopCoder Open <br /><small style="margin-left:10px;">[March 5]</small></a></dd>
