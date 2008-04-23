@@ -114,30 +114,30 @@ ding="utf-8"?>
             <table>
                 <tbody>
                     <tr>
-                        <td class="img"><a href="#"><img alt="winner 1" src="/i/v3/winners/winner_2.png"/></a></td>
+                        <td class="img"><a href="/?module=ViewContestResults&ct=2213 "><img alt="winner 1" src="/i/v3/winners/winner_2.png"/></a></td>
                         <td>
-                            <i>rutam</i><br />
-                            <a href="/?module=ViewPastContests">AIM Expressions Storyboard</a><br />
+                            <span class="coderText">rutam</span><br />
+                            <a href="/?module=ViewContestDetails&ct=2213">AIM Expressions Storyboard</a><br />
                             $1500.00
                         </td>
                     </tr>
                     <tr class="last_row">
                         <td class="img">
-                            <a href="/?module=ViewPastContests"><img alt="winner 2" src="/i/v3/winners/winner_3.png"/></a>
+                            <a href="/?module=ViewContestResults&ct=2210"><img alt="winner 2" src="/i/v3/winners/winner_3.png"/></a>
                         </td>
                         <td>
-                            <i>bohuss</i><br />
-                            <a href="#">Argus VP Chart Interaction/Animation Phase 2</a><br />
+                            <span class="coderText">bohuss</span><br />
+                            <a href="/?module=ViewContestDetails&ct=2210">Argus VP Chart Interaction/Animation Phase 2</a><br />
                             $800.00
                         </td>
                     </tr>
                     <tr>
                         <td class="img">
-                            <a href="/?module=ViewPastContests"><img alt="winner 3" src="/i/v3/winners/winner_1.png"/></a>
+                            <a href="/?module=ViewContestResults&ct=2212"><img alt="winner 3" src="/i/v3/winners/winner_1.png"/></a>
                         </td>
                         <td>
-                            <i>dafei</i><br />
-                            <a href="#">TC Pipeline Yahoo Widget Storyboard</a><br />
+                            <span class="coderText">dafei</span><br />
+                            <a href="/?module=ViewContestDetails&ct=2212">TC Pipeline Yahoo Widget Storyboard</a><br />
                             $450.00
                         </td>
                     </tr>
