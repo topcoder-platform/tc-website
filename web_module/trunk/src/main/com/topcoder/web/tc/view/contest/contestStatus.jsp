@@ -1,6 +1,4 @@
 <%@ page language="java" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.web.common.model.SoftwareComponent"%>
@@ -11,6 +9,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer contests = (ResultSetContainer)request.getAttribute("contests");%>
+
+<%@ page contentType="text/html;charset=utf-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
 <title>Contest Status</title>
@@ -61,7 +64,7 @@
         </c:when>
         <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
            <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="application_testing_contest_status"/>
+            <jsp:param name="node" value="app_testing_status"/>
            </jsp:include>
         </c:when>
       </c:choose>
@@ -103,7 +106,7 @@
         </c:when>
         <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="application_testing"/>
+                <jsp:param name="image" value="app_testing"/>
                 <jsp:param name="title" value="Contest Status"/>
             </jsp:include>
         </c:when>
