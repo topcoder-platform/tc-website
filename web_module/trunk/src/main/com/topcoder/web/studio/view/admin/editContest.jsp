@@ -696,7 +696,7 @@
         <div id="docList">
             <c:forEach items="${contest.documents}" var="document">
                 <div class="editConDoc">
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
+                    <a href="/?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
                         ${document.originalFileName}
                     </a>
                     <div class="editConDocIndent">
