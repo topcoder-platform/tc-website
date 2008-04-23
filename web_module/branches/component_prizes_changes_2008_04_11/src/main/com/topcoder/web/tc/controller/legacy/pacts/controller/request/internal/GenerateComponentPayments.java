@@ -11,6 +11,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.DevSupportException;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -34,9 +35,12 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
     protected void businessProcessing() throws TCWebException {
         try {
             
-            log.debug("APPLY_REVIEWER_WITHHOLDING_ID: " + getRequest().getParameter(APPLY_REVIEWER_WITHHOLDING_ID));
-            log.debug("PAY_RBOARD_BONUS_ID: " + getRequest().getParameter(PAY_RBOARD_BONUS_ID));
-            
+            boolean applyReviewerWithholding = StringUtils.checkNull(getRequest().getParameter(APPLY_REVIEWER_WITHHOLDING_ID)).equalsIgnoreCase("on");
+            boolean payRboardBonus = StringUtils.checkNull(getRequest().getParameter(PAY_RBOARD_BONUS_ID)).equalsIgnoreCase("on");
+
+            log.debug("applyReviewerWithholding: " + applyReviewerWithholding);
+            log.debug("payRboardBonus: " + payRboardBonus);
+
             String devSupport = getRequest().getParameter(IS_DEV_SUPPORT_BY_DESIGNER);
             String devSupportProject = getRequest().getParameter(DEV_SUPPORT_PROJECT);
             DataInterfaceBean dib = new DataInterfaceBean();
@@ -44,6 +48,10 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             getRequest().setAttribute(PROJECT_TERMINATION_STATUS_LIST, map.get(PROJECT_TERMINATION_STATUS_LIST));
             setDefault(IS_DEV_SUPPORT_BY_DESIGNER, devSupport);
             setDefault(DEV_SUPPORT_PROJECT, devSupportProject);
+
+            setDefault(APPLY_REVIEWER_WITHHOLDING_ID , applyReviewerWithholding);
+            setDefault(PAY_RBOARD_BONUS_ID , payRboardBonus);
+            
             setNextPage(INTERNAL_GENERATE_COMPONENT_PAYMENTS);
             setIsNextPageInContext(true);
 
@@ -89,7 +97,8 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 List l;
                 if ("none".equals(devSupportProject)) {
                     log.debug("Development support will not be paid");
-                    l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client);
+
+                    l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, applyReviewerWithholding, payRboardBonus);
                 } else {
                     long pid = 0;
                     if ("other".equals(devSupportProject)) {
@@ -102,7 +111,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                         return;
                     }
                     
-                    l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, devSupportId, pid);
+                    l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, devSupportId, pid, applyReviewerWithholding, payRboardBonus);
                     
                 }
                 

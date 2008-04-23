@@ -4794,18 +4794,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Generate  payments for components, excluding development support payments.
      */
-    public List generateComponentPayments(long projectId, long status, String client)
+    public List generateComponentPayments(long projectId, long status, String client, boolean applyReviewerWithholding, boolean payRboardBonus)
             throws IllegalUpdateException, SQLException, EventFailureException {
-        return generateComponentPayments(projectId, status, client, false, 0, 0);
+        return generateComponentPayments(projectId, status, client, false, 0, 0, applyReviewerWithholding, payRboardBonus);
     }
 
 
     /**
      * Generate payments for components, including development support if needed.
      */
-    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId)
+    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId, boolean applyReviewerWithholding, boolean payRboardBonus)
             throws IllegalUpdateException, SQLException, EventFailureException {
-        return generateComponentPayments(projectId, status, client, true, devSupportCoderId, devSupportProjectId);
+        return generateComponentPayments(projectId, status, client, true, devSupportCoderId, devSupportProjectId, applyReviewerWithholding, payRboardBonus);
     }
 
     /**
@@ -4813,7 +4813,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
             throws IllegalUpdateException, SQLException, EventFailureException {
-        return generateComponentPayments(projectId, status, client, true, devSupportCoderId, 0);
+        return generateComponentPayments(projectId, status, client, true, devSupportCoderId, 0, false, false);
     }
 
     /**
@@ -4831,7 +4831,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *                                has already been generated for this round.
      * @throws SQLException           If there was some error updating the data.
      */
-    private List generateComponentPayments(long projectId, long status, String client, boolean payDevSupport, long devSupportCoderId, long devSupportProjectId)
+    private List generateComponentPayments(long projectId, long status, String client, boolean payDevSupport, long devSupportCoderId, long devSupportProjectId, boolean applyReviewerWithholding, boolean payRboardBonus)
             throws IllegalUpdateException, SQLException, EventFailureException {
         log.debug("generateComponentPayments called...");
         List payments = new ArrayList();
