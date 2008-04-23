@@ -64,7 +64,7 @@ ding="utf-8"?>
             <p>Show off your creative skills in a competitive environment and get paid for being the best!</p>
         </div>
         <div id="welcome_banner">
-            <a href="/forums?module=Thread&amp;threadID=1541&amp;start=0"><img alt="Get Started Now!" src="/i/v3/welcome_banner.png" width="536" height="121" border="0"/></a>
+            <a href="/?module=ViewActiveContests"><img alt="Get Started Now!" src="/i/v3/welcome_banner.png" width="536" height="121" border="0"/></a>
         </div>
     </div>
 
