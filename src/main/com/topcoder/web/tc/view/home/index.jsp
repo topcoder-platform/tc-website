@@ -107,6 +107,18 @@
         <%-- TCO08 
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about' refer='homepage' />"><img src="/i/home/tco08compRegBanner.png" alt="2008 TopCoder Open" /></a>
         --%>
+        
+        <%-- TCO08 brackets --%>
+        <map id="tco08" name="tco08">
+        <area shape="rect" alt="" coords="12,6,455,114" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about" />
+        <area shape="rect" alt="" coords="0,136,85,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=bracket" />
+        <area shape="rect" alt="" coords="103,136,164,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=desBracket" />
+        <area shape="rect" alt="" coords="181,136,295,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=devBracket" />
+        <area shape="rect" alt="" coords="310,136,397,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=marathon&amp;d4=bracket" />
+        <area shape="rect" alt="" coords="413,136,474,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=bracket" />
+        </map>
+        <img src="/i/home/tco08bracket.png" alt="TCO08" usemap="#tco08" style="display: block;" />
+        
 
         <%-- Architecture 
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=architecture&amp;d2=beta' refer='homepage' />"><img src="/i/home/architectureBeta.jpg" alt="Architecture Competition" /></a>
@@ -116,8 +128,9 @@
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=description' refer='homepage' />"><img src="/i/home/umltoolRelease.jpg" alt="UML Tool Release" /></a>
         --%>
 
-        <%-- OpenAIM --%>
+        <%-- OpenAIM 
         <a href="<tc-webtag:linkTracking link='/openaim/' refer='homepage' />"><img src="/i/home/openaim.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
+        --%>
 
     </td>
     <td align="right" valign="top">
