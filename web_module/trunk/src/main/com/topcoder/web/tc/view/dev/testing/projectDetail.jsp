@@ -10,7 +10,7 @@
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail");%>
 <% ResultSetContainer technologies = (ResultSetContainer) request.getAttribute("technologies");%>
 <head>
-<title>TopCoder Assembly Competitions</title>
+<title>TopCoder Component Testing Competitions</title>
 
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
@@ -30,7 +30,7 @@
 <%-- Left Column Begins--%>
 <td width="180">
     <jsp:include page="/includes/global_left.jsp">
-      <jsp:param name="node" value="assembly_compete"/>
+      <jsp:param name="node" value="testing_compete"/>
     </jsp:include>
 </td>
 <%-- Left Column Ends --%>
@@ -39,7 +39,7 @@
 <td width="100%" align="left" class="bodyColumn">
 
 <jsp:include page="/page_title.jsp">
-<jsp:param name="image" value="assembly"/>
+<jsp:param name="image" value="testing"/>
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
@@ -51,7 +51,7 @@
 
 <table cellspacing="0" class="formFrame" align="center" width="530">
     <tr>
-        <td class="projectTitles" nowrap="nowrap">Assembly Project -
+        <td class="projectTitles" nowrap="nowrap">Testing Project -
             <rsc:item set="<%=projectDetail%>" name="component_name"/></td>
     </tr>
 </table>
@@ -138,7 +138,7 @@
 <span class="bigRed">NOTE: Please see the eligibility requirements below. Competitors must sign a non-disclosure agreement before being admitted into this competition.   If you have previously completed these documents, no further action is needed.</span>
 
 <p>
-<div align="right"><A href="/tc?module=Static&d1=features&d2=061906"><img src="/i/development/assembly/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
+<div align="right"><A href="/tc?module=Static&d1=features&d2=061906"><img src="/i/development/testing/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
 </p>
 
 
@@ -193,7 +193,7 @@ Second Milestone: Marked by the completion of the Deployment phase of the projec
 </p>
 
 <p>
-Final payment is conditional on acceptance of the fully functional assembly by the Assembly Review Board
+Final payment is conditional on acceptance .......
 </p>
 
 <%-- Eligibility Requirements --%>
@@ -219,7 +219,7 @@ Final payment is conditional on acceptance of the fully functional assembly by t
             need to do anything to become authorized)</li>
     </ul>
 
-<span class="bigRed">Your ability to participate in this competition is contingent on the agreement to the Assembly Terms of Work and signing of a Non Disclosure Agreement. Once you have registered this information will be emailed to you and should be returned within 24 hours.  If you have previously completed these documents, no further action is needed.</span>
+<span class="bigRed">Your ability to participate in this competition is contingent on the agreement to the Testing Terms of Work and signing of a Non Disclosure Agreement. Once you have registered this information will be emailed to you and should be returned within 24 hours.  If you have previously completed these documents, no further action is needed.</span>
 </p>
 
 </td>

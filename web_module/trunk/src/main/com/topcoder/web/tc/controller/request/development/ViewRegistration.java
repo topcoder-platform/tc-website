@@ -63,10 +63,10 @@ public class ViewRegistration extends Base {
                 setDefault(Constants.TERMS, getTerms());
                 //we're assuming that if we're here, we got a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                setNextPage("/dev/regTerms.jsp");
+                setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
-                setNextPage("/dev/message.jsp");
+                setNextPage("/contest/message.jsp");
                 setIsNextPageInContext(true);
             }
 

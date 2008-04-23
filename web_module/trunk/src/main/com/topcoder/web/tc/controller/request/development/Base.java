@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.request.development;
 
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -13,8 +15,6 @@ import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.tc.Constants;
 
-import java.util.Map;
-
 /**
  * Added some code to make project related controllers more generic.
  *
@@ -24,81 +24,43 @@ import java.util.Map;
 public abstract class Base extends ShortHibernateProcessor {
     protected Logger log = Logger.getLogger(Base.class);
 
-    public static final int COMPONENT_DESIGN_PROJECT_TYPE = 1;
-    public static final int COMPONENT_DEVELOPMENT_PROJECT_TYPE = 2;
-    public static final int ASSEMBLY_PROJECT_TYPE = 14;
-    public static final int ARCHITECTURE_PROJECT_TYPE = 7;
-
     protected int getProjectTypeId(long projectId) throws Exception {
         ProjectLocal pl = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
         return pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
 
     public static final String getProjectDetailPage(int projectTypeId) {
-        switch (projectTypeId) {
-            case COMPONENT_DESIGN_PROJECT_TYPE:
-                return Constants.DESIGN_DETAIL;
-            case COMPONENT_DEVELOPMENT_PROJECT_TYPE:
-                return Constants.DEVELOPMENT_DETAIL;
-            case ASSEMBLY_PROJECT_TYPE:
-                return "/dev/assembly/projectDetail.jsp";
-            case ARCHITECTURE_PROJECT_TYPE:
-                return "/architecture/projectDetail.jsp";
-            default:
-                return "";
+        if (String.valueOf(projectTypeId).equals(Constants.DESIGN_PROJECT_TYPE)) {
+            return Constants.DESIGN_DETAIL;
+        } else if (String.valueOf(projectTypeId).equals(Constants.DEVELOPMENT_PROJECT_TYPE)) {
+            return Constants.DEVELOPMENT_DETAIL;
+        } else if (String.valueOf(projectTypeId).equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
+            return "/dev/assembly/projectDetail.jsp";
+        } else if (String.valueOf(projectTypeId).equals(Constants.ARCHITECTURE_PROJECT_TYPE)) {
+            return "/architecture/projectDetail.jsp";
+        } else if (String.valueOf(projectTypeId).equals(Constants.COMPONENT_TESTING_PROJECT_TYPE)) { 
+            return "/dev/testing/projectDetail.jsp";
+        } else if (String.valueOf(projectTypeId).equals(Constants.APPLICATION_TESTING_PROJECT_TYPE)) { 
+            return "/testing/projectDetail.jsp";
+        } else {
+            return "";
         }
     }
 
     public static final String getRegistrantsCommandName(int projectTypeId) {
-        switch (projectTypeId) {
-            case COMPONENT_DESIGN_PROJECT_TYPE:
-            case COMPONENT_DEVELOPMENT_PROJECT_TYPE:
-                return "registrants";
-            case ASSEMBLY_PROJECT_TYPE:
-                return "assembly_registrants";
-            case ARCHITECTURE_PROJECT_TYPE:
-                return "architecture_registrants";
-            default:
-                return "";
+        if (String.valueOf(projectTypeId).equals(Constants.DESIGN_PROJECT_TYPE) ||
+            String.valueOf(projectTypeId).equals(Constants.DEVELOPMENT_PROJECT_TYPE)) {
+            return "registrants";
+        } else if (String.valueOf(projectTypeId).equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
+            return "assembly_registrants";
+        } else if (String.valueOf(projectTypeId).equals(Constants.ARCHITECTURE_PROJECT_TYPE)) {
+            return "architecture_registrants";
+        } else {
+            return "contest_registrants";
         }
     }
 
     protected void dbProcessing() throws TCWebException {
-        //get the data for the right side
-        /*try {
-
-            log.debug("ENTERING businessProcessing");
-
-            //no longer using, removed - rfairfax 6-9-2004
-
-             ResultSetContainer openProjects = getOpenProjects();
-
-            double devSum = 0.0d;
-            double designSum = 0.0d;
-            ResultSetContainer.ResultSetRow row = null;
-            for (Iterator it=openProjects.iterator(); it.hasNext();) {
-                row = (ResultSetContainer.ResultSetRow)it.next();
-                if (row.getLongItem("phase_id")==113) {
-                    devSum+=row.getDoubleItem("price");
-                } else if (row.getLongItem("phase_id")==112) {
-                    designSum+=row.getDoubleItem("price");
-                }
-            }
-            devSum*=1.5d;
-            designSum*=1.5d;
-
-            getRequest().setAttribute("DevSum", new Double(devSum));
-            getRequest().setAttribute("DesignSum", new Double(designSum));
-            getRequest().setAttribute("OpenProjects", openProjects);
-
-
-            log.debug("LEAVING businessProcessing");
-
-        } catch (TCWebException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }*/
         developmentProcessing();
     }
 
