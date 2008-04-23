@@ -39,6 +39,7 @@
                     <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted">Getting Started</a>
                     <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
                     <br />Competition FAQs
+                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=formatSubmission">Formatting Your Submission</a>
                     <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Assignment FAQ</a>
                 </div>
 
@@ -57,7 +58,7 @@
 
                 <h3>What should I include with my submission?</h3>
                 
-                For all Studio contests, you must include both your submission file(s) and your source files. Everything is zipped up and submitted together. See <a href="">formatting your submission</a> for more information.
+                For all Studio contests, you must include both your submission file(s) and your source files. Everything is zipped up and submitted together. See <a href="/?module=Static&amp;d1=support&amp;d2=formatSubmission">formatting your submission</a> for more information.
                 <br /><br />
 
                 <h3>Why must I submit my source files with my submission?</h3>
