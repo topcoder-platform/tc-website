@@ -65,7 +65,7 @@
                             <tr><td class="space" colspan="8">&nbsp;</td></tr>
                             <tr class="<%=even?"light":"dark"%>">
                                 <td class="valueW"><div>&nbsp;</div></td>
-                                <td class="value"><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">${resultRow.map['name']}</a></td>
+                                <td class="value"><a href="/?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">${resultRow.map['name']}</a></td>
                                 <td class="value" nowrap="nowrap">${resultRow.map['contest_status_desc']}</td>
                                 <td class="valueC" nowrap="nowrap">
                                     <tc-webtag:format object="${resultRow.map['start_time']}" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
