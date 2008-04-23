@@ -1,6 +1,4 @@
 <%@ page language="java" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.tc.Constants" %>
@@ -9,8 +7,14 @@
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail");%>
 <% ResultSetContainer technologies = (ResultSetContainer) request.getAttribute("technologies");%>
+
+<%@ page contentType="text/html;charset=utf-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
-<title>TopCoder Assembly Competitions</title>
+    <title>TopCoder :: Project Details</title>
 
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
@@ -21,27 +25,28 @@
 
 <body>
 
-<jsp:include page="../../top.jsp">
+<jsp:include page="../top.jsp">
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-<tr valign="top">
+<tbody>
+    <tr valign="top">
 <%-- Left Column Begins--%>
-<td width="180">
-    <jsp:include page="/includes/global_left.jsp">
-      <jsp:param name="node" value="assembly_compete"/>
-    </jsp:include>
-</td>
+        <td width="180">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="app_testing_compete"/>
+                </jsp:include>
+        </td>
 <%-- Left Column Ends --%>
 
 <%-- Center Column Begins --%>
-<td width="100%" align="left" class="bodyColumn">
+        <td width="100%" align="left" class="bodyColumn">
 
-<jsp:include page="/page_title.jsp">
-<jsp:param name="image" value="assembly"/>
-<jsp:param name="title" value="Active Contests"/>
-</jsp:include>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="app_testing"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
 
 <%-- Title --%>
 
@@ -51,7 +56,7 @@
 
 <table cellspacing="0" class="formFrame" align="center" width="530">
     <tr>
-        <td class="projectTitles" nowrap="nowrap">Assembly Project -
+        <td class="projectTitles" nowrap="nowrap">Testing Project -
             <rsc:item set="<%=projectDetail%>" name="component_name"/></td>
     </tr>
 </table>
@@ -138,7 +143,7 @@
 <span class="bigRed">NOTE: Please see the eligibility requirements below. Competitors must sign a non-disclosure agreement before being admitted into this competition.   If you have previously completed these documents, no further action is needed.</span>
 
 <p>
-<div align="right"><A href="/tc?module=Static&d1=features&d2=061906"><img src="/i/development/assembly/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
+<div align="right"><A href="/tc?module=Static&d1=features&d2=061906"><img src="/i/development/testing/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
 </p>
 
 
@@ -149,7 +154,8 @@
     </tr>
 </table>
 <p>
-    All submissions are required to be submitted by the Initial Submission Due Date.</p>
+    All submissions are required to be submitted by the Initial Submission Due Date. All questions submitted with more than 24 hours before the due date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.
+</p>
 
 <p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="250">
@@ -171,6 +177,12 @@
     </tr>
 </table>
 </p>
+<ul>
+<li>TopCoder may extend registration deadlines for any project that has insufficient participation. This decision may be influenced by whether the members that are already signed up for the project are rated or have high reliability. Registration deadlines become final 12 hours after they have expired.</li>
+<li>TopCoder may extend submission deadlines up to 48 hours before the submission deadline if evidence suggests that the extension may be necessary for the project to be completed.</li>
+<li>TopCoder may extend submission deadlines at any time if there were problems in the project that cost competitors time and therefore justify the extension.</li>
+<li>TopCoder may cancel any project when there is evidence that no competitors are going to submit. Before this, TopCoder will send a verification email to all competitors. If no competitors reply affirmatively within 24 hours, the project will be terminated.</li>
+</ul>
 
 <%-- Payment --%>
 <table cellspacing="0" class="formFrame" align="center" width="530">
@@ -179,10 +191,7 @@
     </tr>
 </table>
 <p>
-TopCoder will compensate the first and second place submissions. 
-Initial payment for the winner will be distributed in two installments. 
-First Milestone: When the winning solution is submitted and review board suggestions are integrated. 
-Second Milestone: Marked by the completion of the Deployment phase of the project.</p>
+ TopCoder will compensate members with first and second place submissions after project completion that have scored at least 75*.</p>
 
 <p><strong>Winner</strong><br>
     Total Payment - $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br>
@@ -193,8 +202,14 @@ Second Milestone: Marked by the completion of the Deployment phase of the projec
 </p>
 
 <p>
-Final payment is conditional on acceptance of the fully functional assembly by the Assembly Review Board
+    Completion of the project is defined as follows:
 </p>
+
+<ul>
+<li>The Initial Submission has been delivered by the Initial Submission Due Date.</li>
+<li>The Submission has been selected by the board as the winning submission.</li>
+<li>Final payment is conditional on acceptance of the fully completed deliverables by the Review Board.</li>
+</ul>
 
 <%-- Eligibility Requirements --%>
 <table cellspacing="0" class="formFrame" align="center" width="530">
@@ -219,33 +234,31 @@ Final payment is conditional on acceptance of the fully functional assembly by t
             need to do anything to become authorized)</li>
     </ul>
 
-<span class="bigRed">Your ability to participate in this competition is contingent on the agreement to the Assembly Terms of Work and signing of a Non Disclosure Agreement. Once you have registered this information will be emailed to you and should be returned within 24 hours.  If you have previously completed these documents, no further action is needed.</span>
+<span class="bigRed">Your ability to participate in this competition is contingent on the agreement to the Testing Terms of Work and signing of a Non Disclosure Agreement. Once you have registered this information will be emailed to you and should be returned within 24 hours.  If you have previously completed these documents, no further action is needed.</span>
 </p>
 
 </td>
 </tr>
 </table>
 
-<p><br></p>
 
-
-</td>
+        </td>
 <%-- Center Column Ends --%>
-
+       
 <%-- Right Column Begins --%>
-<td width="180">
-    <jsp:include page="../../public_right.jsp">
-        <jsp:param name="level1" value="default"/>
+        <td width="170">
+            <jsp:include page="../public_right.jsp">
+        <jsp:param name="level1" value="branded"/>
     </jsp:include>
-</td>
+        </td>
 <%-- Right Column Ends --%>
-
-</tr>
+       
+    </tr>
+</tbody>
 </table>
 
-<jsp:include page="../../foot.jsp"/>
+<jsp:include page="../foot.jsp"/>
 
 </body>
 
 </html>
-

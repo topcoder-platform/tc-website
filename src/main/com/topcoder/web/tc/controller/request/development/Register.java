@@ -1,5 +1,22 @@
 package com.topcoder.web.tc.controller.request.development;
 
+import java.rmi.RemoteException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
+import java.util.TimeZone;
+
+import javax.ejb.CreateException;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+import javax.transaction.Status;
+import javax.transaction.TransactionManager;
+
 import com.topcoder.dde.catalog.ComponentManager;
 import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.dde.catalog.ComponentVersionInfo;
@@ -19,9 +36,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Answer;
-import com.topcoder.web.common.model.CoderType;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.tag.AnswerInput;
@@ -30,22 +45,6 @@ import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.tc.Constants;
-
-import javax.ejb.CreateException;
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import javax.transaction.Status;
-import javax.transaction.TransactionManager;
-import java.rmi.RemoteException;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
-import java.util.TimeZone;
 
 /**
  * @author dok
@@ -106,7 +105,7 @@ public class Register extends ViewRegistration {
                             }
                             register();
                             getRequest().removeAttribute("responses");
-                            setNextPage("/dev/regSuccess.jsp");
+                            setNextPage("/contest/regSuccess.jsp");
                             setIsNextPageInContext(true);
                         } else {
                             setNextPage("/dev/tournamentConfirm.jsp");
@@ -117,11 +116,11 @@ public class Register extends ViewRegistration {
                             log.debug("just register them, it's either not tourney time");
                         }
                         register();
-                        setNextPage("/dev/regSuccess.jsp");
+                        setNextPage("/contest/regSuccess.jsp");
                         setIsNextPageInContext(true);
                     }
                 } else {
-                    setNextPage("/dev/message.jsp");
+                    setNextPage("/contest/message.jsp");
                     setIsNextPageInContext(true);
                 }
             } else {
@@ -133,7 +132,7 @@ public class Register extends ViewRegistration {
                 setDefaults(responses);
                 //we're assuming if we got here, we had a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                setNextPage("/dev/regTerms.jsp");
+                setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             }
 

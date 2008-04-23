@@ -13,28 +13,24 @@ import com.topcoder.web.tc.Constants;
  *          Create Date: Feb 28, 2006
  */
 public class ContestStatus extends Base {
-    
-    public static final String DESIGN_TYPE_ID = "1";
-    public static final String DEVELOPMENT_TYPE_ID = "2";
-    public static final String ARCHITECTURE_TYPE_ID = "7";
-    public static final String ASSEMBLY_TYPE_ID = "14";
-
+        
     protected void developmentProcessing() throws TCWebException {
         try {
             String projectTypeId = getRequest().getParameter(Constants.PROJECT_TYPE_ID);
             String phaseId = getRequest().getParameter(Constants.PHASE_ID);
             
             if (String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(phaseId)) {
-                projectTypeId = DESIGN_TYPE_ID;
+                projectTypeId = Constants.DESIGN_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.DEV_PHASE).equals(phaseId)) {
-                projectTypeId = DEVELOPMENT_TYPE_ID;
+                projectTypeId = Constants.DEVELOPMENT_PROJECT_TYPE;
             }  
 
-            if (DESIGN_TYPE_ID.equals(projectTypeId) || DEVELOPMENT_TYPE_ID.equals(projectTypeId) ||
-                ASSEMBLY_TYPE_ID.equals(projectTypeId) || ARCHITECTURE_TYPE_ID.equals(projectTypeId)) {
+            if (Constants.DESIGN_PROJECT_TYPE.equals(projectTypeId) || Constants.DEVELOPMENT_PROJECT_TYPE.equals(projectTypeId) ||
+                    Constants.ASSEMBLY_PROJECT_TYPE.equals(projectTypeId) || Constants.ARCHITECTURE_PROJECT_TYPE.equals(projectTypeId) || 
+                    Constants.APPLICATION_TESTING_PROJECT_TYPE.equals(projectTypeId)) {
                 Request r = new Request();
                 String commandName = "contest_project_status";
-                if (ARCHITECTURE_TYPE_ID.equals(projectTypeId)) {
+                if (Constants.ARCHITECTURE_PROJECT_TYPE.equals(projectTypeId)) {
                     commandName = "architecture_project_status";
                 }
 
@@ -50,7 +46,7 @@ public class ContestStatus extends Base {
                 SortInfo s = new SortInfo();
                 getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
-                setNextPage("/dev/contestStatus.jsp");
+                setNextPage("/contest/contestStatus.jsp");
                 setIsNextPageInContext(true);
             } else {
                 throw new TCWebException("Invalid project type specified " + projectTypeId);
@@ -63,32 +59,4 @@ public class ContestStatus extends Base {
         }
 
     }
-/*    protected void developmentProcessing() throws TCWebException {
-        try {
-            String phaseId = getRequest().getParameter(Constants.PHASE_ID);
-            if (String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(phaseId)||String.valueOf(SoftwareComponent.DEV_PHASE).equals(phaseId)) {
-                Request r = new Request();
-                r.setContentHandle("contest_status");
-                r.setProperties(getRequest().getParameterMap());
-                r.setProperty(DataAccessConstants.SORT_QUERY, "contest_status");
-                getRequest().setAttribute("contests", getDataAccess().getData(r).get("contest_status"));
-
-                getRequest().setAttribute(Constants.PHASE_ID, phaseId);
-
-                SortInfo s = new SortInfo();
-                getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
-
-                setNextPage("/dev/contestStatus.jsp");
-                setIsNextPageInContext(true);
-            } else {
-                throw new TCWebException("Invalid phase specified " + phaseId);
-            }
-
-        } catch (TCWebException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
-
-    } */
 }

@@ -1,4 +1,5 @@
-package com.topcoder.web.tc.controller.request.architecture;
+package com.topcoder.web.tc.controller.request.contest;
+
 
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -6,35 +7,26 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
-import com.topcoder.web.ejb.project.Project;
-import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.development.Base;
 
 /**
- * @author pulky
+ * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 5, 2006
  */
-public class ViewRegistration extends BaseProcessor {
+public class ViewRegistration extends Base {
 
     private ComponentRegistrationServicesLocal regServices = null;
 
-    protected int getProjectTypeId(long projectId) throws Exception {
-        ProjectLocal pl = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
-        return pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
-    }
-
-    protected void businessProcessing() throws TCWebException {
+    protected int projectTypeId = 0;
+    
+    protected void developmentProcessing() throws TCWebException {
 
         try {
             
@@ -48,10 +40,10 @@ public class ViewRegistration extends BaseProcessor {
                 setDefault(Constants.TERMS, getTerms());
                 //we're assuming that if we're here, we got a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                setNextPage("/dev/regTerms.jsp");
+                setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
-                setNextPage("/dev/message.jsp");
+                setNextPage("/contest/message.jsp");
                 setIsNextPageInContext(true);
             }
 
@@ -65,7 +57,7 @@ public class ViewRegistration extends BaseProcessor {
 
     protected String getTerms() throws Exception {
         TermsOfUseLocal t = (TermsOfUseLocal) createLocalEJB(getInitialContext(), TermsOfUse.class);
-        return t.getText(Constants.ARCHITECTURE_TERMS_ID, DBMS.OLTP_DATASOURCE_NAME);
+        return t.getText(Constants.PROJECT_TERMS_ID, DBMS.OLTP_DATASOURCE_NAME);
 
     }
 
@@ -77,7 +69,14 @@ public class ViewRegistration extends BaseProcessor {
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
         }
 
-        int projectTypeId = getProjectTypeId(projectId);
+        projectTypeId = getProjectTypeId(projectId);
+
+        if (!String.valueOf(projectTypeId).equals(Constants.ASSEMBLY_PROJECT_TYPE) &&
+                !String.valueOf(projectTypeId).equals(Constants.ARCHITECTURE_PROJECT_TYPE) &&
+                !String.valueOf(projectTypeId).equals(Constants.COMPONENT_TESTING_PROJECT_TYPE) &&
+                !String.valueOf(projectTypeId).equals(Constants.APPLICATION_TESTING_PROJECT_TYPE)) {
+            throw new NavigationException("Invalid project specified (wrong category)");
+        }
 
         getRequest().setAttribute(Constants.PROJECT_TYPE_ID, new Integer(projectTypeId));
 

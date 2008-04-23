@@ -33,7 +33,7 @@ public class ViewRegistrants extends Base {
             r.setContentHandle(getRegistrantsCommandName(projectTypeId));
             r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
             getRequest().setAttribute("resultMap", getDataAccess().getData(r));
-            setNextPage("/dev/registrants.jsp");
+            setNextPage("/contest/registrants.jsp");
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
             throw e;
