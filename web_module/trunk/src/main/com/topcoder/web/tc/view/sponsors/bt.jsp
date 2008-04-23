@@ -43,6 +43,23 @@
         <br /><br />
 
         <br />
+        <%--
+        <h1>British Telecommunications (BT) is hiring!</h1>
+        <p>We are aiming to create high-performance teams of talented, passionate software engineers who can see the potential in tomorrow's voice and data networks, who are ready to make their mark in helping to drive the global transformation to a digital economy and who are excited to develop the next generation of applications leveraging the power of BT's IP enabled 21Century next-generation network!</p>
+        <p>BT is one of the world's leading providers of communications solutions and services operating in 170 countries. Our vision is to be dedicated to helping customers thrive in a changing world and our mission is to be the leader in delivering converged networked software services.</p>
+        <p>Content providers, emerging as a serious rival to network operators in the next-generation services arena, are working to develop competitive services using completely different approaches than those slowly making inroads in the telecom sector.</p>
+        <p>On the 7<sup>th</sup> September 2007 BT Design opened a technology and service centre in Dalian, North East China. It marked the beginning of a $70 million investment by BT in China announced by Francois Barrault, CEO of BT Global Services.</p>
+        <p>BT has set up in Dalian for 3 main reasons;</p>
+        <ul>
+            <li>To access talent from around the world</li>
+            <li>To help us expand our global sourcing strategy</li>
+            <li>To enable BT Design to be closer to our global customers in China</li>
+        </ul>
+        <p>The Dalian Technology and Service Centre is now home to BT employees in software development and customer service. The service centre provides software development capabilities as well as a variety of support services to BT customers in Japan, Korea, China and Hong Kong.</p>
+        <p>Become part of our exciting future at BT. You will be on the forefront in the creation of new and exciting products in a number of areas, and play a key role in the development of compelling and useful software in a swiftly changing industry.</p>
+        <p>There are positions for extraordinary coders with BT, offering competitive pay and benefits and we are keen to talk to individuals who want to join with us in China and be part of the future of technology and services in an ever evolving sector.</p>
+        --%>
+        
         <h1>BT</h1>
         <h2>Next-gen developers for next-gen applications</h2>
         <p>BT is excited to sponsor the world's top programming talent at the 2008 TopCoder Open.  Al-Noor Ramji, CIO, BT Group says: "At BT, we are harnessing the power of our software-driven innovation ecosystem.  Partnering with the world's leading programming minds is core to that strategy."</p>
