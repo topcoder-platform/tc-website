@@ -49,6 +49,7 @@
         <a href="${sessionInfo.servletPath}?${modKey}=Static&amp;d1=slideshow&amp;${cid}=${contestId}&amp;${subId}=${submissionId}&amp;${subFileIdx}=${imageIndex+1}&amp;${galImgCount}=${imagesCnt}">Next ></a>&nbsp;
         </c:if>
     </p>
+    <br clear="all" />
     <div>
         <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subFileIdx}=${imageIndex}&amp;${subAltType}=full" alt="${submissionId}"/>
     </div>
