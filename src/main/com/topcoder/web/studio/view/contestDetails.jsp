@@ -132,13 +132,13 @@ f<%@ page import="com.topcoder.web.studio.Constants" %>
 
     <c:if test="${not empty contest.otherFileTypes.value}">
         <div class="section">Submission File Formats:</div>
-        <div class="padder"><p align="center"><studio:formatField text="${contest.otherFileTypes.value}"/></p></div>
+        <div class="padder"><p><studio:formatField text="${contest.otherFileTypes.value}"/></p></div>
     </c:if>
 
     <c:if test="${fn:length(contest.fileTypes)>0}">
         <div class="section">Source Files:</div>
         <div class="padder">
-            <p align="center">
+            <p>
                 <c:forEach items="${contest.fileTypes}" var="fileType" varStatus="status">
                     <strong>${fileType.description}</strong><c:if test="${not status.last}">,</c:if>
                 </c:forEach>
@@ -157,10 +157,10 @@ f<%@ page import="com.topcoder.web.studio.Constants" %>
                     <strong>Unlimited</strong>
                 </c:when>
                 <c:when test="${contest.maxSubmissions.value eq 1}">
-                    <strong>1</strong> submission
+                    <strong>1</strong> submission per competitor
                 </c:when>
                 <c:otherwise>
-                    <strong>${contest.maxSubmissions.value}</strong> submissions
+                    <strong>${contest.maxSubmissions.value}</strong> submissions per competitor
                 </c:otherwise>
             </c:choose>
 
