@@ -96,7 +96,7 @@
                 <h1>Submission Detail</h1>
 
                 <form action="${sessionInfo.servletPath}" method="POST" name="reviewForm">
-                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSubmitReview"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitReview"/>
                     <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
 
                     <c:choose>
@@ -147,7 +147,7 @@
                     <div class="header">Contest Results</div>
 
                     <form action="${sessionInfo.servletPath}" method="POST" name="prizeRemoveForm">
-                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveSubmissionPrize"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="RemoveSubmissionPrize"/>
                         <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
                         <tc-webtag:hiddenInput name="<%=Constants.PRIZE_ID%>"/>
 
@@ -182,7 +182,7 @@
 
 
                     <form action="${sessionInfo.servletPath}" method="POST" name="placedForm">
-                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddSubmissionPrize"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AddSubmissionPrize"/>
                         <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
 
                         <p>
