@@ -129,21 +129,26 @@
 </table>
 
 <div align="right" style="padding-top: 10px">
-    Competition opportunities via RSS - 
       <c:choose>
+    <%--
         <c:when test="${pt == COMPONENT_TESTING_TYPE_ID}">
+            Competition opportunities via RSS - 
             <a href="">Subscribe Now</a>
             <a href=""><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
         <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
+            Competition opportunities via RSS - 
             <a href="">Subscribe Now</a>
             <a href=""><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
+    --%>
         <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
+            Competition opportunities via RSS - 
             <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28">Subscribe Now</a>
             <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
         <c:when test="${pt == ASSEMBLY_TYPE_ID}">
+            Competition opportunities via RSS - 
             <a href="/tc?module=BasicRSS&amp;c=rss_Assembly_Registration_Open&amp;dsid=28">Subscribe Now</a>
             <a href="/tc?module=BasicRSS&amp;c=rss_Assembly_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
