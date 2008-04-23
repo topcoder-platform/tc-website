@@ -27,9 +27,16 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
 	public final static String IS_DEV_SUPPORT_BY_DESIGNER = "dsd";
 	public final static String DEV_SUPPORT_PROJECT = "dsp";
 	public final static String DEV_SUPPORT_PROJECT_ID = "dspid";
-	
+
+    public final static String APPLY_REVIEWER_WITHHOLDING_ID = "arwid";
+    public final static String PAY_RBOARD_BONUS_ID = "prbbid";
+
     protected void businessProcessing() throws TCWebException {
         try {
+            
+            log.debug("APPLY_REVIEWER_WITHHOLDING_ID: " + getRequest().getParameter(APPLY_REVIEWER_WITHHOLDING_ID));
+            log.debug("PAY_RBOARD_BONUS_ID: " + getRequest().getParameter(PAY_RBOARD_BONUS_ID));
+            
             String devSupport = getRequest().getParameter(IS_DEV_SUPPORT_BY_DESIGNER);
             String devSupportProject = getRequest().getParameter(DEV_SUPPORT_PROJECT);
             DataInterfaceBean dib = new DataInterfaceBean();

@@ -12,6 +12,7 @@ import java.util.Map;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.ReliabilityBonusPayment;
+import com.topcoder.web.ejb.pacts.ReviewBoardBonusPayment;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
@@ -415,7 +416,7 @@ public class PaymentStatusManager {
         try {
             List<BasePayment> childPayments = dib.findCoderPayments(criteria);
             for (BasePayment childPayment : childPayments) {
-                if (childPayment instanceof ReliabilityBonusPayment) {
+                if (childPayment instanceof ReliabilityBonusPayment  || childPayment instanceof ReviewBoardBonusPayment) {
                     log.debug("notifying children: " + childPayment.getId());
                     if ("new".equals(notifType)) {
                         newPayment(childPayment);

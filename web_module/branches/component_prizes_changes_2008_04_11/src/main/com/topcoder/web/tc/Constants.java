@@ -352,6 +352,8 @@ public class Constants implements WebConstants {
 
     public static String ACTIVATE_IP_TRANSFER;
 
+    public static String APPLY_REVIEW_BOARD_WITHHOLDING;
+
     public static String RSVP_TO_ADDRESS;
 
     public static final String DATASOURCE_ID = "dsid";

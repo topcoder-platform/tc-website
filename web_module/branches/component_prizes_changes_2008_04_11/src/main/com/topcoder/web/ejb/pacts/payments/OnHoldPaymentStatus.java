@@ -18,6 +18,7 @@ import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
 import com.topcoder.web.ejb.pacts.ParentReferencePayment;
 import com.topcoder.web.ejb.pacts.ReliabilityBonusPayment;
+import com.topcoder.web.ejb.pacts.ReviewBoardBonusPayment;
 import com.topcoder.web.ejb.pacts.StudioContestPayment;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentType;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
@@ -40,7 +41,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
      * serialization for this object, i.e. when data members are changed.
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     /**
      * The loader for this class
@@ -87,7 +88,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
         try {
             DataInterfaceBean dib = new DataInterfaceBean();
 
-            if (payment instanceof ReliabilityBonusPayment) {
+            if (payment instanceof ReliabilityBonusPayment || payment instanceof ReviewBoardBonusPayment) {
                 log.debug("instanceof ReliabilityBonusPayment");
 
                 // if the payment is a reliability it should get the parent's status
