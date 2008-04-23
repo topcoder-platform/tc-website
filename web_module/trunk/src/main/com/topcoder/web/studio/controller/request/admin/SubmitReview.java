@@ -106,7 +106,7 @@ public class SubmitReview extends Base {
 
             StringBuffer buf = new StringBuffer(50);
             buf.append(getSessionInfo().getServletPath());
-            buf.append("?" + Constants.MODULE_KEY + "=AdminViewSubmissions&");
+            buf.append("?" + Constants.MODULE_KEY + "=ViewSubmissions&");
             buf.append(Constants.CONTEST_ID + "=").append(s.getContest().getId());
             buf.append("&").append(Constants.REVIEW_STATUS_ID).append("=null");
             setNextPage(buf.toString());

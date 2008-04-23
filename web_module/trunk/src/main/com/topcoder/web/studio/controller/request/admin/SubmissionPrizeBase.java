@@ -82,7 +82,7 @@ abstract class SubmissionPrizeBase extends Base {
         }
 
         setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
-                "=AdminViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + submission.getId());
+                "=ViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + submission.getId());
         setIsNextPageInContext(false);
 
     }

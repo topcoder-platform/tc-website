@@ -242,7 +242,7 @@ public class EditContest extends Base {
             CacheClearer.removelike("studio_home_data");
 
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
-                    "=AdminViewContest&" + Constants.CONTEST_ID + "=" + contest.getId());
+                    "=ViewContest&" + Constants.CONTEST_ID + "=" + contest.getId());
             setIsNextPageInContext(false);
         }
 
