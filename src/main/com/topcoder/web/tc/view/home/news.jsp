@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />04.23.08<br />1:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=MatchDetails&amp;rd=12171">SRM 399 is brought to you by NSA</a></span><br /><br />
+        Join NSA representatives in the Arena to discuss their career opportunites for US citizens one hour prior to the match.  Read more <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa">here</a>.
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=MatchDetails&amp;rd=12171">details</a> | 
+        <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />04.22.08<br />12:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=onsiteSchedule">New Forums added to the TCO08 Onsite Schedule</a></span><br /><br />
@@ -155,18 +169,5 @@
         <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">details</a> | 
         <a href="/openaim/forums">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Tournament News" border="0" /><br />04.07.08<br />12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/longcontest/stats/?module=ViewOverview&amp;rd=12166">AMD Multicore Threadfest Competition 1 Winners Announced!</a></span><br /><br />
-        AMD and TopCoder&reg; are excited to announce the first winners of the <a href="/threadfest">AMD Multicore Threadfest</a>.  Congratulations to <tc-webtag:handle coderId="15155743" /> who brings home $2,500.  See all the winners <a href="/longcontest/stats/?module=ViewOverview&amp;rd=12166">here</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/longcontest/stats/?module=ViewOverview&amp;rd=12166">details</a> | 
-        <tc-webtag:forumLink forumID="520302" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
    </td></tr>
    
