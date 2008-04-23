@@ -1,4 +1,4 @@
-<%@ page import="com.topcoder.web.studio.Constants" %>
+f<%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.PrizeType" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -124,7 +124,7 @@
         </c:choose>
     </div>
     <c:if test="${not empty contest.submissionFileFormat.value}">
-        <div class="section">Notes on Submission File Formats:</div>
+        <div class="section">How to Format Your Submission:</div>
         <div class="padder">
             <studio:formatField text="${contest.submissionFileFormat.value}"/>
         </div>
@@ -136,7 +136,7 @@
     </c:if>
 
     <c:if test="${fn:length(contest.fileTypes)>0}">
-        <div class="section">Final File Format:</div>
+        <div class="section">Source Files:</div>
         <div class="padder">
             <p align="center">
                 <c:forEach items="${contest.fileTypes}" var="fileType" varStatus="status">
