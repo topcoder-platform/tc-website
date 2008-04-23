@@ -93,7 +93,7 @@ public class SaveDocument extends Base {
                         }
                         contestDAO.saveOrUpdate(contest);
                         setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
-                                "=AdminViewContest&" + Constants.CONTEST_ID + "=" + contestId);
+                                "=ViewContest&" + Constants.CONTEST_ID + "=" + contestId);
                         setIsNextPageInContext(false);
                     }
                 } else {

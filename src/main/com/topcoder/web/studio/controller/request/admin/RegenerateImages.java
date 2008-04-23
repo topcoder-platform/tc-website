@@ -34,7 +34,7 @@ public class RegenerateImages extends Base {
             f.generateFiles();
         }
         setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
-                "=AdminViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + s.getId());
+                "=ViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + s.getId());
         setIsNextPageInContext(false);
 
     }

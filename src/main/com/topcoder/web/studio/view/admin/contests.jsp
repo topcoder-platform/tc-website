@@ -39,7 +39,7 @@
 
                 <h1>Contests</h1>
 
-                <div align="right" style="margin-bottom: 10px;"><a href="${sessionInfo.servletPath}?module=AdminViewContest"><img src="/i/v2/interface/btnAddContest.png" alt="Add contest" /></a></div>
+                <div align="right" style="margin-bottom: 10px;"><a href="${sessionInfo.servletPath}?module=ViewContest"><img src="/i/v2/interface/btnAddContest.png" alt="Add contest" /></a></div>
 
 <div class="statHolder">
     <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
@@ -51,12 +51,12 @@
                         <tr>
                             <td class="headerW"><div>&nbsp;</div></td>
                             <td class="header" width="100%">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Name</a>
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Name</a>
                             </td>
-                            <td class="header"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests<tc-webtag:sort column="<%=contests.getColumnIndex("contest_status_desc")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Status</a></td>
-                            <td class="headerC"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests<tc-webtag:sort column="<%=contests.getColumnIndex("start_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Start</a></td>
-                            <td class="headerC"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End</a></td>
-                            <td class="headerC"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submissions</a></td>
+                            <td class="header"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContests<tc-webtag:sort column="<%=contests.getColumnIndex("contest_status_desc")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Status</a></td>
+                            <td class="headerC"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContests<tc-webtag:sort column="<%=contests.getColumnIndex("start_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Start</a></td>
+                            <td class="headerC"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End</a></td>
+                            <td class="headerC"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submissions</a></td>
                             <td class="headerC">&nbsp;</td>
                             <td class="headerE"><div>&nbsp;</div></td>
                         </tr>
@@ -74,10 +74,10 @@
                                     <tc-webtag:format object="${resultRow.map['end_time']}" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                                 </td>
                                 <td class="valueC">
-                                    <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">${resultRow.map['submission_count']}</a>
+                                    <a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">${resultRow.map['submission_count']}</a>
                                 </td>
                                 <td class="valueC">
-                                    <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">edit</a>
+                                    <a href="${sessionInfo.servletPath}?module=ViewContest&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">edit</a>
                                 </td>
                                 <td class="valueE"><div>&nbsp;</div></td>
                             </tr>

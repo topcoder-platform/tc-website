@@ -48,7 +48,7 @@ public class DeleteSubmission extends Base {
         } else {
             throw new NavigationException("Illegal operation attempted. The submission is already purchased");
         }
-        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=AdminViewSubmissions&"
+        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=ViewSubmissions&"
                     + Constants.CONTEST_ID + "=" + s.getContest().getId());
         setIsNextPageInContext(false);
     }
