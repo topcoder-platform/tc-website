@@ -1,10 +1,13 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.PrizeType" %>
 <%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
+<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 
@@ -22,6 +25,10 @@
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
+    <script type="text/javascript" src="/js/thickbox-3.1/thickbox-compressed-3.1.js"></script>
+    <link rel="stylesheet" href="/js/thickbox-3.1/thickbox-3.1.css" type="text/css" media="screen" />
+    
     <c:set value="<%=Constants.REVIEW_STATUS_ID%>" var="reviewStatus"/>
     <c:set value="<%=Constants.SUBMISSION_REVIEW_TEXT%>" var="reviewText"/>
     <script language="javascript" type="text/javascript">
@@ -99,19 +106,29 @@
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitReview"/>
                     <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
 
+
+                    <c:set var="adminV1" value="<%=ContestChannel.STUDIO_ADMINISTRATOR_V1%>"/>
                     <c:choose>
-                        <c:when test="${submission.mimeType.fileType.imageFile}">
-                            <studio_tags:submissionDisplay submissionId="${submission.id}" width="${submission.width}" height="${submission.height}" isAdminSite="true" includeLink="false"/>
-                        </c:when>
-                        <c:otherwise>
+                        <c:when test="${submission.contest.channel.id eq adminV1}">
                             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">View
                                 Submission</a>&nbsp;
+                        </c:when>
+                        <c:otherwise>
+                            <%--cheating here with the use of submission.mediumWatermarkedGalleryImagesCount since we really want the unwatermarked ones...but it should be the same value --%>
+                    <studio_tags:viewSubmissionLink hasPreviewImage="${submission.hasPreviewImage}" submissionId="${submission.id}"
+                                                               galleryImageCount="${submission.mediumWatermarkedGalleryImagesCount}" targetPresentationType="medium"
+                                                               previewPresentationType="small" showFullVersionLink="false"
+                                                               contestId="${submission.contest.id}"/>
+
                         </c:otherwise>
                     </c:choose>
+
                     <br/>
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=original">
-                        Download Original Submission</a>
-                    <br/>
+                    <c:if test="${submission.contest.channel.id != adminV1}">
+                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=original">
+                            Download Original Submission</a>
+                        <br/>
+                    </c:if>
                     <a style="display: block;" onfocus="this.blur();" onclick="remove(${submission.id});return false;" href="#">
                         Delete Submission
                     </a>
