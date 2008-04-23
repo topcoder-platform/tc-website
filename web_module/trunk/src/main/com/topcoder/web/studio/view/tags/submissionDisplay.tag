@@ -9,9 +9,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set value="DownloadSubmission" var="processor"/>
-<c:if test="${isAdminSite}">
-    <c:set value="DownloadSubmission" var="processor"/>
-</c:if>
 
 <c:set value="true" var="actuallyIncludeLink"/>
 <c:if test="${includeLink != null && !includeLink}">
