@@ -172,7 +172,7 @@
 
 
 <form action="${sessionInfo.servletPath}" method="post" name="editForm">
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditContest"/>
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditContest"/>
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
 <%-- Since TopCoder Studio Modifications v2 Assembly (Req# 5.13) - displaying the username for the creator
@@ -686,7 +686,7 @@
 <h2>Documentation</h2>
 
     <form action="${sessionInfo.servletPath}" method="post" name="removeDocForm">
-        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveDocument"/>
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="RemoveDocument"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
         <tc-webtag:hiddenInput name="<%=Constants.DOCUMENT_ID%>"/>
 
@@ -730,7 +730,7 @@
 
     <form action="${sessionInfo.servletPath}" method="post" name="addDocumentForm"
           enctype="multipart/form-data">
-        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddDocument"/>
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AddDocument"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 <fieldset>
 <legend>Add Document</legend>
@@ -769,7 +769,7 @@
 <h2>Prize(s)</h2>
 
 <form action="${sessionInfo.servletPath}" method="post" name="removePrizeForm">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemovePrize"/>
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="RemovePrize"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
     <tc-webtag:hiddenInput name="<%=Constants.PRIZE_ID%>"/>
 
@@ -794,7 +794,7 @@
 <c:set value="<%=Constants.PRIZE_VALUE%>" var="prizeValue"/>
 <c:set value="<%=Constants.PRIZE_TYPE_ID%>" var="prizeType"/>
 <form action="${sessionInfo.servletPath}" method="post" name="addPrizeForm">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddPrize"/>
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AddPrize"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
 <fieldset>
@@ -857,7 +857,7 @@
 
 
         <form action="${sessionInfo.servletPath}" method="post" name="sendToReviewForm">
-            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSendToReview"/>
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SendToReview"/>
             <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
             <button name="submit" value="submit" type="submit">
                 Send Submissions to Online Review
@@ -867,7 +867,7 @@
 
         <c:if test="${resultsReady}">
             <form action="${sessionInfo.servletPath}" method="post" name="loadromReviewForm">
-                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminLoadFromReview"/>
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="LoadFromReview"/>
                 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
                 <button name="submit" value="submit" type="submit">
                     Load Results From Online Review

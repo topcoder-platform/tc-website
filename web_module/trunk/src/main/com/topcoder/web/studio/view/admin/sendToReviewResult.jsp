@@ -36,9 +36,9 @@
                     <div class="contentMiddle">
 
                 <div class="breadcrumb">
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">Contests</a>
+                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContests">Contests</a>
                     &gt;
-                    <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">${contest.name}</a>
+                    <a href="${sessionInfo.servletPath}?module=ViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">${contest.name}</a>
                     &gt; Submissions
                 </div>
 
