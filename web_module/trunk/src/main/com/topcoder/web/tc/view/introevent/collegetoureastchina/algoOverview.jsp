@@ -132,6 +132,7 @@
     <br /><br />
     
     <h3>Co-host Schools</h3>
+    Tongji University<br />
     Fudan University<br />
     Zhejiang University<br />
     Nanjing University<br />
