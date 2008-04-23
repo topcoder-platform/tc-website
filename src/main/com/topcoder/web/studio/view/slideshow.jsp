@@ -33,7 +33,7 @@
 
 <div id="fullSizeView" align="left">
     <div class="logo">
-        <img src="/i/v2/interface/fullViewStudioLogo.png" alt="TopCoder Studio" />
+        <a href="/"><img src="/i/v2/interface/fullViewStudioLogo.png" alt="TopCoder Studio" /></a>
     </div>
     <p>
         <a href="${sessionInfo.servletPath}?${modKey}=ViewSubmissions&amp;${cid}=${contestId}"><< Back to Submissions</a>
