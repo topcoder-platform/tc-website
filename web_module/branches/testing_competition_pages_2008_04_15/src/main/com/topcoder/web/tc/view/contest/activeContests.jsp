@@ -1,8 +1,4 @@
-<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -18,13 +14,18 @@
 <c:set value="<%=Constants.COMPONENT_TESTING_PROJECT_TYPE%>" var="COMPONENT_TESTING_TYPE_ID"/>
 <c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_TYPE_ID"/>
 
+<%@ page contentType="text/html;charset=utf-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>
-    <title>Active Contests</title>
+    <title>TopCoder :: Active Contests</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <jsp:include page="/script.jsp"/>
-    <jsp:include page="/style.jsp">
+    <jsp:include page="../script.jsp"/>
+    <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
 </head>
@@ -48,7 +49,7 @@
             </c:when>
             <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
                 <jsp:include page="/includes/global_left.jsp">
-                    <jsp:param name="node" value="application_testing_compete"/>
+                    <jsp:param name="node" value="app_testing_compete"/>
                 </jsp:include>
             </c:when>
             <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
@@ -66,10 +67,7 @@
 <%-- Left Column Ends --%>
 
 <%-- Center Column Begins --%>
-        <td width="100%" align="center" class="bodyColumn">
-            <%--
-            <div class="fixedWidthBody">
-            --%>
+        <td width="100%" align="left" class="bodyColumn">
            
       <c:choose>
         <c:when test="${pt == COMPONENT_TESTING_TYPE_ID}">
@@ -80,7 +78,7 @@
         </c:when>
         <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="application_testing"/>
+                <jsp:param name="image" value="app_testing"/>
                 <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
         </c:when>
@@ -135,19 +133,19 @@
       <c:choose>
         <c:when test="${pt == COMPONENT_TESTING_TYPE_ID}">
             <a href="">Subscribe Now</a>
-            <a href=""><img src="/wiki/images/icons/rss.gif" alt="RSS" /></a>
+            <a href=""><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
         <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
             <a href="">Subscribe Now</a>
-            <a href=""><img src="/wiki/images/icons/rss.gif" alt="RSS" /></a>
+            <a href=""><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
         <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
             <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28">Subscribe Now</a>
-            <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" /></a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
         <c:when test="${pt == ASSEMBLY_TYPE_ID}">
             <a href="/tc?module=BasicRSS&amp;c=rss_Assembly_Registration_Open&amp;dsid=28">Subscribe Now</a>
-            <a href="/tc?module=BasicRSS&amp;c=rss_Assembly_Registration_Open&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" /></a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Assembly_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
       </c:choose>
     <br /><br />
@@ -160,10 +158,10 @@
                 <td class="title" colspan="8">Active Component Testing Contests</td>
             </c:when>
             <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
-                <td class="title" colspan="8">Active Application Testing Contests</td>
+                <td class="title" colspan="7">Active Application Testing Contests</td>
             </c:when>
             <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
-                <td class="title" colspan="8">Active Software Architecture Contests</td>
+                <td class="title" colspan="7">Active Software Architecture Contests</td>
             </c:when>
             <c:when test="${pt == ASSEMBLY_TYPE_ID}">
                 <td class="title" colspan="8">Active Software Assembly Contests</td>
@@ -239,15 +237,9 @@
 </table>
 <div align="right" style="padding-top: 10px">
     Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Contests page</a> or subscribe to the RSS feed
-    <a href="/tc?module=BasicRSS&amp;c=rss_Upcoming_Contests&amp;dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" /></a>
+    <a href="/tc?module=BasicRSS&amp;c=rss_Upcoming_Contests&amp;dsid=29"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
 </div>
 
-<br />
-
-
-            <%--
-            </div>
-            --%>
         </td>
 <%-- Center Column Ends --%>
        
