@@ -104,7 +104,7 @@
         }
         function updateDocument(docId) {
             var formName = "document.removeDocForm";
-            putValue(formName, '<%=Constants.MODULE_KEY%>', 'AdminUpdateDocument');
+            putValue(formName, '<%=Constants.MODULE_KEY%>', 'UpdateDocument');
             putValue(formName, '<%=Constants.DOCUMENT_ID%>', '' + docId);
         }
         //]]>
