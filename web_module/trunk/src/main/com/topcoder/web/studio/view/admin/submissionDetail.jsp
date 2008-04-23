@@ -2,6 +2,7 @@
 <%@ page import="com.topcoder.web.studio.model.PrizeType" %>
 <%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
 <%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
+<%@ page import="com.topcoder.web.common.model.Image" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -108,15 +109,15 @@
 
 
                     <c:set var="adminV1" value="<%=ContestChannel.STUDIO_ADMINISTRATOR_V1%>"/>
+                    <c:set var="mediumType" value="<%=Image.GALLERY_MEDIUM_TYPE_ID%>"/>
                     <c:choose>
                         <c:when test="${submission.contest.channel.id eq adminV1}">
                             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">View
                                 Submission</a>&nbsp;
                         </c:when>
                         <c:otherwise>
-                            <%--cheating here with the use of submission.mediumWatermarkedGalleryImagesCount since we really want the unwatermarked ones...but it should be the same value --%>
                     <studio_tags:viewSubmissionLink hasPreviewImage="${submission.hasPreviewImage}" submissionId="${submission.id}"
-                                                               galleryImageCount="${submission.mediumWatermarkedGalleryImagesCount}" targetPresentationType="medium"
+                                                               galleryImageCount="${submission.galleryCountMap[mediumType]}" targetPresentationType="medium"
                                                                previewPresentationType="small" showFullVersionLink="false"
                                                                contestId="${submission.contest.id}"/>
 
