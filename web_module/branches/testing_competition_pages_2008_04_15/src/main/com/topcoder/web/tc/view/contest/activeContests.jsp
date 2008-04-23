@@ -112,10 +112,10 @@
         <td align="right">
           <c:choose>
             <c:when test="${pt == COMPONENT_TESTING_TYPE_ID}">
-                <a href="http://<%=ApplicationServer.WIKI_SERVER_NAME%>"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
+                <a href=""><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
             </c:when>
             <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
-                <a href="http://<%=ApplicationServer.WIKI_SERVER_NAME%>"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
+                <a href="/tc?module=Static&amp;d1=dev&amp;d2=testing&amp;d3=instructions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
             </c:when>
             <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
                 <a href="/wiki/display/tc/How+to+Compete+in+Architecture+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
