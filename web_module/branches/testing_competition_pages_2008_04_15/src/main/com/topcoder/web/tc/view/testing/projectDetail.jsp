@@ -80,12 +80,12 @@
       <td width="35%">
       <div class="bigRed" style="border-top: 1px solid #999999; border-bottom: 1px solid #999999;">
          <div style="float:right; text-align:right;">
-         $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br>
-         $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br>
+         $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br />
+         $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br />
          <rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/>
          </div>
-      <strong>1st Place:<br>
-      2nd Place:<br>
+      <strong>1st Place:<br />
+      2nd Place:<br />
       Due date:</strong> 
       </div>
       </td>
@@ -99,7 +99,7 @@
    </tr>
    <tr>
       <td colspan="3" align="center" style="padding-top:10px;">
-         Register to get info necessary to submit a solution<br>
+         Register to get info necessary to submit a solution<br />
       </td>
    </tr>
    <% } %>
@@ -109,10 +109,6 @@
         <td class="projectHeaders" align="left">Overview</td>
     </tr>
 </table>
-
-<p>
-<span class="bodySubtitle">Application Overview</span><br>
-</p>
 
 <p>
     <rsc:item set="<%=projectDetail%>" name="description"/>
@@ -127,25 +123,14 @@
 </ul>
 
 <%-- Documentation --%>
-<p><strong>Documentation</strong><br>
-    Documentation available in the
-
-    <% if (projectDetail.getItem(0, "jive_category_id").getResultData() == null) { %>
-    discussion forums
-    <% } else { %>
-    <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">component
-        forums</a>
-    <% } %>
-    after you successfully register for this competition.
+<p><strong>Documentation</strong><br />
+    Documentation / Specification available in the <a href="">forums</a>.
 </p>
 
-<br>
-<span class="bigRed">NOTE: Please see the eligibility requirements below. Competitors must sign a non-disclosure agreement before being admitted into this competition.   If you have previously completed these documents, no further action is needed.</span>
-
-<p>
-<div align="right"><A href="/tc?module=Static&d1=features&d2=061906"><img src="/i/development/testing/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
+<%-- Requirement Spec --%>
+<p><strong>Requirement Specification</strong><br />
+    View the <a href="">Requirement Specification</a> for this project.
 </p>
-
 
 <%-- Timeline --%>
 <table cellspacing="0" class="formFrame" align="center" width="530">
@@ -193,12 +178,12 @@
 <p>
  TopCoder will compensate members with first and second place submissions after project completion that have scored at least 75*.</p>
 
-<p><strong>Winner</strong><br>
-    Total Payment - $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br>
+<p><strong>Winner</strong><br />
+    Total Payment - $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br />
 </p>
 
-<p><strong>2nd Place</strong><br>
-    Total Payment - $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br>
+<p><strong>2nd Place</strong><br />
+    Total Payment - $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br />
 </p>
 
 <p>
@@ -220,7 +205,7 @@
 <p class="noSpListTitle">
     You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition,
     you must fit into one of the following categories.
-    <br><br>
+    <br /><br />
     If you reside in the United States, you must be either:
     <ul class="noSpList">
         <li>A US Citizen</li>
@@ -233,8 +218,6 @@
         <li>You must be authorized to perform services as an independent contractor. (Note: In most cases you will not
             need to do anything to become authorized)</li>
     </ul>
-
-<span class="bigRed">Your ability to participate in this competition is contingent on the agreement to the Testing Terms of Work and signing of a Non Disclosure Agreement. Once you have registered this information will be emailed to you and should be returned within 24 hours.  If you have previously completed these documents, no further action is needed.</span>
 </p>
 
 </td>
