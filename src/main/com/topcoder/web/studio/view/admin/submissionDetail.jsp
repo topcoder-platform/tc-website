@@ -57,7 +57,7 @@
             var confirmed = confirm("You are about to delete this submission, this can not easily be undone.");
             if (confirmed) {
                 var form = document.reviewForm;
-                form.<%=Constants.MODULE_KEY%>.value = 'AdminDeleteSubmission';
+                form.<%=Constants.MODULE_KEY%>.value = 'DeleteSubmission';
                 form.submit.click();
             }
         }

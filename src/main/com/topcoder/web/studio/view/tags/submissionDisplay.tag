@@ -10,7 +10,7 @@
 
 <c:set value="DownloadSubmission" var="processor"/>
 <c:if test="${isAdminSite}">
-    <c:set value="AdminDownloadSubmission" var="processor"/>
+    <c:set value="DownloadSubmission" var="processor"/>
 </c:if>
 
 <c:set value="true" var="actuallyIncludeLink"/>

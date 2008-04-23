@@ -45,7 +45,7 @@
         document.subForm.submit();
     }
     function sendToReview(id) {
-        document.subForm.<%=Constants.MODULE_KEY%>.value = "AdminSendToReview";
+        document.subForm.<%=Constants.MODULE_KEY%>.value = "SendToReview";
         document.subForm.<%=Constants.SUBMISSION_ID%>.value = id;
         document.subForm.<%=Constants.CONTEST_ID%>.value = "";
         document.subForm.method="POST";
@@ -86,7 +86,7 @@
 
 <%-- without this div, the table inside stretches way outside the window, only in IE of course --%>
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="get" name="subForm">
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminViewSubmissions"/>
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewSubmissions"/>
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>"/>
 <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
