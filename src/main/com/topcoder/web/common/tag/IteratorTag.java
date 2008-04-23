@@ -84,7 +84,7 @@ public class IteratorTag extends BodyTagSupport {
 
     public int doAfterBody() throws JspException {
         //log.debug("doAfterBody() called, collection = " + collection + " iterator = " + iterator);
-        boolean indexOk = (end == null || currIndex<end);
+        boolean indexOk = (end == null || currIndex < end);
         //log.debug("doAfterBody called index " + currIndex + " begin " + begin + " end " + end + "indexok " + indexOk);
         if (iterator.hasNext() && indexOk) {
             //log.debug("in here like we have another item");
@@ -111,6 +111,7 @@ public class IteratorTag extends BodyTagSupport {
         this.type = null;
         this.begin = null;
         this.end = null;
+        this.currIndex = 0;
         super.release();
     }
 
