@@ -80,7 +80,7 @@
                 }).each(function() {
                    var currId = this.id.substring(spanPrefix.length);
                    if (defaults[currId]) {
-                      $(this).html("(<a href=\"javascript:setDefault('" + currId + "')\">use default</a>)");
+                      $(this).html(" (<a href=\"javascript:setDefault('" + currId + "')\">use default</a>)");
                    }
                 })
             });
@@ -490,7 +490,7 @@
 
 <table>
 <tbody>
-<studio_tags:editContestProperty name="${otherFileTypes}" title="Submission file formats"/>
+<studio_tags:editContestProperty name="${otherFileTypes}" title="Submission file formats (Studio contests never use this field)"/>
 <studio_tags:editContestProperty name="${submissionFileFormat}" title="* Notes on Submission File(s)"/>
 </tbody>
 </table>
