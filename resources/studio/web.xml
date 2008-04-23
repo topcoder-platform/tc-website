@@ -152,6 +152,17 @@
     </servlet-mapping>
 
     <servlet-mapping>
+        <servlet-name>studioAdmin</servlet-name>
+        <url-pattern>/adminstudio.jpg</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>studioAdmin</servlet-name>
+        <url-pattern>/adminstudio.png</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
         <servlet-name>forums</servlet-name>
         <url-pattern>/forums</url-pattern>
     </servlet-mapping>
