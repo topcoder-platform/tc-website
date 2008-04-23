@@ -8,6 +8,9 @@ import java.sql.Timestamp;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Collections;
 
 /**
  * @author dok, isv
@@ -295,6 +298,27 @@ public class Submission extends Base {
             }
         }
         return cnt;
+    }
+
+    private Map<Integer, Integer> galMap = new HashMap<Integer, Integer>();
+    /**
+     *
+     * @return a mapping between image type id's and the number of images of those type associated with this submission
+     */
+    public Map getGalleryCountMap() {
+        if (galMap.isEmpty() && !this.images.isEmpty()) {
+            HashMap<Integer, Integer> temp = new HashMap<Integer, Integer>();
+            for (SubmissionImage submissionImage : this.images) {
+                if (temp.containsKey(submissionImage.getImage().getImageTypeId())) {
+                    temp.put(submissionImage.getImage().getImageTypeId(),
+                            temp.get(submissionImage.getImage().getImageTypeId())+1);
+                } else {
+                    temp.put(submissionImage.getImage().getImageTypeId(), 1);
+                }
+            }
+            galMap = Collections.unmodifiableMap(temp);
+        }
+        return galMap;
     }
 
     /**
