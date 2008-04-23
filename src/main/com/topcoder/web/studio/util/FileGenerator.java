@@ -187,7 +187,7 @@ public class FileGenerator implements Runnable {
      *
      * @param contest        a <code>Contest</code> representing the contest which the submission belongs to.
      * @param submission     a <code>Submission</code> representing the submission submitted to server.
-     * @param submissionFile an <code>UploadedFile</code> providing the original content of submission.
+     * @param submissionFile an <code>InputStream</code> providing the original content of submission.
      * @param submitter      a <code>User</code> representing the user who have submitted the submission.
      */
     public FileGenerator(Contest contest, Submission submission, InputStream submissionFile, User submitter) {
