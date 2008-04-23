@@ -132,6 +132,7 @@
     <br /><br />
     
     <h3>Co-host Schools</h3>
+    Peking University<br />
     Tsinghua University<br />
     Beihang University<br />
     Beijing Institute of Technology<br />
