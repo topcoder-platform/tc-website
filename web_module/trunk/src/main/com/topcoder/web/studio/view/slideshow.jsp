@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -19,26 +19,41 @@
 <c:set var="contestId" value="${param[cid]}"/>
 <c:set var="imagesCnt" value="${param[galImgCount]}"/>
 
-<html>
-  <head>
-      <title>TopCoder Studio</title>
-  </head>
-  <body>
-  <a href="${sessionInfo.servletPath}?${modKey}=ViewSubmissions&amp;${cid}=${contestId}">Back to Contest Submissions</a>
-  <br/>
-  Image ${imageIndex} of ${imagesCnt}
-  <br/>
-  <c:if test="${imageIndex > 1}">
-      <a href="${sessionInfo.servletPath}?${modKey}=Static&amp;d1=slideshow&amp;${cid}=${contestId}&amp;${subId}=${submissionId}&amp;${subFileIdx}=${imageIndex-1}&amp;${galImgCount}=${imagesCnt}">Prev</a>&nbsp;
-  </c:if>
-  <c:if test="${imageIndex < imagesCnt}">
-      <a href="${sessionInfo.servletPath}?${modKey}=Static&amp;d1=slideshow&amp;${cid}=${contestId}&amp;${subId}=${submissionId}&amp;${subFileIdx}=${imageIndex+1}&amp;${galImgCount}=${imagesCnt}">Next</a>&nbsp;
-  </c:if>
-  <br/>
-  <br/>
-  <br/>
-  <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subFileIdx}=${imageIndex}&amp;${subAltType}=full"
-       alt=""/>
-  <br/>
-  </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>TopCoder Studio :: View Submission</title>
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_studio"/>
+    </jsp:include>
+</head>
+<body>
+
+<div id="fullSizeView" align="left">
+    <div class="logo">
+        <img src="/i/v2/interface/fullViewStudioLogo.png" alt="TopCoder Studio" />
+    </div>
+    <p>
+        <a href="${sessionInfo.servletPath}?${modKey}=ViewSubmissions&amp;${cid}=${contestId}"><< Back to Submissions</a>
+    </p>
+    <p>
+        Image ${imageIndex} of ${imagesCnt}
+    </p>
+    <p>
+        <c:if test="${imageIndex > 1}">
+        <a href="${sessionInfo.servletPath}?${modKey}=Static&amp;d1=slideshow&amp;${cid}=${contestId}&amp;${subId}=${submissionId}&amp;${subFileIdx}=${imageIndex-1}&amp;${galImgCount}=${imagesCnt}">< Prev</a>&nbsp;
+        </c:if>
+        <c:if test="${imageIndex < imagesCnt}">
+        <a href="${sessionInfo.servletPath}?${modKey}=Static&amp;d1=slideshow&amp;${cid}=${contestId}&amp;${subId}=${submissionId}&amp;${subFileIdx}=${imageIndex+1}&amp;${galImgCount}=${imagesCnt}">Next ></a>&nbsp;
+        </c:if>
+    </p>
+    <div>
+        <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subFileIdx}=${imageIndex}&amp;${subAltType}=full" alt="${submissionId}"/>
+    </div>
+</div>
+
+</body>
+
 </html>
