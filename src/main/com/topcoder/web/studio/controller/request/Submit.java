@@ -3,6 +3,8 @@
  */
 package com.topcoder.web.studio.controller.request;
 
+import com.topcoder.servlet.request.FileDoesNotExistException;
+import com.topcoder.servlet.request.PersistenceException;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
@@ -32,6 +34,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -286,10 +289,22 @@ public class Submit extends BaseSubmissionDataProcessor {
      */
     private void generateAlternateRepresentations(Contest contest, Submission submission, UploadedFile submissionFile,
                                                   User submitter) {
-        FileGenerator fileGenerator = new FileGenerator(contest, submission, submissionFile, submitter);
-        Thread thread = new Thread(fileGenerator);
-        thread.start();
-        this.generatorThreads.add(thread);
+        FileGenerator fileGenerator = null;
+        try {
+            fileGenerator = new FileGenerator(contest, submission, submissionFile.getInputStream(), submitter);
+            Thread thread = new Thread(fileGenerator);
+            thread.start();
+            this.generatorThreads.add(thread);
+        } catch (PersistenceException e) {
+            log.error("Could not generate alternate presentations for submission [" + submission.getId() + "]",
+                    e);
+        } catch (FileDoesNotExistException e) {
+            log.error("Could not generate alternate presentations for submission [" + submission.getId() + "]",
+                    e);
+        } catch (IOException e) {
+            log.error("Could not generate alternate presentations for submission [" + submission.getId() + "]",
+                    e);
+        }
     }
 
     /**

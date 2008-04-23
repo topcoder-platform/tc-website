@@ -11,9 +11,6 @@ import com.topcoder.imaging.overlay.OverlayType;
 import com.topcoder.imaging.overlay.TransparencySpecification;
 import com.topcoder.imaging.overlay.UnsupportedFormatException;
 import com.topcoder.imaging.overlay.Watermarker;
-import com.topcoder.servlet.request.FileDoesNotExistException;
-import com.topcoder.servlet.request.PersistenceException;
-import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.image.manipulation.Image;
 import com.topcoder.web.common.HibernateUtils;
@@ -177,7 +174,7 @@ public class FileGenerator implements Runnable {
     /**
      * <p>An <code>UploadedFile</code> providing the original content of submission.</p>
      */
-    private UploadedFile submissionFile;
+    private InputStream submissionFile;
 
     /**
      * <p>A <code>User</code> representing the user who have submitted the submission.</p>
@@ -193,7 +190,7 @@ public class FileGenerator implements Runnable {
      * @param submissionFile an <code>UploadedFile</code> providing the original content of submission.
      * @param submitter      a <code>User</code> representing the user who have submitted the submission.
      */
-    public FileGenerator(Contest contest, Submission submission, UploadedFile submissionFile, User submitter) {
+    public FileGenerator(Contest contest, Submission submission, InputStream submissionFile, User submitter) {
         this.contest = contest;
         this.submission = submission;
         this.submissionFile = submissionFile;
@@ -221,7 +218,7 @@ public class FileGenerator implements Runnable {
             SubmissionDAO submissionDAO = StudioDAOUtil.getFactory().getSubmissionDAO();
 
             BundledFileAnalyzer analyzer = SubmissionValidator.getBundledFileParser(this.submission.getMimeType());
-            analyzer.analyze(this.submissionFile.getInputStream(), true);
+            analyzer.analyze(this.submissionFile, true);
 
             // Holds a flag indicating whether the submission has been updated and needs the changes to be saved
             // to persistent data store
@@ -290,12 +287,6 @@ public class FileGenerator implements Runnable {
             }
             success = true;
         } catch (IOException e) {
-            log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                    e);
-        } catch (PersistenceException e) {
-            log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                    e);
-        } catch (FileDoesNotExistException e) {
             log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
                     e);
         } catch (ImageException e) {
