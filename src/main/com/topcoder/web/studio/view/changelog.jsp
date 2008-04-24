@@ -33,7 +33,7 @@
 
 
 <p>
-    3.0.0 - 2008.04.xx
+    3.0.0 - 2008.04.22
     <ul>
         <li>Provide slideshow for submissions that include images in their preview file -dok</li>
         <li>Watermark and resize image files -dok</li>
