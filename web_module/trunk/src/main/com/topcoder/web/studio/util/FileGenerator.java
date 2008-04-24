@@ -481,16 +481,13 @@ public class FileGenerator implements Runnable {
             // Watermark the original image if necessary
             if (watermark) {
                 // Get the overlay image and resize it if necessary to fit into target image dimension
-/*
                 byte[] overlayImageContent = readContent(new FileInputStream(Constants.WATERMARK_FILE_PATH));
                 Image overlayImage
                         = resizeOverlayImage(targetImage, Constants.WATERMARK_FILE_TYPE, overlayImageContent);
-*/
-                Image watermarkImage = manager.loadImage(Constants.WATERMARK_FILE_TYPE, new FileInputStream(Constants.WATERMARK_FILE_PATH));
 
                 // Evaluate the offsets to place the overlay image over the target image
-                int widthOffset = Math.max(0, (targetImage.getWidth() - watermarkImage.getWidth()) / 2);
-                int heightOffset = Math.max(0, (targetImage.getHeight() - watermarkImage.getHeight()) / 2);
+                int widthOffset = Math.max(0, (targetImage.getWidth() - overlayImage.getWidth()) / 2);
+                int heightOffset = Math.max(0, (targetImage.getHeight() - overlayImage.getHeight()) / 2);
 
                 // Watermark the original image
                 TransparencySpecification transSpec = new TransparencySpecification();
@@ -500,9 +497,9 @@ public class FileGenerator implements Runnable {
                         Constants.WATERMARK_OVERLAY_IMAGE_TRANSPARENCY);
                 transSpec.setImageTransparency(Constants.WATERMARK_BASE_IMAGE_TRANSPARENCY);
                 OverlaySpecification overlaySpec = new OverlaySpecification(transSpec,
-                        OverlayType.SCALE_FIT_OVERLAY_IMAGE,
+                        OverlayType.CROP_OVERLAY_IMAGE,
                         widthOffset, heightOffset);
-                Watermarker watermarker = new Watermarker(manager, watermarkImage, overlaySpec);
+                Watermarker watermarker = new Watermarker(manager, overlayImage, overlaySpec);
                 Image watermarkedImage = watermarker.watermarkImage(targetImage);
                 manager.storeImage(watermarkedImage, Constants.WATERMARK_FILE_TYPE, tempFile);
 
