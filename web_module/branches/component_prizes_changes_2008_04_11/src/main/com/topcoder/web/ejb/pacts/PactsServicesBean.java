@@ -1,5 +1,26 @@
 package com.topcoder.web.ejb.pacts;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.sql.Types;
+import java.text.DecimalFormat;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import javax.ejb.EJBException;
+import javax.ejb.SessionContext;
+
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.docGen.xml.RecordTag;
@@ -21,32 +42,23 @@ import com.topcoder.web.ejb.pacts.payments.EventFailureException;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusReasonException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager.UserEvents;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager.UserEvents;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.UserProfileBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
-
-import javax.ejb.EJBException;
-import javax.ejb.SessionContext;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.sql.Types;
-import java.text.DecimalFormat;
-import java.text.ParsePosition;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
+import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 
 /**
@@ -75,6 +87,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static final int DEVELOPMENT_PROJECT = 2;
     private static final double DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
     private static final double DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT = 0.75;
+
+    private static final double DESIGN_REVIEWERS_BONUS_PERCENT = 0.15;
 
     public static final Long COLLEGE_MAJOR_DESC = 14l;
     public static final Long DEGREE_PROGRAM = 16l;
@@ -4867,7 +4881,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 double amount = rsc.getDoubleItem(i, "paid");
                 int placed = rsc.getIntItem(i, "placed");
                 log.info("coder: " + coderId + " placed: " + placed + " amount: " + amount);
-                payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed, devSupportCoderId, payDevSupport, devSupportProjectId));
+                payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed, devSupportCoderId, payDevSupport, devSupportProjectId, payRboardBonus));
             }
         }
 
@@ -4905,11 +4919,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             log.debug("projectType: " + projectType);
             if (projectType == DESIGN_PROJECT) {
                 p = new ReviewBoardPayment(coderId, amount, client, projectId);
-                p.setGrossAmount(amount * DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT);
-                log.debug("amount (2): " + amount * DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT);
+                if (applyReviewerWithholding) {
+                    p.setGrossAmount(amount * DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT);
+                    log.debug("amount (2): " + amount * DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT);
+                } else {
+                    p.setGrossAmount(amount);
+                    log.debug("amount (2b): " + amount);
+                }
             } else if (projectType == DEVELOPMENT_PROJECT) {
                 p = new ReviewBoardPayment(coderId, amount, client, projectId);
-                log.debug("amount (2): " + amount);
+                log.debug("amount (2c): " + amount);
             }
 
             payments.add(p);
@@ -5860,7 +5879,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId)
             throws SQLException, EventFailureException {
         try {
-            return generateComponentUserPayments(coderId, grossAmount, client, projectId, placed, devSupportCoderId, true, 0);
+            return generateComponentUserPayments(coderId, grossAmount, client, projectId, placed, devSupportCoderId, true, 0, true);
         } catch (DevSupportException e) {
             // Done this way in order to avoid changing the interface
             throw new IllegalArgumentException(e);
@@ -5883,7 +5902,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *                            is automatically retrieved.
      */
     public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId,
-                                              boolean payDevSupport, long devSupportProjectId) throws SQLException, EventFailureException, DevSupportException {
+                                              boolean payDevSupport, long devSupportProjectId, boolean payRboardBonus) throws SQLException, EventFailureException, DevSupportException {
+
+        
         int projectType = getProjectType(projectId);
 
 
@@ -5956,7 +5977,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     l.add(p);
                 }
 
-                l.addAll(generateReviewersDevSupportPayments(designProject));
+                l.addAll(generateReviewersDevSupportPayments(designProject, payRboardBonus));
 
             }
         } else throw new IllegalArgumentException("Project " + projectId + " not found or is not a dev/des component");
@@ -5964,8 +5985,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return l;
     }
 
-    private List generateReviewersDevSupportPayments(long designProject) throws SQLException, DevSupportException {
-
+    private List generateReviewersDevSupportPayments(long designProject, boolean payRboardBonus) throws SQLException, DevSupportException {
         List l = new ArrayList();
 
         String query = "SELECT sum(gross_amount) as amount_paid " +
@@ -6002,6 +6022,30 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 p.setInstallmentNumber(installment);
                 p.setMethodId(methodId);
                 log.info("Pay to: " + coderId2 + " $ " + (totalAmount - paid) + " for project " + designProject);
+                l.add(p);
+            }
+            
+            if (payRboardBonus) {
+                // get parent payment
+                String query2 = "SELECT min(p.payment_id) as payment_id from payment p, payment_detail pd " +
+                " WHERE p.most_recent_detail_id = pd.payment_detail_id " +
+                " AND pd.payment_type_id = " + Constants.REVIEW_BOARD_PAYMENT + " " +
+                " AND pd.component_project_id = " + designProject +
+                " AND pd.installment_number = 1 " +
+                " AND p.user_id = " + coderId2;
+   
+                ResultSetContainer rsc2 = runSelectQuery(query2);
+                
+                if (rsc2.size() != 1) {
+                    throw new DevSupportException("Can't find the parent payment for design project " + designProject + " user id " + coderId2);
+                }
+
+                
+                // pay bonus using the total amount
+                BasePayment p = new ReviewBoardBonusPayment(coderId2, totalAmount * DESIGN_REVIEWERS_BONUS_PERCENT, rsc2.getLongItem(0, "payment_id"));
+                p.setClient(client2);
+                p.setMethodId(methodId);
+                log.info("Pay to: " + coderId2 + " bonus $ " + (totalAmount * DESIGN_REVIEWERS_BONUS_PERCENT) + " for project " + designProject);
                 l.add(p);
             }
         }
