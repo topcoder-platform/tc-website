@@ -12,7 +12,7 @@
 <!-- logoBox -->
 <div id="header_data">
     <div class="logoBox">
-        <a href="${sessionInfo.servletPath}"><img src="/i/v2/studio_logo.png" alt="TopCoder Studio" /></a>
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>"><img src="/i/v2/studio_logo.png" alt="TopCoder Studio" /></a>
     </div>
 </div>
 <% } else { %>
@@ -62,7 +62,7 @@
     </c:choose>
     <!-- logoBox -->
     <div class="logoBox">
-        <a href="${sessionInfo.servletPath}"><img src="/i/v2/studio_logo.png" alt="TopCoder Studio" /></a>
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>"><img src="/i/v2/studio_logo.png" alt="TopCoder Studio" /></a>
     </div>
 </div>
 <% } %>
