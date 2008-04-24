@@ -82,7 +82,7 @@
             <c:if test="${contest.winnerAnnouncementTime ne null}">
                 <tr>
                     <td class="field">
-                        Winner(s)<br/>Announced:
+                        Winner(s)<br />Announced:
                     </td>
                     <td class="value">
                         <tc-webtag:format object="${contest.winnerAnnouncementTime}"
@@ -102,16 +102,16 @@
                     <c:forEach items="${contest.documents}" var="document">
                         <p>
                             <strong><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">${document.originalFileName}</a></strong>
-                            <br/><em>${document.type.description}</em>
+                            <br /><em>${document.type.description}</em>
                             <c:if test="${not empty document.description}">
-                                <br/>${document.description}
+                                <br />${document.description}
                             </c:if>
                         </p>
                     </c:forEach>
                 </c:when>
                 <c:otherwise>
                     <p align="center" class="bigRed">
-                        You must register for the contest<br/>to download any attached files.
+                        You must register for the contest<br />to download any attached files.
                     </p>
                 </c:otherwise>
             </c:choose>
@@ -192,7 +192,7 @@
                 <td class="field">Design Medium:</td>
                 <td class="value">
                     <c:forEach items="${contest.mediums}" var="medium">
-                        ${medium.description} <br/>
+                        ${medium.description} <br />
                     </c:forEach>
                 </td>
             </tr>
@@ -301,12 +301,12 @@
 
 <div class="header">Contest Summary</div>
 <studio:formatField text="${contest.overview.value}"/>
-<br/><br/>
+<br /><br />
 
 <c:if test="${not empty contest.fullDescription.value}">
     <div class="header">Full Description &amp; Project Guide</div>
     <studio:formatField text="${contest.fullDescription.value}"/>
-    <br/><br/>
+    <br /><br />
 </c:if>
 
 <c:if test="${not empty contest.sizeRequirements.value or not empty contest.fontRequirements.value 
@@ -361,12 +361,12 @@
 <c:if test="${not empty contest.winnerSelection.value}">
     <div class="header">Winner Selection</div>
     <studio:formatField text="${contest.winnerSelection.value}"/>
-    <br/><br/>
+    <br /><br />
 </c:if>
 
 <div class="header">Prize Payment</div>
 ${contest.prizeDescription.value}
-<br/><br/>
+<br /><br />
 
 <div class="header">Eligibility</div>
 <studio:formatField text="${contest.eligibility.value}"/>
