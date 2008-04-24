@@ -69,7 +69,7 @@
           
 <% if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {%>
           <tr>
-            <td>Has Global AD:</td>
+            <td>Has Assignment Document v2.0:</td>
 <% out.println("            <td><input type=\"radio\" value=\"true\" name=\""+PactsConstants.HAS_GLOBAL_AD+"\">Yes<br>");
    out.println("              <input type=\"radio\" name=\""+PactsConstants.HAS_GLOBAL_AD+"\" value=\"false\">No<br>");
    out.println("              <input type=\"radio\" name=\""+PactsConstants.HAS_GLOBAL_AD+"\" value=\"\" checked>Don't"); %>

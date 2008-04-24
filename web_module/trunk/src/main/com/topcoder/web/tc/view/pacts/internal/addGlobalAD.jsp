@@ -14,7 +14,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Add Global Assignment Document</title>
+    <title>Add Assignment Document v2.0</title>
     
     <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
@@ -23,7 +23,7 @@
 
 
 <h1>PACTS</h1>
-<h2>Add Global Assignment Document</h2>
+<h2>Add Assignment Document v2.0</h2>
 
 <form name='f' action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
   <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="${user.id}"/>
@@ -34,7 +34,7 @@
             <td><a href="${pacts:viewUser(user.id)}"><c:out value="${user.handle}" /></a></td>          
         </tr>
         <tr>        
-            <td><b>Global AD template:</b></td>
+            <td><b>Assignment Document v2.0 template:</b></td>
             <td>
                 <SELECT CLASS="dropdown" NAME="assignment_document_template_id">
                     <c:forEach items="${assignment_document_template_list}" var="templateItem">
@@ -47,7 +47,7 @@
         </tr>
 </table>
 
-<input type="submit" value="Save Global AD">
+<input type="submit" value="Save Assignment Document v2.0">
 
 </form>
 
