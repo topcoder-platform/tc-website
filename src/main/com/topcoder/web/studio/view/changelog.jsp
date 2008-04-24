@@ -42,6 +42,7 @@
         <li>TC Direct integration -dok</li>
         <li>Admin site rework -dok</li>
         <li>Contest details rework -dok</li>
+        <li>Assignment Documnt v2 released -pulky</li>
     </ul>
 
 </p>
