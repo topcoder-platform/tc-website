@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />04.24.08<br />10:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm398">SRM 398 - Problem Set &amp; Analysis</a></span><br /><br />
+      This match attracted 1280 competitors, 721 Div2 (78 newcomers) and 559 Div1.  <tc-webtag:handle coderId="7394165" context="algorithm"/> showed great performance and thanks to 4 successful challenges won the match with over 200 points margin and became target.  <tc-webtag:handle coderId="8580975" context="algorithm"/> took second place, followed by <tc-webtag:handle coderId="10574855" context="algorithm"/> who resubmited 1K problem, but earned 125 points in challenge phase and took third place.</td>
+         <td class="newsPhoto"><img src="/i/m/boba5551_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20394568" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm398">details</a> | 
+        <tc-webtag:forumLink forumID="520857" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />04.23.08<br />1:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=MatchDetails&amp;rd=12171">SRM 399 is brought to you by NSA</a></span><br /><br />
@@ -156,18 +172,5 @@
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm396">details</a> | 
         <tc-webtag:forumLink forumID="520704" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />04.07.08<br />2:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">One Month Into the Open AIM Developer Challenge</a></span><br /><br />
-        We're one month in with one month to go in the $100,000 Open AIM Developer Challenge. Already we have seen some great submissions by TopCoder members to this exciting competition, but it's not too late for you to get in on the action as well. Check out <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">topcoder.com/openaim</a> for all the details, or just browse all the <a href="/openaim/?myframe=category/all-submissions">cool apps</a> that have been submitted thus far – because even if you don't compete, we'll be asking you to vote for your favorite at the end of the competition!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">details</a> | 
-        <a href="/openaim/forums">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
    
