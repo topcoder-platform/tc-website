@@ -199,7 +199,7 @@ public interface PactsConstants extends Constants {
     public static final int STRING = 5;
 
     public static final int[] ALGORITHM_CONTEST_ROUND_TYPES = {1, 17};
-    public static final int[] MARATHON_MATCH_ROUND_TYPES = {13, 15, 19};
+    public static final int[] MARATHON_MATCH_ROUND_TYPES = {13, 15, 19, 22};
     public static final int[] ALGORITHM_TOURNAMENT_ROUND_TYPES = {2};
     public static final int[] HIGH_SCHOOL_TOURNAMENT_ROUND_TYPES = {18};
     public static final int[] PROBLEM_TESTING_ROUND_TYPES = {1, 2, 10, 13, 15, 17, 18};
