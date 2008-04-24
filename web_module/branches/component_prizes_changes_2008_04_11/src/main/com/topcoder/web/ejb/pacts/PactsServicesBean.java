@@ -5998,7 +5998,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 " WHERE p.most_recent_detail_id = pd.payment_detail_id " +
                 " AND pd.payment_type_id = " + Constants.REVIEW_BOARD_PAYMENT + " " +
                 " AND pd.component_project_id = " + designProject +
-                " AND gross_amount <> total_amount " +
                 " group by user_id ";
    
         ResultSetContainer rsc = runSelectQuery(query);
@@ -6040,7 +6039,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     throw new DevSupportException("Can't find the parent payment for design project " + designProject + " user id " + coderId2);
                 }
 
-                
                 // pay bonus using the total amount
                 BasePayment p = new ReviewBoardBonusPayment(coderId2, totalAmount * DESIGN_REVIEWERS_BONUS_PERCENT, rsc2.getLongItem(0, "payment_id"));
                 p.setClient(client2);
