@@ -155,7 +155,7 @@
 
 <% if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {%>
     <tr>
-        <td><b>Global AD:</b></td>
+        <td><b>Has Assignment Document v2.0:</b></td>
         <td>${has_global_ad}</td>
     </tr>
 <%}%>
@@ -248,7 +248,7 @@
         
 <% if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {%>
         <c:if test="${not has_global_ad}">
-            <a href="${pacts:addGlobalAD(user.header.id)}">Add Global AD</a>
+            <a href="${pacts:addGlobalAD(user.header.id)}">Add Assignment Document v2.0</a>
             <br/>
         </c:if>
 <%}%>
