@@ -67,6 +67,6 @@
 <a href="/registration/actions/ProjectDetails.do?method=displayProjectDetails&amp;projectId=30003815"><img src="/i/home/aolMobileAssembly_banner.png" alt="Mobile Development on Three Platforms" /></a>
 --%>
 
-<%-- OpenAIM 
-<a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />"><img src="/i/home/openaim.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
---%>
+<%-- OpenAIM --%>
+<br />
+<a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />"><img src="/i/home/openAIMslimBanner.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
