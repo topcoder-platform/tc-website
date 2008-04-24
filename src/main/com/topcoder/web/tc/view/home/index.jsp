@@ -180,7 +180,7 @@
 <%-- Header Links Must Match Active Promo Links Below!! --%>
 <tr>
     <td align="center">
-        <a href="/tc?module=MatchDetails&amp;rd=12171" class="tabHeader"><span>SRM 399 brought to you by NSA</span></a>
+        <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description" class="tabHeader"><span>The Digital Run</span></a>
     </td>
     <td align="center">
         <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/" class="tabHeader"><span>Software</span></a>
