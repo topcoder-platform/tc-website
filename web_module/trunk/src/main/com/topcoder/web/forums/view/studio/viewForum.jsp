@@ -71,6 +71,16 @@
         linkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(sortOrder);
     }
     String link = linkBuffer.toString();
+
+    String cmd = "";
+    String watchMessage = "";
+    if (!authToken.isAnonymous() && watchManager.isWatched(user, forum)) {
+       watchMessage = "Stop Watching Forum";
+       cmd = "remove";
+    } else {
+       watchMessage = "Watch Forum";
+       cmd = "add";
+    }
 %>
 
 <?xml version="1.0" encoding="utf-8"?>
@@ -119,6 +129,7 @@
             <a href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="rtbcLink">Post
                 Announcement</a> |
             <% } %>
+            <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.FORUM%>&<%=ForumConstants.WATCH_ID%>=<%=forum.getID()%>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>" class="rtbcLink"><%=watchMessage%></A>&#160;&#160;|&#160;&#160;
             <a href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="rtbcLink">Post
                 New Thread</a><br />
         </td>

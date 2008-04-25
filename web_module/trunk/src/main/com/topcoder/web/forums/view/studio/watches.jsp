@@ -122,6 +122,82 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
                 </form>
 
 
+
+
+<%	if (watchManager.getTotalWatchCount(user, JiveConstants.FORUM) > 0) { %>
+<form name="form3" method="post" action="<%=sessionInfo.getServletPath()%>">
+    <tc-webtag:hiddenInput name="module" value="Watches"/>
+    <tc-webtag:hiddenInput name="<%=ForumConstants.WATCH_TYPE%>" value="<%=String.valueOf(JiveConstants.FORUM)%>"/>
+    <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
+    <div style="padding-bottom:3px;"><b>Watched Forums (<%=watchManager.getTotalWatchCount(user, JiveConstants.FORUM)%>)</b></div>
+    <table cellpadding="0" cellspacing="0" class="rtTable">
+        <tr>
+            <td class="rtHeader" width="100%">Forum</td>
+            <td class="rtHeader" align="right">Threads</td>
+            <td class="rtHeader" align="right">Messages</td>
+            <td class="rtHeader" align="center" colspan="2" nowrap="nowrap">
+                <div style="width:320px;">Last Post</div>
+            </td>
+            <td class="rtHeader">Save</td>
+            <td class="rtHeader">Delete</td>
+        </tr>
+
+
+
+        <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
+            <% String trackerClass = (user == null || forum.getLatestMessage() == null || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ
+                    || ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, forum.getLatestMessage().getForumThread()))) ? "rtLinkOld" : "rtLinkBold"; %>
+            <tr>
+                <td class="rtThreadCellWrap">
+                    <% if (user == null) { %>
+                    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=forum.getMessageCount()%>" class="rtLinkNew"><%=forum.getName()%></A>
+                    <% } else { %>
+                    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="<%=trackerClass%>"><%=forum.getName()%></A>
+                    <% } %>
+                </td>
+                <td class="rtThreadCell" align="right"><%=forum.getThreadCount()%></td>
+                <td class="rtThreadCell" align="right"><%=forum.getMessageCount()%></td>
+                <% if (forum.getMessageCount() > 0) { %>
+                <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
+                <td class="rtThreadCell" style="width: 220px;"><b>
+                    <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
+                </td>
+                <% if (message.getUser() != null) { %>
+                <td class="rtThreadCell" style="width: 100px;">
+                    <tc-webtag:handle coderId="<%=message.getUser().getID()%>"/>
+                </td>
+                <% } else { %>
+                <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
+                <% } %>
+                <% } else { %>
+                <td class="rtThreadCell" style="width: 220px;">&nbsp;</td>
+                <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
+                <% } %>
+                <td class="rtThreadCell" align="center">
+                    <input name="<%=ForumConstants.STATUS_SAVE%><%=forum.getID()%>" value="<%=forum.getID()%>" type="checkbox"
+                            <%= (watchManager.getWatch(user, forum).isExpirable()) ? "" : "checked" %> onclick="Javascript:document.form3.<%=ForumConstants.STATUS_DELETE%><%=forum.getID()%>.checked=false;"/>
+                </td>
+                <td class="rtThreadCell" align="center">
+                    <input name="<%=ForumConstants.STATUS_DELETE%><%=forum.getID()%>" value="<%=forum.getID()%>" type="checkbox"
+                           onclick="Javascript:document.form3.<%=ForumConstants.STATUS_SAVE%><%=forum.getID()%>.checked=false;"/>
+                </td>
+
+            </tr>
+        </tc-webtag:iterator>
+
+
+    </table>
+
+    <div align="right">
+        <input type="image" src="/i/roundTables/update.gif" alt="Update" onclick="form3.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_UPDATE%>'"/>
+    </div>
+</form>
+<%	} %>
+
+
+
+
+
                         <br clear="all"/>
                     </div>                
                     <div class="contentBottom"></div>
