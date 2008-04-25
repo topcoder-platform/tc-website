@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">04.25.08 12:30 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyChat20080415">Eli Lilly SRM 398 Chat Transcript Available</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.23.08 1:30 PM - </td><td width="100%"><a href="/tc?module=MatchDetails&amp;rd=12171">SRM 399 is brought to you by NSA</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.22.08 12:45 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=onsiteSchedule">New Forums added to the TCO08 Onsite Schedule</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.14.08 10:30 AM - </td><td width="100%"><a href="/tc?module=MatchDetails&amp;rd=12170">SRM 398 is sponsored by Eli Lilly</a></td></tr>
