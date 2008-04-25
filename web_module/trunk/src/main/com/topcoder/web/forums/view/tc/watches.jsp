@@ -130,7 +130,7 @@
                 <div style="padding-bottom:3px;"><b>Watched Forums (<%=watchManager.getTotalWatchCount(user, JiveConstants.FORUM)%>)</b></div>
                 <table cellpadding="0" cellspacing="0" class="rtTable">
                     <tr>
-                        <td class="rtHeader" width="100%"><a href="<%=forumLink%>" class="rtbcLink">Forum</a></td>
+                        <td class="rtHeader" width="100%">Forum</td>
                         <td class="rtHeader"><div style="width:80px;">T./M.</div></td>
                         <td class="rtHeader" align="center" colspan="2" nowrap="nowrap">
                             <div style="width:320px;"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></div>
