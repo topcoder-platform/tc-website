@@ -123,7 +123,7 @@
 
 
             <%	if (watchManager.getTotalWatchCount(user, JiveConstants.FORUM) > 0) { %>
-            <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
+            <form name="form3" method="post" action="<%=sessionInfo.getServletPath()%>">
                 <tc-webtag:hiddenInput name="module" value="Watches"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.WATCH_TYPE%>" value="<%=String.valueOf(JiveConstants.FORUM)%>"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
@@ -173,11 +173,11 @@
                             <% } %>
                             <td class="rtThreadCell" align="center">
                                 <input name="<%=ForumConstants.STATUS_SAVE%><%=forum.getID()%>" value="<%=forum.getID()%>" type="checkbox"
-                                        <%= (watchManager.getWatch(user, forum).isExpirable()) ? "" : "checked" %> onclick="Javascript:document.form1.<%=ForumConstants.STATUS_DELETE%><%=forum.getID()%>.checked=false;"/>
+                                        <%= (watchManager.getWatch(user, forum).isExpirable()) ? "" : "checked" %> onclick="Javascript:document.form3.<%=ForumConstants.STATUS_DELETE%><%=forum.getID()%>.checked=false;"/>
                             </td>
                             <td class="rtThreadCell" align="center">
                                 <input name="<%=ForumConstants.STATUS_DELETE%><%=forum.getID()%>" value="<%=forum.getID()%>" type="checkbox"
-                                       onclick="Javascript:document.form1.<%=ForumConstants.STATUS_SAVE%><%=forum.getID()%>.checked=false;"/>
+                                       onclick="Javascript:document.form3.<%=ForumConstants.STATUS_SAVE%><%=forum.getID()%>.checked=false;"/>
                             </td>
 
                         </tr>
