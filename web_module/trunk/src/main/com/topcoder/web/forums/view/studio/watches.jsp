@@ -164,7 +164,7 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
                 </td>
                 <% if (message.getUser() != null) { %>
                 <td class="rtThreadCell" style="width: 100px;">
-                    <studio:handle coderId="${message.user.id}"/>
+                    <studio:handle coderId="<%=message.getUser().getID()%>"/>
                 </td>
                 <% } else { %>
                 <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
