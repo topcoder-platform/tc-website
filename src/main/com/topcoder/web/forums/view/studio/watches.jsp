@@ -189,7 +189,7 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
     </table>
 
     <div align="right">
-        <input type="image" src="/i/roundTables/update.gif" alt="Update" onclick="form3.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_UPDATE%>'"/>
+        <input type="image" src="/i/v2/interface/btnUpdate.png" alt="Update" onclick="form3.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_UPDATE%>'"/>
     </div>
 </form>
 <%	} %>
