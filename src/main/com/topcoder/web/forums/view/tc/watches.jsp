@@ -131,7 +131,8 @@
                 <table cellpadding="0" cellspacing="0" class="rtTable">
                     <tr>
                         <td class="rtHeader" width="100%">Forum</td>
-                        <td class="rtHeader"><div style="width:80px;">T./M.</div></td>
+                        <td class="rtHeader" align="right">Threads</td>
+                        <td class="rtHeader" align="right">Messages</td>
                         <td class="rtHeader" align="center" colspan="2" nowrap="nowrap">
                             <div style="width:320px;">Last Post</div>
                         </td>
@@ -151,11 +152,9 @@
                                 <% } else { %>
                                 <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="<%=trackerClass%>"><%=forum.getName()%></A>
                                 <% } %>
-                                <% if (forum.getDescription() != null) { %><br/>
-                                    <div class="rtDescIndent"><%=forum.getDescription()%></div>
-                                <% } %>
                             </td>
-                            <td class="rtThreadCell" style="width: 80px;"><%=forum.getThreadCount()%>&#160;/&#160;<%=forum.getMessageCount()%></td>
+                            <td class="rtThreadCell" align="right"><%=forum.getThreadCount()%></td>
+                            <td class="rtThreadCell" align="right"><%=forum.getMessageCount()%></td>
                             <% if (forum.getMessageCount() > 0) { %>
                             <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
                             <td class="rtThreadCell" style="width: 220px;"><b>
