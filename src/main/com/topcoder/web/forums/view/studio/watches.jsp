@@ -164,7 +164,7 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
                 </td>
                 <% if (message.getUser() != null) { %>
                 <td class="rtThreadCell" style="width: 100px;">
-                    <tc-webtag:handle coderId="<%=message.getUser().getID()%>"/>
+                    <studio:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
                 </td>
                 <% } else { %>
                 <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
