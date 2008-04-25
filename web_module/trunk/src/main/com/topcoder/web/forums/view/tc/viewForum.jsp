@@ -76,10 +76,10 @@
     String cmd = "";
     String watchMessage = "";
     if (!authToken.isAnonymous() && watchManager.isWatched(user, forum)) {
-       watchMessage = "Stop Watching Thread";
+       watchMessage = "Stop Watching Forum";
        cmd = "remove";
     } else {
-       watchMessage = "Watch Thread";
+       watchMessage = "Watch Forum";
        cmd = "add";
     }
 
