@@ -88,10 +88,11 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             
             if (!projectID.equals("") && !projectTermStatus.equals("") && (devSupportDes || devSupportId > 0)) {
                 DataInterfaceBean bean = new DataInterfaceBean();
-                int[] counts = new int[3];
+                int[] counts = new int[4];
                 counts[0] =0;
                 counts[1] =0;
                 counts[2] =0;
+                counts[3] =0;
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
                 
                 List l;
@@ -121,7 +122,8 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 for (int i = 0; i < l.size(); i++) {
                 	BasePayment p = (BasePayment) l.get(i);
                 	if (p.getPaymentType() == PactsConstants.COMPONENT_PAYMENT) counts[0]++;
-                	if (p.getPaymentType() == PactsConstants.REVIEW_BOARD_PAYMENT) counts[1]++;
+                    if (p.getPaymentType() == PactsConstants.REVIEW_BOARD_PAYMENT) counts[1]++;
+                    if (p.getPaymentType() == PactsConstants.REVIEW_BOARD_BONUS_PAYMENT) counts[3]++;
                 	ids.add(p.getId() + "");
                 	
                 	List refer = bean.findPayments(CODER_REFERRAL_PAYMENT, p.getId());
@@ -135,7 +137,8 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 getRequest().setAttribute(PAYMENT_ID, ids);
                 
                 addError(PROJECT_ID, "Success: " + counts[0] + " design/dev, " +
-                        counts[1] + " review board, " + counts[2] + " referral payments generated");
+                        counts[1] + " review board, " + counts[2] + " referral payments generated, " +
+                        + counts[3] + " review board bonus payments generated ");
             } else {
 
             	if (!devSupportDes && devSupportId == 0) {
