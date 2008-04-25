@@ -133,7 +133,7 @@
                         <td class="rtHeader" width="100%">Forum</td>
                         <td class="rtHeader"><div style="width:80px;">T./M.</div></td>
                         <td class="rtHeader" align="center" colspan="2" nowrap="nowrap">
-                            <div style="width:320px;"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></div>
+                            <div style="width:320px;">Last Post</div>
                         </td>
                         <td class="rtHeader">Save</td>
                         <td class="rtHeader">Delete</td>
@@ -142,7 +142,7 @@
 
 
                     <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
-                        <% trackerClass = (user == null || forum.getLatestMessage() == null || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ
+                        <% String trackerClass = (user == null || forum.getLatestMessage() == null || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ
                                 || ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, forum.getLatestMessage().getForumThread()))) ? "rtLinkOld" : "rtLinkBold"; %>
                         <tr>
                             <td class="rtThreadCellWrap">
