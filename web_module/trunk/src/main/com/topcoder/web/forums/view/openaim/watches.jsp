@@ -189,7 +189,12 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
 
     <div align="right">
         <input type="image" src="/i/events/openaim/interface/btnUpdate.png" alt="Update" onclick="form3.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_UPDATE%>'"/>
-                        </div>
+    </div>
+
+
+        </form>
+<%	} %>
+
                         <div style="clear: both;">&nbsp;</div>
                     </div>
                 </div>
