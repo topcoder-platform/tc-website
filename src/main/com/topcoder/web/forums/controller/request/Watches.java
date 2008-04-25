@@ -4,10 +4,10 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
+import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.WatchManager;
-import com.jivesoftware.forum.Forum;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
@@ -31,8 +31,10 @@ public class Watches extends ForumsProcessor {
         WatchManager watchManager = forumFactory.getWatchManager();
 
         String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.STATUS));
+        log.debug("status is " + status);
         if (status.equals(ForumConstants.STATUS_UPDATE)) {
             int type = Integer.parseInt(getRequest().getParameter(ForumConstants.WATCH_TYPE));
+            log.debug("type is " + type);
             if (type == JiveConstants.THREAD) {
                 Iterator threads = watchManager.getAllWatches(user, JiveConstants.THREAD);
                 while (threads.hasNext()) {
@@ -57,19 +59,21 @@ public class Watches extends ForumsProcessor {
                         watchManager.deleteWatch(watchManager.getWatch(user, category));
                     }
                 }
-        } else if (type == JiveConstants.FORUM) {
-            Iterator forums = watchManager.getAllWatches(user, JiveConstants.FORUM);
-            while (forums.hasNext()) {
-                Forum forum = (Forum) (forums.next());
-                String saveForum = StringUtils.checkNull(getRequest().getParameter(ForumConstants.STATUS_SAVE + forum.getID()));
-                String deleteForum = StringUtils.checkNull(getRequest().getParameter(ForumConstants.STATUS_DELETE + forum.getID()));
-                boolean expirable = !(saveForum.equals(String.valueOf(forum.getID())));
-                watchManager.getWatch(user, forum).setExpirable(expirable);
-                if (deleteForum.equals(String.valueOf(forum.getID())) && !saveForum.equals(String.valueOf(forum.getID()))) {
-                    watchManager.deleteWatch(watchManager.getWatch(user, forum));
+            } else if (type == JiveConstants.FORUM) {
+                log.debug("forum");
+                Iterator forums = watchManager.getAllWatches(user, JiveConstants.FORUM);
+                while (forums.hasNext()) {
+                    Forum forum = (Forum) (forums.next());
+                    String saveForum = StringUtils.checkNull(getRequest().getParameter(ForumConstants.STATUS_SAVE + forum.getID()));
+                    String deleteForum = StringUtils.checkNull(getRequest().getParameter(ForumConstants.STATUS_DELETE + forum.getID()));
+                    boolean expirable = !(saveForum.equals(String.valueOf(forum.getID())));
+                    log.debug("forum " + forum.getName() + " " + forum.getID() + " save " + saveForum + " delete " + deleteForum);
+                    watchManager.getWatch(user, forum).setExpirable(expirable);
+                    if (deleteForum.equals(String.valueOf(forum.getID())) && !saveForum.equals(String.valueOf(forum.getID()))) {
+                        watchManager.deleteWatch(watchManager.getWatch(user, forum));
+                    }
                 }
             }
-        }
         }
 
         Iterator itThreads = watchManager.getAllWatches(user, JiveConstants.THREAD);
