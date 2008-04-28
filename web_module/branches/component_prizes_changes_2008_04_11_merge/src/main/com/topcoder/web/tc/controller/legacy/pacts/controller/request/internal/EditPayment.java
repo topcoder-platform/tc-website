@@ -23,6 +23,7 @@ import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
 import com.topcoder.web.ejb.pacts.DigitalRunSeasonReferencePayment;
 import com.topcoder.web.ejb.pacts.DigitalRunStageReferencePayment;
 import com.topcoder.web.ejb.pacts.ParentReferencePayment;
+import com.topcoder.web.ejb.pacts.ReviewBoardPayment;
 import com.topcoder.web.ejb.pacts.StudioContestReferencePayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
@@ -164,7 +165,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         payment.setDescription(desc);
                         
                         payment.setTotalAmount(totalAmount);
-                        payment.setGrossAmount(grossAmount > 0 && payment instanceof ComponentWinningPayment? grossAmount : totalAmount);
+                        payment.setGrossAmount(grossAmount > 0 && (payment instanceof ComponentWinningPayment || payment instanceof ReviewBoardPayment) ? grossAmount : totalAmount);
                         payment.setNetAmount(netAmount);
                         payment.setDueDate(sdf.parse(dueDate));
                         payment.setMethodId(methodId);
@@ -287,8 +288,8 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     try {
                         payment = dib.fillPaymentData(payment);
                         refDescr = payment.getReferenceDescription();
-                        if (payment instanceof ComponentWinningPayment) {
-                        	isDesign = ((ComponentWinningPayment) payment).isDesign() + "";
+                        if (payment instanceof ComponentWinningPayment || payment instanceof ReviewBoardPayment) {
+                        	isDesign = ((ComponentProjectReferencePayment) payment).isDesign() + "";
                         }
                     } catch(Exception e) {}
                     getRequest().setAttribute("reference_description", refDescr);

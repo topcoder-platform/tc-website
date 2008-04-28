@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
@@ -22,6 +23,8 @@ public class ViewGenerateComponentPayments extends BaseProcessor implements Pact
             
             setDefault(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER , "designer");
             setDefault(GenerateComponentPayments.DEV_SUPPORT_PROJECT , "auto");
+            setDefault(GenerateComponentPayments.APPLY_REVIEWER_WITHHOLDING_ID , Constants.APPLY_REVIEW_BOARD_WITHHOLDING.equalsIgnoreCase("on"));
+            setDefault(GenerateComponentPayments.PAY_RBOARD_BONUS_ID , "false");
             setNextPage(INTERNAL_GENERATE_COMPONENT_PAYMENTS);
             setIsNextPageInContext(true);
         } catch (Exception e) {
