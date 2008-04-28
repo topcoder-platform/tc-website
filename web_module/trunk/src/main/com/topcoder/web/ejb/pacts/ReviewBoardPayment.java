@@ -70,7 +70,14 @@ public class ReviewBoardPayment extends ComponentProjectReferencePayment {
         public String lookupDescription(BasePayment payment) throws SQLException {
             ComponentProjectReferencePayment p = (ComponentProjectReferencePayment) payment;
 
-            return getComponentName(p.getProjectId()) + " - " + getProjectType(p.getProjectId()) + " review board";
+            String type = getProjectType(p.getProjectId());
+
+            if (p.getInstallmentNumber() == 2 && "Design".equals(type)) {
+                return getComponentName(p.getProjectId()) + " - Development Support";
+            } else {
+                return getComponentName(p.getProjectId()) + " - " + type + " review board";
+            }
+
         }
     }
 

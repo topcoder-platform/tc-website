@@ -101,6 +101,21 @@
                         </td>
                     </tr>
                     <tr>
+                        <td colspan="3" align="center">
+                            <table border="0" cellpadding="3" cellspacing="0">
+                                <tr align="center"><td>
+                                    <strong>Review Board</strong>
+                                </td></tr>
+                                <tr align="left"><td>
+                                    <tc-webtag:chkBox name="<%=GenerateComponentPayments.APPLY_REVIEWER_WITHHOLDING_ID %>"/>Apply Reviewer Withholding                                 
+                                </td></tr>
+                                <tr align="left"><td>
+                                    <tc-webtag:chkBox name="<%=GenerateComponentPayments.PAY_RBOARD_BONUS_ID %>"/>Pay Review Board Bonus
+                                </td></tr>
+                            </table>                                 
+                        </td>
+                    </tr>
+                    <tr>
                         <td align="center" colspan="3">
                             <a href="JavaScript:document.paymentForm.submit();">Generate Component Payments</a><br/>
                         </td>

@@ -42,6 +42,8 @@ public interface Constants {
     public static final int COLLEGE_TOUR_REP_PAYMENT = 35;
     public static final int STUDIO_REVIEW_BOARD_PAYMENT = 36;
     public static final int COMPONENT_ENHANCEMENTS_PAYMENT = 37;
+    public static final int REVIEW_BOARD_BONUS_PAYMENT = 38;
+    public static final int COMPONENT_BUILD_PAYMENT = 39;
 
     public static final int NO_REFERENCE = 0;
     public static final int REFERENCE_ALGORITHM_ROUND_ID = 1;
