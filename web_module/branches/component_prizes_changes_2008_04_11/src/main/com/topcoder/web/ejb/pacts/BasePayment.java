@@ -145,7 +145,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case REVIEW_BOARD_PAYMENT:
         case BUG_FIXES_PAYMENT: 
         case COMPONENT_ENHANCEMENTS_PAYMENT: 
-        case SPECIFICATION_REVIEW_PAYMENT: 
+//        case SPECIFICATION_REVIEW_PAYMENT: 
         case COMPONENT_BUILD_PAYMENT: 
             return REFERENCE_COMPONENT_PROJECT_ID;
 
