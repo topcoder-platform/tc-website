@@ -12,13 +12,14 @@
 <c:set var="isUpdating" value="${param.is_updating=='true'}"/>
 
 <c:set var="COMPONENT_WINNING" value="<%= PactsConstants.COMPONENT_PAYMENT + "" %>" />
+<c:set var="REVIEW_BOARD" value="<%= PactsConstants.REVIEW_BOARD_PAYMENT + "" %>" />
 
 
 <taconite-root xml:space="preserve">
 
   
      <c:choose>
-            <c:when test="${type == COMPONENT_WINNING and (placed == 1 or isUpdating) and isDesign}">
+            <c:when test="${(type == REVIEW_BOARD or (type == COMPONENT_WINNING and (placed == 1 or isUpdating))) and isDesign}">
 			    <taconite-replace contextNodeID="trAmount1" parseInBrowser="true">
 			        <tr id="trAmount1">
 			        <td><b>Total Gross Amount:</b></td>

@@ -355,6 +355,8 @@ public class Constants implements WebConstants {
     // Flag to turn on/off the global AD feature
     public static String GLOBAL_AD_FLAG;
 
+    public static String APPLY_REVIEW_BOARD_WITHHOLDING;
+
     public static String RSVP_TO_ADDRESS;
 
     public static final String DATASOURCE_ID = "dsid";

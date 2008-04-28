@@ -1430,16 +1430,16 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.generateComponentPayments(projectId, status, client, devSupportCoderId);
     }
 
-    public List generateComponentPayments(long projectId, long status, String client)
+    public List generateComponentPayments(long projectId, long status, String client, boolean applyReviewerWithholding, boolean payRboardBonus)
             throws IllegalUpdateException, RemoteException, SQLException, EventFailureException, DevSupportException {
       PactsServicesLocal ps = getEjbHandle();
-      return ps.generateComponentPayments(projectId, status, client);
+      return ps.generateComponentPayments(projectId, status, client, applyReviewerWithholding, payRboardBonus);
     }
     
-    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId)
+    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId, boolean applyReviewerWithholding, boolean payRboardBonus)
             throws IllegalUpdateException, RemoteException, SQLException, EventFailureException, DevSupportException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.generateComponentPayments(projectId, status, client, devSupportCoderId, devSupportProjectId);
+        return ps.generateComponentPayments(projectId, status, client, devSupportCoderId, devSupportProjectId, applyReviewerWithholding, payRboardBonus);
     }
 
 

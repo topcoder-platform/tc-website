@@ -18,6 +18,7 @@ import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
 import com.topcoder.web.ejb.pacts.ParentReferencePayment;
 import com.topcoder.web.ejb.pacts.ReliabilityBonusPayment;
+import com.topcoder.web.ejb.pacts.ReviewBoardBonusPayment;
 import com.topcoder.web.ejb.pacts.StudioContestPayment;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.AssignmentDocumentType;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
@@ -87,7 +88,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
         try {
             DataInterfaceBean dib = new DataInterfaceBean();
 
-            if (payment instanceof ReliabilityBonusPayment) {
+            if (payment instanceof ReliabilityBonusPayment || payment instanceof ReviewBoardBonusPayment) {
                 log.debug("instanceof ReliabilityBonusPayment");
 
                 // if the payment is a reliability it should get the parent's status
