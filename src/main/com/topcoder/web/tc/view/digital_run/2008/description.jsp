@@ -66,7 +66,7 @@ function menu_goto( menuform )
 <%--
 <span class="grayedOut">Current Leaderboard</span>
 --%>
-<A href="/tc?&ph=112&module=LeaderBoard&staid=7" class="bcLink">Current Leaderboard</A>
+<A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Current Leaderboard</A>
 <br />
 </td>
 <td align="left" style="padding: 0 10px; border-right: 1px solid #999999;" valign="top">
@@ -75,7 +75,7 @@ function menu_goto( menuform )
 <%--
 <span class="grayedOut">Current Leaderboard</span>
 --%>
-<A href="/tc?&ph=113&module=LeaderBoard&staid=7" class="bcLink">Current Leaderboard</A>
+<A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Current Leaderboard</A>
 <br />
 </td>
 <td align="left" style="padding-left:10px;" valign="top">
