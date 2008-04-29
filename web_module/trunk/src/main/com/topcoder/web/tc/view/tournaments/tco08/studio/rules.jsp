@@ -188,14 +188,14 @@
                 <tr class="light">
                     <td>Onsite Competition Round 2</td>
                     <td>May 14, 2008</td>
-                    <td>8:00 AM***</td>
+                    <td>8:30 AM***</td>
                     <td>May 14, 2008</td>
                     <td>10:30 AM***</td>
                 </tr>
                 <tr class="dark">
                     <td>Onsite Competition Round 3</td>
                     <td>May 14, 2008</td>
-                    <td>11:00 AM***</td>
+                    <td>11:30 AM***</td>
                     <td>May 14, 2008</td>
                     <td>1:00 PM***</td>
                 </tr>
