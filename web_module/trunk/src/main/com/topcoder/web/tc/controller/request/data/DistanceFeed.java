@@ -225,7 +225,7 @@ public class DistanceFeed extends Base {
 			
 			//target.dist.add(1- (adj / maxOverlap));
 			
-			target.dist.add(Math.abs(target.rating - me.rating) / 4000);
+			target.dist.add(Math.abs(target.rating - me.rating) / 4000.0);
 			
 			target.desc += "Distance based on rating\n"; 
 		}
@@ -239,9 +239,9 @@ public class DistanceFeed extends Base {
 					
 			double adj = target.overlap - minOverlap;
 			
-			target.dist.add(((1- (adj / maxOverlap)) + (Math.abs(target.rating - me.rating) / 4000)) / 2.0);
+			target.dist.add(((1- (adj / maxOverlap)) + (Math.abs(target.rating - me.rating) / 4000.0)) / 2.0);
 			
-			target.desc += "Shared matches (plus rating factor): " + target.overlap + "\n"; 
+			target.desc += "Shared matches: " + target.overlap + "\nDistance also based on rating.\n"; 
 		}
 
 	}
