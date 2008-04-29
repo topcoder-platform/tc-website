@@ -1020,7 +1020,7 @@
             <classpath>
                 <pathelement location="${ejb_jars}/PactsClientServices.jar"/>
       			<pathelement location="${shared.jar}"/>
-				      			<pathelement location="${bin}/classes.jar"/>
+				      			<pathelement location="${classes}"/>
                 <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
                 <pathelement location="${jars.dir}/ifxjdbc.jar"/>
                 <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
