@@ -13,7 +13,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.datafeed.CommandRunner;
 import com.topcoder.web.tc.controller.request.Base;
 
-
 /**
  * @author geldridge
  * @version $Revision$ Date: 2008/04/15 00:00:00
@@ -21,12 +20,32 @@ import com.topcoder.web.tc.controller.request.Base;
  */
 public class DistanceFeed extends Base {
 
+	class Coder { 
+		public String ID = null;
+		public String handle = null;
+		public int rating = 0;
+		public Vector dist = new Vector();
+		public String desc = "";
+		public int overlap;
+		
+		public Coder(String ID, String handle, int rating)
+		{
+			this.ID = ID;
+			this.handle = handle;
+			this.rating = rating;
+		}
+	}
+	
     protected void businessProcessing() throws Exception {
     	Vector<Coder> them = getOverlapCoders();
     	Coder me = getOverlapMe();
                 
         CoderOverlap co = new CoderOverlap(me, them);
-        co.process();
+        
+        int tflag = Integer.parseInt(getRequest().getParameter("tf"));
+        int cflag = Integer.parseInt(getRequest().getParameter("cf"));
+        
+        co.process(tflag, cflag);
         
         getResponse().setContentType("text/xml");
         writeAsXML(me, them);
@@ -82,7 +101,7 @@ public class DistanceFeed extends Base {
 	    	Request r = new Request();
 	    	
 	    	r.setContentHandle("dd_fast_overlap");
-	        r.setProperty("cr", getRequest().getParameter("cr"));
+	        r.setProperty("cr", getRequest().getParameter("cr"));	        
 	        DataAccessInt da = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
 	        CommandRunner cmd = new CommandRunner(da, r);        
 	        Map<String, ResultSetContainer> dm = cmd.getData();
@@ -123,29 +142,12 @@ public class DistanceFeed extends Base {
         	
 	        ret = new Coder(String.valueOf(ID), handle, rating );
 	        ret.overlap = shared_rounds;    	
-		ret.dist.add(0.0);
+	        ret.dist.add(0.0);
 		} catch (Exception e) { throw new RuntimeException(e); }
         
         return ret;			
 	}
-    
-	protected class Coder {
-		public String handle;
-		public long rating;
-		public String ID;
-		public Vector<Double> dist = new Vector<Double>();
-		public int overlap = 0;
-		
-		public String desc = "";
-		
-		public Coder(String ID, String handle, int rating)
-		{		
-			this.ID = ID;			
-			this.handle = handle;
-			this.rating = rating;	
-		}
-	}
-	
+   	
 	private class CoderOverlap
 	{
 		private Coder me = null;
@@ -159,7 +161,7 @@ public class DistanceFeed extends Base {
 			this.them = them;			
 		}
 		
-		public void process() 
+		public void process(int tflag, int cflag) 
 		{		
 			for(Coder cur : them)
 			{
@@ -175,9 +177,26 @@ public class DistanceFeed extends Base {
 			}
 			maxOverlap -= minOverlap - 1;
 			
-			for(Coder cur : them)
+			if (tflag == 1)
+			{				
+				for(Coder cur : them)
+				{
+					overlapDistance(cur);
+				}
+			}
+			else if (tflag == 2)
 			{
-				overlapDistance(cur);
+				for(Coder cur : them)
+				{
+					ratingDistance(cur);
+				}				
+			}
+			else if (tflag == 3)
+			{
+				for (Coder cur : them)
+				{
+					ratingOverlapDistance(cur);
+				}
 			}
 		}
 		
@@ -194,6 +213,37 @@ public class DistanceFeed extends Base {
 			
 			target.desc += "Shared matches: " + target.overlap + "\n"; 
 		}
+		
+		private void ratingDistance(Coder target)
+		{
+			if (me.ID == target.ID) {
+				target.dist.add(0.0);
+				return;
+			}
+					
+			//double adj = target.overlap - minOverlap;
+			
+			//target.dist.add(1- (adj / maxOverlap));
+			
+			target.dist.add(Math.abs(target.rating - me.rating) / 4000);
+			
+			target.desc += "Distance based on rating\n"; 
+		}
+		
+		private void ratingOverlapDistance(Coder target)
+		{
+			if (me.ID == target.ID) {
+				target.dist.add(0.0);
+				return;
+			}
+					
+			double adj = target.overlap - minOverlap;
+			
+			target.dist.add(((1- (adj / maxOverlap)) + (Math.abs(target.rating - me.rating) / 4000)) / 2.0);
+			
+			target.desc += "Shared matches (plus rating factor): " + target.overlap + "\n"; 
+		}
+
 	}
 
     
