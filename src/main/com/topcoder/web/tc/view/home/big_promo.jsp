@@ -11,7 +11,7 @@
         <area shape="poly" coords="271,191,407,186,429,91,281,100" href="/wiki/display/tc/Bug+Races" alt="Bug Races" onmouseover="MM_swapImage('competitions','','/i/home/catcBugraces.png',1)" onmouseout="MM_swapImgRestore()" />
         <area shape="poly" coords="49,112,31,45,158,58,169,127" href="/longcontest/?module=ViewActiveContests" alt="Marathon" onmouseover="MM_swapImage('competitions','','/i/home/catcMarathon.png',1)" onmouseout="MM_swapImgRestore()" />
         <area shape="poly" coords="177,59,333,59,320,145,189,146" href="javascript:arena();" alt="Algorithm" onmouseover="MM_swapImage('competitions','','/i/home/catcAlgorithm.png',1)" onmouseout="MM_swapImgRestore()" />
-        <area shape="poly" coords="464,110,341,129,355,53,480,44" href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests" alt="Studio" onmouseover="MM_swapImage('competitions','','/i/home/catcStudio.png',1)" onmouseout="MM_swapImgRestore()" />
+        <area shape="poly" coords="464,110,341,129,355,53,480,44" href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/" alt="Studio" onmouseover="MM_swapImage('competitions','','/i/home/catcStudio.png',1)" onmouseout="MM_swapImgRestore()" />
     </map>
     
 
