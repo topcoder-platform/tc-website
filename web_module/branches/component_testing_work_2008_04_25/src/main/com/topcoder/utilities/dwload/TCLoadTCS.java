@@ -1338,7 +1338,7 @@ public class TCLoadTCS extends TCLoad {
                         // then, we try to get it from comp_version_dates
                         // finally, we get it from project_info (Payments type)
                         // note: changing this affects loadDRContestResults method's query.
-                        "    , NVL((select value from project_info pi_dr where pi_dr.project_info_type_id = 30 and pi_dr.project_id = p.project_id), "
+                        "    , NVL((select value from project_info pi_dr where pi_dr.project_info_type_id = 30 and pi_dr.project_id = p.project_id), " +
                         "          (select value from project_info pi_am where pi_am.project_info_type_id = 16 and pi_am.project_id = p.project_id)) as amount " +
                         "     , (select value from project_info where project_id = p.project_id and project_info_type_id = 26) as dr_ind " +
                         "    from project_result pr" +
@@ -4846,7 +4846,7 @@ public class TCLoadTCS extends TCLoad {
                         "       ,pr.point_adjustment " +
                         "       ,pr.final_score " +
                         "       ,pr.passed_review_ind " +
-                        "       , NVL((select value from project_info pi_dr where pi_dr.project_info_type_id = 30 and pi_dr.project_id = p.project_id), "
+                        "       , NVL((select value from project_info pi_dr where pi_dr.project_info_type_id = 30 and pi_dr.project_id = p.project_id), " +
                         "          (select value from project_info pi_am where pi_am.project_info_type_id = 16 and pi_am.project_id = p.project_id)) as amount " +
                         "       ,(select count(*) from submission s, upload u  " +
                         "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
