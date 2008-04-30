@@ -67,7 +67,9 @@
                 <ul id="menunav2">
                     <% if (tabLev1.equals("overview")) {%>
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about"<% if (tabLev2.equals("details")) {%> class="on"<% } %>>Details</a></li>
+                        <%--
                         <li><a target="_blank" href="/pdfs/tournaments/tco08/TCO08_Program_View.pdf">Program [PDF]</a></li>
+                        --%>
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=onsiteSchedule"<% if (tabLev2.equals("joinus")) {%> class="on"<% } %>>Join Us Onsite</a></li>
                         <%--
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=roundTable"<% if (tabLev2.equals("roundtable")) {%> class="on"<% } %>>Roundtable Discussion</a></li>
