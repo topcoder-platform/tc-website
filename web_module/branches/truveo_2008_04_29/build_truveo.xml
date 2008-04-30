@@ -373,40 +373,7 @@
     </target>
 
     <target name="build-security" depends="compile_shared">
-        <javac
-                srcdir="${java}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.4"
-                target="1.4"
-                >
-            <include name="com/topcoder/security/**"/>
-        </javac>
-        <jar jarfile="${ejb_jars}/security.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/security/**"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/**"/>
-            <metainf dir="${resources}/security/conf" includes="*.xml" excludes="application.xml"/>
-        </jar>
-
-        <ear earfile="${ear.dir}/security.ear" appxml="${resources}/security/conf/application.xml">
-            <fileset dir="${jars.dir}">
-                <include name="configmanager2.jar"/>
-            </fileset>
-            <fileset dir="${jars.dir}/tcs/id_generator/3.0">
-                <include name="id_generator.jar"/>
-            </fileset>
-            <fileset dir="${jars.dir}/tcs">
-                <include name="base_exception.jar"/>
-            </fileset>
-            <fileset dir="${jars.dir}/tcs/db_connection_factory/1.0">
-                <include name="db_connection_factory.jar"/>
-            </fileset>
-            <fileset dir="${ejb_jars}">
-                <include name="security.jar"/>
-            </fileset>
-        </ear>
+        <ant antfile="build_tc.xml" target="build-security"/>
     </target>
 
 
