@@ -294,6 +294,9 @@
         <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/EmailEngineConfig.properties"/>
 
+        <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jgroups.jar"/>
+        <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jboss-cache-jdk50.jar"/>
+
         <copy todir="${jboss_conf}/com/topcoder/db/connectionfactory/"
               file="${resources}/com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
         <copy todir="${jboss_conf}/com/topcoder/security/" file="${resources}/com/topcoder/security/Util.properties"/>
