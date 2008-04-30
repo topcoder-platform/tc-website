@@ -4886,10 +4886,9 @@ public class TCLoadTCS extends TCLoad {
 
         try {
             selectResults = prepareStatement(SELECT_RESULTS, SOURCE_DB);
-            selectResults.setInt(1, projectCategoryId == 14 ? 112 : projectCategoryId + 111);
-            selectResults.setInt(2, projectCategoryId);
-            selectResults.setTimestamp(3, startDate);
-            selectResults.setTimestamp(4, endDate);
+            selectResults.setInt(1, projectCategoryId);
+            selectResults.setTimestamp(2, startDate);
+            selectResults.setTimestamp(3, endDate);
 
             insert = prepareStatement(INSERT, TARGET_DB);
 
