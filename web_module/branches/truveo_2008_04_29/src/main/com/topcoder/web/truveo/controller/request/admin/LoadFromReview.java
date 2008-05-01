@@ -58,7 +58,7 @@ public class LoadFromReview extends Base {
                 refreshCache(contest);
 
                 setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
-                        "=AdminViewSubmissions&" + Constants.CONTEST_ID + "=" + contestId);
+                        "=ViewSubmissions&" + Constants.CONTEST_ID + "=" + contestId);
                 setIsNextPageInContext(false);
             } else {
                 throw new NavigationException("Invalid contest specified");

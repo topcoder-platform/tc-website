@@ -73,18 +73,18 @@
                     <div class="contentMiddle">
 
                 <div class="breadcrumb">
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">Contests</a>
+                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContests">Contests</a>
                     &gt;
-                    <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">${submission.contest.name}</a>
+                    <a href="${sessionInfo.servletPath}?module=ViewContest&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">${submission.contest.name}</a>
                     &gt;
-                    <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">Submissions</a>
+                    <a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">Submissions</a>
                     &gt; ${submission.submitter.handle} - ${submission.originalFileName}
                 </div>
 
                 <h1>Submission Detail</h1>
 
                 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="reviewForm">
-                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSubmitReview"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitReview"/>
                     <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
 
 
@@ -93,7 +93,7 @@
                             <truveo_tags:submissionDisplay submissionId="${submission.id}" width="${submission.width}" height="${submission.height}" isAdminSite="true" includeLink="false"/>
                         </c:when>
                         <c:otherwise>
-                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">View
+                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">View
                                 Submission</a>
                         </c:otherwise>
                     </c:choose>
@@ -129,7 +129,7 @@
                     <div class="header">Contest Results</div>
 
                     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="prizeRemoveForm">
-                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveSubmissionPrize"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="RemoveSubmissionPrize"/>
                         <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
                         <tc-webtag:hiddenInput name="<%=Constants.PRIZE_ID%>"/>
 
@@ -164,7 +164,7 @@
 
 
                     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="placedForm">
-                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddSubmissionPrize"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AddSubmissionPrize"/>
                         <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
 
                         <p>

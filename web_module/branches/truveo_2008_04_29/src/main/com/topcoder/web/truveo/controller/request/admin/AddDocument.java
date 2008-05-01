@@ -105,7 +105,7 @@ public class AddDocument extends Base {
                 TruveoDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
 
                 setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
-                        "=AdminViewContest&" + Constants.CONTEST_ID + "=" + contestId);
+                        "=ViewContest&" + Constants.CONTEST_ID + "=" + contestId);
                 setIsNextPageInContext(false);
             }
 

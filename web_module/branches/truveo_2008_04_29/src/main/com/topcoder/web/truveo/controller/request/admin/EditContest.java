@@ -143,7 +143,7 @@ public class EditContest extends Base {
 
 
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
-                    "=AdminViewContest&" + Constants.CONTEST_ID + "=" + contest.getId());
+                    "=ViewContest&" + Constants.CONTEST_ID + "=" + contest.getId());
             setIsNextPageInContext(false);
         }
 

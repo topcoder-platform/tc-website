@@ -44,18 +44,18 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-<div class="linkBox"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">back to
+<div class="linkBox"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContests">back to
     Contests</a></div>
 
 
 <c:if test="${contest.id>0}">
     <div class="breadcrumb">
-        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">Contests</a>
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContests">Contests</a>
         &gt;
         ${contest.name}
         <c:if test="${not empty contest.submissions}">
             &gt;
-            <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">submissions</a>
+            <a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">submissions</a>
         </c:if>
     </div>
 </c:if>
@@ -65,7 +65,7 @@
 
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditContest"/>
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditContest"/>
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
 <div class="header">Contest Details</div>
@@ -409,7 +409,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 <c:if test="${contest!=null && contest.id>0}">
     <p>
         Click
-        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}"
+        <a href="${sessionInfo.servletPath}/admin?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}"
            target="_blank">here</a>
         to see what the contest details page will look like.
     </p>
@@ -420,7 +420,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
     <div class="header">Documentation</div>
 
     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removeDocForm">
-        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveDocument"/>
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="RemoveDocument"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
         <tc-webtag:hiddenInput name="<%=Constants.DOCUMENT_ID%>"/>
 
@@ -442,7 +442,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
     <c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addDocumentForm"
           enctype="multipart/form-data">
-        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddDocument"/>
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AddDocument"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
         <p>
@@ -466,7 +466,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 <div class="header">Prizes</div>
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removePrizeForm">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemovePrize"/>
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="RemovePrize"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
     <tc-webtag:hiddenInput name="<%=Constants.PRIZE_ID%>"/>
 
@@ -490,7 +490,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 <c:set value="<%=Constants.PRIZE_VALUE%>" var="prizeValue"/>
 <c:set value="<%=Constants.PRIZE_TYPE_ID%>" var="prizeType"/>
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addPrizeForm">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddPrize"/>
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AddPrize"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
     <table cellpadding="0" cellspacing="0" class="input">
