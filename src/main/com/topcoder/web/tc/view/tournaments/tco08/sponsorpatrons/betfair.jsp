@@ -55,10 +55,8 @@
         <br />
         <p><strong>See jobs at Betfair:</strong><br />
         <a target="_blank" href="<tc-webtag:linkTracking link='http://corporate.betfair.com/servlet/HsPublic?context=ir.static.jsp&client=betf&path=util&service=getPage&page=careers' refer='tco08_betfair' />">Betfair Jobs</a></p>
-        <%-- Release when TCO logo is gone from PDF | New version must be added to Prod as well as Dev
         <p><strong>Employee Testimonials (PDFs):</strong><br />
         <a target="_blank" href="/pdfs/tournaments/tco08/Betfair_Asher_Glynn.pdf">Asher Glynn - Betfair Engineering</a></p>
-        --%>
         <p><strong>Here's what they say about us:</strong><br />
         <a target="_blank" href="<tc-webtag:linkTracking link='http://www.silicon.com/retailandleisure/0,3800011842,39169164,00.htm?r=2' refer='tco08_betfair' />">http://www.silicon.com/</a><br />
         <a target="_blank" href="<tc-webtag:linkTracking link='http://www.ashorten.com/2007/11/20/betfair-launch-flex-application/' refer='tco08_betfair' />">http://www.ashorten.com/</a><br />
