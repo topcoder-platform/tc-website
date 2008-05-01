@@ -25,12 +25,6 @@
     
 </head>
 
-<%
-    final String CURR_IMAGE_KEY = "currImage";
-    String currImage = request.getParameter(CURR_IMAGE_KEY)==null?"":request.getParameter(CURR_IMAGE_KEY);
-%>
-
-
 <body>
 
 <div align="center" style="background: transparent;">
