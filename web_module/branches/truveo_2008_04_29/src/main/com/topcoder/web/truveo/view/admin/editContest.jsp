@@ -2,6 +2,7 @@
 <%@ page import="com.topcoder.web.truveo.Constants" %>
 <%@ page import="com.topcoder.web.truveo.model.ContestProperty" %>
 <%@ page import="com.topcoder.web.truveo.model.PrizeType" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -409,7 +410,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 <c:if test="${contest!=null && contest.id>0}">
     <p>
         Click
-        <a href="${sessionInfo.servletPath}/admin?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}"
+        <a href="http://<%=ApplicationServer.TRUVEO_SERVER_NAME%>?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}"
            target="_blank">here</a>
         to see what the contest details page will look like.
     </p>
