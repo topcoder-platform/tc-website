@@ -33,7 +33,9 @@ public class ContestStatus extends Base {
                 String commandName = "contest_project_status";
                 if (Constants.ARCHITECTURE_PROJECT_TYPE.equals(projectTypeId)) {
                     commandName = "architecture_project_status";
-                }
+                } else if (Constants.DEVELOPMENT_PROJECT_TYPE.equals(projectTypeId)) {
+                    commandName = "development_project_status";
+                } 
 
                 r.setContentHandle(commandName);
                 r.setProperties(getRequest().getParameterMap());
