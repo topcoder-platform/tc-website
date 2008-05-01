@@ -34,6 +34,11 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                 throw new NavigationException("Invalid contest specified");
             }
             Contest contest = TruveoDAOUtil.getFactory().getContestDAO().find(cid);
+            if (log.isDebugEnabled()) {
+                if (contest==null) {
+                    log.debug("couldn't find contest " + cid);
+                }
+            }
 
             if (isAdmin()) {
                 getRequest().setAttribute("contest", contest);
