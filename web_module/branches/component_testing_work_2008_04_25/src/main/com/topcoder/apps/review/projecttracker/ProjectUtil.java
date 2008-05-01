@@ -87,13 +87,18 @@ public class ProjectUtil {
         // while if the project is a regular component project, the rating should correspond to either design or development
         while (rs.next()) {
             if (rs.getLong(3) == ASSEMBLY_PROJECT_TYPE || rs.getLong(3) == ARCHITECTURE_PROJECT_TYPE || 
-                    rs.getLong(3) == COMPONENT_TESTING_PROJECT_TYPE || rs.getLong(3) == APPLICATION_TESTING_PROJECT_TYPE) {
+                    rs.getLong(3) == APPLICATION_TESTING_PROJECT_TYPE) {
 
                 if (old_rating < rs.getLong(1)) {
                     old_rating = rs.getLong(1);                    
                 }                                
             } else {
-                if (rs.getLong(3)+111 == rs.getLong(2)) {
+                if (rs.getLong(3) == COMPONENT_TESTING_PROJECT_TYPE) {
+                    // component testing get dev rating
+                    if (rs.getLong(2) == 113) {
+                        old_rating = rs.getLong(1);
+                    }
+                } else if (rs.getLong(3)+111 == rs.getLong(2)) {
                     old_rating = rs.getLong(1);                    
                 }                
             }

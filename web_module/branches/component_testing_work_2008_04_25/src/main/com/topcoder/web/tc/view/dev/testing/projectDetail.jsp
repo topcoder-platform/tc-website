@@ -30,7 +30,7 @@
 <%-- Left Column Begins--%>
 <td width="180">
     <jsp:include page="/includes/global_left.jsp">
-      <jsp:param name="node" value="testing_compete"/>
+        <jsp:param name="node" value="dev_compete"/>
     </jsp:include>
 </td>
 <%-- Left Column Ends --%>
@@ -39,7 +39,7 @@
 <td width="100%" align="left" class="bodyColumn">
 
 <jsp:include page="/page_title.jsp">
-<jsp:param name="image" value="testing"/>
+<jsp:param name="image" value="component_testing"/>
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 

@@ -11,7 +11,6 @@
 
 <c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_TYPE_ID"/>
 <c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_TYPE_ID"/>
-<c:set value="<%=Constants.COMPONENT_TESTING_PROJECT_TYPE%>" var="COMPONENT_TESTING_TYPE_ID"/>
 <c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_TYPE_ID"/>
 
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -42,11 +41,6 @@
 <%-- Left Column Begins--%>
         <td width="180">
           <c:choose>
-            <c:when test="${pt == COMPONENT_TESTING_TYPE_ID}">
-                <jsp:include page="/includes/global_left.jsp">
-                    <jsp:param name="node" value="component_testing_compete"/>
-                </jsp:include>
-            </c:when>
             <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
                 <jsp:include page="/includes/global_left.jsp">
                     <jsp:param name="node" value="app_testing_compete"/>
@@ -70,12 +64,6 @@
         <td width="100%" align="left" class="bodyColumn">
            
       <c:choose>
-        <c:when test="${pt == COMPONENT_TESTING_TYPE_ID}">
-            <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="component_testing"/>
-                <jsp:param name="title" value="Active Contests"/>
-            </jsp:include>
-        </c:when>
         <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="app_testing"/>
@@ -111,9 +99,6 @@
         
         <td align="right">
           <c:choose>
-            <c:when test="${pt == COMPONENT_TESTING_TYPE_ID}">
-                <a href=""><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
-            </c:when>
             <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
                 <a href="/tc?module=Static&amp;d1=dev&amp;d2=testing&amp;d3=instructions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
             </c:when>
@@ -131,11 +116,6 @@
 <div align="right" style="padding-top: 10px">
       <c:choose>
     <%--
-        <c:when test="${pt == COMPONENT_TESTING_TYPE_ID}">
-            Competition opportunities via RSS - 
-            <a href="">Subscribe Now</a>
-            <a href=""><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
-        </c:when>
         <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
             Competition opportunities via RSS - 
             <a href="">Subscribe Now</a>
@@ -159,9 +139,6 @@
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
           <c:choose>
-            <c:when test="${pt == COMPONENT_TESTING_TYPE_ID}">
-                <td class="title" colspan="8">Active Component Testing Contests</td>
-            </c:when>
             <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
                 <td class="title" colspan="7">Active Application Testing Contests</td>
             </c:when>

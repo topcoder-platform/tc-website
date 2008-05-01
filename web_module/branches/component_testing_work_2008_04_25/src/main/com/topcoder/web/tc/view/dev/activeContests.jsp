@@ -210,9 +210,12 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="10">Active Component Development Contests</td>
+        <td class="title" colspan="11">Active Component Development Contests</td>
     </tr>
     <tr>
+        <td class="header">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="16" includeParams="true"/>">Type</a>
+        </td>
         <td class="header">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Catalog</a>
         </td>
@@ -250,6 +253,9 @@
     <% boolean even = false; %>
     <rsc:iterator list="<%=devContests%>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
+            <td class="valueC">
+                <rsc:item name="type" row="<%=resultRow%>"/>
+            </td>
             <td class="valueC">
                 <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
                 <img src="/i/development/smAOL.gif" alt="AOL" />
@@ -331,7 +337,12 @@
     <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/components/subscriptions.jsp">Subscriptions</a> we sell,
     the more royalties we
     pay out to our winners! Please note
-    that custom components do not get added to the catalog and therefore do not have royalties.</p>
+    that custom components do not get added to the catalog and therefore do not have royalties.
+    
+    <br/>
+    
+    ADD SOMETHING ABOUT TESTING COMPONENTS NOT PAYING ROYALTIES
+    </p>
 
 <br />
 
