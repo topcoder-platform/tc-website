@@ -24,15 +24,21 @@ public class DistanceFeed extends Base {
 		public String ID = null;
 		public String handle = null;
 		public int rating = 0;
-		public Vector dist = new Vector();
+		public Vector<Double> dist = new Vector<Double>();
 		public String desc = "";
 		public int overlap;
+		public String image = null;
+		public double lat = 0;
+		public double lon = 0;
+		public String country = null;
+		public double calc_dist = 0;
 		
-		public Coder(String ID, String handle, int rating)
+		public Coder(String ID, String handle, int rating, String image)
 		{
 			this.ID = ID;
 			this.handle = handle;
 			this.rating = rating;
+			this.image = image;
 		}
 	}
 	
@@ -83,13 +89,18 @@ public class DistanceFeed extends Base {
 		os.print("<rating>");
 		os.print(String.valueOf(cur.rating));
 		os.print("</rating>\n");
-		os.print("<image>placeholder</image>\n");
+		os.print("<image>");
+		os.print(cur.image);
+		os.print("</image>\n");
 		os.print("<distance>");
 		os.print(String.valueOf(cur.dist.get(0)));
 		os.print("</distance>\n");
-		os.print("<desc>");
-		os.print(cur.desc);
-		os.print("</desc>");
+		os.print("<overlap>");
+		os.print(String.valueOf(cur.overlap));
+		os.print("</overlap>\n");
+		os.print("<country>");
+		os.print(cur.country);
+		os.print("</country>\n");
 		os.print("</coder>\n");
     	} catch (IOException e) { throw new RuntimeException(e); }
     }		
@@ -112,9 +123,16 @@ public class DistanceFeed extends Base {
 	        	String handle = row.getStringItem("handle");
 	        	int rating = row.getIntItem("rating");
 	        	int shared_rounds = row.getIntItem("shared_rounds");
+	        	String image = row.getStringItem("image_name");
+	        	String country = row.getStringItem("country_name");
+	        	double lat = row.getDoubleItem("latitude") * Math.PI / 180.0;
+	        	double lon = row.getDoubleItem("longitude") * Math.PI / 180.0;
 	        	
-	        	Coder c = new Coder(String.valueOf(ID), handle, rating );
+	        	Coder c = new Coder(String.valueOf(ID), handle, rating, image);
 	        	c.overlap = shared_rounds;    	
+	        	c.country = country;
+	        	c.lat = lat;
+	        	c.lon = lon;
 	        	
 	        	ret.add(c);
 	        }
@@ -135,14 +153,21 @@ public class DistanceFeed extends Base {
 	        CommandRunner cmd = new CommandRunner(da, r);        
 	        Map<String, ResultSetContainer> dm = cmd.getData();	        
 	        ResultSetContainer rsc = dm.get("dd_fast_overlap_me");
-	        long ID = rsc.get(0).getLongItem("coder_id");
-        	String handle = rsc.get(0).getStringItem("handle");
-        	int rating = rsc.get(0).getIntItem("rating");
-        	int shared_rounds = rsc.get(0).getIntItem("shared_rounds");
+	        ResultSetContainer.ResultSetRow row = rsc.get(0);
+	        long ID = row.getLongItem("coder_id");
+        	String handle = row.getStringItem("handle");
+        	int rating = row.getIntItem("rating");
+        	int shared_rounds = row.getIntItem("shared_rounds");
+        	String country = row.getStringItem("country_name");
+        	double lat = row.getDoubleItem("latitude") * Math.PI / 180.0;
+        	double lon = row.getDoubleItem("longitude") * Math.PI / 180.0;
         	
-	        ret = new Coder(String.valueOf(ID), handle, rating );
+	        ret = new Coder(String.valueOf(ID), handle, rating, "");
 	        ret.overlap = shared_rounds;    	
 	        ret.dist.add(0.0);
+	        ret.country = country;
+        	ret.lat = lat;
+        	ret.lon = lon;
 		} catch (Exception e) { throw new RuntimeException(e); }
         
         return ret;			
@@ -154,6 +179,8 @@ public class DistanceFeed extends Base {
 		private Vector<Coder> them = null;
 		private int maxOverlap = Integer.MIN_VALUE;
 		private int minOverlap = Integer.MAX_VALUE;
+		private static final double EARTH_RADIUS = 6367;
+		private static final double MAX_EARTH_DIST = Math.PI * EARTH_RADIUS;  
 		
 		public CoderOverlap(Coder me, Vector<Coder> them)
 		{
@@ -176,27 +203,43 @@ public class DistanceFeed extends Base {
 				}
 			}
 			maxOverlap -= minOverlap - 1;
-			
-			if (tflag == 1)
-			{				
-				for(Coder cur : them)
-				{
-					overlapDistance(cur);
-				}
-			}
-			else if (tflag == 2)
+
+			if ((tflag & 1) != 0)
 			{
+				// do rating
 				for(Coder cur : them)
 				{
 					ratingDistance(cur);
-				}				
+				}
 			}
-			else if (tflag == 3)
+			
+			if ((tflag & 2) != 0)
 			{
+				// do overlap
+				for(Coder cur : them)
+				{
+					overlapDistance(cur);					
+				}
+			}
+			
+			if ((tflag & 4) != 0)
+			{
+				// location
 				for (Coder cur : them)
 				{
-					ratingOverlapDistance(cur);
+					locationDistance(cur);
 				}
+			}
+			
+			for(Coder cur : them)
+			{
+				double sum = 0;
+				for (Double d : cur.dist)
+				{
+					sum += d;
+				}
+				sum /= cur.dist.size();
+				cur.dist.insertElementAt(sum, 0);
 			}
 		}
 		
@@ -220,30 +263,26 @@ public class DistanceFeed extends Base {
 				target.dist.add(0.0);
 				return;
 			}
-					
-			//double adj = target.overlap - minOverlap;
 			
-			//target.dist.add(1- (adj / maxOverlap));
-			
-			target.dist.add(Math.abs(target.rating - me.rating) / 4000.0);
-			
-			target.desc += "Distance based on rating\n"; 
+			target.dist.add(Math.abs(target.rating - me.rating) / 4000.0);			
 		}
 		
-		private void ratingOverlapDistance(Coder target)
+		private void locationDistance(Coder you)
 		{
-			if (me.ID == target.ID) {
-				target.dist.add(0.0);
+			if (me.ID == you.ID) {
+				you.dist.add(0.0);
 				return;
 			}
-					
-			double adj = target.overlap - minOverlap;
 			
-			target.dist.add(((1- (adj / maxOverlap)) + (Math.abs(target.rating - me.rating) / 4000.0)) / 2.0);
+			double deltaLong = ((you.lon - me.lon) / 2.0);
+			double sinv = Math.sin((you.lat-me.lat) / 2.0);
+			double cosv = Math.cos(you.lat) * Math.cos(me.lat)*Math.sin(deltaLong)*Math.sin(deltaLong);
+			double angle = 2 * Math.asin(Math.sqrt(sinv*sinv + cosv));
+			double distance = EARTH_RADIUS * angle; // km
 			
-			target.desc += "Shared matches: " + target.overlap + "\nDistance also based on rating.\n"; 
+			you.dist.add(distance / MAX_EARTH_DIST);
+			you.calc_dist = distance;
 		}
-
 	}
 
     
