@@ -104,6 +104,10 @@
             <A href="/tc?module=Static&d1=help&d2=pracArena#practicerooms" target="_blank">Practice Room FAQ</A>
             <br/><br/>
             <A href="/tc?module=Static&d1=help&d2=index" target="_blank">TopCoder FAQ</A>
+            <br/><br/>
+            <a href="/pdfs/events/beijing_instructions_en.pdf">Detailed Instructions - English</a>
+            <br/><br/>
+            <a href="/pdfs/events/beijing_instructions_zh.pdf">Detailed Instructions - Chinese</a>
 
 
             <br/><br/>
