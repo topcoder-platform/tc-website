@@ -3,7 +3,6 @@ package com.topcoder.web.truveo.controller.request;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -35,9 +34,9 @@ public class Register extends ShortHibernateProcessor {
 
                 Contest c = cFactory.getContestDAO().find(contestId);
                 User u = factory.getUserDAO().find(getUser().getId());
-                
-                boolean bother = true; 
-                
+
+                boolean bother = true;
+
                 // only bother if the user is not a professional (tccc)
                 // comment this line if not needed
 //                bother = !CoderType.PROFESSIONAL.equals(u.getCoder().getCoderType().getId()); 
@@ -80,7 +79,8 @@ public class Register extends ShortHibernateProcessor {
                             TruveoDAOUtil.getFactory().getContestRegistrationDAO().saveOrUpdate(cr);
 
                             // add user to the OpenAIM group
-                            SecurityHelper.addUserToGroup(u.getId(), Constants.TRUVEO_SECURITY_GROUP_ID);
+                            //don't need to add them to the group because we decided to make all competitors have access
+                            //SecurityHelper.addUserToGroup(u.getId(), Constants.TRUVEO_SECURITY_GROUP_ID);
 /*
                             SecurityGroup openAimSg = factory.getSecurityGroupDAO().find(new Long(Constants.OPEN_AIM_SECURITY_GROUP_ID));
                             if (!u.getSecurityGroups().contains(openAimSg)) {
@@ -92,7 +92,7 @@ public class Register extends ShortHibernateProcessor {
 
                                 factory.getUserGroupDAO().saveOrUpdate(ug);
                             }*/
-                            
+
                         } else {
                             addError(Constants.REG_CONFIRM, "");
                             setDefault(Constants.CONTEST_ID, c.getId());
