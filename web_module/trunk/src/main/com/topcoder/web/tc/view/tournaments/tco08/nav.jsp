@@ -51,9 +51,7 @@
         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=aol"><img src="/i/tournament/tco08/aol_logo_nav.png" width="186" height="80" alt="AOL" /></a></li>
         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign"><img src="/i/tournament/tco08/verisign_logo_nav.png" width="186" height="80" alt="VeriSign" /></a></li>
         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=bt"><img src="/i/tournament/tco08/bt_logo_nav.png" width="186" height="80" alt="BT" /></a></li>
-        <%--
         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfair"><img src="/i/tournament/tco08/betfair_logo_nav.png" width="186" height="80" alt="Betfair" /></a></li>
-        --%>
     </ul>
         
 </div>
@@ -156,9 +154,7 @@
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=aol"<% if (tabLev3.equals("aol")) {%> class="on"<% } %>>AOL</a></li>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign"<% if (tabLev3.equals("verisign")) {%> class="on"<% } %>>VeriSign</a></li>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=bt"<% if (tabLev3.equals("bt")) {%> class="on"<% } %>>BT</a></li>
-                            <%--
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfair"<% if (tabLev3.equals("betfair")) {%> class="on"<% } %>>Betfair</a></li>
-                            --%>
                         <% } else if (tabLev2.equals("eventpatrons")) { %>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa"<% if (tabLev3.equals("nsa")) {%> class="on"<% } %>>NSA</a></li>
                     <% } %>
