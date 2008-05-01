@@ -1,6 +1,8 @@
-<%@ page contentType="text/html;charset=utf-8" %> 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<%@ page contentType="text/html;charset=utf-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
     <title>2007 TopCoder Open - Computer Programming Tournament</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -8,66 +10,19 @@
     <link type="text/css" rel="stylesheet" href="/css/tournaments/tco07.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
     <jsp:include page="../../script.jsp" />
-    <script language="JavaScript" type="text/javascript" src="/js/slideShow.js"></script>
-    <script type="text/javascript">
-        function lpad(val) {
-          var temp = ""+val;
-          while(temp.length<3) temp="0"+temp;
-          return temp;
-        }
-        var imageNum = 1;
-                
-        var count = 257;
-        var images = new Array(count);
-        for (var i=0; i<count; i++) {
-            images[i]= "/i/tournament/tco07/onsitePhotos/"+lpad(i+1)+".jpg";
-        }
-        function getNextIdx() {
-            imageNum = imageNum + 1;
-            if (imageNum >= images.length) {
-                imageNum = 0;
-            }
-            preload(imageNum);
-            if (imageNum<images.length-1) {
-                preload(imageNum+1);
-            } else {
-                preload(0);
-            }
-            return imageNum;
-        }
 
-        function getPrevIdx() {
-            imageNum = imageNum - 1;
-            if (imageNum < 0) {
-                imageNum = images.length - 1;
-            }
-            preload(imageNum);
-            if (imageNum>0) {
-                preload(imageNum-1);
-            } else {
-                preload(images.length-1);
-            }
-            return imageNum;
-        }
+    <%-- THICKBOX GALLERY --%>
+    <script type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
+    <script type="text/javascript" src="/js/thickbox-3.1/thickbox-compressed-3.1.js"></script>
+    <link rel="stylesheet" href="/js/thickbox-3.1/thickbox-3.1.css" type="text/css" media="screen" />
+    <%----------------------------%>
 
-        function changeImage(imageIndex) {
-            if (imageIndex < 0) imageNum = 0;
-            else if (imageIndex >= images.length) imageNum = images.length-1;
-            else imageNum = imageIndex;
-            document.getElementById("slideImg").src = images[imageNum];
-            document.blah.currImage.value = imageNum+1;
-            // document.getElementById("slideImg").alt = descriptions[imageNum];
-            document.getElementById('currImage').innerHTML = imageNum + 1;
-            // document.getElementById('date').innerHTML = dates[imageNum];
-            // document.getElementById('caption').innerHTML = descriptions[imageNum];
-        }
-        function preload(idx) {
-          var img = new Image();
-          img.src = images[idx];
-        }
-
-    </script>
-
+    <style type="text/css">
+    a.spaced {
+     margin: 1px;
+    }
+    </style>
+    
 </head>
 
 <%
@@ -76,11 +31,7 @@
 %>
 
 
-<%if (!currImage.equals("")) { %>
-<body onload="changeImage(<%=currImage%>-1);">
-<% } else { %>
-<body onload="changeImage(0);">
-<% } %>
+<body>
 
 <div align="center" style="background: transparent;">
     <div id="content">
@@ -104,37 +55,119 @@
 
                         <h1><span>Photos</span></h1>
 
-            <form name="blah" action="/tc">
-                <input type="hidden" name="module" value="Static"/>
-                <input type="hidden" name="d1" value="tournaments"/>    
-                <input type="hidden" name="d2" value="tco07"/>
-                <input type="hidden" name="d3" value="photos"/>
+                        <p align="center">
+                            <a href="/i/tournament/tco07/onsitePhotos/reception/1.jpg">Reception</a>
+                            | <a href="#algo1">Algo Room 1</a>
+                            | <a href="#marathon">Marathon Match</a>
+                            | <a href="#algo2">Algo Room 2</a>
+                            | <a href="#studio">Studio</a>
+                            | <a href="#algo3">Algo Room 3</a>
+                            | <a href="#wildcard">WildCard</a>
+                        </p>
+                        <p align="center">
+                            <a href="#comp">Component Finals</a>
+                            | <a href="#algofin">Algorithm Finals</a>
+                            | <a href="#winners">Winners</a>
+                        </p>
 
-            <div id="slideShow" align="center">
-            
-                <a href="Javascript:void changeImage(0);">Reception</a>
-                | <a href="#spot" onClick="changeImage(38);">Algo Room 1</a>
-                | <a href="#spot" onClick="changeImage(80);">Marathon Match</a>
-                | <a href="#spot" onClick="changeImage(111);">Algo Room 2</a>
-                | <a href="#spot" onClick="changeImage(141);">Studio</a>
-                | <a href="#spot" onClick="changeImage(155);">Algo Room 3</a>
-                | <a href="#spot" onClick="changeImage(177);">WildCard</a>
-                <br>
-                <a href="#spot" onClick="changeImage(199);">Component Finals</a>
-                | <a href="#spot" onClick="changeImage(207);">Algorithm Finals</a>
-                | <a href="#spot" onClick="changeImage(226);">Winners</a>
-                <br><br>
-                <a name="spot"></a>
-                <a href="#spot" onClick="changeImage(getPrevIdx());">previous</a>
-                [ <strong><span id="currImage"></span></strong>
-                of <strong><script type="text/javascript">document.write(images.length);</script></strong> ]
-                
-                <a href="#spot" onClick="changeImage(getNextIdx());">next</a>
-                <br>Go to <input type="text" value="1" name="<%=CURR_IMAGE_KEY%>" size="3"/>
-                
-                <div id="slideImage" style="margin: 6px 0px;">
-                    <img src="#" id="slideImg" alt=""/>
-                </div>
+<a name="reception"/> 
+<p><strong>Reception</strong></p>
+<script type="text/javascript">
+for(var i=1; i<37; i++){
+    doWrite('<a href="/i/tournament/tco07/onsitePhotos/reception/'+i+'.jpg" title="Reception" rel="reception" class="thickbox spaced"><img src="/i/tournament/tco07/onsitePhotos/reception/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+</script>
+
+<br /><br />
+
+<a name="algo1"/> 
+<p><strong>Algorithm Room 1</strong></p>
+<script type="text/javascript">
+for(var i=1; i<41; i++){
+    doWrite('<a href="/i/tournament/tco07/onsitePhotos/algo1/'+i+'.jpg" title="Algorithm Room 1" rel="algo1" class="thickbox spaced"><img src="/i/tournament/tco07/onsitePhotos/algo1/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+</script>
+
+<br /><br />
+
+<a name="marathon"/> 
+<p><strong>Marathon Match Finals</strong></p>
+<script type="text/javascript">
+for(var i=1; i<30; i++){
+    doWrite('<a href="/i/tournament/tco07/onsitePhotos/marathon/'+i+'.jpg" title="Marathon Match Finals" rel="marathon" class="thickbox spaced"><img src="/i/tournament/tco07/onsitePhotos/marathon/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+</script>
+
+<br /><br />
+
+<a name="algo2"/> 
+<p><strong>Algorithm Room 2</strong></p>
+<script type="text/javascript">
+for(var i=1; i<29; i++){
+    doWrite('<a href="/i/tournament/tco07/onsitePhotos/algo2/'+i+'.jpg" title="Algorithm Room 2" rel="algo2" class="thickbox spaced"><img src="/i/tournament/tco07/onsitePhotos/algo2/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+</script>
+
+<br /><br />
+
+<a name="studio"/> 
+<p><strong>Studio Finals</strong></p>
+<script type="text/javascript">
+for(var i=1; i<13; i++){
+    doWrite('<a href="/i/tournament/tco07/onsitePhotos/studio/'+i+'.jpg" title="Studio Finals" rel="studio" class="thickbox spaced"><img src="/i/tournament/tco07/onsitePhotos/studio/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+</script>
+
+<br /><br />
+
+<a name="algo3"/> 
+<p><strong>Algorithm Room 3</strong></p>
+<script type="text/javascript">
+for(var i=1; i<21; i++){
+    doWrite('<a href="/i/tournament/tco07/onsitePhotos/algo3/'+i+'.jpg" title="Algorithm Room 3" rel="algo3" class="thickbox spaced"><img src="/i/tournament/tco07/onsitePhotos/algo3/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+</script>
+
+<br /><br />
+
+<a name="wildcard"/> 
+<p><strong>Algorithm Wildcard</strong></p>
+<script type="text/javascript">
+for(var i=1; i<21; i++){
+    doWrite('<a href="/i/tournament/tco07/onsitePhotos/wildcard/'+i+'.jpg" title="Algorithm Wildcard" rel="wildcard" class="thickbox spaced"><img src="/i/tournament/tco07/onsitePhotos/wildcard/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+</script>
+
+<br /><br />
+
+<a name="comp"/> 
+<p><strong>Component Finals</strong></p>
+<script type="text/javascript">
+for(var i=1; i<7; i++){
+    doWrite('<a href="/i/tournament/tco07/onsitePhotos/comp/'+i+'.jpg" title="Component Finals" rel="comp" class="thickbox spaced"><img src="/i/tournament/tco07/onsitePhotos/comp/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+</script>
+
+<br /><br />
+
+<a name="algofin"/> 
+<p><strong>Algorithm Finals</strong></p>
+<script type="text/javascript">
+for(var i=1; i<18; i++){
+    doWrite('<a href="/i/tournament/tco07/onsitePhotos/algofin/'+i+'.jpg" title="Algorithm Finals" rel="algofin" class="thickbox spaced"><img src="/i/tournament/tco07/onsitePhotos/algofin/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+</script>
+
+<br /><br />
+
+<a name="winners"/> 
+<p><strong>Winners</strong></p>
+<script type="text/javascript">
+for(var i=1; i<30; i++){
+    doWrite('<a href="/i/tournament/tco07/onsitePhotos/winners/'+i+'.jpg" title="Winners" rel="winners" class="thickbox spaced"><img src="/i/tournament/tco07/onsitePhotos/winners/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+</script>
+
             </div>
             </form>
             <br clear="all" />
