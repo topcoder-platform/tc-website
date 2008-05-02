@@ -193,10 +193,9 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- DIGITAL RUN 
-                <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/digital_run_20080128.png" alt="The Digital Run" border="0" style="display:block;"/></a>
-                --%>
-                
+                <%-- DIGITAL RUN --%>
+                <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/dig_run_2008_s2.png" alt="The Digital Run" border="0" style="display:block;"/></a>
+                                
                 <%-- DIGITAL RUN ASSEMBLY CUP 
                 <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></a>
                 --%>
@@ -232,14 +231,10 @@
                 <%-- UML Tool 
                 <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></a>
                 --%>
-                
-                <%-- TCHS08 
-                <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=bracketInd' refer='homepage_promo' />"><img src="/i/home/tchs08Champion_promo.png" alt="TCHS08" /></a>
-                --%>
-                
-                <%-- TCO08 --%>
+               
+                <%-- TCO08 
                 <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=bt' refer='homepage_promo' />"><img src="/i/home/tco08btPromo.png" alt="BT sponsor of TCO08" /></a>
-                
+                --%>
                 
                 <%-- AMD Multicore Threadfest 
                 <a href="<tc-webtag:linkTracking link='/threadfest' refer='homepage_promo' />"><img src="/i/home/amdMCT_promo.png" alt="AMD Multicore Threadfest" /></a>
