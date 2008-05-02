@@ -66,7 +66,7 @@ function menu_goto( menuform )
 <%--
 <span class="grayedOut">Current Leaderboard</span>
 --%>
-<A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Current Leaderboard</A>
+<A href="/tc?&pt=1&module=LeaderBoard" class="bcLink">Current Leaderboard</A>
 <br />
 </td>
 <td align="left" style="padding: 0 10px; border-right: 1px solid #999999;" valign="top">
@@ -75,16 +75,14 @@ function menu_goto( menuform )
 <%--
 <span class="grayedOut">Current Leaderboard</span>
 --%>
-<A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Current Leaderboard</A>
+<A href="/tc?&pt=2&module=LeaderBoard" class="bcLink">Current Leaderboard</A>
 <br />
 </td>
 <td align="left" style="padding-left:10px;" valign="top">
 <span class="subtitle" class="bcLink">Assembly Cup</span><br />
 <A href="/tc?module=Static&d1=digital_run&d2=2008&d3=asmOverview" class="bcLink">Details</A><br />
-<span class="grayedOut">Current Leaderboard</span>
-<%--
-<A href="/tc?module=Static&d1=digital_run&d2=2008&d3=asmLeaderboardS1" class="bcLink">Current Leaderboard</A>
---%><br />
+<A href="/tc?&pt=14&module=LeaderBoard" class="bcLink">Current Leaderboard</A>
+<br />
 
 
 </td>
