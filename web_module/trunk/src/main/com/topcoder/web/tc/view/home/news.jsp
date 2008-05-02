@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.02.08<br />10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/pdfs/tournaments/tco08/TCO08_Program_View.pdf">TCO08 Program now available</a> [PDF - 2mb]</span><br /><br />
+        The TCO08 program is now <a href="/pdfs/tournaments/tco08/TCO08_Program_View.pdf">online</a>.  Check out the 120 finalists, the brackets and our sponsor’s messages.  The finals are right around the corner!
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/pdfs/tournaments/tco08/TCO08_Program_View.pdf">details</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />04.25.08<br />3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=features&amp;d2=042508">Meet the March 2008 Coders of the Month: Wendell &amp; PE</a></span><br /><br />
@@ -154,17 +168,3 @@
         <tc-webtag:forumLink forumID="516707" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br />04.11.08<br />12:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=MatchDetails&amp;rd=12169">SRM 397 is sponsored by BT with $5,000 in Prizes!</a></span><br /><br />
-        BT is sponsoring <a href="/tc?module=MatchDetails&amp;rd=12169">SRM 397</a> and dishing out $5,000 in prizes.  Interested in their careers?  Learn more <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=bt">here</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=MatchDetails&amp;rd=12169">details</a> | 
-        <tc-webtag:forumLink forumID="516666" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_alg">archive</a>
-   </td></tr>
-   
