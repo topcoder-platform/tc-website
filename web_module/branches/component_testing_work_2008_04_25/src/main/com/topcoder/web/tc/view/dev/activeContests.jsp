@@ -213,7 +213,7 @@
         <td class="title" colspan="11">Active Component Development Contests</td>
     </tr>
     <tr>
-        <td class="header">
+        <td class="headerC">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="16" includeParams="true"/>">Type</a>
         </td>
         <td class="header">

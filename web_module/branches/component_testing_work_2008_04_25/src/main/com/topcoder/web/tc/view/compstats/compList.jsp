@@ -63,12 +63,12 @@
         <c:choose>
             <c:when test="${pt == DESIGN_TYPE_ID}">
                  <jsp:include page="/includes/global_left.jsp">
-                    <jsp:param name="node" value="des_stats">"/>
+                    <jsp:param name="node" value="des_stats"/>
                  </jsp:include>
             </c:when>
             <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
                  <jsp:include page="/includes/global_left.jsp">
-                    <jsp:param name="node" value="dev_stats">"/>
+                    <jsp:param name="node" value="dev_stats"/>
                  </jsp:include>
             </c:when>
         </c:choose>
@@ -89,7 +89,7 @@
         <span class="bodySubtitle">Component Statistics &gt; Design Contests</span><br>
     </c:when>
     <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
-        <span class="bodySubtitle">Component Statistics &gt; Development and Testing Contests</span><br>
+        <span class="bodySubtitle">Component Statistics &gt; Development Contests</span><br>
     </c:when>
 </c:choose>
 
@@ -117,7 +117,7 @@
                 </c:when>
                 <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
                     <td class="tableTitle" colspan="10">
-                    Development and Testing
+                    Development
                 </c:when>
             </c:choose>
             Contest Details
