@@ -161,7 +161,7 @@ public class SubmitReview extends Base {
         mail.setBody(msgText.toString());
         mail.addToAddress(submitter.getPrimaryEmailAddress().getAddress(), TCSEmailMessage.TO);
 
-        mail.setFromAddress("truveoadmin@topcoder.com", "TopCoder Truveo Admin");
+        mail.setFromAddress("service@topcoder.com", "TopCoder Truveo Admin");
         EmailEngine.send(mail);
     }
 
