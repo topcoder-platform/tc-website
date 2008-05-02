@@ -109,20 +109,16 @@
         <c:when test="${isDevelopment}">
             <a href="/tc?&amp;pt=1&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Design Cup Series Leaderboard</a><br />
             Development Cup Series Leaderboard</a><br />
-            <%--  uncomment when assembly DR is launched
             <c:if test="${staid >= 7}">
-                <a href="/tc?&amp;pt=11&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Assembly Cup Series Leaderboard</a><br />
+                <a href="/tc?&amp;pt=14&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Assembly Cup Series Leaderboard</a><br />
             </c:if>
-            --%>
         </c:when>
         <c:when test="${isDesign}">
             Design Cup Series Leaderboard<br />
             <a href="/tc?&amp;pt=2&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Development Cup Series Leaderboard</a><br />
-            <%--  uncomment when assembly DR is launched
             <c:if test="${staid >= 7}">
                 <a href="/tc?&amp;pt=14&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Assembly Cup Series Leaderboard</a><br />
             </c:if>
-            --%>
         </c:when>
         <c:when test="${isAssembly}">
             <a href="/tc?&amp;pt=1&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Design Cup Series Leaderboard</a><br />
