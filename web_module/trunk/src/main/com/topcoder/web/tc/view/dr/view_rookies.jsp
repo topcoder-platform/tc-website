@@ -207,7 +207,7 @@ Please select a <strong>season</strong><br>
         </td>
         <td class="valueR">
             <c:if test="${boardRow.points>0}">
-            <A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">
+            <A href="/tc?module=CompetitionHistory&pt=${boardRow.projectTypeId}&cr=${boardRow.userId}" class="bcLink">
 	            <fmt:formatNumber value="${boardRow.points}"  minFractionDigits="2" maxFractionDigits="2"/>
             </a>
             </c:if>
@@ -220,7 +220,7 @@ Please select a <strong>season</strong><br>
 	    </c:if>
 	</td>
 	<td class="valueR"><c:if test="${boardRow.potentialPoints>0}">
-	    <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&seid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">
+	    <A href="/tc?module=OutstandingProjects&pt=${boardRow.projectTypeId}&seid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">
 	    <fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/></a>
 	</c:if></td>
 	<td class="valueR">
