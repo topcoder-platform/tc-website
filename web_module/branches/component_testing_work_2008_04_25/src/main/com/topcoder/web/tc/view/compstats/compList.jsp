@@ -11,6 +11,9 @@
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
 
+<c:set value="<%=Constants.DESIGN_PROJECT_TYPE%>" var="DESIGN_TYPE_ID"/>
+<c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_TYPE_ID"/>
+
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -51,17 +54,24 @@
 
 <%
     ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("comp_list");
-    String phaseId = (String) request.getAttribute("phaseId");
-
 %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="<%="112".equals(phaseId)?"des_stats":"dev_stats"%>"/>
-         </jsp:include>
+        <c:choose>
+            <c:when test="${pt == DESIGN_TYPE_ID}">
+                 <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="des_stats">"/>
+                 </jsp:include>
+            </c:when>
+            <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
+                 <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="dev_stats">"/>
+                 </jsp:include>
+            </c:when>
+        </c:choose>
         </td>
 <!-- Left Column Ends -->
 
@@ -74,18 +84,19 @@
 </jsp:include>
 
 
-
-<% if ("112".equals(phaseId)) { %>
-    <span class="bodySubtitle">Component Statistics &gt; Design Contests</span><br>
-<% } else { %>
-    <span class="bodySubtitle">Component Statistics &gt; Development Contests</span><br>
-<% } %>
-
+<c:choose>
+    <c:when test="${pt == DESIGN_TYPE_ID}">
+        <span class="bodySubtitle">Component Statistics &gt; Design Contests</span><br>
+    </c:when>
+    <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
+        <span class="bodySubtitle">Component Statistics &gt; Development and Testing Contests</span><br>
+    </c:when>
+</c:choose>
 
 <form name="compListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CompList"/>
-<tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>" value="<%=phaseId%>"/>
+<tc-webtag:hiddenInput name="<%=Constants.PROJECT_TYPE_ID%>" value="${pt}"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
@@ -98,13 +109,24 @@
    <tr>
       <td>
          <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-            <tr><td class="tableTitle" colspan="9">
-            <% if ("112".equals(phaseId)) { %>Design
-            <% } else { %>Development
-            <% } %>
+            <tr>
+            <c:choose>
+                <c:when test="${pt == DESIGN_TYPE_ID}">
+                    <td class="tableTitle" colspan="9">
+                    Design
+                </c:when>
+                <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
+                    <td class="tableTitle" colspan="10">
+                    Development and Testing
+                </c:when>
+            </c:choose>
             Contest Details
+            
             </td></tr>
             <tr>
+                <c:if test="${pt == DEVELOPMENT_TYPE_ID}">
+                    <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="12" includeParams="true" excludeParams="sr" />" class="statLink">Type</a></td>
+                </c:if>               
                <td CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />" class="statLink">Component</a>
                     <br /><tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
                 </td>
@@ -120,6 +142,9 @@
       <%boolean even = true;%>
       <rsc:iterator list="<%=list%>" id="resultRow">
             <TR>
+            <c:if test="${pt == DEVELOPMENT_TYPE_ID}">
+                <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="type" row="<%=resultRow%>" /></TD>
+            </c:if>               
             <td class="<%=even?"statLt":"statDk"%>" align="left"><rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" /></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="category_desc" row="<%=resultRow%>" /></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="complete_date" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="unknown*"/></TD>
