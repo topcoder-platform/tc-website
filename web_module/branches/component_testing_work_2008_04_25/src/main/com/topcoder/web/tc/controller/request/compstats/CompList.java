@@ -46,7 +46,7 @@ public class CompList extends Base {
             if (String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(phaseId)) {
                 projectTypeId = Constants.DESIGN_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.DEV_PHASE).equals(phaseId)) {
-                projectTypeId = Constants.DEVELOPMENT_PROJECT_TYPE + ", " + Constants.COMPONENT_TESTING_PROJECT_TYPE;
+                projectTypeId = Constants.DEVELOPMENT_PROJECT_TYPE;
             }
 
             if (!Constants.DESIGN_PROJECT_TYPE.equals(projectTypeId) &&
