@@ -174,7 +174,7 @@ a:hover, a:active {
                     <td>Developer Forum: Quality Through Review</td>
                 </tr>
                 <tr class="light">
-                    <td>6:00 PM - 8:00 PM</td>
+                    <td>6:30 PM - 8:30 PM</td>
                     <td>Casino Night Cocktail Party</td>
                 </tr>
                 <tr>
