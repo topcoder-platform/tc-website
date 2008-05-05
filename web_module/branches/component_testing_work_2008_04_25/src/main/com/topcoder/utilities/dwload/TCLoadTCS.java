@@ -74,20 +74,6 @@ public class TCLoadTCS extends TCLoad {
             "select distinct project_id from project_result";
 
     /**
-     * First cut date for rookies in JDBC date escape format.
-     *
-     * @since 1.1.0
-     */
-//    private static final String FIRST_CUT_DATE = "2006-5-11";
-
-    /**
-     * Id of the first season for rookies.
-     *
-     * @since 1.1.0
-     */
-//    private static final long FIRST_SEASON_ID = 1;
-
-    /**
      * Confirmed status.
      *
      * @since 1.1.0
@@ -230,47 +216,10 @@ public class TCLoadTCS extends TCLoad {
             loadCountryRatingRank(113, ACTIVE_RATING_RANK_TYPE_ID, list);
             loadCountryRatingRank(113, OVERALL_RATING_RANK_TYPE_ID, list);
 
-            //fix problems with submission date
-
-            //todo what the hell is this?  do we need it?
-/*
-            final String sSQL = "update project_result " +
-                    "         set submit_timestamp = (select max(u.submission_date) " +
-                    "         from project p, " +
-                    "         user_component_score u " +
-                    "         where p.project_id = project_result.project_id " +
-                    "         and u.component_name = p.component_name " +
-                    "         and u.phase_id = p.phase_id " +
-                    "         and u.component_id = p.component_id " +
-                    "         and u.user_id = project_result.user_id " +
-                    "         and u.score = project_result.final_score " +
-                    "         group by p.project_id), submit_ind = 1 " +
-                    " where exists(  " +
-                    "         select max(u.submission_date) " +
-                    "         from project p, " +
-                    "         user_component_score u " +
-                    "         where p.project_id = project_result.project_id " +
-                    "         and u.component_name = p.component_name " +
-                    "         and u.phase_id = p.phase_id " +
-                    "         and u.component_id = p.component_id " +
-                    "         and u.user_id = project_result.user_id " +
-                    "         and u.score = project_result.final_score " +
-                    "         group by p.project_id " +
-                    " )";
-
-            try {
-                ps = prepareStatement(sSQL, TARGET_DB);
-                ps.executeUpdate();
-            } finally {
-                close(ps);
-            }
-*/
-
             doLoadSeason();
 
             doLoadStage();
 
-//            doLoadSeasonResults();
 
             doLoadStageResults();
 
@@ -292,13 +241,6 @@ public class TCLoadTCS extends TCLoad {
 
 
     public void doClearCache() throws Exception {
-
-/*
-        CacheClient cc = CacheClientFactory.createCacheClient();
-
-        String tempKey;
-*/
-
         String[] keys = new String[]{"member_projects", "project_results_all", "contest_prizes", "contest_projects", "project_details",
                 "tccc05_", "tccc06_", "tco07_", "usdc_", "component_history", "tcs_ratings_history",
                 "member_profile", "Coder_Dev_Data", "Coder_Des_Data", "Component_",
@@ -306,10 +248,8 @@ public class TCLoadTCS extends TCLoad {
                 "coder_all_ratings", "tco05", "coder_dev", "coder_des", "coder_algo",
                 "dd_design", "dd_development", "dd_component", "comp_list", "find_projects", "get_review_scorecard",
                 "get_screening_scorecard", "project_info", "reviewers_for_project", "scorecard_details", "submissions",
-//                "comp_contest_details", "dr_leader_board", "dr_rookie_board", "competition_history", "algo_competition_history",
                 "comp_contest_details", "dr_leader_board", "competition_history", "algo_competition_history",
                 "dr_current_period", "dr_stages", "dr_seasons", "component_color_change", "stage_outstanding_projects",
-//                "season_outstanding_projects", "dr_results", "dr_rookie_results", "dr_rookie_seasons", "dr_stages", "dr_contests_for_stage",
                 "season_outstanding_projects", "dr_results", "dr_stages", "dr_contests_for_stage",
                 "outstanding_projects"
         };
@@ -319,20 +259,6 @@ public class TCLoadTCS extends TCLoad {
             s.add(key);
         }
         CacheClearer.removelike(s);
-
-/*
-
-        ArrayList list = cc.getKeys();
-        for (int i = 0; i < list.size(); i++) {
-            tempKey = (String) list.get(i);
-            for (int j = 0; j < keys.length; j++) {
-                if (tempKey.indexOf(keys[j]) > -1) {
-                    cc.remove(tempKey);
-                    break;
-                }
-            }
-        }
-*/
     }
 
     protected void getLastUpdateTime() throws Exception {
@@ -1643,195 +1569,6 @@ public class TCLoadTCS extends TCLoad {
         }
         return (arrayList);
     }
-
-
-    /**
-     * <p/>
-     * Load rookies to the DW.
-     *
-     * @since 1.1.0
-     *        </p>
-     */
-/*    public void doLoadRookies() throws Exception {
-        log.info("regenerating rookies");
-        PreparedStatement selectEdge = null;
-        PreparedStatement selectUsers = null;
-        PreparedStatement selectSubmissions = null;
-        PreparedStatement delete = null;
-        PreparedStatement insert = null;
-        ResultSet rsEdge = null;
-        ResultSet rsUsers = null;
-        ResultSet rsSubmissions = null;
-
-        try {
-            long start = System.currentTimeMillis();
-
-            final String SELECT_EDGE = "select pr.user_id, p.phase_id, count(*) num_passed_review from project_result pr, project p " +
-                    "where pr.project_id = p.project_id and pr.passed_review_ind = 1 and DATE(p.posting_date) <= ? " +
-                    "and not exists (select 'rookie_already_inserted' from rookie where " +
-                    "user_id = pr.user_id and phase_id = p.phase_id and season_id = ?) " +
-                    "group by pr.user_id, p.phase_id having count(*) < " + PASSED_REVIEW_THRESHOLD;
-
-            // this query will retrieve users and their first season (when can be calculated), discriminating between
-            // development and design.
-            final String SELECT_USERS = "select distinct project_result.user_id, project.phase_id, " +
-                    "( " +
-                    "select distinct s.season_id from project p, season s, stage st " +
-                    "where s.season_id = st.season_id and p.stage_id = st.stage_id and  " +
-                    "p.posting_date = ( " +
-                    "   select min(p.posting_date) from project p, project_result pr where   " +
-                    "       p.project_id = pr.project_id and p.phase_id = project.phase_id and   " +
-                    "       pr.passed_review_ind = 1 and user_id = project_result.user_id " +
-                    ") " +
-                    ") as first_season " +
-                    "from project, project_result " +
-                    "where project.project_id = project_result.project_id and " +
-                    "exists     (    " +
-                    "   select s.season_id from project p, season s, stage st " +
-                    "   where s.season_id = st.season_id and p.stage_id = st.stage_id and  " +
-                    "   p.posting_date = ( " +
-                    "       select min(p.posting_date) from project p, project_result pr where   " +
-                    "               p.project_id = pr.project_id and p.phase_id = project.phase_id and   " +
-                    "               pr.passed_review_ind = 1 and user_id = project_result.user_id " +
-                    "   ) " +
-                    ")";
-
-            // this query will retrieve the number of passing submissions for a particular user and phase
-            // for his first and second season (previously calculated)
-            final String SELECT_SUBMISSIONS = "select st.season_id, count(*) as num_submissions from project_result pr, " +
-                    "project p, stage st " +
-                    "where passed_review_ind = 1 and pr.project_id = p.project_id and p.stage_id = st.stage_id and " +
-                    "user_id = ? and p.phase_id = ? and " +
-                    "st.season_id in (?, ?) " +
-                    "group by st.season_id " +
-                    "order by st.season_id asc";
-
-            final String DELETE = "delete from rookie";
-
-            final String INSERT = "insert into rookie (user_id, season_id, phase_id, confirmed_ind) " +
-                    "values (?, ?, ?, ?) ";
-
-            selectEdge = prepareStatement(SELECT_EDGE, TARGET_DB);
-            selectEdge.setDate(1, java.sql.Date.valueOf(FIRST_CUT_DATE));
-            selectEdge.setLong(2, FIRST_SEASON_ID);
-            selectUsers = prepareStatement(SELECT_USERS, TARGET_DB);
-            delete = prepareStatement(DELETE, TARGET_DB);
-            insert = prepareStatement(INSERT, TARGET_DB);
-            selectSubmissions = prepareStatement(SELECT_SUBMISSIONS, TARGET_DB);
-
-            // the process will delete all rookies and reload them again completly.
-            delete.executeUpdate();
-
-            Map<Integer, Integer> nextSeason = getRookieNextSeasonMap();
-
-            // Stationary state:
-            // - if the user had in his first season more than PASSED_REVIEW_THRESHOLD submissions,
-            //   he is confirmed for that season.
-            // - Otherwise he is potential for that season and confirmed for the next one.
-            rsUsers = selectUsers.executeQuery();
-            int count = 0;
-            while (rsUsers.next()) {
-                long subFirstSeason = 0;
-                int firstSeason = rsUsers.getInt("first_season");
-                Integer secondSeason = nextSeason.get(firstSeason);
-                long userId = rsUsers.getLong("user_id");
-                long phaseId = rsUsers.getLong("phase_id");
-
-                // log.info("New rookie: " + userId + "(" + phaseId + ") - " + firstSeason);
-                // log.info("Next season: "  +  secondSeason);
-
-                selectSubmissions.setLong(1, userId);
-                selectSubmissions.setLong(2, phaseId);
-                selectSubmissions.setLong(3, firstSeason);
-                selectSubmissions.setLong(4, secondSeason != null ? secondSeason : firstSeason);
-                rsSubmissions = selectSubmissions.executeQuery();
-
-                // this should be always, since if it's the first season, it must have submissions.
-                if (rsSubmissions.next()) {
-                    subFirstSeason = rsSubmissions.getLong("num_submissions");
-                }
-
-                // if in his first season, he had more than PASSED_REVIEW_THRESHOLD submissions, he is confirmed for that season.
-                if (subFirstSeason >= PASSED_REVIEW_THRESHOLD) {
-                    insert.setLong(1, userId);
-                    insert.setLong(2, firstSeason);
-                    insert.setLong(3, phaseId);
-                    insert.setInt(4, CONFIRMED);
-                    insert.executeUpdate();
-                    count++;
-                    // log.info("(1) First submissions: "  + subFirstSeason + " - Second submissions: " + subSecondSeason);
-                } else {
-                    // else, he is potential for firstSeason and confirmed for secondSeason
-                    insert.setLong(1, userId);
-                    insert.setLong(2, firstSeason);
-                    insert.setLong(3, phaseId);
-                    insert.setInt(4, POTENTIAL);
-                    insert.executeUpdate();
-                    count++;
-
-                    if (secondSeason != null) {
-                        insert.setLong(2, secondSeason);
-                        insert.setInt(4, CONFIRMED);
-                        insert.executeUpdate();
-
-                        count++;
-                    }
-
-                    // log.info("(2) First submissions: "  + subFirstSeason + " - Second submissions: " + subSecondSeason);
-                }
-            }
-
-            // Edge case: First rookies will be those having less than PASSED_REVIEW_THRESHOLD submissions prior to the
-            // FIRST_CUT_DATE.
-            rsEdge = selectEdge.executeQuery();
-            while (rsEdge.next()) {
-                insert.setLong(1, rsEdge.getLong("user_id"));
-                // fixed to the first season
-                insert.setLong(2, FIRST_SEASON_ID);
-                insert.setLong(3, rsEdge.getLong("phase_id"));
-                insert.setInt(4, CONFIRMED);
-
-                insert.executeUpdate();
-                count++;
-            }
-
-            log.info("" + count + " records generated in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
-
-        } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
-            throw new Exception("Generation of rookie table failed.\n" +
-                    sqle.getMessage());
-        } finally {
-            close(rsEdge);
-            close(rsUsers);
-            close(rsSubmissions);
-            close(selectEdge);
-            close(selectUsers);
-            close(selectSubmissions);
-            close(insert);
-            close(delete);
-        }
-    } 
-
-    private Map<Integer, Integer> getRookieNextSeasonMap() throws Exception {
-        Map<Integer, Integer> result = new HashMap<Integer, Integer>();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        try {
-            ps = prepareStatement("select season_id, next_rookie_season_id from season", SOURCE_DB);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                if (rs.getString("next_rookie_season_id") != null) {
-                    result.put(rs.getInt("season_id"), rs.getInt("next_rookie_season_id"));
-                }
-            }
-        } finally {
-            close(rs);
-            close(ps);
-        }
-        return result;
-    }*/
 
     public void doLoadSubmissionReview() throws Exception {
         log.info("load submission review");
@@ -4734,95 +4471,6 @@ public class TCLoadTCS extends TCLoad {
     }
 
     /**
-     * Load the contest_result table for the contests belonging to season whose results were modified (rookie contests)
-     *
-     * @throws Exception
-     */
-/*    public void doLoadSeasonResults() throws Exception {
-        log.debug("load season results");
-
-        final String SELECT_SEASONS =
-                " select distinct s.season_id, " +
-                        "    (select min(start_date) from stage st where st.season_id = s.season_id) as start_date, " +
-                        "    (select max(end_date) from stage st where st.season_id = s.season_id) as end_date " +
-                        " from project_result pr,  " +
-                        "      season s,   " +
-                        "      project p,    " +
-                        "      project_info piel   " +
-                        " where p.project_id = pr.project_id    " +
-                        " and p.project_status_id <> 3    " +
-                        " and p.project_category_id in " + LOAD_CATEGORIES +
-                        " and piel.project_info_type_id = 14   " +
-                        " and piel.value = 'Open'   " +
-                        " and p.project_id = piel.project_id  " +
-                        " and (p.modify_date > ? " +
-                        "     OR pr.modify_date > ?)  " +
-                        " and (  " +
-                        " select NVL(ppd.actual_start_time, psd.actual_start_time)   " +
-                        " from project p  " +
-                        "     , OUTER project_phase psd  " +
-                        "     , OUTER project_phase ppd  " +
-                        " where  psd.project_id = p.project_id   " +
-                        " and psd.phase_type_id = 2   " +
-                        " and ppd.project_id = p.project_id   " +
-                        " and ppd.phase_type_id = 1   " +
-                        " and p.project_id = pr.project_id) between  " +
-                        "      (select min(start_date) from stage st where st.season_id = s.season_id) and " +
-                        "      (select max(end_date) from stage st where st.season_id = s.season_id)  ";
-
-        final String SELECT_CONTESTS =
-                " select c.contest_id, c.project_category_id, c.contest_type_id, crc.class_name " +
-                        " from contest_season_xref x " +
-                        " ,contest c " +
-                        " ,contest_result_calculator_lu crc " +
-                        " where c.contest_id = x.contest_id " +
-                        " and c.contest_result_calculator_id = crc.contest_result_calculator_id  " +
-                        " and x.season_id = ? ";
-
-
-        PreparedStatement selectSeason = null;
-        PreparedStatement selectContests = null;
-        ResultSet rsSeasons = null;
-        ResultSet rsContests = null;
-
-        try {
-            selectSeason = prepareStatement(SELECT_SEASONS, SOURCE_DB);
-            selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
-
-            selectSeason.setTimestamp(1, fLastLogTime);
-            selectSeason.setTimestamp(2, fLastLogTime);
-
-            rsSeasons = selectSeason.executeQuery();
-
-            while (rsSeasons.next()) {
-                int seasonId = rsSeasons.getInt("season_id");
-                selectContests.clearParameters();
-                selectContests.setInt(1, seasonId);
-                rsContests = selectContests.executeQuery();
-
-                Timestamp startDate = rsSeasons.getTimestamp("start_date");
-                Timestamp endDate = rsSeasons.getTimestamp("end_date");
-
-                while (rsContests.next()) {
-                    loadDRContestResults(seasonId, startDate, endDate, rsContests.getInt("project_category_id"), rsContests.getInt("contest_id"),
-                            rsContests.getString("class_name"), 0.0);
-                }
-
-            }
-
-        } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'contest_result' table for seasons failed.\n" +
-                    sqle.getMessage());
-        } finally {
-            close(selectSeason);
-            close(rsSeasons);
-        }
-
-    } */
-
-
-    /**
      * Helper method to load contest results for the specified contest.
      *
      * @param seasonId
@@ -4861,7 +4509,7 @@ public class TCLoadTCS extends TCLoad {
                         " and pi_dr.value = 'On' " +
                         " and p.project_id = pr.project_id " +
                         " and pr.rating_ind=1 " +
-                        " and p.project_category_id = ? " +
+                        " and p.project_category_id in (" + ((projectCategoryId == 2) ? "2, 5" : String.valueOf(projectCategoryId)) + ") " +
                         " and pi_el.project_info_type_id = 14 " +
                         " and pi_el.value = 'Open' " +
                         " and pi_el.project_id = p.project_id " +
@@ -4886,9 +4534,9 @@ public class TCLoadTCS extends TCLoad {
 
         try {
             selectResults = prepareStatement(SELECT_RESULTS, SOURCE_DB);
-            selectResults.setInt(1, projectCategoryId);
-            selectResults.setTimestamp(2, startDate);
-            selectResults.setTimestamp(3, endDate);
+            // for dev contests, load also component testing projects results
+            selectResults.setTimestamp(1, startDate);
+            selectResults.setTimestamp(2, endDate);
 
             insert = prepareStatement(INSERT, TARGET_DB);
 
@@ -4896,11 +4544,6 @@ public class TCLoadTCS extends TCLoad {
             if (calc instanceof TopPerformersCalculator) {
                 ((TopPerformersCalculator) calc).setFactor(factor);
             }
-/*            if (calc instanceof RookieContest) {
-                Set<Long> rookies = getRookies(seasonId, projectCategoryId + 111);
-                log.debug(rookies.size() + " rookies found for season " + seasonId + " phase " + projectCategoryId + 111);
-                ((RookieContest) calc).setRookies(rookies);
-            }*/
 
             rs = selectResults.executeQuery();
 
@@ -4954,38 +4597,6 @@ public class TCLoadTCS extends TCLoad {
         }
 
     }
-
-
-    /**
-     * Get a list of the rookies for a season and phase.
-     *
-     * @param seasonId
-     * @param phaseId
-     * @return
-     * @throws Exception
-     */
-/*    private Set<Long> getRookies(int seasonId, int phaseId) throws Exception {
-        PreparedStatement st = null;
-        Set<Long> rookies = new HashSet<Long>();
-        ResultSet rs = null;
-
-        try {
-            st = prepareStatement("select user_id from rookie where season_id = ? and phase_id = ?", TARGET_DB);
-            st.setInt(1, seasonId);
-            st.setInt(2, phaseId);
-
-            rs = st.executeQuery();
-
-            while (rs.next()) {
-                rookies.add(rs.getLong("user_id"));
-            }
-
-        } finally {
-            close(rs);
-            close(st);
-        }
-        return rookies;
-    }*/
 
     /**
      * Get the prizes for the specified contest.

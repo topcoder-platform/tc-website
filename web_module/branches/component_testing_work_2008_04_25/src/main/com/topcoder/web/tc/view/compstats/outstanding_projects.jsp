@@ -111,22 +111,24 @@
     <div class="pagingBox" style="clear:both;">&#160;</div>
 
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-        <tr><td class="title" colspan="10">
-            Current
+        <tr>
             <c:choose>
                 <c:when test="${pt == DESIGN_PROJECT_TYPE}">
-                    Design
+                    <td class="title" colspan="10">Current Design
                 </c:when>
                 <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
-                    Development
+                    <td class="title" colspan="11">Current Development
                 </c:when>
                 <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
-                    Assembly
+                    <td class="title" colspan="10">Current Assembly
                 </c:when>        
             </c:choose>
             Contests
         </td></tr>
         <tr>
+            <c:if test="${pt == DEVELOPMENT_TYPE_ID}">
+                <TD CLASS="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />" class="statLink">Type</a></td>
+            </c:if>               
             <TD CLASS="header">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Date</a>
             </TD>
@@ -154,6 +156,9 @@
         <%boolean even = false;%>
         <rsc:iterator list="<%=rsc2%>" id="resultRow">
             <tr class="<%=even?"dark":"light"%>">
+                <c:if test="${pt == DEVELOPMENT_TYPE_ID}">
+                    <TD CLASS="valueC"><rsc:item name="type" row="<%=resultRow%>"/></td>
+                </c:if>               
                 <TD class="value"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
                 <TD class="value">
                     <% if (resultRow.getItem("component_id").getResultData() != null && resultRow.getIntItem("viewable_category_ind") == 1) { %>
