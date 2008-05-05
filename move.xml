@@ -33,12 +33,12 @@
             <arg line="update src resources lib build_tc.xml"/>
         </exec>
 
-        <exec dir="../shared" executable="cvs">
-            <arg line="update -dP"/>
+        <exec dir="../shared" executable="svn">
+            <arg line="update"/>
         </exec>
 
-        <exec dir="../external-artifacts" executable="cvs">
-            <arg line="update -dP"/>
+        <exec dir="../external-artifacts" executable="svn">
+            <arg line="update"/>
         </exec>
 
 
