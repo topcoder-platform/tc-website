@@ -33,7 +33,7 @@
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="calendar"/>
-<jsp:param name="title" value="April 2008"/>
+<jsp:param name="title" value="May 2008"/>
 </jsp:include>
 
 <div style="float:right;white-space:nowrap;" align="right">
