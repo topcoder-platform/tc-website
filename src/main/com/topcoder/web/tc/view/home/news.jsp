@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.05.08<br />4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=aol">AOL chat before SRM 401</a></span><br /><br />
+        Join AOL representatives in the AOL chat room before SRM 401 at 10:00 AM EDT (GMT/UTC -4) for a chat discussion about Open AIM.
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <tc-webtag:forumLink forumID="520183" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.02.08<br />10:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/pdfs/tournaments/tco08/TCO08_Program_View.pdf">TCO08 Program now available</a> [PDF - 2mb]</span><br /><br />
@@ -155,16 +168,3 @@
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />04.14.08<br />10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=MatchDetails&amp;rd=12170">SRM 398 is sponsored by Eli Lilly</a></span><br /><br />
-        Join Lilly representatives in the arena one hour prior to the match for a discussion about thier job opportunities in Asia.  <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=lilly">Learn more</a>
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=MatchDetails&amp;rd=12170">details</a> | 
-        <tc-webtag:forumLink forumID="516707" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
