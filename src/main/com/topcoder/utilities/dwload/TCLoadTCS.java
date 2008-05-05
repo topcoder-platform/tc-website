@@ -1511,7 +1511,7 @@ public class TCLoadTCS extends TCLoad {
 
                             if (projectResults.getInt("project_stat_id") == 7) {
                                 pointsAwarded = crc.calculatePointsAwarded(pr);
-                            } else {
+                            } else if (projectResults.getInt("valid_submission_ind") == 1) {
                                 potentialPoints = crc.calculatePotentialPoints(pr);
                             }
                         }
@@ -4866,6 +4866,10 @@ public class TCLoadTCS extends TCLoad {
                         "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
                         "         and submission_status_id in (1, 4) " +
                         "        ) as num_submissions_passed_review  " +
+                        "    ,case when exists(select '1' from submission s,upload u,resource r, resource_info ri " +
+                        "           where r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and u.resource_id = r.resource_id " +
+                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and ri.value = pr.user_id and submission_status_id in (1,2,3,4)) then pr.valid_submission_ind  " +
+                        "    else 0 end as valid_submission_ind " +                        
                         " from project p " +
                         "    ,project_result pr " +
                         "    ,project_info pi_el " +
@@ -4926,11 +4930,13 @@ public class TCLoadTCS extends TCLoad {
                     log.warn("Project: " + rs.getLong("project_id") + " has zero amount!");
                 }
                 
-                ProjectResult res = new ProjectResult(rs.getLong("project_id"), rs.getInt("project_status_id"), rs.getLong("user_id"),
+                if (rs.getInt("valid_submission_ind") == 1 || rs.getInt("project_status_id") == 7) {
+                    ProjectResult res = new ProjectResult(rs.getLong("project_id"), rs.getInt("project_status_id"), rs.getLong("user_id"),
                         rs.getDouble("final_score"), rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"),
                         rs.getInt("num_submissions_passed_review"), rs.getBoolean("passed_review_ind"));
 
-                pr.add(res);
+                    pr.add(res);
+                }
                 count++;
             }
             close(rs);
