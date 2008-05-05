@@ -96,7 +96,7 @@
     </c:choose>
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=${cr}" class="bcLink">Member Profile</A>
- | <A HREF="/tc?module=CompetitionHistory&pt=${pt}>&cr=${cr}" class="bcLink">Competition History</A>
+ | <A HREF="/tc?module=CompetitionHistory&pt=${pt}&cr=${cr}" class="bcLink">Competition History</A>
  | Current Contests
      <c:choose>
         <c:when test="${pt == DESIGN_PROJECT_TYPE}">

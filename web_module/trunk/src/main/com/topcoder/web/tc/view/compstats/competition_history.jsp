@@ -156,15 +156,18 @@
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
     <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>" value="${cr}"/>
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-        <tr><td class="title" colspan="10">
+        <tr>
             <c:choose>
                 <c:when test="${pt == DESIGN_PROJECT_TYPE}">
+                    <td class="title" colspan="10">
                     Design
                 </c:when>
                 <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
+                    <td class="title" colspan="10">
                     Development
                 </c:when>
                 <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                    <td class="title" colspan="8">
                     Assembly
                 </c:when>        
             </c:choose>
@@ -174,12 +177,22 @@
             <TD CLASS="header">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a>
             </TD>
-            <TD CLASS="header" WIDTH="36%">
+            <c:choose>
+                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                    <TD CLASS="header" WIDTH="54%">
+                </c:when>
+                <c:otherwise>
+                    <TD CLASS="header" WIDTH="36%">
+                </c:otherwise>        
+            </c:choose>
+            
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Component</a>
             </TD>
+            <c:if test="${pt != ASSEMBLY_PROJECT_TYPE}">
             <TD CLASS="header" WIDTH="8%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("category_desc")%>" includeParams="true"/>">Category</a>
             </TD>
+            </c:if>
             <TD CLASS="headerR" WIDTH="8%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true"/>">Score</a>
             </TD>
@@ -192,9 +205,11 @@
             <TD CLASS="headerC" WIDTH="8%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Place</a>
             </TD>
+            <c:if test="${pt != ASSEMBLY_PROJECT_TYPE}">
             <TD CLASS="headerR" WIDTH="8%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Rating</a>
             </TD>
+            </c:if>
             <TD CLASS="headerC" WIDTH="8%">
                 <div id="popDR" class="popUp"><div>Digital Run</div></div>
                 <div align="center"><a href='/tc?module=Static&d1=digital_run&d2=description'><img src="/i/interface/emblem/digitalrun.png" alt="" border="0" onmouseover="popUp(this,'popDR')" onmouseout="popHide()" /></a></div>
@@ -215,12 +230,16 @@
                     <rsc:item name="component_name" row="<%=resultRow%>"/>
                     <% } %>
                 </TD>
+                <c:if test="${pt != ASSEMBLY_PROJECT_TYPE}">
                 <TD class="value"><rsc:item name="category_desc" row="<%=resultRow%>"/></TD>
+                </c:if>
                 <TD class="valueR"><rsc:item name="final_score" row="<%=resultRow%>" format="0.00"/></TD>
                 <TD class="valueC"><rsc:item name="num_submissions" row="<%=resultRow%>" ifNull=""/></TD>
                 <TD class="valueC"><rsc:item name="num_submissions_passed_review" row="<%=resultRow%>"/></TD>
                 <TD class="valueC"><rsc:item name="placed" row="<%=resultRow%>"/></TD>
+                <c:if test="${pt != ASSEMBLY_PROJECT_TYPE}">
                 <TD class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
+                </c:if>
                 <TD class="valueC">
                     <% if (resultRow.getItem("final_points").getResultData() != null) { %>
                     <rsc:item name="final_points" row="<%=resultRow%>" format="0.00"/>
