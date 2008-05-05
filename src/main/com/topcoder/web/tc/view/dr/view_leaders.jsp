@@ -237,13 +237,9 @@ Please select a <strong>season</strong> and <strong>stage</strong><br />
         </td>
         <td class="valueR">
             <c:if test="${boardRow.points>0}">
-                <c:if test="${not isAssembly}">
                     <a href="/tc?module=CompetitionHistory&amp;pt=${boardRow.projectTypeId}&amp;cr=${boardRow.userId}" class="bcLink">
-                </c:if>
                                 <fmt:formatNumber value="${boardRow.points}"  minFractionDigits="2" maxFractionDigits="2"/>
-                <c:if test="${not isAssembly}">
                     </a>
-                </c:if>
             </c:if>
         </td>
         <td class="valueR"><c:if test="${boardRow.placementPrize>0}">
@@ -262,13 +258,9 @@ Please select a <strong>season</strong> and <strong>stage</strong><br />
         </td>
         <td class="valueR">
             <c:if test="${boardRow.potentialPoints>0}">
-                <c:if test="${not isAssembly}">
                 <a href="/tc?module=OutstandingProjects&amp;pt=${boardRow.projectTypeId}&amp;staid=${boardRow.period}&amp;cr=${boardRow.userId}" class="bcLink">
-                </c:if>
                     <fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
-                <c:if test="${not isAssembly}">
                     </a>
-                </c:if>
             </c:if>
         </td>
         <td class="valueR"><fmt:formatNumber value="${boardRow.totalPoints}"  minFractionDigits="2" maxFractionDigits="2"/></td>
