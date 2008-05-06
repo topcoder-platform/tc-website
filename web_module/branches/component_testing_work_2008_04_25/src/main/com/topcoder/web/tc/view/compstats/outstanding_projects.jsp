@@ -127,7 +127,7 @@
         </td></tr>
         <tr>
             <c:if test="${pt == DEVELOPMENT_PROJECT_TYPE}">
-                <TD CLASS="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />" class="statLink">Type</a></td>
+                <TD CLASS="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("type")%>" includeParams="true" excludeParams="sr" />" class="statLink">Type</a></td>
             </c:if>               
             <TD CLASS="header">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Date</a>
