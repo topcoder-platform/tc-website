@@ -1267,7 +1267,7 @@ public class TCLoadTCS extends TCLoad {
                         "    , NVL((select value from project_info pi_dr where pi_dr.project_info_type_id = 30 and pi_dr.project_id = p.project_id), " +
                         "          (select value from project_info pi_am where pi_am.project_info_type_id = 16 and pi_am.project_id = p.project_id)) as amount " +
                         "     , (select value from project_info where project_id = p.project_id and project_info_type_id = 26) as dr_ind " +
-                        "     , pr.project_category_id " +
+                        "     , p.project_category_id " +
                         "    from project_result pr" +
                         "       ,project p" +
                         "       ,project_info pi" +
