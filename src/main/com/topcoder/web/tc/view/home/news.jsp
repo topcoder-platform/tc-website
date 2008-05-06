@@ -4,6 +4,32 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.06.08<br />6:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_050608">Betfair Joins 2008 TopCoder Open Sponsors</a></span><br /><br />
+        Las Vegas Event is Premier Showcase for Computing Skills and Talent</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_050608">details</a> | 
+        <tc-webtag:forumLink forumID="521066" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.06.08<br />6:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a target="blank" href="<tc-webtag:linkTracking link='http://www.ddj.com/architect/207404123' refer='/tc' />">Dr. Dobb's Journal - There Must be Contest</a></span><br /><br />
+        Programming contests used to be fun. Now they're a commercial software development business - and they're still fun!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.ddj.com/architect/207404123' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="521067" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.05.08<br />4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=aol">AOL chat before SRM 401</a></span><br /><br />
@@ -140,31 +166,5 @@
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm397">details</a> | 
         <tc-webtag:forumLink forumID="520816" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />04.15.08<br />5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a target="blank" href="<tc-webtag:linkTracking link='http://www.globalbestpractices.com/Home/Document.aspx?Q=273,4383,205,3FB60597-A4BD-47AA-9F61-3E96E6E3E10D' refer='/tc' />">PricewaterhouseCoopers - TopCoder's network drives innovation</a></span><br /><br />
-        Innovation requires a sophisticated awareness of myriad resources that can influence new product and service development.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.globalbestpractices.com/Home/Document.aspx?Q=273,4383,205,3FB60597-A4BD-47AA-9F61-3E96E6E3E10D' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="520878" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />04.15.08<br />1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">AIM Apps by TopCoder Members, for TopCoder Members</a></span><br /><br />
-        With less than three weeks to go in the $100,000 Open AIM Developer Challenge, the submissions from your fellow TopCoder members are coming in fast and furious. While it is still not too late to take a shot at one of the nine, $10,000 prizes, you may just want to take a look at some of the recent apps that may appeal to TC coders, including <a href="/openaim/?myframe=2008/04/11/popschat-an-aim-plugin-for-the-topcoder-arena/">PopsChat</a> (an AIM plugin for the TopCoder Arena), <a href="/openaim/?myframe=2008/04/15/from-aim-to-the-database-with-aimysql/">AIMySQL</a>, <a href="/openaim/?myframe=2008/04/13/test-your-code-in-aim-with-coderemote/">CodeRemote</a>, and others. Good luck everyone!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">details</a> | 
-        <a href="/openaim/forums">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
    
