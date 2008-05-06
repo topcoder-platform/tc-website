@@ -1267,6 +1267,7 @@ public class TCLoadTCS extends TCLoad {
                         "    , NVL((select value from project_info pi_dr where pi_dr.project_info_type_id = 30 and pi_dr.project_id = p.project_id), " +
                         "          (select value from project_info pi_am where pi_am.project_info_type_id = 16 and pi_am.project_id = p.project_id)) as amount " +
                         "     , (select value from project_info where project_id = p.project_id and project_info_type_id = 26) as dr_ind " +
+                        "     , pr.project_category_id " +
                         "    from project_result pr" +
                         "       ,project p" +
                         "       ,project_info pi" +
@@ -1415,7 +1416,8 @@ public class TCLoadTCS extends TCLoad {
                     if (stage != null &&
                             (projectResults.getInt("project_stat_id") == 7 ||  // COMPLETED
                                     projectResults.getInt("project_stat_id") == 1) && // ACTIVE
-                            projectResults.getInt("rating_ind") == 1 &&
+                            // component testing doesn't need to check for rating
+                            (projectResults.getInt("rating_ind") == 1 || projectResults.getInt("project_category_id") == 5) &&
                             "On".equals(projectResults.getString("dr_ind"))) {
 
                         hasDR = true;
@@ -4508,7 +4510,9 @@ public class TCLoadTCS extends TCLoad {
                         " and pi_dr.project_info_type_id = 26 " +
                         " and pi_dr.value = 'On' " +
                         " and p.project_id = pr.project_id " +
-                        " and pr.rating_ind=1 " +
+                        // component testing doesn't need to check for rating
+                        " and (pr.rating_ind=1 or p.project_category_id = 5)" + 
+                        // for development board, load development and testing
                         " and p.project_category_id in (" + ((projectCategoryId == 2) ? "2, 5" : String.valueOf(projectCategoryId)) + ") " +
                         " and pi_el.project_info_type_id = 14 " +
                         " and pi_el.value = 'Open' " +
