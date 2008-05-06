@@ -73,6 +73,7 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_050608">Betfair Joins 2008 TopCoder Open Sponsors <br /><small style="margin-left:10px;">[May 6]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_041508">Finalists Announced for 2008 TopCoder Open May 12-15 in Las Vegas <br /><small style="margin-left:10px;">[April 15]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040208">BT Joins Sponsors of 2008 TopCoder Open <br /><small style="margin-left:10px;">[April 2]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031708">China, US and Poland Take Honors in TopCoder High School Tournament at Purdue University <br /><small style="margin-left:10px;">[March 17]</small></a></dd>

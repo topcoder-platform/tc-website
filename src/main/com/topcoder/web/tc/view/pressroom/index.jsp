@@ -72,8 +72,19 @@
                         <%-- UML Tool 
                         <a href="<tc-webtag:linkTracking link='/wiki/display/tc/TopCoder+UML+Tool' refer='pr_index' />"><img src="/i/home/umltool20080226.jpg" alt="UML Tool Release" /></a>
                         --%>
-                        <%-- OpenAIM --%>
+                        <%-- OpenAIM 
                         <a href="<tc-webtag:linkTracking link='/openaim/' refer='pr_index' />"><img src="/i/home/openaim.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
+                        --%>
+                        <%-- TCO08 --%>
+                        <map name="tco08">
+                        <area shape="rect" alt="" coords="12,6,455,114" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about" />
+                        <area shape="rect" alt="" coords="0,136,85,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=bracket" />
+                        <area shape="rect" alt="" coords="103,136,164,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=desBracket" />
+                        <area shape="rect" alt="" coords="181,136,295,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=devBracket" />
+                        <area shape="rect" alt="" coords="310,136,397,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=marathon&amp;d4=bracket" />
+                        <area shape="rect" alt="" coords="413,136,474,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=bracket" />
+                        </map>
+                        <img src="/i/home/tco08bracket.png" alt="TCO08" usemap="#tco08" style="display: block;" />
                     </div>
                 </div>
                 <%--
@@ -98,6 +109,32 @@
             
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                
+                <%-- Betfair Joins 2008 TopCoder Open Sponsors begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_050608"><img src="/i/pressroom/tco08_logo.png" alt="TopCoder Open 2008" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_050608">Betfair Joins 2008 TopCoder Open Sponsors</a></h3>
+                        <p>Las Vegas Event is Premier Showcase for Computing Skills and Talent  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_050608">[May 6]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Betfair Joins 2008 TopCoder Open Sponsors end --%>
+                
+                <%-- Dr. Dobb's - There Must be Contest begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.ddj.com/architect/207404123' refer='pr_index' />"><img src="/i/pressroom/drDobbs_logo.png" alt="Dr. Dobb's logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.ddj.com/architect/207404123' refer='pr_index' />">There Must be Contest</a></h3>
+                        <p>Programming contests used to be fun. Now they're a commercial software development business - and they're still fun!  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.ddj.com/architect/207404123' refer='pr_index' />">[May 1]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Dr. Dobb's - There Must be Contest end --%>
                 
                 <%-- Courant.com - Glastonbury Firm's Online Software Contests Attract High-Rolling Sponsors begin --%>
                 <div class="pr_newsitem">
