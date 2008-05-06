@@ -11,6 +11,7 @@ import com.topcoder.web.tc.Constants;
  */
 public class AlgRatingDistribution extends RatingDistribution {
 
+
     protected Request getDistributionRequest() {
         Request r = new Request();
         r.setContentHandle("dd_algorithm_rating_distribution");
