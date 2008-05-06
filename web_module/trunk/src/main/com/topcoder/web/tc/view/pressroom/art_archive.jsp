@@ -73,7 +73,7 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
-                    <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.ddj.com/architect/207404123' refer='art_archive' />">There Must be Contest <br /><small style="margin-left:10px;">[May 1 - Dr. Dobb's]</small></a></dd>
+                    <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.ddj.com/architect/207404123' refer='art_archive' />">There Must be Contest <br /><small style="margin-left:10px;">[May 1 - Dr. Dobb's Portal]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.courant.com/business/hc-cornershop0416.artapr16,0,6766513.story' refer='art_archive' />">Glastonbury Firm's Online Software Contests Attract High-Rolling Sponsors <br /><small style="margin-left:10px;">[April 16 - Courant.com]</small></a></dd>
                     <dd>TopCoder's network drives innovation [April 15 - PricewaterhouseCoopers] <br /><a target="_blank" href="<tc-webtag:linkTracking link='http://www.globalbestpractices.com/Home/Document.aspx?Q=273,4383,205,3FB60597-A4BD-47AA-9F61-3E96E6E3E10D' refer='art_archive' />">original article</a> | <a target="_blank" href="/i/pressroom/pdfs/pwc_20080415.pdf">PDF</a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://blogs.zdnet.com/enterprisealley/?p=124' refer='art_archive' />">TopCoder: breaking the development cost rules <br /><small style="margin-left:10px;">[March 25 - ZDNet]</small></a></dd>
