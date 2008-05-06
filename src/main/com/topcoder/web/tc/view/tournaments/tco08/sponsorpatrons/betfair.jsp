@@ -30,7 +30,7 @@
         <div style="padding-bottom:10px;">
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.betfair.com/' refer='tco08_betfair' />"><img alt="TCO08 Sponsored by Betfair" src="/i/tournament/tco08/betfair_logo.png" /></a>
         </div>
-        <p>As pioneers of innovative and bleeding edge web technology, we have top-notch developers working for us too and we're <strong>always</strong> on the lookout for more to join the Betfair family.</p>
+        <p>As pioneers of innovative and bleeding edge web technology, we only have the best developers working for us and we are <strong>always</strong> on the look out for more to join the Betfair family.</p>
         <p>We have openings for exceptional <strong>developers, architects and technical leaders</strong> to assist our ambitions in continuing to grow our global technology platforms.</p>
         <p>Our engineers have the flexibility to work 'on-site', from home and remotely around the world.</p>
         <p>We are leaders in our field of expertise; if you would like to hear more let's get together and discuss opportunities at Betfair.</p>
@@ -55,7 +55,8 @@
         <br />
         <p><strong>See jobs at Betfair:</strong><br />
         <a target="_blank" href="<tc-webtag:linkTracking link='http://corporate.betfair.com/servlet/HsPublic?context=ir.static.jsp&client=betf&path=util&service=getPage&page=careers' refer='tco08_betfair' />">Betfair Jobs</a></p>
-        <p><strong>Employee Testimonials (PDFs):</strong><br />
+        <p><strong>Why work at Betfair?</strong><br />
+        Employee Testimonials (PDFs):<br />
         <a target="_blank" href="/pdfs/tournaments/tco08/Betfair_Asher_Glynn.pdf">Asher Glynn - Betfair Engineering</a></p>
         <p><strong>Here's what they say about us:</strong><br />
         <a target="_blank" href="<tc-webtag:linkTracking link='http://www.silicon.com/retailandleisure/0,3800011842,39169164,00.htm?r=2' refer='tco08_betfair' />">http://www.silicon.com/</a><br />
