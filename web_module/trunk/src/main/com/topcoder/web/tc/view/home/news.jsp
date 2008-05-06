@@ -19,7 +19,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.06.08<br />6:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a target="blank" href="<tc-webtag:linkTracking link='http://www.ddj.com/architect/207404123' refer='/tc' />">Dr. Dobb's Journal - There Must be Contest</a></span><br /><br />
+        <a target="blank" href="<tc-webtag:linkTracking link='http://www.ddj.com/architect/207404123' refer='/tc' />">Dr. Dobb's Portal - There Must be Contest</a></span><br /><br />
         Programming contests used to be fun. Now they're a commercial software development business - and they're still fun!</td>
    </tr>
    <tr><td class="newsLinksCell">
