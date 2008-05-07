@@ -206,7 +206,7 @@ function flipMenu(myMenuName){
 <div id="navbar">
     <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
     <div style="float: left; padding: 10px 0px 0px 17px;">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=media&amp;d2=tcchannel' refer='leftnav' />"><img src="/i/tcchannel/leftnavLogo.png" alt="TC Channel" /></a>
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel' refer='leftnav' />"><img src="/i/tcchannel/leftnavLogo.png" alt="TC Channel" /></a>
     </div>
     <jsp:include page="includes/modules/simpleSearch.jsp"/>
 </div>
