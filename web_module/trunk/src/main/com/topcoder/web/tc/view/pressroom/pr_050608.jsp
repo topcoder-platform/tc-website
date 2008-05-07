@@ -80,7 +80,7 @@ The <strong>Sports</strong> API enables developers to create applications that p
 <p><strong>Please note: Betfair does not accept registration and/or gambling activities from residents of the United States.</strong></p>
 
 <p>
-<span class="bodySubtitle">About BetFair</span><br />
+<span class="bodySubtitle">About Betfair</span><br />
 Betfair is the world's leading online betting exchange, a concept it has pioneered. Driven by cutting-edge technology, Betfair processes 15 million transactions a day and more than 300 bets a second. Launched in 2000, Betfair is a profitable and debt-free company with annual revenues exceeding £180 million. It is a privately-owned company with a worldwide workforce of 1300 representing over 60 different nationalities. The global headquarters are in London.
 </p>
 
