@@ -69,4 +69,4 @@
 
 <%-- OpenAIM --%>
 <br />
-<a href="<tc-webtag:linkTracking link='/tc?module=ViewSurvey&sid=22570' refer='/tc' />"><img src="/i/home/openAIMslimBannerVote.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
+<a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />"><img src="/i/home/openAIMslimBannerVote.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
