@@ -64,13 +64,16 @@ ding="utf-8"?>
             <p>Show off your creative skills in a competitive environment and get paid for being the best!</p>
         </div>
         <div id="welcome_banner">
+            <%-- default banner 
             <a href="/?module=ViewActiveContests"><img alt="Get Started Now!" src="/i/v3/welcome_banner.png" width="536" height="121" border="0"/></a>
+            --%>
+            <a href="/?module=ViewActiveContests"><img alt="Get Started Now!" src="/i/v3/lending_tree.png" width="536" height="121" border="0"/></a>
         </div>
     </div>
 
     <!-- banner -->
     <div class="banner">
-        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&d4=bracket"><img src="/i/v3/tco_finalists.png" alt="TCO08" /></a>
+        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=bracket"><img src="/i/v3/tco_finalists.png" alt="TCO08" /></a>
     </div>
 
     <!-- contest box -->
@@ -287,7 +290,7 @@ ding="utf-8"?>
 
 <!-- footer -->
 <div id="footer">
-    <a href="http://www.topcoder.com/"><img alt="TopCoder" class="TClogo" src="/i/v3/tc_logo.jpg"/></a>
+    <a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img alt="TopCoder" class="TClogo" src="/i/v3/tc_logo.jpg"/></a>
 
     <p><a href="/">Home</a> &nbsp;|&nbsp; <a href="/?module=Static&amp;d1=contactUs">Contact Us</a> &nbsp;|&nbsp;
         <a href="/?module=Static&amp;d1=about&amp;d2=privacy">Privacy</a> &nbsp;|&nbsp;
