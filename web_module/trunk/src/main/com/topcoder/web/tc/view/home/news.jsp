@@ -4,6 +4,33 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />05.07.08<br />9:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">Open AIM Developer Challenge Closes, Vote for Your Favorites!</a></span><br /><br />
+        The submission phase of the $100,000 Open AIM Developer Challenge has now closed, with TopCoder members submitting an incredible 53 passing applications! Now we need your help in determining which 9 apps will win a $10,000 first prize, and which 20 will receive a $500 second prize. Check out all the submissions, and let us know your Top Five – the TC community vote will count for 20% of the final score.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">details</a> | 
+        <a href="/tc?module=ViewSurvey&amp;sid=22570">vote</a> | 
+        <a href="/openaim/forums">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />05.07.08<br />9:15 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2229">yourminis flash widget news flash!</a></span><br /><br />
+        We have just launched a contest over on <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2229">Studio</a> to build the 'TopCoder Contest Status Widget' as a yourminis Flash Widget using the yourminis Widget API. The competition runs for a week, and there's $2100 in prize money up for grabs. Check it out!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2229">details</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&amp;forumID=191">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.06.08<br />6:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_050608">Betfair Joins 2008 TopCoder Open Sponsors</a></span><br /><br />
@@ -137,34 +164,5 @@
         <a href="/tc?module=Static&amp;d1=features&amp;d2=041808">details</a> | 
         <tc-webtag:forumLink forumID="520918" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />04.16.08<br />4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a target="blank" href="<tc-webtag:linkTracking link='http://www.courant.com/business/hc-cornershop0416.artapr16,0,6766513.story' refer='/tc' />">Courant.com - Glastonbury Firm's Online Software Contests Attract High-Rolling Sponsors</a></span><br /><br />
-        TopCoder is a nontraditional workplace, staging online competitions for software design, many sponsored by Fortune 1000 companies. The winner is determined by peer review in the self-regulated online community.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.courant.com/business/hc-cornershop0416.artapr16,0,6766513.story' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="520897" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />04.16.08<br />11:45 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm397">SRM 397 - Problem Set &amp; Analysis</a></span><br /><br />
-      This prime numbered SRM gathered together 1352 coders that were faced with a rather hard problem set. However, <tc-webtag:handle coderId="19849563" context="algorithm"/> rushed through the set achieving his new highest rating. Congratulations!</td>
-         <td class="newsPhoto"><img src="/i/m/mateuszek_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="11801002" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm397">details</a> | 
-        <tc-webtag:forumLink forumID="520816" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
    
