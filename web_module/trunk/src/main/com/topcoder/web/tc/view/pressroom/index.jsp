@@ -136,6 +136,32 @@
                 </div>
                 <%-- Dr. Dobb's - There Must be Contest end --%>
                 
+                <%-- Financial Times - Working in IT: The tournament approach to finding talent begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.ft.com/cms/s/0/2290a6b0-14c6-11dd-a741-0000779fd2ac.html?nclick_check=1' refer='pr_index' />"><img src="/i/pressroom/ft_logo.png" alt="Financial Times logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.ft.com/cms/s/0/2290a6b0-14c6-11dd-a741-0000779fd2ac.html?nclick_check=1' refer='pr_index' />">Working in IT: The tournament approach to finding talent</a></h3>
+                        <p>TopCoder is both a company and a concept: it is a novel approach to identifying and grading the best software developers that exploits the egotism and innate competitiveness of many computer programmers.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.ft.com/cms/s/0/2290a6b0-14c6-11dd-a741-0000779fd2ac.html?nclick_check=1' refer='pr_index' />">[April 30]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Financial Times - Working in IT: The tournament approach to finding talent end --%>
+                
+                <%-- 2theadvocate.com - Top programmer, 15, says talent same as sports aptitude begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.2theadvocate.com/features/18320734.html' refer='pr_index' />"><img src="/i/pressroom/tchs08_logo.png" alt="TCHS08 logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.2theadvocate.com/features/18320734.html' refer='pr_index' />">Top programmer, 15, says talent same as sports aptitude</a></h3>
+                        <p>Wu, a Baton Rouge Magnet High School sophomore, placed second in an elite international competition of top high school-age software developers. Wu is the son of Mei Wu and Guorong Zhang.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.2theadvocate.com/features/18320734.html' refer='pr_index' />">[April 27]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- 2theadvocate.com - Top programmer, 15, says talent same as sports aptitude end --%>
+                
                 <%-- Courant.com - Glastonbury Firm's Online Software Contests Attract High-Rolling Sponsors begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
