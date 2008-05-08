@@ -36,22 +36,14 @@
         <a href="/openaim/?myframe=category%2fcoding%2f">coding</a>,
         <a href="/openaim/?myframe=category%2fdating%2f">dating</a>,
         <a href="/openaim/?myframe=category%2fdesktop-sharing%2f">desktop-sharing</a>,
-        <a href="/openaim/?myframe=category%2fdictionary%2f">dictionary</a>,
         <a href="/openaim/?myframe=category%2fdrawing-whiteboarding%2f">drawing-whiteboarding</a>,
-        <a href="/openaim/?myframe=category%2femoticons%2f">emoticons</a>,
         <a href="/openaim/?myframe=category%2ffonts%2f">fonts</a>,
         <a href="/openaim/?myframe=category%2fgames%2f">games</a>,
         <a href="/openaim/?myframe=category%2flinks%2f">links</a>,
-        <a href="/openaim/?myframe=category%2fmaps%2f">maps</a>,
-        <a href="/openaim/?myframe=category%2fmarketplace%2f">marketplace</a>,
-        <a href="/openaim/?myframe=category%2fmashups%2f">mashups</a>,
         <a href="/openaim/?myframe=category%2fMySQL%2f">MySQL</a>,
         <a href="/openaim/?myframe=category%2fnews%2f">news</a>,
-        <a href="/openaim/?myframe=category%2fphotos%2f">photos</a>,
         <a href="/openaim/?myframe=category%2fplugins%2f">plugins</a>,
         <a href="/openaim/?myframe=category%2frss%2f">rss</a>,
-        <a href="/openaim/?myframe=category%2fsocial-networking%2f">social-networking</a>,
-        <a href="/openaim/?myframe=category%2fsounds%2f">sounds</a>,
         <a href="/openaim/?myframe=category%2fspellcheck%2f">spellcheck</a>,
         <a href="/openaim/?myframe=category%2fTopCoder-arena%2f">TopCoder-arena</a>,
         <a href="/openaim/?myframe=category%2ftranslation%2f">translation</a>,
@@ -60,7 +52,6 @@
         <a href="/openaim/?myframe=category%2fvideo%2f">video</a>,
         <a href="/openaim/?myframe=category%2fvoice%2f">voice</a>,
         <a href="/openaim/?myframe=category%2fweb-applications%2f">web applications</a>
-
     </div>
 
 </div>
