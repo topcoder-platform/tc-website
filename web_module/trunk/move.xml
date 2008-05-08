@@ -342,7 +342,7 @@
             <arg line="update"/>
         </exec>
 
-        <ant antfile="build_truveo.xml" target="deploy"/>
+        <ant antfile="build_truveo.xml" target="dist"/>
         <ant antfile="build_truveo.xml" target="build-security"/>
 
         <jar destfile="truveo.jar" update="true">
