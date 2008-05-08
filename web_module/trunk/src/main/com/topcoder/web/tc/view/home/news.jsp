@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />05.08.08<br />11:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm399">SRM 399 - Problem Set &amp; Analysis</a></span><br /><br />
+      SRM 399 was dominated by <tc-webtag:handle coderId="10574855" context="algorithm"/>, who even without his easy submission would have won the match. Winning this match let <tc-webtag:handle coderId="10574855" context="algorithm"/> break the 3800 rating barrier, and we're all wondering how long it will be before he breaks 4000.  Rounding out the top 3 spots in division 1 were <tc-webtag:handle coderId="144400" context="algorithm"/> and <tc-webtag:handle coderId="22690368" context="algorithm"/>.</td>
+         <td class="newsPhoto"><img src="/i/m/eleusive_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8369955" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm399">details</a> | 
+        <tc-webtag:forumLink forumID="520961" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />05.07.08<br />9:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">Open AIM Developer Challenge Closes, Vote for Your Favorites!</a></span><br /><br />
@@ -151,18 +167,5 @@
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=onsiteSchedule">details</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />04.18.08<br />4:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=041808">Meet the March 2008 Coders of the Month: PaulJefferys &amp; oton</a></span><br /><br />
-        We caught up with <tc-webtag:handle coderId="7394165" context="algorithm" />, March's Algorithm Coder of the Month, and <tc-webtag:handle coderId="22076237" />, March's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=041808">details</a> | 
-        <tc-webtag:forumLink forumID="520918" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
    </td></tr>
    
