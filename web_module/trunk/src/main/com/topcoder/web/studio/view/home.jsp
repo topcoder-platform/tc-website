@@ -270,11 +270,10 @@ ding="utf-8"?>
         <h2>DESIGNER OF THE MONTH</h2>
 
         <p>
-            <img class="member" width="57" height="63" alt="Designer of the month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/oton_big.jpg"/>
-            <b>March 2008 </b><br />
-            <i>oton</i><br />
-            Won $2,100 in
-            three contests
+            <img class="member" width="57" height="63" alt="Designer of the month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/andrey_atlas_big.jpg"/>
+            <b>April 2008</b><br />
+            <b>andrey_atlas</b><br />
+            Won $1500 and has been with us since day one!
         </p>
 
         <div></div>
