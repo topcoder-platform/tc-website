@@ -219,20 +219,18 @@
         <delete dir="build"/>
         <delete file="studio.jar"/>
 
-        <cvs command="update -Pd" package="src"/>
-        <cvs command="update -Pd" package="resources"/>
-        <cvs command="update -Pd" package="lib"/>
-        <cvs command="update -Pd" package="build_studio.xml"/>
-        <cvs command="update -Pd" package="build_tc.xml"/>
 
-        <exec dir="../" executable="cvs">
-            <arg line="checkout shared"/>
+        <exec dir="." executable="svn">
+            <arg line="update src resources lib build_tc.xml"/>
         </exec>
 
-        <exec dir="../" executable="cvs">
-            <arg line="checkout external-artifacts"/>
+        <exec dir="../shared" executable="svn">
+            <arg line="update"/>
         </exec>
 
+        <exec dir="../external-artifacts" executable="svn">
+            <arg line="update"/>
+        </exec>
 
         <ant antfile="build_studio.xml" target="deploy"/>
         <ant antfile="build_studio.xml" target="build-security"/>
