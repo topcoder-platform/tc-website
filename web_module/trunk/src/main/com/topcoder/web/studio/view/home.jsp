@@ -91,7 +91,10 @@ ding="utf-8"?>
                     </tr>
                 </thead>
                 <tbody>
+<%--
                     <rsc:iterator list="<%=activeContests%>" id="resultRow" end="2">
+--%>
+    <rsc:iterator list="<%=activeContests%>" id="resultRow">
                         <tr>
                             <td class="first">
                                     <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">
