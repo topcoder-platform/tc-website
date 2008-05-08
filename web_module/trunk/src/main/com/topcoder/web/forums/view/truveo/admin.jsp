@@ -18,7 +18,7 @@
 <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
 
 <jsp:include page="style.jsp">
-    <jsp:param name="key" value="tc_openaim_forums"/>
+    <jsp:param name="key" value="tc_truveo_forums"/>
 </jsp:include>
 </head>
 
@@ -31,7 +31,7 @@
         <div id="aimFrameN">
             <div id="aimFrameS">
 
-                <jsp:include page="openaimTop.jsp"/>
+                <jsp:include page="truveoTop.jsp"/>
 
                 <div class="content" align="right">
                     <div class="contentTexture">
@@ -81,14 +81,14 @@
       <td class="rtTextCell100">
         <%  while (itOnline.hasNext()) { %>
             <%  User u = (User)itOnline.next(); %>
-            <openaim:handle coderId="<%=u.getID()%>"/><%  if (itOnline.hasNext()) { %>, <% } %>
+            <truveo:handle coderId="<%=u.getID()%>"/><%  if (itOnline.hasNext()) { %>, <% } %>
         <%  } %>
       </td>
    </tr>
    --%>
 </table>
 <div align="right">
-<input type="image" src="/i/events/openaim/interface/btnUpdate.png" alt="Update" />
+<input type="image" src="/i/events/truveo/interface/btnUpdate.png" alt="Update" />
 </div></form>
             
 

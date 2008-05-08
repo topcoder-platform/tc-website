@@ -8,7 +8,7 @@
                  java.util.Iterator"
         %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="openaim.tld" prefix="openaim" %>
+<%@ taglib uri="truveo.tld" prefix="truveo" %>
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="categories" name="categories" type="java.util.ArrayList" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
@@ -29,7 +29,7 @@
     <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
 
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_openaim_forums"/>
+        <jsp:param name="key" value="tc_truveo_forums"/>
     </jsp:include>
 </head>
 
@@ -42,7 +42,7 @@
         <div id="aimFrameN">
             <div id="aimFrameS">
 
-                <jsp:include page="openaimTop.jsp"/>
+                <jsp:include page="truveoTop.jsp"/>
 
                 <div class="content" align="right">
                     <div class="contentTexture">
@@ -150,7 +150,7 @@
 <% } %>
 
 <div style="float:right;">
-    <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img alt="RSS" border="none" src="/i/events/openaim/interface/btnRSS.png"/></a>
+    <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img alt="RSS" border="none" src="/i/events/truveo/interface/btnRSS.png"/></a>
 </div>
 <span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.<br />
 <!--The five most recent forums are displayed for each category other than Round Tables. Click a category's name to view its complete forum list.--></span>

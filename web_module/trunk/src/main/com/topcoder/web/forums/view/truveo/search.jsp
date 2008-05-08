@@ -45,7 +45,7 @@ function noenter(e)
 <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
 
 <jsp:include page="style.jsp">
-    <jsp:param name="key" value="tc_openaim_forums"/>
+    <jsp:param name="key" value="tc_truveo_forums"/>
 </jsp:include>
     <script type="text/javascript">
         function openWin(url, name, w, h) {
@@ -65,7 +65,7 @@ function noenter(e)
         <div id="aimFrameN">
             <div id="aimFrameS">
 
-                <jsp:include page="openaimTop.jsp"/>
+                <jsp:include page="truveoTop.jsp"/>
 
                 <div class="content" align="right">
                     <div class="contentTexture">

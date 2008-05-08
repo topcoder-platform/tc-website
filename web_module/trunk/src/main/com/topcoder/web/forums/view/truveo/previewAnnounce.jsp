@@ -7,7 +7,7 @@
 %>
 
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="openaim.tld" prefix="openaim" %>
+<%@ taglib uri="truveo.tld" prefix="truveo" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="announcement" name="announcement" type="com.jivesoftware.forum.Announcement" toScope="request"/>
@@ -72,7 +72,7 @@ function AllowTabCharacter() {
 <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
 
 <jsp:include page="style.jsp">
-    <jsp:param name="key" value="tc_openaim_forums"/>
+    <jsp:param name="key" value="tc_truveo_forums"/>
 </jsp:include>
 </head>
 
@@ -85,7 +85,7 @@ function AllowTabCharacter() {
         <div id="aimFrameN">
             <div id="aimFrameS">
 
-                <jsp:include page="openaimTop.jsp"/>
+                <jsp:include page="truveoTop.jsp"/>
 
                 <div class="content" align="right">
                     <div class="contentTexture">
@@ -171,15 +171,15 @@ function AllowTabCharacter() {
 	</tr>
 	<tr>
 		<td class="rtFooter">
-			<input type="image" src="/i/events/openaim/interface/btnPost.png" class="rtButton" alt="Post" onclick="form1.module.value='PostAnnouncement'"/>
-			<input type="image" src="/i/events/openaim/interface/btnPreview.png" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewAnnouncement'"/>
+			<input type="image" src="/i/events/truveo/interface/btnPost.png" class="rtButton" alt="Post" onclick="form1.module.value='PostAnnouncement'"/>
+			<input type="image" src="/i/events/truveo/interface/btnPreview.png" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewAnnouncement'"/>
 			<%	String cancelLink = "?module=Main"; 
 				if (forum != null) {
 					cancelLink = "?module=ThreadList&"+ForumConstants.FORUM_ID+"="+forum.getID();
 				} else if (forumCategory != null) {
 					cancelLink = "?module=Category&"+ForumConstants.CATEGORY_ID+"="+forumCategory.getID();
 				} %>
-			<a href="<%=cancelLink%>"><img src="/i/events/openaim/interface/btnCancel.png" alt="Cancel"/></a>
+			<a href="<%=cancelLink%>"><img src="/i/events/truveo/interface/btnCancel.png" alt="Cancel"/></a>
 		</td>
 	</tr>
 </form>

@@ -10,7 +10,7 @@
         %>
 <%@ page import="java.util.Iterator" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="openaim.tld" prefix="openaim" %>
+<%@ taglib uri="truveo.tld" prefix="truveo" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
@@ -73,7 +73,7 @@
     <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
 
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_openaim_forums"/>
+        <jsp:param name="key" value="tc_truveo_forums"/>
     </jsp:include>
 </head>
 
@@ -86,7 +86,7 @@
         <div id="aimFrameN">
             <div id="aimFrameS">
 
-                <jsp:include page="openaimTop.jsp"/>
+                <jsp:include page="truveoTop.jsp"/>
 
                 <div class="content" align="right">
                     <div class="contentTexture">
@@ -234,11 +234,11 @@
                             </td>
                         </tr>
                         <tr><td class="rtFooter">
-                            <input type="image" src="/i/events/openaim/interface/btnPost.png" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
-                            <input type="image" src="/i/events/openaim/interface/btnPreview.png" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
+                            <input type="image" src="/i/events/truveo/interface/btnPost.png" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
+                            <input type="image" src="/i/events/truveo/interface/btnPreview.png" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
                         	<%	if (forum.isAuthorized(ForumPermissions.CREATE_MESSAGE_ATTACHMENT)) { %>
 	                        	<%	if (!postMode.equals("Edit")) { %>
-									<input type="image" src="/i/events/openaim/interface/btnAttachFiles.png" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
+									<input type="image" src="/i/events/truveo/interface/btnAttachFiles.png" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
 								<%	} %>
 							<%	} %>
 							<%	String cancelLink = "?module=ThreadList&"+ForumConstants.FORUM_ID+"="+forum.getID(); 
@@ -247,7 +247,7 @@
 								} else if (thread != null) {
 									cancelLink = "?module=Thread&"+ForumConstants.THREAD_ID+"="+thread.getID();
 								} %>
-							<a href="<%=cancelLink%>"><img src="/i/events/openaim/interface/btnCancel.png" alt="Cancel"/></a>
+							<a href="<%=cancelLink%>"><img src="/i/events/truveo/interface/btnCancel.png" alt="Cancel"/></a>
                         </td></tr>
                     </form>
                 </table>
