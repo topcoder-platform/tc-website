@@ -67,7 +67,7 @@ ding="utf-8"?>
             <%-- default banner 
             <a href="/?module=ViewActiveContests"><img alt="Get Started Now!" src="/i/v3/welcome_banner.png" width="536" height="121" border="0"/></a>
             --%>
-            <a href="/?module=ViewActiveContests"><img alt="Get Started Now!" src="/i/v3/lending_tree.png" width="536" height="121" border="0"/></a>
+            <a href="/?module=ViewContestDetails&amp;ct=2230"><img alt="Get Started Now!" src="/i/v3/lending_tree.png" width="536" height="121" border="0"/></a>
         </div>
     </div>
 
