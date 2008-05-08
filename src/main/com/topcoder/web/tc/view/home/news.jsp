@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />05.08.08<br />12:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm400">SRM 400 - Problem Set &amp; Analysis</a></span><br /><br />
+      In division one, problems are not hard at first glance, but solving them correctly is anything but easy. This property of the set leads to the high submission rate and the low success rate. <tc-webtag:handle coderId="10574855" context="algorithm"/> won the match as the only coder who solved all problems correctly.</td>
+         <td class="newsPhoto"><img src="/i/m/ymatsu_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20034421" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm400">details</a> | 
+        <tc-webtag:forumLink forumID="521020" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />05.08.08<br />11:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -152,20 +168,6 @@
    <tr><td class="newsLinksCell">
         <a href="/tc?module=MatchDetails&amp;rd=12171">details</a> | 
         <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />04.22.08<br />12:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=onsiteSchedule">New Forums added to the TCO08 Onsite Schedule</a></span><br /><br />
-        Check out the TCO08 <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=onsiteSchedule">onsite schedule</a> to see the Corporate and Developer forums added to the agenda.  With a slew of topics and some of the best minds in the business, don't miss them if you're in Vegas!  Read more <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=devForums">here</a>.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=onsiteSchedule">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
