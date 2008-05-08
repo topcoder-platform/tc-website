@@ -10,7 +10,7 @@
                  java.util.Iterator"
 %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="openaim.tld" prefix="openaim" %>
+<%@ taglib uri="truveo.tld" prefix="truveo" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
@@ -35,7 +35,7 @@
     <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
 
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_openaim_forums"/>
+        <jsp:param name="key" value="tc_truveo_forums"/>
     </jsp:include>
 </head>
 
@@ -48,7 +48,7 @@
         <div id="aimFrameN">
             <div id="aimFrameS">
 
-                <jsp:include page="openaimTop.jsp"/>
+                <jsp:include page="truveoTop.jsp"/>
 
                 <div class="content" align="right">
                     <div class="contentTexture">
@@ -141,14 +141,14 @@
 				<br />
 				
 				<%-- Attach Files & Post Message --%>
-				<input type="image" src="/i/events/openaim/interface/btnAttachFiles.png" class="rtButton" alt="Attach Files" onClick="form1.module.value='Attach'"/>
+				<input type="image" src="/i/events/truveo/interface/btnAttachFiles.png" class="rtButton" alt="Attach Files" onClick="form1.module.value='Attach'"/>
 				
 				<%-- Cancel --%>
 				<%	if (postMode.equals("Edit")) {
 						String urlNext = sessionInfo.getServletPath() + "?module=Message&" + ForumConstants.MESSAGE_ID + "=" + message.getID(); %> 
-						<a href="<%=urlNext%>"><img src="/i/events/openaim/interface/btnCancel.png" class="rtButton" alt="Cancel"/></a>
+						<a href="<%=urlNext%>"><img src="/i/events/truveo/interface/btnCancel.png" class="rtButton" alt="Cancel"/></a>
 				<%	} else { %>
-						<input type="image" src="/i/events/openaim/interface/btnCancel.png" class="rtButton" alt="Cancel" onClick="form1.module.value='Post'"/>
+						<input type="image" src="/i/events/truveo/interface/btnCancel.png" class="rtButton" alt="Cancel" onClick="form1.module.value='Post'"/>
 				<%	} %>
 				
 				</form>

@@ -7,7 +7,7 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.TimeZone" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="openaim.tld" prefix="openaim" %>
+<%@ taglib uri="truveo.tld" prefix="truveo" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forumCategory" name="forumCategory" type="com.jivesoftware.forum.ForumCategory" toScope="request"/>
@@ -32,7 +32,7 @@
     <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
 
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_openaim_forums"/>
+        <jsp:param name="key" value="tc_truveo_forums"/>
     </jsp:include>
 </head>
 
@@ -45,7 +45,7 @@
         <div id="aimFrameN">
             <div id="aimFrameS">
 
-                <jsp:include page="openaimTop.jsp"/>
+                <jsp:include page="truveoTop.jsp"/>
 
                 <div class="content" align="right">
                     <div class="contentTexture">
@@ -91,7 +91,7 @@
                         <a href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></a>
                         >
                         <%  } %>
-                        <img src="/i/events/openaim/interface/btnAnnouncement.png" alt="" border="0"/> <%=announcement.getSubject()%>
+                        <img src="/i/events/truveo/interface/btnAnnouncement.png" alt="" border="0"/> <%=announcement.getSubject()%>
                     </td>
                     </tr>
                 </table>

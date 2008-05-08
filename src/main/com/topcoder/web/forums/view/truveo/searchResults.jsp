@@ -11,7 +11,7 @@
                  java.util.Iterator"
         %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="openaim.tld" prefix="openaim" %>
+<%@ taglib uri="truveo.tld" prefix="truveo" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <% Paginator paginator = (Paginator) request.getAttribute("paginator");

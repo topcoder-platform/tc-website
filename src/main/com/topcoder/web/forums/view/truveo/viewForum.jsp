@@ -14,7 +14,7 @@
                  java.util.Iterator"
         %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="openaim.tld" prefix="openaim" %>
+<%@ taglib uri="truveo.tld" prefix="truveo" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
@@ -93,7 +93,7 @@
     <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
 
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_openaim_forums"/>
+        <jsp:param name="key" value="tc_truveo_forums"/>
     </jsp:include>
 </head>
 
@@ -106,7 +106,7 @@
         <div id="aimFrameN">
             <div id="aimFrameS">
 
-                <jsp:include page="openaimTop.jsp"/>
+                <jsp:include page="truveoTop.jsp"/>
 
                 <div class="content" align="right">
                     <div class="contentTexture">
@@ -191,7 +191,7 @@
         <tr>
             <td class="rtThreadCellWrap">
                 <div>
-                    <a href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtLinkBold"><img src="/i/events/openaim/interface/btnAnnouncement.png" alt="" border="0"/> <%=announcement.getSubject()%>
+                    <a href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtLinkBold"><img src="/i/events/truveo/interface/btnAnnouncement.png" alt="" border="0"/> <%=announcement.getSubject()%>
                     </a></div>
             </td>
             <td class="rtThreadCell"><tc-webtag:handle coderId="<%=announcement.getUser().getID()%>"/></td>
@@ -275,7 +275,7 @@
 
 <div>
     <div style="float:right;">
-        <a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>"><img alt="RSS" border="none" src="/i/events/openaim/interface/btnRSS.png"/></a>
+        <a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>"><img alt="RSS" border="none" src="/i/events/truveo/interface/btnRSS.png"/></a>
     </div>
     <span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user != null) {%><a href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
         all as read)</a><% } %></span>

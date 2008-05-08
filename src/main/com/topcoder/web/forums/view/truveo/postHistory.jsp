@@ -7,7 +7,7 @@
                  java.util.Iterator"
         %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="openaim.tld" prefix="openaim" %>
+<%@ taglib uri="truveo.tld" prefix="truveo" %>
 
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -70,7 +70,7 @@
     <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
 
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_openaim_forums"/>
+        <jsp:param name="key" value="tc_truveo_forums"/>
     </jsp:include>
 </head>
 
@@ -83,7 +83,7 @@
         <div id="aimFrameN">
             <div id="aimFrameS">
 
-                <jsp:include page="openaimTop.jsp"/>
+                <jsp:include page="truveoTop.jsp"/>
 
                 <div class="content" align="right">
                     <div class="contentTexture">

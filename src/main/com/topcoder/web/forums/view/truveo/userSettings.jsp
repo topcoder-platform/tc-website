@@ -25,7 +25,7 @@
 <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
 
 <jsp:include page="style.jsp">
-    <jsp:param name="key" value="tc_openaim_forums"/>
+    <jsp:param name="key" value="tc_truveo_forums"/>
 </jsp:include>
 <script type="text/javascript">
 <!--
@@ -77,7 +77,7 @@ function toggleTabs(anchor,id) {
         <div id="aimFrameN">
             <div id="aimFrameS">
 
-                <jsp:include page="openaimTop.jsp"/>
+                <jsp:include page="truveoTop.jsp"/>
 
                 <div class="content" align="right">
                     <div class="contentTexture">
@@ -455,7 +455,7 @@ function toggleTabs(anchor,id) {
 
 <div>
    <div style="float:right;">
-   <input type="image" src="/i/events/openaim/interface/btnSave.png"/>
+   <input type="image" src="/i/events/truveo/interface/btnSave.png"/>
    </div>
 </div>
 </form>
