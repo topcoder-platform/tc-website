@@ -62,6 +62,13 @@
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <% } else if (key.equals("tc_openaim_forums")) { %>
 <link type="text/css" rel="stylesheet" href="/css/openaim/forums.css" />
-<link type="text/css" rel="stylesheet" href="/css/openaim/main20080313.css" />
+<link type="text/css" rel="stylesheet" href="/css/openaim/main20080416.css" />
+<link type="text/css" rel="stylesheet" href="/css/coders.css" />
+<% } else if (key.equals("tc_truveo")) { %>
+<link type="text/css" rel="stylesheet" href="/css/truveo/main.css" />
+<link type="text/css" rel="stylesheet" href="/css/coders.css" />
+<% } else if (key.equals("tc_truveo_forums")) { %>
+<link type="text/css" rel="stylesheet" href="/css/truveo/forums.css" />
+<link type="text/css" rel="stylesheet" href="/css/truveo/main.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <% } %>
