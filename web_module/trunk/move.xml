@@ -29,16 +29,17 @@
         <delete dir="build"/>
         <delete file="topcoder.jar"/>
 
-        <exec dir="." executable="svn">
-            <arg line="update src resources lib build_tc.xml"/>
+        <cvs command="update -Pd" package="src"/>
+        <cvs command="update -Pd" package="resources"/>
+        <cvs command="update -Pd" package="lib"/>
+        <cvs command="update -Pd" package="build_tc.xml"/>
+
+        <exec dir="../shared" executable="cvs">
+            <arg line="update -dP"/>
         </exec>
 
-        <exec dir="../shared" executable="svn">
-            <arg line="update"/>
-        </exec>
-
-        <exec dir="../external-artifacts" executable="svn">
-            <arg line="update"/>
+        <exec dir="../external-artifacts" executable="cvs">
+            <arg line="update -dP"/>
         </exec>
 
 
@@ -85,6 +86,54 @@
 
     </target>
 
+    <target name="package-techassess" >
+        <!--
+                <delete dir="src"/>
+                <delete dir="resources"/>
+                <delete dir="build"/>
+                <delete dir="../shared/src"/>
+                <delete file="techassess.jar"/>
+
+                <cvs command="update -Pd" package="src"/>
+                <cvs command="update -Pd" package="resources"/>
+                <cvs command="update -Pd" package="lib"/>
+
+                <exec dir="../shared" executable="cvs">
+                    <arg line="update -dP src"/>
+                </exec>
+        -->
+
+        <ant antfile="build.xml" target="war-techassess"/>
+        <ant dir="../app" antfile="build.xml" target="screening-ejb-jars"/>
+
+        <mkdir dir="${tempMoveDir}"/>
+
+        <copy todir="${tempMoveDir}" file="build/wars/techassess.war"/>
+        <copy todir="${tempMoveDir}" file="lib/bin/shared.jar"/>
+        <copy todir="${tempMoveDir}" file="lib/bin/tcwebcommon.jar"/>
+        <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/deploy/reconnect.jar"/>
+        <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/deploy/ProblemServices.jar"/>
+        <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/deploy/ScreeningServices.jar"/>
+        <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/deploy/ScreeningTesterCompilerServices.jar"/>
+        <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/deploy/ScreeningAdminServices.jar"/>
+        <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/lib/Screening.jar"/>
+
+        <jar destfile="techassess.jar" update="true">
+            <fileset dir="${tempMoveDir}">
+                <include name="techassess.war"/>
+                <include name="shared.jar"/>
+                <include name="tcwebcommon.jar"/>
+                <include name="reconnect.jar"/>
+                <include name="Screening.jar"/>
+                <include name="ProblemServices.jar"/>
+                <include name="ScreeningServices.jar"/>
+                <include name="ScreeningTesterCompilerServices.jar"/>
+                <include name="ScreeningAdminServices.jar"/>
+            </fileset>
+        </jar>
+
+        <delete dir="${tempMoveDir}"/>
+    </target>
 
     <target name="package-software" >
         <cvs command="update -Pd"/>
@@ -171,18 +220,20 @@
         <delete dir="build"/>
         <delete file="studio.jar"/>
 
+        <cvs command="update -Pd" package="src"/>
+        <cvs command="update -Pd" package="resources"/>
+        <cvs command="update -Pd" package="lib"/>
+        <cvs command="update -Pd" package="build_studio.xml"/>
+        <cvs command="update -Pd" package="build_tc.xml"/>
 
-        <exec dir="." executable="svn">
-            <arg line="update src resources lib build_studio.xml"/>
+        <exec dir="../" executable="cvs">
+            <arg line="checkout shared"/>
         </exec>
 
-        <exec dir="../shared" executable="svn">
-            <arg line="update"/>
+        <exec dir="../" executable="cvs">
+            <arg line="checkout external-artifacts"/>
         </exec>
 
-        <exec dir="../external-artifacts" executable="svn">
-            <arg line="update"/>
-        </exec>
 
         <ant antfile="build_studio.xml" target="deploy"/>
         <ant antfile="build_studio.xml" target="build-security"/>
@@ -246,7 +297,131 @@
     </target>
 
 
+    <target name="package-csf" >
 
+        <delete dir="build"/>
+        <delete file="csf.jar"/>
+
+        <cvs command="update -Pd" package="src"/>
+        <cvs command="update -Pd" package="resources"/>
+        <cvs command="update -Pd" package="lib"/>
+        <cvs command="update -Pd" package="build_csf.xml"/>
+
+        <exec dir="../shared" executable="cvs">
+            <arg line="update -dP"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="cvs">
+            <arg line="update -dP"/>
+        </exec>
+
+
+        <ant antfile="build_csf.xml" target="deploy-csf"/>
+        <ant antfile="build_csf.xml" target="build-security"/>
+
+        <jar destfile="csf.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/*.jar"/>
+                <include name="build/wars/*.war"/>
+                <include name="build/ears/*.ear"/>
+                <include name="resources/csf/**"/>
+                <include name="resources/forums/filter/**"/>
+                <include name="resources/forums/csf/**"/>
+                <include name="resources/CSF.properties"/>
+                <include name="move.xml"/>
+                <include name="build_csf.xml"/>
+                <include name="lib/bin/*.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
+
+
+    <target name="deploy-techassess" >
+        <!-- create backup -->
+        <tstamp/>
+        <property name="backupDirectory" value="backup/techassess/${DSTAMP}-${TSTAMP}"/>
+        <echo message="Backing up to: ${backupDirectory}"/>
+        <mkdir dir="${backupDirectory}"/>
+
+        <copy todir="${backupDirectory}" file="build/wars/techassess.war"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/lib/shared.jar"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/lib/tcwebcommon.jar"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/reconnect.jar"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ProblemServices.jar"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ScreeningServices.jar"/>
+        <copy todir="${backupDirectory}"
+              file="${jboss_home}/server/default/deploy/ScreeningTesterCompilerServices.jar"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ScreeningAdminServices.jar"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/lib/Screening.jar"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/conf/ApplicationServer.properties"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/conf/login-config.xml"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/conf/problem.xsd"/>
+
+        <mkdir dir="${tempDeployDir}"/>
+        <unjar src="techassess.jar" dest="${tempDeployDir}"/>
+        <copy overwrite="true" todir="${war_dir}" file="${tempDeployDir}/techassess.war"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/lib" file="${tempDeployDir}/shared.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/lib" file="${tempDeployDir}/tcwebcommon.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/reconnect.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/ProblemServices.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/deploy"
+              file="${tempDeployDir}/ScreeningServices.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/deploy"
+              file="${tempDeployDir}/ScreeningTesterCompilerServices.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/deploy"
+              file="${tempDeployDir}/ScreeningAdminServices.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/lib" file="${tempDeployDir}/Screening.jar"/>
+        <delete dir="${tempDeployDir}"/>
+
+        <delete file="${jboss_home}/server/default/deploy/techassess.war"/>
+        <delete dir="${techassess_war_dir}"/>
+        <mkdir dir="${techassess_war_dir}"/>
+        <unwar src="${war_dir}/techassess.war" dest="${techassess_war_dir}" overwrite="yes"/>
+        <delete dir="${techassess_war_dir}/META-INF"/>
+    </target>
+
+
+
+        <target name="package-oracle" >
+
+        <delete dir="build"/>
+        <delete file="oracle.jar"/>
+
+        <cvs command="update -Pd" package="src"/>
+        <cvs command="update -Pd" package="resources"/>
+        <cvs command="update -Pd" package="lib"/>
+        <cvs command="update -Pd" package="build_oracle.xml"/>
+
+        <exec dir="../shared" executable="cvs">
+            <arg line="update -dP"/>
+        </exec>
+
+            <exec dir="../external-artifacts" executable="cvs">
+                <arg line="update -dP"/>
+            </exec>
+            
+
+        <ant antfile="build_oracle.xml" target="deploy-oracle"/>
+
+        <antcall target="jar-classes"/>
+
+        <jar destfile="oracle.jar" update="true">
+            <fileset dir=".">
+                <include name="build/wars/**"/>
+                <include name="resources/taglib/**"/>
+                <include name="resources/Oracle.properties"/>
+                <include name="resources/DataAccess.properties"/>
+                <include name="move.xml"/>
+                <include name="build_oracle.xml"/>
+                <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/tcwebcommon.jar"/>
+                <include name="lib/bin/classes.jar"/>
+                <include name="resources/oracle/**"/>
+            </fileset>
+        </jar>
+
+    </target>
 
 
 
@@ -322,52 +497,6 @@
         </jar>
 
     </target>
-
-
-
-    <target name="package-truveo" >
-
-        <delete dir="build"/>
-        <delete file="truveo.jar"/>
-
-        <exec dir="." executable="svn">
-            <arg line="update src resources lib build_truveo.xml"/>
-        </exec>
-
-        <exec dir="../shared" executable="svn">
-            <arg line="update"/>
-        </exec>
-
-        <exec dir="../external-artifacts" executable="svn">
-            <arg line="update"/>
-        </exec>
-
-        <ant antfile="build_truveo.xml" target="deploy"/>
-        <ant antfile="build_truveo.xml" target="build-security"/>
-
-        <jar destfile="truveo.jar" update="true">
-            <fileset dir=".">
-                <include name="build/ejb_jars/*.jar"/>
-                <include name="build/wars/*.war"/>
-                <include name="build/ears/*.ear"/>
-                <include name="resources/truveo/**"/>
-                <include name="resources/forums/filter/**"/>
-                <include name="resources/forums/truveo/**"/>
-                <include name="resources/Truveo.properties"/>
-                <include name="move.xml"/>
-                <include name="build_truveo.xml"/>
-                <include name="lib/bin/*.jar"/>
-            </fileset>
-        </jar>
-
-    </target>
-
-
-
-
-
-
-
 
 
 </project>
