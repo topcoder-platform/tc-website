@@ -235,11 +235,13 @@
         <delete dir="${jboss_deploy}/truveo.war/META-INF"/>
     </target>
 
-    <target name="deploy" depends="war-truveo,build-security">
+    <target name="dist" depends="war-truveo,build-security">
         <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
+    </target>
 
+    <target name="deploy" depends="dist">
         <antcall target="expand"/>
     </target>
 
