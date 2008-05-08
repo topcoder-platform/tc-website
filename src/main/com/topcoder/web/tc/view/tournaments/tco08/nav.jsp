@@ -69,7 +69,7 @@
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=onsiteSchedule"<% if (tabLev2.equals("joinus")) {%> class="on"<% } %>>Join Us Onsite</a></li>
                         <%--
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=roundTable"<% if (tabLev2.equals("roundtable")) {%> class="on"<% } %>>Roundtable Discussion</a></li>
-                        <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=movies"<% if (tabLev2.equals("onsiteevents")) {%> class="on"<% } %>>Onsite events</a></li>
+                        <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=blogs"<% if (tabLev2.equals("onsiteevents")) {%> class="on"<% } %>>Onsite events</a></li>
                         --%>
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly"<% if (tabLev2.equals("sponsors")) {%> class="on"<% } %>>Sponsors</a></li>
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa"<% if (tabLev2.equals("eventpatrons")) {%> class="on"<% } %>>Event Patrons</a></li>
@@ -136,15 +136,12 @@
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=devForums"<% if (tabLev3.equals("devforums")) {%> class="on"<% } %>>Developer Forums</a></li>
                             <li><a target="_blank" href="/wiki/display/tc/Getting+your+Visa+and+Getting+it+Early"<% if (tabLev3.equals("getvisa")) {%> class="on"<% } %>>Getting a Visa</a></li>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=transportation"<% if (tabLev3.equals("transportation")) {%> class="on"<% } %>>Travel Information</a></li>
-                            <%--
-                            <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=blog&amp;d4=description"<% if (tabLev3.equals("blog")) {%> class="on"<% } %>>Blog contest</a></li>
-                            --%>
                         
                         <% } else if (tabLev2.equals("onsiteevents")) { %>
+                            <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=blog"<% if (tabLev3.equals("blog")) {%> class="on"<% } %>>Blog</a></li>
                             <%--
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=movies"<% if (tabLev3.equals("movies")) {%> class="on"<% } %>>Movies</a></li>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=photos"<% if (tabLev3.equals("photos")) {%> class="on"<% } %>>Photos</a></li>
-                            <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=blogs&amp;d4=overview"<% if (tabLev3.equals("blogs")) {%> class="on"<% } %>>Blogs</a></li>
                             --%>
                         
                         <% } else if (tabLev2.equals("sponsors")) { %>
