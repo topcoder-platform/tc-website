@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.09.08<br />1:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a target="blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/05/topcoder_develo.html' refer='/tc' />">InfoWorld - TopCoder: developer productivity and code quality through competition</a></span><br /><br />
+        The TopCoder business model isn't outsourcing: it's built on global competition, and controlled by metrics and peer review. It's also market-driven.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/05/topcoder_develo.html' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="521128" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />05.09.08<br />10:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.amd.com/documentation/Pages/AMDMulticoreThreadfestCompetition.aspx' refer='/tc' />">Blowing the Socks off the AMD Multicore Threadfest Competition</a></span><br /><br />
@@ -152,21 +165,5 @@
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyChat20080415">details</a> | 
         <tc-webtag:forumLink forumID="516707" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />04.24.08<br />10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm398">SRM 398 - Problem Set &amp; Analysis</a></span><br /><br />
-      This match attracted 1280 competitors, 721 Div2 (78 newcomers) and 559 Div1.  <tc-webtag:handle coderId="7394165" context="algorithm"/> showed great performance and thanks to 4 successful challenges won the match with over 200 points margin and became target.  <tc-webtag:handle coderId="8580975" context="algorithm"/> took second place, followed by <tc-webtag:handle coderId="10574855" context="algorithm"/> who resubmited 1K problem, but earned 125 points in challenge phase and took third place.</td>
-         <td class="newsPhoto"><img src="/i/m/boba5551_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20394568" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm398">details</a> | 
-        <tc-webtag:forumLink forumID="520857" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
    

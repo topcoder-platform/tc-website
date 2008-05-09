@@ -110,6 +110,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- InfoWorld - TopCoder: developer productivity and code quality through competition begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/05/topcoder_develo.html' refer='pr_index' />"><img src="/i/pressroom/infoworld_logo.gif" alt="InfoWorld" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/05/topcoder_develo.html' refer='pr_index' />">TopCoder: developer productivity and code quality through competition</a></h3>
+                        <p>The TopCoder business model isn't outsourcing: it's built on global competition, and controlled by metrics and peer review. It's also market-driven.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/05/topcoder_develo.html' refer='pr_index' />">[May 9]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- InfoWorld - TopCoder: developer productivity and code quality through competition end --%>
+                
                 <%-- Betfair Joins 2008 TopCoder Open Sponsors begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">

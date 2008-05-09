@@ -73,6 +73,7 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/05/topcoder_develo.html' refer='art_archive' />">TopCoder: developer productivity and code quality through competition <br /><small style="margin-left:10px;">[May 9 - InfoWorld]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.ddj.com/architect/207404123' refer='art_archive' />">There Must be Contest <br /><small style="margin-left:10px;">[May 1 - Dr. Dobb's Portal]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.ft.com/cms/s/0/2290a6b0-14c6-11dd-a741-0000779fd2ac.html?nclick_check=1' refer='art_archive' />">Working in IT: The tournament approach to finding talent <br /><small style="margin-left:10px;">[April 30 - Financial Times]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.2theadvocate.com/features/18320734.html' refer='art_archive' />">Top programmer, 15, says talent same as sports aptitude <br /><small style="margin-left:10px;">[April 27 - 2theadvocate.com]</small></a></dd>
