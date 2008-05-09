@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">05.09.08 6:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=aolChat20080506">AOL SRM 401 Chat Transcript Available</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.05.08 4:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=aol">AOL chat before SRM 401</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.02.08 10:30 AM - </td><td width="100%"><a href="/pdfs/tournaments/tco08/TCO08_Program_View.pdf">TCO08 Program now available</a> [PDF - 2mb]</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.25.08 12:30 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyChat20080415">Eli Lilly SRM 398 Chat Transcript Available</a></td></tr>

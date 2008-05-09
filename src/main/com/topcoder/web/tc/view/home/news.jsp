@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.09.08<br />6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=aolChat20080506">AOL SRM 401 Chat Transcript Available</a></span><br /><br />
+        AOL was in the chat room on May 6 before SRM 401 to discuss Open AIM.  Read the chat transcript of the session.
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=aolChat20080506">details</a> | 
+        <tc-webtag:forumLink forumID="520183" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.09.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a target="blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/05/topcoder_develo.html' refer='/tc' />">InfoWorld - TopCoder: developer productivity and code quality through competition</a></span><br /><br />
@@ -151,19 +165,5 @@
         <a href="/tc?module=Static&amp;d1=features&amp;d2=042508">details</a> | 
         <tc-webtag:forumLink forumID="520918" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />04.25.08<br />12:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyChat20080415">Eli Lilly SRM 398 Chat Transcript Available</a></span><br /><br />
-        Lilly representatives were in the chat room on April 15 before SRM 398 to discuss their job opportunities for their Singapore office.  Read the chat transcript of their session.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyChat20080415">details</a> | 
-        <tc-webtag:forumLink forumID="516707" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
