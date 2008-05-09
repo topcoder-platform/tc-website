@@ -35,8 +35,19 @@
 <%-- Center Column Begins --%>
         <td width="100%" align="center" class="bodyColumn">
             <div class="fixedWidthBody">
+            
+            <h1>Dr. Dobb's Architecture and Design World</h1>
             <br />
             <div align="center"><img src="/i/sponsor/drDobbsPoster.png" border="0px" alt="Dr. Dobb's Architecture &amp; Design World" /></div>
+            <br />
+            <p>Welcome to Dr. Dobb's Architecture and Design World software architecture contest!  Here you can register for the competition, as well as learn more about architecture competitions.  The problem statement will be available at this location on May 17th!</p>
+            <p>The winner of the competition will receive a free All Access pass to an upcoming Dr. Dobb's event!</p>
+            <ol>
+                <li>Read the <strong><a href="/wiki/display/training/Architecture+Deliverable+Module">Training Material</a></strong> to learn about the deliverables involved.</li>
+                <li>Read the Dr. Dobb's <strong><a href="/wiki/display/~mess/Dr.+Dobb%27s+Rules">Rules and Regulations</a></strong></li>
+                <li><strong><a href="/reg/">Register</a></strong> to become a TopCoder member (required to register for the contest)</li>
+                <li><strong><a href="/tc?module=ViewRegistration&amp;pj=30004440">Register for the competition!</a></strong></li>
+            </ol>
             <br /><br />
 
             </div>
