@@ -34,7 +34,7 @@ iframe{
 
         
         
-        <h2>Blog</h2>
+        <h2>The Official Blog of the 2008 TopCoder Open</h2>
         
         <iframe src="http://tco08blog.aol.com/<c:out value="${param['myframe']}" default="" escapeXml="true"/>" marginheight="0" marginwidth="0"></iframe>
         
