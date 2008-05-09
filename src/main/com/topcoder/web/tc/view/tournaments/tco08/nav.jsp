@@ -18,8 +18,19 @@
         <li id="switcher_tournament"><a href="#" class="active"><span>The Tournament</span></a></li>
         <li id="switcher_symposium"><a href="#"><span>The Software Symposium</span></a></li>
     </ul> #switcher --%>
-    <%--
+    <%-- Register Now 
     <a style="position: absolute; top: 15px; left: 350px;" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=registerNow"><img src="/i/tournament/tco08/registerNow.png" alt="REGISTER NOW!" /></a>
+    --%>
+    <%-- Header Links 
+    <div style="position: absolute; top: 15px; left: 255px;">
+        <map name="tco08headerLinks" id="tco08headerLinks">
+        <area shape="rect" alt="" coords="0,10,113,30" target="_blank" href="/pdfs/tournaments/tco08/TCO08_Program_View.pdf" />
+        <area shape="rect" alt="" coords="129,10,217,30" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=movies" />
+        <area shape="rect" alt="" coords="231,10,326,30" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=photos" />
+        <area shape="rect" alt="" coords="339,10,420,30" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=blog" />
+        </map>
+        <img src="/i/tournament/tco08/headerLinks.png" alt="TCO08 Header Links" usemap="#tco08headerLinks" style="display: block;" />
+    </div>
     --%>
     
     <%---- PRIMARY NAVIGATION ----%>
@@ -69,7 +80,6 @@
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=onsiteSchedule"<% if (tabLev2.equals("joinus")) {%> class="on"<% } %>>Join Us Onsite</a></li>
                         <%--
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=roundTable"<% if (tabLev2.equals("roundtable")) {%> class="on"<% } %>>Roundtable Discussion</a></li>
-                        <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=blogs"<% if (tabLev2.equals("onsiteevents")) {%> class="on"<% } %>>Onsite events</a></li>
                         --%>
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lilly"<% if (tabLev2.equals("sponsors")) {%> class="on"<% } %>>Sponsors</a></li>
                         <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa"<% if (tabLev2.equals("eventpatrons")) {%> class="on"<% } %>>Event Patrons</a></li>
