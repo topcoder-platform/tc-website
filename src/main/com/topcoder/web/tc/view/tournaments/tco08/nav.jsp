@@ -25,9 +25,9 @@
     <div style="position: absolute; top: 15px; left: 255px;">
         <map name="tco08headerLinks" id="tco08headerLinks">
         <area shape="rect" alt="" coords="0,10,113,30" target="_blank" href="/pdfs/tournaments/tco08/TCO08_Program_View.pdf" />
-        <area shape="rect" alt="" coords="129,10,217,30" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=movies" />
-        <area shape="rect" alt="" coords="231,10,326,30" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=photos" />
-        <area shape="rect" alt="" coords="339,10,420,30" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=blog" />
+        <area shape="rect" alt="" coords="134,10,222,30" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=movies" />
+        <area shape="rect" alt="" coords="241,10,333,30" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=photos" />
+        <area shape="rect" alt="" coords="356,10,420,30" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=blog" />
         </map>
         <img src="/i/tournament/tco08/headerLinks.png" alt="TCO08 Header Links" usemap="#tco08headerLinks" style="display: block;" />
     </div>
