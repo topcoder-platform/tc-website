@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />05.09.08<br />10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.amd.com/documentation/Pages/AMDMulticoreThreadfestCompetition.aspx' refer='/tc' />">Blowing the Socks off the AMD Multicore Threadfest Competition</a></span><br /><br />
+        AMD Dev Central: It's one thing to talk about leveraging threading to optimize applications for multicore processors. It's another thing entirely to demonstrate the skills and expertise required to translate complex problems into fast-executing code.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.amd.com/documentation/Pages/AMDMulticoreThreadfestCompetition.aspx' refer='/tc' />">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&amp;forumID=520302&amp;mc=477">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />05.08.08<br />12:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -155,19 +168,5 @@
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm398">details</a> | 
         <tc-webtag:forumLink forumID="520857" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />04.23.08<br />1:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=MatchDetails&amp;rd=12171">SRM 399 is brought to you by NSA</a></span><br /><br />
-        Join NSA representatives in the Arena to discuss their career opportunites for US citizens one hour prior to the match.  Read more <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=nsa">here</a>.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=MatchDetails&amp;rd=12171">details</a> | 
-        <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
