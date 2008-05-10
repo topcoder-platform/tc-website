@@ -89,12 +89,6 @@ public class Constants implements WebConstants {
     public static String MAX_DAYS_SINCE_LAST_MAR_COMP;
 
 
-    public static String PROJECT_ID;
-    public static String PROJECT_TYPE_ID;
-    public static String PHASE_ID;
-    public static String SEASON_ID;
-
-    public static String STAGE_ID;
     public static String PRIMARY_FLAG;
     public static String REVIEWER_TYPE_ID;
 
@@ -359,7 +353,6 @@ public class Constants implements WebConstants {
 
     public static String RSVP_TO_ADDRESS;
 
-    public static final String DATASOURCE_ID = "dsid";
     public static final String DATA_RETURN_TYPE = "drt";
 
     static {
