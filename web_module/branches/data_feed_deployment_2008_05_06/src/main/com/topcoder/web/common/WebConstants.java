@@ -169,6 +169,14 @@ public interface WebConstants {
     public static final int DW_DATASOURCE_ID = 27;
     public static final int TCS_DW_DATASOURCE_ID = 31;
     public static final int TCS_OLTP_DATASOURCE_ID = 28;
+    public static final String DATASOURCE_ID = "dsid";
+    public static final String DATA_RETURN_TYPE = "drt";
+
+    public static final String PROJECT_ID = "pj";
+    public static final String PROJECT_TYPE_ID = "pt";
+    public static final String PHASE_ID = "ph";
+    public static final String SEASON_ID = "staid";
+    public static final String STAGE_ID = "seid";
 
     public static final String DESIGN_PROJECT_TYPE = "1";
     public static final String DEVELOPMENT_PROJECT_TYPE = "2";
