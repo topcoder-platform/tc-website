@@ -11,7 +11,6 @@
 <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
-<script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
 </head>
 <body id="page_sub">
 
