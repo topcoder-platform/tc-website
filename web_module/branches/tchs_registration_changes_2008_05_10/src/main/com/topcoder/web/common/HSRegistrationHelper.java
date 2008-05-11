@@ -281,8 +281,9 @@ public class HSRegistrationHelper {
         Date dob = parseDate(responsesMap.get(DOB).getText()); 
         int ageHs = calculateAge(dob, new Date(season.getStartDate().getTime()));
         int ageEndSeason = calculateAge(dob, season.getEndDate());
+        boolean attendingHS = "yes".equalsIgnoreCase(responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getText());
 
-        return "Start age: " + ageHs + ", End age: " + ageEndSeason; 
+        return "Attending HS: " + attendingHS + ", Start age: " + ageHs + ", End age: " + ageEndSeason; 
     }
 
     /**
