@@ -3,7 +3,9 @@ package com.topcoder.web.common;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,7 +28,6 @@ import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
-import com.topcoder.web.common.validation.AgeValidator;
 import com.topcoder.web.common.validation.NonEmptyValidator;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
@@ -162,13 +163,13 @@ public class HSRegistrationHelper {
         
         // check that the user has filled the fields
 
-        ValidationResult result = new NonEmptyValidator("Please enter you date of birth.").validate(new StringInput(dob));
+        ValidationResult result = new NonEmptyValidator("You must enter a date.").validate(new StringInput(dob));
         if (!result.isValid()) {
             results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(DOB).getQuestion().getId(), result.getMessage()}); 
         }
 
         if (result.isValid() && !isValidDate(dob)) {
-            results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(DOB).getQuestion().getId(), "You should enter a valid date"}); 
+            results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(DOB).getQuestion().getId(), "You must enter a valid date"}); 
         }
         
 //        ValidationResult result = new AgeValidator().validate(new StringInput(ageStr));
@@ -321,19 +322,28 @@ public class HSRegistrationHelper {
     }
     
     /**
-     * Return whether a user is eligible for participating in High School competitions.
+     * Return whether a user is eligible for participating in the current season.
      * 
      * @return true if the user is eligible.
      */
     public boolean isEligibleHS() {
+        return isEligibleHS(getCurrentSeason());
+    }
 
+    /**
+     * Return whether a user is eligible for participating in High School competitions in the specified season
+     * 
+     * @return true if the user is eligible.
+     */
+    public boolean isEligibleHS(Season season) {
         Date dob = parseDate(responsesMap.get(DOB).getText()); 
+        int ageHs = calculateAge(dob, new Date(season.getStartDate().getTime()));
+        int ageEndSeason = calculateAge(dob, season.getEndDate());
         
-        int ageHs = 0; // TODO: calculate age using dob and season start date
-        int ageEndSeason = 0; // TODO: calculate ageEndSeason using dob and season end date
-
-        
-        log.debug("isEligibleHS: date: " + responsesMap.get(DOB).getText());
+        log.debug("Season: (" + season.getStartDate() + " - " + season.getEndDate() + ")");
+        log.debug("DOB: " + dob);
+        log.debug("ageHS: " + ageHs);
+        log.debug("ageEndSeason: " + ageEndSeason);
         
         boolean attendingHS = "yes".equalsIgnoreCase(responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getText());
             
@@ -343,7 +353,22 @@ public class HSRegistrationHelper {
         
         return true;
     }
-    
+
+    private static int calculateAge(Date dob, Date date) {
+        GregorianCalendar dobCal = new GregorianCalendar();
+        dobCal.setTime(dob);
+        
+        GregorianCalendar dateCal = new GregorianCalendar();
+        dateCal.setTime(date);
+        
+        int yearDif = dateCal.get(Calendar.YEAR) - dobCal.get(Calendar.YEAR);
+
+        dobCal.set(Calendar.YEAR, dateCal.get(Calendar.YEAR));
+        boolean takeOne = (dateCal.before(dobCal));
+        
+        return yearDif - (takeOne ? 1 : 0);
+    }
+
     protected boolean isValidDate(String s) {
         return parseDate(s) != null;
     }
