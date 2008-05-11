@@ -274,10 +274,16 @@ public class HSRegistrationHelper {
         }
         
         // Mark in event_registration table that the user tried to register but was not eligible.
-        u.addEventRegistration(season.getEvent(), responses, false);
+        u.addEventRegistration(season.getEvent(), responses, false, getAgeNote(season));
     }
 
-    
+    private String getAgeNote(Season season) {
+        Date dob = parseDate(responsesMap.get(DOB).getText()); 
+        int ageHs = calculateAge(dob, new Date(season.getStartDate().getTime()));
+        int ageEndSeason = calculateAge(dob, season.getEndDate());
+
+        return "Start age: " + ageHs + ", End age: " + ageEndSeason; 
+    }
 
     /**
      * Register the user for the current season.

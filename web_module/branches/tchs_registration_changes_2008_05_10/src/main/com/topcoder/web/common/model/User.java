@@ -466,11 +466,14 @@ public class User extends Base {
         responses.remove(r);
     }
 
-    public void addEventRegistration(Event event, List<Response> responses, Boolean eligible) {
+    public void addEventRegistration(Event event, List<Response> responses, Boolean eligible, String notes) {
         EventRegistration er = new EventRegistration();
         er.getId().setUser(this);
         er.getId().setEvent(event);
         er.setEligible(eligible);
+        if (notes != null) {
+            er.setNotes(notes);
+        }
 
         addEventRegistration(er);
 
@@ -481,6 +484,10 @@ public class User extends Base {
         if (responses != null) {
             addResponse(responses);
         }
+    }
+
+    public void addEventRegistration(Event event, List<Response> responses, Boolean eligible) {
+        addEventRegistration(event, responses, eligible, null);
     }
 
     public Set<RankBallot> getBallots() {
