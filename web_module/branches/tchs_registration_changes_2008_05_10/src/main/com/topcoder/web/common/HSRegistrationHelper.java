@@ -1,6 +1,9 @@
 package com.topcoder.web.common;
 
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,6 +40,8 @@ import com.topcoder.web.common.validation.ValidationResult;
  */
 public class HSRegistrationHelper {
     
+    private static final String DOB_DATE_FORMAT = "yyyy/MM/dd";
+
     protected static final Logger log = Logger.getLogger(HSRegistrationHelper.class);
     
     private TCRequest request;
@@ -57,11 +62,15 @@ public class HSRegistrationHelper {
     private List<Response> responses; 
     
     /**
-     * Keyword for the current age question.
+     * Keyword for the date of birth question.
+     */    
+    public static final String DOB = "dob";
+
+    /**
+     * Keyword for the age question.
      */    
     public static final String AGE = "age";
 
-    
     /**
      * Keyword for the age at the end of the season question.
      */    
@@ -145,37 +154,50 @@ public class HSRegistrationHelper {
             }            
         }
 
-        String ageStr = responsesMap.get(AGE).getText();
-        String ageEndSeasonStr = responsesMap.get(AGE_END_SEASON).getText();
+//        String ageStr = responsesMap.get(AGE).getText();
+//        String ageEndSeasonStr = responsesMap.get(AGE_END_SEASON).getText();
+        String dob = responsesMap.get(DOB).getText();
+        
         String attendingStr = responsesMap.get(IN_HIGH_SCHOOL).getAnswer() == null? null : responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getText();
         
         // check that the user has filled the fields
-        ValidationResult result = new AgeValidator().validate(new StringInput(ageStr));
+
+        ValidationResult result = new NonEmptyValidator("Please enter you date of birth.").validate(new StringInput(dob));
         if (!result.isValid()) {
-            results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(AGE).getQuestion().getId(), result.getMessage()}); 
+            results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(DOB).getQuestion().getId(), result.getMessage()}); 
+        }
+
+        if (result.isValid() && !isValidDate(dob)) {
+            results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(DOB).getQuestion().getId(), "You should enter a valid date"}); 
         }
         
-        result = new AgeValidator().validate(new StringInput(ageEndSeasonStr));
-        if (!result.isValid()) {
-            results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(AGE_END_SEASON).getQuestion().getId(), result.getMessage()}); 
-        }
+//        ValidationResult result = new AgeValidator().validate(new StringInput(ageStr));
+//        if (!result.isValid()) {
+//            results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(AGE).getQuestion().getId(), result.getMessage()}); 
+//        }
+//        
+//        result = new AgeValidator().validate(new StringInput(ageEndSeasonStr));
+//        if (!result.isValid()) {
+//            results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(AGE_END_SEASON).getQuestion().getId(), result.getMessage()}); 
+//        }
 
         result = new NonEmptyValidator("Please choose yes or no.").validate(new StringInput(attendingStr));
         if (!result.isValid()) {
             results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(IN_HIGH_SCHOOL).getQuestion().getId(), result.getMessage()}); 
         }
 
+        
         // check that the ages are consistent
-        if (results.isEmpty()) {
-            int age = Integer.parseInt(ageStr);
-            int ageEndSeason = Integer.parseInt(ageEndSeasonStr);
-            int dif = ageEndSeason - age;
-           
-            if (dif != 0 && dif != 1) {
-                results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(AGE).getQuestion().getId(), "Please check the age."}); 
-                results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(AGE_END_SEASON).getQuestion().getId(), "Please check the age."}); 
-            }            
-        }
+//        if (results.isEmpty()) {
+//            int age = Integer.parseInt(ageStr);
+//            int ageEndSeason = Integer.parseInt(ageEndSeasonStr);
+//            int dif = ageEndSeason - age;
+//           
+//            if (dif != 0 && dif != 1) {
+//                results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(AGE).getQuestion().getId(), "Please check the age."}); 
+//                results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(AGE_END_SEASON).getQuestion().getId(), "Please check the age."}); 
+//            }            
+//        }
         
         return results;
     }
@@ -189,8 +211,10 @@ public class HSRegistrationHelper {
     public List<Object[]> getDefaults() {
         List<Object[]> result = new ArrayList<Object[]>();
         
-        result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(AGE).getQuestion().getId(), responsesMap.get(AGE).getText()});
-        result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(AGE_END_SEASON).getQuestion().getId(), responsesMap.get(AGE_END_SEASON).getText()});
+//        result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(AGE).getQuestion().getId(), responsesMap.get(AGE).getText()});
+//        result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(AGE_END_SEASON).getQuestion().getId(), responsesMap.get(AGE_END_SEASON).getText()});
+
+        result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(DOB).getQuestion().getId(), responsesMap.get(DOB).getText()});
         
         if (responsesMap.get(IN_HIGH_SCHOOL).getAnswer() != null) {
             result.add(new Object[] {AnswerInput.PREFIX + responsesMap.get(IN_HIGH_SCHOOL).getQuestion().getId(), responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getId() });
@@ -302,8 +326,15 @@ public class HSRegistrationHelper {
      * @return true if the user is eligible.
      */
     public boolean isEligibleHS() {
-        int ageHs = Integer.parseInt(responsesMap.get(AGE).getText()); 
-        int ageEndSeason = Integer.parseInt(responsesMap.get(AGE_END_SEASON).getText()); 
+
+        Date dob = parseDate(responsesMap.get(DOB).getText()); 
+        
+        int ageHs = 0; // TODO: calculate age using dob and season start date
+        int ageEndSeason = 0; // TODO: calculate ageEndSeason using dob and season end date
+
+        
+        log.debug("isEligibleHS: date: " + responsesMap.get(DOB).getText());
+        
         boolean attendingHS = "yes".equalsIgnoreCase(responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getText());
             
         if (!attendingHS) return false;
@@ -313,5 +344,14 @@ public class HSRegistrationHelper {
         return true;
     }
     
+    protected boolean isValidDate(String s) {
+        return parseDate(s) != null;
+    }
+
+    protected Date parseDate(String s) {
+        SimpleDateFormat sdf = new SimpleDateFormat(DOB_DATE_FORMAT);
+        ParsePosition pp = new ParsePosition(0);
+        return sdf.parse(s, pp);
+    }
 
 }

@@ -100,33 +100,33 @@
 
             <c:otherwise>
             <tc:questionIterator list="${questions}" id="question">
-                        	<% if (question.getKeyword().equals(HSRegistrationHelper.AGE) || question.getKeyword().equals(HSRegistrationHelper.AGE_END_SEASON)) { %>
-                                    <p align="center">
-	        	                        <span class="bigRed">
-    		    	                        <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>        	                            
-	        		                        </tc-webtag:errorIterator>
-    	    	                        </span>
-    	    	                    </p>
-    	    	                    <p align="center">
-	                                    <jsp:getProperty name="question" property="text"/> <br>
-    	    	                        <input type="text" size="3" maxlength="3" name="<%=AnswerInput.PREFIX + question.getId()%>" id ="answerInput" value="<%= defaults.containsKey(AnswerInput.PREFIX + question.getId()) ? defaults.get(AnswerInput.PREFIX + question.getId()) : "" %>"/>
-        	                        </p>
-                        	<% } else { %>
-                                    <p align="center">
-        		                        <span class="bigRed">
-        			                        <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br/>
-	        		                        </tc-webtag:errorIterator>
-    	    	                        </span>
-    	    	                     </p>
-                                    <p align="center">
-                                    <jsp:getProperty name="question" property="text"/> 
-                                    <br/>
-        			                  <tc:answerInput id="answerInput" question="<%=question%>">
-        			                         <%=answerInput%>
-        			                         <%=answerText%>&nbsp;&nbsp;&nbsp;
-        			                  </tc:answerInput>
-        	                        </p>
-                        	<% }%>
+            	<% if (question.getKeyword().equals(HSRegistrationHelper.DOB)) { %>
+                        <p align="center">
+	                        <span class="bigRed">
+    	                        <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>        	                            
+		                        </tc-webtag:errorIterator>
+	                        </span>
+	                    </p>
+	                    <p align="center">
+                            <jsp:getProperty name="question" property="text"/> <br>
+	                        <input type="text" size="10" maxlength="10" name="<%=AnswerInput.PREFIX + question.getId()%>" id ="answerInput" value="<%= defaults.containsKey(AnswerInput.PREFIX + question.getId()) ? defaults.get(AnswerInput.PREFIX + question.getId()) : "" %>"/>
+                        </p>
+            	<% } else { %>
+                        <p align="center">
+	                        <span class="bigRed">
+		                        <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br/>
+		                        </tc-webtag:errorIterator>
+	                        </span>
+	                     </p>
+                        <p align="center">
+                        <jsp:getProperty name="question" property="text"/> 
+                        <br/>
+		                  <tc:answerInput id="answerInput" question="<%=question%>">
+		                         <%=answerInput%>
+		                         <%=answerText%>&nbsp;&nbsp;&nbsp;
+		                  </tc:answerInput>
+                        </p>
+            	<% }%>
 
             </tc:questionIterator>
 
@@ -134,6 +134,10 @@
             <div align="center">
                 <a href="#" onclick="document.f.submit();return false;" class="button" style="width: 60px;">Submit</a>
             </div>            
+
+            <p align="left">
+                * This is for eligibility checking. We won't store this information.
+            </p>
 
             </c:otherwise>                    
         </c:choose>

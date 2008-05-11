@@ -472,8 +472,7 @@
 <c:set value="<%=Constants.HS_REG_QUESTIONS%>" var="hsRegQuestions"/>
 <c:if test="${cf:contains(fields, hsRegQuestions)}">
     <c:set var="ansPrefix" value="<%=AnswerInput.PREFIX%>"/>
-    <c:set var="kwdAge" value="<%=HSRegistrationHelper.AGE%>"/>
-    <c:set var="kwdAgeEndSeason" value="<%=HSRegistrationHelper.AGE_END_SEASON%>"/>
+    <c:set var="kwdDOB" value="<%=HSRegistrationHelper.DOB%>"/>
     <tc:questionIterator list="${questions}" id="question">
         <c:set var="fieldName" value="${ansPrefix}${question.id}"/>
         <tr>
@@ -488,8 +487,8 @@
             </td>
             <td class="value">
                 <c:choose>
-                    <c:when test="${question.keyword == kwdAge || question.keyword == kwdAgeEndSeason }">
-                        <tc-webtag:textInput size="3" maxlength="3" name="${fieldName}" id="answerInput" editable="true"/>
+                    <c:when test="${question.keyword == kwdDOB}">
+                        <tc-webtag:textInput size="10" maxlength="10" name="${fieldName}" id="answerInput" editable="true"/>
                     </c:when>
                     <c:otherwise>
                         <tc:answerInput id="answerInput" question="${question}">
