@@ -43,19 +43,15 @@
         
         <h2>Photos</h2>
 
-<p>Coming soon...</p>
-
-<%--
-<a name="reception"/> 
-<p><strong>Reception</strong></p>
+<a name="studio"/> 
+<p><strong>Studio Finals</strong></p>
 <script type="text/javascript">
 //<![CDATA[
-for(var i=1; i<37; i++){
-    doWrite(' <a href="/i/tournament/tco07/onsitePhotos/reception/'+i+'.jpg" title="Reception" rel="reception" class="thickbox spaced"><img src="/i/tournament/tco07/onsitePhotos/reception/thumbs/'+i+'.jpg" alt="+"/></a>');
+for(var i=1; i<59; i++){
+    doWrite(' <a href="/i/tournament/tco08/photos/studio/'+i+'.jpg" title="Studio Finals" rel="studio" class="thickbox spaced"><img src="/i/tournament/tco08/photos/studio/thumbs/'+i+'.jpg" alt="+"/></a>');
 }
 //]]>
 </script>
---%>
 
 <br /><br />
         
