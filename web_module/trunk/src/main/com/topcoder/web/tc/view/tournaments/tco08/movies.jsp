@@ -30,8 +30,22 @@
                 <tbody>
                     <tr>
                         <td align="center" valign="top">
-                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_1&title=TC%20Channel%20from%20the%20TCO"><img src="/i/tournament/tco08/movies/tco08_1.jpg" alt="TC Channel" /></a>
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_1&title=TC%20Channel%20from%20the%20TCO">
+                                <img src="/i/tournament/tco08/movies/tco08_1.jpg" alt="TC Channel" />
+                            </a>
                             <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_1&title=TC%20Channel%20from%20the%20TCO">TC Channel from the TCO</A>
+                        </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_2&title=Studio%20intros">
+                                <img src="/i/tournament/tco08/movies/tco08_2.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_2&title=Studio%20intros">Studio intros</A>
+                        </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_3&title=Marathon%20intr...%20er%20group%20photo">
+                                <img src="/i/tournament/tco08/movies/tco08_3.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_3&title=TC%20Channel%20from%20the%20TCO">Marathon intr... er "group photo"</A>
                         </td>
                     </tr>
                 </tbody>
