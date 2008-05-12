@@ -50,16 +50,22 @@
                     </tr>
                     <tr>
                         <td align="center" valign="top">
-                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_4&title=Marathon%20and%20Studio%20Day%201">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_4&title=Marathon%20and%20Studio%20day%201">
                                 <img src="/i/tournament/tco08/movies/tco08_4.jpg" alt="TC Channel" />
                             </a>
-                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_4&title=Marathon%20and%20Studio%20Day%201">Marathon & Studio Day 1</A>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_4&title=Marathon%20and%20Studio%20day%201">Marathon & Studio day 1</A>
                         </td>
                         <td align="center" valign="top">
-                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_5&title=Component%20Design%20Intros">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_5&title=Component%20Design%20intros">
                                 <img src="/i/tournament/tco08/movies/tco08_5.jpg" alt="TC Channel" />
                             </a>
-                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_5&title=Component%20Design%20Intros">Component Design Intros</A>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_5&title=Component%20Design%20intros">Component Design intros</A>
+                        </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_6&title=Marathon%20Match%20visualizer">
+                                <img src="/i/tournament/tco08/movies/tco08_6.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_6&title=Marathon%20Match%20visualizer">Marathon Match visualizer</A>
                         </td>
                     </tr>
                 </tbody>
