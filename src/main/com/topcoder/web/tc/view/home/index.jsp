@@ -177,7 +177,7 @@
 <%-- Header Links Must Match Active Promo Links Below!! --%>
 <tr>
     <td align="center">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=betfair' refer='homepage_promo' />" class="tabHeader"><span>Betfair sponsor of TCO08</span></a>
+        <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description" class="tabHeader"><span>Digital Run</span></a>
     </td>
     <td align="center">
         <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/" class="tabHeader"><span>Software</span></a>
@@ -194,9 +194,10 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- DIGITAL RUN 
+                <%-- DIGITAL RUN --%>
                 <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/dig_run_2008_s2.png" alt="The Digital Run" border="0" style="display:block;"/></a>
-                --%>
+                
+                
                 <%-- DIGITAL RUN ASSEMBLY CUP 
                 <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></a>
                 --%>
@@ -233,9 +234,9 @@
                 <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></a>
                 --%>
                
-                <%-- TCO08 --%>
+                <%-- TCO08 
                 <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=betfair' refer='homepage_promo' />"><img src="/i/home/tco08betfairPromo.png" alt="Betfair sponsor of TCO08" /></a>
-                
+                --%>
                 
                 <%-- AMD Multicore Threadfest 
                 <a href="<tc-webtag:linkTracking link='/threadfest' refer='homepage_promo' />"><img src="/i/home/amdMCT_promo.png" alt="AMD Multicore Threadfest" /></a>
