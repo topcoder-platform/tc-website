@@ -36,6 +36,7 @@ iframe{
         
         <h2>The Official Blog of the 2008 TopCoder Open</h2>
         
+        <p align="right"><tc-webtag:forumLink forumID="517604" message="Discuss this" /></p>
         <iframe src="http://tco08blog.aol.com/<c:out value="${param['myframe']}" default="" escapeXml="true"/>" marginheight="0" marginwidth="0"></iframe>
         
         </div><%-- .sub_content --%>
