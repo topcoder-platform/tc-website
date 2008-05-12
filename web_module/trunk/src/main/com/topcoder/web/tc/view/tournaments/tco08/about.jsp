@@ -28,10 +28,10 @@
         <h2>2008 TopCoder Open</h2>
         
         <p><strong><em>Who will emerge as champions in the world's most elite software developer face-off?</em></strong></p>
-        <%-- Blog Banner 
+        <%-- Blog Banner --%>
         <div align="center"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=blog"><img src="/i/tournament/tco08/tco08BlogSlimDark.png" alt="TCO08 Blog" /></a></div>
         <br /><br />
-        --%>
+        
         <div align="center"><img src="/i/tournament/tco08/tco08overview.png" alt="TCO07 Winners" /></div>
         <p>The TCO returns to the action of Las Vegas for the TopCoder Open in 2008.  Las Vegas has been kind to many TopCoder members: <tc-webtag:handle coderId="309453" context="algorithm"/>, <tc-webtag:handle coderId="7548200" context="development"/>, <tc-webtag:handle coderId="10600282" context="marathon_match"/>, <tc-webtag:handle coderId="10574855" context="algorithm"/> and <tc-webtag:handle coderId="119676" context="design"/>, just to name a few.  It's also where we crowned the first-ever Studio Design and Marathon Champions.  Five new Champions will be crowned this time in Sin City.  Will you be one of them?</p>
         <p>The 2008 TopCoder Open (TCO) is a world-wide programming tournament open to all TopCoder members who are 18 and older.  There are four different competitions as part of the TCO:  <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=description">Algorithm Competition</a>, <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=description">Component Design and Development</a>, <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=marathon&amp;d4=description">Marathon Competition</a> and <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=description">Studio Design Competition</a>.  Becoming a TopCoder member is easy and free. Register <a target="_blank" href="/reg">here</a>.  Taking part in the 2008 TCO gives you the opportunity to showcase your programming or design skills up against some of the best in the world.  We're also dishing out $260,000 in prizes.  Have a question about the event or about being a TopCoder member?  Just email <a href="mailto:service@topcoder.com?subject=2008 TopCoder Open Questions/TopCoder Membership">service@topcoder.com</a>.</p>
