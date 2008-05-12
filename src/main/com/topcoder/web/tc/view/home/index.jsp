@@ -110,14 +110,15 @@
         
         <%-- TCO08 brackets --%>
         <map id="tco08" name="tco08">
-        <area shape="rect" alt="" coords="12,6,455,114" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about" />
+        <area shape="rect" alt="" coords="12,6,228,114" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about" />
+        <area shape="rect" alt="" coords="246,6,466,114" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=blog" />
         <area shape="rect" alt="" coords="0,136,85,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=bracket" />
         <area shape="rect" alt="" coords="103,136,164,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=desBracket" />
         <area shape="rect" alt="" coords="181,136,295,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=devBracket" />
         <area shape="rect" alt="" coords="310,136,397,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=marathon&amp;d4=bracket" />
         <area shape="rect" alt="" coords="413,136,474,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=bracket" />
         </map>
-        <img src="/i/home/tco08bracket.png" alt="TCO08" usemap="#tco08" style="display: block;" />
+        <img src="/i/home/tco08underway.png" alt="TCO08" usemap="#tco08" style="display: block;" />
         
 
         <%-- Architecture 
