@@ -32,7 +32,7 @@
 
 <%-- TCO08 --%>
 <br />
-<a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=blog' refer='/tc' />"><img src="/i/home/tco08BlogSlim.png" alt="2008 TopCoder Open" /></a>
+<a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=blog' refer='/tc' />"><img src="/i/home/tco08BlogSlim.png" alt="2008 TopCoder Open" /></a>
 
 
 <%-- UML Tool 
