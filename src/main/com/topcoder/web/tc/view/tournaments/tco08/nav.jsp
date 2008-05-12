@@ -20,7 +20,7 @@
     </ul> #switcher --%>
     <%-- Register Now 
     <a style="position: absolute; top: 15px; left: 350px;" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=registerNow"><img src="/i/tournament/tco08/registerNow.png" alt="REGISTER NOW!" /></a>
-    
+    --%>
     <%-- Header Links --%>
     <div style="position: absolute; top: 15px; left: 255px;">
         <map name="tco08headerLinks" id="tco08headerLinks">
