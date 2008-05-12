@@ -25,23 +25,18 @@
         
         <h2>Movies</h2>
 
-        <p>Coming soon...</p>
-
-<%--
                 <div align="center">
                 <table cellpadding="5" cellspacing="0">
                 <tbody>
                     <tr>
                         <td align="center" valign="top">
-                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&title=Bla%20bla"><img src="/i/tournament/tco08/tcchannelThumb1.jpg" alt="TC Channel Part 1" /></a>
-                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&title=Bla%20bla">TC Channel</A>
-                            <br />(00:00)
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_1&title=TC%20Channel%20from%20the%20TCO"><img src="/i/tournament/tco08/movies/tco08_1.jpg" alt="TC Channel" /></a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_1&title=TC%20Channel%20from%20the%20TCO">TC Channel from the TCO</A>
                         </td>
                     </tr>
                 </tbody>
                 </table>
                 </div>    
---%>
 
     </div><%-- #content --%>
 
