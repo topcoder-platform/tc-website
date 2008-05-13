@@ -160,12 +160,6 @@ ${contest.overview.value}
 <c:if test="${registered || currentTime>contest.endTime}">
     <c:if test="${fn:length(contest.documents)>0}">
         <strong>Documentation</strong><br />
-        <%--
-            To view this project's documentation, you must be a registered TopCoder Open AIM member. If you are <strong>
-            already a registered TopCoder member</strong> you still need to add TopCoder Open AIM to your registration by
-            <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">updating your profile</a>.
-            <br /><br />
-        --%>
         <c:forEach items="${contest.documents}" var="document">
             ${document.type.description}:
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
@@ -212,7 +206,7 @@ ${contest.prizeDescription.value}
 
 <h2>Eligibility</h2>
 
-<p>You must be a TopCoder Open AIM member, at least 18 years of age, meeting all of the membership requirements.
+<p>You must be a TopCoder Truveo member, at least 18 years of age, meeting all of the membership requirements.
     In addition, you must fit into one of the following categories.
 </p>
 

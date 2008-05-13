@@ -389,9 +389,9 @@ var overviewText = getValue("document.editForm", "${overviewText}");
 
 <script language="javascript" type="text/javascript">
     <!--
-var defaultPrizeDesc= "TopCoder Open AIM will compensate the member with the first place submission, as selected "+
+var defaultPrizeDesc= "TopCoder Truveo will compensate the member with the first place submission, as selected "+
 "by the client.  The payment will be distributed in one full installment once the final vector-based version of " +
-"the winning submission has been received by TopCoder Open AIM.";
+"the winning submission has been received by TopCoder Truveo.";
 var prizeDesc = getValue("document.editForm", "${prizeDesc}");
                        if ( prizeDesc==null || prizeDesc.length==0) {
                          putValue("document.editForm", "${prizeDesc}", defaultPrizeDesc);

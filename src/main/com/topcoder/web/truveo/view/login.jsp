@@ -78,7 +78,7 @@
                             and we can help you restore your account.</p>
 
                         <br /><br />
-                        <strong>New to TopCoder Open AIM?</strong><br />
+                        <strong>New to TopCoder Truveo?</strong><br />
                         <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/?module=Main&amp;rt=9">Register now</a>. After you complete
                         the
                         registration process,

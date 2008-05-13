@@ -60,7 +60,7 @@
                         viewing.
                         <br /><br />
                         If you have a question or comment, please email
-                        <a href="service@topcoder.com?subject=TopCoder Open AIM Error">service@topcoder.com</a>
+                        <a href="service@topcoder.com?subject=TopCoder Truveo Error">service@topcoder.com</a>
                                                  and be sure to include this timestamp: <%=new Date().toString()%>.
                     </div>
                     <%=new Date().toString()%>
