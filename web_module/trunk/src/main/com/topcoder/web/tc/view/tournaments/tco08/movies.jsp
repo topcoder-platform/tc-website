@@ -75,6 +75,12 @@
                             </a>
                             <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=arena&title=How%20to%20build%20an%20arena%20">How to build an arena</A>
                         </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_7&title=End%20of%20Day%201">
+                                <img src="/i/tournament/tco08/movies/tco08_7.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_7&title=End%20of%20Day%201">End of Day 1</A>
+                        </td>
                     </tr>
                 </tbody>
                 </table>
