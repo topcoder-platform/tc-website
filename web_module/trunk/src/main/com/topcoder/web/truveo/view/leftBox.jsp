@@ -8,7 +8,7 @@
                 <div class="descBuff">
 
                     <p>
-                        To mark the launch of Truveo 2.0, AOL has teamed up with TopCoder to put the Truveo APIs in the hands of the best developers in the world. Now's your chance to show us what you've got for a piece of $100,000 in prize money.
+                        Truveo wants to set the top developers in the world loose with the APIs to search and index a hundred million video clips and challenge you to build the next great video Truveo application. Now’s your chance to show ‘em what you got for a piece of $100,000 in prize money!
                     </p>
                     <p>
                         To enter, <strong><a href="/reg/?module=Main&amp;rt=9">register as a TopCoder member</a></strong>, <strong><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;ct=1001">register for the contest</a></strong>, check out the <strong><a href="http://dev.aol.com/api/truveo">APIs at dev.aol.com</a></strong> and build your mashup, widget or custom application. Put it on your Facebook or MySpace page, your own website or blog, or even upload it to the AIM Gallery. <strong><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;ct=1001">Submit a link to it</a></strong>, then tell a friend - in fact, tell a hundred friends - because a major percentage of your score will be based on how many people use your app.
