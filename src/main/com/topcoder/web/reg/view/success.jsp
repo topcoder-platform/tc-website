@@ -224,7 +224,7 @@
 
 <c:set value="<%=RegistrationType.TRUVEO_ID%>" var="truveo"/>
 <c:if test="${cf:contains(requestScope[regTypes], truveo)}">
-    <div class="regHead">As an Truveo Developer Challenge Competitor</div>
+    <div class="regHead">As a Truveo Developer Challenge Competitor</div>
     <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
         <tr>
             <td class="image">
