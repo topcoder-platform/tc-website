@@ -8,13 +8,13 @@
                 <div class="descBuff">
 
                     <p>
-                        Truveo wants to set the top developers in the world loose with the APIs to search and index a hundred million video clips and challenge you to build the next great video Truveo application. Now’s your chance to show ‘em what you got for a piece of $100,000 in prize money!
+                        Truveo wants to set the top developers in the world loose with the APIs to search and index a hundred million video clips and challenge you to build the next great video Truveo application. Now's your chance to show ‘em what you got for a piece of $100,000 in prize money!
                     </p>
                     <p>
-                        To enter, <strong><a href="/reg/?module=Main&amp;rt=9">register as a TopCoder member</a></strong>, <strong><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;ct=1001">register for the contest</a></strong>, check out the <strong><a href="http://dev.aol.com/api/truveo">APIs at dev.aol.com</a></strong> and build your mashup, widget or custom application. Put it on your Facebook or MySpace page, your own website or blog, or even upload it to the AIM Gallery. <strong><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;ct=1001">Submit a link to it</a></strong>, then tell a friend - in fact, tell a hundred friends - because a major percentage of your score will be based on how many people use your app.
+                        To enter, first be a <strong><a href="/reg/?module=Main&amp;rt=9">registered TopCoder member</a></strong>, then <strong><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;ct=1001">register for the contest</a></strong>. Check out the Truveo API's and build a cool widget, gadget, mashup or web application and put it on your Facebook or MySpace, your own website or blog - anywhere where it can be seen & used by web users. Then, <strong><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;ct=1001">submit a link</a></strong> where those web users can find it - because the more people use it, the more you have a chance to win: once again, usage of your app will count for a percentage of your final score! 
                     </p>
                     <p>
-                        For full contest rules and details <strong><a href="${sessionInfo.servletPath}?module=Static&amp;d1=learnMore">read more here</a></strong>. Good luck, and have fun!
+                        For full contest rules and restrictions, <strong><a href="${sessionInfo.servletPath}?module=Static&amp;d1=learnMore">read more here</a></strong>. Good luck, and have fun!
                     </p>
 
                 </div>
