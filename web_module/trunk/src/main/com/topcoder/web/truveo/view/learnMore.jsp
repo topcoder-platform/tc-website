@@ -41,7 +41,7 @@
 </p>
 
 <p>
-    Truveo wants to set the top developers in the world loose with the APIs to search and index a hundred million video clips and challenge you to build the next great video Truveo application. Now’s your chance to show ‘em what you got for a piece of $100,000 in prize money!
+    Truveo wants to set the top developers in the world loose with the APIs to search and index a hundred million video clips and challenge you to build the next great video Truveo application. Now's your chance to show ‘em what you got for a piece of $100,000 in prize money!
 </p>
 <p>
     Truveo indexes millions of videos and makes them searchable and organizable through a wide variety of criteria, and all of Truveo's functions can be accessed through its API.  Many sites have implemented simple search boxes using Truveo and others have gone much further. Let's show them how far the TopCoder community can go!
@@ -58,7 +58,7 @@
     If you're not already a TopCoder member, <a href="/reg/?module=Main&amp;rt=9">register here</a>, then <a href="${sessionInfo.servletPath}?module=ViewContestDetails&ct=1001">register for the Truveo Developer Challenge</a>.
 </p>
 <p>
-    Check out the API's at <a href="http://developer.truveo.com">developer.truveo.com</a>, and get a <a href="http://dev.aol.com/truveo/">usage key</a> - your unique identifier giving you access to the Truveo network. The keys let Truveo know how popular your application is, which will play a big factor in your overall score. Each time you obtain an API key - let us know by emailing us at <a href="mailto:service@topcoder.com">service@topcoder.com</a> - even if you never use it in an app.
+    Check out the API's at <a href="http://developer.truveo.com">developer.truveo.com</a>, sign up for a free <a href="http://developer.truveo.com/DirectorAccountsOverview.php">"Director's Account"</a> and get a <a href="http://dev.aol.com/truveo/">usage key</a> - your unique identifier giving you access to the Truveo network. The keys let Truveo know how popular your application is, which will play a big factor in your overall score. Each time you obtain an API key - let us know by emailing us at <a href="mailto:service@topcoder.com">service@topcoder.com</a> - even if you never use it in an app.
 </p>
 <p align="center">
     <a href="http://dev.aol.com/truveo/">Learn more about Truveo API keys</a>
@@ -106,7 +106,7 @@
 <li>Usage (20%): Usage will be determined based on usage statistics. It is strictly prohibited to manufacture or attempt to manufacture usage in any way. Usage and activity shall be subject to audit by TopCoder and/or Truveo.</li>
 <li>Innovation (20%): Determined by the Competition judges</li>
 <li>Best Use of APIs (20%): Best use of the functionality provided by the Specified Technology</li>
-<li>AOL favorite (20%): Popularity among Truveo staff</li>
+<li>Truveo favorite (20%): Popularity among Truveo staff</li>
 <li>TopCoder Community Favorite (20%): Popularity among the TopCoder Community</li>
 </ul>
 
