@@ -27,15 +27,13 @@
         <h2>Algorithm Competition Room 1 Summary</h2>
         
         <div class="sub_content">
-            <p><img src="/i/m/ivan_metelsky_big.jpg" alt="Olexiy" style="width:55px; height:61px; border:0px; padding-right:2px;" hspace="6" vspace="1" align="left" class="myStatsPhoto" /><span>Tuesday, May 13, 2008<br />Introduction by <tc-webtag:handle coderId="10481120" context="algorithm" darkBG="true"  darkBG="true" /></span></p>
+            <p><img src="/i/m/ivan_metelsky_big.jpg" alt="ivan_metelsky" style="width:55px; height:61px; border:0px; padding-right:2px;" hspace="6" vspace="1" align="left" class="myStatsPhoto" /><span>Tuesday, May 13, 2008<br />Introduction by <tc-webtag:handle coderId="10481120" context="algorithm" darkBG="true" /></span></p>
             <p align="right"><tc-webtag:forumLink forumID="521198" message="Discuss this competition" /></p>
             <br /><br />
             
             <h3>Burunduk1 wins Room 1!</h3>
             <br />
-            <%--
             <p style="float:right; width:200px; height:350px; margin-left:10px;"><img src="/i/tournament/tco08/shotR1.jpg" alt="Burunduk1 wins Room 1!" /></p>
-            --%>
             <p><strong>
 Algorithm Semifinal 1 opened the TCO'08 Algorithm Competition this morning. The round proved to be quite eventful.
 It started from many fast submissions on the 250, which was quite straightforward implementational problem.
