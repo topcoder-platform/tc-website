@@ -79,7 +79,7 @@
 
                         <br /><br />
                         <strong>New to TopCoder Open AIM?</strong><br />
-                        <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/?module=Main&amp;rt=8">Register now</a>. After you complete
+                        <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/?module=Main&amp;rt=9">Register now</a>. After you complete
                         the
                         registration process,
                         we
