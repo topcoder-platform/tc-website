@@ -228,10 +228,10 @@
     <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
         <tr>
             <td class="image">
-                <A href="http://<%=ApplicationServer.TRUVEO_SERVER_NAME%>/"><img src="/i/registration/openaim.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
+                <A href="http://<%=ApplicationServer.TRUVEO_SERVER_NAME%>/"><img src="/i/registration/truveo.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
             </td>
             <td class="text" width="100%">
-                Thousands of dollars (and hundreds of t-shirts) await the developers who can most <a href="http://<%=ApplicationServer.TRUVEO_SERVER_NAME%>/">creatively use the AOL Instant Messenger APIs</a> in an original application.</td>
+                Thousands of dollars (and hundreds of t-shirts) await the developers who can most <a href="http://<%=ApplicationServer.TRUVEO_SERVER_NAME%>/">creatively use the Truveo APIs</a> in an original application.</td>
         </tr>
     </table>
 
