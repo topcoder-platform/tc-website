@@ -108,7 +108,7 @@
                 </tr>
                 <tr class="light">
                     <td>Wildcard Round</td>
-                    <td>Tuesday, May 13 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=13&year=2008&hour=17&min=0&sec=0&p1=127' refer='tco08_algoSchedule' />">7:00 PM***</a></td>
+                    <td>Tuesday, May 13 at <a target="_blank" href="<tc-webtag:linkTracking link='http://timeanddate.com/worldclock/fixedtime.html?month=5&day=13&year=2008&hour=19&min=0&sec=0&p1=127' refer='tco08_algoSchedule' />">7:00 PM***</a></td>
                     <td>12</td>
                     <td>Top scorer advances<br />to Championship Round</td>
                 </tr>
