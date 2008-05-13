@@ -8,6 +8,7 @@ import com.topcoder.web.tc.Constants;
  * @author cucu
  * @version $Revision$ $Date$
  *          Create Date: May 30, 2006
+ * @deprecated this class has been moved to its own module and will be removed in the future
  */
 public class HSRatingDistribution extends RatingDistribution {
 

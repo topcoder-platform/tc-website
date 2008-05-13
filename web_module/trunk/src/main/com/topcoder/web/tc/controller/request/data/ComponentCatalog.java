@@ -20,6 +20,7 @@ import com.topcoder.web.tc.model.DataResource;
  * @author dok
  * @version $Id$
  *          Create Date: Apr 14, 2008
+ * @deprecated this class has been moved to its own module and will be removed in the future
  */
 public class ComponentCatalog extends Base {
 

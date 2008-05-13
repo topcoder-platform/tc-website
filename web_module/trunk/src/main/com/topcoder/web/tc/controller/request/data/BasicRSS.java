@@ -17,6 +17,7 @@ import java.util.Map;
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 21, 2008
+ * @deprecated this class has been moved to its own module and will be removed in the future
  */
 public class BasicRSS extends Static {
 

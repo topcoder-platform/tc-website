@@ -6,6 +6,7 @@ import com.topcoder.web.tc.Constants;
 
 /**
  * @author cucu
+ * @deprecated this class has been moved to its own module and will be removed in the future
  */
 public class LongRatingDistribution extends RatingDistribution {
 

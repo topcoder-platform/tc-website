@@ -13,11 +13,10 @@ import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.UserPreference;
+import com.topcoder.web.common.security.DataResource;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.common.security.DataResource;
-import com.topcoder.web.tc.Constants;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -28,6 +27,7 @@ import java.util.Map;
  * @author dok
  * @version $Revision$ $Date$
  *          Create Date: May 13, 2005
+ * @deprecated this class has been moved to its own module and will be removed in the future
  */
 public class BasicData extends Base {
 

@@ -8,6 +8,7 @@ import com.topcoder.web.tc.Constants;
  * @author dok
  * @version $Revision$ $Date$
  *          Create Date: Jul 26, 2005
+ * @deprecated this class has been moved to its own module and will be removed in the future
  */
 public class AlgRatingDistribution extends RatingDistribution {
 

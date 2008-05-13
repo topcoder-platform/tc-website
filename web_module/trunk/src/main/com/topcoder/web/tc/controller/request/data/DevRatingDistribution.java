@@ -8,6 +8,7 @@ import com.topcoder.web.tc.Constants;
  * @author dok
  * @version $Revision$ $Date$
  *          Create Date: Jul 27, 2005
+ * @deprecated this class has been moved to its own module and will be removed in the future
  */
 public class DevRatingDistribution extends RatingDistribution {
 
