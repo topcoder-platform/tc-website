@@ -24,22 +24,22 @@
     <c:set value="<%=Constants.SUBMISSION_REVIEW_TEXT%>" var="reviewText"/>
     <script language="javascript" type="text/javascript">
         <!--
-<%--        var passed = "I am happy to inform you that your TopCoder Open AIM submission has passed screening and will enter " +
+<%--        var passed = "I am happy to inform you that your TopCoder Truveo submission has passed screening and will enter " +
                      "into Online Review to be scored. Your submission will then be presented to the client.\n\n" +
                     "If your submission wins a placement designated by Online Review and/or is chosen by the client as " +
                     "a winning submission, you will be notified via email.\n\n" +
-                    "Best of luck to you at the Open AIM!";
+                    "Best of luck to you at the Truveo!";
 --%>
-            var passed="I am happy to inform you that your TopCoder Open AIM submission has passed screening and will be presented to the client.\n\n" +
+            var passed="I am happy to inform you that your TopCoder Truveo submission has passed screening and will be presented to the client.\n\n" +
                        "If your submission wins a placement and/or is chosen by the client as a winning submission, you will be notified via email.\n\n" +
-                       "Best of luck to you at the Open AIM!";
+                       "Best of luck to you at the Truveo!";
                     
-        var failed = "Unfortunately, your TopCoder Open AIM submission has failed screening for the following reason(s):\n\n" +
+        var failed = "Unfortunately, your TopCoder Truveo submission has failed screening for the following reason(s):\n\n" +
 <%--
                      "You may fix and resubmit your work before the submission deadline: " +
                      "<tc-webtag:format object="${submission.contest.endTime}" format="EEEE, MMMM d, yyyy 'at' HH:mm z" timeZone="${submission.submitter.timeZone.description}"/>.\n\n"+
 --%>
-                     "Best of luck to you at the Open AIM!";
+                     "Best of luck to you at the Truveo!";
             function choose() {
                var text = getValue("document.reviewForm", "${reviewText}");
                if ( text==null || text.length==0) {
@@ -116,7 +116,7 @@
                     <br /><br />
                     Sincerely,<br />
                     ${currentUser.firstName} ${currentUser.lastName}<br />
-                    TopCoder Open AIM<br />
+                    TopCoder Truveo<br />
                     <button name="submit" value="submit" type="submit">Submit</button>
                 </form>
 

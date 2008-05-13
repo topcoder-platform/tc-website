@@ -32,7 +32,7 @@
 
     
 <div align="center" style="margin: 10px 0 20px 0;">
-    <img src="/i/events/truveo/truveo_logo_white.png" alt="Open AIM Developer Challenge, Powered by TopCoder" />
+    <img src="/i/events/truveo/truveo_logo_white.png" alt="Truveo Developer Challenge, Powered by TopCoder" />
 </div>
 
 <p align="center">
