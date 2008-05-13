@@ -27,7 +27,7 @@
         <h2>Algorithm Competition Room 1 Summary</h2>
         
         <div class="sub_content">
-            <p><img src="/i/m/ivan_metelsky_big.jpg" alt="Olexiy" style="width:55px; height:61px; border:0px; padding-right:2px;" hspace="6" vspace="1" align="left" class="myStatsPhoto" /><span>Tuesday, May 13, 2008<br />Introduction by <tc-webtag:handle coderId="10481120" context="algorithm" darkBG="true" /></span></p>
+            <p><img src="/i/m/ivan_metelsky_big.jpg" alt="Olexiy" style="width:55px; height:61px; border:0px; padding-right:2px;" hspace="6" vspace="1" align="left" class="myStatsPhoto" /><span>Tuesday, May 13, 2008<br />Introduction by <tc-webtag:handle coderId="10481120" context="algorithm" darkBG="true"  darkBG="true" /></span></p>
             <p align="right"><tc-webtag:forumLink forumID="521198" message="Discuss this competition" /></p>
             <br /><br />
             
@@ -40,32 +40,32 @@
 Algorithm Semifinal 1 opened the TCO'08 Algorithm Competition this morning. The round proved to be quite eventful.
 It started from many fast submissions on the 250, which was quite straightforward implementational problem.
 After this, nothing happened for a while. Most coders proceeded to the 500, but some skipped it to directly proceed to the 1000. 
-<tc-webtag:handle coderId="144400" context="algorithm"/> and <tc-webtag:handle coderId="22652597" context="algorithm"/> even started the round with the 1000.
+<tc-webtag:handle coderId="144400" context="algorithm" darkBG="true" /> and <tc-webtag:handle coderId="22652597" context="algorithm" darkBG="true" /> even started the round with the 1000.
 </strong></p>
 <p><strong>
 The 500 also looked quite straightforward, so it was not very surprising when submissions on it started to come.
-What was more surprising is <tc-webtag:handle coderId="309453" context="algorithm"/>'s fast submission on the 1000. However he resubmitted soon and looked
+What was more surprising is <tc-webtag:handle coderId="309453" context="algorithm" darkBG="true" />'s fast submission on the 1000. However he resubmitted soon and looked
 quite upset, so correctness of his submission was doubtful. Submissions on the 500 continued to appear during
-the whole match. In the second half of match <tc-webtag:handle coderId="19849563" context="algorithm"/> made incredibly fast submission on the 1000. Some time
-later <tc-webtag:handle coderId="15868491" context="algorithm"/> became the third coder to submit the 1000. Almost in the end of the round 5 more coders submitted
+the whole match. In the second half of match <tc-webtag:handle coderId="19849563" context="algorithm" darkBG="true" /> made incredibly fast submission on the 1000. Some time
+later <tc-webtag:handle coderId="15868491" context="algorithm" darkBG="true" /> became the third coder to submit the 1000. Almost in the end of the round 5 more coders submitted
 their Hards.
 </strong></p>
 <p><strong>The challenge phase was pretty spectacular. The were many attempts, some successful and some not. Five submissions on the Hard and two submissions
-on the Medium were challenged. One particularly funny moment during the challenge was when <tc-webtag:handle coderId="15868491" context="algorithm"/> successfully
-challenged <tc-webtag:handle coderId="21111148" context="algorithm"/>'s submission.</strong></p>
+on the Medium were challenged. One particularly funny moment during the challenge was when <tc-webtag:handle coderId="15868491" context="algorithm" darkBG="true" /> successfully
+challenged <tc-webtag:handle coderId="21111148" context="algorithm" darkBG="true" />'s submission.</strong></p>
 
 <p><strong>It appeared that many more submissions on the 500 were incorrect - only 4 of them survived the systests. Finally,
-<tc-webtag:handle coderId="15868491" context="algorithm"/> won the round with correct submission on all problems. <tc-webtag:handle coderId="19849563" context="algorithm"/>'s
+<tc-webtag:handle coderId="15868491" context="algorithm" darkBG="true" /> won the round with correct submission on all problems. <tc-webtag:handle coderId="19849563" context="algorithm" darkBG="true" />'s
 medium failed, so he took second place.
-<tc-webtag:handle coderId="270505" context="algorithm"/> closed the list of advancers to the Championship Round.
-<tc-webtag:handle coderId="309453" context="algorithm"/>, <tc-webtag:handle coderId="15805598" context="algorithm"/>,
-<tc-webtag:handle coderId="22663763" context="algorithm"/> and <tc-webtag:handle coderId="144400" context="algorithm"/>
+<tc-webtag:handle coderId="270505" context="algorithm" darkBG="true" /> closed the list of advancers to the Championship Round.
+<tc-webtag:handle coderId="309453" context="algorithm" darkBG="true" />, <tc-webtag:handle coderId="15805598" context="algorithm" darkBG="true" />,
+<tc-webtag:handle coderId="22663763" context="algorithm" darkBG="true" /> and <tc-webtag:handle coderId="144400" context="algorithm" darkBG="true" />
 will have one more chance to advance this evening in the Wildcard Round.</strong></p>
 
 <p><strong>Congratulations to all advancers and good luck in the next round!</strong></p>
             
             <br /><br />
-            <p>by <tc-webtag:handle coderId="303644" context="algorithm"/></p>
+            <p>by <tc-webtag:handle coderId="303644" context="algorithm" darkBG="true" /></p>
             <h4>DriveOrder</h4>
             <p>
 To simulate the process, we will create an array of counters cnt, with the i-th element of cnt
@@ -138,7 +138,7 @@ Java solution follows:
 </pre>
 
             <br />
-            <p>by <tc-webtag:handle coderId="10481120" context="algorithm"/></p>
+            <p>by <tc-webtag:handle coderId="10481120" context="algorithm" darkBG="true" /></p>
             <h4>MultiplayerBattleships</h4>
             <p>
 In this problem small constraints give a hint to us - we should find what information constitutes 
@@ -206,7 +206,7 @@ To finish our solution, we just need to add memoization to this recursive functi
 </p>
 
             <br />
-            <p>by <tc-webtag:handle coderId="10481120" context="algorithm"/></p>
+            <p>by <tc-webtag:handle coderId="10481120" context="algorithm" darkBG="true" /></p>
             <h4>BinaryMatrix</h4>
             <p>
 The first thing we should note in this problem is that circular shifts of rows don't change 
