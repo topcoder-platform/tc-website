@@ -41,7 +41,7 @@
 </p>
 
 <p>
-    TopCoder has teamed up with Truveo to set the top developers in the world loose with the APIs to search and index a hundred million video clips. Now's your chance to show em what you've got for a piece of $100,000 in prize money!
+    Truveo wants to set the top developers in the world loose with the APIs to search and index a hundred million video clips and challenge you to build the next great video Truveo application. Now’s your chance to show ‘em what you got for a piece of $100,000 in prize money!
 </p>
 <p>
     Truveo indexes millions of videos and makes them searchable and organizable through a wide variety of criteria, and all of Truveo's functions can be accessed through its API.  Many sites have implemented simple search boxes using Truveo and others have gone much further. Let's show them how far the TopCoder community can go!
