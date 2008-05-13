@@ -71,7 +71,7 @@ place and <tc-webtag:handle coderId="10574855" context="algorithm" darkBG="true"
 <p><strong>Congratulations to all advancers and good luck in the next round!</strong></p>
             
             <br /><br />
-            <p>by <tc-webtag:handle coderId="8357090" context="algorithm" darkBG="true"  darkBG="true" /></p>
+            <p>by <tc-webtag:handle coderId="8357090" context="algorithm" darkBG="true" /></p>
             <h4>FairDiceGame</h4>
             <p>For this problem, there is a pretty obvious greedy strategy: 
 We will construct the fair sequence of turns sequentially, turn after turn.
@@ -132,7 +132,7 @@ be precise enough.
 </p>
 
             <br />
-            <p>by <tc-webtag:handle coderId="10481120" context="algorithm" darkBG="true"  darkBG="true" /></p>
+            <p>by <tc-webtag:handle coderId="10481120" context="algorithm" darkBG="true" /></p>
             <h4>IsoscelesTriangle</h4>
             <p>
 Without loss of generality we can assume that triangle's points must be located not in centers of rectangular grid cells, but in lattice points (x, y) such that 0 &le; x &lt; <b>N</b> and
