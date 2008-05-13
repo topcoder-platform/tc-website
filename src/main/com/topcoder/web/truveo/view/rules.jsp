@@ -45,7 +45,7 @@ Registration and participation by developers in the TopCoder Truveo Developer Ch
 <p><strong>GENERAL</strong></p>
 
 <p>
-This skill-based Competition is brought to you and is sponsored by TopCoder and AOL, LLC, acting through its subsidiary, Truveo.  This Competition is designed to encourage the development and use of certain technologies, and provides an opportunity for members of the TopCoder Community to create an original application using the technology specified in the Competition documentation ("Specified Technology"). TopCoder and Truveo (the "Corporate Participant") invite You, and by making a submission You agree, to submit entries for prizes to be awarded by the Competition judges in accordance with these Terms and Conditions.  This Competition is governed by the laws of the United States and the State of Connecticut, and You hereby consent to the exclusive jurisdiction and venue of the courts in Hartford, Connecticut (state and federal) for any causes or controversies arising out of participation in this Competition.
+This skill-based Competition is brought to you and is sponsored by TopCoder.  This Competition is designed to encourage the development and use of certain technologies, and provides an opportunity for members of the TopCoder Community to create an original application using the technology specified in the Competition documentation ("Specified Technology"). TopCoder and Truveo (the "Corporate Participant") invite You, and by making a submission You agree, to submit entries for prizes to be awarded by the Competition judges in accordance with these Terms and Conditions.  This Competition is governed by the laws of the United States and the State of Connecticut, and You hereby consent to the exclusive jurisdiction and venue of the courts in Hartford, Connecticut (state and federal) for any causes or controversies arising out of participation in this Competition.
 </p>
 
 <p>
@@ -65,7 +65,10 @@ TopCoder and the Corporate Participant reserve the right to limit the participat
 <p><strong>ELIGIBILITY</strong></p>
 
 <p>
-You must be a TopCoder member, be at least 18 years of age at the start of the Competition, and meet all of TopCoder's membership requirements. You are not eligible for this Competition if you are a resident of the Quebec province of Canada, Iran, Cuba, North Korea, Sudan or Syria.  In addition, you are not eligible for this Competition if you are on the Specially Designated National list promulgated and amended, from time to time, by the United States Department of the Treasury.
+You must be a TopCoder member, be at least 18 years of age at the start of the Competition, and meet all of TopCoder's 
+membership requirements. You are not eligible for this Competition if you are a resident of the Quebec province of Canada, 
+Iran, Cuba, North Korea, Sudan or Syria.  In addition, you are not eligible for this Competition if you are on the Specially 
+Designated National list promulgated and amended, from time to time, by the United States Department of the Treasury.
 </p>
 
 <p>
@@ -158,7 +161,7 @@ Submissions will be judged by the Competition judging team. Submissions will be 
     <li>Determined by the Competition judges</li>
     </ul>
 </li>
-<li>best use of the functionality provided by the Specified Technology (20%)</li>
+<li>Best use of the Specified Technology (20%)</li>
 <li>Corporate Participant favorite (20%)
     <ul>
     <li>Popularity among Corporate Participant staff </li>
