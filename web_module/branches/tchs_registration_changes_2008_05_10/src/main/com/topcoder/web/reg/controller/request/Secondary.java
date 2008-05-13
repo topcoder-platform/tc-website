@@ -53,7 +53,7 @@ public class Secondary extends Base {
                             // put the responses in session so that they're saved in the db when submitting 
                             getRequest().getSession().setAttribute(Constants.HS_RESPONSES, rh.getResponsesMap());
 
-                            if (!rh.isEligibleHS()) {
+                            if (!rh.isEligibleHS() || getRequest().getSession().getAttribute(Constants.INACTIVATE_HS) != null) {
                                 log.info("user " + u.getId() + " is not eligible. ");
 
                                 if (isNewRegistration()) {
