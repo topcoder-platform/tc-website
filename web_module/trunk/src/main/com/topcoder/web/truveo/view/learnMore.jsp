@@ -6,7 +6,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
+    <title>Truveo Developer Challenge :: Powered by TopCoder</title>
 
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_truveo"/>
@@ -37,104 +37,77 @@
 
 <p align="center">
 <span style="font-weight:bold; font-size: 16px;">$100,000 in prize money</span>
-<br />March 5th through May 6th, 2008
-<br />Winners to be announced at the TopCoder Open
-<br />in Las Vegas on May 15
+<br />May 13th through July 21st
 </p>
 
 <p>
-    To mark the launch of Open AIM 2.0, AOL has teamed up with TopCoder to put the Open AIM APIs in the hands of the best developers in the world. Now's your chance to show us what you've got for a piece of $100,000 in prize money!
+    TopCoder has teamed up with Truveo to set the top developers in the world loose with the APIs to search and index a hundred million video clips. Now's your chance to show em what you've got for a piece of $100,000 in prize money!
 </p>
 <p>
-    We will award nine (9) $10,000 prizes and twenty (20) $500 prizes for the most creative, successful and ingenious submissions - plus we'll give a TopCoder/Open AIM T-Shirt to anyone who submits. Winning submissions will also be featured on the <a href="http://dev.aol.com">AOL Developer Network Homepage</a> and <a href="http://gallery.aim.com/">gallery.aim.com</a>. We'll put your app within the reach of millions of AIM users.
+    Truveo indexes millions of videos and makes them searchable and organizable through a wide variety of criteria, and all of Truveo's functions can be accessed through its API.  Many sites have implemented simple search boxes using Truveo and others have gone much further. Let's show them how far the TopCoder community can go!
 </p>
-<%--
 <p>
-    Additionally, Open AIM will give participants an easy way to generate income through AIM Money, a new advertising revenue sharing platform expected to debut in April. 
+    We will award nine (9) $10,000 prizes and twenty (20) $500 prizes for the most creative, successful and ingenious submissions - plus we'll give a TopCoder/Truveo T-Shirt to anyone who submits. We'll put your app within the reach of millions of users!
 </p>
---%>
-<%--
-<p align="center">
-    <a href="">Read the AOL/TopCoder announcement</a>
-</p>
---%>
 
 <h2>How to Compete</h2>
-<p>
-    Be sure to read the full contest <a href="${sessionInfo.servletPath}?module=Static&amp;d1=rules">rules and terms & conditions</a>.
+<p align="center">
+    Be sure to read the <a href="${sessionInfo.servletPath}?module=Static&amp;d1=rules">full contest rules and terms & conditions</a>
 </p>
 <p>
-    <a href="/reg/?module=Main&amp;rt=8">Register as a TopCoder member</a> THEN <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;ct=1001">register for the Open AIM Developer Challenge</a>.
+    If you're not already a TopCoder member, <a href="/reg/?module=Main&amp;rt=9">register here</a>, then <a href="${sessionInfo.servletPath}?module=ViewContestDetails&ct=1001">register for the Truveo Developer Challenge</a>.
 </p>
 <p>
-    Check out the APIs at <a href="http://dev.aol.com/apis">dev.aol.com</a> and get a <a href="http://dev.aol.com/openAIM">usage key</a> - your unique identifier giving you access to the AIM network. The keys let AOL know how popular your Plugin or Custom Client is.
+    Check out the API's at <a href="http://developer.truveo.com">developer.truveo.com</a>, and get a <a href="http://dev.aol.com/truveo/">usage key</a> - your unique identifier giving you access to the Truveo network. The keys let Truveo know how popular your application is, which will play a big factor in your overall score. Each time you obtain an API key - let us know by emailing us at <a href="mailto:service@topcoder.com">service@topcoder.com</a> - even if you never use it in an app.
 </p>
 <p align="center">
-    <a href="http://developer.aim.com/faq#keys">Learn more about AIM keys</a>
+    <a href="http://dev.aol.com/truveo/">Learn more about Truveo API keys</a>
 </p>
 <p>
-    Then, build your mashup, widget, game or custom application and put it where we can see it. Upload it to the <a href="http://gallery.aim.com/">AIM Gallery</a>, put it on your own site or blog, or any one of the social network sites such as Facebook, MySpace, Friendster, BEBO, Cyworld, Skyblog, Hi5, Orkut, or Live Journal.
+    Then build a widget, a gadget, a mashup, a web application - whatever you want - and put it somewhere where we can see it. You can put it on your own site or blog, or any one of the social network sites such as Facebook, MySpace, Friendster, BEBO, Cyworld, Skyblog, Hi5, Orkut, or Live Journal - anywhere where web users can play with it and give us the URL with your submission so we can make it public. Remember, the more web users your application gets, the better chance you've got to win.
 </p>
 <p>
-    Your application must incorporate at least two of the five most popular and valuable AIM features below into their web-based or downloadable AIM software and mashups. Developers have the flexibility to choose and match the value-added feature that best fits with their application and desired user experiences.
-</p>
-
-<ol>
-    <li>An ad to appear alongside AIM</li>
-    <li>AIM Toolbar</li>
-    <li>AIM Expressions, including wallpapers and buddy icons</li>
-    <li>Buddy Info</li>
-    <li>Display AIM Dashboard (http://dashboard.aim.com) as start page at launch</li>
-</ol>
-
-<p>
-    You may enter as many submissions as you like, but each application may only be submitted once.
-</p>
-<p align="center">
-    <a href="${sessionInfo.servletPath}?module=Static&amp;d1=rules">Full Official Contest Rules and Terms & Conditions</a>
+    You may enter as many unique submissions as you like, but each individual submission should have its own unique API key. You are also free to update and upgrade your submission through the duration of the contest (and after if you want). You don't need to resubmit, just let us know you've updated your app, and we'll update your submission information for you.
 </p>
 
 <h2>How to Submit</h2>
 
 <p>
-    Once your app is live, submit it to the contest here.
+    Once your app is live, <a href="${sessionInfo.servletPath}?module=ViewContestDetails&ct=1001">submit it to the contest</a>.
 </p>
-
 <p>
-    You will need to submit a zip file to TopCoder which includes:
+    You will need to submit a zip file to TopCoder which includes 2 items: 
 </p>
-
 <ul>
-<li>A text document containing:
-    <ul>
-    <li>Your TopCoder handle name</li>
-    <li>Your AIM screename</li>
-    <li>Your unique AIM API key</li>
-    <li>A title and brief overview of the application to be used as an online description</li>
-    <li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
-    </ul>
-</li>
-<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels).</li>
+    <li>A text document containing:
+        <ul>
+            <li>Your TopCoder handle name</li>
+            <li>Your unique Truveo API key</li>
+            <li>A title and brief overview of the application to be used as an online description</li>
+            <li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
+        </ul>
+    </li>
+    <li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels).</li>
 </ul>
-
-<p>
-    Submit early, then tell a friend - in fact, tell a hundred friends, because a large percentage of your score will depend on how many people use your app.
 </p>
-
+<p>
+    Submit early, then tell a friend - in fact, tell a hundred friends, because a large percentage of your score will depend on how many people use your app. 
+</p>
 <p align="center">
     <a href="${sessionInfo.servletPath}?module=Static&amp;d1=rules">Full Official Contest Rules and Terms & Conditions</a>
 </p>
 
 <h2>How Your App will be Scored</h2>
 
-<p>Submissions will be judged by the Competition judging team. Submissions will be evaluated using a scorecard that includes the following criteria: </p>
-
+<p>
+    Submissions will be judged by the Competition judging team. Submissions will be evaluated using a scorecard that includes the following criteria: 
+</p>
 <ul>
-<li><strong>Usage (20%):</strong> Usage will be determined based on usage statistics.  It is strictly prohibited to manufacture or attempt to manufacture usage in any way.  Usage and activity shall be subject to audit by TopCoder and/or AOL.</li>
-<li><strong>Innovation (20%):</strong> Determined by the Competition judges</li>
-<li><strong>Best Use of APIs (20%):</strong>  Best use of the functionality provided by the Specified Technology</li>
-<li><strong>AOL favorite (20%):</strong> Popularity among AOL staff</li>
-<li><strong>TopCoder Community Favorite (20%):</strong> Popularity among the TopCoder Community</li>
+<li>Usage (20%): Usage will be determined based on usage statistics. It is strictly prohibited to manufacture or attempt to manufacture usage in any way. Usage and activity shall be subject to audit by TopCoder and/or Truveo.</li>
+<li>Innovation (20%): Determined by the Competition judges</li>
+<li>Best Use of APIs (20%): Best use of the functionality provided by the Specified Technology</li>
+<li>AOL favorite (20%): Popularity among Truveo staff</li>
+<li>TopCoder Community Favorite (20%): Popularity among the TopCoder Community</li>
 </ul>
 
 <p align="center">
@@ -144,27 +117,17 @@
 <h2>What You Can Build</h2>
 
 <p>
-    Anything!
+    Anything you want!
 </p>
 <p>
-    Key components of the new Open AIM 2.0 include:
+    Do something creative using the Truveo API. We'd love to see widgets, or gadgets for Microsoft Vista or Apple OSX, or something for a portal like MyYahoo or iGoogle, or any of the social networking sites. Build your <i>own</i> site, build a plugin for AIM - whatever you can dream of we want to see it.
 </p>
-
-<ul>
-    <li><strong>Public Access to the OSCAR Protocol:</strong> As part of the new openness, AOL is publishing at http://dev.aol.com/truveo the OSCAR protocol, AOLs proprietary instant messaging and presence information protocol used by AIM. This will enable developers to build fully-compatible, full-featured and secure AIM services for use on platforms that also host other chat services both on the desktop and on mobile devices. Were also giving developers freedom of choice to connect to the AIM network using APIs in either AOL-provided libraries or open-source libraries.</li>
-    <li><strong>Relaxed Usage Limits:</strong> Per-day and per-month usage limits have been removed to offer developers more flexibility. Users can now also use the new Open AIM SDK and APIs to build AIM chat services designed for international use.</li>
-<%--
-    <li><strong>Revenue Share:</strong> Developers will have an opportunity to earn advertising revenue through a new revenue share platform called AIM Money that is expected to launch next month. More details on this exciting new program are available at http://dev.aol.com/truveo.</li>
---%>
-    <li><strong>Support for Third-Party Chat Services:</strong> Developers can use the Open AIM SDK and APIs to create one unified instant messaging application that supports multiple chat services so that users can organize all their buddies in one place.</li>
-    <li><strong>Enterprise & Mobile Applications:</strong> Third-party developers can use the existing SDK and APIs to build custom software designed for enterprise use as well as for AIM users who access the messaging network from their cell phones. We have also put in place protections in our license agreements to ensure that mobile applications built on the AIM platform remain free and open in line with the Open AIM program goals.</li>
-    <li><strong>Open-Source Opportunities:</strong> Open AIM APIs are now accessible for open-source software use.</li>
-</ul>
-
+<p>
+    Good luck - and remember if you have any questions you can always ask them in the <a href="${sessionInfo.servletPath}forums">forums</a>.
+</p>
 <p align="center">
     <a href="${sessionInfo.servletPath}?module=Static&amp;d1=rules">Full Official Contest Rules and Terms & Conditions</a>
 </p>
-
 
 
                         </div>
