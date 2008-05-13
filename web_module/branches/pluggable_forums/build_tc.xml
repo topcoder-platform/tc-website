@@ -81,6 +81,7 @@
         <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
 
+	<pathelement location="${jars.dir}/axis_dok.jar"/>
 
         <!--required for aol alerts only -->
         <pathelement location="${jars.dir}/tcs/alerts_wrapper/1.0/java_alerts_wrapper.jar"/>
