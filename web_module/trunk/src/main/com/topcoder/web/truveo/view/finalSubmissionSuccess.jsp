@@ -15,7 +15,7 @@
     <script type="text/javascript" src="/js/fat.js"></script>
     
 
-    <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
+    <title>Truveo Developer Challenge :: Powered by TopCoder</title>
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_truveo"/>
     </jsp:include>
