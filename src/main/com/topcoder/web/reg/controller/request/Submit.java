@@ -112,10 +112,11 @@ public class Submit extends Base {
                     RegistrationType studio = dao.getStudioType();
                     RegistrationType teacher = dao.getTeacherType();
                     RegistrationType openAIM = dao.getOpenAIMType();
+                    RegistrationType truveo = dao.getTruveoType();
 
                     closeConversation();
                     try {
-                        sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min, studio, teacher, openAIM);
+                        sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min, studio, teacher, openAIM, truveo);
                     } catch (Exception e) {
                         //we don't want whatever happened to affect the registration.
                         e.printStackTrace();
@@ -232,7 +233,8 @@ public class Submit extends Base {
 
     private void sendEmail(String activationCode, String email, Set regTypes, RegistrationType comp,
                            RegistrationType tcs, RegistrationType hs, RegistrationType corp,
-                           RegistrationType min, RegistrationType studio, RegistrationType teacher, RegistrationType openAIM) throws Exception {
+                           RegistrationType min, RegistrationType studio, RegistrationType teacher,
+                           RegistrationType openAIM, RegistrationType truveo) throws Exception {
 
 
         TCSEmailMessage mail = new TCSEmailMessage();
@@ -277,6 +279,9 @@ public class Submit extends Base {
             msgText.append("Your newly created TopCoder account will provide you with the ability to compete in the TopCoder Open AIM Competition.  Please check out the competition area to learn how to compete. http://" + ApplicationServer.OPENAIM_SERVER_NAME+"\n\n");
         }
 
+        if (regTypes.contains(truveo)) {
+            msgText.append("Your newly created TopCoder account will provide you with the ability to compete in the TopCoder Truveo Competition.  Please check out the competition area to learn how to compete. http://" + ApplicationServer.TRUVEO_SERVER_NAME+"\n\n");
+        }
 
         if (regTypes.contains(hs)) {
             msgText.append("TOPCODER HIGH SCHOOL COMPETITIONS\n\n");
