@@ -68,6 +68,14 @@
                             <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_6&title=Marathon%20Match%20visualizer">Marathon Match visualizer</A>
                         </td>
                     </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=arena&title=How%20to%20build%20an%20arena%20">
+                                <img src="/i/tournament/tco08/movies/arena.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=arena&title=How%20to%20build%20an%20arena%20">How to build an arena</A>
+                        </td>
+                    </tr>
                 </tbody>
                 </table>
                 </div>    
