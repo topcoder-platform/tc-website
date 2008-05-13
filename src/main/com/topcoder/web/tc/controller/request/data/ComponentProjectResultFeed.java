@@ -19,6 +19,7 @@ import com.topcoder.web.common.security.DataResource;
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 23, 2007
+ * @deprecated this class has been moved to its own module and will be removed in the future
  */
 public class ComponentProjectResultFeed extends Base {
 

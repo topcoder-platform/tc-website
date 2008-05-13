@@ -16,6 +16,7 @@ import java.util.Vector;
  * @author geldridge
  * @version $Revision$ Date: 2008/04/15 00:00:00
  *          Create Date: Apr 15, 2008
+ * @deprecated this class has been moved to its own module and will be removed in the future
  */
 public class DistanceFeed extends Base {
 

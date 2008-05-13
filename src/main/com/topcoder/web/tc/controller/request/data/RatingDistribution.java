@@ -3,9 +3,10 @@ package com.topcoder.web.tc.controller.request.data;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.security.DataResource;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.common.security.DataResource;
+import org.xml.sax.helpers.AttributesImpl;
 
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
@@ -15,12 +16,11 @@ import javax.xml.transform.stream.StreamResult;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.xml.sax.helpers.AttributesImpl;
-
 /**
  * @author  dok
  * @version  $Revision$ $Date$
  * Create Date: Jul 27, 2005
+ * @deprecated this class has been moved to its own module and will be removed in the future
  */
 abstract class RatingDistribution extends Base {
 
