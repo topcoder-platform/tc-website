@@ -85,7 +85,7 @@ function AllowTabCharacter() {
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>Open AIM Developer Challenge :: Powered by TopCoder</title>
+<title>Truveo Developer Challenge :: Powered by TopCoder</title>
 
 <jsp:include page="style.jsp">
     <jsp:param name="key" value="tc_truveo_forums"/>
