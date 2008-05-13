@@ -11,6 +11,6 @@
     </div>
     <div class="slogan">
         <!-- SLOGAN PLACEHOLDER -->
-        <div id="slogan">Neque porro quisquam est qui dolorem!</div>
+        <div id="slogan">&nbsp;</div>
     </div>
 </div>
