@@ -135,10 +135,6 @@
                 <a href="#" onclick="document.f.submit();return false;" class="button" style="width: 60px;">Submit</a>
             </div>            
 
-            <p align="left">
-                * This is for eligibility checking. We won't store this information.
-            </p>
-
             </c:otherwise>                    
         </c:choose>
 
