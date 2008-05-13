@@ -43,16 +43,51 @@
         
         <h2>Photos</h2>
 
-<a name="studio"/> 
+<a name="studio"></a> 
 <p><strong>Studio Finals</strong></p>
 <script type="text/javascript">
 //<![CDATA[
-for(var i=1; i<59; i++){
+for(var i=1; i<69; i++){
     doWrite(' <a href="/i/tournament/tco08/photos/studio/'+i+'.jpg" title="Studio Finals" rel="studio" class="thickbox spaced"><img src="/i/tournament/tco08/photos/studio/thumbs/'+i+'.jpg" alt="+"/></a>');
 }
 //]]>
 </script>
 
+<br /><br />
+
+<%--
+<a name="marathon"></a> 
+<p><strong>Marathon Match Finals</strong></p>
+<script type="text/javascript">
+//<![CDATA[
+for(var i=1; i<59; i++){
+    doWrite(' <a href="/i/tournament/tco08/photos/marathon/'+i+'.jpg" title="Marathon Match Finals" rel="marathon" class="thickbox spaced"><img src="/i/tournament/tco08/photos/marathon/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+//]]>
+</script>
+<br /><br />
+--%>
+
+<a name="design"></a> 
+<p><strong>Component Design Finals</strong></p>
+<script type="text/javascript">
+//<![CDATA[
+for(var i=1; i<28; i++){
+    doWrite(' <a href="/i/tournament/tco08/photos/design/'+i+'.jpg" title="Component Design Finals" rel="design" class="thickbox spaced"><img src="/i/tournament/tco08/photos/design/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+//]]>
+</script>
+<br /><br />
+
+<a name="misc"></a> 
+<p><strong>Miscellaneous</strong></p>
+<script type="text/javascript">
+//<![CDATA[
+for(var i=1; i<13; i++){
+    doWrite(' <a href="/i/tournament/tco08/photos/misc/'+i+'.jpg" title="Miscellaneous" rel="misc" class="thickbox spaced"><img src="/i/tournament/tco08/photos/misc/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+//]]>
+</script>
 <br /><br />
         
     </div><%-- #content --%>
