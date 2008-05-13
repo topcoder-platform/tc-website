@@ -22,9 +22,9 @@
 <c:set var="round2_id" value="12012"/>
 <c:set var="round3_id" value="12013"/>
 <c:set var="round4_id" value="12014"/>
-<%-- 
 <c:set var="semi1_id" value="12015"/>
 <c:set var="semi2_id" value="12016"/>
+<%-- 
 <c:set var="semi3_id" value="12017"/>
 <c:set var="wildcard_id" value="12018"/>
 <c:set var="finals_id" value="12019"/>
@@ -172,7 +172,7 @@
 <td class="valueC"><c:choose><c:when test="${empty round2_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round1'] or resultRow.map['round1'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['round2']}"><img src="/i/tournament/tco08/icon${fn:trim(resultRow.map['round2'])}.png" alt="${resultRow.map["round2"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
 <td class="valueC"><c:choose><c:when test="${empty round3_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round2'] or resultRow.map['round2'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['round3']}"><img src="/i/tournament/tco08/icon${fn:trim(resultRow.map['round3'])}.png" alt="${resultRow.map["round3"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
 <td class="valueC"><c:choose><c:when test="${empty round4_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round3'] or resultRow.map['round3'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['round4']}"><img src="/i/tournament/tco08/icon${fn:trim(resultRow.map['round4'])}.png" alt="${resultRow.map["round4"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
-<td class="valueC"><c:choose><c:when test="${empty semi3_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round4'] or resultRow.map['round4'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['semi']}"><img src="/i/tournament/tco08/icon${fn:trim(resultRow.map['semi'])}.png" alt="${resultRow.map["semi"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
+<td class="valueC"><c:choose><c:when test="${empty semi1_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round4'] or resultRow.map['round4'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['semi']}"><img src="/i/tournament/tco08/icon${fn:trim(resultRow.map['semi'])}.png" alt="${resultRow.map["semi"]}" /></c:when><c:otherwise>&nbsp;</c:otherwise></c:choose></td>
 <td class="valueC"><c:choose><c:when test="${empty wildcard_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['semi'] or resultRow.map['semi'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['wildcard']}"><img src="/i/tournament/tco08/icon${fn:trim(resultRow.map['wildcard'])}.png" alt="${resultRow.map["wildcard"]}" /></c:when><c:otherwise>&nbsp;</c:otherwise></c:choose></td>
 <td class="valueC"><c:choose><c:when test="${empty finals_id}">&nbsp;</c:when><c:when test="${not empty resultRow.map['final']}"><img src="/i/tournament/tco08/icon${fn:trim(resultRow.map['final'])}.png" alt="${resultRow.map["final"]}" /></c:when><c:otherwise>&nbsp;</c:otherwise></c:choose></td>
 </tr>
@@ -207,3 +207,4 @@
 
 </body>
 </html>
+
