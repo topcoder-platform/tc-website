@@ -37,41 +37,41 @@
             <p style="float:right; width:200px; height:350px; margin-left:10px;"><img src="/i/tournament/tco08/shotR2.jpg" alt="vlad89 wins Room 2!" /></p>
             --%>
             <p><strong>
-The Algorithm Competition of TCO'08 continued with Semifinal Room 2. The actions started early as <tc-webtag:handle coderId="8355516" context="algorithm"/> submitted the Easy
+The Algorithm Competition of TCO'08 continued with Semifinal Room 2. The actions started early as <tc-webtag:handle coderId="8355516" context="algorithm" darkBG="true" /> submitted the Easy
 for 243,28 points. Many other competitors followed closely
-behind. Some time later <tc-webtag:handle coderId="8355516" context="algorithm"/> found a bug in his code and resubmitted to let the lead to
-<tc-webtag:handle coderId="10574855" context="algorithm"/>, who quickly made his lead stronger by fast 500 submission. Poles
-<tc-webtag:handle coderId="14886245" context="algorithm"/> and <tc-webtag:handle coderId="8355516" context="algorithm"/>
-had also quite good times on the Medium soon after <tc-webtag:handle coderId="10574855" context="algorithm"/>. But the following 15 minutes without submission on 500 showed that the
+behind. Some time later <tc-webtag:handle coderId="8355516" context="algorithm" darkBG="true" /> found a bug in his code and resubmitted to let the lead to
+<tc-webtag:handle coderId="10574855" context="algorithm" darkBG="true" />, who quickly made his lead stronger by fast 500 submission. Poles
+<tc-webtag:handle coderId="14886245" context="algorithm" darkBG="true" /> and <tc-webtag:handle coderId="8355516" context="algorithm" darkBG="true" />
+had also quite good times on the Medium soon after <tc-webtag:handle coderId="10574855" context="algorithm" darkBG="true" />. But the following 15 minutes without submission on 500 showed that the
 Medium problem was not very easy. Still, it was not very hard, too, so more submissions on it were made and we saw 12 submissions by the end of coding phase.
 </strong></p>
 
 <p><strong>
 Nobody was able to solve the Hard problem during the first 60 minutes. After that, we saw almost simultaneous submissions from
-<tc-webtag:handle coderId="10574855" context="algorithm"/> and <tc-webtag:handle coderId="8355516" context="algorithm"/>, and
-submission from <tc-webtag:handle coderId="22627586" context="algorithm"/> followed
-quite soon. Things became more interesting, when <tc-webtag:handle coderId="10574855" context="algorithm"/> resubmitted his Hard and lose the lead. And they became even more
-interesting when submissions on 1000-pointer from <tc-webtag:handle coderId="15056181" context="algorithm"/>,
-<tc-webtag:handle coderId="10597114" context="algorithm"/> and <tc-webtag:handle coderId="8472826" context="algorithm"/> came in
-moving <tc-webtag:handle coderId="10574855" context="algorithm"/> to 5-th place and making it possible the Wildcard duel between
-<tc-webtag:handle coderId="10574855" context="algorithm"/> and <tc-webtag:handle coderId="144400" context="algorithm"/>.
+<tc-webtag:handle coderId="10574855" context="algorithm" darkBG="true" /> and <tc-webtag:handle coderId="8355516" context="algorithm" darkBG="true" />, and
+submission from <tc-webtag:handle coderId="22627586" context="algorithm" darkBG="true" /> followed
+quite soon. Things became more interesting, when <tc-webtag:handle coderId="10574855" context="algorithm" darkBG="true" /> resubmitted his Hard and lose the lead. And they became even more
+interesting when submissions on 1000-pointer from <tc-webtag:handle coderId="15056181" context="algorithm" darkBG="true" />,
+<tc-webtag:handle coderId="10597114" context="algorithm" darkBG="true" /> and <tc-webtag:handle coderId="8472826" context="algorithm" darkBG="true" /> came in
+moving <tc-webtag:handle coderId="10574855" context="algorithm" darkBG="true" /> to 5-th place and making it possible the Wildcard duel between
+<tc-webtag:handle coderId="10574855" context="algorithm" darkBG="true" /> and <tc-webtag:handle coderId="144400" context="algorithm" darkBG="true" />.
 </strong></p>
 
 <p><strong>
-During the challenge phase the leader changed 3 times. At the beginning it was <tc-webtag:handle coderId="8355516" context="algorithm"/>, then
-<tc-webtag:handle coderId="15056181" context="algorithm"/>, then <tc-webtag:handle coderId="8355516" context="algorithm"/>, and again
-<tc-webtag:handle coderId="15056181" context="algorithm"/>. There were totally 3 successful challenges on the Easy,
+During the challenge phase the leader changed 3 times. At the beginning it was <tc-webtag:handle coderId="8355516" context="algorithm" darkBG="true" />, then
+<tc-webtag:handle coderId="15056181" context="algorithm" darkBG="true" />, then <tc-webtag:handle coderId="8355516" context="algorithm" darkBG="true" />, and again
+<tc-webtag:handle coderId="15056181" context="algorithm" darkBG="true" />. There were totally 3 successful challenges on the Easy,
 one on the Medium and 2 on the Hard. Systests didn't change the first three places, but were essential to determine the
-Wildcard round advancers. <tc-webtag:handle coderId="15056181" context="algorithm"/> won the room, <tc-webtag:handle coderId="8355516" context="algorithm"/> took second
-place and <tc-webtag:handle coderId="10574855" context="algorithm"/> finished on third. <tc-webtag:handle coderId="14886245" context="algorithm"/>,
-<tc-webtag:handle coderId="15881985" context="algorithm"/>, <tc-webtag:handle coderId="10597114" context="algorithm"/> and
-<tc-webtag:handle coderId="22627586" context="algorithm"/> advanced to the Wildcard.
+Wildcard round advancers. <tc-webtag:handle coderId="15056181" context="algorithm" darkBG="true" /> won the room, <tc-webtag:handle coderId="8355516" context="algorithm" darkBG="true" /> took second
+place and <tc-webtag:handle coderId="10574855" context="algorithm" darkBG="true" /> finished on third. <tc-webtag:handle coderId="14886245" context="algorithm" darkBG="true" />,
+<tc-webtag:handle coderId="15881985" context="algorithm" darkBG="true" />, <tc-webtag:handle coderId="10597114" context="algorithm" darkBG="true" /> and
+<tc-webtag:handle coderId="22627586" context="algorithm" darkBG="true" /> advanced to the Wildcard.
 </strong></p>
 
 <p><strong>Congratulations to all advancers and good luck in the next round!</strong></p>
             
             <br /><br />
-            <p>by <tc-webtag:handle coderId="8357090" context="algorithm" darkBG="true" /></p>
+            <p>by <tc-webtag:handle coderId="8357090" context="algorithm" darkBG="true"  darkBG="true" /></p>
             <h4>FairDiceGame</h4>
             <p>For this problem, there is a pretty obvious greedy strategy: 
 We will construct the fair sequence of turns sequentially, turn after turn.
@@ -132,7 +132,7 @@ be precise enough.
 </p>
 
             <br />
-            <p>by <tc-webtag:handle coderId="10481120" context="algorithm" darkBG="true" /></p>
+            <p>by <tc-webtag:handle coderId="10481120" context="algorithm" darkBG="true"  darkBG="true" /></p>
             <h4>IsoscelesTriangle</h4>
             <p>
 Without loss of generality we can assume that triangle's points must be located not in centers of rectangular grid cells, but in lattice points (x, y) such that 0 &le; x &lt; <b>N</b> and
@@ -177,7 +177,7 @@ are not possible.</p>
             
 
             <br />
-            <p>by <tc-webtag:handle coderId="8357090" context="algorithm" darkBG="true" /></p>
+            <p>by <tc-webtag:handle coderId="8357090" context="algorithm" darkBG="true"  darkBG="true" /></p>
             <h4>ColorfulBalls</h4>
             <p>If we denote the total number of balls as N, each state of the game can 
 be represented as an integer partition of the number N. For example, 

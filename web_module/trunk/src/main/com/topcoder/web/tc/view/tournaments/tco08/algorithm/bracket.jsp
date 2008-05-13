@@ -97,6 +97,9 @@
                         <tc-webtag:handle coderId="15868491" context="algorithm" darkBG="true" /><br />
                         <tc-webtag:handle coderId="19849563" context="algorithm" darkBG="true" /><br />
                         <tc-webtag:handle coderId="270505" context="algorithm" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="15056181" context="algorithm" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="8355516" context="algorithm" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="10574855" context="algorithm" darkBG="true" />
                     </td>
                 </tr>
                 <tr>
@@ -144,9 +147,12 @@
                     <td rowspan="2" style="background-color: #ffffff;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
                     <td valign="middle"><img src="/i/tournament/tco08/bracket_bar.png" alt="" border="0" /></td>
                     <td style="padding: 15px 15px 15px 0px" valign="middle" align="center">&nbsp;
-                        <%-- WILDCARD ROOM 
+                        <%-- WILDCARD ROOM --%>
+                        <tc-webtag:handle coderId="14886245" context="algorithm" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="15881985" context="algorithm" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="10597114" context="algorithm" darkBG="true" /><br />
+                        <tc-webtag:handle coderId="22627586" context="algorithm" darkBG="true" />
                         
-                        --%>
                     </td>
                     <td rowspan="2" style="background-color: #ffffff;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
                     <td valign="middle"><img src="/i/tournament/tco08/bracket_bar.png" alt="" border="0" /></td>
