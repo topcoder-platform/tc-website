@@ -28,6 +28,7 @@ public class RegistrationType extends Base {
     public static final Integer STUDIO_ID = 6;
     public static final Integer TEACHER_ID = 7;
     public static final Integer OPENAIM_ID = 8;
+    public static final Integer TRUVEO_ID = 9;
 
     public RegistrationType() {
         this.notifications = new HashSet();

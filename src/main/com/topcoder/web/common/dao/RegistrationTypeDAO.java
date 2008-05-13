@@ -31,5 +31,7 @@ public interface RegistrationTypeDAO {
 
     RegistrationType getOpenAIMType();
 
+    RegistrationType getTruveoType();
+
 
 }
