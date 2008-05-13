@@ -28,6 +28,17 @@
         <div class="sub_content">
             <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
+                    <td colspan="3">&#160;</td>
+                    <td align="center" colspan="3"><img src="/i/tournament/tco08/bracketChampion.png" alt="" border="0" />&nbsp;
+                        <%--
+                        <br /><span class="bigTitle">&nbsp;<tc-webtag:handle coderId="10574855" context="algorithm" darkBG="true" /></span>
+                        --%>
+                    </td>
+                    <td colspan="3">&#160;</td>
+                </tr>
+                <tr><td colspan="9">&#160;</td></tr>
+                <tr><td colspan="9">&#160;</td></tr>
+                <tr>
                     <td align="center"><img src="/i/tournament/tco08/bracketRoom1.png" alt="" border="0" /></td>
                     <td colspan="2">&#160;</td>
                     <td align="center"><img src="/i/tournament/tco08/bracketWildcard.png" alt="" border="0" /></td>
@@ -78,12 +89,14 @@
                         
                         --%>
                     </td>
+                    <%-- MODIFIED FOR WIDTH 
                     <td valign="middle">&#160;</td>
                     <td rowspan="9" style="padding: 15px" valign="middle" align="center">&nbsp;
-                        <%-- FINALS 
+                         FINALS 
                         
-                        --%>
+                        
                     </td>
+                    --%>
                 </tr>
                 <tr>
                     <td align="right"><img src="/i/tournament/tco08/bracket_SW.png" alt="" border="0" /></td>
@@ -136,13 +149,15 @@
                     </td>
                     <td rowspan="2" style="background-color: #ffffff;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
                     <td valign="middle"><img src="/i/tournament/tco08/bracket_bar.png" alt="" border="0" /></td>
+                    <%-- MODIFIED FOR WIDTH 
                     <td valign="middle"><img src="/i/tournament/tco08/bracket_R.png" alt="" border="0" /></td>
                     <td valign="middle" align="center">
                         <img src="/i/tournament/tco08/bracketChampion.png" alt="" border="0" />&nbsp;
-                        <%--
+                        
                         <br /><span class="bigTitle">&nbsp;<tc-webtag:handle coderId="10574855" context="algorithm" darkBG="true" /></span>
-                        --%>
+                        
                     </td>
+                    --%>
                 </tr>
                 <tr>
                     <td align="right"><img src="/i/tournament/tco08/bracket_SW.png" alt="" border="0" /></td>
