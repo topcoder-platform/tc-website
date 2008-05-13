@@ -81,6 +81,26 @@
                             </a>
                             <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_7&title=End%20of%20Day%201">End of Day 1</A>
                         </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_8&title=Algo%20Room%201%20intros">
+                                <img src="/i/tournament/tco08/movies/tco08_8.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_8&title=Algo%20Room%201%20intros">Algo Room 1 intros</A>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_9&title=Algo%20Tuesday">
+                                <img src="/i/tournament/tco08/movies/tco08_9.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_9&title=Algo%20Tuesday">Algo Tuesday</A>
+                        </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_10&title=Algo%20Room%202%20intros">
+                                <img src="/i/tournament/tco08/movies/tco08_10.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_10&title=Algo%20Room%202%20intros">Algo Room 2 intros</A>
+                        </td>
                     </tr>
                 </tbody>
                 </table>
