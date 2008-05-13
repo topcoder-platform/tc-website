@@ -16,7 +16,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Open AIM Developer Challenge :: Powered by TopCoder</title>
+    <title>Truveo Developer Challenge :: Powered by TopCoder</title>
     <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
