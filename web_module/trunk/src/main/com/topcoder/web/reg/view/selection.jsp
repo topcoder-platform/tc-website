@@ -70,6 +70,8 @@
             <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
             <c:set value="<%=RegistrationType.TEACHER_ID%>" var="teacherType"/>
             <c:set value="<%=RegistrationType.OPENAIM_ID%>" var="openAIM"/>
+            <c:set value="<%=RegistrationType.TRUVEO_ID%>" var="truveo"/>
+
             <c:set value="<%=RegistrationType.HIGH_SCHOOL_ID%>" var="highSchool"/>
             <% int i = 0;%>
             <c:forEach items="${registrationTypeList}" var="type">
@@ -94,7 +96,7 @@
                             </c:otherwise>
                         </c:choose>
                     </c:when>
-                    <c:when test="${type.id!=openAIM && ((type.id==teacherType && !isNewReg) || type.id!=teacherType)}">
+                    <c:when test="${type.id!=truveo && type.id!=openAIM && ((type.id==teacherType && !isNewReg) || type.id!=teacherType)}">
                         <c:choose>
                             <c:when test="${requestScope[defaults][regTypeKey]==null}">
                                 <tc-webtag:chkBox name="${regTypeKey}"/>
