@@ -287,7 +287,7 @@ TopCoder, Inc. (http://www.topcoder.com)
                 </div>
 
             </div>
-    a    </div>
+        </div>
     </div>
 </div>
 
