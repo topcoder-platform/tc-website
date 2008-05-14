@@ -26,7 +26,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
     private final static float[] DEV_PRICE_LOOKUP = {0f, 500f, 500f};
 
     private final static float DEV_REVIEW_RATE = 27f;
-    private final static float DESIGN_REVIEW_RATE = 32f;
+    private final static float DESIGN_REVIEW_RATE = 26f;
 
     protected int phaseId;
     protected int level;
