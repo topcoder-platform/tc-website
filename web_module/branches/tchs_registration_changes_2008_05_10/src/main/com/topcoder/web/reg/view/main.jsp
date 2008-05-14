@@ -488,7 +488,7 @@
             <td class="value">
                 <c:choose>
                     <c:when test="${question.keyword == kwdDOB}">
-                        <tc-webtag:textInput size="10" maxlength="10" name="${fieldName}" id="answerInput" editable="true"/>
+                        <tc-webtag:textInput size="10" maxlength="10" name="${fieldName}" id="answerInput" editable="true"/> ** We won't store
                     </c:when>
                     <c:otherwise>
                         <tc:answerInput id="answerInput" question="${question}">
