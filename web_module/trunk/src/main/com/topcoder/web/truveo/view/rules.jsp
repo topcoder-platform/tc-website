@@ -67,8 +67,7 @@ TopCoder and the Corporate Participant reserve the right to limit the participat
 <p>
 You must be a TopCoder member, be at least 18 years of age at the start of the Competition, and meet all of TopCoder's 
 membership requirements. You are not eligible for this Competition if you are a resident of the Quebec province of Canada, 
-Iran, Cuba, North Korea, Sudan or Syria.  In addition, you are not eligible for this Competition if you are on the Specially 
-Designated National list promulgated and amended, from time to time, by the United States Department of the Treasury.
+Iran, Cuba, North Korea, Sudan or Syria.
 </p>
 
 <p>
