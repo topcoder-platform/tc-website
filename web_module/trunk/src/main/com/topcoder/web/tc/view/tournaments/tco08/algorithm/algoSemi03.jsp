@@ -74,7 +74,6 @@ Congratulations to all advancers and good luck in the next round!
             
             <br /><br />
             <p>by <tc-webtag:handle coderId="272072" context="algorithm" darkBG="true" /></p>
-
             <h4>WhackAMole</h4>
             <p>This problem has some theoretically interesting features, but as befits an Easy, all competitors needed to solve it was good old brute force.</p>
 <p>
