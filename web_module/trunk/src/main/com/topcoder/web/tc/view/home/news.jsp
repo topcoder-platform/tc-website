@@ -4,7 +4,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.14.08<br />12:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.14.08<br />12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=blog' refer='/tc' />">The Official Blog of the 2008 TopCoder Open</a></span><br /><br />
         The 2008 TopCoder Open is still underway in Las Vegas.  Be sure to get the latest play-by-plays, movies, and more from our blog!</td>
@@ -13,6 +13,19 @@
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=blog' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.14.08<br />12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051308">Lilly Partners with TopCoder, to Find Drug Discovery IT Solutions</a></span><br /><br />
+        TopCoder Collaboration allows Lilly to Tap into World's Top Software Developers for Solutions to Complex Technology Processes Associated With Drug Discovery</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051308">details</a> | 
+        <tc-webtag:forumLink forumID="521211" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
    
 <%--------------------------------------------------------%>
@@ -151,18 +164,5 @@
         <a target="_blank" href="<tc-webtag:linkTracking link='http://www.ddj.com/architect/207404123' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="521067" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.05.08<br />4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=aol">AOL chat before SRM 401</a></span><br /><br />
-        Join AOL representatives in the AOL chat room before SRM 401 at 10:00 AM EDT (GMT/UTC -4) for a chat discussion about Open AIM.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <tc-webtag:forumLink forumID="520183" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
