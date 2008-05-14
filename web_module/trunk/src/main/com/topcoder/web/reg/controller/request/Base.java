@@ -127,6 +127,7 @@ public abstract class Base extends LongHibernateProcessor {
     protected void clearSession() {
         getRequest().getSession().setAttribute(Constants.USER, null);
         getRequest().getSession().setAttribute(Constants.REG_TYPES, null);
+        getRequest().getSession().setAttribute(Constants.INACTIVATE_HS, null);
     }
 
     /**
