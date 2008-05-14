@@ -106,7 +106,7 @@ public class ReviewProjectDetail extends Base {
                     hasPrimary |= app.isPrimary();
                 }
                 if (!hasPrimary) {
-                    if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE) {
+                    if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE || detail.getLongItem(0, "phase_id") == 116) {
 
                         for (Iterator it = reviewerList.iterator(); it.hasNext();) {
                             app = (ReviewBoardApplication) it.next();
