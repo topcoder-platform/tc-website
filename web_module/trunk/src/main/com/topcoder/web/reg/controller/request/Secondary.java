@@ -53,8 +53,11 @@ public class Secondary extends Base {
                             // put the responses in session so that they're saved in the db when submitting 
                             getRequest().getSession().setAttribute(Constants.HS_RESPONSES, rh.getResponsesMap());
 
-                            if (!rh.isEligibleHS()) {
-                                log.info("user " + u.getId() + " is not eligible. ");
+                            log.info("user " + u.getId() + " is " + ((!rh.isEligibleHS()) ? "not" : "") + " eligible. ");
+                            
+                            log.info("Inactivate flag: " + getRequest().getSession().getAttribute(Constants.INACTIVATE_HS));
+                            
+                            if (!rh.isEligibleHS() || getRequest().getSession().getAttribute(Constants.INACTIVATE_HS) != null) {
 
                                 if (isNewRegistration()) {
                                     // setup in session so that the user is inactivated for hs when submitting.

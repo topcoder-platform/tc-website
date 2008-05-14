@@ -77,7 +77,7 @@
             <c:forEach items="${registrationTypeList}" var="type">
                 <c:set value="${regType}${type.id}" var="regTypeKey"/>
                 <c:choose>
-                    <c:when test="${type.id==highSchool}">
+<%--                    <c:when test="${type.id==highSchool}">
                         <c:choose>
                             <c:when test="${requestScope[defaults][regTypeKey]==null}">
                                 ${type.name} <br /><A href="javascript:void(0)" onmouseover="popUp(this,'popUp<%=i%>')" onmouseout="popHide()">tell me more...</A><br />
@@ -95,7 +95,7 @@
                                 </div>
                             </c:otherwise>
                         </c:choose>
-                    </c:when>
+                    </c:when> --%>
                     <c:when test="${type.id!=truveo && type.id!=openAIM && ((type.id==teacherType && !isNewReg) || type.id!=teacherType)}">
                         <c:choose>
                             <c:when test="${requestScope[defaults][regTypeKey]==null}">

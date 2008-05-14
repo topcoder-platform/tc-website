@@ -92,7 +92,7 @@ public class Register extends RegistrationBase {
             throw new NavigationException("You're not eligible for High School or already registered");            
         }
 
-        boolean eligible = rh.isEligibleHS();
+        boolean eligible = rh.isEligibleHS(season);
 
         // If the user is not eligible, mark him as inactive in security groups.
         if (eligible) {
