@@ -200,7 +200,7 @@ public class ReviewProjectDetail extends Base {
         r.setProperty(Constants.PHASE_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
 */
         r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
-        r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
+//        r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
 
         Map results = getDataAccess().getData(r);
         ResultSetContainer detail = (ResultSetContainer) results.get("review_board_payments");

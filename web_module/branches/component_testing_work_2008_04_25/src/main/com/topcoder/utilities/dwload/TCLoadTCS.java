@@ -4512,7 +4512,7 @@ public class TCLoadTCS extends TCLoad {
                         " and p.project_id = pr.project_id " +
                         // component testing doesn't need to check for rating
                         " and (pr.rating_ind=1 or p.project_category_id = 5)" + 
-                        // for development board, load development and testing
+                        // for development board, load development and component testing
                         " and p.project_category_id in (" + ((projectCategoryId == 2) ? "2, 5" : String.valueOf(projectCategoryId)) + ") " +
                         " and pi_el.project_info_type_id = 14 " +
                         " and pi_el.value = 'Open' " +

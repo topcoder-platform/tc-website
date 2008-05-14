@@ -78,7 +78,7 @@
 %>
     <rsc:iterator list="<%=projectList%>" id="resultRow">
         <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DESIGN_PHASE) desProjectCount++;%>
-        <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DEV_PHASE) devProjectCount++;%>
+        <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DEV_PHASE || resultRow.getIntItem("phase_id")==116 ) devProjectCount++;%>
     </rsc:iterator>
 
 
@@ -191,7 +191,7 @@
    <% int j=0; %>
    <rsc:iterator list="<%=projectList%>" id="resultRow">
    <% pageContext.setAttribute("price", prices.get(j));%>
-   <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DEV_PHASE) { %>
+   <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DEV_PHASE || resultRow.getIntItem("phase_id")==116) { %>
    <tr>
       <td class="statDk" align="center">
       <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>

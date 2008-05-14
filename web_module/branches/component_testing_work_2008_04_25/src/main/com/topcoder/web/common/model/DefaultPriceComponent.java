@@ -24,9 +24,11 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     private final static float[] DESIGN_PRICE_LOOKUP = {0f, 800f, 800f};
     private final static float[] DEV_PRICE_LOOKUP = {0f, 500f, 500f};
+    private final static float[] TESTING_PRICE_LOOKUP = {0f, 250f, 500f};
 
     private final static float DEV_REVIEW_RATE = 27f;
     private final static float DESIGN_REVIEW_RATE = 32f;
+    private final static float TESTING_REVIEW_RATE = 13.5f;
 
     protected int phaseId;
     protected int level;
@@ -68,6 +70,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = DEV_PRICE_LOOKUP[level];
         } else if (phaseId == DESIGN_PHASE) {
             ret = DESIGN_PRICE_LOOKUP[level];
+        } else if (phaseId == 116) {
+            ret = TESTING_PRICE_LOOKUP[level];
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
         }
@@ -81,6 +85,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getPrimaryDevReviewCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getPrimaryDesignReviewCost();
+        } else if (phaseId == 116) {
+            ret = getPrimaryTestingReviewCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
         }
@@ -93,6 +99,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getDevReviewCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getDesignReviewCost();
+        } else if (phaseId == 116) {
+            ret = getTestingReviewCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
         }
@@ -152,6 +160,56 @@ public class DefaultPriceComponent implements SoftwareComponent {
         float aggregationReviewCost = (1f / 2f) * DEV_REVIEW_RATE; //30 minutes for aggregation review
         debug("aggregationCost " + aggregationReviewCost);
         return aggregationReviewCost + getDevCoreReviewCost();
+    }
+
+    private float getPrimaryTestingReviewCost() {
+        debug("screeningCost " + getScreeningPrimaryTestingReviewCost());
+        debug("aggregationCost " + getTestingAggregationCost());
+        debug("finalReviewCost " + getTestingFinalReviewCost());
+        return getScreeningPrimaryTestingReviewCost() + getTestingAggregationCost() +
+                getTestingFinalReviewCost() + getTestingCoreReviewCost();
+    }
+
+    private float getScreeningPrimaryTestingReviewCost() {
+        float screeningSetupCost = 1.0f * TESTING_REVIEW_RATE; // 60 minutes to set up
+        float screeningCost = (1f / 2f) * (float) submissionCount * TESTING_REVIEW_RATE;  //30 minutes per submission
+        return screeningSetupCost + screeningCost;
+    }
+
+    private float getTestingAggregationCost() {
+        float aggregationCost = (1f / 2f) * TESTING_REVIEW_RATE;  //30 minutes to aggregate
+        return aggregationCost;
+    }
+
+    private float getTestingFinalReviewCost() {
+        float finalReviewCost = 2f * TESTING_REVIEW_RATE;  //120 minutes to do final review
+        return finalReviewCost;
+    }
+
+    /**
+     * Return the review cost for a primary reviewer.
+     *
+     * @return
+     */
+    private float getTestingCoreReviewCost() {
+        float reviewCost = (float) (level + 1) * (float) submissionsPassedScreening * TESTING_REVIEW_RATE;
+        float startupCost = TESTING_REVIEW_RATE * 2; //120 minutes to "start up"
+        float testCaseCost = TESTING_REVIEW_RATE * 5; // 5 hours to write test cases
+        debug("reviewCost " + reviewCost);
+        debug("startupCost " + startupCost);
+        debug("testCaseCost " + testCaseCost);
+        return reviewCost + startupCost + testCaseCost;
+    }
+
+    /**
+     * Return the total payment for a testing reviewer
+     *
+     * @return
+     */
+    private float getTestingReviewCost() {
+        float aggregationReviewCost = (1f / 2f) * TESTING_REVIEW_RATE; //30 minutes for aggregation review
+        debug("aggregationCost " + aggregationReviewCost);
+        return aggregationReviewCost + getTestingCoreReviewCost();
     }
 
     /**
@@ -219,6 +277,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getDevAggregationCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getDesignAggregationCost();
+        } else if (phaseId == 116) {
+            ret = getTestingAggregationCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
         }
@@ -237,6 +297,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getScreeningPrimaryDevReviewCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getDesignScreeningCost();
+        } else if (phaseId == 116) {
+            ret = getScreeningPrimaryTestingReviewCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
         }
@@ -255,6 +317,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getDevFinalReviewCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getDesignFinalReviewCost();
+        } else if (phaseId == 116) {
+            ret = getTestingFinalReviewCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
         }
@@ -273,6 +337,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getDevCoreReviewCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getCoreDesignReviewCost();
+        } else if (phaseId == 116) {
+            ret = getTestingCoreReviewCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
         }
@@ -333,6 +399,20 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 System.out.println("Design Primary Final Rev Cost|      " + sc.getDesignFinalReviewCost());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("   Design Core Review Cost   |      " + sc.getCoreDesignReviewCost());
+            } else if (sc.phaseId == 116) {
+                System.out.println("      Testing Cost:           |      " + sc.getPrice());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("   Testing Review Cost:       |      " + sc.getReviewPrice());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println(" Testing Primary Review Cost: |      " + sc.getPrimaryReviewPrice());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("  Testing Primary Screen Cost |      " + sc.getScreeningPrimaryTestingReviewCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("    Testing Primary Agg Cost  |      " + sc.getTestingAggregationCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("Testing Primary Final Rev Cost|      " + sc.getTestingFinalReviewCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("   Testing Core Review Cost   |      " + sc.getTestingCoreReviewCost());
             } else {
                 System.out.println("INVALID PHASE");
             }
