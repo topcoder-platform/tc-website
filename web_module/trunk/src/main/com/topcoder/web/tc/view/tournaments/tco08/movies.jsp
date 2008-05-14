@@ -115,6 +115,18 @@
                             </a>
                             <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_12&title=Algo%20Room%203%20intros">Algo Room 3 intros</A>
                         </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_13&title=Arena%20Tour">
+                                <img src="/i/tournament/tco08/movies/tco08_13.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_13&title=Arena%20Tour">Arena Tour</A>
+                        </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_14&title=The%20Finals%20are%20Set">
+                                <img src="/i/tournament/tco08/movies/tco08_14.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_14&title=The%20Finals%20are%20Set">The Finals are Set</A>
+                        </td>
                     </tr>
                 </tbody>
                 </table>
