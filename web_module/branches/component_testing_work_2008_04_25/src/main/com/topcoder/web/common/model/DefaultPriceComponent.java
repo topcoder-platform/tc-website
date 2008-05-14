@@ -20,6 +20,11 @@ import com.topcoder.shared.util.logging.Logger;
  * @version 1.0.1
  */
 public class DefaultPriceComponent implements SoftwareComponent {
+    
+    // This is a hack to add component testing review registration
+    // all this should change to project categories ids
+    private static final int COMPONENT_TESTING = 116;
+
     private static Logger log = Logger.getLogger(DefaultPriceComponent.class);
 
     private final static float[] DESIGN_PRICE_LOOKUP = {0f, 800f, 800f};
@@ -70,7 +75,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = DEV_PRICE_LOOKUP[level];
         } else if (phaseId == DESIGN_PHASE) {
             ret = DESIGN_PRICE_LOOKUP[level];
-        } else if (phaseId == 116) {
+        } else if (phaseId == COMPONENT_TESTING) {
             ret = TESTING_PRICE_LOOKUP[level];
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
@@ -85,7 +90,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getPrimaryDevReviewCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getPrimaryDesignReviewCost();
-        } else if (phaseId == 116) {
+        } else if (phaseId == COMPONENT_TESTING) {
             ret = getPrimaryTestingReviewCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
@@ -99,7 +104,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getDevReviewCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getDesignReviewCost();
-        } else if (phaseId == 116) {
+        } else if (phaseId == COMPONENT_TESTING) {
             ret = getTestingReviewCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
@@ -277,7 +282,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getDevAggregationCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getDesignAggregationCost();
-        } else if (phaseId == 116) {
+        } else if (phaseId == COMPONENT_TESTING) {
             ret = getTestingAggregationCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
@@ -297,7 +302,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getScreeningPrimaryDevReviewCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getDesignScreeningCost();
-        } else if (phaseId == 116) {
+        } else if (phaseId == COMPONENT_TESTING) {
             ret = getScreeningPrimaryTestingReviewCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
@@ -317,7 +322,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getDevFinalReviewCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getDesignFinalReviewCost();
-        } else if (phaseId == 116) {
+        } else if (phaseId == COMPONENT_TESTING) {
             ret = getTestingFinalReviewCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
@@ -337,7 +342,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getDevCoreReviewCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getCoreDesignReviewCost();
-        } else if (phaseId == 116) {
+        } else if (phaseId == COMPONENT_TESTING) {
             ret = getTestingCoreReviewCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
@@ -399,7 +404,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 System.out.println("Design Primary Final Rev Cost|      " + sc.getDesignFinalReviewCost());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("   Design Core Review Cost   |      " + sc.getCoreDesignReviewCost());
-            } else if (sc.phaseId == 116) {
+            } else if (sc.phaseId == COMPONENT_TESTING) {
                 System.out.println("      Testing Cost:           |      " + sc.getPrice());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("   Testing Review Cost:       |      " + sc.getReviewPrice());

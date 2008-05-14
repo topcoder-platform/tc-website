@@ -29,7 +29,7 @@ import java.util.Map;
  * Shows project review details.
  * <p/>
  * <p/>
- * Version 1.0.1 Change notes:
+ * Version  .0.1 Change notes:
  * <ol>
  * <li>
  * RBoard related tasks were moved to a tcs bean.

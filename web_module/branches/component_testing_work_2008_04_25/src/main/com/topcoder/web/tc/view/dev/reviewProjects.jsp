@@ -145,7 +145,7 @@
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
-      <td class="statDk" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<rsc:item row="<%=resultRow%>" name="phase_id"/>">details</a>
+      <td class="statDk" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<%=(design ? "112" : "113")%>">details</a>
       <% if (resultRow.getIntItem("price_changes")>0) { %> <img src="/i/development/up_arrow_gr.gif" border="0"/> <% } %></td>
    </tr>
    <% } %>
@@ -172,8 +172,9 @@
 <tr>
 <td>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-   <tr><td class="tableTitle" colspan="10">Development Review Opportunities</td></tr>
+   <tr><td class="tableTitle" colspan="11">Development Review Opportunities</td></tr>
    <tr>
+      <td class="tableHeader" align="center">Type</td>
       <td class="tableHeader" align="center">Catalog</td>
       <td class="tableHeader" width="100%">Component</td>
       <td class="tableHeader" align="right" nowrap="nowrap">Primary Reviewer<br>Payment</td>
@@ -193,6 +194,13 @@
    <% pageContext.setAttribute("price", prices.get(j));%>
    <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DEV_PHASE || resultRow.getIntItem("phase_id")==116) { %>
    <tr>
+      <td class="statDk" align="center">
+      <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DEV_PHASE) { %>
+      Development
+      <% } else { %>
+      Testing
+      <% } %>
+      </td>
       <td class="statDk" align="center">
       <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
       <img src="/i/development/smAOL.gif" border="0"/>
@@ -231,7 +239,7 @@
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
-      <td class="statDk" align="left" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<rsc:item row="<%=resultRow%>" name="phase_id"/>">details</a>
+      <td class="statDk" align="left" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<%=(design ? "112" : "113")%>">details</a>
       <% if (resultRow.getIntItem("price_changes")>0) { %> <img src="/i/development/up_arrow_gr.gif" border="0"/> <% } %></td>
    </tr>
    <% } %>
