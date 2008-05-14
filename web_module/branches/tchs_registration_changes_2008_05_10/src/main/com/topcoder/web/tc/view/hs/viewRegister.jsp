@@ -108,8 +108,9 @@
 	                        </span>
 	                    </p>
 	                    <p align="center">
-                            <jsp:getProperty name="question" property="text"/>  <br/>** We won't store <br>
+                            <jsp:getProperty name="question" property="text"/><br />
 	                        <input type="text" size="10" maxlength="10" name="<%=AnswerInput.PREFIX + question.getId()%>" id ="answerInput" value="<%= defaults.containsKey(AnswerInput.PREFIX + question.getId()) ? defaults.get(AnswerInput.PREFIX + question.getId()) : "" %>"/>
+	                        <br /><em>** Your date of birth will only be used for eligibility purposes **</em>
                         </p>
             	<% } else { %>
                         <p align="center">
