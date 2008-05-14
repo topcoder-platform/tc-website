@@ -33,9 +33,7 @@
             
             <h3>andrewzta wins Room 3!</h3>
             <br />
-            <%--
             <p style="float:right; width:200px; height:350px; margin-left:10px;"><img src="/i/tournament/tco08/shotR3.jpg" alt="andrewzta wins Room 3!" /></p>
-            --%>
             <p><strong>
 The last Semifinal of this year's TCO turned out to have more complicated problems than two previous ones. However submissions on Easy didn't reflect it.
 <tc-webtag:handle coderId="251074" context="algorithm" darkBG="true" /> was the first to submit the 250-pointer for 237.69 points. He was just 3 points in front
