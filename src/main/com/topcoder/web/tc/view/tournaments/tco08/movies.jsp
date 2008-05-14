@@ -101,6 +101,20 @@
                             </a>
                             <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_10&title=Algo%20Room%202%20intros">Algo Room 2 intros</A>
                         </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_11&title=Midway%20through%20Algo%20Tuesday">
+                                <img src="/i/tournament/tco08/movies/tco08_11.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_11&title=Midway%20through%20Algo%20Tuesday">Midway through Algo Tuesday</A>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_12&title=Algo%20Room%203%20intros">
+                                <img src="/i/tournament/tco08/movies/tco08_12.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_12&title=Algo%20Room%203%20intros">Algo Room 3 intros</A>
+                        </td>
                     </tr>
                 </tbody>
                 </table>
