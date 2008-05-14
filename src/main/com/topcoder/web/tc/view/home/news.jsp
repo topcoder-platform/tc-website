@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.14.08<br />12:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=blog' refer='/tc' />">The Official Blog of the 2008 TopCoder Open</a></span><br /><br />
+        The 2008 TopCoder Open is still underway in Las Vegas.  Be sure to get the latest play-by-plays, movies, and more from our blog!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=blog' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />05.13.08<br />2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />">TopCoder launches the $100,000 Truveo Developer Challenge</a></span><br /><br />
@@ -150,20 +163,6 @@
    </tr>
    <tr><td class="newsLinksCell">
         <tc-webtag:forumLink forumID="520183" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.02.08<br />10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/pdfs/tournaments/tco08/TCO08_Program_View.pdf">TCO08 Program now available</a> [PDF - 2mb]</span><br /><br />
-        The TCO08 program is now <a href="/pdfs/tournaments/tco08/TCO08_Program_View.pdf">online</a>.  Check out the 120 finalists, the brackets and our sponsor’s messages.  The finals are right around the corner!
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/pdfs/tournaments/tco08/TCO08_Program_View.pdf">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
