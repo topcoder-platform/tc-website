@@ -89,6 +89,42 @@ for(var i=1; i<30; i++){
 
 <br /><br />
 
+<a name="algo1"></a> 
+<p><strong>Algorithm Room 1</strong></p>
+<script type="text/javascript">
+//<![CDATA[
+for(var i=1; i<30; i++){
+    doWrite(' <a href="/i/tournament/tco08/photos/algo1/'+i+'.jpg" title="Algorithm Room 1" rel="algo1" class="thickbox spaced"><img src="/i/tournament/tco08/photos/algo1/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+//]]>
+</script>
+
+<br /><br />
+
+<a name="algo2"></a> 
+<p><strong>Algorithm Room 2</strong></p>
+<script type="text/javascript">
+//<![CDATA[
+for(var i=1; i<47; i++){
+    doWrite(' <a href="/i/tournament/tco08/photos/algo2/'+i+'.jpg" title="Algorithm Room 2" rel="algo2" class="thickbox spaced"><img src="/i/tournament/tco08/photos/algo2/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+//]]>
+</script>
+
+<br /><br />
+
+<a name="algo3"></a> 
+<p><strong>Algorithm Room 3</strong></p>
+<script type="text/javascript">
+//<![CDATA[
+for(var i=1; i<47; i++){
+    doWrite(' <a href="/i/tournament/tco08/photos/algo3/'+i+'.jpg" title="Algorithm Room 3" rel="algo3" class="thickbox spaced"><img src="/i/tournament/tco08/photos/algo3/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+//]]>
+</script>
+
+<br /><br />
+
 <a name="misc"></a> 
 <p><strong>Miscellaneous</strong></p>
 <script type="text/javascript">
