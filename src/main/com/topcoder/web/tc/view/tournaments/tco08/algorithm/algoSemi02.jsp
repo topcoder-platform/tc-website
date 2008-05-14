@@ -33,9 +33,7 @@
             
             <h3>vlad89 wins Room 2!</h3>
             <br />
-            <%--
             <p style="float:right; width:200px; height:350px; margin-left:10px;"><img src="/i/tournament/tco08/shotR2.jpg" alt="vlad89 wins Room 2!" /></p>
-            --%>
             <p><strong>
 The Algorithm Competition of TCO'08 continued with Semifinal Room 2. The actions started early as <tc-webtag:handle coderId="8355516" context="algorithm" darkBG="true" /> submitted the Easy
 for 243,28 points. Many other competitors followed closely
