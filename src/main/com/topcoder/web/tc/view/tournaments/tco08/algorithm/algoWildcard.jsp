@@ -33,7 +33,7 @@
             
             <h3>tomek wins Wildcard round!</h3>
             <br />
-            <p style="float:right; width:102px; height:224px; margin-left:10px;"><img src="/i/tournament/tco08/shotR4.jpg" alt="tomek wins Wildcard round!" /></p>
+            <p style="float:right; width:200px; height:350px; margin-left:10px;"><img src="/i/tournament/tco08/shotR4.jpg" alt="tomek wins Wildcard round!" /></p>
             <p><strong>The Wildcard play-by-play can be found <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=613454&amp;start=0&amp;mc=30">here</a>.</strong></p>
             
             <br /><br />
