@@ -1,6 +1,11 @@
 package com.topcoder.web.common;
 
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +28,6 @@ import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
-import com.topcoder.web.common.validation.AgeValidator;
 import com.topcoder.web.common.validation.NonEmptyValidator;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
@@ -37,6 +41,8 @@ import com.topcoder.web.common.validation.ValidationResult;
  */
 public class HSRegistrationHelper {
     
+    private static final String DOB_DATE_FORMAT = "yyyy/MM/dd";
+
     protected static final Logger log = Logger.getLogger(HSRegistrationHelper.class);
     
     private TCRequest request;
@@ -57,15 +63,9 @@ public class HSRegistrationHelper {
     private List<Response> responses; 
     
     /**
-     * Keyword for the current age question.
+     * Keyword for the date of birth question.
      */    
-    public static final String AGE = "age";
-
-    
-    /**
-     * Keyword for the age at the end of the season question.
-     */    
-    public static final String AGE_END_SEASON = "agees";
+    public static final String DOB = "dob";
 
     /**
      * Keyword for the question of whether the user is pursuing HS education.
@@ -145,38 +145,26 @@ public class HSRegistrationHelper {
             }            
         }
 
-        String ageStr = responsesMap.get(AGE).getText();
-        String ageEndSeasonStr = responsesMap.get(AGE_END_SEASON).getText();
+        String dob = responsesMap.get(DOB).getText();
+        
         String attendingStr = responsesMap.get(IN_HIGH_SCHOOL).getAnswer() == null? null : responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getText();
         
         // check that the user has filled the fields
-        ValidationResult result = new AgeValidator().validate(new StringInput(ageStr));
+
+        ValidationResult result = new NonEmptyValidator("You must enter a date.").validate(new StringInput(dob));
         if (!result.isValid()) {
-            results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(AGE).getQuestion().getId(), result.getMessage()}); 
-        }
-        
-        result = new AgeValidator().validate(new StringInput(ageEndSeasonStr));
-        if (!result.isValid()) {
-            results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(AGE_END_SEASON).getQuestion().getId(), result.getMessage()}); 
+            results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(DOB).getQuestion().getId(), result.getMessage()}); 
         }
 
+        if (result.isValid() && !isValidDate(dob)) {
+            results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(DOB).getQuestion().getId(), "You must enter a valid date"}); 
+        }
+        
         result = new NonEmptyValidator("Please choose yes or no.").validate(new StringInput(attendingStr));
         if (!result.isValid()) {
             results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(IN_HIGH_SCHOOL).getQuestion().getId(), result.getMessage()}); 
         }
 
-        // check that the ages are consistent
-        if (results.isEmpty()) {
-            int age = Integer.parseInt(ageStr);
-            int ageEndSeason = Integer.parseInt(ageEndSeasonStr);
-            int dif = ageEndSeason - age;
-           
-            if (dif != 0 && dif != 1) {
-                results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(AGE).getQuestion().getId(), "Please check the age."}); 
-                results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(AGE_END_SEASON).getQuestion().getId(), "Please check the age."}); 
-            }            
-        }
-        
         return results;
     }
 
@@ -189,8 +177,7 @@ public class HSRegistrationHelper {
     public List<Object[]> getDefaults() {
         List<Object[]> result = new ArrayList<Object[]>();
         
-        result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(AGE).getQuestion().getId(), responsesMap.get(AGE).getText()});
-        result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(AGE_END_SEASON).getQuestion().getId(), responsesMap.get(AGE_END_SEASON).getText()});
+        result.add(new String[] {AnswerInput.PREFIX + responsesMap.get(DOB).getQuestion().getId(), responsesMap.get(DOB).getText()});
         
         if (responsesMap.get(IN_HIGH_SCHOOL).getAnswer() != null) {
             result.add(new Object[] {AnswerInput.PREFIX + responsesMap.get(IN_HIGH_SCHOOL).getQuestion().getId(), responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getId() });
@@ -249,10 +236,17 @@ public class HSRegistrationHelper {
         }
         
         // Mark in event_registration table that the user tried to register but was not eligible.
-        u.addEventRegistration(season.getEvent(), responses, false);
+        u.addEventRegistration(season.getEvent(), responses, false, getAgeNote(season));
     }
 
-    
+    private String getAgeNote(Season season) {
+        Date dob = parseDate(responsesMap.get(DOB).getText()); 
+        int ageHs = calculateAge(dob, new Date(season.getStartDate().getTime()));
+        int ageEndSeason = calculateAge(dob, season.getEndDate());
+        boolean attendingHS = "yes".equalsIgnoreCase(responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getText());
+
+        return "Attending HS: " + attendingHS + ", Start age: " + ageHs + ", End age: " + ageEndSeason; 
+    }
 
     /**
      * Register the user for the current season.
@@ -297,13 +291,29 @@ public class HSRegistrationHelper {
     }
     
     /**
-     * Return whether a user is eligible for participating in High School competitions.
+     * Return whether a user is eligible for participating in the current season.
      * 
      * @return true if the user is eligible.
      */
     public boolean isEligibleHS() {
-        int ageHs = Integer.parseInt(responsesMap.get(AGE).getText()); 
-        int ageEndSeason = Integer.parseInt(responsesMap.get(AGE_END_SEASON).getText()); 
+        return isEligibleHS(getCurrentSeason());
+    }
+
+    /**
+     * Return whether a user is eligible for participating in High School competitions in the specified season
+     * 
+     * @return true if the user is eligible.
+     */
+    public boolean isEligibleHS(Season season) {
+        Date dob = parseDate(responsesMap.get(DOB).getText()); 
+        int ageHs = calculateAge(dob, new Date(season.getStartDate().getTime()));
+        int ageEndSeason = calculateAge(dob, season.getEndDate());
+        
+        log.debug("Season: (" + season.getStartDate() + " - " + season.getEndDate() + ")");
+        log.debug("DOB: " + dob);
+        log.debug("ageHS: " + ageHs);
+        log.debug("ageEndSeason: " + ageEndSeason);
+        
         boolean attendingHS = "yes".equalsIgnoreCase(responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getText());
             
         if (!attendingHS) return false;
@@ -312,6 +322,30 @@ public class HSRegistrationHelper {
         
         return true;
     }
-    
+
+    private static int calculateAge(Date dob, Date date) {
+        GregorianCalendar dobCal = new GregorianCalendar();
+        dobCal.setTime(dob);
+        
+        GregorianCalendar dateCal = new GregorianCalendar();
+        dateCal.setTime(date);
+        
+        int yearDif = dateCal.get(Calendar.YEAR) - dobCal.get(Calendar.YEAR);
+
+        dobCal.set(Calendar.YEAR, dateCal.get(Calendar.YEAR));
+        boolean takeOne = (dateCal.before(dobCal));
+        
+        return yearDif - (takeOne ? 1 : 0);
+    }
+
+    protected boolean isValidDate(String s) {
+        return parseDate(s) != null;
+    }
+
+    protected Date parseDate(String s) {
+        SimpleDateFormat sdf = new SimpleDateFormat(DOB_DATE_FORMAT);
+        ParsePosition pp = new ParsePosition(0);
+        return sdf.parse(s, pp);
+    }
 
 }
