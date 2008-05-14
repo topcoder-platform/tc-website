@@ -45,7 +45,7 @@
 </jsp:include>
 
 <p>
-    5.14.16 - 2008.04.xx
+    5.14.16 - 2008.04.29
     <ul>
         <li>[PACTS-2] - Remove "Global AD" nomenclature from the front end -pulky</li>
         <li>[PACTS-5] - Make it possible to pay for AMD marathon matches -pulky</li>
