@@ -4,6 +4,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.15.08<br />7:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=blog' refer='/tc' />">Congratulations TCO08 Champions!</a></span><br /><br />
+        The 2008 TopCoder Open has come to a close and we now have our new champs!  Kudos are in order to <tc-webtag:handle coderId="144400" context="algorithm"/> (<a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=bracket">Algorithm</a>), <tc-webtag:handle coderId="119676" context="design"/> (<a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=desBracket">Component Design</a>), <tc-webtag:handle coderId="8499822" context="development"/> (<a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=devBracket">Component Development</a>), <tc-webtag:handle coderId="10597114" context="long"/> (<a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=marathon&amp;d4=bracket">Marathon</a>), and <tc-webtag:handle coderId="22418135" /> (<a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=bracket">Studio</a>) for an exciting competition!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=blog' refer='/tc' />">details</a> | 
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=bracket">algorithm</a> | 
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=desBracket">design</a> | 
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=devBracket">development</a> | 
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=marathon&amp;d4=bracket">marathon</a> | 
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=bracket">studio</a> | 
+        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />05.15.08<br />6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">Open AIM Developer Challenge - We Have Our Winners!</a></span><br /><br />
@@ -151,18 +169,5 @@
         <a href="/tc?module=ViewSurvey&amp;sid=22570">vote</a> | 
         <a href="/openaim/forums">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />05.07.08<br />9:15 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2229">yourminis flash widget news flash!</a></span><br /><br />
-        We have just launched a contest over on <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2229">Studio</a> to build the 'TopCoder Contest Status Widget' as a yourminis Flash Widget using the yourminis Widget API. The competition runs for a week, and there's $2100 in prize money up for grabs. Check it out!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2229">details</a> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&amp;forumID=191">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
    
