@@ -39,7 +39,7 @@
 <td width="100%" align="left" class="bodyColumn">
 
 <jsp:include page="/page_title.jsp">
-<jsp:param name="image" value="component_testing"/>
+<jsp:param name="image" value="comp_development"/>
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
