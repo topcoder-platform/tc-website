@@ -12,6 +12,9 @@ import com.topcoder.apps.review.projecttracker.ProjectTrackerV2;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home;
 import com.topcoder.apps.review.projecttracker.ProjectType;
 import com.topcoder.apps.review.projecttracker.User;
+import com.topcoder.dde.catalog.forums.ForumsServiceCreationException;
+import com.topcoder.dde.catalog.forums.ForumsServiceFactory;
+import com.topcoder.dde.catalog.forums.ForumsServiceFactoryException;
 import com.topcoder.dde.persistencelayer.interfaces.*;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.RolePrincipal;
@@ -410,21 +413,30 @@ public class ComponentManagerBean
 
         Forums forums = null;
         try {
-            Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
-            ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
-            forums = forumsHome.create();
-        } catch (NamingException e) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(
-                    "Failed to connect to forums server EJB: "
-                            + e.toString());
-        } catch (CreateException e) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(e.toString());
-        } catch (RemoteException e) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(e.toString());
-        }
+        	forums = ForumsServiceFactory.getInstance().createForums();
+//        } catch (ForumsServiceFactoryException e) {
+//        	ejbContext.setRollbackOnly();
+//        	throw e;
+		} catch (ForumsServiceCreationException e) {
+			ejbContext.setRollbackOnly();
+        	throw e;
+		}
+//        try {
+//            Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
+//            ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
+//            forums = forumsHome.create();
+//        } catch (NamingException e) {
+//            ejbContext.setRollbackOnly();
+//            throw new CatalogException(
+//                    "Failed to connect to forums server EJB: "
+//                            + e.toString());
+//        } catch (CreateException e) {
+//            ejbContext.setRollbackOnly();
+//            throw new CatalogException(e.toString());
+//        } catch (RemoteException e) {
+//            ejbContext.setRollbackOnly();
+//            throw new CatalogException(e.toString());
+//        }
 
         // look for the public forum flag
         try {
