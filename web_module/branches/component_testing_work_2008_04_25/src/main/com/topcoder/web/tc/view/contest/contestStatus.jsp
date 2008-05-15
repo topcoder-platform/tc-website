@@ -165,8 +165,8 @@
     <rsc:iterator list="<%=contests%>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
             <c:if test="${pt == DEVELOPMENT_TYPE_ID}">
-                <td class="headerC">
-                    <rsc:item name="type" row="<%=resultRow%>"/>
+                <td class="valueC">
+                    <strong><rsc:item name="type" row="<%=resultRow%>"/></strong>
                 </td>
             </c:if>
             <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != APPLICATION_TESTING_TYPE_ID}">
