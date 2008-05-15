@@ -125,6 +125,30 @@ for(var i=1; i<47; i++){
 
 <br /><br />
 
+<a name="wildcard"></a> 
+<p><strong>Algorithm Wildcard</strong></p>
+<script type="text/javascript">
+//<![CDATA[
+for(var i=1; i<25; i++){
+    doWrite(' <a href="/i/tournament/tco08/photos/wildcard/'+i+'.jpg" title="Algorithm Wildcard" rel="wildcard" class="thickbox spaced"><img src="/i/tournament/tco08/photos/wildcard/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+//]]>
+</script>
+
+<br /><br />
+
+<a name="development"></a> 
+<p><strong>Component Development</strong></p>
+<script type="text/javascript">
+//<![CDATA[
+for(var i=1; i<28; i++){
+    doWrite(' <a href="/i/tournament/tco08/photos/development/'+i+'.jpg" title="Component Development" rel="development" class="thickbox spaced"><img src="/i/tournament/tco08/photos/development/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+//]]>
+</script>
+
+<br /><br />
+
 <a name="misc"></a> 
 <p><strong>Miscellaneous</strong></p>
 <script type="text/javascript">
