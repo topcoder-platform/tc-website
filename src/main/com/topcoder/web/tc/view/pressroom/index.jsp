@@ -110,6 +110,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- Computerworld: Eli Lilly aims to tap 'rock star' programmers begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9085562&intsrc=hm_list' refer='pr_index' />"><img src="/i/pressroom/computerworld.gif" alt="Computerworld logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9085562&intsrc=hm_list' refer='pr_index' />">Eli Lilly aims to tap 'rock star' programmers</a></h3>
+                        <p>Drug firm outsourcing some app development to TopCoder's stable of freelance experts  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9085562&intsrc=hm_list' refer='pr_index' />">[May 15]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Computerworld: Eli Lilly aims to tap 'rock star' programmers end --%>
+                
                 <%-- Lilly Partners with TopCoder, to Find Drug Discovery IT Solutions begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
