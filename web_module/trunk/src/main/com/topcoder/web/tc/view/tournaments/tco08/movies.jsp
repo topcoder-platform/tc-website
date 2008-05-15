@@ -128,6 +128,34 @@
                             <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_14&title=The%20Finals%20are%20Set">The Finals are Set</A>
                         </td>
                     </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_15&title=Development%20Finals%20are%20underway">
+                                <img src="/i/tournament/tco08/movies/tco08_15.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_15&title=Development%20Finals%20are%20underway">Development Finals are underway</A>
+                        </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_16&title=Meet%20Pops">
+                                <img src="/i/tournament/tco08/movies/tco08_16.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_16&title=Meet%20Pops">Meet [Pops]</A>
+                        </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_17&title=In%20the%20war%20room">
+                                <img src="/i/tournament/tco08/movies/tco08_17.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_17&title=In%20the%20war%20room">In the war room</A>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_18&title=Studio%20Finals%20in%20the%20books">
+                                <img src="/i/tournament/tco08/movies/tco08_18.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_18&title=Studio%20Finals%20in%20the%20books">Studio Finals in the Books</A>
+                        </td>
+                    </tr>
                 </tbody>
                 </table>
                 </div>    
