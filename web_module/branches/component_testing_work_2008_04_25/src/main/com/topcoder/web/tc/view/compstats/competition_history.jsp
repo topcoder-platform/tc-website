@@ -209,7 +209,7 @@
         <rsc:iterator list="<%=rsc2%>" id="resultRow">
             <tr class="<%=even?"dark":"light"%>">
                 <c:if test="${pt == DEVELOPMENT_PROJECT_TYPE}">
-                    <TD CLASS="valueC"><rsc:item name="type" row="<%=resultRow%>"/></td>
+                    <TD CLASS="valueC"><strong><rsc:item name="type" row="<%=resultRow%>"/></strong></td>
                 </c:if>               
                 <TD class="value"><rsc:item name="rating_date" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
                 <TD class="value">
