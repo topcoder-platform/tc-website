@@ -105,7 +105,7 @@ one among them.
 </p>
 
             <br />
-            <p>by <tc-webtag:handle coderId="8357090" context="algorithm"/ darkBG="true" ></p>
+            <p>by <tc-webtag:handle coderId="8357090" context="algorithm" darkBG="true" /></p>
             <h4>CraneSort</h4>
             <p>
 Consider an input with N crates. 
@@ -179,7 +179,7 @@ not originating in the vertex <tt>-</tt>.
 </p>
 
             <br />
-            <p>by <tc-webtag:handle coderId="287269" context="algorithm"/ darkBG="true" ></p>
+            <p>by <tc-webtag:handle coderId="287269" context="algorithm" darkBG="true" /></p>
             <h4>SnakesOnAPlane</h4>
             <p>
 I will first describe a brute-force solution to this problem that only
