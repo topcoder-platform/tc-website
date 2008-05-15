@@ -134,7 +134,7 @@
     after you successfully register for this competition.
 </p>
 
-    <% if (projectDetail.getItem(0, "document_id").getResultData() == null) { %>
+    <% if (projectDetail.getItem(0, "document_id").getResultData() != null) { %>
 <p><strong>Requirement Specification</strong><br/>
     View the
     <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement
