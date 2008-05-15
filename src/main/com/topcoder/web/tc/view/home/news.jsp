@@ -4,7 +4,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.14.08<br />12:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.15.08<br />11:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=blog' refer='/tc' />">The Official Blog of the 2008 TopCoder Open</a></span><br /><br />
         The 2008 TopCoder Open is still underway in Las Vegas.  Be sure to get the latest play-by-plays, movies, and more from our blog!</td>
@@ -13,6 +13,19 @@
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=blog' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.15.08<br />11:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a target="blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9085562&intsrc=hm_list' refer='/tc' />">Computerworld - Eli Lilly aims to tap 'rock star' programmers</a></span><br /><br />
+        Drug firm outsourcing some app development to TopCoder's stable of freelance experts</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9085562&intsrc=hm_list' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="521212" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
    
 <%--------------------------------------------------------%>
@@ -150,19 +163,6 @@
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_050608">details</a> | 
         <tc-webtag:forumLink forumID="521066" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.06.08<br />6:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a target="blank" href="<tc-webtag:linkTracking link='http://www.ddj.com/architect/207404123' refer='/tc' />">Dr. Dobb's Portal - There Must be Contest</a></span><br /><br />
-        Programming contests used to be fun. Now they're a commercial software development business - and they're still fun!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.ddj.com/architect/207404123' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="521067" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
    
