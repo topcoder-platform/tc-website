@@ -155,6 +155,38 @@
                             </a>
                             <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_18&title=Studio%20Finals%20in%20the%20Books">Studio Finals in the Books</A>
                         </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_19&title=Preparing%20for%20the%20Finals">
+                                <img src="/i/tournament/tco08/movies/tco08_19.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_19&title=Preparing%20for%20the%20Finals">Preparing for the Finals</A>
+                        </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_20&title=Meet%20the%20Algo%20Finalists">
+                                <img src="/i/tournament/tco08/movies/tco08_20.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_20&title=Meet%20the%20Algo%20Finalists">Meet the Algo Finalists</A>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_21&title=%20">
+                                <img src="/i/tournament/tco08/movies/tco08_21.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_21&title=Here%20we%20Go">Here we Go</A>
+                        </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_22&title=End%20of%20Coding%20Phase">
+                                <img src="/i/tournament/tco08/movies/tco08_22.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_22&title=End%20of%20Coding%20Phase">End of Coding Phase</A>
+                        </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_23&title=End%20of%20Challenge%20Phase">
+                                <img src="/i/tournament/tco08/movies/tco08_23.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_23&title=End%20of%20Challenge%20Phase">End of Challenge Phase</A>
+                        </td>
                     </tr>
                 </tbody>
                 </table>
