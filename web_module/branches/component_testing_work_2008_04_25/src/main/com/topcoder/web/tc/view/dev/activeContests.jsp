@@ -339,7 +339,7 @@
     
     <br/>
     
-    ADD SOMETHING ABOUT TESTING COMPONENTS NOT PAYING ROYALTIES
+    And that's before royalty payments. The more <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/components/subscriptions.jsp">Component Subscriptions</a> we sell, the more royalties we pay out to our winners! Please note that custom components do not get added to the catalog and therefore do not have royalties.  Additionally, component testing competitions are not included in royalty payments.
     </p>
 
 <br />
