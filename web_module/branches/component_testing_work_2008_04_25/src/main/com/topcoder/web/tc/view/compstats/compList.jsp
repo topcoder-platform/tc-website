@@ -143,7 +143,7 @@
       <rsc:iterator list="<%=list%>" id="resultRow">
             <TR>
             <c:if test="${pt == DEVELOPMENT_TYPE_ID}">
-                <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="type" row="<%=resultRow%>" /></TD>
+                <td class="<%=even?"statLt":"statDk"%>" align="center"><strong><rsc:item name="type" row="<%=resultRow%>" /></strong></TD>
             </c:if>               
             <td class="<%=even?"statLt":"statDk"%>" align="left"><rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" /></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="category_desc" row="<%=resultRow%>" /></TD>
