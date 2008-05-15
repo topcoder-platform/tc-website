@@ -138,7 +138,7 @@ for(var i=1; i<25; i++){
 <br /><br />
 
 <a name="development"></a> 
-<p><strong>Component Development</strong></p>
+<p><strong>Component Development Finals</strong></p>
 <script type="text/javascript">
 //<![CDATA[
 for(var i=1; i<28; i++){
