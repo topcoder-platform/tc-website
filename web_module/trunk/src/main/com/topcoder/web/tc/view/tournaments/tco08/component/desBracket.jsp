@@ -34,7 +34,7 @@
                         <td align="right"><img src="/i/tournament/tco08/bracket_NW.png" alt="" border="0" /></td>
                         <td rowspan="3" style="background-color: #ffffff;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
                         <td rowspan="3" valign="middle"><img src="/i/tournament/tco08/bracket_R.png" alt="" border="0" /></td>
-                        <td rowspan="3" valign="middle" align="center"><img src="/i/tournament/tco08/bracketChampion.png" alt="" border="0" /><span class="bigTitle"><br /><%--<tc-webtag:handle coderId="293874" context="design" darkBG="true" />--%></span></td>
+                        <td rowspan="3" valign="middle" align="center"><img src="/i/tournament/tco08/bracketChampion.png" alt="" border="0" /><span class="bigTitle"><br /><tc-webtag:handle coderId="119676" context="design" darkBG="true" /></span></td>
                     </tr>
                     <tr>
                         <td style="padding: 15px" valign="middle" align="center">
