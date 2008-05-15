@@ -134,6 +134,14 @@
     after you successfully register for this competition.
 </p>
 
+    <% if (projectDetail.getItem(0, "document_id").getResultData() == null) { %>
+<p><strong>Requirement Specification</strong><br/>
+    View the
+    <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement
+        Specification</a> for this component project
+</p>
+    <% } %>
+
 <br>
 <span class="bigRed">NOTE: Please see the eligibility requirements below. Competitors must sign a non-disclosure agreement before being admitted into this competition.   If you have previously completed these documents, no further action is needed.</span>
 
