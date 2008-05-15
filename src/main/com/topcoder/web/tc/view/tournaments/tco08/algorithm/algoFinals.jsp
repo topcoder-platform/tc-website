@@ -39,7 +39,7 @@
             <p><strong>The Finals play-by-play can be found <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=613611&amp;start=0">here</a>.</strong></p>
             
             <br /><br />
-            <p>by <tc-webtag:handle coderId="10481120" context="algorithm"/></p>
+            <p>by <tc-webtag:handle coderId="10481120" context="algorithm" darkBG="true" /></p>
 
             <h4>CoolFunction</h4>
             <p>
@@ -105,7 +105,7 @@ one among them.
 </p>
 
             <br />
-            <p>by <tc-webtag:handle coderId="8357090" context="algorithm"/></p>
+            <p>by <tc-webtag:handle coderId="8357090" context="algorithm"/ darkBG="true" ></p>
             <h4>CraneSort</h4>
             <p>
 Consider an input with N crates. 
@@ -179,7 +179,7 @@ not originating in the vertex <tt>-</tt>.
 </p>
 
             <br />
-            <p>by <tc-webtag:handle coderId="287269" context="algorithm"/></p>
+            <p>by <tc-webtag:handle coderId="287269" context="algorithm"/ darkBG="true" ></p>
             <h4>SnakesOnAPlane</h4>
             <p>
 I will first describe a brute-force solution to this problem that only
