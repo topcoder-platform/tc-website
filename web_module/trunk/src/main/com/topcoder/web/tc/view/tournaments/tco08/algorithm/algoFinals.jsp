@@ -27,7 +27,7 @@
         <h2>Algorithm Competition Finals Summary</h2>
         
         <div class="sub_content">
-            <p><img src="/i/m/d000hg_big.jpg" alt="d000hg" style="width:55px; height:61px; border:0px; padding-right:2px;" hspace="6" vspace="1" align="left" class="myStatsPhoto" /><span>Tuesday, May 13, 2008<br />Introduction by <tc-webtag:handle coderId="21464956" darkBG="true" /></span></p>
+            <p><img src="/i/m/d000hg_big.jpg" alt="d000hg" style="width:55px; height:61px; border:0px; padding-right:2px;" hspace="6" vspace="1" align="left" class="myStatsPhoto" /><span>Thursday, May 15, 2008<br />Introduction by <tc-webtag:handle coderId="21464956" darkBG="true" /></span></p>
             <p align="right"><tc-webtag:forumLink forumID="521202" message="Discuss this competition" /></p>
             <br /><br />
             
