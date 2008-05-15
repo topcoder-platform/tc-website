@@ -149,6 +149,18 @@ for(var i=1; i<28; i++){
 
 <br /><br />
 
+<a name="gamenight"></a> 
+<p><strong>Game Night</strong></p>
+<script type="text/javascript">
+//<![CDATA[
+for(var i=1; i<29; i++){
+    doWrite(' <a href="/i/tournament/tco08/photos/gamenight/'+i+'.jpg" title="Game Night" rel="gamenight" class="thickbox spaced"><img src="/i/tournament/tco08/photos/gamenight/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+//]]>
+</script>
+
+<br /><br />
+
 <a name="misc"></a> 
 <p><strong>Miscellaneous</strong></p>
 <script type="text/javascript">
