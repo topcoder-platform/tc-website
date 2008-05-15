@@ -26,9 +26,7 @@
 <c:set var="semi2_id" value="12016"/>
 <c:set var="semi3_id" value="12017"/>
 <c:set var="wildcard_id" value="12018"/>
-<%-- 
 <c:set var="finals_id" value="12019"/>
- --%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
