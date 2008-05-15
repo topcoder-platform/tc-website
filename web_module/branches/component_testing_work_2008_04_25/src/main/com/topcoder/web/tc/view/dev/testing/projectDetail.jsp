@@ -39,7 +39,7 @@
 <td width="100%" align="left" class="bodyColumn">
 
 <jsp:include page="/page_title.jsp">
-<jsp:param name="image" value="comp_development"/>
+<jsp:param name="image" value="comp_testing"/>
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
@@ -157,7 +157,7 @@
     </tr>
 </table>
 <p>
-    All submissions are required to be submitted by the Initial Submission Due Date.</p>
+    All submissions are required to be submitted by the Initial Submission Due Date. All questions submitted with more than 24 hours before the due date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
 <p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="250">
@@ -180,6 +180,14 @@
 </table>
 </p>
 
+<ul>
+    <li>TopCoder may extend registration deadlines for any component that has insufficient participation. This decision may be influenced by whether the members that are already signed up for the project are rated or have high reliability. Registration deadlines become final 12 hours after they have expired.</li>
+    <li>TopCoder may extend submission deadlines up to 48 hours before the submission deadline if evidence suggests that the extension may be necessary for the project to be completed.</li>
+    <li>TopCoder may extend submission deadlines at any time if there were problems in the project that cost competitors time and therefore justify the extension.</li>
+    <li>TopCoder may cancel any project when there is evidence that no competitors are going to submit. Before this, TopCoder will send a verification email to all competitors. If no competitors reply affirmatively within 24 hours, the project will be terminated.</li>
+</ul>
+
+
 <%-- Payment --%>
 <table cellspacing="0" class="formFrame" align="center" width="530">
     <tr>
@@ -187,21 +195,23 @@
     </tr>
 </table>
 <p>
-TopCoder will compensate the first and second place submissions. 
-Initial payment for the winner will be distributed in two installments. 
-First Milestone: When the winning solution is submitted and review board suggestions are integrated. 
-Second Milestone: Marked by the completion of the Deployment phase of the project.</p>
+TopCoder will compensate members with first and second place submissions that have scored at least 75. The initial payment will be distributed in two installments. First Milestone: When the winning solution is submitted and review board suggestions are integrated. Second Milestone: Is marked by the completion of the development project*.</p>
 
-<p><strong>Winner</strong><br>
+<p><strong>Winning Tester</strong><br>
     Total Payment - $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br>
 </p>
 
-<p><strong>2nd Place</strong><br>
+<p><strong>Second Place Tester</strong><br>
     Total Payment - $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br>
 </p>
 
-<p>
-Final payment is conditional on acceptance .......
+<p class="noSpListTitle"><strong>Project Completion</strong><br />
+*Completion of the project is defined as follows:
+<ul class="noSpList">
+    <li>The Initial Submission has been delivered by the Initial Submission Due Date.</li>
+    <li>The Submission has been selected by the board as the winning submission.</li>
+    <li>Final payment is conditional on acceptance of the fully functional component by the Development Review Board.</li>
+</ul>
 </p>
 
 <%-- Eligibility Requirements --%>
