@@ -29,10 +29,8 @@
             <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
                     <td colspan="3">&#160;</td>
-                    <td align="center" colspan="3"><img src="/i/tournament/tco08/bracketChampion.png" alt="" border="0" />&nbsp;
-                        <%--
-                        <br /><span class="bigTitle">&nbsp;<tc-webtag:handle coderId="10574855" context="algorithm" darkBG="true" /></span>
-                        --%>
+                    <td align="center" colspan="3"><img src="/i/tournament/tco08/bracketChampion.png" alt="" border="0" />
+                        <br /><span class="bigTitle"><tc-webtag:handle coderId="144400" context="algorithm" darkBG="true" /></span>
                     </td>
                     <td colspan="3">&#160;</td>
                 </tr>
