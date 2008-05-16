@@ -33,9 +33,7 @@
             
             <h3>tomek is the new Algorithm Champion!</h3>
             <br />
-            <%--
             <p style="float:right; width:200px; height:350px; margin-left:10px;"><img src="/i/tournament/tco08/algo.jpg" alt="tomek is the new Algorithm Champion!" /></p>
-            --%>
             <p><strong>The Finals play-by-play can be found <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=613611&amp;start=0">here</a>.</strong></p>
             
             <br /><br />
