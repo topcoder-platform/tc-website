@@ -188,6 +188,20 @@
                             <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_23&title=End%20of%20Challenge%20Phase">End of Challenge Phase</A>
                         </td>
                     </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_24&title=And%20the%20Algorithm%20champion%20is">
+                                <img src="/i/tournament/tco08/movies/tco08_24.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_24&title=And%20the%20Algorithm%20champion%20is">And the Algorithm champion is...</A>
+                        </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_25&title=Winners%20Ceremony">
+                                <img src="/i/tournament/tco08/movies/tco08_25.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_25&title=Winners%20Ceremony">Winners Ceremony</A>
+                        </td>
+                    </tr>
                 </tbody>
                 </table>
                 </div>    
