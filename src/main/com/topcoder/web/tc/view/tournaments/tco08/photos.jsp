@@ -161,6 +161,30 @@ for(var i=1; i<29; i++){
 
 <br /><br />
 
+<a name="algofinal"></a> 
+<p><strong>Algorithm Finals</strong></p>
+<script type="text/javascript">
+//<![CDATA[
+for(var i=1; i<33; i++){
+    doWrite(' <a href="/i/tournament/tco08/photos/algofinal/'+i+'.jpg" title="Algorithm Finals" rel="algofinal" class="thickbox spaced"><img src="/i/tournament/tco08/photos/algofinal/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+//]]>
+</script>
+
+<br /><br />
+
+<a name="winners"></a> 
+<p><strong>Winners</strong></p>
+<script type="text/javascript">
+//<![CDATA[
+for(var i=1; i<43; i++){
+    doWrite(' <a href="/i/tournament/tco08/photos/winners/'+i+'.jpg" title="Winners" rel="winners" class="thickbox spaced"><img src="/i/tournament/tco08/photos/winners/thumbs/'+i+'.jpg" alt="+"/></a>');
+}
+//]]>
+</script>
+
+<br /><br />
+
 <a name="misc"></a> 
 <p><strong>Miscellaneous</strong></p>
 <script type="text/javascript">
