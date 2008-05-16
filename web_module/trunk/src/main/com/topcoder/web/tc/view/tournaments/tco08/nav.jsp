@@ -189,9 +189,7 @@
                         <% if (tabLev2.equals("advancers")) {%>
                             <li><a href="/tco08?module=MarathonAdvancers"<% if (tabLev3.equals("overview")) {%> class="on"<% } %>>Overview</a></li>
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=marathon&amp;d4=bracket"<% if (tabLev3.equals("bracket")) {%> class="on"<% } %>>Bracket</a></li>
-                            <%--
                             <li><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=marathon&amp;d4=summary"<% if (tabLev3.equals("summary")) {%> class="on"<% } %>>Summary</a></li>
-                            --%>                        
                         <% } %>
                     
                     <% } else if (tabLev1.equals(EventType.STUDIO_TOURNAMENT_ID.toString())) { %>
