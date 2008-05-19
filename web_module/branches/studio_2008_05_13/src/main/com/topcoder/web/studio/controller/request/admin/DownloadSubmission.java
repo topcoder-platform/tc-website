@@ -34,7 +34,20 @@ public class DownloadSubmission extends Base {
      *
      * @since TopCoder Studio Modifications Assembly (Req# 5.11)
      */
-    private static final String[] ALTERNATE_SUBMISSION_TYPES = {"tiny", "small", "medium", "full", "original"};
+    private static final String[] ALTERNATE_SUBMISSION_TYPES = {"tiny", "small", "medium", "full", "thumb", "original"};
+
+    /**
+     * <p>A <code>int</code> array listing the supported types of images provided with submission.</p>
+     *
+     * @since Studio Download Submission Refactor (Req# 2.1.2)
+     */
+    private static final int[] ALTERNATE_SUBMISSION_IMAGE_TYPES = {Image.GALLERY_THUMBNAIL_TYPE_ID,
+                                                                   Image.GALLERY_SMALL_TYPE_ID,
+                                                                   Image.GALLERY_SMALL_WATERMARKED_TYPE_ID,
+                                                                   Image.GALLERY_MEDIUM_TYPE_ID,
+                                                                   Image.GALLERY_MEDIUM_WATERMARKED_TYPE_ID,
+                                                                   Image.GALLERY_FULL_TYPE_ID,
+                                                                   Image.GALLERY_FULL_WATERMARKED_TYPE_ID};
 
     /**
      *
@@ -54,6 +67,11 @@ public class DownloadSubmission extends Base {
         String targetFileName;
         String destFileName;
         String contentType = "application/zip";
+
+        // Since Studio Download Submission Refactor (Req# 2.1.3)
+        // Check if there was an image type requested explicitly. If not then use -1 to indicate that no image type has
+        // been requested
+        int requestedImageTypeId = getRequestedImageTypeId();
 
         // Determine the type of requested submission presentation
         String submissionType = getRequest().getParameter(Constants.SUBMISSION_ALT_TYPE);
@@ -83,7 +101,8 @@ public class DownloadSubmission extends Base {
             // contest does not require preview file. So the admin may get the non-watermarked image
             Map<Integer,String> contestConfig = contest.getConfigMap();
             boolean previewFileRequired = Boolean.parseBoolean(contestConfig.get(ContestProperty.REQUIRE_PREVIEW_FILE));
-            if ("preview".equalsIgnoreCase(submissionType) && !previewFileRequired) {
+            boolean previewFileRequested = "preview".equalsIgnoreCase(submissionType);
+            if (previewFileRequested && !previewFileRequired && !s.getImages().isEmpty()) {
                 submissionType = "image";
             }
 
@@ -92,14 +111,32 @@ public class DownloadSubmission extends Base {
 
             // Since Studio Slideshow Submission - map the literal submission type to image type ID and determine the
             // filename based on submission image data
-            int fileIndex = getRequestedFileIndex();
-            int imageTypeId = getImageTypeId(submissionType);
+            // Since Studio Download Submission Refactor (Req# 2.1.3) - the requested image type ID has a preference
+            // over the requested submission type
+            int targetImageTypeId;
+            if (requestedImageTypeId == Constants.SUBMISSION_IMAGE_TYPE_UNSPECIFIED) {
+                targetImageTypeId = getImageTypeId(submissionType);
+            } else {
+                targetImageTypeId = requestedImageTypeId;
+            }
+
             String[] fileNames;
-            if (imageTypeId > 0) {
-                SubmissionImage image = getSubmissionImage(s, imageTypeId, fileIndex);
+            if (targetImageTypeId > 0) {
+                int fileIndex = getRequestedFileIndex();
+                SubmissionImage image = getSubmissionImage(s, targetImageTypeId, fileIndex);
                 fileNames = dir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
             } else {
                 fileNames = dir.list(new SubmissionPresentationFilter(submissionType, s.getId()));
+            }
+            
+            // Since Studio Download Submission Refactor (Req# 2.1.4) - if preview file was requested but it was not
+            // found then attempt to download image of type 31; if that doesn't exist also then raise an error
+            if ((fileNames == null) || (fileNames.length < 1)) {
+                if (previewFileRequested) {
+                    SubmissionImage image = getSubmissionImage(s, Image.GALLERY_FULL_WATERMARKED_TYPE_ID,
+                                                               Constants.DEFAULT_FILE_INDEX);
+                    fileNames = dir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
+                }
             }
 
             if ((fileNames == null)  || (fileNames.length < 1)) {
@@ -152,61 +189,30 @@ public class DownloadSubmission extends Base {
      * @since Studio Submission Slideshow
      */
     private int getImageTypeId(String submissionType) {
-        boolean galleryImageRequested = false;
-        String fileIndexParam = getRequest().getParameter(Constants.SUBMISSION_FILE_INDEX);
         String fileWatermarkParam = getRequest().getParameter(Constants.SUBMISSION_FILE_WATERMARKED);
-        if ((fileIndexParam != null) && (fileIndexParam.trim().length() > 0)) {
-            galleryImageRequested = true;
-        }
         boolean watermarkRequested = Boolean.valueOf(fileWatermarkParam);
         
         if ("tiny".equalsIgnoreCase(submissionType)) {
-            if (galleryImageRequested) {
-                return Image.GALLERY_THUMBNAIL_TYPE_ID;
-            } else {
-                return Image.PREVIEW_THUMBNAIL_TYPE_ID;
-            }
+            return Image.GALLERY_THUMBNAIL_TYPE_ID;
+        } else if ("thumb".equalsIgnoreCase(submissionType)) {
+            return Image.GALLERY_SMALL_WATERMARKED_TYPE_ID;
         } else if ("small".equalsIgnoreCase(submissionType)) {
-            if (galleryImageRequested) {
-                if (watermarkRequested) {
-                    return Image.GALLERY_SMALL_WATERMARKED_TYPE_ID;
-                } else {
-                    return Image.GALLERY_SMALL_TYPE_ID;
-                }
+            if (watermarkRequested) {
+                return Image.GALLERY_SMALL_WATERMARKED_TYPE_ID;
             } else {
-                if (watermarkRequested) {
-                    return Image.PREVIEW_SMALL_WATERMARKED_TYPE_ID;
-                } else {
-                    return Image.PREVIEW_SMALL_TYPE_ID;
-                }
+                return Image.GALLERY_SMALL_TYPE_ID;
             }
         } else if ("medium".equalsIgnoreCase(submissionType)) {
-            if (galleryImageRequested) {
-                if (watermarkRequested) {
-                    return Image.GALLERY_MEDIUM_WATERMARKED_TYPE_ID;
-                } else {
-                    return Image.GALLERY_MEDIUM_TYPE_ID;
-                }
+            if (watermarkRequested) {
+                return Image.GALLERY_MEDIUM_WATERMARKED_TYPE_ID;
             } else {
-                if (watermarkRequested) {
-                    return Image.PREVIEW_MEDIUM_WATERMARKED_TYPE_ID;
-                } else {
-                    return Image.PREVIEW_MEDIUM_TYPE_ID;
-                }
+                return Image.GALLERY_MEDIUM_TYPE_ID;
             }
         } else if ("full".equalsIgnoreCase(submissionType)) {
-            if (galleryImageRequested) {
-                if (watermarkRequested) {
-                    return Image.GALLERY_FULL_WATERMARKED_TYPE_ID;
-                } else {
-                    return Image.GALLERY_FULL_TYPE_ID;
-                }
+            if (watermarkRequested) {
+                return Image.GALLERY_FULL_WATERMARKED_TYPE_ID;
             } else {
-                if (watermarkRequested) {
-                    return Image.PREVIEW_FULL_WATERMARKED_TYPE_ID;
-                } else {
-                    return Image.PREVIEW_FULL_TYPE_ID;
-                }
+                return Image.GALLERY_FULL_TYPE_ID;
             }
         }
         return 0;
@@ -253,5 +259,34 @@ public class DownloadSubmission extends Base {
             }
         }
         throw new NavigationException(MessageFormat.format(Constants.ERROR_MSG_PRESENTATION_NOT_FOUND, imageTypeId));
+    }
+
+    /**
+     * <p>Gets the type of the requested image from the parameter of incoming request.</p>
+     *
+     * @return an <code>int</code> referencing the type of the requested image.
+     * @throws NavigationException if requested image type is not valid.
+     * @since Studio Download Submission Refactor (Req# 2.1.3)
+     */
+    private int getRequestedImageTypeId() throws NavigationException {
+        String requestedImageType = getRequest().getParameter(Constants.SUBMISSION_IMAGE_TYPE);
+        int requestedImageTypeId = Constants.SUBMISSION_IMAGE_TYPE_UNSPECIFIED;
+        if (requestedImageType != null) {
+            // Validate that the correct type of image is requested
+            boolean valid = false;
+            try {
+                requestedImageTypeId = Integer.parseInt(requestedImageType);
+                for (int i = 0; !valid && (i < ALTERNATE_SUBMISSION_IMAGE_TYPES.length); i++) {
+                    valid = (ALTERNATE_SUBMISSION_IMAGE_TYPES[i] == requestedImageTypeId);
+                }
+            } catch (NumberFormatException e) {
+                // Catch the NFE and let the NavigationException to be thrown
+            }
+            if (!valid) {
+                throw new NavigationException(
+                        MessageFormat.format(Constants.ERROR_MSG_INVALID_PRESENTATION_TYPE, requestedImageType));
+            }
+        }
+        return requestedImageTypeId;
     }
 }
