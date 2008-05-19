@@ -17,7 +17,6 @@
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 <c:set var="modKey" value="<%=Constants.MODULE_KEY%>"/>
 
-<c:set var="hasPreviewImage" value="${row.map['has_preview_image']}"/>
 <c:set var="submissionId" value="${row.map['submission_id']}"/>
 <c:set var="contestId" value="${row.map['contest_id']}"/>
 <c:set var="galleryImageCount" value="${row.map['gallery_image_count']}"/>
@@ -58,7 +57,7 @@
             <strong>ID:</strong>
             ${submissionId}
             <br/>
-           <studio_tags:viewSubmissionLink hasPreviewImage="${hasPreviewImage}" submissionId="${submissionId}"
+           <studio_tags:viewSubmissionLink submissionId="${submissionId}"
                                            galleryImageCount="${galleryImageCount}" targetPresentationType="medium"
                                            previewPresentationType="small" showFullVersionLink="true"
                                            contestId="${contestId}"/>

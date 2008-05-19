@@ -57,10 +57,9 @@ ${submission.originalFileName}
 <div id="pop${submission.id}" class="popUp">
 <div>View submission</div>
 </div>
-    <c:set var="hasPreviewImage" value="${submission.hasPreviewImage}"/>
     <c:set var="contestId" value="${submission.contest.id}"/>
     <c:set var="galleryImageCount" value="${submission.mediumWatermarkedGalleryImagesCount}"/>
-    <studio_tags:viewSubmissionLink hasPreviewImage="${hasPreviewImage}" submissionId="${submission.id}"
+    <studio_tags:viewSubmissionLink submissionId="${submission.id}"
                                     contestId="${contestId}" galleryImageCount="${galleryImageCount}"
                                     targetPresentationType="medium" previewPresentationType="tiny"/>
 </td>

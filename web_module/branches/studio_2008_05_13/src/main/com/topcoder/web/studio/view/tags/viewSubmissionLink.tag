@@ -1,7 +1,6 @@
 <%@ tag import="com.topcoder.web.studio.Constants" %>
 <%@ tag body-content="empty" %>
 
-<%@ attribute name="hasPreviewImage" required="true" type="java.lang.Boolean" %>
 <%@ attribute name="submissionId" required="true" type="java.lang.Long" %>
 <%@ attribute name="galleryImageCount" required="true" type="java.lang.Integer" %>
 <%@ attribute name="targetPresentationType" required="true" type="java.lang.String" %>
@@ -22,18 +21,11 @@
 <c:set var="modKey" value="<%=Constants.MODULE_KEY%>"/>
 
 <c:choose>
-    <c:when test="${hasPreviewImage}">
-        <c:if test="${galleryImageCount <= 0}">
-            <a href="${sessionInfo.servletPath}studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${targetPresentationType}"
-               title="" class="thickbox">
-                <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${previewPresentationType}" alt="+"/>
-            </a>
-        </c:if>
-        <c:if test="${galleryImageCount > 0}">
+    <c:when test="${galleryImageCount > 0}">
             <%-- There is a gallery of the images --%>
             <a href="${sessionInfo.servletPath}studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${targetPresentationType}&amp;${subFileIdx}=1"
                title="" class="thickbox" rel="gal${submissionId}">
-                <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${previewPresentationType}" alt="+" />
+                <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${previewPresentationType}"/>
             </a>
             <div style="visibility:hidden;display:inline;">
                 <c:forEach begin="2" end="${galleryImageCount}" step="1" varStatus="index">
@@ -50,14 +42,13 @@
                 <a href="${sessionInfo.servletPath}?${modKey}=Static&amp;d1=slideshow&amp;${cid}=${contestId}&amp;${subId}=${submissionId}&amp;${subFileIdx}=1&amp;${galImgCount}=${galleryImageCount}">
                     View Full Size</a> |
             </c:if>
-        </c:if>
         <a href="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}">Download Preview File</a>
     </c:when>
     <c:otherwise>
         <%-- There is no preview image which means that there is no gallery also so there is nothing to view - download
              the preview file --%>
         <a href="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}">
-            <img src="/i/v2/interface/magnify.png" alt="+" onmouseover="popUp(this,'myPopup')" onmouseout="popHide()" />
+            <img src="/i/v2/interface/magnify.png" onmouseover="popUp(this,'myPopup')" onmouseout="popHide()" />
         </a>
     </c:otherwise>
 </c:choose>

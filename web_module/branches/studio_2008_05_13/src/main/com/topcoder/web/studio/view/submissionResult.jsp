@@ -70,7 +70,6 @@
 <c:set var="contestType" value="${submission.contest.type}"/>
 
 <c:set var="showSubmissions" value="${submission.contest.viewableSubmissions.value}"/>
-<c:set var="hasPreviewImage" value="${submission.hasPreviewImage}"/>
 <c:set var="submissionId" value="${submission.id}"/>
 <c:set var="contestId" value="${submission.contest.id}"/>
 <c:set var="galleryImageCount" value="${submission.mediumWatermarkedGalleryImagesCount}"/>
@@ -99,8 +98,7 @@
                         <%-- All newer contests --%>
                         <c:choose>
                             <c:when test="${showSubmissions}">
-                                <studio_tags:viewSubmissionLink hasPreviewImage="${hasPreviewImage}"
-                                                                submissionId="${submissionId}"
+                                <studio_tags:viewSubmissionLink submissionId="${submissionId}"
                                                                 galleryImageCount="${galleryImageCount}"
                                                                 targetPresentationType="medium"
                                                                 previewPresentationType="small"
