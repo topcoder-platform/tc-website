@@ -4,6 +4,32 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.19.08<br />11:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a target="blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">Truveo Developer Challenge Offers $100,000 in Prizes for New Video Search Applications</a></span><br /><br />
+        With a prize pool of $100,000, developers will compete to build customized applications that use Truveo's open API for video search.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">details</a> | 
+        <a href="/truveo/forums">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.19.08<br />11:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a target="blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908">TopCoder Awards $100,000 in Prize Money to Winners of AOL's Open AIM Developer Challenge</a></span><br /><br />
+        TopCoder and AOL today announced the winners of AOL's Open AIM Developer Challenge. These winners were awarded $100,000 in prize money, live and on stage, at the 2008 TopCoder Open. In just two short months of competition, TopCoder community members created an incredible 53 new applications using new Open AIM APIs.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908">details</a> | 
+        <a href="/openaim/forums">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.15.08<br />7:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=blog' refer='/tc' />">Congratulations TCO08 Champions!</a></span><br /><br />
@@ -140,34 +166,3 @@
         <tc-webtag:forumLink forumID="521020" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />05.08.08<br />11:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm399">SRM 399 - Problem Set &amp; Analysis</a></span><br /><br />
-      SRM 399 was dominated by <tc-webtag:handle coderId="10574855" context="algorithm"/>, who even without his easy submission would have won the match. Winning this match let <tc-webtag:handle coderId="10574855" context="algorithm"/> break the 3800 rating barrier, and we're all wondering how long it will be before he breaks 4000.  Rounding out the top 3 spots in division 1 were <tc-webtag:handle coderId="144400" context="algorithm"/> and <tc-webtag:handle coderId="22690368" context="algorithm"/>.</td>
-         <td class="newsPhoto"><img src="/i/m/eleusive_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8369955" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm399">details</a> | 
-        <tc-webtag:forumLink forumID="520961" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />05.07.08<br />9:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">Open AIM Developer Challenge Closes, Vote for Your Favorites!</a></span><br /><br />
-        The submission phase of the $100,000 Open AIM Developer Challenge has now closed, with TopCoder members submitting an incredible 53 passing applications! Now we need your help in determining which 9 apps will win a $10,000 first prize, and which 20 will receive a $500 second prize. Check out all the submissions, and let us know your Top Five – the TC community vote will count for 20% of the final score.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">details</a> | 
-        <a href="/tc?module=ViewSurvey&amp;sid=22570">vote</a> | 
-        <a href="/openaim/forums">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-   
