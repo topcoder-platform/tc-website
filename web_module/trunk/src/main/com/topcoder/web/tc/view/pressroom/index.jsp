@@ -111,6 +111,30 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- Truveo --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_051908_b"><img src="/i/pressroom/truveo.png" alt="" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_051908_b">Truveo Developer Challenge Offers $100,000 in Prizes for New Video Search Applications</a></h3>
+                        <p>With a prize pool of $100,000, developers will compete to build customized applications that use Truveo's open API for video search<small><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_051908_b">[May 19]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+
+                <%-- Open AIM --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_051908"><img src="/i/pressroom/openaim.png" alt="" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_051908">TopCoder Awards $100,000 in Prize Money to Winners of AOL's Open AIM Developer Challenge during TopCoder Open in Las Vegas</a></h3>
+                        <p>TopCoder and AOL today announced the winners of AOL's Open AIM Developer Challenge. These winners were awarded $100,000 in prize money, live and on stage, at the 2008 TopCoder Open. In just two short months of competition, TopCoder community members created an incredible 53 new applications using new Open AIM APIs.<small><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_051908">[May 19]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+
                 <%-- Computerworld: Eli Lilly aims to tap 'rock star' programmers begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
