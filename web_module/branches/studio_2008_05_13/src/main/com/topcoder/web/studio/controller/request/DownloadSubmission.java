@@ -202,6 +202,9 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
             // Locate the file corresponding to requested alternate presentation
             File dir = new File(submission.getPath().getPath());
+            if (log.isDebugEnabled()) {
+                log.debug("directory is " + dir.getPath());
+            }
 
             // Since Studio Slideshow Submission - map the literal submission type to image type ID and determine the
             // filename based on submission image data
@@ -218,6 +221,10 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             SubmissionImage image = getSubmissionImage(submission, targetImageTypeId, fileIndex);
             String[] fileNames = dir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
             if (log.isDebugEnabled()) {
+                log.debug("file name is " + image.getImage().getFileName());
+            }
+            if (log.isDebugEnabled() && fileNames!=null) {
+
                 StringBuilder b = new StringBuilder(200);
                 for (String n : fileNames) {
                     b.append(n).append(",");
