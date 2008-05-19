@@ -44,7 +44,7 @@
                     <br><br>
           <span class="bigRed">No purchase necessary to enter or win.  Void where prohibited.</span>
           <h3>Overview of the Tournament</h3>
-          The 2009 TopCoder High School Season (TCHS09) will take place between June 9, 2008 and March 15,2009. The prize purse for this competition will be scholarships and other prizes. The finals will be held on March 15, 2009 at Purdue University.
+          The 2009 TopCoder High School Season (TCHS09) will take place between June 9, 2008 and March 15, 2009. The prize purse for this competition will be scholarships and other prizes. The finals will be held on March 15, 2009 at Purdue University.
           <br><br>
           <h3>Eligibility</h3>
           TopCoder members meeting the following criteria are eligible to compete in TCHS09:
@@ -56,7 +56,7 @@
 <p>
 *The season will run between June 9, 2008 and March 15, 2009. 
 </p>
-TopCoder members who are between 13 and 20 years of age (inclusive) on January, 12, 2008 are eligible to win scholarships and prizes, unless otherwise prohibited. TCHS09 is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Residents of Cuba, Iran, North Korea, Sudan, or Syria are ineligible to receive cash prizes and are ineligible to attend the onsite final round of competition as competitors.
+TopCoder members who are between 13 and 20 years of age (inclusive) on January 12, 2009 are eligible to win scholarships and prizes, unless otherwise prohibited. TCHS09 is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Residents of Cuba, Iran, North Korea, Sudan, or Syria are ineligible to receive cash prizes and are ineligible to attend the onsite final round of competition as competitors.
 <br /><br />
 Employees of TopCoder, Inc. and of all official tournament sponsors, regardless of commitment date as sponsor, including any companies involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families (parent, child, sibling, and spouse of each) and/or persons living in the same household as such persons, are ineligible to enter the tournament. TopCoder members who are performing internships for any official tournament sponsor between January 12, 2009 and March 15, 2009 are also ineligible to compete.
 <br /><br />
