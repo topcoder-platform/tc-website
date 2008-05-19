@@ -6,11 +6,11 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.19.08<br />11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a target="blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">Truveo Developer Challenge Offers $100,000 in Prizes for New Video Search Applications</a></span><br /><br />
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">Truveo Developer Challenge Offers $100,000 in Prizes for New Video Search Applications</a></span><br /><br />
         With a prize pool of $100,000, developers will compete to build customized applications that use Truveo's open API for video search.</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">details</a> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">details</a> | 
         <a href="/truveo/forums">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
@@ -19,11 +19,11 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.19.08<br />11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a target="blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908">TopCoder Awards $100,000 in Prize Money to Winners of AOL's Open AIM Developer Challenge</a></span><br /><br />
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908">TopCoder Awards $100,000 in Prize Money to Winners of AOL's Open AIM Developer Challenge</a></span><br /><br />
         TopCoder and AOL today announced the winners of AOL's Open AIM Developer Challenge. These winners were awarded $100,000 in prize money, live and on stage, at the 2008 TopCoder Open. In just two short months of competition, TopCoder community members created an incredible 53 new applications using new Open AIM APIs.</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908">details</a> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908">details</a> | 
         <a href="/openaim/forums">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
@@ -76,7 +76,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.15.08<br />11:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a target="blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9085562&intsrc=hm_list' refer='/tc' />">Computerworld - Eli Lilly aims to tap 'rock star' programmers</a></span><br /><br />
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9085562&intsrc=hm_list' refer='/tc' />">Computerworld - Eli Lilly aims to tap 'rock star' programmers</a></span><br /><br />
         Drug firm outsourcing some app development to TopCoder's stable of freelance experts</td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -129,7 +129,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.09.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a target="blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/05/topcoder_develo.html' refer='/tc' />">InfoWorld - TopCoder: developer productivity and code quality through competition</a></span><br /><br />
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/05/topcoder_develo.html' refer='/tc' />">InfoWorld - TopCoder: developer productivity and code quality through competition</a></span><br /><br />
         The TopCoder business model isn't outsourcing: it's built on global competition, and controlled by metrics and peer review. It's also market-driven.</td>
    </tr>
    <tr><td class="newsLinksCell">
