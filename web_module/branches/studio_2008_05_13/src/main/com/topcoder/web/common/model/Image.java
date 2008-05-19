@@ -15,61 +15,6 @@ public class Image extends Base {
     public static final Integer INTRO_EVENT_TYPE = 15;
 
     /**
-     * <p>An <code>Integer</code> referencing the file type corresponding to <code>Studio Submission Preview Thumbnail
-     * </code> image type.</p>
-     *
-     * @since Studio Submission Slideshow
-     */
-    public static final Integer PREVIEW_THUMBNAIL_TYPE_ID = 18;
-
-    /**
-     * <p>An <code>Integer</code> referencing the file type corresponding to <code>Studio Submission Preview Small
-     * </code> image type.</p>
-     * @since Studio Submission Slideshow
-     */
-    public static final Integer PREVIEW_SMALL_TYPE_ID = 19;
-
-    /**
-     * <p>An <code>Integer</code> referencing the file type corresponding to <code>Studio Submission Preview Medium
-     * </code> image type.</p>
-     *
-     * @since Studio Submission Slideshow
-     */
-    public static final Integer PREVIEW_MEDIUM_TYPE_ID = 20;
-
-    /**
-     * <p>An <code>Integer</code> referencing the file type corresponding to <code>Studio Submission Preview Full</code>
-     * file type.</p>
-     *
-     * @since Studio Submission Slideshow
-     */
-    public static final Integer PREVIEW_FULL_TYPE_ID = 21;
-
-    /**
-     * <p>An <code>Integer</code> referencing the file type corresponding to <code>Studio Submission Preview Small
-     * Watermarked</code> image type.</p>
-     *
-     * @since Studio Submission Slideshow
-     */
-    public static final Integer PREVIEW_SMALL_WATERMARKED_TYPE_ID = 22;
-
-    /**
-     * <p>An <code>Integer</code> referencing the file type corresponding to <code>Studio Submission Preview Medium
-     * Watermarked</code> image type.</p>
-     *
-     * @since Studio Submission Slideshow
-     */
-    public static final Integer PREVIEW_MEDIUM_WATERMARKED_TYPE_ID = 23;
-
-    /**
-     * <p>An <code>Integer</code> referencing the file type corresponding to <code>Studio Submission Preview Full
-     * Watermarked</code> image type.</p>
-     *
-     * @since Studio Submission Slideshow
-     */
-    public static final Integer PREVIEW_FULL_WATERMARKED_TYPE_ID = 24;
-
-    /**
      * <p>An <code>Integer</code> referencing the file type corresponding to <code>Studio Submission Gallery Thumbnail
      * </code> image type.</p>
      *
