@@ -1,8 +1,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
+
 <c:choose>
-    <c:when test="${param['clip']=='ep07' || param['clip']==null}">
+    <c:when test="${param['clip']=='tco08_25' || param['clip']==null}">
+        <br /><strong>2008 TopCoder Open</strong>
+        (<tc-webtag:forumLink forumID="517604" message="discuss" />)
+        <div style="margin-left: 10px;">
+            <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=movies">See all the videos from the TCO08!</a>
+        </div>
+    </c:when>
+    <c:otherwise>
+        <br /><a href="/tc?module=Static&d1=media&d2=tcchannel&clip=tco08_25">2008 TopCoder Open</a>
+    </c:otherwise>
+</c:choose>
+<c:choose>
+    <c:when test="${param['clip']=='ep07'}">
         <br /><strong>Episode 7</strong>
         (<tc-webtag:forumLink forumID="518706" message="discuss" />)
         <div style="margin-left: 10px;">
