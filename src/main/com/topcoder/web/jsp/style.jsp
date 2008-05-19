@@ -11,7 +11,7 @@
 <link type="text/css" rel="stylesheet" href="/css/style.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
-<link type="text/css" rel="stylesheet" href="/css/rightNav.css" />
+<link type="text/css" rel="stylesheet" href="/css/rightNav20080519.css" />
 <% } else if (key.equals("tc_calendar")) { %>
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <link type="text/css" rel="stylesheet" href="/css/tcCalendar.css" />
