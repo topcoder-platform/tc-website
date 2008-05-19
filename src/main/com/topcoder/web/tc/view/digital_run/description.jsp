@@ -63,6 +63,7 @@ function menu_goto( menuform )
 <td align="left" style="padding-right:10px; border-right: 1px solid #999999;" valign="top">
 <span class="subtitle">Design Cup</span><br />
 <A href="/tc?module=Static&d1=digital_run&d2=2008&d3=desOverview" class="bcLink">Details</A><br />
+<a href="/tc?module=ViewActiveContests&ph=112" class="bcLink">Active Contests</a><br />
 <%--
 <span class="grayedOut">Current Leaderboard</span>
 --%>
@@ -72,6 +73,7 @@ function menu_goto( menuform )
 <td align="left" style="padding: 0 10px; border-right: 1px solid #999999;" valign="top">
 <span class="subtitle" class="bcLink">Development Cup</span><br />
 <A href="/tc?module=Static&d1=digital_run&d2=2008&d3=devOverview" class="bcLink">Details</A><br />
+<a href="/tc?module=ViewActiveContests&ph=113" class="bcLink">Active Contests</a><br />
 <%--
 <span class="grayedOut">Current Leaderboard</span>
 --%>
@@ -81,6 +83,7 @@ function menu_goto( menuform )
 <td align="left" style="padding-left:10px;" valign="top">
 <span class="subtitle" class="bcLink">Assembly Cup</span><br />
 <A href="/tc?module=Static&d1=digital_run&d2=2008&d3=asmOverview" class="bcLink">Details</A><br />
+<a href="/tc?module=ViewAssemblyActiveContests" class="bcLink">Active Contests</a><br />
 <A href="/tc?&pt=14&module=LeaderBoard" class="bcLink">Current Leaderboard</A>
 <br />
 
