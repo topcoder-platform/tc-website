@@ -21,6 +21,7 @@
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 <c:set var="modKey" value="<%=Constants.MODULE_KEY%>"/>
 
+
 <c:choose>
     <c:when test="${galleryImageCount > 0}">
             <%-- There is a gallery of the images --%>
