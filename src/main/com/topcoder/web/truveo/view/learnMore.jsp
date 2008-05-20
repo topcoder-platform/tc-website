@@ -51,6 +51,7 @@
 </p>
 
 <h2>How to Compete</h2>
+
 <p align="center">
     Be sure to read the <a href="${sessionInfo.servletPath}?module=Static&amp;d1=rules">full contest rules and terms & conditions</a>
 </p>
@@ -58,7 +59,7 @@
     If you're not already a TopCoder member, <a href="/reg/?module=Main&amp;rt=9">register here</a>, then <a href="${sessionInfo.servletPath}?module=ViewContestDetails&ct=1001">register for the Truveo Developer Challenge</a>.
 </p>
 <p>
-    Check out the API's at <a href="http://developer.truveo.com">developer.truveo.com</a>, sign up for a free <a href="http://developer.truveo.com/DirectorAccountsOverview.php">"Director's Account"</a> and get a <a href="http://dev.aol.com/truveo/">usage key</a> - your unique identifier giving you access to the Truveo network. The keys let Truveo know how popular your application is, which will play a big factor in your overall score. Each time you obtain an API key - let us know by emailing us at <a href="mailto:service@topcoder.com">service@topcoder.com</a> - even if you never use it in an app.
+    Check out the API's at <a href="http://developer.truveo.com">developer.truveo.com</a>, sign up for a free <a href="http://developer.truveo.com/DirectorAccountsOverview.php">"Director's Account"</a> and get a <a href="http://dev.aol.com/truveo/">usage key</a> - your unique identifier giving you access to the Truveo network. The keys let Truveo know how popular your application is, which will play a big factor in your overall score. <strong>Each time you obtain an API key add "/topcoder" to the URL you provide when you sign up - or let us know by emailing us at <a href="mailto:service@topcoder.com">service@topcoder.com</a> - Even if you never use it in an app, we want to know TopCoder members.</strong>
 </p>
 <p align="center">
     <a href="http://dev.aol.com/truveo/">Learn more about Truveo API keys</a>
