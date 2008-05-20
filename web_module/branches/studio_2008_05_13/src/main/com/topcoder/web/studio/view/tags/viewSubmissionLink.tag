@@ -6,6 +6,7 @@
 <%@ attribute name="targetPresentationType" required="true" type="java.lang.String" %>
 <%@ attribute name="previewPresentationType" required="true" type="java.lang.String" %>
 <%@ attribute name="showFullVersionLink" required="false" type="java.lang.Boolean" %>
+<%@ attribute name="showDownloadPreviewLink" required="false" type="java.lang.Boolean" %>
 <%@ attribute name="contestId" required="true" type="java.lang.Long" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -34,7 +35,6 @@
                     </a>
                 </c:forEach>
             </div>
-            <%-- TODO : Remove that --%>
             <c:if test="${showFullVersionLink}">
                 <c:set var="galImgCount" value="<%=Constants.GALLERY_IMAGES_COUNT%>"/>
                 <c:set var="cid" value="<%=Constants.CONTEST_ID%>"/>
@@ -42,7 +42,9 @@
                 <a href="${sessionInfo.servletPath}?${modKey}=Static&amp;d1=slideshow&amp;${cid}=${contestId}&amp;${subId}=${submissionId}&amp;${subFileIdx}=1&amp;${galImgCount}=${galleryImageCount}">
                     View Full Size</a> |
             </c:if>
-        <a href="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}">Download Preview File</a>
+        <c:if test="${showDownloadPreviewLink}">
+            <a href="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}">Download Preview File</a>
+        </c:if>
     </c:when>
     <c:otherwise>
         <%-- There is no preview image which means that there is no gallery also so there is nothing to view - download
