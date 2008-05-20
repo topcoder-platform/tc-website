@@ -24,7 +24,6 @@ import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.*;
-import com.topcoder.web.studio.util.BundledFileAnalyzer;
 import com.topcoder.web.studio.util.FileGenerator;
 import com.topcoder.web.studio.validation.SubmissionValidator;
 
@@ -217,16 +216,6 @@ public class Submit extends BaseSubmissionDataProcessor {
 
                                 s.setReview(review);
                             }
-                        }
-
-                        // Since TopCoder Studio Modifications Assembly v2 - analyze whether the submission has preview
-                        // image provided or not. Req# 5.3
-                        BundledFileAnalyzer analyzer = SubmissionValidator.getBundledFileParser(s.getMimeType());
-                        analyzer.analyze(submissionFile.getInputStream(), true);
-                        if (analyzer.isPreviewImageAvailable()) {
-                            s.setHasPreviewImage(Boolean.TRUE);
-                        } else {
-                            s.setHasPreviewImage(Boolean.FALSE);
                         }
 
                         if (maxRank == null) {

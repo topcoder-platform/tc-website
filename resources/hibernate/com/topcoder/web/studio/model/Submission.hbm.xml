@@ -34,7 +34,6 @@
             <key column="submission_id" not-null="true"/>
             <many-to-many column="prize_id" class="Prize"/>
         </set>
-        <property name="hasPreviewImage" column="has_preview_image"/>
         <set name="images" sort="natural" inverse="true" cascade="all">
             <key column="submission_id" not-null="true"/>
             <one-to-many class="SubmissionImage"/>

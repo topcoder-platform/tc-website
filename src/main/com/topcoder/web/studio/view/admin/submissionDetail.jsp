@@ -116,10 +116,10 @@
                                 Submission</a>&nbsp;
                         </c:when>
                         <c:otherwise>
-                    <studio_tags:viewSubmissionLink hasPreviewImage="${submission.hasPreviewImage}" submissionId="${submission.id}"
-                                                               galleryImageCount="${submission.galleryCountMap[mediumType]}" targetPresentationType="medium"
-                                                               previewPresentationType="small" showFullVersionLink="false"
-                                                               contestId="${submission.contest.id}"/>
+                    <studio_tags:viewSubmissionLink submissionId="${submission.id}"
+                                                    galleryImageCount="${submission.galleryCountMap[mediumType]}" targetPresentationType="medium"
+                                                    previewPresentationType="small" showFullVersionLink="false"
+                                                    contestId="${submission.contest.id}"/>
 
                         </c:otherwise>
                     </c:choose>

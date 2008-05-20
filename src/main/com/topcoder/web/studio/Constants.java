@@ -67,6 +67,14 @@ public class Constants implements WebConstants {
     public static final String SUBMISSION_ALT_TYPE = "sbt";
 
     /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the type of the image from the
+     * submission to be viewed/downloaded.</p>
+     *
+     * @since Studio Download Submission Refactor
+     */
+    public static final String SUBMISSION_IMAGE_TYPE = "it";
+
+    /**
      * <p>A <code>String</code> providing the path to a file to be used for watermarking the images.</p>
      *
      * @since TopCoder Studio Modifications Assembly (Req# 5.7)
@@ -286,6 +294,21 @@ public class Constants implements WebConstants {
      * @since Studio Submission Slideshow
      */
     public static final String GALLERY_IMAGES_COUNT = "icnt";
+
+    /**
+     * <p>An <code>int</code> providing the default value for the file index.</p>
+     *
+     * @since Studio Download Submission Refactor
+     */
+    public static final int DEFAULT_FILE_INDEX = 1;
+
+    /**
+     * <p>An <code>int</code> value to be used to indicate that there were no explicit image type requested by the
+     * client (based on parameters of incoming request).</p>
+     *
+     * @since Studio Download Submission Refactor (Req# 2.1.3)
+     */
+    public static final int SUBMISSION_IMAGE_TYPE_UNSPECIFIED = -1;
 
     /**
      * <p>A <code>String</code> providing the message to be displayed to administrators in case the winner announcement

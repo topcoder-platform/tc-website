@@ -7,7 +7,6 @@ import com.topcoder.web.common.model.Image;
 import java.sql.Timestamp;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Collections;
@@ -35,13 +34,6 @@ public class Submission extends Base {
     private SubmissionStatus status;
     private com.topcoder.web.common.model.comp.Submission ORSubmission;
     private Set<Prize> prizes = new TreeSet<Prize>();
-
-    /**
-     * <p>A <code>Boolean</code> flag indicating whether the submission has the preview image provided or not.</p>
-     *
-     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.3)
-     */
-    private Boolean hasPreviewImage = false;
 
     /**
      * <p>A <code>Set</code> containing the images associated with this submission.</p>
@@ -204,26 +196,6 @@ public class Submission extends Base {
         if (log.isDebugEnabled()) {
             log.debug("after size " + prizes.size());
         }
-    }
-
-    /**
-     * <p>Gets the flag indicating whether the submission has the preview image provided or not.</p>
-     *
-     * @return <code>true</code> if submission has preview image provided; <code>false</code> otherwise.
-     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.2)
-     */
-    public Boolean getHasPreviewImage() {
-        return this.hasPreviewImage;
-    }
-
-    /**
-     * <p>Sets the flag indicating whether the submission has the preview image provided or not.</p>
-     *
-     * @param hasPreviewImage <code>true</code> if submission has preview image provided; <code>false</code> otherwise.
-     * @since TopCoder Studio Modifications Assembly v2 (Req# 5.2)
-     */
-    public void setHasPreviewImage(Boolean hasPreviewImage) {
-        this.hasPreviewImage = hasPreviewImage;
     }
 
     /**

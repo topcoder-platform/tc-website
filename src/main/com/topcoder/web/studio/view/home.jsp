@@ -66,12 +66,16 @@ ding="utf-8"?>
         <div id="welcome_banner">
             <%-- default banner --%>
             <a href="/?module=ViewActiveContests"><img alt="Get Started Now!" src="/i/v3/welcome_banner.png" width="536" height="121" border="0"/></a>
+            
+            <%-- Lending Tree banner 
+            <a href="/?module=ViewContestDetails&amp;ct=2230"><img alt="Get Started Now!" src="/i/v3/lending_tree.png" width="536" height="121" border="0"/></a>
+            --%>
         </div>
     </div>
 
     <!-- banner -->
     <div class="banner">
-       <a href="/?module=ViewContestDetails&amp;ct=2239"><img alt="Register Now!" src="/i/v3/lending_tree_banner.png" width="536" height="88" border="0"/></a>
+        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=bracket"><img src="/i/v3/tco_finalists.png" alt="TCO08" /></a>
     </div>
 
     <!-- contest box -->
@@ -114,37 +118,35 @@ ding="utf-8"?>
     <div class="winners">
         <div>
             <h2><span>RECENT WINNERS</span></h2>
-
             <span class="more"><a href="/?module=ViewPastContests">View All</a></span>
             <table>
                 <tbody>
                     <tr>
-                        <td class="img"><a href="/?module=ViewContestResults&ct=2235 "><img alt="winner 1" src="/i/v3/winners/winner1.png"/></a></td>
+                        <td class="img"><a href="/?module=ViewContestResults&ct=2213 "><img alt="winner 1" src="/i/v3/winners/winner_2.png"/></a></td>
                         <td>
-                            <span class="coderText">oninkxronda</span><br />
-                            <a href="/?module=ViewContestDetails&ct=2235">TCO08 FINALS Round Three</a><br />
-                            Championship prize won: $20,000
+                            <span class="coderText">rutam</span><br />
+                            <a href="/?module=ViewContestDetails&ct=2213">AIM Expressions Storyboard</a><br />
+                            $1500.00
                         </td>
                     </tr>
                     <tr class="last_row">
                         <td class="img">
-                            <a href="/?module=ViewContestResults&ct=2219"><img alt="winner 2" src="/i/v3/winners/winner2.png"/></a>
+                            <a href="/?module=ViewContestResults&ct=2210"><img alt="winner 2" src="/i/v3/winners/winner_3.png"/></a>
                         </td>
                         <td>
-                            <span class="coderText">maxsense</span><br />
-                            <a href="/?module=ViewContestDetails&ct=2219">Hermes Bracket Storyboards</a><br />
-                            $700.00
+                            <span class="coderText">bohuss</span><br />
+                            <a href="/?module=ViewContestDetails&ct=2210">Argus VP Chart Interaction/Animation Phase 2</a><br />
+                            $800.00
                         </td>
                     </tr>
                     <tr>
                         <td class="img">
-                            <a href="/?module=ViewContestResults&ct=2230"><img alt="winner 3" src="/i/v3/winners/winner3.png"/></a>
+                            <a href="/?module=ViewContestResults&ct=2212"><img alt="winner 3" src="/i/v3/winners/winner_1.png"/></a>
                         </td>
                         <td>
-
-                            <span class="coderText">sweetpea</span><br />
-                            <a href="/?module=ViewContestDetails&ct=2230">Lending Tree Promo Banner Ads</a><br />
-                            $500.00
+                            <span class="coderText">dafei</span><br />
+                            <a href="/?module=ViewContestDetails&ct=2212">TC Pipeline Yahoo Widget Storyboard</a><br />
+                            $450.00
                         </td>
                     </tr>
 
@@ -254,9 +256,12 @@ ding="utf-8"?>
     <div class="newsBox">
         <h2>WHAT'S NEW</h2>
         <ul>
-             <li>Congratulations to oninkxronda, the TCO08 Studio champion and winner of the $20,000 grand prize! After eight weeks of online competitions, 
-             the twelve finalists competed during the week of May 12, 2008 in Las Vegas for a total prize purse of $45,000. Be sure to check out the blog, 
-             photos and videos from the event at the <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=description " target="_blank">TCO08 website</a>!
+            <li>The New Studio enhancements are live! Be sure to check the <a href="/forums">forums</a> for more
+                information on the new submission procedures, and many other cool new features.
+            </li>
+            <li>TCO08 Studio finalists are preparing for the finals in Las Vegas. Be sure to watch the
+                <a href="/forums">forums</a> for updates, reports and general info as the championship round approaches!
+                Good luck, everyone!
             </li>
         </ul>
         <div></div>
@@ -270,7 +275,7 @@ ding="utf-8"?>
             <img class="member" width="57" height="63" alt="Designer of the month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/andrey_atlas_big.jpg"/>
             <b>April 2008</b><br />
             <b>andrey_atlas</b><br />
-            Won $1500 &amp; has been with us since day one!
+            Won $1500 and has been with us since day one!
         </p>
 
         <div></div>

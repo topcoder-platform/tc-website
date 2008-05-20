@@ -81,41 +81,6 @@ public class FileGenerator implements Runnable {
      */
     private static final int ORIGINAL_IMAGE_SIZE = -1;
 
-
-    /**
-     * <p>An <code>Integer</code> array referencing the image types corresponding to non-watermarked preview images.</p>
-     *
-     * @since Studio Submission Slideshow
-     */
-    private static final Integer[] PREVIEW_PLAIN_IMAGE_TYPE_IDS
-            = new Integer[]{PREVIEW_THUMBNAIL_TYPE_ID, PREVIEW_SMALL_TYPE_ID, PREVIEW_MEDIUM_TYPE_ID,
-            PREVIEW_FULL_TYPE_ID};
-
-    /**
-     * <p>An <code>Integer</code> array providing the sizes of the non-watermarked preview images.</p>
-     *
-     * @since Studio Submission Slideshow
-     */
-    private static final int[] PREVIEW_PLAIN_IMAGE_SIZES
-            = new int[]{TINY_IMAGE_SIZE, SMALL_IMAGE_SIZE, MEDIUM_IMAGE_SIZE, ORIGINAL_IMAGE_SIZE};
-
-    /**
-     * <p>An <code>Integer</code> array referencing the image types corresponding to watermarked preview images.</p>
-     *
-     * @since Studio Submission Slideshow
-     */
-    private static final Integer[] PREVIEW_WATERMARKED_IMAGE_TYPE_IDS
-            = new Integer[]{PREVIEW_SMALL_WATERMARKED_TYPE_ID, PREVIEW_MEDIUM_WATERMARKED_TYPE_ID,
-            PREVIEW_FULL_WATERMARKED_TYPE_ID};
-
-    /**
-     * <p>An <code>Integer</code> array providing the sizes of the watermarked preview images.</p>
-     *
-     * @since Studio Submission Slideshow
-     */
-    private static final int[] PREVIEW_WATERMARKED_IMAGE_SIZES
-            = new int[]{SMALL_IMAGE_SIZE, MEDIUM_IMAGE_SIZE, ORIGINAL_IMAGE_SIZE};
-
     /**
      * <p>An <code>Integer</code> array referencing the image types corresponding to non-watermarked image galleries.
      * </p>
@@ -224,13 +189,33 @@ public class FileGenerator implements Runnable {
             // to persistent data store
             boolean submissionUpdated = false;
 
-            // Generate "preview" representation from preview file if it is provided
+            // If preview image is provided with the submission then treat it as a first image from the gallery (even
+            // though the contest may not require to include gallery)
+            int fileIndex = 1;
+            if (analyzer.isPreviewImageAvailable()) {
+                String fileName = null;
+                try {
+                    fileName = SubmissionValidator.getFileName(analyzer.getPreviewImagePath());
+                    byte[] fileContent = analyzer.getPreviewImageContent();
+                    StudioFileType fileType = analyzer.getPreviewImageFileType();
+                    generateImages(fileName, fileContent, fileType, GALLERY_PLAIN_IMAGE_TYPE_IDS, GALLERY_PLAIN_IMAGE_SIZES,
+                                   false, fileIndex);
+                    generateImages(fileName, fileContent, fileType, GALLERY_WATERMARKED_IMAGE_TYPE_IDS,
+                                   GALLERY_WATERMARKED_IMAGE_SIZES, true, fileIndex);
+                    generatePreviewImagePresentations(fileContent, fileType, fileName, analyzer.isPreviewFileAvailable());
+                    fileIndex++;
+                    submissionUpdated = true;
+                } catch (Exception e) {
+                    log.error("Failed to generate alternate presentations for preview image [" + fileName + "]", e);
+                }
+            }
+
+            // Generate "preview" representation and gallery images from preview file if it is provided
             if (analyzer.isPreviewFileAvailable()) {
                 byte[] previewFileContent = analyzer.getPreviewFileContent();
                 String fullName = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter,
-                        this.submission,
-                        analyzer.getPreviewFilePath(),
-                        "preview");
+                                                                            this.submission,
+                                                                            analyzer.getPreviewFilePath(), "preview");
                 writeFile(fullName, previewFileContent);
 
                 // Since Studio Submission Slideshow - generate gallery images if necessary
@@ -242,43 +227,38 @@ public class FileGenerator implements Runnable {
                     BundledFileAnalyzer previewFileAnalyzer
                             = SubmissionValidator.getBundledFileParser(analyzer.getPreviewFilePath());
                     Map<String, byte[]> files = previewFileAnalyzer.getFiles(previewFileContent);
-                    int fileIndex = 1;
                     for (Map.Entry<String, byte[]> file : files.entrySet()) {
-                        String fileName = file.getKey();
-                        byte[] fileContent = file.getValue();
-                        StudioFileType fileType = SubmissionValidator.getFileType(fileName);
-                        if ((fileType != null) && fileType.isImageFile()) {
-                            generateImages(fileName, fileContent, fileType,
-                                    GALLERY_PLAIN_IMAGE_TYPE_IDS, GALLERY_PLAIN_IMAGE_SIZES, false,
-                                    fileIndex);
-                            generateImages(fileName, fileContent, fileType,
-                                    GALLERY_WATERMARKED_IMAGE_TYPE_IDS, GALLERY_WATERMARKED_IMAGE_SIZES,
-                                    true, fileIndex);
-
-                            // If the preview image is not provided then use the first image from the gallery
-                            // as preview image
-                            if ((fileIndex == 1) && !analyzer.isPreviewImageAvailable()) {
-                                generatePreviewImagePresentations(fileContent, fileType, fileName,
-                                        analyzer.isPreviewFileAvailable());
-                                this.submission.setHasPreviewImage(true);
+                        String fileName = null;
+                        try {
+                            fileName = file.getKey();
+                            if (log.isDebugEnabled()) {
+                                log.debug("generating for " + fileName);
                             }
+                            byte[] fileContent = file.getValue();
+                            StudioFileType fileType = SubmissionValidator.getFileType(fileName);
+                            if ((fileType != null) && fileType.isImageFile()) {
+                                generateImages(fileName, fileContent, fileType,
+                                        GALLERY_PLAIN_IMAGE_TYPE_IDS, GALLERY_PLAIN_IMAGE_SIZES, false,
+                                        fileIndex);
+                                generateImages(fileName, fileContent, fileType,
+                                        GALLERY_WATERMARKED_IMAGE_TYPE_IDS, GALLERY_WATERMARKED_IMAGE_SIZES,
+                                        true, fileIndex);
 
-                            fileIndex++;
-                            submissionUpdated = true;
+                                // Use the first image from the gallery as preview image
+                                if (fileIndex == 1) {
+                                    generatePreviewImagePresentations(fileContent, fileType, fileName,
+                                                                      analyzer.isPreviewFileAvailable());
+                                }
+
+                                fileIndex++;
+                                submissionUpdated = true;
+                            }
+                        } catch (Exception e) {
+                            log.error("Failed to generate alternate presentations for gallery image ["
+                                      + fileName + "]", e);
                         }
                     }
                 }
-            }
-
-            // Generate "tiny", "small", "medium" representation from preview image if it is provided
-            // Generate "preview" representation from preview image if it is provided but preview file is not
-            // provided
-            if (analyzer.isPreviewImageAvailable()) {
-                generatePreviewImagePresentations(analyzer.getPreviewImageContent(),
-                        analyzer.getPreviewImageFileType(),
-                        analyzer.getPreviewImagePath(),
-                        analyzer.isPreviewFileAvailable());
-                submissionUpdated = true;
             }
 
             // If submission images have been generated then saves updated submission to data store
@@ -287,18 +267,6 @@ public class FileGenerator implements Runnable {
             }
             success = true;
         } catch (IOException e) {
-            log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                    e);
-        } catch (ImageException e) {
-            log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                    e);
-        } catch (ImagePersistenceException e) {
-            log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                    e);
-        } catch (UnsupportedFormatException e) {
-            log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                    e);
-        } catch (ImageOverlayProcessingException e) {
             log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
                     e);
         } catch (Throwable e) {
@@ -342,20 +310,13 @@ public class FileGenerator implements Runnable {
                                                    String previewImagePath, boolean previewFileAvailable)
             throws IOException, ImageException, ImagePersistenceException, UnsupportedFormatException,
             ImageOverlayProcessingException {
-        generateImages(previewImagePath, imageContent, previewImageFileType,
-                PREVIEW_PLAIN_IMAGE_TYPE_IDS, PREVIEW_PLAIN_IMAGE_SIZES, false, 1);
-        generateImages(previewImagePath, imageContent, previewImageFileType,
-                PREVIEW_WATERMARKED_IMAGE_TYPE_IDS, PREVIEW_WATERMARKED_IMAGE_SIZES, true, 1);
-
-        String imageName = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter,
-                this.submission, previewImagePath,
-                "image");
+        String imageName = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter, this.submission,
+                                                                     previewImagePath, "image");
         String watermarkedImageName
                 = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter, this.submission,
-                previewImagePath, "imagew");
+                                                            previewImagePath, "imagew");
         writeFile(imageName, imageContent);
-        createPresentation(watermarkedImageName, true, ORIGINAL_IMAGE_SIZE, imageContent,
-                previewImageFileType);
+        createPresentation(watermarkedImageName, true, ORIGINAL_IMAGE_SIZE, imageContent, previewImageFileType);
 
         if (!previewFileAvailable) {
             String fullName = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter,
