@@ -70,7 +70,6 @@
 <c:set var="contestType" value="${submission.contest.type}"/>
 
 <c:set var="showSubmissions" value="${submission.contest.viewableSubmissions.value}"/>
-<c:set var="hasPreviewImage" value="${submission.hasPreviewImage}"/>
 <c:set var="submissionId" value="${submission.id}"/>
 <c:set var="contestId" value="${submission.contest.id}"/>
 <c:set var="galleryImageCount" value="${submission.mediumWatermarkedGalleryImagesCount}"/>
@@ -97,43 +96,11 @@
                     <c:otherwise>
                         <%-- Since TopCoder Modifications Assembly Req# 5.9, 5.10 --%>
                         <%-- All newer contests --%>
-                        <c:choose>
-                            <c:when test="${showSubmissions}">
-                                <studio_tags:viewSubmissionLink hasPreviewImage="${hasPreviewImage}"
-                                                                submissionId="${submissionId}"
-                                                                galleryImageCount="${galleryImageCount}"
-                                                                targetPresentationType="medium"
-                                                                previewPresentationType="small"
-                                                                contestId="${contestId}"/>
-                            </c:when>
-                            <c:otherwise>
-                                <img src="/i/v2/interface/magnifyFade.png" alt="" />
-                            </c:otherwise>
-                        </c:choose>
-<%--
-
-                        <c:if test="${contestType.previewImageRequired or contestType.previewFileRequired}">
-                            <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;${subId}=${submission.id}">
-                        </c:if>
-                        <c:choose>
-                            <c:when test="${contestType.previewImageRequired}">
-                                <img src="${sessionInfo.servletPath}?module=DownloadSubmission&amp;${subAltType}=small&amp;${subId}=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()"/>
-                            </c:when>
-                            <c:otherwise>
-                                <c:choose>
-                                    <c:when test="${contestType.previewFileRequired}">
-                                        <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()"/>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <img src="/i/v2/interface/magnifyFade.png" alt=""/>
-                                    </c:otherwise>
-                                </c:choose>
-                            </c:otherwise>
-                        </c:choose>
-                        <c:if test="${contestType.previewImageRequired or contestType.previewFileRequired}">
-                            </a>
-                        </c:if>
---%>
+                        <studio_tags:viewSubmissionLink submissionId="${submissionId}"
+                                                        galleryImageCount="${galleryImageCount}"
+                                                        targetPresentationType="medium"
+                                                        previewPresentationType="small"
+                                                        contestId="${contestId}"/>
                     </c:otherwise>
                 </c:choose>
             </c:when>

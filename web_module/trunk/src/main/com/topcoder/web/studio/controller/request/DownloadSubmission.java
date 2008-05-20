@@ -7,7 +7,6 @@ import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestChannel;
-import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.MimeType;
 import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.model.Submission;
@@ -23,7 +22,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.Date;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -37,7 +35,17 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
      *
      * @since TopCoder Studio Modifications Assembly (Req# 5.8)
      */
-    private static final String[] ALTERNATE_SUBMISSION_TYPES = {"tiny", "small", "medium", "full", "original"};
+    private static final String[] ALTERNATE_SUBMISSION_TYPES = {"tiny", "small", "medium", "full", "thumb", "original"};
+
+    /**
+     * <p>A <code>int</code> array listing the supported types of images provided with submission.</p>
+     *
+     * @since Studio Download Submission Refactor (Req# 2.1.2)
+     */
+    private static final int[] ALTERNATE_SUBMISSION_IMAGE_TYPES = {Image.GALLERY_THUMBNAIL_TYPE_ID,
+                                                                   Image.GALLERY_SMALL_WATERMARKED_TYPE_ID,
+                                                                   Image.GALLERY_MEDIUM_WATERMARKED_TYPE_ID,
+                                                                   Image.GALLERY_FULL_WATERMARKED_TYPE_ID};
 
     protected void dbProcessing() throws Exception {
         Long submissionId;
@@ -62,6 +70,11 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         boolean isOwner = s.getSubmitter().getId().equals(currentUserId);
         boolean isOver = new Date().after(s.getContest().getEndTime());
 
+        // Since Studio Download Submission Refactor (Req# 2.1.3)
+        // Check if there was an image type requested explicitly. If not then use -1 to indicate that no image type has
+        // been requested
+        int requestedImageTypeId = getRequestedImageTypeId();
+
         // Determine the type of requested submission presentation, "preview" is the default type
         String submissionType = getRequest().getParameter(Constants.SUBMISSION_ALT_TYPE);
         if (submissionType == null) {
@@ -77,6 +90,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                         MessageFormat.format(Constants.ERROR_MSG_INVALID_PRESENTATION_TYPE, submissionType));
             }
         }
+
         // Since TopCoder Studio Modifications v2 Assembly (Req# 5.11)- the contest creator may download the
         // submission if it already has been purchased
         boolean originalSubmissionRequested = "original".equalsIgnoreCase(submissionType);
@@ -119,7 +133,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             if (isStudioAdminV1) {
                 dbProcessingV1(s, isOwner);
             } else {
-                sendSubmission(contest, originalSubmissionRequested, submissionType, s, isOwner);
+                sendSubmission(contest, originalSubmissionRequested, submissionType, requestedImageTypeId, s, isOwner);
             }
         } else {
             throw new NavigationException("Sorry, you can not download submissions for this contest.");
@@ -163,20 +177,15 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
 
     private void sendSubmission(Contest contest, boolean originalSubmissionRequested, String submissionType,
-                                Submission submission, boolean isOwner) throws NavigationException, IOException {
+                                int requestedImageTypeId, Submission submission, boolean isOwner)
+            throws NavigationException, IOException {
         // Since TopCoder Studio Modifications Assembly Req# 5.8
         String targetFileName;
         String destFileName;
         String contentType = "application/zip";
 
-        // Determine if the "imagew" presentation must be used in case the "preview" presentation is requested but
-        // contest does not require preview file. So the user may get the watermarked image
-        Map<Integer, String> contestConfig = contest.getConfigMap();
-        boolean previewFileRequired
-                = Boolean.parseBoolean(contestConfig.get(ContestProperty.REQUIRE_PREVIEW_FILE));
-        if ("preview".equalsIgnoreCase(submissionType) && !previewFileRequired) {
-            submissionType = "imagew";
-        }
+        // Check if the preview file was requested
+        boolean previewFileRequested = "preview".equalsIgnoreCase(submissionType);
 
         // Determine tha name of requested file and it's mime type
         if (!originalSubmissionRequested) {
@@ -187,19 +196,38 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
             // Since Studio Slideshow Submission - map the literal submission type to image type ID and determine the
             // filename based on submission image data
-            int fileIndex = getRequestedFileIndex();
-            int imageTypeId = getImageTypeId(submissionType, contest.getType().getIncludeGallery());
+            // Since Studio Download Submission Refactor (Req# 2.1.3) - the requested image type ID has a preference
+            // over the requested submission type
+            int targetImageTypeId;
+            if (requestedImageTypeId == Constants.SUBMISSION_IMAGE_TYPE_UNSPECIFIED) {
+                targetImageTypeId = getImageTypeId(submissionType);
+            } else {
+                targetImageTypeId = requestedImageTypeId;
+            }
+
             String[] fileNames;
-            if (imageTypeId > 0) {
-                SubmissionImage image = getSubmissionImage(submission, imageTypeId, fileIndex);
+            if (targetImageTypeId > 0) {
+                int fileIndex = getRequestedFileIndex();
+                SubmissionImage image = getSubmissionImage(submission, targetImageTypeId, fileIndex);
                 fileNames = dir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
             } else {
+                //this handles the case where the user id downloading the preview file, not an image
                 fileNames = dir.list(new SubmissionPresentationFilter(submissionType, submission.getId()));
+            }
+
+            // Since Studio Download Submission Refactor (Req# 2.1.4) - if preview file was requested but it was not
+            // found then attempt to download image of type 31; if that doesn't exist also then raise an error
+            if ((fileNames == null) || (fileNames.length < 1)) {
+                if (previewFileRequested) {
+                    SubmissionImage image = getSubmissionImage(submission, Image.GALLERY_FULL_WATERMARKED_TYPE_ID,
+                                                               Constants.DEFAULT_FILE_INDEX);
+                    fileNames = dir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
+                }
             }
 
             if ((fileNames == null) || (fileNames.length < 1)) {
                 throw new NavigationException(MessageFormat.format(Constants.ERROR_MSG_PRESENTATION_NOT_FOUND,
-                        submissionType));
+                                                                   submissionType));
             } else {
                 // tiny, small, medium and full
                 targetFileName = submission.getPath().getPath() + fileNames[0];
@@ -213,8 +241,8 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         } else {
             // The original submission is requested
             targetFileName = submission.getPath().getPath() + submission.getSystemFileName();
-            destFileName
-                    = submission.getId() + submission.getOriginalFileName().substring(submission.getOriginalFileName().lastIndexOf('.'));
+            destFileName = submission.getId()
+                + submission.getOriginalFileName().substring(submission.getOriginalFileName().lastIndexOf('.'));
             contentType = submission.getMimeType().getDescription();
         }
 
@@ -258,7 +286,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
      * @param imageTypeId an <code>int</code> referencing the type of desired image to get.
      * @param fileIndex an <code>int</code> providing the relative index of the image of the specified type to get.
      * @return a <code>SubmissionImage</code> providing the details for the image of specified type associated with the
-     *         specified submission. 
+     *         specified submission.
      * @throws NavigationException if there is no image of specified type at specified index associated with the
      *         specified submission.
      * @since Studio Submission Slideshow
@@ -282,54 +310,65 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
      * <p>Maps the specified type of requested submission presentation to type of an image.</p>
      *
      * @param submissionType a <code>String</code> referencing the type of requested submission presentation.
-     * @param galleryRequired <code>true</code> if contest requires the gallery image to be provided; <code>false</code>
-     *        otherwise.
      * @return an <code>int</code> providing the ID of an image mapped to specified type of submission presentation or
-     *         <code>0</code> if specified presentation type does not map to image type. 
+     *         <code>0</code> if specified presentation type does not map to image type.
      * @since Studio Submission Slideshow
      */
-    private int getImageTypeId(String submissionType, boolean galleryRequired) {
-        if ("tiny".equalsIgnoreCase(submissionType)) {
-            if (galleryRequired) {
-                return Image.GALLERY_THUMBNAIL_TYPE_ID;
-            } else {
-                return Image.PREVIEW_THUMBNAIL_TYPE_ID;
-            }
+    private int getImageTypeId(String submissionType) {
+        if ("tiny".equalsIgnoreCase(submissionType) || "thumb".equalsIgnoreCase(submissionType)) {
+            return Image.GALLERY_THUMBNAIL_TYPE_ID;
         } else if ("small".equalsIgnoreCase(submissionType)) {
-            if (galleryRequired) {
-                return Image.GALLERY_SMALL_WATERMARKED_TYPE_ID;
-            } else {
-                return Image.PREVIEW_SMALL_WATERMARKED_TYPE_ID;
-            }
+            return Image.GALLERY_SMALL_WATERMARKED_TYPE_ID;
         } else if ("medium".equalsIgnoreCase(submissionType)) {
-            if (galleryRequired) {
-                return Image.GALLERY_MEDIUM_WATERMARKED_TYPE_ID;
-            } else {
-                return Image.PREVIEW_MEDIUM_WATERMARKED_TYPE_ID;
-            }
+            return Image.GALLERY_MEDIUM_WATERMARKED_TYPE_ID;
         } else if ("full".equalsIgnoreCase(submissionType)) {
-            if (galleryRequired) {
-                return Image.GALLERY_FULL_WATERMARKED_TYPE_ID;
-            } else {
-                return Image.PREVIEW_FULL_WATERMARKED_TYPE_ID;
-            }
+            return Image.GALLERY_FULL_WATERMARKED_TYPE_ID;
         }
         return 0;
     }
 
     /**
      * <p>Gets the index of the requested file from the parameter of incoming request.</p>
-     *  
+     *
      * @return an <code>int</code> providing the index of the requested file. The returned indexes are 1-based
      * @since Studio Submission Slideshow
      */
     private int getRequestedFileIndex() {
         String param = getRequest().getParameter(Constants.SUBMISSION_FILE_INDEX);
         if ((param == null) || (param.trim().length() == 0)) {
-            return 1;
+            return Constants.DEFAULT_FILE_INDEX;
         } else {
             return Integer.parseInt(param);
         }
+    }
+
+    /**
+     * <p>Gets the type of the requested image from the parameter of incoming request.</p>
+     *
+     * @return an <code>int</code> referencing the type of the requested image.
+     * @throws NavigationException if requested image type is not valid.
+     * @since Studio Download Submission Refactor (Req# 2.1.3)
+     */
+    private int getRequestedImageTypeId() throws NavigationException {
+        String requestedImageType = getRequest().getParameter(Constants.SUBMISSION_IMAGE_TYPE);
+        int requestedImageTypeId = Constants.SUBMISSION_IMAGE_TYPE_UNSPECIFIED;
+        if (requestedImageType != null) {
+            // Validate that the correct type of image is requested
+            boolean valid = false;
+            try {
+                requestedImageTypeId = Integer.parseInt(requestedImageType);
+                for (int i = 0; !valid && (i < ALTERNATE_SUBMISSION_IMAGE_TYPES.length); i++) {
+                    valid = (ALTERNATE_SUBMISSION_IMAGE_TYPES[i] == requestedImageTypeId);
+                }
+            } catch (NumberFormatException e) {
+                // Catch the NFE and let the NavigationException to be thrown
+            }
+            if (!valid) {
+                throw new NavigationException(
+                        MessageFormat.format(Constants.ERROR_MSG_INVALID_PRESENTATION_TYPE, requestedImageType));
+            }
+        }
+        return requestedImageTypeId;
     }
 
     /**

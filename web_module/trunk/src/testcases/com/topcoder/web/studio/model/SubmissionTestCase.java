@@ -56,22 +56,6 @@ public class SubmissionTestCase extends TestCase {
     }
 
     /**
-     * <p>Accuracy test. Tests the {@link Submission#setHasPreviewImage(Boolean)} and
-     * {@link Submission#getHasPreviewImage()} methods for accurate behavior.</p>
-     *
-     * <p>Passes the valid values to {@link Submission#setHasPreviewImage(Boolean)} method and reads them back through
-     * {@link Submission#getHasPreviewImage()} methods and verifies that the read value is matching the set value.</p>
-     */
-    public void testSetGetHasPreviewImage() {
-        Boolean[] validValues = new Boolean[] {false, true, null};
-        for (int i = 0; i < validValues.length; i++) {
-            this.testedInstance.setHasPreviewImage(validValues[i]);
-            Assert.assertEquals("The [hasPreviewImage] property is not set and read correctly",
-                                validValues[i], this.testedInstance.getHasPreviewImage());
-        }
-    }
-
-    /**
      * <p>Accuracy test. Tests the {@link Submission#setImages(Set)} and {@link Submission#getImages()} methods for
      * accurate behavior.</p>
      *
