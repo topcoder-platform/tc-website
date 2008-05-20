@@ -66,7 +66,7 @@
 <table cellpadding="0" cellspacing="0" width="100%">
 <tr>
     <td align="left" valign="top" style="padding: 10px 0px 0px 10px;">
-        <p style="height:30px; width:183px;">&nbsp;</p>
+        <p style="height:30px; width:151px;">&nbsp;</p>
     </td>
     <td align="center" style="padding: 20px;">
         <%--
@@ -108,7 +108,7 @@
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about' refer='homepage' />"><img src="/i/home/tco08compRegBanner.png" alt="2008 TopCoder Open" /></a>
         --%>
         
-        <%-- TCO08 champs --%>
+        <%-- TCO08 champs 
         <map id="tco08" name="tco08">
         <area shape="rect" alt="" coords="12,6,198,114" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about" />
         <area shape="rect" alt="" coords="216,6,466,114" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=blog" />
@@ -119,7 +119,7 @@
         <area shape="rect" alt="" coords="413,136,474,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=summary" />
         </map>
         <img src="/i/home/tco08champs.png" alt="TCO08" usemap="#tco08" style="display: block;" />
-        
+        --%>
 
         <%-- Architecture 
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=architecture&amp;d2=beta' refer='homepage' />"><img src="/i/home/architectureBeta.jpg" alt="Architecture Competition" /></a>
@@ -133,6 +133,9 @@
         <a href="<tc-webtag:linkTracking link='/openaim/' refer='homepage' />"><img src="/i/home/openaim.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
         --%>
 
+        <%-- Truveo --%>
+        <a href="<tc-webtag:linkTracking link='/truveo/' refer='homepage' />"><img src="/i/home/truveo_100.png" alt="Truveo Developer Challenge Powered by TopCoder" /></a>
+        
     </td>
     <td align="right" valign="top">
 <%-- STUDIO DOGEAR --%>
