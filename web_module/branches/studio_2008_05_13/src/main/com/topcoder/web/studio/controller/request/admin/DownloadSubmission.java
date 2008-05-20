@@ -95,16 +95,10 @@ public class DownloadSubmission extends Base {
         ContestChannel contestChannel = contest.getChannel();
         if (!submissionType.equalsIgnoreCase("original")
             && !ContestChannel.STUDIO_ADMINISTRATOR_V1.equals(contestChannel.getId())) {
+
             // The alternate presentation is requested
-            
-            // Determine if the "image" presentation must be used in case the "preview" presentation is requested but
-            // contest does not require preview file. So the admin may get the non-watermarked image
-            Map<Integer,String> contestConfig = contest.getConfigMap();
-            boolean previewFileRequired = Boolean.parseBoolean(contestConfig.get(ContestProperty.REQUIRE_PREVIEW_FILE));
+            // Check if the preview file was requested
             boolean previewFileRequested = "preview".equalsIgnoreCase(submissionType);
-            if (previewFileRequested && !previewFileRequired && !s.getImages().isEmpty()) {
-                submissionType = "image";
-            }
 
             // Locate the file corresponding to requested alternate presentation
             File dir = new File(s.getPath().getPath());

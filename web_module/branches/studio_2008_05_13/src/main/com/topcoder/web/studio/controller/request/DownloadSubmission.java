@@ -7,7 +7,6 @@ import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestChannel;
-import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.MimeType;
 import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.model.Submission;
@@ -186,15 +185,8 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         String destFileName;
         String contentType = "application/zip";
 
-        // Determine if the "imagew" presentation must be used in case the "preview" presentation is requested but
-        // contest does not require preview file. So the user may get the watermarked image
-        Map<Integer, String> contestConfig = contest.getConfigMap();
-        boolean previewFileRequired
-                = Boolean.parseBoolean(contestConfig.get(ContestProperty.REQUIRE_PREVIEW_FILE));
+        // Check if the preview file was requested
         boolean previewFileRequested = "preview".equalsIgnoreCase(submissionType);
-        if (previewFileRequested && !previewFileRequired && !submission.getImages().isEmpty()) {
-            submissionType = "imagew";
-        }
 
         // Determine tha name of requested file and it's mime type
         if (!originalSubmissionRequested) {
