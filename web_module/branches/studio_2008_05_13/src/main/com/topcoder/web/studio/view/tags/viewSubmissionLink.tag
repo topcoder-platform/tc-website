@@ -42,8 +42,11 @@
                 <a href="${sessionInfo.servletPath}?${modKey}=Static&amp;d1=slideshow&amp;${cid}=${contestId}&amp;${subId}=${submissionId}&amp;${subFileIdx}=1&amp;${galImgCount}=${galleryImageCount}">
                     View Full Size</a>
             </c:if>
+            <c:if test="${showFullVersionLink and showDownloadPreviewLink}">
+                |
+            </c:if>
             <c:if test="${showDownloadPreviewLink}">
-                | <a href="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}">Download Preview File</a>
+                <a href="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}">Download Preview File</a>
             </c:if>
     </c:when>
     <c:otherwise>
