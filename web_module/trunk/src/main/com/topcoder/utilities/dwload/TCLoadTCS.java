@@ -531,6 +531,8 @@ public class TCLoadTCS extends TCLoad {
         PreparedStatement insert = null;
         PreparedStatement update = null;
         ResultSet rs = null;
+        int submissionId=0;
+
         try {
             long start = System.currentTimeMillis();
 
@@ -580,7 +582,7 @@ public class TCLoadTCS extends TCLoad {
                                                     : ")"));
 
             final String UPDATE = "update submission set submission_url=? " +
-                    "where submitter_id=? and project_id=? and submission_type=?";
+                    "where submission_id=?";
 
             final String INSERT = "insert into submission (submitter_id, project_id, submission_url, submission_type, submission_id)" +
                     "values (?, ?, ?, ?, ?) ";
@@ -601,6 +603,7 @@ public class TCLoadTCS extends TCLoad {
             int count = 0;
             while (rs.next()) {
                 count++;
+                submissionId = rs.getInt("submission_id");
 
                 update.clearParameters();
 
@@ -611,9 +614,7 @@ public class TCLoadTCS extends TCLoad {
                     submissionUrl = this.submissionDir + submissionUrl;
                 }
                 update.setString(1, submissionUrl);
-                update.setInt(2, rs.getInt("submitter_id"));
-                update.setInt(3, rs.getInt("project_id"));
-                update.setInt(4, rs.getInt("submission_type"));
+                update.setInt(2, submissionId);
 
                 int retVal = update.executeUpdate();
 
@@ -631,7 +632,7 @@ public class TCLoadTCS extends TCLoad {
             log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'submission' table failed.\n" +
+            throw new Exception("Load of 'submission' table failed submission id " + submissionId + " .\n" +
                     sqle.getMessage());
         } finally {
             close(rs);
