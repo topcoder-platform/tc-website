@@ -111,40 +111,23 @@
     <br /><br />
     
     <h3>Participating Schools</h3>
-    Tongji University<br />
-    Fudan University<br />
-    Zhejiang University<br />
-    Nanjing University<br />
-    University of Science and Technology of China<br />
-    SouthEast University<br />
-    Nanjing University of Aeronautics and Astronautics<br />
-    East China University of Science and Technology<br />
-    Donghua University<br />
-    Shanghai Jiao Tong University<br />
-    East China Normal University<br />
-    Soochow University<br />
-    Jiangsu University<br />
-    Nanjing University of Science and Technology<br />
-    Zhejiang University of Technology<br />
-    Nanjing University of Post and Telecommunication<br />
-    Jiangnan University
-    
+    South China University of Technology<br />
+    Guangdong University of Technology<br />
+    Information Science School of Guangdong<br />
+    University of Business Studies<br />
+    Guangdong College of Industry and Commerce<br />
+    South China Agricultrual University<br />
+    Guangdong Institute of Education<br />
+    Guangdong Technology & Business College<br />
+    Guangdong Pharmaceutical University<br />
+    Panyu Polytechnic<br />
+    Guangdong Industry Technical College<br />
+    South China Normal University<br />
+    Huizhou University<br />
+    JiLin University
+   
     <br /><br />
     
-    <h3>Co-host Schools</h3>
-    Tongji University<br />
-    Fudan University<br />
-    Zhejiang University<br />
-    Nanjing University<br />
-    University of Science and Technology of China<br />
-    SouthEast University<br />
-    Nanjing University of Aeronautics and Astronautics<br />
-    East China University of Science and Technology<br />
-    Donghua University<br />
-    Shanghai Jiao Tong University
-
-    <br><br>
-
     <h3>Event Schedule</h3>
 
     The timeline for the day of the event:
