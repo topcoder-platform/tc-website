@@ -224,6 +224,9 @@ public class FileGenerator implements Runnable {
                     Map<String, byte[]> files = previewFileAnalyzer.getFiles(previewFileContent);
                     for (Map.Entry<String, byte[]> file : files.entrySet()) {
                         String fileName = file.getKey();
+                        if (log.isDebugEnabled()) {
+                            log.debug("generating for " + fileName);
+                        }
                         byte[] fileContent = file.getValue();
                         StudioFileType fileType = SubmissionValidator.getFileType(fileName);
                         if ((fileType != null) && fileType.isImageFile()) {
