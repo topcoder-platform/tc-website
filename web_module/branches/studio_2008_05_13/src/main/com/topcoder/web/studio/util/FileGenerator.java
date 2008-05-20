@@ -193,16 +193,21 @@ public class FileGenerator implements Runnable {
             // though the contest may not require to include gallery)
             int fileIndex = 1;
             if (analyzer.isPreviewImageAvailable()) {
-                String fileName = SubmissionValidator.getFileName(analyzer.getPreviewImagePath());
-                byte[] fileContent = analyzer.getPreviewImageContent();
-                StudioFileType fileType = analyzer.getPreviewImageFileType();
-                generateImages(fileName, fileContent, fileType, GALLERY_PLAIN_IMAGE_TYPE_IDS, GALLERY_PLAIN_IMAGE_SIZES,
-                               false, fileIndex);
-                generateImages(fileName, fileContent, fileType, GALLERY_WATERMARKED_IMAGE_TYPE_IDS,
-                               GALLERY_WATERMARKED_IMAGE_SIZES, true, fileIndex);
-                generatePreviewImagePresentations(fileContent, fileType, fileName, analyzer.isPreviewFileAvailable());
-                fileIndex++;
-                submissionUpdated = true;
+                String fileName = null;
+                try {
+                    fileName = SubmissionValidator.getFileName(analyzer.getPreviewImagePath());
+                    byte[] fileContent = analyzer.getPreviewImageContent();
+                    StudioFileType fileType = analyzer.getPreviewImageFileType();
+                    generateImages(fileName, fileContent, fileType, GALLERY_PLAIN_IMAGE_TYPE_IDS, GALLERY_PLAIN_IMAGE_SIZES,
+                                   false, fileIndex);
+                    generateImages(fileName, fileContent, fileType, GALLERY_WATERMARKED_IMAGE_TYPE_IDS,
+                                   GALLERY_WATERMARKED_IMAGE_SIZES, true, fileIndex);
+                    generatePreviewImagePresentations(fileContent, fileType, fileName, analyzer.isPreviewFileAvailable());
+                    fileIndex++;
+                    submissionUpdated = true;
+                } catch (Exception e) {
+                    log.error("Failed to generate alternate presentations for preview image [" + fileName + "]", e);
+                }
             }
 
             // Generate "preview" representation and gallery images from preview file if it is provided
@@ -223,28 +228,34 @@ public class FileGenerator implements Runnable {
                             = SubmissionValidator.getBundledFileParser(analyzer.getPreviewFilePath());
                     Map<String, byte[]> files = previewFileAnalyzer.getFiles(previewFileContent);
                     for (Map.Entry<String, byte[]> file : files.entrySet()) {
-                        String fileName = file.getKey();
-                        if (log.isDebugEnabled()) {
-                            log.debug("generating for " + fileName);
-                        }
-                        byte[] fileContent = file.getValue();
-                        StudioFileType fileType = SubmissionValidator.getFileType(fileName);
-                        if ((fileType != null) && fileType.isImageFile()) {
-                            generateImages(fileName, fileContent, fileType,
-                                    GALLERY_PLAIN_IMAGE_TYPE_IDS, GALLERY_PLAIN_IMAGE_SIZES, false,
-                                    fileIndex);
-                            generateImages(fileName, fileContent, fileType,
-                                    GALLERY_WATERMARKED_IMAGE_TYPE_IDS, GALLERY_WATERMARKED_IMAGE_SIZES,
-                                    true, fileIndex);
-
-                            // Use the first image from the gallery as preview image
-                            if (fileIndex == 1) {
-                                generatePreviewImagePresentations(fileContent, fileType, fileName,
-                                                                  analyzer.isPreviewFileAvailable());
+                        String fileName = null;
+                        try {
+                            fileName = file.getKey();
+                            if (log.isDebugEnabled()) {
+                                log.debug("generating for " + fileName);
                             }
+                            byte[] fileContent = file.getValue();
+                            StudioFileType fileType = SubmissionValidator.getFileType(fileName);
+                            if ((fileType != null) && fileType.isImageFile()) {
+                                generateImages(fileName, fileContent, fileType,
+                                        GALLERY_PLAIN_IMAGE_TYPE_IDS, GALLERY_PLAIN_IMAGE_SIZES, false,
+                                        fileIndex);
+                                generateImages(fileName, fileContent, fileType,
+                                        GALLERY_WATERMARKED_IMAGE_TYPE_IDS, GALLERY_WATERMARKED_IMAGE_SIZES,
+                                        true, fileIndex);
 
-                            fileIndex++;
-                            submissionUpdated = true;
+                                // Use the first image from the gallery as preview image
+                                if (fileIndex == 1) {
+                                    generatePreviewImagePresentations(fileContent, fileType, fileName,
+                                                                      analyzer.isPreviewFileAvailable());
+                                }
+
+                                fileIndex++;
+                                submissionUpdated = true;
+                            }
+                        } catch (Exception e) {
+                            log.error("Failed to generate alternate presentations for gallery image ["
+                                      + fileName + "]", e);
                         }
                     }
                 }
@@ -256,18 +267,6 @@ public class FileGenerator implements Runnable {
             }
             success = true;
         } catch (IOException e) {
-            log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                    e);
-        } catch (ImageException e) {
-            log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                    e);
-        } catch (ImagePersistenceException e) {
-            log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                    e);
-        } catch (UnsupportedFormatException e) {
-            log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
-                    e);
-        } catch (ImageOverlayProcessingException e) {
             log.error("Could not generate alternate presentations for submission [" + this.submission.getId() + "]",
                     e);
         } catch (Throwable e) {
