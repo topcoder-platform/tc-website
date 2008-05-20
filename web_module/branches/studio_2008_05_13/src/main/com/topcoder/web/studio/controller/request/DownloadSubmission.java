@@ -98,7 +98,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         boolean originalSubmissionRequested = "original".equalsIgnoreCase(submissionType);
         boolean isContestCreator = contest.getCreateUserId() == currentUserId;
         boolean isPurchaser = originalSubmissionRequested && isContestCreator
-                              && (Util.isSubmissionPurchased(String.valueOf(submissionId)));
+                && (Util.isSubmissionPurchased(String.valueOf(submissionId)));
 
         boolean canDownload;
         if (Util.isAdmin(getUser().getId())) {
@@ -113,7 +113,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             //if the original is requested, then they can only download it if they bought it
             canDownload = isPurchaser;
             if (log.isDebugEnabled()) {
-                log.debug("original requested, and they " + (isPurchaser ? "have" : "have not") + " purchased it");
+                log.debug("original requested, and they " + (isPurchaser?"have":"have not") + " purchased it");
             }
         } else if (isContestCreator) {
             log.debug("allow download, they're the contest creator");
@@ -124,7 +124,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             //if submissions are viewable, then they can only be downloaded if the contest is over
             canDownload = isOver;
             if (log.isDebugEnabled()) {
-                log.debug("the contest " + (isOver ? "is over" : "is not over") + " so they " + (isOver ? "can" : "can not") + " download");
+                log.debug("the contest " + (isOver?"is over":"is not over") + " so they " + (isOver?"can":"can not") + " download");
             }
         } else {
             log.debug("not allowed");
@@ -162,8 +162,8 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             response.addHeader("content-disposition", "inline; filename=\"" + origFileName + "\"");
         } else {
             response.addHeader("content-disposition", "inline; filename=\"" + s.getId()
-                                                      + origFileName.substring(origFileName.lastIndexOf('.'))
-                                                      + "\"");
+                    + origFileName.substring(origFileName.lastIndexOf('.'))
+                    + "\"");
         }
         //resetting the cache-control header to empty.  IE freaks out and doesn't save when the
         //cache-control header is set the way we do for an uncached response.
@@ -202,9 +202,6 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
             // Locate the file corresponding to requested alternate presentation
             File dir = new File(submission.getPath().getPath());
-            if (log.isDebugEnabled()) {
-                log.debug("directory is " + dir.getPath());
-            }
 
             // Since Studio Slideshow Submission - map the literal submission type to image type ID and determine the
             // filename based on submission image data
@@ -217,31 +214,25 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 targetImageTypeId = requestedImageTypeId;
             }
 
-            int fileIndex = getRequestedFileIndex();
-            SubmissionImage image = getSubmissionImage(submission, targetImageTypeId, fileIndex);
-            String[] fileNames = dir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
-            if (log.isDebugEnabled()) {
-                log.debug("file name is " + image.getImage().getFileName());
-            }
-            if (log.isDebugEnabled() && fileNames!=null) {
-
-                StringBuilder b = new StringBuilder(200);
-                for (String n : fileNames) {
-                    b.append(n).append(",");
-                }
-                log.debug("found files: " + b.toString());
-            }
-
-            if ((fileNames == null) || (fileNames.length < 1)) {
-                if (previewFileRequested) {
-                    image = getSubmissionImage(submission, Image.GALLERY_FULL_WATERMARKED_TYPE_ID,
-                                               Constants.DEFAULT_FILE_INDEX);
-                    fileNames = dir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
-                }
+            String[] fileNames;
+            if (targetImageTypeId > 0) {
+                int fileIndex = getRequestedFileIndex();
+                SubmissionImage image = getSubmissionImage(submission, targetImageTypeId, fileIndex);
+                fileNames = dir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
+            } else {
+                fileNames = dir.list(new SubmissionPresentationFilter(submissionType, submission.getId()));
             }
 
             // Since Studio Download Submission Refactor (Req# 2.1.4) - if preview file was requested but it was not
             // found then attempt to download image of type 31; if that doesn't exist also then raise an error
+            if ((fileNames == null) || (fileNames.length < 1)) {
+                if (previewFileRequested) {
+                    SubmissionImage image = getSubmissionImage(submission, Image.GALLERY_FULL_WATERMARKED_TYPE_ID,
+                                                               Constants.DEFAULT_FILE_INDEX);
+                    fileNames = dir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
+                }
+            }
+
             if ((fileNames == null) || (fileNames.length < 1)) {
                 throw new NavigationException(MessageFormat.format(Constants.ERROR_MSG_PRESENTATION_NOT_FOUND,
                                                                    submissionType));
@@ -259,7 +250,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             // The original submission is requested
             targetFileName = submission.getPath().getPath() + submission.getSystemFileName();
             destFileName = submission.getId()
-                           + submission.getOriginalFileName().substring(submission.getOriginalFileName().lastIndexOf('.'));
+                + submission.getOriginalFileName().substring(submission.getOriginalFileName().lastIndexOf('.'));
             contentType = submission.getMimeType().getDescription();
         }
 
@@ -272,7 +263,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         TCResponse response = getResponse();
         if (isOwner && originalSubmissionRequested) {
             response.addHeader("content-disposition", "inline; filename=\"" + submission.getOriginalFileName()
-                                                      + "\"");
+                    + "\"");
             if (log.isDebugEnabled()) {
                 log.debug("content-disposition = inline; filename=\"" + submission.getOriginalFileName() + "\"");
             }
@@ -299,13 +290,13 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
      * <p>Gets the image associated with the specified submission and located at specified index in the group of images
      * of specified type.</p>
      *
-     * @param submission  a <code>Submission</code> to get the image for.
+     * @param submission a <code>Submission</code> to get the image for.
      * @param imageTypeId an <code>int</code> referencing the type of desired image to get.
-     * @param fileIndex   an <code>int</code> providing the relative index of the image of the specified type to get.
+     * @param fileIndex an <code>int</code> providing the relative index of the image of the specified type to get.
      * @return a <code>SubmissionImage</code> providing the details for the image of specified type associated with the
      *         specified submission.
      * @throws NavigationException if there is no image of specified type at specified index associated with the
-     *                             specified submission.
+     *         specified submission.
      * @since Studio Submission Slideshow
      */
     private SubmissionImage getSubmissionImage(Submission submission, int imageTypeId, int fileIndex)
@@ -392,7 +383,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
      * <p>Copies the specified file to specified servlet response stream.</p>
      *
      * @param from a <code>FileInputStream</code> to be copied.
-     * @param to   a <code>File</code> referencing the new location of the copy.
+     * @param to a <code>File</code> referencing the new location of the copy.
      * @return an <code>int</code> providing the size of the specified file.
      * @throws IOException if an I/O error occurs while writing file content to disk.
      * @since Studio Submission Slideshow
