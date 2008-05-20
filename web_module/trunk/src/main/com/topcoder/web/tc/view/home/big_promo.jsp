@@ -35,7 +35,7 @@
 <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=blog' refer='/tc' />"><img src="/i/home/tco08BlogSlim.png" alt="2008 TopCoder Open" /></a>
 --%>
 
-<%-- TCO08 brackets --%>
+<%-- TCO08 brackets 
 <br />
 <map id="tco08" name="tco08">
 <area shape="rect" alt="" coords="12,6,198,114" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about" />
@@ -47,7 +47,7 @@
 <area shape="rect" alt="" coords="413,136,474,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=summary" />
 </map>
 <img src="/i/home/tco08champs.png" alt="TCO08" usemap="#tco08" style="display: block;" />
-
+--%>
 
 <%-- UML Tool 
 <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=dev&d2=umltool&d3=description' refer='/tc' />"><img src="/i/home/umltoolRelease.jpg" alt="UML Tool Release" /></a>
@@ -78,3 +78,7 @@
 <br />
 <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />"><img src="/i/home/openAIMslimBannerVote.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
 --%>
+
+<%-- Truveo --%>
+<br />
+<a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />"><img src="/i/home/truveo.png" alt="Truveo Developer Challenge Powered by TopCoder" /></a>
