@@ -207,7 +207,7 @@ Show submissions by (Enter Handle):
         <td class="value">
             <span class="coderText"><studio:handle coderId="${resultRow.map['submitter_id']}"/></span>
             <br /><strong><rsc:item name="submission_id" row="<%=resultRow%>"/></strong>
-            <br /><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>"><rsc:item name="original_file_name" row="<%=resultRow%>"/></a>
+            <br /><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=original><rsc:item name="original_file_name" row="<%=resultRow%>"/></a>
             <%if (resultRow.getIntItem("submission_type_id") != SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
             <br /><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissionDetail&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
             <% } %>
