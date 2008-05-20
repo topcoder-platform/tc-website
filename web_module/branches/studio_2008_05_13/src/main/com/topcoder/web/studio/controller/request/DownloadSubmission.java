@@ -22,7 +22,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.Date;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -212,6 +211,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 SubmissionImage image = getSubmissionImage(submission, targetImageTypeId, fileIndex);
                 fileNames = dir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
             } else {
+                //this handles the case where the user id downloading the preview file, not an image
                 fileNames = dir.list(new SubmissionPresentationFilter(submissionType, submission.getId()));
             }
 
