@@ -35,6 +35,7 @@
                     </a>
                 </c:forEach>
             </div>
+            <div align="center">
             <c:if test="${showFullVersionLink}">
                 <c:set var="galImgCount" value="<%=Constants.GALLERY_IMAGES_COUNT%>"/>
                 <c:set var="cid" value="<%=Constants.CONTEST_ID%>"/>
@@ -48,6 +49,7 @@
             <c:if test="${showDownloadPreviewLink}">
                 <a href="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}">Download Preview File</a>
             </c:if>
+            </div>
     </c:when>
     <c:otherwise>
         <%-- There is no preview image which means that there is no gallery also so there is nothing to view - download
