@@ -1,6 +1,5 @@
 <%@ tag import="com.topcoder.web.studio.Constants" %>
 <%@ tag import="com.topcoder.web.studio.model.ContestChannel" %>
-<%@ tag import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ tag body-content="empty" %>
 
 <%@ attribute name="row" required="true" type="java.lang.Object" %>
@@ -50,44 +49,13 @@
     <c:otherwise>
         <%-- TC Direct and Studion Admin V2 contests --%>
         <div align="center">
-<%--
-            <c:set var="hasImage" value="${row.map['has_preview_image']}"/>
-            <c:set var="fileRequired" value="${row.map['require_preview_file']}"/>
---%>
             <strong>ID:</strong>
             ${submissionId}
             <br/>
            <studio_tags:viewSubmissionLink submissionId="${submissionId}"
                                            galleryImageCount="${galleryImageCount}" targetPresentationType="medium"
-                                           previewPresentationType="small" showFullVersionLink="true"
+                                           previewPresentationType="small" showFullVersionLink="true" showDownloadPreviewLink="${row.map['require_preview_file']}"
                                            contestId="${contestId}"/>
-
-<%--
-            <c:if test="${hasImage or fileRequired}">
-                <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${row.map['submission_id']}">
-            </c:if>
-                <c:choose>
-                    <c:when test="${hasImage}">
-                        <img src="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=small&amp;<%=Constants.SUBMISSION_ID%>=${row.map['submission_id']}"
-                             alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()"/>
-                    </c:when>
-                    <c:otherwise>
-                        <c:choose>
-                            <c:when test="${fileRequired}">
-                                <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'popView')"
-                                     onmouseout="popHide()"/>
-                            </c:when>
-                            <c:otherwise>
-                                <img src="/i/v2/interface/magnifyFade.png" alt=""/>
-                            </c:otherwise>
-                        </c:choose>
-                    </c:otherwise>
-                </c:choose>
-            <c:if test="${hasImage or fileRequired}">
-                </a>
-            </c:if>
---%>
-
         </div>
     </c:otherwise>
 </c:choose>
