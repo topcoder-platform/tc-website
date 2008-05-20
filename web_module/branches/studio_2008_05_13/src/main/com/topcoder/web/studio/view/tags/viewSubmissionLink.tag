@@ -40,11 +40,11 @@
                 <c:set var="cid" value="<%=Constants.CONTEST_ID%>"/>
                 <c:set var="contestId" value="${contestId}"/>
                 <a href="${sessionInfo.servletPath}?${modKey}=Static&amp;d1=slideshow&amp;${cid}=${contestId}&amp;${subId}=${submissionId}&amp;${subFileIdx}=1&amp;${galImgCount}=${galleryImageCount}">
-                    View Full Size</a> |
+                    View Full Size</a>
             </c:if>
-        <c:if test="${showDownloadPreviewLink}">
-            <a href="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}">Download Preview File</a>
-        </c:if>
+            <c:if test="${showDownloadPreviewLink}">
+                | <a href="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}">Download Preview File</a>
+            </c:if>
     </c:when>
     <c:otherwise>
         <%-- There is no preview image which means that there is no gallery also so there is nothing to view - download
