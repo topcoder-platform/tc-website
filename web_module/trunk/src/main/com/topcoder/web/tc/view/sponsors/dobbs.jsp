@@ -40,7 +40,7 @@
             <br />
             <div align="center"><img src="/i/sponsor/drDobbsPoster.png" border="0px" alt="Dr. Dobb's Architecture &amp; Design World" /></div>
             <br />
-            <p>Welcome to Dr. Dobb's Architecture and Design World software architecture contest!  Here you can register for the competition, as well as learn more about architecture competitions.  The problem statement will be available at this location on May 17th!</p>
+            <p>Welcome to Dr. Dobb's Architecture and Design World software architecture contest!  Here you can register for the competition, as well as learn more about architecture competitions.  Check out <a href="/wiki/display/docs/DDADW+Problem+Statement">the problem statement</a>.</p>
             <p>The winner of the competition will receive a free All Access pass to an upcoming Dr. Dobb's event!</p>
             <ol>
                 <li>Read the <strong><a href="/wiki/display/training/Architecture+Deliverable+Module">Training Material</a></strong> to learn about the deliverables involved.</li>
