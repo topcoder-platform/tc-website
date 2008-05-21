@@ -38,6 +38,23 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
     protected static final byte[] BUFFER = new byte[1];
 
     /**
+     * <p>A <code>String</code> providing the path to a directory in submission archive where the source files for the
+     * submission can be located (followed by slash for convenient use in {@link #analyze(ZipInputStream, boolean)}
+     * method.</p>
+     *
+     * @since STUDIO-128
+     */
+    private static final String SUBMISSION_SOURCE_PATH_SLASHED = Constants.SUBMISSION_SOURCE_PATH + "/";
+
+    /**
+     * <p>A <code>String</code> providing the path to a directory in submission archive where the submission files can
+     * be located (followed by slash for convenient use in {@link #analyze(ZipInputStream, boolean)} method.</p>
+     *
+     * @since STUDIO-128
+     */
+    private static final String SUBMISSION_PATH_SLASHED = Constants.SUBMISSION_PATH + "/";
+
+    /**
      * <p>A <code>boolean</code> flag indicating whether the native submission file is included into latest analyzed
      * bundled file or not.</p>
      */
@@ -81,6 +98,22 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
      * <p>A <code>StudioFileType</code> representing the file type for preview image in analyzed file.</p>
      */
     protected StudioFileType previewImageFileType = null;
+
+    /**
+     * <p>A <code>boolean</code> flag indicating whether the <code>source</code> directory is included into latest
+     * analyzed bundled file or not.</p>
+     *
+     * @since STUDIO-128
+     */
+    protected boolean sourceDirIncluded = false;
+
+    /**
+     * <p>A <code>boolean</code> flag indicating whether the <code>source</code> directory is included into latest
+     * analyzed bundled file or not.</p>
+     *
+     * @since STUDIO-128
+     */
+    protected boolean submissionDirIncluded = false;
 
     /**
      * <p>Constructs new <code>SubmissionValidator$ZipFileAnalyzer</code> instance. This implementation does
@@ -209,6 +242,28 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
     }
 
     /**
+     * <p>Checks if <code>source</code> directory is included into analyzed bundled file or not.</p>
+     *
+     * @return <code>true</code> if <code>source</code> directory is included into analyzed bundled file;
+     *         <code>false</code> otherwise.
+     * @since STUDIO-128
+     */
+    public boolean isSourceDirectoryAvailable() {
+        return this.sourceDirIncluded;
+    }
+
+    /**
+     * <p>Checks if <code>submission</code> directory is included into analyzed bundled file or not.</p>
+     *
+     * @return <code>true</code> if <code>submission</code> directory is included into analyzed bundled file;
+     *         <code>false</code> otherwise.
+     * @since STUDIO-128
+     */
+    public boolean isSubmissionDirectoryAvailable() {
+        return this.submissionDirIncluded;
+    }
+
+    /**
      * <p>Gets the details for the files bundled within the specified content of the bundled file.</p>
      *
      * @param content a <code>byte</code> array providing the content of the bundled file.
@@ -244,15 +299,19 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
         this.nativeSubmissionProvided = false;
         this.previewImageProvided = false;
         this.previewFileProvided = false;
+        this.sourceDirIncluded = false;
+        this.submissionDirIncluded = false;
+        
         try {
             ZipEntry entry = content.getNextEntry();
-            while (!(this.nativeSubmissionProvided && this.previewImageProvided && this.previewFileProvided)
+            while (!(this.nativeSubmissionProvided && this.previewImageProvided && this.previewFileProvided
+                     && this.sourceDirIncluded && this.submissionDirIncluded)
                    && (entry != null)) {
+                String entryName = entry.getName().toUpperCase();
                 if (!entry.isDirectory()) {
-                    String entryName = entry.getName().toUpperCase();
                     // Check if the non-empty native submission is provided
                     if (!this.nativeSubmissionProvided
-                        && entryName.startsWith(Constants.SUBMISSION_SOURCE_PATH.toUpperCase() + "/")) {
+                        && entryName.startsWith(SUBMISSION_SOURCE_PATH_SLASHED.toUpperCase())) {
                         long entrySize = entry.getSize();
                         if (entrySize > 0) {
                             this.nativeSubmissionProvided = true;
@@ -265,7 +324,7 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
                                 this.nativeSubmissionProvided = true;
                             }
                         }
-                    } else if (entryName.startsWith(Constants.SUBMISSION_PATH.toUpperCase() + "/")) {
+                    } else if (entryName.startsWith(SUBMISSION_PATH_SLASHED.toUpperCase())) {
                         StudioFileType fileType = SubmissionValidator.getFileType(entry.getName());
                         if (fileType != null) {
                             if (!this.previewImageProvided && fileType.isImageFile()) {
@@ -283,6 +342,14 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
                                 }
                             }
                         }
+                    }
+                } else {
+                    // Since STUDIO-128 - Analyze the directory name to check if source or submission directory is
+                    // included
+                    if (!this.sourceDirIncluded && SUBMISSION_SOURCE_PATH_SLASHED.equalsIgnoreCase(entryName)) {
+                        this.sourceDirIncluded = true;
+                    } else if (!this.submissionDirIncluded && SUBMISSION_PATH_SLASHED.equalsIgnoreCase(entryName)) {
+                        this.submissionDirIncluded = true;
                     }
                 }
                 entry = content.getNextEntry();

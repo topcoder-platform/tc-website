@@ -117,6 +117,21 @@ public class SubmissionValidator implements Validator {
 
             try {
                 fileParser.analyze(new ByteArrayInputStream(arr), false);
+                
+                // Since STUDIO-128 - Check if source directory is included into submitted archive
+                if (!fileParser.isSourceDirectoryAvailable()) {
+                    return new BasicResult(false, MessageFormat.format(Constants.ERROR_MSG_NO_DIRECTORY,
+                                                                       "/" + Constants.SUBMISSION_SOURCE_PATH));
+                }
+                // Since STUDIO-128 - Check if submission directory is included into submitted archive in case any of
+                // preview image/file is required
+                if (previewImageRequired || previewFileRequired) {
+                    if (!fileParser.isSubmissionDirectoryAvailable()) {
+                        return new BasicResult(false, MessageFormat.format(Constants.ERROR_MSG_NO_DIRECTORY,
+                                                                           "/" + Constants.SUBMISSION_PATH));
+                    }
+                }
+                
                 boolean nativeSubmissionProvided = fileParser.isNativeSubmissionAvailable();
                 boolean previewImageProvided = !previewImageRequired || fileParser.isPreviewImageAvailable();
                 boolean previewFileProvided = !previewFileRequired || fileParser.isPreviewFileAvailable();

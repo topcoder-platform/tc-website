@@ -91,6 +91,9 @@ public class ZipFileAnalyzerTestCase extends TCHibernateTestCase {
                 Assert.assertNotNull("The content for preview file is not retrieved",
                                      this.testedInstance.getPreviewFileContent());
             }
+            Assert.assertTrue("The /source directory is not found", this.testedInstance.isSourceDirectoryAvailable());
+            Assert.assertTrue("The /submission directory is not found",
+                              this.testedInstance.isSubmissionDirectoryAvailable());
         }
     }
 
@@ -131,6 +134,9 @@ public class ZipFileAnalyzerTestCase extends TCHibernateTestCase {
                 Assert.assertNull("The content for preview file is retrieved",
                                   this.testedInstance.getPreviewFileContent());
             }
+            Assert.assertTrue("The /source directory is not found", this.testedInstance.isSourceDirectoryAvailable());
+            Assert.assertTrue("The /submission directory is not found",
+                              this.testedInstance.isSubmissionDirectoryAvailable());
         }
     }
 
@@ -171,6 +177,9 @@ public class ZipFileAnalyzerTestCase extends TCHibernateTestCase {
                 Assert.assertNotNull("The content for preview file is not retrieved",
                                      this.testedInstance.getPreviewFileContent());
             }
+            Assert.assertTrue("The /source directory is not found", this.testedInstance.isSourceDirectoryAvailable());
+            Assert.assertTrue("The /submission directory is not found",
+                              this.testedInstance.isSubmissionDirectoryAvailable());
         }
     }
 
@@ -211,6 +220,9 @@ public class ZipFileAnalyzerTestCase extends TCHibernateTestCase {
                 Assert.assertNull("The content for preview file is retrieved",
                                   this.testedInstance.getPreviewFileContent());
             }
+            Assert.assertTrue("The /source directory is not found", this.testedInstance.isSourceDirectoryAvailable());
+            Assert.assertTrue("The /submission directory is not found",
+                              this.testedInstance.isSubmissionDirectoryAvailable());
         }
     }
 
@@ -282,7 +294,48 @@ public class ZipFileAnalyzerTestCase extends TCHibernateTestCase {
                 Assert.assertNotNull("The content for preview file is not retrieved",
                                      this.testedInstance.getPreviewFileContent());
             }
+            Assert.assertTrue("The /source directory is not found", this.testedInstance.isSourceDirectoryAvailable());
+            Assert.assertTrue("The /submission directory is not found",
+                              this.testedInstance.isSubmissionDirectoryAvailable());
         }
+    }
+
+    /**
+     * <p>Accuracy test. Tests the {@link ZipFileAnalyzer#analyze(InputStream, boolean)} and accompanying methods for
+     * accurate behavior.</p>
+     *
+     * <p>Passes content for JAR file which does not have the <code>source</code> directory included and expects the
+     * method to analyze the content of the provided files correctly.</p>
+     *
+     * @throws Exception if an unexpected error occurs.
+     * @since STUDIO-128
+     */
+    public void testAnalyze_RetrieveFiles_NoSource() throws Exception {
+        String path = "test_files/studio/";
+        String fileName = "nosourcedir.jar";
+        this.testedInstance.analyze(new FileInputStream(path + fileName), true);
+        Assert.assertFalse("Wrong analyzis for source directory", this.testedInstance.isSourceDirectoryAvailable());
+        Assert.assertTrue("Wrong analyzis for submission directory",
+                          this.testedInstance.isSubmissionDirectoryAvailable());
+    }
+
+    /**
+     * <p>Accuracy test. Tests the {@link ZipFileAnalyzer#analyze(InputStream, boolean)} and accompanying methods for
+     * accurate behavior.</p>
+     *
+     * <p>Passes content for JAR file which does not have the <code>submission</code> directory included and expects the
+     * method to analyze the content of the provided files correctly.</p>
+     *
+     * @throws Exception if an unexpected error occurs.
+     * @since STUDIO-128
+     */
+    public void testAnalyze_RetrieveFiles_NoSubmission() throws Exception {
+        String path = "test_files/studio/";
+        String fileName = "nosubdir.jar";
+        this.testedInstance.analyze(new FileInputStream(path + fileName), true);
+        Assert.assertTrue("Wrong analyzis for source directory", this.testedInstance.isSourceDirectoryAvailable());
+        Assert.assertFalse("Wrong analyzis for submission directory",
+                           this.testedInstance.isSubmissionDirectoryAvailable());
     }
 
     /**
