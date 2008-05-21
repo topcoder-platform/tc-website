@@ -4,6 +4,32 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.21.08<br />11:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a target="_blank" href="http://blogs.wsj.com/biztech/2008/05/16/keeping-it-simple-pays-for-a-champion-coder/?mod=WSJBlog">Wall Street Journal - Keeping it Simple Pays for a Champion Coder</a></span><br /><br />
+        A tournament for computer programmers crowned a champion yesterday afternoon. The winner's secret: avoiding bells and whistles, and asking questions until he knew exactly what the judges wanted his software to do.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a target="_blank" href="http://blogs.wsj.com/biztech/2008/05/16/keeping-it-simple-pays-for-a-champion-coder/?mod=WSJBlog">details</a> | 
+        <tc-webtag:forumLink forumID="521266" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.21.08<br />11:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a target="_blank" href="http://www.cio.com/article/358813/Where_Programming_Meets_American_Idol">CIO - Where Programming Meets American Idol</a></span><br /><br />
+        Everyone who pays for custom application development wants to believe he's hiring the best. But statistically, we're all average.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://www.cio.com/article/358813/Where_Programming_Meets_American_Idol">details</a> | 
+        <tc-webtag:forumLink forumID="521267" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />05.21.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=ViewAssemblyActiveContests">An Assembly of Cockpit Widget Assemblies</a></span><br /><br />
