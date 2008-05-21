@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />05.21.08<br />10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=ViewAssemblyActiveContests">An Assembly of Cockpit Widget Assemblies</a></span><br /><br />
+        Three assembly competitions launched this morning to build widgets for the TopCoder cockpit framework with a total prize purse of over $5000. Jump in now for a shot at the money, the Digital Run points and best of all, the chance to help TopCoder on our mission to widgetize the world!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=ViewAssemblyActiveContests">details</a> | 
+        <tc-webtag:forumLink forumID="520543" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.19.08<br />11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">Truveo Developer Challenge Offers $100,000 in Prizes for New Video Search Applications</a></span><br /><br />
@@ -149,20 +162,4 @@
         <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.amd.com/documentation/Pages/AMDMulticoreThreadfestCompetition.aspx' refer='/tc' />">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&amp;forumID=520302&amp;mc=477">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />05.08.08<br />12:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm400">SRM 400 - Problem Set &amp; Analysis</a></span><br /><br />
-      In division one, problems are not hard at first glance, but solving them correctly is anything but easy. This property of the set leads to the high submission rate and the low success rate. <tc-webtag:handle coderId="10574855" context="algorithm"/> won the match as the only coder who solved all problems correctly.</td>
-         <td class="newsPhoto"><img src="/i/m/ymatsu_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20034421" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm400">details</a> | 
-        <tc-webtag:forumLink forumID="521020" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>

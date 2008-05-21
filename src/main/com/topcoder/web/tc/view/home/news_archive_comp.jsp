@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">05.21.08 10:00 AM - </td><td width="100%"><a href="/tc?module=ViewAssemblyActiveContests">An Assembly of Cockpit Widget Assemblies</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.15.08 6:00 PM - </td><td width="100%"><a href="/openaim/">Open AIM Developer Challenge - We Have Our Winners!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.13.08 2:00 PM - </td><td width="100%"><a href="/truveo/">TopCoder launches the $100,000 Truveo Developer Challenge</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.07.08 9:30 AM - </td><td width="100%"><a href="/openaim/">Open AIM Developer Challenge Closes, Vote for Your Favorites!</a><br /></td></tr>
