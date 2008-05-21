@@ -73,6 +73,8 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://blogs.wsj.com/biztech/2008/05/16/keeping-it-simple-pays-for-a-champion-coder/?mod=WSJBlog' refer='art_archive' />">Keeping it Simple Pays for a Champion Coder <br /><small style="margin-left:10px;">[May 16 - WSJ]</small></a></dd>
+                    <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.cio.com/article/358813/Where_Programming_Meets_American_Idol' refer='art_archive' />">Where Programming Meets American Idol <br /><small style="margin-left:10px;">[May 15 - CIO]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9085562&intsrc=hm_list' refer='art_archive' />">Eli Lilly aims to tap 'rock star' programmers <br /><small style="margin-left:10px;">[May 15 - Computerworld]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/05/topcoder_develo.html' refer='art_archive' />">TopCoder: developer productivity and code quality through competition <br /><small style="margin-left:10px;">[May 9 - InfoWorld]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.ddj.com/architect/207404123' refer='art_archive' />">There Must be Contest <br /><small style="margin-left:10px;">[May 1 - Dr. Dobb's Portal]</small></a></dd>

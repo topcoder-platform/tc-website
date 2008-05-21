@@ -111,6 +111,30 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- WSJ --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://blogs.wsj.com/biztech/2008/05/16/keeping-it-simple-pays-for-a-champion-coder/?mod=WSJBlog"><img src="/i/pressroom/wsj_logo.gif" alt="CIO" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://blogs.wsj.com/biztech/2008/05/16/keeping-it-simple-pays-for-a-champion-coder/?mod=WSJBlog">Keeping it Simple Pays for a Champion Coder</a></h3>
+                        <p>A tournament for computer programmers crowned a champion yesterday afternoon. The winner's secret: avoiding bells and whistles, and asking questions until he knew exactly what the judges wanted his software to do.  <small><a href="http://www.cio.com/article/358813/Where_Programming_Meets_American_Idol">[May 16]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+
+                <%-- CIO --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.cio.com/article/358813/Where_Programming_Meets_American_Idol"><img src="/i/pressroom/ciocom_logo_1201.gif" alt="CIO" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.cio.com/article/358813/Where_Programming_Meets_American_Idol">Where Programming Meets American Idol</a></h3>
+                        <p>Everyone who pays for custom application development wants to believe he's hiring the best. But statistically, we're all average. If an enterprise IT department wants Web design services and application development that's measurably the best- based on adherence to client software requirements, established metrics, and the inability of other developers to kick holes in the code-it might well turn to one of the oldest competitive methods in history: hold a contest.  <small><a href="http://www.cio.com/article/358813/Where_Programming_Meets_American_Idol">[May 15]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+
                 <%-- Truveo --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
