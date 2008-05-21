@@ -249,10 +249,10 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
             while (!(this.nativeSubmissionProvided && this.previewImageProvided && this.previewFileProvided)
                    && (entry != null)) {
                 if (!entry.isDirectory()) {
-                    String entryName = entry.getName();
+                    String entryName = entry.getName().toUpperCase();
                     // Check if the non-empty native submission is provided
                     if (!this.nativeSubmissionProvided
-                        && entryName.startsWith(Constants.SUBMISSION_SOURCE_PATH + "/")) {
+                        && entryName.startsWith(Constants.SUBMISSION_SOURCE_PATH.toUpperCase() + "/")) {
                         long entrySize = entry.getSize();
                         if (entrySize > 0) {
                             this.nativeSubmissionProvided = true;
@@ -265,7 +265,7 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
                                 this.nativeSubmissionProvided = true;
                             }
                         }
-                    } else if (entryName.startsWith(Constants.SUBMISSION_PATH + "/")) {
+                    } else if (entryName.startsWith(Constants.SUBMISSION_PATH.toUpperCase() + "/")) {
                         StudioFileType fileType = SubmissionValidator.getFileType(entry.getName());
                         if (fileType != null) {
                             if (!this.previewImageProvided && fileType.isImageFile()) {

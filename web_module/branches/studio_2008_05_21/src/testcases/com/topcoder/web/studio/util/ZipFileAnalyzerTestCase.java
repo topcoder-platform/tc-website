@@ -244,6 +244,48 @@ public class ZipFileAnalyzerTestCase extends TCHibernateTestCase {
     }
 
     /**
+     * <p>Accuracy test. Tests the {@link ZipFileAnalyzer#analyze(InputStream, boolean)} and accompanying methods for
+     * accurate behavior.</p>
+     *
+     * <p>Passes content for various JAR files which have the <code>source</code> and <code>submission</code>
+     * directory names spelled in mixed case and expects the method to analyze the content of the provided files
+     * correctly.</p>
+     *
+     * @throws Exception if an unexpected error occurs.
+     * @since STUDIO-127
+     */
+    public void testAnalyze_RetrieveFiles_CaseInsensitive() throws Exception {
+        String path = "test_files/studio/";
+        String[] fileNames = {"sourcemix.jar", "sourcesubmix.jar", "submix.jar"};
+        boolean[] expectedNativeAvailable = {true, true, true};
+        boolean[] expectedImageAvailable = {true, true, true};
+        boolean[] expectedFileAvailable = {true, true, true};
+
+        for (int i = 0; i < fileNames.length; i++) {
+            String fileName = fileNames[i];
+            this.testedInstance.analyze(new FileInputStream(path + fileName), true);
+            Assert.assertEquals("Wrong analyze for native file",
+                                expectedNativeAvailable[i], this.testedInstance.isNativeSubmissionAvailable());
+            Assert.assertEquals("Wrong analyze for image file",
+                                expectedImageAvailable[i], this.testedInstance.isPreviewImageAvailable());
+            Assert.assertEquals("Wrong analyze for preview file",
+                                expectedFileAvailable[i], this.testedInstance.isPreviewFileAvailable());
+            if (expectedImageAvailable[i]) {
+                Assert.assertNotNull("The path for preview image is not retrieved",
+                                     this.testedInstance.getPreviewImagePath());
+                Assert.assertNotNull("The content for preview image is not retrieved",
+                                     this.testedInstance.getPreviewImageContent());
+            }
+            if (expectedFileAvailable[i]) {
+                Assert.assertNotNull("The path for preview path is not retrieved",
+                                     this.testedInstance.getPreviewFilePath());
+                Assert.assertNotNull("The content for preview file is not retrieved",
+                                     this.testedInstance.getPreviewFileContent());
+            }
+        }
+    }
+
+    /**
      * <p>Gets the content of the sample submissions file to be used for testing from the disk.</p>
      *
      * @param fileName a <code>String</code> providing the name of the file to load.
