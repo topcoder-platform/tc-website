@@ -197,9 +197,9 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- DIGITAL RUN --%>
+                <%-- DIGITAL RUN 
                 <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/dig_run_2008_s2.png" alt="The Digital Run" border="0" style="display:block;"/></a>
-                
+                --%>
                 
                 <%-- DIGITAL RUN ASSEMBLY CUP 
                 <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></a>
@@ -241,9 +241,9 @@
                 <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=betfair' refer='homepage_promo' />"><img src="/i/home/tco08betfairPromo.png" alt="Betfair sponsor of TCO08" /></a>
                 --%>
                 
-                <%-- AMD Multicore Threadfest 
+                <%-- AMD Multicore Threadfest --%>
                 <a href="<tc-webtag:linkTracking link='/threadfest' refer='homepage_promo' />"><img src="/i/home/amdMCT_promo.png" alt="AMD Multicore Threadfest" /></a>
-                --%>
+                
             </td>
         </tr>
     </table>
