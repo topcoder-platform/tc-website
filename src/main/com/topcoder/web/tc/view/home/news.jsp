@@ -4,6 +4,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />05.22.08<br />10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/longcontest/?module=ViewProblemStatement&compid=8692&rd=12167">AMD Multicore Threadfest Competition 2 is Underway</a></span><br /><br />
+        The second edition of the AMD Multicore Threadfest Competition is now underway.  Your chance at the part of the $5,000 prize purse starts now.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/longcontest/?module=ViewProblemStatement&compid=8692&rd=12167">details</a> | 
+        <tc-webtag:forumLink forumID="521264" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
+   </td></tr>
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.21.08<br />11:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a target="_blank" href="http://blogs.wsj.com/biztech/2008/05/16/keeping-it-simple-pays-for-a-champion-coder/?mod=WSJBlog">Wall Street Journal - Keeping it Simple Pays for a Champion Coder</a></span><br /><br />
@@ -177,15 +189,3 @@
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />05.09.08<br />10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.amd.com/documentation/Pages/AMDMulticoreThreadfestCompetition.aspx' refer='/tc' />">Blowing the Socks off the AMD Multicore Threadfest Competition</a></span><br /><br />
-        AMD Dev Central: It's one thing to talk about leveraging threading to optimize applications for multicore processors. It's another thing entirely to demonstrate the skills and expertise required to translate complex problems into fast-executing code.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.amd.com/documentation/Pages/AMDMulticoreThreadfestCompetition.aspx' refer='/tc' />">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&amp;forumID=520302&amp;mc=477">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
-   </td></tr>
