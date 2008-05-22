@@ -201,6 +201,12 @@
                             </a>
                             <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=tco08_25&title=Winners%20Ceremony">Winners Ceremony</A>
                         </td>
+                        <td align="center" valign="top">
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=May_9_to_15&title=6%20days%20in%206%20minutes">
+                                <img src="/i/tournament/tco08/movies/May_9_to_15.jpg" alt="TC Channel" />
+                            </a>
+                            <br /><A href="/tc?module=Static&d1=tournaments&d2=tco08&d3=movieStream&clip=May_9_to_15&title=6%20days%20in%206%20minutes">6 days in 6 minutes</A>
+                        </td>
                     </tr>
                 </tbody>
                 </table>
