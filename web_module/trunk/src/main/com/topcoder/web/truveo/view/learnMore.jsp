@@ -84,7 +84,6 @@
         <ul>
             <li>Your TopCoder handle name</li>
             <li>Your unique Truveo API key</li>
-            <li>Your AIM Screenname you used to acquire your API Key</li>
             <li>A title and brief overview of the application to be used as an online description</li>
             <li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
         </ul>

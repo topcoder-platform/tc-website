@@ -390,6 +390,14 @@ public class Constants implements WebConstants {
      */
     public static String ERROR_MSG_CONTEST_CHANNEL_INVALID;
 
+    /**
+     * <p>A <code>String</code> providing the message to be displayed to users in case the submitted archive does not
+     * contain the desired directory (for example, <code>source</code> or <code>submission</code> directory).</p>
+     *
+     * @since STUDIO-128
+     */
+    public static String ERROR_MSG_NO_DIRECTORY;
+
     // Flag to turn on/off the global AD feature
     public static String GLOBAL_AD_FLAG;
 
