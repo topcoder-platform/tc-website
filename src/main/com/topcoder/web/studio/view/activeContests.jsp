@@ -22,7 +22,6 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    <script type="text/javascript" src="/js/v2/popup.js"></script>
 </head>
 
 <body>
@@ -126,7 +125,7 @@
                             <td class="value">
                                 <%-- todo no scriptlet code!, fix this--%>
                                 <% if ("3008".equals(resultRow.getStringItem("event_id"))) { %>
-                                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=description"><img src="/i/tournament/tco08/emblem.png" alt="" onmouseover="popUp(this,'popTCO08')" onmouseout="popHide()" style="display: block; margin: 4px;"/></a>
+                                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=description"><img src="/i/tournament/tco08/emblem.png" alt="" /><span>Eligible for the TCO08 SDC</span></a>
                                 <% } else { %>
                                 &nbsp;
                                 <% } %>
@@ -169,11 +168,6 @@
     </div>
     <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
     <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
-</div>
-
-
-<div id="popTCO08" class="popUp">
-    <div>Eligible for the TCO08 SDC</div>
 </div>
 
                         <br clear="all"/>
