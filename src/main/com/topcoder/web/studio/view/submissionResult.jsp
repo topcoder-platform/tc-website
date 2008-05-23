@@ -22,7 +22,6 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    <script type="text/javascript" src="/js/v2/popup.js"></script>
     <script type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
     <script type="text/javascript" src="/js/thickbox-3.1/thickbox-compressed-3.1.js"></script>
     <link rel="stylesheet" href="/js/thickbox-3.1/thickbox-3.1.css" type="text/css" media="screen" />
@@ -86,9 +85,9 @@
                                 <studio_tags:submissionDisplay submissionId="${submissionId}" width="${submission.width}" height="${submission.height}"/>
                             </c:when>
                             <c:otherwise>
-                                <div id="popIt" class="popUp"><div>View submission</div></div>
                                     <a href="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}">
-                                        <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'popIt')" onmouseout="popHide()"/>
+                                        <img src="/i/v2/interface/magnify.png" alt="" />
+                                        <span>View submission</span>
                                     </a>
                             </c:otherwise>
                         </c:choose>
