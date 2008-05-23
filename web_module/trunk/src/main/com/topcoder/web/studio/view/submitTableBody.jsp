@@ -54,9 +54,6 @@ ${submission.originalFileName}
 </c:choose>
 </td>
 <td class="value"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
-<div id="pop${submission.id}" class="popUp">
-<div>View submission</div>
-</div>
     <c:set var="contestId" value="${submission.contest.id}"/>
     <c:set var="galleryImageCount" value="${submission.mediumWatermarkedGalleryImagesCount}"/>
     <studio_tags:viewSubmissionLink submissionId="${submission.id}"
