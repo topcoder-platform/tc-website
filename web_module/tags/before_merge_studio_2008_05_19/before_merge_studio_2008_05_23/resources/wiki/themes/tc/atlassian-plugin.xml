@@ -1,0 +1,99 @@
+<atlassian-plugin name="TopCoder Site Theme" key="com.topcoder.web.wiki.themes.tc" enabled="false">
+   <plugin-info>
+       <description>This theme matches the TopCoder site http://www.topcoder.com/tc</description>
+       <vendor name="TopCoder" url="http://www.topcoder.com/"/>
+       <version>1.0</version>
+   </plugin-info>
+
+    <theme key="tctheme" i18n-name-key="TopCoder Site" name="TopCoder Site Theme" class="com.atlassian.confluence.themes.BasicTheme">
+        <description>This theme matches the TopCoder site http://www.topcoder.com/tc</description>
+        <layout key="com.topcoder.web.wiki.themes.tc:main"/>
+        <layout key="com.topcoder.web.wiki.themes.tc:page"/>
+        <layout key="com.topcoder.web.wiki.themes.tc:mail"/>
+        <layout key="com.topcoder.web.wiki.themes.tc:blogpost"/>
+        <layout key="com.topcoder.web.wiki.themes.tc:space"/>
+        <layout key="com.topcoder.web.wiki.themes.tc:spaceadminpanel"/>
+        <layout key="com.topcoder.web.wiki.themes.tc:global"/>
+        <param name="space-config-path" value="/themes/leftnav/configuretheme.action"/>
+        <param name="global-config-path" value="/admin/themes/leftnav/configuretheme.action"/>
+        <resource key="icon" name="themeicon.gif" type="download" location="templates/leftnav/images/themeicon.gif">
+            <property key="content-type" value="image/gif"/>
+        </resource>
+    </theme>
+
+    <layout key="main" name="Main Decorator" class="com.atlassian.confluence.themes.VelocityDecorator"
+            overrides="/decorators/main.vmd">
+        <resource type="velocity" name="decorator"
+                  location="templates/leftnav/main.vmd"/>
+    </layout>
+
+    <layout key="space" name="Space Decorator" class="com.atlassian.confluence.themes.VelocityDecorator"
+            overrides="/decorators/space.vmd">
+        <resource type="velocity" name="decorator"
+                  location="templates/leftnav/space.vmd"/>
+    </layout>
+
+    <layout key="page" name="Page Decorator" class="com.atlassian.confluence.themes.VelocityDecorator"
+            overrides="/decorators/page.vmd">
+        <resource type="velocity" name="decorator"
+                  location="templates/leftnav/page.vmd"/>
+    </layout>
+
+    <layout key="blogpost" name="Blogpost Decorator" class="com.atlassian.confluence.themes.VelocityDecorator"
+            overrides="/decorators/blogpost.vmd">
+        <resource type="velocity" name="decorator"
+                  location="templates/leftnav/blog.vmd"/>
+    </layout>
+
+    <layout key="mail" name="Mail Decorator" class="com.atlassian.confluence.themes.VelocityDecorator"
+            overrides="/decorators/mail.vmd">
+        <resource type="velocity" name="decorator"
+                  location="templates/leftnav/mail.vmd"/>
+    </layout>
+
+    <layout key="spaceadminpanel" name="Space Admin Panel Decorator" class="com.atlassian.confluence.themes.VelocityDecorator"
+            overrides="/decorators/panels/spaceadminpanel.vmd">
+        <resource type="velocity" name="decorator"
+                  location="templates/leftnav/panels/spaceadminpanel.vmd"/>
+    </layout>
+
+    <layout key="global" name="Global Decorator" class="com.atlassian.confluence.themes.VelocityDecorator"
+            overrides="/decorators/global.vmd">
+        <resource type="velocity" name="decorator"
+                  location="templates/leftnav/global.vmd"/>
+    </layout>
+
+    <velocity-context-item key="velocityHelper" name="Velocity Helper" class="com.topcoder.web.wiki.themes.tc.LeftNavVelocityHelper"
+            context-key="navHelper"/>
+
+    <velocity-context-item key="topVelocityHelper" name="Top Velocity Helper" class="com.topcoder.web.wiki.themes.tc.TopVelocityHelper"
+            context-key="topHelper"/>
+
+    <velocity-context-item key="constantHelper" name="TC Constants Velocity Helper" class="com.topcoder.web.wiki.ConstantHelper"
+            context-key="constantHelper"/>
+
+    <xwork name="themeaction" key="themeaction">
+        <package name="leftnav" extends="default" namespace="/themes/leftnav">
+            <default-interceptor-ref name="defaultStack" />
+
+            <action name="configuretheme" class="com.topcoder.web.wiki.themes.tc.ConfigureThemeAction" method="doDefault">
+                <result name="input" type="velocity">/templates/leftnav/configuretheme.vm</result>
+            </action>
+
+            <action name="doconfiguretheme" class="com.topcoder.web.wiki.themes.tc.ConfigureThemeAction">
+                <result name="success" type="redirect">/spaces/choosetheme.action?key=${key}</result>
+            </action>
+            
+        </package>
+        <package name="leftnav-admin" extends="default" namespace="/admin/themes/leftnav">
+            <default-interceptor-ref name="defaultStack" />
+            <action name="configuretheme" class="com.topcoder.web.wiki.themes.tc.ConfigureThemeAction" method="doDefault">
+                <result name="input" type="velocity">/templates/leftnav/configurethemeadmin.vm</result>
+            </action>
+            <action name="doconfiguretheme" class="com.topcoder.web.wiki.themes.tc.ConfigureThemeAction">
+                <result name="success" type="redirect">/admin/themes/leftnav/configuretheme.action</result>
+                <result name="error" type="velocity">/templates/leftnav/configurethemeadmin.vm</result>
+            </action>
+        </package>
+    </xwork>
+</atlassian-plugin>
