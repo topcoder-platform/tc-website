@@ -28,6 +28,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.MessageFormat;
 
 /**
  * <p>A unit test for {@link SubmissionValidator} class.</p>
@@ -471,6 +472,86 @@ public class SubmissionValidatorTestCase extends TCHibernateTestCase {
                                     JarFileAnalyzer.class.getName(), fileParser.getClass().getName());
             }
         }
+    }
+
+    /**
+     * <p>Accuracy test. Tests the {@link SubmissionValidator#validate(ValidationInput)} method for accurate behavior.
+     * </p>
+     *
+     * <p>Configures the validator to validate submissions for contest which requires preview file to be provided and
+     * passes the submission which does not have the <code>submission</code> directory included and expects the
+     * validation to fail.</p>
+     *
+     * @throws Exception if an unexpected error occurs.
+     * @since STUDIO-128
+     */
+    public void testValidate_PreviewFileRequired_NoSubmissionDirectory() throws Exception {
+        byte[] submitted = readSubmissionFile("nosubdir.jar");
+        UploadedFile uploadedFile = new UploadedFileImpl(String.valueOf(System.currentTimeMillis()),
+                                                         "application/java-archive", "nosubdir.jar", submitted.length,
+                                                         new ByteArrayInputStream(submitted));
+        Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(1L);
+
+        this.testedInstance = new SubmissionValidator(contest);
+        ValidationResult validationResult = this.testedInstance.validate(new ObjectInput(uploadedFile));
+        Assert.assertFalse("Invalid submission is accepted", validationResult.isValid());
+        Assert.assertEquals("Invalid error message",
+                            MessageFormat.format(Constants.ERROR_MSG_NO_DIRECTORY, "/" + Constants.SUBMISSION_PATH),
+                            validationResult.getMessage());
+    }
+
+    /**
+     * <p>Accuracy test. Tests the {@link SubmissionValidator#validate(ValidationInput)} method for accurate behavior.
+     * </p>
+     *
+     * <p>Configures the validator to validate submissions for contest which requires preview image to be provided and
+     * passes the submission which does not have the <code>submission</code> directory included and expects the
+     * validation to fail.</p>
+     *
+     * @throws Exception if an unexpected error occurs.
+     * @since STUDIO-128
+     */
+    public void testValidate_PreviewImageRequired_NoSubmissionDirectory() throws Exception {
+        byte[] submitted = readSubmissionFile("nosubdir.jar");
+        UploadedFile uploadedFile = new UploadedFileImpl(String.valueOf(System.currentTimeMillis()),
+                                                         "application/java-archive", "nosubdir.jar", submitted.length,
+                                                         new ByteArrayInputStream(submitted));
+        Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(3L);
+
+        this.testedInstance = new SubmissionValidator(contest);
+        ValidationResult validationResult = this.testedInstance.validate(new ObjectInput(uploadedFile));
+        Assert.assertFalse("Invalid submission is accepted", validationResult.isValid());
+        Assert.assertEquals("Invalid error message",
+                            MessageFormat.format(Constants.ERROR_MSG_NO_DIRECTORY,
+                                                 "/" + Constants.SUBMISSION_PATH),
+                            validationResult.getMessage());
+    }
+
+    /**
+     * <p>Accuracy test. Tests the {@link SubmissionValidator#validate(ValidationInput)} method for accurate behavior.
+     * </p>
+     *
+     * <p>Configures the validator to validate submissions for contest which requires preview image to be provided and
+     * passes the submission which does not have the <code>source</code> directory included and expects the validation
+     * to fail.</p>
+     *
+     * @throws Exception if an unexpected error occurs.
+     * @since STUDIO-128
+     */
+    public void testValidate_PreviewImageRequired_NoSourceDirectory() throws Exception {
+        byte[] submitted = readSubmissionFile("nosourcedir.jar");
+        UploadedFile uploadedFile = new UploadedFileImpl(String.valueOf(System.currentTimeMillis()),
+                                                         "application/java-archive", "nosourcedir.jar",
+                                                         submitted.length, new ByteArrayInputStream(submitted));
+        Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(3L);
+
+        this.testedInstance = new SubmissionValidator(contest);
+        ValidationResult validationResult = this.testedInstance.validate(new ObjectInput(uploadedFile));
+        Assert.assertFalse("Invalid submission is accepted", validationResult.isValid());
+        Assert.assertEquals("Invalid error message",
+                            MessageFormat.format(Constants.ERROR_MSG_NO_DIRECTORY,
+                                                 "/" + Constants.SUBMISSION_SOURCE_PATH),
+                            validationResult.getMessage());
     }
 
     /**
