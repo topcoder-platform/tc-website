@@ -28,7 +28,6 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    <script type="text/javascript" src="/js/v2/popup.js"></script>
     <script type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
     <script type="text/javascript" src="/js/thickbox-3.1/thickbox-compressed-3.1.js"></script>
     <link rel="stylesheet" href="/js/thickbox-3.1/thickbox-3.1.css" type="text/css" media="screen" />
@@ -209,7 +208,10 @@
                     &nbsp;
                 </td>
                 <td class="valueC">
-                    <img src="/i/layout/fail.png" alt="failed" onmouseover="popUp(this,'popFail')" onmouseout="popHide()" />
+                    <a href="#" class="noLink">
+                        <img src="/i/layout/fail.png" alt="" />
+                        <span>Failed screening</span>
+                    </a>
                 </td>
 
             </c:otherwise>
@@ -228,13 +230,6 @@
     </div>
     <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
     <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
-</div>
-
-<div id="popView" class="popUp">
-    <div>View submission</div>
-</div>
-<div id="popFail" class="popUp">
-    <div>Failed screening</div>
 </div>
 
 <div class="pagingBox">
