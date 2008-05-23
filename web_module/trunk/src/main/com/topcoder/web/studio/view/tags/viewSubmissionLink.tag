@@ -27,7 +27,7 @@
             <%-- There is a gallery of the images --%>
             <a href="${sessionInfo.servletPath}studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${targetPresentationType}&amp;${subFileIdx}=1"
                title="" class="thickbox" rel="gal${submissionId}">
-                <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${previewPresentationType}"/>
+                <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}&amp;${subAltType}=${previewPresentationType}" alt="" />
             </a>
             <div style="visibility:hidden;display:inline;">
                 <c:forEach begin="2" end="${galleryImageCount}" step="1" varStatus="index">
@@ -56,7 +56,7 @@
         <%-- There is no preview image which means that there is no gallery also so there is nothing to view - download
              the preview file --%>
         <a href="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}">
-            <img src="/i/v2/interface/magnify.png" />
+            <img src="/i/v2/interface/magnify.png" alt="" />
             <span>Download submission</span>
         </a>
     </c:otherwise>
