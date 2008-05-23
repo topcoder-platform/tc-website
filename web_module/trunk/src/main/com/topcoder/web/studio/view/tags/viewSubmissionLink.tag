@@ -56,7 +56,8 @@
         <%-- There is no preview image which means that there is no gallery also so there is nothing to view - download
              the preview file --%>
         <a href="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submissionId}">
-            <img src="/i/v2/interface/magnify.png" onmouseover="popUp(this,'myPopup')" onmouseout="popHide()" />
+            <img src="/i/v2/interface/magnify.png" />
+            <span>Download submission</span>
         </a>
     </c:otherwise>
 </c:choose>

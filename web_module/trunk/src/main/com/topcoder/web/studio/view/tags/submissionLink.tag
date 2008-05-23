@@ -40,7 +40,8 @@
                     <strong>ID:</strong> ${submissionId}
                     <br />
                     <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;${subId}=${submissionId}">
-                        <img src="/i/v2/interface/magnify.png" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()"/>
+                        <img src="/i/v2/interface/magnify.png" alt="" />
+                        <span>Download submission</span>
                     </a>
                 </div>
             </c:otherwise>
