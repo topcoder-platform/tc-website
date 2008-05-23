@@ -41,9 +41,9 @@
 <link type="text/css" rel="stylesheet" href="/css/stats.css" />
 <link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
 <% } else if (key.equals("tc_studio")) { %>
-<link type="text/css" rel="stylesheet" href="/css/v2/main20080409.css" />
+<link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
 <% } else if (key.equals("tc_studio_forums")) { %>
-<link type="text/css" rel="stylesheet" href="/css/v2/main20080409.css" />
+<link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
 <link type="text/css" rel="stylesheet" href="/css/forums.css" />
 <% } else if (key.equals("csf")) { %>
 <link type="text/css" rel="stylesheet" href="/css/main.css" />
