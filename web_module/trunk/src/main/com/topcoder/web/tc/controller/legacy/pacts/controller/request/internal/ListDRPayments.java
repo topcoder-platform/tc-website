@@ -30,18 +30,24 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
             int periodId = 0;
             int desActiveCount = 0;
             int devActiveCount = 0;
+            int asmActiveCount = 0;
             List<Contest> contests = new ArrayList<Contest>();
             
             if (getRequest().getParameter(Constants.STAGE_ID) != null) {
                  periodId = Integer.parseInt(getRequest().getParameter(Constants.STAGE_ID));
-                 desActiveCount = getStageActiveProjects(periodId, 112);
+                 desActiveCount = getStageActiveProjects(periodId, 1);
                  if (desActiveCount == 0) {
-                     contests.addAll(getStageContests(periodId, 112));
+                     contests.addAll(getStageContests(periodId, 1));
                  }
                  
-                 devActiveCount = getStageActiveProjects(periodId, 113);
+                 devActiveCount = getStageActiveProjects(periodId, 2);
                  if (devActiveCount == 0) {
-                     contests.addAll(getStageContests(periodId, 113));
+                     contests.addAll(getStageContests(periodId, 2));
+                 }
+                 
+                 asmActiveCount = getStageActiveProjects(periodId, 14);
+                 if (asmActiveCount == 0) {
+                     contests.addAll(getStageContests(periodId, 14));
                  }
                  
                  getRequest().setAttribute(Constants.STAGE_ID, getRequest().getParameter(Constants.STAGE_ID));
@@ -72,6 +78,7 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
             getRequest().setAttribute("contests", contests);
             getRequest().setAttribute("desActiveCount", desActiveCount);
             getRequest().setAttribute("devActiveCount", devActiveCount);
+            getRequest().setAttribute("asmActiveCount", asmActiveCount);
             
             setNextPage(INTERNAL_LIST_DR_PAYMENTS);
             setIsNextPageInContext(true);
@@ -84,14 +91,14 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
      * Get the number of active projects for a stage and a phase
      * 
      * @param stageId
-     * @param phaseId
+     * @param projectCategoryId
      * @return
      * @throws Exception
      */
-    private int getStageActiveProjects(int stageId, int phaseId) throws Exception {
+    private int getStageActiveProjects(int stageId, int projectCategoryId) throws Exception {
         Request r = new Request();
         r.setContentHandle("dr_stage_active_projects");
-        r.setProperty(Constants.PHASE_ID, phaseId + "");
+        r.setProperty(Constants.PROJECT_TYPE_ID, projectCategoryId + "");
         r.setProperty(Constants.STAGE_ID, stageId + "");
         
         ResultSetContainer rsc = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_stage_active_projects"); 
@@ -123,14 +130,14 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
      * Get the contests for the specified stage.
      * 
      * @param stageId
-     * @param phaseId
+     * @param projectCategoryId
      * @return
      * @throws Exception
      */
-    private List<Contest> getStageContests(int stageId, int phaseId) throws Exception {
+    private List<Contest> getStageContests(int stageId, int projectCategoryId) throws Exception {
         Request r = new Request();
         r.setContentHandle("dr_contests_for_stage");
-        r.setProperty(Constants.PHASE_ID, phaseId + "");
+        r.setProperty(Constants.PROJECT_TYPE_ID, projectCategoryId + "");
         r.setProperty(Constants.STAGE_ID, stageId + "");
         
         ResultSetContainer rsc = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_contests_for_stage");
