@@ -40,7 +40,10 @@
 	<h3>Design phase not yet completed: ${desActiveCount } projects still active.</h3>
 </c:if>
 <c:if test="${devsActiveCount >0 }">
-	<h3>Development phase not yet completed: ${devActiveCount } projects still active.</h3>
+    <h3>Development phase not yet completed: ${devActiveCount } projects still active.</h3>
+</c:if>
+<c:if test="${asmActiveCount >0 }">
+    <h3>Assembly phase not yet completed: ${asmActiveCount } projects still active.</h3>
 </c:if>
 
 
