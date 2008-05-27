@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />05.27.08<br />10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/wiki/display/tc/Active+Bug+Races">Weekend at the Races</a></span><br /><br />
+        Just a reminder, there's always opportunity to earn money quickly on TopCoder in the Bug Races. Right now more than $2000 is up for grabs across dozens of bug races including <a href="/bugs/browse/BUGR-211">BUGR-211</a> and <a href="/bugs/browse/BUGR-207">BUGR-207</a>, two Java Service Cockpit related bugs. Help us smash bugs, we'll help you earn cash!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/wiki/display/tc/Active+Bug+Races">details</a> | 
+        <tc-webtag:forumLink forumID="519026" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />05.22.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/longcontest/?module=ViewProblemStatement&compid=8692&rd=12167">AMD Multicore Threadfest Competition 2 is Underway</a></span><br /><br />
@@ -146,46 +159,6 @@
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051308">details</a> | 
         <tc-webtag:forumLink forumID="521211" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />05.13.08<br />2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />">TopCoder launches the $100,000 Truveo Developer Challenge</a></span><br /><br />
-        Truveo wants to set the top developers in the world loose with the APIs to search and index a hundred million video clips and challenge you to build the next great video application. Now's your chance to show 'em what you got for a piece of $100,000 in prize money!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />">details</a> | 
-        <a href="/truveo/forums">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.09.08<br />6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=aolChat20080506">AOL SRM 401 Chat Transcript Available</a></span><br /><br />
-        AOL was in the chat room on May 6 before SRM 401 to discuss Open AIM.  Read the chat transcript of the session.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=aolChat20080506">details</a> | 
-        <tc-webtag:forumLink forumID="520183" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.09.08<br />1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/05/topcoder_develo.html' refer='/tc' />">InfoWorld - TopCoder: developer productivity and code quality through competition</a></span><br /><br />
-        The TopCoder business model isn't outsourcing: it's built on global competition, and controlled by metrics and peer review. It's also market-driven.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/05/topcoder_develo.html' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="521128" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
    
