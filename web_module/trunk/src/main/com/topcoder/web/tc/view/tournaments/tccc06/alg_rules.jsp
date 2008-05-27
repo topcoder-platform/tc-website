@@ -355,7 +355,7 @@ Prizewinners will be notified via e-mail within 10 days of the completion of eac
 All contestants who advance to Round 3 must complete the following items by 10:00 AM EDT on Saturday, October 14, 2006 in order to be eligible as an onsite finalist:
 <ul>
 <li>Update your profile</li>
-<li>Please submit a head shot by emailing <A href="mailto:memberphotos@topcoder.com">memberphotos@topcoder.com</A>, if we do not have one on file for you.</li>
+<li>Please <a href="/tc?module=UserStatic&amp;d1=my_home&amp;d2=submitPhoto">submit a photo</a>, if we do not have one on file for you.</li>
 </ul>
 All contestants who advance to the onsite tournament rounds must complete the following items and submit them to TopCoder by 8:00 AM EDT on Wednesday, October 18, 2006:
 <ul>

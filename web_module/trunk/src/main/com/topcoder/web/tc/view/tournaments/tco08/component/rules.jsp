@@ -224,7 +224,7 @@
             <p>Competitors who advance to the onsite Championship Round must complete the following items and submit them to TopCoder by 5:00 PM EDT on Wednesday, March 26, 2008:</p>
             <ul>
                 <li>Confirmation of attendance/proof of travel documents - Please email <a href="mailto:jdamato@topcoder.com?subject=Confirmation of Attendance/Proof of Travel Documents">Jessie D'Amato Ford</a> to confirm your attendance onsite. If you require a passport and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the necessary documents.</li>
-                <li>Please submit a head shot by emailing <a href="mailto:memberphotos@topcoder.com">memberphotos@topcoder.com</a>, if you have not already done so.</li>
+                <li>Please <a href="/tc?module=UserStatic&amp;d1=my_home&amp;d2=submitPhoto">submit a photo</a>, if you have not already done so.</li>
                 <li>Please ensure your most up-to-date information is listed in your TopCoder profile in the event we need to mail your plane tickets or contact you via telephone.</li>
                 <li>Competitor Questionnaire - the questions and responses may be published in the 2008 TopCoder Open program</li>
                 <li>Travel form - provides TopCoder with the appropriate travel information for your trip to the onsite tournament rounds</li>

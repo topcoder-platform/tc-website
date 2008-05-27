@@ -175,7 +175,7 @@
                             </c:if>
                             <p><a href="/reg/?nrg=false">Update my profile</a></p>
                             <p>
-                                <a href="mailto:memberphotos@topcoder.com?subject=${regUser.activationCode}%20|%20[%20${regUser.handle}%20]%20|%20${regUser.id}%20<c:if test="${regUser.coder.memberPhoto!=null}">RE</c:if>SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT">
+                                <a href="/tc?module=UserStatic&amp;d1=my_home&amp;d2=submitPhoto">
                                     <c:choose>
                                         <c:when test="${regUser.coder.memberPhoto!=null}">
                                             Submit a photo                                        

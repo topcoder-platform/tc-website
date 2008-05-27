@@ -196,7 +196,7 @@
             <p>All contestants who advance to Online Round 3 must complete the following items and submit them to TopCoder by 10:00 AM EST (UTC/GMT -5) on Saturday, January 26, 2008:</p>
                 <ul>
                     <li>Update your profile</li>
-                    <li>Please submit a head shot by emailing <a href="mailto:memberphotos@topcoder.com">memberphotos@topcoder.com</a>, if we do not have one on file for you. If you also want your photo to be posted on your member profile on the TopCoder website, please submit your photo by clicking the "Click here to send your photo" link in the Update Profile section.</li>
+                    <li>Please <a href="/tc?module=UserStatic&amp;d1=my_home&amp;d2=submitPhoto">submit a photo</a>, if we do not have one on file for you. If you also want your photo to be posted on your member profile on the TopCoder website, please submit your photo by clicking the "Click here to send your photo" link in the Update Profile section.</li>
                 </ul>
             <p>All contestants who advance to the onsite Championship round must complete the following items and submit them to TopCoder by 5:00 PM EST (UTC/GMT -5) on Monday, February 18, 2008:</p>
                 <ul>

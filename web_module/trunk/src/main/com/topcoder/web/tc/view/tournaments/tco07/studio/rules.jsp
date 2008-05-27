@@ -511,8 +511,8 @@ information about <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=getVisa"
             D'Amato Ford</a> to confirm your attendance onsite. If you require a passport and/or visa to visit the
             United States, you must show proof of your documents via a scanned copy of the necessary documents.
         </li>
-        <li>Please submit a head shot by emailing
-            <a href="mailto:memberphotos@topcoder.com">memberphotos@topcoder.com</a>, if we do not have one on file for
+        <li>Please 
+            <a href="/tc?module=UserStatic&amp;d1=my_home&amp;d2=submitPhoto">submit a photo</a>, if we do not have one on file for
             you.
         </li>
         <li>Please ensure your most up-to-date information is listed in your TopCoder profile in the event we need to
