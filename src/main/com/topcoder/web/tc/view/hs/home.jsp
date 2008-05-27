@@ -62,7 +62,10 @@
                     <br /><br />
                     <span class="subtitle">TCHS Tournament Rules</span><br />
                     We have posted the <a href="/tc?module=Static&amp;d1=hs&amp;d2=rules">rules</a> for the upcoming 2009 TCHS Tournament. Please take the opportunity to read through them. 
-                    Any questions that arise should be posted in the Algorithm and High School Competitions Discussions <A href="http://forums.topcoder.com/?module=ThreadList&forumID=7167">forum</A>.
+                    Any questions that arise should be posted in the Algorithm and High School Competitions Discussions <a href="http://forums.topcoder.com/?module=ThreadList&amp;forumID=7167">forum</a>.
+                    <br /><br />
+                    <span class="subtitle">TCHS Referral Program</span><br />
+                    Refer and Win!  Read more <a href="/tc?module=Static&amp;d1=hs&amp;d2=referralProgram">here</a>.
                     <br /><br />
             </div>
         </td>
