@@ -247,7 +247,7 @@ This member has not yet been rated in a competition.
    <%if (rscCoderData.getItem(0,"has_image").toString().equals("1")) { %>
       <IMG SRC='<rsc:item name="image_path" set="<%=rscCoderData%>"/>' class="memberPhoto" />
    <% } else { %>
-      <A HREF="<%="/tc?&module=Login&message=You must log in to submit your photo.&nextpage=https://"+request.getServerName()+"/reg/?nrg=false"%>"><IMG SRC="/i/m/nophoto_login.gif" class="memberPhoto"/></A>
+      <a href="/tc?module=UserStatic&amp;d1=my_home&amp;d2=submitPhoto"><img src="/i/m/nophoto_login.gif" class="memberPhoto"/></a>
    <% } %>
       </td>
       <td valign="top">

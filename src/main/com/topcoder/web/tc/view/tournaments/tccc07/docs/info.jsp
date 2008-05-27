@@ -104,11 +104,11 @@
             <p>We do not have your headshot on file. Click below to submit your headshot.</p>
 
             <div align="center">
-                <a href="mailto:memberphotos@topcoder.com?subject=<%=info.getStringItem(0, "activation_code")%>%20|%20[%20<%=info.getStringItem(0, "handle")%>%20]%20|%20<%=info.getLongItem(0, "user_id")%>%20SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT"><img src="/i/m/nophoto_submit.gif" width="126" height="140" border="0"/></a>
+                <a href="/tc?module=UserStatic&amp;d1=my_home&amp;d2=submitPhoto"><img src="/i/m/nophoto_submit.gif" width="126" height="140" border="0"/></a>
             </div>
             <% } else {%>
             We have a head shot on file. If you'd like to change it click
-            <a href="mailto:memberphotos@topcoder.com?subject=<%=info.getStringItem(0, "activation_code")%>%20|%20[%20<%=info.getStringItem(0, "handle")%>%20]%20|%20<%=info.getLongItem(0, "user_id")%>%20RE-SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT">here</a>
+            <a href="/tc?module=UserStatic&amp;d1=my_home&amp;d2=submitPhoto">here</a>
             <% }%>
         </p>
     </li>
