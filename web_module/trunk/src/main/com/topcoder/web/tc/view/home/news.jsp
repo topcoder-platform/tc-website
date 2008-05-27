@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm News" border="0" /><br />05.27.08<br />5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=hs&amp;d2=home">Announcing the 2009 TCHS Season and Referral Program</a></span><br /><br />
+        The 2009 TopCoder High School Season starts next month.  Get ready for the first HS SRM on June 17 at 9:00 PM EDT and view the Event Calendar for more. You'll need to register for the new season.  Make sure to read all the rules and information <a href="/tc?module=Static&amp;d1=hs&amp;d2=home">here</a>.  Have friends that may be intersted in TopCoder?  Be sure to send this info their way!  <a href="/tc?module=Static&amp;d1=hs&amp;d2=referralProgram">You could win</a> money or t-shirts!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=hs&amp;d2=home">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&amp;forumID=7167">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_alg">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />05.27.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/wiki/display/tc/Active+Bug+Races">Week at the Races</a></span><br /><br />
@@ -146,19 +159,6 @@
    <tr><td class="newsLinksCell">
         <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9085562&intsrc=hm_list' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="521212" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.14.08<br />12:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051308">Lilly Partners with TopCoder, to Find Drug Discovery IT Solutions</a></span><br /><br />
-        TopCoder Collaboration allows Lilly to Tap into World's Top Software Developers for Solutions to Complex Technology Processes Associated With Drug Discovery</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051308">details</a> | 
-        <tc-webtag:forumLink forumID="521211" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
    
