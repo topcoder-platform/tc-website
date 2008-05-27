@@ -42,11 +42,7 @@
                     <jsp:param name="title" value="Submit a photo"/>
                 </jsp:include>
 
-            <div align="center" style="margin: 20px;">
-                <a href="mailto:memberphotos@topcoder.com?subject=${user.activationCode}%20|%20[%20${user.handle}%20]%20|%20${user.id}%20<c:if test="${user.coder.memberPhoto!=null}">RE</c:if>SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT" class="button" style="width: 120px;">Submit a photo</a>
-            </div>
-
-            <h3>How to process your own photo</h3>
+            <h3>How to process your photo before sending it</h3>
 
             <p>
                 To keep the look of our member photos consistent, we've prepared a set of guidelines and styles for you to follow.  It's easy and only takes a few minutes:
@@ -89,6 +85,10 @@
             <li>obviously not a recent photo of a member (no aliens, teddy bears, baby photos, etc.)</li>
             <li>copyrighted to another party</li>
             </ul>
+
+            <div align="center" style="margin: 20px;">
+                <a href="mailto:memberphotos@topcoder.com?subject=${user.activationCode}%20|%20[%20${user.handle}%20]%20|%20${user.id}%20<c:if test="${user.coder.memberPhoto!=null}">RE</c:if>SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT" class="button" style="width: 120px;">Submit a photo</a>
+            </div>
 
             </div>
         </td>
