@@ -6,7 +6,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />05.27.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a href="/wiki/display/tc/Active+Bug+Races">Weekend at the Races</a></span><br /><br />
+        <a href="/wiki/display/tc/Active+Bug+Races">Week at the Races</a></span><br /><br />
         Just a reminder, there's always opportunity to earn money quickly on TopCoder in the Bug Races. Right now more than $2000 is up for grabs across dozens of bug races including <a href="/bugs/browse/BUGR-211">BUGR-211</a> and <a href="/bugs/browse/BUGR-207">BUGR-207</a>, two Java Service Cockpit related bugs. Help us smash bugs, we'll help you earn cash!</td>
    </tr>
    <tr><td class="newsLinksCell">
