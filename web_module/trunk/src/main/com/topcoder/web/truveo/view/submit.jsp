@@ -108,6 +108,7 @@
         <p>Thank you for accepting the terms of the contest. Please use the form below to upload your
             submission:</p>
 
+<%--
         <p>The maximum file size per submission is 2MB.</p>
 
         <p>Only the following file types will be accepted:</p>
@@ -118,13 +119,30 @@
                 </li>
             </c:forEach>
         </ul>
+--%>
+        <p>
+            You will need to submit a zip file to TopCoder which includes 2 items:
+        </p>
+        
+        <ol>
+            <li>A text document containing: 
+                <ul>
+                    <li>Your TopCoder handle name</li>
+                    <li>Your unique Truveo API key</li>
+                    <li>Your AIM Screenname you used to acquire your API Key</li>
+                    <li>A title and brief overview of the application to be used as an online description</li>
+                    <li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
+                </ul>
+            </li>
+            <li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels).</li>
+        </ol>
 
         <div align="center">
             <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" onsubmit="showProcessing()">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
                 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
                 <p>
-                    <b>My design:</b><br/>
+                    <b>My submission:</b><br/>
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
                         <br /></tc-webtag:errorIterator>
                     <input type="file" name="<%=Constants.SUBMISSION%>">
