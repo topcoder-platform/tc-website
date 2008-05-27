@@ -66,6 +66,10 @@
          <strong><a href="/tc?module=MatchDetails&amp;rd=12180">SRM 408</a></strong><br />
          7:00 AM
          </div>
+         <div class="hs">
+         <strong><A href="/tc?module=MatchDetails&rd=13485">TCHS SRM 52</A></strong><br />
+         7:00 AM
+         </div>
       </td>
       <td class="value">2</td>
       <td class="value">3
@@ -153,6 +157,10 @@
       <td class="value">23
          <div class="srm">
          <strong><a href="/tc?module=MatchDetails&amp;rd=12183">SRM 411</a></strong><br />
+         9:00 PM
+         </div>
+         <div class="hs">
+         <strong><A href="/tc?module=MatchDetails&rd=13486">TCHS SRM 53</A></strong><br />
          9:00 PM
          </div>
       </td>
