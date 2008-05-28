@@ -12,7 +12,7 @@
    <tr><td class="newsLinksCell">
         <a href="/tc?module=MatchDetails&amp;rd=12175">details</a> | 
         <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
 <%--------------------------------------------------------%>
