@@ -82,7 +82,16 @@ public class OutstandingProjects extends BaseProcessor {
             r.setProperty(DataAccessConstants.SORT_QUERY, outstandingProjectCommand);
         }
         r.setProperty(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
-        r.setProperty(Constants.PROJECT_TYPE_ID, String.valueOf(projectTypeId));
+        
+        String projectTypeIds;
+        // add component testing project to the development page
+        if (Constants.DEVELOPMENT_PROJECT_TYPE.equals(String.valueOf(projectTypeId))) {
+            projectTypeIds = projectTypeId + ", " + Constants.COMPONENT_TESTING_PROJECT_TYPE;
+        } else {
+            projectTypeIds = String.valueOf(projectTypeId);
+        }
+        r.setProperty(Constants.PROJECT_TYPES_ID, projectTypeIds);
+        
         if (hasParameter(Constants.STAGE_ID)) {
             r.setProperty(Constants.STAGE_ID, getRequest().getParameter(Constants.STAGE_ID));
         } else if (hasParameter(Constants.SEASON_ID)) {

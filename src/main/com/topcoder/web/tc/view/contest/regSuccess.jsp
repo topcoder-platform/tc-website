@@ -41,7 +41,7 @@
                         <jsp:param name="node" value="des_compete"/>
                     </jsp:include>
                 </c:when>
-                <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
+                <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE || pt == COMPONENT_TESTING_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="dev_compete"/>
                     </jsp:include>
@@ -54,11 +54,6 @@
                 <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="architecture_compete"/>
-                    </jsp:include>
-                </c:when>        
-                <c:when test="${pt == COMPONENT_TESTING_PROJECT_TYPE}">
-                    <jsp:include page="/includes/global_left.jsp">
-                        <jsp:param name="node" value="component_testing_compete"/>
                     </jsp:include>
                 </c:when>        
                 <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
@@ -99,7 +94,7 @@
                 </c:when>        
                 <c:when test="${pt == COMPONENT_TESTING_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
-                        <jsp:param name="image" value="component_testing"/>
+                        <jsp:param name="image" value="comp_testing"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>        

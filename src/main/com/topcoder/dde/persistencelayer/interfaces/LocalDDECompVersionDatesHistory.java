@@ -190,14 +190,14 @@ public interface LocalDDECompVersionDatesHistory extends EJBLocalObject {
      *
      * @return  component's price
      */
-    double getPrice();
+    Double getPrice();
 
     /**
      * Sets the component's price
      *
      * @param price component's price
      */
-    void setPrice(double price);
+    void setPrice(Double price);
 
     /**
      * Gets the component's status

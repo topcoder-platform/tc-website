@@ -20,7 +20,6 @@ public class ActiveContests extends ActiveContestsBase {
 
         if (Constants.ASSEMBLY_PROJECT_TYPE.equals(projectTypeId) || 
                 Constants.ARCHITECTURE_PROJECT_TYPE.equals(projectTypeId) || 
-                // Constants.COMPONENT_TESTING_PROJECT_TYPE.equals(projectTypeId) || 
                 Constants.APPLICATION_TESTING_PROJECT_TYPE.equals(projectTypeId)) {
             setProjectType(projectTypeId);
         } else {

@@ -328,14 +328,14 @@ public abstract class DDECompVersionDatesBean extends DDEBaseEntityBean {
      *
      * @return  component's price
      */
-    public abstract double getPrice();
+    public abstract Double getPrice();
 
     /**
      * Sets the component's price
      *
      * @param price component's price
      */
-    public abstract void setPrice(double price);
+    public abstract void setPrice(Double price);
 
     /**
      * Gets the component's status
@@ -357,7 +357,7 @@ public abstract class DDECompVersionDatesBean extends DDEBaseEntityBean {
      * @return the entity bean's primary key (should be null for CMP bean implementations).
      * @throws CreateException      an application level error occurred during the create operation.
      */
-    public Long ejbCreate(long componentVersionId, long phaseId, Timestamp postingDate, Timestamp initialSubmissionDate, Timestamp finalSubmissionDate, Timestamp winnerAnnouncedDate, Timestamp estimatedDevDate, double price, long statusId,
+    public Long ejbCreate(long componentVersionId, long phaseId, Timestamp postingDate, Timestamp initialSubmissionDate, Timestamp finalSubmissionDate, Timestamp winnerAnnouncedDate, Timestamp estimatedDevDate, Double price, long statusId,
                           long levelId, Timestamp phaseCompleteDate, Timestamp aggregationCompleteDate, Timestamp reviewCompleteDate, Timestamp screeningCompleteDate, String phaseCompleteDateComment,
                           String aggregationCompleteDateComment, String reviewCompleteDateComment, String screeningCompleteDateComment, String initialSubmissionDateComment, String finalSubmissionDateComment, String winnerAnnouncedDateComment, Timestamp productionDate, String productionDateComment
                           ) throws CreateException {
@@ -404,7 +404,7 @@ public abstract class DDECompVersionDatesBean extends DDEBaseEntityBean {
      *
      *
      */
-    public void ejbPostCreate(long componentVersionId, long phaseId, Timestamp postingDate, Timestamp initialSubmissionDate, Timestamp finalSubmissionDate, Timestamp winnerAnnouncedDate, Timestamp estimatedDevDate, double price, long statusId, long levelId,
+    public void ejbPostCreate(long componentVersionId, long phaseId, Timestamp postingDate, Timestamp initialSubmissionDate, Timestamp finalSubmissionDate, Timestamp winnerAnnouncedDate, Timestamp estimatedDevDate, Double price, long statusId, long levelId,
                               Timestamp phaseCompleteDate, Timestamp aggregationCompleteDate, Timestamp reviewCompleteDate, Timestamp screeningCompleteDate, String phaseCompleteDateComment,
                               String aggregationCompleteDateComment, String reviewCompleteDateComment, String screeningCompleteDateComment, String initialSubmissionDateComment, String finalSubmissionDateComment, String winnerAnnouncedDateComment, Timestamp productionDate, String productionDateComment) throws CreateException {
     }

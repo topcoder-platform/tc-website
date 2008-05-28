@@ -62,6 +62,14 @@ public class CompetitionHistory extends BaseProcessor {
             projectTypeId = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID)) - 111;
         }
 
+        String projectTypeIds;
+        // add component testing project to the development page
+        if (Constants.DEVELOPMENT_PROJECT_TYPE.equals(String.valueOf(projectTypeId))) {
+            projectTypeIds = projectTypeId + ", " + Constants.COMPONENT_TESTING_PROJECT_TYPE;
+        } else {
+            projectTypeIds = String.valueOf(projectTypeId);
+        }
+        
         if (!hasParameter(Constants.CODER_ID)) {
             throw new TCWebException("parameter " + Constants.CODER_ID + " expected.");
         }
@@ -99,7 +107,7 @@ public class CompetitionHistory extends BaseProcessor {
             r.setProperty(DataAccessConstants.SORT_QUERY, Constants.COMPETITION_HISTORY_QUERY);
         }
         r.setProperty(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
-        r.setProperty(Constants.PROJECT_TYPE_ID, String.valueOf(projectTypeId));
+        r.setProperty(Constants.PROJECT_TYPES_ID, projectTypeIds);
         r.setContentHandle(Constants.COMPETITION_HISTORY_COMMAND);
 
         // retrieves data from DB
