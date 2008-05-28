@@ -100,7 +100,7 @@
                 </c:when>        
                 <c:when test="${pt == COMPONENT_TESTING_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
-                        <jsp:param name="image" value="component_testing"/>
+                        <jsp:param name="image" value="comp_testing"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>        
