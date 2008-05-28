@@ -31,4 +31,8 @@
         <a href="/truveo/?myframe=category%2fnews%2f">news</a>
     </div>
 
+    <div align="center">
+        <a href="http://www.topcoder.com/openaim"><img src="http://www.topcoder.com/i/events/truveo/toOpenAIMSite.png" alt="OpenAIM" /></a>
+    </div>
+
 </div>
