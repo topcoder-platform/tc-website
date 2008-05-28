@@ -57,7 +57,7 @@
    </table>
 --%>
 
-
+<%--
    <div class="sectionHeader">Current Tournaments</div>
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
@@ -71,20 +71,40 @@
          Las Vegas, NV, USA<br />
          <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about">Details</a>
          <br />
-         <%--
-         <a target="_blank" href="/pdfs/tournaments/TCO08_Program_View.pdf">Program [PDF]</a>
+         <a target="_blank" href="/pdfs/tournaments/tco08/TCO08_Program_View.pdf">Program [PDF]</a>
          <br />
-         --%>
          <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2127">Logo Contest</a>
          </td>
       </tr>
    </table>
-   <%--
+   
    <hr width="100%" size="1" noshade="noshade" />
    --%>
    
 
    <div class="sectionHeader" width="100%">Past Tournaments</div>
+   
+   <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
+      <tr valign="top">
+         <td style="padding-right: 8px;"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about"><img src="/i/tournament/photo_tco08.jpg" alt="2008 TopCoder Open" border="0" /></a><br /></td>
+         <td width="100%">
+         <span class="bodySubtitle">2008 TopCoder&#174; Open</span>
+         <br /><br />
+         <div style="float: right;"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about"><img src="/i/pressroom/tco08_logo.png" alt="" border="0" /></a></div>
+         May 11 - 15, 2008<br />
+         The Mirage <br />
+         Las Vegas, NV, USA<br />
+         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about">Details</a>
+         <br />
+         <a target="_blank" href="/pdfs/tournaments/tco08/TCO08_Program_View.pdf">Program [PDF]</a>
+         <br />
+         <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2127">Logo Contest</a>
+         </td>
+      </tr>
+   </table>
+   
+   <hr width="100%" size="1" noshade="noshade" />
+   
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
          <td style="padding-right: 8px;"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=overview"><img src="/i/tournament/photo_tchs08.jpg" alt="2008 TopCoder High School" border="0" /></a><br /></td>
