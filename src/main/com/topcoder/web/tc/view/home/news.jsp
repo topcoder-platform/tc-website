@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.28.08<br />12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=MatchDetails&amp;rd=12175">NSA chat session prior to SRM 403</a></span><br /><br />
+        Join NSA representatives in the chat room prior to SRM 403 to discuss thier career opportunites for US citizens.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=MatchDetails&amp;rd=12175">details</a> | 
+        <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm News" border="0" /><br />05.27.08<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=hs&amp;d2=home">Announcing the 2009 TCHS Season and Referral Program</a></span><br /><br />
@@ -147,18 +160,5 @@
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=blog' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.15.08<br />11:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9085562&intsrc=hm_list' refer='/tc' />">Computerworld - Eli Lilly aims to tap 'rock star' programmers</a></span><br /><br />
-        Drug firm outsourcing some app development to TopCoder's stable of freelance experts</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9085562&intsrc=hm_list' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="521212" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
    
