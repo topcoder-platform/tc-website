@@ -87,12 +87,18 @@
 
 
     <target name="package-software" >
-        <cvs command="update -Pd"/>
-        <exec dir="../shared" executable="cvs">
-            <arg line="update -dP"/>
+
+
+        <exec dir="." executable="svn">
+            <arg line="update"/>
         </exec>
-        <exec dir="../external-artifacts" executable="cvs">
-            <arg line="update -dP"/>
+
+        <exec dir="../shared" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="svn">
+            <arg line="update"/>
         </exec>
 
         <ant antfile="build.xml" target="clean"/>
