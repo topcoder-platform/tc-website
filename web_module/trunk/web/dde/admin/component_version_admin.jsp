@@ -505,7 +505,7 @@ String reviewCompleteDate = "";
 String aggregationCompleteDate = "";
 String phaseCompleteDate = "";
 String productionDate = "";
-double phasePrice = 0;
+Double phasePrice = new Double(0d);
 String aggregationCompleteDateComment = "";
 String phaseCompleteDateComment= "";
 String productionDateComment= "";
@@ -633,7 +633,7 @@ if (action != null) {
         }
 
         String phaseVersionPrice =   request.getParameter("txtPhaseVersionPrice");
-        phasePrice = Double.parseDouble(phaseVersionPrice);
+        phasePrice = new Double((phaseVersionPrice == "") ? "0" : phaseVersionPrice);
         String strPostingStatus =   request.getParameter("selPostingStatus");
         postingStatusId = Long.parseLong(request.getParameter("selPostingStatus"));
         levelId = Long.parseLong(request.getParameter("selLevelId"));
@@ -650,7 +650,7 @@ if (action != null) {
         String phase =   request.getParameter("selPhase");
         ver.setVersionLabel(versionLabel);
         ver.setComments(comments);
-        ver.setPrice(phasePrice);
+        ver.setPrice(phasePrice.doubleValue());
 //        ver.setSuspended(request.getParameter("suspended") != null);
 	    ver.setSuspended(false);
 
@@ -841,7 +841,8 @@ if (action != null) {
                                                   dateFormat.parse(finalSubmissionDate),
                                                   dateFormat.parse(winnerAnnouncedDate),
                                                   dtEstimatedDevDate ,
-                                                  Double.parseDouble(request.getParameter("txtPhaseVersionPrice")),
+                                                  request.getParameter("txtPhaseVersionPrice") == "" ? null : 
+                                                  new Double(request.getParameter("txtPhaseVersionPrice")),
                                                   Long.parseLong(request.getParameter("selPostingStatus")),
                                                   Long.parseLong(request.getParameter("selLevelId")),
                                                   dtScreeningCompleteDate, dtPhaseCompleteDate,
@@ -1239,14 +1240,6 @@ if (action != null) {
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                             </tr>
 <!--
-<!-- Price
-                            <tr valign="middle">
-                                <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
-                                <td width="1%" class="adminLabel" nowrap>Price</td>
-                                <td width="1%" class="adminText"><input class="adminSearchForm" type="text" size="20" maxlength="40" name="txtPrice" value="<%= ver.getPrice() %>"></td>
-                                <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
-                            </tr>
--->
 <!-- Phase -->
                             <tr valign="middle">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
@@ -1405,7 +1398,7 @@ if (action != null) {
                             <tr valign="middle" ID="date_row">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                                 <td width="1%" class="adminLabel" nowrap>Phase Version Price</td>
-                                <td width="1%" class="adminText"><input class="adminSearchForm" type="text" size="20" maxlength="40" name="txtPhaseVersionPrice" value="<%= phasePrice %>"></td>
+                                <td width="1%" class="adminText"><input class="adminSearchForm" type="text" size="20" maxlength="40" name="txtPhaseVersionPrice" value="<%= ((phasePrice == null) ? "" : phasePrice.toString()) %>"> * if the project has already been created, this value won't be updated</td>
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                             </tr>
 <!-- component status -->

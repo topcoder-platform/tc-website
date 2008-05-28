@@ -29,7 +29,7 @@ import java.util.Map;
  * Shows project review details.
  * <p/>
  * <p/>
- * Version 1.0.1 Change notes:
+ * Version  .0.1 Change notes:
  * <ol>
  * <li>
  * RBoard related tasks were moved to a tcs bean.
@@ -106,7 +106,7 @@ public class ReviewProjectDetail extends Base {
                     hasPrimary |= app.isPrimary();
                 }
                 if (!hasPrimary) {
-                    if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE) {
+                    if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE || detail.getLongItem(0, "phase_id") == 116) {
 
                         for (Iterator it = reviewerList.iterator(); it.hasNext();) {
                             app = (ReviewBoardApplication) it.next();
@@ -116,7 +116,7 @@ public class ReviewProjectDetail extends Base {
                             //who didn't want to be primary, failure is primary is just
                             //a convention, not a rule.  in this case, someone would have to
                             //be set primary manually
-                            if (app.getReviewerType().equals("Failure") && !app.isSpotFilled())
+                            if (app.getReviewerType().equals("Reviewer 2") && !app.isSpotFilled())
                                 app.setPrimary(true);
                         }
                     } else {
@@ -200,7 +200,7 @@ public class ReviewProjectDetail extends Base {
         r.setProperty(Constants.PHASE_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
 */
         r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
-        r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
+//        r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
 
         Map results = getDataAccess().getData(r);
         ResultSetContainer detail = (ResultSetContainer) results.get("review_board_payments");

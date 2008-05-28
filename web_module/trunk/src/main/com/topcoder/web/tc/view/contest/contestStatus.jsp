@@ -118,12 +118,20 @@
         <c:when test="${pt == ARCHITECTURE_TYPE_ID || pt == ASSEMBLY_TYPE_ID || pt == APPLICATION_TESTING_TYPE_ID}">
             <td class="title" colspan="8">Contest Status</td>
         </c:when>
+        <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
+            <td class="title" colspan="10">Contest Status</td>
+        </c:when>
         <c:otherwise>
             <td class="title" colspan="9">Contest Status</td>
         </c:otherwise>
         </c:choose>
     </tr>
     <tr>
+        <c:if test="${pt == DEVELOPMENT_TYPE_ID}">
+            <td class="headerC">
+                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("type")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Type</a>
+            </td>
+        </c:if>
         <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != APPLICATION_TESTING_TYPE_ID}">
             <td class="headerC">
                 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
@@ -156,6 +164,11 @@
     <% boolean even = false; %>
     <rsc:iterator list="<%=contests%>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
+            <c:if test="${pt == DEVELOPMENT_TYPE_ID}">
+                <td class="valueC">
+                    <strong><rsc:item name="type" row="<%=resultRow%>"/></strong>
+                </td>
+            </c:if>
             <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != APPLICATION_TESTING_TYPE_ID}">
             <td class="valueC">
                 <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>

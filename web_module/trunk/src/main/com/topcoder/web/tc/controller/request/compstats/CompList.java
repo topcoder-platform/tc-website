@@ -17,6 +17,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultFilter;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 
@@ -37,10 +38,30 @@ public class CompList extends Base {
 
             String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
             String phaseId = StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID));
+            String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
 
             String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
+            if (String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.DESIGN_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.DEV_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.DEVELOPMENT_PROJECT_TYPE;
+            }
+
+            if (!Constants.DESIGN_PROJECT_TYPE.equals(projectTypeId) &&
+                    !Constants.DEVELOPMENT_PROJECT_TYPE.equals(projectTypeId)) {
+                throw new TCWebException("Invalid project_type_id (" + projectTypeId + ") parameter");
+            }
+
+            String projectTypeIds;
+            // add component testing project to the development page
+            if (Constants.DEVELOPMENT_PROJECT_TYPE.equals(projectTypeId)) {
+                projectTypeIds = projectTypeId + ", " + Constants.COMPONENT_TESTING_PROJECT_TYPE;
+            } else {
+                projectTypeIds = projectTypeId;
+            }
+                
 
             ArrayList<ResultFilter> filters = new ArrayList<ResultFilter>(1);
             String contestName = StringUtils.checkNull(getRequest().getParameter(Constants.CONTEST_NAME));
@@ -52,9 +73,6 @@ public class CompList extends Base {
                 setDefault(Constants.CONTEST_NAME, contestName);
             }
 
-            if (!"112".equals(phaseId) && !"113".equals(phaseId)) {
-                throw new TCWebException("Invalid phase_id (" + Constants.PHASE_ID + ") parameter)");
-            }
 
             if ("".equals(numRecords)) {
                 numRecords = "50";
@@ -69,7 +87,7 @@ public class CompList extends Base {
             int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
 
             r.setContentHandle("comp_list");
-            r.setProperty(Constants.PHASE_ID, phaseId);
+            r.setProperty(Constants.PROJECT_TYPES_ID, projectTypeIds);
 
             Map result = getDataAccess(true).getData(r);
 
@@ -96,7 +114,7 @@ public class CompList extends Base {
 
 
             getRequest().setAttribute("resultMap", result);
-            getRequest().setAttribute("phaseId", phaseId);
+            getRequest().setAttribute(Constants.PROJECT_TYPE_ID, projectTypeId);
 
             setNextPage("/compstats/compList.jsp");
             setIsNextPageInContext(true);

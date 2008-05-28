@@ -1,4 +1,4 @@
-package com.topcoder.web.tc.controller.request.development;
+package com.topcoder.web.tc.controller.request.contest;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
@@ -6,6 +6,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.development.Base;
 
 /**
  * @author dok, pulky
@@ -32,7 +33,9 @@ public class ContestStatus extends Base {
                 String commandName = "contest_project_status";
                 if (Constants.ARCHITECTURE_PROJECT_TYPE.equals(projectTypeId)) {
                     commandName = "architecture_project_status";
-                }
+                } else if (Constants.DEVELOPMENT_PROJECT_TYPE.equals(projectTypeId)) {
+                    commandName = "development_project_status";
+                } 
 
                 r.setContentHandle(commandName);
                 r.setProperties(getRequest().getParameterMap());

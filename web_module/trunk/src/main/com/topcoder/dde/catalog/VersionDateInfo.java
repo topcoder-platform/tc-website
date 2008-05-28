@@ -35,7 +35,7 @@ public class VersionDateInfo implements java.io.Serializable {
     private String screeningCompleteDateComment = null;
     private String finalSubmissionDateComment = null;
     private String productionDateComment = null;
-    private double price = 0;
+    private Double price = 0d;
     private long statusId = NEW_POSTING;
     private long levelId = 0;
 
@@ -44,7 +44,7 @@ public class VersionDateInfo implements java.io.Serializable {
 
     private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(VersionDateInfo.class);
 
-    public VersionDateInfo(long id, long componentVersionId, long phaseId, Date postingDate, Date initialSubmissionDate, Date finalSubmissionDate, Date winnerAnnouncedDate, Date estimatedDevDate, double price, long statusId, long levelId,
+    public VersionDateInfo(long id, long componentVersionId, long phaseId, Date postingDate, Date initialSubmissionDate, Date finalSubmissionDate, Date winnerAnnouncedDate, Date estimatedDevDate, Double price, long statusId, long levelId,
                            Date screeningDate, Date phaseCompleteDate, Date aggregationCompleteDate, Date reviewCompleteDate, String phaseCompleteDateComment,
                            String aggregationCompleteDateComment, String reviewCompleteDateComment, String screeningCompleteDateComment, String initialSubmissionDateComment, String finalSubmissionDateComment, String winnerAnnouncedDateComment,
                            Date productionDate, String productionDateComment) {
@@ -54,7 +54,7 @@ public class VersionDateInfo implements java.io.Serializable {
         this.setId(id);
     }
 
-    public VersionDateInfo(long componentVersionId, long phaseId, Date postingDate, Date initialSubmissionDate, Date finalSubmissionDate, Date winnerAnnouncedDate, Date estimatedDevDate, double price, long statusId, long levelId,
+    public VersionDateInfo(long componentVersionId, long phaseId, Date postingDate, Date initialSubmissionDate, Date finalSubmissionDate, Date winnerAnnouncedDate, Date estimatedDevDate, Double price, long statusId, long levelId,
                            Date screeningDate, Date phaseCompleteDate, Date aggregationCompleteDate, Date reviewCompleteDate, String phaseCompleteDateComment,
                            String aggregationCompleteDateComment, String reviewCompleteDateComment, String screeningCompleteDateComment, String initialSubmissionDateComment, String finalSubmissionDateComment, String winnerAnnouncedDateComment,
                            Date productionDate, String productionDateComment) {
@@ -260,7 +260,7 @@ public class VersionDateInfo implements java.io.Serializable {
      *
      * @return  component's price
      */
-    public double getPrice() {
+    public Double getPrice() {
         return this.price;
     }
 
@@ -269,7 +269,7 @@ public class VersionDateInfo implements java.io.Serializable {
      *
      * @param price component's price
      */
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
