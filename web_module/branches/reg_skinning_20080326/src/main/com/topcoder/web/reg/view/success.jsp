@@ -3,6 +3,7 @@
 <%@ page import="com.topcoder.web.reg.Constants" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
+<%@ taglib prefix="reg_tags" tagdir="/WEB-INF/tags" %>
 
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -12,9 +13,7 @@
 <head>
     <title>TopCoder Registration</title>
     <jsp:include page="/script.jsp"/>
-    <jsp:include page="/style.jsp">
-        <jsp:param name="key" value="cockpit_reg"/>
-    </jsp:include>
+    <reg_tags:style/>
 </head>
 
 <body>
