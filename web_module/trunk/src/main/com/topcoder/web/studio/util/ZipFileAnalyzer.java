@@ -6,6 +6,7 @@ package com.topcoder.web.studio.util;
 import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.validation.SubmissionValidator;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -26,6 +27,8 @@ import java.util.HashMap;
  * @since TopCoder Studio Modifications Assembly (Req# 5.7)
  */
 public class ZipFileAnalyzer implements BundledFileAnalyzer {
+
+    private static final Logger log = Logger.getLogger(SubmissionValidator.class);
 
     /**
      * <p>An <code>int</code> referencing the unknown size of archive entry.</p>
@@ -301,12 +304,23 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
         this.previewFileProvided = false;
         this.sourceDirIncluded = false;
         this.submissionDirIncluded = false;
-        
+
         try {
             ZipEntry entry = content.getNextEntry();
             while (!(this.nativeSubmissionProvided && this.previewImageProvided && this.previewFileProvided
                      && this.sourceDirIncluded && this.submissionDirIncluded)
                    && (entry != null)) {
+
+                if (log.isDebugEnabled()) {
+                    StringBuilder b = new StringBuilder(100);
+                    b.append(entry.getName()).append(" ");
+                    if (entry.isDirectory()) {
+                        b.append("it's a directory ");
+                    } else {
+                        b.append("has a size of ").append(entry.getSize());
+                    }
+                }
+
                 String entryName = entry.getName().toUpperCase();
                 if (!entry.isDirectory()) {
                     // Check if the non-empty native submission is provided
