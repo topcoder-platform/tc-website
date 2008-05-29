@@ -618,44 +618,42 @@
     </c:if>
     
     
-    <c:set value="<%=Constants.HS_REG_QUESTIONS%>" var="hsRegQuestions"/>
-    <c:if test="${cf:contains(fields, hsRegQuestions)}">
-        <c:set var="ansPrefix" value="<%=AnswerInput.PREFIX%>"/>
-        <c:set var="kwdAge" value="<%=HSRegistrationHelper.AGE%>"/>
-        <c:set var="kwdAgeEndSeason" value="<%=HSRegistrationHelper.AGE_END_SEASON%>"/>
-        <tc:questionIterator list="${questions}" id="question">
-            <c:set var="fieldName" value="${ansPrefix}${question.id}"/>
-            <tr class="<%=(i%2==0 ? "odd" : "even")%> error">
-                <td colspan="2">
-                   <tc-webtag:errorIterator id="err" name="${fieldName}"><%=err%><br />
-                   </tc-webtag:errorIterator>
-                </td>
-            </tr>
-        <tr class="<%=(i%2==0 ? "odd" : "even")%>">
-                <td class="field">
-                    * ${question.text }
-                </td>
-                <td class="value">
-                    <c:choose>
-                        <c:when test="${question.keyword == kwdAge || question.keyword == kwdAgeEndSeason }">
-                            <tc-webtag:textInput size="3" maxlength="3" name="${fieldName}" id="answerInput" editable="true"/>
-                        </c:when>
-                        <c:otherwise>
-                            <tc:answerInput id="answerInput" question="${question}">
-                                ${answerInput}
-                                <%=answerText%>
-                                &nbsp;&nbsp;&nbsp;
-                            </tc:answerInput>
-                        </c:otherwise>
-                    </c:choose>
-                </td>
-            </tr>
-    
-    
-        <%i++;%>
-        </tc:questionIterator>
-    
-    </c:if>
+<c:set value="<%=Constants.HS_REG_QUESTIONS%>" var="hsRegQuestions"/>
+<c:if test="${cf:contains(fields, hsRegQuestions)}">
+    <c:set var="ansPrefix" value="<%=AnswerInput.PREFIX%>"/>
+    <c:set var="kwdDOB" value="<%=HSRegistrationHelper.DOB%>"/>
+    <tc:questionIterator list="${questions}" id="question">
+        <c:set var="fieldName" value="${ansPrefix}${question.id}"/>
+        <tr>
+            <td colspan="2"><span class="bigRed">
+		       <tc-webtag:errorIterator id="err" name="${fieldName}"><%=err%><br>
+               </tc-webtag:errorIterator></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="name">
+                * ${question.text }
+            </td>
+            <td class="value">
+                <c:choose>
+                    <c:when test="${question.keyword == kwdDOB}">
+                        <tc-webtag:textInput size="10" maxlength="10" name="${fieldName}" id="answerInput" editable="true"/> <em>** Your date of birth will only be used for eligibility purposes **</em>
+                    </c:when>
+                    <c:otherwise>
+                        <tc:answerInput id="answerInput" question="${question}">
+                            ${answerInput}
+                            <%=answerText%>
+                            &nbsp;&nbsp;&nbsp;
+                        </tc:answerInput>
+                    </c:otherwise>
+                </c:choose>
+            </td>
+        </tr>
+
+
+    </tc:questionIterator>
+
+</c:if>
     
     <c:set value="<%=Constants.QUOTE%>" var="quote"/>
     <c:if test="${cf:contains(fields, quote)}">
