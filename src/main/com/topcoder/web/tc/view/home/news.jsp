@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />05.29.07<br />11:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm401">SRM 401 - Problem Set &amp; Analysis</a></span><br /><br />
+      The last SRM before TCO08 onsite finals became the most crowded TopCoder SRM ever as the limit on the number of participants was increased to 1750. To finish in top3 in Division 1 it was enough to solve all three problems correctly, which was done by <tc-webtag:handle coderId="10574855" context="algorithm"/>, <tc-webtag:handle coderId="19849563" context="algorithm"/> and <tc-webtag:handle coderId="8355516" context="algorithm"/>, who finished first, second and third respectively.</td>
+         <td class="newsPhoto"><%--<img src="/i/m/eleusive_big2.jpg_big.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="15152215" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm401">details</a> | 
+        <tc-webtag:forumLink forumID="521053" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.28.08<br />12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=MatchDetails&amp;rd=12175">NSA chat session prior to SRM 403</a></span><br /><br />
@@ -147,18 +163,5 @@
         <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">details</a> | 
         <a href="/openaim/forums">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.15.08<br />11:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=blog' refer='/tc' />">The Official Blog of the 2008 TopCoder Open</a></span><br /><br />
-        The 2008 TopCoder Open is still underway in Las Vegas.  Be sure to get the latest play-by-plays, movies, and more from our blog!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=blog' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
