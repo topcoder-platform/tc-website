@@ -28,7 +28,7 @@ import java.util.HashMap;
  */
 public class ZipFileAnalyzer implements BundledFileAnalyzer {
 
-    private static final Logger log = Logger.getLogger(SubmissionValidator.class);
+    private static final Logger log = Logger.getLogger(ZipFileAnalyzer.class);
 
     /**
      * <p>An <code>int</code> referencing the unknown size of archive entry.</p>
