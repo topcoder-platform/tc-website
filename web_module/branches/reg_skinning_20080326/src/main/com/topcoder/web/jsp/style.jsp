@@ -35,9 +35,9 @@
 <% } else if (key.equals("tc_reg")) { %>
 <link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
 <link type="text/css" rel="stylesheet" href="/css/reg/default.css" />
-<%-- 
+<% } else if (key.equals("cockpit_reg")) { %>
+<link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
 <link type="text/css" rel="stylesheet" href="/css/reg/cockpit.css" />
---%>
 <% } else if (key.equals("tc_stats")) { %>
 <link type="text/css" rel="stylesheet" href="/css/style.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
