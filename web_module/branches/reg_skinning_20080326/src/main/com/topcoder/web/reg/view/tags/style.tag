@@ -2,6 +2,7 @@
 <%@ tag import="com.topcoder.web.reg.Constants" %>
 <%@ tag body-content="empty" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="common-functions" prefix="cf" %>
 
 <c:set value="<%=RegistrationType.TC_DIRECT_ID%>" var="direct"/>
 <c:set value="<%=Constants.REG_TYPES%>" var="regTypes"/>
