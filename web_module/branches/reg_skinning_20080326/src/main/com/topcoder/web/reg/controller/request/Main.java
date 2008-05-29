@@ -124,7 +124,9 @@ public class Main extends Base {
                 setIsNextPageInContext(true);
             } else {
                 if (u.getContact() == null &&
-                        (getRequestedTypes().contains(regTypeDAO.getCorporateType()) || getRequestedTypes().contains(regTypeDAO.getSoftwareType()))) {
+                        (getRequestedTypes().contains(regTypeDAO.getCorporateType()) ||
+                                getRequestedTypes().contains(regTypeDAO.getSoftwareType()) ||
+                        getRequestedTypes().contains(regTypeDAO.getTCDirectType()))) {
                     Contact c = new Contact();
                     u.setContact(c);
                 }
