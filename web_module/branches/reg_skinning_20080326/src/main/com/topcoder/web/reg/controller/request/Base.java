@@ -63,7 +63,7 @@ public abstract class Base extends LongHibernateProcessor {
         }
 
         registrationProcessing();
-
+        setRequestedTypeIds();
     }
 
     protected boolean isNewRegistration() {
@@ -140,8 +140,9 @@ public abstract class Base extends LongHibernateProcessor {
      *
      * @return the types
      */
-    protected Set getRequestedTypes() {
-        Set regTypes = (Set) getRequest().getSession().getAttribute(Constants.REG_TYPES);
+    protected Set<RegistrationType> getRequestedTypes() {
+        Set<RegistrationType> regTypes = (Set<RegistrationType>)
+                getRequest().getSession().getAttribute(Constants.REG_TYPES);
 /*
         if (log.isDebugEnabled()) {
             for (Iterator it = regTypes.iterator(); it.hasNext();) {
@@ -167,11 +168,15 @@ public abstract class Base extends LongHibernateProcessor {
         }
 */
         getRequest().getSession().setAttribute(Constants.REG_TYPES, requestedTypes);
+    }
 
-        //put the id's in the request for the front end to use.  This is used both for setting
-        //the css file as well has determining what to show on the success page
+    /**
+     * put the id's in the request for the front end to use.  This is used both for setting
+     * the css file as well has determining what to show on the success page
+     */
+    private void setRequestedTypeIds() {
         HashSet<Integer> h = new HashSet<Integer>();
-        for (RegistrationType rt : requestedTypes) {
+        for (RegistrationType rt : getRequestedTypes()) {
             h.add(rt.getId());
         }
         getRequest().setAttribute(Constants.REG_TYPE_IDS, h);
