@@ -80,5 +80,10 @@ public class RegistrationTypeDAOHibernate extends Base implements RegistrationTy
         return find(RegistrationType.TRUVEO_ID);
     }
 
+    public RegistrationType getTCDirectType() {
+        //todo perhaps we should cache this
+        return find(RegistrationType.TC_DIRECT_ID);
+    }
+
 
 }

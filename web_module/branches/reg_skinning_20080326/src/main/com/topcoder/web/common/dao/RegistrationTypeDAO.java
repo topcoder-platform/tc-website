@@ -33,5 +33,6 @@ public interface RegistrationTypeDAO {
 
     RegistrationType getTruveoType();
 
+    RegistrationType getTCDirectType();
 
 }
