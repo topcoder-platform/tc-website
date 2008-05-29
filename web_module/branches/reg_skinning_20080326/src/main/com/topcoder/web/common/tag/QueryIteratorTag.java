@@ -9,14 +9,18 @@ import com.topcoder.shared.util.DBMS;
 import javax.naming.NamingException;
 import javax.servlet.jsp.JspException;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.StringTokenizer;
 
 /**
  * My comments/description/notes go here
- * @deprecated
+ *
  * @author djFD molc@mail.ru
  * @version 1.02
- *
+ * @deprecated
  */
 public class QueryIteratorTag extends IteratorTag {
     private String command = null;
@@ -24,7 +28,6 @@ public class QueryIteratorTag extends IteratorTag {
     private Hashtable params;
 
     /**
-     *
      * @see javax.servlet.jsp.tagext.Tag#doStartTag()
      */
     public int doStartTag() throws JspException {
@@ -90,15 +93,13 @@ public class QueryIteratorTag extends IteratorTag {
         }
     }
 
-    /**
-     * Just in case the app server is caching tag (jboss!!!)
-     * we have to clear out all the instance variables at the
-     * end of execution
-     */
-    public int doEndTag() throws JspException {
+
+    public void release() {
         this.command = null;
         this.rsc = null;
         this.params = null;
-        return super.doEndTag();
+        super.release();
     }
+
+
 }

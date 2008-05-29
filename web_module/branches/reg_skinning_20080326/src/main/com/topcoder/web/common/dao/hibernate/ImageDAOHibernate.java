@@ -9,7 +9,8 @@ import com.topcoder.web.common.model.Image;
 import com.topcoder.web.common.model.TimeZone;
 
 /**
- * @author cucu
+ * @author cucu, isv
+ * @version 1.1
  */
 public class ImageDAOHibernate extends Base implements ImageDAO {
 
@@ -40,4 +41,13 @@ public class ImageDAOHibernate extends Base implements ImageDAO {
         return findAll(Image.class, "imageTypeId", typeId);
     }
 
+    /**
+     * <p>Saves or updates the data for the specified image to underlying persistent data store.</p>
+     *
+     * @param image an <code>Image</code> representing the image to be saved to data store.
+     * @since Studio Submission Slideshow 
+     */
+    public void saveOrUpdate(Image image) {
+        super.saveOrUpdate(image);
+    }
 }

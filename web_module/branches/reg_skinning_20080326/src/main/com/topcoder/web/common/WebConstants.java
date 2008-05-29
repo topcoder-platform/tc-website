@@ -168,6 +168,14 @@ public interface WebConstants {
 
     public static final int DW_DATASOURCE_ID = 27;
     public static final int TCS_DW_DATASOURCE_ID = 31;
+    public static final int TCS_OLTP_DATASOURCE_ID = 28;
+
+    public static final String DESIGN_PROJECT_TYPE = "1";
+    public static final String DEVELOPMENT_PROJECT_TYPE = "2";
+    public static final String COMPONENT_TESTING_PROJECT_TYPE = "5";
+    public static final String ARCHITECTURE_PROJECT_TYPE = "7";
+    public static final String APPLICATION_TESTING_PROJECT_TYPE = "13";
+    public static final String ASSEMBLY_PROJECT_TYPE = "14";
 
 
 }

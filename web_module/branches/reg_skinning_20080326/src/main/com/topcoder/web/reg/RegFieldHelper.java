@@ -28,6 +28,8 @@ public class RegFieldHelper {
     private static Set<String> mainStudioFields = new HashSet<String>();
     private static Set<String> mainTeacherFields = new HashSet<String>();
     private static Set<String> mainOpenAIMFields = new HashSet<String>();
+    private static Set<String> mainTruveoFields = new HashSet<String>();
+    private static Set<String> mainDirectFields = new HashSet<String>();
 
     private static Set<String> secondaryHSFields = new HashSet<String>();
     private static Set<String> secondaryCompStudentFields = new HashSet<String>();
@@ -40,6 +42,9 @@ public class RegFieldHelper {
     private static Set<String> secondaryTeacherFields = new HashSet<String>();
     private static Set<String> secondaryOpenAIMStudentFields = new HashSet<String>();
     private static Set<String> secondaryOpenAIMProFields = new HashSet<String>();
+    private static Set<String> secondaryTruveoStudentFields = new HashSet<String>();
+    private static Set<String> secondaryTruveoProFields = new HashSet<String>();
+    private static Set<String> secondaryDirectFields = new HashSet<String>();
 
     private static Set<String> requiredMainHSFields = new HashSet<String>();
     private static Set<String> requiredMainCompFields = new HashSet<String>();
@@ -49,6 +54,8 @@ public class RegFieldHelper {
     private static Set<String> requiredMainStudioFields = new HashSet<String>();
     private static Set<String> requiredMainTeacherFields = new HashSet<String>();
     private static Set<String> requiredMainOpenAIMFields = new HashSet<String>();
+    private static Set<String> requiredMainTruveoFields = new HashSet<String>();
+    private static Set<String> requiredMainDirectFields = new HashSet<String>();
 
     private static Set<String> requiredSecondaryHSFields = new HashSet<String>();
     private static Set<String> requiredSecondaryCompStudentFields = new HashSet<String>();
@@ -61,6 +68,9 @@ public class RegFieldHelper {
     private static Set<String> requiredSecondaryTeacherFields = new HashSet<String>();
     private static Set<String> requiredSecondaryOpenAIMStudentFields = new HashSet<String>();
     private static Set<String> requiredSecondaryOpenAIMProFields = new HashSet<String>();
+    private static Set<String> requiredSecondaryTruveoStudentFields = new HashSet<String>();
+    private static Set<String> requiredSecondaryTruveoProFields = new HashSet<String>();
+    private static Set<String> requiredSecondaryDirectFields = new HashSet<String>();
 
 
     static {
@@ -507,6 +517,137 @@ public class RegFieldHelper {
 
     }
 
+    static {
+        mainTruveoFields.add(Constants.GIVEN_NAME);
+        mainTruveoFields.add(Constants.SURNAME);
+        mainTruveoFields.add(Constants.ADDRESS1);
+        mainTruveoFields.add(Constants.ADDRESS2);
+        mainTruveoFields.add(Constants.ADDRESS3);
+        mainTruveoFields.add(Constants.CITY);
+        mainTruveoFields.add(Constants.STATE_CODE);
+        mainTruveoFields.add(Constants.POSTAL_CODE);
+        mainTruveoFields.add(Constants.PROVINCE);
+        mainTruveoFields.add(Constants.COUNTRY_CODE);
+        mainTruveoFields.add(Constants.PHONE_NUMBER);
+        mainTruveoFields.add(Constants.HANDLE);
+        mainTruveoFields.add(Constants.PASSWORD);
+        mainTruveoFields.add(Constants.PASSWORD_CONFIRM);
+        mainTruveoFields.add(Constants.SECRET_QUESTION);
+        mainTruveoFields.add(Constants.SECRET_QUESTION_RESPONSE);
+        mainTruveoFields.add(Constants.EMAIL);
+        mainTruveoFields.add(Constants.EMAIL_CONFIRM);
+        mainTruveoFields.add(Constants.NOTIFICATION);
+        mainTruveoFields.add(Constants.COMP_COUNTRY_CODE);
+        mainTruveoFields.add(Constants.CODER_TYPE);
+        mainTruveoFields.add(Constants.TIMEZONE);
+
+        requiredMainTruveoFields.add(Constants.GIVEN_NAME);
+        requiredMainTruveoFields.add(Constants.SURNAME);
+        requiredMainTruveoFields.add(Constants.ADDRESS1);
+        requiredMainTruveoFields.add(Constants.CITY);
+        requiredMainTruveoFields.add(Constants.COUNTRY_CODE);
+        requiredMainTruveoFields.add(Constants.HANDLE);
+        requiredMainTruveoFields.add(Constants.PASSWORD);
+        requiredMainTruveoFields.add(Constants.PASSWORD_CONFIRM);
+        requiredMainTruveoFields.add(Constants.SECRET_QUESTION);
+        requiredMainTruveoFields.add(Constants.SECRET_QUESTION_RESPONSE);
+        requiredMainTruveoFields.add(Constants.EMAIL);
+        requiredMainTruveoFields.add(Constants.EMAIL_CONFIRM);
+        requiredMainTruveoFields.add(Constants.COMP_COUNTRY_CODE);
+        requiredMainTruveoFields.add(Constants.CODER_TYPE);
+        requiredMainTruveoFields.add(Constants.TIMEZONE);
+
+        secondaryTruveoStudentFields.add(Constants.DEMOG_PREFIX);
+        secondaryTruveoStudentFields.add(Constants.VISIBLE_SCHOOL);
+        secondaryTruveoStudentFields.add(Constants.SCHOOL_NAME);
+        secondaryTruveoStudentFields.add(Constants.SCHOOL_CITY);
+        secondaryTruveoStudentFields.add(Constants.SCHOOL_ID);
+        secondaryTruveoStudentFields.add(Constants.SCHOOL_PROVINCE);
+        secondaryTruveoStudentFields.add(Constants.SCHOOL_STATE);
+        secondaryTruveoStudentFields.add(Constants.SCHOOL_COUNTRY);
+        secondaryTruveoStudentFields.add(Constants.SCHOOL_TYPE);
+        secondaryTruveoStudentFields.add(Constants.REFERRAL);
+        secondaryTruveoStudentFields.add(Constants.REFERRAL_CODER);
+        secondaryTruveoStudentFields.add(Constants.REFERRAL_OTHER);
+
+
+        requiredSecondaryTruveoStudentFields.add(Constants.VISIBLE_SCHOOL);
+        requiredSecondaryTruveoStudentFields.add(Constants.SCHOOL_NAME);
+        requiredSecondaryTruveoStudentFields.add(Constants.SCHOOL_CITY);
+        requiredSecondaryTruveoStudentFields.add(Constants.SCHOOL_ID);
+        requiredSecondaryTruveoStudentFields.add(Constants.SCHOOL_COUNTRY);
+        requiredSecondaryTruveoStudentFields.add(Constants.SCHOOL_TYPE);
+        requiredSecondaryTruveoStudentFields.add(Constants.REFERRAL);
+
+        secondaryTruveoProFields.add(Constants.DEMOG_PREFIX);
+        secondaryTruveoProFields.add(Constants.TITLE);
+        secondaryTruveoProFields.add(Constants.COMPANY_NAME);
+        secondaryTruveoProFields.add(Constants.REFERRAL);
+        secondaryTruveoProFields.add(Constants.REFERRAL_CODER);
+        secondaryTruveoProFields.add(Constants.REFERRAL_OTHER);
+
+        requiredSecondaryTruveoProFields.add(Constants.TITLE);
+        requiredSecondaryTruveoProFields.add(Constants.COMPANY_NAME);
+        requiredSecondaryTruveoProFields.add(Constants.REFERRAL);
+
+
+    }
+
+
+    static {
+        mainDirectFields.add(Constants.GIVEN_NAME);
+        mainDirectFields.add(Constants.SURNAME);
+        mainDirectFields.add(Constants.ADDRESS1);
+        mainDirectFields.add(Constants.ADDRESS2);
+        mainDirectFields.add(Constants.ADDRESS3);
+        mainDirectFields.add(Constants.CITY);
+        mainDirectFields.add(Constants.STATE_CODE);
+        mainDirectFields.add(Constants.POSTAL_CODE);
+        mainDirectFields.add(Constants.PROVINCE);
+        mainDirectFields.add(Constants.COUNTRY_CODE);
+        mainDirectFields.add(Constants.PHONE_NUMBER);
+        mainDirectFields.add(Constants.HANDLE);
+        mainDirectFields.add(Constants.PASSWORD);
+        mainDirectFields.add(Constants.PASSWORD_CONFIRM);
+        mainDirectFields.add(Constants.SECRET_QUESTION);
+        mainDirectFields.add(Constants.SECRET_QUESTION_RESPONSE);
+        mainDirectFields.add(Constants.EMAIL);
+        mainDirectFields.add(Constants.EMAIL_CONFIRM);
+/*
+        mainCorpFields.add(Constants.TIMEZONE);
+*/
+/*
+        mainCorpFields.add(Constants.TITLE);
+*/
+        mainDirectFields.add(Constants.COMPANY_NAME);
+
+        requiredMainDirectFields.add(Constants.GIVEN_NAME);
+        requiredMainDirectFields.add(Constants.SURNAME);
+        requiredMainDirectFields.add(Constants.ADDRESS1);
+        requiredMainDirectFields.add(Constants.CITY);
+        requiredMainDirectFields.add(Constants.COUNTRY_CODE);
+        requiredMainDirectFields.add(Constants.PHONE_NUMBER);
+        requiredMainDirectFields.add(Constants.HANDLE);
+        requiredMainDirectFields.add(Constants.PASSWORD);
+        requiredMainDirectFields.add(Constants.PASSWORD_CONFIRM);
+        requiredMainDirectFields.add(Constants.SECRET_QUESTION);
+        requiredMainDirectFields.add(Constants.SECRET_QUESTION_RESPONSE);
+        requiredMainDirectFields.add(Constants.EMAIL);
+        requiredMainDirectFields.add(Constants.EMAIL_CONFIRM);
+/*
+        requiredMainCorpFields.add(Constants.TIMEZONE);
+        requiredMainCorpFields.add(Constants.TITLE);
+*/
+        requiredMainDirectFields.add(Constants.COMPANY_NAME);
+
+    }
+
+
+
+
+
+    
+
 
     /**
      * Figure out what registration fields are relevant for the given set of registration types
@@ -620,6 +761,19 @@ public class RegFieldHelper {
                         ret.addAll(mainOpenAIMFields);
                         ret.add(Constants.PHOTO);
                     }
+                } else if (curr.getId().equals(RegistrationType.TRUVEO_ID)) {
+                    if (required) {
+                        ret.addAll(requiredMainTruveoFields);
+                    } else {
+                        ret.addAll(mainTruveoFields);
+                        ret.add(Constants.PHOTO);
+                    }
+                } else if (curr.getId().equals(RegistrationType.TC_DIRECT_ID)) {
+                    if (required) {
+                        ret.addAll(requiredMainDirectFields);
+                    } else {
+                        ret.addAll(mainDirectFields);
+                    }
                 }
             } else if (regTypes.contains(curr) && !currentTypes.contains(curr)) {
                 //the user creating a registration for the specified type
@@ -671,6 +825,18 @@ public class RegFieldHelper {
                         ret.addAll(requiredMainOpenAIMFields);
                     } else {
                         ret.addAll(mainOpenAIMFields);
+                    }
+                } else if (curr.getId().equals(RegistrationType.TRUVEO_ID)) {
+                    if (required) {
+                        ret.addAll(requiredMainTruveoFields);
+                    } else {
+                        ret.addAll(mainTruveoFields);
+                    }
+                } else if (curr.getId().equals(RegistrationType.TC_DIRECT_ID)) {
+                    if (required) {
+                        ret.addAll(requiredMainDirectFields);
+                    } else {
+                        ret.addAll(mainDirectFields);
                     }
                 }
             }
@@ -805,6 +971,12 @@ public class RegFieldHelper {
                     } else {
                         throw new RuntimeException("Invalid coder type " + user.getCoder().getCoderType().getId());
                     }
+                } else if (curr.getId().equals(RegistrationType.TC_DIRECT_ID)) {
+                    if (required) {
+                        ret.addAll(requiredSecondaryDirectFields);
+                    } else {
+                        ret.addAll(secondaryDirectFields);
+                    }
                 }
 
             } else if (regTypes.contains(curr) && !currentTypes.contains(curr)) {
@@ -922,6 +1094,39 @@ public class RegFieldHelper {
                         }
                     }
 
+                } else if (curr.getId().equals(RegistrationType.TRUVEO_ID)) {
+                    ct = user.getCoder().getCoderType();
+                    if (ct == null) {
+                        throw new RuntimeException("User had no coder type");
+                    } else {
+                        if (ct.getId().equals(CoderType.PROFESSIONAL)) {
+                            if (required) {
+                                ret.addAll(requiredSecondaryTruveoProFields);
+                            } else {
+                                ret.addAll(secondaryTruveoProFields);
+                            }
+                            if (regTypes.contains(corp) || regTypes.contains(tcs)) {
+                                //remove these because if they are registering for competitions as a pro
+                                //and they are corporate, they answered these questions on the first page already
+                                ret.remove(Constants.COMPANY_NAME);
+                                ret.remove(Constants.TITLE);
+                            }
+                        } else if (ct.getId().equals(CoderType.STUDENT)) {
+                            if (required) {
+                                ret.addAll(requiredSecondaryTruveoStudentFields);
+                            } else {
+                                ret.addAll(secondaryTruveoStudentFields);
+                            }
+                        } else {
+                            throw new RuntimeException("Invalid coder type " + ct.getId());
+                        }
+                    }
+                } else if (curr.getId().equals(RegistrationType.TC_DIRECT_ID)) {
+                    if (required) {
+                        ret.addAll(requiredSecondaryDirectFields);
+                    } else {
+                        ret.addAll(secondaryDirectFields);
+                    }
                 }
             }
 

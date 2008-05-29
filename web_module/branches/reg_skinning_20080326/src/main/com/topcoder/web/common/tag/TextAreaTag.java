@@ -15,36 +15,36 @@ public class TextAreaTag extends BaseTag {
     public int doStartTag() {
         StringBuffer ret = new StringBuffer(150);
 
-        ret.append("<TEXTAREA ");
+        ret.append("<textarea ");
         if (id != null) {
-            ret.append("ID=\"").append(id).append("\" ");
+            ret.append("id=\"").append(id).append("\" ");
         }
         if (cols >= 0) {
-            ret.append("COLS=\"").append(cols).append("\" ");
+            ret.append("cols=\"").append(cols).append("\" ");
         }
         if (rows >= 0) {
-            ret.append("ROWS=\"").append(rows).append("\" ");
+            ret.append("rows=\"").append(rows).append("\" ");
         }
         if (wrap != null) {
-            ret.append("WRAP=\"").append(wrap).append("\" ");
+            ret.append("wrap=\"").append(wrap).append("\" ");
         }
         if (name != null) {
-            ret.append("NAME=\"").append(name).append("\" ");
+            ret.append("name=\"").append(name).append("\" ");
         }
         if (onChange != null) {
-            ret.append("ONCHANGE=\"").append(onChange).append("\" ");
+            ret.append("onchange=\"").append(onChange).append("\" ");
         }
         if (onKeyDown != null) {
-            ret.append("ONKEYDOWN=\"").append(onKeyDown).append("\" ");
+            ret.append("onkeydown=\"").append(onKeyDown).append("\" ");
         }
         if (onKeyUp != null) {
-            ret.append("ONKEYUP=\"").append(onKeyUp).append("\" ");
+            ret.append("onkeyup=\"").append(onKeyUp).append("\" ");
         }
         if (styleClass != null) {
-            ret.append("CLASS=\"").append(styleClass).append("\" ");
+            ret.append("class=\"").append(styleClass).append("\" ");
         }
         if (readOnly) {
-            ret.append("READONLY");
+            ret.append("readonly");
         }
         ret.append(">");
         if (text == null) {
@@ -53,7 +53,7 @@ public class TextAreaTag extends BaseTag {
         if (text != null) {
             ret.append(text);
         }
-        ret.append("</TEXTAREA>");
+        ret.append("</textarea>");
 
         try {
             pageContext.getOut().print(ret.toString());
