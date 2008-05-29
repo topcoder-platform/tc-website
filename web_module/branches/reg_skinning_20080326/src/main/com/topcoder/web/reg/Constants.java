@@ -31,6 +31,7 @@ public class Constants implements WebConstants {
     public static final String VISIBLE_SCHOOL = "vschl";
     public static final String USER = "regUser";
     public static final String REG_TYPES = "regTypes";
+    public static final String REG_TYPE_IDS = "regTypeIds";
     public static final String SCHOOL_TYPE = "scht";
     public static final String SCHOOL_NAME = "schn";
     public static final String SECRET_QUESTION = "sq";

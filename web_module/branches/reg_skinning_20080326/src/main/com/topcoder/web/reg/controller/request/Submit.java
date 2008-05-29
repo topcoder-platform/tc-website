@@ -139,13 +139,6 @@ public class Submit extends Base {
                 }
             }
 
-            HashSet h = new HashSet();
-            for (Iterator it = getRequestedTypes().iterator(); it.hasNext();) {
-                h.add(((RegistrationType) it.next()).getId());
-            }
-
-            //set these in the request for the success page, cuz we're about to kill the session
-            getRequest().setAttribute(Constants.REG_TYPES, h);
             getRequest().setAttribute(Constants.USER, u);
             getRequest().setAttribute(Constants.NEW_REG_FLAG, newReg);
             getRequest().getSession().invalidate();

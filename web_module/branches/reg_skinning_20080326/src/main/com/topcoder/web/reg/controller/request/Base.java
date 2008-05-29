@@ -22,15 +22,7 @@ import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.validation.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author dok
@@ -166,7 +158,7 @@ public abstract class Base extends LongHibernateProcessor {
      *
      * @param requestedTypes
      */
-    protected void setRequestedTypes(Set requestedTypes) {
+    protected void setRequestedTypes(Set<RegistrationType> requestedTypes) {
 /*
         if (log.isDebugEnabled()) {
             for (Iterator it = requestedTypes.iterator(); it.hasNext();) {
@@ -175,6 +167,15 @@ public abstract class Base extends LongHibernateProcessor {
         }
 */
         getRequest().getSession().setAttribute(Constants.REG_TYPES, requestedTypes);
+
+        //put the id's in the request for the front end to use.  This is used both for setting
+        //the css file as well has determining what to show on the success page
+        HashSet<Integer> h = new HashSet<Integer>();
+        for (RegistrationType rt : requestedTypes) {
+            h.add(rt.getId());
+        }
+        getRequest().setAttribute(Constants.REG_TYPE_IDS, h);
+
     }
 
     /**

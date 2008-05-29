@@ -5,7 +5,7 @@
 <%@ taglib uri="common-functions" prefix="cf" %>
 
 <c:set value="<%=RegistrationType.TC_DIRECT_ID%>" var="direct"/>
-<c:set value="<%=Constants.REG_TYPES%>" var="regTypes"/>
+<c:set value="<%=Constants.REG_TYPE_IDS%>" var="regTypes"/>
 <c:choose>
     <c:when test="${cf:contains(requestScope[regTypes], direct)}">
         <jsp:include page="/style.jsp">
