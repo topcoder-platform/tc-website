@@ -116,7 +116,7 @@ public class ReviewProjectDetail extends Base {
                             //who didn't want to be primary, failure is primary is just
                             //a convention, not a rule.  in this case, someone would have to
                             //be set primary manually
-                            if (app.getReviewerType().equals("Reviewer 2") && !app.isSpotFilled())
+                            if (app.getReviewerType().equals("Failure") && !app.isSpotFilled())
                                 app.setPrimary(true);
                         }
                     } else {
