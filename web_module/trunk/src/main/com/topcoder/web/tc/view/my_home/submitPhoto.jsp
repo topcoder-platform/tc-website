@@ -65,6 +65,20 @@
             <p align="center" class="small">
                 (except of course your photo will be of you,<br />not this random male model guy)
             </p>
+            
+            
+            <p>
+                Photos that look like these will not be accepted:
+            </p>
+            
+            <div align="center">
+                <img src="/i/mpbad1.jpg" width="86" alt="" height="128" border="0" />
+                <img src="/i/mpbad2.jpg" width="86" alt="" height="128" border="0" />
+            </div>
+            
+            <p align="center" class="small">
+                (not acceptable pictures)
+            </p>
 
             <h3>Timeframe for Photo Processing</h3>
             <p>
