@@ -299,6 +299,7 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
      * @throws IOException if an I/O error occurs while reading the content.
      */
     protected void analyze(ZipInputStream content, boolean retrieveFiles) throws IOException {
+        log.debug("analyze called");
         this.nativeSubmissionProvided = false;
         this.previewImageProvided = false;
         this.previewFileProvided = false;
@@ -307,6 +308,9 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
 
         try {
             ZipEntry entry = content.getNextEntry();
+            if (log.isDebugEnabled() && entry==null) {
+                log.debug("null entry");
+            }
             while (!(this.nativeSubmissionProvided && this.previewImageProvided && this.previewFileProvided
                      && this.sourceDirIncluded && this.submissionDirIncluded)
                    && (entry != null)) {
