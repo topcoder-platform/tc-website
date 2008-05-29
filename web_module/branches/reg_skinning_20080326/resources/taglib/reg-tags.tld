@@ -18,7 +18,7 @@
     <tag>
         <name>questionIterator</name>
         <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
-        <tei-class>com.topcoder.web.reg.view.tag.DemographicQuestionIteratorTagInfo</tei-class>
+        <tei-class>com.topcoder.web.reg.view.tags.DemographicQuestionIteratorTagInfo</tei-class>
         <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
@@ -35,7 +35,7 @@
     <tag>
         <name>answerIterator</name>
         <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
-        <tei-class>com.topcoder.web.reg.view.tag.DemographicAnswerIteratorTagInfo</tei-class>
+        <tei-class>com.topcoder.web.reg.view.tags.DemographicAnswerIteratorTagInfo</tei-class>
         <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
@@ -52,7 +52,7 @@
     <tag>
         <name>responseIterator</name>
         <tag-class>com.topcoder.web.common.tag.IteratorTag</tag-class>
-        <tei-class>com.topcoder.web.reg.view.tag.DemographicResponseIteratorTagInfo</tei-class>
+        <tei-class>com.topcoder.web.reg.view.tags.DemographicResponseIteratorTagInfo</tei-class>
         <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
@@ -69,7 +69,7 @@
 
     <tag>
         <name>demographicInput</name>
-        <tag-class>com.topcoder.web.reg.view.tag.DemographicInput</tag-class>
+        <tag-class>com.topcoder.web.reg.view.tags.DemographicInput</tag-class>
         <body-content>empty</body-content>
         <attribute>
             <name>styleClass</name>
@@ -90,7 +90,7 @@
 
     <tag>
         <name>demographicAnswerText</name>
-        <tag-class>com.topcoder.web.reg.view.tag.DemographicAnswerText</tag-class>
+        <tag-class>com.topcoder.web.reg.view.tags.DemographicAnswerText</tag-class>
         <body-content>empty</body-content>
         <attribute>
             <name>response</name>
@@ -101,7 +101,7 @@
 
     <tag>
         <name>demographicQuestionText</name>
-        <tag-class>com.topcoder.web.reg.view.tag.DemographicQuestionText</tag-class>
+        <tag-class>com.topcoder.web.reg.view.tags.DemographicQuestionText</tag-class>
         <body-content>empty</body-content>
         <attribute>
             <name>response</name>
