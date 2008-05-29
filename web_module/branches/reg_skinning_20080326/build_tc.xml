@@ -894,6 +894,9 @@
                 <include name="reg-tags.tld"/>
                 <include name="common-functions.tld"/>
             </webinf>
+            <webinf dir="${java}/com/topcoder/web/reg/view/">
+                <include name="tags/*.tag"/>
+            </webinf>
             <fileset dir="${java}/com/topcoder/web/reg/view">
                 <include name="**/*.jsp"/>
             </fileset>
