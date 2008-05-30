@@ -166,7 +166,7 @@ tchs08 is over, don't need to do this anymore
 
     private Map<String, ActiveContestsSummary> getOnlineReviewSummary() throws Exception {
         HashMap<String, ActiveContestsSummary> ret = new HashMap<String, ActiveContestsSummary>();
-        CachedDataAccess dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.DW_DATASOURCE_NAME);
+        CachedDataAccess dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request dataRequest = new Request();
         dataRequest.setContentHandle("homepage_active_contest_summary");
 
