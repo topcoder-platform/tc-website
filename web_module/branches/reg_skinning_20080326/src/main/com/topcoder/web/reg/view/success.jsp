@@ -60,15 +60,25 @@
 <div id="successMessage">
     <c:choose>
         <c:when test="${isNewReg}">
-            <p>
-                <strong>Registration successful!</strong>
-            </p>
-            <div class="error">
-                Please check your email. You <u>MUST</u> activate your account to complete registration.
-            </div>
-            <p>
-                Your activation code is being emailed to you. Follow the instructions in the email to activate your account.
-            </p>
+
+
+            <c:set value="<%=RegistrationType.TC_DIRECT_ID%>" var="direct"/>
+            <c:choose>
+                <c:when test="${cf:contains(requestScope[regTypes], direct)}">
+                    <div class="regHead">As a registered <%--cocksman--%> you can...</div>
+                </c:when>
+                <c:otherwise>
+                    <p>
+                        <strong>Registration successful!</strong>
+                    </p>
+                    <div class="error">
+                        Please check your email. You <u>MUST</u> activate your account to complete registration.
+                    </div>
+                    <p>
+                        Your activation code is being emailed to you. Follow the instructions in the email to activate your account.
+                    </p>
+                </c:otherwise>
+            </c:choose>
         </c:when>
         <c:otherwise>
             <p>
@@ -235,29 +245,31 @@
 
 </c:if>
 
-<c:set value="<%=RegistrationType.TC_DIRECT_ID%>" var="direct"/>
-<c:if test="${cf:contains(requestScope[regTypes], direct)}">
-    <div class="regHead">As a registered <%--cocksman--%> you can...</div>
-</c:if>    
+
+<%--
+    <c:if test="${not newReg or not cf:contains(requestScope[regTypes], direct)}">
+--%>
+        <div class="regHead">As a Registered TopCoder Member</div>
+        <table cellpadding="0" cellspacing="0" border="0" class="whatToDo">
+            <tbody>
+                <tr>
+                    <td class="image">
+                        <a href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/minimal.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></a>
+                    </td>
+                    <td class="text" width="100%">
+                        As a TopCoder member you now have access to all
+                        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">TopCoder
+                            Forums</a> and the ability to view all statistical content on the website. Enjoy.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+<%--
+    </c:if>
+--%>
 
 
-
-<div class="regHead">As a Registered TopCoder Member</div>
-<table cellpadding="0" cellspacing="0" border="0" class="whatToDo">
-<tbody>
-    <tr>
-        <td class="image">
-            <a href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/minimal.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></a>
-        </td>
-        <td class="text" width="100%">
-            As a TopCoder member you now have access to all <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">TopCoder
-            Forums</a> and the ability to view all statistical content on the website. Enjoy.
-        </td>
-    </tr>
-</tbody>
-</table>
-
-</div>
+    </div>
 </div>
 
 </body>
