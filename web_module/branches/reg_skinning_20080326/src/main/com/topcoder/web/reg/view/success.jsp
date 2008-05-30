@@ -66,7 +66,15 @@
             <c:set value="<%=RegistrationType.TC_DIRECT_ID%>" var="direct"/>
             <c:choose>
                 <c:when test="${cf:contains(requestScope[regTypes], direct)}">
-                    <div class="regHead">As a registered <%--cocksman--%> you can...</div>
+                    <p>
+                        <strong>You're almost ready to begin using TopCoder Direct</strong>
+                    </p>
+                    <p>
+                        You just need to activate your account to access your TopCoder Direct Cockpit.
+                    </p>
+                    <p>
+                        Check your inbox for the activation code we just emailed and click the link to activate your account.
+                    </p>
                 </c:when>
                 <c:otherwise>
                     <p>
