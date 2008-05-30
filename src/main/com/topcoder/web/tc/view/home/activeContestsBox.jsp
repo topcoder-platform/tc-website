@@ -1,4 +1,6 @@
 <%@ page import="com.topcoder.web.tc.controller.request.Home" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -111,8 +113,9 @@
                     </c:if>
                     <tr>
                         <td class="value">
-                            <div class="prizes">May 10, 9PM</div>
-                            <a href="" class="gMetal">Next Algo SRM</a>
+                            <% ResultSetContainer nextSRM= (ResultSetContainer)request.getAttribute("Next_SRM");%>
+                            <div class="prizes"><rsc:item set="<%=nextSRM%>" name="coding_start" format="MMM dd, ha"/></div>
+                            <a href="/tc?module=MatchDetails&amp;rd=<rsc:item set="<%=nextSRM%>" name="round_id"/>" class="gMetal">Next Algo SRM</a>
                         </td>
                     </tr>
                 </tbody>
