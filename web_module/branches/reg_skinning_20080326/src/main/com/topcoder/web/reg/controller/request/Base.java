@@ -174,13 +174,14 @@ public abstract class Base extends LongHibernateProcessor {
      * put the id's in the request for the front end to use.  This is used both for setting
      * the css file as well has determining what to show on the success page
      */
-    private void setRequestedTypeIds() {
-        HashSet<Integer> h = new HashSet<Integer>();
-        for (RegistrationType rt : getRequestedTypes()) {
-            h.add(rt.getId());
+    protected void setRequestedTypeIds() {
+        if (getRequestedTypes()!=null) {
+            HashSet<Integer> h = new HashSet<Integer>();
+            for (RegistrationType rt : getRequestedTypes()) {
+                h.add(rt.getId());
+            }
+            getRequest().setAttribute(Constants.REG_TYPE_IDS, h);
         }
-        getRequest().setAttribute(Constants.REG_TYPE_IDS, h);
-
     }
 
     /**

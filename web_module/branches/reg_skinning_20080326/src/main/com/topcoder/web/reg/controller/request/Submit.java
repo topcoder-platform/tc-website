@@ -139,6 +139,8 @@ public class Submit extends Base {
                 }
             }
 
+            //so that we know what they registered for an can provide appropriate blurps on the success page
+            setRequestedTypeIds();
             getRequest().setAttribute(Constants.USER, u);
             getRequest().setAttribute(Constants.NEW_REG_FLAG, newReg);
             getRequest().getSession().invalidate();
