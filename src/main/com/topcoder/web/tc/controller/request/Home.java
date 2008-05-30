@@ -41,13 +41,10 @@ public class Home extends Base {
 
     protected void loadPublicData() throws TCWebException {
         try {
-/*
-            CachedDataAccess nextRoundDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-            nextRoundDai.setExpireTime(30 * 60 * 1000);
+            CachedDataAccess nextRoundDai = new CachedDataAccess(MaxAge.HALF_HOUR, DBMS.OLTP_DATASOURCE_NAME);
             Request nextRoundReq = new Request();
             nextRoundReq.setContentHandle("next_srm");
             getRequest().setAttribute("Next_SRM", nextRoundDai.getData(nextRoundReq).get("Next_SRM"));
-*/
 
             CachedDataAccess dwDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
             Request dataRequest = new Request();
@@ -159,8 +156,18 @@ tchs08 is over, don't need to do this anymore
         return ret;
     }
 
-    private ActiveContestsSummary getStudioSummary() {
+    private ActiveContestsSummary getStudioSummary() throws Exception {
         ActiveContestsSummary ret = new ActiveContestsSummary();
+        CachedDataAccess dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Request dataRequest = new Request();
+        dataRequest.setContentHandle("active_contests_summary");
+
+        ResultSetContainer rsc = dai.getData(dataRequest).get("active_contests_summary");
+        if (!rsc.isEmpty()) {
+            ret.setContestCount(rsc.get(0).getIntItem("total_contests"));
+            ret.setName("Studio");
+            ret.setPrizeTotal(rsc.get(0).getFloatItem("total_prizes"));
+        }
         return ret;
     }
 
@@ -171,7 +178,6 @@ tchs08 is over, don't need to do this anymore
         dataRequest.setContentHandle("homepage_active_contest_summary");
 
         ActiveContestsSummary summary;
-        StringBuilder b;
         for (ResultSetContainer.ResultSetRow row : dai.getData(dataRequest).get("homepage_active_contest_summary")) {
             summary = new ActiveContestsSummary();
             summary.setContestCount(row.getIntItem("total_contests"));

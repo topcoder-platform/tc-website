@@ -19,7 +19,7 @@ public class ActiveContestsSummary {
      * Generally this will be a dollar amount, but i'll be using it for points as well
      * for the digital run
      */
-    private Float prizeTotal;
+    private Float prizeTotal=0f;
 
     /**
      * a description of the contests that are being summarized.  For example, it might be
@@ -30,7 +30,7 @@ public class ActiveContestsSummary {
     /**
      * How many contests are currently active
      */
-    private Integer contestCount;
+    private Integer contestCount=0;
 
     public ActiveContestsSummary() {
 
