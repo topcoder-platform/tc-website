@@ -1,3 +1,16 @@
+<%@ page import="com.topcoder.web.tc.controller.request.Home" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="dr" value="<%=Home.DR%>"/>
+<c:set var="design" value="<%=Home.DESIGN%>"/>
+<c:set var="dev" value="<%=Home.DEVELOPMENT%>"/>
+<c:set var="assembly" value="<%=Home.ASSEMBLY%>"/>
+<c:set var="bugs" value="<%=Home.BUGS%>"/>
+<c:set var="appTesting" value="<%=Home.APPLICATION_TESTING%>"/>
+<c:set var="studio" value="<%=Home.STUDIO%>"/>
+<c:set var="mm" value="<%=Home.MM%>"/>
+
 <div>
     <img src="/i/interface/rightNavTop.png" alt="" style="display: block;"/>
 </div>
@@ -17,8 +30,8 @@
                 </tr>
                 <tr>
                     <td class="value">
-                        <div class="prizes">$25,000</div>
-                        <a href="/tc?module=ViewActiveContests&ph=112" class="gMetal">Comp Design</a> (15)
+                        <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[design].prizeTotal}" pattern="$###,###.00"/></div>
+                        <a href="/tc?module=ViewActiveContests&ph=112" class="gMetal">Comp Design</a> (${activeContestsSummary[design].contestCount})
                     </td>
                 </tr>
                 <tr>
