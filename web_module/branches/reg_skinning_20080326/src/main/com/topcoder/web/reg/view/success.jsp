@@ -235,6 +235,13 @@
 
 </c:if>
 
+<c:set value="<%=RegistrationType.TC_DIRECT_ID%>" var="direct"/>
+<c:if test="${cf:contains(requestScope[regTypes], direct)}">
+    <div class="regHead">As a registered <%--cocksman--%> you can...</div>
+</c:if>    
+
+
+
 <div class="regHead">As a Registered TopCoder Member</div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo">
 <tbody>
