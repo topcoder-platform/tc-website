@@ -66,7 +66,7 @@
         <p><span class="bodySubtitle">Hardware</span><br />
         Each individual test case will be run against a competitor's submission on a dedicated machine with the following specifications:</p>
         <ul>
-            <li>Processors(2): Quad-Core AMD Opteron(tm) Processor 2350  2 GHz,  512 KB Level I Cache</li>
+            <li>Processors(2): Quad-Core AMD Opteron(tm) Processor 2350  2 GHz,  512 KB Level II Cache</li>
             <li>Memory: 8 GB</li>
             <li>OS: SUSE Linux 10.3, kernel 2.6.22.17</li>
         </ul>
