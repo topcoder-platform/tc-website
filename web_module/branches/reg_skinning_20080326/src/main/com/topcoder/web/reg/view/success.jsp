@@ -57,6 +57,7 @@
     </div>
 </div>
 
+    <c:set value="<%=Constants.REG_TYPE_IDS%>" var="regTypes"/>
 <div id="successMessage">
     <c:choose>
         <c:when test="${isNewReg}">
@@ -92,7 +93,6 @@
 </div>
 
 <c:set value="<%=RegistrationType.COMPETITION_ID%>" var="competition"/>
-<c:set value="<%=Constants.REG_TYPE_IDS%>" var="regTypes"/>
 <c:if test="${cf:contains(requestScope[regTypes], competition)}">
     <div class="regHead">As a Registered Competitor</div>
     <table cellpadding="0" cellspacing="0" border="0" class="whatToDo">
