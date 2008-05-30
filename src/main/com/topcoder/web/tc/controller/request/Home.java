@@ -176,32 +176,27 @@ tchs08 is over, don't need to do this anymore
             summary = new ActiveContestsSummary();
             summary.setContestCount(row.getIntItem("total_contests"));
             summary.setName(row.getStringItem("category_name"));
-            summary.setTotalPrizes(row.getFloatItem("total_prizes"));
+            summary.setPrizeTotal(row.getFloatItem("total_prizes"));
 
             switch (row.getIntItem("project_category_id")) {
 
                 case Constants.DESIGN_PROJECT_TYPE: {
-                    summary.setUrl(makeDevDesignActiveContestUrl(row.getIntItem("project_category_id")));
                     ret.put(DESIGN, summary);
                     break;
                 }
                 case Constants.DEVELOPMENT_PROJECT_TYPE: {
-                    summary.setUrl(makeDevDesignActiveContestUrl(row.getIntItem("project_category_id")));
                     ret.put(DEVELOPMENT, summary);
                     break;
                 }
                 case Constants.ASSEMBLY_PROJECT_TYPE: {
-                    summary.setUrl(makeGeneralActiveContestUrl(row.getIntItem("project_category_id")));
                     ret.put(ASSEMBLY, summary);
                     break;
                 }
                 case Constants.APPLICATION_TESTING_PROJECT_TYPE: {
-                    summary.setUrl(makeGeneralActiveContestUrl(row.getIntItem("project_category_id")));
                     ret.put(APPLICATION_TESTING, summary);
                     break;
                 }
                 case Constants.ARCHITECTURE_PROJECT_TYPE: {
-                    summary.setUrl(makeGeneralActiveContestUrl(row.getIntItem("project_category_id")));
                     ret.put(ARCHITECTURE, summary);
                     break;
                 }
@@ -212,39 +207,6 @@ tchs08 is over, don't need to do this anymore
         return ret;
     }
 
-    /**
-     * we have a number of contest types that use the same active contests page.
-     * this method builds the url for that
-     *
-     * @param type the type of contest - it will be a project_category_id
-     * @return the url
-     */
-    private String makeGeneralActiveContestUrl(int type) {
-        StringBuilder b = new StringBuilder(70);
-        b.append(getSessionInfo().getServletPath()).append("?").append(Constants.MODULE_KEY);
-        b.append("=").append("ActiveContests").append("&amp;").append(Constants.PROJECT_TYPE_ID);
-        b.append("=").append(type);
-        return b.toString();
-    }
-
-    /**
-     * dev and design use a similar url for their active contest page.  use
-     * the type passed in to create that url.
-     * @param type - the project_category_id of the contest
-     * @return the url to link to the active contests page
-     */
-    private String makeDevDesignActiveContestUrl(int type) {
-        StringBuilder b = new StringBuilder(70);
-        b.append(getSessionInfo().getServletPath()).append("?").append(Constants.MODULE_KEY);
-        b.append("=").append("ViewActiveContests").append("&amp;").append(Constants.PHASE_ID).append("=");
-        if (type==Constants.DEVELOPMENT_PROJECT_TYPE) {
-            b.append(SoftwareComponent.DEV_PHASE);
-        } else if (type==Constants.DESIGN_PROJECT_TYPE) {
-            b.append(SoftwareComponent.DESIGN_PHASE);
-        }
-        return b.toString();
-
-    }
     private ActiveContestsSummary getMMSummary() {
         ActiveContestsSummary ret = new ActiveContestsSummary();
         return ret;

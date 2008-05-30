@@ -13,17 +13,13 @@ package com.topcoder.web.tc.model;
  *          Create Date: May 30, 2008
  */
 public class ActiveContestsSummary {
-    /**
-     * where one should go if they were to click on this item
-     */
-    private String url;
 
     /**
      * the prizes avaiable for all the contests that this object is summarizing.
      * Generally this will be a dollar amount, but i'll be using it for points as well
      * for the digital run
      */
-    private Float totalPrizes;
+    private Float prizeTotal;
 
     /**
      * a description of the contests that are being summarized.  For example, it might be
@@ -40,20 +36,12 @@ public class ActiveContestsSummary {
 
     }
 
-    public String getUrl() {
-        return url;
+    public Float getPrizeTotal() {
+        return prizeTotal;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public Float getTotalPrizes() {
-        return totalPrizes;
-    }
-
-    public void setTotalPrizes(Float totalPrizes) {
-        this.totalPrizes = totalPrizes;
+    public void setPrizeTotal(Float prizeTotal) {
+        this.prizeTotal = prizeTotal;
     }
 
     public String getName() {
