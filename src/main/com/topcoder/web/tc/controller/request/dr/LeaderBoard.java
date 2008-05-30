@@ -56,14 +56,14 @@ public class LeaderBoard extends BaseBoard {
         setDefault(Constants.STAGE_ID, stageId);
 
         // handle old assembly boards
-        if (WebConstants.ASSEMBLY_PROJECT_TYPE.equals(String.valueOf(projectTypeId)) &&
+        if (WebConstants.ASSEMBLY_PROJECT_TYPE==projectTypeId &&
                 stageId == 5) {
             setNextPage("/digital_run/2007dot5/asmLeaderboardS1.jsp");
             setIsNextPageInContext(true);
             return;
         }
 
-        if (WebConstants.ASSEMBLY_PROJECT_TYPE.equals(String.valueOf(projectTypeId)) &&
+        if (WebConstants.ASSEMBLY_PROJECT_TYPE==projectTypeId &&
                 stageId == 6) {
             setNextPage("/digital_run/2007dot5/asmLeaderboardS2.jsp");
             setIsNextPageInContext(true);        

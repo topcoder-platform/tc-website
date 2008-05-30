@@ -106,11 +106,11 @@ public class Register extends ViewRegistration {
             ComponentManager componentManager = componentManagerHome.create(componentId);
             String project = componentManager.getComponentInfo().getName();
             
-            if (String.valueOf(projectTypeId).equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
+            if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.ASSEMBLY_PROJECT_TYPE))) {
                 project += " Assembly Project";
-            } else if (String.valueOf(projectTypeId).equals(Constants.COMPONENT_TESTING_PROJECT_TYPE)) {
+            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.COMPONENT_TESTING_PROJECT_TYPE))) {
                 project += " Component Testing Project";
-            } else if (String.valueOf(projectTypeId).equals(Constants.APPLICATION_TESTING_PROJECT_TYPE)) {
+            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.APPLICATION_TESTING_PROJECT_TYPE))) {
                 project += " Application Testing Project";
             }
             

@@ -51,9 +51,9 @@ public class CompetitionHistory extends BaseProcessor {
         }
 
         if (!hasParameter(Constants.PHASE_ID)) {
-            if (!getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(Constants.DESIGN_PROJECT_TYPE) &&
-                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(Constants.DEVELOPMENT_PROJECT_TYPE) &&
-                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
+            if (!getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.DESIGN_PROJECT_TYPE)) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.DEVELOPMENT_PROJECT_TYPE)) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.ASSEMBLY_PROJECT_TYPE))) {
                 throw new TCWebException("invalid " + Constants.PROJECT_TYPE_ID + " parameter.");
             }
             
@@ -64,7 +64,7 @@ public class CompetitionHistory extends BaseProcessor {
 
         String projectTypeIds;
         // add component testing project to the development page
-        if (Constants.DEVELOPMENT_PROJECT_TYPE.equals(String.valueOf(projectTypeId))) {
+        if (Constants.DEVELOPMENT_PROJECT_TYPE==projectTypeId) {
             projectTypeIds = projectTypeId + ", " + Constants.COMPONENT_TESTING_PROJECT_TYPE;
         } else {
             projectTypeIds = String.valueOf(projectTypeId);
