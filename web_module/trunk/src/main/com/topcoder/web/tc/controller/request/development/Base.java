@@ -11,6 +11,9 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.tc.Constants;
@@ -29,31 +32,31 @@ public abstract class Base extends ShortHibernateProcessor {
         return pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
 
-    public static final String getProjectDetailPage(int projectTypeId) {
-        if (String.valueOf(projectTypeId).equals(Constants.DESIGN_PROJECT_TYPE)) {
+    public static String getProjectDetailPage(int projectTypeId) {
+        if (projectTypeId==Constants.DESIGN_PROJECT_TYPE) {
             return Constants.DESIGN_DETAIL;
-        } else if (String.valueOf(projectTypeId).equals(Constants.DEVELOPMENT_PROJECT_TYPE)) {
+        } else if (projectTypeId==Constants.DEVELOPMENT_PROJECT_TYPE) {
             return Constants.DEVELOPMENT_DETAIL;
-        } else if (String.valueOf(projectTypeId).equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
+        } else if (projectTypeId ==Constants.ASSEMBLY_PROJECT_TYPE) {
             return "/dev/assembly/projectDetail.jsp";
-        } else if (String.valueOf(projectTypeId).equals(Constants.ARCHITECTURE_PROJECT_TYPE)) {
+        } else if (projectTypeId==Constants.ARCHITECTURE_PROJECT_TYPE) {
             return "/architecture/projectDetail.jsp";
-        } else if (String.valueOf(projectTypeId).equals(Constants.COMPONENT_TESTING_PROJECT_TYPE)) { 
+        } else if (projectTypeId==Constants.COMPONENT_TESTING_PROJECT_TYPE) {
             return "/dev/testing/projectDetail.jsp";
-        } else if (String.valueOf(projectTypeId).equals(Constants.APPLICATION_TESTING_PROJECT_TYPE)) { 
+        } else if (projectTypeId==Constants.APPLICATION_TESTING_PROJECT_TYPE) {
             return "/testing/projectDetail.jsp";
         } else {
             return "";
         }
     }
 
-    public static final String getRegistrantsCommandName(int projectTypeId) {
-        if (String.valueOf(projectTypeId).equals(Constants.DESIGN_PROJECT_TYPE) ||
-            String.valueOf(projectTypeId).equals(Constants.DEVELOPMENT_PROJECT_TYPE)) {
+    public static String getRegistrantsCommandName(int projectTypeId) {
+        if (projectTypeId==Constants.DESIGN_PROJECT_TYPE ||
+            projectTypeId==Constants.DEVELOPMENT_PROJECT_TYPE) {
             return "registrants";
-        } else if (String.valueOf(projectTypeId).equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
+        } else if (projectTypeId==Constants.ASSEMBLY_PROJECT_TYPE) {
             return "assembly_registrants";
-        } else if (String.valueOf(projectTypeId).equals(Constants.ARCHITECTURE_PROJECT_TYPE)) {
+        } else if (projectTypeId==Constants.ARCHITECTURE_PROJECT_TYPE) {
             return "architecture_registrants";
         } else {
             return "contest_registrants";
@@ -94,6 +97,34 @@ public abstract class Base extends ShortHibernateProcessor {
         else
             dAccess = new DataAccess(datasource);
         return dAccess;
+    }
+
+
+    /**
+     * Get the project type id from the request.  If the request contains the phase id, then use that
+     * to figure out the project type id.
+     * @param r the http request
+     * @return the project type id or 0 if we could not find the necessary information in the request
+     * @throws TCWebException if non null non number is passed for project type
+     */
+    public static int getProjectTypeId(TCRequest r) throws TCWebException {
+        int projectTypeId=0;
+        if (!"".equals(StringUtils.checkNull(r.getParameter(Constants.PROJECT_TYPE_ID))) &&
+                !StringUtils.isNumber(StringUtils.checkNull(r.getParameter(Constants.PROJECT_TYPE_ID)))) {
+            throw new TCWebException("Invalid project_type_id (" + projectTypeId + ") parameter");
+        } else {
+            projectTypeId = Integer.parseInt(r.getParameter(Constants.PROJECT_TYPE_ID));
+        }
+        if (projectTypeId == 0) {
+            String phaseId = StringUtils.checkNull(r.getParameter(Constants.PHASE_ID));
+            if (String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.DESIGN_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.DEV_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.DEVELOPMENT_PROJECT_TYPE;
+            }
+        }
+        return projectTypeId;
+
     }
 
 }

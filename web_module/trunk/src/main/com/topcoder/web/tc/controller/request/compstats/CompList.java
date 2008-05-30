@@ -38,28 +38,22 @@ public class CompList extends Base {
 
             String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
             String phaseId = StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID));
-            String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
+            int projectTypeId= com.topcoder.web.tc.controller.request.development.Base.getProjectTypeId(getRequest());
 
             String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
-            if (String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(phaseId)) {
-                projectTypeId = Constants.DESIGN_PROJECT_TYPE;
-            } else if (String.valueOf(SoftwareComponent.DEV_PHASE).equals(phaseId)) {
-                projectTypeId = Constants.DEVELOPMENT_PROJECT_TYPE;
-            }
-
-            if (!Constants.DESIGN_PROJECT_TYPE.equals(projectTypeId) &&
-                    !Constants.DEVELOPMENT_PROJECT_TYPE.equals(projectTypeId)) {
+            if (!(Constants.DESIGN_PROJECT_TYPE == projectTypeId ||
+                    Constants.DEVELOPMENT_PROJECT_TYPE ==projectTypeId)) {
                 throw new TCWebException("Invalid project_type_id (" + projectTypeId + ") parameter");
             }
 
             String projectTypeIds;
             // add component testing project to the development page
-            if (Constants.DEVELOPMENT_PROJECT_TYPE.equals(projectTypeId)) {
+            if (Constants.DEVELOPMENT_PROJECT_TYPE==projectTypeId) {
                 projectTypeIds = projectTypeId + ", " + Constants.COMPONENT_TESTING_PROJECT_TYPE;
             } else {
-                projectTypeIds = projectTypeId;
+                projectTypeIds = String.valueOf(projectTypeId);
             }
                 
 

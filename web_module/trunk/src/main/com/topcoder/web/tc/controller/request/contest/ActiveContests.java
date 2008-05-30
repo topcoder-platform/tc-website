@@ -16,11 +16,11 @@ import com.topcoder.web.tc.Constants;
  */
 public class ActiveContests extends ActiveContestsBase {
     protected void developmentProcessing() throws TCWebException {
-        String projectTypeId = getRequest().getParameter(Constants.PROJECT_TYPE_ID);
+        int projectTypeId =  com.topcoder.web.tc.controller.request.development.Base.getProjectTypeId(getRequest());
 
-        if (Constants.ASSEMBLY_PROJECT_TYPE.equals(projectTypeId) || 
-                Constants.ARCHITECTURE_PROJECT_TYPE.equals(projectTypeId) || 
-                Constants.APPLICATION_TESTING_PROJECT_TYPE.equals(projectTypeId)) {
+        if (Constants.ASSEMBLY_PROJECT_TYPE==projectTypeId ||
+                Constants.ARCHITECTURE_PROJECT_TYPE==projectTypeId ||
+                Constants.APPLICATION_TESTING_PROJECT_TYPE==projectTypeId) {
             setProjectType(projectTypeId);
         } else {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
@@ -30,7 +30,7 @@ public class ActiveContests extends ActiveContestsBase {
     }
     
     protected String getCommandName() {
-        if (getProjectType().equals(Constants.ARCHITECTURE_PROJECT_TYPE)) {
+        if (getProjectType()==Constants.ARCHITECTURE_PROJECT_TYPE) {
             return "active_architecture_contests";            
         } else {
             return super.getCommandName();
@@ -39,7 +39,7 @@ public class ActiveContests extends ActiveContestsBase {
     
     @Override
     protected Boolean hasDR() {
-        if (getProjectType().equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
+        if (getProjectType()==Constants.ASSEMBLY_PROJECT_TYPE) {
             return Boolean.TRUE;
         } else {
             return Boolean.FALSE;

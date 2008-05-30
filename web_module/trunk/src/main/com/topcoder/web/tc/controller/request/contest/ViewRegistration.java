@@ -71,10 +71,10 @@ public class ViewRegistration extends Base {
 
         projectTypeId = getProjectTypeId(projectId);
 
-        if (!String.valueOf(projectTypeId).equals(Constants.ASSEMBLY_PROJECT_TYPE) &&
-                !String.valueOf(projectTypeId).equals(Constants.ARCHITECTURE_PROJECT_TYPE) &&
-                !String.valueOf(projectTypeId).equals(Constants.COMPONENT_TESTING_PROJECT_TYPE) &&
-                !String.valueOf(projectTypeId).equals(Constants.APPLICATION_TESTING_PROJECT_TYPE)) {
+        if (!String.valueOf(projectTypeId).equals(String.valueOf(Constants.ASSEMBLY_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.ARCHITECTURE_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.COMPONENT_TESTING_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.APPLICATION_TESTING_PROJECT_TYPE))) {
             throw new NavigationException("Invalid project specified (wrong category)");
         }
 

@@ -79,9 +79,9 @@ public abstract class BaseBoard extends BaseProcessor {
         }
 
         if (!hasParameter(Constants.PHASE_ID)) {
-            if (!getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(Constants.DESIGN_PROJECT_TYPE) &&
-                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(Constants.DEVELOPMENT_PROJECT_TYPE) &&
-                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
+            if (!getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.DESIGN_PROJECT_TYPE)) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.DEVELOPMENT_PROJECT_TYPE)) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.ASSEMBLY_PROJECT_TYPE))) {
                 throw new TCWebException("invalid " + Constants.PROJECT_TYPE_ID + " parameter.");
             }
             

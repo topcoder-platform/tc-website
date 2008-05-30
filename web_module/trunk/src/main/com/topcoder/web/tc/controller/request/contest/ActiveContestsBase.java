@@ -23,13 +23,13 @@ import com.topcoder.web.tc.controller.request.development.Base;
  */
 public abstract class ActiveContestsBase extends Base {
 
-    private String projectTypeId = "";
+    private int projectTypeId = 0;
     
-    protected void setProjectType(String projectTypeId) {
+    protected void setProjectType(int  projectTypeId) {
         this.projectTypeId = projectTypeId;
     }
 
-    protected String getProjectType() {
+    protected int getProjectType() {
         return this.projectTypeId;
     }
 
@@ -59,7 +59,7 @@ public abstract class ActiveContestsBase extends Base {
                 r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
             }
 
-            r.setProperty(Constants.PROJECT_TYPE_ID, getProjectType());
+            r.setProperty(Constants.PROJECT_TYPE_ID, String.valueOf(getProjectType()));
             r.setProperty(DataAccessConstants.SORT_QUERY, getCommandName());
             Map result = getDataAccess().getData(r);
             getRequest().setAttribute("contests", result.get(getCommandName()));
