@@ -728,13 +728,13 @@
         <p>
             <strong>Terms of Use</strong>
         </p>
-
-        <iframe src="/tc?<%=Constants.MODULE_KEY%>=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.REG_TERMS_ID%>"></iframe>
+        <c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="termsId"/>
+        <iframe src="/tc?<%=Constants.MODULE_KEY%>=Terms&amp;${termsId}=<%=Constants.REG_TERMS_ID%>"></iframe>
         <div align="center">
             <div class="error">
                 <tc-webtag:errorIterator id="err" name="${termsId}">${err}</tc-webtag:errorIterator>
             </div>
-            <input type="checkbox" name="<%=Constants.TERMS_OF_USE_ID%>"/>I agree
+            <input type="checkbox" name="${termsId}"/>I agree
         </div>
     </c:if>
 
