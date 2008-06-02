@@ -23,6 +23,7 @@
     <property name="jboss_home" value="${env.JBOSS_HOME}"/>
     <property name="jboss_deploy" value="${jboss_home}/server/default/deploy"/>
     <property name="jboss_lib" value="${jboss_home}/server/default/lib"/>
+    <property name="jboss_bin" value="${jboss_home}/bin"/>
     <property name="jboss_conf" value="${jboss_home}/server/default/conf"/>
     <property name="testjava" value="${src.dir}/testcases"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
@@ -146,7 +147,9 @@
         <unjar src="studio.jar" dest="${build}/tempdist"/>
         <delete file="${build}/tempdist/build_studio.xml"/>
         <delete file="${build}/tempdist/move.xml"/>
+<!--
         <unjar src="webserver.jar" dest="${build}/tempdist"/>
+-->
         <delete dir="${build}/tempdist/META-INF"/>
 
         <copy todir="${build}/tempdist/depsrc">
@@ -155,6 +158,7 @@
                 <include name="${java}/com/topcoder/common/**/*"/>
             </fileset>
         </copy>
+
         <copy todir="${build}/tempdist">
             <fileset dir=".">
                 <include name="${java}/com/topcoder/web/studio/**/*"/>
@@ -162,6 +166,13 @@
                 <include name="${testjava}/com/topcoder/web/studio/**/*"/>
             </fileset>
         </copy>
+
+        <copy todir="${build}/tempdist/test_files">
+            <fileset dir="test_files">
+                <include name="studio/**/*"/>
+            </fileset>
+        </copy>
+
         <copy tofile="${build}/tempdist/build.xml" file="build_studio_dist.xml"/>
 
         <copy todir="${build}/tempdist/lib/jars">
@@ -260,6 +271,8 @@
             <fileset dir="${resources}/studio">
                 <include name="jboss-web.xml"/>
                 <include name="hibernate.cfg.xml"/>
+                <include name="informix-ds.xml"/>
+                <include name="security.keystore"/>
             </fileset>
         </copy>
 
@@ -297,6 +310,7 @@
                 <include name="depsrc/**"/>
                 <include name="lib/**"/>
                 <include name="resources/**"/>
+                <include name="test_files/**"/>
                 <include name="src/**"/>
                 <include name="i/**"/>
                 <include name="js/**"/>
@@ -333,6 +347,8 @@
         <antcall target="expand-studio"/>
         <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jboss-cache.jar"/>
         <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jgroups.jar"/>
+        <copy todir="${jboss_bin}" file="${resources}/studio/security.keystore"/>
+        <copy todir="${jboss_deploy}" file="${resources}/studio/informix-ds.xml"/>
         <copy todir="${jboss_deploy}" file="${resources}/treecache-service.xml"/>
         <copy todir="${jboss_deploy}" file="${sar.dir}/cacheadmin.sar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/QueryServices.jar"/>
