@@ -212,7 +212,7 @@ tchs08 is over, don't need to do this anymore
             if (row.getItem("total_prizes").getResultData()!=null) {
                 summary.setPrizeTotal(row.getFloatItem("total_prizes"));
             }
-            ret.put(DR, summary);
+            ret.put(ARCHITECTURE, summary);
         }
 
 
