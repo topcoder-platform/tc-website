@@ -3,6 +3,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:set var="dr" value="<%=Home.DR%>"/>
 <c:set var="design" value="<%=Home.DESIGN%>"/>
@@ -25,13 +26,15 @@
                     <tr>
                         <td class="title">Active Contests</td>
                     </tr>
-                    <tr>
-                        <td class="value">
-                            <div class="prizes">50,000 pts</div>
-                            <a href="/tc?module=Static&d1=digital_run&d2=description" class="gMetal">Digital Run</a>
-                            (32)
-                        </td>
-                    </tr>
+                    <c:if test="${activeContestsSummary[dr].contestCount>0}">
+                        <tr>
+                            <td class="value">
+                                <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[dr].prizeTotal}" pattern="#,###,###"/> pts</div>
+                                <a href="/tc?module=Static&d1=digital_run&d2=description" class="gMetal">Digital Run</a>
+                                (32)
+                            </td>
+                        </tr>
+                    </c:if>
                     <c:if test="${activeContestsSummary[design].contestCount>0}">
                         <tr>
                             <td class="value">
