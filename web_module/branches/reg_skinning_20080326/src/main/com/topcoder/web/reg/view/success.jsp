@@ -57,14 +57,13 @@
     </div>
 </div>
 
-    <c:set value="<%=Constants.REG_TYPE_IDS%>" var="regTypes"/>
+    <c:set value="<%=RegistrationType.TC_DIRECT_ID%>" var="direct"/>
+     <c:set value="<%=Constants.REG_TYPE_IDS%>" var="regTypes"/>
 <div id="successMessage">
     <c:choose>
         <c:when test="${isNewReg}">
 
-
-            <c:set value="<%=RegistrationType.TC_DIRECT_ID%>" var="direct"/>
-            <c:choose>
+           <c:choose>
                 <c:when test="${cf:contains(requestScope[regTypes], direct)}">
                     <p>
                         <strong>You're almost ready to begin using TopCoder Direct</strong>
@@ -253,10 +252,8 @@
 
 </c:if>
 
-
-<%--
-    <c:if test="${not newReg or not cf:contains(requestScope[regTypes], direct)}">
---%>
+    <%-- don't show this part if it's a new registration for tc direct--%>
+    <c:if test="${(isNewReg and not cf:contains(requestScope[regTypes], direct)) or not isNewReg}">
         <div class="regHead">As a Registered TopCoder Member</div>
         <table cellpadding="0" cellspacing="0" border="0" class="whatToDo">
             <tbody>
@@ -272,9 +269,7 @@
                 </tr>
             </tbody>
         </table>
-<%--
     </c:if>
---%>
 
 
     </div>
