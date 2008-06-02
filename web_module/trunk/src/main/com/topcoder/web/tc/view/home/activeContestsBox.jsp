@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.tc.controller.request.Home" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -100,7 +101,7 @@
                         <tr>
                             <td class="value">
                                 <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[studio].prizeTotal}" pattern="$###,###"/></div>
-                                <a href="" class="gMetal">Studio</a> (${activeContestsSummary[studio].contestCount})
+                                <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests" class="gMetal">Studio</a> (${activeContestsSummary[studio].contestCount})
                             </td>
                         </tr>
                     </c:if>
