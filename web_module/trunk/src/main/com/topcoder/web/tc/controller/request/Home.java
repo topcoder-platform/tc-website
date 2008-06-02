@@ -5,7 +5,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.ActiveContestsSummary;
@@ -153,12 +152,15 @@ tchs08 is over, don't need to do this anymore
     private Map<String, ActiveContestsSummary> getActiveContests() throws Exception {
         HashMap<String, ActiveContestsSummary> ret = new HashMap<String, ActiveContestsSummary>();
         ret.putAll(getOnlineReviewSummary());
+        ret.put("TopCoder Studio", getStudioSummary());
+        ret.put("Bug Races", getBugRaceSummary());
+        ret.put("Marathon Matches", getMMSummary());
         return ret;
     }
 
     private ActiveContestsSummary getStudioSummary() throws Exception {
         ActiveContestsSummary ret = new ActiveContestsSummary();
-        CachedDataAccess dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.TCS_OLTP_DATASOURCE_NAME);
+        CachedDataAccess dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.STUDIO_DATASOURCE_NAME);
         Request dataRequest = new Request();
         dataRequest.setContentHandle("active_contests_summary");
 
@@ -177,8 +179,35 @@ tchs08 is over, don't need to do this anymore
         Request dataRequest = new Request();
         dataRequest.setContentHandle("homepage_active_contest_summary");
 
+        Map<String, ResultSetContainer> dataMap = dai.getData(dataRequest);
+
+
         ActiveContestsSummary summary;
-        for (ResultSetContainer.ResultSetRow row : dai.getData(dataRequest).get("homepage_active_contest_summary")) {
+
+        ResultSetContainer dr = dataMap.get("dr_active_contests_summary");
+        if (!dr.isEmpty()) {
+            ResultSetContainer.ResultSetRow row = dr.get(0);
+            summary = new ActiveContestsSummary();
+            summary.setContestCount(row.getIntItem("total_contests"));
+            summary.setName("Digital Run");
+            summary.setPrizeTotal(row.getFloatItem("dr_points"));
+            ret.put(DR, summary);
+        }
+
+        //this is a special case because we need to query based on the contest indicator flag because
+        //some architecture projects in OR are contests and some are not
+        ResultSetContainer arch = dataMap.get("architecture_active_contests_summary");
+        if (!arch.isEmpty()) {
+            ResultSetContainer.ResultSetRow row = arch.get(0);
+            summary = new ActiveContestsSummary();
+            summary.setContestCount(row.getIntItem("total_contests"));
+            summary.setName(row.getStringItem("category_name"));
+            summary.setPrizeTotal(row.getFloatItem("total_prizes"));
+            ret.put(DR, summary);
+        }
+
+
+        for (ResultSetContainer.ResultSetRow row : dataMap.get("homepage_active_contest_summary")) {
             summary = new ActiveContestsSummary();
             summary.setContestCount(row.getIntItem("total_contests"));
             summary.setName(row.getStringItem("category_name"));
@@ -202,10 +231,6 @@ tchs08 is over, don't need to do this anymore
                     ret.put(APPLICATION_TESTING, summary);
                     break;
                 }
-                case Constants.ARCHITECTURE_PROJECT_TYPE: {
-                    ret.put(ARCHITECTURE, summary);
-                    break;
-                }
             }
             
         }
@@ -213,20 +238,36 @@ tchs08 is over, don't need to do this anymore
         return ret;
     }
 
-    private ActiveContestsSummary getMMSummary() {
+    private ActiveContestsSummary getMMSummary() throws Exception {
         ActiveContestsSummary ret = new ActiveContestsSummary();
+        CachedDataAccess dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.OLTP_DATASOURCE_NAME);
+        Request dataRequest = new Request();
+        dataRequest.setContentHandle("long_contest_active_contests");
+
+        ResultSetContainer rsc = dai.getData(dataRequest).get("long_contest_active_contests");
+        //we don't store MM prizes in the db, so we can't query them
+        ret.setContestCount(rsc.size());
+        ret.setName("Marathon Matches");
+        return ret;
+
+    }
+
+    private ActiveContestsSummary getBugRaceSummary() throws Exception {
+        ActiveContestsSummary ret = new ActiveContestsSummary();
+        CachedDataAccess dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.JIRA_DATASOURCE_NAME);
+        Request dataRequest = new Request();
+        dataRequest.setContentHandle("bug_race_active_contests_summary");
+
+        ResultSetContainer rsc = dai.getData(dataRequest).get("active_contests_summary");
+        if (!rsc.isEmpty()) {
+            ret.setContestCount(rsc.get(0).getIntItem("total_contests"));
+            ret.setName("Bug Races");
+            ret.setPrizeTotal(rsc.get(0).getFloatItem("total_prizes"));
+        }
         return ret;
     }
 
-    private ActiveContestsSummary getBugRaceSummary() {
-        ActiveContestsSummary ret = new ActiveContestsSummary();
-        return ret;
-    }
 
-    private ActiveContestsSummary getDigitalRunSummary() {
-        ActiveContestsSummary ret = new ActiveContestsSummary();
-        return ret;
-    }
 
 
 
