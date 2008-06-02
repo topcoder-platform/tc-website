@@ -31,7 +31,7 @@
                             <td class="value">
                                 <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[dr].prizeTotal}" pattern="#,###,###"/> pts</div>
                                 <a href="/tc?module=Static&d1=digital_run&d2=description" class="gMetal">Digital Run</a>
-                                (32)
+                                (${activeContestsSummary[dr].contestCount})
                             </td>
                         </tr>
                     </c:if>
