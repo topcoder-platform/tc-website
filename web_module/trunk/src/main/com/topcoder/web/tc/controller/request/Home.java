@@ -152,9 +152,9 @@ tchs08 is over, don't need to do this anymore
     private Map<String, ActiveContestsSummary> getActiveContests() throws Exception {
         HashMap<String, ActiveContestsSummary> ret = new HashMap<String, ActiveContestsSummary>();
         ret.putAll(getOnlineReviewSummary());
-        ret.put("TopCoder Studio", getStudioSummary());
-        ret.put("Bug Races", getBugRaceSummary());
-        ret.put("Marathon Matches", getMMSummary());
+        ret.put(STUDIO, getStudioSummary());
+        ret.put(BUGS, getBugRaceSummary());
+        ret.put(MM, getMMSummary());
         return ret;
     }
 
