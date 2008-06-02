@@ -168,7 +168,9 @@ tchs08 is over, don't need to do this anymore
         if (!rsc.isEmpty()) {
             ret.setContestCount(rsc.get(0).getIntItem("total_contests"));
             ret.setName("Studio");
-            ret.setPrizeTotal(rsc.get(0).getFloatItem("total_prizes"));
+            if (rsc.get(0).getItem("total_prizes").getResultData()!=null) {
+                ret.setPrizeTotal(rsc.get(0).getFloatItem("total_prizes"));
+            }
         }
         return ret;
     }
@@ -190,7 +192,9 @@ tchs08 is over, don't need to do this anymore
             summary = new ActiveContestsSummary();
             summary.setContestCount(row.getIntItem("total_contests"));
             summary.setName("Digital Run");
-            summary.setPrizeTotal(row.getFloatItem("dr_points"));
+            if (row.getItem("total_prizes").getResultData()!=null) {
+                summary.setPrizeTotal(row.getFloatItem("dr_points"));
+            }
             ret.put(DR, summary);
         }
 
@@ -202,7 +206,9 @@ tchs08 is over, don't need to do this anymore
             summary = new ActiveContestsSummary();
             summary.setContestCount(row.getIntItem("total_contests"));
             summary.setName(row.getStringItem("category_name"));
-            summary.setPrizeTotal(row.getFloatItem("total_prizes"));
+            if (row.getItem("total_prizes").getResultData()!=null) {
+                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
+            }
             ret.put(DR, summary);
         }
 
@@ -211,7 +217,9 @@ tchs08 is over, don't need to do this anymore
             summary = new ActiveContestsSummary();
             summary.setContestCount(row.getIntItem("total_contests"));
             summary.setName(row.getStringItem("category_name"));
-            summary.setPrizeTotal(row.getFloatItem("total_prizes"));
+            if (row.getItem("total_prizes").getResultData()!=null) {
+                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
+            }
 
             switch (row.getIntItem("project_category_id")) {
 
@@ -262,7 +270,9 @@ tchs08 is over, don't need to do this anymore
         if (!rsc.isEmpty()) {
             ret.setContestCount(rsc.get(0).getIntItem("total_contests"));
             ret.setName("Bug Races");
-            ret.setPrizeTotal(rsc.get(0).getFloatItem("total_prizes"));
+            if (rsc.get(0).getItem("total_prizes").getResultData()!=null) {
+                ret.setPrizeTotal(rsc.get(0).getFloatItem("total_prizes"));
+            }
         }
         return ret;
     }
