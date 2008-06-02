@@ -70,9 +70,11 @@ ding="utf-8"?>
     </div>
 
     <!-- banner -->
+    <%--
     <div class="banner">
        <a href="/?module=ViewContestDetails&amp;ct=2239"><img alt="Register Now!" src="/i/v3/lending_tree_banner.png" width="536" height="88" border="0"/></a>
     </div>
+    --%>
 
     <!-- contest box -->
     <c:if test="${not empty contests}">
