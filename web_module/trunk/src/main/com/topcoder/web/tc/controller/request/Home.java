@@ -266,7 +266,7 @@ tchs08 is over, don't need to do this anymore
         Request dataRequest = new Request();
         dataRequest.setContentHandle("bug_race_active_contests_summary");
 
-        ResultSetContainer rsc = dai.getData(dataRequest).get("active_contests_summary");
+        ResultSetContainer rsc = dai.getData(dataRequest).get("bug_race_active_contests_summary");
         if (!rsc.isEmpty()) {
             ret.setContestCount(rsc.get(0).getIntItem("total_contests"));
             ret.setName("Bug Races");
