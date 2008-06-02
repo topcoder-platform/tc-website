@@ -191,6 +191,9 @@ tchs08 is over, don't need to do this anymore
             ResultSetContainer.ResultSetRow row = dr.get(0);
             summary = new ActiveContestsSummary();
             summary.setContestCount(row.getIntItem("total_contests"));
+            if (log.isDebugEnabled()) {
+                log.debug("dr contests " + summary.getContestCount() + " "+ row.getIntItem("total_contests"));
+            }
             summary.setName("Digital Run");
             if (row.getItem("dr_points").getResultData()!=null) {
                 summary.setPrizeTotal(row.getFloatItem("dr_points"));
