@@ -192,7 +192,7 @@ tchs08 is over, don't need to do this anymore
             summary = new ActiveContestsSummary();
             summary.setContestCount(row.getIntItem("total_contests"));
             summary.setName("Digital Run");
-            if (row.getItem("total_prizes").getResultData()!=null) {
+            if (row.getItem("dr_points").getResultData()!=null) {
                 summary.setPrizeTotal(row.getFloatItem("dr_points"));
             }
             ret.put(DR, summary);
