@@ -118,8 +118,8 @@
                         <tr>
                             <td class="value">
                                 <% ResultSetContainer nextSRM= (ResultSetContainer)request.getAttribute("Next_SRM");%>
-                                <div class="prizes"><rsc:item set="<%=nextSRM%>" name="coding_start" format="MMM dd, ha"/></div>
-                                <a href="/tc?module=MatchDetails&amp;rd=<rsc:item set="<%=nextSRM%>" name="round_id"/>" class="gMetal">Next Algo SRM</a>
+                                <div class="prizes"><rsc:item set="<%=nextSRM%>" name="coding_start" format="MMM dd, HH z"/></div>
+                                <a href="/tc?module=MatchDetails&amp;rd=<rsc:item set="<%=nextSRM%>" name="round_id"/>" class="gMetal">Next SRM</a>
                             </td>
                         </tr>
                     </c:if>
