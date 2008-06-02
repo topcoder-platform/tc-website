@@ -5,7 +5,8 @@
 
 <hibernate-configuration>
 
-    <!-- Uncomment this block when executing ant run_studio_tests task -->
+    <!-- Uncomment block A when executing ant run_studio_tests task -->
+    <!-- Block A starts -->
 <!--
                 <session-factory>
                     <property name="connection.username">informix</property>
@@ -13,11 +14,14 @@
                     <property name="connection.url">jdbc:informix-sqli://tcsdesigner:1526/studio_oltp:INFORMIXSERVER=tcs</property>
                     <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
 -->
+    <!-- Block A ends -->
 
-   <!-- Uncomment this block when executing ant deploy task -->
+    <!-- Uncomment block B when executing ant deploy task -->
+    <!-- Block B starts -->
     <session-factory name="java:comp/env/hibernate/SessionFactory">
 
         <property name="connection.datasource">java:/JTS_STUDIO_OLTP</property>
+        <!-- Block B ends -->
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
