@@ -28,7 +28,21 @@
             <a href="/truveo/?module=ViewActiveContests">Current registration numbers</a>
         </p>
         <strong>Browse:</strong>
-        <a href="/truveo/?myframe=category%2fnews%2f">news</a>
+        <a href="/truveo/?myframe=category%2faim-plugin%2f">aim-plugin</a>,
+        <a href="/truveo/?myframe=category%2fall-submissions-1%2f">all-submissions-1</a>,
+        <a href="/truveo/?myframe=category%2fdesktop%2f">desktop</a>,
+        <a href="/truveo/?myframe=category%2ffacebook%2f">facebook</a>,
+        <a href="/truveo/?myframe=category%2ffirefox%2f">firefox</a>,
+        <a href="/truveo/?myframe=category%2fgoogle%2f">google</a>,
+        <a href="/truveo/?myframe=category%2figoogle-gadgets%2f">igoogle-gadgets</a>,
+        <a href="/truveo/?myframe=category%2fmaps%2f">maps</a>,
+        <a href="/truveo/?myframe=category%2fmicrosoft%2f">microsoft</a>,
+        <a href="/truveo/?myframe=category%2fnews%2f">news</a>,
+        <a href="/truveo/?myframe=category%2fplugins%2f">plugins</a>,
+        <a href="/truveo/?myframe=category%2fvista%2f">vista</a>,
+        <a href="/truveo/?myframe=category%2fsocial-networking%2f">social-networking</a>,
+        <a href="/truveo/?myframe=category%2fweb-application%2f">web-application</a>,
+        <a href="/truveo/?myframe=category%2fwikipedia%2f">wikipedia</a>
     </div>
 
     <div align="center">
