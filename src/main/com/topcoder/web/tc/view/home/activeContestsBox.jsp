@@ -108,13 +108,13 @@
 
                         <tr>
                             <td class="value">
-                                <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[mm].prizeTotal}" pattern="$###,###"/></div>
+                                <div class="prizes"><%-- we don't have MM money in the db <fmt:formatNumber value="${activeContestsSummary[mm].prizeTotal}" pattern="$###,###"/>--%></div>
                                 <a href="/longcontest/?module=ViewActiveContests" class="gMetal">Marathon Matches</a>
                                 (${activeContestsSummary[mm].contestCount})
                             </td>
                         </tr>
                     </c:if>
-                    <c:if test="${not empty Next_SRM and fn:length(Next_SRM>0)}">
+                    <c:if test="${not empty Next_SRM and fn:length(Next_SRM)>0}">
                         <tr>
                             <td class="value">
                                 <% ResultSetContainer nextSRM= (ResultSetContainer)request.getAttribute("Next_SRM");%>
