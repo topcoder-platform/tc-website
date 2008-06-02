@@ -92,9 +92,7 @@ function init() {
 <!-- Right Column Begins -->
          <td width="180">
 
-    <%-- UNCOMMENT AFTER [TCWEB-322] is done
     <jsp:include page="activeContestsBox.jsp" />
-    --%>
 
     <div>
     <img src="/i/interface/rightNavTop.png" alt="" style="display: block;"/>
