@@ -33,9 +33,13 @@ public class Activate extends Base {
                     markForCommit();
                     setNextPage("/activated.jsp");
                     setIsNextPageInContext(true);
+                    //need to put the registration types in the request so that we can style appropriately
+                    setupRegTypes(u);
                 } else if (Arrays.binarySearch(Constants.ACTIVE_STATI, status) >= 0) {
                     setNextPage("/activated.jsp");
                     setIsNextPageInContext(true);
+                    //need to put the registration types in the request so that we can style appropriately
+                    setupRegTypes(u);
                 } else {
                     throw new NavigationException("Your account can not be activated.");
                 }
@@ -48,5 +52,10 @@ public class Activate extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+
+    private void setupRegTypes(User u) {
+        setRequestedTypes(u.getRegistrationTypes());
+        setRequestedTypeIds();
     }
 }
