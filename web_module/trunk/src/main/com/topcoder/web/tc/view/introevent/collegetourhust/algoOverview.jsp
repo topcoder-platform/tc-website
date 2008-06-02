@@ -53,28 +53,29 @@
     <div align="center"><a href="/tc?module=CollegeTourDescription"><img src="/i/collegetour/seeOtherEvents.png" /></a></div>
     <h2>TopCoder College Tour Overview</h2>
 
-    <br>
+    <br />
 
     <h3>The Event</h3>
-    TopCoder is sponsoring an onsite programming competition for
-    Sichuan Province on
-    Saturday, 27 October 2007. <br><br>
+    TopCoder is sponsoring an onsite programming competition at ${mainEvent.school.name} on
+    <tc-webtag:format object="${roundStart}" format="EEEE MM.dd.yyyy" timeZone="${mainEvent.timeZone.description}"/>. <br /><br />
 
-    <span class="bigRed">Registration for this event ends on
-    Friday 10.26.2007 11:59 PM CST.</span><br>
-    <br>
+    <span class="bigRed">Registration for this event ends on <tc-webtag:format object="${event.registrationEnd}" format="EEEE MM.dd.yyyy hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>.</span><br />
+    <br />
     
     The event is from
-    09:30 AM CST
+    <tc-webtag:format object="${eventStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
     until
-    Noon CST
-    at
-    Southwest University of Science and Technology, Computer Room 7105. 
+    <tc-webtag:format object="${eventEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+    in
+     ${mainEvent.location}. This event is being run in conjunction
+    with
+    <A href="/tc?module=MatchDetails&rd=${mainEvent.roundId}">${contestName}
+    </A>.
     In addition to <A href="/reg/">registering with TopCoder</A>, all competitors must register
     <a href="/tc?module=IntroEventViewRegister&eid=${eid}">here</a>
     and be onsite for the competition.
 
-    <br><br>
+    <br /><br />
 
     <h3>Prizes</h3>
 
@@ -103,30 +104,34 @@
     place prize, the 2nd place finisher will receive the 2nd place prize, and the 3rd place finisher
     will receive the 3rd place prize.
 
-    <br><br>
+    <br /><br />
 
     <h3>Event Schedule</h3>
 
     The timeline for the day of the event:
     <ul>
         <li>
-            09:30 AM CST
-            - Computer lab opens & competitors set up
+            <tc-webtag:format object="${eventStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+            - Computer lab opens &amp; competitors set up
         </li>
         <li>
-            10:00 AM CST
+            <tc-webtag:format object="${roundStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
             - Competition starts
         </li>
         <li>
-            11:35 AM CST
+            <tc-webtag:format object="${sysTestEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
             - Competition ends
+        </li>
+        <li>
+            <tc-webtag:format object="${resultsTime}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+            - Food &amp; TopCoder presentation
         </li>
     </ul>
 
-    <strong>Rujia Liu (TC Handle: srbga)</strong> will give a lecture to explain the benefits of TopCoder membership and competition.
-    <a href="/download/misc/College_Tour_Presentation.ppt">The presentation</a> is available for download. The lecture is at 2:30 PM CST at Southwest Jiaotong University (Jiuli Campus).
+    <strong>${mainEvent.recruiterName }</strong> will give a presentation to explain the benefits of TopCoder membership and competition.
+    <a href="/download/misc/College_Tour_Presentation.ppt">The presentation</a> is available for download.
 
-    <br><br>
+    <br /><br />
 
     <h3>Lecture Schedule</h3>
 
@@ -137,7 +142,8 @@
 
     TopCoder is also sponsoring a lecture at ${mainEvent.school.name} on ${mainEvent.config[lectureDate].value}.  The lecture is from ${mainEvent.config[lectureStartTime].value} until ${mainEvent.config[lectureEndTime].value} in ${mainEvent.config[lectureLocation].value}.
 
-    <br><br>
+    <br /><br />
+    
     
 </p>
 
