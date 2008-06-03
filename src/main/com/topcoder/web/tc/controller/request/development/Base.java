@@ -109,11 +109,12 @@ public abstract class Base extends ShortHibernateProcessor {
      */
     public static int getProjectTypeId(TCRequest r) throws TCWebException {
         int projectTypeId=0;
-        if (!"".equals(StringUtils.checkNull(r.getParameter(Constants.PROJECT_TYPE_ID))) &&
-                !StringUtils.isNumber(StringUtils.checkNull(r.getParameter(Constants.PROJECT_TYPE_ID)))) {
-            throw new TCWebException("Invalid project_type_id (" + projectTypeId + ") parameter");
-        } else {
-            projectTypeId = Integer.parseInt(r.getParameter(Constants.PROJECT_TYPE_ID));
+        if (!"".equals(StringUtils.checkNull(r.getParameter(Constants.PROJECT_TYPE_ID)))) {
+            if (!StringUtils.isNumber(StringUtils.checkNull(r.getParameter(Constants.PROJECT_TYPE_ID)))) {
+                throw new TCWebException("Invalid project_type_id (" + projectTypeId + ") parameter");
+            } else {
+                projectTypeId = Integer.parseInt(r.getParameter(Constants.PROJECT_TYPE_ID));
+            }
         }
         if (projectTypeId == 0) {
             String phaseId = StringUtils.checkNull(r.getParameter(Constants.PHASE_ID));
