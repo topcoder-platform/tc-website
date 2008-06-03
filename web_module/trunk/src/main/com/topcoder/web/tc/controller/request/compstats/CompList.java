@@ -37,7 +37,7 @@ public class CompList extends Base {
             String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
 
             String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
-            String phaseId = StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID));
+            //String phaseId = StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID));
             int projectTypeId= com.topcoder.web.tc.controller.request.development.Base.getProjectTypeId(getRequest());
 
             String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
