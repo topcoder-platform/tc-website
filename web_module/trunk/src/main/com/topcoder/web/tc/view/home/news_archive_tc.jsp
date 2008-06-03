@@ -90,10 +90,10 @@
         <a href="/tc?module=ViewSurvey&sid=16934">Component Design &amp; Development</a>; 
         <a href="/tc?module=ViewSurvey&sid=16923">Marathon Match</a>; 
         <a href="/tc?module=ViewSurvey&sid=16928">Algorithm</a></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">04.23.07 5:45 PM - </td><td width="100%"><a href="/to/?module=ViewBallot&rd=2032">"The Ball" Logo & Icon Prediction Contest Round 2</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.23.07 5:45 PM - </td><td width="100%"><a href="/to/?module=ViewBallot&rd=2032">"The Ball" Logo &amp; Icon Prediction Contest Round 2</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.19.07 2:00 PM - </td><td width="100%">Predict the TCO T-shirt winners</td></tr>
-<tr class="bodyText"><td nowrap="nowrap">04.19.07 2:00 PM - </td><td width="100%"><a href="/to/?module=ViewBallot&rd=2028">"The Ball" Logo & Icon Prediction Contest Round 1</a></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">04.13.07 10:00 AM - </td><td width="100%"><a href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">TopCoder College Tour comes to Belarus</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.19.07 2:00 PM - </td><td width="100%"><a href="/to/?module=ViewBallot&rd=2028">"The Ball" Logo &amp; Icon Prediction Contest Round 1</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.13.07 10:00 AM - </td><td width="100%"><a href="/belarus">TopCoder College Tour comes to Belarus</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.11.07 10:30 AM - </td><td width="100%"><a href="http://csf.topcoder.com/?module=Static&d1=assembly&d2=activeContests">Connected Services Assembly Competition now open</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.10.07 12:15 PM - </td><td width="100%"><a href="/tc?module=ViewSurvey&sid=16884">Vote for the homepage redesign winner</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.10.07 10:45 AM - </td><td width="100%"><a href="/tc?module=ViewSurvey&sid=16853">Vote for the TopCoder video portal graphic set</a></td></tr>
