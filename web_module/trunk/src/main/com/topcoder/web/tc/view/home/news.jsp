@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />06.04.08<br />12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/truveo' refer='/tc' />">Video Apps Aplenty in the Truveo Challenge</a></span><br /><br />
+        Just three weeks into the competition, we have posted the 25th submission to the $100,000 Truveo Developer Challenge. The contest runs until July 21st, so there’s plenty of time remaining for your shot at one of the nine, $10,000 first prizes or the 20, $500 second prizes. Check out the details – and the great video apps submitted thus far – at the <a href="<tc-webtag:linkTracking link='/truveo' refer='/tc' />">TC/Truveo site</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/truveo' refer='/tc' />">details</a> | 
+        <a href="/truveo/forums">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />05.29.07<br />11:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -150,18 +163,5 @@
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=summary">studio</a> | 
         <tc-webtag:forumLink forumID="517604" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />05.15.08<br />6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">Open AIM Developer Challenge - We Have Our Winners!</a></span><br /><br />
-        Congratulations to everyone who participated in the $100,000 Open AIM Developer Challenge! Here are the nine $10,000 first place winners, and the 20 $500 second place winners as determined by the 5 categories of TopCoder Community Favorite, "Most Innovative" and "Best use of API" as judged by the competition staff, AOL staff favorite and usage. The winners were announced at TCO08.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />">details</a> | 
-        <a href="/openaim/forums">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
    
