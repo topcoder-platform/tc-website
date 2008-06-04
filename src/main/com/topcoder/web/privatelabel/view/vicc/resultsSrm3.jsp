@@ -35,17 +35,17 @@ Congratulations to the winners from SRM 3:
             </tr>
             <tr valign="top">
                <td class="sidebarText"><b>First</b></td> 
-               <td class="sidebarText"><b>jdubb</b></td>
+               <td class="sidebarText"><b>rantonyraj</b></td>
                <td class="sidebarText"><b>$1500 and a trip to VTS Finals</b></td>
             </tr>
             <tr valign="top">
                <td class="sidebarText">Second</td> 
-               <td class="sidebarText">H2O</td>
+               <td class="sidebarText">vshah8de</td>
                <td class="sidebarText">$750</td>
             </tr>
             <tr valign="top">
                <td class="sidebarText">Third</td> 
-               <td class="sidebarText">rrajutc</td>
+               <td class="sidebarText">lilyshard</td>
                <td class="sidebarText">$500</td>
             </tr>
             <tr valign="top">

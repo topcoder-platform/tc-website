@@ -24,7 +24,7 @@
 
 <span class="bigTitle">VTS Finals </span>
 <br /><br />
-Congratulations to the Top Five Finalists who will be participating in the VTS Finals on August 12th:
+Congratulations to the Top Four Finalists who will be participating in the VTS Finals on August 12th:
 <br /><br />
 <%--
 H2O<br />
@@ -68,7 +68,7 @@ Check back in August to find who the winner will be!
                <td class="sidebarText"><strong>sjovanovski</strong></td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText"><strong>&nbsp;</strong></td>
+               <td class="sidebarText"><strong>rantonyraj</strong></td>
             </tr>
             <tr valign="top">
                <td class="sidebarText"><strong>&nbsp;</strong></td>
