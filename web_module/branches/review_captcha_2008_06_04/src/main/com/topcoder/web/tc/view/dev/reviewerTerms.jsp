@@ -79,7 +79,7 @@
                 <c:set var="captchaFileName" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
                 <tr valign="middle">
                     <td class="errorText">
-                        <img src="/i/captcha/${requestScope[captchaFileName]}" alt=""/>
+                        <img src="/i/captcha/${requestScope[captchaFileName]}" alt="captcha image"/>
                     </td>
                 </tr>
 
@@ -90,7 +90,7 @@
                 </tr>
                 <tr valign="middle">
                     <td class="bodyText">
-                        Please enter the the characters you see in the image above (you may ignore case)
+                        Please enter the characters you see in the image above (you may ignore case)<br />
                         <tc-webtag:textInput name="<%=Constants.CAPTCHA_RESPONSE%>" />
                     </td>
                 </tr>
