@@ -634,6 +634,11 @@
                 <include name="DBConnectionFactoryImpl.xml"/>
             </fileset>
         </copy>
+        <copy todir="${jboss_conf}/com/topcoder/randomstringimg">
+            <fileset dir="${resources}/com/topcoder/randomstringimg">
+                <include name="*.xml"/>
+            </fileset>
+        </copy>
     </target>
     <target name="move-libs">
         <copy todir="${jboss_lib}">
