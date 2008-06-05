@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />06.05.08<br />11:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=predictiveOverview' refer='/tc' />">New Predictive Marathon Match!</a></span><br /><br />
+        Do you think you have what it takes to predict the future? Some TopCoder members have already demonstrated their prestidigitation skills by predicting the results of recent TCOs, and some game simulations are becoming eerily accurate at being able to predict real sporting events. Now it's time to really put your precognitive programming skills to the test. We are proud to announce the first TopCoder Predictive Marathon Match, with a prize purse of $2,000! Pit your forecasting skills against your fellow members in this month-long rated match.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=predictiveOverview' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="521405" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />06.05.08<br />9:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2249">Facebook Application Design at TopCoder Studio!</a></span><br /><br />
@@ -87,11 +100,11 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />05.22.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a href="/longcontest/?module=ViewProblemStatement&compid=8692&rd=12167">AMD Multicore Threadfest Competition 2 is Underway</a></span><br /><br />
+        <a href="/longcontest/?module=ViewProblemStatement&amp;compid=8692&amp;rd=12167">AMD Multicore Threadfest Competition 2 is Underway</a></span><br /><br />
         The second edition of the AMD Multicore Threadfest Competition is now underway.  Your chance at the part of the $5,000 prize purse starts now.</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <a href="/longcontest/?module=ViewProblemStatement&compid=8692&rd=12167">details</a> | 
+        <a href="/longcontest/?module=ViewProblemStatement&amp;compid=8692&amp;rd=12167">details</a> | 
         <tc-webtag:forumLink forumID="521264" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
    </td></tr>
@@ -144,19 +157,6 @@
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">details</a> | 
         <a href="/truveo/forums">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.19.08<br />11:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908">TopCoder Awards $100,000 in Prize Money to Winners of AOL's Open AIM Developer Challenge</a></span><br /><br />
-        TopCoder and AOL today announced the winners of AOL's Open AIM Developer Challenge. These winners were awarded $100,000 in prize money, live and on stage, at the 2008 TopCoder Open. In just two short months of competition, TopCoder community members created an incredible 53 new applications using new Open AIM APIs.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908">details</a> | 
-        <a href="/openaim/forums">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
    
