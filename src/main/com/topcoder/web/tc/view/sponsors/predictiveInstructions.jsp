@@ -78,27 +78,32 @@
         <table cellpadding="0" cellspacing="0" class="stat" width="90%" align="center">
             <tbody>
                 <tr>
-                    <td class="title" colspan="2">Schedule</td>
+                    <td class="title" colspan="3">Schedule</td>
                 </tr>
                 <tr>
                     <td class="header C">Phase</td>
-                    <td class="header C">Date</td>
+                    <td class="header C">Start Date</td>
+                    <td class="header C">End Date</td>
                 </tr>
                 <tr class="light">
-                    <td class="value">Registration</td>
-                    <td class="value"><strong>June 6th at 12:00PM EDT</strong></td>
+                    <td class="value">Registration/Submission</td>
+                    <td class="value"><strong>June 6, 2008<br />at 11:59 AM EDT</strong></td>
+                    <td class="value"><strong>July 7, 2008<br />at 11:59 AM EDT</strong></td>
                 </tr>
                 <tr class="dark">
-                    <td class="value">Submission</td>
-                    <td class="value"><strong>July 7th at 12:00PM EDT</strong></td>
-                </tr>
-                <tr class="light">
                     <td class="value">Intermission</td>
-                    <td class="value"><strong>July 31st at 12:00PM EDT</strong></td>
+                    <td class="value"><strong>July 7, 2008<br />at 11:59AM EDT</strong></td>
+                    <td class="value"><strong>July 31, 2008<br />at 11:59 AM EDT</strong></td>
+                </tr>
+                <tr class="light">
+                    <td class="value">System Test</td>
+                    <td class="value"><strong>July 31, 2008<br />at 11:59 AM EDT</strong></td>
+                    <td class="value"><strong>August 4, 2008<br />at 11:59 AM EDT</strong></td>
                 </tr>
                 <tr class="dark">
-                    <td class="value">System Test</td>
-                    <td class="value"><strong>Finished By August 4th at 12:00PM EDT</strong></td>
+                    <td class="value">Winners Announced</td>
+                    <td class="value"><strong>&nbsp;</strong></td>
+                    <td class="value"><strong>&nbsp;</strong></td>
                 </tr>
             </tbody>
         </table>
@@ -129,7 +134,7 @@
                 </tr>
                 <tr class="light">
                     <td class="value">5th Place through 7th Place</td>
-                    <td class="value R"><strong>$100 each</strong></td>
+                    <td class="value R"><strong>$100</strong></td>
                 </tr>
             </tbody>
         </table>
