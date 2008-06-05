@@ -150,7 +150,7 @@ public class ProjectReviewApply extends Base {
         rBoardApplication.validateUser(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, catalog, reviewTypeId, getUser().getId(), phaseId);
     }
 
-    private void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException, ConfigException {
+    protected void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException, ConfigException {
         RandomStringImage rsi = new RandomStringImage(Constants.RANDOM_STRING_IMAGE_CONFIG);
 
         String fileName = getUser().getId() + "_" + System.currentTimeMillis() + ".png";
