@@ -4,6 +4,7 @@
 <%@ page import="com.topcoder.web.tc.Constants"%>
 
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 
 <head>
@@ -74,6 +75,28 @@
                         I Agree to the Terms and Conditions stated above&#160;<tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
                     </td>
                 </tr>
+
+                <c:set var="captchaFileName" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
+                <tr valign="middle">
+                    <td class="errorText">
+                        <img src="/i/captcha/${requestScope[captchaFileName]}" alt=""/>
+                    </td>
+                </tr>
+
+                <tr valign="middle">
+                    <td class="errorText">
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.CAPTCHA_RESPONSE%>">${err}<br /></tc-webtag:errorIterator>
+                    </td>
+                </tr>
+                <tr valign="middle">
+                    <td class="bodyText">
+                        <tc-webtag:textInput name="<%=Constants.CAPTCHA_RESPONSE%>" />
+                    </td>
+                </tr>
+
+
+
+
                 <tr valign="middle">
                     <td align="center">
                         <input type="submit" onClick="" name="submit" value=" Continue"/>
