@@ -81,7 +81,7 @@
                     <td class="errorText">
                         <img src="/i/captcha/${requestScope[captchaFileName]}" alt="captcha image"/>
                         <p>
-                            <a href="">This image is hard to read.  Show me a different one.</a>
+                            <a href="javascript:window.location.reload()">This image is hard to read.  Show me a different one.</a>
                         </p>
                     </td>
                 </tr>
