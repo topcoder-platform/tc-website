@@ -681,6 +681,9 @@
             <fileset dir="${jars.dir}/tcs">
                 <include name="logging_wrapper.jar"/>
             </fileset>
+            <fileset dir="${external.jars.dir}">
+                <include name="random_string_image-1.0.jar"/>
+            </fileset>
         </copy>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
