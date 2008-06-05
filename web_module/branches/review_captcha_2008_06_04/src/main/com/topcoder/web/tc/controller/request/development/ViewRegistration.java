@@ -285,7 +285,7 @@ public class ViewRegistration extends Base {
 
 
     private void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException {
-        RandomStringImage rsi = new RandomStringImage(Constants.);
+        RandomStringImage rsi = new RandomStringImage(Constants.RANDOM_STRING_IMAGE_CONFIG);
 
         String fileName = getUser().getId() + "_" + System.currentTimeMillis() + getUser() + ".png";
         String word = rsi.generateRandom(new FileOutputStream(Constants.CAPTCHA_PATH + fileName));
