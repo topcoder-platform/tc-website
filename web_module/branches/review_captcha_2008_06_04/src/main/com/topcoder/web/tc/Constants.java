@@ -366,6 +366,7 @@ public class Constants implements WebConstants {
     public static String CAPTCHA_PATH;
     public static final String CAPTCHA_FILE_NAME = "capfname";
     public static final String CAPTCHA_WORD = "capword";
+    public static String RANDOM_STRING_IMAGE_CONFIG;
 
     static {
         initialize();
