@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.io.IOException;
-import java.io.FileOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
 
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -35,10 +31,6 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
-import com.topcoder.randomstringimg.RandomStringImage;
-import com.topcoder.randomstringimg.InvalidConfigException;
-import com.topcoder.randomstringimg.ObfuscationException;
-import com.topcoder.util.spell.ConfigException;
 
 /**
  * @author dok
@@ -71,7 +63,6 @@ public class ViewRegistration extends Base {
                 setDefault(Constants.TERMS, getTerms());
                 //we're assuming that if we're here, we got a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                loadCaptcha();
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
@@ -285,22 +276,6 @@ public class ViewRegistration extends Base {
         return ret;
     }
 
-
-
-    private void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException, ConfigException {
-        RandomStringImage rsi = new RandomStringImage(Constants.RANDOM_STRING_IMAGE_CONFIG);
-
-        String fileName = getUser().getId() + "_" + System.currentTimeMillis() + ".png";
-        FileOutputStream fos = new FileOutputStream(fileName);
-        //so, i'm using the dictionary here because you can't use this component without configuring
-        //a dictionary, i went to the effort of getting one, so might as well use it.
-        //i'd rather just use a random string, but then i would need a keygenerator component
-        //to do that, so i'll just use the dictionary
-        String word = rsi.generateRandomFromDictionaries(fos);
-        fos.close();
-        getRequest().getSession().setAttribute(Constants.CAPTCHA_WORD, word);
-        getRequest().setAttribute(Constants.CAPTCHA_FILE_NAME, fileName);
-    }
 
 }
 
