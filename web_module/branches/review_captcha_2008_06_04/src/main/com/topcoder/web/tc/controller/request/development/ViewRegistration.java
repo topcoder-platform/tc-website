@@ -288,7 +288,7 @@ public class ViewRegistration extends Base {
         //RandomStringImage.DEFAULT_CONFIG_FILE
         RandomStringImage rsi = new RandomStringImage();
 
-        String fileName = getUser().getId() + "_" + System.currentTimeMillis() + getUser() + ".jpg";
+        String fileName = getUser().getId() + "_" + System.currentTimeMillis() + getUser() + ".png";
         String word = rsi.generateRandom(new FileOutputStream(Constants.CAPTCHA_PATH + fileName));
         getRequest().getSession().setAttribute(Constants.CAPTCHA_WORD, word);
         getRequest().setAttribute(Constants.CAPTCHA_FILE_NAME, fileName);
