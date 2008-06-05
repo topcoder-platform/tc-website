@@ -7,6 +7,7 @@ import java.util.List;
 import java.io.IOException;
 import java.io.FileOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -37,6 +38,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.randomstringimg.RandomStringImage;
 import com.topcoder.randomstringimg.InvalidConfigException;
 import com.topcoder.randomstringimg.ObfuscationException;
+import com.topcoder.util.spell.ConfigException;
 
 /**
  * @author dok
@@ -285,7 +287,7 @@ public class ViewRegistration extends Base {
 
 
 
-    private void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException {
+    private void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException, ConfigException {
         RandomStringImage rsi = new RandomStringImage(Constants.RANDOM_STRING_IMAGE_CONFIG);
 
         String fileName = getUser().getId() + "_" + System.currentTimeMillis() + ".png";
