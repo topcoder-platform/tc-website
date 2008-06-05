@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%"> 
+<tr class="bodyText"><td nowrap="nowrap">06.05.08 9:30 AM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2249">Facebook Application Design at TopCoder Studio!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.07.08 9:15 AM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2229">yourminis flash widget news flash!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.20.08 11:45 AM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=calendar&amp;d2=apr_08">Seven Marathon Matches added to Event Calendar</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.20.08 9:15 AM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2201">How's Your Javascript?</a></td></tr>
