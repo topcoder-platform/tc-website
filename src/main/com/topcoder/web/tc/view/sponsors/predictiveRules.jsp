@@ -132,7 +132,7 @@
             </tbody>
         </table>
         
-        <p>In the event of a tied score, the coders tied will split the award for each place. For example, if 1st and 2nd place are tied, they would both share the prizes for 1st and 2nd place. In other words, each would receive $550.00 (($700.00+$400.00)/2).</p>
+        <p>In the event of a tied score, the coders tied will split the award for each place. For example, if 1st and 2nd place are tied, they would both share the prizes for 1st and 2nd place. In other words, each would receive $650.00 (($800.00+$500.00)/2).</p>
         
         <p><span class="bodySubtitle">Conditions of Participation</span><br />
         By participating in the Competition, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.</p>

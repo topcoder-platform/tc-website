@@ -133,7 +133,7 @@
                 </tr>
             </tbody>
         </table>
-        <p>Placement will always be dependant on final score at the end of each event. The rules for calculating final score will be specific to each problem and outlined within the problem statement of each series event. Tied places will share prizes among them, so if 1st and 2nd place have the same score both winners will be awarded ($700+$400)/2 or $550 a piece.</p>
+        <p>Placement will always be dependant on final score at the end of each event. The rules for calculating final score will be specific to each problem and outlined within the problem statement of each series event. Tied places will share prizes among them, so if 1st and 2nd place have the same score both winners will be awarded ($800+$500)/2 or $650 a piece.</p>
         
         <p><span class="bodySubtitle">Forums</span><br />
         Competitors should regularly check the forum associated with that specific series event during the length of the submission phase. Any issue resolution or problem clarifications will be posted to this forum. It is the responsibility of each competitor to check for any information or updates in this forum during the length of each event.</p>
