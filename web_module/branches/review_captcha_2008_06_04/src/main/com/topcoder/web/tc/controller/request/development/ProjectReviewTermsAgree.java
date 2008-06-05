@@ -48,7 +48,8 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
             }
 
             if (hasErrors()) {
-                setDefault(Constants.TERMS_AGREE, getRequest().getParameter(Constants.TERMS_AGREE));
+                setDefault(Constants.TERMS_AGREE,
+                        "on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE)));
                 loadCaptcha();
                 setNextPage(Constants.REVIEWER_TERMS);
                 setIsNextPageInContext(true);
