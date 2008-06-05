@@ -78,6 +78,11 @@
          </div>
       </td>
       <td class="value">6
+         <div class="predictive">
+         <strong><a href="/tc?module=Static&amp;d1=sponsors&amp;d2=predictiveOverview">Predictive Marathon Competition 1</a></strong><br />
+         12:00 NOON<br />
+         4 weeks
+         </div>
       </td>
       <td class="value">7
       </td>
