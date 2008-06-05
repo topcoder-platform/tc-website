@@ -15,9 +15,16 @@ import com.topcoder.shared.util.logging.Logger;
  * Added some overloads to for design and development task costs.
  * </li>
  * </ol>
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Changed the development formula to remove payment for tests, adjusted base rates for both design and dev.
+ * Testing project formulas added.
+ * </li>
+ * </ol>
  *
- * @author dok, pulky
- * @version 1.0.1
+ * @author dok, pulky, ivern
+ * @version 1.0.2
  */
 public class DefaultPriceComponent implements SoftwareComponent {
     
@@ -29,11 +36,11 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     private final static float[] DESIGN_PRICE_LOOKUP = {0f, 800f, 800f};
     private final static float[] DEV_PRICE_LOOKUP = {0f, 500f, 500f};
-    private final static float[] TESTING_PRICE_LOOKUP = {0f, 250f, 500f};
+    private final static float[] TESTING_PRICE_LOOKUP = {0f, 200f, 200f};
 
-    private final static float DEV_REVIEW_RATE = 27f;
+    private final static float DEV_REVIEW_RATE = 25f;
     private final static float DESIGN_REVIEW_RATE = 26f;
-    private final static float TESTING_REVIEW_RATE = 13.5f;
+    private final static float TESTING_REVIEW_RATE = 25f;
 
     protected int phaseId;
     protected int level;
@@ -137,7 +144,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     private float getDevFinalReviewCost() {
-        float finalReviewCost = 2f * DEV_REVIEW_RATE;  //120 minutes to do final review
+        float finalReviewCost = 1.5f * DEV_REVIEW_RATE;  //60 minutes to do final review
         return finalReviewCost;
     }
 
@@ -147,13 +154,11 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @return
      */
     private float getDevCoreReviewCost() {
-        float reviewCost = (float) (level + 1) * (float) submissionsPassedScreening * DEV_REVIEW_RATE;
-        float startupCost = DEV_REVIEW_RATE * 2; //120 minutes to "start up"
-        float testCaseCost = DEV_REVIEW_RATE * 5; // 5 hours to write test cases
+        float reviewCost = (float) (level + 0.5) * (float) submissionsPassedScreening * DEV_REVIEW_RATE;
+        float startupCost = DEV_REVIEW_RATE; //60 minutes to "start up"
         debug("reviewCost " + reviewCost);
         debug("startupCost " + startupCost);
-        debug("testCaseCost " + testCaseCost);
-        return reviewCost + startupCost + testCaseCost;
+        return reviewCost + startupCost;
     }
 
     /**
@@ -176,34 +181,31 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     private float getScreeningPrimaryTestingReviewCost() {
-        float screeningSetupCost = 1.0f * TESTING_REVIEW_RATE; // 60 minutes to set up
-        float screeningCost = (1f / 2f) * (float) submissionCount * TESTING_REVIEW_RATE;  //30 minutes per submission
-        return screeningSetupCost + screeningCost;
+        float screeningCost = 0.2f * (float) submissionCount * TESTING_REVIEW_RATE;  //12 minutes per submission
+        return screeningCost;
     }
 
     private float getTestingAggregationCost() {
-        float aggregationCost = (1f / 2f) * TESTING_REVIEW_RATE;  //30 minutes to aggregate
+        float aggregationCost = 0.2f * TESTING_REVIEW_RATE;  //12 minutes to aggregate
         return aggregationCost;
     }
 
     private float getTestingFinalReviewCost() {
-        float finalReviewCost = 2f * TESTING_REVIEW_RATE;  //120 minutes to do final review
+        float finalReviewCost = 0.4f * TESTING_REVIEW_RATE;  //24 minutes to do final review
         return finalReviewCost;
     }
 
     /**
-     * Return the review cost for a primary reviewer.
+     * Return the cost for core review.
      *
      * @return
      */
     private float getTestingCoreReviewCost() {
-        float reviewCost = (float) (level + 1) * (float) submissionsPassedScreening * TESTING_REVIEW_RATE;
-        float startupCost = TESTING_REVIEW_RATE * 2; //120 minutes to "start up"
-        float testCaseCost = TESTING_REVIEW_RATE * 5; // 5 hours to write test cases
+        float reviewCost = 0.4f * (float) submissionsPassedScreening * TESTING_REVIEW_RATE; //24 minutes per review
+        float startupCost = 0.2f * TESTING_REVIEW_RATE; //12 minutes to "start up"
         debug("reviewCost " + reviewCost);
         debug("startupCost " + startupCost);
-        debug("testCaseCost " + testCaseCost);
-        return reviewCost + startupCost + testCaseCost;
+        return reviewCost + startupCost;
     }
 
     /**
@@ -212,9 +214,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @return
      */
     private float getTestingReviewCost() {
-        float aggregationReviewCost = (1f / 2f) * TESTING_REVIEW_RATE; //30 minutes for aggregation review
-        debug("aggregationCost " + aggregationReviewCost);
-        return aggregationReviewCost + getTestingCoreReviewCost();
+        debug("getTestingCoreReviewCost " + getTestingCoreReviewCost());
+        return getTestingCoreReviewCost();
     }
 
     /**
