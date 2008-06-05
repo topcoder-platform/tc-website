@@ -116,6 +116,7 @@
         <pathelement location="${external.jars.dir}/image_resizing-1.0.0.jar"/>
         <pathelement location="${external.jars.dir}/image_manipulation-1.0.0.jar"/>
         <pathelement location="${external.jars.dir}/random_string_image-1.0.jar"/>
+        <pathelement location="${external.jars.dir}/spell_check-1.0.0.jar"/>
         
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/asyncservices.jar"/>
@@ -635,11 +636,13 @@
                 <include name="DBConnectionFactoryImpl.xml"/>
             </fileset>
         </copy>
+<!--
         <copy todir="${jboss_conf}/com/topcoder/randomstringimg">
             <fileset dir="${resources}/com/topcoder/randomstringimg">
                 <include name="*.xml"/>
             </fileset>
         </copy>
+-->
     </target>
     <target name="move-libs">
         <copy todir="${jboss_lib}">
