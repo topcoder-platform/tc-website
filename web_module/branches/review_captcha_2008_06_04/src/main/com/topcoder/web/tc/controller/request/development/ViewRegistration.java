@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.io.IOException;
 import java.io.FileOutputStream;
+import java.io.File;
 
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -287,8 +288,10 @@ public class ViewRegistration extends Base {
     private void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException {
         RandomStringImage rsi = new RandomStringImage(Constants.RANDOM_STRING_IMAGE_CONFIG);
 
-        String fileName = getUser().getId() + "_" + System.currentTimeMillis() + getUser() + ".png";
-        String word = rsi.generateRandom(new FileOutputStream(Constants.CAPTCHA_PATH + fileName));
+        String fileName = getUser().getId() + "_" + System.currentTimeMillis() + ".png";
+        FileOutputStream fos = new FileOutputStream(fileName);
+        String word = rsi.generateRandom(fos);
+        fos.close();
         getRequest().getSession().setAttribute(Constants.CAPTCHA_WORD, word);
         getRequest().setAttribute(Constants.CAPTCHA_FILE_NAME, fileName);
     }
