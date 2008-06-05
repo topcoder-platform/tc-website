@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.io.IOException;
+import java.io.FileOutputStream;
 
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -31,6 +33,9 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
+import com.topcoder.randomstringimg.RandomStringImage;
+import com.topcoder.randomstringimg.InvalidConfigException;
+import com.topcoder.randomstringimg.ObfuscationException;
 
 /**
  * @author dok
@@ -276,6 +281,18 @@ public class ViewRegistration extends Base {
         return ret;
     }
 
+
+
+    private void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException {
+        //using the default configuration com.topcoder.randomstringimg.RandomStringImage.xml
+        //RandomStringImage.DEFAULT_CONFIG_FILE
+        RandomStringImage rsi = new RandomStringImage();
+
+        String fileName = getUser().getId() + "_" + System.currentTimeMillis() + getUser() + ".jpg";
+        String word = rsi.generateRandom(new FileOutputStream(Constants.CAPTCHA_PATH + fileName));
+        getRequest().getSession().setAttribute(Constants.CAPTCHA_WORD, word);
+        getRequest().setAttribute(Constants.CAPTCHA_FILE_NAME, fileName);
+    }
 
 }
 
