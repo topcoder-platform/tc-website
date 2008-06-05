@@ -90,6 +90,7 @@
                 </tr>
                 <tr valign="middle">
                     <td class="bodyText">
+                        Please enter the the characters you see in the image above (you may ignore case)
                         <tc-webtag:textInput name="<%=Constants.CAPTCHA_RESPONSE%>" />
                     </td>
                 </tr>
