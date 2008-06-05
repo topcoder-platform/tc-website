@@ -9,13 +9,9 @@
         <Property name="colorfiles">
             <Value>/home/branch5/web/resources/com/topcoder/randomstringimg/Colors.xml</Value>
         </Property>
-<!--
         <Property name="dictionaries">
-            <Value>conf/wordlist1.txt</Value>
-            <Value>conf/wordlist2.txt</Value>
-            <Value>conf/wordlist3.txt</Value>
+            <Value>/home/branch5/web/resources/com/topcoder/randomstringimg/movie-characters</Value>
         </Property>
--->
         <Property name="algorithms">
             <Value>com.topcoder.randomstringimg.algorithms.BlurObfuscator</Value>
             <Value>com.topcoder.randomstringimg.algorithms.HorizLinesObfuscator</Value>
