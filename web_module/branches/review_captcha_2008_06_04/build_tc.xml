@@ -115,6 +115,7 @@
         <pathelement location="${external.jars.dir}/image_overlay-1.0.0.jar"/>
         <pathelement location="${external.jars.dir}/image_resizing-1.0.0.jar"/>
         <pathelement location="${external.jars.dir}/image_manipulation-1.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/random_string_image-1.0.jar"/>
         
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/asyncservices.jar"/>
