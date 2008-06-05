@@ -154,7 +154,7 @@ public class ProjectReviewApply extends Base {
         RandomStringImage rsi = new RandomStringImage(Constants.RANDOM_STRING_IMAGE_CONFIG);
 
         String fileName = getUser().getId() + "_" + System.currentTimeMillis() + ".png";
-        FileOutputStream fos = new FileOutputStream(fileName);
+        FileOutputStream fos = new FileOutputStream(Constants.CAPTCHA_PATH + fileName);
         //so, i'm using the dictionary here because you can't use this component without configuring
         //a dictionary, i went to the effort of getting one, so might as well use it.
         //i'd rather just use a random string, but then i would need a keygenerator component
