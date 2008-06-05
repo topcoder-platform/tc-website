@@ -39,8 +39,21 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
     protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws Exception {
         if ("POST".equals(getRequest().getMethod())) {
-            if ("on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
-                if (answeredCaptchaCorrectly()) {
+            if (!"on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
+                addError(Constants.TERMS_AGREE, "You must agree to the terms in order to review a component.");
+            }
+
+            if (!answeredCaptchaCorrectly()) {
+                addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
+            }
+
+            if (hasErrors()) {
+                setDefault(Constants.TERMS_AGREE, getRequest().getParameter(Constants.TERMS_AGREE));
+                loadCaptcha();
+                setNextPage(Constants.REVIEWER_TERMS);
+                setIsNextPageInContext(true);
+            } else {
+
                     UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
                     if (!userTerms.hasTermsOfUse(getUser().getId(),
                             Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME)) {
@@ -51,18 +64,6 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                     setNextPage("/tc?" + Constants.MODULE_KEY + "=ReviewProjectDetail&" +
                             Constants.PROJECT_ID + "=" + projectId + "&" + Constants.PHASE_ID + "=" + phaseId);
                     setIsNextPageInContext(false);
-                } else {
-                    loadCaptcha();
-                    addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
-                    setNextPage(Constants.REVIEWER_TERMS);
-                    setIsNextPageInContext(true);
-                }
-            } else {
-                //back to terms page with error message
-                addError(Constants.TERMS_AGREE, "You must agree to the terms in order to review a component.");
-                setNextPage(Constants.REVIEWER_TERMS);
-                setIsNextPageInContext(true);
-
             }
         } else {
             throw new NavigationException("Invalid request type.");
