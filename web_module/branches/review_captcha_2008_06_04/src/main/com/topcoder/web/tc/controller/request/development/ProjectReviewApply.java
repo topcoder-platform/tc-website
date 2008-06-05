@@ -82,6 +82,7 @@ public class ProjectReviewApply extends Base {
                 Map results = getDataAccess().getData(r);
                 ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
                 int catalog = detail.getIntItem(0, "category_id");
+                getRequest().setAttribute("phase_id", detail.getIntItem(0, "phase_id"));
 
                 rBoardApplication = createRBoardApplication();
                 nonTransactionalValidation(catalog, reviewTypeId);
@@ -135,9 +136,6 @@ public class ProjectReviewApply extends Base {
 
         boolean agreed = userTerms.hasTermsOfUse(getUser().getId(),
                 Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
-
-        int phase_id = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
-        getRequest().setAttribute("phase_id", new Integer(phase_id));
 
         setDefault(Constants.TERMS_AGREE, String.valueOf(agreed));
 
