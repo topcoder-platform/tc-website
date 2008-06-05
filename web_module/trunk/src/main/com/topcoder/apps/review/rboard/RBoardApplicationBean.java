@@ -404,20 +404,20 @@ public class RBoardApplicationBean extends BaseEJB {
 
             // insert common review role
             int roleId = REVIEWER_ROLE;
-            switch (reviewRespId) {
-                case 1:
-                    roleId = STRESS_REVIEWER_ROLE;
-                    break;
-                case 2:
-                    roleId = FAILURE_REVIEWER_ROLE;
-                    break;
-                case 3:
-                    roleId = ACCURACY_REVIWER_ROLE;
-                    break;
-                case 4:
-                    roleId = REVIEWER_ROLE;
-                    break;
-            }
+//            switch (reviewRespId) {
+//                case 1:
+//                    roleId = STRESS_REVIEWER_ROLE;
+//                    break;
+//                case 2:
+//                    roleId = FAILURE_REVIEWER_ROLE;
+//                    break;
+//                case 3:
+//                    roleId = ACCURACY_REVIWER_ROLE;
+//                    break;
+//                case 4:
+//                    roleId = REVIEWER_ROLE;
+//                    break;
+//            }
             Map phaseInfos = getPhaseInfo(projectId, conn);
             String pid = (String) phaseInfos.get(String.valueOf(REVIEW_PHASE));
             // Prepre resource for review phase
@@ -708,9 +708,8 @@ public class RBoardApplicationBean extends BaseEJB {
                 }
             }
             // If somebody came in by constructing the URL, make sure this is consistent too.
-            if (primary != (reviewTypeId == 2)) {
-                throw new RBoardRegistrationException("Sorry, there was an error in the application"
-                        + " (primary reviewers must be failure reviewers, and vice versa).");
+            if (primary != (reviewTypeId == 1)) {
+                throw new RBoardRegistrationException("Sorry, there was an error in the application");
             }
         } else {
             // Design.
