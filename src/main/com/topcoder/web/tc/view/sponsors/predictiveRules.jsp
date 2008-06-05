@@ -111,11 +111,11 @@
                 </tr>
                 <tr class="light">
                     <td class="value">1st Place</td>
-                    <td class="value R"><strong>$700</strong></td>
+                    <td class="value R"><strong>$800</strong></td>
                 </tr>
                 <tr class="dark">
                     <td class="value">2nd Place</td>
-                    <td class="value R"><strong>$400</strong></td>
+                    <td class="value R"><strong>$500</strong></td>
                 </tr>
                 <tr class="light">
                     <td class="value">3rd Place</td>
@@ -127,7 +127,7 @@
                 </tr>
                 <tr class="light">
                     <td class="value">5th Place through 7th Place</td>
-                    <td class="value R"><strong>$100</strong></td>
+                    <td class="value R"><strong>$100 each</strong></td>
                 </tr>
             </tbody>
         </table>
