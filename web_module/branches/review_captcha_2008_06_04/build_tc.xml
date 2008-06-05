@@ -684,6 +684,7 @@
             </fileset>
             <fileset dir="${external.jars.dir}">
                 <include name="random_string_image-1.0.jar"/>
+                <include name="command_line_utility-1.0.0.jar"/>
             </fileset>
         </copy>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
