@@ -111,7 +111,7 @@
 
 
         <pathelement location="${external.jars.dir}/base_exception-2.0.0.jar"/>
-        <pathelement location="${external.svn jars.dir}/configuration_api-2.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/configuration_api-2.0.0.jar"/>
         <pathelement location="${external.jars.dir}/image_overlay-1.0.0.jar"/>
         <pathelement location="${external.jars.dir}/image_resizing-1.0.0.jar"/>
         <pathelement location="${external.jars.dir}/image_manipulation-1.0.0.jar"/>
