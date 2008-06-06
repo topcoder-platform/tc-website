@@ -4,6 +4,7 @@
 <%@ page import="com.topcoder.web.tc.Constants"%>
 
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 
 <head>
@@ -54,27 +55,55 @@
               <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectReviewTermsAgree"/>
 
             <table border="0" cellspacing="0" cellpadding="5">
-                <tr valign="middle">
-                    <td class="bodyText">
+                <tr>
+                    <td>
                         <strong>Reviewer Terms and Conditions ("Reviewer Terms")</strong>
                     </td>
                 </tr>
-                <tr valign="middle">
-                    <td class="bodyText">
+                <tr>
+                    <td>
                         <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="10" cols="80" readOnly="true" styleClass="bodyText"/>
                     </td>
                 </tr>
-                <tr valign="middle">
+                <tr>
                     <td class="errorText">
                         <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%></tc-webtag:errorIterator>
                     </td>
                 </tr>
-                <tr valign="middle">
-                    <td class="bodyText">
+                <tr>
+                    <td>
                         I Agree to the Terms and Conditions stated above&#160;<tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
                     </td>
                 </tr>
-                <tr valign="middle">
+
+                <c:set var="captchaFileName" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
+                <tr>
+                    <td class="errorText">
+                        <img src="/i/captcha/${requestScope[captchaFileName]}" alt="captcha image"/>
+                        <p>
+                            <a href="javascript:window.location.reload()">This image is hard to read.  Show me a different one.</a>
+                        </p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="errorText">
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.CAPTCHA_RESPONSE%>">${err}<br /></tc-webtag:errorIterator>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            Please enter the characters you see in the image above: 
+                            <tc-webtag:textInput name="<%=Constants.CAPTCHA_RESPONSE%>" />
+                        </p>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
                     <td align="center">
                         <input type="submit" onClick="" name="submit" value=" Continue"/>
                     </td>
