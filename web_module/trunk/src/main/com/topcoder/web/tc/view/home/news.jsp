@@ -7,7 +7,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />06.05.08<br />11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=predictiveOverview' refer='/tc' />">New Predictive Marathon Match!</a></span><br /><br />
-        Do you think you have what it takes to predict the future? Some TopCoder members have already demonstrated their prestidigitation skills by predicting the results of recent TCOs, and some game simulations are becoming eerily accurate at being able to predict real sporting events. Now it's time to really put your precognitive programming skills to the test. We are proud to announce the first TopCoder Predictive Marathon Match, with a prize purse of $2,000! Pit your forecasting skills against your fellow members in this month-long rated match.</td>
+        Do you think you have what it takes to predict the future? Some TopCoder members have already demonstrated their prognostication skills by predicting the results of recent TCOs, and some game simulations are becoming eerily accurate at being able to predict real sporting events. Now it's time to really put your precognitive programming skills to the test. We are proud to announce the first TopCoder Predictive Marathon Match, with a prize purse of $2,000! Pit your forecasting skills against your fellow members in this month-long rated match.</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=predictiveOverview' refer='/tc' />">details</a> | 
