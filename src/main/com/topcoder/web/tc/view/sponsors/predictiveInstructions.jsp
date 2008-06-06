@@ -42,10 +42,11 @@
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=predictiveOverview">Overview</a>&#160;&#160;|&#160;&#160;
             How to Compete&#160;&#160;|&#160;&#160;
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=predictiveRules">Rules</a>&#160;&#160;|&#160;&#160;
-            <span class="grayedOut">Active Contests (coming soon)</span>
             <%--
-            <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
+            <span class="grayedOut">Active Contests (coming soon)</span>
             --%>
+            <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
+            
         </p>
         
         <p><span class="bigTitle">How To Compete</span></p>
