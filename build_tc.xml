@@ -111,10 +111,13 @@
 
 
         <pathelement location="${external.jars.dir}/base_exception-2.0.0.jar"/>
-        <pathelement location="${external.jars.dir}/configuration_api-2.0.0.jar"/>
+        <pathelement location="${external.svn jars.dir}/configuration_api-2.0.0.jar"/>
         <pathelement location="${external.jars.dir}/image_overlay-1.0.0.jar"/>
         <pathelement location="${external.jars.dir}/image_resizing-1.0.0.jar"/>
         <pathelement location="${external.jars.dir}/image_manipulation-1.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/random_string_image-1.0.jar"/>
+        <pathelement location="${external.jars.dir}/spell_check-1.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/random_string_generator-1.0.0.jar"/>
         
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/asyncservices.jar"/>
@@ -634,6 +637,13 @@
                 <include name="DBConnectionFactoryImpl.xml"/>
             </fileset>
         </copy>
+<!--
+        <copy todir="${jboss_conf}/com/topcoder/randomstringimg">
+            <fileset dir="${resources}/com/topcoder/randomstringimg">
+                <include name="*.xml"/>
+            </fileset>
+        </copy>
+-->
     </target>
     <target name="move-libs">
         <copy todir="${jboss_lib}">
@@ -675,6 +685,12 @@
             </fileset>
             <fileset dir="${jars.dir}/tcs">
                 <include name="logging_wrapper.jar"/>
+            </fileset>
+            <fileset dir="${external.jars.dir}">
+                <include name="random_string_image-1.0.jar"/>
+                <include name="command_line_utility-1.0.0.jar"/>
+                <include name="spell_check-1.0.0.jar"/>
+                <include name="random_string_generator-1.0.0.jar"/>
             </fileset>
         </copy>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>

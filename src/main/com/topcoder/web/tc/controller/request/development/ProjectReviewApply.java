@@ -21,12 +21,18 @@ import com.topcoder.web.common.throttle.Throttle;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.randomstringimg.InvalidConfigException;
+import com.topcoder.randomstringimg.ObfuscationException;
+import com.topcoder.randomstringimg.RandomStringImage;
+import com.topcoder.util.spell.ConfigException;
 
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import java.sql.Timestamp;
 import java.util.Map;
+import java.io.IOException;
+import java.io.FileOutputStream;
 
 /**
  * Process the user request to review a component.
@@ -49,7 +55,7 @@ import java.util.Map;
  * </p>
  *
  * @author dok, pulky
- * @version 1.0.2
+ * @version $Id$
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -76,6 +82,7 @@ public class ProjectReviewApply extends Base {
                 Map results = getDataAccess().getData(r);
                 ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
                 int catalog = detail.getIntItem(0, "category_id");
+                getRequest().setAttribute("phase_id", detail.getIntItem(0, "phase_id"));
 
                 rBoardApplication = createRBoardApplication();
                 nonTransactionalValidation(catalog, reviewTypeId);
@@ -130,11 +137,9 @@ public class ProjectReviewApply extends Base {
         boolean agreed = userTerms.hasTermsOfUse(getUser().getId(),
                 Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
 
-        int phase_id = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
-        getRequest().setAttribute("phase_id", new Integer(phase_id));
-
         setDefault(Constants.TERMS_AGREE, String.valueOf(agreed));
 
+        loadCaptcha();
         setNextPage(Constants.REVIEWER_TERMS);
         setIsNextPageInContext(true);
     }
@@ -142,4 +147,20 @@ public class ProjectReviewApply extends Base {
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
         rBoardApplication.validateUser(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, catalog, reviewTypeId, getUser().getId(), phaseId);
     }
+
+    protected void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException, ConfigException {
+        RandomStringImage rsi = new RandomStringImage(Constants.RANDOM_STRING_IMAGE_CONFIG);
+
+        String fileName = getUser().getId() + "_" + System.currentTimeMillis() + ".png";
+        FileOutputStream fos = new FileOutputStream(Constants.CAPTCHA_PATH + fileName);
+        //so, i'm using the dictionary here because you can't use this component without configuring
+        //a dictionary, i went to the effort of getting one, so might as well use it.
+        //i'd rather just use a random string, but then i would need a keygenerator component
+        //to do that, so i'll just use the dictionary
+        String word = rsi.generateRandomFromDictionaries(fos);
+        fos.close();
+        getRequest().getSession().setAttribute(Constants.CAPTCHA_WORD, word);
+        getRequest().setAttribute(Constants.CAPTCHA_FILE_NAME, fileName);
+    }
+
 }
