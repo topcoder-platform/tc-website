@@ -61,7 +61,7 @@
         </p>
         
         <span class="bigTitle">Overview</span>
-        <p>Do you think you have what it takes to predict the future? Some TopCoder members have already demonstrated their prestidigitation skills by predicting the results of recent tournaments, and some game simulations are becoming eerily accurate at being able to predict real sporting events. Now it's time to really put your precognitive programming skills to the test. We are proud to announce the first TopCoder Predictive Marathon Match, with a prize purse of $2,000! Pit your forecasting skills against your fellow members in this month-long rated match.</p>
+        <p>Do you think you have what it takes to predict the future? Some TopCoder members have already demonstrated their prognostication skills by predicting the results of recent tournaments, and some game simulations are becoming eerily accurate at being able to predict real sporting events. Now it's time to really put your precognitive programming skills to the test. We are proud to announce the first TopCoder Predictive Marathon Match, with a prize purse of $2,000! Pit your forecasting skills against your fellow members in this month-long rated match.</p>
         <p>This month long competition will begin on Friday, June 6th, 2008 at 12:00 PM EDT (UTC/GMT -4). You will have until July 7, 2008 at 12:00 PM EDT (UTC/GMT -4) to finalize your submission.</p>
         <p>Keep checking back in for more details of our exciting new competition.</p>
         <p>&nbsp;</p>
