@@ -72,7 +72,7 @@
                         You just need to activate your account to access your TopCoder Direct Cockpit.
                     </p>
                     <p>
-                        Check your inbox for the activation code we just emailed and click the link to activate your account.
+                        You should have a message in your email inbox with a link that you need to click to activate your account.
                     </p>
                 </c:when>
                 <c:otherwise>
