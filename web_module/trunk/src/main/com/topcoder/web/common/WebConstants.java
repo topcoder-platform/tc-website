@@ -55,7 +55,7 @@ public interface WebConstants {
     public static final String ROUND_NAME = "roundName";
 
     public static final String FULL_LIST = "full";
-    public static String EVENT_ID = "eid";
+    public static final String EVENT_ID = "eid";
 
     public static final String TERMS = "terms";
     public static final String TERMS_AGREE = "terms_agree";
@@ -69,9 +69,9 @@ public interface WebConstants {
     public static final String CODER_TYPE = "cty";
     public static final String DEMOG_PREFIX = "demog_";
 
-    public static String ACTIVATION_CODE = "code";
+    public static final String ACTIVATION_CODE = "code";
 
-    public static String SCHOOL_ID = "scid";
+    public static final String SCHOOL_ID = "scid";
 
     //resume parameters
     public static final String RESUME = "resume";
