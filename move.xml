@@ -56,6 +56,7 @@
                 <include name="resources/xsl/**"/>
                 <include name="resources/taglib/**"/>
                 <include name="resources/tc/**"/>
+                <include name="resources/com/topcoder/randomstringimg/**"/>
 <!--
                 <include name="resources/longcontest/**"/>
 -->
