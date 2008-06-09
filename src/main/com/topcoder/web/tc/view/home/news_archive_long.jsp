@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">06.09.08 4:00 PM - </td><td width="100%"><a href="/longcontest/stats/?module=ViewOverview&amp;rd=12167">AMD Multicore Threadfest Competition 2 Winners Announced!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.05.08 11:30 AM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=sponsors&amp;d2=predictiveOverview">New Predictive Marathon Match!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.09.08 10:30 AM - </td><td width="100%"><a target="_blank" href="http://developer.amd.com/documentation/Pages/AMDMulticoreThreadfestCompetition.aspx">Blowing the Socks off the AMD Multicore Threadfest Competition</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.07.08 12:00 PM - </td><td width="100%"><a href="/longcontest/stats/?module=ViewOverview&amp;rd=12166">AMD Multicore Threadfest Competition 1 Winners Announced!</a></td></tr>

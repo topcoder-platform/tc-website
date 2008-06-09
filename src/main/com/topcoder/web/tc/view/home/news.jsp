@@ -4,6 +4,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />06.09.08<br />4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/longcontest/stats/?module=ViewOverview&amp;rd=12167">AMD Multicore Threadfest Competition 2 Winners Announced!</a></span><br /><br />
+        Congratulations to <tc-webtag:handle coderId="7504863" context="marathon_match"/>, the winner of the 2nd AMD Multicore Threadfest competition.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/longcontest/stats/?module=ViewOverview&amp;rd=12167">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=615682">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
+   </td></tr>
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />06.05.08<br />11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=predictiveOverview' refer='/tc' />">New Predictive Marathon Match!</a></span><br /><br />
@@ -145,18 +157,5 @@
         <a href="/tc?module=ViewAssemblyActiveContests">details</a> | 
         <tc-webtag:forumLink forumID="520543" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.19.08<br />11:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">Truveo Developer Challenge Offers $100,000 in Prizes for New Video Search Applications</a></span><br /><br />
-        With a prize pool of $100,000, developers will compete to build customized applications that use Truveo's open API for video search.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">details</a> | 
-        <a href="/truveo/forums">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
    
