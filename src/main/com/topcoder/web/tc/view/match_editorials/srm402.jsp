@@ -62,7 +62,7 @@ Being conflicted with IPSC, the first SRM after TCO08 still attracted 1301 coder
 In Division 1 competitors faced a rather difficult problem set. Being the only coder who got 1000+ points,
 <tc-webtag:handle coderId="10574855" context="algorithm"/> won the first place, 
 followed by <tc-webtag:handle coderId="8394868" context="algorithm"/>, the only coder who solved the hard problem except <tc-webtag:handle coderId="10574855" context="algorithm"/>.
-he third place went to 
+The third place went to 
 <tc-webtag:handle coderId="9964455" context="algorithm"/>, thanks to his 7 successful challenges on the medium.
 </p>
 

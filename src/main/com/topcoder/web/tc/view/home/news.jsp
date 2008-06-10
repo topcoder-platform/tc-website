@@ -4,6 +4,38 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />06.10.08<br />1:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm403">SRM 403 - Problem Set &amp; Analysis</a></span><br /><br />
+      This single round match was realy lucky. Over 1000 of lucky coders, lucky problems, lucky time of the day (especially here, in Ukraine) and of course lucky numbers. What else do you need to have have fun during 100 lucky minutes of TopCoder competition?</td>
+         <td class="newsPhoto"><img src="/i/m/Vasyl(alphacom)_big3.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="13351270" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm403">details</a> | 
+        <tc-webtag:forumLink forumID="521320" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />06.10.08<br />1:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm402">SRM 402 - Problem Set &amp; Analysis</a></span><br /><br />
+      In Division 1 competitors faced a rather difficult problem set. Being the only coder who got 1000+ points, <tc-webtag:handle coderId="10574855" context="algorithm"/> won the first place, followed by <tc-webtag:handle coderId="8394868" context="algorithm"/>, the only coder who solved the hard problem except <tc-webtag:handle coderId="10574855" context="algorithm"/>. The third place went to <tc-webtag:handle coderId="9964455" context="algorithm"/>, thanks to his 7 successful challenges on the medium.</td>
+         <td class="newsPhoto"><%--<img src="/i/m/eleusive_big2.jpg_big.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="11907556" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm402">details</a> | 
+        <tc-webtag:forumLink forumID="521286" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />06.09.08<br />4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/longcontest/stats/?module=ViewOverview&amp;rd=12167">AMD Multicore Threadfest Competition 2 Winners Announced!</a></span><br /><br />
@@ -60,7 +92,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm401">SRM 401 - Problem Set &amp; Analysis</a></span><br /><br />
       The last SRM before TCO08 onsite finals became the most crowded TopCoder SRM ever as the limit on the number of participants was increased to 1750. To finish in top3 in Division 1 it was enough to solve all three problems correctly, which was done by <tc-webtag:handle coderId="10574855" context="algorithm"/>, <tc-webtag:handle coderId="19849563" context="algorithm"/> and <tc-webtag:handle coderId="8355516" context="algorithm"/>, who finished first, second and third respectively.</td>
-         <td class="newsPhoto"><%--<img src="/i/m/eleusive_big2.jpg_big.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="15152215" context="algorithm"/></td></tr></table>
+         <td class="newsPhoto"><%--<img src="/i/m/eleusive_big2.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="15152215" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -131,31 +163,5 @@
         <a target="_blank" href="http://blogs.wsj.com/biztech/2008/05/16/keeping-it-simple-pays-for-a-champion-coder/?mod=WSJBlog">details</a> | 
         <tc-webtag:forumLink forumID="521266" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.21.08<br />11:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a target="_blank" href="http://www.cio.com/article/358813/Where_Programming_Meets_American_Idol">CIO - Where Programming Meets American Idol</a></span><br /><br />
-        Everyone who pays for custom application development wants to believe he's hiring the best. But statistically, we're all average.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="http://www.cio.com/article/358813/Where_Programming_Meets_American_Idol">details</a> | 
-        <tc-webtag:forumLink forumID="521267" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />05.21.08<br />10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=ViewAssemblyActiveContests">An Assembly of Cockpit Widget Assemblies</a></span><br /><br />
-        Three assembly competitions launched this morning to build widgets for the TopCoder cockpit framework with a total prize purse of over $5000. Jump in now for a shot at the money, the Digital Run points and best of all, the chance to help TopCoder on our mission to widgetize the world!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=ViewAssemblyActiveContests">details</a> | 
-        <tc-webtag:forumLink forumID="520543" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
    
