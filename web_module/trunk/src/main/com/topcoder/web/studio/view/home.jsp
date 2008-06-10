@@ -92,9 +92,9 @@ ding="utf-8"?>
                 </thead>
                 <tbody>
 <%--
-                    <rsc:iterator list="<%=activeContests%>" id="resultRow" end="2">
---%>
     <rsc:iterator list="<%=activeContests%>" id="resultRow">
+--%>
+    <rsc:iterator list="<%=activeContests%>" id="resultRow" end="2">
                         <tr>
                             <td class="first">
                                     <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">
@@ -256,8 +256,8 @@ ding="utf-8"?>
     <div class="newsBox">
         <h2>WHAT'S NEW</h2>
         <ul>
-             <li>Congratulations to oninkxronda, the TCO08 Studio champion and winner of the $20,000 grand prize! After eight weeks of online competitions,
-             the twelve finalists competed during the week of May 12, 2008 in Las Vegas for a total prize purse of $45,000. Be sure to check out the blog,
+             <li>Congratulations to oninkxronda, the TCO08 Studio champion and winner of the $20,000 grand prize! Afterï¿½eight weeks of online competitions,
+             the twelve finalists competedï¿½during the week of May 12, 2008ï¿½inï¿½Las Vegas for a total prize purse of $45,000. Be sure to check out the blog,
              photos and videos from the event at the <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=description" target="_blank">TCO08 website</a>!
             </li>
         </ul>
