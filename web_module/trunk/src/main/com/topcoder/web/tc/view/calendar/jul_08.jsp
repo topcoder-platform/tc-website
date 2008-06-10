@@ -142,6 +142,7 @@
       <td class="value">19
          <div class="srm">
          <strong><a href="/tc?module=MatchDetails&amp;rd=12182">SRM 410</a></strong><br />
+         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfair">Betfair</a><br />
          12:00 NOON
          </div>
       </td>
