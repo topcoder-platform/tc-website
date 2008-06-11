@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />06.11.08<br />4:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm404">SRM 404 - Problem Set &amp; Analysis</a></span><br /><br />
+      This match attracted 1439 competitors, 800 Div2 (117 newcomers) and 639 Div1. Without any challenge made at all <tc-webtag:handle coderId="7446789" context="algorithm"/> won the match, folowed by <tc-webtag:handle coderId="251074" context="algorithm"/> who thanks to 125 points earned in challenge phase needed only 2 points more to win the match. <tc-webtag:handle coderId="8394868" context="algorithm"/> took third place who continues showing his great success and became a target!</td>
+         <td class="newsPhoto"><img src="/i/m/boba5551_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20394568" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm404">details</a> | 
+        <tc-webtag:forumLink forumID="521404" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />06.10.08<br />1:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -152,16 +168,3 @@
         <tc-webtag:forumLink forumID="521264" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
    </td></tr>
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />05.21.08<br />11:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a target="_blank" href="http://blogs.wsj.com/biztech/2008/05/16/keeping-it-simple-pays-for-a-champion-coder/?mod=WSJBlog">Wall Street Journal - Keeping it Simple Pays for a Champion Coder</a></span><br /><br />
-        A tournament for computer programmers crowned a champion yesterday afternoon. The winner's secret: avoiding bells and whistles, and asking questions until he knew exactly what the judges wanted his software to do.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a target="_blank" href="http://blogs.wsj.com/biztech/2008/05/16/keeping-it-simple-pays-for-a-champion-coder/?mod=WSJBlog">details</a> | 
-        <tc-webtag:forumLink forumID="521266" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
