@@ -1,7 +1,7 @@
 <table width="530" border="0" cellspacing="0" cellpadding="3">                     
     <tr valign="middle">
         <td class="statTextLarge" bgcolor="#999999" width="50%" align="left"><font size="3">TopCoder Developments</font></td>
-        <td class="viewAll" bgcolor="#999999" width="50%">&nbsp;</td>
+        <td class="viewAll" bgcolor="#999999" width="50%"><a target="_blank" href="/html/tcDevOptIn.htm" class="bodyText"><strong>Subsribe</strong></a></td>
     </tr>
 </table>
 <table width="530" border="0" cellspacing="0" cellpadding="4">
@@ -46,7 +46,7 @@
          <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/rdn_20071204.pdf">Contested Code</a> [PDF] [December 4]
    </td></tr>
    <tr><td class="prHead">
-         <a target="_blank" href="http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&issue=20071026">TopCoder Finds Tech Top Guns</a> [October 31]
+         <a target="_blank" href="http://www.investors.com/editorial/IBDArticles.asp?artsec=17&artnum=1&amp;issue=20071026">TopCoder Finds Tech Top Guns</a> [October 31]
    </td></tr>
 
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
