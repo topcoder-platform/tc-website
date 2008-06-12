@@ -2,21 +2,33 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%------------------- Release around Noon or when Mike says so 
+<%-------------------------- Component Announcement
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />06.12.08<br />12:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />06.12.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&d1=sponsors&d2=predictiveOverview">TCCC News</a></span><br /><br />
+        <a href="/tc?module=ViewActiveContests&amp;ph=113">New Component Testing Competitions</a></span><br /><br />
+        We've mixed things up a bit in Component Development.  Now you can compete to implement a superior test suite for every component developed.  Create the best test suite, and you win!  Visit the Active Contests page to compete now.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=ViewActiveContests&amp;ph=113">discuss this</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=615528">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   ------------------------------%>
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />06.12.08<br />12:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=616032">The TCCC: A Difficult Decision</a></span><br /><br />
         After much deliberation TopCoder has decided to omit the TCCC from our schedule of tournaments. It has been a difficult decision to make, and not undertaken lightly.  There are multiple reasons for discontinuing the event, including greater sponsor interest in the TCO and the fact that the TCO generally draws more collegiate participants than professional participants.<br /><br />
         We believe a focus on the TCO as our one premier event of the year will serve us better than two smaller annual events. We can now concentrate the full energies of the events team and all of our events resources on the TCO, which has become the industry standard for onsite competitive programming tournaments.<br /><br />
         We hope you understand the reasons behind the decision and we're now looking forward to making the next TCO even better and more exciting than ever before.</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=sponsors&d2=predictiveOverview">details</a> | 
-        <tc-webtag:forumLink forumID="521405" message="discuss this" /> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=616032">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
-   -------------------------------------%>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />06.11.08<br />4:30 PM</td>
@@ -171,15 +183,3 @@
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />05.22.08<br />10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/longcontest/?module=ViewProblemStatement&amp;compid=8692&amp;rd=12167">AMD Multicore Threadfest Competition 2 is Underway</a></span><br /><br />
-        The second edition of the AMD Multicore Threadfest Competition is now underway.  Your chance at the part of the $5,000 prize purse starts now.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/longcontest/?module=ViewProblemStatement&amp;compid=8692&amp;rd=12167">details</a> | 
-        <tc-webtag:forumLink forumID="521264" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
-   </td></tr>
