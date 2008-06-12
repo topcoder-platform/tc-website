@@ -2,19 +2,19 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%-------------------------- Component Announcement
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />06.12.08<br />1:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />06.12.08<br />1:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=ViewActiveContests&amp;ph=113">New Component Testing Competitions</a></span><br /><br />
-        We've mixed things up a bit in Component Development.  Now you can compete to implement a superior test suite for every component developed.  Create the best test suite, and you win!  Visit the Active Contests page to compete now.</td>
+        We've mixed things up a bit in Component Development.  Now you can compete to implement a superior test suite for every component developed.  Create the best test suite, and you win!  Visit the <a href="/tc?module=ViewActiveContests&amp;ph=113">Active Contests</a> page to compete now.</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <a href="/tc?module=ViewActiveContests&amp;ph=113">discuss this</a> | 
+        <a href="/tc?module=ViewActiveContests&amp;ph=113">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=615528">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
-   ------------------------------%>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />06.12.08<br />12:15 PM</td>
@@ -168,18 +168,5 @@
         <a href="/tc?module=Static&amp;d1=hs&amp;d2=home">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&amp;forumID=7167">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_alg">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />05.27.08<br />10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/wiki/display/tc/Active+Bug+Races">Week at the Races</a></span><br /><br />
-        Just a reminder, there's always opportunity to earn money quickly on TopCoder in the Bug Races. Right now more than $2000 is up for grabs across dozens of bug races including <a href="/bugs/browse/BUGR-211">BUGR-211</a> and <a href="/bugs/browse/BUGR-207">BUGR-207</a>, two Java Service Cockpit related bugs. Help us smash bugs, we'll help you earn cash!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/wiki/display/tc/Active+Bug+Races">details</a> | 
-        <tc-webtag:forumLink forumID="519026" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
    
