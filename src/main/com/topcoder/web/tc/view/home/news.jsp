@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="TopCoder Movies" border="0" /><br />06.12.08<br />2:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=media&amp;d2=misc3x2&amp;clip=guandong&amp;title=TopCoder%20College%20Tour%20visits%20Guangzhou">China College Tour Video!</a></span><br /><br />
+         The TopCoder College Tour visits Guangzhou, Guangdong Province in China! The South China University of Agriculture (SCAU), founded in 1909, was host to the TopCoder 2008 Guangdong Provincial Contest on Sunday, May 25, 2008. An impressive 1,277 students competed in the competition. After an hour and a half of grueling competition, Zhiwei Li (TopCoder handle: <tc-webtag:handle coderId="22682658" context="algorithm"/>) from the South China University of Technology was crowned the contest champion. Jun Da Bei (TopCoder handle: <tc-webtag:handle coderId="22731623" context="algorithm"/>) from the South China University of Agriculture (SCAU) was the organizer's champion. Both students, as well as eleven others, were rewarded with an iPod Nano.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=media&amp;d2=misc3x2&amp;clip=guandong&amp;title=TopCoder%20College%20Tour%20visits%20Guangzhou">details</a> | 
+        <tc-webtag:forumLink forumID="521575" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_movies">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />06.12.08<br />1:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=ViewActiveContests&amp;ph=113">New Component Testing Competitions</a></span><br /><br />
@@ -155,18 +168,5 @@
         <a href="/tc?module=MatchDetails&amp;rd=12175">details</a> | 
         <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm News" border="0" /><br />05.27.08<br />5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=hs&amp;d2=home">Announcing the 2009 TCHS Season and Referral Program</a></span><br /><br />
-        The 2009 TopCoder High School Season starts next month.  Get ready for the first HS SRM on June 17 at 9:00 PM EDT and view the Event Calendar for more. You'll need to register for the new season.  Make sure to read all the rules and information <a href="/tc?module=Static&amp;d1=hs&amp;d2=home">here</a>.  Have friends that may be intersted in TopCoder?  Be sure to send this info their way!  <a href="/tc?module=Static&amp;d1=hs&amp;d2=referralProgram">You could win</a> money or t-shirts!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=hs&amp;d2=home">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&amp;forumID=7167">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_alg">archive</a>
    </td></tr>
    
