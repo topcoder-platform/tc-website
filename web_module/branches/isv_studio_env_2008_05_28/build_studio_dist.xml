@@ -150,6 +150,14 @@
 <!--
         <unjar src="webserver.jar" dest="${build}/tempdist"/>
 -->
+        <copy todir="${build}/tempdist">
+            <fileset dir=".">
+                <include name="i/**/*"/>
+                <include name="css/**/*"/>
+                <include name="js/**/*"/>
+            </fileset>
+        </copy>
+
         <delete dir="${build}/tempdist/META-INF"/>
 
         <copy todir="${build}/tempdist/depsrc">
