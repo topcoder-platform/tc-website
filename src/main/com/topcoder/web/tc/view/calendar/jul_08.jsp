@@ -108,6 +108,7 @@
          </div>
          <div class="srm">
          <strong><a href="/tc?module=MatchDetails&amp;rd=12181">SRM 409</a></strong><br />
+         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign">VeriSign</a><br />
          11:00 AM
          </div>
       </td>
