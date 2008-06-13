@@ -24,11 +24,14 @@
                         <input type="hidden" name="module" value="UpdateSurvey"/>
                         <tc-webtag:hiddenInput name="<%=Constants.SURVEY_ID%>" />
                         <p><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditQuestion&<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>">Add Question</a></p>
-                        <p>Helpful links:
-                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewSurvey&amp;<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>">vote</a> |
-                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=SurveyResults&amp;<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>">results</a> |
-                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LegacyReport&amp;t=new_report&amp;c=survey_results&amp;db=java:OLTP&amp;<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>">report</a>
-                        </p>
+                        <c:set value="<%=request.getAttribute(Constants.SURVEY_ID)%>" var="surveyId"/>
+                        <c:if test="${requestScope[surveyId]}">
+                            <p>Helpful links:
+                                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewSurvey&amp;${surveyId}=${requestScope[surveyId]}">vote</a> |
+                                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=SurveyResults&amp;${surveyId}=${requestScope[surveyId]}">results</a> |
+                                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LegacyReport&amp;t=new_report&amp;c=survey_results&amp;db=java:OLTP&amp;${surveyId}=${requestScope[surveyId]}">report</a>
+                            </p>
+                        </c:if>
                         <table>
                             <tr><td colspan="2"><tc-webtag:errorIterator id="err" name="<%=Constants.SURVEY_NAME%>"><%=err%></tc-webtag:errorIterator></td></tr>
                             <tr><td>Name</td><td><tc-webtag:textInput name="<%=Constants.SURVEY_NAME%>" size="30" maxlength="50" onKeyPress="submitEnter(event)"/></td></tr>
