@@ -27,20 +27,23 @@ public class CreateCondorcetAnswers extends Base {
 
         String answerText;
         long questionId;
-        for (int i = 0; i < questions.size(); i++) {
-            questionId = questions.get(i).getLongItem("question_id");
-            if (i == 0) {
-                answerText = String.valueOf(i + 1) + " - Most Preferred";
-            } else if (i == (questions.size() - 1)) {
-                answerText = String.valueOf(i + 1) + " - Least Preferred";
-            } else {
-                answerText = String.valueOf(i + 1);
-            }
+        for (ResultSetContainer.ResultSetRow q : questions) {
+            questionId = q.getLongItem("question_id");
             answers = answer.getAnswers(questionId, DBMS.OLTP_DATASOURCE_NAME);
-            if (!answerExists(answerText, answers)) {
-                answer.createAnswer(questionId, answerText, i + 1, DBMS.OLTP_DATASOURCE_NAME);
+            for (int i = 0; i < questions.size(); i++) {
+                if (i == 0) {
+                    answerText = String.valueOf(i + 1) + " - Most Preferred";
+                } else if (i == (questions.size() - 1)) {
+                    answerText = String.valueOf(i + 1) + " - Least Preferred";
+                } else {
+                    answerText = String.valueOf(i + 1);
+                }
+                if (!answerExists(answerText, answers)) {
+                    answer.createAnswer(questionId, answerText, i + 1, DBMS.OLTP_DATASOURCE_NAME);
+                }
             }
         }
+
         setNextPage(getSessionInfo().getServletPath() + "?module" +
                 "=EditSurvey&" + Constants.SURVEY_ID + "=" + sId);
 
