@@ -5,6 +5,7 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.survey.Survey;
 import com.topcoder.web.ejb.survey.SurveyQuestion;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.model.QuestionType;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -24,6 +25,7 @@ public class EditSurvey extends Base {
             Survey survey = (Survey) createEJB(getInitialContext(), Survey.class);
             getRequest().setAttribute(Constants.SURVEY_ID, sId);
             loadQuestions(id);
+            getRequest().setAttribute("isElection", isElection());
             setDefault(Constants.SURVEY_ID, sId);
             setDefault(Constants.SURVEY_END, survey.getEndDate(id, DBMS.OLTP_DATASOURCE_NAME));
             setDefault(Constants.SURVEY_START, survey.getStartDate(id, DBMS.OLTP_DATASOURCE_NAME));
@@ -48,6 +50,14 @@ public class EditSurvey extends Base {
         ResultSetContainer questions = sq.getQuestions(surveyId, DBMS.OLTP_DATASOURCE_NAME);
         questions.sortByColumn("question_id", true);
         getRequest().setAttribute("questions", questions);
+    }
+
+    private boolean isElection() {
+        ResultSetContainer rsc = (ResultSetContainer)getRequest().getAttribute("questions");
+        if (rsc!=null && !rsc.isEmpty()) {
+            return rsc.get(0).getIntItem("question_type_id")==QuestionType.SCHULZE_ELECTION;
+        }
+        return false;
     }
 
 
