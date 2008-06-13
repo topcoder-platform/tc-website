@@ -44,7 +44,7 @@
             <p>The winner of the competition will receive a free All Access pass to an upcoming Dr. Dobb's event!</p>
             <ol>
                 <li>Read the <strong><a href="/wiki/display/training/Architecture+Deliverable+Module">Training Material</a></strong> to learn about the deliverables involved.</li>
-                <li>Read the Dr. Dobb's <strong><a href="/wiki/display/~mess/Dr.+Dobb%27s+Rules">Rules and Regulations</a></strong></li>
+                <li>Read the Dr. Dobb's <strong><a href="/wiki/display/docs/Dr.+Dobb%27s+Rules">Rules and Regulations</a></strong></li>
                 <li><strong><a href="/reg/">Register</a></strong> to become a TopCoder member (required to register for the contest)</li>
                 <li><strong><a href="/tc?module=ViewRegistration&amp;pj=30004440">Register for the competition!</a></strong></li>
             </ol>
