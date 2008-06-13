@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.admin.Constants"%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -23,6 +24,11 @@
                         <input type="hidden" name="module" value="UpdateSurvey"/>
                         <tc-webtag:hiddenInput name="<%=Constants.SURVEY_ID%>" />
                         <p><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditQuestion&<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>">Add Question</a></p>
+                        <p>Helpful links:
+                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewSurvey&amp;<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>">vote</a> |
+                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=SurveyResults&amp;<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>">results</a> |
+                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LegacyReport&amp;t=new_report&amp;c=survey_results&amp;db=java:OLTP&amp;<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>">report</a>
+                        </p>
                         <table>
                             <tr><td colspan="2"><tc-webtag:errorIterator id="err" name="<%=Constants.SURVEY_NAME%>"><%=err%></tc-webtag:errorIterator></td></tr>
                             <tr><td>Name</td><td><tc-webtag:textInput name="<%=Constants.SURVEY_NAME%>" size="30" maxlength="50" onKeyPress="submitEnter(event)"/></td></tr>
