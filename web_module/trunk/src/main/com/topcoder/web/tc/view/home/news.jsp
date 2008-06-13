@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />06.13.08<br />10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">Event Calendar updated through December 2008</a></span><br /><br />
+         SRMs and TCHS SRMs have been added to the event calendar through December.  Save the dates!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">details</a> | 
+        <tc-webtag:forumLink forumID="521613" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="TopCoder Movies" border="0" /><br />06.12.08<br />2:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=media&amp;d2=misc3x2&amp;clip=guandong&amp;title=TopCoder%20College%20Tour%20visits%20Guangzhou">China College Tour Video!</a></span><br /><br />
@@ -155,18 +168,5 @@
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm401">details</a> | 
         <tc-webtag:forumLink forumID="521053" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />05.28.08<br />12:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=MatchDetails&amp;rd=12175">NSA chat session prior to SRM 403</a></span><br /><br />
-        Join NSA representatives in the chat room prior to SRM 403 to discuss thier career opportunites for US citizens.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=MatchDetails&amp;rd=12175">details</a> | 
-        <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
