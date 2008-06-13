@@ -24,7 +24,7 @@
                         <input type="hidden" name="module" value="UpdateSurvey"/>
                         <tc-webtag:hiddenInput name="<%=Constants.SURVEY_ID%>" />
                         <p><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditQuestion&<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>">Add Question</a></p>
-                        <c:set value="<%=request.getAttribute(Constants.SURVEY_ID)%>" var="surveyId"/>
+                        <c:set value="<%=Constants.SURVEY_ID%>" var="surveyId"/>
                         <c:if test="${requestScope[surveyId]}">
                             <p>Helpful links:
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewSurvey&amp;${surveyId}=${requestScope[surveyId]}">vote</a> |
