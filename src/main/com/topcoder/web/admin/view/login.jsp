@@ -35,7 +35,7 @@
         <TD CLASS="statTextBig" width="100%" valign="top">
             <img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="50" BORDER="0"><BR>
 
-            <FORM METHOD="post" NAME="frmLogin" action="/admin/">
+            <FORM METHOD="post" NAME="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}">
                 <INPUT NAME="module" TYPE="hidden" VALUE="Login"/>
                 <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="60%" ALIGN="center">
                     <TR>
