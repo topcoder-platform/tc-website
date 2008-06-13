@@ -118,16 +118,12 @@
         <mkdir dir="${war.dir}"/>
     </target>
 
-    <target name="compile_shared" depends="init" unless="compile_shared_set">
-        <ant dir="${shared.build}" target="jar"/>
-        <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${shared.jar}"/>
-        <property name="compile_shared_set" value="true"/>
+    <target name="compile_common" depends="init" unless="compile_common_set">
+        <ant antfile="build_common.xml" target="build-dist"/>
+        <property name="compile_common_set" value="true"/>
     </target>
 
-
-    <target name="compile" depends="init,compile_shared">
-        <ant antfile="build_tc.xml" target="compile"/>
-        <ant antfile="build_tc.xml" target="jar_common"/>
+    <target name="compile" depends="init,compile_common">
         <javac
                 srcdir="${java.dir}"
                 destdir="${classes.dir}"
@@ -144,24 +140,11 @@
             <include name="com/topcoder/util/**"/>
             <include name="com/topcoder/security/**"/>
             <exclude name="com/topcoder/apps/screening/**"/>
-            <include name="com/topcoder/common/**"/>
-            <include name="com/topcoder/web/common/**"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
         </javac>
-        <antcall target="jar_common"/>
     </target>
 
-    <target name="jar_common">
-        <jar jarfile="${common.jar}">
-            <fileset dir="${classes.dir}">
-                <include name="com/topcoder/web/common/**/*.class"/>
-                <include name="com/topcoder/common/**/*.class"/>
-            </fileset>
-        </jar>
-    </target>
-
-
-    <target name="compile_onsite" depends="init,compile_shared">
+    <target name="compile_onsite" depends="init,compile_common">
         <javac
                 srcdir="${java.dir}"
                 destdir="${classes.dir}"

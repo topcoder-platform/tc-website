@@ -118,14 +118,12 @@
         <mkdir dir="${ear.dir}"/>
     </target>
 
-    <target name="compile_shared" depends="init" unless="compile_shared_set">
-        <ant dir="${shared.build}" target="jar"/>
-        <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${shared.jar}"/>
-        <property name="compile_shared_set" value="true"/>
+    <target name="compile_common" depends="init" unless="compile_common_set">
+        <ant antfile="build_common.xml" target="build-dist"/>
+        <property name="compile_common_set" value="true"/>
     </target>
 
-
-    <target name="compile" depends="init,compile_shared" unless="compile_set">
+    <target name="compile" depends="init,compile_common" unless="compile_set">
         <available property="jdk1.4+" classname="java.nio.ByteBuffer"/>
         <javac
                 srcdir="${java}"
@@ -136,10 +134,8 @@
                 source="1.5"
                 target="1.5"
                 >
-            <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/ejb/**"/>
             <include name="com/topcoder/security/**"/>
-            <include name="com/topcoder/web/common/**"/>
             <include name="com/topcoder/web/ejb/BaseEJB.java"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
@@ -147,7 +143,6 @@
             <include name="com/topcoder/web/studio/**"/>
         </javac>
         <property name="compile_set" value="true"/>
-        <antcall target="jar_common"/>
     </target>
 
 
@@ -169,15 +164,6 @@
         <!-- kill the entire build dir -->
         <delete dir="${build}"/>
         <delete dir="${bin}"/>
-    </target>
-
-    <target name="jar_common">
-        <jar jarfile="${common.jar}">
-            <fileset dir="${classes}">
-                <include name="com/topcoder/web/common/**/*.class"/>
-                <include name="com/topcoder/common/**/*.class"/>
-            </fileset>
-        </jar>
     </target>
 
     <target name="package-EJB-MessageHistoryBean" depends="compile">
@@ -367,10 +353,8 @@
                 source="1.5"
                 target="1.5"
                 >
-            <include name="com/topcoder/web/common/**"/>
             <include name="com/topcoder/web/studio/**"/>
         </javac>
-        <antcall target="jar_common"/>
     </target>
 
     <target name="run_studio_tests" depends="compile_tests" description="run junit tests">
@@ -392,7 +376,7 @@
     </target>
 
     <target name="build-security">
-        <ant antfile="build_tc.xml" target="build-security"/>
+        <ant antfile="build_security.xml" target="build-security"/>
     </target>
 
 

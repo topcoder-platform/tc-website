@@ -137,25 +137,11 @@
         <mkdir dir="${sar.dir}"/>
     </target>
 
-    <target name="compile_shared" depends="init" unless="compile_shared_set">
-        <ant dir="${shared.build}" target="jar"/>
-        <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${shared.jar}"/>
-        <!--javac
-                srcdir="${shared}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.5"
-                target="1.5"
-                >
-        </javac>
-        <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
-        <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/-->
-        <property name="compile_shared_set" value="true"/>
+    <target name="compile_common" depends="init" unless="compile_common_set">
+        <ant antfile="build_common.xml" target="build-dist"/>
+        <property name="compile_common_set" value="true"/>
     </target>
-
-    <target name="compile" depends="init,jar_shared" unless="compile_set">
+    <target name="compile" depends="init,compile_common" unless="compile_set">
         <depend srcdir="${java}" destdir="${classes}" cache="${build}/cache"/>
         <javac
                 srcdir="${java}"
@@ -165,7 +151,6 @@
                 debug="${debug}"
                 source="1.5"
                 target="1.5" memoryMaximumSize="380m" memoryInitialSize="380m" fork="true">
-            <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/ejb/**"/>
             <include name="com/topcoder/security/**"/>
             <include name="com/topcoder/utilities/**"/>
@@ -181,7 +166,6 @@
             <exclude name="com/topcoder/web/ejb/security/**"/>
         </javac>
         <property name="compile_set" value="true"/>
-        <antcall target="jar_common"/>
     </target>
 
     <target name="javadocs">
@@ -203,25 +187,6 @@
         <delete dir="${build}"/>
         <delete dir="${bin}"/>
         <ant dir="${shared.build}" target="clean"/>
-    </target>
-
-    <target name="jar_shared" depends="compile_shared" unless="jar_shared_set">
-        <jar jarfile="${shared.jar}">
-            <fileset dir="${classes}">
-                <include name="com/topcoder/shared/**/*.class"/>
-            </fileset>
-        </jar>
-        <property name="jar_shared_set" value="true"/>
-    </target>
-
-    <target name="jar_common">
-        <jar jarfile="${common.jar}">
-            <fileset dir="${classes}">
-                <include name="com/topcoder/web/common/**/*.class"/>
-                <include name="com/topcoder/common/**/*.class"/>
-                <exclude name="com/topcoder/web/common/cache/admin/CacheAdmin.class"/>
-            </fileset>
-        </jar>
     </target>
 
     <target name="package-EJB-FileConversionBean" depends="compile">
@@ -550,9 +515,6 @@
         <antcall target="deploy-email"/>
         <antcall target="deploy-corp"/>
         <antcall target="deploy-privatelabel"/>
-<!-- don't deploy this on the main site anymore
-        <antcall target="deploy-longcontest"/>
--->
         <antcall target="deploy-reg"/>
         <antcall target="deploy-ep"/>
 
@@ -570,9 +532,6 @@
         <antcall target="expand-email"/>
         <antcall target="expand-corp"/>
         <antcall target="expand-privatelabel"/>
-<!-- don't deploy this on the main site anymore
-        <antcall target="expand-longcontest"/>
--->
         <antcall target="expand-reg"/>
         <antcall target="expand-ep"/>
 
@@ -604,9 +563,6 @@
                 <include name="cache.properties"/>
                 <include name="Email.properties"/>
                 <include name="EmailEngineConfig.properties"/>
-                <!-- don't deploy this on the main site anymore
-                <include name="LongContest.properties"/>
-                -->
             </fileset>
         </copy>
         <copy todir="${jboss_conf}">
@@ -898,7 +854,7 @@
     </target>
 
 
-    <target name="compile-reg" depends="jar_shared,jar_common,init">
+    <target name="compile-reg" depends="compile">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -966,7 +922,7 @@
         <delete dir="${jboss_deploy}/reg.war/META-INF"/>
     </target>
 
-    <target name="compile-ep" depends="jar_shared,jar_common,init">
+    <target name="compile-ep" depends="compile">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -1182,42 +1138,10 @@
 
     </target>
 
-    <target name="build-security" depends="compile_shared">
-        <javac
-                srcdir="${java}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.5"
-                target="1.5"
-                >
-            <include name="com/topcoder/security/**"/>
-        </javac>
-        <jar jarfile="${ejb_jars}/security.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/security/**"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/**"/>
-            <metainf dir="${resources}/security/conf" includes="*.xml" excludes="application.xml"/>
-        </jar>
-
-        <ear earfile="${ear.dir}/security.ear" appxml="${resources}/security/conf/application.xml">
-            <fileset dir="${jars.dir}">
-                <include name="configmanager2.jar"/>
-            </fileset>
-            <fileset dir="${jars.dir}/tcs/id_generator/3.0">
-                <include name="id_generator.jar"/>
-            </fileset>
-            <fileset dir="${external.jars.dir}">
-                <include name="base_exception-2.0.0.jar"/>
-            </fileset>
-            <fileset dir="${jars.dir}/tcs/db_connection_factory/1.0">
-                <include name="db_connection_factory.jar"/>
-            </fileset>
-            <fileset dir="${ejb_jars}">
-                <include name="security.jar"/>
-            </fileset>
-        </ear>
+    <target name="build-security">
+        <ant antfile="build_security.xml" target="build-security"/>
     </target>
+
 
 
     <target name="deploy-privatelabel" depends="compile">
@@ -1419,106 +1343,6 @@
         <delete dir="${jboss_deploy}/tc.war/META-INF"/>
     </target>
 
-
-    <target name="package-EJB-RoundRegistrationBean" depends="compile">
-        <jar jarfile="${ejb_jars}/RoundRegistration.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/roundregistration/*.class"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/roundregistration" includes="*.xml"/>
-        </jar>
-    </target>
-    <target name="package-EJB-RoomResultBean" depends="compile">
-        <jar jarfile="${ejb_jars}/RoomResult.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/roomresult/*.class"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/roomresult" includes="*.xml"/>
-        </jar>
-    </target>
-    <target name="package-EJB-LongCompResultBean" depends="compile">
-        <jar jarfile="${ejb_jars}/LongCompResult.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/longcompresult/*.class"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/longcompresult" includes="*.xml"/>
-        </jar>
-    </target>
-
-
-    <target name="compile_longcontest" depends="init">
-        <javac
-                srcdir="${java}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.5"
-                target="1.5"
-                >
-            <include name="com/topcoder/web/codinginterface/**"/>
-        </javac>
-    </target>
-
-    <target name="war-longcontest" depends="jar_shared, compile_longcontest">
-        <jar jarfile="${long.jar}">
-            <fileset dir="${classes}">
-                <include name="com/topcoder/web/tc/model/*.class"/>
-            </fileset>
-        </jar>
-        <war warfile="${war.dir}/longcontest.war" webxml="${resources}/longcontest/web.xml">
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/codinginterface/longcontest/**"/>
-                <include name="com/topcoder/web/codinginterface/view/tag/**"/>
-                <include name="com/topcoder/web/codinginterface/*.class"/>
-                <include name="com/topcoder/web/codinginterface/messaging/**"/>
-                <include name="com/topcoder/web/codinginterface/model/**"/>
-            </classes>
-            <webinf dir="${resources}/taglib">
-                <include name="tc-webtags.tld"/>
-                <include name="codinginterface.tld"/>
-                <include name="rsc-taglib.tld"/>
-                <include name="nav.tld"/>
-            </webinf>
-            <webinf dir="${struts.dir}">
-                <include name="struts-logic.tld"/>
-            </webinf>
-            <webinf dir="${java}/com/topcoder/web/codinginterface/longcontest/view/">
-                <include name="tags/*.tag"/>
-            </webinf>
-            <lib dir="${struts.dir}">
-                <include name="*.jar"/>
-            </lib>
-            <lib dir="${jars.dir}">
-                <include name="jstl.jar"/>
-                <include name="standard.jar"/>
-            </lib>
-
-            <fileset dir="${java}/com/topcoder/web/codinginterface/longcontest/view">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <fileset dir="${java}/com/topcoder/web/jsp">
-                <include name="*.jsp"/>
-                <include name="includes/**/*.jsp"/>
-            </fileset>
-
-        </war>
-    </target>
-
-    <target name="deploy-longcontest" depends="war-longcontest">
-        <antcall target="package-EJB-RoundRegistrationBean"/>
-        <antcall target="package-EJB-LongCompResultBean"/>
-        <antcall target="expand-longcontest"/>
-    </target>
-
-    <target name="expand-longcontest">
-        <copy todir="${jboss_deploy}">
-            <fileset dir="${ejb_jars}">
-                <include name="RoundRegistration.jar"/>
-                <include name="LongCompResult.jar"/>
-            </fileset>
-        </copy>
-        <unwar src="${war.dir}/longcontest.war" dest="${jboss_deploy}/longcontest.war/"
-               overwrite="yes"/>
-        <delete dir="${jboss_deploy}/longcontest.war/META-INF"/>
-    </target>
 
 
 </project>

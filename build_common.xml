@@ -58,13 +58,13 @@
         <mkdir dir="${bin}"/>
     </target>
 
-    <target name="compile-shared" depends="init" unless="compile_shared_set">
-        <ant dir="${shared.build}" target="jar"/>
-        <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${shared.jar}"/>
+    <target name="compile_shared" depends="init" unless="compile_shared_set">
+        <ant dir="${shared.build}" target="shared-all"/>
+        <copy file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${shared.jar}"/>
         <property name="compile_shared_set" value="true"/>
     </target>
 
-    <target name="compile" depends="init,compile-shared" unless="compile_set">
+    <target name="compile" depends="init,compile_shared" unless="compile_set">
         <depend srcdir="${java}" destdir="${classes}" cache="${build}/cache"/>
         <javac
                 srcdir="${java}"

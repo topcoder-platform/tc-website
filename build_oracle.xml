@@ -22,6 +22,9 @@
     <property name="testjava" value="${src.dir}/testcases"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
     <property name="build.javadocs" value="${build}/javadocs"/>
+    <property name="shared.build" value="${basedir}/../shared"/>
+    <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
+    
     <property environment="env"/>
 
     <property name="deprecation" value="true"/>
@@ -96,23 +99,12 @@
         <mkdir dir="${ear.dir}"/>
     </target>
 
-    <target name="compile_shared" depends="init">
-        <javac
-                srcdir="${shared}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.5"
-                target="1.5"
-                >
-        </javac>
-        <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
-        <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
+    <target name="compile_common" depends="init" unless="compile_common_set">
+        <ant antfile="build_common.xml" target="build-dist"/>
+        <property name="compile_common_set" value="true"/>
     </target>
 
-
-    <target name="compile" depends="init,jar_shared">
+    <target name="compile" depends="init,compile_common">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -122,13 +114,10 @@
                 source="1.5"
                 target="1.5"
                 >
-            <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/security/**"/>
-            <include name="com/topcoder/web/common/**"/>
             <include name="com/topcoder/web/oracle/**"/>
 
         </javac>
-        <antcall target="jar_common"/>
     </target>
 
 
@@ -151,24 +140,6 @@
         <delete dir="${build}"/>
         <delete dir="${bin}"/>
     </target>
-
-    <target name="jar_shared" depends="compile_shared">
-        <jar jarfile="${shared.jar}">
-            <fileset dir="${classes}">
-                <include name="com/topcoder/shared/**/*.class"/>
-            </fileset>
-        </jar>
-    </target>
-
-    <target name="jar_common">
-        <jar jarfile="${common.jar}">
-            <fileset dir="${classes}">
-                <include name="com/topcoder/web/common/**/*.class"/>
-                <include name="com/topcoder/common/**/*.class"/>
-            </fileset>
-        </jar>
-    </target>
-
 
     <target name="war-oracle" depends="compile">
         <war warfile="${war.dir}/oracle.war" webxml="${resources}/oracle/web.xml">
@@ -269,10 +240,8 @@
                 source="1.5"
                 target="1.5"
                 >
-            <include name="com/topcoder/web/common/**"/>
             <include name="com/topcoder/web/oracle/**"/>
         </javac>
-        <antcall target="jar_common"/>
     </target>
 
     <target name="run_oracle_tests" depends="compile_tests" description="run junit tests">
@@ -302,41 +271,8 @@
 
     </target>
 
-    <target name="build-security" depends="compile_shared">
-        <javac
-                srcdir="${java}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.4"
-                target="1.4"
-                >
-            <include name="com/topcoder/security/**"/>
-        </javac>
-        <jar jarfile="${ejb_jars}/security.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/security/**"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/**"/>
-            <metainf dir="${resources}/security/conf" includes="*.xml" excludes="application.xml"/>
-        </jar>
-
-        <ear earfile="${ear.dir}/security.ear" appxml="${resources}/security/conf/application.xml">
-            <fileset dir="${jars.dir}">
-                <include name="configmanager2.jar"/>
-            </fileset>
-            <fileset dir="${jars.dir}/tcs/id_generator/3.0">
-                <include name="id_generator.jar"/>
-            </fileset>
-            <fileset dir="${jars.dir}/tcs">
-                <include name="base_exception.jar"/>
-            </fileset>
-            <fileset dir="${jars.dir}/tcs/db_connection_factory/1.0">
-                <include name="db_connection_factory.jar"/>
-            </fileset>
-            <fileset dir="${ejb_jars}">
-                <include name="security.jar"/>
-            </fileset>
-        </ear>
+    <target name="build-security">
+        <ant antfile="build_security.xml" target="build-security"/>
     </target>
 
 
