@@ -143,7 +143,7 @@ public class Results extends SurveyData {
                 }
                 v = new Vote();
                 v.getId().setCandidate((Candidate) map.get(new Long(curr.getLongItem("question_id"))));
-                v.setRank(new Integer(curr.getStringItem("answer_text")));
+                v.setRank(new Integer(curr.getStringItem("sort_order")));
                 v.getId().setBallot(ballot);
                 ballot.getVotes().add(v);
                 lastUserId = curr.getLongItem("user_id");
