@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.admin.Constants"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
@@ -18,7 +19,7 @@
                 <td>
                     <% ResultSetContainer surveyList = (ResultSetContainer)request.getAttribute("admin_survey_list"); %>
                     <table>
-                        <tr><td class="big" align="center" colspan="5"><a href="/admin/?module=EditSurvey">Create New</a></td></tr>
+                        <tr><td class="big" align="center" colspan="6"><a href="/admin/?module=EditSurvey">Create New</a></td></tr>
                         <tr>
                             <td class="header">ID</td>
                             <td class="header">Name</td>
@@ -28,6 +29,7 @@
                             <td class="header">Text</td>
                             <td class="header"># Questions</td>
                             <td class="header">Results Viewable</td>
+                            <td class="header">Links</td>
                         </tr>
                         <% boolean even = false; %>
                         <rsc:iterator list="<%=surveyList%>" id="survey">
@@ -40,10 +42,16 @@
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="text"/></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="question_count"/></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="results_viewable"/></td>
+                                <td class="<%=even?"even":"odd"%>">
+                                    <a href="http<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewSurvey&amp;<%=Constants.SURVEY_ID%>=<rsc:item row="<%=survey%>" name="survey_id"/>">vote</a> |
+                                    <a href="http<%=ApplicationServer.SERVER_NAME%>/tc?module=SurveyResults&amp;<%=Constants.SURVEY_ID%>=<rsc:item row="<%=survey%>" name="survey_id"/>">results</a> |
+                                    <a href="http<%=ApplicationServer.SERVER_NAME%>/tc?module=LegacyReport&amp;t=new_report&amp;c=survey_results&amp;db=java:OLTP&amp;<%=Constants.SURVEY_ID%>=<rsc:item row="<%=survey%>" name="survey_id"/>">report</a>
+22280
+                                </td>
                             </tr>
                             <% even = !even;%>
                         </rsc:iterator>
-                        <tr><td class="big" align="center" colspan="5"><a href="/admin/?module=EditSurvey">Create New</a></td></tr>
+                        <tr><td class="big" align="center" colspan="6"><a href="/admin/?module=EditSurvey">Create New</a></td></tr>
                     </table>
 
                 </td>
