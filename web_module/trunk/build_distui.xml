@@ -90,17 +90,13 @@
         <mkdir dir="${war.dir}"/>
     </target>
 
-    <target name="compile_shared" depends="init" unless="compile_shared_set">
-        <ant dir="${shared.build}" target="jar"/>
-        <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${shared.jar}"/>
-        <property name="compile_shared_set" value="true"/>
+    <target name="compile_common" depends="init" unless="compile_common_set">
+        <ant antfile="build_common.xml" target="build-dist"/>
+        <property name="compile_common_set" value="true"/>
     </target>
 
-    <target name="compile" depends="init,compile_shared" unless="compile_set">
-        <ant antfile="build_tc.xml" target="jar_shared"/>
-        <ant antfile="build_tc.xml" target="compile"/>
-        <ant antfile="build_tc.xml" target="jar_common"/>
-        <ant antfile="build_tc.xml" target="build-security"/>
+    <target name="compile" depends="init,compile_common" unless="compile_set">
+        <ant antfile="build_security.xml" target="build-security"/>
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -134,27 +130,8 @@
         <delete dir="${bin}"/>
     </target>
 
-    <target name="jar_shared" depends="compile_shared" unless="jar_shared_set">
-        <jar jarfile="${shared.jar}">
-            <fileset dir="${classes}">
-                <include name="com/topcoder/shared/**/*.class"/>
-            </fileset>
-        </jar>
-        <property name="jar_shared_set" value="true"/>
-    </target>
-
-    <target name="jar_common">
-        <jar jarfile="${common.jar}">
-            <fileset dir="${classes}">
-                <include name="com/topcoder/web/common/**/*.class"/>
-                <include name="com/topcoder/common/**/*.class"/>
-                <exclude name="com/topcoder/web/common/cache/admin/**/*"/>
-            </fileset>
-        </jar>
-    </target>
-
     <target name="war" depends="compile">
-        <ant antfile="build_tc.xml" target="build-security"/>
+        <ant antfile="build_security.xml" target="build-security"/>
 
         <war warfile="${war.dir}/distui.war" webxml="${resources}/distui/web.xml">
             <fileset dir="${java}/com/topcoder/web/jsp">

@@ -110,13 +110,12 @@
         <mkdir dir="${ear.dir}"/>
     </target>
 
-    <target name="compile_shared" depends="init" unless="compile_shared_set">
-        <ant dir="${shared.build}" target="jar"/>
-        <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${shared.jar}"/>
-        <property name="compile_shared_set" value="true"/>
+    <target name="compile_common" depends="init" unless="compile_common_set">
+        <ant antfile="build_common.xml" target="build-dist"/>
+        <property name="compile_common_set" value="true"/>
     </target>
 
-    <target name="compile" depends="init,compile_shared">
+    <target name="compile" depends="init,compile_common">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -126,16 +125,14 @@
                 source="1.5"
                 target="1.5"
                 >
-            <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/ejb/**"/>
             <include name="com/topcoder/security/**"/>
             <include name="com/topcoder/utilities/**"/>
             <include name="com/topcoder/web/**"/>
         </javac>
-        <antcall target="jar_common"/>
     </target>
 
-    <target name="compile_forums" depends="init,compile_shared">
+    <target name="compile_forums" depends="init,compile_common">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -146,18 +143,15 @@
                 target="1.5"
                 >
             <include name="com/topcoder/web/forums/**"/>
-            <include name="com/topcoder/web/common/**"/>
             <include name="com/topcoder/security/**"/>
-            <include name="com/topcoder/common/web/data/**"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
             <include name="com/topcoder/web/ejb/email/**"/>
             <include name="com/topcoder/web/ejb/user/**"/>
         </javac>
-        <antcall target="jar_common"/>
     </target>
 
-    <target name="compile_forumData" depends="init,compile_shared">
+    <target name="compile_forumData" depends="init,compile_common">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -171,7 +165,7 @@
         </javac>
     </target>
 
-    <target name="compile_TCJive" depends="init,compile_shared">
+    <target name="compile_TCJive" depends="init,compile_common">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -197,14 +191,6 @@
     </target>
 
 
-    <target name="jar_common">
-        <jar jarfile="${common.jar}">
-            <fileset dir="${classes}">
-                <include name="com/topcoder/web/common/**/*.class"/>
-                <include name="com/topcoder/common/**/*.class"/>
-            </fileset>
-        </jar>
-    </target>
 
     <!-- ==========
          JBoss EJBs
@@ -272,8 +258,8 @@
     </target>
 
 
-    <target name="build-security" depends="compile_shared">
-        <ant antfile="build_tc.xml" target="build-security"/>
+    <target name="build-security">
+        <ant antfile="build_security.xml" target="build-security"/>
     </target>
 
     <target name="build-forums">

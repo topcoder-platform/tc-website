@@ -56,8 +56,13 @@
         <mkdir dir="${sar.dir}"/>
     </target>
 
-    <target name="compile" depends="init" unless="compile_set">
-        <ant antfile="build_tc.xml" target="compile"/>
+
+    <target name="compile_common" depends="init" unless="compile_common_set">
+        <ant antfile="build_common.xml" target="build-dist"/>
+        <property name="compile_common_set" value="true"/>
+    </target>
+
+    <target name="compile" depends="init,compile_common" unless="compile_set">
         
         <depend srcdir="${java}" destdir="${classes}" cache="${build}/cache"/>
         <javac
@@ -88,7 +93,7 @@
     </target>
 
     <target name="deploy" depends="build-cache-admin">
-         <ant antfile="build_tc.xml" target="build-security"/>
+         <ant antfile="build_security.xml" target="build-security"/>
 
         <copy todir="${jboss_deploy}" file="${sar.dir}/cacheadmin.sar"/>
         <copy todir="${jboss_lib}">

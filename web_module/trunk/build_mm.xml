@@ -125,7 +125,7 @@
     </target>
 
 
-    <target name="compile" depends="init, compile_shared, build_common" unless="compile_set">
+    <target name="compile" depends="init,compile_common" unless="compile_set">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -141,16 +141,10 @@
         <property name="compile_set" value="true"/>
     </target>
 
-    <target name="compile_shared" depends="init" unless="compile_shared_set">
-        <ant dir="${shared.build}" target="jar"/>
-        <move file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${shared.jar}"/>
-        <property name="compile_shared_set" value="true"/>
-    </target>
-
-    <target name="build_common">
+    <target name="compile_common" depends="init" unless="compile_common_set">
         <ant antfile="build_common.xml" target="build-dist"/>
+        <property name="compile_common_set" value="true"/>
     </target>
-
 
     <target name="package-EJB-RoundRegistrationBean" depends="compile">
         <jar jarfile="${ejb_jars}/RoundRegistration.jar">
@@ -161,7 +155,7 @@
     </target>
 
     <target name="build-security">
-        <ant antfile="build_tc.xml" target="build-security"/>
+        <ant antfile="build_security.xml" target="build-security"/>
     </target>
 
 
