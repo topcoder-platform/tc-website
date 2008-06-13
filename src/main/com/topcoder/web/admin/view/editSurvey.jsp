@@ -3,6 +3,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <% ResultSetContainer questions = (ResultSetContainer)request.getAttribute("questions");%>
 <html>
@@ -38,6 +39,15 @@
                             <tr><td colspan="2"><input type="submit" name="submit" value="Save"/></td></tr>
                         </table>
                     </form>
+                    <c:if test="${isElection}">
+                        <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method=post name="electionForm">
+                            <input type="hidden" name="module" value="CreateCondorcetAnswers"/>
+                            <tc-webtag:hiddenInput name="<%=Constants.SURVEY_ID%>" />
+
+                            <p>If you've created all your questions (candidates) and you need to create the ranking answers, click this button
+                            <input type="submit" name="submit" value="Create Rankings"/></p>
+                        </form>
+                    </c:if>
                     <% if (questions!=null && !questions.isEmpty()) { %>
                     <p>Questions</p>
                     <% } %>
