@@ -43,9 +43,9 @@
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="question_count"/></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="results_viewable"/></td>
                                 <td class="<%=even?"even":"odd"%>">
-                                    <a href="http<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewSurvey&amp;<%=Constants.SURVEY_ID%>=<rsc:item row="<%=survey%>" name="survey_id"/>">vote</a> |
-                                    <a href="http<%=ApplicationServer.SERVER_NAME%>/tc?module=SurveyResults&amp;<%=Constants.SURVEY_ID%>=<rsc:item row="<%=survey%>" name="survey_id"/>">results</a> |
-                                    <a href="http<%=ApplicationServer.SERVER_NAME%>/tc?module=LegacyReport&amp;t=new_report&amp;c=survey_results&amp;db=java:OLTP&amp;<%=Constants.SURVEY_ID%>=<rsc:item row="<%=survey%>" name="survey_id"/>">report</a>
+                                    <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewSurvey&amp;<%=Constants.SURVEY_ID%>=<rsc:item row="<%=survey%>" name="survey_id"/>">vote</a> |
+                                    <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=SurveyResults&amp;<%=Constants.SURVEY_ID%>=<rsc:item row="<%=survey%>" name="survey_id"/>">results</a> |
+                                    <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LegacyReport&amp;t=new_report&amp;c=survey_results&amp;db=java:OLTP&amp;<%=Constants.SURVEY_ID%>=<rsc:item row="<%=survey%>" name="survey_id"/>">report</a>
                                 </td>
                             </tr>
                             <% even = !even;%>
