@@ -23,24 +23,37 @@ public class CreateCondorcetAnswers extends Base {
         SurveyQuestion surveyQuestion = (SurveyQuestion) createEJB(getInitialContext(), SurveyQuestion.class);
         ResultSetContainer questions = surveyQuestion.getQuestions(new Long(sId), DBMS.OLTP_DATASOURCE_NAME);
         Answer answer = (Answer) createEJB(getInitialContext(), Answer.class);
+        ResultSetContainer answers;
 
+        String answerText;
+        long questionId;
         for (int i = 0; i < questions.size(); i++) {
+            questionId = questions.get(i).getLongItem("question_id");
             if (i == 0) {
-                answer.createAnswer(questions.get(i).getLongItem("question_id"),
-                        String.valueOf(i + 1) + " - Most Preferred", i + 1, DBMS.OLTP_DATASOURCE_NAME);
-            } else if (i == questions.size() - 1) {
-                answer.createAnswer(questions.get(i).getLongItem("question_id"),
-                        String.valueOf(i + 1) + " - Least Preferred", i + 1, DBMS.OLTP_DATASOURCE_NAME);
+                answerText = String.valueOf(i + 1) + " - Most Preferred";
+            } else if (i == (questions.size() - 1)) {
+                answerText = String.valueOf(i + 1) + " - Least Preferred";
             } else {
-                answer.createAnswer(questions.get(i).getLongItem("question_id"),
-                        String.valueOf(i + 1), i + 1, DBMS.OLTP_DATASOURCE_NAME);
+                answerText = String.valueOf(i + 1);
             }
-
+            answers = answer.getAnswers(questionId, DBMS.OLTP_DATASOURCE_NAME);
+            if (!answerExists(answerText, answers)) {
+                answer.createAnswer(questionId, answerText, i + 1, DBMS.OLTP_DATASOURCE_NAME);
+            }
         }
-        setNextPage(getSessionInfo().getServletPath() + "?" + com.topcoder.web.studio.Constants.MODULE_KEY +
-                "=ViewSurvey&" + Constants.SURVEY_ID + "=" + sId);
+        setNextPage(getSessionInfo().getServletPath() + "?module" +
+                "=EditSurvey&" + Constants.SURVEY_ID + "=" + sId);
 
         setIsNextPageInContext(false);
+    }
+
+    private static boolean answerExists(final String answerText, final ResultSetContainer answers) {
+        for (ResultSetContainer.ResultSetRow a : answers) {
+            if (answerText.equals(a.getStringItem("answer_text"))) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
