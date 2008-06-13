@@ -56,7 +56,7 @@ public abstract class SurveyData extends Base {
         Request r = new Request();
         r.setContentHandle("survey_questions");
         r.setProperty("sid", String.valueOf(surveyId));
-        DataAccessInt dataAccess = getDataAccess(true);
+        DataAccessInt dataAccess = getDataAccess();
         Map qMap = dataAccess.getData(r);
         ResultSetContainer questions = (ResultSetContainer) qMap.get("question_list");
 
@@ -78,8 +78,7 @@ public abstract class SurveyData extends Base {
         Request r = new Request();
         r.setContentHandle("survey_info");
         r.setProperty("sid", String.valueOf(surveyId));
-        //chaching should be ok, i don't think the actual survey will change much
-        DataAccessInt dataAccess = getDataAccess(true);
+        DataAccessInt dataAccess = getDataAccess();
         Map map = dataAccess.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) map.get("survey_info");
         Survey ret = null;
@@ -114,7 +113,7 @@ public abstract class SurveyData extends Base {
             log.debug("makeAnswerInfo called: " + questionId);
         }
         Request req = new Request();
-        DataAccessInt dataAccess = getDataAccess(true);
+        DataAccessInt dataAccess = getDataAccess();
         req.setContentHandle("answers");
         req.setProperty("qid", String.valueOf(questionId));
         ResultSetContainer rsc = (ResultSetContainer) dataAccess.getData(req).get("answer_info");
