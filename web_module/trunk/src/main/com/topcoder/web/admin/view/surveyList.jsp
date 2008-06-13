@@ -26,7 +26,9 @@
                             <td class="header">Start Date</td>
                             <td class="header">End Date</td>
                             <td class="header">Status</td>
+<%--
                             <td class="header">Text</td>
+--%>
                             <td class="header"># Questions</td>
                             <td class="header">Results Viewable</td>
                             <td class="header">Links</td>
@@ -39,7 +41,9 @@
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="start_date" format="yyyy.MM.dd HH:mm"/></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="end_date" format="yyyy.MM.dd HH:mm"/></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="status_desc"/></td>
+<%--
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="text"/></td>
+--%>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="question_count"/></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="results_viewable"/></td>
                                 <td class="<%=even?"even":"odd"%>">
