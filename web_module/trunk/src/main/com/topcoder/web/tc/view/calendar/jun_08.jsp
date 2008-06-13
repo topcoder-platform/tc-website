@@ -131,7 +131,7 @@
          9:00 PM
          </div>
          <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=13483">TCHS SRM 50</A></strong><br />
+         <strong><a href="/tc?module=MatchDetails&amp;rd=13483">TCHS SRM 50</a></strong><br />
          9:00 PM
          </div>
       </td>
@@ -174,7 +174,7 @@
          11:00 AM
          </div>
          <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=13484">TCHS SRM 51</A></strong><br />
+         <strong><a href="/tc?module=MatchDetails&amp;rd=13484">TCHS SRM 51</a></strong><br />
          11:00 AM
          </div>
       </td>

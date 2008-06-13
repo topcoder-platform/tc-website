@@ -42,7 +42,7 @@
     <a href="/tc?module=BasicRSS&amp;c=rss_Upcoming_Contests&amp;dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
 
-<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=jun_08" class="prevNext">&lt; prev</a> <%--| <a href="/tc?module=Static&amp;d1=calendar&amp;d2=aug_08" class="prevNext">next &gt;</a></strong>--%>
+<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=jun_08" class="prevNext">&lt; prev</a> | <a href="/tc?module=Static&amp;d1=calendar&amp;d2=aug_08" class="prevNext">next &gt;</a></strong>
 <jsp:include page="dropdown.jsp" >
 <jsp:param name="currMonth" value="jul_08"/>
 </jsp:include>
@@ -67,7 +67,7 @@
          7:00 AM
          </div>
          <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=13485">TCHS SRM 52</A></strong><br />
+         <strong><a href="/tc?module=MatchDetails&amp;rd=13485">TCHS SRM 52</a></strong><br />
          7:00 AM
          </div>
       </td>
@@ -162,7 +162,7 @@
          9:00 PM
          </div>
          <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=13486">TCHS SRM 53</A></strong><br />
+         <strong><a href="/tc?module=MatchDetails&amp;rd=13486">TCHS SRM 53</a></strong><br />
          9:00 PM
          </div>
       </td>
@@ -196,6 +196,10 @@
          <div class="des_dev">
          <strong><a href="/tc?module=ViewActiveContests&amp;ph=112">Des</a> &amp; <a href="/tc?module=ViewActiveContests&amp;ph=113">Dev</a> contests posted</strong><br />
          9:00 AM
+         </div>
+         <div class="srm">
+         <strong><a href="/tc?module=MatchDetails&amp;rd=13503">SRM 412</a></strong><br />
+         7:00 AM
          </div>
       </td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
