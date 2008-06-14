@@ -147,17 +147,6 @@
         <unjar src="studio.jar" dest="${build}/tempdist"/>
         <delete file="${build}/tempdist/build_studio.xml"/>
         <delete file="${build}/tempdist/move.xml"/>
-<!--
-        <unjar src="webserver.jar" dest="${build}/tempdist"/>
--->
-        <copy todir="${build}/tempdist">
-            <fileset dir=".">
-                <include name="i/**/*"/>
-                <include name="css/**/*"/>
-                <include name="js/**/*"/>
-            </fileset>
-        </copy>
-
         <delete dir="${build}/tempdist/META-INF"/>
 
         <copy todir="${build}/tempdist/depsrc">
@@ -281,8 +270,28 @@
                 <include name="hibernate.cfg.xml"/>
                 <include name="informix-ds.xml"/>
                 <include name="security.keystore"/>
+                <include name="dev/**/*"/>
             </fileset>
         </copy>
+
+        <copy todir="${build}/tempdist/webserver">
+            <fileset dir="../studiodocs">
+                <include name="css/**/*"/>
+                <include name="js/**/*"/>
+            </fileset>
+        </copy>
+        <copy todir="${build}/tempdist/webserver/i">
+            <fileset dir="../studiodocs/images">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+        <jar destfile="${build}/tempdist/resources/studio/dev/static.jar">
+            <fileset dir="${build}/tempdist/webserver">
+                <include name="i/**"/>
+                <include name="js/**"/>
+                <include name="css/**"/>
+            </fileset>
+        </jar>
 
         <copy todir="${build}/tempdist/resources/hibernate">
             <fileset dir="${resources}/hibernate">
@@ -361,7 +370,6 @@
         <copy todir="${jboss_deploy}" file="${sar.dir}/cacheadmin.sar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/QueryServices.jar"/>
         <copy todir="${jboss_deploy}" file="${war.dir}/query.war"/>
-        <antcall target="copy-static"/>
     </target>
 
     <target name="copy-static">
