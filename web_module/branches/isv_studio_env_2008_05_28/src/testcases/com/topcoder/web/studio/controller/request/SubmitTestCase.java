@@ -211,8 +211,6 @@ public class SubmitTestCase extends TCHibernateTestCase {
                             "TopCoder Direct, Automatic pass", review.getText());
         Assert.assertEquals("Incorrect reviewer",
                             userDAO.find(contest.getCreateUserId()).getId(), review.getReviewer().getId());
-        Assert.assertTrue("The submission is not marked as having the preview image provided",
-                           submission.getHasPreviewImage());
     }
 
     /**
@@ -281,8 +279,6 @@ public class SubmitTestCase extends TCHibernateTestCase {
         this.addedSubmissions.add(submission.getId());
         SubmissionReview review = submission.getReview();
         Assert.assertNull("The automatic screening review is added by mistake", review);
-        Assert.assertFalse("The submission is marked as having the preview image provided",
-                           submission.getHasPreviewImage());
     }
 
     /**
@@ -351,8 +347,6 @@ public class SubmitTestCase extends TCHibernateTestCase {
         this.addedSubmissions.add(submission.getId());
         SubmissionReview review = submission.getReview();
         Assert.assertNull("The automatic screening review is added by mistake", review);
-        Assert.assertTrue("The submission is not marked as having the preview image provided",
-                           submission.getHasPreviewImage());
 
         Set<SubmissionImage> images = submission.getImages();
         Assert.assertEquals("Wrong number of images assigned to submission", 4 * 7, images.size());
