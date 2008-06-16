@@ -176,6 +176,9 @@
             <fileset dir="${jars.dir}">
                 <include name="jboss/javax.servlet.jar"/>
                 <include name="jboss/jbossall-client.jar"/>
+                <include name="jboss/jboss-cache.jar"/>
+                <include name="jboss/jboss-system.jar"/>
+                <include name="jboss/jgroups.jar"/>
                 <include name="jboss/javax.servlet.jsp.jar"/>
                 <include name="tcs/file_upload/2.0/file_upload.jar"/>
 
@@ -236,6 +239,7 @@
                 <include name="image_manipulation-1.0.0.jar"/>
                 <include name="jai_codec-1.1.3.jar"/>
                 <include name="jai_core-1.1.3.jar"/>
+                <include name="mockejb-0.6-beta2.jar"/>
             </fileset>
         </copy>
 
