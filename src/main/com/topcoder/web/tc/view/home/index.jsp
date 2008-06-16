@@ -180,7 +180,7 @@
 <%-- Header Links Must Match Active Promo Links Below!! --%>
 <tr>
     <td align="center">
-        <a href="/tc?module=MatchDetails&amp;rd=12177" class="tabHeader"><span>SRM 405 brought to you by BT</span></a>
+        <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description" class="tabHeader"><span>The Digital Run</span></a>
     </td>
     <td align="center">
         <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/" class="tabHeader"><span>Software</span></a>
@@ -197,9 +197,9 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- DIGITAL RUN 
+                <%-- DIGITAL RUN --%>
                 <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/dig_run_2008_s2.png" alt="The Digital Run" border="0" style="display:block;"/></a>
-                --%>
+                
                 
                 <%-- DIGITAL RUN ASSEMBLY CUP 
                 <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></a>
@@ -225,13 +225,13 @@
                 <img src="/i/home/predictive1_tc2.png" alt="Predictive Marathon Competition 1" border="0" style="display:block;" usemap="#mm"/>
                 --%>
 
-                <%-- SRM SPONSOR --%>
+                <%-- SRM SPONSOR 
                 <map id="srm" name="srm">
                 <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&amp;rd=12177" />
                 <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&amp;d1=sponsors&amp;d2=bt" />
                 </map>
                 <img src="/i/home/srm405_bt.png" alt="SRM 405 brought to you by BT" border="0" style="display:block;" usemap="#srm"/>
-                
+                --%>
                 
                 <%-- UML Tool 
                 <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></a>
