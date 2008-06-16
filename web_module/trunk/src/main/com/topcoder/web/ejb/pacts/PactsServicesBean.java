@@ -85,6 +85,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static final Logger log = Logger.getLogger(PactsServicesBean.class);
     private static final int DESIGN_PROJECT = 1;
     private static final int DEVELOPMENT_PROJECT = 2;
+    private static final int COMPONENT_TESTING_PROJECT = 3;
     
     private static final double DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
     private static final double DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT = 0.75;
@@ -5120,7 +5121,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else {
                     p.setGrossAmount(amount);
                 }
-            } else if (projectType == DEVELOPMENT_PROJECT) {
+            } else if (projectType == DEVELOPMENT_PROJECT || projectType == COMPONENT_TESTING_PROJECT) {
                 p = new ReviewBoardPayment(coderId, amount, client, projectId);
             }
 
@@ -6174,6 +6175,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 l.addAll(generateReviewersDevSupportPayments(designProject, payRboardBonus));
 
             }
+        } else if (projectType == COMPONENT_TESTING_PROJECT) {
+            ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
+            l.add(cwp);            
         } else throw new IllegalArgumentException("Project " + projectId + " not found or is not a dev/des component");
 
         return l;
