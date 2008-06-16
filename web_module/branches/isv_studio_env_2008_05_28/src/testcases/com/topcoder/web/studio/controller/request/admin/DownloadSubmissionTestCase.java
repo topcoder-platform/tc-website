@@ -356,10 +356,11 @@ public class DownloadSubmissionTestCase extends TCHibernateTestCase {
         List args = MockHttpServletResponse.getMethodArguments("setContentType_String");
         Map callArgs = (Map) args.get(0);
         String contentType = (String) callArgs.get("1");
-        Assert.assertTrue("Wrong response content type set", "image/jpeg".equals(contentType)
-                                                             || "image/pjpeg".equals(contentType));
+        Assert.assertTrue("Wrong response content type set " + contentType,
+                          "application/x-zip-compressed".equals(contentType)
+                          || "application/zip".equals(contentType) || "application/x-zip".equals(contentType));
 
-        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_image.jpg");
+        byte[] expectedContent = readSubmissionFile(contestId, handle, userId, submissionId + "_preview.zip");
         byte[] actualContent = baos.toByteArray();
         Assert.assertTrue("Wrong content is returned", Arrays.equals(expectedContent, actualContent));
     }

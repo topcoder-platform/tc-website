@@ -135,12 +135,12 @@ INSERT INTO contest_result (submission_id, contest_id, create_date, placed, fina
 
 INSERT INTO submission_review (submission_id, reviewer_id, text, review_status_id, modify_date) VALUES (1, 1, 'Pass', 1, CURRENT);
 
-INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (17, '1_18_1.jpg', 18, 1, '', 100, 100, CURRENT, '1.jpg');
-INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (18, '1_22_1.png', 22, 1, '', 100, 100, CURRENT, '2.jpg');
-INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (19, '1_23_1.png', 23, 1, '', 100, 100, CURRENT, '3.jpg');
-INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (20, '1_19_1.png', 19, 1, '', 100, 100, CURRENT, '3.jpg');
-INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (21, '1_20_1.png', 20, 1, '', 100, 100, CURRENT, '3.jpg');
-INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (22, '1_21_1.jpg', 21, 1, '', 100, 100, CURRENT, '3.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (17, '1_18_1.jpg', 25, 1, '', 100, 100, CURRENT, '1.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (18, '1_22_1.png', 29, 1, '', 100, 100, CURRENT, '2.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (19, '1_23_1.png', 30, 1, '', 100, 100, CURRENT, '3.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (20, '1_19_1.png', 26, 1, '', 100, 100, CURRENT, '3.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (21, '1_20_1.png', 27, 1, '', 100, 100, CURRENT, '3.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (22, '1_21_1.jpg', 28, 1, '', 100, 100, CURRENT, '3.jpg');
 
 INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (1, 17, 1);
 INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (1, 18, 2);
@@ -187,7 +187,7 @@ INSERT INTO contest_result (submission_id, contest_id, create_date, placed, fina
 
 INSERT INTO submission_review (submission_id, reviewer_id, text, review_status_id, modify_date) VALUES (2, 1, 'Pass', 1, CURRENT);
 
-INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (23, '2_21_1.jpg', 21, 2, '', 100, 100, CURRENT, '3.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (23, '2_21_1.jpg', 28, 2, '', 100, 100, CURRENT, '3.jpg');
 
 INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (2, 23, 1);
 
@@ -410,10 +410,10 @@ INSERT INTO submission_review (submission_id, reviewer_id, text, review_status_i
 
 INSERT INTO submission_payment (submission_id, payment_status_id, price) VALUES (7, 3, 100.00);
 
-INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (7, '7_18_1.jpg', 18, 7, '', 100, 100, CURRENT, '1.jpg');
-INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (8, '7_22_1.png', 22, 7, '', 100, 100, CURRENT, '2.jpg');
-INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (9, '7_23_1.png', 23, 7, '', 100, 100, CURRENT, '3.jpg');
-INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (14, '7_24_1.png', 24, 7, '', 100, 100, CURRENT, '4.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (7, '7_18_1.jpg', 25, 7, '', 100, 100, CURRENT, '1.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (8, '7_22_1.png', 29, 7, '', 100, 100, CURRENT, '2.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (9, '7_23_1.png', 30, 7, '', 100, 100, CURRENT, '3.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (14, '7_24_1.png', 31, 7, '', 100, 100, CURRENT, '4.jpg');
 
 INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (7, 7, 1);
 INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (7, 8, 2);
@@ -455,10 +455,10 @@ INSERT INTO submission (submission_id,submitter_id,contest_id,create_date,origin
 
 INSERT INTO submission_payment (submission_id, payment_status_id, price) VALUES (8, 3, 100.00);
 
-INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (10, '8_18_1.jpg', 18, 8, '', 100, 100, CURRENT, '1.jpg');
-INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (11, '8_22_1.png', 22, 8, '', 100, 100, CURRENT, '2.jpg');
-INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (12, '8_23_1.png', 23, 8, '', 100, 100, CURRENT, '3.jpg');
-INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (16, '8_24_1.png', 24, 8, '', 100, 100, CURRENT, '4.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (10, '8_18_1.jpg', 25, 8, '', 100, 100, CURRENT, '1.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (11, '8_22_1.png', 29, 8, '', 100, 100, CURRENT, '2.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (12, '8_23_1.png', 30, 8, '', 100, 100, CURRENT, '3.jpg');
+INSERT INTO image (image_id, file_name, image_type_id, path_id, link, height, width, modify_date, original_file_name) VALUES (16, '8_24_1.png', 31, 8, '', 100, 100, CURRENT, '4.jpg');
 
 INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (8, 10, 1);
 INSERT INTO submission_image (submission_id, image_id, sort_order) VALUES (8, 11, 2);
