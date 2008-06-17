@@ -110,7 +110,7 @@
 
     </div>
 </div>
-   
+   <%-- begin we don't need to show this if there are no reviews --%>
 <div align="center" style="margin-bottom: 100px;">
 <table style="width: 700px;" cellpadding="0" cellspacing="0">
 <tbody>
@@ -150,6 +150,8 @@
     <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review"><img src="/i/tcorLogo.png" alt="TopCoder Online Review" style="display: block; margin: 3px;" /></a>
 </div>
 
+<%-- end we don't need to show this if there are no reviews --%>
+                
                         <br clear="all"/>
                     </div>                
                     <div class="contentBottom"></div>
