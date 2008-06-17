@@ -6,7 +6,6 @@ import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.utilities.cheaterChecker.Contest;
 
 import javax.naming.Context;
 
@@ -16,7 +15,7 @@ public class PasswordGetter {
 
     public static void main(String[] args) {
         if (args.length != 1) {
-            System.out.println("SYNTAX: java " + Contest.class.getName() + "<handle>");
+            System.out.println("SYNTAX: java " + PasswordGetter.class.getName() + "<handle>");
             return;
         }
         String handle = args[0];
