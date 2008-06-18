@@ -1,7 +1,7 @@
 <table width="530" border="0" cellspacing="0" cellpadding="3">                     
     <tr valign="middle">
-        <td class="statTextLarge" bgcolor="#999999" width="50%" align="left"><font size="3">TopCoder Developments</font></td>
-        <td class="viewAll" bgcolor="#999999" width="50%"><a target="_blank" href="/html/tcDevOptIn.htm" class="bodyText"><strong>Subscribe</strong></a></td>
+        <td class="statTextLarge" bgcolor="#999999" width="80%" align="left"><font size="3">TopCoder Developments Newsletter</font></td>
+        <td class="viewAll" bgcolor="#999999" width="20%"><a target="_blank" href="/html/tcDevOptIn.htm" class="bodyText"><strong>Subscribe</strong></a></td>
     </tr>
 </table>
 <table width="530" border="0" cellspacing="0" cellpadding="4">
