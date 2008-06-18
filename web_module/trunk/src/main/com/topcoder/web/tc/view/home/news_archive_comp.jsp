@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">06.18.08 10:30 AM - </td><td width="100%"><a href="/dobbs">TopCoder Contest at Dr. Dobb's Architecture &amp; Design World Conference</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.12.08 1:30 PM - </td><td width="100%"><a href="/tc?module=ViewActiveContests&amp;ph=113">New Component Testing Competitions</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.04.08 12:30 PM - </td><td width="100%"><a href="/truveo/">Video Apps Aplenty in the Truveo Challenge</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.27.08 10:00 AM - </td><td width="100%"><a href="/wiki/display/tc/Active+Bug+Races">Week at the Races</a><br /></td></tr>

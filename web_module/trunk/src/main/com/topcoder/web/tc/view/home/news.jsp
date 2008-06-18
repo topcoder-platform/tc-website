@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />06.18.08<br />10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/dobbs' refer='/tc' />">TopCoder Contest at Dr. Dobb's Architecture &amp; Design World Conference</a></span><br /><br />
+         TopCoder will be onsite at the 2008 Dr Dobb's Architecture &amp; Design World next month in Chicago (July 21-24). We'll be hosting the Software Architecture Contest, providing attendees with a TopCoder challenge in architectural design.<br /><br />
+         Contestants will compete to create and document a comprehensive solution to a set of system requirements.  During the conference, attendees will be able to browse and score the submissions using the same scorecards and criteria that TopCoder uses to judge competitions for our real-world projects.<br /><br />
+         So if you're planning on attending the conference make sure to stop by our booth and visit with us. If you're not registered and think you'd like to attend there's full information for the Dr. Dobb's Architecture and Design World Conference available at: <a target="_blank" href="<tc-webtag:linkTracking link='http://www.drdobbsarchworld.com/' refer='/tc' />">http://www.drdobbsarchworld.com</a><br /><br />
+         <strong>Note:</strong>  TopCoder membership and conference registration is required in order to be eligible for this competition - full rules and guidelines are available at: <a href="<tc-webtag:linkTracking link='/dobbs' refer='/tc' />">http://www.topcoder.com/dobbs</a></td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/dobbs' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="521693" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />06.13.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">Event Calendar updated through December 2008</a></span><br /><br />
@@ -152,21 +168,5 @@
         <a href="<tc-webtag:linkTracking link='/truveo' refer='/tc' />">details</a> | 
         <a href="/truveo/forums">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />05.29.07<br />11:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm401">SRM 401 - Problem Set &amp; Analysis</a></span><br /><br />
-      The last SRM before TCO08 onsite finals became the most crowded TopCoder SRM ever as the limit on the number of participants was increased to 1750. To finish in top3 in Division 1 it was enough to solve all three problems correctly, which was done by <tc-webtag:handle coderId="10574855" context="algorithm"/>, <tc-webtag:handle coderId="19849563" context="algorithm"/> and <tc-webtag:handle coderId="8355516" context="algorithm"/>, who finished first, second and third respectively.</td>
-         <td class="newsPhoto"><%--<img src="/i/m/eleusive_big2.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="15152215" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm401">details</a> | 
-        <tc-webtag:forumLink forumID="521053" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
    
