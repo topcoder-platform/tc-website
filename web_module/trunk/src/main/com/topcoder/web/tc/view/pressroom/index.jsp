@@ -111,7 +111,33 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
-                <%-- WSJ --%>
+                <%-- THE Journal: Which Side Are You On? begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.thejournal.com/articles/22736_2' refer='pr_index' />"><img src="/i/pressroom/theJournal_logo.png" alt="THE Journal" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.thejournal.com/articles/22736_2' refer='pr_index' />">Which Side Are You On?</a></h3>
+                        <p>The TopCoder High School Tournament is highlighted in Matt Villano's feature on the state of 21st Century Skills in the classroom.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.thejournal.com/articles/22736_2' refer='pr_index' />">[June]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- THE Journal: Which Side Are You On? end --%>
+                
+                <%-- People Management: Why We All Want to Grow Towards the Sun begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.peoplemanagement.co.uk/pm/articles/2008/05/why-we-all-want-to-grow-towards-the-sun.htm?EmailSent=true' refer='pr_index' />"><img src="/i/pressroom/peopleMgmt_logo.png" alt="People Management" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.peoplemanagement.co.uk/pm/articles/2008/05/why-we-all-want-to-grow-towards-the-sun.htm?EmailSent=true' refer='pr_index' />">Why We All Want to Grow Towards the Sun</a></h3>
+                        <p>TopCoder's model of clear rules, boundaries and incentives leads to a creatively engaging and passionate work environment.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.peoplemanagement.co.uk/pm/articles/2008/05/why-we-all-want-to-grow-towards-the-sun.htm?EmailSent=true' refer='pr_index' />">[May 29]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- People Management: Why We All Want to Grow Towards the Sun end --%>
+                
+                <%-- WSJ: Keeping it Simple Pays for a Champion Coder begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
                         <a target="_blank" href="http://blogs.wsj.com/biztech/2008/05/16/keeping-it-simple-pays-for-a-champion-coder/?mod=WSJBlog"><img src="/i/pressroom/wsj_logo.gif" alt="CIO" border="0" /></a>
@@ -122,8 +148,9 @@
                     </div>
                     <div class="pr_clear"></div>
                 </div>
+                <%-- WSJ: Keeping it Simple Pays for a Champion Coder end --%>
 
-                <%-- CIO --%>
+                <%-- CIO: Where Programming Meets American Idol begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
                         <a target="_blank" href="http://www.cio.com/article/358813/Where_Programming_Meets_American_Idol"><img src="/i/pressroom/ciocom_logo_1201.gif" alt="CIO" border="0" /></a>
@@ -134,8 +161,9 @@
                     </div>
                     <div class="pr_clear"></div>
                 </div>
+                <%-- CIO: Where Programming Meets American Idol end --%>
 
-                <%-- Truveo --%>
+                <%-- Truveo begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
                         <a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_051908_b"><img src="/i/pressroom/truveo.png" alt="" border="0" /></a>
@@ -146,18 +174,20 @@
                     </div>
                     <div class="pr_clear"></div>
                 </div>
+                <%-- Truveo end --%>
 
-                <%-- Open AIM --%>
+                <%-- Open AIM begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_051908"><img src="/i/pressroom/openaim.png" alt="" border="0" /></a>
+                        <a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908"><img src="/i/pressroom/openaim.png" alt="" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_051908">TopCoder Awards $100,000 in Prize Money to Winners of AOL's Open AIM Developer Challenge during TopCoder Open in Las Vegas</a></h3>
-                        <p>TopCoder and AOL today announced the winners of AOL's Open AIM Developer Challenge. These winners were awarded $100,000 in prize money, live and on stage, at the 2008 TopCoder Open. In just two short months of competition, TopCoder community members created an incredible 53 new applications using new Open AIM APIs.<small><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_051908">[May 19]</a></small></p>
+                        <h3><a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908">TopCoder Awards $100,000 in Prize Money to Winners of AOL's Open AIM Developer Challenge during TopCoder Open in Las Vegas</a></h3>
+                        <p>TopCoder and AOL today announced the winners of AOL's Open AIM Developer Challenge. These winners were awarded $100,000 in prize money, live and on stage, at the 2008 TopCoder Open. In just two short months of competition, TopCoder community members created an incredible 53 new applications using new Open AIM APIs.<small><a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908">[May 19]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
+                <%-- Open AIM end --%>
 
                 <%-- Computerworld: Eli Lilly aims to tap 'rock star' programmers begin --%>
                 <div class="pr_newsitem">
