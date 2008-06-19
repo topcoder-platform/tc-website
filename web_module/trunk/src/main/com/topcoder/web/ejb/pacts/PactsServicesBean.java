@@ -85,7 +85,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static final Logger log = Logger.getLogger(PactsServicesBean.class);
     private static final int DESIGN_PROJECT = 1;
     private static final int DEVELOPMENT_PROJECT = 2;
-    private static final int COMPONENT_TESTING_PROJECT = 3;
+    private static final int COMPONENT_TESTING_PROJECT = 5;
     
     private static final double DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
     private static final double DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT = 0.75;
