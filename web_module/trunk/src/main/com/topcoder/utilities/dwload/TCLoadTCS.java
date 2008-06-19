@@ -1495,13 +1495,13 @@ public class TCLoadTCS extends TCLoad {
                     }
 
                     //log.debug("before result insert");
-                    //try {
+                    try {
                     resultInsert.executeUpdate();
-                    // } catch(Exception e) {
+                     } catch(Exception e) {
                     // Notes: it seems same user will appear in resource table twice
-                    //  log.debug("project_id: " + project_id + " user_id: " + projectResults.getLong("user_id"));
-                    //  continue;
-                    // }
+                      log.debug("project_id: " + project_id + " user_id: " + projectResults.getLong("user_id"));
+                      throw(e);
+                     }
                     //log.debug("after result insert");
 
                     //printLoadProgress(count, "project result");
