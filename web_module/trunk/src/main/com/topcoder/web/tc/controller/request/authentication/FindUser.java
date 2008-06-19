@@ -36,23 +36,28 @@ public class FindUser extends ShortHibernateProcessor {
 
         User user = null;
 
-        if (handle.length() > 0) {
-            user = DAOUtil.getFactory().getUserDAO().find(handle, true, false);
-            if (user == null) {
-                addError(ERROR_HANDLE, "Username not found");
-            }
+        if ("".equals(handle) && "".equals(firstName) && "".equals(lastName) && "".equals(email)) {
+            addError(ERROR_HANDLE, "You must fill in at least one field to search on");
         } else {
-            List l = DAOUtil.getFactory().getUserDAO().find(handle, firstName, lastName, email);
-
-            if (l.size() == 0) {
-                addError(ERROR_INFO, "No user was found with that information");
-            } else if (l.size() > 1) {
-                addError(ERROR_INFO, "More than one user found.");
-                addError(ERROR_INFO, "Please provide additional information.");
+            if (handle.length() > 0) {
+                user = DAOUtil.getFactory().getUserDAO().find(handle, true, false);
+                if (user == null) {
+                    addError(ERROR_HANDLE, "Username not found");
+                }
             } else {
-                user = (User) l.get(0);
+                List l = DAOUtil.getFactory().getUserDAO().find(handle, firstName, lastName, email);
+
+                if (l.size() == 0) {
+                    addError(ERROR_INFO, "No user was found with that information");
+                } else if (l.size() > 1) {
+                    addError(ERROR_INFO, "More than one user found.");
+                    addError(ERROR_INFO, "Please provide additional information.");
+                } else {
+                    user = (User) l.get(0);
+                }
             }
         }
+
 
         if (!hasMailAccess && user != null && user.getSecretQuestion() == null) {
             addError(ERROR_INFO, "You don't have a secret question. ");
