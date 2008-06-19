@@ -60,7 +60,7 @@
 
                 <h1>Scores</h1>
 
-<div align="center" style="font-size: 32px; font-weight: bold;">
+<div align="center" class="bigHandle">
     <studio:handle coderId="${submission.submitter.id}"/>
 </div>
 
@@ -195,7 +195,7 @@
                     <div class="commentTitle">
                         Feedback:
                         <%-- START: if the user is an admin, show this --%>
-                        <span class="adminCons">(<a href="#">edit</a> | <a href="#TB_inline?height=100&amp;width=300&amp;inlineId=modalContent&amp;modal=true" class="thickbox">remove</a>  )</span>
+                        <span class="adminCons">(<a href="#">edit</a> | <a href="#TB_inline&amp;width=300&amp;height=100&amp;inlineId=modalMessage&amp;modal=true" class="thickbox">remove</a>  )</span>
                         <%-- END: if the user is an admin, show this --%>
                     </div>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer a velit id arcu interdum malesuada. Pellentesque at urna. Nunc ullamcorper, neque eu facilisis auctor, felis neque lacinia nibh, vel lacinia lorem eros ac mauris. Cras laoreet arcu et nibh. Sed metus arcu, tempus et, dignissim eget, tempus sit amet, velit. Cras eleifend purus ultricies velit. Morbi sit amet enim. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse lacinia venenatis dui. Maecenas justo odio, bibendum eget, mattis iaculis, posuere ac, tellus. Ut non nisi vel ante placerat sagittis. Morbi gravida ligula a neque. Mauris posuere. Etiam tempus diam at leo. Etiam aliquam blandit turpis.
@@ -226,7 +226,7 @@
                     <div class="responseTitle">
                         Designer's response:
                         <%-- START: if the user is an admin, show this --%>
-                        <span class="adminCons">(<a href="#">edit</a> | <a href="#TB_inline?height=100&amp;width=300&amp;inlineId=modalContent&amp;modal=true" class="thickbox">remove</a>  )</span>
+                        <span class="adminCons">(<a href="#">edit</a> | <a href="#TB_inline?height=100&amp;width=300&amp;inlineId=modalMessage&amp;modal=true" class="thickbox">remove</a>  )</span>
                         <%-- END: if the user is an admin, show this --%>
                     </div>
                     <%-- END: if the submitter has already responded --%>
@@ -270,16 +270,16 @@
                     <%-- END: if the user is the submitter and has not already responded, show this --%>
                     <%-- START: if the submitter has already responded --%> 
                     <!--
-                    <div style="float: right; font-weight: bold;">
+                    <div class="responseDate">
                         Wed, Dec 19, 2007 at 12:49 PM EST
                     </div>
-                    <div class="commentTitle">
+                    <div class="responseTitle">
                         Designer's response:
                         <%-- START: if the user is an admin, show this --%>
-                        <span class="adminCons">(<a href="#">edit</a> | <a href="#TB_inline?height=100&amp;width=300&amp;inlineId=modalContent&amp;modal=true" class="thickbox">remove</a>  )</span>
+                        <span class="adminCons">(<a href="#">edit</a> | <a href="#TB_inline?height=100&amp;width=300&amp;inlineId=modalMessage&amp;modal=true" class="thickbox">remove</a>  )</span>
                         <%-- END: if the user is an admin, show this --%>
                     </div>
-                    <span style="color: #0869a4">Thanks!</span>
+                    <span>Thanks!</span>
                     -->
                     <%-- END: if the submitter has already responded --%>
                 </div>
@@ -292,6 +292,16 @@
 
 </div>
 <%-- feedback comment end --%>
+
+<div id="modalMessage" style="display: none;">
+    <p align="center">
+        Are you sure you want to remove this comment/response?
+    </p>
+    <div align="center">
+        <button onclick="tb_remove();">Yes</button>
+        <button onclick="tb_remove();">Cancel</button>
+    </div>
+</div>
 
 
                     </div>                
