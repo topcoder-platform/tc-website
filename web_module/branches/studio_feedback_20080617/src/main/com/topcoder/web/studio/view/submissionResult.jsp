@@ -173,7 +173,7 @@
                     </div>
                 </div>
                 <div class="commentContent">
-                    <%-- START: if this user hasn't posted a comment --%>
+                    <%-- START: show this if this user hasn't posted a comment --%>
                     <%--
                     <div class="commentTitle">
                         Give feedback:
@@ -186,20 +186,20 @@
                         <a href=""><img src="/i/v2/interface/btnPost.png" alt="Post" /></a>
                     </div>
                     --%>
-                    <%-- END: if this user hasn't posted a comment --%>
+                    <%-- END: show this if this user hasn't posted a comment --%>
 
-                    <%-- START: or if this is an existing comment show this --%>
+                    <%-- START: or show this if this is an existing comment --%>
                     <div class="commentDate">
                         Wed, Dec 19, 2007 at 12:49 PM EST
                     </div>
                     <div class="commentTitle">
                         Feedback:
-                        <%-- START: if the user is an admin, show this --%>
+                        <%-- START: show this if the user is an admin --%>
                         <span class="adminCons">(<a href="#">edit</a> | <a href="#TB_inline&amp;width=300&amp;height=100&amp;inlineId=modalMessage&amp;modal=true" class="thickbox">remove</a>  )</span>
-                        <%-- END: if the user is an admin, show this --%>
+                        <%-- END: show this if the user is an admin --%>
                     </div>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer a velit id arcu interdum malesuada. Pellentesque at urna. Nunc ullamcorper, neque eu facilisis auctor, felis neque lacinia nibh, vel lacinia lorem eros ac mauris. Cras laoreet arcu et nibh. Sed metus arcu, tempus et, dignissim eget, tempus sit amet, velit. Cras eleifend purus ultricies velit. Morbi sit amet enim. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse lacinia venenatis dui. Maecenas justo odio, bibendum eget, mattis iaculis, posuere ac, tellus. Ut non nisi vel ante placerat sagittis. Morbi gravida ligula a neque. Mauris posuere. Etiam tempus diam at leo. Etiam aliquam blandit turpis.
-                    <%-- END: or if this is an existing comment show this --%>
+                    <%-- END: or show this if this is an existing comment --%>
 
                 </div>
                 <div style="clear: both;">&nbsp;</div>
@@ -225,11 +225,10 @@
                     </div>
                     <div class="responseTitle">
                         Designer's response:
-                        <%-- START: if the user is an admin, show this --%>
+                        <%-- START: show this if the user is an admin --%>
                         <span class="adminCons">(<a href="#">edit</a> | <a href="#TB_inline?height=100&amp;width=300&amp;inlineId=modalMessage&amp;modal=true" class="thickbox">remove</a>  )</span>
-                        <%-- END: if the user is an admin, show this --%>
+                        <%-- END: show this if the user is an admin --%>
                     </div>
-                    <%-- END: if the submitter has already responded --%>
                     <span>Thanks!</span>
                 </div>
                 <div style="clear: both;">&nbsp;</div>
