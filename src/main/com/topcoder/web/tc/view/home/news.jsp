@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />06.20.08<br />5:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=MatchDetails&amp;rd=12202">Marathon Match 36 – Schedule Changed and Prizes Awarded!</a></span><br /><br />
+        Marathon Match 36 has been moved from Wednesday, June 25th, 2008, to Monday, June 23rd, 2008. It will be a one-week competition that highlights encryption technology and will have a $5,000 cash purse! Participate in the first of a string of encryption matches that will continue to the end of the year... Unir sha naq tbbq yhpx!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=MatchDetails&amp;rd=12202">details</a> | 
+        <tc-webtag:forumLink forumID="521762" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />06.19.08<br />3:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a target="_blank" href="<tc-webtag:linkTracking link='http://www.thejournal.com/articles/22736_2' refer='/tc' />">THE Journal: Which Side Are You On?</a></span><br /><br />
@@ -157,16 +170,3 @@
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=615682">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
    </td></tr>
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />06.05.08<br />11:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=predictiveOverview' refer='/tc' />">New Predictive Marathon Match!</a></span><br /><br />
-        Do you think you have what it takes to predict the future? Some TopCoder members have already demonstrated their prognostication skills by predicting the results of recent TCOs, and some game simulations are becoming eerily accurate at being able to predict real sporting events. Now it's time to really put your precognitive programming skills to the test. We are proud to announce the first TopCoder Predictive Marathon Match, with a prize purse of $2,000! Pit your forecasting skills against your fellow members in this month-long rated match.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=predictiveOverview' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="521405" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
-   </td></tr>
-   
