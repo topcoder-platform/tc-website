@@ -1,5 +1,16 @@
 package com.topcoder.web.studio.controller.request.admin;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.web.common.StringUtils;
@@ -9,49 +20,39 @@ import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.ContestPropertyDAO;
-import com.topcoder.web.studio.dao.FileTypeDAO;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.dao.MediumDAO;
-import com.topcoder.web.studio.dao.ContestTypeDAO;
 import com.topcoder.web.studio.dao.ContestChannelDAO;
+import com.topcoder.web.studio.dao.ContestPropertyDAO;
+import com.topcoder.web.studio.dao.ContestTypeDAO;
+import com.topcoder.web.studio.dao.FileTypeDAO;
+import com.topcoder.web.studio.dao.MediumDAO;
+import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.ContestChannel;
 import com.topcoder.web.studio.model.ContestConfig;
 import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.ContestType;
-import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.model.Medium;
-import com.topcoder.web.studio.model.ContestChannel;
+import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.validation.BooleanValidator;
+import com.topcoder.web.studio.validation.ClientNameValidator;
+import com.topcoder.web.studio.validation.ContestChannelValidator;
+import com.topcoder.web.studio.validation.ContestConfigValueValidator;
 import com.topcoder.web.studio.validation.ContestNameValidator;
 import com.topcoder.web.studio.validation.ContestOverviewValidator;
+import com.topcoder.web.studio.validation.ContestTypeValidator;
+import com.topcoder.web.studio.validation.DigitalRunPointsValidator;
 import com.topcoder.web.studio.validation.EndTimeValidator;
 import com.topcoder.web.studio.validation.FileTypeValidator;
 import com.topcoder.web.studio.validation.MaxHeightValidator;
 import com.topcoder.web.studio.validation.MaxSubmissionsValidator;
 import com.topcoder.web.studio.validation.MaxWidthValidator;
+import com.topcoder.web.studio.validation.MediumValidator;
 import com.topcoder.web.studio.validation.MinHeightValidator;
 import com.topcoder.web.studio.validation.MinWidthValidator;
 import com.topcoder.web.studio.validation.PrizeDescriptionValidator;
 import com.topcoder.web.studio.validation.StartTimeValidator;
-import com.topcoder.web.studio.validation.ClientNameValidator;
 import com.topcoder.web.studio.validation.WinnerAnnouncementTimeValidator;
-import com.topcoder.web.studio.validation.MediumValidator;
-import com.topcoder.web.studio.validation.ContestConfigValueValidator;
-import com.topcoder.web.studio.validation.ContestTypeValidator;
-import com.topcoder.web.studio.validation.ContestChannelValidator;
-
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import java.util.Enumeration;
-import java.util.ArrayList;
 
 /**
  * @author dok, isv
@@ -259,6 +260,10 @@ public class EditContest extends Base {
         String maxWidth = request.getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MAX_WIDTH);
         String minHeight = request.getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MIN_HEIGHT);
         String maxHeight = request.getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MAX_HEIGHT);
+
+        // Since Digital Run v2.0
+        String digitalRunPoints = request.getParameter(Constants.CONTEST_PROPERTY + ContestProperty.DIGITAL_RUN_POINTS);
+
         String viewableSubmissions
                 = request.getParameter(Constants.CONTEST_PROPERTY + ContestProperty.VIEWABLE_SUBMISSIONS);
         String viewableSubmitters
@@ -290,6 +295,11 @@ public class EditContest extends Base {
         ValidationResult overviewResult = new ContestOverviewValidator().validate(new StringInput(overview));
         if (!overviewResult.isValid()) {
             addError(Constants.CONTEST_PROPERTY + ContestProperty.CONTEST_OVERVIEW_TEXT, overviewResult.getMessage());
+        }
+
+        ValidationResult digitalRunPointsResult = new DigitalRunPointsValidator().validate(new StringInput(digitalRunPoints));
+        if (!digitalRunPointsResult.isValid()) {
+            addError(Constants.CONTEST_PROPERTY + ContestProperty.DIGITAL_RUN_POINTS, digitalRunPointsResult.getMessage());
         }
 
         ValidationResult prizeDescResult = new PrizeDescriptionValidator().validate(new StringInput(prizeDesc));

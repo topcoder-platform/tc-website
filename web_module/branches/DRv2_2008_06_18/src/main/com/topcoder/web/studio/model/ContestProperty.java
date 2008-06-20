@@ -110,6 +110,13 @@ public class ContestProperty extends Base {
      */
     public static final Integer CLIENT = 22;
 
+    /**
+     * <p>An <code>Integer</code> referencing the <code>digital run points</code> contest property.</p>
+     *
+     * @since Digital Run v2.0
+     */
+    public static final Integer DIGITAL_RUN_POINTS = 24;
+
 
     private Integer id;
     private String description;
