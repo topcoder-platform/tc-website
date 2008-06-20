@@ -9,6 +9,10 @@ import com.topcoder.web.common.validation.*;
  */
 public class DigitalRunPointsValidator implements Validator {
     public ValidationResult validate(ValidationInput input) {
+        String name = (String)input.getInput();
+        if (name==null || "".equals(name.trim())) {
+            return ValidationResult.SUCCESS;
+        }
         try {
             Float.parseFloat((String) input.getInput());
         } catch (NumberFormatException e) {

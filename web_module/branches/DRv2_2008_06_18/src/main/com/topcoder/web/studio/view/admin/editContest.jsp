@@ -222,7 +222,7 @@
 <%-- Since Digital Run v2.0 - digital run points are added --%>
 <tr>
     <td colspan="2">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.DIGITAL_RUN_POINTS%>">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_PROPERTY + ContestProperty.DIGITAL_RUN_POINTS%>">
             <span class="bigRed">${err}<br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
