@@ -153,15 +153,15 @@
       <td class="value">22
       </td>
       <td class="value">23
+         <div class="long">
+         <strong><a href="/tc?module=MatchDetails&amp;rd=12202">Marathon Match 36</a></strong><br />
+         12:00 NOON<br />
+         1 week
+         </div>
       </td>
       <td class="value">24
       </td>
       <td class="value">25
-         <div class="long">
-         <strong><a href="/tc?module=MatchDetails&amp;rd=12202">Marathon Match 36</a></strong><br />
-         12:00 NOON<br />
-         2 weeks
-         </div>
       </td>
       <td class="value">26
          <div class="des_dev">
