@@ -1058,6 +1058,762 @@
             
             <%-- Yearly Sub Content Container --%>
             <div class="pr_subheader">
+                <h2><span>2006</span></h2>
+            </div>
+            
+            <%-- pr_border creation --%>
+            <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                
+                <%-- HRE Magazine begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='/pdfs/press_room/hre_article_20061213.pdf' refer='/pressroom_index' />"><img src="/i/pressroom/hre_magazine_logo.png" alt="Human Resources Executive Magazine" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='/pdfs/press_room/hre_article_20061213.pdf' refer='/pressroom_index' />">And the Winner Is&#8230;</a> [PDF]</h3>
+                        <p>The beauty of contests is that they appeal to a person's competitive nature. People like to test themselves. That's why contests can be effective in recruiting an elusive audience&#8230;  <small><a target="_blank" href="<tc-webtag:linkTracking link='/pdfs/press_room/hre_article_20061213.pdf' refer='/pressroom_index' />">[December 13]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- HRE Magazine end --%>
+                
+                <%-- China Daily begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.chinadaily.com.cn/china/2006-12/08/content_754200.htm"><img src="/i/pressroom/chinadaily_logo.png" alt="China Daily" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.chinadaily.com.cn/china/2006-12/08/content_754200.htm">Undergraduate VP of multinational company</a></h3>
+                        <p>Wu Yingying, 21, holding patents for three of her 100 inventions, has become Asia operations vice president with TopCoder, a Connecticut-based multinational company, before her graduation.  <small><a target="_blank" href="http://www.chinadaily.com.cn/china/2006-12/08/content_754200.htm">[December 8]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- China Daily end --%>
+                
+                <%-- IEEE software begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="/pdfs/press_room/ieeeSoftware_20061206.pdf"><img src="/i/pressroom/ieeesoftware_logo.png" alt="IEEE Software" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="/pdfs/press_room/ieeeSoftware_20061206.pdf">Programming Contests Show Impressive Growth</a> [PDF]</h3>
+                        <p>Global software programming contests are expanding in number, size, and scope. Student programmers and, increasingly, their professional colleagues are taking the opportunity to 'show their stuff' under the trying conditions of controlled competition.  <small><a target="_blank" href="/pdfs/press_room/ieeeSoftware_20061206.pdf">[December 6]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- IEEE software end --%>
+                
+                <%-- Success begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="/pdfs/press_room/success200612.pdf"><img src="/i/pressroom/success_logo.png" alt="Success" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="/pdfs/press_room/success200612.pdf">Maverick Rules for Success</a> [PDF]</h3>
+                        <p>Our panelists hail from a wide range of industries, but they agree on a critical element of success in the 21st century: You can't do big things with your company or career if you're content with doing things a little better than everyone else.  <small><a target="_blank" href="/pdfs/press_room/success200612.pdf">[November]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Success end --%>
+                
+                <%-- AOL mashup begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_113006"><img src="/i/pressroom/aol_logo.jpg" alt="AOL" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_113006">AOL and TopCoder Announce Web AIM Mashup Competition</a></h3>
+                        <p>Top Prize of $5,000 for Developer With Most Innovative Web AIM Mashup Concept.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_113006">[November 30]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- AOL mashup end --%>
+                
+                <%-- Gartner CIO Summit begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_112906"><img src="/i/pressroom/gartner_logo.gif" alt="Gartner" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_112906">TopCoder to Present Keynote Address: Future of Virtual Communities as Business; at Gartner CIO Summit 2006</a></h3>
+                        <p>Jack Hughes, TopCoder Chairman and Founder To Discuss Managing Social Network Web Communities as a New Model for Global Productivity.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_112906">[November 29]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Gartner CIO Summit end --%>
+                
+                <%-- TCCC06 Champions begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_112106"><img src="/i/pressroom/tccc06_logo.gif" alt="TCCC06" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_112106">Russia's nicka81 and Petr, China's PE Triumph at TopCoder Collegiate Challenge in San Diego</a></h3>
+                        <p>New York, Moscow and Zhejiang University Students Are TopCoder's World Champion Programmers  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_112106">[November 21]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TCCC06 Champions end --%>
+                
+                <%-- internetnews.com begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.internetnews.com/dev-news/article.php/3644456"><img src="/i/pressroom/internetnews_logo.gif" alt="internetnews.com logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.internetnews.com/dev-news/article.php/3644456">Who is the Top Coder?</a></h3>
+                        <p>Coding as competitive sport? You bet, complete with a famous ESPN anchor and $200,000 in prizes. It's called the TopCoder Collegiate Challenge and the finals are being webcast live Friday thanks to sponsor AOL.  <small><a target="_blank" href="http://www.internetnews.com/dev-news/article.php/3644456">[November 17]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- internetnews.com end --%>
+                
+                <%-- AOL TCCC webcast team begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.prnewswire.com/mnr/topcoder/26099/"><img src="/i/pressroom/aol_logo.jpg" alt="AOL logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.prnewswire.com/mnr/topcoder/26099/">Meet the AOL TCCC Webcast Team</a></h3>
+                        <p>AOL today announced that ESPN's Jeremy Schaap will join TopCoder veterans John Dethridge and Ken_Vogel to host the live webcast of the TCCC finals. The webcast will be broadcast live on November 17, starting at 1:30 p.m. PST (21:30 GMT).  <small><a target="_blank" href="http://www.prnewswire.com/mnr/topcoder/26099/">[November 13]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- AOL TCCC webcast team end --%>
+                
+                <%-- China TopCoders in BusinessWeek begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=art_110206"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=art_110206">A Growing Cadre Of Code Warriors</a></h3>
+                        <p>China's young programming hotshots are gaining global attention  <small><a href="/tc?module=Static&d1=pressroom&d2=art_110206">[November 2]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- China TopCoders in BusinessWeek end --%>
+                
+                <%-- Christian Science Monitor begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm"><img src="/i/pressroom/csmonitor_logo.jpg" alt="Christian Science Monitor" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm">How to build software? Henry Ford, meet eBay.</a></h3>
+                        <p>"By tapping the best freelance programmers in the world, and letting them compete to write pieces of software, TopCoder and its competitors are creating a new kind of assembly line. In essence, they're dragging Henry Ford into the eBay era."  <small><a target="_blank" href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm">[November 1]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Christian Science Monitor end --%>
+                
+                <%-- TopCoder in China begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_102506"><img src="/i/pressroom/china_20061027.gif" alt="Now Open in China" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_102506">TopCoder Launches Operations in China with New Beijing Appointment</a></h3>
+                        <p>TopCoder today announced it has hired Yingying Wu as Vice President of Operations for TopCoder in Asia. Wu will oversee and manage TopCoder business relationships and will build TopCoder's market presence and member enrollment throughout the greater China and Asia region.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_102506">[October 25]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder in China end --%>
+                
+                <%-- gigaOm begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/"><img src="/i/pressroom/gigaOm_logo.jpg" alt="gigaOm" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/">The New American Idol&#8230; The Coder</a></h3>
+                        <p>Om Malik discusses his take on the newest trend of big technology companies promoting and webcasting <em>codercons</em>, aka marathon coder events where hackers jock for hacking props.  <small><a target="_blank" href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/">[October 24]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- gigaOm end --%>
+                
+                <%-- TCCC06 Algorithm Competition Semifinalists begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_102306"><img src="/i/pressroom/tccc06_logo.gif" alt="TCCC06" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_102306">Semifinalists Announced for 2006 TopCoder Collegiate Challenge Sponsored by AOL</a></h3>
+                        <p>Collegiate coding talent from 19 countries to meet at World Championship of Programming scheduled for November 17th in San Diego, CA.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_102306">[October 23]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TCCC06 Algorithm Competition Semifinalists end --%>
+                
+                <%-- Wall Street & Technology begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878"><img src="/i/pressroom/wallstreetnTech_logo.gif" alt="Wall Street &amp; Technology" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878"><em>Wall Street &amp; Technology</em> on TopCoder and UBS</a></h3>
+                        <p>"Ken Vogel didn't join TopCoder looking for a job, but a job came looking for him when UBS evaluated his success in online competitive development."  <small><a target="_blank" href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878">[October 23]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Wall Street & Technology end --%>
+                
+                <%-- AOL Title TCCC Sponsor begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_101106"><img src="/i/pressroom/aol_logo.jpg" alt="AOL logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_101106">AOL to Webcast TopCoder World Championship of Computer Programming Live on November 17</a></h3>
+                        <p>"One of TopCoder's core goals is to bring value to the programming community, and with the help of AOL we'll now be able to present much of the excitement and thrill of the onsite contest live, via the internet," said Rob Hughes, President and COO of TopCoder, Inc.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_101106">[October 11]</a> - <a target="_blank" href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg">Watch the trailer!</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- AOL Title TCCC Sponsor end --%>
+                
+                <%-- Mavericks at Work begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_101006"><img src="/i/pressroom/mavericks_logo.jpg" alt="Mavericks at Work" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_101006">TopCoder joins "Mavericks at Work" book tour</a></h3>
+                        <p>On November 7, the "Mavericks at Work" book tour will be coming to Hartford. Jack Hughes of TopCoder will join the authors and greater Hartford-area business leaders to discuss how, in an age of hyper-competition and non-stop innovation, the only way to stand out from the crowd is to stand for something truly unique.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_101006">[October 10]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Mavericks at Work end --%>
+                
+                <%-- InformationWeek begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.informationweek.com/internet/showArticle.jhtml?articleID=193104723"><img src="/i/pressroom/info_week_logo.gif" alt="InformationWeek" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.informationweek.com/internet/showArticle.jhtml?articleID=193104723">TopCoder helps "free" AOL</a></h3>
+                        <p>InformationWeek interviewed TopCoder CTO Mike Lydon for a recent article on AOL, citing TopCoder's alliance with the company as evidence of a "monumental shift in its approach."  <small><a target="_blank" href="http://www.informationweek.com/internet/showArticle.jhtml?articleID=193104723">[October 10]</a> - <a target="_blank" href="/i/pressroom/infoweek_excerpt.gif">excerpt</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- InformationWeek end --%>
+                
+                <%-- Open Source begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <img src="/i/pressroom/opensource_logo.gif" alt="Open Source" border="0" />
+                    </div>
+                    <div class="pr_headlines">
+                        <h3>TopCoder featured on public radio's "Open Source" [PODCAST]</h3>
+                        <p>Jack Hughes joined <em>Mavericks at Work</em> author William Taylor and host Christopher Lydon to discuss TopCoder's "maverick" approach.  <small>[March 13] - <a target="_blank" href="/audio/open_source_060928_24kb.mp3">lo 6.8mb</a> &#160;|&#160; <a target="_blank" href="/audio/open_source_060928_48kb.mp3">hi 13.8mb</a> &#160;|&#160; <a target="_blank" href="/i/pressroom/pdfs/mavericks_at_work.pdf">Mavericks at Work excerpt</a> [PDF]</small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Open Source end --%>
+                
+                <%-- NSA TCCC Patron begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_082906"><img src="/i/pressroom/nsa_logo.gif" alt="NSA logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_082906">NSA Continues TopCoder Patronage with Support of 2006 TopCoder Collegiate Challenge in San Diego</a></h3>
+                        <p>U.S. National Security Agency Extends Involvement with TopCoder Developer Community  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_082906">[August 29]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- NSA TCCC Patron end --%>
+                
+                <%-- MHT begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <img src="/i/pressroom/mht_logo.gif" alt="Mass High Tech" border="0" />
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><em>Mass High Tech</em> features TopCoder staff</h3>
+                        <p>The latest issue of <em>Mass High Tech</em> names TheFaxman one of the six best programmers in New England, and features an article from FogleBird on identifying talented developers.  <small>[July 12] - <a target="_blank" href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus1.html">Code Commanders</a>&#160;|&#160;<a target="_blank" href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus6.html">TheFaxman Codeth</a>&#160;|&#160;<a target="_blank" href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus8.html">Identifying Best Developers</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- MHT end --%>
+                
+                <%-- UBS Premier TCCC Sponsor begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_071206"><img src="/i/pressroom/ubs_logo.gif" alt="UBS logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_071206">UBS Extends Premier Sponsorship of TopCoder Events</a></h3>
+                        <p>Banking and Financial Services Leader to Support November Tournament and World's Top Student Computer Programmers  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_071206">[July 12]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- UBS Premier TCCC Sponsor end --%>
+                
+                <%-- Java Posse begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3"><img src="/i/pressroom/javaPosse_logo.gif" alt="The Java Posse" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3">Interviews from Topcoder and Java One</a> [PODCAST]</h3>
+                        <p>This is a pair of previously un-aired interviews. The first was recorded by Joe, Carl and Dick at TopCoder with Ari Balogh, Vice President of Engineering for Verisign Inc. It is a short but technically meaty interview.  <small><a target="_blank" href="http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3">[February 13]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Java Posse end --%>
+                
+                <%-- Bloomberg Premier TCCC Sponsor begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_062606"><img src="/i/pressroom/bloomberg_logo.gif" alt="Bloomberg logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_062606">TopCoder Announces Bloomberg L.P. As Premier Sponsor of TCCC06</a></h3>
+                        <p>Leading Global Provider of Data, News and Analytics Backs Top Computer Science Tournament  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_062606">[June 26]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Bloomberg Premier TCCC Sponsor end --%>
+                
+                <%-- AOL Title TCCC Sponsor begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_061906"><img src="/i/pressroom/aol_logo.jpg" alt="AOL logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_061906">AOL Named Title Sponsor of 2006 TopCoder Collegiate Challenge</a></h3>
+                        <p>AOL Supports Global Student Programming Community in $200,000 Technical Software Contest.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_061906">[June 19]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- AOL Title TCCC Sponsor end --%>
+                
+                <%-- SMM Partners with TCHS begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_060706"><img src="/i/pressroom/smm_logo.gif" alt="Science Museum of Minnesota logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_060706">Science Museum of Minnesota Partners with TopCoder High School Competitions</a></h3>
+                        <p>Launch of Worldwide Computer Contest for High School-Age Students Promotes Problem Solving Skills in Math and Science.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_060706">[June 7]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- SMM Partners with TCHS end --%>
+                
+                <%-- TCCC Sponsors begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_060606"><img src="/i/pressroom/tccc06_sponsor_logos.jpg" alt="2006 TCCC Sponsor Logos" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_060606">AOL, Bloomberg, UBS and NSA Announced as Sponsors/Patrons of 2006 TopCoder Collegiate Challenge</a></h3>
+                        <p>AOL&#174; and Bloomberg LP will join returning TopCoder premier sponsor UBS&#174; and patron National Security Agency (NSA). Thousands of students in computer science, mathematics, physics and other disciplines from universities around the world will begin registering in August to compete online with the goal of advancing to the world-renowned TCCC onsite finals being held in San Diego, CA this coming November.  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_060606">[June 6]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TCCC Sponsors end --%>
+                
+                <%-- Gartner Press Release begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=art_051606"><img src="/i/pressroom/gartner_logo.gif" alt="Gartner" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=art_051606">Gartner cites TopCoder as model for "Web 2.0" community</a></h3>
+                        <p>A press release from the Gartner Symposium/ITxpo cited TopCoder as a model for a "Web Community," one of the "three key focal points" for understanding Web 2.0.  <small><a href="/tc?module=Static&d1=pressroom&d2=art_051606">[May 16]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Gartner Press Release end --%>
+                
+                <%-- IT Week begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html"><img src="/i/pressroom/itWeek_logo.gif" alt="IT Week" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html">Idol or idle: which one are you?</a></h3>
+                        <p>"Which nation produces the cleverest programmers in the world? According to the finals of the latest TopCoder global programming competition, held in Las Vegas recently, you should pick from Russia, Poland, Australia, China, Japan and Slovakia."  <small><a target="_blank" href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html">[May 15]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- IT Week end --%>
+                
+                <%-- CNBC begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="/movies/press/cnbc_051506.mov"><img src="/i/pressroom/cnbc_logo.gif" alt="CNBC TV" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="/movies/press/cnbc_051506.mov">CNBC's Jane's Addiction and Squawk Box at the TCO06</a> [MOVIE]</h3>
+                        <p>Featuring members antimatter, John Dethridge, tomek and Ken Vogel.  <small><a target="_blank" href="/movies/press/cnbc_051506.mov">[May 15]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- CNBC end --%>
+                
+                <%-- Java Posse begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://media31b.libsyn.com/bXdveMh1nHzGfGd1mHluo2%2BlkXWb/podcasts/dickwall/JavaPosse053.mp3"><img src="/i/pressroom/javaPosse_logo.gif" alt="The Java Posse" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://media31b.libsyn.com/bXdveMh1nHzGfGd1mHluo2%2BlkXWb/podcasts/dickwall/JavaPosse053.mp3">Listener Feedback and TopCoder Interviews</a> [PODCAST]</h3>
+                        <p>Another installment from the TopCoder Open 06. Check out the interviews conducted during the competition, with antimatter and Pops.  <small><a target="_blank" href="http://media31b.libsyn.com/bXdveMh1nHzGfGd1mHluo2%2BlkXWb/podcasts/dickwall/JavaPosse053.mp3">[May 15]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Java Posse end --%>
+                
+                <%-- WSJ begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://webreprints.djreprints.com/1466111183234.html"><img src="/i/pressroom/wsjreprint_logo.gif" alt="Wall Street Journal" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://webreprints.djreprints.com/1466111183234.html">Cause for Concern? Americans Are Scarce In Top Tech Contest</a></h3>
+                        <p>"Of the 48 best computer programmers in the world, only four of them are Americans. But what that bit of data says about the state of the U.S. education system is open to debate."  <small><a target="_blank" href="http://webreprints.djreprints.com/1466111183234.html">[May 10]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- WSJ end --%>
+                
+                <%-- Java Posse begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3"><img src="/i/pressroom/javaPosse_logo.gif" alt="The Java Posse" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3">Live at the TopCoder Open</a> [PODCAST]</h3>
+                        <p>Play by play coverage of the algorithm competition finals, as well as some fun moments and surprise guests. This recording was made live at the TopCoder Open event held in Las Vegas, and you'll be hearing it less-than-live about a week later.  <small><a target="_blank" href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3">[May 10]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Java Posse end --%>
+                
+                <%-- Moscow Times begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.themoscowtimes.com/stories/2006/05/11/042.html"><img src="/i/pressroom/moscowTimes_logo.gif" alt="The Moscow Times" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.themoscowtimes.com/stories/2006/05/11/042.html">Russian Talents Shine in IT Contests</a></h3>
+                        <p>Moscow State University student Pyotr Mitrichev, 21, took the gold this month at a major programming competition in the United States. His prize was the latest in a string of victories by Russian programmers.  <small><a target="_blank" href="http://www.themoscowtimes.com/stories/2006/05/11/042.html">[May 11]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Moscow Times end --%>
+                
+                <%-- Computerworld begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9000323"><img src="/i/pressroom/computerworld.gif" alt="Computerworld logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9000323">Programming contest garners enterprise interest</a></h3>
+                        <p><em>Users tap TopCoder's "virtual sourcing" model</em> - More than 64 computer programmers from 19 countries gathered in Las Vegas last week for the 2006 TopCoder Open, a competition where developers go head-to-head to solve a complex algorithmic problem, design an application or develop a software component for $150,000 in cash prizes.  <small><a target="_blank" href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9000323">[May 10]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Computerworld end --%>
+                
+                <%-- TCO champions begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_050806"><img src="/i/pressroom/tco06_logo.gif" alt="TCO06" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_050806">Russian, US and Indonesian Programmers Win $150,000 TopCoder Open Sponsored By AMD in Las Vegas</a></h3>
+                        <p>"Computer Programmers Celebrated at TopCoder Open World Championship Sponsored by AMD, UBS, National Security Agency and VeriSign."  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_050806">[May 8]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TCO champions end --%>
+                
+                <%-- Java Posse begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3"><img src="/i/pressroom/javaPosse_logo.gif" alt="The Java Posse" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3">Java Posse - Jack Hughes interview from the TCO06</a> [PODCAST]</h3>
+                        <p>The Java Posse interviews TopCoder Founder Jack Hughes right from the TCO06 Arena, including topics like how Jack came up with the idea for TopCoder.  <small><a target="_blank" href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3">[May 4]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Java Posse end --%>
+                
+                <%-- CNET News.com begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://news.com.com/Coding+for+fame%2C+and+dollars/2100-1007_3-6067549.html?tag=nefd.lede"><img src="/i/pressroom/cnetNews_logo.gif" alt="CNET News.com" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://news.com.com/Coding+for+fame%2C+and+dollars/2100-1007_3-6067549.html?tag=nefd.lede">Coding for fame, and dollars</a></h3>
+                        <p>Las Vegas has seen its share of title fights, but the only thing that will get pounded by the 64 finalists arriving this week for the 2006 TopCoder Open will be a computer keyboard.  <small><a target="_blank" href="http://news.com.com/Coding+for+fame%2C+and+dollars/2100-1007_3-6067549.html?tag=nefd.lede">[May 2]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- CNET News.com end --%>
+                
+                <%-- UGA - ACM begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.cs.uga.edu/~acm/topcoder.html"><img src="/i/pressroom/uga_acm_logo.gif" alt="UGA-ACM" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.cs.uga.edu/~acm/topcoder.html">TopCoder College Tour: Report from University of Georgia</a></h3>
+                        <p>9:00 PM - Rock, Paper, Scissors Tournament, 9:15 PM - Build Card Bridge, 9:45 PM - Help Jimmy "The Lightning" Alberto Steal Diamonds. This looks like an odd (but busy) schedule. Actually, these were the challenges that UGA programmers faced in an algorithm competition Wednesday night.  <small><a target="_blank" href="http://www.cs.uga.edu/~acm/topcoder.html">[April 5]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- UGA - ACM end --%>
+                
+                <%-- Whitworthian begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.whitworth.edu/Students/Whitworthian/V96/I14/Students-compete-in-online-competition.html"><img src="/i/pressroom/whitworthian_logo.gif" alt="The Whitworthian" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.whitworth.edu/Students/Whitworthian/V96/I14/Students-compete-in-online-competition.html">Students compete in online competition</a></h3>
+                        <p>Bob the chicken walks only in a sequence of straight lines to reach his destination. How many times will he cross the road along the way? In the world of computer science, this problem and others were the tasks to solve in a recent software coding competition.  <small><a target="_blank" href="http://www.whitworth.edu/Students/Whitworthian/V96/I14/Students-compete-in-online-competition.html">[March 30]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Whitworthian end --%>
+                
+                <%-- AMD begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_031606"><img src="/i/pressroom/amd_logo.gif" alt="AMD" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_031606">TopCoder Announces AMD as Title Sponsor of 2006 TopCoder Open in Las Vegas</a></h3>
+                        <p>"AMD Developer Central, AMD's program to support software developers, is pleased to sponsor the 2006 TopCoder Open and help showcase the unique creativity and genius shown by TopCoder members in this competition."  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_031606">[March 16]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- AMD end --%>
+                
+                <%-- ADT begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.adtmag.com/article.aspx?id=18109"><img src="/i/pressroom/adt_logo.gif" alt="ADT" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.adtmag.com/article.aspx?id=18109">SOA vendors partner with LogicLibrary to create integrated governance platform</a></h3>
+                        <p>Service-oriented architecture vendors Blue Titan Software, TopCoder and Metallect have joined forces with LogicLibrary to support an end-to-end approach to SOA governance, from development through deployment.  <small><a target="_blank" href="http://www.adtmag.com/article.aspx?id=18109">[March 14]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- ADT end --%>
+                
+                <%-- Wall Street & Technology begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.wallstreetandtech.com/showArticle.jhtml?articleID=181502379"><img src="/i/pressroom/wallstreetnTech_logo.gif" alt="Wall Street &amp; Technology" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.wallstreetandtech.com/showArticle.jhtml?articleID=181502379">UBS Sponsors TopCoder Open</a></h3>
+                        <p>"UBS has signed on as a Premier sponsor of the 2006 TopCoder Open (TCO06). This marks the first time a financial sector organization has sponsored a TopCoder Inc. flagship event."  <small><a target="_blank" href="http://www.wallstreetandtech.com/showArticle.jhtml?articleID=181502379">[March 13]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Wall Street & Technology end --%>
+                
+                <%-- DNA India begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.dnaindia.com/report.asp?NewsID=1017289&CatID=2"><img src="/i/pressroom/dnaIndia_logo.gif" alt="DNA India" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.dnaindia.com/report.asp?NewsID=1017289&CatID=2">Code jockey contest returns to IT hub</a></h3>
+                        <p>"Last year, it whetted its recruiting appetite in India. Now, Internet giant Google is back for more. The second edition of Code Jam India, a contest to identify the best code jockey in this part of the world will be held in Bangalore."  <small><a target="_blank" href="http://www.dnaindia.com/report.asp?NewsID=1017289&CatID=2">[March 13]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- DNA India end --%>
+                
+                <%-- Pat Conley interview begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="/tc?module=Static&d1=pressroom&d2=art_031006"><img src="/i/pressroom/patconley.jpg" alt="Pat Conley" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=art_031006">Exclusive: Interview with Pat Conley, VP VeriSign O&amp;I and TopCoder Member</a></h3>
+                        <p>"Pat shares his impressions of TopCoder, talks about his background and what's going on at industry leader VeriSign."  <small><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=art_031006">[March 10]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Pat Conley interview end --%>
+                
+                <%-- The Post Online begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://thepost.baker.ohiou.edu/show_news.php?article=N3&date=030806"><img src="/i/pressroom/postOnline_logo.gif" alt="The Post Online" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://thepost.baker.ohiou.edu/show_news.php?article=N3&date=030806">Gurus compete in coding competition</a></h3>
+                        <p>"A handful of those men whom students call when their computers won't cooperate gathered Monday night to pit their computer programming skills against one another in a coding competition."  <small><a target="_blank" href="http://thepost.baker.ohiou.edu/show_news.php?article=N3&date=030806">[March 8]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- The Post Online end --%>
+                
+                <%-- UBS begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_030306"><img src="/i/pressroom/ubs_logo.gif" alt="UBS Investment Bank" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_030306">TopCoder Names UBS as Premier Sponsor of 2006 TopCoder Open</a></h3>
+                        <p>"Financial Services Leader Becomes First Wall Street Firm to Participate at Premier Level with Top Global Coding Competition"  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_030306">[March 3]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- UBS end --%>
+                
+                <%-- Spartan Daily begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com"><img src="/i/pressroom/spartanDaily_logo.gif" alt="Spartan Daily logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com">SJSU codes a win</a></h3>
+                        <p>"San Jose State University's computer science department has earned a world ranking in a prestigious online computer programming competition called Topcoder."  <small><a target="_blank" href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com">[February 16]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Spartan Daily end --%>
+                
+                <%-- TCHS Global Tourney begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_020806"><img src="/i/pressroom/tchs.gif" alt="TopCoder High School - Competition, evolved." border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_020806">TopCoder High School Launches Global Programming Tournament in June</a></h3>
+                        <p>"Worldwide Contest From TopCoder Will Promote Problem Solving Skills in Math and Science Among High School-Age Students"  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_020806">[February 8]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TCHS Global Tourney end --%>
+                
+                <%-- WSJ begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://webreprints.djreprints.com/1404341094425.html"><img src="/i/pressroom/wsj_logo.gif" alt="Wall Street Journal" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://webreprints.djreprints.com/1404341094425.html">Programming Contest Pits World's Top Geeks In Battles Over Coding</a></h3>
+                        <p>"Imagine a reality TV show that combines the performance-under-time-pressure of 'Iron Chef' with the scheming and psych-outs of 'Survivor,' then adds the soaring braininess of -- well, that's the problem, really: There isn't anything this smart on TV."  <small><a target="_blank" href="http://webreprints.djreprints.com/1404341094425.html">[February 8]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- WSJ end --%>
+                
+                <%-- Jolt Awards begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_012606"><img src="/i/pressroom/jolt_logo.gif" alt="Jolt Awards" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_012606">TopCoder Software Component Libraries Selected as Finalist for the 16th Annual Jolt Awards</a></h3>
+                        <p>"Software Development Magazine Recognizes CBD Best Practices and Engineering Discipline in TopCoder's Reusable .NET and Java Component Catalogs"  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_012606">[January 26]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Jolt Awards end --%>
+                
+                <%-- Intel begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_012306"><img src="/i/pressroom/intel_software_logo.gif" alt="Intel Software Network" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_012306">TopCoder Names Intel Corporation as First Sponsor of New Marathon Match Series</a></h3>
+                        <p>"Multi-Core Processing the Focus as New Format Promoting Optimization in Problem Solving is Added to TopCoder Schedule of Tournaments"  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_012306">[January 23]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Intel end --%>
+                
+                <%-- Java Posse begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3"><img src="/i/pressroom/javaPosse_logo.gif" alt="The Java Posse" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3">Java Posse - Bill Goggin interview</a> [PODCAST]</h3>
+                        <p>TopCoder Project Manager Bill Goggin describes the in's and out's of TopCoder, and the company's use of Java.  <small><a target="_blank" href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3">[January 20]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Java Posse end --%>
+                
+                <%-- BusinessWeek begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm">The NSA: Security in Numbers</a></h3>
+                        <p>"The techno-spy agency has a greater need than ever for American math talent, but recruiting in the age of Google is a lot tougher."  <small><a target="_blank" href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm">[January 13]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- BusinessWeek end --%>
+                
+                <%-- DNA India begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2"><img src="/i/pressroom/dnaIndia_logo.gif" alt="DNA India" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2">Contest a coded message for job seekers</a></h3>
+                        <p>"Write a software to land that dream job straight out of college. Now Indian technology grads can win jobs and internships at tech majors by competing in coding contests."  <small><a target="_blank" href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2">[January 12]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- DNA India end --%>
+                
+                <%-- TCO06 NSA begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&d1=pressroom&d2=pr_010906"><img src="/i/pressroom/nsa_logo.gif" alt="NSA" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&d1=pressroom&d2=pr_010906">TopCoder Announces NSA Participation in 2006 TopCoder Open in Las Vegas</a></h3>
+                        <p>"TopCoder&#174;, Inc. today announced additional details of its 2006 TopCoder Open (TCO06) which include the continued support of the National Security Agency as an event patron."  <small><a href="/tc?module=Static&d1=pressroom&d2=pr_010906">[January 9]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TCO06 NSA end --%>
+                
+                <%-- Inc.com begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.inc.com/magazine/20060101/handson-global.html"><img src="/i/pressroom/incDOTcom_logo.gif" alt="Inc.com" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.inc.com/magazine/20060101/handson-global.html">Put a hacker to work</a></h3>
+                        <p>"Software developer TopCoder's brilliant strategy to find - and register - the world's best programmers"  <small><a target="_blank" href="http://www.inc.com/magazine/20060101/handson-global.html">[January 2006]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Inc.com end --%>
+                
+                <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
+                <div class="pr_clear"></div>
+                
+            </div></div></div>
+            <%-- Yearly Container end --%>
+            
+            
+            <%-- Yearly Sub Content Container --%>
+            <div class="pr_subheader">
                 <h2><span>2005</span></h2>
             </div>
             
