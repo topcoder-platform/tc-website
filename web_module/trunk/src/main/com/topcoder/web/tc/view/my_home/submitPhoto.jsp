@@ -96,6 +96,7 @@
             <ul>
             <li>unfit resolution or clarity - do not manipulate the size of <a href="/i/my_home/backdrop.jpg">backdrop.jpg</a></li>
             <li>black and white photo - only color photos are accepted</li>
+            <li>the use of sunglasses or other objects obscuring your face</li>
             <li>contains inappropriate content</li>
             <li>obviously not a recent photo of a member (no aliens, teddy bears, baby photos, etc.)</li>
             <li>copyrighted to another party</li>
