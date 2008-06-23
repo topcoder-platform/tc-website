@@ -129,32 +129,6 @@
         prohibited by applicable law.
         </p>
         <%}%>        
-    <%if(rsr.getIntItem("round_id") == 10930) {%>
-    <div class="sectionHeader">Prizes</div>
-    <p align="justify">There will be $15000 in total prize money.  The 10 highest scorers in the round will receive prizes as follows:</p>
-
-    <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
-    <tr>
-        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$7000</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$3000</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$2000</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$1000</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">5th-6th</td><td class="bodyText" align="right">$500</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">7th-10th</td><td class="bodyText" align="right">$250</td>
-    </tr>
-    </table>
-    <%}%>
-    
     <%if(rsr.getIntItem("round_id") == 12202) {%>
     <div class="sectionHeader">Prizes</div>
     <p align="justify">There will be $5000 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
@@ -200,9 +174,9 @@
         </p>
         <%}%>
     
-    <%if(rsr.getIntItem("round_id") == 10930) {%>
+    <%if(rsr.getIntItem("round_id") == 12202) {%>
     <p align="justify">
-    Competitors must not cheat; all ideas for any code submitted must be the contestant's alone.  Competitors must use their own independently developed code, and shall not copy or include code from any other party, including publicly available "open source" code that is or may be subject to licensing restrictions.
+    Competitors must not cheat; all ideas for any code submitted must be the contestant's alone. Competitors must use their own independently developed code, and shall not copy or include code from any other party, including publicly available "open source" code that is or may be subject to licensing restrictions.
     </p>
     <%} else { %>
         <p align="justify">
@@ -211,28 +185,28 @@
     <% } %>
 
         <p align="justify">
-        The winner in each Marathon Match will be the competitor that scores the most points across all
-        competitors who participate in that match. All decisions relating to the viability of submissions,
-        the ranking of submissions and all other matters pertaining to the competition shall be within the
-        sole discretion of TopCoder or its designee and shall be final and binding in all respects.
+        The winner in each Marathon Match will be the competitor that scores the most points across all 
+        competitors who participate in that match. All decisions relating to the viability of submissions, 
+        the ranking of submissions and all other matters pertaining to the competition shall be within 
+        the sole discretion of TopCoder or its designee and shall be final and binding in all respects.
         </p>
 
         <p align="justify">
-        By participating in a Marathon Match, a winner releases and agrees to hold harmless TopCoder, its
-        affiliates, subsidiaries, sponsors, advertising and promotion agencies, and prize suppliers, and all
-        of their respective directors, officers, employees, representatives and agents, from and against any
-        and all liability for any loss, property damage or damage to person, including without limitation,
-        death and injury, due in whole or in part, directly or indirectly, from or arising out of
-        participation in this Marathon Match, or participation in any competition-related activity, or the
-        receipt, use or misuse of a prize.
+        By participating in a Marathon Match, a winner releases and agrees to hold harmless TopCoder, 
+        its affiliates, subsidiaries, sponsors, advertising and promotion agencies, and prize suppliers, 
+        and all of their respective directors, officers, employees, representatives and agents, from and 
+        against any and all liability for any loss, property damage or damage to person, including without 
+        limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out 
+        of participation in this Marathon Match, or participation in any competition-related activity, or 
+        the receipt, use or misuse of a prize.
         </p>
 
         <p align="justify">
-        TopCoder, in its sole discretion, reserves the right to disqualify any person tampering with the
-        entry process, the operation of the Web site, the competition process, or is otherwise in violation
-        of the rules. TopCoder reserves the right to cancel, terminate or modify the competition if it is
-        not capable of completion as planned for any reason, including infection by computer virus, bugs,
-        tampering, unauthorized intervention or technical failures of any sort.
+        TopCoder, in its sole discretion, reserves the right to disqualify any person tampering with 
+        the entry process, the operation of the Web site, the competition process, or is otherwise 
+        in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the 
+        competition if it is not capable of completion as planned for any reason, including infection 
+        by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.
         </p>
         
         <p align="justify">
@@ -243,7 +217,7 @@
 
     <%if(rsr.getIntItem("round_id") == 12202) {%>
     <p align="justify">
-    The competition is open to all members who are at least 18 years of age.  Competitors must be either (i) a U.S. citizen, (ii) a lawful permanent resident of the U.S., (iii) a temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S., or (iv) a non-U.S. resident authorized to perform services as an independent contractor.
+    The competition is open to all members who are at least 18 years of age. Competitors must be either (i) a U.S. citizen, (ii) a lawful permanent resident of the U.S., (iii) a temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S., or (iv) a non-U.S. resident authorized to perform services as an independent contractor.
     </p>
     <%} else { %>
         <p align="justify">
@@ -267,29 +241,30 @@
     <%}%>
 
         <p align="justify">
-        Employees of TopCoder and those involved in the development, production (including prize suppliers
-        and sponsors), implementation and distribution of this tournament and their advertising or promotion
-        agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any
-        other persons or entities directly associated with the competition and members of the immediate
-        families and/or persons living in the same household as such persons, are ineligible to enter the
-        competition.
+        Employees of TopCoder and those involved in the development, production (including 
+        prize suppliers and sponsors), implementation and distribution of this tournament 
+        and their advertising or promotion agencies, parent companies, service providers, 
+        agents, officers, subsidiaries or affiliates, or any other persons or entities 
+        directly associated with the competition and members of the immediate families 
+        and/or persons living in the same household as such persons, are ineligible to 
+        enter the competition. 
         </p>
 
-    <%if(rsr.getIntItem("round_id") == 10930) {%>
+    <%if(rsr.getIntItem("round_id") == 12202) {%>
     <div class="sectionHeader">Ownership and Rights</div>
     <p align="justify">
-    You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property rights, in and to the information posted on TopCoder's website(s).  If TopCoder compensates you for your submission, then you agree to irrevocably and unconditionally transfer and assign to TopCoder all right, title and interest you have, may have or acquire in, such submission, and you agree to execute and deliver such documents, certificates, assignments and other writings, and take such other actions as may be necessary or desirable to vest in TopCoder the ownership rights granted to TopCoder hereunder.  If TopCoder does not compensate you for your submission, then you retain any and all rights to ownership of such material submitted to TopCoder.  TopCoder will not gain ownership of this material.  However, by submitting any submission or any other material to TopCoder, you hereby grant a perpetual, royalty-free, irrevocable, non-exclusive right and license to TopCoder to use, reproduce and publish such documents, materials or source code for commercial and/or non-commercial use. 
+    You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property rights, in and to the information posted on TopCoder's website(s). If TopCoder compensates you for your submission, then you agree to irrevocably and unconditionally transfer and assign to TopCoder all right, title and interest you have, may have or acquire in, such submission, and you agree to execute and deliver such documents, certificates, assignments and other writings, and take such other actions as may be necessary or desirable to vest in TopCoder the ownership rights granted to TopCoder hereunder. If TopCoder does not compensate you for your submission, then you retain any and all rights to ownership of such material submitted to TopCoder. TopCoder will not gain ownership of this material. However, by submitting any submission or any other material to TopCoder, you hereby grant a perpetual, royalty-free, irrevocable, non-exclusive right and license to TopCoder to use, reproduce and publish such documents, materials or source code for commercial and/or non-commercial use. 
     </p>
-    <p align="justify">You further agree that any and all works of authorship created, authored or developed by you hereunder which TopCoder compensates you for shall be deemed to be "works made for hire" within the meaning of the United States Copyright Law and, as such, all rights therein including copyright shall belong solely and exclusively to TopCoder from the time of their creation.  To the extent any such work of authorship may not be deemed to be a work made for hire, you agree to, and do hereby, irrevocably and unconditionally transfer and assign to TopCoder all right, title and interest including copyright in and to such work. 
+    <p align="justify">You further agree that any and all works of authorship created, authored or developed by you hereunder which TopCoder compensates you for shall be deemed to be "works made for hire" within the meaning of the United States Copyright Law and, as such, all rights therein including copyright shall belong solely and exclusively to TopCoder from the time of their creation. To the extent any such work of authorship may not be deemed to be a work made for hire, you agree to, and do hereby, irrevocably and unconditionally transfer and assign to TopCoder all right, title and interest including copyright in and to such work. 
     </p>
-    <p align="justify">You agree that if TopCoder is unable because of your unavailability, or for any other reason, to secure your signature to apply for or to pursue any application for any United States or foreign patents, mask work, copyright or trademark registrations covering the assignments to TopCoder above, then you hereby irrevocably designate and appoint TopCoder and its duly authorized officers and agents as your agent and attorney in fact, to act for and in your behalf and stead to execute and file any such applications and to do all other lawfully permitted acts to further the prosecution and issuance of patents, copyright, mask work and trademark registrations thereon with the same legal force and effect as if executed by your authorized agent.
+    <p align="justify">You agree that if TopCoder is unable because of your unavailability, or for any other reason, to secure your signature to apply for or to pursue any application for any United States or foreign patents, mask work, copyright or trademark registrations covering the assignments to TopCoder above, then you hereby irrevocably designate and appoint TopCoder and its duly authorized officers and agents as your agent and attorney in fact, to act for and in your behalf and stead to execute and file any such applications and to do all other lawfully permitted acts to further the prosecution and issuance of patents, copyright, mask work and trademark registrations thereon with the same legal force and effect as if executed by your authorized agent. 
     </p>
-    <p align="justify">Nothing in these rules and regulations shall be construed as granting you any right or license under any intellectual property right of TopCoder (including any rights TopCoder may have in any patents, copyrights, trademarks, service marks or any trade secrets), by implication, estoppel or otherwise, except as expressly set forth herein.
+    <p align="justify">Nothing in these rules and regulations shall be construed as granting you any right or license under any intellectual property right of TopCoder (including any rights TopCoder may have in any patents, copyrights, trademarks, service marks or any trade secrets), by implication, estoppel or otherwise, except as expressly set forth herein. 
     </p>
 
     <div class="sectionHeader">Confidential Information</div>
 
-    <p align="justify">You acknowledge the confidential and proprietary nature of the information you obtain from TopCoder regarding design specifications and functionality and/or development solutions, including, but not limited to, scope documents and source code.  You also acknowledge the confidential and proprietary nature of the information contained in the project postings and in the customer and developer forums on TopCoder's website(s).  You also agree (i) to hold such information in confidence and to take all reasonable precautions to protect such confidential information (including, without limitation, all precautions you may employ with respect to your own confidential materials), (ii) not to divulge any such confidential information to any third person; and (iii) not to make any use whatsoever of such confidential information except as expressly authorized in these Terms. 
+    <p align="justify">You acknowledge the confidential and proprietary nature of the information you obtain from TopCoder regarding design specifications and functionality and/or development solutions, including, but not limited to, scope documents and source code. You also acknowledge the confidential and proprietary nature of the information contained in the project postings and in the customer and developer forums on TopCoder's website(s). You also agree (i) to hold such information in confidence and to take all reasonable precautions to protect such confidential information (including, without limitation, all precautions you may employ with respect to your own confidential materials), (ii) not to divulge any such confidential information to any third person; and (iii) not to make any use whatsoever of such confidential information except as expressly authorized in these Terms. 
     </p>
 
     <div class="sectionHeader">Indemnification and Release</div>
@@ -306,7 +281,7 @@
 
     <div class="sectionHeader">LIMITATION OF LIABILITY</div>
 
-    <p align="justify">TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW, TOPCODER SHALL NOT BE LIABLE FOR ANY DAMAGES (INCLUDING, BUT NOT LIMITED TO, DIRECT, INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES), INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR LOSS OF WINNINGS, DATA OR OTHER DAMAGE TO ANY OTHER INTANGIBLE PROPERTY, EVEN IF TOPCODER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, RESULTING FROM (i) THE USE OR INABILITY TO USE ITS WEBSITE(S), (ii) THE POSTING OF INFORMATION TO, OR THE RECEIPT OF INFORMATION FROM, ITS WEBSITE(S), (iii) THE DISCLOSURE OF, UNAUTHORIZED ACCESS TO OR ALTERATION OF ANY TRANSMISSION OR DATA, (iv) THE STATEMENTS OR CONDUCT OF ANY THIRD PARTY OR (v) ANY OTHER MATTER RELATING TO TOPCODER.
+    <p align="justify">TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW, TOPCODER SHALL NOT BE LIABLE FOR ANY DAMAGES (INCLUDING, BUT NOT LIMITED TO, DIRECT, INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES), INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR LOSS OF WINNINGS, DATA OR OTHER DAMAGE TO ANY OTHER INTANGIBLE PROPERTY, EVEN IF TOPCODER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, RESULTING FROM (i) THE USE OR INABILITY TO USE ITS WEBSITE(S), (ii) THE POSTING OF INFORMATION TO, OR THE RECEIPT OF INFORMATION FROM, ITS WEBSITE(S), (iii) THE DISCLOSURE OF, UNAUTHORIZED ACCESS TO OR ALTERATION OF ANY TRANSMISSION OR DATA, (iv) THE STATEMENTS OR CONDUCT OF ANY THIRD PARTY OR (v) ANY OTHER MATTER RELATING TO TOPCODER. 
     </p>
 
     <div class="sectionHeader">Choice of Law and Forum</div>
@@ -328,7 +303,7 @@
         <div class="sectionHeader">Other</div>
         
         <p align="justify">
-        The competition is void in whole or in part where prohibited by law.
+        The competition is void in whole or in part where prohibited by law. 
         </p>
         
         <p align="justify">
@@ -336,7 +311,7 @@
         displayed for at least 3 months after the end of the competition.
         </p>
 
-    <%if(rsr.getIntItem("round_id") == 10930) {%>
+    <%if(rsr.getIntItem("round_id") == 12202) {%>
     <p align="justify">TopCoder may assign, novate or subcontract any or all of its rights and obligations under these rules and regulations at any time.
     </p>
     <%}%>
