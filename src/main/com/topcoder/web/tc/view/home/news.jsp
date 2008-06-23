@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />06.23.08<br />2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm405">SRM 405 - Problem Set &amp; Analysis</a></span><br /><br />
+      <tc-webtag:handle coderId="10574855" context="algorithm"/>'s match appeared to be much easier than his previous matches - a whopping total of 3 coders solved the hard problem in Division 1. <tc-webtag:handle coderId="22675302" context="algorithm"/> won the round, with <tc-webtag:handle coderId="22662797" context="algorithm"/> and <tc-webtag:handle coderId="22682264" context="algorithm"/> rounding the top 3.</td>
+         <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm405">details</a> | 
+        <tc-webtag:forumLink forumID="521576" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />06.20.08<br />5:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=MatchDetails&amp;rd=12202">Marathon Match 36 – Schedule Changed and Prizes Awarded!</a></span><br /><br />
@@ -158,15 +174,3 @@
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />06.09.08<br />4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/longcontest/stats/?module=ViewOverview&amp;rd=12167">AMD Multicore Threadfest Competition 2 Winners Announced!</a></span><br /><br />
-        Congratulations to <tc-webtag:handle coderId="7504863" context="marathon_match"/>, the winner of the 2nd AMD Multicore Threadfest competition.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/longcontest/stats/?module=ViewOverview&amp;rd=12167">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=615682">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
-   </td></tr>
