@@ -225,6 +225,12 @@
                 </c:forEach>
             </c:otherwise>
         </c:choose>
+        <c:if test="${fn:length(contest.digitalRunPoints)>0 and contest.digitalRunPoints > 0}">
+            <tr>
+                <td class="field">Design Cup Pts</td>
+                <td class="value">${contest.digitalRunPoints}</td>
+            </tr>
+        </c:if>
     </tbody>
 </table>
 
