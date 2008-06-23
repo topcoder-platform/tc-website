@@ -87,6 +87,7 @@ ding="utf-8"?>
                     <tr>
                         <th class="first">Contest</th>
                         <th class="second">Purse</th>
+                        <th class="second">DC Points</th>
                         <th class="last">Deadline</th>
                     </tr>
                 </thead>
@@ -100,6 +101,7 @@ ding="utf-8"?>
                                     <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">
                                     <rsc:item name="name" row="<%=resultRow%>"/></a></td>
                             <td class="second"><rsc:item name="prize_total" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/></td>
+                            <td class="second"><rsc:item name="dr_points" row="<%=resultRow%>" format="######" ifNull="&nbsp;"/></td>
                             <td class="last"><rsc:item name="end_time" row="<%=resultRow%>" format="MM.dd.yyyy'<br />'HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
                         </tr>
                     </rsc:iterator>

@@ -225,10 +225,10 @@
                 </c:forEach>
             </c:otherwise>
         </c:choose>
-        <c:if test="${fn:length(contest.digitalRunPoints)>0 and contest.digitalRunPoints > 0}">
+        <c:if test="${fn:length(contest.digitalRunPoints.value)>0 and contest.digitalRunPoints.value != '0'}">
             <tr>
                 <td class="field">Design Cup Pts</td>
-                <td class="value">${contest.digitalRunPoints}</td>
+                <td class="value">${contest.digitalRunPoints.value}</td>
             </tr>
         </c:if>
     </tbody>
