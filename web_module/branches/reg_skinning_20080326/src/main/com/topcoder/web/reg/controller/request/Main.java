@@ -85,7 +85,7 @@ public class Main extends Base {
                             }
                         }
                         if (requestedTypes.isEmpty()) {
-                            throw new NavigationException("Invalid request, no registratoin type specified.");
+                            throw new NavigationException("Invalid request, no registration type specified.");
                         } else {
                             setRequestedTypes(requestedTypes);
                         }
