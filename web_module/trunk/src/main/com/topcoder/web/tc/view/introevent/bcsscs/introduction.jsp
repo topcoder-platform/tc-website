@@ -46,14 +46,29 @@
 
                 <p>TopCoder is the recognised leader in identifying, evaluating and mobilising effective software development resources. Through its proprietary programming competitions and rating system, TopCoder recognises and promotes the abilities of the best programmers around the world. </p>
 
+                <%--
+                <div style="margin-bottom: 20px;">
+                    <h2>June 2008</h2>
+                    <strong>RevealTriangle</strong>
+                    <br /><a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=revealTriangle">Problem statement</a>
+                    | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=revealTriangleSol">Solution</a>
+                </div>
+                --%>
+                <div style="margin-bottom: 20px;">
+                    <h2>May 2008</h2>
+                    <strong>SubgridsCounter</strong>
+                    <br /><a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=subgridsCounter">Problem statement</a>
+                    | Solution posted with next month's problem!
+                    <%--
+                    | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=subgridsCounterSol">Solution</a>
+                    --%>
+                </div>
+                
                 <div style="margin-bottom: 20px;">
                     <h2>April 2008</h2>
                     <strong>DNAString</strong>
                     <br /><a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=dnaString">Problem statement</a>
-                    | Solution posted with next month's problem!
-                    <%--
                     | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=dnaStringSol">Solution</a>
-                    --%>
                 </div>
                 
                 <div style="margin-bottom: 20px;">
