@@ -75,7 +75,10 @@
                         <%-- OpenAIM 
                         <a href="<tc-webtag:linkTracking link='/openaim/' refer='pr_index' />"><img src="/i/home/openaim.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
                         --%>
-                        <%-- TCO08 --%>
+                        <%-- Truveo --%>
+                        <a href="<tc-webtag:linkTracking link='/truveo/' refer='pr_index' />"><img src="/i/home/truveo_100.png" alt="Truveo Developer Challenge Powered by TopCoder" /></a>
+                        
+                        <%-- TCO08 
                         <map name="tco08">
                         <area shape="rect" alt="" coords="12,6,198,114" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about" />
                         <area shape="rect" alt="" coords="216,6,466,114" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=blog" />
@@ -86,6 +89,7 @@
                         <area shape="rect" alt="" coords="413,136,474,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=summary" />
                         </map>
                         <img src="/i/home/tco08champs.png" alt="TCO08" usemap="#tco08" style="display: block;" />
+                        --%>
                     </div>
                 </div>
                 <%--
@@ -114,11 +118,11 @@
                 <%-- THE Journal: Which Side Are You On? begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.thejournal.com/articles/22736_2' refer='pr_index' />"><img src="/i/pressroom/theJournal_logo.png" alt="THE Journal" border="0" /></a>
+                        <a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/thejournal_200806.pdf' refer='pr_index' />"><img src="/i/pressroom/theJournal_logo.png" alt="THE Journal" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
                         <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.thejournal.com/articles/22736_2' refer='pr_index' />">Which Side Are You On?</a></h3>
-                        <p>The TopCoder High School Tournament is highlighted in Matt Villano's feature on the state of 21st Century Skills in the classroom.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.thejournal.com/articles/22736_2' refer='pr_index' />">[June]</a></small></p>
+                        <p>The TopCoder High School Tournament is highlighted in Matt Villano's feature on the state of 21st Century Skills in the classroom.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.thejournal.com/articles/22736_2' refer='pr_index' />">[June]</a> | <a target="_blank" href="/i/pressroom/pdfs/thejournal_200806.pdf">PDF</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
@@ -127,11 +131,11 @@
                 <%-- People Management: Why We All Want to Grow Towards the Sun begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.peoplemanagement.co.uk/pm/articles/2008/05/why-we-all-want-to-grow-towards-the-sun.htm?EmailSent=true' refer='pr_index' />"><img src="/i/pressroom/peopleMgmt_logo.png" alt="People Management" border="0" /></a>
+                        <a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/peoplemgmt_20080529.pdf' refer='pr_index' />"><img src="/i/pressroom/peopleMgmt_logo.png" alt="People Management" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
                         <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.peoplemanagement.co.uk/pm/articles/2008/05/why-we-all-want-to-grow-towards-the-sun.htm?EmailSent=true' refer='pr_index' />">Why We All Want to Grow Towards the Sun</a></h3>
-                        <p>TopCoder's model of clear rules, boundaries and incentives leads to a creatively engaging and passionate work environment.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.peoplemanagement.co.uk/pm/articles/2008/05/why-we-all-want-to-grow-towards-the-sun.htm?EmailSent=true' refer='pr_index' />">[May 29]</a></small></p>
+                        <p>TopCoder's model of clear rules, boundaries and incentives leads to a creatively engaging and passionate work environment.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.peoplemanagement.co.uk/pm/articles/2008/05/why-we-all-want-to-grow-towards-the-sun.htm?EmailSent=true' refer='pr_index' />">[May 29]</a> | <a target="_blank" href="/i/pressroom/pdfs/peoplemgmt_20080529.pdf">PDF</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
