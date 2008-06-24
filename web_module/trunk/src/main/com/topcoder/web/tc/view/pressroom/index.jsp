@@ -170,11 +170,11 @@
                 <%-- Truveo begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_051908_b"><img src="/i/pressroom/truveo.png" alt="" border="0" /></a>
+                        <a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b"><img src="/i/pressroom/truveo.png" alt="" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_051908_b">Truveo Developer Challenge Offers $100,000 in Prizes for New Video Search Applications</a></h3>
-                        <p>With a prize pool of $100,000, developers will compete to build customized applications that use Truveo's open API for video search.<small><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_051908_b">[May 19]</a></small></p>
+                        <h3><a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">Truveo Developer Challenge Offers $100,000 in Prizes for New Video Search Applications</a></h3>
+                        <p>With a prize pool of $100,000, developers will compete to build customized applications that use Truveo's open API for video search.<small><a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">[May 19]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
