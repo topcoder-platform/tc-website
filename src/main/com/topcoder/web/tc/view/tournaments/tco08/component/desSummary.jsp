@@ -48,9 +48,7 @@
                         <th>&nbsp;</th>
                         <th>&nbsp;</th>
                         <th colspan="3"><center>Review Board</center></th>
-                        <%--
                         <th>&nbsp;</th>
-                        --%>
                         <th>&nbsp;</th>
                     </tr>
                     <tr>
@@ -59,9 +57,7 @@
                         <th><tc-webtag:handle coderId="278342" context="design" darkBG="true" /></th>
                         <th><tc-webtag:handle coderId="151743" context="design" darkBG="true" /></th>
                         <th><tc-webtag:handle coderId="11789293" context="design" darkBG="true" /></th>
-                        <%--
                         <th>Link</th>
-                        --%>
                         <th>Total</th>
                     </tr>
                     <%-- Pops --%>
@@ -71,9 +67,7 @@
                         <td class="value">87.25</td>
                         <td class="value">89.31</td>
                         <td class="value">90.78</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/desSub/Pops.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">89.11</td>
                     </tr>
                     <%-- Luca --%>
@@ -83,9 +77,7 @@
                         <td class="value">87.06</td>
                         <td class="value">89.09</td>
                         <td class="value">88.59</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/desSub/Luca.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">88.25</td>
                     </tr>
                     <%-- ShindouHikaru --%>
@@ -95,9 +87,7 @@
                         <td class="value">86.16</td>
                         <td class="value">85.97</td>
                         <td class="value">90.34</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/desSub/ShindouHikaru.jar"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">87.49</td>
                     </tr>
                     <%-- Wendell --%>
@@ -107,9 +97,7 @@
                         <td class="value">81.53</td>
                         <td class="value">81.97</td>
                         <td class="value">86.91</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/desSub/Wendell.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">83.47</td>
                     </tr>
                     <%-- dmks --%>
@@ -119,9 +107,7 @@
                         <td class="value">77.53</td>
                         <td class="value">81.28</td>
                         <td class="value">84.56</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/desSub/dmks.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">81.12</td>
                     </tr>
                     <%-- fabrizyo --%>
@@ -131,9 +117,7 @@
                         <td class="value">82.28</td>
                         <td class="value">75.28</td>
                         <td class="value">79.69</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/desSub/fabrizyo.jar"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">79.08</td>
                     </tr>
                     <%-- kyky --%>
@@ -143,9 +127,7 @@
                         <td class="value">77.38</td>
                         <td class="value">79.41</td>
                         <td class="value">74.84</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/desSub/kyky.jar"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">77.21</td>
                     </tr>
                     <%-- argolite --%>
@@ -155,9 +137,7 @@
                         <td class="value">75.44</td>
                         <td class="value">74.56</td>
                         <td class="value">80.56</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/desSub/argolite.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">76.85</td>
                     </tr>
                     <%-- AleaActaEst --%>
@@ -167,9 +147,7 @@
                         <td class="value">76.56</td>
                         <td class="value">75.94</td>
                         <td class="value">78.03</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/desSub/AleaActaEst.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">76.84</td>
                     </tr>
                     <%-- tushak --%>
@@ -179,9 +157,7 @@
                         <td class="value">75.72</td>
                         <td class="value">76.59</td>
                         <td class="value">78.16</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/desSub/tushak.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">76.82</td>
                     </tr>
                 </table>
