@@ -48,9 +48,7 @@
                         <th>&nbsp;</th>
                         <th>&nbsp;</th>
                         <th colspan="3"><center>Review Board</center></th>
-                        <%--
                         <th>&nbsp;</th>
-                        --%>
                         <th>&nbsp;</th>
                     </tr>
                     <tr>
@@ -59,9 +57,7 @@
                         <th><tc-webtag:handle coderId="297731" context="development" darkBG="true" /></th>
                         <th><tc-webtag:handle coderId="277356" context="development" darkBG="true" /></th>
                         <th><tc-webtag:handle coderId="7210680" context="development" darkBG="true" /></th>
-                        <%--
                         <th>Link</th>
-                        --%>
                         <th>Total</th>
                     </tr>
                     <%-- romanoTC --%>
@@ -71,9 +67,7 @@
                         <td class="value">85.66</td>
                         <td class="value">97.94</td>
                         <td class="value">94.31</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/devSub/romanoTC.jar"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">92.64</td>
                     </tr>
                     <%-- PE --%>
@@ -83,9 +77,7 @@
                         <td class="value">86.28</td>
                         <td class="value">88.31</td>
                         <td class="value">96.56</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/devSub/PE.jar"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">90.38</td>
                     </tr>
                     <%-- cyberjag --%>
@@ -95,9 +87,7 @@
                         <td class="value">86.41</td>
                         <td class="value">96.34</td>
                         <td class="value">87.56</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/devSub/cyberjag.jar"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">90.10</td>
                     </tr>
                     <%-- Orange_Cloud --%>
@@ -107,9 +97,7 @@
                         <td class="value">86.64</td>
                         <td class="value">96.47</td>
                         <td class="value">86.75</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/devSub/Orange_Cloud.jar"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">89.95</td>
                     </tr>
                     <%-- enefem21 --%>
@@ -119,9 +107,7 @@
                         <td class="value">86.03</td>
                         <td class="value">86.42</td>
                         <td class="value">96.19</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/devSub/enefem21.jar"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">89.55</td>
                     </tr>
                     <%-- oldbig --%>
@@ -131,9 +117,7 @@
                         <td class="value">82.84</td>
                         <td class="value">86.03</td>
                         <td class="value">94.44</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/devSub/oldbig.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">87.77</td>
                     </tr>
                     <%-- wiedzmin --%>
@@ -143,9 +127,7 @@
                         <td class="value">80.98</td>
                         <td class="value">88.47</td>
                         <td class="value">89.5</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/devSub/wiedzmin.jar"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">86.32</td>
                     </tr>
                     <%-- hefeng --%>
@@ -155,9 +137,7 @@
                         <td class="value">87.88</td>
                         <td class="value">84.01</td>
                         <td class="value">74.12</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/devSub/hefeng.rar"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">82.00</td>
                     </tr>
                     <%-- hotblue --%>
@@ -167,9 +147,7 @@
                         <td class="value">89.59</td>
                         <td class="value">75.31</td>
                         <td class="value">79.31</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/devSub/hotblue.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">81.40</td>
                     </tr>
                     <%-- netsafe --%>
@@ -179,9 +157,7 @@
                         <td class="value">73.5</td>
                         <td class="value">75.93</td>
                         <td class="value">88.25</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/devSub/netsafe.jar"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">79.23</td>
                     </tr>
                     <%-- Xuchen --%>
@@ -191,9 +167,7 @@
                         <td class="value">82.9</td>
                         <td class="value">77.19</td>
                         <td class="value">77.5</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/devSub/Xuchen.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">79.20</td>
                     </tr>
                     <%-- jueyey --%>
@@ -203,9 +177,7 @@
                         <td class="value">64.58</td>
                         <td class="value">67.44</td>
                         <td class="value">55.5</td>
-                        <%--
-                        <td class="value"><a href="http://software.topcoder.com/review/actions/DownloadSubmission.do?method=downloadSubmission&uid=63296"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
-                        --%>
+                        <td class="value"><a target="_blank" href="http://software.topcoder.com/html/tco08/devSub/jueyey.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></a></td>
                         <td class="value">62.51</td>
                     </tr>
                 </table>
