@@ -45,9 +45,7 @@
             <div>
             <strong>
             Problem Statement 
-            <%--
             | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=dnaStringSol" class="bcLink">Solution</a>
-            --%>
             </strong>
             </div>
             
