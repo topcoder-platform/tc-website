@@ -45,6 +45,11 @@
             </tr>
             <tr valign="top">
                <td class="bodyText">&nbsp;</td>
+               <td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&amp;d1=features&amp;d2=062508"><strong>Meet the May 2008 Coders of the Month</strong></a></td>
+               <td class="bodyText" nowrap=nowrap>Jun 25, 2008</td> 
+            </tr>
+            <tr valign="top">
+               <td class="bodyText">&nbsp;</td>
                <td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&amp;d1=features&amp;d2=042508"><strong>Meet the March 2008 Coders of the Month: Wendell &amp; PE</strong></a></td>
                <td class="bodyText" nowrap=nowrap>Apr 25, 2008</td> 
             </tr>
@@ -300,7 +305,7 @@
             </tr>
             <tr valign="top">
                <td class="bodyText">AOL's Boxely Team</td>
-               <td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&d3=sponsorspatrons&d4=aolBoxely"><strong>Introducing Boxely</strong></a></td>
+               <td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aolBoxely"><strong>Introducing Boxely</strong></a></td>
                <td class="bodyText" nowrap=nowrap>Apr 17, 2007</td> 
             </tr>
             <tr valign="top">
