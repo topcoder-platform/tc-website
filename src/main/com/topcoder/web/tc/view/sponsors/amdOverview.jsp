@@ -64,8 +64,8 @@
         <p>AMD recommends that all contestants do the following:</p>
         <ol>
             <li>Register at <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.amd.com/' refer='amd_threadfest' />">developer.amd.com</a></li>
-            <li>Read our <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.amd.com/TechnicalArticles/Articles/Pages/default.aspx' refer='amd_threadfest' />">parallel programming technical articles</a></li>
-            <li>Download and try out <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.amd.com/tools/codeanalystwindows/Pages/default.aspx' refer='amd_threadfest' />">CodeAnalyst&trade; Performance Analyzer</a> and familiarize yourself with <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.amd.com/tools/acml/Pages/default.aspx' refer='amd_threadfest' />">AMD Core Math Library</a> and AMD sponsored <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.amd.com/tools/libraries/framewave/Pages/default.aspx' refer='amd_threadfest' />">Framewave</a> library</li>
+            <li>Read our <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.amd.com/documentation/articles/Pages/default.aspx#parallel' refer='amd_threadfest' />">parallel programming technical articles</a></li>
+            <li>Download and try out <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.amd.com/cpu/CodeAnalyst/Pages/default.aspx' refer='amd_threadfest' />">CodeAnalyst&trade; Performance Analyzer</a> and familiarize yourself with <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.amd.com/tools/acml/Pages/default.aspx' refer='amd_threadfest' />">AMD Core Math Library</a> and AMD sponsored <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.amd.com/tools/libraries/framewave/Pages/default.aspx' refer='amd_threadfest' />">Framewave</a> library</li>
         </ol>
         <p>&nbsp;</p>
 
