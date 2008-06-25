@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />06.25.08<br />12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=MatchDetails&amp;rd=12179">Betfair chat session prior to SRM 407</a></span><br /><br />
+        Join Betfair representatives in the chat room prior to SRM 407 to discuss their exciting <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfair">career opportunities</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=MatchDetails&amp;rd=12179">details</a> | 
+        <tc-webtag:forumLink forumID="521830" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />06.23.08<br />6:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -155,22 +168,6 @@
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm404">details</a> | 
         <tc-webtag:forumLink forumID="521404" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />06.10.08<br />1:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm403">SRM 403 - Problem Set &amp; Analysis</a></span><br /><br />
-      This single round match was realy lucky. Over 1000 of lucky coders, lucky problems, lucky time of the day (especially here, in Ukraine) and of course lucky numbers. What else do you need to have have fun during 100 lucky minutes of TopCoder competition?</td>
-         <td class="newsPhoto"><img src="/i/m/Vasyl(alphacom)_big3.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="13351270" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm403">details</a> | 
-        <tc-webtag:forumLink forumID="521320" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
    

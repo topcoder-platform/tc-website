@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">06.25.08 12:00 PM - </td><td width="100%"><a href="/tc?module=MatchDetails&amp;rd=12179">Betfair chat session prior to SRM 407</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.28.08 12:30 PM - </td><td width="100%"><a href="/tc?module=MatchDetails&amp;rd=12175">NSA chat session prior to SRM 403</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.15.08 7:30 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=blog">Congratulations TCO08 Champions!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.15.08 11:45 AM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=blog">The Official Blog of the 2008 TopCoder Open</a></td></tr>
