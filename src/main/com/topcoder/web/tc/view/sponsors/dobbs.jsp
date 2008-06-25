@@ -41,6 +41,10 @@
             <div align="center"><img src="/i/sponsor/drDobbsPoster.png" border="0px" alt="Dr. Dobb's Architecture &amp; Design World" /></div>
             <br />
             <p>Welcome to Dr. Dobb's Architecture and Design World software architecture contest!  Here you can register for the competition, as well as learn more about architecture competitions.  Check out <a href="/wiki/display/docs/DDADW+Problem+Statement">the problem statement</a>.</p>
+            
+            <p><strong>Contest Overview:</strong><br />
+            The 2008 Software Architecture Contest ("Contest") will take place between May 10, 2008 and July 24, 2008 and is part of the Dr. Dobb's Architecture and Design World 2008 being held on July 21-24, 2008 at the Hyatt Regency McCormick Place in Chicago, Illinois.  The Contest is open to registered Architecture &amp; Design World 2008 attendees only.  The Contest will take place both online and onsite leading up to the conclusion of the Event.  Contest entrants must enter their submissions online at www.topcoder.com/dobbs by July 23, 2008 until 11:59a.m. CDT or at the TopCoder booth onsite at the Event from July 21-23, 2008 until 11:59 a.m. CDT. The Contest is open to residents of the United States (excluding Puerto Rico) and Canada (excluding the province of Quebec).</p>
+
             <p>The winner of the competition will receive a free All Access pass to an upcoming Dr. Dobb's event!</p>
             <ol>
                 <li>Read the <strong><a href="/wiki/display/training/Architecture+Deliverable+Module">Training Material</a></strong> to learn about the deliverables involved.</li>
