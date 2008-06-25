@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />06.25.08<br />5:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=062508">Meet the May 2008 Coders of the Month</a></span><br /><br />
+        We caught up with <tc-webtag:handle coderId="159100" context="algorithm" />, May's Algorithm Coder of the Month, <tc-webtag:handle coderId="22655076" context="development" />, May's Development Coder of the Month, and <tc-webtag:handle coderId="22682305" />, May's Studio Designer of the Month to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=062508">details</a> | 
+        <tc-webtag:forumLink forumID="521831" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />06.25.08<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=MatchDetails&amp;rd=12179">Betfair chat session prior to SRM 407</a></span><br /><br />
@@ -153,21 +167,5 @@
    <tr><td class="newsLinksCell">
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=616032">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />06.11.08<br />4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm404">SRM 404 - Problem Set &amp; Analysis</a></span><br /><br />
-      This match attracted 1439 competitors, 800 Div2 (117 newcomers) and 639 Div1. Without any challenge made at all <tc-webtag:handle coderId="7446789" context="algorithm"/> won the match, folowed by <tc-webtag:handle coderId="251074" context="algorithm"/> who thanks to 125 points earned in challenge phase needed only 2 points more to win the match. <tc-webtag:handle coderId="8394868" context="algorithm"/> took third place who continues showing his great success and became a target!</td>
-         <td class="newsPhoto"><img src="/i/m/boba5551_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20394568" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm404">details</a> | 
-        <tc-webtag:forumLink forumID="521404" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
    
