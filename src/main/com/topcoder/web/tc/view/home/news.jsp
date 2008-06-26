@@ -4,6 +4,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />06.26.08<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=617309">Changes Coming to Digital Run</a></span><br /><br />
+        TopCoder has decided to make some changes to the Digital Run beginning July 1st, 2008. Most notably, DR stages will now run monthly rather than quarterly, with a guaranteed prize pool paid out to the DR leaders at the end of every single month. This pool will grow throughout the month with each contest launched and completed - so the more contests run, the more money will be paid out in DR.  <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=617309">Read more</a>...</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=617309">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />06.25.08<br />5:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=features&amp;d2=062508">Meet the May 2008 Coders of the Month</a></span><br /><br />
@@ -14,7 +26,6 @@
         <tc-webtag:forumLink forumID="521831" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
    </td></tr>
-
 
 <%--------------------------------------------------------%>
    <tr>
@@ -153,19 +164,5 @@
         <a href="/tc?module=ViewActiveContests&amp;ph=113">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=615528">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />06.12.08<br />12:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=616032">The TCCC: A Difficult Decision</a></span><br /><br />
-        After much deliberation TopCoder has decided to omit the TCCC from our schedule of tournaments. It has been a difficult decision to make, and not undertaken lightly.  There are multiple reasons for discontinuing the event, including greater sponsor interest in the TCO and the fact that the TCO generally draws more collegiate participants than professional participants.<br /><br />
-        We believe a focus on the TCO as our one premier event of the year will serve us better than two smaller annual events. We can now concentrate the full energies of the events team and all of our events resources on the TCO, which has become the industry standard for onsite competitive programming tournaments.<br /><br />
-        We hope you understand the reasons behind the decision and we're now looking forward to making the next TCO even better and more exciting than ever before.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=616032">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
    
