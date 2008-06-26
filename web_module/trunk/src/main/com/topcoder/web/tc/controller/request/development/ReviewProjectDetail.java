@@ -106,20 +106,20 @@ public class ReviewProjectDetail extends Base {
                     hasPrimary |= app.isPrimary();
                 }
                 if (!hasPrimary) {
-//                    if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE || detail.getLongItem(0, "phase_id") == 116) {
-//
-//                        for (Iterator it = reviewerList.iterator(); it.hasNext();) {
-//                            app = (ReviewBoardApplication) it.next();
-//
-//                            //set a primary to be the failure test spot, but only do it
-//                            //if it's not filled.  perhaps we put someone in there
-//                            //who didn't want to be primary, failure is primary is just
-//                            //a convention, not a rule.  in this case, someone would have to
-//                            //be set primary manually
-//                            if (app.getReviewerType().equals("Failure") && !app.isSpotFilled())
-//                                app.setPrimary(true);
-//                        }
-//                    } else {
+                    if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE || detail.getLongItem(0, "phase_id") == 116) {
+
+                        for (Iterator it = reviewerList.iterator(); it.hasNext();) {
+                            app = (ReviewBoardApplication) it.next();
+
+                            //set a primary to be the failure test spot, but only do it
+                            //if it's not filled.  perhaps we put someone in there
+                            //who didn't want to be primary, failure is primary is just
+                            //a convention, not a rule.  in this case, someone would have to
+                            //be set primary manually
+                            if (app.getReviewerType().equals("Failure") && !app.isSpotFilled())
+                                app.setPrimary(true);
+                        }
+                    } else {
                         for (Iterator it = reviewerList.iterator(); it.hasNext() && !hasPrimary;) {
                             app = (ReviewBoardApplication) it.next();
                             if (!app.isSpotFilled()) {
@@ -127,7 +127,7 @@ public class ReviewProjectDetail extends Base {
                                 hasPrimary = true;
                             }
                         }
-//                    }
+                    }
                 }
 
                 getRequest().setAttribute("reviewerList", reviewerList);

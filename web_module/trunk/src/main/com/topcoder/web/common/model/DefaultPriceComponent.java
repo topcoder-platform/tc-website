@@ -38,7 +38,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
     private final static float[] DEV_PRICE_LOOKUP = {0f, 500f, 500f};
     private final static float[] TESTING_PRICE_LOOKUP = {0f, 200f, 200f};
 
-    private final static float DEV_REVIEW_RATE = 25f;
+    private final static float DEV_REVIEW_RATE = 27f;
     private final static float DESIGN_REVIEW_RATE = 26f;
     private final static float TESTING_REVIEW_RATE = 25f;
 
@@ -144,7 +144,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     private float getDevFinalReviewCost() {
-        float finalReviewCost = 1.5f * DEV_REVIEW_RATE;  //60 minutes to do final review
+        float finalReviewCost = 2f * DEV_REVIEW_RATE;  //120 minutes to do final review
         return finalReviewCost;
     }
 
@@ -154,11 +154,13 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @return
      */
     private float getDevCoreReviewCost() {
-        float reviewCost = (float) (level + 0.5) * (float) submissionsPassedScreening * DEV_REVIEW_RATE;
-        float startupCost = DEV_REVIEW_RATE; //60 minutes to "start up"
+        float reviewCost = (float) (level + 1) * (float) submissionsPassedScreening * DEV_REVIEW_RATE;
+        float startupCost = DEV_REVIEW_RATE * 2; //120 minutes to "start up"
+        float testCaseCost = DEV_REVIEW_RATE * 5; // 5 hours to write test cases
         debug("reviewCost " + reviewCost);
         debug("startupCost " + startupCost);
-        return reviewCost + startupCost;
+        debug("testCaseCost " + testCaseCost);
+        return reviewCost + startupCost + testCaseCost;
     }
 
     /**
