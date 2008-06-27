@@ -45,6 +45,9 @@
 <% } else if (key.equals("tc_studio_forums")) { %>
 <link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
 <link type="text/css" rel="stylesheet" href="/css/forums.css" />
+<% } else if (key.equals("studio_digitalrun")) { %>
+<link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
+<link type="text/css" rel="stylesheet" href="/css/digitalrun/main.css" />
 <% } else if (key.equals("csf")) { %>
 <link type="text/css" rel="stylesheet" href="/css/main.css" />
 <% } else if (key.equals("csfforums")) { %>
@@ -54,6 +57,10 @@
 <link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <link type="text/css" rel="stylesheet" href="/css/pressroomRemix.css" />
+<% } else if (key.equals("digitalrun")) { %>
+<link type="text/css" rel="stylesheet" href="/css/digitalrun/main.css" />
+<link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
+<link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <% } else if (key.equals("tc_ep")) { %>
 <link type="text/css" rel="stylesheet" href="/css/ep/main.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
