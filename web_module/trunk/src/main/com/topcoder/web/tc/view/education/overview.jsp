@@ -39,12 +39,12 @@
 <br /><br />
 <span class="bodySubtitle">Most recent articles:</span><br />
 <ul>
+<li><a href="/tc?module=Static&amp;d1=features&amp;d2=062708"><strong>Know your hero: yuhch123</strong></a>, by <tc-webtag:handle coderId="22419265" context="algorithm" /><br />
+Yu Huacheng, known at TopCoder by his handle <tc-webtag:handle coderId="14768757" context="algorithm" />, has the honor of being the second target after <tc-webtag:handle coderId="20812309" context="algorithm" /> while still studying in Hangzhou No. 2 high school. Let's get to know him better in his own words.</li>
 <li><a href="/tc?module=Static&amp;d1=features&amp;d2=062508"><strong>Meet the May 2008 Coders of the Month</strong></a>&nbsp;<br />
 We caught up with <tc-webtag:handle coderId="159100" context="algorithm" />, May's Algorithm Coder of the Month, <tc-webtag:handle coderId="22655076" context="development" />, May's Development Coder of the Month, and <tc-webtag:handle coderId="22682305" />, May's Studio Designer of the Month to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</li>
 <li><a href="/tc?module=Static&amp;d1=features&amp;d2=042508"><strong>Meet the March 2008 Coders of the Month: Wendell &amp; PE</strong></a>&nbsp;<br />
 We caught up with <tc-webtag:handle coderId="8544935" context="design" />, March's Design Coder of the Month, and <tc-webtag:handle coderId="9998760" context="development" />, March's Development Coder of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</li>
-<li><a href="/tc?module=Static&amp;d1=features&amp;d2=041808"><strong>Meet the March 2008 Coders of the Month: PaulJefferys &amp; oton</strong></a>&nbsp;<br />
-We caught up with <tc-webtag:handle coderId="7394165" context="algorithm" />, March's Algorithm Coder of the Month, and <tc-webtag:handle coderId="22076237" />, March's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br />
 <ul>

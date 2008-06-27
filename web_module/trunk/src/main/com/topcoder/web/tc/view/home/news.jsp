@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />06.27.08<br />5:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=features&amp;d2=062708">Know your hero: yuhch123</a></span><br /><br />
+      Yu Huacheng, known at TopCoder by his handle <tc-webtag:handle coderId="14768757" context="algorithm" />, has the honor of being the second target after <tc-webtag:handle coderId="20812309" context="algorithm" /> while still studying in Hangzhou No. 2 high school. Let's get to know him better in his own words.</td>
+         <td class="newsPhoto"><img src="/i/m/innocentboy_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="22419265" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=062708">details</a> | 
+        <tc-webtag:forumLink forumID="521878" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
+   </td></tr>
+
+   <%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />06.26.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=617309">Changes Coming to Digital Run</a></span><br /><br />
@@ -151,18 +167,5 @@
         <a href="/tc?module=Static&amp;d1=media&amp;d2=misc3x2&amp;clip=guandong&amp;title=TopCoder%20College%20Tour%20visits%20Guangzhou">details</a> | 
         <tc-webtag:forumLink forumID="521575" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_movies">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />06.12.08<br />1:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=ViewActiveContests&amp;ph=113">New Component Testing Competitions</a></span><br /><br />
-        We've mixed things up a bit in Component Development.  Now you can compete to implement a superior test suite for every component developed.  Create the best test suite, and you win!  Visit the <a href="/tc?module=ViewActiveContests&amp;ph=113">Active Contests</a> page to compete now.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=ViewActiveContests&amp;ph=113">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=615528">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
    
