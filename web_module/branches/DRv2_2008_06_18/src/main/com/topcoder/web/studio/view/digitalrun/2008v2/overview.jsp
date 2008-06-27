@@ -34,7 +34,7 @@
     <jsp:param name="tabLev2" value="overview"/>
 </jsp:include>
 
-Each component posted for a design competition will carry a point value - equivalent to the prize money for the component - in placement points. Placement points will be awarded based on the number of submissions that pass review, as follows:
+Each contest posted in TopCoder Studio will carry a total point value. Placement points will be awarded based on the number of submissions that pass screening and are ranked, as follows:
 <br /><br />
 <a class="bcLink" name="point_table"></a>
 <div align="center">
@@ -54,8 +54,6 @@ Each component posted for a design competition will carry a point value - equiva
       <th class="r">3</th>
       <th class="r">4</th>
       <th class="r">5</th>
-      <th class="r">6</th>
-      <th class="r">7</th>
    </tr>
 </thead>
 <tbody>
@@ -66,8 +64,6 @@ Each component posted for a design competition will carry a point value - equiva
       <td class="r">65%</td>
       <td class="r">60%</td>
       <td class="r">56%</td>
-      <td class="r">53%</td>
-      <td class="r">51%</td>
    </tr>
    <tr class="even">
       <td class="c">2nd</td>
@@ -76,15 +72,11 @@ Each component posted for a design competition will carry a point value - equiva
       <td class="r">25%</td>
       <td class="r">22%</td>
       <td class="r">20%</td>
-      <td class="r">18%</td>
-      <td class="r">17%</td>
    </tr>
    <tr class="odd">
       <td class="c">3rd</td>
       <td class="r">&#160;</td>
       <td class="r">&#160;</td>
-      <td class="r">10%</td>
-      <td class="r">10%</td>
       <td class="r">10%</td>
       <td class="r">10%</td>
       <td class="r">10%</td>
@@ -96,8 +88,6 @@ Each component posted for a design competition will carry a point value - equiva
       <td class="r">&#160;</td>
       <td class="r">8%</td>
       <td class="r">8%</td>
-      <td class="r">8%</td>
-      <td class="r">8%</td>
    </tr>
    <tr class="odd">
       <td class="c">5th</td>
@@ -106,36 +96,14 @@ Each component posted for a design competition will carry a point value - equiva
       <td class="r">&#160;</td>
       <td class="r">&#160;</td>
       <td class="r">6%</td>
-      <td class="r">6%</td>
-      <td class="r">6%</td>
-   </tr>
-   <tr class="even">
-      <td class="c">6th</td>
-      <td class="r">&#160;</td>
-      <td class="r">&#160;</td>
-      <td class="r">&#160;</td>
-      <td class="r">&#160;</td>
-      <td class="r">&#160;</td>
-      <td class="r">5%</td>
-      <td class="r">5%</td>
-   </tr>
-   <tr class="odd">
-      <td class="c">7th</td>
-      <td class="r">&#160;</td>
-      <td class="r">&#160;</td>
-      <td class="r">&#160;</td>
-      <td class="r">&#160;</td>
-      <td class="r">&#160;</td>
-      <td class="r">&#160;</td>
-      <td class="r">3%</td>
    </tr>
 </tbody>
 </table>
 </div>
 <br /><br />
-If more than seven (7) submissions pass review, the competitors who place in 8th position or below will not receive any placement points.
+If more than five (5) submissions are ranked, the competitors who place in 6th position or below will not receive any placement points. 
 <br /><br />
-Up to 100% of placement points may be deducted for bugs or late final fixes. 20% of a placement point will be deducted for every (24) hours a final fix or component forum issue is late. On a case-by-case basis, as determined by TopCoder staff, additional placement points may be deducted for bugs found in components within 30 days of completion.
+Up to 100% of placement points may be deducted for bugs or late final fixes. 20% of placement point will be deducted for every (24) hours a final fix is late. On a case-by-case basis, as determined by TopCoder Studio staff, additional placement points may be deducted for issues found in submissions, including (but not limited to) cheating or use of copyrighted materials, within 30 days of completion.
 <br /><br />
 
                         <br clear="all"/>
