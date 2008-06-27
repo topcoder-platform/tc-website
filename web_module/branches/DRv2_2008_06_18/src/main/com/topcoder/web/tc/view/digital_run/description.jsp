@@ -81,13 +81,13 @@ function menu_goto( menuform )
                     <a href="/tc?module=ViewActiveContests&amp;ph=112">Active contests</a>
                 </div>
 <%--
---%>
                 <div>
                     <a href="/tc?&amp;pt=1&amp;module=LeaderBoard">Leaderboards</a>
                 </div>
                 <div class="prizeLine">
                     <span class="money">$10,000</span> <span class="month">prize pool in July</span>
                 </div>
+--%>
                 <div class="prizeGuarantee">
                     <span class="money">$10,000</span> <span class="month">Guaranteed Monthly Prize</span>
                 </div>
@@ -104,13 +104,13 @@ function menu_goto( menuform )
                     <a href="/tc?module=ViewActiveContests&amp;ph=113">Active contests</a>
                 </div>
 <%--
---%>
                 <div>
                     <a href="/tc?&amp;pt=2&amp;module=LeaderBoard">Leaderboards</a>
                 </div>
                 <div class="prizeLine">
                     <span class="money">$10,000</span> <span class="month">prize pool in July</span>
                 </div>
+--%>
                 <div class="prizeGuarantee">
                     <span class="money">$10,000</span> <span class="month">Guaranteed Monthly Prize</span>
                 </div>
@@ -127,13 +127,13 @@ function menu_goto( menuform )
                     <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active contests</a>
                 </div>
 <%--
---%>
                 <div>
                     <a href="#">Leaderboards</a>
                 </div>
                 <div class="prizeLine">
                     <span class="money">$10,000</span> <span class="month">prize pool in July</span>
                 </div>
+--%>
                 <div class="prizeGuarantee">
                     <span class="money">$5,000</span> <span class="month">Guaranteed Monthly Prize</span>
                 </div>
@@ -142,7 +142,6 @@ function menu_goto( menuform )
         </div>
 
 <%--
---%>
         <div id="tallyBox">
             tallyBox
         </div>
@@ -284,20 +283,21 @@ function menu_goto( menuform )
                     <a href="#">See all >></a>
                 </p>
             </div>
+--%>
+
+            <p align="center">Looking for a past Digital Run stage?</p>
+            <div align="center">
+                <form action="dummyvalue">
+                <select name="newurl" onchange="menu_goto(this.form)">
+                  <option value="/tc?module=Static&amp;d1=digital_run&amp;d2=2006description">2007 Season</option>
+                  <option value="/tc?module=Static&amp;d1=digital_run&amp;d2=2007dot5&amp;d3=description">2007.5 Season</option>
+                  <option value="/tc?module=Static&amp;d1=digital_run&amp;d2=2008&amp;d3=description">2008 Season</option>
+                  <option value="/tc?module=Static&amp;d1=digital_run&amp;d2=description" selected="selected">2008v2 Season</option>
+                </select>
+                </form>
+            </div>
 
         </div>
-
-    <p align="center">Looking for a past Digital Run stage?</p>
-    <div align="center">
-        <form action="dummyvalue">
-        <select name="newurl" onchange="menu_goto(this.form)">
-          <option value="/tc?module=Static&amp;d1=digital_run&amp;d2=2006description">2007 Season</option>
-          <option value="/tc?module=Static&amp;d1=digital_run&amp;d2=2007dot5&amp;d3=description">2007.5 Season</option>
-          <option value="/tc?module=Static&amp;d1=digital_run&amp;d2=2008&amp;d3=description">2008 Season</option>
-          <option value="/tc?module=Static&amp;d1=digital_run&amp;d2=description" selected="selected">2008v2 Season</option>
-        </select>
-        </form>
-    </div>
 
     </div>
 
