@@ -87,7 +87,7 @@ ding="utf-8"?>
                     <tr>
                         <th class="first">Contest</th>
                         <th class="second">Purse</th>
-                        <th class="second">DC Points</th>
+                        <th class="second">SC Points</th>
                         <th class="last">Deadline</th>
                     </tr>
                 </thead>
