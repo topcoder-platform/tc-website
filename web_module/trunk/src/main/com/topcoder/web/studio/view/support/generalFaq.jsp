@@ -31,17 +31,17 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-                        <div class="linkBox"><studio:forumLink forumID="3"/></div>
+                        
+                        <div style="padding: 10px 0;">
+						<strong>Help Pages:</strong> <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted">Getting Started</a>
+						| <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Assignment FAQ</a>
+						| <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=competitionFaq">Competition FAQs</a>
+						| <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=formatSubmission">Formatting Your Submission</a>
+						| General FAQs
+					    </div>
         
                         <h1>General FAQs</h1>
                         
-                        <div style="float: right; text-align: left; margin: 0px 0px 10px 10px;">
-                            <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted">Getting Started</a>
-                            <br />General FAQs
-                            <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=competitionFaq">Competition FAQs</a>
-                            <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=formatSubmission">Formatting Your Submission</a>
-                            <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Assignment FAQ</a>
-                        </div>
         
                         <h3>What software should I use?</h3>
                         Each contest will list file formats that will be accepted both for submissions and final deliverables from the winner(s). Some contests will limit the types of files that will be accepted based on the client's preferences. The most common file types accepted as final deliverables are EPS and AI files from Adobe Illustrator and PSD files from Adobe Photoshop. Open source programs such as Gimp and Inkscape are often acceptable substitutes and many contests accept files from these programs.<br /><br />
@@ -50,7 +50,7 @@
                         Vector graphics are images created using points, lines, curves and polygons rather than pixels (raster
                         graphics). Vector graphics can be scaled infinitely without degradation. Most Adesigners use Adobe
                         Illustrator to create vector files and save them as .EPS (Encapsulated Post Script) or .AI (Adobe
-                        Illustrator) files.
+                        Illustrator) files. InkScape is open source equivalent software.
                         <br /><br />
         
                         <h3>How do I create vector graphics?</h3>

@@ -62,59 +62,167 @@
             <!-- content -->
             <div id="content">
                 <div class="contentTop">
-                    <div class="contentMiddle">
+                    <div class="contentMiddle"
 
-                <h1>Assignment Document FAQ</h1>
-
-                <div style="float: right; text-align: left; margin-left: 10px;">
-                    <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted">Getting Started</a>
-                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
-                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=competitionFaq">Competition FAQs</a>
-                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=formatSubmission">Formatting Your Submission</a>
-                    <br />Assignment FAQ
+                <div style="padding: 10px 0;">
+                    <strong>Help Pages:</strong> <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted">Getting Started</a>
+                    | Assignment FAQ
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=competitionFaq">Competition FAQs</a>
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=formatSubmission">Formatting Your Submission</a>
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
                 </div>
-
-                <p>
-                    <a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/The+Assignment+Document">Download Assignment Document</a>
-                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=gadContactPage">Send Assignment Document</a>
-                    <br /><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Check Assignment Document Status</a>
-                </p>
+                
+                 <h1>Assignment Document FAQ</h1>
                 
                 <div>
-                    <p><strong>What is the Assignment?</strong></p>
-                    <p>The Assignment is a document by which you confirm that you transfer your rights in a winning entry to TopCoder, Inc. The Assignment: (i) documents your assignment of all rights in all of your winning entries, if any, in exchange for the applicable prize. The Assignment does NOT assign any entries for which you are not compensated, and you still retain the ownership of such entries. (There is a license, however, which allows TopCoder to post you submissions on the web site.)  Version 2.0 of the assignment document is now available <a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/The+Assignment+Document">here</a>.</p>
+				<p><strong>What is the Assignment?</strong></p>
+				<p><The Assignmentis a document by which you confirm that you transfer your rights in a winning entry to TopCoder, Inc. The Assignment documents your assignment of all rights in all of your winning entries, if any, in exchange for the applicable prize. 
+				</p><p>The Assignment does NOT assign any entries for which you are not compensated, and you still retain the ownership of such entries. 
+				</p><p>There is, however, a license included in the Assignment Document that allows TopCoder to display any/all of your submissions on the web site, in order that the client(s) may view submissions and select winners.
+				</p>
+				<p><strong>Links to download the Assignment document, send in the assignment document and check the status of your Assignment document can be found at the bottom of this page.</strong></p>
+                </div>
+				<div>
+				<p><strong>Why do I need to sign the Assignment?</strong></p>
+				<p>This document is simply a confirmation of a member's agreement to transfer ownership of a winning entry to TopCoder, so that the member may receive payment for their work.
+				</p>
+				</div>
+				
+				<div>
+				<p><strong>Why does the Assignment also include my future winning entries?</strong></p>
+				<p>We have set up the assignment to cover future entries for two reasons. First, having the Assignment cover future entries reduces the amount of paperwork for members and TopCoder. Second, it also relieves members from having to go through this process for each contest.
+				</p>
+				</div>
+				
+				<div>
+				<p><strong>Do I have to sign the Assignment every time I compete?</strong></p>
+				<p>No. You are only required to sign and return the assignment the first time you compete. 
+				</p>
+				</div>
+				
+				<div>
+				<p><strong>What happens if I don't sign and return the Assignment?</strong></p>
+				<p>You will not be able to participate in Studio competitions and/or upload your work to the Studio website.</p>
+				</div>
+				
+				<div>
+				<p><strong>How do I return the Assignment Document?</strong></p>
+				<p>Each individual member's assignment document must be completed in full. Then, either a legible scan or photo taken and sent in via one of these three methods:</p>
+				<p><strong>1) As an email attachment to:</strong> <a href="mailto:payments@topcoder.com">payments@topcoder.com</a></p>
+				<p><strong>2) By post/mail to: </strong><br />
+					TopCoder, Inc., Attn: Payments, <br />
+					95 Glastonbury Blvd, <br />
+					Glastonbury, CT 06033 </p>
+				<p><strong>3)	By fax to:</strong>
+					  (US) +1 (860) 371.2165 <br />
+						  (China) +86 (010) 5885.0676<br />
+						  (Poland) +48 (22) 485.3022 <br />
+						  (Note: no cover sheet necessary). 
+						  </p>
+				</div>
+				
+				<div>
+				<p><strong>When do I have to return the Assignment Document?</strong></p>
+				<p>You should sign and return the Assignment document immediately after registering for your first Studio contest. We must receive and process your signed Assignment Document before you will be able to upload any work to the Studio website. It can take up to one full business day to process your Assignment Document. See the processing timeline table (below) to determine when you should send your Assignment document.</p>
+				<p>Also, you may send your Assignment to us even before your register for a competition - you may download the Assignment doc and send it using the links at the bottom of this page.
+				</div>
+				                <div align="center">
+                    <div class="statHolder" style="width: 400px;">
+                        <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+                        <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
+                            <table class="stat" cellpadding="0" cellspacing="0">
+                            <tbody>
+                                <tr><td class="title" colspan="4">Assignment Processing Schedule</td></tr>
+                                <tr>
+                                    <td class="headerW"><div>&nbsp;</div></td>
+                                    <td class="header" width="50%"><strong>If we receive your Assignment on:</strong></td>
+                                    <td class="header" width="50%"><strong>It will be processed on:</strong></td>
+                                    <td class="headerE"><div>&nbsp;</div></td>
+                                </tr>
+                                
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="light">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value">Monday by 3:00 pm ET</td>
+                                    <td class="value">Tuesday by 5:00 pm ET</td>
+                            
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="light">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value">Tuesday by 3:00 pm ET</td>
+                                    <td class="value">Wednesday by 5:00 pm ET</td>
+                            
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="light">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value">Wednesday by 3:00 pm ET</td>
+                                    <td class="value">Thursday by 5:00 pm ET</td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="dark">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                            
+                                    <td class="value">Thursday by 3:00 pm ET</td>
+                                    <td class="value">Friday by 5:00 pm ET</td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="light">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value">Friday by 3:00 pm ET</td>
+                                    <td class="value">Monday by 5:00 pm ET</td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="dark">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                            
+                                    <td class="value">Saturday by 3:00 pm ET</td>
+                                    <td class="value">Monday by 5:00 pm ET</td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                 <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="light">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value">Sunday by 3:00 pm ET</td>
+                                    <td class="value">Monday by 5:00 pm ET</td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                
+                            </tbody>
+                            </table>
+                        <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+                        <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+                    </div>
                 </div>
                 <div>
-                    <p><strong>For which competitions will the Assignment be required?</strong></p>
-                    <p>The Assignment will be required in any competition in which you will be assigning your rights in the winning entry to TopCoder. Generally speaking, the Assignment will be required in Component Design competitions, Component Development competitions, Application Assembly competitions, Testing competitions, and TopCoder Studio competitions, but not Algorithm competitions. However, this is subject to change depending the rules and requirements of each competition.</p>
-                </div>
+                <p><strong>NOTE:</strong><br />
+				Dates are based on the TopCoder, Inc. yearly calendar. Please check the forums for your contest if the contest falls during US Holidays.</strong>
+				</p>
+				</div>
                 <div>
-                    <p><strong>Why do I need to sign the Assignment?</strong></p>
-                    <p>This document is simply a confirmation of a member's agreement to transfer ownership of a winning entry to TopCoder.</p>
-                </div>
-                <div>
-                    <p><strong>What happens if I don't sign and return the Assignment?</strong></p>
-                    <p>When you initially agree to the terms of each competition, you also agree to assign ownership in the event that you win a prize. If you don't sign and return the Assignment, you will be violating the rules of the competition to which you agreed and you will not receive your prize. In addition, you will not be allowed to participate in future competitions until the situation is resolved.</p>
-                </div>
-                <div>
-                    <p><strong>Do I have to sign the Assignment every time I win?</strong></p>
-                    <p>No.  You are only required to sign and return the assignment the first time you win a competition.  You only have to sign and return the Assignment once.</p>
-                </div>
-                <div>
-                    <p><strong>How do I return the Assignment?</strong></p>
-                    <p>Each individual member's assignment document must be completed in full and either (i) a legible scan/photo taken and sent as an email attachment to <a href="mailto:payments@topcoder.com?subject=Assignment Document">payments@topcoder.com</a> or (ii) mailed to: TopCoder, Inc., Attn: Payments, 95 Glastonbury Blvd, Glastonbury, CT 06033 or (iii) communicated by fax to (US) +1 (860) 371.2165 or (China) +86 (010) 5885.0676 or (Poland) +48 (22) 485.3022 (no cover sheet necessary).  However, please keep in mind that we must actually receive the Assignment before the expiration of 30 days.</p>
-                </div>
-                <div>
-                    <p><strong>How much time do I have to return the Assignment?</strong></p>
-                    <p>You have 30 days from the date on which you were notified that you won to sign and return the Assignment. We must receive the signed Assignment before the expiration of 30 days. Simply putting the Assignment in the mail is not sufficient.</p>
-                </div>
-                <div>
-                    <p><strong>Why does the Assignment cover all of my past winning entries?</strong></p>
-                    <p>We may use previous winning entries in developing software for a client. Because these clients may request written proof that we own rights in the components used in the software, we need the assignment from all past and future winners.</p>
-                </div>
-                <div>
-                    <p><strong>Why does the Assignment also include my future winning entries after on-line ratification/confirmation?</strong></p>
-                    <p>We have set up the assignment to cover future entries for two reasons. First, having the Assignment cover future entries reduces the amount of paperwork for members and TopCoder because members do not sign and return a paper Assignment after every win.</p>
+                <p><strong>Example:</strong><br />
+				If the contest you wish to submit to ends on Tuesday at 2:00 pm ET. You will need to submit your Assignment no later than Sunday at 3:00 pm ET in order to ensure it is processed before Tuesday at 2:00 pm ET.
+				<strong>Remember: You only need to do this ONE time to participate in all Studio contests.</strong>
+				</p>
+				</div>
+				
+				
+				<div>
+				<p>
+                    <a target="_blank" href="http://www.topcoder.com/wiki/download/attachments/22249776/TopCoder+Competition+Assignment+ver2.0.pdf">Download the Assignment document</a>
+                    <br /><a href="mailto:payments@topcoder.com">Email us the Assignment document</a>
+                    <br /><a href="${sessionInfo.servletPath}?module=AssignmentDocumentHistory">Check your Assignment document status</a>
+                </p>
                 </div>
 
                         <br clear="all"/>

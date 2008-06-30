@@ -31,17 +31,15 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-                    <div class="linkBox"><studio:forumLink forumID="3"/></div>
+                    <div style="padding: 10px 0;">
+                    <strong>Help Pages:</strong> Getting Started
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Assignment FAQ</a>
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=competitionFaq">Competition FAQs</a>
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=formatSubmission">Formatting Your Submission</a>
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
+                    </div>
                     
                     <h1>Getting Started</h1>
-                    
-                    <div style="float: right; text-align: left; margin: 0px 0px 10px 10px;">
-                        Getting Started
-                        <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
-                        <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=competitionFaq">Competition FAQs</a>
-                        <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=formatSubmission">Formatting Your Submission</a>
-                        <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Assignment FAQ</a>
-                    </div>
             
                     <h3>Creative and exciting projects that pay off big.</h3>
                     TopCoder Studio is the meeting place for clients who need creative work done and creative
@@ -65,7 +63,7 @@
                     <strong>TopCoder Studio posts project as a new contest:</strong>
                     Once the project documentation has been completed by the client and formatted appropriately by
                     TopCoder Studio, it is posted on the <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Contests page</a>.
-                    All TopCoder Studio members will be alerted via email when new contests are posted.
+                   
                     <br /><br />
                     
                     <div style="float:left; margin: 0px 6px 4px 0px;">
@@ -82,8 +80,9 @@
                     <img src="/i/layout/step4.gif" alt="Step 4"/>
                     
                     </div>
-                    <strong>Registered TopCoder Studio members can download the full Project Specifications:</strong>
-                    In order to participate in Studio contests, you must be a registered TopCoder Studio member. <a href="https://www.topcoder.com/reg/">Registration is free and easy.</a> Registered Studio members can then register for individual contests on the corresponding Contest Details pages. Contest registration gives members access to download the files associated with the contest, including the Spec Doc
+                    <strong>
+                    In order to participate in Studio contests, you must be a registered TopCoder Studio member.</strong> <a href="https://www.topcoder.com/reg/">Registration is free and easy.</a> Registered Studio members can then register for individual contests on the corresponding Contest Details pages. 
+                    
                     <br /><br />
                     
                     <div style="float:left; margin: 0px 6px 4px 0px;">
@@ -121,20 +120,23 @@
                     </div>
                     
                     <strong>Client selection prizes are awarded:</strong>
-                    The client reviews all passing submissions and chooses a winner (or winners) solely at their discretion.  Source files from the winning submissions are delivered to the client.
+                    The client reviews all passing submissions and chooses a winner (or winners) solely at their discretion.  Source files from the winning submissions are delivered to the client. The Client may require the winner to enter into a Final Fixes Phase after the contest has ended. This phase will require the winner to make final changes (if the winner has not met all of the requirements listed in the contest details page) to the final deliverables before payment can be released.
                     <br /><br />
+                    
                     
                     <div style="float:left; margin: 0px 6px 4px 0px;">
                     <img src="/i/layout/step10.gif" alt="Step 10"/>
                     </div>
                     <strong>Winner is compensated for their work:</strong>
-                    Winners of the contest are notified via email. In order for winners to be compensated for their work, their source files must match the requirements detailed on the Contest Details. They must also sign the appropriate tax form. The payment will be distributed in one full installment once the final version of the winning submission has been downloaded by the client. Payment is released according to the payment schedule table found in the Competition FAQs.
+                    Winners of the contest are notified via email. In order for winners to be compensated for their work, their source files must match the requirements detailed on the Contest Details. They must also sign the appropriate tax form. The payment will be distributed in one full installment, once the final version of the winning submission has been downloaded by the client. Payment is released according to the payment schedule table. <br />
+                    <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=competitionFaq">More information on payment can be found here</a>.
                     <br /><br />
                     
                     Get started now by checking out the current <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Contests</a>!
                     
                     <br /><br />
                     Questions about the process can be directed to <a href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</a>.
+                    <br />Questions about the payments and document processing can be directed to <a href="mailto:payments@topcoder.com">payments@topcoder.com</a>.
 
 
                         <br clear="all"/>

@@ -30,18 +30,16 @@
             <div id="content">
                 <div class="contentTop">
                     <div class="contentMiddle">
-
-                <div class="linkBox"><studio:forumLink forumID="3"/></div>
+                
+                <div style="padding: 10px 0;">
+                    <strong>Help Pages:</strong> <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted">Getting Started</a>
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Assignment FAQ</a>
+                    | Competition FAQs
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=formatSubmission">Formatting Your Submission</a>
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
+                </div>
 
                 <h1>Competition FAQs</h1>
-                
-                <div style="float: right; text-align: left; margin-left: 10px;">
-                    <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted">Getting Started</a>
-                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
-                    <br />Competition FAQs
-                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=formatSubmission">Formatting Your Submission</a>
-                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Assignment FAQ</a>
-                </div>
 
                 <h3>Why can't I download the supporting documentation in a contest?</h3>
                 There are two steps you must take before you can access all of a contest's files: 
@@ -274,7 +272,10 @@
 
      
                 <h3>More questions?</h3>
-                If you have more questions, please send them to <a href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</a>.
+                Questions about the process can be directed to <a href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</a>.
+                    <br />Questions about the payments and document processing can be directed to <a href="mailto:payments@topcoder.com">payments@topcoder.com</a>.
+
+
 
                         <br clear="all"/>
                     </div>                
