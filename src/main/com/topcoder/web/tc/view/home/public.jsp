@@ -41,11 +41,11 @@ function init() {
 </script>
 </head>
 
-<body onload="init();MM_preloadImages('/i/home/catcDigitalRun.png','/i/home/catcDesign.png','/i/home/catcDevelopment.png','/i/home/catcAssembly.png','/i/home/catcBugraces.png','/i/home/catcMarathon.png','/i/home/catcAlgorithm.png','/i/home/catcStudio.png')">
+<body onload="init();MM_preloadImages('/i/home/catcDigitalRunV2.png','/i/home/catcDesignV2.png','/i/home/catcDevelopmentV2.png','/i/home/catcAssemblyV2.png','/i/home/catcBugracesV2.png','/i/home/catcMarathonV2.png','/i/home/catcAlgorithmV2.png','/i/home/catcStudioV2.png')">
 
 <%--
 <div style="position:absolute; left:200px; top:190px;">
-<A href="<tc-webtag:linkTracking link='http://www.theball.com' refer='/tc' />" target="_blank"><img src="/i/interface/tinyBrackets.png" alt="" /></A>
+<a href="<tc-webtag:linkTracking link='http://www.theball.com' refer='/tc' />" target="_blank"><img src="/i/interface/tinyBrackets.png" alt="" /></a>
 </div>
 --%>
 
@@ -65,28 +65,28 @@ function init() {
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0" alt="" /></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
 <td width="100%" align="center">
    <jsp:include page="big_promo.jsp" />
-      <br><br>
+      <br /><br />
     <table border="0" cellspacing="0" cellpadding="0" width="525">
     <tr>
-        <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
+        <td class="newsTitle" align="right" colspan="2"><em>TopCoder News</em></td>
     </tr>
     <jsp:include page="news.jsp" />
     </table>
-      <br><br>
+      <br /><br />
      <jsp:include page="news_archives.jsp" />
-      <br><br>
+      <br /><br />
      <jsp:include page="arena.jsp" />
  </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
+         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0" alt="" /></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
@@ -95,7 +95,7 @@ function init() {
     <jsp:include page="activeContestsBox.jsp" />
 
     <div>
-    <img src="/i/interface/rightNavTop.png" alt="" style="display: block;"/>
+    <img src="/i/interface/rightNavTop.png" alt="" style="display: block;" />
     </div>
 
     <div class="rightNav">
