@@ -145,6 +145,9 @@ public class StudioTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(SubmissionImageTestCase.class));
         suite.addTest(new TestSuite(SubmissionImageIdentifierTestCase.class));
 
+        // Functional tests
+        suite.addTest(new TestSuite(FunctionalTests.class));
+
         return suite;
     }
 }
