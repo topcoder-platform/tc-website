@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -33,7 +34,7 @@
 </jsp:include>
 
 <p>
-    Now is your chance to be the driving force in the growth of TopCoder Studio and reap the benefits in the form of monthly cash prizes in the Studio Cup, a division of <a href="http://www.topcoder.com/tc?module=Static&d1=digital_run&d2=description">TopCoder's Digital Run (DR)</a>. The Studio Cup is tied directly to Studio's revenue, so the more you compete, the more contests we run and the more cash we pay out at the end of each month. 
+    Now is your chance to be the driving force in the growth of TopCoder Studio and reap the benefits in the form of monthly cash prizes in the Studio Cup, a division of <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=digital_run&d2=description">TopCoder's Digital Run (DR)</a>. The Studio Cup is tied directly to Studio's revenue, so the more you compete, the more contests we run and the more cash we pay out at the end of each month. 
 </p>
 
 <p>

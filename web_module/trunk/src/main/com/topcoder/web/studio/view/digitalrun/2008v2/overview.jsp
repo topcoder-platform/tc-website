@@ -47,7 +47,7 @@ Each contest posted in TopCoder Studio will carry a total point value. Placement
     </tr>
    <tr>
       <th>&#160;</th>
-      <th colspan="7"># of Submissions that Pass Review</th>
+      <th colspan="7"># of Submissions (Passed and Ranked)</th>
    </tr>
    <tr>
       <th class="c">Place</th>
