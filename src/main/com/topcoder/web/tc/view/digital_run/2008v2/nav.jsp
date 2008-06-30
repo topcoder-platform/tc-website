@@ -3,6 +3,16 @@
     String tabLev2 = request.getParameter("tabLev2") == null ? "" : request.getParameter("tabLev2");
 %>
 
+<div id="eventLogo">
+    <img src="/i/digital_run/digitalrunlogo20080625.png" alt="The Digital Run" />
+</div>
+
+<div id="eventBannerBox">
+    <img src="/i/digital_run/ban20080625.png" alt="" />
+</div>
+
+<hr />
+
 <div style="float:right; text-align:right;">
 
 <% if (tabLev1.equals("design")) {%>

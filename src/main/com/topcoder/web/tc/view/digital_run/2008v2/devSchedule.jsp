@@ -22,13 +22,11 @@
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
+<!-- centerer -->
 <div align="center">
-    <div class="fixedWidthBody">
 
-<jsp:include page="../../page_title.jsp" >
-<jsp:param name="image" value="digital_run_20061031"/>
-<jsp:param name="title" value="2008 Development Cup Series"/>
-</jsp:include>
+    <!-- spacer -->
+    <div id="pageSpacer">
 
 <jsp:include page="nav.jsp" >
     <jsp:param name="tabLev1" value="development"/>
