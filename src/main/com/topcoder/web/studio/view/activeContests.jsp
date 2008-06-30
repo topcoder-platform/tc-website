@@ -59,7 +59,7 @@
     <div class="container">
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tbody>
-            <tr><td class="title" colspan="10">Active Contests</td></tr>
+            <tr><td class="title" colspan="11">Active Contests</td></tr>
             <tr>
                 <td class="headerW">
                     <div>&nbsp;</div>
@@ -92,12 +92,12 @@
             </tr>
             <c:choose>
                 <c:when test="${fn:length(contests)==0}">
-                    <tr><td class="space" colspan="6">&nbsp;</td></tr>
+                    <tr><td class="space" colspan="11">&nbsp;</td></tr>
                     <tr class="light">
                         <td class="valueW">
                             <div>&nbsp;</div>
                         </td>
-                        <td class="valueC" colspan="8">
+                        <td class="valueC" colspan="9">
                             <div align="center" style="margin: 40px 0px 40px 0px;">
                                 There are currently no active contests, but check back soon.
                             </div>
