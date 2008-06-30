@@ -27,12 +27,14 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-<h1>Schedule</h1>
-
 <jsp:include page="nav.jsp" >
     <jsp:param name="tabLev1" value="design"/>
     <jsp:param name="tabLev2" value="schedule"/>
 </jsp:include>
+
+<p>
+    <strong>Schedule</strong>
+</p>
 
 The 2008 Studio Cup is six (6) months long, with points and prize pool money available for each month. The monthly schedule shown below includes competitions posted within the following date range: 
 <br /><br />

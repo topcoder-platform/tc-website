@@ -27,12 +27,14 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-<h1>Prizes</h1>
-
 <jsp:include page="nav.jsp" >
     <jsp:param name="tabLev1" value="design"/>
     <jsp:param name="tabLev2" value="prizes"/>
 </jsp:include>
+
+<p>
+    <strong>Prizes</strong>
+</p>
 
 Each month, competitors will accumulate placement points according to the points table. In addition to the competition prize earnings, the top five (5) finishers will win large prizes and the top 1/2 of the point-getters in each Stage will receive a smaller prize. A total of 50% of the total Studio Cup prize pool will be awarded in bonus prizes each month and will be distributed as follows: 
 <br /><br />

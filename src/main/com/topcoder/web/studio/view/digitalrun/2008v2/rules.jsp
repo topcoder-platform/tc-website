@@ -27,12 +27,14 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-<h1>Rules</h1>
-
 <jsp:include page="nav.jsp" >
     <jsp:param name="tabLev1" value="design"/>
     <jsp:param name="tabLev2" value="rules"/>
 </jsp:include>
+
+<p>
+    <strong>Rules</strong>
+</p>
 
 Each contest posted in <a href="/">TopCoder Studio</a> will carry a point value. <a href="/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=overview">Placement Points</a> will be awarded based on the number of submissions that pass screening and are ranked by the Client. By registering for any <a href="/">TopCoder Studio</a> competition, a competitor agrees to the items outlined on each project's Contest Details page, including the Eligibility requirements and the Terms of Work, and the completion of all paperwork required by TopCoder Studio. 
 <br /><br />
