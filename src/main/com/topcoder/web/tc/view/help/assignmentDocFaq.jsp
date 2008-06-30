@@ -80,6 +80,10 @@
                     <p><strong>Why does the Assignment also include my future winning entries after on-line ratification/confirmation?</strong></p>
                     <p>We have set up the assignment to cover future entries for two reasons. First, having the Assignment cover future entries reduces the amount of paperwork for members and TopCoder because members do not sign and return a paper Assignment after every win.</p>
                 </div>
+                <div>
+                    <p><strong>Do Reviewers need to complete the Assignment?</strong></p>
+                    <p>Yes, reviewers need to complete the Assignment. This is because reviewers sometimes contribute code and/or substantive ideas, for example in final fixes.</p>
+                </div>
             </div>
         </td>
 <%-- Center Column Ends --%>
