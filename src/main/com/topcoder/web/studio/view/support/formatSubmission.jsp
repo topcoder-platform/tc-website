@@ -31,17 +31,15 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-                <div class="linkBox"><studio:forumLink forumID="3"/></div>
+                <div style="padding: 10px 0;">
+                    <strong>Help Pages:</strong> <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted">Getting Started</a>
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Assignment FAQ</a>
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=competitionFaq">Competition FAQs</a>
+                    | Formatting Your Submission
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
+                </div>
 
                 <h1>Formatting Your Submission</h1>
-                
-                <div style="float: right; text-align: left; margin-left: 10px;">
-                    <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted">Getting Started</a>
-                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
-                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=competitionFaq">Competition FAQs</a>
-                    <br />Formatting Your Submission
-                    <br /><a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Assignment FAQ</a>
-                </div>
 
 <p>
     Your submission must contain both your submission file(s) and your final source file(s) contained in one ZIP file. You must follow the following directory format within your ZIP file: 
@@ -78,19 +76,7 @@
 </table>
 
 <p>
-    If a contest requires a preview image and/or preview file, you must provide one. If it does not require a preview image and/or preview file, you are free to submit one if you like, but it is not required. 
-</p>
-
-<p>
-    Preview Image: Place your preview image in the submission folder. Example: /submission/storyboard1.jpg
-</p>
-
-<p>
-    Preview File: Place your submission into a ZIP file and place it in your submission folder. Example: /submission/storyboards.zip
-</p>
-
-<p>
-    Please follow the submission instructions listed on the Contest Overview page.
+    The Contest Details page will list the files you must include in your submission.
 </p>
 
 <h2>
@@ -103,7 +89,7 @@
 </p>
 
 <ul>
-    <li>Submission requirements: One JPG or PNG file containing your logo design. A preview image is required.</li>
+    <li>Submission requirements: One JPG or PNG file containing your logo design.</li>
     <li>Source requirements: All vector files of the submitted logo design, such as IA files and/or EPS files. All fonts used in your design must be submitted with your files. If you do not have permission to release the fonts, you must provide a text file including the name of the font and a link to where the font can be purchased.</li>
 </ul>
 
@@ -119,7 +105,7 @@
 </ol>
 
 <p>
-    /submission/logo1.png <em>(submission also acts as preview image)</em>
+    /submission/logo1.png
     <br />/source/vectorfiles.zip <em>(EPS files, fonts or text file.)</em>
 </p>
 
@@ -128,7 +114,7 @@
     <br />Requirements you see on the Contest Details page:
 
 <ul>
-    <li>Submission requirements: Five (5) JPG or PNG files showing each screen of your design. A preview image is required. A preview file is required.</li>
+    <li>Submission requirements: Five (5) JPG or PNG files showing each screen of your design.</li>
     <li>Source requirements: All original source files of the submitted design, such as PSD files, IA and/or EPS files. All fonts used in your design must be submitted with your files. If you do not have permission to release the fonts, you must provide a text file including the name of the font and a link to where the font can be purchased.</li>
 </ul>
 
@@ -144,7 +130,6 @@
 
 <p>
     /submission/storyboards.zip <em>(Five JPG or PNG screens)</em>
-    <br />/submission/storyboard1.jpg <em>(preview image of your choice)</em>
     <br />/source/EPSiconfiles.zip <em>(all icons you designed in Illustrator)</em>
     <br />/source/PSDstoryboards.zip <em>(all layered PSD files of each storyboard screen)</em>
 </p>
@@ -174,6 +159,18 @@
     <br />/source/prototype.zip <em>(Fifteen HTML files, plus CSS, JavaScript and images)</em>
     <br />/source/PSDbuttons.zip <em>(all layered PSD files of new graphic buttons)</em>
 </p>
+
+<div>
+<p><strong>Trouble Shooting Tips</strong></p>
+
+<p><strong>
+Browsers<br />
+SAFARI: </strong>Some members have noted problems uploading files in Safari. We recommend using FireFox or an alternative browser to upload your entries.</p>
+<p><strong>
+Zip Software<br />
+PC USERS:</strong> Several users have reported problems when using certain zip software. The submission seems to be formatted correctly, but they still receive an error message about their source folder. Some members are recommending using 7Zip or WinRar software to package submissions.</p>
+<p>If you have any problems submitting, please email studioadmin@topcoder.com at least 24 hours before the contest deadline.</p>
+</div>
 
                         <br clear="all"/>
                     </div>                

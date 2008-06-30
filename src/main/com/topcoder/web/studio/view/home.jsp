@@ -258,8 +258,11 @@ ding="utf-8"?>
     <div class="newsBox">
         <h2>WHAT'S NEW</h2>
         <ul>
-             <li>Congratulations to oninkxronda, the TCO08 Studio champion and winner of the $20,000 grand prize! After�eight weeks of online competitions,
-             the twelve finalists competed�during the week of May 12, 2008�in�Las Vegas for a total prize purse of $45,000. Be sure to check out the blog,
+             <li><b>LendingTree Banner Design Contest (Phase 2)</b>
+                  Maxsense won $1,100 for 11 winning banner designs PLUS a bonus of $300 for the most winning designs, for a total of $1400! Twelve other submissions from our members were also purchased, for a total prize payout of $2,600 in this contest.
+             </li>
+             <li><b>Congratulations to oninkxronda</b>, the TCO08 Studio champion and winner of the $20,000 grand prize! After eight weeks of online competitions,
+             the twelve finalists competed during the week of May 12, 2008 in Las Vegas for a total prize purse of $45,000. Be sure to check out the blog,
              photos and videos from the event at the <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=description" target="_blank">TCO08 website</a>!
             </li>
         </ul>
