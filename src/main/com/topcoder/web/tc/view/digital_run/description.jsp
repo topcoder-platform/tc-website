@@ -51,8 +51,8 @@ function menu_goto( menuform )
 
         <div id="eventDescBox">
             <div class="spacer">
-                <div>Curabitur volutpat. Maecenas id urna. Curabitur iaculis faucibus metus. Maecenas faucibus euismod purus. Nullam vel odio. Phasellus sapien. Praesent egestas semper lorem. Sed mattis. Praesent venenatis pellentesque libero. Praesent accumsan metus sit amet nunc. Etiam ipsum dolor, euismod nec, lacinia eget, blandit et, quam. Nunc molestie pharetra eros.</div>
-                <div>>> <a href="http://forums.topcoder.com/?module=Thread&amp;threadID=617309">Discuss</a></div>
+                <div>Now is your chance to be the driving force in the growth of TopCoder and reap the benefits in the form of monthly cash prizes in the Digital Run. The DR is now tied directly to TopCoder's revenue, so the more you compete, the more contests we run, the more cash we pay out at the end of each month.</div>
+                <div>>> <a href="http://forums.topcoder.com/?module=Thread&amp;threadID=617309">how it works...</a></div>
             </div>
         </div>
 
@@ -65,6 +65,12 @@ function menu_goto( menuform )
             </li>
             <li>
                 <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=overview">Studio</a>
+            </li>
+            <li>
+                <a href="http://forums.topcoder.com/?module=Thread&threadID=617309">Forums</a>
+            </li>
+            <li>
+                <a href="/tc">Home</a>
             </li>
         </ul>
 
