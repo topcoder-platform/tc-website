@@ -64,7 +64,7 @@ function menu_goto( menuform )
                 <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=devOverview">Software Development</a>
             </li>
             <li>
-                <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=overview">Studio</a>
+                <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=home">Studio</a>
             </li>
             <li>
                 <a href="http://forums.topcoder.com/?module=Thread&threadID=617309">Forums</a>
@@ -124,7 +124,7 @@ function menu_goto( menuform )
 
             <div class="studioColumn">
                 <div>
-                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=overview"><img src="/i/digital_run/trophyStudio.png" alt="" /></a>
+                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=home"><img src="/i/digital_run/trophyStudio.png" alt="" /></a>
                 </div>
                 <div>
                     <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=rules">Rules</a>
