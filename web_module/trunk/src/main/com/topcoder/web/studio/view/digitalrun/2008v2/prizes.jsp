@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <title>TopCoder Studio :: The Digital Run</title>
+    <title>TopCoder Studio :: Studio Cup</title>
     <jsp:include page="../../style.jsp">
         <jsp:param name="key" value="studio_digitalrun"/>
     </jsp:include>
