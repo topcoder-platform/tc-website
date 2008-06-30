@@ -536,4 +536,15 @@ public class Contest extends Base {
         return getConfig(ContestProperty.CLIENT);
     }
 
+    /**
+     * <p>Gets the contest configuration for digital run points for this contest.</p>
+     *
+     * @return a <code>ContestConfig</code> providing the digital run points for contest or <code>null</code> if such a contest
+     *         property is not set.
+     * @since Digital Run 2.0
+     */
+    public ContestConfig getDigitalRunPoints() {
+        return getConfig(ContestProperty.DIGITAL_RUN_POINTS);
+    }
+
 }

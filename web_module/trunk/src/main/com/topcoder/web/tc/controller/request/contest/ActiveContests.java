@@ -39,10 +39,6 @@ public class ActiveContests extends ActiveContestsBase {
     
     @Override
     protected Boolean hasDR() {
-        if (getProjectType()==Constants.ASSEMBLY_PROJECT_TYPE) {
-            return Boolean.TRUE;
-        } else {
-            return Boolean.FALSE;
-        }
+        return Boolean.TRUE;
     }
 }

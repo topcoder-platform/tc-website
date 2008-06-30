@@ -20,6 +20,7 @@
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.OTHER_REQUIREMENTS%>" var="otherRequirements"/>
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.ELIGIBILITY%>" var="eligibility"/>
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.WINNER_SELECTION%>" var="winnerSelection"/>
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.DIGITAL_RUN_POINTS%>" var="digitalRunPoints"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -215,6 +216,22 @@
     <td class="value" width="100%">
         <tc-webtag:textInput name="<%=Constants.CONTEST_PROPERTY + ContestProperty.CLIENT%>"/>
         <div><strong>WARNING:</strong> Please be aware that anything you enter in this field will be visible to the public, as part of the Contest Details.</div>
+    </td>
+</tr>
+
+<%-- Since Digital Run v2.0 - digital run points are added --%>
+<tr>
+    <td colspan="2">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_PROPERTY + ContestProperty.DIGITAL_RUN_POINTS%>">
+            <span class="bigRed">${err}<br /></span></tc-webtag:errorIterator>
+    </td>
+</tr>
+<tr>
+    <td class="field">
+        <div>Digital Run points:</div>
+    </td>
+    <td class="value" width="100%">
+        <tc-webtag:textInput name="<%=Constants.CONTEST_PROPERTY + ContestProperty.DIGITAL_RUN_POINTS%>"/>
     </td>
 </tr>
 

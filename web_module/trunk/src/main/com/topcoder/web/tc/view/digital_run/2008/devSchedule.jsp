@@ -48,8 +48,6 @@ Includes components posted within the following date range, inclusive:
 <br /><br />
 <strong>Stage #1:</strong> January 1, 2008 - March 31, 2008<br />
 <strong>Stage #2:</strong> April 1, 2008 - June 30, 2008<br />
-<strong>Stage #3:</strong> July 1, 2008 - September 30, 2008<br />
-<strong>Stage #4:</strong> October 1, 2008 - December 31, 2008<br />
 <br /><br />
 </div>
 
