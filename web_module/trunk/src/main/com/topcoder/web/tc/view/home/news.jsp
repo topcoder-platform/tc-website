@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />06.30.08<br />1:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm51">TCHS SRM 51 - Problem Set &amp; Analysis</a></span><br /><br />
+      TCHS SRM 51 was held at the same time as SRM 407 and was marked by the use of a common problem between the two contests. Unfortunately, this meant that coders could not compete in both of them. However, after a few issues with double registrations were resolved, HS round 51 got off to timely and speedy start.</td>
+         <td class="newsPhoto"><img src="/i/m/Ishan_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="286348" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm51">details</a> | 
+        <tc-webtag:forumLink forumID="521833" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />06.27.08<br />5:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -154,18 +170,5 @@
         <a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">details</a> | 
         <tc-webtag:forumLink forumID="521613" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="TopCoder Movies" border="0" /><br />06.12.08<br />2:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=media&amp;d2=misc3x2&amp;clip=guandong&amp;title=TopCoder%20College%20Tour%20visits%20Guangzhou">China College Tour Video!</a></span><br /><br />
-         The TopCoder College Tour visits Guangzhou, Guangdong Province in China! The South China University of Agriculture (SCAU), founded in 1909, was host to the TopCoder 2008 Guangdong Provincial Contest on Sunday, May 25, 2008. An impressive 1,277 students competed in the competition. After an hour and a half of grueling competition, Zhiwei Li (TopCoder handle: <tc-webtag:handle coderId="22682658" context="algorithm"/>) from the South China University of Technology was crowned the contest champion. Jun Da Bei (TopCoder handle: <tc-webtag:handle coderId="22731623" context="algorithm"/>) from the South China University of Agriculture (SCAU) was the organizer's champion. Both students, as well as eleven others, were rewarded with an iPod Nano.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=media&amp;d2=misc3x2&amp;clip=guandong&amp;title=TopCoder%20College%20Tour%20visits%20Guangzhou">details</a> | 
-        <tc-webtag:forumLink forumID="521575" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_movies">archive</a>
    </td></tr>
    
