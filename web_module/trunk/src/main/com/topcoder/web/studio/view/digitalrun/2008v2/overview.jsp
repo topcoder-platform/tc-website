@@ -27,12 +27,14 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-<h1>Overview</h1>
-
 <jsp:include page="nav.jsp" >
     <jsp:param name="tabLev1" value="design"/>
     <jsp:param name="tabLev2" value="overview"/>
 </jsp:include>
+
+<p>
+    <strong>Overview</strong>
+</p>
 
 Each contest posted in TopCoder Studio will carry a total point value. Placement points will be awarded based on the number of submissions that pass screening and are ranked, as follows:
 <br /><br />
