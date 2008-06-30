@@ -76,6 +76,9 @@
                 <td class="headerR" nowrap="nowrap">
                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("prize_total")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Prize Purse</a>
                 </td>
+                <td class="headerR" nowrap="nowrap">
+                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("dr_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">DC Points</a>
+                </td>
                 <td class="headerC">
                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("registrants")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Registrants</a>
                 </td>
@@ -138,6 +141,9 @@
                             </td>
                             <td class="valueR">
                                 <rsc:item name="prize_total" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
+                            </td>
+                            <td class="valueR">
+                                <rsc:item name="dr_points" row="<%=resultRow%>" format="######" ifNull="&nbsp;"/>
                             </td>
                             <td class="valueC">
                                 <rsc:item name="registrants" row="<%=resultRow%>"/>

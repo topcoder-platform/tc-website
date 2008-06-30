@@ -25,6 +25,6 @@ public class ViewActiveContests extends ActiveContestsBase {
     
     @Override
     protected Boolean hasDR() {
-        return Boolean.FALSE;
+        return Boolean.TRUE;
     }
 }

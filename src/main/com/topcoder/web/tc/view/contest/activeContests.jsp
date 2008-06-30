@@ -139,14 +139,23 @@
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
           <c:choose>
+            <c:when test="${hasDR}">
+                <td class="title" colspan="8">
+            </c:when>
+            <c:otherwise>
+                <td class="title" colspan="7">
+            </c:otherwise>
+          </c:choose>
+          
+          <c:choose>
             <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
-                <td class="title" colspan="7">Active Application Testing Contests</td>
+                Active Application Testing Contests</td>
             </c:when>
             <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
-                <td class="title" colspan="7">Active Software Architecture Contests</td>
+                Active Software Architecture Contests</td>
             </c:when>
             <c:when test="${pt == ASSEMBLY_TYPE_ID}">
-                <td class="title" colspan="8">Active Software Assembly Contests</td>
+                Active Software Assembly Contests</td>
             </c:when>
           </c:choose>
     </tr>

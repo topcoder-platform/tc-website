@@ -1,14 +1,19 @@
-<%@  page language="java"  %>
+<%@ page language="java"  %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+
+<%@ page contentType="text/html;charset=utf-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
 <title>TopCoder - The Digital Run</title>
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_stats"/>
+  <jsp:param name="key" value="digitalrun"/>
 </jsp:include>
 <jsp:include page="../script.jsp" />
 <script language="javascript" type="text/javascript">
@@ -30,103 +35,276 @@ function menu_goto( menuform )
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr valign="top">
-<%-- Left Column Begins--%>
-        <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="digital_run"/>
-            </jsp:include>
-        </td>
-<%-- Left Column Ends --%>
+<!-- centerer -->
+<div align="center">
 
-<%-- Center Column Begins --%>
-<td width="100%" align="center" class="bodyColumn">
+    <!-- spacer -->
+    <div id="pageSpacer">
 
-<div class="fixedWidthBody">
-<div align="center" style="margin-bottom: 20px;">
-<A href="/tc?module=Static&d1=digital_run&d2=2008&d3=description"><img src="/i/digital_run/2008SeasonLogo.png" alt="Digital Run" style="border-bottom: 1px solid #999999;"/></A>
+        <div id="eventLogo">
+            <img src="/i/digital_run/digitalrunlogo20080625.png" alt="The Digital Run" />
+        </div>
+
+        <div id="eventBannerBox">
+            <img src="/i/digital_run/ban20080625.png" alt="." />
+        </div>
+
+        <div id="eventDescBox">
+            <div class="spacer">
+                <div>Curabitur volutpat. Maecenas id urna. Curabitur iaculis faucibus metus. Maecenas faucibus euismod purus. Nullam vel odio. Phasellus sapien. Praesent egestas semper lorem. Sed mattis. Praesent venenatis pellentesque libero. Praesent accumsan metus sit amet nunc. Etiam ipsum dolor, euismod nec, lacinia eget, blandit et, quam. Nunc molestie pharetra eros.</div>
+                <div>>> <a href="http://forums.topcoder.com/?module=Thread&amp;threadID=617309">Discuss</a></div>
+            </div>
+        </div>
+
+        <ul id="navBox">
+            <li>
+                <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=desOverview">Software Design</a>
+            </li>
+            <li>
+                <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=devOverview">Software Development</a>
+            </li>
+            <li>
+                <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=overview">Studio</a>
+            </li>
+        </ul>
+
+        <div id="contestTypes">
+
+            <div class="designColumn">
+                <div>
+                    <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=desOverview"><img src="/i/digital_run/trophyDes.png" alt="" /></a>
+                </div>
+                <div>
+                    <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=desRules">Rules</a>
+                </div>
+                <div>
+                    <a href="/tc?module=ViewActiveContests&amp;ph=112">Active contests</a>
+                </div>
+<%--
+                <div>
+                    <a href="/tc?&amp;pt=1&amp;module=LeaderBoard">Leaderboards</a>
+                </div>
+                <div class="prizeLine">
+                    <span class="money">$10,000</span> <span class="month">prize pool in July</span>
+                </div>
+--%>
+                <div class="prizeGuarantee">
+                    <span class="money">$10,000</span> <span class="month">Guaranteed Monthly Prize</span>
+                </div>
+            </div>
+
+            <div class="developmentColumn">
+                <div>
+                    <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=devOverview"><img src="/i/digital_run/trophyDev.png" alt="" /></a>
+                </div>
+                <div>
+                    <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=devRules">Rules</a>
+                </div>
+                <div>
+                    <a href="/tc?module=ViewActiveContests&amp;ph=113">Active contests</a>
+                </div>
+<%--
+                <div>
+                    <a href="/tc?&amp;pt=2&amp;module=LeaderBoard">Leaderboards</a>
+                </div>
+                <div class="prizeLine">
+                    <span class="money">$10,000</span> <span class="month">prize pool in July</span>
+                </div>
+--%>
+                <div class="prizeGuarantee">
+                    <span class="money">$10,000</span> <span class="month">Guaranteed Monthly Prize</span>
+                </div>
+            </div>
+
+            <div class="studioColumn">
+                <div>
+                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=overview"><img src="/i/digital_run/trophyStudio.png" alt="" /></a>
+                </div>
+                <div>
+                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=rules">Rules</a>
+                </div>
+                <div>
+                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active contests</a>
+                </div>
+<%--
+                <div>
+                    <a href="#">Leaderboards</a>
+                </div>
+                <div class="prizeLine">
+                    <span class="money">$10,000</span> <span class="month">prize pool in July</span>
+                </div>
+--%>
+                <div class="prizeGuarantee">
+                    <span class="money">$5,000</span> <span class="month">Guaranteed Monthly Prize</span>
+                </div>
+            </div>
+
+        </div>
+
+<%--
+        <div id="tallyBox">
+            tallyBox
+        </div>
+
+        <div id="leaderboards">
+            <h2 align="center">Current leaderboards</h2>
+
+            <div class="designColumn">
+                <table class="drStat" cellpadding="0" cellspacing="0" width="100%">
+                <colgroup>
+                    <col />
+                    <col width="100%" />
+                    <col />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th class="title c" colspan="3">Design</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd">
+                        <td class="c">td</td>
+                        <td>td</td>
+                        <td class="r">td</td>
+                    </tr>
+                    <tr class="even">
+                        <td class="c">td</td>
+                        <td>td</td>
+                        <td class="r">td</td>
+                    </tr>
+                    <tr class="odd">
+                        <td class="c">td</td>
+                        <td>td</td>
+                        <td class="r">td</td>
+                    </tr>
+                    <tr class="even">
+                        <td class="c">td</td>
+                        <td>td</td>
+                        <td class="r">td</td>
+                    </tr>
+                    <tr class="odd">
+                        <td class="c">td</td>
+                        <td>td</td>
+                        <td class="r">td</td>
+                    </tr>
+                </tbody>
+                </table>
+                <p align="right">
+                    <a href="#">See all >></a>
+                </p>
+            </div>
+
+            <div class="developmentColumn">
+                <table class="drStat" cellpadding="0" cellspacing="0" width="100%">
+                <colgroup>
+                    <col />
+                    <col width="100%" />
+                    <col />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th class="title c" colspan="3">Development</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd">
+                        <td class="c">td</td>
+                        <td>td</td>
+                        <td class="r">td</td>
+                    </tr>
+                    <tr class="even">
+                        <td class="c">td</td>
+                        <td>td</td>
+                        <td class="r">td</td>
+                    </tr>
+                    <tr class="odd">
+                        <td class="c">td</td>
+                        <td>td</td>
+                        <td class="r">td</td>
+                    </tr>
+                    <tr class="even">
+                        <td class="c">td</td>
+                        <td>td</td>
+                        <td class="r">td</td>
+                    </tr>
+                    <tr class="odd">
+                        <td class="c">td</td>
+                        <td>td</td>
+                        <td class="r">td</td>
+                    </tr>
+                </tbody>
+                </table>
+                <p align="right">
+                    <a href="#">See all >></a>
+                </p>
+            </div>
+
+            <div class="studioColumn">
+                <table class="drStat" cellpadding="0" cellspacing="0" width="100%">
+                <colgroup>
+                    <col />
+                    <col width="100%" />
+                    <col />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th class="title c" colspan="3">Studio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd">
+                        <td class="c">td</td>
+                        <td>td</td>
+                        <td class="r">td</td>
+                    </tr>
+                    <tr class="even">
+                        <td class="c">td</td>
+                        <td>td</td>
+                        <td class="r">td</td>
+                    </tr>
+                    <tr class="odd">
+                        <td class="c">td</td>
+                        <td>td</td>
+                        <td class="r">td</td>
+                    </tr>
+                    <tr class="even">
+                        <td class="c">td</td>
+                        <td>td</td>
+                        <td class="r">td</td>
+                    </tr>
+                    <tr class="odd">
+                        <td class="c">td</td>
+                        <td>td</td>
+                        <td class="r">td</td>
+                    </tr>
+                </tbody>
+                </table>
+                <p align="right">
+                    <a href="#">See all >></a>
+                </p>
+            </div>
+--%>
+
+            <p align="center">Looking for a past Digital Run stage?</p>
+            <div align="center">
+                <form action="dummyvalue">
+                <select name="newurl" onchange="menu_goto(this.form)">
+                  <option value="/tc?module=Static&amp;d1=digital_run&amp;d2=2006description">2007 Season</option>
+                  <option value="/tc?module=Static&amp;d1=digital_run&amp;d2=2007dot5&amp;d3=description">2007.5 Season</option>
+                  <option value="/tc?module=Static&amp;d1=digital_run&amp;d2=2008&amp;d3=description">2008 Season</option>
+                  <option value="/tc?module=Static&amp;d1=digital_run&amp;d2=description" selected="selected">2008v2 Season</option>
+                </select>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
-<div align="center" style="margin-bottom: 10px;">
-
-<form action="dummyvalue">
-<select name="newurl" onchange="menu_goto(this.form)">
-  <option value="/tc?module=Static&d1=digital_run&d2=2006description">2007 Season</option>
-  <option value="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=description">2007.5 Season</option>
-  <option value="/tc?module=Static&d1=digital_run&d2=2008&d3=description" selected="selected">2008 Season</option>
-</select>
-</form>
-
-<table cellpadding="0" cellspacing="0" border="0" class="bodyText" style="margin-bottom: 10px;">
-<tr>
-<td align="left" style="padding-right:10px; border-right: 1px solid #999999;" valign="top">
-<span class="subtitle">Design Cup</span><br />
-<A href="/tc?module=Static&d1=digital_run&d2=2008&d3=desOverview" class="bcLink">Details</A><br />
-<a href="/tc?module=ViewActiveContests&ph=112" class="bcLink">Active Contests</a><br />
-<%--
-<span class="grayedOut">Current Leaderboard</span>
---%>
-<A href="/tc?&pt=1&module=LeaderBoard" class="bcLink">Current Leaderboard</A>
-<br />
-</td>
-<td align="left" style="padding: 0 10px; border-right: 1px solid #999999;" valign="top">
-<span class="subtitle" class="bcLink">Development Cup</span><br />
-<A href="/tc?module=Static&d1=digital_run&d2=2008&d3=devOverview" class="bcLink">Details</A><br />
-<a href="/tc?module=ViewActiveContests&ph=113" class="bcLink">Active Contests</a><br />
-<%--
-<span class="grayedOut">Current Leaderboard</span>
---%>
-<A href="/tc?&pt=2&module=LeaderBoard" class="bcLink">Current Leaderboard</A>
-<br />
-</td>
-<td align="left" style="padding-left:10px;" valign="top">
-<span class="subtitle" class="bcLink">Assembly Cup</span><br />
-<A href="/tc?module=Static&d1=digital_run&d2=2008&d3=asmOverview" class="bcLink">Details</A><br />
-<a href="/tc?module=ViewAssemblyActiveContests" class="bcLink">Active Contests</a><br />
-<A href="/tc?&pt=14&module=LeaderBoard" class="bcLink">Current Leaderboard</A>
-<br />
 
 
-</td>
-</tr>
-</table>
-
-<%--
-<A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=stage1Winners" class="bcLink">Stage 1 Winners</A><br />
-<A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=stage2Winners" class="bcLink">Stage 2 Winners</A><br />
-<A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=stage3Winners" class="bcLink">Stage 3 Winners</A>
---%>
-
-</div>
-
-The Digital Run is back for the 2008 season!
-<br /><br />
-<span class="subtitle">How to compete</span><br />
-If you're an active competitor in Design, Development or Assembly competitions, you are already competing in the Digital Run. Easy, right?
-<br /><br />
-<span class="subtitle">How to win</span><br />
-Each component or Assembly contest posted for a competition will carry placement points. Points will be awarded to competitors based on the number of submissions that pass review. The members with the highest point totals at the end of each Stage win big.
-<br /><br />
-
-</div>
-
-</td>
-<%-- Center Column Ends --%>
-
-<%-- Right Column Begins --%>
-         <td width="170">
-            <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="default"/>
-            </jsp:include>
-         </td>
-<%-- Right Column Ends --%>
-
-<%-- Gutter --%>
-         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<%-- Gutter Ends --%>
-    </tr>
-</table>
 
 <jsp:include page="../foot.jsp" />
 

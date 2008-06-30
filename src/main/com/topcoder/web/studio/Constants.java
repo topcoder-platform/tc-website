@@ -256,6 +256,13 @@ public class Constants implements WebConstants {
     public static final String CONTEST_TYPE = "ctt";
 
     /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the digital run points of the contest.</p>
+     *
+     * @since Digital Run v2.0
+     */
+    public static final String DIGITAL_RUN_POINTS = "drp";
+
+    /**
      * <p>A <code>String</code> providing the name of request parameter to specify the channel of the contest.</p>
      *
      * @since TopCoder Studio Modifications Assembly v2 (Req# 5.5)

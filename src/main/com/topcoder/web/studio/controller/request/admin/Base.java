@@ -46,7 +46,7 @@ public abstract class Base extends ShortHibernateProcessor {
             ContestProperty.CONTENT_REQUIREMENTS, ContestProperty.OTHER_REQUIREMENTS,
             ContestProperty.SUBMISSION_FILE_FORMAT, ContestProperty.WINNER_SELECTION, ContestProperty.ELIGIBILITY,
             ContestProperty.OTHER_FILE_TYPES, ContestProperty.REQUIRE_PREVIEW_IMAGE,
-            ContestProperty.REQUIRE_PREVIEW_FILE};
+            ContestProperty.REQUIRE_PREVIEW_FILE, ContestProperty.DIGITAL_RUN_POINTS};
 
 
     protected void loadGeneralEditContestData() throws Exception {
