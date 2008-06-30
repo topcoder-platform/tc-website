@@ -227,7 +227,7 @@
         </c:choose>
         <c:if test="${fn:length(contest.digitalRunPoints.value)>0 and contest.digitalRunPoints.value != '0'}">
             <tr>
-                <td class="field">Design Cup Pts</td>
+                <td class="field">Studio Cup Pts</td>
                 <td class="value">${contest.digitalRunPoints.value}</td>
             </tr>
         </c:if>
