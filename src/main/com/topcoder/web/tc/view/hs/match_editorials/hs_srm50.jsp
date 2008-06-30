@@ -46,7 +46,7 @@
     <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">Archive</a><br />
     <span id="printableLink"><a href="Javascript:makeInvisible();">Printable view</a><br /></span>
     <span id="navigableLink" class="invisible"><a href="Javascript:makeNavigable();">Normal view</a><br /></span>
-    <a href="/tc?module=HSRoundOverview&amp;snid=3&amp;er=5">Match Overview</a><br />
+    <a href="/tc?module=HSRoundOverview&amp;rd=13483&amp;snid=3&amp;er=5">Match Overview</a><br />
 
 <tc-webtag:forumLink forumID="521680" message="Discuss this match" /></div>
 <span class="bodySubtitle">TCHS SRM 50</span><br />Tuesday, June 17, 2008
