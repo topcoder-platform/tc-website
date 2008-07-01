@@ -318,7 +318,7 @@
 <c:if test="${not empty contest.sizeRequirements.value or not empty contest.fontRequirements.value 
              or not empty contest.colorRequirements.value or not empty contest.contentRequirements.value
              or not empty contest.otherRequirements.value}">
-    <div class="header">Requirements &amp; Restrictions</div>
+    <div class="header">Specific Contest Details</div>
     <ul>
         <c:if test="${not empty contest.sizeRequirements.value}">
             <li>
