@@ -198,7 +198,7 @@
         <tr>
             <td class="homeBigPromo">
                 <%-- DIGITAL RUN --%>
-                <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/dig_run_2008_s2.png" alt="The Digital Run" border="0" style="display:block;"/></a>
+                <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/dr2008v2.png" alt="The Digital Run" border="0" style="display:block;"/></a>
                 
                 
                 <%-- DIGITAL RUN ASSEMBLY CUP 
