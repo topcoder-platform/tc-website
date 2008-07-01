@@ -319,33 +319,60 @@
              or not empty contest.colorRequirements.value or not empty contest.contentRequirements.value
              or not empty contest.otherRequirements.value}">
     <div class="header">Specific Contest Details</div>
-    <ul>
+    <table cellpadding="3" cellspacing="0" border="0">
+    <tbody>
         <c:if test="${not empty contest.sizeRequirements.value}">
-            <li>
-                <strong>Size Requirements:</strong> <studio:formatField text="${contest.sizeRequirements.value}"/>
-            </li>
+        <tr>
+            <td nowrap="nowrap" valign="top">
+                <strong>Size Requirements:</strong>
+            </td>
+            <td>
+                <studio:formatField text="${contest.sizeRequirements.value}"/>
+            </td>
+        </tr>
         </c:if>
         <c:if test="${not empty contest.fontRequirements.value}">
-            <li>
-                <strong>Font Requirements:</strong> <studio:formatField text="${contest.fontRequirements.value}"/>
-            </li>
+        <tr>
+            <td nowrap="nowrap" valign="top">
+                <strong>Font Requirements:</strong>
+            </td>
+            <td>
+                <studio:formatField text="${contest.fontRequirements.value}"/>
+            </td>
+        </tr>
         </c:if>
         <c:if test="${not empty contest.colorRequirements.value}">
-            <li>
-                <strong>Color Requirements:</strong> <studio:formatField text="${contest.colorRequirements.value}"/>
-            </li>
+        <tr>
+            <td nowrap="nowrap" valign="top">
+                <strong>Color Requirements:</strong>
+            </td>
+            <td>
+                <studio:formatField text="${contest.colorRequirements.value}"/>
+            </td>
+        </tr>
         </c:if>
         <c:if test="${not empty contest.contentRequirements.value}">
-            <li>
-                <strong>Content Requirements:</strong> <studio:formatField text="${contest.contentRequirements.value}"/>
-            </li>
+        <tr>
+            <td nowrap="nowrap" valign="top">
+                <strong>Content Requirements:</strong>
+            </td>
+            <td>
+                <studio:formatField text="${contest.contentRequirements.value}"/>
+            </td>
+        </tr>
         </c:if>
         <c:if test="${not empty contest.otherRequirements.value}">
-            <li>
-                <strong>Other Requirements:</strong> <studio:formatField text="${contest.otherRequirements.value}"/>
-            </li>
+        <tr>
+            <td nowrap="nowrap" valign="top">
+                <strong>Other Requirements:</strong>
+            </td>
+            <td>
+                <studio:formatField text="${contest.otherRequirements.value}"/>
+            </td>
+        </tr>
         </c:if>
-    </ul>
+    </tbody>
+    </table>
 </c:if>
 
 <div class="header">How to Submit</div>
