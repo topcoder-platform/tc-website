@@ -488,7 +488,7 @@
 </fieldset>
 
 <fieldset>
-<legend>Design Restrictions and Requirements</legend>
+<legend>Specific Contest Details</legend>
 
 <table>
 <tbody>
