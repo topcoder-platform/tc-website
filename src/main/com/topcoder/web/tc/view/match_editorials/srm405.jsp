@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statistics</title>
+<title>TopCoder Statistics: SRM 405 Problem Set &amp; Analysis</title>
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
