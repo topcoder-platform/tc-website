@@ -52,7 +52,7 @@
         defaults['${overviewText}'] ="[Copy Project Overview info from Spec into this area.]\n\n" +
                 "<p><b>Entries must be your original work, and must not infringe on the copyright or licenses of others. " +
                                      "Stock art, clip art, templates and other design elements from other sources are " +
-                                     " prohibited unless specifically permitted in the Specification Document.</b></p>"
+                                     " prohibited unless specifically permitted here in the Contest Details.</b></p>"
         defaults['${prizeDesc}'] ="The payment will be distributed in one full installment once the final version of the " +
                     "winning submission has been downloaded by the client. Any and all applicable taxes on prizes are the " +
                                   " sole responsibility of the prizewinner(s).";
