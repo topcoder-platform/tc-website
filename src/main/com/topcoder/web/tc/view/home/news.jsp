@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.01.08<br />5:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm407">SRM 407 - Problem Set &amp; Analysis</a></span><br /><br />
+      This round match attracted 1374 coders, 584 Div1 and 790 Div2. In Div1 most of the coders successfully submitted easy and medium in first 30 minutes and spent all the remaining time for solving the hard. <tc-webtag:handle coderId="22653044" context="algorithm"/> got the first place with the fastest submission for the hard.</td>
+         <td class="newsPhoto"><img src="/i/m/Gluk_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8433628" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm407">details</a> | 
+        <tc-webtag:forumLink forumID="521832" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.01.08<br />3:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -157,21 +173,5 @@
         <a target="_blank" href="<tc-webtag:linkTracking link='http://www.peoplemanagement.co.uk/pm/articles/2008/05/why-we-all-want-to-grow-towards-the-sun.htm?EmailSent=true' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="521730" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />06.18.08<br />10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/dobbs' refer='/tc' />">TopCoder Contest at Dr. Dobb's Architecture &amp; Design World Conference</a></span><br /><br />
-         TopCoder will be onsite at the 2008 Dr Dobb's Architecture &amp; Design World next month in Chicago (July 21-24). We'll be hosting the Software Architecture Contest, providing attendees with a TopCoder challenge in architectural design.<br /><br />
-         Contestants will compete to create and document a comprehensive solution to a set of system requirements.  During the conference, attendees will be able to browse and score the submissions using the same scorecards and criteria that TopCoder uses to judge competitions for our real-world projects.<br /><br />
-         So if you're planning on attending the conference make sure to stop by our booth and visit with us. If you're not registered and think you'd like to attend there's full information for the Dr. Dobb's Architecture and Design World Conference available at: <a target="_blank" href="<tc-webtag:linkTracking link='http://www.drdobbsarchworld.com/' refer='/tc' />">http://www.drdobbsarchworld.com</a><br /><br />
-         <strong>Note:</strong>  TopCoder membership and conference registration is required in order to be eligible for this competition - full rules and guidelines are available at: <a href="<tc-webtag:linkTracking link='/dobbs' refer='/tc' />">http://www.topcoder.com/dobbs</a></td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/dobbs' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="521693" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
    
