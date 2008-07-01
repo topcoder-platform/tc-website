@@ -272,12 +272,12 @@
                                 <c:when test="${has_global_ad}">
                                     <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="icon"><img src="/i/v2/interface/2NA.png" alt="2"/></a>
                                     <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="grayedOut">Sign
-                                        &amp; submit an Assignment Document</a> <span class="grayedOut">if this is your first competition.</span>
+                                        &amp; submit an Assignment Document</a><span class="small grayedOut">(<a href="/?module=AssignmentDocumentHistory" class="grayedOut">Check the status of your AD before continuing</a>)</span>
                                 </c:when>
                                 <c:otherwise>
                                     <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="icon"><img src="/i/v2/interface/2.png" alt="2"/></a>
                                     <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Sign & submit an
-                                        Assignment Document</a> if this is your first competition.
+                                        Assignment Document</a><br /><span class="small grayedOut">(<a href="/?module=AssignmentDocumentHistory" class="grayedOut">Check the status of your AD before continuing</a>)</span>
                                 </c:otherwise>
                             </c:choose>
                         </div>
