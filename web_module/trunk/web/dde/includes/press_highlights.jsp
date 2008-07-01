@@ -7,6 +7,9 @@
 <table width="530" border="0" cellspacing="0" cellpadding="4">
 
    <tr><td class="prHead">
+         <a target="_blank" href="http://archives.subscribermail.com/msg/1044d2a1a515408dae9bf53c33025f7a.htm">Dr. Dobb's Architecture &amp; Design World 2008</a> | <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/tc_developments_july2008.pdf">PDF</a> [July 2008]
+   </td></tr>
+   <tr><td class="prHead">
          <a target="_blank" href="http://archives.subscribermail.com/msg/1a44219b28a7486686ede5ce4695fe78.htm">Lilly Partners with TopCoder, to Find Drug Discovery IT Solutions</a> | <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/tc_developments_june2008.pdf">PDF</a> [June 2008]
    </td></tr>
    <tr><td class="prHead">
