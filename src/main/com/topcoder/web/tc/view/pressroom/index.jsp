@@ -115,6 +115,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- Dr. Dobb's Architecture &amp; Design World 2008 to Feature Software Design Contest Powered by TopCoder begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_070108"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_070108">Dr. Dobb's Architecture &amp; Design World 2008 to Feature Software Design Contest Powered by TopCoder</a></h3>
+                        <p>Architects Challenged to Create and Document Comprehensive Solutions to Set of System Requirements  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_070108">[July 1]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Dr. Dobb's Architecture &amp; Design World 2008 to Feature Software Design Contest Powered by TopCoder end --%>
+                
                 <%-- THE Journal: Which Side Are You On? begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
