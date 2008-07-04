@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial" border="0" /><br />07.04.08<br />8:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=tutorials&amp;d2=hungarianAlgorithm">Assignment Problem and Hungarian Algorithm</a></span><br /><br />
+      Are you familiar with the following situation? You open the Div I Medium and don't know how to approach it, while a lot of people in your room submitted it in less than 10 minutes. Then, after the contest, you find out in the editorial that this problem can be simply reduced to a classical one. If yes, then this tutorial will surely be useful for you.</td>
+         <td class="newsPhoto"><img src="/i/m/x-ray_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="22654859" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=hungarianAlgorithm">details</a> | 
+        <tc-webtag:forumLink forumID="522020" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=alg_index">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.01.08<br />5:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -66,7 +82,7 @@
         <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
    </td></tr>
 
-   <%--------------------------------------------------------%>
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />06.26.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -159,19 +175,6 @@
    <tr><td class="newsLinksCell">
         <a target="_blank" href="<tc-webtag:linkTracking link='http://www.thejournal.com/articles/22736_2' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="521731" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />06.19.08<br />3:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.peoplemanagement.co.uk/pm/articles/2008/05/why-we-all-want-to-grow-towards-the-sun.htm?EmailSent=true' refer='/tc' />">People Management: Why We All Want to Grow Towards the Sun</a></span><br /><br />
-         TopCoder's model of clear rules, boundaries and incentives leads to a creatively engaging and passionate work environment.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.peoplemanagement.co.uk/pm/articles/2008/05/why-we-all-want-to-grow-towards-the-sun.htm?EmailSent=true' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="521730" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
    
