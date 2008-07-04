@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Feature Articles</title>
+<title>TopCoder Algorithm Tutorials</title>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:include page="/script.jsp"/>
@@ -37,7 +37,7 @@
 <!-- Left Column Begins-->
         <td width="180" id="onLeft">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="features"/>
+            <jsp:param name="node" value="algo_tutorials"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -46,7 +46,7 @@
 <td width="100%" align="left" class="bodyColumn">
 
 <jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="features"/>
+    <jsp:param name="image" value="alg_tut"/>
     <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
