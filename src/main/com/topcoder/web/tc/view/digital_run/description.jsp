@@ -70,7 +70,7 @@ function menu_goto( menuform )
                 <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=home">Studio</a>
             </li>
             <li>
-                <a href="http://forums.topcoder.com/?module=Thread&threadID=617309">Forums</a>
+                <a href="http://forums.topcoder.com/?module=Thread&amp;threadID=617309">Forums</a>
             </li>
             <li>
                 <a href="/tc">Home</a>
@@ -90,6 +90,7 @@ function menu_goto( menuform )
                     <a href="/tc?module=ViewActiveContests&amp;ph=112">Active contests</a>
                 </div>
 <%--
+--%>
                 <div>
                     <a href="/tc?&amp;pt=1&amp;module=LeaderBoard">Leaderboards</a>
                 </div>
@@ -97,12 +98,11 @@ function menu_goto( menuform )
                     <span class="money">
                         <fmt:formatNumber value="${designPrize.total}" type="currency" currencySymbol="$"/>
                     </span> 
-                    <c:if test="${designPrize.today > 0}"> 
-                        <span class="month">(+<fmt:formatNumber value="${designPrize.today}" type="currency" currencySymbol="$"/>)</span>
-                    </c:if>
                     <span class="month">prize pool in July</span>
+                    <c:if test="${designPrize.today > 0}"> 
+                        <span class="month">(+<fmt:formatNumber value="${designPrize.today}" type="currency" currencySymbol="$"/> in the past X days)</span>
+                    </c:if>
                 </div>
---%>
                 <div class="prizeGuarantee">
                     <span class="money">$10,000</span> <span class="month">Guaranteed Monthly Prize</span>
                 </div>
@@ -119,6 +119,7 @@ function menu_goto( menuform )
                     <a href="/tc?module=ViewActiveContests&amp;ph=113">Active contests</a>
                 </div>
 <%--
+--%>
                 <div>
                     <a href="/tc?&amp;pt=2&amp;module=LeaderBoard">Leaderboards</a>
                 </div>
@@ -126,12 +127,11 @@ function menu_goto( menuform )
                     <span class="money">
                         <fmt:formatNumber value="${developmentPrize.total}" type="currency" currencySymbol="$"/>
                     </span>
-                    <c:if test="${developmentPrize.today > 0}"> 
-                        <span class="month">(+<fmt:formatNumber value="${developmentPrize.today}" type="currency" currencySymbol="$"/>)</span>
-                    </c:if>
                     <span class="month">prize pool in July</span>
+                    <c:if test="${developmentPrize.today > 0}"> 
+                        <span class="month">(+<fmt:formatNumber value="${developmentPrize.today}" type="currency" currencySymbol="$"/> in the past X days)</span>
+                    </c:if>
                 </div>
---%>
                 <div class="prizeGuarantee">
                     <span class="money">$10,000</span> <span class="month">Guaranteed Monthly Prize</span>
                 </div>
@@ -148,6 +148,7 @@ function menu_goto( menuform )
                     <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active contests</a>
                 </div>
 <%--
+--%>
                 <div>
                     Leaderboards
                 </div>
@@ -155,12 +156,11 @@ function menu_goto( menuform )
                     <span class="money">
                         <fmt:formatNumber value="${studioPrize.total}" type="currency" currencySymbol="$"/>
                     </span>
-                    <c:if test="${studioPrize.today > 0}"> 
-                        <span class="month">(+<fmt:formatNumber value="${studioPrize.today}" type="currency" currencySymbol="$"/>)</span>
-                    </c:if>
                     <span class="month">prize pool in July</span>
+                    <c:if test="${studioPrize.today > 0}"> 
+                        <span class="month">(+<fmt:formatNumber value="${studioPrize.today}" type="currency" currencySymbol="$"/> in the past X days)</span>
+                    </c:if>
                 </div>
---%>
                 <div class="prizeGuarantee">
                     <span class="money">$5,000</span> <span class="month">Guaranteed Monthly Prize</span>
                 </div>
@@ -323,8 +323,6 @@ function menu_goto( menuform )
                 </select>
                 </form>
             </div>
-
-        </div>
 
     </div>
 
