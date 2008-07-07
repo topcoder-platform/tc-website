@@ -16,6 +16,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.cache.MaxAge;
+import com.topcoder.web.tc.Constants;
 
 /**
  * Copyright (c) 2001-2008 TopCoder, Inc. All rights reserved.
@@ -27,16 +28,25 @@ import com.topcoder.web.common.cache.MaxAge;
  */
 public class Description extends BaseProcessor {
 
-    public static List<Integer> DESIGN_PROJECT_CATEGORIES = Arrays.asList(1, 7, 13);
-    public static List<Integer> DEVELOPMENT_PROJECT_CATEGORIES = Arrays.asList(2, 5, 14);
+    private static List<Integer> DESIGN_PROJECT_CATEGORIES = Arrays.asList(1, 7, 13);
+    private static List<Integer> DEVELOPMENT_PROJECT_CATEGORIES = Arrays.asList(2, 5, 14);
     
+    private static String[] monthName = {"January", "February",
+            "March", "April", "May", "June", "July",
+            "August", "September", "October", "November",
+            "December"};
+
     /* (non-Javadoc)
      * @see com.topcoder.web.common.BaseProcessor#businessProcessing()
      */
     @Override
     protected void businessProcessing() throws Exception {
 
-        ResultSetContainer rsc = getPointsData(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Calendar now = new GregorianCalendar();
+        int month = now.get(Calendar.MONTH)+1;
+        int year = now.get(Calendar.YEAR);
+
+        ResultSetContainer rsc = getPointsData(DBMS.TCS_OLTP_DATASOURCE_NAME, month, year);
 
         PoolPrize designPrize = new PoolPrize();
         PoolPrize developmentPrize = new PoolPrize();        
@@ -51,7 +61,7 @@ public class Description extends BaseProcessor {
         }
 
         PoolPrize studioPrize = new PoolPrize();        
-        rsc = getPointsData(DBMS.STUDIO_DATASOURCE_NAME);
+        rsc = getPointsData(DBMS.STUDIO_DATASOURCE_NAME, month, year);
         if (rsc.size() > 0) {
             ResultSetRow rsr = rsc.iterator().next();
             studioPrize.addTotal(rsr.getDoubleItem("total_dr_points"));
@@ -63,6 +73,9 @@ public class Description extends BaseProcessor {
         getRequest().setAttribute("developmentPrize", developmentPrize);
         getRequest().setAttribute("studioPrize", studioPrize);
 
+        getRequest().setAttribute("monthName", monthName[month-1]); 
+        getRequest().setAttribute("pastNDays", Constants.DR_POINTS_LAST_N_DAYS); 
+        
         setNextPage("/digital_run/description.jsp");
         setIsNextPageInContext(true);        
     }
@@ -71,13 +84,13 @@ public class Description extends BaseProcessor {
      * @return
      * @throws Exception
      */
-    private ResultSetContainer getPointsData(String datasource) throws Exception {
+    private ResultSetContainer getPointsData(String datasource, int month, int year) throws Exception {
         CachedDataAccess cda = new CachedDataAccess(MaxAge.HALF_HOUR, datasource);
         Request dataRequest = new Request();
         dataRequest.setContentHandle("dr_pool_detail");
-        Calendar now = new GregorianCalendar();
-        dataRequest.setProperty("month", String.valueOf(now.get(Calendar.MONTH)+1));
-        dataRequest.setProperty("year", String.valueOf(now.get(Calendar.YEAR)));
+        dataRequest.setProperty("month", String.valueOf(month));
+        dataRequest.setProperty("year", String.valueOf(year));
+        dataRequest.setProperty("days", Constants.DR_POINTS_LAST_N_DAYS);
         Map<String, ResultSetContainer> map = cda.getData(dataRequest);
         ResultSetContainer rsc = map.get("dr_pool_detail");
         return rsc;
