@@ -26,7 +26,7 @@ import com.topcoder.web.tc.Constants;
  * @version $Id$
  * Create Date: Jul 4, 2008
  */
-public class Description extends BaseProcessor {
+public class Home extends BaseProcessor {
 
     private static List<Integer> DESIGN_PROJECT_CATEGORIES = Arrays.asList(1, 7, 13);
     private static List<Integer> DEVELOPMENT_PROJECT_CATEGORIES = Arrays.asList(2, 5, 14);
@@ -76,7 +76,7 @@ public class Description extends BaseProcessor {
         getRequest().setAttribute("monthName", monthName[month-1]); 
         getRequest().setAttribute("pastNDays", Constants.DR_POINTS_LAST_N_DAYS); 
         
-        setNextPage("/digital_run/description.jsp");
+        setNextPage("/digital_run/home.jsp");
         setIsNextPageInContext(true);        
     }
 
