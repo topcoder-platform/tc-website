@@ -209,7 +209,7 @@
         <div id="popDR" class="popUp">
             <div>Digital Run</div>
         </div>
-        <a href='/tc?module=Static&d1=digital_run&d2=description'><img class="emblem" src="/i/interface/emblem/digitalrun.png" alt="" border="0" onmouseover="popUp(this,'popDR')" onmouseout="popHide()"/></a>
+        <a href='/dr'><img class="emblem" src="/i/interface/emblem/digitalrun.png" alt="" border="0" onmouseover="popUp(this,'popDR')" onmouseout="popHide()"/></a>
         Points
     </TD>
     <TD CLASS="headerC">&nbsp;</TD>

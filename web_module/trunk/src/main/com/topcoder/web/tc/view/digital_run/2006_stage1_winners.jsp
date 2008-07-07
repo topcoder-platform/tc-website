@@ -63,7 +63,7 @@ Stage 1 of the Digital Run concluded on August 3. While some contests are still 
 </ul>
 <br>
 <span class="subtitle">An Interview with aubergineanode</span><br>
-The following is a brief interview with <tc-webtag:handle coderId="11797255" context="design" /> on his impressive Digital Run performance. Watch for the final rankings of the other Digital Run competitors to be revealed on the leaderboards soon &mdash; and if you haven't joined in yet, it's not too late to make your move for <A href="/tc?module=Static&d1=digital_run&d2=description">Rookie of the Year</A>.
+The following is a brief interview with <tc-webtag:handle coderId="11797255" context="design" /> on his impressive Digital Run performance. Watch for the final rankings of the other Digital Run competitors to be revealed on the leaderboards soon &mdash; and if you haven't joined in yet, it's not too late to make your move for <A href="/dr">Rookie of the Year</A>.
 <br><br>
 <strong>Over Stage 1, how much time did you devote to the Digital Run?</strong><br>
 It normally takes me a total of 20-30 hours on a component - from initial thoughts about a design through to answering development questions. With 24 components this summer, I'm guessing that I spent 600 hours, possibly more.

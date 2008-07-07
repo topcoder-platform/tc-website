@@ -68,7 +68,7 @@
 <tr class="bodyText"><td nowrap="nowrap">09.20.07 9:00 AM - </td><td width="100%"><a href="/tc?module=Static&d1=dev&d2=umltool&d3=description&node=des_uml_tool">Try the TopCoder UML Tool</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.30.07 12:45 PM - </td><td width="100%"><a href="/tc?module=Static&d1=digital_run&d2=2007Stage4Winners">Digital Run: Stage 4 winners</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.23.07 7:00 PM - </td><td width="100%"><a href="/tc?module=Static&d1=dev&d2=support&d3=desReliability">Design &amp; Development reliability bonuses increased</a><br /></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">05.04.07 10:00 AM - </td><td width="100%"><a href="/tc?module=Static&d1=digital_run&d2=description">Announcing the Digital Run 2007.5 Season</a><br /></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.04.07 10:00 AM - </td><td width="100%"><a href="/dr">Announcing the Digital Run 2007.5 Season</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.02.07 2:00 PM - </td><td width="100%"><a href="/tc?module=ViewSurvey&sid=16730">Vote for the TopCoder UML Tool Splash Screen Design</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.16.07 3:00 PM - </td><td width="100%"><a href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">Metric Reporting Testing Competitions</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.02.07 3:30 PM - </td><td width="100%"><a href="/tc?module=Static&d1=digital_run&d2=2007Stage3Winners">Digital Run: Stage 3 Winners</a><br /></td></tr>

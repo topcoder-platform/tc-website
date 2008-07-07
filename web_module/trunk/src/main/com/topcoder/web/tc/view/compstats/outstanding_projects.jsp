@@ -140,7 +140,7 @@
             </TD>
             <TD CLASS="headerC" width="20%">
                 <div id="popDR" class="popUp"><div>Digital Run</div></div>
-                <div align="center"><a href='/tc?module=Static&d1=digital_run&d2=description'><img class="emblem" src="/i/interface/emblem/digitalrun.png" alt="" border="0" onmouseover="popUp(this,'popDR')" onmouseout="popHide()" /></a></div>
+                <div align="center"><a href='/dr'><img class="emblem" src="/i/interface/emblem/digitalrun.png" alt="" border="0" onmouseover="popUp(this,'popDR')" onmouseout="popHide()" /></a></div>
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Potential
                     Points</a>*
             </TD>
