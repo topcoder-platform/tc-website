@@ -98,9 +98,9 @@ function menu_goto( menuform )
                     <span class="money">
                         <fmt:formatNumber value="${designPrize.total}" type="currency" currencySymbol="$"/>
                     </span> 
-                    <span class="month">prize pool in July</span>
+                    <span class="month">prize pool in ${monthName}</span>
                     <c:if test="${designPrize.today > 0}"> 
-                        <span class="month">(+<fmt:formatNumber value="${designPrize.today}" type="currency" currencySymbol="$"/> in the past X days)</span>
+                        <span class="month">(+<fmt:formatNumber value="${designPrize.today}" type="currency" currencySymbol="$"/> in the past ${pastNDays} days)</span>
                     </c:if>
                 </div>
                 <div class="prizeGuarantee">
@@ -127,9 +127,9 @@ function menu_goto( menuform )
                     <span class="money">
                         <fmt:formatNumber value="${developmentPrize.total}" type="currency" currencySymbol="$"/>
                     </span>
-                    <span class="month">prize pool in July</span>
+                    <span class="month">prize pool in ${monthName}</span>
                     <c:if test="${developmentPrize.today > 0}"> 
-                        <span class="month">(+<fmt:formatNumber value="${developmentPrize.today}" type="currency" currencySymbol="$"/> in the past X days)</span>
+                        <span class="month">(+<fmt:formatNumber value="${developmentPrize.today}" type="currency" currencySymbol="$"/> in the past ${pastNDays} days)</span>
                     </c:if>
                 </div>
                 <div class="prizeGuarantee">
@@ -156,9 +156,9 @@ function menu_goto( menuform )
                     <span class="money">
                         <fmt:formatNumber value="${studioPrize.total}" type="currency" currencySymbol="$"/>
                     </span>
-                    <span class="month">prize pool in July</span>
+                    <span class="month">prize pool in ${monthName}</span>
                     <c:if test="${studioPrize.today > 0}"> 
-                        <span class="month">(+<fmt:formatNumber value="${studioPrize.today}" type="currency" currencySymbol="$"/> in the past X days)</span>
+                        <span class="month">(+<fmt:formatNumber value="${studioPrize.today}" type="currency" currencySymbol="$"/> in the past ${pastNDays} days)</span>
                     </c:if>
                 </div>
                 <div class="prizeGuarantee">
