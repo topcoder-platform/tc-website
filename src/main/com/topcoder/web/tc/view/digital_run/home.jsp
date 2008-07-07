@@ -90,10 +90,10 @@ function menu_goto( menuform )
                     <a href="/tc?module=ViewActiveContests&amp;ph=112">Active contests</a>
                 </div>
 <%--
---%>
                 <div>
                     <a href="/tc?&amp;pt=1&amp;module=LeaderBoard">Leaderboards</a>
                 </div>
+--%>
                 <div class="prizeLine">
                     <span class="money">
                         <fmt:formatNumber value="${designPrize.total}" type="currency" currencySymbol="$"/>
@@ -119,10 +119,10 @@ function menu_goto( menuform )
                     <a href="/tc?module=ViewActiveContests&amp;ph=113">Active contests</a>
                 </div>
 <%--
---%>
                 <div>
                     <a href="/tc?&amp;pt=2&amp;module=LeaderBoard">Leaderboards</a>
                 </div>
+--%>
                 <div class="prizeLine">
                     <span class="money">
                         <fmt:formatNumber value="${developmentPrize.total}" type="currency" currencySymbol="$"/>
@@ -148,10 +148,10 @@ function menu_goto( menuform )
                     <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active contests</a>
                 </div>
 <%--
---%>
                 <div>
                     Leaderboards
                 </div>
+--%>
                 <div class="prizeLine">
                     <span class="money">
                         <fmt:formatNumber value="${studioPrize.total}" type="currency" currencySymbol="$"/>
