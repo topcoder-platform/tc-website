@@ -13,24 +13,12 @@
 
 <head>
 <title>TopCoder - The Digital Run</title>
-
+<meta http-equiv="Refresh" content="3;url=/dr">
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="digitalrun"/>
 </jsp:include>
 <jsp:include page="../script.jsp" />
-<script language="javascript" type="text/javascript">
-<!--
-function menu_goto( menuform )
-{
-    selecteditem = menuform.newurl.selectedIndex ;
-    newurl = menuform.newurl.options[ selecteditem ].value ;
-    if (newurl.length != 0) {
-      location.href = newurl ;
-    }
-}
-//-->
-</script>
 </head>
 <body>
 
@@ -45,7 +33,7 @@ function menu_goto( menuform )
     <div id="pageSpacer">
 
             <p align="center">
-                The Digital Run has moved here.<br />You will be redirected momentarily.
+                The Digital Run has moved <a href="/dr">here</a>.<br />You will be redirected momentarily.
             </p>            
 
     </div>

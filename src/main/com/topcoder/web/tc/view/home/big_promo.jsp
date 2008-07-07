@@ -30,7 +30,7 @@
     
 
 <%-- digital run 
-<a href="/tc?module=Static&d1=digital_run&d2=description"><IMG SRC="/i/home/digitalrun20070504.png" border="0" alt="The Digital Run - 2007.5 Season" /></a>
+<a href="/dr"><IMG SRC="/i/home/digitalrun20070504.png" border="0" alt="The Digital Run - 2007.5 Season" /></a>
 --%>
 <%-- TCHS08 
 <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tchs08&d3=onlineSchedule' refer='/tc' />"><img src="/i/home/tchs08onlineRd1.png" alt="2008 TopCoder High School" /></a>

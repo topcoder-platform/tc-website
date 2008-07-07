@@ -175,8 +175,8 @@ I want to thank TopCoder for creating such an awesome contest, and I hope to see
       <td class="headerC" width="80">Points</td>
       <td class="headerC" width="45">Submissions</td>
       <td class="headerR" width="85">Total <br>Prizes</td>
-      <td class="headerR" width="95"><A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/interface/emblem/digitalrun.png"></A><br> Prize <br>/ Submission</td>
-      <td class="headerR" width="95"><A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/interface/emblem/digitalrun.png"></A><br> Points <br>/ Submission</td>
+      <td class="headerR" width="95"><A href="/dr"><img src="/i/interface/emblem/digitalrun.png"></A><br> Prize <br>/ Submission</td>
+      <td class="headerR" width="95"><A href="/dr"><img src="/i/interface/emblem/digitalrun.png"></A><br> Points <br>/ Submission</td>
    </tr>
    <tr class="light">
       <td class="value"><tc-webtag:handle coderId="11797255" context="design" /></td>
@@ -326,8 +326,8 @@ I want to thank TopCoder for creating such an awesome contest, and I hope to see
       <td class="headerC" width="80">Points</td>
       <td class="headerC" width="45">Submissions</td>
       <td class="headerR" width="85">Total <br>Prizes</td>
-      <td class="headerR" width="95"><A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/interface/emblem/digitalrun.png"></A><br> Prize <br>/ Submission</td>
-      <td class="headerR" width="95"><A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/interface/emblem/digitalrun.png"></A><br> Points <br>/ Submission</td>
+      <td class="headerR" width="95"><A href="/dr"><img src="/i/interface/emblem/digitalrun.png"></A><br> Prize <br>/ Submission</td>
+      <td class="headerR" width="95"><A href="/dr"><img src="/i/interface/emblem/digitalrun.png"></A><br> Points <br>/ Submission</td>
    </tr>
    <tr class="light">
       <td class="value"><tc-webtag:handle coderId="15832162" context="development" /></td>

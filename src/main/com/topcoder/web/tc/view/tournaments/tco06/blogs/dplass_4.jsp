@@ -103,7 +103,7 @@ the implementations of that interface.
 <br/><br/> 
 After 30 minutes, the top two developers hadn't made ANY appeals.  In fact, after 60 minutes, <tc-webtag:handle coderId="7548200" darkBG="true" /> still
 hadn't made any, which was surprising.  (He later made some, and his score increased accordingly.)  I picked up on a
-conversation between <tc-webtag:handle coderId="156859" darkBG="true" /> and <tc-webtag:handle coderId="275071" darkBG="true" /> about <a href="/tc?module=Static&d1=digital_run&d2=description">The Digital Run</a>, which
+conversation between <tc-webtag:handle coderId="156859" darkBG="true" /> and <tc-webtag:handle coderId="275071" darkBG="true" /> about <a href="/dr">The Digital Run</a>, which
 has an interesting "Rookie of the Year" concept.  I myself was thinking about re-entering the design competitions, for which
 I might be a candidate for the designer ROTY (hmm, reminds me of <a href="/?t=sponsor&c=link&link=http://www.imdb.com/title/tt0086190/">ROTJ</a>. Maybe I can pull off the Star Wars motif after all...)  <tc-webtag:handle coderId="275071" darkBG="true" /> had the opposite point of view, that over the summer the <em>development</em> projects would be attractive to him (for the money), and then <b>he</b> might be eligible for the development ROTY.
 <br/><br/>

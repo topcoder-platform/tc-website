@@ -104,7 +104,7 @@
     
     <p><span class="bodySubtitle">The Digital Run effect</span><br />
     This was the first year that the TCO component contest was run at the same time as a stage of the 
-    <a href="/tc?module=Static&d1=digital_run&d2=description">Digital Run</a> (DR), and it was interesting to see how 
+    <a href="/dr">Digital Run</a> (DR), and it was interesting to see how 
     the two concurrent competitions affected the results of each other. For one, any member who had placed in the top five in a DR stage
     already had won a trip to the finals as a spectator. The four-submission cap for the Open meant that 
     the submit-a-lot strategy required to gain points in the DR would not be as successful in gaining a TCO spot -- while concentrating
