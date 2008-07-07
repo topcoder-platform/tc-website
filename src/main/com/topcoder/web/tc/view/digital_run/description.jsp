@@ -2,6 +2,9 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -91,7 +94,13 @@ function menu_goto( menuform )
                     <a href="/tc?&amp;pt=1&amp;module=LeaderBoard">Leaderboards</a>
                 </div>
                 <div class="prizeLine">
-                    <span class="money">$10,000</span> <span class="month">prize pool in July</span>
+                    <span class="money">
+                        <fmt:formatNumber value="${designPrize.total}" type="currency" currencySymbol="$"/>
+                    </span> 
+                    <c:if test="${designPrize.today > 0}"> 
+                        <span class="month">(+<fmt:formatNumber value="${designPrize.today}" type="currency" currencySymbol="$"/>)</span>
+                    </c:if>
+                    <span class="month">prize pool in July</span>
                 </div>
 --%>
                 <div class="prizeGuarantee">
@@ -114,7 +123,13 @@ function menu_goto( menuform )
                     <a href="/tc?&amp;pt=2&amp;module=LeaderBoard">Leaderboards</a>
                 </div>
                 <div class="prizeLine">
-                    <span class="money">$10,000</span> <span class="month">prize pool in July</span>
+                    <span class="money">
+                        <fmt:formatNumber value="${developmentPrize.total}" type="currency" currencySymbol="$"/>
+                    </span>
+                    <c:if test="${developmentPrize.today > 0}"> 
+                        <span class="month">(+<fmt:formatNumber value="${developmentPrize.today}" type="currency" currencySymbol="$"/>)</span>
+                    </c:if>
+                    <span class="month">prize pool in July</span>
                 </div>
 --%>
                 <div class="prizeGuarantee">
@@ -134,10 +149,16 @@ function menu_goto( menuform )
                 </div>
 <%--
                 <div>
-                    <a href="#">Leaderboards</a>
+                    Leaderboards
                 </div>
                 <div class="prizeLine">
-                    <span class="money">$10,000</span> <span class="month">prize pool in July</span>
+                    <span class="money">
+                        <fmt:formatNumber value="${studioPrize.total}" type="currency" currencySymbol="$"/>
+                    </span>
+                    <c:if test="${studioPrize.today > 0}"> 
+                        <span class="month">(+<fmt:formatNumber value="${studioPrize.today}" type="currency" currencySymbol="$"/>)</span>
+                    </c:if>
+                    <span class="month">prize pool in July</span>
                 </div>
 --%>
                 <div class="prizeGuarantee">
