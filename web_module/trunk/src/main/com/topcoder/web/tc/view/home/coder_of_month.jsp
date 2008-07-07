@@ -13,28 +13,27 @@
 
 <div class="leftColContent">
    <div style="padding-left:3px;">
-   <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br />- May</div>
+   <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br />- June</div>
    <table cellpadding="0" cellspacing="0" border="0" width="165">
    <tr>
-      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/Googly_big.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/jbernadas_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
-         <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</A></strong><br />
-         <tc-webtag:handle coderId="159100" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br />
+         <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</a></strong><br />
+         <tc-webtag:handle coderId="22653044" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br />
          <span class="small">
-         SRM 403: 2128<br />
-         SRM 402: 2022<br />
-         SRM 401: 1957<br />
-         SRM 400: 1838
+         SRM 407: 2760<br />
+         SRM 406: 2588<br />
+         SRM 404: 2458
          </span><br /><br />
       </td>
    </tr>
    <tr>
       <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
-         <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</A></strong><br />
-         <tc-webtag:handle coderId="10143068" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br /> 
+         <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</a></strong><br />
+         <tc-webtag:handle coderId="9981727" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br /> 
          <span class="small">
-         Seven wins<br />
+         Four 1st places wins<br />
          One 2nd place win
          </span><br /><br />
       </td>
@@ -42,10 +41,11 @@
    <tr>
       <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
-         <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</A></strong><br />
-         <tc-webtag:handle coderId="22655076" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br />
+         <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</a></strong><br />
+         <tc-webtag:handle coderId="22630348" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br />
          <span class="small">
-         Five submissions &amp; five wins<br /><br />
+         Five 1st places wins<br />
+         Five 2nd place wins
          </span><br /><br />
       </td>
    </tr>
