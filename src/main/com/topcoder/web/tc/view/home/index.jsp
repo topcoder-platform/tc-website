@@ -180,7 +180,7 @@
 <%-- Header Links Must Match Active Promo Links Below!! --%>
 <tr>
     <td align="center">
-        <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description" class="tabHeader"><span>The Digital Run</span></a>
+        <a href="/dr" class="tabHeader"><span>The Digital Run</span></a>
     </td>
     <td align="center">
         <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/" class="tabHeader"><span>Software</span></a>
@@ -198,23 +198,23 @@
         <tr>
             <td class="homeBigPromo">
                 <%-- DIGITAL RUN --%>
-                <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/dr2008v2.png" alt="The Digital Run" border="0" style="display:block;"/></a>
+                <a href="/dr"><img src="/i/home/dr2008v2.png" alt="The Digital Run" border="0" style="display:block;"/></a>
                 
                 
                 <%-- DIGITAL RUN ASSEMBLY CUP 
-                <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></a>
+                <a href="/dr"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></a>
                 --%>
                 
                 <%-- DIGITAL RUN DESIGN CUP 
-                <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/digitalrunDesCup.png" alt="The Digital Run Design Cup" border="0" style="display:block;"/></a>
+                <a href="/dr"><img src="/i/home/digitalrunDesCup.png" alt="The Digital Run Design Cup" border="0" style="display:block;"/></a>
                 --%>
                 
                 <%-- DIGITAL RUN DEVELOPMENT CUP 
-                <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/digitalrunDevCup.png" alt="The Digital Run Development Cup" border="0" style="display:block;"/></a>
+                <a href="/dr"><img src="/i/home/digitalrunDevCup.png" alt="The Digital Run Development Cup" border="0" style="display:block;"/></a>
                 --%>
                 
                 <%-- DIGITAL RUN TOTAL PRIZES 
-                <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/home/digitalrunTotalPrizes.png" alt="The Digital Run Total Prizes" border="0" style="display:block;"/></a>
+                <a href="/dr"><img src="/i/home/digitalrunTotalPrizes.png" alt="The Digital Run Total Prizes" border="0" style="display:block;"/></a>
                 --%>
 
                 <%-- Marathon Match Sponsor 

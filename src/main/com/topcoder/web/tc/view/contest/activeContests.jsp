@@ -89,7 +89,7 @@
       <c:choose>
         <c:when test="${hasDR}">
             <td>
-                <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/development/digitalRun.gif" alt="The Digital Run" border="0"/></a>
+                <a href="/dr"><img src="/i/development/digitalRun.gif" alt="The Digital Run" border="0"/></a>
             </td>
         </c:when>
         <c:otherwise>
@@ -168,7 +168,7 @@
       <c:if test="${hasDR}">
           <td class="headerC" width="10%">
               <div align="center">
-                  <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=description"><img src="/i/interface/emblem/digitalrun.png" alt="" onmouseover="postPopUpText('globalPopupText','The Digital Run'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+                  <a href="/dr"><img src="/i/interface/emblem/digitalrun.png" alt="" onmouseover="postPopUpText('globalPopupText','The Digital Run'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
               </div>
               <div align="center">
                   <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="11" includeParams="true"/>">Points</a>

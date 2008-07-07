@@ -38,7 +38,7 @@
          | <a class="bcLink" href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=desRules">Rules</a>
     <% } %>
 
-    | <a class="bcLink" href="/tc?module=Static&amp;d1=digital_run&amp;d2=description">Go back</a><br />
+    | <a class="bcLink" href="/dr">Go back</a><br />
 <%--
     <a class="bcLink" href="">Current Leaderboard</a>
 --%>
@@ -66,7 +66,7 @@
          | <a class="bcLink" href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=devRules">Rules</a>
     <% } %>
 
-    | <a class="bcLink" href="/tc?module=Static&amp;d1=digital_run&amp;d2=description">Go back</a><br />
+    | <a class="bcLink" href="/dr">Go back</a><br />
     
 <%--
     <a class="bcLink" href="">Current Leaderboard</a>
@@ -95,7 +95,7 @@
          | <a class="bcLink" href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=asmRules">Rules</a>
     <% } %>
 
-    | <a class="bcLink" href="/tc?module=Static&amp;d1=digital_run&amp;d2=description">Go back</a><br />
+    | <a class="bcLink" href="/dr">Go back</a><br />
     
 <%--
     <a class="bcLink" href="">Current Leaderboard</a>

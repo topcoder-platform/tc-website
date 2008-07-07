@@ -319,7 +319,7 @@ function menu_goto( menuform )
                   <option value="/tc?module=Static&amp;d1=digital_run&amp;d2=2006description">2007 Season</option>
                   <option value="/tc?module=Static&amp;d1=digital_run&amp;d2=2007dot5&amp;d3=description">2007.5 Season</option>
                   <option value="/tc?module=Static&amp;d1=digital_run&amp;d2=2008&amp;d3=description">2008 Season</option>
-                  <option value="/tc?module=Static&amp;d1=digital_run&amp;d2=description" selected="selected">2008v2 Season</option>
+                  <option value="/dr" selected="selected">2008v2 Season</option>
                 </select>
                 </form>
             </div>
