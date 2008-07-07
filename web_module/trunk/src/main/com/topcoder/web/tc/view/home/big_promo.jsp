@@ -4,7 +4,7 @@
 <%-- Competitions at TopCoder 
 <img id="competitions" src="/i/home/catcStatic.png" alt="Digital Run" border="0" usemap="#Competitions" />
     <map name="Competitions" id="Competitions">
-        <area shape="poly" coords="154,177,356,179,333,310,175,309" href="/tc?module=Static&amp;d1=digital_run&amp;d2=description" alt="Digital Run - $350,000 in Prizes" onmouseover="MM_swapImage('competitions','','/i/home/catcDigitalRun.png',1)" onmouseout="MM_swapImgRestore()" />
+        <area shape="poly" coords="154,177,356,179,333,310,175,309" href="/dr" alt="Digital Run - $350,000 in Prizes" onmouseover="MM_swapImage('competitions','','/i/home/catcDigitalRun.png',1)" onmouseout="MM_swapImgRestore()" />
         <area shape="poly" coords="378,146,506,125,472,230,357,249" href="/tc?module=ViewActiveContests&amp;ph=113" alt="Component Development" onmouseover="MM_swapImage('competitions','','/i/home/catcDevelopment.png',1)" onmouseout="MM_swapImgRestore()" />
         <area shape="poly" coords="2,125,129,147,153,247,36,230" href="/tc?module=ViewActiveContests&amp;ph=112" alt="Component Design" onmouseover="MM_swapImage('competitions','','/i/home/catcDesign.png',1)" onmouseout="MM_swapImgRestore()" />
         <area shape="poly" coords="100,184,241,196,230,101,87,92" href="/wiki/display/tc/Assembly" alt="Assembly" onmouseover="MM_swapImage('competitions','','/i/home/catcAssembly.png',1)" onmouseout="MM_swapImgRestore()" />
@@ -18,7 +18,7 @@
 <%-- Competitions at TopCoder V2 --%>
 <img id="competitions" src="/i/home/catcStaticV2.png" alt="All New Digital Run" border="0" usemap="#Competitions" />
     <map name="Competitions" id="Competitions">
-        <area shape="poly" coords="154,177,356,179,333,310,175,309" href="/tc?module=Static&amp;d1=digital_run&amp;d2=description" alt="Digital Run - All New Digital Run" onmouseover="MM_swapImage('competitions','','/i/home/catcDigitalRunV2.png',1)" onmouseout="MM_swapImgRestore()" />
+        <area shape="poly" coords="154,177,356,179,333,310,175,309" href="/dr" alt="Digital Run - All New Digital Run" onmouseover="MM_swapImage('competitions','','/i/home/catcDigitalRunV2.png',1)" onmouseout="MM_swapImgRestore()" />
         <area shape="poly" coords="378,146,506,125,472,230,357,249" href="/tc?module=ViewActiveContests&amp;ph=113" alt="Component Development" onmouseover="MM_swapImage('competitions','','/i/home/catcDevelopmentV2.png',1)" onmouseout="MM_swapImgRestore()" />
         <area shape="poly" coords="2,125,129,147,153,247,36,230" href="/tc?module=ViewActiveContests&amp;ph=112" alt="Component Design" onmouseover="MM_swapImage('competitions','','/i/home/catcDesignV2.png',1)" onmouseout="MM_swapImgRestore()" />
         <area shape="poly" coords="100,184,241,196,230,101,87,92" href="/wiki/display/tc/Assembly" alt="Assembly" onmouseover="MM_swapImage('competitions','','/i/home/catcAssemblyV2.png',1)" onmouseout="MM_swapImgRestore()" />
