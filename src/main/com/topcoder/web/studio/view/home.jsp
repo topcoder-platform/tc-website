@@ -274,10 +274,10 @@ ding="utf-8"?>
         <h2>DESIGNER OF THE MONTH</h2>
 
         <p>
-            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/sweetpea_big.jpg"/>
-            <b>May 2008</b><br />
-            <b>sweetpea</b><br />
-            Won $2250 &amp; Won 1st Place in 3 big contests!
+            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/djackmania_big.jpg"/>
+            <b>June 2008</b><br />
+            <b>djackmania</b><br />
+            Won 8 contests, for a<br />total of $3950!
         </p>
 
         <div></div>
