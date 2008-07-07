@@ -369,7 +369,7 @@ public class Constants implements WebConstants {
     public static String RANDOM_STRING_IMAGE_CONFIG;
     public static final String CAPTCHA_RESPONSE = "capresp";
     
-    public static String DR_POINTS_LAST_N_DAYS = 7;
+    public static String DR_POINTS_LAST_N_DAYS = "7";
 
     static {
         initialize();
