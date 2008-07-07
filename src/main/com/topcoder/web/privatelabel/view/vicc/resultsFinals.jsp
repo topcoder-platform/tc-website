@@ -71,7 +71,7 @@ Check back in August to find who the winner will be!
                <td class="sidebarText"><strong>rantonyraj</strong></td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText"><strong>&nbsp;</strong></td>
+               <td class="sidebarText"><strong>vshah8de</strong></td>
             </tr>
          </table>
 
