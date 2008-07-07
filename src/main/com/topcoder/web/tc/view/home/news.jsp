@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.07.08<br />4:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm52">TCHS SRM 52 - Problem Set &amp; Analysis</a></span><br /><br />
+      The third match of the third TCHS season was an exciting match for the 67 young competitors.  After an exciting challenge phase in which the lead changed hands several times, <tc-webtag:handle coderId="22664055" context="hs_algorithm"/> was victorious after solving all problems and gaining seven successful challenges.  <tc-webtag:handle coderId="22663117" context="hs_algorithm"/> took second place with eight challenges, and <tc-webtag:handle coderId="22263204" context="hs_algorithm"/> rounded out the top three.</td>
+         <td class="newsPhoto"><%--<img src="/i/m/Ishan_big.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="7296000" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm52">details</a> | 
+        <tc-webtag:forumLink forumID="521927" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.07.08<br />12:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -168,15 +184,3 @@
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />06.20.08<br />5:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=MatchDetails&amp;rd=12202">Marathon Match 36 – Schedule Changed and Prizes Awarded!</a></span><br /><br />
-        Marathon Match 36 has been moved from Wednesday, June 25th, 2008, to Monday, June 23rd, 2008. It will be a one-week competition that highlights encryption technology and will have a $5,000 cash purse! Participate in the first of a string of encryption matches that will continue to the end of the year... Unir sha naq tbbq yhpx!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=MatchDetails&amp;rd=12202">details</a> | 
-        <tc-webtag:forumLink forumID="521762" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
-   </td></tr>
