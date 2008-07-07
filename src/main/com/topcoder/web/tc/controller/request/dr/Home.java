@@ -46,7 +46,7 @@ public class Home extends BaseProcessor {
         int month = now.get(Calendar.MONTH)+1;
         int year = now.get(Calendar.YEAR);
 
-        ResultSetContainer rsc = getPointsData(DBMS.TCS_OLTP_DATASOURCE_NAME, month, year);
+        ResultSetContainer rsc = getPointsData(DBMS.TCS_OLTP_DATASOURCE_NAME, "dr_pool_detail", month, year);
 
         PoolPrize designPrize = new PoolPrize();
         PoolPrize developmentPrize = new PoolPrize();        
@@ -61,7 +61,7 @@ public class Home extends BaseProcessor {
         }
 
         PoolPrize studioPrize = new PoolPrize();        
-        rsc = getPointsData(DBMS.STUDIO_DATASOURCE_NAME, month, year);
+        rsc = getPointsData(DBMS.STUDIO_DATASOURCE_NAME, "dr_studio_pool_detail", month, year);
         if (rsc.size() > 0) {
             ResultSetRow rsr = rsc.iterator().next();
             studioPrize.addTotal(rsr.getDoubleItem("total_dr_points"));
@@ -84,15 +84,15 @@ public class Home extends BaseProcessor {
      * @return
      * @throws Exception
      */
-    private ResultSetContainer getPointsData(String datasource, int month, int year) throws Exception {
+    private ResultSetContainer getPointsData(String datasource, String query, int month, int year) throws Exception {
         CachedDataAccess cda = new CachedDataAccess(MaxAge.HALF_HOUR, datasource);
         Request dataRequest = new Request();
-        dataRequest.setContentHandle("dr_pool_detail");
+        dataRequest.setContentHandle(query);
         dataRequest.setProperty("month", String.valueOf(month));
         dataRequest.setProperty("year", String.valueOf(year));
         dataRequest.setProperty("days", Constants.DR_POINTS_LAST_N_DAYS);
         Map<String, ResultSetContainer> map = cda.getData(dataRequest);
-        ResultSetContainer rsc = map.get("dr_pool_detail");
+        ResultSetContainer rsc = map.get(query);
         return rsc;
     }
 
