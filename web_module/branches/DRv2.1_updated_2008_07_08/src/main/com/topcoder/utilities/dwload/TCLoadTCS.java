@@ -5294,11 +5294,11 @@ public class TCLoadTCS extends TCLoad {
             this.end = end;
         }
 
-        protected ContestResultCalculator getPointsCalculator() {
+        protected ContestResultCalculatorV2 getPointsCalculator() {
             return pointsCalculator;
         }
 
-        protected void setPointsCalculator(ContestResultCalculator pointsCalculator) {
+        protected void setPointsCalculator(ContestResultCalculatorV2 pointsCalculator) {
             this.pointsCalculator = pointsCalculator;
         }
 
