@@ -1679,7 +1679,7 @@ public class TCLoadTCS extends TCLoad {
                         rs.getLong("project_category_id"),
                         rs.getTimestamp("track_start_date"),
                         rs.getTimestamp("track_end_date"),
-                        (ContestResultCalculator) Class.forName(rs.getString("class_name")).newInstance()));
+                        (ContestResultCalculatorV2) Class.forName(rs.getString("class_name")).newInstance()));
 
                 log.debug("getActiveTracks: Add: " + rs.getLong("track_id"));
             }
@@ -5251,9 +5251,9 @@ public class TCLoadTCS extends TCLoad {
         long projectCategoryId;
         Timestamp start;
         Timestamp end;
-        ContestResultCalculator pointsCalculator;
+        ContestResultCalculatorV2 pointsCalculator;
 
-        public Track(long trackId, long projectCategoryId, Timestamp start, Timestamp end, ContestResultCalculator pointsCalculator) {
+        public Track(long trackId, long projectCategoryId, Timestamp start, Timestamp end, ContestResultCalculatorV2 pointsCalculator) {
             super();
             this.trackId = trackId;
             this.projectCategoryId = projectCategoryId;
