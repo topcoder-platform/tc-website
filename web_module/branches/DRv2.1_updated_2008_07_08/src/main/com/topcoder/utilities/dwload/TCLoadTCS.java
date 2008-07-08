@@ -27,6 +27,7 @@ import com.topcoder.shared.util.dwload.TCLoad;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.utilities.dwload.contestresult.ContestResult;
 import com.topcoder.utilities.dwload.contestresult.ContestResultCalculator;
+import com.topcoder.utilities.dwload.contestresult.ContestResultCalculatorV2;
 import com.topcoder.utilities.dwload.contestresult.ProjectResult;
 import com.topcoder.utilities.dwload.contestresult.TopPerformersCalculator;
 
@@ -149,7 +150,7 @@ public class TCLoadTCS extends TCLoad {
             fStartTime = new java.sql.Timestamp(System.currentTimeMillis());
             getLastUpdateTime();
 
-            doLoadReviewResp();
+/*            doLoadReviewResp();
 
             doLoadEvent();
             doLoadUserEvent();
@@ -168,11 +169,11 @@ public class TCLoadTCS extends TCLoad {
             //load submission review before project result because the project result load will use the submission review table
             doLoadSubmissionReview();
 
-
+*/
             doLoadProjectResults();
 
 //            doLoadRookies();
-
+/*
             doLoadSubmissionScreening();
 
             doLoadContestProject();
@@ -220,9 +221,12 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadStage();
 
-
             doLoadStageResults();
-
+*/
+            doLoadDRTrackPoints();
+            
+            doLoadDRTrackResults();
+            
             doClearCache();
 
             setLastUpdateTime();
@@ -4383,6 +4387,196 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+    
+    
+    /**
+    *
+    * @throws Exception
+    */
+   public void doLoadDRTrackPoints() throws Exception {
+       log.debug("load digital run track points");
+
+       final String SELECT_POINTS =
+           " select dp.user_id, dp.dr_points_id, dp.dr_points_desc, dp.amount, dp.application_date, dp.award_date, dp.reference_id, " +
+           " dp.dr_points_reference_type_id, dp.dr_points_type_id, dp.dr_points_operation_id, dp.is_potential, " +
+           " (case when dr_points_reference_type_id = 2 then (select dp2.amount from dr_points dp2 where dp2.dr_points_id = dp.reference_id) else 0 end) as parent_amount " +
+           " from dr_points dp " +
+           " where (modify_date > ? " +
+           "     OR modify_date > ?) ";
+
+       final String INSERT =
+           "insert into dr_points (dr_points_id, track_id, user_id, amount, dr_points_desc, dr_points_reference_type_id, reference_id, is_potential) " +
+                   " values (?,?,?,?,?,?,?,?)";
+
+       PreparedStatement selectPoints= null;
+       PreparedStatement insert = prepareStatement(INSERT, TARGET_DB);
+       ResultSet rsPoints = null;
+
+       int count = 0;
+
+       try {
+           long start = System.currentTimeMillis();
+
+           selectPoints = prepareStatement(SELECT_POINTS, SOURCE_DB);
+
+           selectPoints.setTimestamp(1, fLastLogTime);
+           selectPoints.setTimestamp(2, fLastLogTime);
+
+           rsPoints = selectPoints.executeQuery();
+           while (rsPoints.next()) {
+               insert.setInt(1, rsPoints.getInt("dr_points_id"));
+               insert.setInt(2, rsPoints.getInt("track_id"));
+               insert.setLong(3, rsPoints.getLong("user_id"));
+               insert.setDouble(4, calculatePointsAmount(rsPoints.getInt("dr_points_operation_id"), 
+                       rsPoints.getDouble("amount"), 
+                       rsPoints.getDouble("parent_amount")));
+               insert.setString(5, rsPoints.getString("dr_points_desc"));
+               insert.setInt(6, rsPoints.getInt("dr_points_reference_type_id"));
+               insert.setInt(7, rsPoints.getInt("reference_id"));
+               insert.setBoolean(8, rsPoints.getBoolean("is_potential"));
+
+               insert.executeUpdate();
+               count++;
+           }
+           log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
+
+       } catch (SQLException sqle) {
+           DBMS.printSqlException(true, sqle);
+           throw new Exception("Load of 'track points' failed.\n" +
+                   sqle.getMessage());
+       } finally {
+           close(rsPoints);
+       }
+
+   }
+
+
+   private double calculatePointsAmount(int operationType, double amount,
+            double parentAmount) {
+       if (operationType == 2) {
+           return ((parentAmount * amount) / 100);
+       }
+       return amount;
+    }
+
+  /**
+   *
+   * @throws Exception
+   */
+  public void doLoadDRTrackResults() throws Exception {
+      log.debug("load digital run track results");
+
+      final String SELECT_TRACKS =
+              " select distinct track_id " +
+                      " from dr_points " +
+                      " where (modify_date > ? " +
+                      "     OR modify_date > ?) ";
+
+      final String SELECT_CONTESTS =
+              " select tc.track_contest_id, tctl.track_contest_type_id, tcrcl.class_name " +
+                      " from track_contest tc " +
+                      " ,track_contest_type_lu tctl " +
+                      " ,track_contest_result_calculator_lu tcrcl " +
+                      " where tc.track_contest_type_id = tctl.track_contest_type_id " +
+                      " and tc.track_contest_result_calculator_id = tcrcl.track_contest_result_calculator_id " +
+                      " and tc.track_id = ? ";
+
+
+      PreparedStatement selectTracks = null;
+      PreparedStatement selectContests = null;
+      ResultSet rsTracks = null;
+      ResultSet rsContests = null;
+
+      try {
+          selectTracks = prepareStatement(SELECT_TRACKS, SOURCE_DB);
+          selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
+
+          selectTracks.setTimestamp(1, fLastLogTime);
+          selectTracks.setTimestamp(2, fLastLogTime);
+
+          rsTracks = selectTracks.executeQuery();
+          int trackId = 0;
+          while (rsTracks.next()) {
+              trackId = rsTracks.getInt("track_id");
+              selectContests.clearParameters();
+              selectContests.setInt(1, trackId);
+              rsContests = selectContests.executeQuery();
+
+              while (rsContests.next()) {
+                  loadTrackContestResults(trackId,
+                          rsContests.getInt("track_contest_id"), 
+                          rsContests.getInt("track_contest_type_id"),
+                          rsContests.getString("class_name"));
+              }
+
+          }
+
+      } catch (SQLException sqle) {
+          DBMS.printSqlException(true, sqle);
+          throw new Exception("Load of 'track results' failed.\n" +
+                  sqle.getMessage());
+      } finally {
+          close(rsContests);
+          close(rsTracks);
+      }
+
+  }
+
+
+  
+    private void loadTrackContestResults(int trackId, int trackContestId, int trackContestTypeId,
+            String calculatorClassName) {
+        log.debug("loading track results for track =" + trackId + ", contest=" + trackContestId + ", trackContestTypeId=" + trackContestTypeId);
+        
+        final String SELECT_POINTS =
+                " select user_id, amount, is_potential from dr_points where track_id = ? ";
+
+
+        ResultSet rs = null;
+        PreparedStatement selectPoints = null;
+
+        try {
+            selectPoints = prepareStatement(SELECT_POINTS, TARGET_DB);
+
+            ContestResultCalculatorV2 calc = (ContestResultCalculatorV2) Class.forName(calculatorClassName).newInstance();
+            if (calc instanceof TopPerformersCalculator) {
+                ((TopPerformersCalculator) calc).setFactor(2);
+            }
+
+            selectPoints.setInt(1, trackId);
+            rs = selectPoints.executeQuery();
+
+            Map<Long, ContestResult> results = new HashMap<Long, ContestResult>();
+            while (rs.next()) {
+                ContestResult cr = results.get(rs.getLong("user_id"));
+                
+                if (cr == null)  {
+                    cr = new ContestResult(rs.getLong("user_id"));
+                    results.put(rs.getLong("user_id"), cr);
+                }
+
+                if (rs.getBoolean("is_potential")) {
+                    cr.addPotentialPoints(rs.getDouble("amount"));                    
+                } else {            
+                    cr.addPoints(rs.getDouble("amount"));
+                }            
+            }
+            close(rs);
+            
+            List<ContestResult> finalResults = calc.calculateResults(new ArrayList<ContestResult>(results.values()));
+
+            log.debug("Results...");
+            log.debug("==========");
+            for (ContestResult result : finalResults) {
+                log.debug("" + result.getPlace() + ") " + result.getCoderId() + " | " + result.getFinalPoints() + "|" + result.getPotentialPoints() + "|" + (result.getPrize() != null ? result.getPrize() : ""));
+            }
+            log.debug("==========");
+        } catch (Exception e) {
+            
+        } finally {
+            close(selectPoints);
+        }
+    }
 
     /**
      * Load the season table
