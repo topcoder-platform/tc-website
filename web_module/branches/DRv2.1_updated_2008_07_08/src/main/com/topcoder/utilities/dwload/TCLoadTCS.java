@@ -4429,6 +4429,9 @@ public class TCLoadTCS extends TCLoad {
            StringBuffer delQuery = new StringBuffer(300);
            delQuery.append("delete from dr_points where track_id in (");
 
+           tracksSelect.setTimestamp(1, fLastLogTime);
+           tracksSelect.setTimestamp(2, fLastLogTime);
+
            tracks = tracksSelect.executeQuery();
            boolean tracksFound = false;
            while (tracks.next()) {
