@@ -115,6 +115,32 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- London Business School: TopCoder - open for competition begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.managementlab.org/files/LabNotes8.pdf' refer='pr_index' />"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.managementlab.org/files/LabNotes8.pdf' refer='pr_index' />">TopCoder: open for competition</a> [PDF]</h3>
+                        <p>TopCoder's business model is a powerful pot-purri of outsourcing, software development, community and pure competition.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.managementlab.org/files/LabNotes8.pdf' refer='pr_index' />">[July 8]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- London Business School: TopCoder - open for competition end --%>
+                
+                <%-- Portfolio.com: The Top Coder begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.portfolio.com/careers/job-of-the-week/2008/07/06/Top-Coder-Tomek-Czajka' refer='pr_index' />"><img src="/i/pressroom/portfolio_logo.png" alt="Portfolio.com" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.portfolio.com/careers/job-of-the-week/2008/07/06/Top-Coder-Tomek-Czajka' refer='pr_index' />">The Top Coder</a></h3>
+                        <p>Tomek Czajka (<tc-webtag:handle coderId="144400" context="algorithm"/>)has parlayed his programming prowess into $130,000 in prize money and a plum job at Google.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.portfolio.com/careers/job-of-the-week/2008/07/06/Top-Coder-Tomek-Czajka' refer='pr_index' />">[July 6]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Portfolio.com: The Top Coder end --%>
+                
                 <%-- Dr. Dobb's Architecture &amp; Design World 2008 to Feature Software Design Contest Powered by TopCoder begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
