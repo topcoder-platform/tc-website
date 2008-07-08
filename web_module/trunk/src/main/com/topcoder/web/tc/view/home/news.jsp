@@ -4,6 +4,32 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />07.08.08<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.managementlab.org/files/LabNotes8.pdf' refer='/tc' />">London Business School: TopCoder - open for competition</a> [PDF]</span><br /><br />
+        TopCoder's business model is a powerful pot-purri of outsourcing, software development, community and pure competition.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.managementlab.org/files/LabNotes8.pdf' refer='/tc' />">details</a>
+        <tc-webtag:forumLink forumID="522137" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />07.08.08<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.portfolio.com/careers/job-of-the-week/2008/07/06/Top-Coder-Tomek-Czajka' refer='/tc' />">Portfolio.com: The Top Coder</a></span><br /><br />
+        Tomek Czajka (<tc-webtag:handle coderId="144400" context="algorithm"/>)has parlayed his programming prowess into $130,000 in prize money and a plum job at Google.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.portfolio.com/careers/job-of-the-week/2008/07/06/Top-Coder-Tomek-Czajka' refer='/tc' />">details</a>
+        <tc-webtag:forumLink forumID="522136" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.07.08<br />4:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -151,36 +177,3 @@
         <tc-webtag:forumLink forumID="521830" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />06.23.08<br />6:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm50">TCHS SRM 50 - Problem Set &amp; Analysis</a></span><br /><br />
-      The match with a round number 50 was the first after a long pause. Competitors faced rather trivial easy problem, while the medium one turned out to be pretty hard. Challenge phase was very fruitful because of the tricky medium problem, most submissions on which didn't make it to the system testing.</td>
-         <td class="newsPhoto"><img src="/i/m/it4DOTkp_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20635869" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm50">details</a> | 
-        <tc-webtag:forumLink forumID="521680" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />06.23.08<br />2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm405">SRM 405 - Problem Set &amp; Analysis</a></span><br /><br />
-      <tc-webtag:handle coderId="10574855" context="algorithm"/>'s match appeared to be much easier than his previous matches - a whopping total of 3 coders solved the hard problem in Division 1. <tc-webtag:handle coderId="22675302" context="algorithm"/> won the round, with <tc-webtag:handle coderId="22662797" context="algorithm"/> and <tc-webtag:handle coderId="22682264" context="algorithm"/> rounding the top 3.</td>
-         <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm405">details</a> | 
-        <tc-webtag:forumLink forumID="521576" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
