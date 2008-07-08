@@ -73,6 +73,8 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.managementlab.org/files/LabNotes8.pdf' refer='art_archive' />">TopCoder: open for competition [PDF] <br /><small style="margin-left:10px;">[July 8 - London Business School]</small></a></dd>
+                    <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.portfolio.com/careers/job-of-the-week/2008/07/06/Top-Coder-Tomek-Czajka' refer='art_archive' />">The Top Coder <br /><small style="margin-left:10px;">[July 6 - Portfolio.com]</small></a></dd>
                     <dd>Which Side Are You On? [June - THE Journal] <br /><a target="_blank" href="<tc-webtag:linkTracking link='http://www.thejournal.com/articles/22736_2' refer='art_archive' />">original article</a> | <a target="_blank" href="/i/pressroom/pdfs/thejournal_200806.pdf">PDF</a></dd>
                     <dd>Why We All Want to Grow Towards the Sun [May 29 - People Management] <br /><a target="_blank" href="<tc-webtag:linkTracking link='http://www.peoplemanagement.co.uk/pm/articles/2008/05/why-we-all-want-to-grow-towards-the-sun.htm?EmailSent=true' refer='art_archive' />">original article</a> | <a target="_blank" href="/i/pressroom/pdfs/peoplemgmt_20080529.pdf">PDF</a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://blogs.wsj.com/biztech/2008/05/16/keeping-it-simple-pays-for-a-champion-coder/?mod=WSJBlog' refer='art_archive' />">Keeping it Simple Pays for a Champion Coder <br /><small style="margin-left:10px;">[May 16 - WSJ]</small></a></dd>
