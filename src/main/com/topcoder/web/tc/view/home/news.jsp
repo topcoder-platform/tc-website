@@ -1,6 +1,19 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+`
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />07.08.08<br />7:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />">Two Weeks Left in the Truveo Challenge!</a></span><br /><br />
+        With two weeks remaining in the $100,000 Truveo Developer Challenge we're closing on 70 submissions! But there's still time for you to take a shot at one of the nine $10,000 first prizes or 20 $500 second prizes before the July 21 deadline. Check out the contest <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />">home page</a> for details, or you can just go browse some of the great video apps submitted so far - and be ready – we'll be asking you to vote for your favorite at the end of the contest.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />">details</a> | 
+        <a href="/truveo/forums/">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -10,7 +23,7 @@
         TopCoder's business model is a powerful pot-purri of outsourcing, software development, community and pure competition.</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.managementlab.org/files/LabNotes8.pdf' refer='/tc' />">details</a>
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.managementlab.org/files/LabNotes8.pdf' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="522137" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
@@ -163,17 +176,4 @@
         <a href="/tc?module=Static&amp;d1=features&amp;d2=062508">details</a> | 
         <tc-webtag:forumLink forumID="521831" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />06.25.08<br />12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=MatchDetails&amp;rd=12179">Betfair chat session prior to SRM 407</a></span><br /><br />
-        Join Betfair representatives in the chat room prior to SRM 407 to discuss their exciting <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfair">career opportunities</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=MatchDetails&amp;rd=12179">details</a> | 
-        <tc-webtag:forumLink forumID="521830" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
