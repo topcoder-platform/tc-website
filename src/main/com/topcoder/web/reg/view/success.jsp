@@ -92,7 +92,7 @@
         </tr>
         <tr>
             <td class="image">
-                <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/registration/the_digital_run.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
+                <A href="/dr"><img src="/i/registration/the_digital_run.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
             </td>
             <td class="text" width="100%"><strong>The Digital Run</strong><br>
                 Rewarding the top software designers and developers. Place well in a competition, you earn points.

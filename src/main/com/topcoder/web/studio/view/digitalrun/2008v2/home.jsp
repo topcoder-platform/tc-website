@@ -34,7 +34,7 @@
 </jsp:include>
 
 <p>
-    Now is your chance to be the driving force in the growth of TopCoder Studio and reap the benefits in the form of monthly cash prizes in the Studio Cup, a division of <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=digital_run&d2=description">TopCoder's Digital Run (DR)</a>. The Studio Cup is tied directly to Studio's revenue, so the more you compete, the more contests we run and the more cash we pay out at the end of each month. 
+    Now is your chance to be the driving force in the growth of TopCoder Studio and reap the benefits in the form of monthly cash prizes in the Studio Cup, a division of <a href="http://<%=ApplicationServer.SERVER_NAME%>/dr">TopCoder's Digital Run (DR)</a>. The Studio Cup is tied directly to Studio's revenue, so the more you compete, the more contests we run and the more cash we pay out at the end of each month. 
 </p>
 
 <p>
