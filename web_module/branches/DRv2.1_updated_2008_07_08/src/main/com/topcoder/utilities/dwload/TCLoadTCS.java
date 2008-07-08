@@ -4408,15 +4408,42 @@ public class TCLoadTCS extends TCLoad {
            "insert into dr_points (dr_points_id, track_id, user_id, amount, dr_points_desc, dr_points_reference_type_id, reference_id, is_potential) " +
                    " values (?,?,?,?,?,?,?,?)";
 
+       final String SELECT_TRACKS =
+           " select distinct track_id " +
+                   " from dr_points " +
+                   " where (modify_date > ? " +
+                   "     OR modify_date > ?) ";
+
        PreparedStatement selectPoints= null;
        PreparedStatement insert = prepareStatement(INSERT, TARGET_DB);
+       PreparedStatement tracksSelect= prepareStatement(SELECT_TRACKS, SOURCE_DB);;
+       PreparedStatement delete= null;
        ResultSet rsPoints = null;
+       ResultSet tracks = null;
 
        int count = 0;
 
        try {
            long start = System.currentTimeMillis();
 
+           StringBuffer delQuery = new StringBuffer(300);
+           delQuery.append("delete from dr_points where track_id in (");
+
+           tracks = tracksSelect.executeQuery();
+           boolean tracksFound = false;
+           while (tracks.next()) {
+               tracksFound = true;
+               delQuery.append(tracks.getLong("track_id"));
+               delQuery.append(",");
+           }
+           delQuery.setCharAt(delQuery.length() - 1, ')');
+
+           log.debug("clean up: "+ delQuery.toString());
+           if (tracksFound) {
+               delete = prepareStatement(delQuery.toString(), TARGET_DB);
+               delete.executeUpdate();
+           }
+           
            selectPoints = prepareStatement(SELECT_POINTS, SOURCE_DB);
 
            selectPoints.setTimestamp(1, fLastLogTime);
