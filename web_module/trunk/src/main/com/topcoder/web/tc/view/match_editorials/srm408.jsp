@@ -57,8 +57,8 @@
 <p> 
 SRM 408 brought 1305 brave competitors together in coding combat.  The competitors faced a grueling, greedy set that tempted them with points, only to pull them away during the challenge and system test phases if they hadn't coded carefully.  The 250 was reasonably straight forward, but the 500 had a couple of tricky corner cases and the 1000 required very careful coding to implement.  In the end, <tc-webtag:handle coderId="22629574" context="algorithm"/> regained his red color as the only competitor able to find the greedy solutions to all three problems.  Second and third place went to <tc-webtag:handle coderId="20867024" context="algorithm"/> and <tc-webtag:handle coderId="15868491" context="algorithm"/>, with <tc-webtag:handle coderId="14970299" context="algorithm"/> being the only other competitor to successfully solve the 1000.
 </p><p>
-Division 2 coders faced two greedy problems in the 250 and 500, and a 1000 that forced them to conserve memory in order to successfully pass.  Newcomer <tc-webtag:handle coderId="22740438" context="algorithm"/> was victorious, followed closely by <tc-webtag:handle coderId="22661563" context="algorithm"/> and <tc-webtag:handle coderId="22740359" context="algorithm"/>.
-
+Division 2 coders faced two greedy problems in the 250 and 500, and a 1000 that forced them to conserve memory in order to successfully pass.  <%---Newcomer <tc-webtag:handle coderId="22740438" context="algorithm"/> was victorious, followed closely by <tc-webtag:handle coderId="22661563" context="algorithm"/> and <tc-webtag:handle coderId="22740359" context="algorithm"/>.--%>
+<tc-webtag:handle coderId="22661563" context="algorithm"/> was victorious followed closely by <tc-webtag:handle coderId="22740359" context="algorithm"/>.
 </p> 
  
 <H1> 
