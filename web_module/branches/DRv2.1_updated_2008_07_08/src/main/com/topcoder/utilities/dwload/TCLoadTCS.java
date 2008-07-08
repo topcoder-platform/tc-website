@@ -170,7 +170,7 @@ public class TCLoadTCS extends TCLoad {
             doLoadSubmissionReview();
 
 */
-            doLoadProjectResults();
+            //doLoadProjectResults();
 
 //            doLoadRookies();
 /*
@@ -4397,7 +4397,7 @@ public class TCLoadTCS extends TCLoad {
        log.debug("load digital run track points");
 
        final String SELECT_POINTS =
-           " select dp.user_id, dp.dr_points_id, dp.dr_points_desc, dp.amount, dp.application_date, dp.award_date, dp.reference_id, " +
+           " select dp.track_id, dp.user_id, dp.dr_points_id, dp.dr_points_desc, dp.amount, dp.application_date, dp.award_date, dp.reference_id, " +
            " dp.dr_points_reference_type_id, dp.dr_points_type_id, dp.dr_points_operation_id, dp.is_potential, " +
            " (case when dr_points_reference_type_id = 2 then (select dp2.amount from dr_points dp2 where dp2.dr_points_id = dp.reference_id) else 0 end) as parent_amount " +
            " from dr_points dp " +
