@@ -300,7 +300,7 @@ public class Submit extends Base {
             msgText.append("You can get started in TopCoder component competitions here:\n");
             msgText.append("http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted\n\n");
             msgText.append("Be sure to read the details of the Digital Run, where you can compete for large quarterly prizes and a chance to attend the next TopCoder Open.\n\n");
-            msgText.append("http://www.topcoder.com/tc?module=Static&d1=digital_run&d2=description\n\n");
+            msgText.append("http://www.topcoder.com/dr\n\n");
             msgText.append("TOPCODER MARATHON MATCH COMPETITIONS\n");
             msgText.append("TopCoder has created Marathon Matches in an effort to provide a more flexible competition format with an extended timeline that offers different types of problems than what can be offered in a traditional TopCoder Algorithm round.\n\n");
             msgText.append("To learn about how to compete in Marathon Matches, read here: http://www.topcoder.com/longcontest/?module=Static&d1=instructions\n\n");
