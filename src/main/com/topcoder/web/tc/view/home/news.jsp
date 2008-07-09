@@ -7,7 +7,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />07.09.08<br />11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=MatchDetails&amp;rd=12181">VeriSign Chat prior to SRM 409</a></span><br /><br />
-        VeriSign representatvies will be in the chat room to discuss DDoS Threats and Mitigation Strategies.  Be sure to check it out!  Learn more about VeriSign <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign">here</a>.</td>
+        VeriSign representatives will be in the VeriSign Chat Lobby of the Arena on July 10 at 10:00 a.m. EDT (GMT/UTC -4) to discuss DDoS Threats and Mitigation Strategies. Be sure to check it out! Learn more about VeriSign <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign">here</a>.</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tc?module=MatchDetails&amp;rd=12181">details</a> | 
