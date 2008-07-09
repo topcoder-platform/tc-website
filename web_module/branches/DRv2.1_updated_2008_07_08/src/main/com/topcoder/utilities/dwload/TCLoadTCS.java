@@ -27,9 +27,9 @@ import com.topcoder.shared.util.dwload.TCLoad;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.utilities.dwload.contestresult.ContestResult;
 import com.topcoder.utilities.dwload.contestresult.ContestResultCalculator;
-import com.topcoder.utilities.dwload.contestresult.ContestResultCalculatorV2;
 import com.topcoder.utilities.dwload.contestresult.ProjectResult;
 import com.topcoder.utilities.dwload.contestresult.TopPerformersCalculator;
+import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV2;
 
 /**
  * <strong>Purpose</strong>:

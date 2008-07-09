@@ -1,8 +1,9 @@
-package com.topcoder.utilities.dwload.contestresult;
+package com.topcoder.utilities.dwload.contestresult.drv2;
 
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
+
+import com.topcoder.utilities.dwload.contestresult.ContestResult;
+import com.topcoder.utilities.dwload.contestresult.ProjectResult;
 
 /**
  * Base class for calculating points for DRv2 July 2008
@@ -72,32 +73,4 @@ public abstract class DRv2July08ResultCalculatorBase extends DRv2ResultCalculato
 
         return amount * amountFraction[placed - 1][numSubmissionsPassedReview - 1];
     }
-    
-    
-    public  List<ContestResult> calculateResults(List<ContestResult> l) {
-        // sort using the comparator defined in extending classes
-        Comparator<ContestResult> rc = getResultComparator(); 
-        Collections.sort(l, rc);
-        
-        // Assign places
-        ContestResult previous = null;
-        int place = 1;
-        for (ContestResult cr : l) {
-            if (previous != null && rc.compare(cr, previous) != 0) {
-                place++;
-            }
-            cr.setPlace(place);
-            previous = cr;
-            
-        }
-        
-        // inheriting classes must implement this method.
-        assignPrizes(l);
-
-        return l;        
-    }
-
-    
-
-
 }

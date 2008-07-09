@@ -1,12 +1,12 @@
-package com.topcoder.utilities.dwload.contestresult;
+package com.topcoder.utilities.dwload.contestresult.drv2;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
+
+import com.topcoder.utilities.dwload.contestresult.ContestResult;
+import com.topcoder.utilities.dwload.contestresult.ProjectResult;
 
 /**
  * Base class for calculating results for DR.
@@ -15,17 +15,6 @@ import java.util.Map;
  *
  */
 public abstract class DRv2ResultCalculatorBase implements ContestResultCalculatorV2 {
-
-        
-    /**
-     * Active Project status 
-     */    
-    private static final int STATUS_ACTIVE = 1;
-
-    /**
-     * Complete Project status 
-     */    
-    private static final int STATUS_COMPLETE = 7;
 
     /**
      * Maximum difference between points to consider them equals
@@ -140,10 +129,8 @@ public abstract class DRv2ResultCalculatorBase implements ContestResultCalculato
 
     protected abstract void assignPrizes(List<ContestResult> pr);
 
-
     protected abstract Comparator<ContestResult> getResultComparator();
-    
-    
+
     
     protected class ResultsComparator implements Comparator<ContestResult> {
 
@@ -202,4 +189,26 @@ public abstract class DRv2ResultCalculatorBase implements ContestResultCalculato
         
     }
 
+    public  List<ContestResult> calculateResults(List<ContestResult> l) {
+        // sort using the comparator defined in extending classes
+        Comparator<ContestResult> rc = getResultComparator(); 
+        Collections.sort(l, rc);
+        
+        // Assign places
+        ContestResult previous = null;
+        int place = 1;
+        for (ContestResult cr : l) {
+            if (previous != null && rc.compare(cr, previous) != 0) {
+                place++;
+            }
+            cr.setPlace(place);
+            previous = cr;
+            
+        }
+        
+        // inheriting classes must implement this method.
+        assignPrizes(l);
+
+        return l;        
+    }
 }

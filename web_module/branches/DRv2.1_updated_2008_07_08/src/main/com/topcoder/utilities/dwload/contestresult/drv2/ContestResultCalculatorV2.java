@@ -1,6 +1,9 @@
-package com.topcoder.utilities.dwload.contestresult;
+package com.topcoder.utilities.dwload.contestresult.drv2;
 
 import java.util.List;
+
+import com.topcoder.utilities.dwload.contestresult.ContestResult;
+import com.topcoder.utilities.dwload.contestresult.ProjectResult;
 
 /**
  * Interface for classes that calculate contest points and prizes based on project results. 
