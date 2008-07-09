@@ -7,7 +7,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />07.09.08<br />9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfairChat20080626">Betfair SRM 407 Chat Transcript Available</a></span><br /><br />
-        Before SRM 407, Betfair representative met with members to talk about their employement opportunites.  <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfairChat20080626">Read more.</a></td>
+        Before SRM 407, Betfair representatives met with members to talk about their employement opportunites.  <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfairChat20080626">Read more.</a></td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfairChat20080626">details</a> | 
