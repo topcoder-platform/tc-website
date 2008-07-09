@@ -38,64 +38,6 @@ public abstract class DRv2ResultCalculatorBase implements ContestResultCalculato
     private static final double DELTA_SCORE = 0.01;
 
     /**
-     * Calculate the contest results from the results of individual projects, and assign the prizes. 
-     */
-    public  List<ContestResult> calculateResults(List<ProjectResult> pr, List<Double> prizesAmount) {
-        Map<Long, ContestResult> results = new HashMap<Long, ContestResult>();
-        
-        for(ProjectResult p : pr) {           
-            // enables filtering by subclasses
-            if (!processProjectResult(p))  continue; 
-            
-            ContestResult cr = results.get(p.getUserId());
-            
-            if (cr == null)  {
-                cr = new ContestResult(p.getUserId());
-                results.put(p.getUserId(), cr);
-            }
-
-            cr.addResult(p);
-            
-            if (p.getStatusId() == STATUS_COMPLETE) {
-                // Completed project:
-                // add the points for placement
-                cr.addPoints(calculatePointsAwarded(p));
-
-                // remove penalty points if needed.
-                if (Math.abs(p.getPointAdjustment()) > 0.01) {
-                    cr.discountPoints(-p.getPointAdjustment());
-                }
-            } else if (p.getStatusId() == STATUS_ACTIVE) {            
-                cr.addPotentialPoints(calculatePotentialPoints(p));                    
-            }            
-        }
-
-        List<ContestResult> l = new ArrayList<ContestResult> ();
-        l.addAll(results.values());
-        
-        // sort using the comparator defined in extending classes
-        Comparator<ContestResult> rc = getResultComparator(); 
-        Collections.sort(l, rc);
-        
-        // Assign places
-        ContestResult previous = null;
-        int place = 1;
-        for (ContestResult cr : l) {
-            if (previous != null && rc.compare(cr, previous) != 0) {
-                place++;
-            }
-            cr.setPlace(place);
-            previous = cr;
-            
-        }
-        
-        // inheriting classes must implement this method.
-        assignPrizes(l);
-
-        return l;        
-    }
-    
-    /**
      * Filter that can be overriden in inherited classes to skip some results.
      * 
      * @param p project result.
