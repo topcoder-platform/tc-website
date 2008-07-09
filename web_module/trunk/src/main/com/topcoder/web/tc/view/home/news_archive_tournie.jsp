@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">07.09.08 11:00 AM - </td><td width="100%"><a href="/tc?module=MatchDetails&amp;rd=12181">VeriSign Chat prior to SRM 409</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.09.08 9:00 AM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfairChat20080626">Betfair SRM 407 Chat Transcript Available</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.25.08 12:00 PM - </td><td width="100%"><a href="/tc?module=MatchDetails&amp;rd=12179">Betfair chat session prior to SRM 407</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.28.08 12:30 PM - </td><td width="100%"><a href="/tc?module=MatchDetails&amp;rd=12175">NSA chat session prior to SRM 403</a></td></tr>
