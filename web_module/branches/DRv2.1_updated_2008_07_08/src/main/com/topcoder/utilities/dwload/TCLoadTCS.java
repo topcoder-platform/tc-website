@@ -1487,32 +1487,39 @@ public class TCLoadTCS extends TCLoad {
                             drInsert.clearParameters();
                             if (projectResults.getInt("project_stat_id") == 7) {
                                 pointsAwarded = t.getPointsCalculator().calculatePointsAwarded(pr);
-
-                                drInsert.setLong(1, ++drPointsId);
-                                drInsert.setLong(2, t.getTrackId());
-                                drInsert.setString(3, "Digital Run Points won for " + projectResults.getString("project_desc"));
-                                drInsert.setLong(4, pr.getUserId());
-                                drInsert.setDouble(5, pointsAwarded);
-                                drInsert.setTimestamp(6, projectResults.getTimestamp("posting_date"));
-                                drInsert.setTimestamp(7, projectResults.getTimestamp("winner_announced"));
-                                drInsert.setLong(8, pr.getProjectId());
-                                drInsert.setBoolean(9, false);
-                                log.debug("Inserting DR points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + pointsAwarded);
-                                drInsert.executeUpdate();
+                                if (pointsAwarded > 0) {
+                                    drInsert.setLong(1, ++drPointsId);
+                                    drInsert.setLong(2, t.getTrackId());
+                                    drInsert.setString(3, "Digital Run Points won for " + projectResults.getString("project_desc"));
+                                    drInsert.setLong(4, pr.getUserId());
+                                    drInsert.setDouble(5, pointsAwarded);
+                                    drInsert.setTimestamp(6, projectResults.getTimestamp("posting_date"));
+                                    drInsert.setTimestamp(7, projectResults.getTimestamp("winner_announced"));
+                                    drInsert.setLong(8, pr.getProjectId());
+                                    drInsert.setBoolean(9, false);
+                                    log.debug("Inserting DR points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + pointsAwarded);
+                                    drInsert.executeUpdate();
+                                } else {
+                                    log.debug("Awarded 0 points: " + t.getTrackId() + " - " + pr.getUserId());
+                                }
                             } else if (projectResults.getInt("valid_submission_ind") == 1) {
                                 potentialPoints = t.getPointsCalculator().calculatePotentialPoints(pr);
 
-                                drInsert.setLong(1, ++drPointsId);
-                                drInsert.setLong(2, t.getTrackId());
-                                drInsert.setString(3, "Potential Digital Run Points for " + projectResults.getString("project_desc"));
-                                drInsert.setLong(4, pr.getUserId());
-                                drInsert.setDouble(5, potentialPoints);
-                                drInsert.setTimestamp(6, projectResults.getTimestamp("posting_date"));
-                                drInsert.setTimestamp(7, projectResults.getTimestamp("submission_date"));
-                                drInsert.setLong(8, pr.getProjectId());
-                                drInsert.setBoolean(9, true);
-                                log.debug("Inserting DR points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + potentialPoints);
-                                drInsert.executeUpdate();
+                                if (potentialPoints > 0) {
+                                    drInsert.setLong(1, ++drPointsId);
+                                    drInsert.setLong(2, t.getTrackId());
+                                    drInsert.setString(3, "Potential Digital Run Points for " + projectResults.getString("project_desc"));
+                                    drInsert.setLong(4, pr.getUserId());
+                                    drInsert.setDouble(5, potentialPoints);
+                                    drInsert.setTimestamp(6, projectResults.getTimestamp("posting_date"));
+                                    drInsert.setTimestamp(7, projectResults.getTimestamp("submission_date"));
+                                    drInsert.setLong(8, pr.getProjectId());
+                                    drInsert.setBoolean(9, true);
+                                    log.debug("Inserting DR points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + potentialPoints);
+                                    drInsert.executeUpdate();
+                                } else {
+                                    log.debug("Potential 0 points: " + t.getTrackId() + " - " + pr.getUserId());
+                                }
                             }
                         }
                     }
