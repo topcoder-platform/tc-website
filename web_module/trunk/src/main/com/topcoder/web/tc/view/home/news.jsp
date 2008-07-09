@@ -1,7 +1,20 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-`
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />07.09.08<br />9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfairChat20080626">Betfair SRM 407 Chat Transcript Available</a></span><br /><br />
+        Before SRM 407, Betfair representative met with members to talk about their employement opportunites.  <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfairChat20080626">Read more.</a></td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfairChat20080626">details</a> | 
+        <tc-webtag:forumLink forumID="521830" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />07.08.08<br />7:30 PM</td>
@@ -163,17 +176,4 @@
    <tr><td class="newsLinksCell">
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=617309">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />06.25.08<br />5:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=062508">Meet the May 2008 Coders of the Month</a></span><br /><br />
-        We caught up with <tc-webtag:handle coderId="159100" context="algorithm" />, May's Algorithm Coder of the Month, <tc-webtag:handle coderId="22655076" context="development" />, May's Development Coder of the Month, and <tc-webtag:handle coderId="22682305" />, May's Studio Designer of the Month to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=062508">details</a> | 
-        <tc-webtag:forumLink forumID="521831" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
    </td></tr>
