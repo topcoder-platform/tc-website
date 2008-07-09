@@ -170,7 +170,7 @@ public class TCLoadTCS extends TCLoad {
             doLoadSubmissionReview();
 
 */
-            doLoadProjectResults();
+//            doLoadProjectResults();
 
 //            doLoadRookies();
 /*
@@ -1667,7 +1667,7 @@ public class TCLoadTCS extends TCLoad {
         PreparedStatement select = null;
         ResultSet rs = null;
 
-        log.debug("getActiveTracks ");
+//        log.debug("getActiveTracks ");
 
         List<Track> activeTracks = new ArrayList<Track>();
         try {
@@ -1688,7 +1688,7 @@ public class TCLoadTCS extends TCLoad {
                         rs.getTimestamp("track_end_date"),
                         (ContestResultCalculatorV2) Class.forName(rs.getString("class_name")).newInstance()));
 
-                log.debug("getActiveTracks: Add: " + rs.getLong("track_id"));
+//                log.debug("getActiveTracks: Add: " + rs.getLong("track_id"));
             }
 
         } catch (SQLException sqle) {
@@ -4562,7 +4562,7 @@ public class TCLoadTCS extends TCLoad {
 
   
     private void loadTrackContestResults(int trackId, int trackContestId, int trackContestTypeId,
-            String calculatorClassName) {
+            String calculatorClassName) throws Exception {
         log.debug("loading track results for track =" + trackId + ", contest=" + trackContestId + ", trackContestTypeId=" + trackContestTypeId);
         
         final String SELECT_POINTS =
@@ -4614,8 +4614,6 @@ public class TCLoadTCS extends TCLoad {
                 log.debug("" + result.getPlace() + ") " + result.getCoderId() + " | " + result.getFinalPoints() + "|" + result.getPotentialPoints() + "|" + (result.getPrize() != null ? result.getPrize() : ""));
             }
             log.debug("==========");
-        } catch (Exception e) {
-            
         } finally {
             close(selectPoints);
         }
