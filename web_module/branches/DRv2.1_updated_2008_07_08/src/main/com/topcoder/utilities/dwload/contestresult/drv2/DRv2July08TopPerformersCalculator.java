@@ -20,15 +20,11 @@ public class DRv2July08TopPerformersCalculator extends DRv2July08ResultCalculato
         }
 
         // total points as prize pool
-        assingTopPerformersPrize(crl, getTotalPoints(crl), factor);
+        assingTopPerformersPrize(crl, getTopPerformersPrizePool(crl), factor);
     }
 
-    private double getTotalPoints(List<ContestResult> crl) {
-        double totalPrizePool = 0;
-        for (ContestResult cr : crl) {
-            totalPrizePool += cr.getFinalPoints();
-        }
-        return totalPrizePool;
+    private double getTopPerformersPrizePool(List<ContestResult> crl) {
+        return getTotalPrizePool(crl) / 2;
     }
 
     public void setFactor(double factor) {

@@ -1,6 +1,7 @@
 package com.topcoder.utilities.dwload.contestresult.drv2;
 
 import java.util.Comparator;
+import java.util.List;
 
 import com.topcoder.utilities.dwload.contestresult.ContestResult;
 import com.topcoder.utilities.dwload.contestresult.ProjectResult;
@@ -32,6 +33,13 @@ public abstract class DRv2July08ResultCalculatorBase extends DRv2ResultCalculato
     private static final int MAX_NUM_SUBMISSIONS = 5;        
         
 
+    protected double getTotalPrizePool(List<ContestResult> crl) {
+        double totalPrizePool = 0;
+        for (ContestResult cr : crl) {
+            totalPrizePool += cr.getFinalPoints();
+        }
+        return totalPrizePool;
+    }
 
     @Override
     public double calculatePointsAwarded(ProjectResult pr) {
