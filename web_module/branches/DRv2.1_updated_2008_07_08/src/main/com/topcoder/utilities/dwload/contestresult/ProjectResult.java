@@ -33,6 +33,12 @@ public class ProjectResult {
         
     }
     
+    public ProjectResult(double finalScore, int placed) {
+        super();
+        this.finalScore = finalScore;
+        this.placed = placed;
+    }
+
     public double getAmount() {
         return amount;
     }

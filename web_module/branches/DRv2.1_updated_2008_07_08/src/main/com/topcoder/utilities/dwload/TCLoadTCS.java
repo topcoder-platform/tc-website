@@ -4566,8 +4566,10 @@ public class TCLoadTCS extends TCLoad {
         log.debug("loading track results for track =" + trackId + ", contest=" + trackContestId + ", trackContestTypeId=" + trackContestTypeId);
         
         final String SELECT_POINTS =
-                " select user_id, amount, is_potential from dr_points where track_id = ? ";
-
+                " select dp.user_id, dp.amount, dp.is_potential, " + 
+                " (case when dp.dr_points_reference_type_id = 1 then (select pr.placed from project_result pr where pr.user_id = dp.user_id and pr.project_id = dp.reference_id) else 0 end) as placed, " +
+                " (case when dp.dr_points_reference_type_id = 1 then (select pr.final_score from project_result pr where pr.user_id = dp.user_id and pr.project_id = dp.reference_id) else 0 end) as final_score " +
+                " from dr_points dp where dp.track_id = ? "; 
 
         ResultSet rs = null;
         PreparedStatement selectPoints = null;
@@ -4596,7 +4598,11 @@ public class TCLoadTCS extends TCLoad {
                     cr.addPotentialPoints(rs.getDouble("amount"));                    
                 } else {            
                     cr.addPoints(rs.getDouble("amount"));
-                }            
+                }
+                
+                if (rs.getInt("placed") > 0) {
+                    cr.addResult(new ProjectResult(rs.getDouble("final_points"), rs.getInt("placed")));
+                }
             }
             close(rs);
             
