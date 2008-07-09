@@ -27,6 +27,12 @@
         
         <h2>Betfair</h2>
         
+        <div style="float: right;">
+            <h3 style="border-bottom: 1px solid #b7b3b3;">Chat Session Transcripts</h3>
+            <strong>
+                <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfairChat20080626">SRM 407</a>
+            </strong>
+        </div>
         <div style="padding-bottom:10px;">
             <a target="_blank" href="<tc-webtag:linkTracking link='http://www.betfair.com/' refer='tco08_betfair' />"><img alt="TCO08 Sponsored by Betfair" src="/i/tournament/tco08/betfair_logo.png" /></a>
         </div>
