@@ -4601,7 +4601,7 @@ public class TCLoadTCS extends TCLoad {
                 }
                 
                 if (rs.getInt("placed") > 0) {
-                    cr.addResult(new ProjectResult(rs.getDouble("final_points"), rs.getInt("placed")));
+                    cr.addResult(new ProjectResult(rs.getDouble("final_score"), rs.getInt("placed")));
                 }
             }
             close(rs);
