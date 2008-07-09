@@ -1698,21 +1698,21 @@ public class TCLoadTCS extends TCLoad {
     private List<Track> getTracksForProject(List<Track> activeTracks, int projectCategoryId,
             Timestamp applicationDate) {
         
-        log.debug("getTracksForProject: " + projectCategoryId);
-        log.debug("applicationDate: " + applicationDate);
+//        log.debug("getTracksForProject: " + projectCategoryId);
+//        log.debug("applicationDate: " + applicationDate);
 
         List<Track> tracksForProject = new ArrayList<Track>();
         for (Track t : activeTracks) {
 
-            log.debug("t.getProjectCategoryId(): " + t.getProjectCategoryId());
-            log.debug("t.getStart(): " + t.getStart());
-            log.debug("t.getEnd(): " + t.getEnd());
+//            log.debug("t.getProjectCategoryId(): " + t.getProjectCategoryId());
+//            log.debug("t.getStart(): " + t.getStart());
+//            log.debug("t.getEnd(): " + t.getEnd());
 
             if (t.getProjectCategoryId() == projectCategoryId &&
                     t.getStart().compareTo(applicationDate) <= 0 &&
                     t.getEnd().compareTo(applicationDate) >= 0) {
                 tracksForProject.add(t);
-                log.debug("getTracksForProject: Add: " + t.getTrackId());
+//                log.debug("getTracksForProject: Add: " + t.getTrackId());
             }
         }
         return tracksForProject;
