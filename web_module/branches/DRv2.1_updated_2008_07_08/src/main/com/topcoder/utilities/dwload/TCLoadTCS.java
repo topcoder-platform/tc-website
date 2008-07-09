@@ -170,7 +170,7 @@ public class TCLoadTCS extends TCLoad {
             doLoadSubmissionReview();
 
 */
-            //doLoadProjectResults();
+            doLoadProjectResults();
 
 //            doLoadRookies();
 /*
