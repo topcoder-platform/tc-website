@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="Region" table="region" mutable="false">
+        <id name="id" column="region_id" access="field"/>
+        <property name="name" column="region_name" access="field"/>
+        <many-to-one name="type" column="region_type_id" access="field" class="RegionType" fetch="select"/>
+    </class>
+</hibernate-mapping>
