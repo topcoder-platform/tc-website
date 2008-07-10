@@ -18,7 +18,7 @@
 <% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
 <% int phase_id = ((Integer)request.getAttribute("phase_id")).intValue(); %>
 <% boolean design = phase_id == SoftwareComponent.DESIGN_PHASE; %>
-<% int applicationDelay = ((Integer) request.getAttribute("applicationDelay")).intValue(); %>
+<% long applicationDelay = ((Long) request.getAttribute("applicationDelay")).longValue(); %>
 <%--<% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>--%>
 
 <%--<% ResultSetContainer tournamentProjectList = (ResultSetContainer)request.getAttribute("tournamentProjectList");%>--%>

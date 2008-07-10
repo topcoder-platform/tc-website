@@ -64,7 +64,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
 
 	    RBoardApplication rba = createRBoardApplication();
 
-	    int applicationDelay = rba.getApplicationDelay(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
+	    long applicationDelay = rba.getApplicationDelay(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
 
             for (Iterator it = rsc.iterator(); it.hasNext();) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
@@ -94,7 +94,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
 	    getRequest().setAttribute("waitingToReview", waitingToReview);
 	    getRequest().setAttribute("waitingUntil", waitingUntil);
 
-	    getRequest().setAttribute("applicationDelay", new Integer(applicationDelay));
+	    getRequest().setAttribute("applicationDelay", new Long(applicationDelay));
 
             //getRequest().setAttribute("tournamentProjectList", getDataAccess().getData(r).get("tournament_review_projects"));
         } catch (TCWebException e) {

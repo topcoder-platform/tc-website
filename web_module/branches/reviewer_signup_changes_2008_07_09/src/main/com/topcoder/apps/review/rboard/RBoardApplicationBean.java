@@ -529,7 +529,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param userId the user id to inspect
      * @return the time to wait in milliseconds
      */
-    private int getApplicationDelay(Connection conn, long userId) {
+    private long getApplicationDelay(Connection conn, long userId) {
 	log.debug("getApplicationDelay(Connection conn, long userId) called...");
 
 	final String query =
@@ -580,7 +580,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param userId     the user id to inspect
      * @return the time to wait in milliseconds
      */
-    public int getApplicationDelay(String dataSource, long userId) {
+    public long getApplicationDelay(String dataSource, long userId) {
 	log.debug("getApplicationDelay(String dataSource, long userId) called...");
 
         Connection conn = null;

@@ -35,7 +35,7 @@ import java.sql.Timestamp;
 public interface RBoardApplication extends EJBObject {
     void createRBoardApplication(String dataSource, long userId, long projectId, int reviewRespId, int phaseId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RBoardRegistrationException, RemoteException;
 
-    int getApplicationDelay(String dataSource, long userId) throws RemoteException;
+    long getApplicationDelay(String dataSource, long userId) throws RemoteException;
 
     void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RBoardRegistrationException, RemoteException;
 
