@@ -711,7 +711,7 @@ public class RBoardApplicationBean extends BaseEJB {
 						  + timeStampToString(opensOn));
         }
 
-	int applicationDelay = getApplicationDelay(conn, userId);
+	long applicationDelay = getApplicationDelay(conn, userId);
         if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
             throw new RBoardRegistrationException("Sorry, you can not apply for this review yet.  "
 						  + "You will need to wait until "
