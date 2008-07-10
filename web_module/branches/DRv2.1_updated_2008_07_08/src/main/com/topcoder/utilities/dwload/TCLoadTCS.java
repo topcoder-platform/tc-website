@@ -4407,7 +4407,7 @@ public class TCLoadTCS extends TCLoad {
            " select tc.track_contest_id, tc.track_id, tc.track_contest_desc, tctl.track_contest_type_desc " +
            " from track_contest tc, track_contest_type_lu tctl " +
            " where tc.track_contest_type_id = tctl.track_contest_type_id " +
-           " where (tc.create_date > ?)";
+           " and tc.create_date > ?";
 
        final String INSERT =
            "insert into dr_points (track_contest_id, track_id, track_contest_desc, track_contest_type_desc) " +
