@@ -5,6 +5,8 @@
 package com.topcoder.web.tc.controller.request.dr;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +18,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.IBoardRow;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
@@ -28,6 +31,14 @@ import com.topcoder.web.tc.model.dr.LeaderBoardRow;
  * @version 1.0.3
  */
 public class ViewLeaderBoard extends BaseProcessor {
+
+   private static final String CODER_HANDLE_COLUMN = "2";
+   private static final String OUTSTANDING_POINTS_COLUMN = "6";
+   private static final String TOTAL_POINTS_COLUMN = "7";
+   public static final int DR_TOP_PERFORMERS_CONTEST_TYPE = 18;
+   public static final int DR_STAGE_CONTEST_TYPE = 19;
+   public static final int DR_ROOKIE_CONTEST_TYPE = 20;
+   
 
     protected void businessProcessing() throws Exception {
         int startRank;
@@ -72,7 +83,7 @@ public class ViewLeaderBoard extends BaseProcessor {
         // Put the results in a list
         List<LeaderBoardRow> results = new ArrayList<LeaderBoardRow>();
         for (ResultSetContainer.ResultSetRow row : rsc) {
-            LeaderBoardRow lbr = new LeaderBoardRow(trackId, projectTypeId, row.getIntItem("current_place"), row.getLongItem("coder_id"),
+            LeaderBoardRow lbr = new LeaderBoardRow(trackId, 1, row.getIntItem("current_place"), row.getLongItem("coder_id"),
                  row.getStringItem("handle"),
                  row.getDoubleItem("final_points"), row.getDoubleItem("potential_points"), 
                  row.getStringItem("current_top_performer_prize") == null? 0.0 : row.getDoubleItem("current_top_performer_prize"),
@@ -137,5 +148,84 @@ public class ViewLeaderBoard extends BaseProcessor {
     private boolean hasWonTrip(int rank, int topTripWinners) {
         return rank <= topTripWinners;
     }    
+
+    /**
+     * Crops coders list.
+     *
+     * @param boardResult the original board list.
+     * @return the cropped list.
+     */
+    protected List<IBoardRow> cropResult(List<? extends IBoardRow> boardResult, int startRank, int numRecords) {
+        if (boardResult.size() == 0) {
+            return new ArrayList<IBoardRow>();
+        }
+        
+        setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
+        setDefault(DataAccessConstants.START_RANK, startRank);
+
+        List<IBoardRow> cropped = new ArrayList<IBoardRow>(numRecords);
+        for (int j = 0; j < numRecords && j + startRank <= boardResult.size(); j++)
+        {
+            cropped.add(boardResult.get(startRank + j - 1));
+        }
+
+        getRequest().setAttribute("croppedDataBefore", new Boolean(startRank > 1));
+        getRequest().setAttribute("croppedDataAfter", new Boolean(boardResult.size() > startRank + cropped.size()));
+
+       return cropped;
+    }
+
+    /**
+     * Sorts coders list.
+     *
+     * @param boardResult the original board list.
+     * @param invert      true if the order is descending.
+     * @return the sorted list.
+     */
+    protected void sortResult(List<? extends IBoardRow> boardResult, String sortCol, boolean invert) {
+        if (boardResult.size() == 0) {
+            return;
+        }
+
+        // all other columns are already sorted (rank)
+        if (sortCol.equals(CODER_HANDLE_COLUMN)) {
+            Collections.sort(boardResult, new Comparator<IBoardRow>() {
+                public int compare(IBoardRow arg0, IBoardRow arg1) {
+                    return arg0.getUserName().compareTo(arg1.getUserName());
+                }
+            });
+        } else  if (sortCol.equals(OUTSTANDING_POINTS_COLUMN)) {
+            Collections.sort(boardResult, new Comparator<IBoardRow>() {
+                public int compare(IBoardRow arg0, IBoardRow arg1) {
+                    return new Double(arg0.getPotentialPoints()).compareTo(new Double(arg1.getPotentialPoints()));
+                }
+            });
+        } else if (sortCol.equals(TOTAL_POINTS_COLUMN)) {
+            Collections.sort(boardResult, new Comparator<IBoardRow>() {
+                public int compare(IBoardRow arg0, IBoardRow arg1) {
+                    return new Double(arg0.getTotalPoints()).compareTo(new Double(arg1.getTotalPoints()));
+                }
+            });
+        } else {
+            // Default, sort by rank.
+
+            Collections.sort(boardResult, new Comparator<IBoardRow>() {
+                public int compare(IBoardRow arg0, IBoardRow arg1) {
+                    return new Long(arg0.getRank()).compareTo(arg1.getRank());
+                }
+            });
+        }
+
+        if (invert) {
+            Collections.reverse(boardResult);
+        }
+        
+        SortInfo s = new SortInfo();
+        s.addDefault(Integer.parseInt(CODER_HANDLE_COLUMN), "asc");
+        s.addDefault(Integer.parseInt(OUTSTANDING_POINTS_COLUMN), "desc");
+        s.addDefault(Integer.parseInt(TOTAL_POINTS_COLUMN), "desc");
+        getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+    }
+
 
 }
