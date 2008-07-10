@@ -7,6 +7,7 @@ import com.topcoder.apps.review.rboard.RBoardApplication;
 import com.topcoder.apps.review.rboard.RBoardApplicationHome;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.TCTimestampResult;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
