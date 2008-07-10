@@ -4410,7 +4410,7 @@ public class TCLoadTCS extends TCLoad {
            " and tc.create_date > ?";
 
        final String INSERT =
-           "insert into dr_points (track_contest_id, track_id, track_contest_desc, track_contest_type_desc) " +
+           "insert into track_contest (track_contest_id, track_id, track_contest_desc, track_contest_type_desc) " +
                    " values (?,?,?,?)";
 
        PreparedStatement selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
@@ -4517,8 +4517,8 @@ public class TCLoadTCS extends TCLoad {
                insert.setInt(2, rsPoints.getInt("track_id"));
                insert.setLong(3, rsPoints.getLong("user_id"));
                insert.setDouble(4, calculatePointsAmount(rsPoints.getInt("dr_points_operation_id"), 
-                       rsPoints.getDouble("amount"), 
-                       rsPoints.getDouble("parent_amount")));
+               rsPoints.getDouble("amount"), 
+               rsPoints.getDouble("parent_amount")));
                insert.setString(5, rsPoints.getString("dr_points_desc"));
                insert.setInt(6, rsPoints.getInt("dr_points_reference_type_id"));
                insert.setInt(7, rsPoints.getInt("reference_id"));
