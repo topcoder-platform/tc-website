@@ -42,7 +42,7 @@
         </jsp:include>
 
         <div id="slide">
-            <a href="/tcs?module=Static&d1=tour&d2=page2" onfocus="this.blur();"><img src="/i/tour/page1.png" alt="" /></a>
+            <a href="/tcs?module=Static&amp;d1=tour&amp;d2=page2" onfocus="this.blur();"><img src="/i/tour/page1.png" alt="" /></a>
         </div>
 
         <%--<h2 align="center">
@@ -55,7 +55,7 @@
                     <img src="/i/tour/prevNA.png" alt="Previous page" />
                 </div>
                 <div style="float: right;">
-                    <a href="/tcs?module=Static&d1=tour&d2=page2" onfocus="this.blur();"><img src="/i/tour/next.png" alt="Next page" /></a>
+                    <a href="/tcs?module=Static&amp;d1=tour&amp;d2=page2" onfocus="this.blur();"><img src="/i/tour/next.png" alt="Next page" /></a>
                 </div>
             </div>
         </div>
