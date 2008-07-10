@@ -8,11 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.IBoardRow;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
@@ -24,10 +27,36 @@ import com.topcoder.web.tc.model.dr.LeaderBoardRow;
  * @author pulky, cucu
  * @version 1.0.3
  */
-public class ViewLeaderBoard extends BaseBoard {
+public class ViewLeaderBoard extends BaseProcessor {
 
-    protected void boardProcessing() throws Exception {
+    protected void businessProcessing() throws Exception {
+        int startRank;
+        int numRecords;
 
+        boolean invert = "desc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
+        String startRankStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+        String numRecordsStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
+
+        
+        if ("".equals(numRecordsStr)) {
+            numRecords = Constants.DEFAULT_LEADERS;
+        } else {
+            numRecords = Integer.parseInt(numRecordsStr); 
+
+            if (numRecords > Constants.MAX_LEADERS) {
+                numRecords = Constants.MAX_LEADERS;
+            }
+        }
+
+        if ("".equals(startRankStr) || Integer.parseInt(startRankStr) <= 0) {
+            startRank = 1;
+        } else {
+            startRank = Integer.parseInt(startRankStr);
+        }
+
+        
         int trackId = Integer.parseInt(getRequest().getParameter(Constants.TRACK_ID));
         setDefault(Constants.TRACK_ID, trackId);
 
