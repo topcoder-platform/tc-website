@@ -4668,6 +4668,7 @@ public class TCLoadTCS extends TCLoad {
             
             List<ContestResult> finalResults = calc.calculateResults(new ArrayList<ContestResult>(results.values()));
 
+            simpleDelete("track_contest_results", "track_contest_id", trackContestId);
             int count = 0;
             log.debug("Results...");
             log.debug("==========");
@@ -4676,7 +4677,11 @@ public class TCLoadTCS extends TCLoad {
                 insert.setInt(1, trackContestId);
                 insert.setLong(2, result.getCoderId());
                 insert.setInt(3, result.getPlace());
-                insert.setDouble(4, result.getPrize());
+                if (result.getPrize() == null) {
+                    insert.setNull(4, Types.DOUBLE);
+                } else {
+                    insert.setDouble(4, result.getPrize());                    
+                }
                 count++;
             }
             log.debug("==========");
