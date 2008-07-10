@@ -4682,12 +4682,11 @@ public class TCLoadTCS extends TCLoad {
                 } else {
                     insert.setDouble(4, result.getPrize());                    
                 }
+                insert.executeUpdate();
                 count++;
             }
             log.debug("==========");
             log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
-
-            insert.executeUpdate();
         } finally {
             close(selectPoints);
         }
