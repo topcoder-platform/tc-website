@@ -7,16 +7,18 @@
                  com.topcoder.web.common.model.SoftwareComponent,
                  com.topcoder.web.tc.model.ReviewBoardApplication,
                  java.sql.Timestamp,
+                 java.util.ArrayList,
                  java.util.List"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
-<% boolean isWaiting = ((Boolean) request.getAttribute("waitingToReview")).booleanValue(); %>
-<% String waitingUntil = (String) request.getAttribute("waitingUntil"); %>
+<% ArrayList<Boolean> waitingToReview = (ArrayList<Boolean>) request.getAttribute("waitingToReview"); %>
+<% ArrayList<String> waitingUntil = (ArrayList<String>) request.getAttribute("waitingUntil"); %>
 <% List prices = (List)request.getAttribute("prices");%>
 <% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
 <% int phase_id = ((Integer)request.getAttribute("phase_id")).intValue(); %>
 <% boolean design = phase_id == SoftwareComponent.DESIGN_PHASE; %>
+<% int applicationDelay = ((Integer) request.getAttribute("applicationDelay")).intValue(); %>
 <%--<% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>--%>
 
 <%--<% ResultSetContainer tournamentProjectList = (ResultSetContainer)request.getAttribute("tournamentProjectList");%>--%>
@@ -66,11 +68,12 @@
 
             <br>
 
+<!--
             <% if (isWaiting) { %>
                 <p align="center"><b>You may not apply for a new review until <%=waitingUntil%>.</b></p>
                 <br>
             <% } %>
-
+-->
 
 <%
     int devProjectCount = 0;
@@ -137,8 +140,15 @@
       <td class="statDk" align="right">$<tc:beanWrite name="price" property="PrimaryReviewPrice" format="#,###.00"/></td>
       <td class="statDk" align="right">$<tc:beanWrite name="price" property="ReviewPrice" format="#,###.00"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="submission_passed_screening_count"/></td>
+<!--
       <% if (((TCTimestampResult) resultRow.getItem("opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="opens_on" format="MM.dd.yyyy"/></td>
+      <% } else { %>
+      <td class="statDk" align="center"><i>open</i></td>
+      <% } %>
+-->
+      <% if (waitingToReview.get(i).booleanValue()) { %>
+      <td class="statDk" align="center">waitingUntil.get(i)</td>
       <% } else { %>
       <td class="statDk" align="center"><i>open</i></td>
       <% } %>
@@ -261,8 +271,15 @@
             <p align="center">Sorry, there are currently no review positions available.</p>
             <br />
 <% } else { %>
+<%
+  Calendar cal = Calendar.getInstance();
+  cal.setTimeInMillis(applicationDelay);
+ %>
             <br>
-            <p>Review positions for new projects become open 24 hours after the project starts.</p>
+            <p>
+	      Review positions for new projects become open after the project starts.  However, if you have open review projects
+	      you will be subject to a delay of <%= cal.get(Calendar.HOUR_OF_DAY) %>h <%= cal.get(Calendar.MINUTE) %>m.
+	    </p>
             <p>Please note that custom components do not get added to the catalog and therefore do not have royalties.</p>
             <br>
 <% } %>

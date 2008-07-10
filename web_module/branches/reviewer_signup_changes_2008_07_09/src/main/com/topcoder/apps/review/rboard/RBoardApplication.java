@@ -18,20 +18,26 @@ import java.sql.Timestamp;
  * Bean was moved from tc to tcs site and was updated to centralize all RBoard operations.
  * </li>
  * </ol>
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Changed APPLICATION_DELAY to a method, getApplicationDelay.
+ * </li>
+ * <li>
+ * Removed getLatestApplicationReviewTimestamp.
+ * </li>
+ * </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.0.1
+ * @author dok, pulky, ivern
+ * @version 1.0.2
  */
 public interface RBoardApplication extends EJBObject {
-    public static final int APPLICATION_DELAY = 6 * 60 * 60 * 1000;
-
     void createRBoardApplication(String dataSource, long userId, long projectId, int reviewRespId, int phaseId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RBoardRegistrationException, RemoteException;
 
-    Timestamp getLatestReviewApplicationTimestamp(String dataSource, long userId) throws RemoteException;
+    int getApplicationDelay(String dataSource, long userId) throws RemoteException;
 
     void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RBoardRegistrationException, RemoteException;
 
     public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RBoardRegistrationException, RemoteException;
 }
-
