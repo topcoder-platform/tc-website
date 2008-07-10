@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />07.10.08<br />5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=071008">Meet the June 2008 Coders of the Month</a></span><br /><br />
+        This month we caught up with <tc-webtag:handle coderId="22653044" context="algorithm" />, June's Algorithm Coder of the Month, <tc-webtag:handle coderId="9981727" context="design"/>, June's Design Coder of the Month, and <tc-webtag:handle coderId="22630348" context="development" />, June's Development Coder of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=071008">details</a> | 
+        <tc-webtag:forumLink forumID="522204" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />07.09.08<br />11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=MatchDetails&amp;rd=12181">VeriSign Chat prior to SRM 409</a></span><br /><br />
@@ -163,18 +176,3 @@
         <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />06.27.08<br />5:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=features&amp;d2=062708">Know your hero: yuhch123</a></span><br /><br />
-      Yu Huacheng, known at TopCoder by his handle <tc-webtag:handle coderId="14768757" context="algorithm" />, has the honor of being the second target after <tc-webtag:handle coderId="20812309" context="algorithm" /> while still studying in Hangzhou No. 2 high school. Let's get to know him better in his own words.</td>
-         <td class="newsPhoto"><img src="/i/m/innocentboy_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="22419265" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=062708">details</a> | 
-        <tc-webtag:forumLink forumID="521878" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
-   </td></tr>
