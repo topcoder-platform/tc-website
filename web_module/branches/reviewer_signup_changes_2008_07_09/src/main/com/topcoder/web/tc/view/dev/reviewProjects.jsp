@@ -278,7 +278,8 @@
             <br>
             <p>
 	      Review positions for new projects become open after the project starts.  However, if you have open review projects
-	      you will be subject to a delay of <%= cal.get(Calendar.HOUR_OF_DAY) %>h <%= cal.get(Calendar.MINUTE) %>m.
+	      you will be subject to a delay of <%= cal.get(Calendar.HOUR_OF_DAY) %>h <%= cal.get(Calendar.MINUTE) %>m per open
+	      project.
 	    </p>
             <p>Please note that custom components do not get added to the catalog and therefore do not have royalties.</p>
             <br>
