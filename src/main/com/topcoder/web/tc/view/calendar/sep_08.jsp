@@ -69,6 +69,11 @@
       <td class="value">2
       </td>
       <td class="value">3
+         <div class="long">
+         <strong><a href="/tc?module=MatchDetails&amp;rd=13565">Marathon Match 40</a></strong><br />
+         12:00 NOON<br />
+         1 week
+         </div>
       </td>
       <td class="value">4
          <div class="des_dev">
@@ -123,6 +128,11 @@
       <td class="value">16
       </td>
       <td class="value">17
+         <div class="long">
+         <strong><a href="/tc?module=MatchDetails&amp;rd=13566">Marathon Match 41</a></strong><br />
+         12:00 NOON<br />
+         1 week
+         </div>
       </td>
       <td class="value">18
          <div class="des_dev">
