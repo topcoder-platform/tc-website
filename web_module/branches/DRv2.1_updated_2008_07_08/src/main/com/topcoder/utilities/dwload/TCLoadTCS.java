@@ -223,6 +223,8 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadStageResults();
 */
+            doLoadDRTrackContests();
+
             doLoadDRTrackPoints();
             
             doLoadDRTrackResults();
@@ -4394,6 +4396,56 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+    /**
+    *
+    * @throws Exception
+    */
+   public void doLoadDRTrackContests() throws Exception {
+       log.debug("load digital run track contests");
+
+       final String SELECT_CONTESTS =
+           " select tc.track_contest_id, tc.track_id, tc.track_contest_desc, tctl.track_contest_type_desc " +
+           " from track_contest tc, track_contest_type_lu tctl " +
+           " where tc.track_contest_type_id = tctl.track_contest_type_id " +
+           " where (tc.create_date > ?)";
+
+       final String INSERT =
+           "insert into dr_points (track_contest_id, track_id, track_contest_desc, track_contest_type_desc) " +
+                   " values (?,?,?,?)";
+
+       PreparedStatement selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
+       PreparedStatement insert = prepareStatement(INSERT, TARGET_DB);
+       ResultSet rsContests = null;
+
+       int count = 0;
+
+       try {
+           long start = System.currentTimeMillis();
+
+           selectContests.setTimestamp(1, fLastLogTime);
+
+           rsContests = selectContests.executeQuery();
+           while (rsContests.next()) {
+               insert.setInt(1, rsContests.getInt("track_contest_id"));
+               insert.setInt(2, rsContests.getInt("track_id"));
+               insert.setString(3, rsContests.getString("track_contest_desc"));
+               insert.setString(4, rsContests.getString("track_contest_type_desc"));
+
+               insert.executeUpdate();
+               count++;
+           }
+           log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
+
+       } catch (SQLException sqle) {
+           DBMS.printSqlException(true, sqle);
+           throw new Exception("Load of 'track contests' failed.\n" +
+                   sqle.getMessage());
+       } finally {
+           close(rsContests);
+       }
+
+   }
+
     
     
     /**
@@ -4409,7 +4461,7 @@ public class TCLoadTCS extends TCLoad {
            " (case when dr_points_reference_type_id = 2 then (select dp2.amount from dr_points dp2 where dp2.dr_points_id = dp.reference_id) else 0 end) as parent_amount " +
            " from dr_points dp " +
            " where (modify_date > ? " +
-           "     OR modify_date > ?) ";
+           "     OR create_date > ?) ";
 
        final String INSERT =
            "insert into dr_points (dr_points_id, track_id, user_id, amount, dr_points_desc, dr_points_reference_type_id, reference_id, is_potential) " +
@@ -4419,7 +4471,7 @@ public class TCLoadTCS extends TCLoad {
            " select distinct track_id " +
                    " from dr_points " +
                    " where (modify_date > ? " +
-                   "     OR modify_date > ?) ";
+                   "     OR create_date > ?) ";
 
        PreparedStatement selectPoints= null;
        PreparedStatement insert = prepareStatement(INSERT, TARGET_DB);
@@ -4507,7 +4559,7 @@ public class TCLoadTCS extends TCLoad {
               " select distinct track_id " +
                       " from dr_points " +
                       " where (modify_date > ? " +
-                      "     OR modify_date > ?) ";
+                      "     OR create_date > ?) ";
 
       final String SELECT_CONTESTS =
               " select tc.track_contest_id, tctl.track_contest_type_id, tcrcl.class_name " +
@@ -4571,8 +4623,16 @@ public class TCLoadTCS extends TCLoad {
                 " (case when dp.dr_points_reference_type_id = 1 then (select pr.final_score from project_result pr where pr.user_id = dp.user_id and pr.project_id = dp.reference_id) else 0 end) as final_score " +
                 " from dr_points dp where dp.track_id = ? "; 
 
+        final String INSERT =
+            "insert into track_contest_results (track_contest_id, user_id, track_contest_placement, track_contest_prize) " +
+                    " values (?,?,?,?)";
+
+        PreparedStatement insert = prepareStatement(INSERT, TARGET_DB);
+
         ResultSet rs = null;
         PreparedStatement selectPoints = null;
+
+        long start = System.currentTimeMillis();
 
         try {
             selectPoints = prepareStatement(SELECT_POINTS, TARGET_DB);
@@ -4608,12 +4668,21 @@ public class TCLoadTCS extends TCLoad {
             
             List<ContestResult> finalResults = calc.calculateResults(new ArrayList<ContestResult>(results.values()));
 
+            int count = 0;
             log.debug("Results...");
             log.debug("==========");
             for (ContestResult result : finalResults) {
                 log.debug("" + result.getPlace() + ") " + result.getCoderId() + " | " + result.getFinalPoints() + "|" + result.getPotentialPoints() + "|" + (result.getPrize() != null ? result.getPrize() : ""));
+                insert.setInt(1, trackContestId);
+                insert.setLong(2, result.getCoderId());
+                insert.setInt(3, result.getPlace());
+                insert.setDouble(4, result.getPrize());
+                count++;
             }
             log.debug("==========");
+            log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
+
+            insert.executeUpdate();
         } finally {
             close(selectPoints);
         }
