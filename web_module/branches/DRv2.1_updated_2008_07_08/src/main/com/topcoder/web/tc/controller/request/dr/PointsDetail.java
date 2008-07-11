@@ -31,10 +31,10 @@ public class PointsDetail extends BaseProcessor {
 
         int trackId = Integer.parseInt(getRequest().getParameter(Constants.TRACK_ID));
         setDefault(Constants.TRACK_ID, trackId);
-        int userId = Integer.parseInt(getRequest().getParameter(Constants.USER_ID));
-        setDefault(Constants.USER_ID, trackId);
+        int userId = Integer.parseInt(getRequest().getParameter(Constants.CODER_ID));
+        setDefault(Constants.CODER_ID, userId);
         boolean potential = (Integer.parseInt(getRequest().getParameter(Constants.POTENTIAL_FLAG_ID)) == 1);
-        setDefault(Constants.POTENTIAL_FLAG_ID, trackId);
+        setDefault(Constants.POTENTIAL_FLAG_ID, potential);
 
         ResultSetContainer rsc = getPointsData(DBMS.TCS_OLTP_DATASOURCE_NAME, "dr_points_detail", trackId, userId, potential);
 
