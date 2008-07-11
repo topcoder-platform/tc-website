@@ -41,7 +41,7 @@ public class PointsDetail extends BaseProcessor {
 
         getRequest().setAttribute("result", rsc);
         
-        setNextPage("/digital_run/points_detail.jsp");
+        setNextPage("/dr/points_detail.jsp");
         setIsNextPageInContext(true);        
     }
 
