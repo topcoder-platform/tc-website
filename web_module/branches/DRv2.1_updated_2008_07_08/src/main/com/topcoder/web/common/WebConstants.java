@@ -66,6 +66,7 @@ public interface WebConstants {
     public static final String PAYMENT_TYPE_ID = "pt";
 
     public static final String TRACK_ID = "tid";
+    public static final String POTENTIAL_FLAG_ID = "pf";
 
     //secondary reg parameters
     public static final String CODER_TYPE = "cty";
