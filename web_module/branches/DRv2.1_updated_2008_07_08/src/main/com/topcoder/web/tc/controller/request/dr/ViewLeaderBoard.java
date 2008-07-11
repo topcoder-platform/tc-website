@@ -105,7 +105,7 @@ public class ViewLeaderBoard extends BaseProcessor {
         
         getRequest().setAttribute(Constants.TRACK_ID, trackId);
 
-        setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
+        setNextPage("/dr/drv2_view_leaders.jsp");
         setIsNextPageInContext(true);        
     }
     
