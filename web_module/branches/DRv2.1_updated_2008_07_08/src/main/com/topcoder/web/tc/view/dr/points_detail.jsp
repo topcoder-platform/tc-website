@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8"
          import="com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.web.tc.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.web.common.BaseProcessor" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -15,7 +16,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <title>TopCoder :: Digital Run Leaderboard - Points detail</title>
+    <title>TopCoder :: Digital Run Leaderboard</title>
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
@@ -24,8 +25,6 @@
     
 <body>
 <jsp:include page="/top.jsp"/>
-
-<% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result"); %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
@@ -42,31 +41,41 @@
         <td width="100%" align="center" class="bodyColumn">
             <div class="maxWidthBody">
 
-                <thead>
-                    <tr>
-                        <th>
-                            <a href="/dr?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("dr_points_desc")%>"/>">Seed</a>
-                        </th>
-                        <th>
-                            <a href="/dr?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("amount")%>"/>">Seed</a>
-                        </th>
-                        <th>
-                            <a href="/dr?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("reference_id")%>"/>">Seed</a>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-<%boolean even = false;%>
-<rsc:iterator list="<%=rsc%>" id="resultRow">
-<tr class="<%=(even ? "dark" : "light")%>">
-<td class="valueC">${resultRow.map["dr_points_desc"]}</td>
-<td class="valueC">${resultRow.map["amount"]}</td>
-<td class="valueC">${resultRow.map["reference_id"]}</td>
-</tr>
-<%even = !even;%>
-</rsc:iterator>
-                </tbody>
-                </table>
+        <jsp:include page="/page_title.jsp">
+            <jsp:param name="image" value="digital_run_20061031"/>
+            <jsp:param name="title" value="Leaderboard Details"/>
+        </jsp:include>
+
+    <div class="fixedWidthBody">
+</div>
+
+<br /><br />
+
+<% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result"); %>
+
+<table class="stat" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td class="title" colspan="11">
+            Leaderboard Details
+        </td>
+    </tr>
+    <tr>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc.getColumnIndex("dr_points_desc")%>" includeParams="true"/>">Desc</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc.getColumnIndex("amount")%>" includeParams="true"/>">Amount</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc.getColumnIndex("reference_id")%>" includeParams="true"/>">Reference</a></td>
+    </tr>
+
+    <rsc:iterator list="<%=rsc%>" id="resultRow">
+    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
+        <td class="value">${resultRow.map["dr_points_desc"]}</td>
+        <td class="valueC">${resultRow.map["amount"]}</td>
+        <td class="valueC">${resultRow.map["reference_id"]}</td>
+    </tr>
+    </rsc:iterator>
+</table>
+
+
+
 
             </div>
         </td>

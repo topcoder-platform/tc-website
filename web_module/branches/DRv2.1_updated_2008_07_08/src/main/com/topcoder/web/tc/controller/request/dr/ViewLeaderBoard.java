@@ -69,7 +69,6 @@ public class ViewLeaderBoard extends BaseProcessor {
 
         
         int trackId = Integer.parseInt(getRequest().getParameter(Constants.TRACK_ID));
-        setDefault(Constants.TRACK_ID, trackId);
 
         // Get the results from database
         Request r = new Request();
