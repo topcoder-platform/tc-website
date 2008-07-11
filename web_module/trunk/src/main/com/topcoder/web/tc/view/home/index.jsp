@@ -180,7 +180,7 @@
 <%-- Header Links Must Match Active Promo Links Below!! --%>
 <tr>
     <td align="center">
-        <a href="/tc?module=MatchDetails&amp;rd=12181" class="tabHeader"><span>SRM 409 brought to you by VeriSign</span></a>
+        <a href="/dr" class="tabHeader"><span>The Digital Run</span></a>
     </td>
     <td align="center">
         <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/" class="tabHeader"><span>Software</span></a>
@@ -197,9 +197,9 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- DIGITAL RUN 
+                <%-- DIGITAL RUN --%>
                 <a href="/dr"><img src="/i/home/dr2008v2.png" alt="The Digital Run" border="0" style="display:block;"/></a>
-                --%>
+                
                 
                 <%-- DIGITAL RUN ASSEMBLY CUP 
                 <a href="/dr"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></a>
@@ -225,13 +225,13 @@
                 <img src="/i/home/predictive1_tc2.png" alt="Predictive Marathon Competition 1" border="0" style="display:block;" usemap="#mm"/>
                 --%>
 
-                <%-- SRM SPONSOR --%>
+                <%-- SRM SPONSOR 
                 <map id="srm" name="srm">
                 <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&amp;rd=12181" />
                 <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisign" />
                 </map>
                 <img src="/i/home/srm409_verisign.png" alt="SRM 409 brought to you by VeriSign" border="0" style="display:block;" usemap="#srm"/>
-                
+                --%>
                 
                 <%-- UML Tool 
                 <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></a>
