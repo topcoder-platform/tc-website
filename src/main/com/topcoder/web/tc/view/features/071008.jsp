@@ -62,7 +62,7 @@
 <br /><br />
 <br clear="all">
 
-<p><em>This month we caught up with <tc-webtag:handle coderId="22653044" context="algorithm" />, June's Algorithm Coder of the Month, <tc-webtag:handle coderId="9981727" context="design"/>, June's Design Coder of the Month, and <tc-webtag:handle coderId="22630348" context="development" />, June's Development Coder of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</em></p>
+<p><em>This month we caught up with <tc-webtag:handle coderId="22653044" context="algorithm" />, June's Algorithm Coder of the Month, <tc-webtag:handle coderId="9981727" context="design"/>, June's Design Coder of the Month, <tc-webtag:handle coderId="22630348" context="development" />, June's Development Coder of the Month, and <tc-webtag:handle coderId="22690288" context="development" />, June's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</em></p>
 
 <p><div class="authorPhoto">
     <img src="/i/m/jbernadas_big.jpg" alt="jbernadas, June's Algorithm Coder of the Month" />
@@ -127,7 +127,7 @@ Food, I should have included that in the "fun outside of TopCoder" question. Her
 <p><div class="authorPhoto">
     <img src="/i/m/nophoto.jpg" alt="woodjhon, June's Design Coder of the Month" />
 </div>
-<a href="/tc?module=COMHistory&amp;achtid=6">Design</a>: <tc-webtag:handle coderId="9981727" context="design"/><br />
+<a href="/tc?module=COMHistory&amp;achtid=6">Design</a>: <tc-webtag:handle coderId="9981727" context="design" /><br />
 Four 1st places wins<br />
 One 2nd place win<br />
 &nbsp;
@@ -168,7 +168,7 @@ Beggar's Chicken and DongPo Pork</p>
 <p><div class="authorPhoto">
     <img src="/i/m/nophoto.jpg" alt="BeBetter, June's Development Coder of the Month" />
 </div>
-<a href="/tc?module=COMHistory&amp;achtid=7">Development</a>: <tc-webtag:handle coderId="22630348" context="development"/><br />
+<a href="/tc?module=COMHistory&amp;achtid=7">Development</a>: <tc-webtag:handle coderId="22630348" context="development" /><br />
 Five 1st places wins<br />
 Five 2nd place wins<br />
 &nbsp;
@@ -203,6 +203,47 @@ DC museums, the White House, Great Fall and a lot others.</p>
 
 <p><strong>What foods are there to taste in your area?</strong><br />
 I just stick to some Asia food. I would recommend spicy SiChuan food and Thai food or some Korea BBQ.</p>
+<br />
+
+
+<p><div class="authorPhoto">
+    <img src="/i/m/djackmania_big.jpg" alt="djackmania, June's Studio Designer of the Month" />
+</div>
+Studio Design: <tc-webtag:handle coderId="22690288" /><br />
+Won 8 contests, for a<br />
+total of $3950! <br />
+&nbsp;
+</p>
+
+<p><strong>What brought you to TopCoder?</strong><br />
+<tc-webtag:handle coderId="22076237" /> brought me to TopCoder. Thanks bro :)</p>
+
+<p><strong>What is your proudest TopCoder moment?</strong><br />
+TCO'08 finalist and got the email: <strong>Congratulations From TopCoder Studio!</strong></p>
+
+<p><strong>What is the biggest obstacle you have had to overcome?</strong><br />
+Lack in coding and scripting, maybe next time :)</p>
+
+<p><strong>What is one thing that you have learned at TopCoder that has helped you in other areas of your life?</strong><br />
+Do everything as soon as possible... If you don't you will have lost the great chance (TC version: Error - Inactive contest specified.)</p>
+
+<p><strong>What advice would you give to someone just starting out?</strong><br />
+3P+p: <strong>Practice</strong> make <strong>Perfect</strong> with <strong>Passion</strong> and don't worry you'll get <strong>paid :)</strong></p>
+
+<p><strong>What is the biggest contributor to your progress this month?</strong><br />
+TC admins, other TC members, thanks all</p>
+
+<p><strong>What is your most stressful TopCoder moment?</strong><br />
+Email subject in my inbox: <strong>Your TopCoder(R) Studio submission failed review</strong> :(</p>
+
+<p><strong>What do you do for fun outside of TopCoder?</strong><br />
+Keep browsing around</p>
+
+<p><strong>What sights are there to see in your area?</strong><br />
+All of Indonesia is <a target="_blank" href="http://www.my-indonesia.info/">dangerously beautiful</a>... </p>
+
+<p><strong>What foods are there to taste in your area?</strong><br />
+<a target="_blank" href="http://didats.net/page/makan-bebek-goreng-kayu-tangan/">Bebek Goreng</a>, Rawon Setan, Soto Ambengan, Sate ... </p>
 <br />
 
 
