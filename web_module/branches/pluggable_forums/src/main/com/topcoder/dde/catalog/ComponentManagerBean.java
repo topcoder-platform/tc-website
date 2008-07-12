@@ -4,6 +4,35 @@
 
 package com.topcoder.dde.catalog;
 
+import java.rmi.RemoteException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+import java.util.Vector;
+
+import javax.ejb.CreateException;
+import javax.ejb.EJBException;
+import javax.ejb.FinderException;
+import javax.ejb.ObjectNotFoundException;
+import javax.ejb.RemoveException;
+import javax.ejb.SessionBean;
+import javax.ejb.SessionContext;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.rmi.PortableRemoteObject;
+import javax.sql.DataSource;
+
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.UserNotFoundException;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
@@ -14,8 +43,42 @@ import com.topcoder.apps.review.projecttracker.ProjectType;
 import com.topcoder.apps.review.projecttracker.User;
 import com.topcoder.dde.catalog.forums.ForumsServiceCreationException;
 import com.topcoder.dde.catalog.forums.ForumsServiceFactory;
-import com.topcoder.dde.catalog.forums.ForumsServiceFactoryException;
-import com.topcoder.dde.persistencelayer.interfaces.*;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECategories;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECategoriesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalog;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalogHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCategories;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCategoriesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDependencies;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDependenciesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDocumentation;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDocumentationHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDownload;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDownloadHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompExamples;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompExamplesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompForumXref;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompForumXrefHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompKeywords;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompKeywordsHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompReviews;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompReviewsHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompTechnology;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompTechnologyHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersionDates;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersionDatesHistoryHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersionDatesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersions;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersionsHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDEDownloadTrackingHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDELicenseLevel;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDELicenseLevelHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDERolesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDETechnologyTypes;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDETechnologyTypesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDEUserMaster;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDEUserMasterHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDEUserRoleHome;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
@@ -34,25 +97,6 @@ import com.topcoder.util.config.ConfigManagerInterface;
 import com.topcoder.util.errorhandling.BaseException;
 import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.ejb.forums.ForumsHome;
-
-import javax.ejb.CreateException;
-import javax.ejb.EJBException;
-import javax.ejb.FinderException;
-import javax.ejb.ObjectNotFoundException;
-import javax.ejb.RemoveException;
-import javax.ejb.SessionBean;
-import javax.ejb.SessionContext;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.rmi.PortableRemoteObject;
-import javax.sql.DataSource;
-import java.rmi.RemoteException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Timestamp;
-import java.util.*;
 import com.topcoder.web.ejb.userservices.UserServices;
 import com.topcoder.web.ejb.userservices.UserServicesLocator;
 
@@ -413,11 +457,13 @@ public class ComponentManagerBean
 
         Forums forums = null;
         try {
+        	log.info("obtain Forums instance");
         	forums = ForumsServiceFactory.getInstance().createForums();
 //        } catch (ForumsServiceFactoryException e) {
 //        	ejbContext.setRollbackOnly();
 //        	throw e;
 		} catch (ForumsServiceCreationException e) {
+			log.error("fail to obtain Forums", e);
 			ejbContext.setRollbackOnly();
         	throw e;
 		}
