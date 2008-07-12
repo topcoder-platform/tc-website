@@ -4527,7 +4527,7 @@ public class TCLoadTCS extends TCLoad {
            " and dp.dr_points_type_id = dptl.dr_points_type_id " +
            " and dp.dr_points_operation_id = dpol.dr_points_operation_id " +
            " and dp.dr_points_reference_type_id = dprtl.dr_points_reference_type_id " +
-           " where (dp.modify_date > ? " +
+           " and (dp.modify_date > ? " +
            "     OR dp.create_date > ?) ";
 
        final String INSERT =
