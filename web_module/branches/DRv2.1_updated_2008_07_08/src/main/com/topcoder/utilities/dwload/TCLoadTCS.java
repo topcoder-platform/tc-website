@@ -4414,7 +4414,7 @@ public class TCLoadTCS extends TCLoad {
            " and t.create_date > ?";
 
        final String INSERT =
-           "insert into track_contest (track_id, track_type_id, track_type_desc, track_status_id, track_status_desc, track_desc, track_start_date, track_end_date) " +
+           "insert into track (track_id, track_type_id, track_type_desc, track_status_id, track_status_desc, track_desc, track_start_date, track_end_date) " +
                    " values (?,?,?,?,?,?,?,?)";
 
        PreparedStatement selectTracks = prepareStatement(SELECT_TRACKS, SOURCE_DB);
