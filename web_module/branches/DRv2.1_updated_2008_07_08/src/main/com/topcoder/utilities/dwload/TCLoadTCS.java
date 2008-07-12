@@ -4430,11 +4430,15 @@ public class TCLoadTCS extends TCLoad {
 
            rsTracks = selectTracks.executeQuery();
            while (rsTracks.next()) {
-               insert.setInt(1, rsTracks.getInt("track_contest_id"));
-               insert.setInt(2, rsTracks.getInt("track_id"));
-               insert.setString(3, rsTracks.getString("track_contest_desc"));
-               insert.setInt(4, rsTracks.getInt("track_contest_type_id"));
-               insert.setString(5, rsTracks.getString("track_contest_type_desc"));
+               int i = 1;
+               insert.setInt(i++, rsTracks.getInt("track_id"));
+               insert.setInt(i++, rsTracks.getInt("track_type_id"));
+               insert.setString(i++, rsTracks.getString("track_type_desc"));
+               insert.setInt(i++, rsTracks.getInt("track_status_id"));
+               insert.setString(i++, rsTracks.getString("track_status_desc"));
+               insert.setString(i++, rsTracks.getString("track_desc"));
+               insert.setDate(i++, rsTracks.getDate("track_start_date"));
+               insert.setDate(i++, rsTracks.getDate("track_end_date"));
 
                insert.executeUpdate();
                count++;
