@@ -14,6 +14,7 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.CachedDataAccess;
@@ -66,11 +67,37 @@ public class ViewLeaderBoard extends BaseProcessor {
         } else {
             startRank = Integer.parseInt(startRankStr);
         }
-
         
         int trackId = Integer.parseInt(getRequest().getParameter(Constants.TRACK_ID));
 
+        // Get track details from database
+        getTrackDetails(trackId);            
+
         // Get the results from database
+        List<LeaderBoardRow> results = getTrackResults(trackId);
+            
+        // Sort and crop the list
+        sortResult(results, sortCol, invert);
+        List<IBoardRow> cropped = cropResult(results, startRank, numRecords);
+        
+        getRequest().setAttribute("hasRookieCompetition", Boolean.FALSE);
+        getRequest().setAttribute("results", cropped);
+        getRequest().setAttribute("topTripWinners", 5);
+        getRequest().setAttribute("stageExists", true);            
+        
+        getRequest().setAttribute(Constants.TRACK_ID, trackId);
+
+        setNextPage("/dr/drv2_view_leaders.jsp");
+        setIsNextPageInContext(true);        
+    }
+
+
+    /**
+     * @param trackId
+     * @return
+     * @throws Exception
+     */
+    private List<LeaderBoardRow> getTrackResults(int trackId) throws Exception {
         Request r = new Request();
         r.setContentHandle("drv2_results");
         r.setProperty(Constants.TRACK_ID, String.valueOf(trackId));
@@ -92,20 +119,31 @@ public class ViewLeaderBoard extends BaseProcessor {
             results.add(lbr);
             
         }
-            
-        // Sort and crop the list
-        sortResult(results, sortCol, invert);
-        List<IBoardRow> cropped = cropResult(results, startRank, numRecords);
-        
-        getRequest().setAttribute("hasRookieCompetition", Boolean.FALSE);
-        getRequest().setAttribute("results", cropped);
-        getRequest().setAttribute("topTripWinners", 5);
-        getRequest().setAttribute("stageExists", true);            
-        
-        getRequest().setAttribute(Constants.TRACK_ID, trackId);
+        return results;
+    }
 
-        setNextPage("/dr/drv2_view_leaders.jsp");
-        setIsNextPageInContext(true);        
+
+    /**
+     * @param trackId
+     * @throws Exception
+     */
+    private void getTrackDetails(int trackId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("dr_track_details");
+        r.setProperty(Constants.TRACK_ID, String.valueOf(trackId));
+        
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME); 
+        Map m = dai.getData(r);
+        ResultSetContainer rsc = (ResultSetContainer) m.get("dr_track_details");
+            
+        if (rsc.size() > 0) {
+            ResultSetRow row  = rsc.get(0);
+            getRequest().setAttribute("trackStatusId", row.getStringItem("track_status_id"));
+            getRequest().setAttribute("trackStatusDesc", row.getStringItem("track_status_desc"));
+            getRequest().setAttribute("trackDesc", row.getStringItem("track_desc"));
+            getRequest().setAttribute("trackStartDate", row.getStringItem("track_start_date"));
+            getRequest().setAttribute("trackEndDate", row.getStringItem("track_end_date"));
+        }
     }
     
     

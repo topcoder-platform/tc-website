@@ -23,41 +23,6 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
-    <script type="text/javascript">
-        function changePeriod() {
-            var myForm = document.leaderBoardForm;
-            <c:if test="${fn:length(results) > 0}">
-            myForm.<%=DataAccessConstants.START_RANK%>.value = '';
-            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '';
-            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '';
-            </c:if>
-            document.leaderBoardForm.submit()
-        }
-        function submitEnter(e) {
-            var keycode;
-            if (window.event) keycode = window.event.keyCode;
-            else if (e) keycode = e.which;
-            else return true;
-            if (keycode == 13) {
-                document.leaderBoardForm.submit();
-                return false;
-            } else return true;
-        }
-        function next() {
-            var myForm = document.leaderBoardForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = <%=((java.util.Map) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get(DataAccessConstants.START_RANK)%> + parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
-            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
-            myForm.submit();
-        }
-        function previous() {
-            var myForm = document.leaderBoardForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value =<%=((java.util.Map) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get(DataAccessConstants.START_RANK)%>  - parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
-            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
-            myForm.submit();
-        }
-    </script>
     
 </head>
     
@@ -79,71 +44,18 @@
         <td width="100%" align="center" class="bodyColumn">
             <div class="maxWidthBody">
 
-    <c:choose>
-        <c:when test="${isDevelopment}">
-            <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="digital_run_20061031"/>
-                <jsp:param name="title" value="Development Cup Series Leaderboard"/>
-            </jsp:include>
-        </c:when>
-        <c:when test="${isDesign}">
-            <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="digital_run_20061031"/>
-                <jsp:param name="title" value="Design Cup Series Leaderboard"/>
-            </jsp:include>
-        </c:when>
-        <c:when test="${isAssembly}">
-            <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="digital_run_20061031"/>
-                <jsp:param name="title" value="Assembly Cup Series Leaderboard"/>
-            </jsp:include>
-        </c:when>
-    </c:choose>
+    <jsp:include page="/page_title.jsp">
+        <jsp:param name="image" value="digital_run_20061031"/>
+        <jsp:param name="title" value="${trackDesc} Leaderboard"/>
+    </jsp:include>
 
-    <div class="fixedWidthBody">
-        <div style="float:right; text-align:left; white-space: nowrap;">
-            <a href="/stat?c=top_designers" class="bcLink">Top Ranked Designers</a><br />
-            <a href="/stat?c=top_developers" class="bcLink">Top Ranked Developers</a>
-        </div>
-    <c:choose>
-        <c:when test="${isDevelopment}">
-            <a href="/tc?&amp;pt=1&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Design Cup Series Leaderboard</a><br />
-            Development Cup Series Leaderboard</a><br />
-            <c:if test="${staid >= 7}">
-                <a href="/tc?&amp;pt=14&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Assembly Cup Series Leaderboard</a><br />
-            </c:if>
-        </c:when>
-        <c:when test="${isDesign}">
-            Design Cup Series Leaderboard<br />
-            <a href="/tc?&amp;pt=2&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Development Cup Series Leaderboard</a><br />
-            <c:if test="${staid >= 7}">
-                <a href="/tc?&amp;pt=14&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Assembly Cup Series Leaderboard</a><br />
-            </c:if>
-        </c:when>
-        <c:when test="${isAssembly}">
-            <a href="/tc?&amp;pt=1&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Design Cup Series Leaderboard</a><br />
-            <a href="/tc?&amp;pt=2&amp;module=LeaderBoard&amp;staid=${staid}" class="bcLink">Development Cup Series Leaderboard</a><br />
-            Assembly Cup Series Leaderboard<br />
-        </c:when>
-    </c:choose>
-    <c:if test="${hasRookieCompetition }" >
-        <a href="/tc?module=RookieBoard&amp;ph=112&seid=${seid}" class="bcLink">Design Cup Series ROTY Leaderboard</a><br />
-        <a href="/tc?module=RookieBoard&amp;ph=113&seid=${seid}" class="bcLink">Development Cup Series ROTY Leaderboard</a>
-    </c:if>
-</div>
-
-<br /><br />
 
 <form name="leaderBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="LeaderBoard"/>
-<tc-webtag:hiddenInput name="<%=Constants.PROJECT_TYPE_ID%>"/>
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewLeaderBoard"/>
+<tc-webtag:hiddenInput name="<%=Constants.TRACK_ID%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
-Please select a <strong>season</strong> and <strong>stage</strong><br />
-
-<tc-webtag:rscSelect name="<%=Constants.STAGE_ID%>" styleClass="dropdown" onChange="changePeriod()" 
-          list="${stages}" fieldText="complete_name" fieldValue="stage_id" useTopValue="false" />
 
 <c:choose>
 <c:when test="${not stageExists}">
@@ -153,6 +65,11 @@ Please select a <strong>season</strong> and <strong>stage</strong><br />
 <c:when test="${not empty results}">
 
 <div class="pagingBox" style="width:300px;">
+    <strong>
+        The track is ${trackStatusDesc} <br/>
+        Start ${trackStartDate} <br/>
+        End ${trackEndDate} <br/>
+    </strong>
     <c:choose>
         <c:when test="${croppedDataBefore}">
             <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
@@ -175,7 +92,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br />
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td class="title" colspan="11">
-            ${phaseName } Cup Series Leaderboard
+            ${trackDesc} Leaderboard
         </td>
     </tr>
     <tr>
@@ -237,7 +154,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br />
         </td>
         <td class="valueR">
             <c:if test="${boardRow.points>0}">
-                    <a href="/dr?module=PointsDetail&amp;pf=0&amp;cr=${boardRow.userId}&amp;cr=${tid}" class="bcLink">
+                    <a href="/dr?module=PointsDetail&amp;pf=0&amp;cr=${boardRow.userId}&amp;tid=${tid}" class="bcLink">
                                 <fmt:formatNumber value="${boardRow.points}"  minFractionDigits="2" maxFractionDigits="2"/>
                     </a>
             </c:if>
@@ -258,7 +175,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br />
         </td>
         <td class="valueR">
             <c:if test="${boardRow.potentialPoints>0}">
-                <a href="/tc?module=OutstandingProjects&amp;pt=${boardRow.projectTypeId}&amp;staid=${boardRow.period}&amp;cr=${boardRow.userId}" class="bcLink">
+                <a href="/dr?module=PointsDetail&amp;pf=1&amp;cr=${boardRow.userId}&amp;tid=${tid}" class="bcLink">
                     <fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
                     </a>
             </c:if>
