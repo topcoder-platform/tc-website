@@ -170,7 +170,7 @@ public class TCLoadTCS extends TCLoad {
             doLoadSubmissionReview();
 
 */
-            //doLoadProjectResults();
+            doLoadProjectResults();
 
 //            doLoadRookies();
 /*
@@ -1466,6 +1466,10 @@ public class TCLoadTCS extends TCLoad {
                     double pointsAwarded = 0;
                     double potentialPoints = 0;
                     Integer stage = dRProjects.get(project_id);
+
+                    // CHANGE!!!!
+                    stage = null;
+                    
                     boolean hasDR = false;
 
                     if (stage != null &&
