@@ -67,14 +67,7 @@
             <p>If you are not currently on the TopCoder Architect or Development Review Boards you may send an email to <A href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</A> requesting permission to perform reviews. Please keep in mind only members that have completed component projects are eligible to join the TopCoder Review boards.</p>
             <p>In order to sign up for a review position, click on the "details" link for any component with positions available, and then select "Apply Now" next to the position that you would like to commit to.</p>
 
-            <br>
-
-<!--
-            <% if (isWaiting) { %>
-                <p align="center"><b>You may not apply for a new review until <%=waitingUntil%>.</b></p>
-                <br>
-            <% } %>
--->
+            <br />
 
 <%
     int devProjectCount = 0;
