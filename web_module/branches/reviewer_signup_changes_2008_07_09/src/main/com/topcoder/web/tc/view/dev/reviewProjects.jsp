@@ -8,6 +8,7 @@
                  com.topcoder.web.tc.model.ReviewBoardApplication,
                  java.sql.Timestamp,
                  java.util.ArrayList,
+                 java.util.Calendar,
                  java.util.List"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
