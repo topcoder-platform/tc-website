@@ -8,7 +8,6 @@
                  com.topcoder.web.tc.model.ReviewBoardApplication,
                  java.sql.Timestamp,
                  java.util.ArrayList,
-                 java.util.Calendar,
                  java.util.List"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -19,7 +18,8 @@
 <% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
 <% int phase_id = ((Integer)request.getAttribute("phase_id")).intValue(); %>
 <% boolean design = phase_id == SoftwareComponent.DESIGN_PHASE; %>
-<% long applicationDelay = ((Long) request.getAttribute("applicationDelay")).longValue(); %>
+<% int applicationDelayHours = ((Integer) request.getAttribute("applicationDelayHours")).intValue(); %>
+<% int applicationDelayMinutes = ((Integer) request.getAttribute("applicationDelayMinutes")).intValue(); %>
 <%--<% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>--%>
 
 <%--<% ResultSetContainer tournamentProjectList = (ResultSetContainer)request.getAttribute("tournamentProjectList");%>--%>
@@ -259,13 +259,10 @@
             <br />
 <% } else { %>
             <br />
-	    <% if (applicationDelay > 0) {
-		   Calendar cal = Calendar.getInstance();
-		   cal.setTimeInMillis(applicationDelay);
-		   %>
+	    <% if (applicationDelay > 0) { %>
               <p>
-		Due to your existing review commitments, review positions open for you <%= cal.get(Calendar.HOUR_OF_DAY) %>h
-		<%= cal.get(Calendar.MINUTE) %>m after a project opens for registration.
+		Due to your existing review commitments, review positions open for you <%= applicationDelayHours %>h
+		<%= applicationDelayMinutes %>m after a project opens for registration.
 	      </p>
             <% } %>
             <p>Please note that custom components do not get added to the catalog and therefore do not have royalties.</p>

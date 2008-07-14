@@ -6,7 +6,6 @@
                  com.topcoder.web.tc.model.ReviewBoardApplication,
                  com.topcoder.web.tc.Constants,
                  java.sql.Timestamp,
-                 java.util.Calendar,
                  java.util.List"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -16,7 +15,8 @@
 <% List reviewerList = (List) request.getAttribute("reviewerList"); %>
 <% boolean isWaiting = ((Boolean) request.getAttribute("waitingToReview")).booleanValue();%>
 <% String waitingUntil = (String) request.getAttribute("waitingUntil"); %>
-<% long applicationDelay = ((Long) request.getAttribute("applicationDelay")).longValue(); %>
+<% int applicationDelayHours = ((Integer) request.getAttribute("applicationDelayHours")).intValue(); %>
+<% int applicationDelayMinutes = ((Integer) request.getAttribute("applicationDelayMinutes")).intValue(); %>
 <head>
 <title>Open Component Projects Available for Review</title>
 
@@ -188,14 +188,11 @@
                 </tr>
                 <tr>
                     <td class="bodyText">
-		      <% if (applicationDelay > 0) {
-			     Calendar cal = Calendar.getInstance();
-			     cal.setTimeInMillis(applicationDelay);
-			     %>
-			<p align="left">
-			  **** Due to your existing review commitments, review positions open for you <%= cal.get(Calendar.HOUR_OF_DAY) %>h
-			  <%= cal.get(Calendar.MINUTE) %>m after a project opens for registration.
-			</p>
+		      <% if (applicationDelay > 0) { %>
+                          <p align="left">
+                          **** Due to your existing review commitments, review positions open for you <%= applicationDelayHours %>h
+                          <%= applicationDelayMinutes %>m after a project opens for registration.
+                          </p>
                       <% } %>
                       <p align="left"><a href="/tc?module=ViewReviewProjects&amp;<%=Constants.PHASE_ID%>=<%=phase_id%>">View all projects</a></p>
                     </td>
