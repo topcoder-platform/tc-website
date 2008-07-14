@@ -231,9 +231,9 @@
       <td class="statDk" align="right">$<tc:beanWrite name="price" property="primaryReviewPrice" format="#,###.00"/></td>
       <td class="statDk" align="right">$<tc:beanWrite name="price" property="reviewPrice" format="#,###.00"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
-      <% if (waitingToReview.get(i).booleanValue()) { %>
+      <% if (waitingToReview.get(j).booleanValue()) { %>
       <td class="statDk" align="center" nowrap="nowrap">
-	<%= DateTime.timeStampToArbitraryString(waitingUntil.get(i), "MM.dd.yyyy'<br />'hh:mm a") %>
+	<%= DateTime.timeStampToArbitraryString(waitingUntil.get(j), "MM.dd.yyyy'<br />'hh:mm a") %>
       </td>
       <% } else { %>
       <td class="statDk" align="center"><i>open</i></td>
