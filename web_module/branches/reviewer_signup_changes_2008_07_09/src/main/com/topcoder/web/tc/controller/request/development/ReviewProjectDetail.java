@@ -140,12 +140,12 @@ public class ReviewProjectDetail extends Base {
 
                 if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
                     getRequest().setAttribute("waitingToReview", Boolean.TRUE);
-		    getRequest().setAttribute("waitingUntil",
+		    getRequest().setAttribute("waitingUntil", new Timestamp(opensOn.getTime() + applicationDelay));
 					      DateTime.timeStampToArbitraryString(new Timestamp(opensOn.getTime() + applicationDelay),
 										  "MM.dd.yyyy hh:mm a"));
                 } else {
                     getRequest().setAttribute("waitingToReview", Boolean.FALSE);
-		    getRequest().setAttribute("waitingUntil", new String(""));
+		    getRequest().setAttribute("waitingUntil", new Timestamp(0));
                 }
 
 		getRequest().setAttribute("applicationDelayHours", new Integer((int) (applicationDelay / (1000 * 60 * 60))));

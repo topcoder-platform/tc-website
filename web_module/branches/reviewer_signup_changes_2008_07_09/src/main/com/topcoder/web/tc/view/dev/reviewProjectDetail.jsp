@@ -3,6 +3,7 @@
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.dataAccess.resultSet.TCTimestampResult,
+                 com.topcoder.common.web.util.DateTime,
                  com.topcoder.web.tc.model.ReviewBoardApplication,
                  com.topcoder.web.tc.Constants,
                  java.sql.Timestamp,
@@ -14,7 +15,7 @@
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail"); %>
 <% List reviewerList = (List) request.getAttribute("reviewerList"); %>
 <% boolean isWaiting = ((Boolean) request.getAttribute("waitingToReview")).booleanValue();%>
-<% String waitingUntil = (String) request.getAttribute("waitingUntil"); %>
+<% Timestamp waitingUntil = (Timestamp) request.getAttribute("waitingUntil"); %>
 <% int applicationDelayHours = ((Integer) request.getAttribute("applicationDelayHours")).intValue(); %>
 <% int applicationDelayMinutes = ((Integer) request.getAttribute("applicationDelayMinutes")).intValue(); %>
 <head>
@@ -156,7 +157,7 @@
                             <% } else if (((ReviewBoardApplication) reviewer).isSpotFilled()) { %>
                                 <tc-webtag:handle coderId="<%=((ReviewBoardApplication)reviewer).getUserId()%>" context='<%=((ReviewBoardApplication)reviewer).getPhaseId()==112?"design":"development"%>'/>
                             <% } else if (isWaiting) { %>
-                                <i>Waiting until <%= waitingUntil %> ****</i>
+                                <i>Waiting until <%= DateTime.timeStampToArbitraryString(waitingUntil, "MM.dd.yyyy hh:mm a") %> ****</i>
                             <% } else { %>
                                 <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PROJECT_ID%>=<tc:beanWrite name="reviewer" property="projectId"/>&<%=Constants.PHASE_ID%>=<%=phase_id%>&<%=Constants.PRIMARY_FLAG%>=<%=((ReviewBoardApplication)reviewer).isPrimary()%>&<%=Constants.REVIEWER_TYPE_ID%>=<tc:beanWrite name="reviewer" property="reviewerTypeId"/>">Apply Now</a> **
                             <% } %>

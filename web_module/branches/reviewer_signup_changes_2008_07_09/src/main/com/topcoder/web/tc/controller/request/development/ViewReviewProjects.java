@@ -60,7 +60,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
 
             ArrayList prices = new ArrayList();
 	    ArrayList<Boolean> waitingToReview = new ArrayList<Boolean>();
-	    ArrayList<String> waitingUntil = new ArrayList<String>();
+	    ArrayList<Timestamp> waitingUntil = new ArrayList<Timestamp>();
 
 	    RBoardApplication rba = createRBoardApplication();
 
@@ -83,11 +83,10 @@ public class ViewReviewProjects extends ReviewProjectDetail {
 
 		if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
 		    waitingToReview.add(Boolean.TRUE);
-		    waitingUntil.add(DateTime.timeStampToArbitraryString(new Timestamp(opensOn.getTime() + applicationDelay),
-									 "MM.dd.yyyy'<br />'hh:mm a"));
+		    waitingUntil.add(new Timestamp(opensOn.getTime() + applicationDelay));
 		} else {
 		    waitingToReview.add(Boolean.FALSE);
-		    waitingUntil.add(new String(""));
+		    waitingUntil.add(new Timestamp(0));
 		}
             }
 

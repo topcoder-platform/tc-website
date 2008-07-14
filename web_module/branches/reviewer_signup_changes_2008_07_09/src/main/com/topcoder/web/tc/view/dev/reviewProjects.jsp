@@ -3,6 +3,7 @@
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.dataAccess.resultSet.TCTimestampResult,
+                 com.topcoder.common.web.util.DateTime,
                  com.topcoder.web.tc.Constants,
                  com.topcoder.web.common.model.SoftwareComponent,
                  com.topcoder.web.tc.model.ReviewBoardApplication,
@@ -13,7 +14,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ArrayList<Boolean> waitingToReview = (ArrayList<Boolean>) request.getAttribute("waitingToReview"); %>
-<% ArrayList<String> waitingUntil = (ArrayList<String>) request.getAttribute("waitingUntil"); %>
+<% ArrayList<Timestamp> waitingUntil = (ArrayList<Timestamp>) request.getAttribute("waitingUntil"); %>
 <% List prices = (List)request.getAttribute("prices");%>
 <% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
 <% int phase_id = ((Integer)request.getAttribute("phase_id")).intValue(); %>
@@ -135,7 +136,9 @@
       <td class="statDk" align="right">$<tc:beanWrite name="price" property="ReviewPrice" format="#,###.00"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="submission_passed_screening_count"/></td>
       <% if (waitingToReview.get(i).booleanValue()) { %>
-      <td class="statDk" align="center" nowrap="nowrap"><%= waitingUntil.get(i) %></td>
+      <td class="statDk" align="center" nowrap="nowrap">
+	<%= DateTime.timeStampToArbitraryString(waitingUntil.get(i), "MM.dd.yyyy'<br />'hh:mm a") %>
+      </td>
       <% } else { %>
       <td class="statDk" align="center"><i>open</i></td>
       <% } %>
