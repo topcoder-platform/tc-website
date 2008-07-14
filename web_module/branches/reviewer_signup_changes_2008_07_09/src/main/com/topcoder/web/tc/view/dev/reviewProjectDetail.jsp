@@ -189,13 +189,13 @@
                 </tr>
                 <tr>
                     <td class="bodyText">
-		      <% if (applicationDelay > 0) { %>
-                          <p align="left">
-                          **** Due to your existing review commitments, review positions open for you <%= applicationDelayHours %>h
-                          <%= applicationDelayMinutes %>m after a project opens for registration.
-                          </p>
-                      <% } %>
-                      <p align="left"><a href="/tc?module=ViewReviewProjects&amp;<%=Constants.PHASE_ID%>=<%=phase_id%>">View all projects</a></p>
+<% if (applicationDelayHours > 0 || applicationDelayMinutes > 0) { %>
+                        <p align="left">
+                            **** Due to your existing review commitments, review positions open for you <%= applicationDelayHours %>h
+                            <%= applicationDelayMinutes %>m after a project opens for registration.
+                        </p>
+<% } %>
+                        <p align="left"><a href="/tc?module=ViewReviewProjects&amp;<%=Constants.PHASE_ID%>=<%=phase_id%>">View all projects</a></p>
                     </td>
                 </tr>
             </table>
