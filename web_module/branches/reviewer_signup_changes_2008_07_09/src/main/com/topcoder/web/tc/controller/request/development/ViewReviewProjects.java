@@ -95,8 +95,8 @@ public class ViewReviewProjects extends ReviewProjectDetail {
 	    getRequest().setAttribute("waitingToReview", waitingToReview);
 	    getRequest().setAttribute("waitingUntil", waitingUntil);
 
-	    getRequest().setAttribute("applicationDelayHours", new Integer(applicationDelay / (1000 * 60 * 60)));
-	    getRequest().setAttribute("applicationDelayMinutes", new Integer((applicationDelay % (1000 * 60 * 60)) / (1000 * 60)));
+	    getRequest().setAttribute("applicationDelayHours", new Integer((int) (applicationDelay / (1000 * 60 * 60))));
+	    getRequest().setAttribute("applicationDelayMinutes", new Integer((int) ((applicationDelay % (1000 * 60 * 60)) / (1000 * 60))));
 
             //getRequest().setAttribute("tournamentProjectList", getDataAccess().getData(r).get("tournament_review_projects"));
         } catch (TCWebException e) {

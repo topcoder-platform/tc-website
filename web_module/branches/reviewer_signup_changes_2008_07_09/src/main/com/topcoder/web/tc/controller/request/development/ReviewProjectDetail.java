@@ -148,8 +148,8 @@ public class ReviewProjectDetail extends Base {
 		    getRequest().setAttribute("waitingUntil", new String(""));
                 }
 
-		getRequest().setAttribute("applicationDelayHours", new Integer(applicationDelay / (1000 * 60 * 60)));
-		getRequest().setAttribute("applicationDelayMinutes", new Integer((applicationDelay % (1000 * 60 * 60)) / (1000 * 60)));
+		getRequest().setAttribute("applicationDelayHours", new Integer((int) (applicationDelay / (1000 * 60 * 60))));
+		getRequest().setAttribute("applicationDelayMinutes", new Integer((int) (applicationDelay % (1000 * 60 * 60)) / (1000 * 60))));
             }
 
         } catch (TCWebException e) {
