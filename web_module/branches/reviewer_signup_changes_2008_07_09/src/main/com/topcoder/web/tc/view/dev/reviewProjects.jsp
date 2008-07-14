@@ -93,7 +93,7 @@
       <td class="tableHeader" align="right" nowrap="nowrap">Primary Reviewer<br>Payment</td>
       <td class="tableHeader" align="right">Reviewer<br>Payment</td>
       <td class="tableHeader" align="center">Submissions</td>
-      <td class="tableHeader" align="center">Opens<br>On</td>
+      <td class="tableHeader" align="center">Opens On</td>
       <td class="tableHeader" align="center">Review<br>Start</td>
       <td class="tableHeader" align="center">Review<br>End</td>
       <td class="tableHeader" align="center">Positions<br>Available</td>
@@ -135,7 +135,7 @@
       <td class="statDk" align="right">$<tc:beanWrite name="price" property="ReviewPrice" format="#,###.00"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="submission_passed_screening_count"/></td>
       <% if (waitingToReview.get(i).booleanValue()) { %>
-      <td class="statDk" align="center"><%= waitingUntil.get(i) %></td>
+      <td class="statDk" align="center" nowrap="nowrap"><%= waitingUntil.get(i) %></td>
       <% } else { %>
       <td class="statDk" align="center"><i>open</i></td>
       <% } %>
