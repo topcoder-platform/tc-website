@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.14.08<br />12:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm409">SRM 409 - Problem Set &amp; Analysis</a></span><br /><br />
+      In the SRM 409 we witnessed many great performances, fast submissions and high scores. The top three rated topcoders <tc-webtag:handle coderId="19849563" context="algorithm"/>, <tc-webtag:handle coderId="144400" context="algorithm"/> and <tc-webtag:handle coderId="10574855" context="algorithm"/> fought to the last seconds of the challenge phase to claim the match win.</td>
+         <td class="newsPhoto"><img src="/i/m/slex_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8382018" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm409">details</a> | 
+        <tc-webtag:forumLink forumID="522178" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />07.10.08<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=features&amp;d2=071008">Meet the June 2008 Coders of the Month</a></span><br /><br />
@@ -158,21 +174,5 @@
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm406">details</a> | 
         <tc-webtag:forumLink forumID="521679" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />06.30.08<br />1:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm51">TCHS SRM 51 - Problem Set &amp; Analysis</a></span><br /><br />
-      TCHS SRM 51 was held at the same time as SRM 407 and was marked by the use of a common problem between the two contests. Unfortunately, this meant that coders could not compete in both of them. However, after a few issues with double registrations were resolved, HS round 51 got off to timely and speedy start.</td>
-         <td class="newsPhoto"><img src="/i/m/Ishan_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="286348" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm51">details</a> | 
-        <tc-webtag:forumLink forumID="521833" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
    </td></tr>
    
