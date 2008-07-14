@@ -231,8 +231,10 @@
       <td class="statDk" align="right">$<tc:beanWrite name="price" property="primaryReviewPrice" format="#,###.00"/></td>
       <td class="statDk" align="right">$<tc:beanWrite name="price" property="reviewPrice" format="#,###.00"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
-      <% if (((TCTimestampResult) resultRow.getItem("opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
-      <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="opens_on" format="MM.dd.yyyy"/></td>
+      <% if (waitingToReview.get(i).booleanValue()) { %>
+      <td class="statDk" align="center" nowrap="nowrap">
+	<%= DateTime.timeStampToArbitraryString(waitingUntil.get(i), "MM.dd.yyyy'<br />'hh:mm a") %>
+      </td>
       <% } else { %>
       <td class="statDk" align="center"><i>open</i></td>
       <% } %>
