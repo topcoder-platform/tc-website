@@ -142,7 +142,7 @@ public class ReviewProjectDetail extends Base {
                     getRequest().setAttribute("waitingToReview", Boolean.TRUE);
 		    getRequest().setAttribute("waitingUntil",
 					      DateTime.timeStampToArbitraryString(new Timestamp(opensOn.getTime() + applicationDelay),
-										  "MM.dd.yy hh:mm a"));
+										  "MM.dd.yyyy hh:mm a"));
                 } else {
                     getRequest().setAttribute("waitingToReview", Boolean.FALSE);
 		    getRequest().setAttribute("waitingUntil", new String(""));

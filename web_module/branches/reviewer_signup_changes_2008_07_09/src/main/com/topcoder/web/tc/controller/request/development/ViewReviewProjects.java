@@ -84,7 +84,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
 		if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
 		    waitingToReview.add(Boolean.TRUE);
 		    waitingUntil.add(DateTime.timeStampToArbitraryString(new Timestamp(opensOn.getTime() + applicationDelay),
-									 "MM.dd.yy'<br />'hh:mm a"));
+									 "MM.dd.yyyy'<br />'hh:mm a"));
 		} else {
 		    waitingToReview.add(Boolean.FALSE);
 		    waitingUntil.add(new String(""));
