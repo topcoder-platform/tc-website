@@ -155,7 +155,7 @@
                             <% } else if (((ReviewBoardApplication) reviewer).isSpotFilled()) { %>
                                 <tc-webtag:handle coderId="<%=((ReviewBoardApplication)reviewer).getUserId()%>" context='<%=((ReviewBoardApplication)reviewer).getPhaseId()==112?"design":"development"%>'/>
                             <% } else if (isWaiting) { %>
-                                <i>Waiting ****</i>
+                                <i>Waiting until <%= waitingUntil %> ****</i>
                             <% } else { %>
                                 <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PROJECT_ID%>=<tc:beanWrite name="reviewer" property="projectId"/>&<%=Constants.PHASE_ID%>=<%=phase_id%>&<%=Constants.PRIMARY_FLAG%>=<%=((ReviewBoardApplication)reviewer).isPrimary()%>&<%=Constants.REVIEWER_TYPE_ID%>=<tc:beanWrite name="reviewer" property="reviewerTypeId"/>">Apply Now</a> **
                             <% } %>
