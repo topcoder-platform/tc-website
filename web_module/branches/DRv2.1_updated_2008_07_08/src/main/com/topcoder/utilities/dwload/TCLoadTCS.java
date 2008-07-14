@@ -170,7 +170,7 @@ public class TCLoadTCS extends TCLoad {
             doLoadSubmissionReview();
 
 */
-//            doLoadProjectResults();
+            doLoadProjectResults();
 
 //            doLoadRookies();
 /*
@@ -1468,13 +1468,36 @@ public class TCLoadTCS extends TCLoad {
                     Integer stage = dRProjects.get(project_id);
                     boolean hasDR = false;
 
-                    
-                    // if the project qualifies for DR...
-                    if ((projectResults.getInt("project_stat_id") == 7 ||       // completed
+                    if (stage != null &&
+                            (projectResults.getInt("project_stat_id") == 7 ||  // COMPLETED
+                                    projectResults.getInt("project_stat_id") == 1) && // ACTIVE
+                            // component testing doesn't need to check for rating
+                            (projectResults.getInt("rating_ind") == 1 || projectResults.getInt("project_category_id") == 5) &&
+                            "On".equals(projectResults.getString("dr_ind"))) {
+
+                        hasDR = true;
+                        ContestResultCalculator crc = stageCalculators.get(stage);
+                        if (crc != null) {
+                            if (projectResults.getDouble("amount") < 0.01) {
+                                log.warn("Project " + project_id + " has amount=0! Please check it.");
+                            }
+                            ProjectResult pr = new ProjectResult(project_id, projectResults.getInt("project_stat_id"), projectResults.getLong("user_id"),
+                                    projectResults.getDouble("final_score"), placed,
+                                    0, projectResults.getDouble("amount"), numSubmissionsPassedReview, passedReview);
+
+                            if (projectResults.getInt("project_stat_id") == 7) {
+                                pointsAwarded = crc.calculatePointsAwarded(pr);
+                            } else if (projectResults.getInt("valid_submission_ind") == 1) {
+                                potentialPoints = crc.calculatePotentialPoints(pr);
+                            }
+                        }
+                    } else if ((projectResults.getInt("project_stat_id") == 7 ||       // completed
                         projectResults.getInt("project_stat_id") == 1) &&       // active
                         "On".equals(projectResults.getString("dr_ind")) &&      // counts towards DR 
-                        projectResults.getObject("posting_date") != null &&     // has a posting dat
+                        projectResults.getObject("posting_date") != null &&     // has a posting date
                         projectResults.getObject("submission_date") != null) {  // has a submission
+
+                        hasDR = true;
 
                         // search for tracks where it belongs:
                         List<Track> tracks = getTracksForProject(activeTracks, projectResults.getInt("project_category_id"), projectResults.getTimestamp("posting_date"));
