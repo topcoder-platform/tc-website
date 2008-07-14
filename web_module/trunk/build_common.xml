@@ -59,7 +59,7 @@
     </target>
 
     <target name="compile_shared" depends="init" unless="compile_shared_set">
-        <ant dir="${shared.build}" target="shared-all"/>
+        <ant dir="${shared.build}" target="shared-all" inheritAll="false"/>
         <copy file="${global-dist.dir}/shared-SNAPSHOT.jar" tofile="${shared.jar}"/>
         <property name="compile_shared_set" value="true"/>
     </target>
