@@ -1497,7 +1497,8 @@ public class TCLoadTCS extends TCLoad {
                         projectResults.getObject("posting_date") != null &&     // has a posting date
                         projectResults.getObject("submission_date") != null) {  // has a submission
 
-                        hasDR = true;
+                        // This is just for now so that project_result is not messed up with new DR 2.0 points
+                        hasDR = false;
 
                         // search for tracks where it belongs:
                         List<Track> tracks = getTracksForProject(activeTracks, projectResults.getInt("project_category_id"), projectResults.getTimestamp("posting_date"));
@@ -1663,6 +1664,7 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+    // private helper method to get maximum dr_points id.
     private long getMaxDrPointsId() throws Exception {
         PreparedStatement select = null;
         ResultSet rs = null;
@@ -1678,8 +1680,8 @@ public class TCLoadTCS extends TCLoad {
                 log.debug("getMaxDrPointsId: " + rs.getLong("max_id"));
                 return rs.getLong("max_id");
             } else {
-                log.debug("getMaxDrPointsId: 1 ");
-                return 1;
+                log.debug("getMaxDrPointsId: 1000 ");
+                return 1000;
             }
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
@@ -1690,6 +1692,7 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+    // private helper method to get active tracks
     private List<Track> getActiveTracks() throws Exception {
         PreparedStatement select = null;
         ResultSet rs = null;
@@ -1703,7 +1706,7 @@ public class TCLoadTCS extends TCLoad {
                 " from track t, track_project_category_xref tpcx, points_calculator_lu pcl" +
                 " where t.track_id = tpcx.track_id" +
                 " and t.points_calculator_id = pcl.points_calculator_id" +
-                " and t.track_status_id = 1";
+                " and t.track_status_id = 1"; // Active
 
             select = prepareStatement(SELECT, SOURCE_DB);
 
@@ -1750,28 +1753,6 @@ public class TCLoadTCS extends TCLoad {
             }
         }
         return tracksForProject;
-    }
-
-    /**
-     * <p/>
-     * Retrieves the seasons ID's from DB sorted by date.
-     * </p>
-     *
-     * @return a sorted list by date of the seasons ID's.
-     * @since 1.1.0
-     */
-    private List getSeasons() throws Exception {
-        PreparedStatement selectSeasons = null;
-        ResultSet rsSeasons = null;
-        final String SELECT_SEASONS = "select season_id, start_calendar_id from season order by start_calendar_id asc";
-        selectSeasons = prepareStatement(SELECT_SEASONS, TARGET_DB);
-        rsSeasons = selectSeasons.executeQuery();
-        List arrayList = new ArrayList();
-        while (rsSeasons.next()) {
-            arrayList.add(new Long(rsSeasons.getLong("season_id")));
-            // log.info("New season: " + rsSeasons.getLong("season_id"));
-        }
-        return (arrayList);
     }
 
     public void doLoadSubmissionReview() throws Exception {
@@ -4474,6 +4455,8 @@ public class TCLoadTCS extends TCLoad {
                    sqle.getMessage());
        } finally {
            close(rsTracks);
+           close(insert);
+           close(selectTracks);
        }
 
    }
@@ -4527,6 +4510,8 @@ public class TCLoadTCS extends TCLoad {
                   sqle.getMessage());
       } finally {
           close(rsContests);
+          close(insert);
+          close(selectContests);
       }
 
   }
@@ -4635,13 +4620,17 @@ public class TCLoadTCS extends TCLoad {
                    sqle.getMessage());
        } finally {
            close(rsPoints);
+           close(tracks);
+           close(delete);
+           close(tracksSelect);
+           close(insert);
+           close(selectPoints);
        }
 
    }
 
 
-   private double calculatePointsAmount(int operationType, double amount,
-            double parentAmount) {
+   private double calculatePointsAmount(int operationType, double amount, double parentAmount) {
        if (operationType == 2) {
            return ((parentAmount * amount) / 100);
        }
@@ -4707,6 +4696,8 @@ public class TCLoadTCS extends TCLoad {
       } finally {
           close(rsContests);
           close(rsTracks);
+          close(selectContests);
+          close(selectTracks);
       }
 
   }
@@ -4788,7 +4779,9 @@ public class TCLoadTCS extends TCLoad {
             log.debug("==========");
             log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
         } finally {
+            close(rs);
             close(selectPoints);
+            close(insert);
         }
     }
 
