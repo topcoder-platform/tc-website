@@ -271,18 +271,18 @@
             <p align="center">Sorry, there are currently no review positions available.</p>
             <br />
 <% } else { %>
-<%
-  Calendar cal = Calendar.getInstance();
-  cal.setTimeInMillis(applicationDelay);
- %>
-            <br>
-            <p>
-	      Review positions for new projects become open after the project starts.  However, if you have open review projects
-	      you will be subject to a delay of <%= cal.get(Calendar.HOUR_OF_DAY) %>h <%= cal.get(Calendar.MINUTE) %>m per open
-	      project.
-	    </p>
+            <br />
+	    <% if (applicationDelay > 0) {
+		   Calendar cal = Calendar.getInstance();
+		   cal.setTimeInMillis(applicationDelay);
+		   %>
+              <p>
+		Due to your existing review commitments, review positions open for you <%= cal.get(Calendar.HOUR_OF_DAY) %>h
+		<%= cal.get(Calendar.MINUTE) %>m after a project opens for registration.
+	      </p>
+            <% } %>
             <p>Please note that custom components do not get added to the catalog and therefore do not have royalties.</p>
-            <br>
+            <br />
 <% } %>
 
         </td>

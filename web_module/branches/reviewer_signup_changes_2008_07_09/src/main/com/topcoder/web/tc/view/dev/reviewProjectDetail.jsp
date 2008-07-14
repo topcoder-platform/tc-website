@@ -14,6 +14,8 @@
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail"); %>
 <% List reviewerList = (List) request.getAttribute("reviewerList"); %>
 <% boolean isWaiting = ((Boolean) request.getAttribute("waitingToReview")).booleanValue();%>
+<% String waitingUntil = (String) request.getAttribute("waitingUntil"); %>
+<% long applicationDelay = ((Long) request.getAttribute("applicationDelay")).longValue(); %>
 <head>
 <title>Open Component Projects Available for Review</title>
 
@@ -180,13 +182,21 @@
                 </tr>
                 <tr>
                     <td class="bodyText">
-                    <p align="left">*** Review positions for new projects become open 24 hours after the project starts.</p>
+                    <p align="left">*** Review positions for new projects become open after the project starts.</p>
                     </td>
                 </tr>
                 <tr>
                     <td class="bodyText">
-                    <p align="left">**** You may only apply for a new component review every six hours..</p>
-                    <p align="left"><a href="/tc?module=ViewReviewProjects&amp;<%=Constants.PHASE_ID%>=<%=phase_id%>">View all projects</a></p>
+		      <% if (applicationDelay > 0) {
+			     Calendar cal = Calendar.getInstance();
+			     cal.setTimeInMillis(applicationDelay);
+			     %>
+			<p align="left">
+			  **** Due to your existing review commitments, review positions open for you <%= cal.get(Calendar.HOUR_OF_DAY) %>h
+			  <%= cal.get(Calendar.MINUTE) %>m after a project opens for registration.
+			</p>
+                      <% } %>
+                      <p align="left"><a href="/tc?module=ViewReviewProjects&amp;<%=Constants.PHASE_ID%>=<%=phase_id%>">View all projects</a></p>
                     </td>
                 </tr>
             </table>

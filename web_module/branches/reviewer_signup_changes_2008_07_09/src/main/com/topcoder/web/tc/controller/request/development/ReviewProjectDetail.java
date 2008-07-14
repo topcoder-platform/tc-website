@@ -134,12 +134,18 @@ public class ReviewProjectDetail extends Base {
                 getRequest().setAttribute("reviewerList", reviewerList);
 
                 RBoardApplication rba = createRBoardApplication();
+		long applicationDelay = rba.getApplicationDelay(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
 		Timestamp opensOn = (Timestamp) ((TCTimestampResult) detail.getItem(0, "opens_on")).getResultData();
-                if (System.currentTimeMillis() < opensOn.getTime() + rba.getApplicationDelay(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId())) {
+
+                if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
                     getRequest().setAttribute("waitingToReview", Boolean.TRUE);
+		    getRequest().setAttribute("waitingUntil", DateTime.timeStampToString(new Timestamp(opensOn.getTime() + applicationDelay)));
                 } else {
                     getRequest().setAttribute("waitingToReview", Boolean.FALSE);
+		    getRequest().setAttribute("waitingUntil", new String(""));
                 }
+
+		getRequest().setAttribute("applicationDelay", new Long(applicationDelay));
             }
 
         } catch (TCWebException e) {
