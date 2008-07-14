@@ -135,7 +135,7 @@
       <td class="statDk" align="right">$<tc:beanWrite name="price" property="ReviewPrice" format="#,###.00"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="submission_passed_screening_count"/></td>
       <% if (waitingToReview.get(i).booleanValue()) { %>
-      <td class="statDk" align="center">waitingUntil.get(i)</td>
+      <td class="statDk" align="center"><%= waitingUntil.get(i) %></td>
       <% } else { %>
       <td class="statDk" align="center"><i>open</i></td>
       <% } %>
