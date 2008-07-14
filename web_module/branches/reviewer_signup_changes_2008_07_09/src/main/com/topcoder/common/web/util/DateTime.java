@@ -80,6 +80,21 @@ public final class DateTime {
     }
 
 
+    public static final String timeStampToArbitraryString(java.sql.Timestamp timeStamp, String format) {
+	String result = null;
+        if (timeStamp != null && format != null) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+            dateFormat.setLenient(false);
+            StringBuffer buffer = new StringBuffer(format.length());
+            buffer = dateFormat.format(timeStamp, buffer, new FieldPosition(0));
+            if (buffer != null) {
+                result = buffer.toString();
+            }
+        }
+        return result;
+    }
+
+
     public static String dateToString(java.sql.Date date) {
         String result = null;
         if (date != null) {
