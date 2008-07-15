@@ -69,10 +69,19 @@ import java.util.Map;
  * Modified code to set user permissions for new software forums.
  * </li>
  * </ol>
+ * Version 1.0.5 Change notes:
+ * <ol>
+ * <li>
+ * Added a new reviewer application delay that's based on active projects rather than a fixed time.
+ * </li>
+ * <li>
+ * Removed getLatestApplicationReviewTimestamp.
+ * </li>
+ * </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.0.4
+ * @author dok, pulky, ivern
+ * @version 1.0.5
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
@@ -96,6 +105,12 @@ public class RBoardApplicationBean extends BaseEJB {
     private static final int RESOURCE_INFO_TYPE_EXTERNAL_ID = 1;
     private static final int RESOURCE_INFO_TYPE_REGISTRATION_DATE = 6;
 
+    /**
+     * For every active project a reviewer has, they get a compounded delay to sign up
+     * to new projects that is equal to this value in milliseconds.
+     */
+    private static final int APPLICATION_DELAY_PER_ACTIVE_PROJECT = 6 * 60 * 60 * 1000;
+
     private static final String RESOURCE_ID_SEQ = "resource_id_seq";
 
     private static Logger log = Logger.getLogger(RBoardApplicationBean.class);
@@ -113,7 +128,7 @@ public class RBoardApplicationBean extends BaseEJB {
 
             Object o = context.lookup("idgenerator/IdGenEJB");
             IdGenHome idGenHome = (IdGenHome) PortableRemoteObject.narrow(o,
-                    IdGenHome.class);
+                                      IdGenHome.class);
             return idGenHome.create();
 
         } catch (Exception e) {
@@ -135,7 +150,7 @@ public class RBoardApplicationBean extends BaseEJB {
 
             Object objPrincipalMgr = ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
             PrincipalMgrRemoteHome home =
-                    (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalMgr, PrincipalMgrRemoteHome.class);
+        (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalMgr, PrincipalMgrRemoteHome.class);
             principalMgr = home.create();
         } catch (Exception e) {
             throw new CreateException("Could not find bean!" + e);
@@ -154,7 +169,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @throws SQLException when DB operations fails
      */
     private Map getProjectInfo(long projectId, Connection conn)
-            throws SQLException {
+    throws SQLException {
         Map returnMap = new HashMap();
 
 
@@ -162,21 +177,21 @@ public class RBoardApplicationBean extends BaseEJB {
         ResultSet rs = null;
         try {
             ps = conn.prepareStatement("select p.project_id, pi_cn.value as component_name, pi_vt.value as version_text, "
-                    + "pt.name as project_type_name, cjcx.jive_category_id from project p "
-                    + ",project_category_lu pt "
-                    + ",project_info pi_cn "
-                    + ",project_info pi_vt "
-                    + ",project_info pi_vi "
-                    + ",comp_versions cv "
-                    + ",comp_jive_category_xref cjcx "
-                    + "where p.project_id = ? "
-                    + "and p.project_category_id = pt.project_category_id "
-                    + "and p.project_id = pi_cn.project_id and pi_cn.project_info_type_id = 6 "
-                    + "and p.project_id = pi_vt.project_id and pi_vt.project_info_type_id = 7 "
-                    + "and p.project_id = pi_vi.project_id and pi_vi.project_info_type_id = 2 "
-                    + "and cv.component_id = pi_vi.value and cv.phase_id in (112, 113) "
-                    + "and cjcx.comp_vers_id = cv.comp_vers_id "
-            );
+                       + "pt.name as project_type_name, cjcx.jive_category_id from project p "
+                       + ",project_category_lu pt "
+                       + ",project_info pi_cn "
+                       + ",project_info pi_vt "
+                       + ",project_info pi_vi "
+                       + ",comp_versions cv "
+                       + ",comp_jive_category_xref cjcx "
+                       + "where p.project_id = ? "
+                       + "and p.project_category_id = pt.project_category_id "
+                       + "and p.project_id = pi_cn.project_id and pi_cn.project_info_type_id = 6 "
+                       + "and p.project_id = pi_vt.project_id and pi_vt.project_info_type_id = 7 "
+                       + "and p.project_id = pi_vi.project_id and pi_vi.project_info_type_id = 2 "
+                       + "and cv.component_id = pi_vi.value and cv.phase_id in (112, 113) "
+                       + "and cjcx.comp_vers_id = cv.comp_vers_id "
+                       );
             ps.setLong(1, projectId);
 
             rs = ps.executeQuery();
@@ -207,15 +222,15 @@ public class RBoardApplicationBean extends BaseEJB {
      * @throws SQLException when DB operations fails
      */
     private Map getPhaseInfo(long projectId, Connection conn)
-            throws SQLException {
+    throws SQLException {
         Map returnMap = new HashMap();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             ps = conn.prepareStatement("select project_phase_id, phase_type_id "
-                    + " from project_phase "
-                    + "where project_id = ?");
+                       + " from project_phase "
+                       + "where project_id = ?");
             ps.setLong(1, projectId);
 
             rs = ps.executeQuery();
@@ -253,8 +268,8 @@ public class RBoardApplicationBean extends BaseEJB {
         PreparedStatement ps = null;
         try {
             ps = conn.prepareStatement("INSERT INTO resource " +
-                    "(resource_id, resource_role_id, project_id, project_phase_id, create_user, create_date, modify_user, modify_date) " +
-                    "VALUES (?, ?, ?, ?, ?, CURRENT, ?, CURRENT)");
+                       "(resource_id, resource_role_id, project_id, project_phase_id, create_user, create_date, modify_user, modify_date) " +
+                       "VALUES (?, ?, ?, ?, ?, CURRENT, ?, CURRENT)");
 
 
             int index = 1;
@@ -269,8 +284,8 @@ public class RBoardApplicationBean extends BaseEJB {
 
             // External Reference ID
             ps = conn.prepareStatement("INSERT INTO resource_info " +
-                    "(resource_id, resource_info_type_id, value, create_user, create_date, modify_user, modify_date) " +
-                    " VALUES (?, ?, ?, ?, CURRENT, ?, CURRENT)");
+                       "(resource_id, resource_info_type_id, value, create_user, create_date, modify_user, modify_date) " +
+                       " VALUES (?, ?, ?, ?, CURRENT, ?, CURRENT)");
             index = 1;
             ps.setLong(index++, resourceId);
             ps.setLong(index++, RESOURCE_INFO_TYPE_EXTERNAL_ID); // External Reference ID 1
@@ -322,7 +337,7 @@ public class RBoardApplicationBean extends BaseEJB {
     private static final String SELECT_HANDLER = "SELECT handle FROM USER WHERE user_id = ? ";
 
     private String getUserHandleInfo(Connection conn, long userID)
-            throws SQLException {
+    throws SQLException {
         PreparedStatement pstmt = conn.prepareStatement(SELECT_HANDLER);
         pstmt.setLong(1, userID);
 
@@ -397,26 +412,26 @@ public class RBoardApplicationBean extends BaseEJB {
             validateUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId, primary);
 
             insert(conn, "rboard_application",
-                    new String[]{"user_id", "project_id", "phase_id", "review_resp_id", "primary_ind"},
-                    new String[]{String.valueOf(userId), String.valueOf(projectId),
-                            String.valueOf(phaseId), String.valueOf(reviewRespId),
-                            String.valueOf(primary ? 1 : 0)});
+           new String[]{"user_id", "project_id", "phase_id", "review_resp_id", "primary_ind"},
+           new String[]{String.valueOf(userId), String.valueOf(projectId),
+                String.valueOf(phaseId), String.valueOf(reviewRespId),
+                String.valueOf(primary ? 1 : 0)});
 
             // insert common review role
             int roleId = REVIEWER_ROLE;
             switch (reviewRespId) {
-                case 1:
-                    roleId = STRESS_REVIEWER_ROLE;
-                    break;
-                case 2:
-                    roleId = FAILURE_REVIEWER_ROLE;
-                    break;
-                case 3:
-                    roleId = ACCURACY_REVIWER_ROLE;
-                    break;
-                case 4:
-                    roleId = REVIEWER_ROLE;
-                    break;
+        case 1:
+        roleId = STRESS_REVIEWER_ROLE;
+        break;
+        case 2:
+        roleId = FAILURE_REVIEWER_ROLE;
+        break;
+        case 3:
+        roleId = ACCURACY_REVIWER_ROLE;
+        break;
+        case 4:
+        roleId = REVIEWER_ROLE;
+        break;
             }
             Map phaseInfos = getPhaseInfo(projectId, conn);
             String pid = (String) phaseInfos.get(String.valueOf(REVIEW_PHASE));
@@ -479,8 +494,8 @@ public class RBoardApplicationBean extends BaseEJB {
                            int phaseId) {
         try {
             selectLong(conn, "rboard_application", "user_id",
-                    new String[]{"user_id", "project_id", "phase_id"},
-                    new String[]{String.valueOf(userId), String.valueOf(projectId), String.valueOf(phaseId)});
+               new String[]{"user_id", "project_id", "phase_id"},
+               new String[]{String.valueOf(userId), String.valueOf(projectId), String.valueOf(phaseId)});
         } catch (RowNotFoundException e) {
             return false;
         }
@@ -497,37 +512,52 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private ResultSetContainer getReviewers(Connection conn, long projectId, int phaseId) {
         return selectSet("rboard_application",
-                new String[]{"user_id", "review_resp_id", "primary_ind", "create_date"},
-                new String[]{"project_id"},
-                new String[]{String.valueOf(projectId)},
-                conn);
+             new String[]{"user_id", "review_resp_id", "primary_ind", "create_date"},
+             new String[]{"project_id"},
+             new String[]{String.valueOf(projectId)},
+             conn);
     }
 
     /**
-     * Retrieves the last timestamp when a reviewer signed up for a review position
+     * Retrieves the time a reviewer should wait before being able to apply to a project.
+     *
+     * For every active project (defined as a project the reviewer has signed up for that
+     * is active and without a finished review), the reviewer gets a compounded delay of
+     * APPLICATION_DELAY_PER_ACTIVE_PROJECT.
      *
      * @param conn   the connection being used
      * @param userId the user id to inspect
-     * @return the timestamp of the last sign up
+     * @return the time to wait in milliseconds
      */
-    private Timestamp getLatestReviewApplicationTimestamp(Connection conn, long userId) {
+    private long getApplicationDelay(Connection conn, long userId) {
+    log.debug("getApplicationDelay(Connection conn, long userId) called...");
 
-        log.debug("getLatestReviewApplicationTimestamp called...");
-
-        StringBuffer query = new StringBuffer(200);
-        query.append("select create_date from rboard_application where user_id = ?");
-        query.append(" order by create_date desc");
+    final String query =
+        "select count(*) as active_projects " +
+        "  from project p " +
+        "     , project_phase pp_review " +
+        "     , resource r " +
+        "     , resource_info ri_userid " +
+        " where p.project_status_id = 1 " +
+        "   and p.project_id = pp_review.project_id " +
+        "   and pp_review.phase_type_id = 4 " +
+        "   and pp_review.phase_status_id != 3 " +
+        "   and p.project_id = r.project_id " +
+        "   and r.resource_role_id in (4, 5, 6, 7) " +
+        "   and r.resource_id = ri_userid.resource_id " +
+        "   and ri_userid.resource_info_type_id = 1 " +
+        "   and ri_userid.value = ? ";
 
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Timestamp ret = null;
+        int activeProjects = 0;
         try {
-            ps = conn.prepareStatement(query.toString());
+            ps = conn.prepareStatement(query);
             ps.setLong(1, userId);
 
             rs = ps.executeQuery();
             if (rs.next()) {
-                ret = rs.getTimestamp("create_date");
+                activeProjects = rs.getInt("active_projects");
             }
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
@@ -536,24 +566,27 @@ public class RBoardApplicationBean extends BaseEJB {
             close(rs);
             close(ps);
         }
-        return ret;
+        return activeProjects * APPLICATION_DELAY_PER_ACTIVE_PROJECT;
     }
 
     /**
-     * Retrieves the last timestamp when a reviewer signed up for a review position
+     * Retrieves the time a reviewer should wait before being able to apply to a project.
      *
-     * @param dataSource the datasuorce being used
+     * For every active project (defined as a project the reviewer has signed up for that
+     * is active and without a finished review), the reviewer gets a compounded delay of
+     * APPLICATION_DELAY_PER_ACTIVE_PROJECT.
+     *
+     * @param dataSource the datasource being used
      * @param userId     the user id to inspect
-     * @return the timestamp for the last signup
+     * @return the time to wait in milliseconds
      */
-    public Timestamp getLatestReviewApplicationTimestamp(String dataSource, long userId) {
-
-        log.debug("getLatestReviewApplicationTimestamp called...");
+    public long getApplicationDelay(String dataSource, long userId) {
+    log.debug("getApplicationDelay(String dataSource, long userId) called...");
 
         Connection conn = null;
         try {
             conn = DBMS.getConnection(dataSource);
-            return getLatestReviewApplicationTimestamp(conn, userId);
+            return getApplicationDelay(conn, userId);
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
             throw new EJBException(e);
@@ -608,7 +641,7 @@ public class RBoardApplicationBean extends BaseEJB {
             }
 
             if (!reviewRespMap.containsKey(new Integer(reviewTypeId)) ||
-                    !reviewRespMap.get(new Integer(reviewTypeId)).equals(new Integer(phaseId))) {
+        !reviewRespMap.get(new Integer(reviewTypeId)).equals(new Integer(phaseId))) {
                 throw new RBoardRegistrationException("Invalid request, incorrect review position specified.");
             }
         } catch (SQLException sqle) {
@@ -630,7 +663,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param primary      true if the position if for primary reviewer
      */
     public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary)
-            throws RBoardRegistrationException {
+    throws RBoardRegistrationException {
 
         log.debug("validateUser called...");
 
@@ -666,7 +699,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param primary      true if the position if for primary reviewer
      */
     private void validateUserTrans(Connection conn, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary)
-            throws RBoardRegistrationException {
+    throws RBoardRegistrationException {
 
         if (exists(conn, userId, projectId, phaseId)) {
             throw new RBoardRegistrationException("You have already applied to review this project.");
@@ -674,15 +707,15 @@ public class RBoardApplicationBean extends BaseEJB {
 
         if (opensOn.getTime() > System.currentTimeMillis()) {
             throw new RBoardRegistrationException("Sorry, this project is not open for review yet.  "
-                    + "You will need to wait until "
-                    + timeStampToString(opensOn));
+                          + "You will need to wait until "
+                          + timeStampToString(opensOn));
         }
 
-        Timestamp lastReviewApp = getLatestReviewApplicationTimestamp(conn, userId);
-        if (lastReviewApp != null && System.currentTimeMillis() < lastReviewApp.getTime() + RBoardApplication.APPLICATION_DELAY) {
-            throw new RBoardRegistrationException("Sorry, you can not apply for a new review yet.  "
-                    + "You will need to wait until "
-                    + timeStampToString(new Timestamp(lastReviewApp.getTime() + RBoardApplication.APPLICATION_DELAY)));
+    long applicationDelay = getApplicationDelay(conn, userId);
+        if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
+            throw new RBoardRegistrationException("Sorry, you can not apply for this review yet.  "
+                          + "You will need to wait until "
+                          + timeStampToString(new Timestamp(opensOn.getTime() + applicationDelay)));
         }
 
         ResultSetContainer reviewers = getReviewers(conn, projectId, phaseId);
@@ -710,7 +743,7 @@ public class RBoardApplicationBean extends BaseEJB {
             // If somebody came in by constructing the URL, make sure this is consistent too.
             if (primary != (reviewTypeId == 2)) {
                 throw new RBoardRegistrationException("Sorry, there was an error in the application"
-                        + " (primary reviewers must be failure reviewers, and vice versa).");
+                              + " (primary reviewers must be failure reviewers, and vice versa).");
             }
         } else {
             // Design.
@@ -770,10 +803,10 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private long getCatalogId(Connection conn, long categoryId) throws RowNotFoundException {
         return selectLong(conn,
-                "category_catalog",
-                "catalog_id",
-                new String[]{"category_id"},
-                new String[]{String.valueOf(categoryId)}).intValue();
+              "category_catalog",
+              "catalog_id",
+              new String[]{"category_id"},
+              new String[]{String.valueOf(categoryId)}).intValue();
     }
 
     /**
@@ -803,11 +836,11 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private long getStatus(Connection conn, long userId, int projectType, long catalogId) throws RowNotFoundException {
         return selectLong(conn,
-                "rboard_user",
-                "status_id",
-                new String[]{"user_id", "project_type_id", "catalog_id"},
-                new String[]{String.valueOf(userId), String.valueOf(projectType),
-                        String.valueOf(catalogId)}).intValue();
+              "rboard_user",
+              "status_id",
+              new String[]{"user_id", "project_type_id", "catalog_id"},
+              new String[]{String.valueOf(userId), String.valueOf(projectType),
+                       String.valueOf(catalogId)}).intValue();
     }
 
     /**

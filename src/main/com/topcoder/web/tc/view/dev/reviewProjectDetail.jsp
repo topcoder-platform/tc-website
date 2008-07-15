@@ -3,6 +3,7 @@
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.dataAccess.resultSet.TCTimestampResult,
+                 com.topcoder.common.web.util.DateTime,
                  com.topcoder.web.tc.model.ReviewBoardApplication,
                  com.topcoder.web.tc.Constants,
                  java.sql.Timestamp,
@@ -14,6 +15,9 @@
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail"); %>
 <% List reviewerList = (List) request.getAttribute("reviewerList"); %>
 <% boolean isWaiting = ((Boolean) request.getAttribute("waitingToReview")).booleanValue();%>
+<% Timestamp waitingUntil = (Timestamp) request.getAttribute("waitingUntil"); %>
+<% int applicationDelayHours = ((Integer) request.getAttribute("applicationDelayHours")).intValue(); %>
+<% int applicationDelayMinutes = ((Integer) request.getAttribute("applicationDelayMinutes")).intValue(); %>
 <head>
 <title>Open Component Projects Available for Review</title>
 
@@ -153,7 +157,7 @@
                             <% } else if (((ReviewBoardApplication) reviewer).isSpotFilled()) { %>
                                 <tc-webtag:handle coderId="<%=((ReviewBoardApplication)reviewer).getUserId()%>" context='<%=((ReviewBoardApplication)reviewer).getPhaseId()==112?"design":"development"%>'/>
                             <% } else if (isWaiting) { %>
-                                <i>Waiting ****</i>
+                                <i>Waiting until <%= DateTime.timeStampToArbitraryString(waitingUntil, "MM.dd.yyyy hh:mm a") %> ****</i>
                             <% } else { %>
                                 <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PROJECT_ID%>=<tc:beanWrite name="reviewer" property="projectId"/>&<%=Constants.PHASE_ID%>=<%=phase_id%>&<%=Constants.PRIMARY_FLAG%>=<%=((ReviewBoardApplication)reviewer).isPrimary()%>&<%=Constants.REVIEWER_TYPE_ID%>=<tc:beanWrite name="reviewer" property="reviewerTypeId"/>">Apply Now</a> **
                             <% } %>
@@ -180,13 +184,22 @@
                 </tr>
                 <tr>
                     <td class="bodyText">
-                    <p align="left">*** Review positions for new projects become open 24 hours after the project starts.</p>
+                        <p align="left">*** Review positions for new projects become open after the project starts.</p>
                     </td>
                 </tr>
+<% if (applicationDelayHours > 0 || applicationDelayMinutes > 0) { %>
                 <tr>
                     <td class="bodyText">
-                    <p align="left">**** You may only apply for a new component review every six hours..</p>
-                    <p align="left"><a href="/tc?module=ViewReviewProjects&amp;<%=Constants.PHASE_ID%>=<%=phase_id%>">View all projects</a></p>
+                        <p align="left">
+                            **** Due to your existing review commitments, review positions open for you <%= applicationDelayHours %> hours and
+                            <%= applicationDelayMinutes %> minutes after a project opens for registration.
+                        </p>
+                    </td>
+                </tr>
+<% } %>
+                <tr>
+                    <td class="bodyText">
+                        <p align="left"><a href="/tc?module=ViewReviewProjects&amp;<%=Constants.PHASE_ID%>=<%=phase_id%>">View all projects</a></p>
                     </td>
                 </tr>
             </table>
