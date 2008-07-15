@@ -333,97 +333,97 @@ public class ViewLeaderBoard extends BaseProcessor {
         /**
          * @return the trackId
          */
-        protected int getTrackId() {
+        public int getTrackId() {
             return trackId;
         }
         /**
          * @param trackId the trackId to set
          */
-        protected void setTrackId(int trackId) {
+        public void setTrackId(int trackId) {
             this.trackId = trackId;
         }
         /**
          * @return the trackStatusId
          */
-        protected int getTrackStatusId() {
+        public int getTrackStatusId() {
             return trackStatusId;
         }
         /**
          * @param trackStatusId the trackStatusId to set
          */
-        protected void setTrackStatusId(int trackStatusId) {
+        public void setTrackStatusId(int trackStatusId) {
             this.trackStatusId = trackStatusId;
         }
         /**
          * @return the trackStatusDesc
          */
-        protected String getTrackStatusDesc() {
+        public String getTrackStatusDesc() {
             return trackStatusDesc;
         }
         /**
          * @param trackStatusDesc the trackStatusDesc to set
          */
-        protected void setTrackStatusDesc(String trackStatusDesc) {
+        public void setTrackStatusDesc(String trackStatusDesc) {
             this.trackStatusDesc = trackStatusDesc;
         }
         /**
          * @return the trackDesc
          */
-        protected String getTrackDesc() {
+        public String getTrackDesc() {
             return trackDesc;
         }
         /**
          * @param trackDesc the trackDesc to set
          */
-        protected void setTrackDesc(String trackDesc) {
+        public void setTrackDesc(String trackDesc) {
             this.trackDesc = trackDesc;
         }
         /**
          * @return the trackStartDate
          */
-        protected Timestamp getTrackStartDate() {
+        public Timestamp getTrackStartDate() {
             return trackStartDate;
         }
         /**
          * @param trackStartDate the trackStartDate to set
          */
-        protected void setTrackStartDate(Timestamp trackStartDate) {
+        public void setTrackStartDate(Timestamp trackStartDate) {
             this.trackStartDate = trackStartDate;
         }
         /**
          * @return the trackEndDate
          */
-        protected Timestamp getTrackEndDate() {
+        public Timestamp getTrackEndDate() {
             return trackEndDate;
         }
         /**
          * @param trackEndDate the trackEndDate to set
          */
-        protected void setTrackEndDate(Timestamp trackEndDate) {
+        public void setTrackEndDate(Timestamp trackEndDate) {
             this.trackEndDate = trackEndDate;
         }
         /**
          * @return the trackTypeId
          */
-        protected int getTrackTypeId() {
+        public int getTrackTypeId() {
             return trackTypeId;
         }
         /**
          * @param trackTypeId the trackTypeId to set
          */
-        protected void setTrackTypeId(int trackTypeId) {
+        public void setTrackTypeId(int trackTypeId) {
             this.trackTypeId = trackTypeId;
         }
         /**
          * @return the trackTypeDesc
          */
-        protected String getTrackTypeDesc() {
+        public String getTrackTypeDesc() {
             return trackTypeDesc;
         }
         /**
          * @param trackTypeDesc the trackTypeDesc to set
          */
-        protected void setTrackTypeDesc(String trackTypeDesc) {
+        public void setTrackTypeDesc(String trackTypeDesc) {
             this.trackTypeDesc = trackTypeDesc;
         }
     }
