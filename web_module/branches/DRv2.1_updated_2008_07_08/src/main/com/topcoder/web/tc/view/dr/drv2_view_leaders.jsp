@@ -82,6 +82,25 @@
         <jsp:param name="title" value="${trackInfo.trackDesc} Leaderboard"/>
     </jsp:include>
 
+    <div class="fixedWidthBody">
+        <div style="float:right; text-align:left; white-space: nowrap;">
+            <a href="/stat?c=top_designers" class="bcLink">Top Ranked Designers</a><br />
+            <a href="/stat?c=top_developers" class="bcLink">Top Ranked Developers</a>
+        </div>
+    <c:choose>
+        <c:when test="${isDevelopment}">
+            <a href="/tc?&amp;module=ViewLeaderBoard&amp;tid=${concurrentTrack}" class="bcLink">Design Cup Series Leaderboard</a><br />
+            Development Cup Series Leaderboard</a><br />
+        </c:when>
+        <c:when test="${isDesign}">
+            Design Cup Series Leaderboard<br />
+            <a href="/tc?&amp;module=ViewLeaderBoard&amp;tid=${concurrentTrack}" class="bcLink">Development Cup Series Leaderboard</a><br />
+        </c:when>
+    </c:choose>
+</div>
+
+<br /><br />
+
 
 <form name="leaderBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewLeaderBoard"/>

@@ -91,7 +91,9 @@ public class ViewLeaderBoard extends BaseProcessor {
         // Sort and crop the list
         sortResult(results, sortCol, invert);
         List<IBoardRow> cropped = cropResult(results, startRank, numRecords);
-        
+
+        getRequest().setAttribute("concurrentTrack",  getConcurrentTrack(trackId, trackInfo.getTrackTypeId());  // design type
+
         getRequest().setAttribute("hasRookieCompetition", Boolean.FALSE);
         getRequest().setAttribute("results", cropped);
         getRequest().setAttribute("topTripWinners", 1);
@@ -105,6 +107,27 @@ public class ViewLeaderBoard extends BaseProcessor {
 
         setNextPage("/dr/drv2_view_leaders.jsp");
         setIsNextPageInContext(true);        
+    }
+
+
+    private Object getConcurrentTrack(int trackId, int trackTypeId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("dr_concurrent_track");
+        r.setProperty(Constants.TRACK_TYPE_ID, String.valueOf((trackTypeId == 1) ? 2 : 1));
+        r.setProperty(Constants.TRACK_ID, String.valueOf(trackId));
+        DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME); 
+        Map m = null;
+        try {
+            m = dai.getData(r);
+        } catch (Exception e) {
+            throw new TCWebException("Command dr_concurrent_track failed.");
+        }
+        ResultSetContainer rsc = (ResultSetContainer) m.get("dr_concurrent_track");
+        if (rsc.size() != 1) {
+            throw new TCWebException("Command dr_concurrent_track failed.");
+        }
+        
+        return rsc.getIntItem(0, "track_id"); 
     }
 
 
