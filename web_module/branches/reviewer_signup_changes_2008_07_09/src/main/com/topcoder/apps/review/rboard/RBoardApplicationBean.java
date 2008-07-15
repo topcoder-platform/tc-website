@@ -109,7 +109,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * For every active project a reviewer has, they get a compounded delay to sign up
      * to new projects that is equal to this value in milliseconds.
      */
-    private static final int APPLICATION_DELAY_PER_ACTIVE_PROJECT = 3 * 60 * 60 * 1000;
+    private static final int APPLICATION_DELAY_PER_ACTIVE_PROJECT = 6 * 60 * 60 * 1000;
 
     private static final String RESOURCE_ID_SEQ = "resource_id_seq";
 

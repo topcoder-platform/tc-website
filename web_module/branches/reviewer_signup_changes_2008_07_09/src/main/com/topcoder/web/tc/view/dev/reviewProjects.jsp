@@ -266,8 +266,8 @@
             <br />
 <% if (applicationDelayHours > 0 || applicationDelayMinutes > 0) { %>
             <p>
-              Due to your existing review commitments, review positions open for you <%= applicationDelayHours %>h
-              <%= applicationDelayMinutes %>m after a project opens for registration.
+              Due to your existing review commitments, review positions open for you <%= applicationDelayHours %> hours and
+              <%= applicationDelayMinutes %> minutes after a project opens for registration.
 	    </p>
 <% } %>
             <p>Please note that custom components do not get added to the catalog and therefore do not have royalties.</p>

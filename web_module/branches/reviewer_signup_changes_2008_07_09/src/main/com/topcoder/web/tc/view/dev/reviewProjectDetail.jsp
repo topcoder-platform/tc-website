@@ -191,8 +191,8 @@
                 <tr>
                     <td class="bodyText">
                         <p align="left">
-                            **** Due to your existing review commitments, review positions open for you <%= applicationDelayHours %>h
-                            <%= applicationDelayMinutes %>m after a project opens for registration.
+                            **** Due to your existing review commitments, review positions open for you <%= applicationDelayHours %> hours and
+                            <%= applicationDelayMinutes %> minutes after a project opens for registration.
                         </p>
                     </td>
                 </tr>
