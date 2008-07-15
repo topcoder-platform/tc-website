@@ -1504,6 +1504,7 @@ public class TCLoadTCS extends TCLoad {
 
                         // This is just for now so that project_result is not messed up with new DR 2.0 points
                         //hasDR = false;
+                        hasDR = true;
 
                         // search for tracks where it belongs:
                         List<Track> tracks = getTracksForProject(activeTracks, projectResults.getInt("project_category_id"), projectResults.getTimestamp("posting_date"));
