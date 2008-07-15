@@ -89,12 +89,12 @@
         </div>
     <c:choose>
         <c:when test="${isDevelopment}">
-            <a href="/tc?&amp;module=ViewLeaderBoard&amp;tid=${concurrentTrack}" class="bcLink">Design Cup Series Leaderboard</a><br />
+            <a href="/dr?&amp;module=ViewLeaderBoard&amp;tid=${concurrentTrack}" class="bcLink">Design Cup Series Leaderboard</a><br />
             Development Cup Series Leaderboard</a><br />
         </c:when>
         <c:when test="${isDesign}">
             Design Cup Series Leaderboard<br />
-            <a href="/tc?&amp;module=ViewLeaderBoard&amp;tid=${concurrentTrack}" class="bcLink">Development Cup Series Leaderboard</a><br />
+            <a href="/dr?&amp;module=ViewLeaderBoard&amp;tid=${concurrentTrack}" class="bcLink">Development Cup Series Leaderboard</a><br />
         </c:when>
     </c:choose>
 </div>
