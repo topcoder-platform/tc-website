@@ -85,7 +85,6 @@
 
 <form name="leaderBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewLeaderBoard"/>
-<tc-webtag:hiddenInput name="<%=Constants.TRACK_ID%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
