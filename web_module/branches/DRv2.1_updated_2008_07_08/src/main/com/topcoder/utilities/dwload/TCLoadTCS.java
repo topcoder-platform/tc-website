@@ -149,7 +149,7 @@ public class TCLoadTCS extends TCLoad {
 
             fStartTime = new java.sql.Timestamp(System.currentTimeMillis());
             getLastUpdateTime();
-
+/*
             doLoadReviewResp();
 
             doLoadEvent();
@@ -168,10 +168,10 @@ public class TCLoadTCS extends TCLoad {
 
             //load submission review before project result because the project result load will use the submission review table
             doLoadSubmissionReview();
-
+*/
 
             doLoadProjectResults();
-
+/*
 //            doLoadRookies();
 
             doLoadSubmissionScreening();
@@ -222,6 +222,8 @@ public class TCLoadTCS extends TCLoad {
             doLoadStage();
 
             doLoadStageResults();
+            */
+            
             doLoadDRTracks();
 
             doLoadDRTrackContests();
