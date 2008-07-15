@@ -4,6 +4,32 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />07.15.08<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">Marathon Matches added to Event Calendar</a></span><br /><br />
+        Marathon Matches have been added to the Event Calendar through December.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">details</a> | 
+        <tc-webtag:forumLink forumID="522253" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />07.15.08<br />12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisignChat20080710">VeriSign SRM 409 Chat Transcript Available</a></span><br /><br />
+        VeriSign representatives met with members in the Arena to discuss DDoS Threats and Mitigation Strategies. Check it out!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisignChat20080710">details</a> | 
+        <tc-webtag:forumLink forumID="522252" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.14.08<br />12:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -143,36 +169,3 @@
         <tc-webtag:forumLink forumID="522020" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=alg_index">archive</a>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.01.08<br />5:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm407">SRM 407 - Problem Set &amp; Analysis</a></span><br /><br />
-      This round match attracted 1374 coders, 584 Div1 and 790 Div2. In Div1 most of the coders successfully submitted easy and medium in first 30 minutes and spent all the remaining time for solving the hard. <tc-webtag:handle coderId="22653044" context="algorithm"/> got the first place with the fastest submission for the hard.</td>
-         <td class="newsPhoto"><img src="/i/m/Gluk_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8433628" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm407">details</a> | 
-        <tc-webtag:forumLink forumID="521832" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.01.08<br />3:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm406">SRM 406 - Problem Set &amp; Analysis</a></span><br /><br />
-      SRM 406 proved to be rather difficult for both divisions, which had completely disjoint problem sets. <tc-webtag:handle coderId="14768757" context="algorithm"/> won his second SRM with the help of 150 challenge points, allowing him to pass up TCO '08 champion <tc-webtag:handle coderId="144400" context="algorithm"/>, whose hard problem failed the system tests.</td>
-         <td class="newsPhoto"><img src="/i/m/eleusive_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8369955" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm406">details</a> | 
-        <tc-webtag:forumLink forumID="521679" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
