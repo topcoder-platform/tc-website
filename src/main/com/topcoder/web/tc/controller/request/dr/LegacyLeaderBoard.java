@@ -25,7 +25,7 @@ import com.topcoder.web.tc.model.dr.LeaderBoardRow;
  * @author pulky, cucu
  * @version 1.0.3
  */
-public class LeaderBoard extends BaseBoard {
+public class LegacyLeaderBoard extends BaseBoard {
 
     
     
