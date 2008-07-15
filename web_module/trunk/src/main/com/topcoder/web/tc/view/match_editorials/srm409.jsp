@@ -569,7 +569,7 @@ the exact value to find it's divisors.</p>
 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9 * 10 * 11 * 12 * 13
     X       X       X       X        X         X
             X               X                  X
-                    X
+                            X
 </pre><p>You can notice the pattern, every second number adds 1 to the result, every fourth number adds additional 1, and so on for higher powers. 
 The same thing happens for other prime factors, for example for 3:</p>
 <pre>
