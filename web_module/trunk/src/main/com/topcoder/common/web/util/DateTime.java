@@ -49,28 +49,20 @@ public final class DateTime {
         return result;
     }
 
-
     public static final String timeStampToString(java.sql.Timestamp timeStamp) {
-        String result = null;
-        if (timeStamp != null) {
-            SimpleDateFormat dateFormat = new SimpleDateFormat(LONG_DATE_FORMAT);
-            dateFormat.setLenient(false);
-            StringBuffer buffer = new StringBuffer(LONG_DATE_FORMAT.length());
-            buffer = dateFormat.format(timeStamp, buffer, new FieldPosition(0));
-            if (buffer != null) {
-                result = buffer.toString();
-            }
-        }
-        return result;
+    return timeStampToArbitraryString(timeStamp, LONG_DATE_FORMAT);
     }
-
 
     public static final String timeStampToShortString(java.sql.Timestamp timeStamp) {
-        String result = null;
-        if (timeStamp != null) {
-            SimpleDateFormat dateFormat = new SimpleDateFormat(SHORT_DATE_FORMAT);
+    return timeStampToArbitraryString(timeStamp, SHORT_DATE_FORMAT);
+    }
+
+    public static final String timeStampToArbitraryString(java.sql.Timestamp timeStamp, String format) {
+    String result = null;
+        if (timeStamp != null && format != null) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat(format);
             dateFormat.setLenient(false);
-            StringBuffer buffer = new StringBuffer(SHORT_DATE_FORMAT.length());
+            StringBuffer buffer = new StringBuffer(format.length());
             buffer = dateFormat.format(timeStamp, buffer, new FieldPosition(0));
             if (buffer != null) {
                 result = buffer.toString();
@@ -78,7 +70,6 @@ public final class DateTime {
         }
         return result;
     }
-
 
     public static String dateToString(java.sql.Date date) {
         String result = null;

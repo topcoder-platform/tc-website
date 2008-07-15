@@ -7,6 +7,7 @@ import com.topcoder.apps.review.rboard.RBoardApplication;
 import com.topcoder.common.web.util.DateTime;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.TCTimestampResult;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -27,10 +28,16 @@ import java.util.Iterator;
  * RBoard related tasks were moved to a tcs bean.
  * </li>
  * </ol>
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Changed review registration to use the new variable application delay.
+ * </li>
+ * </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.0.1
+ * @author dok, pulky, ivern
+ * @version 1.0.2
  */
 public class ViewReviewProjects extends ReviewProjectDetail {
 
@@ -50,7 +57,15 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             getRequest().setAttribute("projectList", rsc);
 
             ResultSetContainer.ResultSetRow rsr = null;
+
             ArrayList prices = new ArrayList();
+        ArrayList<Boolean> waitingToReview = new ArrayList<Boolean>();
+        ArrayList<Timestamp> waitingUntil = new ArrayList<Timestamp>();
+
+        RBoardApplication rba = createRBoardApplication();
+
+        long applicationDelay = rba.getApplicationDelay(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
+
             for (Iterator it = rsc.iterator(); it.hasNext();) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 //we don't really care what the reviewer type nor review responsibility, we really just want to know
@@ -63,19 +78,24 @@ public class ViewReviewProjects extends ReviewProjectDetail {
                     prices.add(makeApp("", rsr.getIntItem("submission_count"), rsr.getIntItem("submission_passed_screening_count"),
                             rsr.getIntItem("phase_id"), rsr.getIntItem("level_id"), rsr.getLongItem("project_id"), 0).getComponent());
                 }
-            }
-            getRequest().setAttribute("prices", prices);
 
-            RBoardApplication rba = createRBoardApplication();
-            Timestamp ts = rba.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
-            if (ts != null && System.currentTimeMillis() < ts.getTime() + RBoardApplication.APPLICATION_DELAY) {
-                getRequest().setAttribute("waitingToReview", Boolean.TRUE);
-                getRequest().setAttribute("waitingUntil",
-                        DateTime.timeStampToString(new Timestamp(ts.getTime() + RBoardApplication.APPLICATION_DELAY)));
-            } else {
-                getRequest().setAttribute("waitingToReview", Boolean.FALSE);
-                getRequest().setAttribute("waitingUntil", new String(""));
+        Timestamp opensOn = (Timestamp) ((TCTimestampResult) rsr.getItem("opens_on")).getResultData();
+
+        if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
+            waitingToReview.add(Boolean.TRUE);
+            waitingUntil.add(new Timestamp(opensOn.getTime() + applicationDelay));
+        } else {
+            waitingToReview.add(Boolean.FALSE);
+            waitingUntil.add(new Timestamp(0));
+        }
             }
+
+            getRequest().setAttribute("prices", prices);
+        getRequest().setAttribute("waitingToReview", waitingToReview);
+        getRequest().setAttribute("waitingUntil", waitingUntil);
+
+        getRequest().setAttribute("applicationDelayHours", new Integer((int) (applicationDelay / (1000 * 60 * 60))));
+        getRequest().setAttribute("applicationDelayMinutes", new Integer((int) ((applicationDelay % (1000 * 60 * 60)) / (1000 * 60))));
 
             //getRequest().setAttribute("tournamentProjectList", getDataAccess().getData(r).get("tournament_review_projects"));
         } catch (TCWebException e) {

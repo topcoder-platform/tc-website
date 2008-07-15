@@ -3,20 +3,24 @@
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.dataAccess.resultSet.TCTimestampResult,
+                 com.topcoder.common.web.util.DateTime,
                  com.topcoder.web.tc.Constants,
                  com.topcoder.web.common.model.SoftwareComponent,
                  com.topcoder.web.tc.model.ReviewBoardApplication,
                  java.sql.Timestamp,
+                 java.util.ArrayList,
                  java.util.List"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
-<% boolean isWaiting = ((Boolean) request.getAttribute("waitingToReview")).booleanValue(); %>
-<% String waitingUntil = (String) request.getAttribute("waitingUntil"); %>
+<% ArrayList<Boolean> waitingToReview = (ArrayList<Boolean>) request.getAttribute("waitingToReview"); %>
+<% ArrayList<Timestamp> waitingUntil = (ArrayList<Timestamp>) request.getAttribute("waitingUntil"); %>
 <% List prices = (List)request.getAttribute("prices");%>
 <% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
 <% int phase_id = ((Integer)request.getAttribute("phase_id")).intValue(); %>
 <% boolean design = phase_id == SoftwareComponent.DESIGN_PHASE; %>
+<% int applicationDelayHours = ((Integer) request.getAttribute("applicationDelayHours")).intValue(); %>
+<% int applicationDelayMinutes = ((Integer) request.getAttribute("applicationDelayMinutes")).intValue(); %>
 <%--<% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>--%>
 
 <%--<% ResultSetContainer tournamentProjectList = (ResultSetContainer)request.getAttribute("tournamentProjectList");%>--%>
@@ -64,13 +68,7 @@
             <p>If you are not currently on the TopCoder Architect or Development Review Boards you may send an email to <A href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</A> requesting permission to perform reviews. Please keep in mind only members that have completed component projects are eligible to join the TopCoder Review boards.</p>
             <p>In order to sign up for a review position, click on the "details" link for any component with positions available, and then select "Apply Now" next to the position that you would like to commit to.</p>
 
-            <br>
-
-            <% if (isWaiting) { %>
-                <p align="center"><b>You may not apply for a new review until <%=waitingUntil%>.</b></p>
-                <br>
-            <% } %>
-
+            <br />
 
 <%
     int devProjectCount = 0;
@@ -96,7 +94,7 @@
       <td class="tableHeader" align="right" nowrap="nowrap">Primary Reviewer<br>Payment</td>
       <td class="tableHeader" align="right">Reviewer<br>Payment</td>
       <td class="tableHeader" align="center">Submissions</td>
-      <td class="tableHeader" align="center">Opens<br>On</td>
+      <td class="tableHeader" align="center">Opens On</td>
       <td class="tableHeader" align="center">Review<br>Start</td>
       <td class="tableHeader" align="center">Review<br>End</td>
       <td class="tableHeader" align="center">Positions<br>Available</td>
@@ -137,8 +135,10 @@
       <td class="statDk" align="right">$<tc:beanWrite name="price" property="PrimaryReviewPrice" format="#,###.00"/></td>
       <td class="statDk" align="right">$<tc:beanWrite name="price" property="ReviewPrice" format="#,###.00"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="submission_passed_screening_count"/></td>
-      <% if (((TCTimestampResult) resultRow.getItem("opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
-      <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="opens_on" format="MM.dd.yyyy"/></td>
+      <% if (waitingToReview.get(i).booleanValue()) { %>
+      <td class="statDk" align="center" nowrap="nowrap">
+    <%= DateTime.timeStampToArbitraryString(waitingUntil.get(i), "MM.dd.yyyy'<br />'hh:mm a") %>
+      </td>
       <% } else { %>
       <td class="statDk" align="center"><i>open</i></td>
       <% } %>
@@ -231,8 +231,10 @@
       <td class="statDk" align="right">$<tc:beanWrite name="price" property="primaryReviewPrice" format="#,###.00"/></td>
       <td class="statDk" align="right">$<tc:beanWrite name="price" property="reviewPrice" format="#,###.00"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
-      <% if (((TCTimestampResult) resultRow.getItem("opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
-      <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="opens_on" format="MM.dd.yyyy"/></td>
+      <% if (waitingToReview.get(j).booleanValue()) { %>
+      <td class="statDk" align="center" nowrap="nowrap">
+    <%= DateTime.timeStampToArbitraryString(waitingUntil.get(j), "MM.dd.yyyy'<br />'hh:mm a") %>
+      </td>
       <% } else { %>
       <td class="statDk" align="center"><i>open</i></td>
       <% } %>
@@ -261,10 +263,15 @@
             <p align="center">Sorry, there are currently no review positions available.</p>
             <br />
 <% } else { %>
-            <br>
-            <p>Review positions for new projects become open 24 hours after the project starts.</p>
+            <br />
+<% if (applicationDelayHours > 0 || applicationDelayMinutes > 0) { %>
+            <p>
+              Due to your existing review commitments, review positions open for you <%= applicationDelayHours %> hours and
+              <%= applicationDelayMinutes %> minutes after a project opens for registration.
+        </p>
+<% } %>
             <p>Please note that custom components do not get added to the catalog and therefore do not have royalties.</p>
-            <br>
+            <br />
 <% } %>
 
         </td>
