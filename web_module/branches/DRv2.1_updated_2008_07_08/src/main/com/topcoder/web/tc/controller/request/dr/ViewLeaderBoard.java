@@ -92,7 +92,7 @@ public class ViewLeaderBoard extends BaseProcessor {
         sortResult(results, sortCol, invert);
         List<IBoardRow> cropped = cropResult(results, startRank, numRecords);
 
-        getRequest().setAttribute("concurrentTrack",  getConcurrentTrack(trackId, trackInfo.getTrackTypeId());  // design type
+        getRequest().setAttribute("concurrentTrack",  getConcurrentTrack(trackId, trackInfo.getTrackTypeId()));  // design type
 
         getRequest().setAttribute("hasRookieCompetition", Boolean.FALSE);
         getRequest().setAttribute("results", cropped);
