@@ -95,9 +95,9 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
           list="${tracks}" fieldText="track_desc" fieldValue="track_id" useTopValue="false" />
 
 <c:choose>
-<c:when test="${not stageExists}">
+<c:when test="${not trackExists}">
     <br /><br />
-    There are no results for the selected stage.
+    There are no results for the selected track.
 </c:when>
 <c:when test="${not empty results}">
 
@@ -253,7 +253,7 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
 </c:when>
 <c:otherwise>
     <br /><br />
-    The selected stage is underway and results will start coming in soon.
+    The selected track is underway and results will start coming in soon.
 </c:otherwise>
 </c:choose>
 

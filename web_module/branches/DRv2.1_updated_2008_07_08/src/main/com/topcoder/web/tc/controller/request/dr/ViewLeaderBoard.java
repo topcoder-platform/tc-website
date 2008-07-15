@@ -42,17 +42,15 @@ public class ViewLeaderBoard extends BaseProcessor {
    
 
     protected void businessProcessing() throws Exception {
-
         int trackId = -1; 
 
-        if (hasParameter(Constants.TRACK_ID)) {
+        if (!hasParameter(Constants.TRACK_ID)) {
             trackId = Integer.parseInt(getRequest().getParameter(Constants.TRACK_ID));
         }
             
         if (trackId < 0) {
             trackId = getCurrentTrack(1);  // design type
         }
-
         
         int startRank;
         int numRecords;
@@ -97,7 +95,7 @@ public class ViewLeaderBoard extends BaseProcessor {
         getRequest().setAttribute("hasRookieCompetition", Boolean.FALSE);
         getRequest().setAttribute("results", cropped);
         getRequest().setAttribute("topTripWinners", 5);
-        getRequest().setAttribute("stageExists", true);            
+        getRequest().setAttribute("trackExists", true);            
 
         getRequest().setAttribute("isDesign", trackInfo.getTrackTypeId() == 1);
         getRequest().setAttribute("isDevelopment", trackInfo.getTrackTypeId() == 2);
