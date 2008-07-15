@@ -4,12 +4,14 @@
 
 package com.topcoder.web.tc.controller.request.dr;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -19,6 +21,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.IBoardRow;
@@ -36,12 +39,21 @@ public class ViewLeaderBoard extends BaseProcessor {
    private static final String CODER_HANDLE_COLUMN = "2";
    private static final String OUTSTANDING_POINTS_COLUMN = "6";
    private static final String TOTAL_POINTS_COLUMN = "7";
-   public static final int DR_TOP_PERFORMERS_CONTEST_TYPE = 18;
-   public static final int DR_STAGE_CONTEST_TYPE = 19;
-   public static final int DR_ROOKIE_CONTEST_TYPE = 20;
    
 
     protected void businessProcessing() throws Exception {
+
+        int trackId = -1; 
+
+        if (hasParameter(Constants.TRACK_ID)) {
+            trackId = Integer.parseInt(getRequest().getParameter(Constants.TRACK_ID));
+        }
+            
+        if (trackId < 0) {
+            trackId = getCurrentTrack(1);  // design type
+        }
+
+        
         int startRank;
         int numRecords;
 
@@ -68,10 +80,12 @@ public class ViewLeaderBoard extends BaseProcessor {
             startRank = Integer.parseInt(startRankStr);
         }
         
-        int trackId = Integer.parseInt(getRequest().getParameter(Constants.TRACK_ID));
-
         // Get track details from database
-        getTrackDetails(trackId);            
+        TrackInfo trackInfo = getTrackDetails(trackId);            
+        getRequest().setAttribute("trackInfo", trackInfo);
+
+        ResultSetContainer tracks = getTrackList(trackInfo.getTrackTypeId());
+        getRequest().setAttribute("tracks", tracks);
 
         // Get the results from database
         List<LeaderBoardRow> results = getTrackResults(trackId);
@@ -84,12 +98,48 @@ public class ViewLeaderBoard extends BaseProcessor {
         getRequest().setAttribute("results", cropped);
         getRequest().setAttribute("topTripWinners", 5);
         getRequest().setAttribute("stageExists", true);            
-        
+
+        getRequest().setAttribute("isDesign", trackInfo.getTrackTypeId() == 1);
+        getRequest().setAttribute("isDevelopment", trackInfo.getTrackTypeId() == 2);
+
         getRequest().setAttribute(Constants.TRACK_ID, trackId);
         setDefault(Constants.TRACK_ID, trackId);
 
         setNextPage("/dr/drv2_view_leaders.jsp");
         setIsNextPageInContext(true);        
+    }
+
+
+    private int getCurrentTrack(int trackTypeId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("dr_current_track");
+        DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME); 
+        Map m = null;
+        try {
+            m = dai.getData(r);
+        } catch (Exception e) {
+            throw new TCWebException("Command dr_current_track failed.");
+        }
+        ResultSetContainer rsc = (ResultSetContainer) m.get("dr_current_track");
+        if (rsc.size() != 1) {
+            throw new TCWebException("Command dr_current_track failed.");
+        }
+        
+        return rsc.getIntItem(0, "track_id"); 
+    }
+
+
+    private ResultSetContainer getTrackList(int trackTypeId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("dr_track_list");
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME); 
+        Map m = null;
+        try {
+            m = dai.getData(r);
+        } catch (Exception e) {
+            throw new TCWebException("Command dr_track_list failed.");
+        }
+        return (ResultSetContainer) m.get("dr_track_list");
     }
 
 
@@ -128,7 +178,7 @@ public class ViewLeaderBoard extends BaseProcessor {
      * @param trackId
      * @throws Exception
      */
-    private void getTrackDetails(int trackId) throws Exception {
+    private TrackInfo getTrackDetails(int trackId) throws Exception {
         Request r = new Request();
         r.setContentHandle("dr_track_details");
         r.setProperty(Constants.TRACK_ID, String.valueOf(trackId));
@@ -136,15 +186,19 @@ public class ViewLeaderBoard extends BaseProcessor {
         DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME); 
         Map m = dai.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) m.get("dr_track_details");
-            
+        
+        TrackInfo ti = new TrackInfo();
         if (rsc.size() > 0) {
             ResultSetRow row  = rsc.get(0);
-            getRequest().setAttribute("trackStatusId", row.getStringItem("track_status_id"));
-            getRequest().setAttribute("trackStatusDesc", row.getStringItem("track_status_desc"));
-            getRequest().setAttribute("trackDesc", row.getStringItem("track_desc"));
-            getRequest().setAttribute("trackStartDate", row.getStringItem("track_start_date"));
-            getRequest().setAttribute("trackEndDate", row.getStringItem("track_end_date"));
+            ti.setTrackTypeId(row.getIntItem("track_type_id"));
+            ti.setTrackTypeDesc(row.getStringItem("track_type_desc"));
+            ti.setTrackStatusId(row.getIntItem("track_status_id"));
+            ti.setTrackStatusDesc(row.getStringItem("track_status_desc"));
+            ti.setTrackDesc(row.getStringItem("track_desc"));
+            ti.setTrackStartDate(row.getTimestampItem("track_start_date"));
+            ti.setTrackEndDate(row.getTimestampItem("track_end_date"));
         }
+        return ti;
     }
     
     
@@ -265,5 +319,110 @@ public class ViewLeaderBoard extends BaseProcessor {
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
 
-
+    public class TrackInfo {
+        int trackId;
+        int trackTypeId;
+        String trackTypeDesc;
+        int trackStatusId;
+        String trackStatusDesc;
+        String trackDesc;
+        Timestamp trackStartDate;
+        Timestamp trackEndDate;
+        /**
+         * @return the trackId
+         */
+        protected int getTrackId() {
+            return trackId;
+        }
+        /**
+         * @param trackId the trackId to set
+         */
+        protected void setTrackId(int trackId) {
+            this.trackId = trackId;
+        }
+        /**
+         * @return the trackStatusId
+         */
+        protected int getTrackStatusId() {
+            return trackStatusId;
+        }
+        /**
+         * @param trackStatusId the trackStatusId to set
+         */
+        protected void setTrackStatusId(int trackStatusId) {
+            this.trackStatusId = trackStatusId;
+        }
+        /**
+         * @return the trackStatusDesc
+         */
+        protected String getTrackStatusDesc() {
+            return trackStatusDesc;
+        }
+        /**
+         * @param trackStatusDesc the trackStatusDesc to set
+         */
+        protected void setTrackStatusDesc(String trackStatusDesc) {
+            this.trackStatusDesc = trackStatusDesc;
+        }
+        /**
+         * @return the trackDesc
+         */
+        protected String getTrackDesc() {
+            return trackDesc;
+        }
+        /**
+         * @param trackDesc the trackDesc to set
+         */
+        protected void setTrackDesc(String trackDesc) {
+            this.trackDesc = trackDesc;
+        }
+        /**
+         * @return the trackStartDate
+         */
+        protected Timestamp getTrackStartDate() {
+            return trackStartDate;
+        }
+        /**
+         * @param trackStartDate the trackStartDate to set
+         */
+        protected void setTrackStartDate(Timestamp trackStartDate) {
+            this.trackStartDate = trackStartDate;
+        }
+        /**
+         * @return the trackEndDate
+         */
+        protected Timestamp getTrackEndDate() {
+            return trackEndDate;
+        }
+        /**
+         * @param trackEndDate the trackEndDate to set
+         */
+        protected void setTrackEndDate(Timestamp trackEndDate) {
+            this.trackEndDate = trackEndDate;
+        }
+        /**
+         * @return the trackTypeId
+         */
+        protected int getTrackTypeId() {
+            return trackTypeId;
+        }
+        /**
+         * @param trackTypeId the trackTypeId to set
+         */
+        protected void setTrackTypeId(int trackTypeId) {
+            this.trackTypeId = trackTypeId;
+        }
+        /**
+         * @return the trackTypeDesc
+         */
+        protected String getTrackTypeDesc() {
+            return trackTypeDesc;
+        }
+        /**
+         * @param trackTypeDesc the trackTypeDesc to set
+         */
+        protected void setTrackTypeDesc(String trackTypeDesc) {
+            this.trackTypeDesc = trackTypeDesc;
+        }
+    }
 }

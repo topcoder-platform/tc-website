@@ -10,7 +10,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-<c:set var="phaseName" value='${isDevelopment ? "Development" : isDesign ? "Design" : "Assembly" }' />
 <c:set var="context" value='${isDevelopment ? "development" : isDesign ? "design" : "component"}' />
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -24,6 +23,15 @@
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
     <script type="text/javascript">
+        function changePeriod() {
+            var myForm = document.leaderBoardForm;
+            <c:if test="${fn:length(results) > 0}">
+            myForm.<%=DataAccessConstants.START_RANK%>.value = '';
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '';
+            </c:if>
+            document.leaderBoardForm.submit()
+        }
         function submitEnter(e) {
             var keycode;
             if (window.event) keycode = window.event.keyCode;
@@ -71,7 +79,7 @@
 
     <jsp:include page="/page_title.jsp">
         <jsp:param name="image" value="digital_run_20061031"/>
-        <jsp:param name="title" value="${trackDesc} Leaderboard"/>
+        <jsp:param name="title" value="${trackInfo.trackDesc} Leaderboard"/>
     </jsp:include>
 
 
@@ -81,6 +89,10 @@
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
+Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
+
+<tc-webtag:rscSelect name="<%=Constants.TRACK_ID%>" styleClass="dropdown" onChange="changePeriod()" 
+          list="${tracks}" fieldText="track_desc" fieldValue="track_id" useTopValue="false" />
 
 <c:choose>
 <c:when test="${not stageExists}">
@@ -90,11 +102,6 @@
 <c:when test="${not empty results}">
 
 <div class="pagingBox" style="width:300px;">
-    <strong>
-        The track is ${trackStatusDesc} <br/>
-        Start ${trackStartDate} <br/>
-        End ${trackEndDate} <br/>
-    </strong>
     <c:choose>
         <c:when test="${croppedDataBefore}">
             <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
@@ -117,7 +124,7 @@
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td class="title" colspan="11">
-            ${trackDesc} Leaderboard
+            ${trackInfo.trackDesc} Leaderboard
         </td>
     </tr>
     <tr>
