@@ -113,6 +113,7 @@ public class ViewLeaderBoard extends BaseProcessor {
     private int getCurrentTrack(int trackTypeId) throws Exception {
         Request r = new Request();
         r.setContentHandle("dr_current_track");
+        r.setProperty(Constants.TRACK_TYPE_ID, String.valueOf(trackTypeId));
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME); 
         Map m = null;
         try {
@@ -132,6 +133,7 @@ public class ViewLeaderBoard extends BaseProcessor {
     private ResultSetContainer getTrackList(int trackTypeId) throws Exception {
         Request r = new Request();
         r.setContentHandle("dr_track_list");
+        r.setProperty(Constants.TRACK_TYPE_ID, String.valueOf(trackTypeId));
         DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME); 
         Map m = null;
         try {

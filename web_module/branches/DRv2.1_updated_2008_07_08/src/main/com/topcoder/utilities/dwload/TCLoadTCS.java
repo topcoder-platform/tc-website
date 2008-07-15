@@ -260,7 +260,7 @@ public class TCLoadTCS extends TCLoad {
                 "comp_contest_details", "dr_leader_board", "competition_history", "algo_competition_history",
                 "dr_current_period", "dr_stages", "dr_seasons", "component_color_change", "stage_outstanding_projects",
                 "season_outstanding_projects", "dr_results", "dr_stages", "dr_contests_for_stage",
-                "outstanding_projects", "dr_points_detail", "drv2_results", "dr_track_details"
+                "outstanding_projects", "dr_points_detail", "drv2_results", "dr_track_details", "dr_track_list"
         };
 
         HashSet<String> s = new HashSet<String>();
