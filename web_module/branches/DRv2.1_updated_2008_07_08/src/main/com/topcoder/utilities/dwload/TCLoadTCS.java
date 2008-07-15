@@ -150,7 +150,7 @@ public class TCLoadTCS extends TCLoad {
             fStartTime = new java.sql.Timestamp(System.currentTimeMillis());
             getLastUpdateTime();
 
-/*            doLoadReviewResp();
+            doLoadReviewResp();
 
             doLoadEvent();
             doLoadUserEvent();
@@ -169,11 +169,11 @@ public class TCLoadTCS extends TCLoad {
             //load submission review before project result because the project result load will use the submission review table
             doLoadSubmissionReview();
 
-*/
+
             doLoadProjectResults();
 
 //            doLoadRookies();
-/*
+
             doLoadSubmissionScreening();
 
             doLoadContestProject();
@@ -222,7 +222,6 @@ public class TCLoadTCS extends TCLoad {
             doLoadStage();
 
             doLoadStageResults();
-*/
             doLoadDRTracks();
 
             doLoadDRTrackContests();
@@ -259,7 +258,7 @@ public class TCLoadTCS extends TCLoad {
                 "comp_contest_details", "dr_leader_board", "competition_history", "algo_competition_history",
                 "dr_current_period", "dr_stages", "dr_seasons", "component_color_change", "stage_outstanding_projects",
                 "season_outstanding_projects", "dr_results", "dr_stages", "dr_contests_for_stage",
-                "outstanding_projects"
+                "outstanding_projects", "dr_points_detail", "drv2_results", "dr_track_details"
         };
 
         HashSet<String> s = new HashSet<String>();
@@ -1282,7 +1281,7 @@ public class TCLoadTCS extends TCLoad {
                         "     ,case when ppd.actual_start_time is not null then ppd.actual_start_time else psd.actual_start_time end as posting_date " +
                         "     ,(cc.component_name || ' - ' || cv.version_text) as project_desc" +
                         "     ,nvl(pwa.actual_end_time, pwa.scheduled_end_time) as winner_announced" +
-                        "     ,(select s.create_date as submission_date from submission s, upload u where s.upload_id = u.upload_id" +
+                        "     ,(select max(s.create_date) as submission_date from submission s, upload u where s.upload_id = u.upload_id" +
                         "             and u.project_id = p.project_id" +
                         "             and u.resource_id = r.resource_id" +
                         "             and u.upload_status_id = 1" +
@@ -1502,7 +1501,7 @@ public class TCLoadTCS extends TCLoad {
                         projectResults.getObject("submission_date") != null) {  // has a submission
 
                         // This is just for now so that project_result is not messed up with new DR 2.0 points
-                        hasDR = false;
+                        //hasDR = false;
 
                         // search for tracks where it belongs:
                         List<Track> tracks = getTracksForProject(activeTracks, projectResults.getInt("project_category_id"), projectResults.getTimestamp("posting_date"));

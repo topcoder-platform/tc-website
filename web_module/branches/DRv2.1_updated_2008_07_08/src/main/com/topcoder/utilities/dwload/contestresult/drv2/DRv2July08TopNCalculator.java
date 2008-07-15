@@ -25,8 +25,9 @@ public class DRv2July08TopNCalculator extends DRv2July08ResultCalculatorBase {
         assignTopNPrizes(crl, prizesAmount);
     }
 
-    private double getTopNPrizePool(List<ContestResult> crl) {
-        return getTotalPrizePool(crl) / 2;
+    protected double getTopNPrizePool(List<ContestResult> crl) {
+        double totalPoints = getTotalPrizePool(crl);
+        return ((totalPoints < 10000) ? 10000 : totalPoints) / 2;
     }
 
 }

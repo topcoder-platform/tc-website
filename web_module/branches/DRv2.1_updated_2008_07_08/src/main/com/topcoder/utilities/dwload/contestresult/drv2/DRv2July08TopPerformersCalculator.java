@@ -23,8 +23,9 @@ public class DRv2July08TopPerformersCalculator extends DRv2July08ResultCalculato
         assingTopPerformersPrize(crl, getTopPerformersPrizePool(crl), factor);
     }
 
-    private double getTopPerformersPrizePool(List<ContestResult> crl) {
-        return getTotalPrizePool(crl) / 2;
+    protected double getTopPerformersPrizePool(List<ContestResult> crl) {
+        double totalPoints = getTotalPrizePool(crl);
+        return ((totalPoints < 10000) ? 10000 : totalPoints) / 2;
     }
 
     public void setFactor(double factor) {
