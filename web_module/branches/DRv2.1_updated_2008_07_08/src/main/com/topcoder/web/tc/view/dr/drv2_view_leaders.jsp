@@ -23,7 +23,32 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
-    
+    <script type="text/javascript">
+        function submitEnter(e) {
+            var keycode;
+            if (window.event) keycode = window.event.keyCode;
+            else if (e) keycode = e.which;
+            else return true;
+            if (keycode == 13) {
+                document.leaderBoardForm.submit();
+                return false;
+            } else return true;
+        }
+        function next() {
+            var myForm = document.leaderBoardForm;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = <%=((java.util.Map) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get(DataAccessConstants.START_RANK)%> + parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.submit();
+        }
+        function previous() {
+            var myForm = document.leaderBoardForm;
+            myForm.<%=DataAccessConstants.START_RANK%>.value =<%=((java.util.Map) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get(DataAccessConstants.START_RANK)%>  - parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.submit();
+        }
+    </script>    
 </head>
     
 <body>

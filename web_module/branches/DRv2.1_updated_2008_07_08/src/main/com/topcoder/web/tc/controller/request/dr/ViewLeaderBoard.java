@@ -86,6 +86,7 @@ public class ViewLeaderBoard extends BaseProcessor {
         getRequest().setAttribute("stageExists", true);            
         
         getRequest().setAttribute(Constants.TRACK_ID, trackId);
+        setDefault(Constants.TRACK_ID, trackId);
 
         setNextPage("/dr/drv2_view_leaders.jsp");
         setIsNextPageInContext(true);        
@@ -114,7 +115,7 @@ public class ViewLeaderBoard extends BaseProcessor {
                  row.getDoubleItem("final_points"), row.getDoubleItem("potential_points"), 
                  row.getStringItem("current_top_performer_prize") == null? 0.0 : row.getDoubleItem("current_top_performer_prize"),
                  row.getStringItem("current_top_n_prize") == null? 0.0 : row.getDoubleItem("current_top_n_prize"),
-                 hasWonTrip(row.getIntItem("current_place"), 5));
+                 hasWonTrip(row.getIntItem("current_place"), 1));
             
             results.add(lbr);
             
