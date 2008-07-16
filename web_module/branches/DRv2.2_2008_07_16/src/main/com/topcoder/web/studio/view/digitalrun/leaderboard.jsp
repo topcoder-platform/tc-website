@@ -3,6 +3,7 @@
                  com.topcoder.web.studio.Constants,
                  com.topcoder.web.common.BaseProcessor" %>
 <%@ page contentType="text/html;charset=utf-8" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -82,10 +83,12 @@
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
+<div class="pagingBox">
 Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
 
 <tc-webtag:rscSelect name="<%=Constants.TRACK_ID%>" styleClass="dropdown" onChange="changePeriod()" 
           list="${tracks}" fieldText="track_desc" fieldValue="track_id" useTopValue="false" />
+</div>
 
 <c:choose>
 <c:when test="${not trackExists}">
@@ -94,7 +97,7 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
 </c:when>
 <c:when test="${not empty results}">
 
-<div class="pagingBox" style="width:300px;">
+<div class="pagingBox">
     <c:choose>
         <c:when test="${croppedDataBefore}">
             <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
@@ -216,7 +219,7 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
     </c:forEach>
 </tbody></table>
 
-<div class="pagingBox" style="width:300px;">
+<div class="pagingBox">
     <c:choose>
         <c:when test="${croppedDataBefore}">
             <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
@@ -244,9 +247,9 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
 
 <div class="pagingBox">
     View
-    <input name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onkeypress="submitEnter(event)" value="50" type="text" />
+    <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
     at a time starting with
-    <input name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onkeypress="submitEnter(event)" value="1" type="text" />
+    <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
     <a href="javascript:document.leaderBoardForm.submit();" class="bcLink">[submit]</a>
 </div>
 

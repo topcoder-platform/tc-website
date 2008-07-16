@@ -16,7 +16,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.cache.MaxAge;
-import com.topcoder.web.studio.Constants;
 
 /**
  * Copyright (c) 2001-2008 TopCoder, Inc. All rights reserved.
