@@ -2,7 +2,7 @@
  * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 
-package com.topcoder.web.tc.controller.request.dr;
+package com.topcoder.web.studio.controller.request.dr;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,9 +13,7 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SortInfo;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.dr.IBoardRow;
-import com.topcoder.web.tc.model.dr.LeaderBoardRow;
+import com.topcoder.web.studio.Constants;
 
 /**
  * <strong>Purpose</strong>:
@@ -39,7 +37,7 @@ public class ViewLeaderBoard extends BaseBoardV2 {
         }
             
         if (trackId < 0) {
-            trackId = getCurrentTrack(1);  // design type
+            trackId = getCurrentTrack(3);  // studio type
         }
         
         int startRank;
@@ -53,12 +51,12 @@ public class ViewLeaderBoard extends BaseBoardV2 {
 
         
         if ("".equals(numRecordsStr)) {
-            numRecords = Constants.DEFAULT_LEADERS;
+            numRecords = 50;
         } else {
             numRecords = Integer.parseInt(numRecordsStr); 
 
-            if (numRecords > Constants.MAX_LEADERS) {
-                numRecords = Constants.MAX_LEADERS;
+            if (numRecords > 200) {
+                numRecords = 200;
             }
         }
 
@@ -80,22 +78,16 @@ public class ViewLeaderBoard extends BaseBoardV2 {
             
         // Sort and crop the list
         sortResult(results, sortCol, invert);
-        List<IBoardRow> cropped = cropResult(results, startRank, numRecords);
+        List<LeaderBoardRow> cropped = cropResult(results, startRank, numRecords);
 
-        getRequest().setAttribute("concurrentTrack",  getConcurrentTrack(trackId, trackInfo.getTrackTypeId()));  // design type
-
-        getRequest().setAttribute("hasRookieCompetition", Boolean.FALSE);
         getRequest().setAttribute("results", cropped);
         getRequest().setAttribute("topTripWinners", 1);
         getRequest().setAttribute("trackExists", true);            
 
-        getRequest().setAttribute("isDesign", trackInfo.getTrackTypeId() == 1);
-        getRequest().setAttribute("isDevelopment", trackInfo.getTrackTypeId() == 2);
-
         getRequest().setAttribute(Constants.TRACK_ID, trackId);
         setDefault(Constants.TRACK_ID, trackId);
 
-        setNextPage("/dr/drv2_view_leaders.jsp");
+        setNextPage("/digitalrun/leaderboard.jsp");
         setIsNextPageInContext(true);        
     }
     
@@ -107,15 +99,15 @@ public class ViewLeaderBoard extends BaseBoardV2 {
      * @param boardResult the original board list.
      * @return the cropped list.
      */
-    protected List<IBoardRow> cropResult(List<? extends IBoardRow> boardResult, int startRank, int numRecords) {
+    protected List<LeaderBoardRow> cropResult(List<? extends LeaderBoardRow> boardResult, int startRank, int numRecords) {
         if (boardResult.size() == 0) {
-            return new ArrayList<IBoardRow>();
+            return new ArrayList<LeaderBoardRow>();
         }
         
         setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
         setDefault(DataAccessConstants.START_RANK, startRank);
 
-        List<IBoardRow> cropped = new ArrayList<IBoardRow>(numRecords);
+        List<LeaderBoardRow> cropped = new ArrayList<LeaderBoardRow>(numRecords);
         for (int j = 0; j < numRecords && j + startRank <= boardResult.size(); j++)
         {
             cropped.add(boardResult.get(startRank + j - 1));
@@ -134,35 +126,35 @@ public class ViewLeaderBoard extends BaseBoardV2 {
      * @param invert      true if the order is descending.
      * @return the sorted list.
      */
-    protected void sortResult(List<? extends IBoardRow> boardResult, String sortCol, boolean invert) {
+    protected void sortResult(List<? extends LeaderBoardRow> boardResult, String sortCol, boolean invert) {
         if (boardResult.size() == 0) {
             return;
         }
 
         // all other columns are already sorted (rank)
         if (sortCol.equals(CODER_HANDLE_COLUMN)) {
-            Collections.sort(boardResult, new Comparator<IBoardRow>() {
-                public int compare(IBoardRow arg0, IBoardRow arg1) {
+            Collections.sort(boardResult, new Comparator<LeaderBoardRow>() {
+                public int compare(LeaderBoardRow arg0, LeaderBoardRow arg1) {
                     return arg0.getUserName().compareTo(arg1.getUserName());
                 }
             });
         } else  if (sortCol.equals(OUTSTANDING_POINTS_COLUMN)) {
-            Collections.sort(boardResult, new Comparator<IBoardRow>() {
-                public int compare(IBoardRow arg0, IBoardRow arg1) {
+            Collections.sort(boardResult, new Comparator<LeaderBoardRow>() {
+                public int compare(LeaderBoardRow arg0, LeaderBoardRow arg1) {
                     return new Double(arg0.getPotentialPoints()).compareTo(new Double(arg1.getPotentialPoints()));
                 }
             });
         } else if (sortCol.equals(TOTAL_POINTS_COLUMN)) {
-            Collections.sort(boardResult, new Comparator<IBoardRow>() {
-                public int compare(IBoardRow arg0, IBoardRow arg1) {
+            Collections.sort(boardResult, new Comparator<LeaderBoardRow>() {
+                public int compare(LeaderBoardRow arg0, LeaderBoardRow arg1) {
                     return new Double(arg0.getTotalPoints()).compareTo(new Double(arg1.getTotalPoints()));
                 }
             });
         } else {
             // Default, sort by rank.
 
-            Collections.sort(boardResult, new Comparator<IBoardRow>() {
-                public int compare(IBoardRow arg0, IBoardRow arg1) {
+            Collections.sort(boardResult, new Comparator<LeaderBoardRow>() {
+                public int compare(LeaderBoardRow arg0, LeaderBoardRow arg1) {
                     return new Long(arg0.getRank()).compareTo(arg1.getRank());
                 }
             });

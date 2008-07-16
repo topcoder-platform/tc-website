@@ -1,11 +1,11 @@
 /*
  * Copyright (c) 2001-2008 TopCoder Inc.  All Rights Reserved.
  */
-package com.topcoder.web.tc.controller.request.dr;
+package com.topcoder.web.studio.controller.request.dr;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.tc.Constants;
+import com.topcoder.web.studio.Constants;
 
 /**
  * Copyright (c) 2001-2008 TopCoder, Inc. All rights reserved.
@@ -36,10 +36,8 @@ public class PointsDetail extends BaseBoardV2 {
         getRequest().setAttribute("trackInfo", trackInfo);
 
         getRequest().setAttribute("result", rsc);
-        getRequest().setAttribute("isDesign", trackInfo.getTrackTypeId() == 1);
-        getRequest().setAttribute("isDevelopment", trackInfo.getTrackTypeId() == 2);
         
-        setNextPage("/dr/points_detail.jsp");
+        setNextPage("/digitalrun/points_detail.jsp");
         setIsNextPageInContext(true);        
     }
 
