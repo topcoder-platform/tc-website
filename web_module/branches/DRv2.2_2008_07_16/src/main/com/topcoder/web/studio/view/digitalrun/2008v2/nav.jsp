@@ -36,5 +36,10 @@
     <% } else { %>
          | <a class="bcLink" href="/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=rules">Rules</a>
     <% } %>
+    <% if (tabLev2.equals("leaderboard")) {%>
+        | Leaderboard
+    <% } else { %>
+         | <a class="bcLink" href="/?module=Static&amp;d1=digitalrun&amp;d2=leaderboard">Leaderboard</a>
+    <% } %>
 
 </p>

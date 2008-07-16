@@ -8,7 +8,6 @@ import java.util.Map;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.tc.Constants;
@@ -21,7 +20,7 @@ import com.topcoder.web.tc.Constants;
  * @version $Id$
  * Create Date: Jul 4, 2008
  */
-public class PointsDetail extends BaseProcessor {
+public class PointsDetail extends BaseBoardV2 {
 
     /* (non-Javadoc)
      * @see com.topcoder.web.common.BaseProcessor#businessProcessing()
@@ -30,34 +29,23 @@ public class PointsDetail extends BaseProcessor {
     protected void businessProcessing() throws Exception {
 
         int trackId = Integer.parseInt(getRequest().getParameter(Constants.TRACK_ID));
-        setDefault(Constants.TRACK_ID, trackId);
+        getRequest().setAttribute(Constants.TRACK_ID, trackId);
         int userId = Integer.parseInt(getRequest().getParameter(Constants.CODER_ID));
-        setDefault(Constants.CODER_ID, userId);
+        getRequest().setAttribute(Constants.CODER_ID, userId);
         boolean potential = (Integer.parseInt(getRequest().getParameter(Constants.POTENTIAL_FLAG_ID)) == 1);
-        setDefault(Constants.POTENTIAL_FLAG_ID, potential);
+        getRequest().setAttribute(Constants.POTENTIAL_FLAG_ID, potential);
 
         ResultSetContainer rsc = getPointsData(DBMS.TCS_DW_DATASOURCE_NAME, "dr_points_detail", trackId, userId, potential);
 
+        TrackInfo trackInfo = getTrackDetails(trackId);            
+        getRequest().setAttribute("trackInfo", trackInfo);
 
         getRequest().setAttribute("result", rsc);
+        getRequest().setAttribute("isDesign", trackInfo.getTrackTypeId() == 1);
+        getRequest().setAttribute("isDevelopment", trackInfo.getTrackTypeId() == 2);
         
         setNextPage("/dr/points_detail.jsp");
         setIsNextPageInContext(true);        
     }
 
-    /**
-     * @return
-     * @throws Exception
-     */
-    private ResultSetContainer getPointsData(String datasource, String query, int trackId, int userId, boolean potential) throws Exception {
-        CachedDataAccess cda = new CachedDataAccess(MaxAge.HALF_HOUR, datasource);
-        Request dataRequest = new Request();
-        dataRequest.setContentHandle(query);
-        dataRequest.setProperty(Constants.TRACK_ID, String.valueOf(trackId));
-        dataRequest.setProperty(Constants.CODER_ID, String.valueOf(userId));
-        dataRequest.setProperty(Constants.POTENTIAL_FLAG_ID, potential ? "t" : "f");
-        Map<String, ResultSetContainer> map = cda.getData(dataRequest);
-        ResultSetContainer rsc = map.get(query);
-        return rsc;
-    }
 }

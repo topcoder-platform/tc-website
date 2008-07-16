@@ -10,6 +10,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<c:set var="context" value='${isDevelopment ? "development" : isDesign ? "design" : "component"}' />
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -43,7 +44,7 @@
 
         <jsp:include page="/page_title.jsp">
             <jsp:param name="image" value="digital_run_20061031"/>
-            <jsp:param name="title" value="Leaderboard Details"/>
+        <jsp:param name="title" value="${trackInfo.trackDesc} Leaderboard Details"/>
         </jsp:include>
 
     <div class="fixedWidthBody">
@@ -55,11 +56,13 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="11">
-            Leaderboard Details
+        <td class="title" colspan="5">
+            <a href="<%=sessionInfo.getServletPath()%>?module=ViewLeaderBoard&amp;tid=${tid}">${trackInfo.trackDesc}</a> Leaderboard Details - <tc-webtag:handle coderId='${cr}' context='${context}'/>
         </td>
     </tr>
     <tr>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc.getColumnIndex("award_date")%>" includeParams="true"/>">Award Date</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc.getColumnIndex("application_date")%>" includeParams="true"/>">Application Date</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc.getColumnIndex("dr_points_desc")%>" includeParams="true"/>">Desc</a></td>
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc.getColumnIndex("amount")%>" includeParams="true"/>">Amount</a></td>
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc.getColumnIndex("reference_id")%>" includeParams="true"/>">Reference</a></td>
@@ -67,9 +70,31 @@
 
     <rsc:iterator list="<%=rsc%>" id="resultRow">
     <tr class='${status.index % 2 == 1? "dark" : "light" }'>
+        <td class="value"><rsc:item name="award_date" row="<%=resultRow%>" format="MM.dd.yy"/><td class="value">
+        <td class="value"><rsc:item name="application_date" row="<%=resultRow%>" format="MM.dd.yy"/><td class="value">
         <td class="value">${resultRow.map["dr_points_desc"]}</td>
         <td class="valueC">${resultRow.map["amount"]}</td>
-        <td class="valueC">${resultRow.map["reference_id"]}</td>
+        <td class="valueC">
+            <c:choose>
+                <c:when test="${resultRow.map['dr_points_reference_type_id'] == 1}">
+                    <c:choose>
+                        <c:when test="${pf == 0}">
+                            <A HREF="/tc?module=CompContestDetails&pj=${resultRow.map['reference_id']}" CLASS="statLink">
+                                Contest Details
+                            </A>
+                        </c:when>
+                        <c:otherwise>
+                            <A HREF="/tc?module=ViewRegistrants&pj=${resultRow.map['reference_id']}" CLASS="statLink">
+                                Contest Details
+                            </A>
+                        </c:otherwise>
+                    </c:choose>
+                </c:when>
+                <c:otherwise>
+                    &nbsp;
+                </c:otherwise>
+            </c:choose>
+        </td>
     </tr>
     </rsc:iterator>
 </table>
