@@ -61,24 +61,24 @@
         </td>
     </tr>
     <tr>
-        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc.getColumnIndex("award_date")%>" includeParams="true"/>">Award Date</a></td>
-        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc.getColumnIndex("application_date")%>" includeParams="true"/>">Application Date</a></td>
-        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc.getColumnIndex("dr_points_desc")%>" includeParams="true"/>">Desc</a></td>
-        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc.getColumnIndex("amount")%>" includeParams="true"/>">Amount</a></td>
-        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc.getColumnIndex("reference_id")%>" includeParams="true"/>">Reference</a></td>
+        <td class="header">Awarded</td>
+        <td class="header">Posted</td>
+        <td class="header">Description</td>
+        <td class="headerC">Amount</td>
+        <td class="headerC">Reference</td>
     </tr>
 
     <rsc:iterator list="<%=rsc%>" id="resultRow">
     <tr class='${status.index % 2 == 1? "dark" : "light" }'>
-        <td class="value"><rsc:item name="award_date" row="<%=resultRow%>" format="MM.dd.yy"/><td class="value">
-        <td class="value"><rsc:item name="application_date" row="<%=resultRow%>" format="MM.dd.yy"/><td class="value">
+        <td class="value"><rsc:item name="award_date" row="<%=resultRow%>" format="MM.dd.yy"/></td>
+        <td class="value"><rsc:item name="application_date" row="<%=resultRow%>" format="MM.dd.yy"/></td>
         <td class="value">${resultRow.map["dr_points_desc"]}</td>
         <td class="valueC">${resultRow.map["amount"]}</td>
         <td class="valueC">
             <c:choose>
                 <c:when test="${resultRow.map['dr_points_reference_type_id'] == 1}">
                     <c:choose>
-                        <c:when test="${pf == 0}">
+                        <c:when test="${not pf}">
                             <A HREF="/tc?module=CompContestDetails&pj=${resultRow.map['reference_id']}" CLASS="statLink">
                                 Contest Details
                             </A>

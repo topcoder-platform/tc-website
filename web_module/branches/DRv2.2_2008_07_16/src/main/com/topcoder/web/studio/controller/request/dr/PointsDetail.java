@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2001-2008 TopCoder Inc.  All Rights Reserved.
  */
-package com.topcoder.web.tc.controller.request.dr;
+package com.topcoder.web.studio.controller.request.dr;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;

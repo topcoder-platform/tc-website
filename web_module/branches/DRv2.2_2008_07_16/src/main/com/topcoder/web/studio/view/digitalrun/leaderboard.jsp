@@ -1,5 +1,14 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer,
+                 com.topcoder.shared.dataAccess.DataAccessConstants,
+                 com.topcoder.web.studio.Constants,
+                 com.topcoder.web.common.BaseProcessor" %>
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -9,6 +18,41 @@
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="studio_digitalrun"/>
     </jsp:include>
+    <script type="text/javascript">
+        function changePeriod() {
+            var myForm = document.leaderBoardForm;
+            <c:if test="${fn:length(results) > 0}">
+            myForm.<%=DataAccessConstants.START_RANK%>.value = '';
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '';
+            </c:if>
+            document.leaderBoardForm.submit()
+        }
+        function submitEnter(e) {
+            var keycode;
+            if (window.event) keycode = window.event.keyCode;
+            else if (e) keycode = e.which;
+            else return true;
+            if (keycode == 13) {
+                document.leaderBoardForm.submit();
+                return false;
+            } else return true;
+        }
+        function next() {
+            var myForm = document.leaderBoardForm;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = <%=((java.util.Map) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get(DataAccessConstants.START_RANK)%> + parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.submit();
+        }
+        function previous() {
+            var myForm = document.leaderBoardForm;
+            myForm.<%=DataAccessConstants.START_RANK%>.value =<%=((java.util.Map) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get(DataAccessConstants.START_RANK)%>  - parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.submit();
+        }
+    </script>    
 </head>
 
 <body>
@@ -33,17 +77,48 @@
     <jsp:param name="tabLev2" value="leaderboard"/>
 </jsp:include>
 
-<div class="pagingBox">
+<form name="leaderBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewLeaderBoard"/>
+<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+
+Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
+
+<tc-webtag:rscSelect name="<%=Constants.TRACK_ID%>" styleClass="dropdown" onChange="changePeriod()" 
+          list="${tracks}" fieldText="track_desc" fieldValue="track_id" useTopValue="false" />
+
+<c:choose>
+<c:when test="${not trackExists}">
+    <br /><br />
+    There are no results for the selected track.
+</c:when>
+<c:when test="${not empty results}">
+
+<div class="pagingBox" style="width:300px;">
+    <c:choose>
+        <c:when test="${croppedDataBefore}">
+            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+        </c:when>
+        <c:otherwise>
             &lt;&lt; prev
+        </c:otherwise>
+    </c:choose>
     |
+    <c:choose>
+        <c:when test="${croppedDataAfter}">
+            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+        </c:when>
+        <c:otherwise>
             next &gt;&gt;
+        </c:otherwise>
+    </c:choose>
 </div>
 
 <table class="drStat" cellpadding="0" cellspacing="0" width="100%">
 <thead>
     <tr>
         <th class="title c" colspan="11">
-            Studio Cup Leaderboard
+            ${trackInfo.trackDesc} Leaderboard
         </th>
     </tr>
     <tr>
@@ -54,389 +129,113 @@
 
     <tr>
         <th class="c">
-            <a href="">Rank</a>
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Rank</a>
         </th>
         <th class="b" width="16%">
-            <a href="">Handle</a>
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a>
         </th>
         <th class="r" colspan="4">
-
-            <a href="">Points</a>
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a>
         </th>
         <th class="r" nowrap="nowrap" width="16%">
-            <a href="">Top
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top
                 Five<br />Prize</a>*</th>
         <th class="r" nowrap="nowrap" width="16%">
-            <a href="">Top
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top
                 Performer<br />Prize</a>*</th>
 
         <th class="r b" width="16%">
-            <a href="">Total<br />
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Total<br />
                 Prizes</a>*</th>
         <th class="r" width="16%">
-            <a href="">Potential<br />
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Potential<br />
                 Points</a>**
         </th>
 
         <th class="r" nowrap="nowrap" width="16%">
-            <a href="">Potential
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Potential
                 Total<br />Points</a>**
         </th>
     </tr>
 </thead>    
 <tbody>
-    <tr class="odd">
-        <td class="c">1</td>
-        <td class="b">
-            <span class="coderText">argolite</span></td>
-        <td class="c">
-            <div align="center"><a href="#"><img src="/i/digital_run/trip.gif" alt="" /><span>Trip to the next TCO Finals for placing in the <strong>Top Three</strong></span></a></div>
-        </td>
-        <td class="c">
-            <div align="center"><a href="#"><img src="/i/digital_run/prize.gif" alt="" /><span>Cash prize for placing in the <strong>Top Five</strong></span></a></div>
-        </td>
-        <td class="c">
-            <div align="center"><a href="#"><img src="/i/digital_run/prize.gif" alt="" /><span>Cash prize for placing in the <strong>Top Performers</strong></span></a></div>
-        </td>
-        <td class="r">
-            3,250.00
-        </td>
-        <td class="r">
-            $50,000.00
-        </td>
-        <td class="r">
-            $59,633.03
-        </td>
-        <td class="r b">
-
-            
-                $109,633.03
-            
-            
-        </td>
-        <td class="r">
-            
-        </td>
-        <td class="r">3,250.00</td>
-    </tr>
-    
-    <tr class="even">
-        <td class="c">2</td>
-
-        <td class="b">
-            <span class="coderText">tushak</span></td>
-        <td class="c">
-            <div align="center"><a href="#"><img src="/i/digital_run/trip.gif" alt="" /><span>Trip to the next TCO Finals for placing in the <strong>Top Three</strong></span></a></div>
-        </td>
-        <td class="c">
-            <div align="center"><a href="#"><img src="/i/digital_run/prize.gif" alt="" /><span>Cash prize for placing in the <strong>Top Five</strong></span></a></div>
-        </td>
-        <td class="c">
-            <div align="center"><a href="#"><img src="/i/digital_run/prize.gif" alt="" /><span>Cash prize for placing in the <strong>Top Performers</strong></span></a></div>
-        </td>
-
-        <td class="r">
-            1,000.00
-        </td>
-        <td class="r">
-            $25,000.00
-        </td>
-        <td class="r">
-            $18,348.62
-        </td>
-
-        <td class="r b">
-            
-                $43,348.62
-            
-            
-        </td>
-        <td class="r">
-            
-        </td>
-        <td class="r">1,000.00</td>
-    </tr>
-    
-    <tr class="odd">
-        <td class="c">3</td>
-
-        <td class="b">
-            <span class="coderText">Urmass</span></td>
-        <td class="c">
-            <div align="center"><a href="#"><img src="/i/digital_run/trip.gif" alt="" /><span>Trip to the next TCO Finals for placing in the <strong>Top Three</strong></span></a></div>
-        </td>
-        <td class="c">
-            <div align="center"><a href="#"><img src="/i/digital_run/prize.gif" alt="" /><span>Cash prize for placing in the <strong>Top Five</strong></span></a></div>
-        </td>
-        <td class="c">
-            <div align="center"><a href="#"><img src="/i/digital_run/prize.gif" alt="" /><span>Cash prize for placing in the <strong>Top Performers</strong></span></a></div>
-        </td>
-
-        <td class="r">
-            500.00
-        </td>
-        <td class="r">
-            $15,000.00
-        </td>
-        <td class="r">
-            $9,174.31
-        </td>
-
-        <td class="r b">
-            
-                $24,174.31
-            
-            
-        </td>
-        <td class="r">
-            
-        </td>
-        <td class="r">500.00</td>
-    </tr>
-    
-    <tr class="even">
-        <td class="c">4</td>
-
-        <td class="b">
-            <span class="coderText">kinzz</span></td>
-        <td class="c">
-            
-        </td>
-        <td class="c">
-            <div align="center"><a href="#"><img src="/i/digital_run/prize.gif" alt="" /><span>Cash prize for placing in the <strong>Top Five</strong></span></a></div>
-        </td>
-        <td class="c">
-            <div align="center"><a href="#"><img src="/i/digital_run/prize.gif" alt="" /><span>Cash prize for placing in the <strong>Top Performers</strong></span></a></div>
-        </td>
-        <td class="r">
-            400.00
-        </td>
-        <td class="r">
-            $10,000.00
-        </td>
-        <td class="r">
-            $7,339.45
-        </td>
-        <td class="r b">
-            
-                $17,339.45
-            
-            
-        </td>
-
-        <td class="r">
-            
-        </td>
-        <td class="r">400.00</td>
-    </tr>
-    
-    <tr class="odd">
-        <td class="c">5</td>
-        <td class="b">
-            <span class="coderText">Xuchen</span></td>
-
-        <td class="c">
-            
-        </td>
-        <td class="c">
-            <div align="center"><a href="#"><img src="/i/digital_run/prize.gif" alt="" /><span>Cash prize for placing in the <strong>Top Five</strong></span></a></div>
-        </td>
-        <td class="c">
-            <div align="center"><a href="#"><img src="/i/digital_run/prize.gif" alt="" /><span>Cash prize for placing in the <strong>Top Performers</strong></span></a></div>
-        </td>
-        <td class="r">
-            300.00
-        </td>
-        <td class="r">
-            $5,000.00
-        </td>
-
-        <td class="r">
-            $5,504.59
-        </td>
-        <td class="r b">
-            
-                $10,504.59
-            
-            
-        </td>
-        <td class="r">
-            
-        </td>
-        <td class="r">300.00</td>
-
-    </tr>
-    
-    <tr class="even">
-        <td class="c">6</td>
-        <td class="b">
-            <span class="coderText">Standlove</span></td>
-        <td class="c">
-            
-        </td>
-        <td class="c">
-
-            
-        </td>
-        <td class="c">
-            
-        </td>
-        <td class="r">
-            280.00
-        </td>
-        <td class="r"></td>
-
-        <td class="r"></td>
-        <td class="r b">
-            
-            
-                &nbsp;
-            
-        </td>
-        <td class="r">
-            
-        </td>
-        <td class="r">280.00</td>
-    </tr>
-
-    
-    <tr class="odd">
-        <td class="c">7</td>
-        <td class="b">
-            <span class="coderText">RealPlayer</span></td>
-        <td class="c">
-            
-        </td>
-        <td class="c">
-            
-        </td>
-
-        <td class="c">
-            
-        </td>
-        <td class="r">
-            150.00
-        </td>
-        <td class="r"></td>
-        <td class="r"></td>
-
-        <td class="r b">
-            
-            
-                &nbsp;
-            
-        </td>
-        <td class="r">
-            
-        </td>
-        <td class="r">150.00</td>
-    </tr>
-    
-    <tr class="even">
-
-        <td class="c">8</td>
-        <td class="b">
-            <span class="coderText">ArchangelWK</span></td>
-        <td class="c">
-            
-        </td>
-        <td class="c">
-            
-        </td>
-        <td class="c">
-
-            
-        </td>
-        <td class="r">
-            50.00
-        </td>
-        <td class="r"></td>
-        <td class="r"></td>
-        <td class="r b">
-
-            
-            
-                &nbsp;
-            
-        </td>
-        <td class="r">
-            
-        </td>
-        <td class="r">50.00</td>
-    </tr>
-    
-    <tr class="odd">
-        <td class="c">9</td>
-
-        <td class="b">
-            <span class="coderText">Indemar</span></td>
-        <td class="c">
-            
-        </td>
-        <td class="c">
-            
-        </td>
-        <td class="c">
-            
-        </td>
-
-        <td class="r">
-            40.00
-        </td>
-        <td class="r"></td>
-        <td class="r"></td>
-        <td class="r b">
-            
-            
-                &nbsp;
-
-            
-        </td>
-        <td class="r">
-            
-        </td>
-        <td class="r">40.00</td>
-    </tr>
-    
-    <tr class="even">
-        <td class="c">10</td>
-        <td class="b">
-
-            <span class="coderText">shalinmangar</span></td>
-        <td class="c">
-            
-        </td>
-        <td class="c">
-            
-        </td>
-        <td class="c">
-            
-        </td>
-        <td class="r">
-            30.00
-        </td>
-        <td class="r"></td>
-        <td class="r"></td>
-        <td class="r b">
-            
-            
-                &nbsp;
-            
-        </td>
-
-        <td class="r">
-            
-        </td>
-        <td class="r">30.00</td>
-    </tr>
-    
+    <c:forEach items="${results}" var="boardRow" varStatus="status">
+        <tr class='${status.index % 2 == 1? "odd" : "even" }'>
+            <td class="c">${boardRow.rank}</td>
+            <td class="b">
+                <span class="coderText"><tc-webtag:handle coderId='${boardRow.userId}' context='${context}'/></span></td>
+            <td class="c">
+                <c:if test="${boardRow.winTrip}">
+                    <div align="center"><a href="#"><img src="/i/digital_run/trip.gif" alt="" /><span>Trip to the next TCO Finals for placing in the <strong>Top Three</strong></span></a></div>
+                </c:if>
+            </td>
+            <td class="c">
+                <c:if test="${boardRow.placementPrize>0}">
+                    <div align="center"><a href="#"><img src="/i/digital_run/prize.gif" alt="" /><span>Cash prize for placing in the <strong>Top Five</strong></span></a></div>
+                </c:if>
+            </td>
+            <td class="c">
+                <c:if test="${boardRow.topPerformer}">
+                    <div align="center"><a href="#"><img src="/i/digital_run/prize.gif" alt="" /><span>Cash prize for placing in the <strong>Top Performers</strong></span></a></div>
+                </c:if>
+            </td>
+            <td class="r">
+                <c:if test="${boardRow.points>0}">
+                    <a href="/dr?module=PointsDetail&amp;pf=0&amp;cr=${boardRow.userId}&amp;tid=${tid}" class="bcLink">
+                        <fmt:formatNumber value="${boardRow.points}"  minFractionDigits="2" maxFractionDigits="2"/>
+                    </a>
+                </c:if>
+            </td>
+            <td class="r">
+                <c:if test="${boardRow.placementPrize>0}">
+                    <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
+                </c:if>
+            </td>
+            <td class="r">
+                <c:if test="${boardRow.pointsPrize>0}">
+                    <fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/>
+                </c:if>
+            </td>
+            <td class="r b">
+                <c:if test="${boardRow.totalPrize>0}">
+                    <fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$"/>
+                </c:if>
+                <c:if test="${boardRow.totalPrize==0}">
+                    &#160;
+                </c:if>
+            </td>
+            <td class="r">
+                <c:if test="${boardRow.potentialPoints>0}">
+                    <a href="/dr?module=PointsDetail&amp;pf=1&amp;cr=${boardRow.userId}&amp;tid=${tid}" class="bcLink">
+                        <fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
+                        </a>
+                </c:if>
+            </td>
+            <td class="r"><fmt:formatNumber value="${boardRow.totalPoints}"  minFractionDigits="2" maxFractionDigits="2"/></td>
+        </tr>
+    </c:forEach>
 </tbody></table>
 
-<div class="pagingBox">
+<div class="pagingBox" style="width:300px;">
+    <c:choose>
+        <c:when test="${croppedDataBefore}">
+            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+        </c:when>
+        <c:otherwise>
             &lt;&lt; prev
+        </c:otherwise>
+    </c:choose>
     |
+    <c:choose>
+        <c:when test="${croppedDataAfter}">
+            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+        </c:when>
+        <c:otherwise>
             next &gt;&gt;
+        </c:otherwise>
+    </c:choose>
 </div>
+
 <p class="small" align="left">
     * Prizes are based on current earned points and the dollar per point value for completed projects. Current and
     future projects may affect the final results.<br />
@@ -445,11 +244,21 @@
 
 <div class="pagingBox">
     View
-    <input name="nr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="50" type="text" />
+    <input name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onkeypress="submitEnter(event)" value="50" type="text" />
     at a time starting with
-    <input name="sr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="1" type="text" />
+    <input name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onkeypress="submitEnter(event)" value="1" type="text" />
     <a href="javascript:document.leaderBoardForm.submit();" class="bcLink">[submit]</a>
 </div>
+
+
+</c:when>
+<c:otherwise>
+    <br /><br />
+    The selected track is underway and results will start coming in soon.
+</c:otherwise>
+</c:choose>
+
+</form>
 
 
                         <br clear="all"/>
