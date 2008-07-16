@@ -54,21 +54,21 @@
         </th>
     </tr>
     <tr>
-        <th class="b">Awarded</th>
-        <th class="b">Posted</th>
-        <th class="b">Description</th>
-        <th class="c b">Amount</th>
-        <th class="c b">Reference</th>
+        <th>Description</th>
+        <th class="c">Awarded</th>
+        <th class="c">Posted</th>
+        <th class="c">Amount</th>
+        <th class="c">Reference</th>
     </tr>
 </thead>    
 <tbody>
     <rsc:iterator list="<%=rsc%>" id="resultRow">
         <tr class='${status.index % 2 == 1? "odd" : "even" }'>
-            <td class="b"><rsc:item name="award_date" row="<%=resultRow%>" format="MM.dd.yy"/></td>
-            <td class="b"><rsc:item name="application_date" row="<%=resultRow%>" format="MM.dd.yy"/></td>
-            <td class="b">${resultRow.map["dr_points_desc"]}</td>
-            <td class="c b">${resultRow.map["amount"]}</td>
-            <td class="c b">
+            <td>${resultRow.map["dr_points_desc"]}</td>
+            <td class="c"><rsc:item name="award_date" row="<%=resultRow%>" format="MM.dd.yy"/></td>
+            <td class="c"><rsc:item name="application_date" row="<%=resultRow%>" format="MM.dd.yy"/></td>
+            <td class="c">${resultRow.map["amount"]}</td>
+            <td class="c">
                 <c:choose>
                     <c:when test="${resultRow.map['dr_points_reference_type_id'] == 3}">
                         <c:choose>
