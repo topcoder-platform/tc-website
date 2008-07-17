@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />07.17.08<br />3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=features&amp;d2=071708">Generating random numbers with C++ TR1</a></span><br /><br />
+      In previous articles, I have looked at how to generate various <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=randomNumbers">random distributions of one variable</a>, and <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=randomNumbers2">random collections of variables</a>. Those articles assumed only a random number generator that produced random numbers in some fixed range, such as the C <code>rand()</code> function. In this article, I'll look at a specific random number library, and how it can simplify random number generation.</td>
+         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="Author" width="55" height="61" /><br />by <tc-webtag:handle coderId="251074" context="algorithm" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=071708">details</a> | 
+        <tc-webtag:forumLink forumID="522329" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />07.17.08<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/infoworld_20080716.pdf' refer='/tc' />">InfoWorld: Five Web 2.0 dev lessons for enterprise IT</a> [PDF]</span><br /><br />
@@ -147,20 +163,3 @@
         <tc-webtag:forumLink forumID="522136" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.07.08<br />4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm52">TCHS SRM 52 - Problem Set &amp; Analysis</a></span><br /><br />
-      The third match of the third TCHS season was an exciting match for the 67 young competitors.  After an exciting challenge phase in which the lead changed hands several times, <tc-webtag:handle coderId="22664055" context="hs_algorithm"/> was victorious after solving all problems and gaining seven successful challenges.  <tc-webtag:handle coderId="22663117" context="hs_algorithm"/> took second place with eight challenges, and <tc-webtag:handle coderId="22263204" context="hs_algorithm"/> rounded out the top three.</td>
-         <td class="newsPhoto"><%--<img src="/i/m/Ishan_big.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="7296000" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm52">details</a> | 
-        <tc-webtag:forumLink forumID="521927" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
-   </td></tr>
-   
