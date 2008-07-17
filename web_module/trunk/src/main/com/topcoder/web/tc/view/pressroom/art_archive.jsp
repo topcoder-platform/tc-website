@@ -73,6 +73,7 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd><a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/infoworld_20080716.pdf' refer='art_archive' />">Five Web 2.0 dev lessons for enterprise IT [PDF] <br /><small style="margin-left:10px;">[July 17 - InfoWorld]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.managementlab.org/files/LabNotes8.pdf' refer='art_archive' />">TopCoder: open for competition [PDF] <br /><small style="margin-left:10px;">[July 8 - London Business School]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.portfolio.com/careers/job-of-the-week/2008/07/06/Top-Coder-Tomek-Czajka' refer='art_archive' />">The Top Coder <br /><small style="margin-left:10px;">[July 6 - Portfolio.com]</small></a></dd>
                     <dd>Which Side Are You On? [June - THE Journal] <br /><a target="_blank" href="<tc-webtag:linkTracking link='http://www.thejournal.com/articles/22736_2' refer='art_archive' />">original article</a> | <a target="_blank" href="/i/pressroom/pdfs/thejournal_200806.pdf">PDF</a></dd>
