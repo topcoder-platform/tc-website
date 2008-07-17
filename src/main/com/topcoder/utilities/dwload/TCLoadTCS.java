@@ -4584,9 +4584,6 @@ public class TCLoadTCS extends TCLoad {
            
            selectPoints = prepareStatement(selectPointsQuery.toString(), SOURCE_DB);
 
-           selectPoints.setTimestamp(1, fLastLogTime);
-           selectPoints.setTimestamp(2, fLastLogTime);
-
            rsPoints = selectPoints.executeQuery();
            while (rsPoints.next()) {
                int j = 1;
