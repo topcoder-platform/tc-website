@@ -4524,8 +4524,8 @@ public class TCLoadTCS extends TCLoad {
    public void doLoadDRTrackPoints() throws Exception {
        log.debug("load digital run track points");
 
-       final String SELECT_POINTS =
-           " select dp.dr_points_id, dp.track_id, dprtl.dr_points_reference_type_id, dprtl.dr_points_reference_type_desc, dpol.dr_points_operation_id, " +
+       StringBuffer selectPointsQuery = new StringBuffer(300);
+       selectPointsQuery.append(" select dp.dr_points_id, dp.track_id, dprtl.dr_points_reference_type_id, dprtl.dr_points_reference_type_desc, dpol.dr_points_operation_id, " +
            " dpol.dr_points_operation_desc, dptl.dr_points_type_id, dptl.dr_points_type_desc, dpsl.dr_points_status_id, dpsl.dr_points_status_desc, " +
            " dp.dr_points_desc, dp.user_id, dp.amount, dp.application_date, dp.award_date, dp.reference_id, dp.is_potential, " +
            " (case when dp.dr_points_reference_type_id = 2 then (select dp2.amount from dr_points dp2 where dp2.dr_points_id = dp.reference_id) else 0 end) as parent_amount  " +
@@ -4534,8 +4534,7 @@ public class TCLoadTCS extends TCLoad {
            " and dp.dr_points_type_id = dptl.dr_points_type_id " +
            " and dp.dr_points_operation_id = dpol.dr_points_operation_id " +
            " and dp.dr_points_reference_type_id = dprtl.dr_points_reference_type_id " +
-           " and (dp.modify_date > ? " +
-           "     OR dp.create_date > ?) ";
+           " and dp.track_id in (");
 
        final String INSERT =
            "insert into dr_points (dr_points_id, track_id, dr_points_reference_type_id, dr_points_reference_type_desc, dr_points_operation_id, dr_points_operation_desc, dr_points_type_id, dr_points_type_desc, dr_points_status_id, dr_points_status_desc, dr_points_desc, user_id, amount, application_date, award_date, reference_id, is_potential) " +
@@ -4571,16 +4570,19 @@ public class TCLoadTCS extends TCLoad {
                tracksFound = true;
                delQuery.append(tracks.getLong("track_id"));
                delQuery.append(",");
+               selectPointsQuery.append(tracks.getLong("track_id"));
+               selectPointsQuery.append(",");
            }
            delQuery.setCharAt(delQuery.length() - 1, ')');
-
+           selectPointsQuery.setCharAt(selectPointsQuery.length() - 1, ')');
+           
            log.debug("clean up: "+ delQuery.toString());
            if (tracksFound) {
                delete = prepareStatement(delQuery.toString(), TARGET_DB);
                delete.executeUpdate();
            }
            
-           selectPoints = prepareStatement(SELECT_POINTS, SOURCE_DB);
+           selectPoints = prepareStatement(selectPointsQuery.toString(), SOURCE_DB);
 
            selectPoints.setTimestamp(1, fLastLogTime);
            selectPoints.setTimestamp(2, fLastLogTime);
