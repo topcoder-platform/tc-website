@@ -40,12 +40,14 @@
             <div align="left" style="margin-bottom: 20px;">
                 <img src="/i/introevent/bcsLogo.png" alt="" />
             </div>
-            <h2>Problem Statement for SubgridsCounter</h2>
+            <h2>Problem Statement for RevealTriangle</h2>
 
             <div>
             <strong>
             Problem Statement 
-            | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=subgridsCounterSol" class="bcLink">Solution</a>
+            <%--
+            | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=revealTriangleSol" class="bcLink">Solution</a>
+            --%>
             </strong>
             </div>
             
@@ -57,10 +59,15 @@
                     <tr>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td>
-                            <p>You are given several points on the plane. Nine points form a 3x3 subgrid if they are situated on the vertices of a 2x2 rectangle of equal size squares. The sides of the rectangle must be parallel to the coordinate axes.</p>
-                            <p><img src="/i/introevent/subgridsCounter_1.png" alt="OptimalSubsequenceLocator" /></p>
-                            <p>The orange points form a subgrid among all the points on the picture.</p>
-                            <p>You are given int[]s <strong>x</strong> and <strong>y</strong>, where (<strong>x</strong>[i], <strong>y</strong>[i]) are the coordinates of the i-th point on the plane. The points are distinct. Return the number of distinct subgrids you can create with these points. Two subgrids are distinct if one contains a point that is not contained in the other.</p>
+                            <p>Suppose there is a triangle of digits like the following:</p>
+                            <pre>
+74932
+1325
+457
+92
+1</pre>
+                            <p>Each digit, with the exception of those in the top row, is equal to the last digit of the sum of its upper and upper-right neighboring digits.</p>
+                            <p>You will be given a String[] <strong>questionMarkTriangle</strong> containing a triangle where only one digit in each row is known and all others are represented by '?'s (see example 0 for clarification). Each element of <strong>questionMarkTriangle</strong> represents a row of the triangle, and the rows are given from top to bottom. Each element contains exactly one digit ('0'-'9') and the remaining characters are all '?'s. Restore the triangle and return it as a String[] without '?'s.</p>
                         </td>
                     </tr>
                     <tr>
@@ -76,23 +83,23 @@
                                 <tbody>
                                     <tr>
                                         <td>Class:</td>
-                                        <td>SubgridsCounter</td>
+                                        <td>RevealTriangle</td>
                                     </tr>
                                     <tr>
                                         <td>Method:</td>
-                                        <td>howMany</td>
+                                        <td>calcTriangle</td>
                                     </tr>
                                     <tr>
                                         <td>Parameters:</td>
-                                        <td>int[], int[]</td>
+                                        <td>String[]</td>
                                     </tr>
                                     <tr>
                                         <td>Returns:</td>
-                                        <td>int</td>
+                                        <td>String[]</td>
                                     </tr>
                                     <tr>
                                         <td>Method signature:</td>
-                                        <td>int howMany(int[] x, int[] y)</td>
+                                        <td>String[] calcTriangle(String[] questionMarkTriangle)</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">(be sure your method is public)</td>
@@ -115,23 +122,15 @@
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td><strong>x</strong> will contain between 1 and 50 elements, inclusive.</td>
+                        <td><strong>questionMarkTriangle</strong> will contain between 1 and 50 elements, inclusive.</td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td><strong>x</strong> and <strong>y</strong> will contain the same number of elements.</td>
+                        <td>Element i (0 indexed) of <strong>questionMarkTriangle</strong> will contain exactly n-i characters, where n is the number of elements in <strong>questionMarkTriangle</strong>.</td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td>Each element of <strong>x</strong> will be between -1000 and 1000, inclusive.</td>
-                    </tr>
-                    <tr>
-                        <td align="center" valign="top">-</td>
-                        <td>Each element of <strong>y</strong> will be between -1000 and 1000, inclusive.</td>
-                    </tr>
-                    <tr>
-                        <td align="center" valign="top">-</td>
-                        <td>All points represented by (<strong>x</strong>[i], <strong>y</strong>[i]) will be distinct.</td>
+                        <td>Each element of <strong>questionMarkTriangle</strong> will contain exactly one digit ('0'-'9') and all others characters will be '?'s.</td>
                     </tr>
                     <tr>
                         <td colspan="2"><h3>Examples</h3></td>
@@ -151,9 +150,9 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{0,0,0,0,1,1,1,1,2,2,2,2,3,3,3,3}
-
-{0,1,2,3,0,1,2,3,0,1,2,3,0,1,2,3}</pre>
+                                                            <pre>{"4??", 
+ "?2", 
+ "1"}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -162,7 +161,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 4</pre>
+                                            <pre>Returns: {"457", "92", "1" }</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -170,7 +169,16 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">This is a 4x4 regular grid.<br /><img src="/i/introevent/subgridsCounter_2.png" alt="OptimalSubsequenceLocator-4x4" /></td>
+                                                        <td colspan="2">Let's substitute '?'s with unknown variables:<br /><pre>4ab 
+c2 
+1
+</pre><br />Having done that, we start solving for the variables from the bottom to the top. First, we know that the last digit of (c + 2) is 1. Therefore, c must be 9:<br /><pre>4ab 
+92 
+1
+</pre><br />Now we know that the last digit of (4 + a) is 9, which means a is 5:<br /><pre>45b 
+92 
+1
+</pre>And, finally, the last digit of (5 + b) is 2, so b is 7.</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -195,9 +203,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{7,0,14,0,7,14,14,0,7}
-
-{14,0,14,14,7,7,0,7,0</pre>
+                                                            <pre>{"1"}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -206,7 +212,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 1</pre>
+                                            <pre>Returns: {"1" }</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -214,7 +220,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">This is a 3x3 grid. It forms the only subgrid by itself.</td>
+                                                        <td colspan="2">&nbsp;</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -239,9 +245,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{6,6,3,0,0,3,0,3,6,1,2}
-
-{6,3,0,0,6,3,3,6,0,1,2}</pre>
+                                                            <pre>{"???2", "??2", "?2", "2"}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -250,7 +254,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 1</pre>
+                                            <pre>Returns: {"0002", "002", "02", "2" }</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -283,9 +287,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{6,0,4,0,20,0,0,4,12,6,6,12,12,6,0,12,4,6,4,4,20,20,20,6,6,4,20,4,20,12,12,0,12,0,20}
-
-{4,10,10,9,10,25,0,16,25,0,18,0,4,10,4,16,4,16,25,18,9,4,18,9,25,0,0,9,25,9,18,16,10,18,16}</pre>
+                                                            <pre>{"??5?", "??9", "?4", "6"}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -294,7 +296,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 1</pre>
+                                            <pre>Returns: {"7054", "759", "24", "6" }</pre>
                                         </td>
                                     </tr>
                                     <tr>
