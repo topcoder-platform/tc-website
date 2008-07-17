@@ -115,6 +115,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- InfoWorld: Five Web 2.0 dev lessons for enterprise IT begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/infoworld_20080716.pdf' refer='pr_index' />"><img src="/i/pressroom/infoworld_logo.gif" alt="InfoWorld" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/infoworld_20080716.pdf' refer='pr_index' />">Five Web 2.0 dev lessons for enterprise IT</a> [PDF]</h3>
+                        <p>Application development 2.0 emphasizes quick, incremental updates, along with heavy user involvement, and can be beneficial for some enterprises  <small><a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/infoworld_20080716.pdf' refer='pr_index' />">[July 17]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- InfoWorld: Five Web 2.0 dev lessons for enterprise IT end --%>
+                
                 <%-- London Business School: TopCoder - open for competition begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
@@ -258,7 +271,7 @@
                 </div>
                 <%-- Lilly Partners with TopCoder, to Find Drug Discovery IT Solutions end --%>
                 
-                <%-- InfoWorld - TopCoder: developer productivity and code quality through competition begin --%>
+                <%-- InfoWorld: TopCoder - developer productivity and code quality through competition begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
                         <a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/05/topcoder_develo.html' refer='pr_index' />"><img src="/i/pressroom/infoworld_logo.gif" alt="InfoWorld" border="0" /></a>
@@ -269,7 +282,7 @@
                     </div>
                     <div class="pr_clear"></div>
                 </div>
-                <%-- InfoWorld - TopCoder: developer productivity and code quality through competition end --%>
+                <%-- InfoWorld: TopCoder -  developer productivity and code quality through competition end --%>
                 
                 <%-- Betfair Joins 2008 TopCoder Open Sponsors begin --%>
                 <div class="pr_newsitem">

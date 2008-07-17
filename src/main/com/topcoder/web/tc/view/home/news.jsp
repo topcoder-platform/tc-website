@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />07.17.08<br />12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/infoworld_20080716.pdf' refer='/tc' />">InfoWorld: Five Web 2.0 dev lessons for enterprise IT</a> [PDF]</span><br /><br />
+        Application development 2.0 emphasizes quick, incremental updates, along with heavy user involvement, and can be beneficial for some enterprises.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/infoworld_20080716.pdf' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="522328" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />07.16.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2288">Facebook Application Build at TopCoder Studio!</a></span><br /><br />
@@ -149,21 +162,5 @@
         <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm52">details</a> | 
         <tc-webtag:forumLink forumID="521927" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.07.08<br />12:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm408">SRM 408 - Problem Set &amp; Analysis</a></span><br /><br />
-      SRM 408 brought 1305 brave competitors together in coding combat.  The competitors faced a grueling, greedy set that tempted them with points, only to pull them away during the challenge and system test phases if they hadn't coded carefully.</td>
-         <td class="newsPhoto"><%--<img src="/i/m/nophoto.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="7296000" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm408">details</a> | 
-        <tc-webtag:forumLink forumID="521928" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
    
