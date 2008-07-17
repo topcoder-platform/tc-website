@@ -61,18 +61,18 @@
         </td>
     </tr>
     <tr>
+        <td class="header">Description</td>
         <td class="header">Awarded</td>
         <td class="header">Posted</td>
-        <td class="header">Description</td>
         <td class="headerC">Amount</td>
         <td class="headerC">Reference</td>
     </tr>
 
     <rsc:iterator list="<%=rsc%>" id="resultRow">
     <tr class='${status.index % 2 == 1? "dark" : "light" }'>
+        <td class="value">${resultRow.map["dr_points_desc"]}</td>
         <td class="value"><rsc:item name="award_date" row="<%=resultRow%>" format="MM.dd.yy"/></td>
         <td class="value"><rsc:item name="application_date" row="<%=resultRow%>" format="MM.dd.yy"/></td>
-        <td class="value">${resultRow.map["dr_points_desc"]}</td>
         <td class="valueC">${resultRow.map["amount"]}</td>
         <td class="valueC">
             <c:choose>
