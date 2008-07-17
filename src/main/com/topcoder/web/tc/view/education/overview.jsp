@@ -39,12 +39,12 @@
 <br /><br />
 <span class="bodySubtitle">Most recent articles:</span><br />
 <ul>
+<li><a href="/tc?module=Static&amp;d1=features&amp;d2=071708"><strong>Generating random numbers with C++ TR1</strong></a>, by <tc-webtag:handle coderId="251074" context="algorithm" /><br />
+In previous articles, I have looked at how to generate various <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=randomNumbers">random distributions of one variable</a>, and <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=randomNumbers2">random collections of variables</a>. Those articles assumed only a random number generator that produced random numbers in some fixed range, such as the C <code>rand()</code> function. In this article, I'll look at a specific random number library, and how it can simplify random number generation.</li>
 <li><a href="/tc?module=Static&amp;d1=features&amp;d2=071008"><strong>Meet the June 2008 Coders of the Month</strong></a>&nbsp;<br />
 This month we caught up with <tc-webtag:handle coderId="22653044" context="algorithm" />, June's Algorithm Coder of the Month, <tc-webtag:handle coderId="9981727" context="design"/>, June's Design Coder of the Month, <tc-webtag:handle coderId="22630348" context="development" />, June's Development Coder of the Month, and <tc-webtag:handle coderId="22690288" context="development" />, June's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</li>
 <li><a href="/tc?module=Static&amp;d1=tutorials&amp;d2=hungarianAlgorithm"><strong>Assignment Problem and Hungarian Algorithm</strong></a>, by <tc-webtag:handle coderId="22654859" context="algorithm" /><br />
 Are you familiar with the following situation? You open the Div I Medium and don't know how to approach it, while a lot of people in your room submitted it in less than 10 minutes. Then, after the contest, you find out in the editorial that this problem can be simply reduced to a classical one. If yes, then this tutorial will surely be useful for you.</li>
-<li><a href="/tc?module=Static&amp;d1=features&amp;d2=062708"><strong>Know your hero: yuhch123</strong></a>, by <tc-webtag:handle coderId="22419265" context="algorithm" /><br />
-Yu Huacheng, known at TopCoder by his handle <tc-webtag:handle coderId="14768757" context="algorithm" />, has the honor of being the second target after <tc-webtag:handle coderId="20812309" context="algorithm" /> while still studying in Hangzhou No. 2 high school. Let's get to know him better in his own words.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br />
 <ul>
