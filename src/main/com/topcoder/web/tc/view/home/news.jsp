@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />07.18.08<br />12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=MatchDetails&amp;rd=12182">Betfair Chat prior to SRM 410</a></span><br /><br />
+        Join Betfair representatives for a chat session about their exciting career opportunities.  The chat will take place at 11:00 EDT (GMT/UTC -4).</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=MatchDetails&amp;rd=12182">details</a> | 
+        <tc-webtag:forumLink forumID="521830" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />07.17.08<br />3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -148,18 +161,5 @@
    <tr><td class="newsLinksCell">
         <a target="_blank" href="<tc-webtag:linkTracking link='http://www.managementlab.org/files/LabNotes8.pdf' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="522137" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />07.08.08<br />1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.portfolio.com/careers/job-of-the-week/2008/07/06/Top-Coder-Tomek-Czajka' refer='/tc' />">Portfolio.com: The Top Coder</a></span><br /><br />
-        Tomek Czajka (<tc-webtag:handle coderId="144400" context="algorithm"/>)has parlayed his programming prowess into $130,000 in prize money and a plum job at Google.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.portfolio.com/careers/job-of-the-week/2008/07/06/Top-Coder-Tomek-Czajka' refer='/tc' />">details</a>
-        <tc-webtag:forumLink forumID="522136" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
