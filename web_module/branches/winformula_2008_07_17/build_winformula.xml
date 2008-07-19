@@ -123,7 +123,7 @@
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
             <include name="com/topcoder/web/forums/**"/>
-            <include name="com/topcoder/web/truveo/**"/>
+            <include name="com/topcoder/web/winformula/**"/>
         </javac>
         <property name="compile_set" value="true"/>
     </target>
@@ -176,39 +176,39 @@
 
 
     <target name="war-winformula" depends="compile">
-        <war warfile="${war.dir}/winformula.war" webxml="${resources}/truveo/web.xml">
+        <war warfile="${war.dir}/winformula.war" webxml="${resources}/winformula/web.xml">
             <classes dir="${classes}">
-                <include name="com/topcoder/web/truveo/**/*.class"/>
+                <include name="com/topcoder/web/winformula/**/*.class"/>
                 <include name="com/topcoder/web/forums/**/*.class"/>
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
                 <include name="nav.tld"/>
                 <include name="rsc-taglib.tld"/>
-                <include name="truveo.tld"/>
+                <include name="winformula.tld"/>
             </webinf>
-            <webinf dir="${java}/com/topcoder/web/truveo/view/">
+            <webinf dir="${java}/com/topcoder/web/winformula/view/">
                 <include name="tags/*.tag"/>
             </webinf>
-            <fileset dir="${java}/com/topcoder/web/truveo/view">
+            <fileset dir="${java}/com/topcoder/web/winformula/view">
                 <include name="**/*.jsp"/>
             </fileset>
-            <fileset dir="${java}/com/topcoder/web/forums/view/truveo">
+            <fileset dir="${java}/com/topcoder/web/forums/view/winformula">
                 <include name="*.*"/>
             </fileset>
             <fileset dir="${java}/com/topcoder/web/jsp">
                 <include name="style.jsp"/>
                 <include name="date_time.jsp"/>
             </fileset>
-            <webinf dir="${resources}/truveo">
+            <webinf dir="${resources}/winformula">
                 <include name="jboss-web.xml"/>
             </webinf>
-            <classes dir="${resources}/truveo">
+            <classes dir="${resources}/winformula">
                 <include name="hibernate.cfg.xml"/>
             </classes>
             <classes dir="${resources}/hibernate">
                 <include name="com/topcoder/web/common/model/**/*.xml"/>
-                <include name="com/topcoder/web/truveo/model/**/*.xml"/>
+                <include name="com/topcoder/web/winformula/model/**/*.xml"/>
                 <include name="com/topcoder/web/common/voting/**/*.xml"/>
             </classes>
             <lib dir="${jars.dir}">
@@ -275,7 +275,7 @@
         <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
         <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
 
-        <copy todir="${jboss_conf}" file="${resources}/forums/truveo/jive_init.xml"/>
+        <copy todir="${jboss_conf}" file="${resources}/forums/winformula/jive_init.xml"/>
         <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/ApplicationServer.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
@@ -298,7 +298,7 @@
         <delete dir="${jboss_deploy}/winformula.war/META-INF"/>
         <copy todir="${jboss_conf}">
             <fileset dir="${resources}">
-                <include name="Truveo.properties"/>
+                <include name="Winformula.properties"/>
             </fileset>
         </copy>
     </target>
@@ -330,18 +330,18 @@
                 source="1.5"
                 target="1.5"
                 >
-            <include name="com/topcoder/web/truveo/**"/>
+            <include name="com/topcoder/web/winformula/**"/>
         </javac>
     </target>
 
     <target name="run_winformula_tests" depends="compile_tests" description="run junit tests">
         <junit printsummary="${junitsummary}" fork="yes">
             <classpath>
-                <pathelement location="resources/truveo/"/>
+                <pathelement location="resources/winformula/"/>
                 <pathelement path="${class.path}"/>
             </classpath>
             <formatter type="xml"/>
-            <test name="com.topcoder.web.truveo.TruveoTests" todir="${testclasses}"/>
+            <test name="com.topcoder.web.winformula.WinformulaTests" todir="${testclasses}"/>
         </junit>
 
         <junitreport todir="${testclasses}">
