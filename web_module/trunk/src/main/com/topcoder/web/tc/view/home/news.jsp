@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.21.08<br />2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm410">SRM 410 - Problem Set &amp; Analysis</a></span><br /><br />
+      In both divisions, coders faced 1000-point problems that were even tougher than I'd anticipated. In Division 1, the hard problem received only two submissions, neither of which passed. In the end, the battle was between <tc-webtag:handle coderId="8355516" context="algorithm"/> and <tc-webtag:handle coderId="9906197" context="algorithm"/>.</td>
+         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm410">details</a> | 
+        <tc-webtag:forumLink forumID="522342" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />07.18.08<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=MatchDetails&amp;rd=12182">Betfair Chat prior to SRM 410</a></span><br /><br />
@@ -149,17 +165,4 @@
         <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />">details</a> | 
         <a href="/truveo/forums/">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />07.08.08<br />1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.managementlab.org/files/LabNotes8.pdf' refer='/tc' />">London Business School: TopCoder - open for competition</a> [PDF]</span><br /><br />
-        TopCoder's business model is a powerful pot-purri of outsourcing, software development, community and pure competition.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.managementlab.org/files/LabNotes8.pdf' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="522137" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
