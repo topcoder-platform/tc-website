@@ -28,7 +28,7 @@
                     <div class="contentTexture">
                         <jsp:include page="topNav.jsp"/>
                         <div class="siteBoxFull">
-                            <iframe src="http://topcoderblogs.com/direct<c:out value="${param['myframe']}" default="" escapeXml="true"/>" marginheight="0" marginwidth="0"></iframe>
+                            <iframe  width="100%" height="100%" src="http://topcoderblogs.com/direct<c:out value="${param['myframe']}" default="" escapeXml="true"/>" marginheight="0" marginwidth="0"></iframe>
                         </div>
                     </div>
                 </div>
