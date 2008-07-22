@@ -28,7 +28,7 @@
                     <div class="contentTexture">
                         <jsp:include page="topNav.jsp"/>
                         <div class="siteBoxFull">
-                            <h1>Rules...</h1>
+                            Coming soon...
                         </div>
                     </div>
                 </div>
