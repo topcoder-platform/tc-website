@@ -155,6 +155,20 @@
         <location>/errorPage.jsp</location>
     </error-page>
 
+    <!--  We store the actual name and namespace for the configuration file that we need to access here. -->
+    <context-param>
+            <param-name>config_file_name</param-name>
+            <param-value>assets.properties</param-value>
+    </context-param>
+    <context-param>
+            <param-name>config_namespace</param-name>
+            <param-value>com.topcoder.web.tc.view.voting.SimpleComparisonService</param-value>
+    </context-param>
+    <!-- Register the listener that sets up the initial configuration object. -->
+    <listener>
+            <listener-class>com.topcoder.web.tc.view.voting.InitialAssetManagerListener</listener-class>
+    </listener>
+
 </web-app>
 
 
