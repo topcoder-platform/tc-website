@@ -205,6 +205,8 @@
             </webinf>
             <classes dir="${resources}/truveo">
                 <include name="hibernate.cfg.xml"/>
+                <include name="asset_configuration.xml"/>
+                <include name="assets.properties"/>
             </classes>
             <classes dir="${resources}/hibernate">
                 <include name="com/topcoder/web/common/model/**/*.xml"/>
@@ -214,6 +216,9 @@
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
+            </lib>
+            <lib dir="${jars.dir}/tcs/simple_comparison_service/1.0">
+                <include name="simple_comparison_service.jar"/>
             </lib>
         </war>
         <delete file="${jboss_deploy}/truveo.war"/>
@@ -252,7 +257,7 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/ip_server/2.0.1/ip_server.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
 
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/db_connection_factory/1.1/db_connection_factory.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/ifxjdbc.jar"/>
 
