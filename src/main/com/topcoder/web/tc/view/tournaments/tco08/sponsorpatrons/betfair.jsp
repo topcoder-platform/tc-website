@@ -30,6 +30,7 @@
         <div style="float: right;">
             <h3 style="border-bottom: 1px solid #b7b3b3;">Chat Session Transcripts</h3>
             <strong>
+                <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfairChat20080719">SRM 410</a><br />
                 <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfairChat20080626">SRM 407</a>
             </strong>
         </div>
