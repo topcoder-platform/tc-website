@@ -262,7 +262,6 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/heartbeat/1.0/heartbeat.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/ip_server/2.0.1/ip_server.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/simple_comparison_service/1.0/simple_comparison_service.jar"/>
 
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/db_connection_factory/1.1/db_connection_factory.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
