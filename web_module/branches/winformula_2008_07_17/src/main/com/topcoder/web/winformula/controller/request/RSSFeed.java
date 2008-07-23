@@ -36,6 +36,7 @@ public class RSSFeed extends BaseProcessor {
                     sos.write(c);
                     size+=buf.length;
                 }
+                getResponse().setContentType("text/xml");
                 getResponse().addHeader("Content-Length", String.valueOf(size));
                 getResponse().setStatus(HttpServletResponse.SC_OK);
                 getResponse().flushBuffer();
