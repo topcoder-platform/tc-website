@@ -95,4 +95,4 @@
 
 <%-- Truveo --%>
 <br />
-<a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />"><img src="/i/home/truveo.png" alt="Truveo Developer Challenge Powered by TopCoder" /></a>
+<a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />"><img src="/i/home/truveo_vote_slim.png" alt="Truveo Developer Challenge Powered by TopCoder" /></a>
