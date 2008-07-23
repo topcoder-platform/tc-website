@@ -31,7 +31,7 @@
             <h3 style="border-bottom: 1px solid #b7b3b3;">Chat Session Transcripts</h3>
             <strong>
                 <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisignChat20080710">SRM 409</a><br />
-                <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisignChat20080311">SRM 393</a><br />
+                <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisignChat20080311">SRM 393</a>
             </strong>
         </div>
         <div style="padding-bottom:10px;">

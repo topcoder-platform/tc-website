@@ -32,7 +32,7 @@
             <strong>
                 <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyChat20080415">SRM 398</a><br />
                 <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyChat20080403">SRM 396</a><br />
-                <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyChat20080202">SRM 390</a><br />
+                <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=lillyChat20080202">SRM 390</a>
             </strong>
         </div>
         <div style="padding-bottom:10px;">
