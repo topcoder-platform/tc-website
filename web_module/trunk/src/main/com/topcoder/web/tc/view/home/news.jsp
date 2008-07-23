@@ -11,7 +11,7 @@
    </tr>
    <tr><td class="newsLinksCell">
         <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />">details</a> | 
-        <a href="/truveo/forums/">discuss this</a> | 
+        <a href="/truveo/forums">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
 
