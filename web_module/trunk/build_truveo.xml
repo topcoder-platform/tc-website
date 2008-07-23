@@ -71,8 +71,14 @@
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.1/db_connection_factory.jar"/>
         <pathelement location="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
         <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
+        <pathelement location="${jars.dir}/tcs/simple_comparison_service/1.0/simple_comparison_service.jar"/>
+        <pathelement location="${jars.dir}/tcs/base_exception/2.0.0/base_exception.jar"/>
+        <pathelement location="${jars.dir}/tcs/configuration_api/1.0.0/configuration_api.jar"/>
+        <pathelement location="${jars.dir}/tcs/configuration_persistence/1.0.1/configuration_persistence.jar"/>
+        <pathelement location="${jars.dir}/tcs/object_factory/2.1.1/object_factory.jar"/>
+        <pathelement location="${jars.dir}/tcs/object_factory_configuration_api_plugin/1.0.0/object_factory_configuration_api_plugin.jar"/>
+
         <!--        <pathelement location="${jars.dir}/tcsUtil.jar"/>-->
-        <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
 
 
         <!-- hibernate files -->
@@ -256,8 +262,17 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/heartbeat/1.0/heartbeat.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/ip_server/2.0.1/ip_server.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/simple_comparison_service/1.0/simple_comparison_service.jar"/>
 
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/db_connection_factory/1.1/db_connection_factory.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/base_exception/2.0.0/base_exception.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_api/1.0.0/configuration_api.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_persistence/1.0.1/configuration_persistence.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/object_factory/2.1.1/object_factory.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/object_factory_configuration_api_plugin/1.0.0/object_factory_configuration_api_plugin.jar"/>
+
+
         <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/ifxjdbc.jar"/>
 
