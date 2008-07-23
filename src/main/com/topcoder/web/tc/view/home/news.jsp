@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />07.22.08<br />10:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />">Use the New TC Battle Widget to Vote for Your Favorite Truveo Apps!</a></span><br /><br />
+        The $100,000 Truveo Developer Challenge has come to a close, and now is your chance to help pick one TopCoder Community Favorite from the 96 submitted applications. The TC favorite counts for 20% of the app's final score, and we've built a Voting Widget just for the occasion. Check out the widget, check out the apps, and let us know what you think in the forums!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />">details</a> | 
+        <a href="/truveo/forums/">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.21.08<br />2:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -154,15 +167,3 @@
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />07.08.08<br />7:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />">Two Weeks Left in the Truveo Challenge!</a></span><br /><br />
-        With two weeks remaining in the $100,000 Truveo Developer Challenge we're closing on 70 submissions! But there's still time for you to take a shot at one of the nine $10,000 first prizes or 20 $500 second prizes before the July 21 deadline. Check out the contest <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />">home page</a> for details, or you can just go browse some of the great video apps submitted so far - and be ready – we'll be asking you to vote for your favorite at the end of the contest.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />">details</a> | 
-        <a href="/truveo/forums/">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
