@@ -33,7 +33,7 @@ public class RSSFeed extends BaseProcessor {
                 int c;
                 byte[] buf = new byte[4096];
                 while ((c = in.read(buf)) != -1) {
-                    sos.write(c);
+                    sos.write(buf, 0, c);
                     size+=buf.length;
                 }
                 getResponse().setContentType("text/xml");
