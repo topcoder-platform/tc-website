@@ -32,29 +32,38 @@ public class RSSFeed extends BaseProcessor {
         } else if (feed.equals("forum")) {
             url =  "http://forums.topcoder.com/?module=RSS&categoryID=13"; 
         } else if (feed.equals("espn")) {
-            url =  "http://sports.espn.go.com/espn/news/story?page=rssinfo"; 
+            url =  "http://sports.espn.go.com/espn/rss/ncf/news"; 
         } 
+        
+        log.debug("RSS url: " + url);
         
         URL p = new URL(url);
         HttpURLConnection con = null;
         try { 
             con = (HttpURLConnection) p.openConnection();
             con.setRequestMethod("GET");
+            log.debug("before con.connect()...");
             con.connect();
-            InputStream in = null;
+            log.debug("after con.connect()...");
+           InputStream in = null;
             try {
+                log.debug("before con.getInputStream()...");
                 in = con.getInputStream();
+                log.debug("after con.getInputStream()...");
                 int size = 0;
                 int c;
                 byte[] buf = new byte[4096];
                 while ((c = in.read(buf)) != -1) {
                     sos.write(buf, 0, c);
                     size+=buf.length;
+                    log.debug("read " + buf.length + " bytes...");
                 }
                 getResponse().setContentType("text/xml");
                 getResponse().addHeader("Content-Length", String.valueOf(size));
                 getResponse().setStatus(HttpServletResponse.SC_OK);
+                log.debug("before getResponse().flushBuffer()...");
                 getResponse().flushBuffer();
+                log.debug("after getResponse().flushBuffer()...");
             } finally {
                 if (in != null) in.close();
             }
