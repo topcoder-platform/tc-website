@@ -39,7 +39,7 @@ public class DownloadFile extends ShortHibernateProcessor {
             }
             String fileName = getRequest().getParameter(Constants.FILENAME);
             
-            if (fileName == null || fileName.trim().length() == 0 || fileName.contains(".") || fileName.contains("\\") || fileName.contains("/")) {
+            if (fileName == null || fileName.trim().length() == 0 || fileName.contains("\\") || fileName.contains("/")) {
                 throw new NavigationException("Invalid Request");
             }
 
