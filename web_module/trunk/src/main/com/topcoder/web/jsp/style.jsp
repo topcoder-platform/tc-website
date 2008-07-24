@@ -80,9 +80,5 @@
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <% } else if (key.equals("tc_winformula")) { %>
 <link type="text/css" rel="stylesheet" href="/css/winformula/screen.css" />
-<link type="text/css" rel="stylesheet" href="/css/winformula/screen-ie6.css" />
-<link type="text/css" rel="stylesheet" href="/css/winformula/screen-ie7.css" />
-<link type="text/css" rel="stylesheet" href="/css/winformula/screen-ie.css" />
-<link type="text/css" rel="stylesheet" href="/css/winformula/print.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <% } %>
