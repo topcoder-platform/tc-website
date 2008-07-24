@@ -7,8 +7,9 @@ import java.net.URL;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
+import sun.misc.BASE64Encoder;
+
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.tc.Constants;
 
 /**
  */
@@ -26,6 +27,8 @@ public class RSSFeed extends BaseProcessor {
 
         ServletOutputStream sos = getResponse().getOutputStream();
 
+        String pass = new BASE64Encoder().encode("alexdelarge:cl0ckw0rk".getBytes());
+
         String url = "";
         if (feed.equals("blog")) {
             url =  "http://topcoderblogs.com/winningformula/?feed=rss"; 
@@ -35,12 +38,17 @@ public class RSSFeed extends BaseProcessor {
             url =  "http://sports.espn.go.com/espn/rss/ncf/news"; 
         } 
         
+        
+
         log.debug("RSS url: " + url);
         
         URL p = new URL(url);
         HttpURLConnection con = null;
         try { 
             con = (HttpURLConnection) p.openConnection();
+            if (feed.equals("forum")) {
+                con.setRequestProperty("Authorization", "Basic " + pass);
+            }
             con.setRequestMethod("GET");
             log.debug("before con.connect()...");
             con.connect();
