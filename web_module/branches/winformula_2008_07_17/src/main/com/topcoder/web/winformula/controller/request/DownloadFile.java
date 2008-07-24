@@ -58,8 +58,9 @@ public class DownloadFile extends ShortHibernateProcessor {
                     throw new NavigationException("You must be registered in order to download the requested file");
                 }
             }
-            setNextPage(Constants.FILES_FOLDER+fileName);
-            setIsNextPageInContext(true);
+            streamFile(Constants.FILES_FOLDER, fileName);
+            //setNextPage(Constants.FILES_FOLDER+fileName);
+            //setIsNextPageInContext(true);
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
@@ -90,14 +91,15 @@ public class DownloadFile extends ShortHibernateProcessor {
         
         FileInputStream fis = new FileInputStream(file);
         try {
-            int b;
+            byte[] buffer = new byte[8000];
             int size = 0;
-            while ((b = fis.read()) >= 0) {
-                sos.write(b);
-                size++;
-            }
-            getResponse().addHeader("Content-Length", String.valueOf(size));
+            int fullSize = 0;
             getResponse().setStatus(HttpServletResponse.SC_OK);
+            while ((size = fis.read(buffer)) >= 0) {
+                sos.write(buffer, 0, size);
+                fullSize += size;
+                sos.flush();
+            }
             getResponse().flushBuffer();
         } finally {
             fis.close();
