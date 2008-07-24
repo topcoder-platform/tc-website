@@ -40,6 +40,7 @@
             <br />
             <div align="center"><img src="/i/sponsor/drDobbsPoster.png" border="0px" alt="Dr. Dobb's Architecture &amp; Design World" /></div>
             <br />
+            <p style="font-size:14px; border:1px solid #999999; margin:5px;" align="center"><strong>Click <a href="http://software.topcoder.com/review/actions/ViewProjectDetails.do?method=viewProjectDetails&amp;pid=30004440">here</a> to view the Software Architecture competition results.</strong></p>
             <p>Welcome to Dr. Dobb's Architecture and Design World software architecture contest!  Here you can register for the competition, as well as learn more about architecture competitions.  Check out <a href="/wiki/display/docs/DDADW+Problem+Statement">the problem statement</a>.</p>
             
             <p><strong>Contest Overview:</strong><br />
