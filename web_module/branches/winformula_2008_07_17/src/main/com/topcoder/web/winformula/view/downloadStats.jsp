@@ -35,7 +35,7 @@
                         <jsp:include page="topNav.jsp"/>
                         <div class="siteBoxFull">
                             <h1>Download stats...</h1><br/>
-                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadFile&amp;<%=Constants.FILENAME%>=test.zip">
+                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadFile&amp;<%=Constants.CONTEST_ID%>=&amp<%=Constants.CONTEST_ID_DEFAULT%>;<%=Constants.FILENAME%>=test.zip">
                             Test File</a>
                         </div>
                     </div>
