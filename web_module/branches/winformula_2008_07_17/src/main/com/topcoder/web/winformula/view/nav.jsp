@@ -28,39 +28,21 @@
             <%-- End Global Link --%>
             </div>
             
-            <% if (section.equals("home")) {%>
-            <% } else { %>
-                <c:choose>
-                    <c:when test="${sessionInfo.anonymous}">
-                    <div id="login">
-                    <%-- Login --%>
-                        <div>
-                            <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Login" class="topButton gMetal" title="Log In"><span>Log In</span></a>
-                        </div>
-                        </c:when>
-                        <c:otherwise>
-                        <div>
-                            Hello, <tc-webtag:handle coderId="${sessionInfo.userId}" darkBG="true"/>
-                            | <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout" class="topButton gMetal" >Logout</a>
-                        </div>
-                        
-                        <!-- Prototype code that we may not need Pablo 
-                        <form action="" > 
-                          <a href="#" class="topButton" title="Log In"><span>Log In</span></a>
-                          <!-- May not need this code Pablo 
-                          <input name="username" type="text" class="textbox" id="username" value="TopCoder Username" />
-                          <input name="password" type="password" class="textbox" id="password" value="Password" />
-                        </form>
-                        -->
-                    <%-- End Login --%>
-                    </div>
-                    </c:otherwise>
-                </c:choose>
-            <% } %>
+            <div id="login">
+            <%-- Login --%>
+                <form action="" > 
+                    <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Login" class="topButton" title="Log In"><span>Log In</span></a>
+                    <input name="username" type="text" class="textbox" id="username" value="TopCoder Username" />
+                    <input name="password" type="password" class="textbox" id="password" value="Password" />
+                </form>
+            <%-- End Login --%>
+            </div>
             
             <div id="user-links">
             <%-- User Link --%>
-            <a href="#">Register</a> | <a href="#">Forgot Password </a>
+            <a href="#">Register</a> | <a href="#">Forgot Password</a>
+            | <strong>Hello, [HANDLE]</strong>
+            | <strong><a class="" href="#">Logout</a></strong>
             <%-- End User Link --%>
             </div>
         
