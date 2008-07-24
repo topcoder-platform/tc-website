@@ -530,23 +530,40 @@ public class RBoardApplicationBean extends BaseEJB {
      * @return the time to wait in milliseconds
      */
     private long getApplicationDelay(Connection conn, long userId) {
-    log.debug("getApplicationDelay(Connection conn, long userId) called...");
+        log.debug("getApplicationDelay(Connection conn, long userId) called...");
 
-    final String query =
-        "select count(*) as active_projects " +
-        "  from project p " +
-        "     , project_phase pp_review " +
-        "     , resource r " +
-        "     , resource_info ri_userid " +
-        " where p.project_status_id = 1 " +
-        "   and p.project_id = pp_review.project_id " +
-        "   and pp_review.phase_type_id = 4 " +
-        "   and pp_review.phase_status_id != 3 " +
-        "   and p.project_id = r.project_id " +
-        "   and r.resource_role_id in (4, 5, 6, 7) " +
-        "   and r.resource_id = ri_userid.resource_id " +
-        "   and ri_userid.resource_info_type_id = 1 " +
-        "   and ri_userid.value = ? ";
+        final String query =
+            "select count(*) as active_projects " +
+            "  from project p " +
+            "     , project_phase pp_review " +
+            "     , resource r " +
+            "     , resource_info ri_userid " +
+            " where p.project_status_id = 1 " +
+            "   and p.project_id = pp_review.project_id " +
+            "   and pp_review.phase_type_id = 4 " +
+            "   and pp_review.phase_status_id != 3 " +
+            "   and (pp_review.scheduled_end_time >= current " +
+            "        or ((select count(*) " +
+            "               from review " +
+            "              where resource_id = r.resource_id " +
+            "                and committed = 1) " +
+            "            < (select count(*) " +
+            "                 from submission s " +
+            "                    , upload u " +
+            "                where u.project_id = p.project_id " +
+            "                  and u.upload_type_id = 1 " +
+            "                  and u.upload_id = s.upload_id " +
+            "                  and s.submission_status_id = 1)) " +
+            "        or (p.project_category_id = 2 " +
+            "            and not exists (select * " +
+            "                              from upload u " +
+            "                             where u.resource_id = r.resource_id " +
+            "                               and u.upload_type_id = 2))) " +
+            "   and p.project_id = r.project_id " +
+            "   and r.resource_role_id in (4, 5, 6, 7) " +
+            "   and r.resource_id = ri_userid.resource_id " +
+            "   and ri_userid.resource_info_type_id = 1 " +
+            "   and ri_userid.value = ? ";
 
         PreparedStatement ps = null;
         ResultSet rs = null;

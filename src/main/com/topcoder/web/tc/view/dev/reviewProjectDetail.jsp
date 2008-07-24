@@ -184,7 +184,7 @@
                 </tr>
                 <tr>
                     <td class="bodyText">
-                        <p align="left">*** Review positions for new projects become open after the project starts.</p>
+                        <p align="left">*** Review positions for new projects become open 12 hours after the project starts.</p>
                     </td>
                 </tr>
 <% if (applicationDelayHours > 0 || applicationDelayMinutes > 0) { %>
@@ -192,7 +192,7 @@
                     <td class="bodyText">
                         <p align="left">
                             **** Due to your existing review commitments, review positions open for you <%= applicationDelayHours %> hours and
-                            <%= applicationDelayMinutes %> minutes after a project opens for registration.
+                            <%= applicationDelayMinutes %> minutes after a project opens for review registration.
                         </p>
                     </td>
                 </tr>

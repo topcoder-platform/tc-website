@@ -137,7 +137,7 @@
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="submission_passed_screening_count"/></td>
       <% if (waitingToReview.get(i).booleanValue()) { %>
       <td class="statDk" align="center" nowrap="nowrap">
-    <%= DateTime.timeStampToArbitraryString(waitingUntil.get(i), "MM.dd.yyyy'<br />'hh:mm a") %>
+        <%= DateTime.timeStampToArbitraryString(waitingUntil.get(i), "MM.dd.yyyy'<br />'hh:mm a") %>
       </td>
       <% } else { %>
       <td class="statDk" align="center"><i>open</i></td>
@@ -202,26 +202,25 @@
       <% } %>
       </td>
       <td class="statDk" align="center">
-      <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
-      <img src="/i/development/smAOL.gif" border="0"/>
-      <% } else if ((resultRow.getLongItem("category_id"))==Constants.DOT_NET_CATALOG_ID) { %>
-      <img src="/i/development/netSm.gif" border="0"/>
-      <% } else if (resultRow.getLongItem("category_id")==Constants.CUSTOM_DOT_NET_CATALOG_ID) {%>
-      <img src="/i/development/smNetCustom.gif" border="0"/>
-      <% } else if ((resultRow.getLongItem("category_id"))==Constants.JAVA_CATALOG_ID) { %>
-      <img src="/i/development/smJava.gif" border="0"/>
-      <% } else if (resultRow.getLongItem("category_id")==Constants.CUSTOM_JAVA_CATALOG_ID) { %>
-      <img src="/i/development/smJavaCustom.gif" border="0"/>
-      <% } else if ((resultRow.getLongItem("category_id"))==Constants.FLASH_CATALOG_ID) { %>
-      <img src="/i/development/flashSm.gif" border="0"/>
-      <% } else if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
-      <img src="/i/development/smApp.gif" border="0"/>
-          <% } else if ((resultRow.getLongItem("category_id"))==Constants.CPP_CATALOG_ID) { %>
-          <img src="/i/development/smCpp.png" border="0"/>
-          
-      <% } else { %>
-      <rsc:item row="<%=resultRow%>" name="catalog"/>
-      <% } %>
+        <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
+        <img src="/i/development/smAOL.gif" border="0"/>
+        <% } else if ((resultRow.getLongItem("category_id"))==Constants.DOT_NET_CATALOG_ID) { %>
+        <img src="/i/development/netSm.gif" border="0"/>
+        <% } else if (resultRow.getLongItem("category_id")==Constants.CUSTOM_DOT_NET_CATALOG_ID) {%>
+        <img src="/i/development/smNetCustom.gif" border="0"/>
+        <% } else if ((resultRow.getLongItem("category_id"))==Constants.JAVA_CATALOG_ID) { %>
+        <img src="/i/development/smJava.gif" border="0"/>
+        <% } else if (resultRow.getLongItem("category_id")==Constants.CUSTOM_JAVA_CATALOG_ID) { %>
+        <img src="/i/development/smJavaCustom.gif" border="0"/>
+        <% } else if ((resultRow.getLongItem("category_id"))==Constants.FLASH_CATALOG_ID) { %>
+        <img src="/i/development/flashSm.gif" border="0"/>
+        <% } else if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
+        <img src="/i/development/smApp.gif" border="0"/>
+        <% } else if ((resultRow.getLongItem("category_id"))==Constants.CPP_CATALOG_ID) { %>
+        <img src="/i/development/smCpp.png" border="0"/>
+        <% } else { %>
+        <rsc:item row="<%=resultRow%>" name="catalog"/>
+        <% } %>
       </td>
       <% if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
       <td class="statDk"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></td>
@@ -233,7 +232,7 @@
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
       <% if (waitingToReview.get(j).booleanValue()) { %>
       <td class="statDk" align="center" nowrap="nowrap">
-    <%= DateTime.timeStampToArbitraryString(waitingUntil.get(j), "MM.dd.yyyy'<br />'hh:mm a") %>
+        <%= DateTime.timeStampToArbitraryString(waitingUntil.get(j), "MM.dd.yyyy'<br />'hh:mm a") %>
       </td>
       <% } else { %>
       <td class="statDk" align="center"><i>open</i></td>
@@ -267,8 +266,8 @@
 <% if (applicationDelayHours > 0 || applicationDelayMinutes > 0) { %>
             <p>
               Due to your existing review commitments, review positions open for you <%= applicationDelayHours %> hours and
-              <%= applicationDelayMinutes %> minutes after a project opens for registration.
-        </p>
+              <%= applicationDelayMinutes %> minutes after a project opens for review registration.
+            </p>
 <% } %>
             <p>Please note that custom components do not get added to the catalog and therefore do not have royalties.</p>
             <br />
