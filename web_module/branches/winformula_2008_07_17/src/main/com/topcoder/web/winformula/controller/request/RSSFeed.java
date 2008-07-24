@@ -8,6 +8,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.tc.Constants;
 
 /**
  */
@@ -18,9 +19,23 @@ public class RSSFeed extends BaseProcessor {
 //        getResponse().addHeader("content-disposition", "inline; filename=\"" + d.getOriginalFileName() + "\"");
 //        getResponse().setContentType(d.getMimeType().getDescription());
 
+        String feed = null;
+        if (hasParameter("feed")) {
+            feed = getRequest().getParameter("feed");
+        }
+
         ServletOutputStream sos = getResponse().getOutputStream();
 
-        URL p = new URL("http://topcoderblogs.com/winningformula/?feed=rss2");
+        String url = "";
+        if (feed.equals("blog")) {
+            url =  "http://topcoderblogs.com/winningformula/?feed=rss"; 
+        } else if (feed.equals("forum")) {
+            url =  "http://forums.topcoder.com/?module=RSS&categoryID=13"; 
+        } else if (feed.equals("espn")) {
+            url =  "http://sports.espn.go.com/espn/news/story?page=rssinfo"; 
+        } 
+        
+        URL p = new URL(url);
         HttpURLConnection con = null;
         try { 
             con = (HttpURLConnection) p.openConnection();
