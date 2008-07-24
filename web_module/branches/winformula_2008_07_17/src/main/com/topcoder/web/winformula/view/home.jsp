@@ -78,12 +78,13 @@
                         <div class="emptyBoxBottom">
                             <h2 class="titleWrite"> <span class="hide"> Wisdom of the Code </span></h2>
                             <div class="prize">
-                                <a href="how-compete.htm" class="learnButton" title="Learn More"><span>Learn More</span></a>
+                                <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=howToCompete" class="learnButton" title="Learn More"><span>Learn More</span></a>
                             </div>
                         <div class="explanation">ESPN has teamed up with TopCoder to find out what will happen when the best programmers in the world get their hands on the most comprehensive college football game data ever compiled! How will your algorithm stack up against the competition?</div>
                 </div>
             </div>
             
+            <%-- Temporarily Hidden 
             <div class="weekly-box">
                 <h2 class="titleWeekly"><span class="hide">Week 4 Winners</span></h2>
                 <table width="97%" class="current-data">
@@ -287,6 +288,7 @@
             </table>
             <p><a href="standings.htm" class="viewLink">View Complete Standings</a></p>
             </div>
+            --%>
             
             <div class="emptyBoxTop"></div>
             <div class="emptyBoxBottom">
@@ -298,6 +300,7 @@
                 <div class="imgLeft"> <img src="/i/events/winformula/brain.png" alt="Helmet" /> </div>
             </div>
             
+            <%-- Temporarily Hidden 
             <h2 class="titlePredicted"> <span class="hide"> Predicted Results For This Week's Top Games </span></h2>
             <table border="0" align="center" cellpadding="0" width="100%" class="predict-table">
                 <tr>
@@ -315,21 +318,22 @@
                     <td class="alignRight"><strong>17</strong></td>
                 </tr>
                 <tr>
-                    <td>                Michigan</td>
-                    <td class="alignRight dottedRight">                10</td>
-                    <td><strong>                USC</strong></td>
-                    <td class="alignRight dottedRight"><strong>                18</strong></td>
+                    <td>Michigan</td>
+                    <td class="alignRight dottedRight">10</td>
+                    <td><strong>USC</strong></td>
+                    <td class="alignRight dottedRight"><strong>18</strong></td>
                     <td><strong>Georgia</strong></td>
                     <td class="alignRight dottedRight"><strong>28</strong></td>
-                    <td>                Missouri</td>
-                    <td class="alignRight dottedRight">                14</td>
-                    <td>                NAVY</td>
-                    <td class="alignRight dottedRight">                13</td>
-                    <td>                Auburn</td>
-                    <td class="alignRight">                10</td>
+                    <td>Missouri</td>
+                    <td class="alignRight dottedRight">14</td>
+                    <td>NAVY</td>
+                    <td class="alignRight dottedRight">13</td>
+                    <td>Auburn</td>
+                    <td class="alignRight">10</td>
                 </tr>
             </table>
             <p class="info">*Based on <a href="#">CommunityAverage's picks</a>. See also <a href="#">CommunityTop10's picks</a>.</p>
+            --%>
         </div>
                       
         <%-- Main Content --%>
