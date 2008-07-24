@@ -37,8 +37,10 @@ public class Constants implements WebConstants {
     public static final String FILE_TYPE = "ft_";
     public static final String SUBMISSION_RANK = "srank";
     public static final String REG_CONFIRM = "rconfirm";
+    public static final String FILENAME = "file";
 
     public static final String RESULT_KEY = "result_key";
+    
 
     public static final String WIDTH = "width";
     public static final String HEIGHT = "height";
@@ -53,6 +55,8 @@ public class Constants implements WebConstants {
     public static int VIEW_SUBMISSIONS_SCROLL_SIZE;
     public static int ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE;
     public static int ADMIN_USER_ID;
+    //Folder containing folder to 
+    public static String FILES_FOLDER;
 
     static {
         initialize();
