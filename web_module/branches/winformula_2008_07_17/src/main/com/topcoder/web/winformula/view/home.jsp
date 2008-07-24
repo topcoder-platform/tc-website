@@ -20,7 +20,7 @@
     <%-- Wrapper --%>
     
         <jsp:include page="nav.jsp">
-        <jsp:param name="tabLev1" value="home" />
+        <jsp:param name="tabLev1" value="homepage" />
         <jsp:param name="tabLev2" value="" />
         <jsp:param name="tabLev3" value="" />
         </jsp:include>

@@ -28,15 +28,35 @@
             <%-- End Global Link --%>
             </div>
             
-            <div id="login">
-            <%-- Login --%>
-                <form action="" > 
-                  <a href="#" class="topButton" title="Log In"><span>Log In</span></a>
-                  <input name="username" type="text" class="textbox" id="username" value="TopCoder Username" />
-                  <input name="password" type="password" class="textbox" id="password" value="Password" />
-                </form>
-            <%-- End Login --%>
-            </div>
+            <% if (section.equals("home")) {%>
+            <% } else { %>
+                <c:choose>
+                    <c:when test="${sessionInfo.anonymous}">
+                    <div id="login">
+                    <%-- Login --%>
+                        <div>
+                            <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Login" class="topButton gMetal" title="Log In"><span>Log In</span></a>
+                        </div>
+                        </c:when>
+                        <c:otherwise>
+                        <div>
+                            Hello, <tc-webtag:handle coderId="${sessionInfo.userId}" darkBG="true"/>
+                            | <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout" class="topButton gMetal" >Logout</a>
+                        </div>
+                        
+                        <!-- Prototype code that we may not need Pablo 
+                        <form action="" > 
+                          <a href="#" class="topButton" title="Log In"><span>Log In</span></a>
+                          <!-- May not need this code Pablo 
+                          <input name="username" type="text" class="textbox" id="username" value="TopCoder Username" />
+                          <input name="password" type="password" class="textbox" id="password" value="Password" />
+                        </form>
+                        -->
+                    <%-- End Login --%>
+                    </div>
+                    </c:otherwise>
+                </c:choose>
+            <% } %>
             
             <div id="user-links">
             <%-- User Link --%>
@@ -51,7 +71,7 @@
         <%-- Main Navigation --%>
             <div id="lCorner-nav"><%-- Left Corner Navigation --%></div>
                 <ul>
-                    <li id="nav-home"<% if (tabLev1.equals("home")) {%> class="on"<% } %>><a title="Home" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/"><span class="hide">Home</span></a></li>
+                    <li id="nav-home"<% if (tabLev1.equals("homepage")) {%> class="on"<% } %>><a title="Home" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/"><span class="hide">Home</span></a></li>
                     <li id="nav-standing"<% if (tabLev1.equals("standings")) {%> class="on"<% } %>><a title="Standings" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=standings"><span class="hide">Standings</span></a></li>
                     <li id="nav-how-to-compete"<% if (tabLev1.equals("compete")) {%> class="on"<% } %>><a title="How to Compete" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=howToCompete"><span class="hide">How to Compete</span></a></li>
                     <li id="nav-register"<% if (tabLev1.equals("register")) {%> class="on"<% } %>><a title="Register" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=register"><span class="hide">Register</span></a></li>
