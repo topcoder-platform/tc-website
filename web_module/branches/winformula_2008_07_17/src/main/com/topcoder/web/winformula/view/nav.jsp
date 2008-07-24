@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="com.topcoder.web.common.model.EventType" %>
