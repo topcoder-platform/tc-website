@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="com.topcoder.web.common.model.EventType" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%
@@ -28,23 +29,31 @@
             <%-- End Global Link --%>
             </div>
             
-            <div id="login">
-            <%-- Login --%>
-                <form action="" > 
-                    <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Login" class="topButton" title="Log In"><span>Log In</span></a>
-                    <input name="username" type="text" class="textbox" id="username" value="TopCoder Username" />
-                    <input name="password" type="password" class="textbox" id="password" value="Password" />
-                </form>
-            <%-- End Login --%>
-            </div>
-            
-            <div id="user-links">
-            <%-- User Link --%>
-            <a href="#">Register</a> | <a href="#">Forgot Password</a>
-            | <strong>Hello, [HANDLE]</strong>
-            | <strong><a class="" href="#">Logout</a></strong>
-            <%-- End User Link --%>
-            </div>
+            <c:choose>
+                <c:when test="${sessionInfo.anonymous}">
+                    <div id="login">
+                    <%-- Login --%>
+                        <form action="" > 
+                            <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Login" class="topButton" title="Log In"><span>Log In</span></a>
+                            <input name="username" type="text" class="textbox" id="username" value="TopCoder Username" />
+                            <input name="password" type="password" class="textbox" id="password" value="Password" />
+                        </form>
+                    <%-- End Login --%>
+                    </div>
+                    <div id="user-links">
+                        <%-- User Link --%>
+                        <a href="#">Register</a> | <a href="#">Forgot Password</a>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <div id="user-links">
+                    <%-- User Link --%>
+                    <strong>Hello, <tc-webtag:handle coderId='${sessionInfo.userId}'/></strong>
+                    | <strong><a class="" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Logout">Logout</a></strong>
+                    <%-- End User Link --%>
+                    </div>
+                </c:otherwise>
+            </c:choose>
         
         <%-- End Header --%>
         </div>
