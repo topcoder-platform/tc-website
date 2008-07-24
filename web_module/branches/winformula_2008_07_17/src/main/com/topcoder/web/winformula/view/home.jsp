@@ -5,39 +5,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>ESPN Winning Formula Challange :: Powered by TopCoder - Homepage</title>
-    <!-- Meta Tags -->
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <!-- External CSS -->
-    <link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
-    <link rel="stylesheet" type="text/css" media="print" href="css/print.css" />
-    
-    <!--[if IE 7]>
-    <link rel="stylesheet" type="text/css" href="css/screen-ie7.css" />
-    <![endif]-->
-    <!--[if IE 6]>
-    <link rel="stylesheet" type="text/css" href="css/screen-ie6.css" />
-    <![endif]-->
-    
-    <!-- External JavaScripts -->
+    <%-- Meta Tags --%>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_winformula"/>
+    </jsp:include>
     <script type="text/javascript" src="js/scripts.js"></script>
   
 </head>
 
 <body>
     <div id="wrapper">
-    <!-- Wrapper -->
+    <%-- Wrapper --%>
     
         <jsp:include page="nav.jsp">
-        <jsp:param name="tabLev1" value="home"/>
-        <jsp:param name="tabLev2" value=""/>
-        <jsp:param name="tabLev3" value=""/>
+        <jsp:param name="tabLev1" value="home" />
+        <jsp:param name="tabLev2" value="" />
+        <jsp:param name="tabLev3" value="" />
         </jsp:include>
         
         <div id="container">
-        <!-- Container -->
+        <%-- Container --%>
         <div id="main-content">
-        <!-- Main Content -->
+        <%-- Main Content --%>
         
             <div id="sidebar">
                 <div class="post-box blogPost">
@@ -341,16 +332,16 @@
             <p class="info">*Based on <a href="#">CommunityAverage's picks</a>. See also <a href="#">CommunityTop10's picks</a>.</p>
         </div>
                       
-        <!-- Main Content -->
+        <%-- Main Content --%>
         </div>
-        <!-- End Container -->
+        <%-- End Container --%>
         </div>
   
     <div id="footer">
-    <!-- Footer -->
+    <%-- Footer --%>
     </div>
     
-<!-- End Wrapper -->
+<%-- End Wrapper --%>
 </div>
 </body>
 </html>

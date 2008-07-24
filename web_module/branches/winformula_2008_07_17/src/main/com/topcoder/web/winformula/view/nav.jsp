@@ -12,7 +12,7 @@
 
 
         <div id="header">
-        <!-- Header -->
+        <%-- Header --%>
         
             <div id="brand">
                 <div id="logoTC">
@@ -22,44 +22,44 @@
             </div>
               
             <div id="global-links">
-            <!-- Global Link -->
+            <%-- Global Link --%>
                 <a href="/">TopCoder</a> | 
                 <a href="rules.htm">Rules</a> | <a href="faq.htm">FAQ</a>
-            <!-- End Global Link -->
+            <%-- End Global Link --%>
             </div>
             
             <div id="login">
-            <!-- Login -->
+            <%-- Login --%>
                 <form action="" > 
                   <a href="#" class="topButton" title="Log In"><span>Log In</span></a>
                   <input name="username" type="text" class="textbox" id="username" value="TopCoder Username" />
                   <input name="password" type="password" class="textbox" id="password" value="Password" />
                 </form>
-            <!-- End Login -->
+            <%-- End Login --%>
             </div>
             
             <div id="user-links">
-            <!-- User Link -->
+            <%-- User Link --%>
             <a href="#">Register</a> | <a href="#">Forgot Password </a>
-            <!-- End User Link -->
+            <%-- End User Link --%>
             </div>
         
-        <!-- End Header -->
+        <%-- End Header --%>
         </div>
         
         <div id="main-nav">
-        <!-- Main Navigation -->
-            <div id="lCorner-nav"><!-- Left Corner Navigation --></div>
+        <%-- Main Navigation --%>
+            <div id="lCorner-nav"><%-- Left Corner Navigation --%></div>
                 <ul>
-                    <li id="nav-home"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/" title="Home" <% if (tabLev1.equals("home")) {%> class="on"<% } %>><span class="hide">Home</span></a></li>
-                    <li id="nav-standing"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=standings" title="Standings" <% if (tabLev1.equals("standings")) {%> class="on"<% } %>><span class="hide">Standings</span></a></li>
-                    <li id="nav-how-to-compete"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=howToCompete" title="How to Compete" <% if (tabLev1.equals("compete")) {%> class="on"<% } %>><span class="hide">How to Compete</span></a></li>
-                    <li id="nav-register"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=register" title="Register"><span class="hide" <% if (tabLev1.equals("register")) {%> class="on"<% } %>>Register</span></a></li>
-                    <li id="nav-manage-algorithm"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=manageMyAlgorithms" title="Manage My Algorithm" <% if (tabLev1.equals("manage")) {%> class="on"<% } %>><span class="hide">Manage My Algorithms</span></a></li>
-                    <li id="nav-profile"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/Profile" title="My Profile" <% if (tabLev1.equals("profile")) {%> class="on"<% } %>><span class="hide">My Profile</span></a></li>
-                    <li id="nav-blog" ><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=blog" title="Blog" <% if (tabLev1.equals("blog")) {%> class="on"<% } %>><span class="hide">Blog</span></a></li>
-                    <li id="nav-forums"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/forums" title="Forums" <% if (tabLev1.equals("forums")) {%> class="on"<% } %>><span class="hide">Forums</span></a></li>
+                    <li id="nav-home"><a title="Home" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/"<% if (tabLev1.equals("home")) {%> class="on"<% } %>><span class="hide">Home</span></a></li>
+                    <li id="nav-standing"><a title="Standings" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=standings"<% if (tabLev1.equals("standings")) {%> class="on"<% } %>><span class="hide">Standings</span></a></li>
+                    <li id="nav-how-to-compete"><a title="How to Compete" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=howToCompete"<% if (tabLev1.equals("compete")) {%> class="on"<% } %>><span class="hide">How to Compete</span></a></li>
+                    <li id="nav-register"><a title="Register" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=register"<% if (tabLev1.equals("register")) {%> class="on"<% } %>><span class="hide">Register</span></a></li>
+                    <li id="nav-manage-algorithm"><a title="Manage My Algorithm" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=manageMyAlgorithms"<% if (tabLev1.equals("manage")) {%> class="on"<% } %>><span class="hide">Manage My Algorithms</span></a></li>
+                    <li id="nav-profile"><a title="My Profile" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/Profile"<% if (tabLev1.equals("profile")) {%> class="on"<% } %>><span class="hide">My Profile</span></a></li>
+                    <li id="nav-blog" ><a title="Blog" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=blog"<% if (tabLev1.equals("blog")) {%> class="on"<% } %>><span class="hide">Blog</span></a></li>
+                    <li id="nav-forums"><a title="Forums" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/forums"<% if (tabLev1.equals("forums")) {%> class="on"<% } %>><span class="hide">Forums</span></a></li>
               </ul>
-          <div id="rCorner-nav"><!-- Right Corner Navigation --></div>
-        <!-- End Main Navigation -->
+          <div id="rCorner-nav"><%-- Right Corner Navigation --%></div>
+        <%-- End Main Navigation --%>
         </div>
