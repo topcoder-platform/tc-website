@@ -30,7 +30,7 @@ public class RSSFeed extends BaseProcessor {
         if (feed.equals("blog")) {
             url =  "http://topcoderblogs.com/winningformula/?feed=rss"; 
         } else if (feed.equals("forum")) {
-            url =  "http://forums.topcoder.com/?module=RSS&categoryID=13"; 
+            url =  "http://www.dev.topcoder.com/winformula/forums?module=RSS&categoryID=1"; 
         } else if (feed.equals("espn")) {
             url =  "http://sports.espn.go.com/espn/rss/ncf/news"; 
         } 
