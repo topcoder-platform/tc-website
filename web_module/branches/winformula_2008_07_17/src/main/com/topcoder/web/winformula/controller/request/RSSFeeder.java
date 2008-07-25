@@ -17,50 +17,70 @@ import javax.xml.transform.stream.StreamSource;
 import sun.misc.BASE64Encoder;
 
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.NavigationException;
 
 /**
+ * 
  */
 public class RSSFeeder extends BaseProcessor {
+    
+    private static String[] urls = {"http://topcoderblogs.com/winningformula/?feed=rss", 
+                                    "http://www.dev.topcoder.com/winformula/forums?module=RSS&categoryID=1", 
+                                    "http://sports.espn.go.com/espn/rss/ncf/news"};
+
+    private static String forumPass = new BASE64Encoder().encode("alexdelarge:cl0ckw0rk".getBytes());
+    
+    private static String[] passws = new String[] {null, forumPass, null};
+
+    private static String[] xsls = new String[] {"blog.xsl", "forum.xsl", "espn.xsl"};
 
     protected void businessProcessing() throws Exception {
-        String pass = new BASE64Encoder().encode("alexdelarge:cl0ckw0rk".getBytes());
+        String feed = null;
+        if (!hasParameter("feed")) {
+            throw new NavigationException("Invalid request");
+        }
+        feed = getRequest().getParameter("feed")+".";
 
-        String[] urls = {"http://topcoderblogs.com/winningformula/?feed=rss", 
-                         "http://www.dev.topcoder.com/winformula/forums?module=RSS&categoryID=1", 
-                         "http://sports.espn.go.com/espn/rss/ncf/news"}; 
-        
+        int index = -1;
+        for (int i = 0; i < xsls.length; i++) {
+            if (xsls[i].indexOf(feed) == 0) {
+                index = i;
+                break;
+            }
+        }
+        if (index == -1) {
+            throw new NavigationException("Invalid request.");
+        }
         getResponse().setContentType("text/html");
         getResponse().setStatus(HttpServletResponse.SC_OK);
-        
-        feedURLS(urls, new String[] {null, pass, null});
+         
+        feedURLS(urls[index], passws[index], xsls[index]);
     }
 
-    private void feedURLS(String[] urls, String[] pass) throws IOException, TransformerException {
+    private void feedURLS(String url, String pass, String xsl) throws IOException, TransformerException {
         PrintWriter out = getResponse().getWriter();
         TransformerFactory tFactory =  TransformerFactory.newInstance();
 
-        Source xslSource = new StreamSource(getClass().getResourceAsStream("/rss.xsl"));
+        Source xslSource = new StreamSource(getClass().getResourceAsStream("/"+xsl));
 
         Transformer transformer = tFactory.newTransformer(xslSource);
-        for (int i = 0; i < urls.length; i++) {
-            URL p = new URL(urls[i]);
-            HttpURLConnection con = null;
-            con = (HttpURLConnection) p.openConnection();
-            try {
-                if (pass[i] != null) {
-                    con.setRequestProperty("Authorization", "Basic " + pass[i]);
-                }
-                InputStream is = con.getInputStream();
-                try {
-                    Source xmlSource = new StreamSource(is);
-                    transformer.transform(xmlSource, new StreamResult(out));
-                    out.flush();
-                } finally {
-                    try { is.close(); } catch (Exception e) { }
-                }
-            } finally {
-                try { con.disconnect(); }  catch (Exception e) { }
+        URL p = new URL(url);
+        HttpURLConnection con = null;
+        con = (HttpURLConnection) p.openConnection();
+        try {
+            if (pass != null) {
+                con.setRequestProperty("Authorization", "Basic " + pass);
             }
+            InputStream is = con.getInputStream();
+            try {
+                Source xmlSource = new StreamSource(is);
+                transformer.transform(xmlSource, new StreamResult(out));
+                out.flush();
+            } finally {
+                try { is.close(); } catch (Exception e) { }
+            }
+        } finally {
+            try { con.disconnect(); }  catch (Exception e) { }
         }
     }
 }
