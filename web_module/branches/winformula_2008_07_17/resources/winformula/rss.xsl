@@ -16,6 +16,6 @@
   <xsl:template match="item">
             <b><a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute><xsl:value-of select="title"/></a></b>
             <br/>
-            <xsl:value-of select="description"/><br/>
+            <xsl:value-of select="description" disable-output-escaping="yes"/><br/>
   </xsl:template>
 </xsl:stylesheet>
