@@ -82,7 +82,7 @@
                     <li id="nav-register"<% if (tabLev1.equals("register")) {%> class="on"<% } %>><a title="Register" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewRegistration&amp;ct=1001"><span class="hide">Register</span></a></li>
                     <li id="nav-manage-algorithm"<% if (tabLev1.equals("manage")) {%> class="on"<% } %>><a title="Manage My Algorithm" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=manageMyAlgorithms"><span class="hide">Manage My Algorithms</span></a></li>
                     <li id="nav-profile"<% if (tabLev1.equals("profile")) {%> class="on"<% } %>><a title="My Profile" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/Profile"><span class="hide">My Profile</span></a></li>
-                    <li id="nav-blog"<% if (tabLev1.equals("blog")) {%> class="on"<% } %>><a title="Blog" onfocus="this.blur();" target="_block" href="http://topcoderblogs.com/winningformula"><span class="hide">Blog</span></a></li>
+                    <li id="nav-blog"<% if (tabLev1.equals("blog")) {%> class="on"<% } %>><a title="Blog" onfocus="this.blur();" href="http://topcoderblogs.com/winningformula"><span class="hide">Blog</span></a></li>
                     <li id="nav-forums"<% if (tabLev1.equals("forums")) {%> class="on"<% } %>><a title="Forums" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/forums"><span class="hide">Forums</span></a></li>
               </ul>
           <div id="rCorner-nav"><%-- Right Corner Navigation --%></div>
