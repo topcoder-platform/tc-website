@@ -201,6 +201,23 @@
                     <td>December 11, 2008 at 12:01 AM EDT</td>
                 </tr>
             </table>
+            <br />
+            
+            
+            <h2>Scoring</h2>
+            <p>Each Submission shall be scored for each Mini Season and the overall Competition according to the following guidelines.</p>
+            <p>Note:  Only games between Division I FBS (Football Bowl Subdivision) football teams will be used to determine the score of a Submission.</p>
+            <p>Each game is allotted 100 scoring points ("Maximum").  Points will be deducted from Maximum to determine the score for that game.  Points will be deducted as follows:</p>
+            <ul class="howCompete2">
+                <li>Game Outcome:  If the Submission correctly predicts the outcome of the game, no points will be deducted from the Maximum.  If the Submission does not correctly predict the outcome of the game, 60 points are deducted from the Maximum.</li>
+                <li>Margin:
+                    <ul class="howCompete2">
+                        <li>If a Submission correctly predicts the winning team and the margin of victory for the winning team, no points will be deducted from the Maximum.</li>
+                        <li>If a Submission correctly predicts the outcome of the game, but fails to predict the margin of victory correctly, then points will be deducted from the Maximum for each game point by which the actual margin of victory differs from the Submission's predicted margin of victory in accordance with the following table:</li>
+                        <li>If a Submission does not correctly predict the outcome of the game, then 20 points will be deducted from the Maximum.</li>
+                    </ul>
+                </li>
+            </ul>
 
         <%-- Main Content --%>
         </div>
