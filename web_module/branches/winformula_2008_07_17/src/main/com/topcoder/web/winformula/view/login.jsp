@@ -16,7 +16,7 @@
     </jsp:include>
     <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript">
-        function submitEnter(e) {
+        function submitEnter2(e) {
             var keycode;
             if (window.event) keycode = window.event.keyCode;
             else if (e) keycode = e.which;
@@ -66,7 +66,7 @@
                                 <label for="username2">Username:</label>
                             </dt>
                             <dd>
-                            <input name="<%=Login.USER_NAME%>" maxlength="15" type="text" class="textbox" id="username2" onkeypress="submitEnter(event)"/>
+                            <input name="<%=Login.USER_NAME%>" maxlength="15" type="text" class="textbox" id="username2" onkeypress="submitEnter2(event)"/>
                             </dd>
                         </dl>
                         <dl>
@@ -74,7 +74,7 @@
                                 <label for="password2">Password:</label>
                             </dt>
                             <dd>
-                            <input name="<%=Login.PASSWORD%>" maxlength="30" type="password" id="password2" onkeypress="submitEnter(event)"/>
+                            <input name="<%=Login.PASSWORD%>" maxlength="30" type="password" id="password2" onkeypress="submitEnter2(event)"/>
                             </dd>
                         </dl>
                         <dl>
