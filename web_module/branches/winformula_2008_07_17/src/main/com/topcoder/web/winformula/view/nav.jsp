@@ -56,7 +56,7 @@
                     </div>
                     <div id="user-links">
                         <%-- User Link --%>
-                        <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword">Forgot Password</a>
+                        <a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a> | <a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword">Forgot Password</a>
                     </div>
                 </c:when>
                 <c:otherwise>
