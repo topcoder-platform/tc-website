@@ -33,7 +33,8 @@
             <div id="sidebar">
                 <div class="post-box blogPost">
                 <h2 class="titleLatestBlog"><span class="hide">Latest Blog Posts</span></h2>
-                    <ul class="headlines">
+                    <jsp:include page="?module=RSSFeeder&feed=blog" />
+                    <!-- ul class="headlines">
                         <li class="dottedBottom"><a href="#">Florida has a Sweet Game</a><br />
                             Suspendisse vitae nisi et dolor posuere scelerisque. Vivamus ornare est sit amet leo. Sed tincidunt, risus nec ultrices elementum...<br />
                         </li>
@@ -42,12 +43,13 @@
                         <li><a href="#">Last week's most improbable victories</a><br />
                         Suspendisse quis quam et lacus interdum ullamcorper. Suspendisse euismod ultrices elit. Curabitur malesuada dictum pede...</li>
                     </ul>
-                <div class="clear"><a href="http://topcoderblogs.com/winningformula" class="viewButton" title="View All"><span>View All</span></a></div>
+                <div class="clear"><a href="http://topcoderblogs.com/winningformula" class="viewButton" title="View All"><span>View All</span></a></div-->
                 </div>
                 
                 <div class="post-box">
                 <h2 class="titleLatestForum"><span class="hide">Latest Forum Posts</span></h2>
-                    <ul class="headlines">
+                    <jsp:include page="?module=RSSFeeder&feed=forum" />
+                    <!-- ul class="headlines">
                         <li class="dottedBottom"><a href="#">Why no love?!?!</a> 
                         <em>(by <a href="member.htm">Coderholic</a> on 2008-07-07 at 17:11)</em>
                         Why is it that my algorithm tastes so good yet doesn't pick the  winners...</li>
@@ -58,17 +60,18 @@
                         <em>(by <a href="member.htm">binary_mullet</a> on 2008-07-07 at 13:04)</em>
                         Does anyone have a good recipe for creamed corn? I'm going to the Nebraska game this...</li>
                     </ul>
-                <div class="clear"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/forums" class="viewButton" title="View All"><span>View All</span></a></div>
+                <div class="clear"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/forums" class="viewButton" title="View All"><span>View All</span></a></div-->
                 </div>
                 
                 <div class="post-box">
                 <h2 class="titleLatestStories"><span class="hide">Latest Stories</span></h2>
-                    <ul class="headlines">
+                    <jsp:include page="?module=RSSFeeder&feed=espn" />
+                    <!-- ul class="headlines">
                         <li class="dottedBottom"><a href="#">Why no love?!?!</a></li>
                         <li class="dottedBottom"><a href="#">Re: Did someone really pick UCLA over USC?</a></li>
                         <li><a href="#">Sweet! Corn.</a></li>
                     </ul>
-                <div class="clear"><a href="http://sports.espn.go.com/ncf/news/more?sport=ncf&amp;page=news" class="viewButton" title="News" target="_blank"><span>News</span></a> <a href="http://scores.espn.go.com/ncf/scoreboard" class="viewButton" title="Scores" target="_blank"><span>Scores</span></a> <a href="http://sports.espn.go.com/espn/rss/ncf/news" class="viewButton" title="RSS" target="_blank"><span>RSS</span></a></div>
+                <div class="clear"><a href="http://sports.espn.go.com/ncf/news/more?sport=ncf&amp;page=news" class="viewButton" title="News" target="_blank"><span>News</span></a> <a href="http://scores.espn.go.com/ncf/scoreboard" class="viewButton" title="Scores" target="_blank"><span>Scores</span></a> <a href="http://sports.espn.go.com/espn/rss/ncf/news" class="viewButton" title="RSS" target="_blank"><span>RSS</span></a></div-->
                 </div>
             </div>
             
