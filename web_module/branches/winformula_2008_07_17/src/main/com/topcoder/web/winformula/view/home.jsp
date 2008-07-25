@@ -43,7 +43,7 @@
                         <li><a href="#">Last week's most improbable victories</a><br />
                         Suspendisse quis quam et lacus interdum ullamcorper. Suspendisse euismod ultrices elit. Curabitur malesuada dictum pede...</li>
                     </ul>
-                <div class="clear"><a href="blog.htm" class="viewButton" title="View All"><span>View All</span></a></div>
+                <div class="clear"><a href="http://topcoderblogs.com/winningformula" class="viewButton" title="View All"><span>View All</span></a></div>
                 </div>
                 
                 <div class="post-box">
@@ -59,7 +59,7 @@
                         <em>(by <a href="member.htm">binary_mullet</a> on 2008-07-07 at 13:04)</em>
                         Does anyone have a good recipe for creamed corn? I'm going to the Nebraska game this...</li>
                     </ul>
-                <div class="clear"><a href="forums.htm" class="viewButton" title="View All"><span>View All</span></a></div>
+                <div class="clear"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/forums" class="viewButton" title="View All"><span>View All</span></a></div>
                 </div>
                 
                 <div class="post-box">
