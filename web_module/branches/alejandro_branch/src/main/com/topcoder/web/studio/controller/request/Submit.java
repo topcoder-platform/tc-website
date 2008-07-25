@@ -272,7 +272,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                                 ReviewStatus rs = StudioDAOUtil.getFactory().getReviewStatusDAO().find(ReviewStatus.PASSED);                                
                                 
                             	if (isPrimaryAddressActive) {
-                                    sendEmail(u, response, s.getOriginalFileName(), rs, s.getCreateDate());
+                                    sendEmail(u, response, s.getOriginalFileName(), rs, new Date());
                                 }
 
                             }
