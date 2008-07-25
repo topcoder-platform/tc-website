@@ -77,6 +77,130 @@
             <p>Competitors will be allowed to modify their Submissions as desired during the Mini Season One Submission Period, the Mini Season Two Submission Period, the Mini Season Three Submission Period and the Mini Season Four Submission Period.  A Submission will count as a Competitor's final Submission unless and until modified as permitted under these Rules.  Modified Submissions are due by the end of the applicable Submission Period.  Competitors will not be allowed to further modify their Submission upon the conclusion of the Mini Season Four Submission Period (November 20, 2008 at 2:00 PM EDT).</p>
             <p>Prior to the beginning of the next Week, Competitors will be given access to a file containing the previous Week's data ("Weekly Data").</p>
             <p>The Schedule of the Competition is as follows:</p>
+            <table width="75%" border="0" cellpadding="0" cellspacing="0" class="current-data">
+                <thead>
+                    <tr>
+                        <th class="alignCenter">Event</th>
+                        <th class="alignCenter">Start Date/Time</th>
+                        <th class="alignCenter">End Date/Time</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>Registration</td>
+                    <td>July 28, 2008 at 11:59AM EDT</td>
+                    <td>September 24, 2008 at 2:00 PM EDT</td>
+                </tr>
+                <tr class="alt">
+                    <td>Mini Season One Submission Period</td>
+                    <td>August 12, 2008 at 11:59 AM EDT</td>
+                    <td>August 27, 2008  at 2:00 PM EDT</td>
+                </tr>
+                <tr>
+                    <td>Week One</td>
+                    <td>August 28, 2008 at 12:01 AM EDT</td>
+                    <td>September 4, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr class="alt">
+                    <td>Week Two</td>
+                    <td>September 4, 2008 at 12:01 AM EDT</td>
+                    <td>September 11, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr>
+                    <td>Week Three</td>
+                    <td>September 11, 2008 at 12:01 AM EDT</td>
+                    <td>September 18, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr class="alt">
+                    <td>Week Four</td>
+                    <td>September 18, 2008 at 12:01 AM EDT</td>
+                    <td>September 25, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr>
+                    <td>Mini Season Two Submission Period</td>
+                    <td>August 27, 2008, 2008 at 2:00 PM EDT</td>
+                    <td>September 24, 2008 at 2:00 PM EDT</td>
+                </tr>
+                <tr class="alt">
+                    <td>Mini Season Two</td>
+                    <td>September 25, 2008 at 12:01 AM EDT</td>
+                    <td>October 23, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr>
+                    <td>Week Five</td>
+                    <td>September 25, 2008 at 12:01 AM EDT</td>
+                    <td>October 2, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr class="alt">
+                    <td>Week Six</td>
+                    <td>October 2, 2008 at 12:01 AM EDT</td>
+                    <td>October 9, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr>
+                    <td>Week Seven</td>
+                    <td>October 9, 2008 at 12:01 AM EDT</td>
+                    <td>October 16, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr class="alt">
+                    <td>Week Eight</td>
+                    <td>October 16, 2008 at 12:01 AM EDT</td>
+                    <td>October 23, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr>
+                    <td>Mini Season Three Submission Period</td>
+                    <td>September 24, 2008 at 2:00 PM EDT</td>
+                    <td>October 23, 2008 at 2:00 PM EDT</td>
+                </tr>
+                <tr class="alt">
+                    <td>Mini Season Three</td>
+                    <td>October 23, 2008 at 12:01 AM EDT</td>
+                    <td>November 20, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr>
+                    <td>Week Nine</td>
+                    <td>October 23, 2008 at 12:01 AM EDT</td>
+                    <td>October 30, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr class="alt">
+                    <td>Week Ten</td>
+                    <td>October 30, 2008 at 12:01 AM EDT</td>
+                    <td>November 6, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr>
+                    <td>Week Eleven</td>
+                    <td>November 6, 2008 at 12:01 AM EDT</td>
+                    <td>November 13, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr class="alt">
+                    <td>Week Twelve</td>
+                    <td>November 13, 2008 at 12:01 AM EDT</td>
+                    <td>November 20, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr>
+                    <td>Mini Season Four Submission Period</td>
+                    <td>October 23, 2008 at 2:00 PM EDT</td>
+                    <td>November 20, 2008 at 2:00 PM EDT</td>
+                </tr>
+                <tr class="alt">
+                    <td>Mini Season Four</td>
+                    <td>November 20, 2008 at 12:01 AM EDT</td>
+                    <td>December 11, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr>
+                    <td>Week Thirteen</td>
+                    <td>November 20, 2008 at 12:01 AM EDT</td>
+                    <td>November 27, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr class="alt">
+                    <td>Week Fourteen</td>
+                    <td>November 27, 2008 at 12:01 AM EDT</td>
+                    <td>December 4, 2008 at 12:01 AM EDT</td>
+                </tr>
+                <tr>
+                    <td>Week Fifteen</td>
+                    <td>December 4, 2008 at 12:01 AM EDT</td>
+                    <td>December 11, 2008 at 12:01 AM EDT</td>
+                </tr>
+            </table>
 
         <%-- Main Content --%>
         </div>
