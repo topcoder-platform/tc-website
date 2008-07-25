@@ -112,8 +112,6 @@ public class Register extends ShortHibernateProcessor {
                 if (!hasErrors()) {
                     StringBuffer buf = new StringBuffer(50);
                     buf.append(getSessionInfo().getServletPath());
-                    buf.append("?" + Constants.MODULE_KEY + "=ViewContestDetails&");
-                    buf.append(Constants.CONTEST_ID + "=").append(contestId);
                     setNextPage(buf.toString());
                     setIsNextPageInContext(false);
 
