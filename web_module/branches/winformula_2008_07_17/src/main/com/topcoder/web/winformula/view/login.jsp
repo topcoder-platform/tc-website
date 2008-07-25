@@ -7,27 +7,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
 <head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <title>ESPN Winning Formula Challange :: Powered by TopCoder - Log In</title>
+    <%-- Meta Tags --%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Winformula Developer Challenge :: Powered by TopCoder</title>
-
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
-
-    
-
-    <script type="text/javascript">
-        function preloadTabs() {
-            var img = new Image();
-            img.src = '/i/events/winformula/tabs/registerOn.png';
-            img.src = '/i/events/winformula/tabs/submitOn.png';
-            img.src = '/i/events/winformula/tabs/apisOn.png';
-            img.src = '/i/events/winformula/tabs/discussOn.png';
-        }
-    </script>
+    <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="/js/arena.js"></script>
     <script type="text/javascript">
         function submitEnter(e) {
@@ -41,8 +29,9 @@
             } else return true;
         }
     </script>
-
+  
 </head>
+
 
 <%
     String nextpage = (String) request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
@@ -51,6 +40,96 @@
 %>
 
 
+<body>
+    <div id="wrapper">
+    <%-- Wrapper --%>
+    
+        <jsp:include page="nav.jsp">
+        <jsp:param name="tabLev1" value="register" />
+        <jsp:param name="tabLev2" value="" />
+        <jsp:param name="tabLev3" value="" />
+        </jsp:include>
+        
+        <div id="container">
+        <%-- Container --%>
+        <div id="main-content">
+        <%-- Main Content --%>
+        
+        
+            <h1>Log In</h1>
+                <h2>You must log in using your TopCoder username and password to see this page.</h2>
+                <p>If you are not a TopCoder member and would like to register for the Winning Formula Challenge, you may <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" target="_blank">sign up for free</a>. View our <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=howToCompete">How to Compete</a> page for more information.</p>
+                <div class="form-content">
+                    <form>
+                        <dl>
+                            <dt>
+                                <label for="username2">Username:</label>
+                            </dt>
+                            <dd><input name="username2" type="text" id="username2" /></dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="password2">Password:</label>
+                            </dt>
+                            <dd><input name="password2" type="password" id="password2" /></dd>
+                        </dl>
+                        <dl>
+                            <dd><input type="checkbox" name="rememberme" id="rememberme" /><label for="rememberme">Remember me</label></dd>
+                        </dl>
+                        <dl>
+                            <dt>&nbsp;</dt>
+                            <dd><div class="floatLeft"><a href="#" class="learnButton" title="Log In"><span>Log In</span></a></div></dd>
+                        </dl>
+                        <dl><dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword">Forgot your username or password?</a></dd></dl>
+                    </form>
+                </div>
+        
+        <%-- Main Content --%>
+        </div>
+        <%-- End Container --%>
+        </div>
+
+    <div id="footer">
+    <%-- Footer --%>
+    </div>
+    
+<%-- End Wrapper --%>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%--
 <body>
 
 <jsp:include page="tcTop.jsp"/>
@@ -149,3 +228,4 @@
 
 </body>
 </html>
+--%>
