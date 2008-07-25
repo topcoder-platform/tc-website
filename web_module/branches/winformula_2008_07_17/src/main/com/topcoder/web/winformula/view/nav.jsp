@@ -40,6 +40,7 @@
                             <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Login" class="topButton" title="Log In"><span>Log In</span></a>
                             <input name="<%=Login.USER_NAME%>" maxlength="15" type="text" class="textbox" id="username" value="TopCoder Username" />
                             <input name="<%=Login.PASSWORD%>" maxlength="30" type="password" class="textbox" id="password" value="Password" />
+                            <input type="image"/>
                         </form>
                     <%-- End Login --%>
                     </div>
