@@ -42,7 +42,9 @@
         
             <h1>Register</h1>
             <div class="full-content">
+                <%--
                 <p class="note">[If a user is not logged in they will  see this <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=login">login page</a>.]</p>
+                --%>
                 <p>Registration for the Winning Formula Challenge is FREE! Simply read and agree to the terms and conditions below and click <strong>Register Now</strong>.</p>
                 <h2>Terms &amp; conditions of the Winning Formula Challenge</h2>
                 <p>Suspendisse vitae nisi et dolor posuere scelerisque. Vivamus ornare est sit amet leo. Sed tincidunt, risus nec ultrices elementum, justo tellus volutpat risus, in dapibus eros nibh quis felis. Praesent a ante id tortor porta vehicula. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam scelerisque ante non nunc. Duis vehicula, ante at mollis facilisis, risus turpis vulputate dolor, a commodo felis arcu et erat. Suspendisse quis quam et lacus interdum ullamcorper. Suspendisse euismod ultrices elit. Curabitur malesuada dictum pede.</p>
