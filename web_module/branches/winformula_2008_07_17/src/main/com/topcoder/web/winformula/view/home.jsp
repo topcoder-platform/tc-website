@@ -69,7 +69,7 @@
                         <li class="dottedBottom"><a href="#">Re: Did someone really pick UCLA over USC?</a></li>
                         <li><a href="#">Sweet! Corn.</a></li>
                     </ul>
-                <div class="clear"><a href="http://sports.espn.go.com/ncf/index" class="viewButton" title="View All" target="_blank"><span>View All</span></a></div>
+                <div class="clear"><a href="http://sports.espn.go.com/ncf/news/more?sport=ncf&amp;page=news" class="viewButton" title="News" target="_blank"><span>News</span></a> <a href="http://scores.espn.go.com/ncf/scoreboard" class="viewButton" title="Scores" target="_blank"><span>Scores</span></a></div>
                 </div>
             </div>
             

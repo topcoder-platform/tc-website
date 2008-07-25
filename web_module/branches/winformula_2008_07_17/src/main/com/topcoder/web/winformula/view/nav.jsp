@@ -37,7 +37,7 @@
               
             <div id="global-links">
             <%-- Global Link --%>
-                <a href="/">TopCoder</a> | 
+                <a href="http://www.espn.com/">ESPN</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder</a> | 
                 <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=rules">Rules</a> | <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=faq">FAQ</a>
             <%-- End Global Link --%>
             </div>
