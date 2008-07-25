@@ -5,6 +5,8 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.dao.WinformulaDAOUtil;
 import com.topcoder.web.winformula.model.Contest;
@@ -44,6 +46,14 @@ public class ViewRegistration extends ShortHibernateProcessor {
                 } else {
                     throw new NavigationException("Invalid contest specified.");
                 }
+
+                boolean registered = false;
+                User u = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
+                if (WinformulaDAOUtil.getFactory().getContestRegistrationDAO().find(contest, u) != null) {
+                    registered = true;
+                }
+
+                getRequest().setAttribute("registered", registered);
 
                 setNextPage("/contestReg.jsp");
                 setIsNextPageInContext(true);

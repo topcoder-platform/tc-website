@@ -42,34 +42,36 @@
         
             <h1>Register</h1>
             <div class="full-content">
-                <p>Registration for the Winning Formula Challenge is FREE! Simply read and agree to the terms and conditions below and click <strong>Register Now</strong>.</p>
-                <h2>Terms &amp; conditions of the Winning Formula Challenge</h2>
-
-                <div align="center">
-                    Please read through the following terms, check off <strong>"I agree"</strong>, and click Submit when you're done.
-                    <br /><br />
-
-                    <form name="terms" method="POST" action="${sessionInfo.servletPath}">
-                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Register"/>
-                        <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-
-
-                        <iframe width="590" height="300" marginWidth="5" src="${sessionInfo.servletPath}?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.CONTEST_TERMS_OF_USE_ID%>"></iframe>
-
-                        <br /><br />
-                        <!-- could also use <input>'s button <button> gives you more display freedom and is documented on w3c -->
-                        <!-- resulting page from click has value at the end of the URL, which is pointless.  Feel free to use any html/js element/method but i want the nice looking button -->
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
-                    <br/></tc-webtag:errorIterator></span>
-                        <input type="checkbox" name="<%=Constants.TERMS_AGREE%>"/>I agree
-                        <br /><br />
-                        <p class="wrapperBtnAgree">
-                        <a href="javascript:document.terms.submit()" class="learnButton" title="Register Now!"><span>Register Now!</span></a>
-                      </p>
-
-
-                    </form>
-                </div>
+                <c:choose>
+                    <c:when test="${registered}">
+                        <p><strong>You are already registered</strong>.</p>
+                    </c:when>
+                    <c:otherwise>
+                        <p>Registration for the Winning Formula Challenge is FREE! Simply read and agree to the terms and conditions below and click <strong>Register Now</strong>.</p>
+                        <h2>Terms &amp; conditions of the Winning Formula Challenge</h2>
+        
+                        <div align="center">
+                            Please read through the following terms, check off <strong>"I agree"</strong>, and click Submit when you're done.
+                            <br /><br />
+        
+                            <form name="terms" method="POST" action="${sessionInfo.servletPath}">
+                                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Register"/>
+                                <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+                                <iframe width="590" height="300" marginWidth="5" src="${sessionInfo.servletPath}?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.CONTEST_TERMS_OF_USE_ID%>"></iframe>
+                                <br /><br />
+                                <!-- could also use <input>'s button <button> gives you more display freedom and is documented on w3c -->
+                                <!-- resulting page from click has value at the end of the URL, which is pointless.  Feel free to use any html/js element/method but i want the nice looking button -->
+                        <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
+                            <br/></tc-webtag:errorIterator></span>
+                                <input type="checkbox" name="<%=Constants.TERMS_AGREE%>"/>I agree
+                                <br /><br />
+                                <p class="wrapperBtnAgree">
+                                <a href="javascript:document.terms.submit()" class="learnButton" title="Register Now!"><span>Register Now!</span></a>
+                              </p>
+                            </form>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
             </form>
             </div>
         
