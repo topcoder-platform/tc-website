@@ -68,7 +68,7 @@
                         <li class="dottedBottom"><a href="#">Re: Did someone really pick UCLA over USC?</a></li>
                         <li><a href="#">Sweet! Corn.</a></li>
                     </ul>
-                <div class="clear"><a href="http://sports.espn.go.com/ncf/news/more?sport=ncf&amp;page=news" class="viewButton" title="News" target="_blank"><span>News</span></a> <a href="http://scores.espn.go.com/ncf/scoreboard" class="viewButton" title="Scores" target="_blank"><span>Scores</span></a></div>
+                <div class="clear"><a href="http://sports.espn.go.com/ncf/news/more?sport=ncf&amp;page=news" class="viewButton" title="News" target="_blank"><span>News</span></a> <a href="http://scores.espn.go.com/ncf/scoreboard" class="viewButton" title="Scores" target="_blank"><span>Scores</span></a> <a href="http://sports.espn.go.com/espn/rss/ncf/news" class="viewButton" title="RSS" target="_blank"><span>RSS</span></a></div>
                 </div>
             </div>
             
@@ -311,7 +311,7 @@
                 <div class="rightContentBox">
                     <h2 class="titleWisdom"> <span class="hide"> Wisdom of the Code </span></h2>
                         <p>We've created two automated contestants based on the community's picks. <a href="#">CommunityAverage</a> is based on the community's average picks and <a href="#">CommunityTop10</a> is based on the average picks of the top 10 overall contestants after each week. See how contestants score against the Wisdom of the Code!<br /><br />
-                        <a href="communitymember.htm" class="learnButton" title="Learn More"><span>Learn More</span></a></p>
+                        <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=wisdomCode" class="learnButton" title="Learn More"><span>Learn More</span></a></p>
                 </div>
                 <div class="imgLeft"> <img src="/i/events/winformula/brain.png" alt="Helmet" /> </div>
             </div>
