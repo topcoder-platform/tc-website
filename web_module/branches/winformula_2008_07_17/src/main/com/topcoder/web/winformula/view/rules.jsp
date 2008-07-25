@@ -69,6 +69,14 @@
             <p>All Competitors must be registered members of TopCoder, and must have agreed to these Rules prior to and as a condition for registering for this Competition.</p>
             <p>Competitors must abide by the Terms of Use of TopCoder's website at <a href="http://<%=ApplicationServer.SERVER_NAME%>/">www.topcoder.com</a>.  Violation of the Terms of Use may result in disqualification from this Competition, and/or further consequences as determined in TopCoder's sole discretion.</p>
             <p>Current employees of TopCoder and the Competition sponsor and those involved in the development, production (including prize suppliers and sponsors), implementation and distribution of this Competition and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the competition and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the Competition.</p>
+            
+            
+            <h2>Competition Schedule</h2>
+            <p>The Competition consists of a series of four Mini Seasons.  During Mini Season One, Submissions will be scored to determine the Winners of Mini Season One, however Competitor's scores will not count towards the determination of the Winners of the overall Competition.</p>
+            <p>During each Mini Season, Submissions will be scored to determine the Mini Season Winners.  Each Competitor's score for Mini Season Two, Three and Four will count toward the determination of the Winners of the overall Competition.</p>
+            <p>Competitors will be allowed to modify their Submissions as desired during the Mini Season One Submission Period, the Mini Season Two Submission Period, the Mini Season Three Submission Period and the Mini Season Four Submission Period.  A Submission will count as a Competitor's final Submission unless and until modified as permitted under these Rules.  Modified Submissions are due by the end of the applicable Submission Period.  Competitors will not be allowed to further modify their Submission upon the conclusion of the Mini Season Four Submission Period (November 20, 2008 at 2:00 PM EDT).</p>
+            <p>Prior to the beginning of the next Week, Competitors will be given access to a file containing the previous Week's data ("Weekly Data").</p>
+            <p>The Schedule of the Competition is as follows:</p>
 
         <%-- Main Content --%>
         </div>
