@@ -93,20 +93,19 @@ function AllowTabCharacter() {
 </head>
 
 <body>
-
-<jsp:include page="tcTop.jsp"/>
-
-<div align="center">
-    <div id="aimFrame">
-        <div id="aimFrameN">
-            <div id="aimFrameS">
-
-                <jsp:include page="winformulaTop.jsp"/>
-
-                <div class="content" align="right">
-                    <div class="contentTexture">
-                        <jsp:include page="topNav.jsp"/>
-                        <div class="siteBoxFull">
+    <div id="wrapper">
+    <%-- Wrapper --%>
+    
+        <jsp:include page="nav.jsp">
+        <jsp:param name="tabLev1" value="" />
+        <jsp:param name="tabLev2" value="" />
+        <jsp:param name="tabLev3" value="" />
+        </jsp:include>
+        
+        <div id="container">
+        <%-- Container --%>
+        <div id="main-content">
+        <%-- Main Content --%>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
@@ -202,17 +201,16 @@ function AllowTabCharacter() {
 <font color="red"><div align="left" id="Warning" style="display: none">Warning: one or more &lt;pre&gt; tags is not closed.</div></font>
 
       
-                        </div>
-                        <div style="clear: both;">&nbsp;</div>
-                    </div>
-                </div>
-
-            </div>
+        <%-- Main Content --%>
         </div>
+        <%-- End Container --%>
+        </div>
+
+    <div id="footer">
+    <%-- Footer --%>
     </div>
+    
+<%-- End Wrapper --%>
 </div>
-
-<jsp:include page="tcFoot.jsp"/>
-
 </body>
 </html>
