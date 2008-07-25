@@ -267,9 +267,9 @@ public class Submit extends BaseSubmissionDataProcessor {
                                 //have to wrap up the last stuff, and get into new stuff.  we don't want
                                 //sending email to be in the transaction
                                 beginCommunication();
-                                
-                                u = userDAO.find(getUser().getId());
-                                ReviewStatus rs = StudioDAOUtil.getFactory().getReviewStatusDAO().find(ReviewStatus.PASSED);
+
+                                u = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
+                                ReviewStatus rs = StudioDAOUtil.getFactory().getReviewStatusDAO().find(ReviewStatus.PASSED);                                
                                 
                             	if (isPrimaryAddressActive) {
                                     sendEmail(u, response, s.getOriginalFileName(), rs, s.getCreateDate());
