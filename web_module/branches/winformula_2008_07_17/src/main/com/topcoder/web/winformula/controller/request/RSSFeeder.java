@@ -6,7 +6,6 @@ import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
@@ -24,20 +23,13 @@ import com.topcoder.web.common.BaseProcessor;
 public class RSSFeeder extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
-        String feed = null;
-        if (hasParameter("feed")) {
-            feed = getRequest().getParameter("feed");
-        }
-
-        ServletOutputStream sos = getResponse().getOutputStream();
-
         String pass = new BASE64Encoder().encode("alexdelarge:cl0ckw0rk".getBytes());
 
         String[] urls = {"http://topcoderblogs.com/winningformula/?feed=rss", 
                          "http://www.dev.topcoder.com/winformula/forums?module=RSS&categoryID=1", 
                          "http://sports.espn.go.com/espn/rss/ncf/news"}; 
         
-        getResponse().setContentType("text/xml");
+        getResponse().setContentType("text/thml");
         getResponse().setStatus(HttpServletResponse.SC_OK);
         
         feedURLS(urls, new String[] {null, pass, null});
