@@ -96,6 +96,7 @@
     GregorianCalendar gc = new GregorianCalendar(2007, Calendar.JULY, 23);
 %>
 <c:set value="<%=new Timestamp(gc.getTime().getTime())%>" var="bigStart"/>
+<c:set value="<%=ContestChannel.TOPCODER_DIRECT%>" var="TOPCODER_DIRECT_ID"/>
 
         <div align="center">
             <div align="left" style="width:500px; margin-top: 20px;">
@@ -104,7 +105,7 @@
                         <c:choose>
             <c:when test="${contest.startTime > bigStart}">
 				<c:choose>
-					<c:when test="${contest.channel.id=ContestChannel.TOPCODER_DIRECT}">
+					<c:when test="${contest.channel.id eq TOPCODER_DIRECT_ID}">
 					Your submission has been automatically screened and passed for this Cockpit contest.	
 	                </c:when>
 	                <c:otherwise>
