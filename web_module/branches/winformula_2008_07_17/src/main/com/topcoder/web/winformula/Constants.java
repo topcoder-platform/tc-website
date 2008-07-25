@@ -55,7 +55,9 @@ public class Constants implements WebConstants {
     public static int VIEW_SUBMISSIONS_SCROLL_SIZE;
     public static int ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE;
     public static int ADMIN_USER_ID;
-    //Folder containing folder to 
+    //The default contest id to use 
+    public static int CONTEST_ID_DEFAULT;
+    //Folder containing the static files to serve
     public static String FILES_FOLDER;
 
     static {
