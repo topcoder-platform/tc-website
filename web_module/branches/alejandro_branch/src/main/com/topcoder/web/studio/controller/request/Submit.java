@@ -257,11 +257,10 @@ public class Submit extends BaseSubmissionDataProcessor {
                         generateAlternateRepresentations(c, s, submissionFile, u);
 
 
-                        if (contestChannel != null) {
+                        if (contestChannel != null && u.getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE)) {
                             if (ContestChannel.TOPCODER_DIRECT.equals(contestChannel.getId())) {
 
                             	String response = "Your submission has been automatically screened and passed for this Cockpit contest.";
-                            	boolean isPrimaryAddressActive = u.getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE);
                             	
                                 closeConversation();
                                 //have to wrap up the last stuff, and get into new stuff.  we don't want
@@ -271,9 +270,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                                 u = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
                                 ReviewStatus rs = StudioDAOUtil.getFactory().getReviewStatusDAO().find(ReviewStatus.PASSED);                                
                                 
-                            	if (isPrimaryAddressActive) {
-                                    sendEmail(u, response, s.getOriginalFileName(), rs, new Date());
-                                }
+                                sendEmail(u, response, s.getOriginalFileName(), rs, new Date());
 
                             }
                         }
