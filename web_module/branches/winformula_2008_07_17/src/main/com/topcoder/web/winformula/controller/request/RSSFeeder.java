@@ -29,7 +29,7 @@ public class RSSFeeder extends BaseProcessor {
                          "http://www.dev.topcoder.com/winformula/forums?module=RSS&categoryID=1", 
                          "http://sports.espn.go.com/espn/rss/ncf/news"}; 
         
-        getResponse().setContentType("text/thml");
+        getResponse().setContentType("text/html");
         getResponse().setStatus(HttpServletResponse.SC_OK);
         
         feedURLS(urls, new String[] {null, pass, null});
