@@ -260,16 +260,17 @@ public class Submit extends BaseSubmissionDataProcessor {
                         if (contestChannel != null) {
                             if (ContestChannel.TOPCODER_DIRECT.equals(contestChannel.getId())) {
 
-                            	ReviewStatus rs = StudioDAOUtil.getFactory().getReviewStatusDAO().find(ReviewStatus.PASSED);
                             	String response = "Your submission has been automatically screened and passed for this Cockpit contest.";
-
                             	boolean isPrimaryAddressActive = u.getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE);
                             	
                                 closeConversation();
                                 //have to wrap up the last stuff, and get into new stuff.  we don't want
                                 //sending email to be in the transaction
                                 beginCommunication();
-
+                                
+                                u = userDAO.find(getUser().getId());
+                                ReviewStatus rs = StudioDAOUtil.getFactory().getReviewStatusDAO().find(ReviewStatus.PASSED);
+                                
                             	if (isPrimaryAddressActive) {
                                     sendEmail(u, response, s.getOriginalFileName(), rs, s.getCreateDate());
                                 }
