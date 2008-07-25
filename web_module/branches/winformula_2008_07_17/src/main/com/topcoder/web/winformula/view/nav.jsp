@@ -11,6 +11,18 @@
     String tabLev3 = request.getParameter("tabLev3") == null ? "" : request.getParameter("tabLev3");
 %>
 
+    <script type="text/javascript">
+        function submitEnter(e) {
+            var keycode;
+            if (window.event) keycode = window.event.keyCode;
+            else if (e) keycode = e.which;
+            else return true;
+            if (keycode == 13) {
+                document.frmLogin.submit();
+                return false;
+            } else return true;
+        }
+    </script>
 
 
         <div id="header">
@@ -37,10 +49,9 @@
                         <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}" >
                             <input type="hidden" name="module" value="Login" />
  
-                            <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Login" class="topButton" title="Log In"><span>Log In</span></a>
-                            <input name="<%=Login.USER_NAME%>" maxlength="15" type="text" class="textbox" id="username" value="TopCoder Username" />
-                            <input name="<%=Login.PASSWORD%>" maxlength="30" type="password" class="textbox" id="password" value="Password" />
-                            <input type="image"/>
+                            <a href="javascript:document.frmLogin.submit()" class="topButton" title="Log In"><span>Log In</span></a>
+                            <input name="<%=Login.USER_NAME%>" maxlength="15" type="text" class="textbox" id="username" value="TopCoder Username" onkeypress="submitEnter(event)"/>
+                            <input name="<%=Login.PASSWORD%>" maxlength="30" type="password" class="textbox" id="password" value="Password" onkeypress="submitEnter(event)"/>
                         </form>
                     <%-- End Login --%>
                     </div>
