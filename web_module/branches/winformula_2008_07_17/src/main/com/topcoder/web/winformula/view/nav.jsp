@@ -46,7 +46,7 @@
                 <c:when test="${sessionInfo.anonymous}">
                     <div id="login">
                     <%-- Login --%>
-                        <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}" >
+                        <form method="post" name="frmLogin" action="${sessionInfo.servletPath}" >
                             <input type="hidden" name="module" value="Login" />
                             <a href="javascript:document.frmLogin.submit()" class="topButton" title="Log In"><span>Log In</span></a>
                             <input name="<%=Login.USER_NAME%>" maxlength="15" type="text" class="textbox" id="username" value="TopCoder Username" onkeypress="submitEnter(event)"/>
