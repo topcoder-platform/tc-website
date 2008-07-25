@@ -256,10 +256,6 @@ public class Submit extends BaseSubmissionDataProcessor {
                         // submission. Req# 5.7
                         generateAlternateRepresentations(c, s, submissionFile, u);
 
-                        closeConversation();
-                        //have to wrap up the last stuff, and get into new stuff.  we don't want
-                        //sending email to be in the transaction
-                        beginCommunication();
 
                         if (contestChannel != null) {
                             if (ContestChannel.TOPCODER_DIRECT.equals(contestChannel.getId())) {
@@ -268,8 +264,13 @@ public class Submit extends BaseSubmissionDataProcessor {
                             	
                             	String response = "Your submission has been automatically screened and passed for this Cockpit contest.";
 
+                                closeConversation();
+                                //have to wrap up the last stuff, and get into new stuff.  we don't want
+                                //sending email to be in the transaction
+                                beginCommunication();
+
                             	if (u.getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE)) {
-                                    sendEmail(u, response, s.getOriginalFileName(), rs, userDAO.find(c.getCreateUserId()), s.getCreateDate());
+                                    sendEmail(u, response, s.getOriginalFileName(), rs, s.getCreateDate());
                                 }
 
                             }
@@ -343,7 +344,7 @@ public class Submit extends BaseSubmissionDataProcessor {
     }
 
 
-    private void sendEmail(User submitter, String text, String fileName, ReviewStatus status, User reviewer, Date submitDate) throws Exception {
+    private void sendEmail(User submitter, String text, String fileName, ReviewStatus status, Date submitDate) throws Exception {
 
         TCSEmailMessage mail = new TCSEmailMessage();
         if (ReviewStatus.PASSED.equals(status.getId())) {
@@ -377,13 +378,8 @@ public class Submit extends BaseSubmissionDataProcessor {
         msgText.append(text);
         msgText.append("\n\n");
 
-
         msgText.append("Sincerely,\n");
-        msgText.append(reviewer.getFirstName());
-        msgText.append(" ");
-        msgText.append(reviewer.getLastName());
-        msgText.append("\n");
-        msgText.append("TopCoder Studio");
+        msgText.append("Cockpit Automatic Screener");
 
         mail.setBody(msgText.toString());
         mail.addToAddress(submitter.getPrimaryEmailAddress().getAddress(), TCSEmailMessage.TO);
