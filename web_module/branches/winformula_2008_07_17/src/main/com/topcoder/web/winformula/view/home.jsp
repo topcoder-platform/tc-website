@@ -12,7 +12,6 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
-    <script type="text/javascript" src="js/scripts.js"></script>
   
 </head>
 
