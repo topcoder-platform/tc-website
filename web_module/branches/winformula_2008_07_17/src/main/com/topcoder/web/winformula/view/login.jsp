@@ -53,7 +53,7 @@
         
             <h1>Log In</h1>
                 <h2>You must log in using your TopCoder username and password to see this page.</h2>
-                <p>If you are not a TopCoder member and would like to register for the Winning Formula Challenge, you may <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" target="_blank">sign up for free</a>. View our <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=howToCompete">How to Compete</a> page for more information.</p>
+                <p>If you are not a TopCoder member and would like to register for the Winning Formula Challenge, you may <a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" target="_blank">sign up for free</a>. View our <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=howToCompete">How to Compete</a> page for more information.</p>
                 <div class="form-content">
                     <form method="post" name="frmLogin2" action="${sessionInfo.servletPath}" >
                         <input type="hidden" name="module" value="Login" />
@@ -84,7 +84,7 @@
                             <dt>&nbsp;</dt>
                             <dd><div class="floatLeft"><a href="javascript:document.frmLogin2.submit()" class="learnButton" title="Log In"><span>Log In</span></a></div></dd>
                         </dl>
-                        <dl><dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword">Forgot your username or password?</a></dd></dl>
+                        <dl><dd><a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword">Forgot your username or password?</a></dd></dl>
                     </form>
                 </div>
         
