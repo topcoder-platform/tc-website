@@ -79,10 +79,10 @@
 <link type="text/css" rel="stylesheet" href="/css/truveo/main.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <% } else if (key.equals("tc_winformula")) { %>
-<link type="text/css" rel="stylesheet" href="/css/winformula/main.css" />
+<link type="text/css" rel="stylesheet" href="/css/winformula/screen.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <% } else if (key.equals("tc_winformula_forums")) { %>
 <link type="text/css" rel="stylesheet" href="/css/winformula/forums.css" />
-<link type="text/css" rel="stylesheet" href="/css/winformula/main.css" />
+<link type="text/css" rel="stylesheet" href="/css/winformula/screen.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <% } %>
