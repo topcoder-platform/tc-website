@@ -12,46 +12,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <title>Winformula Developer Challenge :: Powered by TopCoder - Error</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Winformula Developer Challenge :: Powered by TopCoder</title>
-
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
-
-    
-
-    <script type="text/javascript">
-        function preloadTabs() {
-            var img = new Image();
-            img.src = '/i/events/winformula/tabs/registerOn.png';
-            img.src = '/i/events/winformula/tabs/submitOn.png';
-            img.src = '/i/events/winformula/tabs/apisOn.png';
-            img.src = '/i/events/winformula/tabs/discussOn.png';
-        }
-    </script>
-
 </head>
 
 <body>
-
-<jsp:include page="tcTop.jsp"/>
-
-<div align="center">
-    <div id="aimFrame">
-        <div id="aimFrameN">
-            <div id="aimFrameS">
-
-                <jsp:include page="winformulaTop.jsp"/>
-
-                <div class="content" align="right">
-                    <div class="contentTexture">
-                        <jsp:include page="topNav.jsp"/>
-                        <div class="siteBoxFull">
-
-                <h1>Error</h1>
-
+    <div id="wrapper">
+    <%-- Wrapper --%>
+    
+        <jsp:include page="nav.jsp">
+        <jsp:param name="tabLev1" value="" />
+        <jsp:param name="tabLev2" value="" />
+        <jsp:param name="tabLev3" value="" />
+        </jsp:include>
+        
+        <div id="container">
+        <%-- Container --%>
+        <div id="main-content">
+        <%-- Main Content --%>
+        
+        
+            <h1>Error</h1>
+            <div class="full-content">
                 <div align="center">
                     <div style="width:500px; padding: 50px 0px 100px 0px;">
                         <%=message == null ? "An error has occurred when attempting to process your request." : "<b>" + message + "</b>"%>
@@ -65,18 +51,18 @@
                     </div>
                     <%=new Date().toString()%>
                 </div>
-
-                        </div>
-                        <div style="clear: both;">&nbsp;</div>
-                    </div>
-                </div>
-
             </div>
+        
+        <%-- Main Content --%>
         </div>
+        <%-- End Container --%>
+        </div>
+
+    <div id="footer">
+    <%-- Footer --%>
     </div>
+    
+<%-- End Wrapper --%>
 </div>
-
-<jsp:include page="tcFoot.jsp"/>
-
 </body>
 </html>
