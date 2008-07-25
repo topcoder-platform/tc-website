@@ -30,7 +30,7 @@
         
             <div id="brand">
                 <div id="logoTC">
-                  <a href="/"><img src="/i/events/winformula/logoTC.png" alt="powered by TopCoder, Inc." /></a>
+                  <a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="/i/events/winformula/logoTC.png" alt="powered by TopCoder, Inc." /></a>
                 </div>
                   <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/"><img src="/i/events/winformula/ESPNLogo.png" alt="ESPN Winning Formula Challange" /></a>
             </div>
