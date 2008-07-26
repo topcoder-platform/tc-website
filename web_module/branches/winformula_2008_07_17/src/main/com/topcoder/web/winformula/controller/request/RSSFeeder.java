@@ -30,7 +30,7 @@ public class RSSFeeder extends BaseProcessor {
 //        "http://sports.espn.go.com/espn/rss/ncf/news"};
 
     private static String[] urls = {"http://topcoderblogs.com/winningformula/?feed=rss", 
-        "http://www.topcoder.com/winformula/forums?module=RSS&categoryID=1", 
+        "http://winningformula.espn.com/forums?module=RSS&categoryID=1", 
         "http://sports.espn.go.com/espn/rss/ncf/news"};
 
 // dev
