@@ -2,20 +2,24 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template match="/">
      <br/>
-     <xsl:apply-templates select="rss/channel"/>
+         <xsl:apply-templates select="rss/channel"/>
      <br/>
   </xsl:template>
-  
+
   <xsl:template match="rss/channel">
-           <a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute><xsl:value-of select="title"/></a>
-           <br/>
-       <xsl:apply-templates select="item"/>
-       <br/>
+           <ul class="headlines">
+               <xsl:apply-templates select="item"/>
+           </ul>
+           <div class="clear">
+                <a href="http://sports.espn.go.com/ncf/news/more?sport=ncf&amp;page=news" class="viewButton" title="News" target="_blank"><span>News</span></a>
+                <a href="http://scores.espn.go.com/ncf/scoreboard" class="viewButton" title="Scores" target="_blank"><span>Scores</span></a>
+                <a href="http://sports.espn.go.com/espn/rss/ncf/news" class="viewButton" title="RSS" target="_blank"><span>RSS</span></a>
+           </div>
   </xsl:template>
-  
+
   <xsl:template match="item">
-            <b><a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute><xsl:value-of select="title"/></a></b>
-            <br/>
+            <li class="dottedBottom"><a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute><xsl:value-of select="title"/></a><br />
             <xsl:value-of select="description" disable-output-escaping="yes"/><br/>
+            </li>
   </xsl:template>
 </xsl:stylesheet>
