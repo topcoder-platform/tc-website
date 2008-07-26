@@ -64,6 +64,8 @@ public class Constants implements WebConstants {
     public static String ESPN_RSS_URL;
     public static String BLOG_RSS_URL;
 
+    public static int TIMEOUT_MILLISECS = 10000;
+    
     static {
         initialize();
     }
