@@ -78,6 +78,8 @@ public class RSSFeeder extends BaseProcessor {
         HttpURLConnection con = null;
         con = (HttpURLConnection) p.openConnection();
         try {
+            con.setReadTimeout(10000);
+            con.setConnectTimeout(10000);
             if (pass != null) {
                 con.setRequestProperty("Authorization", "Basic " + pass);
             }
