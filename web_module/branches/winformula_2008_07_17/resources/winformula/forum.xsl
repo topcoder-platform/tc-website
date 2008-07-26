@@ -3,21 +3,23 @@
 xmlns:dc="http://purl.org/dc/elements/1.1/">
   <xsl:template match="/">
      <br/>
-         <xsl:apply-templates select="rss/channel"/>
+     <xsl:apply-templates select="rss/channel"/>
      <br/>
   </xsl:template>
-
+  
   <xsl:template match="rss/channel">
            <ul class="headlines">
-               <xsl:apply-templates select="item"/>
+               <xsl:apply-templates select="item[1]"/> 
+               <xsl:apply-templates select="item[2]"/>
+               <xsl:apply-templates select="item[3]"/>   
            </ul>
            <div class="clear"><a class="viewButton" title="View All"><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute><span>View All</span></a></div>
   </xsl:template>
-
+  
   <xsl:template match="item">
             <li class="dottedBottom"><a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute><xsl:value-of select="title"/></a><br />
             <em>(by  <xsl:value-of select="dc:creator" /> on <xsl:value-of select="substring-before(pubDate,'-')" /> </em>
-                <xsl:value-of select="description" disable-output-escaping="yes"/><br/>
+        <xsl:value-of select="description" disable-output-escaping="yes"/><br/>
             </li>
   </xsl:template>
 </xsl:stylesheet>

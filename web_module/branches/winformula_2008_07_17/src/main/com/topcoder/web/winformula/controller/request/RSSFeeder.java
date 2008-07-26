@@ -23,14 +23,21 @@ import com.topcoder.web.common.NavigationException;
  * 
  */
 public class RSSFeeder extends BaseProcessor {
-    
-    private static String[] urls = {"http://topcoderblogs.com/winningformula/?feed=rss", 
-                                    "http://www.dev.topcoder.com/winformula/forums?module=RSS&categoryID=1", 
-                                    "http://sports.espn.go.com/espn/rss/ncf/news"};
+  
+// dev    
+//    private static String[] urls = {"http://topcoderblogs.com/winningformula/?feed=rss", 
+//        "http://www.dev.topcoder.com/winformula/forums?module=RSS&categoryID=1", 
+//        "http://sports.espn.go.com/espn/rss/ncf/news"};
 
-    private static String forumPass = new BASE64Encoder().encode("alexdelarge:cl0ckw0rk".getBytes());
-    
-    private static String[] passws = new String[] {null, forumPass, null};
+    private static String[] urls = {"http://topcoderblogs.com/winningformula/?feed=rss", 
+        "http://www.topcoder.com/winformula/forums?module=RSS&categoryID=1", 
+        "http://sports.espn.go.com/espn/rss/ncf/news"};
+
+// dev
+//    private static String forumPass = new BASE64Encoder().encode("alexdelarge:cl0ckw0rk".getBytes());
+//    private static String[] passws = new String[] {null, forumPass, null};
+   
+    private static String[] passws = new String[] {null, null, null};
 
     private static String[] xsls = new String[] {"blog.xsl", "forum.xsl", "espn.xsl"};
 
@@ -61,7 +68,7 @@ public class RSSFeeder extends BaseProcessor {
         PrintWriter out = getResponse().getWriter();
         TransformerFactory tFactory =  TransformerFactory.newInstance();
 
-        Source xslSource = new StreamSource(getClass().getResourceAsStream("/"+xsl));
+        Source xslSource = new StreamSource(getClass().getResourceAsStream("/winformula/"+xsl));
 
         Transformer transformer = tFactory.newTransformer(xslSource);
         URL p = new URL(url);
