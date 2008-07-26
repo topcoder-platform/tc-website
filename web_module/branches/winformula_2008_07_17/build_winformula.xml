@@ -299,9 +299,9 @@
         <copy todir="${jboss_conf}">
             <fileset dir="${resources}">
                 <include name="Winformula.properties"/>
-                <include name="blog.xsl"/>
-                <include name="espn.xsl"/>
-                <include name="forum.xsl"/>
+                <include name="winformula/blog.xsl"/>
+                <include name="winformula/espn.xsl"/>
+                <include name="winformula/forum.xsl"/>
             </fileset>
         </copy>
     </target>
