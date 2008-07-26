@@ -14,10 +14,9 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import sun.misc.BASE64Encoder;
-
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.winformula.Constants;
 
 /**
  * 
@@ -29,9 +28,9 @@ public class RSSFeeder extends BaseProcessor {
 //        "http://www.dev.topcoder.com/winformula/forums?module=RSS&categoryID=1", 
 //        "http://sports.espn.go.com/espn/rss/ncf/news"};
 
-    private static String[] urls = {"http://topcoderblogs.com/winningformula/?feed=rss", 
-        "http://winningformula.espn.com/forums?module=RSS&categoryID=1", 
-        "http://sports.espn.go.com/espn/rss/ncf/news"};
+    private static String[] urls = {Constants.BLOG_RSS_URL, 
+        Constants.FORUM_RSS_URL, 
+        Constants.ESPN_RSS_URL};
 
 // dev
 //    private static String forumPass = new BASE64Encoder().encode("alexdelarge:cl0ckw0rk".getBytes());
@@ -48,6 +47,8 @@ public class RSSFeeder extends BaseProcessor {
         }
         feed = getRequest().getParameter("feed")+".";
 
+        log.debug("Feed " + feed + " requested");
+        
         int index = -1;
         for (int i = 0; i < xsls.length; i++) {
             if (xsls[i].indexOf(feed) == 0) {
@@ -65,6 +66,8 @@ public class RSSFeeder extends BaseProcessor {
     }
 
     private void feedURLS(String url, String pass, String xsl) throws IOException, TransformerException {
+        log.debug("Feed's URL: " + url);
+
         PrintWriter out = getResponse().getWriter();
         TransformerFactory tFactory =  TransformerFactory.newInstance();
 

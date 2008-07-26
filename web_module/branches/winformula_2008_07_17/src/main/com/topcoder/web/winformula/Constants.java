@@ -60,6 +60,10 @@ public class Constants implements WebConstants {
     //Folder containing the static files to serve
     public static String FILES_FOLDER;
 
+    public static String FORUM_RSS_URL;
+    public static String ESPN_RSS_URL;
+    public static String BLOG_RSS_URL;
+
     static {
         initialize();
     }
