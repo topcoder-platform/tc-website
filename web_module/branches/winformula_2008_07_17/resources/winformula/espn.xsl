@@ -18,7 +18,7 @@
   </xsl:template>
 
   <xsl:template match="item">
-            <li class="dottedBottom"><a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute><xsl:value-of select="title"/></a><br />
+            <li class="dottedBottom"><a target="_blank"><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute><xsl:value-of select="title"/></a><br />
             <xsl:value-of select="description" disable-output-escaping="yes"/><br/>
             </li>
   </xsl:template>
