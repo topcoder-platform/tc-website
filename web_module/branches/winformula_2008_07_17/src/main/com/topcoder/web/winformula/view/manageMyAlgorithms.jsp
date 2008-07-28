@@ -68,7 +68,7 @@
             <hr />
             <p>&nbsp;</p>
                 <h2>Your Algorithm History</h2>
-                <table class="current-data" width="100%">
+                <table class="stat" width="100%">
                     <thead>
                         <tr class="resultTH">
                             <th><a href="#">Submitted</a></th>

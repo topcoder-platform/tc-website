@@ -74,7 +74,7 @@
                         <option>ALL</option>
                     </select></p>
                 </div>
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="stat">
                     <tr class="resultTH">
                         <th scope="col"><a href="#" class="sortDown">Rank (change)</a></th>
                         <th scope="col"><a href="#">Handle</a></th>
@@ -91,9 +91,9 @@
                         <td class="alignCenter">9</td>
                         <td class="alignCenter">4</td>
                     </tr>
-                    <tr class="alt">
+                    <tr class="dark">
                         <td><strong class="green">2</strong> (-1)</td>
-                        <td class="alt"><a href="member.htm">wicked_games</a></td>
+                        <td class="dark"><a href="member.htm">wicked_games</a></td>
                         <td class="alignCenter">1388</td>
                         <td class="alignCenter">81%</td>
                         <td class="alignCenter">10</td>
@@ -107,9 +107,9 @@
                         <td class="alignCenter">12</td>
                         <td class="alignCenter">4</td>
                     </tr>
-                    <tr class="alt">
+                    <tr class="dark">
                         <td><strong class="green">4</strong> (+5)</td>
-                        <td class="alt"><a href="member.htm">fb_boss</a></td>
+                        <td class="dark"><a href="member.htm">fb_boss</a></td>
                         <td class="alignCenter">1279</td>
                         <td class="alignCenter">72%</td>
                         <td class="alignCenter">12</td>
@@ -123,9 +123,9 @@
                         <td class="alignCenter">14</td>
                         <td class="alignCenter">6</td>
                     </tr>
-                    <tr class="alt">
+                    <tr class="dark">
                         <td><strong class="green">6</strong> (-2)</td>
-                        <td class="alt"><a href="member.htm">LSUfan</a></td>
+                        <td class="dark"><a href="member.htm">LSUfan</a></td>
                         <td class="alignCenter">1287</td>
                         <td class="alignCenter">68%</td>
                         <td class="alignCenter">16</td>
@@ -139,9 +139,9 @@
                         <td class="alignCenter">16</td>
                         <td class="alignCenter">7</td>
                     </tr>
-                    <tr class="alt">
+                    <tr class="dark">
                         <td><strong class="green">8</strong> (-1)</td>
-                        <td class="alt"><a href="member.htm">motrrrhead</a></td>
+                        <td class="dark"><a href="member.htm">motrrrhead</a></td>
                         <td class="alignCenter">1045</td>
                         <td class="alignCenter">62%</td>
                         <td class="alignCenter">17</td>
@@ -155,9 +155,9 @@
                         <td class="alignCenter">17</td>
                         <td class="alignCenter">9</td>
                     </tr>
-                    <tr class="alt">
+                    <tr class="dark">
                         <td><strong class="green">10</strong> (-5)</td>
-                        <td class="alt"><a href="member.htm">chekm8</a></td>
+                        <td class="dark"><a href="member.htm">chekm8</a></td>
                         <td class="alignCenter">984</td>
                         <td class="alignCenter">61%</td>
                         <td class="alignCenter">18</td>

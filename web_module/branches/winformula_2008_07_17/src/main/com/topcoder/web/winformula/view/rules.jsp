@@ -77,7 +77,7 @@
             <p>Competitors will be allowed to modify their Submissions as desired during the Mini Season One Submission Period, the Mini Season Two Submission Period, the Mini Season Three Submission Period and the Mini Season Four Submission Period.  A Submission will count as a Competitor's final Submission unless and until modified as permitted under these Rules.  Modified Submissions are due by the end of the applicable Submission Period.  Competitors will not be allowed to further modify their Submission upon the conclusion of the Mini Season Four Submission Period (November 20, 2008 at 2:00 PM EDT).</p>
             <p>Prior to the beginning of the next Week, Competitors will be given access to a file containing the previous Week's data ("Weekly Data").</p>
             <p>The Schedule of the Competition is as follows:</p>
-            <table width="75%" border="0" cellpadding="0" cellspacing="0" class="current-data">
+            <table width="75%" border="0" cellpadding="0" cellspacing="0" class="stat">
                 <thead>
                     <tr>
                         <th class="alignCenter">Event</th>
@@ -85,120 +85,120 @@
                         <th class="alignCenter">End Date/Time</th>
                     </tr>
                 </thead>
-                <tr>
+                <tr class="light">
                     <td>Registration</td>
                     <td>July 28, 2008 at 11:59AM EDT</td>
                     <td>September 24, 2008 at 2:00 PM EDT</td>
                 </tr>
-                <tr class="alt">
+                <tr class="dark">
                     <td>Mini Season One Submission Period</td>
                     <td>August 12, 2008 at 11:59 AM EDT</td>
                     <td>August 27, 2008  at 2:00 PM EDT</td>
                 </tr>
-                <tr>
+                <tr class="light">
                     <td>Week One</td>
                     <td>August 28, 2008 at 12:01 AM EDT</td>
                     <td>September 4, 2008 at 12:01 AM EDT</td>
                 </tr>
-                <tr class="alt">
+                <tr class="dark">
                     <td>Week Two</td>
                     <td>September 4, 2008 at 12:01 AM EDT</td>
                     <td>September 11, 2008 at 12:01 AM EDT</td>
                 </tr>
-                <tr>
+                <tr class="light">
                     <td>Week Three</td>
                     <td>September 11, 2008 at 12:01 AM EDT</td>
                     <td>September 18, 2008 at 12:01 AM EDT</td>
                 </tr>
-                <tr class="alt">
+                <tr class="dark">
                     <td>Week Four</td>
                     <td>September 18, 2008 at 12:01 AM EDT</td>
                     <td>September 25, 2008 at 12:01 AM EDT</td>
                 </tr>
-                <tr>
+                <tr class="light">
                     <td>Mini Season Two Submission Period</td>
                     <td>August 27, 2008, 2008 at 2:00 PM EDT</td>
                     <td>September 24, 2008 at 2:00 PM EDT</td>
                 </tr>
-                <tr class="alt">
+                <tr class="dark">
                     <td>Mini Season Two</td>
                     <td>September 25, 2008 at 12:01 AM EDT</td>
                     <td>October 23, 2008 at 12:01 AM EDT</td>
                 </tr>
-                <tr>
+                <tr class="light">
                     <td>Week Five</td>
                     <td>September 25, 2008 at 12:01 AM EDT</td>
                     <td>October 2, 2008 at 12:01 AM EDT</td>
                 </tr>
-                <tr class="alt">
+                <tr class="dark">
                     <td>Week Six</td>
                     <td>October 2, 2008 at 12:01 AM EDT</td>
                     <td>October 9, 2008 at 12:01 AM EDT</td>
                 </tr>
-                <tr>
+                <tr class="light">
                     <td>Week Seven</td>
                     <td>October 9, 2008 at 12:01 AM EDT</td>
                     <td>October 16, 2008 at 12:01 AM EDT</td>
                 </tr>
-                <tr class="alt">
+                <tr class="dark">
                     <td>Week Eight</td>
                     <td>October 16, 2008 at 12:01 AM EDT</td>
                     <td>October 23, 2008 at 12:01 AM EDT</td>
                 </tr>
-                <tr>
+                <tr class="light">
                     <td>Mini Season Three Submission Period</td>
                     <td>September 24, 2008 at 2:00 PM EDT</td>
                     <td>October 23, 2008 at 2:00 PM EDT</td>
                 </tr>
-                <tr class="alt">
+                <tr class="dark">
                     <td>Mini Season Three</td>
                     <td>October 23, 2008 at 12:01 AM EDT</td>
-                    <td>November 20, 2008 at 12:01 AM EDT</td>
+                    <td>November 20, 2008 at 12:01 AM EST</td>
                 </tr>
-                <tr>
+                <tr class="light">
                     <td>Week Nine</td>
                     <td>October 23, 2008 at 12:01 AM EDT</td>
                     <td>October 30, 2008 at 12:01 AM EDT</td>
                 </tr>
-                <tr class="alt">
+                <tr class="dark">
                     <td>Week Ten</td>
                     <td>October 30, 2008 at 12:01 AM EDT</td>
-                    <td>November 6, 2008 at 12:01 AM EDT</td>
+                    <td>November 6, 2008 at 12:01 AM EST</td>
                 </tr>
-                <tr>
+                <tr class="light">
                     <td>Week Eleven</td>
-                    <td>November 6, 2008 at 12:01 AM EDT</td>
-                    <td>November 13, 2008 at 12:01 AM EDT</td>
+                    <td>November 6, 2008 at 12:01 AM EST</td>
+                    <td>November 13, 2008 at 12:01 AM EST</td>
                 </tr>
-                <tr class="alt">
+                <tr class="dark">
                     <td>Week Twelve</td>
-                    <td>November 13, 2008 at 12:01 AM EDT</td>
-                    <td>November 20, 2008 at 12:01 AM EDT</td>
+                    <td>November 13, 2008 at 12:01 AM EST</td>
+                    <td>November 20, 2008 at 12:01 AM EST</td>
                 </tr>
-                <tr>
+                <tr class="light">
                     <td>Mini Season Four Submission Period</td>
                     <td>October 23, 2008 at 2:00 PM EDT</td>
-                    <td>November 20, 2008 at 2:00 PM EDT</td>
+                    <td>November 20, 2008 at 2:00 PM EST</td>
                 </tr>
-                <tr class="alt">
+                <tr class="dark">
                     <td>Mini Season Four</td>
-                    <td>November 20, 2008 at 12:01 AM EDT</td>
-                    <td>December 11, 2008 at 12:01 AM EDT</td>
+                    <td>November 20, 2008 at 12:01 AM EST</td>
+                    <td>December 11, 2008 at 12:01 AM EST</td>
                 </tr>
-                <tr>
+                <tr class="light">
                     <td>Week Thirteen</td>
-                    <td>November 20, 2008 at 12:01 AM EDT</td>
-                    <td>November 27, 2008 at 12:01 AM EDT</td>
+                    <td>November 20, 2008 at 12:01 AM EST</td>
+                    <td>November 27, 2008 at 12:01 AM EST</td>
                 </tr>
-                <tr class="alt">
+                <tr class="dark">
                     <td>Week Fourteen</td>
-                    <td>November 27, 2008 at 12:01 AM EDT</td>
-                    <td>December 4, 2008 at 12:01 AM EDT</td>
+                    <td>November 27, 2008 at 12:01 AM EST</td>
+                    <td>December 4, 2008 at 12:01 AM EST</td>
                 </tr>
-                <tr>
+                <tr class="light">
                     <td>Week Fifteen</td>
-                    <td>December 4, 2008 at 12:01 AM EDT</td>
-                    <td>December 11, 2008 at 12:01 AM EDT</td>
+                    <td>December 4, 2008 at 12:01 AM EST</td>
+                    <td>December 11, 2008 at 12:01 AM EST</td>
                 </tr>
             </table>
             <br />
@@ -213,7 +213,20 @@
                 <li>Margin:
                     <ul class="howCompete2">
                         <li>If a Submission correctly predicts the winning team and the margin of victory for the winning team, no points will be deducted from the Maximum.</li>
-                        <li>If a Submission correctly predicts the outcome of the game, but fails to predict the margin of victory correctly, then points will be deducted from the Maximum for each game point by which the actual margin of victory differs from the Submission's predicted margin of victory in accordance with the following table:</li>
+                        <li>If a Submission correctly predicts the outcome of the game, but fails to predict the margin of victory correctly, then points will be deducted from the Maximum for each game point by which the actual margin of victory differs from the Submission's predicted margin of victory in accordance with the following table:<br />
+                            <table width="75%" border="0" cellpadding="0" cellspacing="0" class="stat">
+                                <thead>
+                                    <tr>
+                                        <th class="alignCenter">Difference of<br />Actual Margin of Victory from<br />Predicted Margin <span style="text-decoration:underline;">of Victory</span></th>
+                                        <th class="alignCenter">Points Deducted from <span style="text-decoration:underline;">Maximum</span></th>
+                                    </tr>
+                                </thead>
+                                <tr class="light">
+                                    <td>0</td>
+                                    <td>o</td>
+                                </tr>
+                            </table>
+                        </li>
                         <li>If a Submission does not correctly predict the outcome of the game, then 20 points will be deducted from the Maximum.</li>
                     </ul>
                 </li>

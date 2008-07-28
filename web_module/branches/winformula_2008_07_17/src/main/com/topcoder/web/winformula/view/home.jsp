@@ -60,6 +60,10 @@
             </div>
             
             <div class="full-content">
+                <%-- Too big for section 
+                <div align="center"><img src="/i/events/winformula/timeline.png" alt="Winning Formula Timeline" /></div>
+                <br /><br />
+                --%>
                 <p>Participation in ESPN Winning Formula Challenge is completely FREE! Just follow the simple steps below and you'll be on your way to possibly claiming some of our $100,000 in prize money!</p>
                 <ol class="howCompete">
                     <li><strong><a href="/reg/" target="_blank">Sign up</a> for FREE to become a TopCoder member</strong> (select at least the &quot;Competition Registration&quot; checkbox)<br />
@@ -78,7 +82,7 @@
             <%-- Temporarily Hidden 
             <div class="weekly-box">
                 <h2 class="titleWeekly"><span class="hide">Week 4 Winners</span></h2>
-                <table width="97%" class="current-data">
+                <table width="97%" class="stat">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -89,70 +93,70 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="light">
                             <td class="alignCenter">1</td>
                             <td><a href="member.htm">fb_boss</a></td>
                             <td>88%</td>
                             <td>329</td>
                             <td><a href="#">picks</a></td>
                         </tr>
-                        <tr class="alt">
+                        <tr class="dark">
                             <td class="alignCenter">2</td>
                             <td><a href="member.htm">chekm8</a></td>
                             <td>83%</td>
                             <td>298</td>
                             <td><a href="#">picks</a></td>
                         </tr>
-                        <tr>
+                        <tr class="light">
                             <td class="alignCenter">3</td>
                             <td><a href="member.htm">somegirl</a></td>
                             <td>76%</td>
                             <td>247</td>
                             <td><a href="#">picks</a></td>
                         </tr>
-                        <tr class="alt">
+                        <tr class="dark">
                             <td class="alignCenter">4</td>
                             <td><a href="member.htm">fantasyfber</a></td>
                             <td>75%</td>
                             <td>178</td>
                             <td><a href="#">picks</a></td>
                         </tr>
-                        <tr>
+                        <tr class="light">
                             <td class="alignCenter"><strong>5</strong></td>
                             <td><a href="member.htm"><strong>CommunityTop10</strong></a></td>
                             <td>71%</td>
                             <td><strong>157</strong></td>
                             <td><a href="#">picks</a></td>
                         </tr>
-                        <tr class="alt">
+                        <tr class="dark">
                             <td class="alignCenter">6</td>
                             <td><a href="member.htm">Twixter83</a></td>
                             <td>66%</td>
                             <td>127</td>
                             <td><a href="#">picks</a></td>
                         </tr>
-                        <tr>
+                        <tr class="light">
                             <td class="alignCenter">7</td>
                             <td><a href="member.htm">ForRealzMomma</a></td>
                             <td>64%</td>
                             <td>124</td>
                             <td><a href="#">picks</a></td>
                         </tr>
-                        <tr class="alt">
+                        <tr class="dark">
                             <td class="alignCenter">8</td>
                             <td><a href="member.htm">ThaPantha</a></td>
                             <td>64%</td>
                             <td>117</td>
                             <td><a href="#">picks</a></td>
                         </tr>
-                        <tr>
+                        <tr class="light">
                             <td class="alignCenter">9</td>
                             <td><a href="member.htm">QBHive</a></td>
                             <td>61%</td>
                             <td>109</td>
                             <td><a href="#">picks</a></td>
                         </tr>
-                        <tr class="alt">
+                        <tr class="dark">
                             <td class="alignCenter">10</td>
                             <td><a href="member.htm">YFL</a></td>
                             <td>60%</td>
@@ -166,7 +170,7 @@
                             <td><strong>96</strong></td>
                             <td><a href="#">picks</a></td>
                         </tr>
-                        <tr class="alt newSection">
+                        <tr class="dark newSection">
                             <td class="alignCenter"><strong>22</strong></td>
                             <td><a href="member.htm"><strong>CommunityAverage</strong></a></td>
                             <td>58%</td>
@@ -180,7 +184,7 @@
             
             <div class="overall-box">
             <h2 class="titleLeader"><span class="hide">Overall Leaders</span></h2>
-            <table width="97%" class="current-data">
+            <table width="97%" class="stat">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -191,70 +195,70 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="light">
                         <td class="alignCenter">1</td>
                         <td><a href="member.htm">SouthSyde</a></td>
                         <td>84%</td>
                         <td>1432</td>
                         <td><a href="#">picks</a></td>
                     </tr>
-                    <tr class="alt">
+                    <tr class="dark">
                         <td class="alignCenter">2</td>
                         <td><a href="member.htm">wicked_games</a></td>
                         <td>81%</td>
                         <td>1388</td>
                         <td><a href="#">picks</a></td>
                     </tr>
-                    <tr>
+                    <tr class="light">
                         <td class="alignCenter">3</td>
                         <td><a href="member.htm">enterDragon</a></td>
                         <td>77%</td>
                         <td>1355</td>
                         <td><a href="#">picks</a></td>
                     </tr>
-                    <tr class="alt">
+                    <tr class="dark">
                         <td class="alignCenter">4</td>
                         <td><a href="member.htm">fb_boss</a></td>
                         <td>72%</td>
                         <td>1279</td>
                         <td><a href="#">picks</a></td>
                     </tr>
-                    <tr>
+                    <tr class="light">
                         <td class="alignCenter">5</td>
                         <td><a href="member.htm">call_me_sista</a></td>
                         <td>71%</td>
                         <td>1232</td>
                         <td><a href="#">picks</a></td>
                     </tr>
-                    <tr class="alt">
+                    <tr class="dark">
                         <td class="alignCenter"><strong>6</strong></td>
                         <td><a href="member.htm"><strong>CommunityTop10</strong></a></td>
                         <td>68%</td>
                         <td><strong>1287</strong></td>
                         <td><a href="#">picks</a></td>
                     </tr>
-                    <tr>
+                    <tr class="light">
                         <td class="alignCenter">7</td>
                         <td><a href="member.htm">theprophet</a></td>
                         <td>68%</td>
                         <td>1188</td>
                         <td><a href="#">picks</a></td>
                     </tr>
-                    <tr class="alt">
+                    <tr class="dark">
                         <td class="alignCenter">8</td>
                         <td><a href="member.htm">motrrrhead</a></td>
                         <td>62%</td>
                         <td>1045</td>
                         <td><a href="#">picks</a></td>
                     </tr>
-                    <tr>
+                    <tr class="light">
                         <td class="alignCenter">9</td>
                         <td><a href="member.htm">somegirl</a></td>
                         <td>61%</td>
                         <td>997</td>
                         <td><a href="#">picks</a></td>
                     </tr>
-                    <tr class="alt">
+                    <tr class="dark">
                         <td class="alignCenter">10</td>
                         <td><a href="member.htm">chekm8</a></td>
                         <td>61%</td>
@@ -268,7 +272,7 @@
                         <td><strong>980</strong></td>
                         <td><a href="#">picks</a></td>
                     </tr>
-                    <tr class="alt">
+                    <tr class="dark">
                         <td class="alignCenter"><strong>38</strong></td>
                         <td><a href="member.htm"><strong>CommunityAverage</strong></a></td>
                         <td>58%</td>
@@ -288,7 +292,7 @@
                         <p>We've created two automated contestants based on the community's picks. <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=wisdomCode">CommunityAverage</a> is based on the community's average picks and <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=wisdomCode">CommunityTop10</a> is based on the average picks of the top 10 overall contestants after each week. See how contestants score against the Wisdom of the Code!<br /><br />
                         <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=wisdomCode" class="learnButton" title="Learn More"><span>Learn More</span></a></p>
                 </div>
-                <div class="imgLeft"> <img src="/i/events/winformula/brain.png" alt="Helmet" /> </div>
+                <div class="imgLeft"> <img src="/i/events/winformula/brain.png" dark="Helmet" /> </div>
             </div>
             
             <%-- Temporarily Hidden 

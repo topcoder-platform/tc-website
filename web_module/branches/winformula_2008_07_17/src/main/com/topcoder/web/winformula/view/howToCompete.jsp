@@ -34,6 +34,8 @@
         
             <h1>How to Compete</h1>
             <div class="full-content">
+                <div align="center"><img src="/i/events/winformula/timeline.png" alt="Winning Formula Timeline" /></div>
+                <br /><br />
                 <p>Participation in ESPN Winning Formula Challenge is completely FREE! Just follow the simple steps below and you'll be on your way to possibly claiming some of our $100,000 in prize money!</p>
                 <ol class="howCompete">
                     <li><strong><a href="/reg/" target="_blank">Sign up</a> for FREE to become a TopCoder member</strong> (select at least the &quot;Competition Registration&quot; checkbox)<br />
