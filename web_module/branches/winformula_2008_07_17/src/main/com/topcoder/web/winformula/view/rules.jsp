@@ -48,9 +48,9 @@
             
             <h3>How to participate</h3>
             <ol class="howCompete">
-                <li>Read the Competition specification document at [web site link]</li>
+                <li>Read the Competition specification document at <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/">this link</a></li>
                 <li>Develop your Submission.</li>
-                <li>Enter your Submission into the Competition using the functionality at [web site link]</li>
+                <li>Enter your Submission into the Competition using the functionality at <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/">this link</a></li>
                 <li>Winners will be selected based on the judging criteria below. The winning Submissions will be announced (i) for the Mini Season Winners, upon the completion of the applicable time period, and (ii) for the highest aggregate score over Week Five through Week Fifteen, upon completion of Week Fifteen.</li>
             </ol>
             
@@ -222,8 +222,40 @@
                                     </tr>
                                 </thead>
                                 <tr class="light">
-                                    <td>0</td>
-                                    <td>o</td>
+                                    <td class="alignCenter">0</td>
+                                    <td class="alignCenter">0</td>
+                                </tr>
+                                <tr class="dark">
+                                    <td class="alignCenter">1</td>
+                                    <td class="alignCenter">2</td>
+                                </tr>
+                                <tr class="light">
+                                    <td class="alignCenter">2</td>
+                                    <td class="alignCenter">4</td>
+                                </tr>
+                                <tr class="dark">
+                                    <td class="alignCenter">3</td>
+                                    <td class="alignCenter">7</td>
+                                </tr>
+                                <tr class="light">
+                                    <td class="alignCenter">4</td>
+                                    <td class="alignCenter">10</td>
+                                </tr>
+                                <tr class="dark">
+                                    <td class="alignCenter">5</td>
+                                    <td class="alignCenter">13</td>
+                                </tr>
+                                <tr class="light">
+                                    <td class="alignCenter">6</td>
+                                    <td class="alignCenter">16</td>
+                                </tr>
+                                <tr class="dark">
+                                    <td class="alignCenter">7</td>
+                                    <td class="alignCenter">19</td>
+                                </tr>
+                                <tr class="light">
+                                    <td class="alignCenter">8 or more</td>
+                                    <td class="alignCenter">20</td>
                                 </tr>
                             </table>
                         </li>
@@ -231,6 +263,150 @@
                     </ul>
                 </li>
             </ul>
+            <p>Under no circumstances will more than 20 points be deducted from the Maximum under this "Margin" scoring mechanic.</p>
+            <ul class="howCompete2">
+                <li>Score:  If a Submission correctly predicts each team's final score, then no points will be deducted from the Maximum.  If a Submission does not correctly predict each team's final score, then points will be deducted from the Maximum (on a per team basis) in accordance with the following chart:<br />
+                    <table width="75%" border="0" cellpadding="0" cellspacing="0" class="stat">
+                        <thead>
+                            <tr>
+                                <th class="alignCenter">Difference of Actual Team Score<br />from Predicted Team Score</th>
+                                <th class="alignCenter">Points Deducted from <span style="text-decoration:underline;">Maximum</span></th>
+                            </tr>
+                        </thead>
+                        <tr class="light">
+                            <td class="alignCenter">0</td>
+                            <td class="alignCenter">0</td>
+                        </tr>
+                        <tr class="dark">
+                            <td class="alignCenter">1</td>
+                            <td class="alignCenter">1</td>
+                        </tr>
+                        <tr class="light">
+                            <td class="alignCenter">2</td>
+                            <td class="alignCenter">2</td>
+                        </tr>
+                        <tr class="dark">
+                            <td class="alignCenter">3</td>
+                            <td class="alignCenter">3</td>
+                        </tr>
+                        <tr class="light">
+                            <td class="alignCenter">4</td>
+                            <td class="alignCenter">4</td>
+                        </tr>
+                        <tr class="dark">
+                            <td class="alignCenter">5</td>
+                            <td class="alignCenter">5</td>
+                        </tr>
+                        <tr class="light">
+                            <td class="alignCenter">6</td>
+                            <td class="alignCenter">6</td>
+                        </tr>
+                        <tr class="dark">
+                            <td class="alignCenter">7</td>
+                            <td class="alignCenter">7</td>
+                        </tr>
+                        <tr class="light">
+                            <td class="alignCenter">8</td>
+                            <td class="alignCenter">8</td>
+                        </tr>
+                        <tr class="dark">
+                            <td class="alignCenter">9</td>
+                            <td class="alignCenter">9</td>
+                        </tr>
+                        <tr class="light">
+                            <td class="alignCenter">10 or more</td>
+                            <td class="alignCenter">10</td>
+                        </tr>
+                    </table>
+                </li>
+            </ul>
+            <p>Under no circumstances will more than 20 points be deducted from the Maximum under this "Score" scoring mechanic.</p>
+            <p>If a game in not completed, regardless of the reason, no points will be counted toward a Submission's score.  The Week towards which a game is counted shall be determined by the date and time on which it ends.</p>
+            <p>At the end of each Week of the Competition, the total points across all games will be added together and the Submissions will be ranked for that Week.  At the end of each Mini Season, the Submission with the highest total score for that time period Winner for that time period.</p>
+            <p>At the end of each Week of the Season, the total points across Weeks Five through Fifteen will be added together and the Submissions will be ranked through that Week.  The winner of the Competition will be the Competitor with the highest total score for Weeks Five through Fifteen.</p>
+            <p>Each week, TopCoder will announce and display the top 10 Competitors for the preceding Week, the applicable Mini Season and the top 10 Competitors of the overall Competition by handle.</p>
+            
+            
+            <h2>Submission Requirements</h2>
+            <p>A Submission may not contain excessive and/or unnecessary code, must meet TopCoder's coding standards, and must execute within the time periods described in the specifications.  All winning submissions will be reviewed and required to pass the competition review scorecard to verify compliance.</p>
+            <p>In addition to any other requirements set forth in the Competition documents and/or problem statement, each Submission must not "hard code" weekly picks, must use the Historical Data and Weekly Data to determine the output, but must not be dependent on the particular identifiers in the data set provided.  For example, if the identifiers for the teams and/or players were changed, the Submission must still work in the same way and reach the same result.  Likewise, if the Historical Data and/or Weekly Data is changed, a change in the output would be expected commensurate with the statistical approach taken.</p>
+            <p>In the event a Submission does not meet these requirements, such Submission will receive a total of 0 points for that Week of the Competition.</p>
+            
+            
+            <h2>Prizes</h2>
+            <p>For each Mini Season of the Competition, the following Prizes will be awarded:</p>
+            <ul class="howCompete2">
+                <li>Highest Scoring Competitor:  $6,000</li>
+                <li>Second Highest Scoring Competitor:  $2,000</li>
+            </ul>
+            <p>At the conclusion of Week Fifteen, the following Prizes will be awarded:</p>
+            <ul class="howCompete2">
+                <li>Highest Aggregate Score for Weeks Five through Fifteen:  $50,000</li>
+                <li>Second Highest Aggregate Score for Weeks Five through Fifteen:  $10,000</li>
+                <li>Third Highest Aggregate Score for Weeks Five through Fifteen:  $5,000</li>
+                <li>Fourth Highest Aggregate Score for Weeks Five through Fifteen:  $3,000</li>
+                <li>Fifth Highest Aggregate Score for Weeks Five through Fifteen:  $2,000</li>
+            </ul>
+            <p>In the event of a tie, the tie will be broken as follows:</p>
+            <ol class="howCompete">
+                <li>The Competitor with the highest number of points from the Game Outcomes scoring mechanic for the Mini Season or over the course of Week Five through Fifteen, as applicable, shall be declared the winner.</li>
+                <li>In the event a tie still exists, the Competitor with the highest number of points (among the remaining tied Competitors) from the Margin scoring mechanic for the Mini Season or over the course of over the course of Week Five through Fifteen, as applicable, shall be declared the winner.</li>
+                <li>In the event a tie still exists, the prize money will be split equally among the remaining tied Competitors.</li>
+            </ol>
+            <p>All Prizes are listed and shall be awarded in USD.</p>
+            <p>All prizes will be awarded, provided a qualified number of Submissions are received. As a requirement of receiving a prize, a winning Competitor shall submit a brief (less than 250 words) description of the Submission, including, but not limited to, the Competitor's strategy in developing the Submission, their methodology, and the functioning of the Submission ("Description").  If a Competitor cannot or will not accept a prize, or fails to provide the Description within 10 days of notification, then the prize will be forfeited and may be awarded to the next highest scoring Submission.</p>
+            <p>Unless otherwise provided herein, by participating in this Competition, a Competitor acknowledges and agrees that if his/her Submission is selected as a winner, the Competitor will receive a cash award only upon verification of all applicable eligibility requirements. All prize values are stated in US dollars. Cash prizes will be paid out by TopCoder (or its designee) in the US in US dollars no later than 60 days following prize notification. Taxes, if any, are the sole responsibility of the winner(s).</p>
+            <p>Winning Competitors will be notified by e-mail; and may be required to sign and return an Affidavit of Eligibility/Liability/Publicity release, unless prohibited by law, within ten (10) days of date of prize notification.</p>
+            <p>If a winning Competitor (i) does not reply to such notification or the notification is undeliverable, (ii) does not return the Affidavit of Eligibility/Liability/Publicity release completed and signed within ten (10) days of date of prize notification, (iii) does not submit the Description or (iv) is not otherwise in compliance with these Rules, the Competitor will be disqualified and forfeit any prize, and we may, at our discretion, select and notify another Competitor.</p>
+            
+            
+            <h2>Ownership and Rights</h2>
+            <p>If you win a prize for your Submission, then you agree to irrevocably and unconditionally transfer and assign to TopCoder, its successors, and assigns, all right, title and interest you have, may have or acquire in, such Submission and any derivative works thereof submitted by you in the Competition, and you agree to execute and deliver such documents, certificates, assignments and other writings, and take such other actions as may be necessary or desirable to vest in TopCoder the ownership rights granted to TopCoder hereunder.  An assignment document, affidavit, and tax documentation will be required for payment.  All winning Submissions shall be considered confidential information of TopCoder and/or the Competition sponsor, and may not be distributed to any third party.</p>
+            <p>If TopCoder does not compensate you for your Submission, then you retain any and all rights to ownership of such Submission; provided, however, that you grant a perpetual, royalty-free, irrevocable, non-exclusive license to TopCoder to use, reproduce and publish such Submissions or material in connection with the Competition.</p>
+            <p>Nothing in these Rules shall be construed as granting you any right or license under any intellectual property right of TopCoder (including any rights TopCoder may have in any patents, copyrights, trademarks, service marks or any trade secrets) or in the TopCoder web site, by implication, estoppel or otherwise, except as expressly set forth herein.</p>
+            
+            
+            <h2>Confidential Information</h2>
+            <p>The Historical Data and the Weekly Data are confidential and proprietary, and can only be used for the purposes of this Competition.  You agree (i) to hold such information in confidence and to take all reasonable precautions to protect such confidential information (including, without limitation, all precautions you may employ with respect to your own confidential materials), (ii) not to divulge any such confidential information to any third person; and (iii) not to make any use whatsoever of such confidential information except as expressly authorized in these Rules.</p>
+            
+            
+            <h2>Indemnification and Release</h2>
+            <p>By submitting a Submission and/or otherwise participating in forum and newsgroup discussions on TopCoder's customer and developer forums, you agree to indemnify TopCoder and any parent, subsidiary or affiliated entities, TopCoder's officers and employees, and officers and employees of any parent, subsidiary or affiliated entities and hold them harmless from any and all claims and expenses, including attorney's fees, arising from your use of TopCoder's website(s) and/or the materials gained from TopCoder's website(s) or directly from TopCoder, including any material (including third party material) that you post on TopCoder's website(s) or in any news forums and any services or products available through TopCoder's website(s). In addition, you hereby release TopCoder and any parent, subsidiary or affiliated entities, TopCoder's officers and employees, and officers and employees of any parent, subsidiary or affiliated entities from any and all claims, demands, debts, obligations, damages (actual or consequential), costs, and expenses of any kind or nature whatsoever, whether known or unknown, suspected or unsuspected, disclosed or undisclosed, that you may have against them arising out of or in any way related to such disputes and/or to any services or products available at TopCoder's website(s). You hereby agree to waive all laws that may limit the efficacy of such releases.</p>
+            
+            
+            <h2>DISCLAIMER</h2>
+            <p>THE MATERIALS AND SERVICES ON TOPCODER'S WEBSITE(S) ARE PROVIDED "AS IS" AND WITHOUT WARRANTIES OF ANY KIND EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW, TOPCODER DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. TOPCODER DOES NOT WARRANT THAT THE FUNCTIONS CONTAINED IN THE MATERIALS WILL BE UNINTERRUPTED OR ERROR-FREE, THAT DEFECTS WILL BE CORRECTED, OR THAT TOPCODER'S WEBSITE(S) OR THE SERVER(S) THAT MAKES TOPCODER'S WEBSITE(S) AVAILABLE OR ANY ADVERTISED OR HYPERLINKED SITE ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS OR THAT TOPCODER'S WEBSITE(S), SERVER(S), ADVERTISED OR HYPERLINKED SITES WILL BE ACCESSIBLE AT ALL TIMES. TOPCODER DOES NOT WARRANT THAT SUCH ERRORS, DEFECTS OR INTERRUPTIONS IN SERVICE WILL NOT AFFECT THE RESULTS OF ITS COMPETITIONS AND SOFTWARE DEVELOPMENT PROCESS, AND TOPCODER DISCLAIMS ANY RESPONSIBILITY FOR REDUCED PERFORMANCE OR INOPERABILTIY IN COMPETITIONS OR IN SOFTWARE DEVELOPMENT DUE TO SUCH PROBLEMS. TOPCODER DOES NOT WARRANT OR MAKE ANY REPRESENTATIONS REGARDING THE USE OR THE RESULTS OF ITS WEBSITE(S) WITH RESPECT TO CORRECTNESS, ACCURACY, RELIABILITY OR OTHERWISE. YOU ASSUME THE ENTIRE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION. TO THE EXTENT THAT APPLICABLE LAW MAY NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU.</p>
+            <p>Documents, graphics and other materials appearing at TopCoder's website(s) may include technical inaccuracies, typographical errors, and out-of-date information and use of such documents, graphics or other materials is at your own risk.</p>
+            
+            
+            <h2>LIMITATION OF LIABILITY</h2>
+            <p>TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW, TOPCODER SHALL NOT BE LIABLE FOR ANY DAMAGES (INCLUDING, BUT NOT LIMITED TO, DIRECT, INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES), INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR LOSS OF WINNINGS, DATA OR OTHER DAMAGE TO ANY OTHER INTANGIBLE PROPERTY, EVEN IF TOPCODER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, RESULTING FROM (i) THE USE OR INABILITY TO USE ITS WEBSITE(S), (ii) THE POSTING OF INFORMATION TO, OR THE RECEIPT OF INFORMATION FROM, ITS WEBSITE(S), (iii) THE DISCLOSURE OF, UNAUTHORIZED ACCESS TO OR ALTERATION OF ANY TRANSMISSION OR DATA, (iv) THE STATEMENTS OR CONDUCT OF ANY THIRD PARTY OR (v) ANY OTHER MATTER RELATING TO TOPCODER.</p>
+            
+            
+            <h2>Choice of Law and Forum</h2>
+            <p>These Rules are governed by the laws of the State of Connecticut. You hereby agree to submit to the exclusive jurisdiction of the courts of the State of Connecticut. To the extent that applicable laws have mandatory application to these Rules or give you the right to bring action in any other courts, the above limitations may not apply to you. Use of TopCoder's website(s) and participation in the Competition is unauthorized in any jurisdiction that does not give full effect to all provisions of these Rules.</p>
+            
+            
+            <h2>Severability and Enforceability</h2>
+            <p>If any provision or portion of these Rules are held illegal, invalid, or unenforceable, in whole or in part, it shall be modified to the minimum extent necessary to correct any deficiencies or replaced with a provision which is as close as is legally permissible to the provision found invalid or unenforceable and shall not affect the legality, validity or enforceability of any other provisions or portions of these Rules.</p>
+            
+            
+            <h2>Privacy</h2>
+            <p>All information is collected in the United States, and the use of any personally identifiable information is subject to the terms of the TopCoder Privacy Statement located at:  <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=privacy">http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=privacy</a></p>
+            
+            
+            <h2>Termination/Exclusion</h2>
+            <p>TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with the Competition, and to take any other action it deems appropriate including but not limited to disqualification of a Submission or terminating or suspending a Competitor's use of <a href="http://<%=ApplicationServer.SERVER_NAME%>/">www.topcoder.com</a> and/or <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">www.topcodersoftware.com</a> for no reason or any reason whatsoever, including improper use of its website(s) or failure to comply with these Rules or the Terms of Use of TopCoder's websites, which are incorporated herein by reference.</p>
+            <p>If for any reason this Competition is not capable of running as planned due to infection by computer virus, bugs, tampering, unauthorized intervention, fraud, technical failures, uploads of malicious files or viruses, or any other causes beyond the reasonable control of TopCoder which corrupt or affect the administration, security, fairness, integrity, or proper conduct of this Competition, TopCoder reserve the right at their sole discretion, to disqualify any entry or any individual who tampers with the entry or judging process, and to cancel, terminate, modify or suspend this Competition and select winners from all eligible, non-suspect entries received as of the date of termination. Releasees assume no responsibility for any error, omission, interruption, deletion, defect, delay in operation or transmission, communications line failure, theft or destruction or unauthorized access to, or alteration of, entries.</p>
+            <p>CAUTION: ANY ATTEMPT TO DELIBERATELY DAMAGE ANY WEBSITE OR UNDERMINE THE LEGITIMATE OPERATION OF THIS COMPETITION IS A VIOLATION OF CRIMINAL AND CIVIL LAWS AND SHOULD SUCH AN ATTEMPT BE MADE, TOPCODER RESERVES THE RIGHT TO SEEK DAMAGES TO THE FULLEST EXTENT PERMITTED BY LAW.</p>
+            
+            
+            <h2>Other</h2>
+            <p>The Competition is void in whole or in part where prohibited by law.</p>
+            <p>A list of winners by handles for the Competition will be available on the web site at <a href="http://<%=ApplicationServer.SERVER_NAME%>/">http://www.topcoder.com</a> displayed for at least 3 months after the end of the Competition.</p>
+            <p>TopCoder may assign, novate or subcontract any or all of its rights and obligations under these Rules and Regulations at any time.</p>
+            <p>This Competition is brought to you by TopCoder, Inc., 95 Glastonbury Boulevard, Glastonbury, CT 06033</p>
+            <p>If you have any questions regarding these Rules, contact us at  <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a>.</p>
 
         <%-- Main Content --%>
         </div>
