@@ -47,10 +47,10 @@
                     <div id="login">
                     <%-- Login --%>
                         <form method="post" name="frmLogin" action="${sessionInfo.servletPath}" >
-                            <input type="hidden" name="module" value="Login" />
+                            <input type="hidden" name="module" id="module" value="Login" />
                             <a href="javascript:document.frmLogin.submit()" class="topButton" title="Log In"><span>Log In</span></a>
-                            <input name="<%=Login.USER_NAME%>" maxlength="15" type="text" class="textbox" id="username" value="TopCoder Username" onkeypress="submitEnter(event)"/>
-                            <input name="<%=Login.PASSWORD%>" maxlength="30" type="password" class="textbox" id="password" value="Password" onkeypress="submitEnter(event)"/>
+                            <input name="<%=Login.USER_NAME%>" maxlength="15" type="text" class="textbox" id="username" value="TopCoder Username" onkeypress="submitEnter(event)" />
+                            <input name="<%=Login.PASSWORD%>" maxlength="30" type="password" class="textbox" id="password" value="Password" onkeypress="submitEnter(event)" />
                         </form>
                     <%-- End Login --%>
                     </div>
