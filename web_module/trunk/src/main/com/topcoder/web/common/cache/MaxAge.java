@@ -8,7 +8,7 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
  *          Create Date: May 7, 2007
  */
 public enum MaxAge {
-    FIVE_MINUTES(1000 * 60 * 15), QUARTER_HOUR(1000 * 60 * 15), HALF_HOUR(1000 * 60 * 30), HOUR(1000 * 60 * 60), THREE_HOUR(1000 * 60 * 60 * 3), 
+    FIVE_MINUTES(1000 * 60 * 5), QUARTER_HOUR(1000 * 60 * 15), HALF_HOUR(1000 * 60 * 30), HOUR(1000 * 60 * 60), THREE_HOUR(1000 * 60 * 60 * 3), 
     MAX(DataAccessConstants.DEFAULT_EXPIRE_TIME);
     private final int age;
 
