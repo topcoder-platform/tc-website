@@ -54,7 +54,7 @@
                 
                 
                 <h2>Registration</h2>
-                <p>In order to compete in the ESPN Winning Formula Challenge one must first register and account on the TopCoder website <a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">here</a>. Once you have that account, you can register for the ESPN Winning Formula Challenge <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewRegistration&amp;ct=1001">here</a>. At that point, you will have all of the tools at your disposal to craft a winning formula and earn your chance to win your share of the $100,000 purse!</p>
+                <p>In order to compete in the ESPN Winning Formula Challenge one must first register an account on the TopCoder website <a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">here</a>. Once you have that account, you can register for the ESPN Winning Formula Challenge <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewRegistration&amp;ct=1001">here</a>. At that point, you will have all of the tools at your disposal to craft a winning formula and earn your chance to win your share of the $100,000 purse!</p>
                 
                 
                 <h2>The problem definition and historical data</h2>
