@@ -90,6 +90,7 @@ public class DownloadFile extends ShortHibernateProcessor {
                 
         
         FileInputStream fis = new FileInputStream(file);
+        getResponse().setContentLength((int) file.length());
         try {
             byte[] buffer = new byte[8000];
             int size = 0;
