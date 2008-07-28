@@ -90,8 +90,6 @@ function AllowTabCharacter() {
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_winformula_forums"/>
     </jsp:include>
-    <script type="text/javascript" src="js/scripts.js"></script>
-  
 </head>
 
 <body>
@@ -108,7 +106,7 @@ function AllowTabCharacter() {
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-
+        
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
    <td class="categoriesBox" style="padding-right: 20px;">

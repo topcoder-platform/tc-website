@@ -39,17 +39,6 @@ function noenter(e)
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_winformula_forums"/>
     </jsp:include>
-    <%--
-    <script type="text/javascript" src="js/scripts.js"></script>
-    --%>
-    <script type="text/javascript">
-        function openWin(url, name, w, h) {
-            win = window.open(url, name, "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width=" + w + ",height=" + h);
-            win.location.href = url;
-            win.focus();
-        }
-    </script>
-  
 </head>
 
 <body>
@@ -66,7 +55,6 @@ function noenter(e)
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-        
         
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>

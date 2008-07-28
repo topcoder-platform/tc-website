@@ -47,8 +47,6 @@ function noenter(e)
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_winformula_forums"/>
     </jsp:include>
-    <script type="text/javascript" src="js/scripts.js"></script>
-  
 </head>
 
 <body>
@@ -65,20 +63,20 @@ function noenter(e)
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-
+        
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-	<td class="categoriesBox" style="padding-right: 20px;">
-		<jsp:include page="categoriesHeader.jsp" />
-	</td>
-	<td align="right" nowrap="nowrap" width="100%" valign="top">   
-		<a href="?module=History" class="rtbcLink">My Post History</a> | <a href="?module=Watches" class="rtbcLink">My Watches</a> | <a href="?module=Settings" class="rtbcLink">User Settings</a><br />
-	</td>
+    <td class="categoriesBox" style="padding-right: 20px;">
+        <jsp:include page="categoriesHeader.jsp" />
+    </td>
+    <td align="right" nowrap="nowrap" width="100%" valign="top">   
+        <a href="?module=History" class="rtbcLink">My Post History</a> | <a href="?module=Watches" class="rtbcLink">My Watches</a> | <a href="?module=Settings" class="rtbcLink">User Settings</a><br />
+    </td>
 </tr>
 <tr>
-	<td colspan="3" style="padding-bottom:2px;">
-		<b><a href="?module=Main" class="rtbcLink">Forums</a> > Search</b>
-	</td>
+    <td colspan="3" style="padding-bottom:2px;">
+        <b><a href="?module=Main" class="rtbcLink">Forums</a> > Search</b>
+    </td>
 </tr>
 </table>
 
@@ -188,6 +186,8 @@ function noenter(e)
 <% if ("search".equals(status)) { %>
     <jsp:include page="searchResults.jsp"/>
 <% } %>
+
+
 
 
         <%-- Main Content --%>
