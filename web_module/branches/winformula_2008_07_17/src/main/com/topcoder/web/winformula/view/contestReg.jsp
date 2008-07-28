@@ -61,7 +61,7 @@
                                 <!-- resulting page from click has value at the end of the URL, which is pointless.  Feel free to use any html/js element/method but i want the nice looking button -->
                         <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
                             <br/></tc-webtag:errorIterator></span>
-                                <input type="checkbox" name="<%=Constants.TERMS_AGREE%>"/>I agree
+                                <input type="checkbox" name="<%=Constants.TERMS_AGREE%>"/>&nbsp;I agree
                                 <br /><br />
                                 <p class="wrapperBtnAgree">
                                 <a href="javascript:document.terms.submit()" class="learnButton" title="Register Now!"><span>Register Now!</span></a>
