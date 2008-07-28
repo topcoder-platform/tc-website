@@ -292,7 +292,7 @@
                         <p>We've created two automated contestants based on the community's picks. <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=wisdomCode">CommunityAverage</a> is based on the community's average picks and <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=wisdomCode">CommunityTop10</a> is based on the average picks of the top 10 overall contestants after each week. See how contestants score against the Wisdom of the Code!<br /><br />
                         <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=wisdomCode" class="learnButton" title="Learn More"><span>Learn More</span></a></p>
                 </div>
-                <div class="imgLeft"> <img src="/i/events/winformula/brain.png" dark="Helmet" /> </div>
+                <div class="imgLeft"> <img src="/i/events/winformula/brain.png" alt="Helmet" /> </div>
             </div>
             
             <%-- Temporarily Hidden 
