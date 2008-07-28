@@ -64,12 +64,12 @@
                 
                 <h2>Submitting a solution</h2>
                 <p>Once you are ready to submit a solution, navigate to the Manage My Algorithms link. You will see a Submit option on that page; clicking the Submit link will take you to a page that will allow you to paste in a solution, select the proper language, and submit your code. When the Submit button is selected, the code will be immediately compiled. Any compilation messages or errors will be shown on the Manage My Algorithms page. If the compilation was successful, the submission will then be placed on a queue for automated testing; you will know this by seeing the words "In Queue". This indicates your place in line to wait for your predictions to be processed by your submission.</p>
-                <p>When your submission has finally been processed, you will receive an email indicating such and you will then be able to see your predictions from that algorithm by clicking View Picks in the Actions column across from your submission. The prediction page will show you the predicted score for each match that occurs for each week within the span time between now and the end of the current 4-week mini-season. If for some reason your algorithm failed to run, the errors returned by your algorithm and the testing system will be returned in a Program Returned field, broken down into debug messages (from stdout), error messages (from stderr), and fatal errors returned by the system. These fields will also be shown for correctly working algorithms for debugging purposes.</p>
+                <p>When your submission has finally been processed, you will receive an email indicating such and you will then be able to see your predictions from that algorithm by clicking View Picks in the Actions column across from your submission. The prediction page will show you the predicted score for each match that occurs for each week within the span time between now and the end of the current mini-season. If for some reason your algorithm failed to run, the errors returned by your algorithm and the testing system will be returned in a Program Returned field, broken down into debug messages (from stdout), error messages (from stderr), and fatal errors returned by the system. These fields will also be shown for correctly working algorithms for debugging purposes.</p>
                 <p>You may only submit and see your new predictions once every 4 hours. There is no penalty for multiple submissions, and competitors are encouraged to resubmit as many times as they want in order to perfect their winning formulas.</p>
                 
                 
                 <h2>Schedule and lock-in</h2>
-                <p>The algorithms will be tasked with predicting the results of the 16-week NCAA college football season for Fall of 2008. These predictions will be broken up into 4 4-week periods called mini-seasons. The mini-seasons are scheduled as follows:</p>
+                <p>The algorithms will be tasked with predicting the results of the NCAA college football season for Fall of 2008. These predictions will be broken up into 4 periods called mini-seasons. The mini-seasons are scheduled as follows:</p>
                 <table width="75%" border="0" cellpadding="0" cellspacing="0" class="stat">
                     <tr>
                         <th class="alignCenter">"Training Camp"<br />July 28 - Aug 27th</th>
@@ -80,11 +80,11 @@
                     </tr>
                 </table>
                 <br />
-                <p>When you have the submission you want to use for your predictions, make sure it is the last submission on the Manage My Algorithms link. When time elapses for submissions on the next mini-season (always at 12:00EDT on the day before the start of the next miniseason), that algorithm will be flagged with an indicator showing that it will be used for that mini-season. At this point the algorithm is locked in, meaning that it can no longer be changed, and it will be used to make the predictions for that mini-season.</p>
+                <p>When you have the submission you want to use for your predictions, make sure it is the last submission on the Manage My Algorithms link. When time elapses for submissions on the next mini-season (always at 12:01 AM on the day before the start of the next miniseason), that algorithm will be flagged with an indicator showing that it will be used for that mini-season. At this point the algorithm is locked in, meaning that it can no longer be changed, and it will be used to make the predictions for that mini-season.</p>
                 
                 
                 <h2>Prediction results and scoring</h2>
-                <p>Once the NCAA College Football season starts, you can look at the predictions that your algorithms have made on the "My Profile" link on the navigation bar above. That page will show you the prediction your algorithm for that mini-season made, the actual results of that game (if they are yet available) and the scoring for that algorithm. You will also see some comparison metrics illustrating how you are doing against the rest of the community, such as ranking, winning percentage, and current score.</p>
+                <p>Once the NCAA College Football season starts, you can look at the predictions that your algorithms have made on the "My Profile" link on the navigation bar above. That page will show you the prediction your algorithm made for that mini-season, the actual results of that game (if they are yet available) and the scoring for that algorithm. You will also see some comparison metrics illustrating how you are doing against the rest of the community, such as ranking, winning percentage, and current score.</p>
                 <p>Your predictions will be scored using the following formula. Each prediction will start off by scoring 100 points, just for being there. Once the actual results are in, your prediction will be penalized by how far off it was from the correct result as follows:</p>
                 <ol class="howCompete">
                     <li>If you predict the wrong winner, you will lose 60 points.</li>
@@ -131,12 +131,12 @@
                     <li>For each side, you will lose 1 point (up to 10 points per side) for each point you are away from the correct score for that side.</li>
                 </ol>
                 <p>This formula is designed so that the lowest score on a prediction is 0, and the highest score is 100.</p>
-                <p>Winners for each miniseason will be chosen by summing the scores of their predictions for the time period that encompasses that miniseason. The overall winner of the ESPN Winning Formula challenge will be the member who has the highest score over all games in the NCAA College Football season.</p>
+                <p>Winners for each miniseason will be chosen by summing the scores of their predictions for the time period that encompasses that miniseason. The overall winner of the ESPN Winning Formula challenge will be the member who has the highest score over all games in the Homecoming, Rivalries and Red Zone mini-seasons.</p>
                 
                 
                 <h2>Communication</h2>
                 <p>There are many ways to communicate with your competitors and the administrators of the competition to ask questions and exercise bragging rights. Forums will be available to answer any questions you have regarding the competition or to discuss events related to NCAA College Football. At no time are you allowed to disclose the method that any of your algorithms use to create predictions, regardless of whether or not they are currently being used to produce predictions. If you have a question about your particular situation that you wish to keep private or you cannot legally discuss on the forums, you may send a request to the administrator's email <a href="mailto:service@topcoder.com">here</a>, who will respond to you in a timely manner.</p>
-                <p>Administrators will also post announcements and responses to this forum. It is your responsibility to keep informed by checking the forums for problem clarifications and format changes. The administration will make their best efforts to inform particular members in the event of a rule change during the process of the competition.</p>
+                <p>Administrators will also post announcements and responses in the forums. It is your responsibility to keep informed by checking the forums for problem clarifications and format changes. The administration will make their best efforts to inform particular members in the event of a rule change during the process of the competition.</p>
 
             </div>
         
