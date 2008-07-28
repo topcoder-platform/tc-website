@@ -40,7 +40,7 @@
             <div class="full-content">
                 <p>Your algorithm should be programmed in such a way that it can take these statistical data and a list of a week's matchups and output a prediction for the  score of each game.</p>
                 <p>Use these data to build your algorithm and check back each week as the lateset data will be available.</p>
-                <h2><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadFile&amp;<%=Constants.CONTEST_ID%>=<%=Constants.CONTEST_ID_DEFAULT%>&amp;<%=Constants.FILENAME%>=test.zip">Download Now</a></h2>
+                <h2><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadFile&amp;<%=Constants.CONTEST_ID%>=<%=Constants.CONTEST_ID_DEFAULT%>&amp;<%=Constants.FILENAME%>=stats.zip">Download Now</a></h2>
                 <p>(Right-click and choose &quot;Save Target As...&quot; (IE) or &quot;Save Link As...&quot; (Firefox))</p>
             </div>
         
