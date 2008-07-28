@@ -147,9 +147,6 @@
                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             </tr>
                             <tr>
-                                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            </tr>
-                            <tr>
                                 <td colspan="2"><h2>Constraints</h2></td>
                             </tr>
                             <tr>
