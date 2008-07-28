@@ -34,7 +34,7 @@
             --%>
             <h1>Manage My Algorithms</h1>
                 <div class="full-content">
-                    <p style="font-size:20px;"><strong>Coming Soon</strong></p>
+                    <p style="font-size:20px;"><strong>Coming August 13th</strong></p>
                 </div>
             <%-- Temporarily Hidden 
             <p class="note">[If a user is not logged in they will  see this <a href="login.htm">login page</a>.]</p>
