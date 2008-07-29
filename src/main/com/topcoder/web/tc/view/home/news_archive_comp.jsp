@@ -39,7 +39,6 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">07.29.08 1:30 PM - </td><td width="100%"><a href="http://winningformula.espn.com/">Announcing the $100,000 ESPN Winning Formula Challenge</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.22.08 10:30 PM - </td><td width="100%"><a href="/truveo/">Use the New TC Battle Widget to Vote for Your Favorite Truveo Apps!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.08.08 7:30 PM - </td><td width="100%"><a href="/truveo/">Two Weeks Left in the Truveo Challenge!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.26.08 1:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=617309">Changes Coming to Digital Run</a><br /></td></tr>
