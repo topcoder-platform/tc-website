@@ -153,7 +153,7 @@
                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                 <td>
                                     <ul class="howCompete2">
-                                        <li>The time limit is 9 minutes. This includes making receiving data and making all the predictions.</li>
+                                        <li>The time limit is 9 minutes. This includes receiving data and making all the predictions.</li>
                                         <li>The memory limit is 1024M.</li>
                                     </ul>
                                 </td>
