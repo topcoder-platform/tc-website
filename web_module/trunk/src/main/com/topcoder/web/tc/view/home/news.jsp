@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />07.29.08<br />1:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />">Announcing the $100,000 ESPN Winning Formula Challenge</a></span><br /><br />
+        Can you write the algorithm that will use ESPN's comprehensive game data to predict the outcome of American college football games? If you can there's $100,000 in prize money to be won, including a $50,000 first prize for the top performer at the end of the 15 week season! Hit the link to learn more about this exciting new contest.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />">details</a> | 
+        <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/forums">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Survey News" border="0" /><br />07.24.08<br />2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=ViewSurvey&amp;sid=28234">Survey: What websites are you hitting?</a></span><br /><br />
@@ -152,18 +165,5 @@
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm409">details</a> | 
         <tc-webtag:forumLink forumID="522178" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />07.10.08<br />5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=071008">Meet the June 2008 Coders of the Month</a></span><br /><br />
-        This month we caught up with <tc-webtag:handle coderId="22653044" context="algorithm" />, June's Algorithm Coder of the Month, <tc-webtag:handle coderId="9981727" context="design"/>, June's Design Coder of the Month, <tc-webtag:handle coderId="22630348" context="development" />, June's Development Coder of the Month, and <tc-webtag:handle coderId="22690288" context="development" />, June's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=071008">details</a> | 
-        <tc-webtag:forumLink forumID="522204" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
    </td></tr>
    

@@ -93,6 +93,11 @@
 <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />"><img src="/i/home/openAIMslimBannerVote.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
 --%>
 
-<%-- Truveo --%>
+<%-- Truveo 
 <br />
 <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />"><img src="/i/home/truveo_vote_slim.png" alt="Truveo Developer Challenge Powered by TopCoder" /></a>
+--%>
+
+<%-- ESPN Winning Formula Challenge --%>
+<br />
+<a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />"><img src="/i/home/winformula_preview510x54.png" alt="ESPN Winning Formula Challenge Powered by TopCoder" /></a>
