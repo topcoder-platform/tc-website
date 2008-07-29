@@ -4,7 +4,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />07.29.08<br />1:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br />07.29.08<br />1:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />">Announcing the $100,000 ESPN Winning Formula Challenge</a></span><br /><br />
         Can you write the algorithm that will use ESPN's comprehensive game data to predict the outcome of American college football games? If you can there's $100,000 in prize money to be won, including a $50,000 first prize for the top performer at the end of the 15 week season! Hit the link to learn more about this exciting new contest.</td>
@@ -12,7 +12,7 @@
    <tr><td class="newsLinksCell">
         <a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />">details</a> | 
         <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/forums">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_alg">archive</a>
    </td></tr>
 
 <%--------------------------------------------------------%>
