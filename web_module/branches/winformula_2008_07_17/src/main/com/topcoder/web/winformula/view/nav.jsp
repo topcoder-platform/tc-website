@@ -32,7 +32,7 @@
                 <div id="logoTC">
                   <a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="/i/events/winformula/logoTC.png" alt="powered by TopCoder, Inc." /></a>
                 </div>
-                  <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/"><img src="/i/events/winformula/ESPNLogo.png" alt="ESPN Winning Formula Challange" /></a>
+                  <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/"><img src="/i/events/winformula/ESPNLogo.png" alt="ESPN Winning Formula Challenge" /></a>
             </div>
               
             <div id="global-links">
