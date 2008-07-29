@@ -34,7 +34,7 @@
             <div class="full-content">
                 <p>Participation in ESPN Winning Formula Challenge is completely FREE! Just follow the simple steps below and you'll be on your way to possibly claiming some of our $100,000 in prize money! Here's a quick overview:</p>
                 <ol class="howCompete">
-                    <li><strong><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" target="_blank">Sign up</a> for FREE to become a TopCoder member</strong> (select at least the &quot;Competition Registration&quot; checkbox)<br />
+                    <li><strong><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" target="_blank">Sign up</a> to become a TopCoder member</strong> (select at least the &quot;Competition Registration&quot; checkbox)<br />
                     ESPN Winning Formula Challenge is run using TopCoder's patented competition engine and administered by TopCoder's professional competition staff. TopCoder members are a worldwide community of programmers who compete in algorithm and development contests for prize money. Become a member now to compete in this challenge and other TopCoder contests! If you are already a TopCoder member, go to step 2.  <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" target="_blank">Sign up at TopCoder &gt;&gt;</a></li>
                     <li><strong><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewRegistration&amp;ct=1001">Register</a> for the Winning Formula Challenge</strong><br />
                     Once you are a TopCoder member, all you have to do is register for the Winning Formula Challenge! Register now to participate in this contest!  <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewRegistration&amp;ct=1001">Contest registration &gt;&gt;</a></li>
@@ -79,7 +79,7 @@
                     </tr>
                 </table>
                 <br />
-                <p>When you have the submission you want to use for your predictions, make sure it is the last submission on the Manage My Algorithms link. When time elapses for submissions on the next mini-season (always at 12:00EDT on the day before the start of the next mini-season), that algorithm will be flagged with an indicator showing that it will be used for that mini-season. At this point the algorithm is locked in, meaning that it can no longer be changed, and it will be used to make the predictions for that mini-season.</p>
+                <p>When you have the submission you want to use for your predictions, make sure it is the last submission on the Manage My Algorithms link. When time elapses for submissions on the next mini-season (always at 12:01AM EDT, or 12:01AM EST if after November 2, 2008, on the day before the start of the next mini-season), that algorithm will be flagged with an indicator showing that it will be used for that mini-season. At this point the algorithm is locked in, meaning that it can no longer be changed, and it will be used to make the predictions for that mini-season.</p>
                 
                 
                 <h2>Prediction results and scoring</h2>
