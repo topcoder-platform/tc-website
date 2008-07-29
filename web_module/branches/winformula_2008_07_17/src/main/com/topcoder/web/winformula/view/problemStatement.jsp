@@ -50,7 +50,7 @@
                                     <p>This prediction competition will be scored in four parts as shown in the competition schedule. Submissions received prior to each mini-season deadline will be evaluated on all the games in that mini-season. Your solution will be run multiple times in each mini-season -- once per week -- using the most up to date statistics. For each game, you can receive a maximum of 100 points for predicting the exact score of the game. These 100 points are broken down as follows:</p>
                                     <ul class="howCompete2">
                                         <li>Picking the correct winner: 60 points</li>
-                                        <li>Picking the correct winner and being off by D on the <a href="http://en.wikipedia.org/wiki/Spread_betting">spread</a>:
+                                        <li>Picking the correct winner and being off by D on the margin:
                                             <ul class="howCompete2">
                                                 <li>D = 0, 20 points</li>
                                                 <li>D = 1, 18 points</li>
