@@ -13,7 +13,7 @@
                <xsl:apply-templates select="item[3]"/>          
            </ul>
            <div class="clear">
-                <a href="http://sports.espn.go.com/ncf/news/more?sport=ncf&amp;page=news" class="viewButton" title="News" target="_blank"><span>News</span></a>
+                <a href="http://sports.espn.go.com/ncf/index" class="viewButton" title="News" target="_blank"><span>News</span></a>
                 <a href="http://scores.espn.go.com/ncf/scoreboard" class="viewButton" title="Scores" target="_blank"><span>Scores</span></a>
                 <a href="http://sports.espn.go.com/espn/rss/ncf/news" class="viewButton" title="RSS" target="_blank"><span>RSS</span></a>
            </div>
