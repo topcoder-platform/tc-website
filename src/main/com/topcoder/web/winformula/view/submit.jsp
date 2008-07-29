@@ -16,7 +16,7 @@
     <script type="text/javascript" src="/js/taconite-parser.js"></script>
     <script type="text/javascript" src="/js/fat.js"></script>
 
-    <title>Winformula Developer Challenge :: Powered by TopCoder</title>
+    <title>ESPN Winning Formula Challenge :: Powered by TopCoder</title>
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
