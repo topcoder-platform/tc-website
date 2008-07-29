@@ -340,5 +340,44 @@
 
     </target>
 
+
+
+    <target name="package-winformula" >
+
+        <delete dir="build"/>
+        <delete file="winformula.jar"/>
+
+        <exec dir="." executable="svn">
+            <arg line="update src resources lib build_winformula.xml"/>
+        </exec>
+
+        <exec dir="../shared" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <ant antfile="build_winformula.xml" target="dist"/>
+        <ant antfile="build_winformula.xml" target="build-security"/>
+
+        <jar destfile="winformula.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/*.jar"/>
+                <include name="build/wars/*.war"/>
+                <include name="build/ears/*.ear"/>
+                <include name="resources/winformula/**"/>
+                <include name="resources/forums/filter/**"/>
+                <include name="resources/forums/winformula/**"/>
+                <include name="resources/Winformula.properties"/>
+                <include name="move.xml"/>
+                <include name="build_winformula.xml"/>
+                <include name="lib/bin/*.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
+
 </project>
 
