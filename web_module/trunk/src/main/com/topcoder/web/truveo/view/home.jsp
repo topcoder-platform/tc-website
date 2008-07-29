@@ -50,8 +50,7 @@
                         <jsp:include page="leftBox.jsp"/>
                         <jsp:include page="topNav.jsp"/>
                         <div class="newsBox">
-                            Here goes the blog
-<!--                            <iframe src="http://truveoblog.aol.com/<c:out value="${param['myframe']}" default="" escapeXml="true"/>" marginheight="0" marginwidth="0"></iframe> -->
+                            <iframe src="http://truveoblog.aol.com/<c:out value="${param['myframe']}" default="" escapeXml="true"/>" marginheight="0" marginwidth="0"></iframe>
                             <p align="center">
                                 <a href="/truveo/?myframe=page%2f1%2f">Page 1</a>
                                 | <a href="/truveo/?myframe=page%2f2%2f">Page 2</a>
