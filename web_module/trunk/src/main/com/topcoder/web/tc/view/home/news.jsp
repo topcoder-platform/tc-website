@@ -11,7 +11,7 @@
    </tr>
    <tr><td class="newsLinksCell">
         <a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />">details</a> | 
-        <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/forums">discuss this</a> | 
+        <a href="http://winningformula.espn.com/forums">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_alg">archive</a>
    </td></tr>
 
