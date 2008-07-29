@@ -15,12 +15,6 @@ public class Home extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
 
-        Request r = new Request();
-        r.setContentHandle("winformula_home_data");
-        DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
-        getRequest().setAttribute(r.getContentHandle(), dai.getData(r));
-
-
         setNextPage("/home.jsp");
         setIsNextPageInContext(true);
     }
