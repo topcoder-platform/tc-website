@@ -206,7 +206,15 @@ function flipMenu(myMenuName){
 <div id="navbar">
     <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
     <div style="float: left; padding: 10px 0px 0px 17px;">
+        <%-- UML Tool 
+        <a href="<tc-webtag:linkTracking link='/wiki/display/tc/TopCoder+UML+Tool' refer='leftnav' />"><img src="/i/leftnav/umlTool.png" alt="UML Tool" /></a>
+        --%>
+        <%-- TopCoder Distance --%>
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=distance' refer='leftnav' />"><img src="/i/leftnav/tcDistance.png" alt="TopCoder Distance" /></a>
+        
+        <%-- TC Channel 
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel' refer='leftnav' />"><img src="/i/tcchannel/leftnavLogo.png" alt="TC Channel" /></a>
+        --%>
     </div>
     <jsp:include page="includes/modules/simpleSearch.jsp"/>
 </div>
