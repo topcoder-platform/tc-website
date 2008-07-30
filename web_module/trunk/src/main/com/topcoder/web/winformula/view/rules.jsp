@@ -32,8 +32,19 @@
             <h1>ESPN Winning Formula Marathon Match Competition</h1>
             
             <h2>Official Rules &amp; Regulations</h2>
+            <p align="center">
+                <a href="#about">About the Competition</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#conditions">Conditions of Participation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#schedule">Competition Schedule</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#scoring">Scoring</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#submission">Submission Requirements</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#prizes">Prizes</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#ownership">Ownership and Rights</a>
+            </p>
             <p>NO PURCHASE NECESSARY TO ENTER OR WIN, VOID WHERE PROHIBITED. Registration and participation by developers in the ESPN Winning Formula Competition (the "Competition") constitutes agreement with these terms and conditions ("Rules" or "Terms and Conditions") between you and TopCoder, Inc. ("TopCoder").</p>
             
+            <a name="about"></a>
             <h2>About the Competition</h2>
             <h3>Entering the Competition</h3>
             <p>This skill-based Competition is brought to you and sponsored by TopCoder, Inc.  This Competition is designed to encourage the development and use of certain technologies, and provides an opportunity for members of the TopCoder Community to create software that can predict future events based on past events.</p>
@@ -53,6 +64,7 @@
             </ol>
             
             
+            <a name="conditions"></a>
             <h2>Conditions of Participation</h2>
             <p>By participating in the Competition, you agree to be bound by these Rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  As a condition of participating in this Competition and by submitting a Submission, each Competitor agrees to assign all rights in a Submission in exchange for a cash payment of $2,000, in accordance with the "Ownership and Rights" section of these Rules.  TopCoder may notify Competitor of such payment at any time during or after the Competition, but no later than 60 days following the completion of the Week Fifteen.</p>
             <p><span class="bigRed">Competitors must not cheat; all ideas for any code submitted must be solely the Competitor's.  Competitors must use their own independently developed code, and shall not copy or include code from any other party, including publicly available "open source" code that is or may be subject to licensing restrictions.</span></p>
@@ -62,6 +74,7 @@
             <p>TopCoder, in its sole discretion, reserves the right to disqualify any Competitor tampering with the entry process, the operation of the Web site, the Competition process, or is otherwise in violation of these Rules. TopCoder reserves the right to cancel, terminate or modify the Competition if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.</p>
             
             
+            <a name="eligibility"></a>
             <h2>Eligibility</h2>
             <p>The Competition is open to all members of the TopCoder website who are at least 18 years of age.  Competitors must be (i) a U.S. citizen, (ii) a lawful permanent resident of the U.S., (iii) a temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S., or (iv) a non-U.S. resident authorized to perform services as an independent contractor.</p>
             <p>A Competitor is not eligible for this Competition if he/she is a resident of the Quebec province of Canada, Iran, Cuba, North Korea, Sudan or Syria.  In addition, a Competitor is not eligible for this Competition if the Competitor is on the Specially Designated National list promulgated and amended, from time to time, by the United States Department of the Treasury.</p>
@@ -70,6 +83,7 @@
             <p>Current employees of TopCoder and the Competition sponsor and those involved in the development, production (including prize suppliers and sponsors), implementation and distribution of this Competition and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the competition and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the Competition.</p>
             
             
+            <a name="schedule"></a>
             <h2>Competition Schedule</h2>
             <p>The Competition consists of a series of four Mini Seasons.  During Mini Season One, Submissions will be scored to determine the Winners of Mini Season One, however Competitor's scores will not count towards the determination of the Winners of the overall Competition.</p>
             <p>During each Mini Season, Submissions will be scored to determine the Mini Season Winners.  Each Competitor's score for Mini Season Two, Three and Four will count toward the determination of the Winners of the overall Competition.</p>
@@ -208,6 +222,7 @@
             <br />
             
             
+            <a name="scoring"></a>
             <h2>Scoring</h2>
             <p>Each Submission shall be scored for each Mini Season and the overall Competition according to the following guidelines.</p>
             <p>Note:  Only games between Division I FBS (Football Bowl Subdivision) football teams will be used to determine the score of a Submission.</p>
@@ -331,12 +346,14 @@
             <p>Each week, TopCoder will announce and display the top 10 Competitors for the preceding Week, the applicable Mini Season and the top 10 Competitors of the overall Competition by handle.</p>
             
             
+            <a name="submission"></a>
             <h2>Submission Requirements</h2>
             <p>A Submission may not contain excessive and/or unnecessary code, must meet TopCoder's coding standards, and must execute within the time periods described in the specifications.  All winning submissions will be reviewed and required to pass the competition review scorecard to verify compliance.</p>
             <p>In addition to any other requirements set forth in the Competition documents and/or problem statement, each Submission must not "hard code" weekly picks, must use the Historical Data and Weekly Data to determine the output, but must not be dependent on the particular identifiers in the data set provided.  For example, if the identifiers for the teams and/or players were changed, the Submission must still work in the same way and reach the same result.  Likewise, if the Historical Data and/or Weekly Data is changed, a change in the output would be expected commensurate with the statistical approach taken.</p>
             <p>In the event a Submission does not meet these requirements, such Submission will receive a total of 0 points for that Week of the Competition.</p>
             
             
+            <a name="prizes"></a>
             <h2>Prizes</h2>
             <p>For each Mini Season of the Competition, the following Prizes will be awarded:</p>
             <ul class="howCompete2">
@@ -364,6 +381,7 @@
             <p>If a winning Competitor (i) does not reply to such notification or the notification is undeliverable, (ii) does not return the Affidavit of Eligibility/Liability/Publicity release completed and signed within ten (10) days of date of prize notification, (iii) does not submit the Description or (iv) is not otherwise in compliance with these Rules, the Competitor will be disqualified and forfeit any prize, and we may, at our discretion, select and notify another Competitor.</p>
             
             
+            <a name="ownership"></a>
             <h2>Ownership and Rights</h2>
             <p>If you are compensated for your Submission, then you agree to irrevocably and unconditionally transfer and assign to TopCoder, its successors, and assigns, all right, title and interest you have, may have or acquire in, such Submission and any derivative works thereof submitted by you in the Competition, and you agree to execute and deliver such documents, certificates, assignments and other writings, and take such other actions as may be necessary or desirable to vest in TopCoder the ownership rights granted to TopCoder hereunder.  An assignment document, affidavit, and tax documentation will be required for payment.  All Submissions receiving compensation shall be considered confidential information of TopCoder and/or the Competition sponsor, and may not be distributed to any third party.</p>
             <p>If TopCoder does not compensate you for your Submission, then you retain any and all rights to ownership of such Submission; provided, however, that you grant a perpetual, royalty-free, irrevocable, non-exclusive license to TopCoder to use, reproduce and publish such Submissions or material in connection with the Competition.</p>
