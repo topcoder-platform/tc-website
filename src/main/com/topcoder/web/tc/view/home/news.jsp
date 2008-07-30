@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.30.08<br />2:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm411">SRM 411 - Problem Set &amp; Analysis</a></span><br /><br />
+      In Division 1, many coders submitted solutions for the easy and medium problems very quickly. But the hard one turned out to be difficult when it received only six submissions, and none of them survived both the challenge and system test phases. Coders had to rely on their skill to challenge other coders to claim good places.</td>
+         <td class="newsPhoto"><img src="/i/m/hken_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="10413344" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm411">details</a> | 
+        <tc-webtag:forumLink forumID="522384" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.30.08<br />1:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -152,18 +168,5 @@
         <a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">details</a> | 
         <tc-webtag:forumLink forumID="522253" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />07.15.08<br />12:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisignChat20080710">VeriSign SRM 409 Chat Transcript Available</a></span><br /><br />
-        VeriSign representatives met with members in the Arena to discuss DDoS Threats and Mitigation Strategies. Check it out!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisignChat20080710">details</a> | 
-        <tc-webtag:forumLink forumID="522252" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
