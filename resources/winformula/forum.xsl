@@ -19,7 +19,16 @@ xmlns:dc="http://purl.org/dc/elements/1.1/">
   <xsl:template match="item">
             <li class="dottedBottom"><a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute><span style="font-size:14px;"><xsl:value-of select="title"/></span></a><br />
             <em>(by  <xsl:value-of select="dc:creator" /> on <xsl:value-of select="substring-before(pubDate,'-')" /> </em>
-            <span style="font-size:12px;"><xsl:value-of select="description" disable-output-escaping="yes"/></span><br/>
+                <span style="font-size:12px;">
+                <xsl:choose>
+                   <xsl:when test="string-length(description) &gt; 200">
+                    <xsl:value-of select="substring(description,0,200)" disable-output-escaping="no"/>...
+                   </xsl:when>
+                   <xsl:otherwise>
+                    <xsl:value-of select="description" disable-output-escaping="no"/>
+                   </xsl:otherwise>
+                 </xsl:choose>
+             </span><br/>
             </li>
   </xsl:template>
 </xsl:stylesheet>
