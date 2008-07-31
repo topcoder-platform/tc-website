@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.GregorianCalendar" %>
 <%@ page import="java.sql.Timestamp" %>
@@ -95,6 +96,7 @@
     GregorianCalendar gc = new GregorianCalendar(2007, Calendar.JULY, 23);
 %>
 <c:set value="<%=new Timestamp(gc.getTime().getTime())%>" var="bigStart"/>
+<c:set value="<%=ContestChannel.TOPCODER_DIRECT%>" var="TOPCODER_DIRECT_ID"/>
 
         <div align="center">
             <div align="left" style="width:500px; margin-top: 20px;">
@@ -102,9 +104,16 @@
                 <br /><br />
                         <c:choose>
             <c:when test="${contest.startTime > bigStart}">
-                Your submission will be screened after the Submission Phase has ended. If your submission does not pass
-                screening, you will receive an email with a list of any requirements that it failed to meet. 
-                </c:when>
+				<c:choose>
+					<c:when test="${contest.channel.id eq TOPCODER_DIRECT_ID}">
+					Your submission has been automatically screened and passed for this Cockpit contest.	
+	                </c:when>
+	                <c:otherwise>
+					Your submission will be screened after the Submission Phase has ended. If your submission does not pass
+	                screening, you will receive an email with a list of any requirements that it failed to meet. 
+	                </c:otherwise>
+                </c:choose>
+	            </c:when>
                 <c:otherwise>
                     Please allow at least 24 hours for processing. If your submission does not pass screening, you
                     will receive an
