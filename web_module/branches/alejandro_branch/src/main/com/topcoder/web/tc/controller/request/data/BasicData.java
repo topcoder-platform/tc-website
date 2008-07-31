@@ -47,7 +47,16 @@ public class BasicData extends Base {
         if (new TCSAuthorization(SecurityHelper.getUserSubject(getUser().getId())).hasPermission(resource)) {
             //for now we'll assume they're gettin data from the warehouse, perhaps that'll change later
 
-            Map<String, ResultSetContainer> m = new CachedDataAccess(MaxAge.THREE_HOUR, getDataSource(ds)).getData(r);
+
+        	// fix for: TCWEB-434, and will be improved by TCWEB-435
+        	MaxAge maxAge = MaxAge.THREE_HOUR;
+            if (ds == 33 && r.getContentHandle().equals("dd_active_contests")) {
+            	maxAge = MaxAge.FIVE_MINUTES;
+            } 
+
+        	Map<String, ResultSetContainer> m = new CachedDataAccess(maxAge, getDataSource(ds)).getData(r);
+            
+             
             ResultSetContainer rsc;
             String key;
             Iterator it = m.keySet().iterator();

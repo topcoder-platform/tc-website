@@ -4,6 +4,51 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.30.08<br />2:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm411">SRM 411 - Problem Set &amp; Analysis</a></span><br /><br />
+      In Division 1, many coders submitted solutions for the easy and medium problems very quickly. But the hard one turned out to be difficult when it received only six submissions, and none of them survived both the challenge and system test phases. Coders had to rely on their skill to challenge other coders to claim good places.</td>
+         <td class="newsPhoto"><img src="/i/m/hken_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="10413344" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm411">details</a> | 
+        <tc-webtag:forumLink forumID="522384" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.30.08<br />1:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm53">TCHS SRM 53 - Problem Set &amp; Analysis</a></span><br /><br />
+      In this match 73 competitors faced a set of trivial Easy, tricky Medium and neutral Hard (which ended having more correct solutions than Medium) problems.</td>
+         <td class="newsPhoto"><img src="/i/m/Nickolas_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="15635590" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm53">details</a> | 
+        <tc-webtag:forumLink forumID="522385" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br />07.29.08<br />1:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />">Announcing the $100,000 ESPN Winning Formula Challenge</a></span><br /><br />
+        Can you write the algorithm that will use ESPN's comprehensive game data to predict the outcome of American college football games? If you can there's $100,000 in prize money to be won, including a $50,000 first prize for the top performer at the end of the 15 week season! Hit the link to learn more about this exciting new contest.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />">details</a> | 
+        <a href="http://winningformula.espn.com/forums">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_alg">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Survey News" border="0" /><br />07.24.08<br />2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=ViewSurvey&amp;sid=28234">Survey: What websites are you hitting?</a></span><br /><br />
@@ -123,47 +168,5 @@
         <a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">details</a> | 
         <tc-webtag:forumLink forumID="522253" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />07.15.08<br />12:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisignChat20080710">VeriSign SRM 409 Chat Transcript Available</a></span><br /><br />
-        VeriSign representatives met with members in the Arena to discuss DDoS Threats and Mitigation Strategies. Check it out!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=verisignChat20080710">details</a> | 
-        <tc-webtag:forumLink forumID="522252" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.14.08<br />12:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm409">SRM 409 - Problem Set &amp; Analysis</a></span><br /><br />
-      In the SRM 409 we witnessed many great performances, fast submissions and high scores. The top three rated topcoders <tc-webtag:handle coderId="19849563" context="algorithm"/>, <tc-webtag:handle coderId="144400" context="algorithm"/> and <tc-webtag:handle coderId="10574855" context="algorithm"/> fought to the last seconds of the challenge phase to claim the match win.</td>
-         <td class="newsPhoto"><img src="/i/m/slex_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8382018" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm409">details</a> | 
-        <tc-webtag:forumLink forumID="522178" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />07.10.08<br />5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=071008">Meet the June 2008 Coders of the Month</a></span><br /><br />
-        This month we caught up with <tc-webtag:handle coderId="22653044" context="algorithm" />, June's Algorithm Coder of the Month, <tc-webtag:handle coderId="9981727" context="design"/>, June's Design Coder of the Month, <tc-webtag:handle coderId="22630348" context="development" />, June's Development Coder of the Month, and <tc-webtag:handle coderId="22690288" context="development" />, June's Studio Designer of the Month, to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=071008">details</a> | 
-        <tc-webtag:forumLink forumID="522204" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
    </td></tr>
    
