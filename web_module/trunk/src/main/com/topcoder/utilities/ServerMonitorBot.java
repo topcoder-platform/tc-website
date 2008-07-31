@@ -6,10 +6,6 @@
 
 package com.topcoder.utilities;
 
-import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.util.TCSEmailMessage;
-import com.topcoder.shared.util.logging.Logger;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,8 +16,14 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Properties;
 import java.util.StringTokenizer;
+
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * @author rfairfax,dok
@@ -35,42 +37,77 @@ public class ServerMonitorBot {
             "mobile_on_call@topcoder.com",
             "email_on_call@topcoder.com"};
     private String[] testingAddresses = {
-            "dok@topcoder.com", "dok@topcoder.com"
+            "dbelfer@topcoder.com", "dbelfer@topcoder.com"
     };
 
+    private static final String OUTPUT_FILE = "./file.out";
     private final static int SHORT_LIST = 0;
     private final static int LONG_LIST = 1;
-
+    private PollInfo[] sites;
+    
     /**
      * Creates a new instance of ServerMonitorBot
      */
     public ServerMonitorBot() {
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         ServerMonitorBot client = new ServerMonitorBot();
+        String configurationFile = "monitor.properties";
+        if (args.length == 1) {
+            configurationFile = args[0];
+        }
+        System.out.println("Configuring monitor using :" + configurationFile);
+        client.configure(configurationFile);
         client.run();
     }
 
-    private final static PollInfo[] sites = {
-            new PollInfo(true, "http://www.topcoder.com", "tc", 30)
-            , new PollInfo(true, "http://software.topcoder.com", "software", 30)
-            , new PollInfo(true, "http://forums.topcoder.com", "fdorums", 60)
-            , new PollInfo(true, "http://studio.topcoder.com", "studio", 30)
-            , new PollInfo(true, "http://www.topcoder.com/wiki", "wiki", 30)
-            , new PollInfo(true, "http://www.topcoder.com/time", "time tracker", 30)
-            , new PollInfo(true, "http://www.topcoder.com/openaim", "open aim", 30)
-            , new PollInfo(true, "http://www.topcoder.com/bugs", "bug tracker", 30)
-            , new PollInfo(true, "http://www.topcoder.com/longcontest", "marathon matches", 30)
-            , new PollInfo(true, "http://www.topcoder.com/education", "educational platform", 30)
-            , new PollInfo(true, "http://software.topcoder.com/pipeline", "pipeline tool", 30)
-    };
+    private void configure(String configurationFile) throws FileNotFoundException, IOException {
+        if ("true".equals(System.getProperty("test"))) {
+            testing = true;
+            log.info("Using test configuration");
+        }
+        Properties props = new Properties();
+        FileInputStream is = new FileInputStream(configurationFile);
+        try {
+            props.load(is);
+        } finally {
+            is.close();
+        }
+        configure(props);
+    }
+
+    private void configure(Properties props) {
+        int hostSize = Integer.parseInt(props.getProperty("hosts.count").trim());
+        int defaultTimeout = Integer.parseInt(props.getProperty("default.timeout").trim());
+        List<PollInfo> sitesList = new LinkedList();
+        for(int i = 0; i < hostSize; i++) {
+            log.info("Configuring entry "+i);
+            String hostPrefix = "host."+i+".";
+            String hostName = props.getProperty(hostPrefix+"name");
+            String hostURL = props.getProperty(hostPrefix+"url");
+            String hostTimeout = props.getProperty(hostPrefix+"timeout");
+            log.info("Entry: Name=["+hostName+"] URL["+hostURL+"] Timeout["+hostTimeout+"]");
+            
+            if (hostName == null || hostName.trim().length() == 0 || hostURL == null || hostURL.trim().length() == 0) {
+                log.info("Ignoring host entry #"+i);
+                continue;
+            }
+            int timeout = defaultTimeout;
+            if (hostTimeout == null || hostTimeout.trim().length() == 0) {
+                log.info("Host timeout #"+i+" is empty. Using default ["+defaultTimeout+"]");
+            } else {
+                timeout = Integer.parseInt(hostTimeout.trim());
+            }
+            sitesList.add(new PollInfo(true, hostURL.trim(), hostName.trim(), timeout));
+        }
+        sites = (PollInfo[]) sitesList.toArray(new PollInfo[sitesList.size()]);
+    }
 
     public void run() {
 
         while (true) {
             try {
-
                 log.info("STARTING");
                 for (PollInfo site : sites) {
                     testSite(site);
@@ -81,7 +118,12 @@ public class ServerMonitorBot {
                 e.printStackTrace();
             }
 
-            wait(5 * 60); // 5 minutes
+            try {
+                Thread.sleep(5 * 60 * 1000);
+            } catch (InterruptedException e) {
+                log.info("Interrupted...");
+                break;
+            } 
         }
     }
 
@@ -123,6 +165,7 @@ public class ServerMonitorBot {
     }
 
     private static final String FILENAME = "./uptime_info";
+
 
     private List<UptimeInfo> readCurrentInfo() throws IOException {
         File f = getCurrentFile();
@@ -174,27 +217,6 @@ public class ServerMonitorBot {
         }
 
         return f;
-/*
-        File[] files = new File(".").listFiles();
-        int id = 0;
-        int idx = -1;
-        for (int i = 0; i < files.length; i++) {
-            int tempId = 0;
-            if (files[i].getName().startsWith(FILENAME_PREFIX)) {
-                tempId = Math.max(id, Integer.parseInt(files[i].getName().substring(FILENAME_PREFIX.length())));
-                if (tempId > id) {
-                    id = tempId;
-                    idx = i;
-                }
-            }
-        }
-        if (idx >= 0) {
-            return files[idx];
-        } else {
-            return null;
-        }
-*/
-
     }
 
 
@@ -233,7 +255,7 @@ public class ServerMonitorBot {
                 info.getUrl(),
                 "--timeout=" + info.getTimeout(),
                 "-t3",
-                ""};
+                "-O "+OUTPUT_FILE};
 
         Process p = Runtime.getRuntime().exec(callAndArgs4);
         p.waitFor();
@@ -320,46 +342,11 @@ public class ServerMonitorBot {
         }
     }
 
-    /**
-     * utility method to wait for an event to occur
-     */
-    private boolean sem = false;
-
-    boolean wait(int cnt) {
-        sem = false;
-        while (sem == false && cnt > 0) {
-            try {
-                Thread.sleep(1000);
-            } catch (Exception ex) {
-                return false;
-            }
-            cnt--;
-        }
-        return cnt > 0;
-
-    }
-
-    void done() {
-        sem = true;
-    }
-
-
-    private final static String[] badFiles = {
-            "dashboard.action", "Dashboard.jspa", "index.html", "login.jsp", "openaim", "longcontest"};
-
     private void wack() {
-        File[] files = new File(".").listFiles();
-        int i = 0;
         try {
-            for (; i < files.length; i++) {
-                for (String s : badFiles) { 
-                    if (files[i].getName().startsWith(s)) {
-                        files[i].delete();
-                    }
-                }
-            }
+            new File(OUTPUT_FILE).delete();
         } catch (Exception e) {
-            log.debug("error deleting " + files[i] + " " + e.getMessage());
+            log.debug("error deleting " + OUTPUT_FILE + " " + e.getMessage());
         }
     }
 
