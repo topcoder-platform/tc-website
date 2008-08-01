@@ -78,10 +78,12 @@
     <jsp:param name="tabLev2" value="leaderboard"/>
 </jsp:include>
 
+<%-- Commented out for Pablo 
 <br />
 <div class="fixedWidthBody">
     <div align="center" style="font-size:18px; color:#ff0000;"><strong>MONTH Prize Pool: POOL VALUE</strong></div>
 </div>
+--%>
 
 <form name="leaderBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewLeaderBoard"/>
