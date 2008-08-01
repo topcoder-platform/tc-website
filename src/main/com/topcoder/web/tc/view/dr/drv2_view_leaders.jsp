@@ -99,6 +99,11 @@
     </c:choose>
 </div>
 
+<br />
+<div class="fixedWidthBody">
+    <div align="center" style="font-size:18px; color:#ff0000;"><strong>MONTH Prize Pool: POOL VALUE</strong></div>
+</div>
+
 <br /><br />
 
 
