@@ -43,22 +43,6 @@
          <div class="sectionHeader">Current Tournaments</div>
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='/truveo' refer='pbtc page' />" target="_blank"><img src="/i/events/truveo_logo.png" alt="Truveo Developer Challenge" border="0" /></A></td>
-                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText"><font size="3"><strong>Truveo Developer Challenge</strong></font></td>
-                </tr>
-                <tr valign="top">
-                    <td class="bodyText">
-                        May 13 - July 21, 2008<br />
-                        <A href="<tc-webtag:linkTracking link='/truveo' refer='pbtc page' />" target="_blank">Summary</A>
-                    </td>
-                </tr>
-            </table>
-            
-                <hr width="100%" size="1" noshade="noshade" />
-                
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top">
                     <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='/threadfest' refer='pbtc page' />" target="_blank"><img src="/i/events/amdMCT_logo.png" alt="AMD Multicore Threadfest" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText"><font size="3"><strong>AMD Multicore Threadfest</strong></font></td>
@@ -76,8 +60,24 @@
 <%-- Past Tournaments begins --%>
 
          <div class="sectionHeader" width="100%">Past Tournaments</div>
-
+         
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='/truveo' refer='pbtc page' />" target="_blank"><img src="/i/events/truveo_logo.png" alt="Truveo Developer Challenge" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>Truveo Developer Challenge</strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        May 13 - July 21, 2008<br />
+                        <A href="<tc-webtag:linkTracking link='/truveo' refer='pbtc page' />" target="_blank">Summary</A>
+                    </td>
+                </tr>
+            </table>
+            
+                <hr width="100%" size="1" noshade="noshade" />
+                
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                <tr valign="top">
                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='/openaim/' refer='pbtc page' />" target="_blank"><img src="/i/events/openaim_logo.png" alt="Open Aim Developer Challenge" border="0" /></A></td>
                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
