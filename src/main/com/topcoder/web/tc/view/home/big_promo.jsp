@@ -100,6 +100,6 @@
 
 <%-- Truveo --%>
 <br /><br />
-<a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />"><img src="/i/home/truveo_100k.png" alt="Truveo Developer Challenge Powered by TopCoder" /></a>
+<a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />"><img src="/i/home/truveo_winners.png" alt="Truveo Developer Challenge Powered by TopCoder" /></a>
 
 
