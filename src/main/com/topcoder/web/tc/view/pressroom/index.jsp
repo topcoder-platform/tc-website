@@ -118,6 +118,32 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- TopCoder &amp; Think Services Announce Dr. Dobb's Architecture &amp; Design World 2008 Software Design Contest Winner begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_080408b"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_080408b">TopCoder &amp; Think Services Announce Dr. Dobb's Architecture &amp; Design World 2008 Software Design Contest Winner</a></h3>
+                        <p>Architects Challenged to Create and Document Comprehensive Solutions to a Set of System Requirements  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_080408b">[August 4]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder &amp; Think Services Announce Dr. Dobb's Architecture &amp; Design World 2008 Software Design Contest Winner end --%>
+                
+                <%-- Truveo Developer Challenge Showcases 93 New Ways To View Video Online begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_080408"><img src="/i/pressroom/truveo.png" alt="" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_080408">Truveo Developer Challenge Showcases 93 New Ways To View Video Online</a></h3>
+                        <p>Contest Yields 93 Innovative New Video Search Applications Based on Truveo API  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_080408">[August 4]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Truveo Developer Challenge Showcases 93 New Ways To View Video Online end --%>
+                
                 <%-- InfoWorld: Five Web 2.0 dev lessons for enterprise IT begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
@@ -225,11 +251,11 @@
                 <%-- Truveo begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b"><img src="/i/pressroom/truveo.png" alt="" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b"><img src="/i/pressroom/truveo.png" alt="" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">Truveo Developer Challenge Offers $100,000 in Prizes for New Video Search Applications</a></h3>
-                        <p>With a prize pool of $100,000, developers will compete to build customized applications that use Truveo's open API for video search.<small><a target="_blank" href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">[May 19]</a></small></p>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">Truveo Developer Challenge Offers $100,000 in Prizes for New Video Search Applications</a></h3>
+                        <p>With a prize pool of $100,000, developers will compete to build customized applications that use Truveo's open API for video search.<small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">[May 19]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>

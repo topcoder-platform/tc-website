@@ -73,6 +73,8 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_080408b">TopCoder &amp; Think Services Announce Dr. Dobb's Architecture &amp; Design World 2008 Software Design Contest Winner <br /><small style="margin-left:10px;">[August 4]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_080408">Truveo Developer Challenge Showcases 93 New Ways To View Video Online <br /><small style="margin-left:10px;">[August 4]</small></a></dd>                    
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_070108">Dr. Dobb's Architecture &amp; Design World 2008 to Feature Software Design Contest Powered by TopCoder <br /><small style="margin-left:10px;">[July 1]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">Truveo Developer Challenge Offers $100,000 in Prizes for New Video Search Applications <br /><small style="margin-left:10px;">[May 19]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908">TopCoder Awards $100,000 in Prize Money to Winners of AOL's Open AIM Developer Challenge during TopCoder Open in Las Vegas <br /><small style="margin-left:10px;">[May 19]</small></a></dd>
