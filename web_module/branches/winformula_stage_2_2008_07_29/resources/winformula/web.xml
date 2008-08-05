@@ -116,7 +116,7 @@
 
     <servlet>
         <servlet-name>winformulaMMServlet</servlet-name>
-        <servlet-class>com.topcoder.web.winformula.algorithm.controller.MainServlet</servlet-class>
+        <servlet-class>com.topcoder.web.winformula.controller.WinformulaServlet</servlet-class>
         <init-param>
             <param-name>module_key</param-name>
             <param-value>module</param-value>
@@ -135,7 +135,7 @@
         </init-param>
         <init-param>
             <param-name>processor_path</param-name>
-            <param-value>com.topcoder.web.winformula.algorithm.controller.request.</param-value>
+            <param-value>com.topcoder.web.winformula.controller.request.algorithm.</param-value>
         </init-param>
         <init-param>
             <param-name>error_page</param-name>
