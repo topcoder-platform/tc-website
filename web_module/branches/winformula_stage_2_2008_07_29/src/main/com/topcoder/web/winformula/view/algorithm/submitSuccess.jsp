@@ -30,8 +30,6 @@
 <body>
     <div id="wrapper">
     <%-- Wrapper --%>
-        <div class="sub-navigation"> Manage My Algorithms | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredicitions">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
-        <h1>Successful Submission.</h1>
         <jsp:include page="/nav.jsp">
         <jsp:param name="tabLev1" value="manage" />
         <jsp:param name="tabLev2" value="" />
@@ -48,8 +46,6 @@
             <%
                 int count = ((Number) request.getAttribute(CodingConstants.QUEUE_LENGTH)).intValue();
             %>
-
-            Successful Submission.
             <%
                 if (count == 0) {
             %>
