@@ -7,6 +7,9 @@
 <table width="530" border="0" cellspacing="0" cellpadding="4">
 
    <tr><td class="prHead">
+         <a target="_blank" href="http://archives.subscribermail.com/msg/fff7431c37504e69ae5ce5ce4695fe78.htm">Collaboration at the 2008 TopCoder Open</a> | <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/tc_developments_august2008.pdf">PDF</a> [August 2008]
+   </td></tr>
+   <tr><td class="prHead">
          <a target="_blank" href="http://archives.subscribermail.com/msg/1044d2a1a515408dae9bf53c33025f7a.htm">Dr. Dobb's Architecture &amp; Design World 2008</a> | <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/tc_developments_july2008.pdf">PDF</a> [July 2008]
    </td></tr>
    <tr><td class="prHead">
