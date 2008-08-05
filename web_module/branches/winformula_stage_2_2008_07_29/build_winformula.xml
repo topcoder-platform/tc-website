@@ -74,6 +74,7 @@
         <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
         <!--        <pathelement location="${jars.dir}/tcsUtil.jar"/>-->
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+        <pathelement location="${jars.dir}/tcs/data_paging_tag/4.0/data_paging_tag.jar"/>
 
 
         <!-- hibernate files -->
@@ -269,6 +270,7 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/heartbeat/1.0/heartbeat.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/ip_server/2.0.1/ip_server.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/data_paging_tag/4.0/data_paging_tag.jar"/>
 
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>

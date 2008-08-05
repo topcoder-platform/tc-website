@@ -48,9 +48,8 @@
                   <th scope="col"><a href="${sessionInfo.servletPath}?module=CurrentPredictions<tc-webtag:sort column="7" includeParams="true" excludeParams="module"/>">Away Team</a></th>
                   <th scope="col">Pred. Score</th>
                 </tr>
-                <% boolean even = true;
-                    int i = 0; %>
-                <rsc:iterator list="${latest_user_prediction}" id="resultRow">
+                <% boolean even = true;%>
+                <rsc:iterator list="${results}" id="resultRow">
                     <tr class="<%=even?"row_Alt":""%>">
                       <c:choose>
                           <c:when test="${resultRow.map['home_pred'] > resultRow.map['visitor_pred']}">
@@ -68,6 +67,7 @@
                       </c:choose>
                       <td class="alignCenter">${resultRow.map['home_pred']}-${resultRow.map['visitor_pred']}</td>
                     </tr>
+                    <%even = !even;%>
                 </rsc:iterator>
               </table>
               <div class="dataArea_Below">
