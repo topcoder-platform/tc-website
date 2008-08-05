@@ -141,7 +141,7 @@ public class WinFormulaServicesImpl {
                          " FROM long_compilation lc, long_component_state cs, round r " +
                          " WHERE r.contest_id = ? AND " +
                          "       cs.round_id = r.round_id AND cs.coder_id = ? AND" +
-                         "       lc.long_component_state_id = cs.long_component_state_id AND lc.code IS NOT NULL" +
+                         "       lc.long_component_state_id = cs.long_component_state_id AND lc.compilation_text IS NOT NULL" +
                          " ORDER BY r.round_id desc";
             ps = cnn.prepareStatement(cmd);
             ps.setInt(1, contestId);
