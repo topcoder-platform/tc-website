@@ -1,19 +1,19 @@
 package com.topcoder.web.winformula;
 
-import com.topcoder.shared.util.TCResourceBundle;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.WebConstants;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.MissingResourceException;
+
+import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jun 22, 2006
  */
-public class Constants implements WebConstants {
+public class Constants implements CodingInterfaceConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Winformula");
     private static final Logger log = Logger.getLogger(Constants.class);
 
@@ -59,15 +59,33 @@ public class Constants implements WebConstants {
     public static int CONTEST_ID_DEFAULT;
     //Folder containing the static files to serve
     public static String FILES_FOLDER;
-    //The component ID default
-    public static int COMPONENT_ID_DEFAULT;
     
     public static String FORUM_RSS_URL;
     public static String ESPN_RSS_URL;
     public static String BLOG_RSS_URL;
 
     public static int TIMEOUT_MILLISECS = 10000;
+
     
+    /*------------------------------------------------------------------------------
+     * Coding Intefarce 
+     *-----------------------------------------------------------------------------*/
+    
+    //The component ID default
+    public static int COMPONENT_ID_DEFAULT;
+
+    //Constants
+    public static int SUBMISSION_RATE;
+    
+    //PAGES
+    public static String PAGE_SUBMIT;
+    public static String PAGE_SUBMIT_SUCCESS;
+    public static String PAGE_QUEUE_STATUS;
+    public static String PAGE_REG_NEEDED;
+    public static String PAGE_MY_ALGOS;
+    
+    
+        
     static {
         initialize();
     }
