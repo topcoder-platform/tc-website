@@ -1,5 +1,8 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.winformula.Constants" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -40,22 +43,32 @@
                 <p class="numResults">show results: <strong>10</strong> | <a href="javascript:;">25</a> | <a href="javascript:;">50</a> | <a href="javascript:;">all</a></p>
               </div>
               <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
-
                 <tr>
-                  <th scope="col"><a href="#">Home Team</a></th>
-                  <th scope="col"><a href="#">Away Team</a></th>
+                  <th scope="col"><a href="${sessionInfo.servletPath}?module=CurrentPredictions<tc-webtag:sort column="5" includeParams="true" excludeParams="module"/>">Home Team</a></th>
+                  <th scope="col"><a href="${sessionInfo.servletPath}?module=CurrentPredictions<tc-webtag:sort column="7" includeParams="true" excludeParams="module"/>">Away Team</a></th>
                   <th scope="col">Pred. Score</th>
                 </tr>
-                <tr>
-                  <td><strong>LSU</strong></td>
-                  <td>Georgia</td>
-                  <td class="alignCenter">21-14</td>
-                </tr>
-                <tr class="row_Alt">
-                  <td><strong>USC</strong></td>
-                  <td class="alt">Missouri</td>
-                  <td class="alignCenter">13-16</td>
-                </tr>
+                <% boolean even = true;
+                    int i = 0; %>
+                <rsc:iterator list="${latest_user_prediction}" id="resultRow">
+                    <tr class="<%=even?"row_Alt":""%>">
+                      <c:choose>
+                          <c:when test="${resultRow.map['home_pred'] > resultRow.map['visitor_pred']}">
+                              <td><strong>${resultRow.map['home']}</strong></td>
+                              <td class="alt">${resultRow.map['visitor']}</td>
+                          </c:when>
+                          <c:when test="${resultRow.map['home_pred'] < resultRow.map['visitor_pred']}">
+                              <td class="alt">${resultRow.map['home']}</td>
+                              <td><strong>${resultRow.map['visitor']}</strong></td>
+                          </c:when>
+                          <c:otherwise>
+                              <td><strong>${resultRow.map['home']}</strong></td>
+                              <td><strong>${resultRow.map['visitor']}</strong></td>
+                          </c:otherwise>
+                      </c:choose>
+                      <td class="alignCenter">${resultRow.map['home_pred']}-${resultRow.map['visitor_pred']}</td>
+                    </tr>
+                </rsc:iterator>
               </table>
               <div class="dataArea_Below">
                 <p class="pagination"><span class="disabled">&lt;&lt; First</span> | <span class="disabled">&lt; Prev</span> | <strong>1</strong> <a href="javascript:;">2</a> <a href="javascript:;">3</a> <a href="javascript:;">4</a> <a href="javascript:;">5</a> <a href="javascript:;">6</a> <a href="javascript:;">7</a> <a href="javascript:;">8</a> <a href="javascript:;">9</a> <a href="javascript:;">10</a> | <a href="javascript:;">Next</a> &gt; | <a href="javascript:;">Last</a> &gt;&gt;</p>
