@@ -1,8 +1,10 @@
+<%@ page import="java.util.Collection" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.winformula.Constants" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="http://software.topcoder.com/taglibs/data_paging" prefix="p" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -42,6 +44,31 @@
 
                 <p class="numResults">show results: <strong>10</strong> | <a href="javascript:;">25</a> | <a href="javascript:;">50</a> | <a href="javascript:;">all</a></p>
               </div>
+
+<!-- Prepares some collection data and formatter -->
+<%
+com.topcoder.util.format.ObjectFormatter formatter = com.topcoder.util.format.ObjectFormatterFactory.getPlainFormatter();
+%>
+            <p:dataPaging pageSize="10" data="<%= (Collection) request.getAttribute("list") %>" id="pager">
+                <p:ifEmpty>
+                    No search results were found
+                </p:ifEmpty>
+                <p:page>
+                    <p:table sorting="true" groupSpan="1" renderer="GroupSpan" rowCommands="Delete" 
+                        commandHandler="handleRowDeletion">
+                        <!-- Display the table header, with column names as links -->
+                        <p:header styleClass="">
+                            <p:column name="Home Team" index="1" />
+                            <p:column name="Away Team" index="2" />
+                            <p:column name="Pred. Score" index="3" />
+                        </p:header>
+            
+                        <!-- Display the tabular data -->
+                        <p:rowData />
+                    </p:table>            
+                </p:page>
+            
+            </p:dataPaging>
               <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
                 <tr>
                   <th scope="col"><a href="${sessionInfo.servletPath}?module=CurrentPredictions<tc-webtag:sort column="5" includeParams="true" excludeParams="module"/>">Home Team</a></th>

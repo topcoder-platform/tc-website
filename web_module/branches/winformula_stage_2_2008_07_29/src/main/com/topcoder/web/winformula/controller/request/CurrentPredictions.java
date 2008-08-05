@@ -1,9 +1,13 @@
 package com.topcoder.web.winformula.controller.request;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.CachedDataAccess;
@@ -34,11 +38,25 @@ public class CurrentPredictions extends BaseProcessor {
         rsc = cropResult(rsc);
 
         getRequest().setAttribute("results", rsc);
+        
+        getRequest().setAttribute("list", makeList(rsc));
 
         setNextPage("/latestPrediction.jsp");
         setIsNextPageInContext(true);
     }
     
+    private List<List<String>> makeList(ResultSetContainer rsc) {
+        List list = new ArrayList<String>(rsc.size());
+        for (ResultSetRow rsr : rsc) {
+            List<String> temp = new ArrayList<String>(3);
+            temp.add(rsr.getStringItem("home"));
+            temp.add(rsr.getStringItem("visitor"));
+            temp.add(rsr.getStringItem("home_pred") + "- " + rsr.getStringItem("visitor_pred"));
+            list.add(temp);
+        }
+        return list;
+    }
+
     private ResultSetContainer getData() throws Exception {
         Request r = new Request();
         r.setContentHandle("latest_user_prediction");
