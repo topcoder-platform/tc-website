@@ -189,7 +189,7 @@ public class WinFormulaServicesImpl {
         try {
             Connection cnn = DBUtils.initDBBlock();
             String cmd = "SELECT round_id FROM round_registration" +
-                         " WHERE round_id = ? AND user_id = ?";
+                         " WHERE round_id = ? AND coder_id = ?";
             ps = cnn.prepareStatement(cmd);
             ps.setInt(1, roundId);
             ps.setInt(2, userId);
