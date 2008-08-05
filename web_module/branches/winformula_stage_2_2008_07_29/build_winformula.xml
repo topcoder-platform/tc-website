@@ -302,6 +302,8 @@
         <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/EmailEngineConfig.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/winformula/ProblemParser.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/problem.xsd"/>
 
         <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jgroups.jar"/>
         <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jboss-cache-jdk50.jar"/>
