@@ -14,12 +14,15 @@ import java.util.List;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * @author Diego Belfer (Mural)
  * @version $Id$
  */
 public class WinFormulaServicesImpl {
+    private final Logger log = Logger.getLogger(getClass());
+    
    /**
     * Get all submissions for the given coder in the contest
     * 
@@ -80,6 +83,7 @@ public class WinFormulaServicesImpl {
             }
             return list;
         } catch (Exception e) {
+            log.error("Could not process required method", e);
             throw new WinFormulaServicesException("INTERNAL_SERVER");
         } finally {
             DBMS.close(ps, rs);
@@ -117,6 +121,7 @@ public class WinFormulaServicesImpl {
             ResultSetContainer rsc = new ResultSetContainer(rs);
             return rsc;
         } catch (Exception e) {
+            log.error("Could not process required method", e);
             throw new WinFormulaServicesException("INTERNAL_SERVER");
         } finally {
             DBUtils.endDBBlock();
@@ -144,6 +149,7 @@ public class WinFormulaServicesImpl {
             }
             return null;
         } catch (Exception e) {
+            log.error("Could not process required method", e);
             throw new WinFormulaServicesException("INTERNAL_SERVER");
         } finally {
             DBMS.close(ps, rs);
@@ -165,6 +171,7 @@ public class WinFormulaServicesImpl {
             rs = ps.executeQuery();
             return rs.next();
         } catch (Exception e) {
+            log.error("Could not process required method", e);
             throw new WinFormulaServicesException("INTERNAL_SERVER");
         } finally {
             DBMS.close(ps, rs);
