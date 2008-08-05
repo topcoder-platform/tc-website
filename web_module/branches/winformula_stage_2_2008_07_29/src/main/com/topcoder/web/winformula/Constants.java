@@ -59,7 +59,9 @@ public class Constants implements WebConstants {
     public static int CONTEST_ID_DEFAULT;
     //Folder containing the static files to serve
     public static String FILES_FOLDER;
-
+    //The component ID default
+    public static int COMPONENT_ID_DEFAULT;
+    
     public static String FORUM_RSS_URL;
     public static String ESPN_RSS_URL;
     public static String BLOG_RSS_URL;
