@@ -13,6 +13,7 @@
     <property name="lib.dir" value="lib"/>
     <property name="jars.dir" value="${lib.dir}/jars"/>
     <property name="jive.dir" value="lib/jars/jive"/>
+    <property name="struts.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
     <property name="src.dir" value="src"/>
     <property name="shared.build" value="${basedir}/../shared"/>
     <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
@@ -228,6 +229,12 @@
                 <include name="TestServices.jar"/>
                 <include name="asyncservices.jar"/>
             </lib>
+            <lib dir="${struts.dir}">
+                <include name="*.jar"/>
+            </lib>
+            <webinf dir="${struts.dir}">
+                <include name="struts-logic.tld"/>
+            </webinf>
         </war>
         <delete file="${jboss_deploy}/winformula.war"/>
         <unwar src="${war.dir}/winformula.war" dest="${jboss_deploy}/winformula.war/" overwrite="yes"/>
