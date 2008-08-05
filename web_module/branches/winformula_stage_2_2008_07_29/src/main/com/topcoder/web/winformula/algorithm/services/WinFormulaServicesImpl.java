@@ -181,4 +181,26 @@ public class WinFormulaServicesImpl {
             DBUtils.endDBBlock();
         }
     }
+    
+    
+    public boolean isUserRegisteredInRound(int roundId, int userId) throws WinFormulaServicesException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            Connection cnn = DBUtils.initDBBlock();
+            String cmd = "SELECT round_id FROM round_registration" +
+                         " WHERE round_id = ? AND user_id = ?";
+            ps = cnn.prepareStatement(cmd);
+            ps.setInt(1, roundId);
+            ps.setInt(2, userId);
+            rs = ps.executeQuery();
+            return rs.next();
+        } catch (Exception e) {
+            log.error("Could not process required method", e);
+            throw new WinFormulaServicesException("INTERNAL_SERVER");
+        } finally {
+            DBMS.close(ps, rs);
+            DBUtils.endDBBlock();
+        }
+    }
 }
