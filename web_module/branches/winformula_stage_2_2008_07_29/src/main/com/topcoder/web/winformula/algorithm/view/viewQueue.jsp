@@ -1,64 +1,51 @@
-<%@ page contentType="text/html;charset=utf-8" %> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<%@ page
-        language="java"
-
-        %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
-<%@ taglib uri="codinginterface.tld" prefix="ci" %>
-<%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
-<jsp:useBean id="result" type="java.util.List" scope="request"/>
-<jsp:useBean id="systemTestCount" type="java.lang.Number" scope="request"/>
-<jsp:useBean id="sortLinkBase" class="java.lang.String" scope="request"/>
-<jsp:useBean id="prevPageLink" class="java.lang.String" scope="request"/>
-<jsp:useBean id="nextPageLink" class="java.lang.String" scope="request"/>
+<%@ page
+        language="java"
+        import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow,
+                com.topcoder.web.winformula.algorithm.CodingConstants,
+                java.util.Date"
+        %>
 
-<% String image = "long_comps_topcoder";%>
-
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>TopCoder</title>
+    <title>ESPN Winning Formula Challenge :: Powered by TopCoder - View Queue</title>
+    <%-- Meta Tags --%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <jsp:include page="script.jsp" />
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_stats"/>
+        <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
 </head>
 
 <body>
-<% java.util.Map roundTypes = (java.util.Map) request.getAttribute("roundTypes"); %>
+    <div id="wrapper">
+    <%-- Wrapper --%>
+    
+        <jsp:include page="nav.jsp">
+        <jsp:param name="tabLev1" value="manage" />
+        <jsp:param name="tabLev2" value="" />
+        <jsp:param name="tabLev3" value="" />
+        </jsp:include>
+        
+        <div id="container">
+        <%-- Container --%>
+        <div id="main-content">
+        <%-- Main Content --%>
+            <% java.util.Map roundTypes = (java.util.Map) request.getAttribute("roundTypes"); %>
+            <jsp:useBean id="result" type="java.util.List" scope="request"/>
+            <jsp:useBean id="systemTestCount" type="java.lang.Number" scope="request"/>
 
-<jsp:include page="top.jsp">
-    <jsp:param name="level1" value="long"/>
-</jsp:include>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-<tbody>
-    <tr valign="top">
-<%-- Left Column Begins--%>
-        <td width="180">
-            <jsp:include page="includes/global_left.jsp">
-            <jsp:param name="node" value="long_queue"/>
-            </jsp:include>
-        </td>
-<%-- Left Column Ends --%>
-
-<%-- Center Column Begins --%>
-        <td width="100%" align="left" class="bodyColumn">
-
-            <jsp:include page="page_title.jsp">
-                <jsp:param name="image" value="<%=image%>"/>
-                <jsp:param name="title" value="Queue Status"/>
-            </jsp:include>
-            
+        
             <logic:notEqual name="systemTestCount" value="0">
-                <p align="center">System Tests Remaining: <strong><%=systemTestCount%></strong></p>
+                <p align="center">System Tests Remaining: <strong>${systemTestCount}</strong></p>
             </logic:notEqual>    
 
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="stat">
@@ -102,10 +89,8 @@
                             <tc-webtag:handle context='marathon_match' coderId='<%=resultRow.getUserId()%>'/>
                         </td>
                         <td class="value" nowrap="nowrap">
-                            <a href="?module=ViewStandings&amp;rd=<%=resultRow.getRoundId()%>">
-                                <mm:contest roundName="<%=resultRow.getRoundName()%>" contestName="<%=resultRow.getContestName()%>" roundTypeId="<%= (Integer) roundTypes.get(new Integer(resultRow.getRoundId())) %>"/>
-                            </a>
-                        </td>
+                            ${resultRow.roundName}
+                         </td>
                         <td class="value" nowrap="nowrap">
                             <%=resultRow.getLanguageName()%>
                         </td>
@@ -123,25 +108,17 @@
                 </logic:iterate>
             </tbody>
             </table>
+        <%-- Main Content --%>
 
-
-        </td>
-<%-- Center Column Ends --%>
+        </div>
+        <%-- End Container --%>
+        </div>
+  
+  <div id="footer">
+  <%-- Footer --%>
+  </div>
         
-<%-- Right Column Begins --%>
-        <td width="170">
-            <jsp:include page="public_right.jsp">
-                <jsp:param name="level1" value="default"/>
-            </jsp:include>
-        </td>
-<%-- Right Column Ends --%>
-        
-    </tr>
-</tbody>
-</table>
-
-<jsp:include page="foot.jsp" />
-
+<%-- End Wrapper --%>        
+</div>
 </body>
-
 </html>
