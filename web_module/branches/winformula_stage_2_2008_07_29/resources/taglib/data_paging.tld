@@ -148,10 +148,15 @@
     <attribute>
       <name>styleClass</name>
       <required>no</required>
-      <rtexprvalue>no</rtexprvalue>
+      <rtexprvalue>yes</rtexprvalue>
     </attribute>
     <attribute>
       <name>groupStyle</name>
+      <required>no</required>
+      <rtexprvalue>no</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>rowStyles</name>
       <required>no</required>
       <rtexprvalue>no</rtexprvalue>
     </attribute>
