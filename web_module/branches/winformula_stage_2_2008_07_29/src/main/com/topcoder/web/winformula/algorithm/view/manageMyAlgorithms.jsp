@@ -4,19 +4,21 @@
 <%@ page
         language="java"
         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow,
                 com.topcoder.web.winformula.algorithm.CodingConstants,
                 java.util.Date"
 
         %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
-<%@ taglib uri="codinginterface.tld" prefix="ci" %>
+
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <jsp:useBean id="rounds" type="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request"/>
 <jsp:useBean id="submissions" type="java.util.List" scope="request" />
-<jsp:useBean id="currentRound" type="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow" scope="request "/>
-<jsp:useBean id="nextRound" type="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow" scope="request "/>
+<%
+ResultSetRow currentRound = (ResultSetRow) request.getAttribute("currentRound");
+ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound"); 
+%>
 
 
 
@@ -24,7 +26,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>ESPN Winning Formula Challange :: Powered by TopCoder - Manage My Algorithms</title>
+    <title>ESPN Winning Formula Challenge :: Powered by TopCoder - Manage My Algorithms</title>
     <%-- Meta Tags --%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -74,8 +76,8 @@
                         </tr>
                     </thead>
                     <tbody>
-		                <c:forEach items="submissions" var="submission">
-                        <tr>
+		                <c:forEach items="submissions" var="submission" >
+                        <%--<tr>
                             <c:set var="roundSubmission" value="<%=CodingConstants.ROUND_ID%>=${submission.roundId}&<%=CodingConstants.SUBMISSION_NUMBER%>=${submission.number}"/>
                             <td class="alignCenter"><a href="?module=ViewProblemSolution&${roundSubmission}">${submission.number}</a></td>
                             <td><tc-webtag:format object="${submission.time}" format="MM.dd.yyyy HH:mm:ss"/></td>
@@ -101,7 +103,7 @@
                                 </c:otherwise>
                             </c:choose>
                             
-                        </tr>
+                        </tr> --%>
 		                </c:forEach>
                     </tbody>
                 </table>

@@ -14,5 +14,6 @@ public class CodingConstants extends Constants {
     public static final String ACTION_KEY= "action";
     public static final String LANGUAGES = "languages";
     public static final String QUEUE_LENGTH = "queuelen";
+    public static final String SUBMISSION_NUMBER ="subnum";
 
  }

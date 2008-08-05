@@ -31,7 +31,6 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.render.DataTypeRenderer;
 import com.topcoder.web.ejb.coder.Coder;
-import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
 import com.topcoder.web.winformula.algorithm.services.LastCompilationInfo;
 
@@ -284,16 +283,8 @@ public class Submit extends Base {
     }
 
     // Checks to see if the user is registered for this round contest.
-    protected boolean isUserRegistered(long userID, long roundID) throws Exception {
-        boolean ret = false;
-        try {
-            RoundRegistration reg = (RoundRegistration) createEJB(getInitialContext(), RoundRegistration.class);
-            ret = reg.exists(userID, roundID);
-        } catch (Exception e) {
-            log.error("Error isUserRegistered user: " + userID + " for round: " + roundID, e);
-            throw e;
-        }
-        return ret;
+    protected boolean isUserRegistered(int userID, int roundID) throws Exception {
+        return getService().isUserRegisteredInRound(roundID, userID);
     }
 
     protected List getLanguages(long roundId) throws LongContestServicesException, RemoteException, NamingException, CreateException {
