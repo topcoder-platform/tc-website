@@ -240,7 +240,7 @@ public abstract class Base extends BaseProcessor {
                 return Integer.parseInt(getRequest().getParameter(CodingConstants.CODER_ID));
             }
         }
-        return getUserID();
+        return (int) getUser().getId();
     }
  
     
