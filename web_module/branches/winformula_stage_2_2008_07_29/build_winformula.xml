@@ -124,6 +124,7 @@
                 >
             <include name="com/topcoder/ejb/**"/>
             <include name="com/topcoder/security/**"/>
+            <include name="com/topcoder/web/codinginterface/*.java"/>
             <include name="com/topcoder/web/ejb/BaseEJB.java"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
