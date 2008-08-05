@@ -108,6 +108,8 @@ public class WinFormulaServicesImpl {
      * @throws WinFormulaServicesException if data could not be retrieved
      */
     public ResultSetContainer getRoundsByContest(int contestId) throws WinFormulaServicesException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         try {
             Connection cnn = DBUtils.initDBBlock();
             String cmd = "SELECT rs.round_id, r.name, rs.start_time, rs.end_time, " +
@@ -115,15 +117,16 @@ public class WinFormulaServicesImpl {
                          " FROM round_segment rs, round r " +
                          " WHERE rs.round_id = r.round_id and rs.segment_id = 2 and r.contest_id = ?" +
                          " ORDER BY 2";
-            PreparedStatement ps = cnn.prepareStatement(cmd);
+            ps = cnn.prepareStatement(cmd);
             ps.setInt(1, contestId);
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             ResultSetContainer rsc = new ResultSetContainer(rs);
             return rsc;
         } catch (Exception e) {
             log.error("Could not process required method", e);
             throw new WinFormulaServicesException("INTERNAL_SERVER");
         } finally {
+            DBMS.close(ps, rs);
             DBUtils.endDBBlock();
         }
     }
