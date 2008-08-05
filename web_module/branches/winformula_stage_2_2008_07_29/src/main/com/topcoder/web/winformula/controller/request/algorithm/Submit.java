@@ -181,7 +181,7 @@ public class Submit extends Base {
             if (round == null) {
                 throw new NavigationException("Submission period is finished.");
             }
-            throw new NavigationException("The submission period for mini-season "+round.getStringItem("name")+" has not started.");
+            throw new NavigationException("The submission period for "+round.getStringItem("name")+" has not started.");
         }
             
         int roundId = round.getIntItem("round_id");

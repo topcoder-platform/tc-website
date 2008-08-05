@@ -77,7 +77,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                         </tr>
                     </thead>
                     <tbody>
-		                <logic:iterate collection="submissions" id="submission" type="com.topcoder.web.winformula.algorithm.services.SubmissionHistoryItem">
+		                <logic:iterate name="submissions" id="submission" type="com.topcoder.web.winformula.algorithm.services.SubmissionHistoryItem">
                         <tr>
                             <c:set var="roundSubmission" value="rd=${submission.roundId}&subnum=${submission.number}"/>
                             <td class="alignCenter"><a href="?module=ViewProblemSolution&${roundSubmission}">${submission.number}</a></td>
@@ -89,7 +89,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                                 &nbsp;
                             </td>
                              <td class="alignCenter">
-                                ${submission.name}
+                                ${submission.roundName}
                             </td>
                             <c:choose>
                                 <c:when test="${submission.lockedIn}">
