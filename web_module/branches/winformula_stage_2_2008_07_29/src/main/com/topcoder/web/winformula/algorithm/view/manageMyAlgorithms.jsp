@@ -1,0 +1,120 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page
+        language="java"
+        import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                com.topcoder.web.winformula.algorithm.CodingConstants,
+                java.util.Date"
+
+        %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
+<%@ taglib uri="codinginterface.tld" prefix="ci" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
+<jsp:useBean id="rounds" type="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request"/>
+<jsp:useBean id="submissions" type="java.util.List" scope="request" />
+<jsp:useBean id="currentRound" type="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow" scope="request "/>
+<jsp:useBean id="nextRound" type="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow" scope="request "/>
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ESPN Winning Formula Challange :: Powered by TopCoder - Manage My Algorithms</title>
+    <%-- Meta Tags --%>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_winformula"/>
+    </jsp:include>
+</head>
+
+<body>
+    <div id="wrapper">
+    <%-- Wrapper --%>
+    
+        <jsp:include page="nav.jsp">
+        <jsp:param name="tabLev1" value="manage" />
+        <jsp:param name="tabLev2" value="" />
+        <jsp:param name="tabLev3" value="" />
+        </jsp:include>
+        
+        <div id="container">
+        <%-- Container --%>
+        <div id="main-content">
+        <%-- Main Content --%>
+            <div class="sub-navigation"> Manage My Algorithms | <a href="?module=ViewLastPredicitions">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
+            <h1>Manage My Algorithms</h1>
+            <<h2>
+            <c:choose>
+                <c:when test="${currentRound} != null">Submission period for ${currentRound.map['name']} ends at <tc-webtag:format object="${currentRound.map['end_date']}" format="MM.dd.yyyy HH:mm:ss"/></c:when>
+                <c:when test="${nextRound} != null">Submission period for ${nextRound.map['name']} starts at <tc-webtag:format object="${nextRound.map['start_date']}" format="MM.dd.yyyy HH:mm:ss"/></c:when>
+                <c:otherwise>Submission period has finished.</c:otherwise>
+            </c:choose>
+            </h2>
+            <%-- Does not have any sense h3>Your current algorithm was submitted on 2008-07-09 at 13:45:32 ET (<a href="manage-algorithms_current-picks.htm">view its predictions</a>)</h3--%>
+            <p>&nbsp;</p>
+            <hr />
+            <p>&nbsp;</p>
+                <h2>Your Algorithm History</h2>
+                <table class="stat" width="100%">
+                    <thead>
+                        <tr class="resultTH">
+                            <th class="center">Number</th>
+                            <th class="center">Submitted</th>
+                            <th class="center">Examples</a></th>
+                            <th class="center">Mini Season</th>
+                            <th class="center">&nbsp;</th>
+                            <th class="center">Accuracy</th>
+                            <th class="center">Picks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+		                <c:forEach items="submissions" var="submission">
+                        <tr>
+                            <c:set var="roundSubmission" value="<%=CodingConstants.ROUND_ID%>=${submission.roundId}&<%=CodingConstants.SUBMISSION_NUMBER%>=${submission.number}"/>
+                            <td class="alignCenter"><a href="?module=ViewProblemSolution&${roundSubmission}">${submission.number}</a></td>
+                            <td><tc-webtag:format object="${submission.time}" format="MM.dd.yyyy HH:mm:ss"/></td>
+                            <td class="alignCenter">
+                                <c:if test="${submission.example}">
+                                    <a href="?ViewExampleResults&${roundSubmission}">Example Results</a>
+                                </c:if>
+                                &nbsp;
+                            </td>
+                             <td class="alignCenter">
+                                ${submission.name}
+                            </td>
+                            <c:choose>
+                                <c:when test="${submission.lockedIn}">
+                                    <td class="alignCenter">&nbsp;</td>
+                                    <td class="alignCenter"><c:if test="${submission.accuracy} != -1">${submission.accuracy}</c:if></td>
+                                    <td class="alignCenter"><c:if test="${submission.hasPredictions}"><a href="?module=ViewPicks&${roundSubmission}">View Picks</a>&nbsp;</c:if></td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td class="alignCenter">&nbsp;</td>
+                                    <td class="alignCenter">&nbsp;</td>
+                                    <td class="alignCenter">&nbsp;</td>
+                                </c:otherwise>
+                            </c:choose>
+                            
+                        </tr>
+		                </c:forEach>
+                    </tbody>
+                </table>
+        <%-- Main Content --%>
+        </div>
+        <%-- End Container --%>
+        </div>
+  
+  <div id="footer">
+  <%-- Footer --%>
+  </div>
+        
+<%-- End Wrapper --%>        
+</div>
+</body>
+</html>
