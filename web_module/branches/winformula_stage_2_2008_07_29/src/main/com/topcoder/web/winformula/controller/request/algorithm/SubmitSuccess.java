@@ -1,4 +1,4 @@
-package com.topcoder.web.winformula.algorithm.controller.request;
+package com.topcoder.web.winformula.controller.request.algorithm;
 
 import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
 import com.topcoder.web.common.TCWebException;
