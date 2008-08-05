@@ -68,9 +68,11 @@ public class Submit extends Base {
             String action = request.getParameter(CodingConstants.ACTION_KEY);
             String code;
             Integer languageID = null;
+            String message = null;
             if (ACTION_SHOW_ERROR.equals(action)) {
                 code = (String) getRequest().getSession().getAttribute(CodingConstants.CODE);
                 languageID = ((Integer) getRequest().getSession().getAttribute(CodingConstants.LANGUAGE_ID));
+                message = (String) request.getSession().getAttribute(CodingConstants.MESSAGE);
             } else {
                 code = getRequest().getParameter(CodingConstants.CODE);
                 String languageStr = getRequest().getParameter(CodingConstants.LANGUAGE_ID);
@@ -140,7 +142,7 @@ public class Submit extends Base {
                     }                    
                 }
             } else if (ACTION_SHOW_ERROR.equals(action)) {
-                forwardToSelf((String) request.getSession().getAttribute(CodingConstants.MESSAGE), languageID.intValue(), code, contestId, roundId, componentId, coderId);
+                forwardToSelf(message, languageID.intValue(), code, contestId, roundId, componentId, coderId);
             } else {
                 int language = JavaLanguage.ID; 
                 
