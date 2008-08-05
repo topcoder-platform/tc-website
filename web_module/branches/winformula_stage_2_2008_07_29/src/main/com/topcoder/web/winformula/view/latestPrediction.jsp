@@ -33,7 +33,7 @@
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-            <h1>Current Algorithm's Predictions</h1>
+            <h1>Current Algorithm's <%=request.getServletPath()%></h1>
             <p>Your current algorithm's predictions will not be viewable to other contestants or the public until all contestants algorithms have been locked for the week.</p>
             <p class="hightlight"><strong>Your algorithm submitted on 2008-07-14 at 12:38:45 ET is 7 of 21 in the <a href="manage-algorithms_queue.htm">queue</a>.</strong></p>
             <h2>Predictions based on your algorithm uploaded on 2008-07-09 at 13:45:32 ET</h2>
@@ -49,6 +49,7 @@
 <%
 com.topcoder.util.format.ObjectFormatter formatter = com.topcoder.util.format.ObjectFormatterFactory.getPlainFormatter();
 %>
+                <% boolean even = true;%>
             <p:dataPaging pageSize="10" data="<%= (Collection) request.getAttribute("list") %>" id="pager">
                 <p:firstPageLink defaultText="&lt;&lt; First" />
                 <p:prevPageLink defaultText="&lt; Previous" />
@@ -60,8 +61,7 @@ com.topcoder.util.format.ObjectFormatter formatter = com.topcoder.util.format.Ob
                     No search results were found
                 </p:ifEmpty>
                 <p:page>
-                    <p:table sorting="true" groupSpan="1" renderer="GroupSpan" rowCommands="Delete" 
-                        commandHandler="handleRowDeletion">
+                    <p:table sorting="true" renderer="GroupSpan">
                         <!-- Display the table header, with column names as links -->
                         <p:header>
                             <p:column name="Home Team" index="1" />
@@ -70,7 +70,8 @@ com.topcoder.util.format.ObjectFormatter formatter = com.topcoder.util.format.Ob
                         </p:header>
             
                         <!-- Display the tabular data -->
-                        <p:rowData />
+                        <p:rowData rowStyles="row_Alt,row_Alt"/>
+                        
                     </p:table>            
                 </p:page>
             
@@ -81,7 +82,6 @@ com.topcoder.util.format.ObjectFormatter formatter = com.topcoder.util.format.Ob
                   <th scope="col"><a href="${sessionInfo.servletPath}?module=CurrentPredictions<tc-webtag:sort column="7" includeParams="true" excludeParams="module"/>">Away Team</a></th>
                   <th scope="col">Pred. Score</th>
                 </tr>
-                <% boolean even = true;%>
                 <rsc:iterator list="${results}" id="resultRow">
                     <tr class="<%=even?"row_Alt":""%>">
                       <c:choose>
