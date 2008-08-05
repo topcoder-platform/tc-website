@@ -24,7 +24,7 @@ import com.topcoder.shared.util.logging.Logger;
  */
 public class DBUtils {
     private static final Logger log = Logger.getLogger(DBUtils.class);
-    
+    private static String DATASOURCE = DBMS.WINFORMULA_DATASOURCE_NAME;
     /**
      * Contains connection information for each thread
      */
@@ -370,7 +370,7 @@ public class DBUtils {
         ConnectionCount cnc;
         cnc = (ConnectionCount) connection.get();
         if (cnc.count == 0) {
-            cnc.cnn = DBMS.getConnection();
+            cnc.cnn = DBMS.getConnection(DATASOURCE);
         }
         cnc.count++;
         return cnc.cnn;
