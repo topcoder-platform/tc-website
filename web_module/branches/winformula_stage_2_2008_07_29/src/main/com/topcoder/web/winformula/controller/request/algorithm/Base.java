@@ -20,6 +20,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.language.BaseLanguage;
+import com.topcoder.shared.language.JavaLanguage;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.ServerBusyException;
@@ -31,8 +32,8 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
-import com.topcoder.web.winformula.algorithm.services.WinFormulaServicesImpl;
 import com.topcoder.web.winformula.algorithm.services.WinFormulaServicesException;
+import com.topcoder.web.winformula.algorithm.services.WinFormulaServicesImpl;
 
 /**
  * @author dok
@@ -235,10 +236,8 @@ public abstract class Base extends BaseProcessor {
     }
     
     public int getUserID() throws Exception {
-        if (isAdmin()) {
-            if (getRequest().getParameter(CodingConstants.CODER_ID) != null) {
-                return Integer.parseInt(getRequest().getParameter(CodingConstants.CODER_ID));
-            }
+        if (getRequest().getParameter(CodingConstants.CODER_ID) != null && isAdmin()) {
+            return Integer.parseInt(getRequest().getParameter(CodingConstants.CODER_ID));
         }
         return (int) getUser().getId();
     }
@@ -246,6 +245,17 @@ public abstract class Base extends BaseProcessor {
     
     protected boolean isUserRegisteredInContest(int contestID, int userID) throws WinFormulaServicesException {
         return getService().isUserRegisteredInContest(contestID, userID);
+    }
+    
+    protected int resolveLanguage() throws Exception {
+        if (getRequest().getParameter(CodingConstants.LANGUAGE_ID) != null) {
+            return Integer.parseInt(getRequest().getParameter(CodingConstants.LANGUAGE_ID));
+        }
+        Integer language = getService().resolveLanguageIdForCoder(getContestID(), getUserID());
+        if (language != null) {
+            return language.intValue();
+        }
+        return JavaLanguage.ID;
     }
 }
 

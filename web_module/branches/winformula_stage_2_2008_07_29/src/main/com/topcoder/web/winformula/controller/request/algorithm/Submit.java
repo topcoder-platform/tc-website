@@ -141,7 +141,7 @@ public class Submit extends Base {
                     code = info.getCode();
                 } else {
                     //load up their default language
-                    Integer lang = getService().getLanguageIdForCode(coderId);
+                    Integer lang = getService().getLanguageIdForCoder(coderId);
                     if (lang != null) {
                         language = lang.intValue();
                     }
