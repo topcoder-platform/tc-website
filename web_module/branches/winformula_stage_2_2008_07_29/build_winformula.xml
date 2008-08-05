@@ -184,7 +184,7 @@
     <target name="war-winformula" depends="compile">
         <war warfile="${war.dir}/winformula.war" webxml="${resources}/winformula/web.xml">
             <classes dir="${classes}">
-                <include name="com/topcoder/web/condinginterface/*.class"/>
+                <include name="com/topcoder/web/codinginterface/*.class"/>
                 <include name="com/topcoder/web/winformula/**/*.class"/>
                 <include name="com/topcoder/web/forums/**/*.class"/>
             </classes>
