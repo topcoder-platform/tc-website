@@ -34,7 +34,7 @@
 <body>
     <div id="wrapper">
     <%-- Wrapper --%>
-    
+
         <jsp:include page="nav.jsp">
         <jsp:param name="tabLev1" value="manage" />
         <jsp:param name="tabLev2" value="" />
@@ -45,6 +45,29 @@
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
+
+<script language="javascript">
+    function submit() {
+        document.codingForm.<%=CodingConstants.ACTION_KEY%>.value = "submit";
+        document.codingForm.submit();
+    }
+
+    function save() {
+        document.codingForm.<%=CodingConstants.ACTION_KEY%>.value = "save";
+        document.codingForm.submit();
+    }
+    function openWin(url, name) {
+        var w = screen.availWidth * 2 / 3;
+        var h = screen.availHeight / 2;
+        var left = Math.round((screen.availWidth - w) / 2);
+        var top = Math.round((screen.availHeight - h) / 2);
+        win = window.open(url, name, "scrollbars=yes,toolbar=no,resizable=yes,menubar=no"
+                + ",width=" + w + ",height=" + h
+                + ",left=" + left + ",top=" + top);
+        win.location.href = url;
+        win.focus();
+    }
+</script>
 
         <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
         <tc-webtag:useBean id="languages" name="<%=CodingConstants.LANGUAGES%>" type="java.util.List" toScope="page"/>
