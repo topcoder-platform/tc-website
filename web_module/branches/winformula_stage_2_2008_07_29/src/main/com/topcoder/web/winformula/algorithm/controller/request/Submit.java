@@ -22,7 +22,6 @@ import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.User;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
@@ -30,7 +29,6 @@ import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.render.DataTypeRenderer;
-import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
 import com.topcoder.web.winformula.algorithm.services.LastCompilationInfo;
 
@@ -152,8 +150,7 @@ public class Submit extends Base {
                     code = info.getCode();
                 } else {
                     //load up their default language
-                    Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
-                    Integer lang = coder.getLanguageId(coderId, DBMS.OLTP_DATASOURCE_NAME);
+                    Integer lang = getService().getLanguageIdForCode(coderId);
                     if (lang != null) {
                         language = lang.intValue();
                     }

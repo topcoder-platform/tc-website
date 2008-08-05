@@ -203,4 +203,27 @@ public class WinFormulaServicesImpl {
             DBUtils.endDBBlock();
         }
     }
+    
+    public Integer getLanguageIdForCode(int coderId) throws WinFormulaServicesException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            Connection cnn = DBUtils.initDBBlock();
+            String cmd = "SELECT language_id FROM coder" +
+                         " WHERE coder_id = ?";
+            ps = cnn.prepareStatement(cmd);
+            ps.setInt(1, coderId);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                DBUtils.getInt(rs, 1);
+            }
+            return null;
+        } catch (Exception e) {
+            log.error("Could not process required method", e);
+            throw new WinFormulaServicesException("INTERNAL_SERVER");
+        } finally {
+            DBMS.close(ps, rs);
+            DBUtils.endDBBlock();
+        }
+    }
 }
