@@ -53,8 +53,8 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
             <h1>Manage My Algorithms</h1>
             <h2>
             <c:choose>
-                <c:when test="${currentRound} != null">Submission period for ${currentRound.map['name']} ends at <tc-webtag:format object="${currentRound.map['end_date']}" format="MM.dd.yyyy HH:mm:ss"/></c:when>
-                <c:when test="${nextRound} != null">Submission period for ${nextRound.map['name']} starts at <tc-webtag:format object="${nextRound.map['start_date']}" format="MM.dd.yyyy HH:mm:ss"/></c:when>
+                <c:when test="${currentRound != null}">Submission period for ${currentRound.map['name']} ends at <tc-webtag:format object="${currentRound.map['end_time']}" format="MM.dd.yyyy HH:mm:ss"/></c:when>
+                <c:when test="${nextRound != null}">Submission period for ${nextRound.map['name']} starts at <tc-webtag:format object="${nextRound.map['start_time']}" format="MM.dd.yyyy HH:mm:ss"/></c:when>
                 <c:otherwise>Submission period has finished.</c:otherwise>
             </c:choose>
             </h2>
@@ -77,8 +77,8 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                     </thead>
                     <tbody>
 		                <c:forEach items="submissions" var="submission" >
-                        <%--<tr>
-                            <c:set var="roundSubmission" value="<%=CodingConstants.ROUND_ID%>=${submission.roundId}&<%=CodingConstants.SUBMISSION_NUMBER%>=${submission.number}"/>
+                        <tr>
+                            <c:set var="roundSubmission" value="rd=${submission.roundId}&subnum=${submission.number}"/>
                             <td class="alignCenter"><a href="?module=ViewProblemSolution&${roundSubmission}">${submission.number}</a></td>
                             <td><tc-webtag:format object="${submission.time}" format="MM.dd.yyyy HH:mm:ss"/></td>
                             <td class="alignCenter">
@@ -93,8 +93,8 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                             <c:choose>
                                 <c:when test="${submission.lockedIn}">
                                     <td class="alignCenter">&nbsp;</td>
-                                    <td class="alignCenter"><c:if test="${submission.accuracy} != -1">${submission.accuracy}</c:if></td>
-                                    <td class="alignCenter"><c:if test="${submission.hasPredictions}"><a href="?module=ViewPicks&${roundSubmission}">View Picks</a>&nbsp;</c:if></td>
+                                    <td class="alignCenter"><c:if test="${submission.accuracy != -1}">${submission.accuracy}</c:if></td>
+                                    <td class="alignCenter"><c:if test="${submission.accuracy != -1}"><a href="?module=ViewPicks&${roundSubmission}">View Picks</a>&nbsp;</c:if></td>
                                 </c:when>
                                 <c:otherwise>
                                     <td class="alignCenter">&nbsp;</td>
@@ -103,7 +103,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                                 </c:otherwise>
                             </c:choose>
                             
-                        </tr> --%>
+                        </tr>
 		                </c:forEach>
                     </tbody>
                 </table>
