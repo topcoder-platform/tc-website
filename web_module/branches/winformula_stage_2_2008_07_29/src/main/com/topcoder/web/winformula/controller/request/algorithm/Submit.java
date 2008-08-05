@@ -131,7 +131,7 @@ public class Submit extends Base {
                             unlock();
                         }
                         if (res.getCompileStatus()) {
-                            closeProcessingPage("SubmitSuccess");
+                            closeProcessingPage(buildProcessorRequestString("SubmitSuccess"));
                         } else {
                             reportError(request, contestId, roundId, componentId, res.getCompileError(), code, language);
                         }
