@@ -20,12 +20,8 @@ import com.topcoder.shared.messaging.messages.LongCompileRequest;
 import com.topcoder.shared.messaging.messages.LongCompileResponse;
 import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.problem.ProblemComponent;
-import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.security.User;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.render.DataTypeRenderer;
@@ -51,13 +47,6 @@ public class Submit extends Base {
 
     protected void longContestProcessing() throws TCWebException {
         TCRequest request = getRequest();
-        User user = getAuthentication().getUser();
-
-        // The user must be signed in to submit code
-        if (!SecurityHelper.hasPermission(user, new ClassResource(this.getClass()))) {
-            throw new PermissionException(user, new ClassResource(this.getClass()));
-        }
-
         try {
             // Get the user's id on which we will operate
             int coderId = getUserID();
@@ -172,6 +161,9 @@ public class Submit extends Base {
     private void forwardToSelf(String message, int language, String code, int contestId, int roundId, int componentId,
             int coderId) throws Exception {
 
+        if (language == 0) {
+            language = JavaLanguage.ID;
+        }
         resolveProblem(roundId, componentId, coderId, language);
         getRequest().setAttribute(CodingConstants.MESSAGE, resolveMessage(message));
         getRequest().setAttribute(CodingConstants.CODE, code);
