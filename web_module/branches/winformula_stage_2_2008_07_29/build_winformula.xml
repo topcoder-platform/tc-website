@@ -195,6 +195,7 @@
                 <include name="nav.tld"/>
                 <include name="rsc-taglib.tld"/>
                 <include name="winformula.tld"/>
+                <include name="data_paging.tld"/>
             </webinf>
             <webinf dir="${java}/com/topcoder/web/winformula/view/">
                 <include name="tags/*.tag"/>
