@@ -49,9 +49,9 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-            <div class="sub-navigation"> Manage My Algorithms | <a href="?module=ViewLastPredicitions">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
+            <div class="sub-navigation"> Manage My Algorithms | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredicitions">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
             <h1>Manage My Algorithms</h1>
-            <<h2>
+            <h2>
             <c:choose>
                 <c:when test="${currentRound} != null">Submission period for ${currentRound.map['name']} ends at <tc-webtag:format object="${currentRound.map['end_date']}" format="MM.dd.yyyy HH:mm:ss"/></c:when>
                 <c:when test="${nextRound} != null">Submission period for ${nextRound.map['name']} starts at <tc-webtag:format object="${nextRound.map['start_date']}" format="MM.dd.yyyy HH:mm:ss"/></c:when>
