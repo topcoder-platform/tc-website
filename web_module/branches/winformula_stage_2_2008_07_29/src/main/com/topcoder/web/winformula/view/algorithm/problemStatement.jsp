@@ -20,7 +20,7 @@
     <%-- Meta Tags --%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <jsp:include page="style.jsp">
+    <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
 </head>
@@ -29,7 +29,7 @@
     <div id="wrapper">
     <%-- Wrapper --%>
     
-        <jsp:include page="nav.jsp">
+        <jsp:include page="/nav.jsp">
         <jsp:param name="tabLev1" value="manage" />
         <jsp:param name="tabLev2" value="" />
         <jsp:param name="tabLev3" value="" />
