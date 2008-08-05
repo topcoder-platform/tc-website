@@ -83,6 +83,8 @@ public class Constants implements CodingInterfaceConstants {
     public static String PAGE_QUEUE_STATUS;
     public static String PAGE_REG_NEEDED;
     public static String PAGE_MY_ALGOS;
+    public static String PAGE_PROBLEM_STATEMENT_CONTENT;
+    public static String PAGE_PROBLEM_STATEMENT;
     
     
         
