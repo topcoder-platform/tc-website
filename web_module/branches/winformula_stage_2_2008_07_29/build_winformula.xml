@@ -201,9 +201,6 @@
             <fileset dir="${java}/com/topcoder/web/winformula/view">
                 <include name="**/*.jsp"/>
             </fileset>
-            <fileset dir="${java}/com/topcoder/web/winformula/algorithm/view" >
-                <include name="**/*.jsp"/>
-            </fileset>
             <fileset dir="${java}/com/topcoder/web/forums/view/winformula">
                 <include name="*.*"/>
             </fileset>
