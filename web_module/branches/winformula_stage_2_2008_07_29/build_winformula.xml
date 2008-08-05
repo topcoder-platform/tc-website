@@ -210,6 +210,7 @@
             <fileset dir="${java}/com/topcoder/web/jsp">
                 <include name="style.jsp"/>
                 <include name="date_time.jsp"/>
+                <include name="script.jsp"/>
             </fileset>
             <webinf dir="${resources}/winformula">
                 <include name="jboss-web.xml"/>
