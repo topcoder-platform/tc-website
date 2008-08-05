@@ -1,5 +1,8 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page
         language="java"
@@ -9,8 +12,6 @@
                 java.util.Date"
 
         %>
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <jsp:useBean id="rounds" type="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request"/>
@@ -76,7 +77,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                         </tr>
                     </thead>
                     <tbody>
-		                <c:forEach items="submissions" var="submission" >
+		                <logic:iterate collection="submissions" id="submission" type="com.topcoder.web.winformula.algorithm.services.SubmissionHistoryItem">
                         <tr>
                             <c:set var="roundSubmission" value="rd=${submission.roundId}&subnum=${submission.number}"/>
                             <td class="alignCenter"><a href="?module=ViewProblemSolution&${roundSubmission}">${submission.number}</a></td>
@@ -104,7 +105,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                             </c:choose>
                             
                         </tr>
-		                </c:forEach>
+		                </logic:iterate>
                     </tbody>
                 </table>
         <%-- Main Content --%>
