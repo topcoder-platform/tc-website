@@ -89,7 +89,7 @@
                     </td>
                     <td align="right" valign="top">Choose your language:<br/>
                         <tc-webtag:listIterator id="language" listKey="languages" type="com.topcoder.shared.language.Language">
-                            <tc-webtag:radioButton name="<%=CodingConstants.LANGUAGE_ID%>" value="<%=String.valueOf(language.getId())%>"/>
+                            <tc-webtag:radioButton name="<%=CodingConstants.LANGUAGE_ID%>" value="<%=String.valueOf(language.getId())%>"  selected="<%=language.getId() == lang.intValue() ? "true" : "false" %>"/>
                             &#160;
                             <jsp:getProperty name="language" property="name"/>
                             &#160;
