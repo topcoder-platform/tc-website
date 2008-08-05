@@ -34,7 +34,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
-</head>`
+</head>
 
 <body>
     <div id="wrapper">

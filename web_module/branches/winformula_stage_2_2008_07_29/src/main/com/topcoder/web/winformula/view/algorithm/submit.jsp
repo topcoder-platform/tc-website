@@ -85,9 +85,9 @@
                     <td valign="top">
                         <span class="bodyTitle">Coding Area</span><br/>
                         <strong>Class Name: <%=request.getAttribute(CodingConstants.CLASS_NAME)%></strong><br/>
-                        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=CodingConstants.ROUND_ID%>=<%=request.getParameter(CodingConstants.ROUND_ID)%>&<%=CodingConstants.COMPONENT_ID%>=<%=request.getParameter(CodingConstants.COMPONENT_ID)%>&popup=false<%=(lang!=null?"&lid="+lang:"")%>" class="statLink">Problem
+                        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&popup=false<%=(lang!=null?"&lid="+lang:"")%>" class="statLink">Problem
                             Statement</a>
-                        (<a href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=CodingConstants.ROUND_ID%>=<%=request.getParameter(CodingConstants.ROUND_ID)%>&<%=CodingConstants.COMPONENT_ID%>=<%=request.getParameter(CodingConstants.COMPONENT_ID)%>&popup=true<%=(lang!=null?"&lid="+lang:"")%>', 'Problem Statement');" class="statLink">new
+                        (<a href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&popup=true<%=(lang!=null?"&lid="+lang:"")%>', 'Problem Statement');" class="statLink">new
                         window</a>)
                     </td>
                     <td align="right" valign="top">Choose your language:<br/>

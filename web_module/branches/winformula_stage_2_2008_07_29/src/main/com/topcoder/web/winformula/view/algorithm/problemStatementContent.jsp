@@ -27,5 +27,6 @@
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
 </head>
-<tc-webtag:problemStatement problem="${problem}%>" language="<%=((Language)request.getAttribute(CodingConstants.LANGUAGE_ID)).getName()%>"/>
+ <jsp:useBean id="problem" class="com.topcoder.shared.problem.Problem" scope="request"/>
+<tc-webtag:problemStatement problem="problem" language="<%=((Language)request.getAttribute(CodingConstants.LANGUAGE_ID)).getName()%>"/>
 
