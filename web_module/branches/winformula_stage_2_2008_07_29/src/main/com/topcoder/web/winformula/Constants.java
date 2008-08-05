@@ -85,6 +85,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String PAGE_MY_ALGOS;
     public static String PAGE_PROBLEM_STATEMENT_CONTENT;
     public static String PAGE_PROBLEM_STATEMENT;
+    public static String PAGE_PROBLEM_SOLUTION;
     
     
         
