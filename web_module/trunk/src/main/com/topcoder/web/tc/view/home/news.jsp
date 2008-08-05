@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />08.05.08<br />3:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm412">SRM 412 - Problem Set &amp; Analysis</a></span><br /><br />
+      Solutions to the Easy problem appeared quickly in Division I. The medium took longer; <tc-webtag:handle coderId="10574855" context="algorithm"/> and <tc-webtag:handle coderId="251074" context="algorithm"/> had solved both easy and medium problems after 18 minutes. After 40 minutes many more coders have managed to solve both of these problems.</td>
+         <td class="newsPhoto"><img src="/i/m/Eryx_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8355516" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm412">details</a> | 
+        <tc-webtag:forumLink forumID="522583" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />08.04.08<br />4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_080408b">TopCoder &amp; Think Services Announce Dr. Dobb's Architecture &amp; Design World 2008 Software Design Contest Winner</a></span><br /><br />
@@ -152,21 +168,5 @@
         <a href="/tc?module=MatchDetails&amp;rd=12182">details</a> | 
         <tc-webtag:forumLink forumID="521830" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />07.17.08<br />3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=features&amp;d2=071708">Generating random numbers with C++ TR1</a></span><br /><br />
-      In previous articles, I have looked at how to generate various <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=randomNumbers">random distributions of one variable</a>, and <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=randomNumbers2">random collections of variables</a>. Those articles assumed only a random number generator that produced random numbers in some fixed range, such as the C <code>rand()</code> function. In this article, I'll look at a specific random number library, and how it can simplify random number generation.</td>
-         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="Author" width="55" height="61" /><br />by <tc-webtag:handle coderId="251074" context="algorithm" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=071708">details</a> | 
-        <tc-webtag:forumLink forumID="522329" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
    </td></tr>
    
