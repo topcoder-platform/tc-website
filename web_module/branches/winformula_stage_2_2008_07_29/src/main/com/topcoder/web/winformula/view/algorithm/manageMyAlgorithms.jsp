@@ -33,13 +33,13 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
-</head>
+</head>`
 
 <body>
     <div id="wrapper">
     <%-- Wrapper --%>
     
-        <jsp:include page="nav.jsp">
+        <jsp:include page="/nav.jsp">
         <jsp:param name="tabLev1" value="manage" />
         <jsp:param name="tabLev2" value="" />
         <jsp:param name="tabLev3" value="" />
