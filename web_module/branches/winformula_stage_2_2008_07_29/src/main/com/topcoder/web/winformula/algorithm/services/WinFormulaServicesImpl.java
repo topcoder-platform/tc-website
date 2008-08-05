@@ -5,6 +5,7 @@
  */
 package com.topcoder.web.winformula.algorithm.services;
 
+import java.io.StringReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +14,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.problem.ProblemComponent;
+import com.topcoder.shared.problemParser.ProblemComponentFactory;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
@@ -160,6 +163,35 @@ public class WinFormulaServicesImpl {
             DBUtils.endDBBlock();
         }
     }
+    
+    
+    public Integer getLastCompilationLanguage(int contestId, int coderId) throws WinFormulaServicesException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            Connection cnn = DBUtils.initDBBlock();
+            String cmd = "SELECT FIRST 1 lc.language_id" +
+                         " FROM long_compilation lc, long_component_state cs, round r " +
+                         " WHERE r.contest_id = ? AND " +
+                         "       cs.round_id = r.round_id AND cs.coder_id = ? AND" +
+                         "       lc.long_component_state_id = cs.long_component_state_id AND lc.compilation_text IS NOT NULL" +
+                         " ORDER BY r.round_id desc";
+            ps = cnn.prepareStatement(cmd);
+            ps.setInt(1, contestId);
+            ps.setInt(2, coderId);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return DBUtils.getInt(rs, 1);
+            }
+            return null;
+        } catch (Exception e) {
+            log.error("Could not process required method", e);
+            throw new WinFormulaServicesException("INTERNAL_SERVER");
+        } finally {
+            DBMS.close(ps, rs);
+            DBUtils.endDBBlock();
+        }
+    }
 
 
     public boolean isUserRegisteredInContest(int contestId, int userId) throws WinFormulaServicesException {
@@ -205,7 +237,7 @@ public class WinFormulaServicesImpl {
         }
     }
     
-    public Integer getLanguageIdForCode(int coderId) throws WinFormulaServicesException {
+    public Integer getLanguageIdForCoder(int coderId) throws WinFormulaServicesException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -219,6 +251,47 @@ public class WinFormulaServicesImpl {
                 DBUtils.getInt(rs, 1);
             }
             return null;
+        } catch (Exception e) {
+            log.error("Could not process required method", e);
+            throw new WinFormulaServicesException("INTERNAL_SERVER");
+        } finally {
+            DBMS.close(ps, rs);
+            DBUtils.endDBBlock();
+        }
+    }
+    
+    public Integer resolveLanguageIdForCoder(int contestId, int coderId) throws WinFormulaServicesException {
+        try {
+            DBUtils.initDBBlock();
+            Integer language = getLastCompilationLanguage(contestId, coderId);
+            if (language == null) {
+                language = getLanguageIdForCoder(coderId);
+            }
+            return null;
+        } catch (WinFormulaServicesException e) {
+            throw e;
+        } catch (Exception e) {
+            log.error("Could not process required method", e);
+            throw new WinFormulaServicesException("INTERNAL_SERVER");
+        } finally {
+            DBUtils.endDBBlock();
+        }
+    }
+    
+    
+    public ProblemComponent getProblemComponent(int componentId) throws WinFormulaServicesException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            Connection cnn = DBUtils.initDBBlock();
+            String cmd = "SELECT component_text FROM component" +
+                         " WHERE component_id = ?";
+            ps = cnn.prepareStatement(cmd);
+            ps.setInt(1, componentId);
+            rs = ps.executeQuery();
+            rs.next();
+            StringReader reader = new StringReader(rs.getString(1));
+            return new ProblemComponentFactory().buildFromXML(reader, true);
         } catch (Exception e) {
             log.error("Could not process required method", e);
             throw new WinFormulaServicesException("INTERNAL_SERVER");
