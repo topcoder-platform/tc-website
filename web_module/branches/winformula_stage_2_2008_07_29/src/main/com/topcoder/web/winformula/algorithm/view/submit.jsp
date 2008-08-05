@@ -1,23 +1,19 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ page
-        language="java"
-        import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                com.topcoder.web.winformula.algorithm.CodingConstants,
-                java.util.Date"
-        %>
-
-<%@ page import="com.topcoder.web.common.StringUtils" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.HashMap" %>
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
-<tc-webtag:useBean id="languages" name="<%=CodingConstants.LANGUAGES%>" type="java.util.List" toScope="page"/>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
-
+<%@ page
+        language="java"
+        import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow,
+                com.topcoder.web.winformula.algorithm.CodingConstants,
+                java.util.Date"
+        %>
+<%@ page import="com.topcoder.web.common.StringUtils" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.HashMap" %>
 
 
 
@@ -25,7 +21,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>ESPN Winning Formula Challenge :: Powered by TopCoder - Manage My Algorithms</title>
+    <title>ESPN Winning Formula Challenge :: Powered by TopCoder - Submit</title>
     <%-- Meta Tags --%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -48,28 +44,32 @@
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
+
+        <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
+        <tc-webtag:useBean id="languages" name="<%=CodingConstants.LANGUAGES%>" type="java.util.List" toScope="page"/>
+        <% Integer lang = (Integer) request.getAttribute(CodingConstants.LANGUAGE_ID); %>
         <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="codingForm">
-            <input type="hidden" name="<%=CodingConstants.MODULE%>" value="<%=CodingConstants.RP_SUBMIT%>">
-            <input type="hidden" name="<%=CodingConstants.CONTEST_ID%>" value="<%=request.getParameter(CodingConstants.CONTEST_ID)%>">
-            <input type="hidden" name="<%=CodingConstants.ACTION_KEY%>" value="">
+            <input type="hidden" name="<%=CodingConstants.MODULE%>" value="Submit"/>
+            <input type="hidden" name="<%=CodingConstants.ACTION_KEY%>" value=""/>
+
 
             <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
                 <tr>
                     <td valign="top">
-                        <span class="bodyTitle">Coding Area</span><br>
-                        <strong>Class Name: <%=request.getAttribute(CodingConstants.CLASS_NAME)%></strong><br>
-                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=CodingConstants.ROUND_ID%>=<%=request.getParameter(CodingConstants.ROUND_ID)%>&<%=CodingConstants.COMPONENT_ID%>=<%=request.getParameter(CodingConstants.COMPONENT_ID)%>&popup=false<%=(lang!=null?"&lid="+lang:"")%>" class="statLink">Problem
-                            Statement</A>
-                        (<A href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=CodingConstants.ROUND_ID%>=<%=request.getParameter(CodingConstants.ROUND_ID)%>&<%=CodingConstants.COMPONENT_ID%>=<%=request.getParameter(CodingConstants.COMPONENT_ID)%>&popup=true<%=(lang!=null?"&lid="+lang:"")%>', 'Problem Statement');" class="statLink">new
-                        window</A>)
+                        <span class="bodyTitle">Coding Area</span><br/>
+                        <strong>Class Name: <%=request.getAttribute(CodingConstants.CLASS_NAME)%></strong><br/>
+                        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=CodingConstants.ROUND_ID%>=<%=request.getParameter(CodingConstants.ROUND_ID)%>&<%=CodingConstants.COMPONENT_ID%>=<%=request.getParameter(CodingConstants.COMPONENT_ID)%>&popup=false<%=(lang!=null?"&lid="+lang:"")%>" class="statLink">Problem
+                            Statement</a>
+                        (<a href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=CodingConstants.ROUND_ID%>=<%=request.getParameter(CodingConstants.ROUND_ID)%>&<%=CodingConstants.COMPONENT_ID%>=<%=request.getParameter(CodingConstants.COMPONENT_ID)%>&popup=true<%=(lang!=null?"&lid="+lang:"")%>', 'Problem Statement');" class="statLink">new
+                        window</a>)
                     </td>
-                    <td align="right" valign="top">Choose your language:<br>
+                    <td align="right" valign="top">Choose your language:<br/>
                         <tc-webtag:listIterator id="language" listKey="languages" type="com.topcoder.shared.language.Language">
                             <tc-webtag:radioButton name="<%=CodingConstants.LANGUAGE_ID%>" value="<%=String.valueOf(language.getId())%>"/>
                             &#160;
                             <jsp:getProperty name="language" property="name"/>
                             &#160;
-                        </tc-webtag:listIterator><br>
+                        </tc-webtag:listIterator><br/>
                         <%
                             if (request.getAttribute(CodingConstants.FORUM_ID) != null) {
                         %>
@@ -123,7 +123,7 @@ Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
                 <tr>
                     <td>
                         <div style="float:left; padding: 5px 5px 0px 0px;">
-                            <ci:sponsorImage image="<%=CodingConstants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
+                            &nbsp;
                         </div>
                     </td>
                     <td align="right" valign="top">
