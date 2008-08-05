@@ -34,12 +34,13 @@ public class CurrentPredictions extends BaseProcessor {
         // sort result
         sortResult(rsc);
 
+        getRequest().setAttribute("list", makeList(rsc));
+
         // crop result
         rsc = cropResult(rsc);
 
         getRequest().setAttribute("results", rsc);
         
-        getRequest().setAttribute("list", makeList(rsc));
 
         setNextPage("/latestPrediction.jsp");
         setIsNextPageInContext(true);

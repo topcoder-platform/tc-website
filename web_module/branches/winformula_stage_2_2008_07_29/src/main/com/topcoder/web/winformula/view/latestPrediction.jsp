@@ -50,6 +50,12 @@
 com.topcoder.util.format.ObjectFormatter formatter = com.topcoder.util.format.ObjectFormatterFactory.getPlainFormatter();
 %>
             <p:dataPaging pageSize="10" data="<%= (Collection) request.getAttribute("list") %>" id="pager">
+                <p:firstPageLink defaultText="&lt;&lt; First" />
+                <p:prevPageLink defaultText="&lt; Previous" />
+                <p:jumpLinks prefix="" suffix="&nbsp;" />
+                <p:nextPageLink defaultText="Next &gt;" />
+                <p:lastPageLink defaultText="Last &gt;&gt;" />
+        
                 <p:ifEmpty>
                     No search results were found
                 </p:ifEmpty>
@@ -57,7 +63,7 @@ com.topcoder.util.format.ObjectFormatter formatter = com.topcoder.util.format.Ob
                     <p:table sorting="true" groupSpan="1" renderer="GroupSpan" rowCommands="Delete" 
                         commandHandler="handleRowDeletion">
                         <!-- Display the table header, with column names as links -->
-                        <p:header styleClass="">
+                        <p:header>
                             <p:column name="Home Team" index="1" />
                             <p:column name="Away Team" index="2" />
                             <p:column name="Pred. Score" index="3" />
