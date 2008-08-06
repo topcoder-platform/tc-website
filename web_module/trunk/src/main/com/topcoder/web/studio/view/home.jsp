@@ -27,6 +27,9 @@ ding="utf-8"?>
     <script type="text/javascript" src="/js/v2/popup.js"></script>
     <script type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
     <script type="text/javascript" src="/js/thickbox-3.1/thickbox-compressed-3.1.js"></script>
+    <script type="text/JavaScript" src="/js/RSSProcessor.js"> </script>
+    <script type='text/JavaScript' src='/js/AJAXProcessor.js'> </script>
+    <!--script type='text/javascript' src='http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js'></script-->
     <link rel="stylesheet" href="/js/thickbox-3.1/thickbox-3.1.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="/css/v2/home.css" media="all" type="text/css"/>
 </head>
@@ -36,7 +39,7 @@ ding="utf-8"?>
 <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 
-<body>
+<body onLoad=loadNews()>
 
 <div align="center">
 <div id="wrapper">
@@ -255,18 +258,24 @@ ding="utf-8"?>
     </div>
 
     <!-- news box -->
-    <div class="newsBox">
-        <h2>WHAT'S NEW</h2>
-        <ul>
-             <li><b>LendingTree Banner Design Contest (Phase 2)</b>
-                  Maxsense won $1,100 for 11 winning banner designs PLUS a bonus of $300 for the most winning designs, for a total of $1400! Twelve other submissions from our members were also purchased, for a total prize payout of $2,600 in this contest.
-             </li>
-             <li><b>Congratulations to oninkxronda</b>, the TCO08 Studio champion and winner of the $20,000 grand prize! After eight weeks of online competitions,
-             the twelve finalists competed during the week of May 12, 2008 in Las Vegas for a total prize purse of $45,000. Be sure to check out the blog,
-             photos and videos from the event at the <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco08&d3=studio&d4=description" target="_blank">TCO08 website</a>!
-            </li>
-        </ul>
-        <div></div>
+    <div id="newsBox" class="newsBox">
+     </div>
+
+     <div>
+	<script>
+	   function loadNews() {
+              var rss = "rss/?feed=rss2";
+              var template = "js/WhatsNewTemplate.txt";
+	      try {
+              var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
+              document.getElementById("newsBox").innerHTML = (processor.transformRSSFeed(rss));
+	      } catch (e) {
+
+              document.getElementById("newsBox").innerHTML = "Error reading news";
+	 	throw e;
+	      }
+	   }
+	</script>
     </div>
 
     <!-- designer box -->
