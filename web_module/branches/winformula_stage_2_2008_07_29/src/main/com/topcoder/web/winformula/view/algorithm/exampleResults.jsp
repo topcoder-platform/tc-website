@@ -42,14 +42,14 @@
         <div class="sub-navigation"><a href="?module=ManageMyAlgorithms">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredicitions">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
         <h1>Example Results</h1>
           
-        <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId="${requestScope['coderId']}"/></span>
+        <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId="${requestScope['cr']}"/></span>
         <br/>
         <span class="bodySubtitle">Submission: ${submission.number}</span>
         <br/>
         <hr/>
 
             
-            <logic:iterate name="results" id="result" scope="request" indexId="i" type="com.topcoder.server.ejb.TestServices.LongTestResult.LongTestResult">
+            <logic:iterate name="results" id="result" scope="request" indexId="i" type="com.topcoder.server.ejb.TestServices.LongTestResult">
                 <h2>${i}) Score: ${result.score}
                     Run Time: ${result.processingTime} ms
                 </h2>
@@ -67,7 +67,7 @@
                 </p>
                 <p>
                     <span class="bodySubtitle">Standard Error: </span><br />
-                    <pre><c:out value="${result.stdError}"/></pre>
+                    <pre><c:out value="${result.stdErr}"/></pre>
                 </p>
                 <p>
                 <span class="bodySubtitle">Result: </span><br />

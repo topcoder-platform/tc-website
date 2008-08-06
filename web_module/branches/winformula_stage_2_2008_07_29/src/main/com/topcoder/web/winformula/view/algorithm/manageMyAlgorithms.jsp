@@ -84,7 +84,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                             <td><tc-webtag:format object="${submission.time}" format="MM.dd.yyyy HH:mm:ss"/></td>
                             <td class="alignCenter">
                                 <c:if test="${submission.example}">
-                                    <a href="?ViewExampleResults&${roundSubmission}">Example Results</a>
+                                    <a href="?module=ViewExampleResults&${roundSubmission}">Example Results</a>
                                 </c:if>
                                 &nbsp;
                             </td>
