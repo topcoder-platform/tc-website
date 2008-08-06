@@ -44,7 +44,7 @@
           
         <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId="${cr}"/></span>
         <br/>
-        <span class="bodySubtitle"><a href="?module=ViewProblemSolution&rd=${rd}&subnum=${subnum}">Submission: ${subnum}</a></span>
+        <span class="bodySubtitle">Submission: <a href="?module=ViewProblemSolution&rd=${rd}&subnum=${subnum}">${subnum}</a></span>
         <br/>
         <hr/>
 
