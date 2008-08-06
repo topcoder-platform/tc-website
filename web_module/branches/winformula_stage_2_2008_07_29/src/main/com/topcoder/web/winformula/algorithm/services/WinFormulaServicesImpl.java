@@ -300,4 +300,27 @@ public class WinFormulaServicesImpl {
             DBUtils.endDBBlock();
         }
     }
+
+    public int getLastSubmissionNumberFor(int roundId, int coderId) throws WinFormulaServicesException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            Connection cnn = DBUtils.initDBBlock();
+            String cmd= "SELECT submission_number " +
+                        " FROM  long_component_state cs" +
+                        " WHERE cs.round_id = ? AND cs.coder_id = ?";
+            ps = cnn.prepareStatement(cmd);
+            ps.setInt(1, roundId);
+            ps.setInt(2, coderId);
+            rs = ps.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        } catch (Exception e) {
+            log.error("Could not process required method", e);
+            throw new WinFormulaServicesException("INTERNAL_SERVER");
+        } finally {
+            DBMS.close(ps, rs);
+            DBUtils.endDBBlock();
+        }
+    }
 }
