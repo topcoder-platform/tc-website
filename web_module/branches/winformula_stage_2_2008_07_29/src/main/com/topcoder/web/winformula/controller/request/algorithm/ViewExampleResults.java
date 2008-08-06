@@ -34,14 +34,17 @@ public class ViewExampleResults extends Base {
             int coderId = getUserID();
             int roundId = Integer.parseInt(request.getParameter(CodingConstants.ROUND_ID));
             log.debug("coder: " + coderId + " user " + getUser().getId());
+            int subnum = getService().getLastSubmissionNumberFor(roundId, coderId);
             LongTestResult[] results = LongContestServicesLocator.getService().getLongTestResults(roundId, coderId, Constants.COMPONENT_ID_DEFAULT, LongContestServices.LONG_TEST_RESULT_TYPE_NON_SYSTEM);
-            request.setAttribute(CodingConstants.CODER_ID, new Integer(coderId));
             for (int i = 0; i < results.length; i++) {
                 LongTestResult r = results[i];
                 Object o = r.getResultObject();
                 r.setResultObject(resolvePredictions(o));
             }
+            request.setAttribute(CodingConstants.CODER_ID, new Integer(coderId));
             request.setAttribute("results", Arrays.asList(results));
+            request.setAttribute(CodingConstants.ROUND_ID, new Integer(roundId));
+            request.setAttribute(CodingConstants.SUBMISSION_NUMBER, new Integer(subnum));
             setNextPage(Constants.PAGE_VIEW_EXAMPLE_RESULTS);
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
