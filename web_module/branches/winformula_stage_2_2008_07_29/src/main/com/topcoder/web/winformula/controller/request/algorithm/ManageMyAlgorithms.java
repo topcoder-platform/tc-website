@@ -2,9 +2,7 @@ package com.topcoder.web.winformula.controller.request.algorithm;
 
 import java.util.List;
 
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
@@ -17,9 +15,6 @@ public class ManageMyAlgorithms extends Base {
     private static final WinFormulaServicesImpl services = new WinFormulaServicesImpl();
 
     protected void longContestProcessing() throws TCWebException {
-        if (getUser().isAnonymous()) {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        }
         try {
             TCRequest request = getRequest();
             if (isUserRegisteredInContest(getContestID(), getContestID())) {

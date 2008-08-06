@@ -12,8 +12,8 @@ import com.topcoder.shared.common.ServicesConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.winformula.algorithm.CodingConstants;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.winformula.algorithm.CodingConstants;
 
 /**
  * @author dok

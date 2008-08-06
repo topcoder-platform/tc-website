@@ -40,16 +40,23 @@ import com.topcoder.web.winformula.algorithm.services.WinFormulaServicesImpl;
  * @version $Revision$ $Date$
  */
 public abstract class Base extends BaseProcessor {
-    protected static final Logger log = Logger.getLogger(Base.class);
+    protected final Logger log = Logger.getLogger(getClass());
     private static final Set locks = new HashSet();
     private WinFormulaServicesImpl service = new WinFormulaServicesImpl();
 
     protected void businessProcessing() throws Exception {
+        long st = 0;
         try {
+            if (log.isDebugEnabled()) {
+                st = System.currentTimeMillis();
+            }
             DBUtils.initDBBlock();
             longContestProcessing();
         } finally {
             DBUtils.endDBBlock();
+        }
+        if (log.isDebugEnabled()) {
+            log.debug("Processor took: " + (System.currentTimeMillis() - st));
         }
     }
 

@@ -3,9 +3,7 @@ package com.topcoder.web.winformula.controller.request.algorithm;
 import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.problem.ProblemComponent;
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
@@ -15,9 +13,6 @@ public class ViewProblemStatement extends Base {
     protected static final Logger log = Logger.getLogger(ViewProblemStatement.class);
 
     protected void longContestProcessing() throws TCWebException {
-        if (getUser().isAnonymous()) {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        }
         try {
             ProblemComponent problemComponent = getService().getProblemComponent(Constants.COMPONENT_ID_DEFAULT);
             int languageId = resolveLanguage();

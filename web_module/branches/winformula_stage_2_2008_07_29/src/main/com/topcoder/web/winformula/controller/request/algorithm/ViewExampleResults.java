@@ -10,9 +10,7 @@ import java.util.Arrays;
 import com.topcoder.server.ejb.TestServices.LongContestServices;
 import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
 import com.topcoder.server.ejb.TestServices.LongTestResult;
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.winformula.Constants;
@@ -26,10 +24,6 @@ public class ViewExampleResults extends Base {
     protected static final Logger log = Logger.getLogger(ViewExampleResults.class);
 
     protected void longContestProcessing() throws TCWebException {
-        if (getUser().isAnonymous()) {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        }
-        
         try {
             TCRequest request = getRequest();
             int coderId = getUserID();
