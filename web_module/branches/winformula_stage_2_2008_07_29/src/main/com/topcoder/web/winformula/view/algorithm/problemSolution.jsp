@@ -82,7 +82,7 @@
         <div class="sub-navigation"><a href="?module=ManageMyAlgorithms">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredicitions">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
         <h1>Problem Solution</h1>
           
-        <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId="${requestScope['coderId']}"/></span>
+        <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId="${cr}"/></span>
         <br/>
         <span class="bodySubtitle">Submission: ${submission.number}</span>
         <br/>

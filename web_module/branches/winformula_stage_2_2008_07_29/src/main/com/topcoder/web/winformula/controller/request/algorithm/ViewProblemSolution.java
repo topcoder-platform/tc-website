@@ -26,7 +26,7 @@ public class ViewProblemSolution extends Base {
             
             LongSubmissionData submission = LongContestServicesLocator.getService().getSubmission(roundId, coderId, Constants.COMPONENT_ID_DEFAULT, false, submissionNumber);
             request.setAttribute("submission", submission);
-            request.setAttribute("coderId", new Integer(coderId));
+            request.setAttribute(CodingConstants.CODER_ID, new Integer(coderId));
             setNextPage(Constants.PAGE_PROBLEM_SOLUTION);
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
