@@ -61,7 +61,7 @@ com.topcoder.util.format.ObjectFormatter formatter = com.topcoder.util.format.Ob
                     No search results were found
                 </p:ifEmpty>
                 <p:page>
-                    <p:table sorting="true" renderer="GroupSpan">
+                    <p:table sorting="true" renderer="customRenderer">
                         <!-- Display the table header, with column names as links -->
                         <p:header>
                             <p:column name="Home Team" index="1" />

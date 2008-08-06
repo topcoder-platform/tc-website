@@ -41,6 +41,7 @@ public class CurrentPredictions extends BaseProcessor {
 
         getRequest().setAttribute("results", rsc);
         
+        getRequest().setAttribute("customRenderer", new SimpleEvenOddRowRenderer());
 
         setNextPage("/latestPrediction.jsp");
         setIsNextPageInContext(true);
