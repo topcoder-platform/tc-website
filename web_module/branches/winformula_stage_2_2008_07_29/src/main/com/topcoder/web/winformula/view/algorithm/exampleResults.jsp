@@ -71,6 +71,55 @@
             <p>
             <span class="bodySubtitle">Result: </span><br />
                 <pre><c:out value="${result.resultObject}"/></pre>
+
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
+                  <tr class="resultTH">
+                    <th scope="col"><a href="#">Home Team</a></th>
+                    <th scope="col"><a href="#">Away Team</a></th>
+                    <th scope="col" class="center">Pred. Score</th>
+                    <th scope="col" class="center">Actual Score</th>
+
+                    <th scope="col" class="center"><a href="#">Picked Winner</a></th>
+                    <th scope="col" class="center"><a href="#">Total Score Variance</a></th>
+                    <th scope="col" class="center"><a href="#">Victory Margin Variance</a></th>
+                    <th scope="col" class="center"><a href="#">Points</a></th>
+                  </tr>
+                  <% boolean even = true;%>
+                  <c:forEach items="${result.resultObject.predictions}" var="predictionItem" varStatus="status">
+                      <tr class="<%=even?"alt":""%>">
+                          <c:choose>
+                              <c:when test="${predictionItem.realResult.homeScore > predictionItem.realResult.awayScore}">
+                                    <td><strong class="green">${predictionItem.homeTeamName}</strong></td>
+                                    <td>${predictionItem.awayTeamName}</td>
+                              </c:when>
+                              <c:when test="${predictionItem.realResult.homeScore < predictionItem.realResult.awayScore}">
+                                    <td>${predictionItem.homeTeamName}</td>
+                                    <td><strong class="green">${predictionItem.awayTeamName}</strong></td>
+                              </c:when>
+                              <c:otherwise>
+                                    <td><strong class="green">${predictionItem.homeTeamName}</strong></td>
+                                    <td><strong class="green">${predictionItem.awayTeamName}</strong></td>
+                              </c:otherwise>
+                          </c:choose>
+                          <td class="alignCenter">${predictionItem.predictedResult.homeScore}-${predictionItem.predictedResult.awayScore}</td>
+                          <td class="alignCenter">${predictionItem.realResult.homeScore}-${predictionItem.realResult.awayScore}</td>
+                          <td class="alignCenter">
+                              <c:choose>
+                                  <c:when test="${predictionItem.pickedWinner}">
+                                        <img src="images/icoChecked.png" alt="" />
+                                  </c:when>
+                                  <c:otherwise>
+                                        &nbsp;
+                                  </c:otherwise>
+                              </c:choose>
+                          </td>
+                          <td class="alignCenter">12</td>
+                          <td class="alignCenter">4</td>
+                          <td class="alignCenter">${predictionItem.score}</td>
+                      </tr>
+                    <%even = !even;%>
+                  </c:forEach>
+                </table>
             </p>
             <hr />
         <%-- Main Content --%>

@@ -56,4 +56,11 @@ public class PredictionItem implements Serializable {
     public String toString() {
         return "{home="+homeTeamName+", away="+awayTeamName+", score="+score+", predicted="+predictedResult+", real="+realResult+"}";
     }
+    
+    public Boolean getPickedWinner() {
+        int real = realResult.getHomeScore() - realResult.getAwayScore();
+        int pred = predictedResult.getHomeScore() - predictedResult.getAwayScore();
+
+        return ((real > 0 && pred > 0) || (real < 0 && pred < 0) || (real == 0 && pred == 0)); 
+    }
 }
