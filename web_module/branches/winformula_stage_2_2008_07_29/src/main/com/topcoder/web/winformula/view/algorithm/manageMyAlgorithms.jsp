@@ -101,14 +101,21 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                                 </c:if>
                                 &nbsp;
                             </td>
+                            <td class="alignCenter">
+                                <c:if test="${submission.lockedIn}">
+                                   <img src="/i/home/icons/v2/survey.png" alt="Locked submission"/>
+                                </c:if>
+                                <c:if test="${submission.inQueue}">
+                                   <img src="/i/home/icons/v2/analysis.png" alt="In Queue"/>
+                                </c:if>
+                                &nbsp;
+                            </td>
                             <c:choose>
                                 <c:when test="${submission.lockedIn}">
-                                    <td class="alignCenter"><img src="/i/home/icons/v2/survey.png"/></td>
                                     <td class="alignCenter"><c:if test="${submission.accuracy != -1}">${submission.accuracy}</c:if></td>
                                     <td class="alignCenter"><c:if test="${submission.accuracy != -1}"><a href="?module=ViewPicks&${roundSubmission}">View Picks</a>&nbsp;</c:if></td>
                                 </c:when>
                                 <c:otherwise>
-                                    <td class="alignCenter">&nbsp;</td>
                                     <td class="alignCenter">&nbsp;</td>
                                     <td class="alignCenter">&nbsp;</td>
                                 </c:otherwise>
