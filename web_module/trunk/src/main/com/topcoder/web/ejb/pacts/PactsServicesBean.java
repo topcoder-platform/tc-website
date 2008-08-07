@@ -5537,8 +5537,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" and pi_name.project_id = p.project_id ");
         query.append(" and pi_name.project_info_type_id = 6 ");
         query.append(" and " + filterCondition("pi_name.value", search));
-        if (categroyId > 0) {
-            query.append(" and p.project_category_id = " + categroyId);        	
+        if (categoryId > 0) {
+            query.append(" and p.project_category_id = " + categoryId);        	
         }
         query.append(" order by pi_rated.value ");
 
