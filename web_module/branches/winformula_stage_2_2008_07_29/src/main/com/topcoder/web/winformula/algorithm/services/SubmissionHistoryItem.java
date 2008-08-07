@@ -26,10 +26,11 @@ public class SubmissionHistoryItem {
 
     private double accuracy;
     private boolean inQueue;
+    private boolean hasPrediction;
 
     
     public SubmissionHistoryItem(int submissionNumber, Date submissionTime, int roundId, String roundName,
-            boolean examplesForSubmission, double examplePoints, boolean lockedIn, double accuracyPercentage, boolean inqueue) {
+            boolean examplesForSubmission, double examplePoints, boolean lockedIn, double accuracyPercentage, boolean inqueue, boolean hasPrediction) {
         this.number = submissionNumber;
         this.time = submissionTime;
         this.roundId = roundId;
@@ -39,6 +40,7 @@ public class SubmissionHistoryItem {
         this.lockedIn = lockedIn;
         this.accuracy = accuracyPercentage;
         this.inQueue = inqueue;
+        this.hasPrediction = hasPrediction;
     }
 
     public int getNumber() {
@@ -77,4 +79,7 @@ public class SubmissionHistoryItem {
         return inQueue;
     }
 
+    public boolean isHasPrediction() {
+        return hasPrediction;
+    }
 }

@@ -51,6 +51,7 @@ public class WinFormulaServicesImpl {
                          + "     , EXISTS(SELECT coder_id FROM long_system_test_result ltr "
                          + "              WHERE ltr.round_id = r.round_id AND ltr.coder_id = cs.coder_id AND" 
                          + "                    ltr.submission_number = s.submission_number AND test_action = 10) as example"
+                         + "     , p.coder_id" 
                          + "  FROM long_submission s"
                          + "     , long_component_state cs"
                          + "     , round r"
@@ -86,6 +87,7 @@ public class WinFormulaServicesImpl {
                     accuracy = -1;
                 }
                 boolean example = rs.getBoolean(9);
+                boolean hasPrediction = DBUtils.getInt(rs, 10) != null;
                 boolean inqueue = (statusId == ContestConstants.NOT_CHALLENGED);
                 if (prvRoundId != roundId && prvSubmission == submissionNumber && !list.isEmpty()) {
                     SubmissionHistoryItem lastOne = list.getLast();
@@ -94,7 +96,7 @@ public class WinFormulaServicesImpl {
                         list.removeLast();
                     }
                 }
-                list.add(new SubmissionHistoryItem(submissionNumber, new Date(submitTime), roundId, name, example, submissionPoints, lockedIn, accuracy, inqueue));
+                list.add(new SubmissionHistoryItem(submissionNumber, new Date(submitTime), roundId, name, example, submissionPoints, lockedIn, accuracy, inqueue, hasPrediction));
                 prvRoundId = roundId;
                 prvSubmission = submissionNumber;
 
