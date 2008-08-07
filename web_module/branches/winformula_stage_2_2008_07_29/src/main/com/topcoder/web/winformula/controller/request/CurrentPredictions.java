@@ -139,6 +139,8 @@ public class CurrentPredictions extends BaseProcessor {
         int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
 
         int sizeBeforeCrop = rsc.size();
+        getRequest().setAttribute("totalSize", sizeBeforeCrop);
+        
         if (!full) {
             // crops data
             rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank), endRank);

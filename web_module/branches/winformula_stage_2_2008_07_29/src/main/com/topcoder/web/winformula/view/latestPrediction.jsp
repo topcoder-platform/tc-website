@@ -21,7 +21,7 @@
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
     <script type="text/javascript">
-        function submitEnter(e) {
+       function submitEnter(e) {
             var keycode;
             if (window.event) keycode = window.event.keyCode;
             else if (e) keycode = e.which;
@@ -41,6 +41,20 @@
         function previous() {
             var myForm = document.resultsForm;
             myForm.<%=DataAccessConstants.START_RANK%>.value =<%=((java.util.Map) request.getAttribute("processor_defaults")).get(DataAccessConstants.START_RANK)%>  - parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.submit();
+        }
+        function first() {
+            var myForm = document.resultsForm;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = '1';
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.submit();
+        }
+        function last() {
+            var myForm = document.resultsForm;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = sizeBeforeCrop - (sizeBeforeCrop % parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value));
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
             myForm.submit();
@@ -80,15 +94,16 @@ List<ObjectFormatter> formatters = (List<ObjectFormatter>) request.getAttribute(
 %>
                 <% boolean even = true;%>
 
-            <form name="resultsForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
-            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewLeaderBoard"/>
+            <form name="resultsForm" action="${sessionInfo.servletPath}" method="get">
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CurrentPredictions"/>
             <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
             <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
                 
                 <div class="pagingBox">
                     <c:choose>
                         <c:when test="${croppedDataBefore}">
-                            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+                            <a href="Javascript:first()" class="bcLink">&lt;&lt; first</a> |
+                            <a href="Javascript:previous()" class="bcLink">&lt; prev</a>
                         </c:when>
                         <c:otherwise>
                             &lt;&lt; prev
@@ -97,7 +112,8 @@ List<ObjectFormatter> formatters = (List<ObjectFormatter>) request.getAttribute(
                     |
                     <c:choose>
                         <c:when test="${croppedDataAfter}">
-                            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+                            <a href="Javascript:next()" class="bcLink">next &gt;</a> |
+                            <a href="Javascript:last()" class="bcLink">last &gt;&gt;</a>
                         </c:when>
                         <c:otherwise>
                             next &gt;&gt;
