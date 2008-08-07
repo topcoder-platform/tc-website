@@ -34,7 +34,6 @@ public class ViewExampleResults extends Base {
             
             String selectedWeek = StringUtils.checkNull(request.getParameter("week"));
 
-            setDefault("selectedWeek", selectedWeek);
             
             int coderId = getUserID();
             int roundId = Integer.parseInt(request.getParameter(CodingConstants.ROUND_ID));
@@ -62,6 +61,7 @@ public class ViewExampleResults extends Base {
                 result.setResultObject(predictions.get(weekIndex));
             }
 
+            setDefault("week", "Week " + selectedWeek);
             
             request.setAttribute(CodingConstants.CODER_ID, new Integer(coderId));
             request.setAttribute("result", result);

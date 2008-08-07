@@ -25,17 +25,6 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
-    <script type="text/javascript">
-        function changePeriod() {
-            var myForm = document.resultsForm;
-            <c:if test="${fn:length(results) > 0}">
-                myForm.<%=DataAccessConstants.START_RANK%>.value = '';
-                myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '';
-                myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '';
-            </c:if>
-            document.leaderBoardForm.submit()
-        }
-    </script>
 </head>
 
 <body>
@@ -88,7 +77,7 @@
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewExampleResults"/>
                 <tc-webtag:hiddenInput name="rd"/>
                 <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
-                    list="${viewSubmissionAnswers}" useTopValue="false"/>
+                    list="${weekNames}" useTopValue="true"/>
 
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
                   <tr class="resultTH">
