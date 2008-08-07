@@ -60,7 +60,7 @@
             }
         }
     </SCRIPT>
-
+    <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
     <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="adminForm">
         <tc-webtag:hiddenInput name="<%=CodingConstants.MODULE%>" value="AdminForceSubmit"/>
         <%
@@ -73,7 +73,7 @@
 
         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
 
-            <tr><td><a href="?<%=CodingConstants.MODULE%>=AdminHome">Back to the Long Contest Admin Home</a></td></tr>
+            <tr><td><a href="?<%=CodingConstants.MODULE%>=SecureStatic&d1=admin">Back to the Long Contest Admin Home</a></td></tr>
 
             <tr>
                 <td>

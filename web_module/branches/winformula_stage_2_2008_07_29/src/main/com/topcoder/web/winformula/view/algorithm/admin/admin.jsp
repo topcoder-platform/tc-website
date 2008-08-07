@@ -11,30 +11,23 @@
                 com.topcoder.web.winformula.algorithm.CodingConstants,
                 java.util.Date"
         %>
-<%@ page import="com.topcoder.web.common.StringUtils" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.HashMap" %>
-
-
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>ESPN Winning Formula Challenge :: Powered by TopCoder - Submit</title>
+    <title>ESPN Winning Formula Challenge :: Powered by TopCoder - Manage My Algorithms</title>
     <%-- Meta Tags --%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
-    <jsp:include page="/script.jsp"/>
 </head>
 
 <body>
     <div id="wrapper">
     <%-- Wrapper --%>
-
         <jsp:include page="/nav.jsp">
         <jsp:param name="tabLev1" value="manage" />
         <jsp:param name="tabLev2" value="" />
@@ -45,13 +38,10 @@
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-
-        <p><a href="?<%=CodingConstants.MODULE%>=SecureStatic&d1=admin">Back to the Long Contest Admin Home</a></p>
-        <p>
-            <pre>
-                <%=request.getAttribute(CodingConstants.MESSAGE)%>
-            </pre>
-        </p>
+        Resubmit <a href="?module=ViewAdminForceSubmit&rd=30834">mini-season 1</a>
+        Resubmit <a href="?module=ViewAdminForceSubmit&rd=30835">mini-season 2</a>
+        Resubmit <a href="?module=ViewAdminForceSubmit&rd=30836">mini-season 3</a>
+        Resubmit <a href="?module=ViewAdminForceSubmit&rd=30837">mini-season 4</a>
 
         <%-- Main Content --%>
         </div>
