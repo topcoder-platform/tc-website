@@ -217,12 +217,15 @@ public abstract class Base extends BaseProcessor {
     
     public void generateRounds() throws WinFormulaServicesException {
         //Get all rounds mini-seasons
+        String initialPreviousName = "Training Camp";
         if (getRequest().getAttribute("rounds") == null) {
             ResultSetContainer rounds = getService().getRoundsByContest(getContestID());
             getRequest().setAttribute("rounds", rounds);
             Iterator<ResultSetRow> it = rounds.iterator();
             while (it.hasNext()) {
                 ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
+                getRequest().setAttribute("previousRoundName"+row.getIntItem("round_id"), initialPreviousName);
+                initialPreviousName = row.getStringItem("name");
                 if (row.getBooleanItem("coding_phase")) {
                     getRequest().setAttribute("currentRound", row);
                 }

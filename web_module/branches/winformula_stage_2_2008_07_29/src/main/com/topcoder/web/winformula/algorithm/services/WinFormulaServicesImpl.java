@@ -99,7 +99,6 @@ public class WinFormulaServicesImpl {
                 list.add(new SubmissionHistoryItem(submissionNumber, new Date(submitTime), roundId, name, example, submissionPoints, lockedIn, accuracy, inqueue, hasPrediction));
                 prvRoundId = roundId;
                 prvSubmission = submissionNumber;
-
             }
             return list;
         } catch (Exception e) {
@@ -136,7 +135,7 @@ public class WinFormulaServicesImpl {
             	         "       (current > start_time AND current < rs.end_time) as coding_phase, (current < rs.start_time) as future" + 
                          " FROM round_segment rs, round r " +
                          " WHERE rs.round_id = r.round_id and rs.segment_id = 2 and r.contest_id = ?" +
-                         " ORDER BY 2";
+                         " ORDER BY 1";
             ps = cnn.prepareStatement(cmd);
             ps.setInt(1, contestId);
             rs = ps.executeQuery();
