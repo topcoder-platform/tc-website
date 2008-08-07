@@ -165,11 +165,11 @@ public abstract class Base extends BaseProcessor {
     }
 
     public DataAccessInt getDataAccess() throws Exception {
-        return getDataAccess(DBMS.OLTP_DATASOURCE_NAME, false);
+        return getDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME, false);
     }
 
     public DataAccessInt getDataAccess(boolean cached) throws Exception {
-        return getDataAccess(DBMS.OLTP_DATASOURCE_NAME, cached);
+        return getDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME, cached);
     }
 
     public DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
