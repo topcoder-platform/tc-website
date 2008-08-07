@@ -1,6 +1,8 @@
 <%@ page import="java.util.Collection" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.winformula.Constants" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.topcoder.util.format.ObjectFormatter" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -47,7 +49,7 @@
 
 <!-- Prepares some collection data and formatter -->
 <%
-com.topcoder.util.format.ObjectFormatter formatter = com.topcoder.util.format.ObjectFormatterFactory.getPlainFormatter();
+List<ObjectFormatter> formatters = (List<ObjectFormatter>) request.getAttribute("formattersList");
 %>
                 <% boolean even = true;%>
             <p:dataPaging pageSize="10" data="<%= (Collection) request.getAttribute("list") %>" id="pager">
@@ -61,7 +63,7 @@ com.topcoder.util.format.ObjectFormatter formatter = com.topcoder.util.format.Ob
                     No search results were found
                 </p:ifEmpty>
                 <p:page>
-                    <p:table sorting="true" renderer="customRenderer">
+                    <p:table sorting="true" renderer="customRenderer" styleClass="current-data">
                         <!-- Display the table header, with column names as links -->
                         <p:header>
                             <p:column name="Home Team" index="1" />
@@ -70,7 +72,7 @@ com.topcoder.util.format.ObjectFormatter formatter = com.topcoder.util.format.Ob
                         </p:header>
             
                         <!-- Display the tabular data -->
-                        <p:rowData rowStyles="row_Alt,row_Alt"/>
+                        <p:rowData rowStyles="row_Alt,row" formatters="<%= formatters %>"/>
                         
                     </p:table>            
                 </p:page>

@@ -1,6 +1,5 @@
 package com.topcoder.web.winformula.controller.request;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +9,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.util.format.ObjectFormatMethod;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.BaseProcessor;
@@ -46,11 +46,16 @@ public class CurrentPredictions extends BaseProcessor {
         
         getRequest().setAttribute("customRenderer", new SimpleEvenOddRowRenderer());
 
-        List formatters = new ArrayList();
+        List<ObjectFormatter> formatters = new ArrayList<ObjectFormatter>();
         
-        ObjectFormatter a = ObjectFormatterFactory.getEmptyFormatter();
+        ObjectFormatter of = ObjectFormatterFactory.getEmptyFormatter();
+        of.setFormatMethodForClass(WinLooseTeam.class, new WinLooseTeamFormatter(), false);
         
-        DecimalFormat formatter = new DecimalFormat("000");
+        formatters.add(of);
+        formatters.add(of);
+        formatters.add(ObjectFormatterFactory.getPlainFormatter());
+
+        getRequest().setAttribute("formattersList", formatters);
 
         setNextPage("/latestPrediction.jsp");
         setIsNextPageInContext(true);
@@ -59,10 +64,10 @@ public class CurrentPredictions extends BaseProcessor {
     private List<List<String>> makeList(ResultSetContainer rsc) {
         List list = new ArrayList<String>(rsc.size());
         for (ResultSetRow rsr : rsc) {
-            List<String> temp = new ArrayList<String>(3);
-            temp.add(rsr.getStringItem("home"));
-            temp.add("<strong>"+ rsr.getStringItem("visitor") + "<strong>");
-            temp.add(rsr.getStringItem("home_pred") + "- " + rsr.getStringItem("visitor_pred"));
+            List<Object> temp = new ArrayList<Object>(3);
+            temp.add(new WinLooseTeam(rsr.getStringItem("home"), rsr.getIntItem("home_pred") >= rsr.getIntItem("visitor_pred")));
+            temp.add(new WinLooseTeam(rsr.getStringItem("visitor"), rsr.getIntItem("home_pred") <= rsr.getIntItem("visitor_pred")));
+            temp.add(rsr.getStringItem("home_pred") + "-" + rsr.getStringItem("visitor_pred"));
             list.add(temp);
         }
         return list;
@@ -140,5 +145,64 @@ public class CurrentPredictions extends BaseProcessor {
         getRequest().setAttribute(FULL_LIST, full);
         return rsc;
     }
+
+    
+    public class WinLooseTeam {
+        private String name;
+        private Boolean winOrTie;
+
+        
+        public WinLooseTeam() {
+            super();
+        }
+
+        public WinLooseTeam(String name, Boolean winOrTie) {
+            super();
+            this.name = name;
+            this.winOrTie = winOrTie;
+        }
+        /**
+         * @return the name
+         */
+        protected String getName() {
+            return name;
+        }
+        /**
+         * @param name the name to set
+         */
+        protected void setName(String name) {
+            this.name = name;
+        }
+        /**
+         * @return the winOrTie
+         */
+        protected Boolean getWinOrTie() {
+            return winOrTie;
+        }
+        /**
+         * @param winOrTie the winOrTie to set
+         */
+        protected void setWinOrTie(Boolean winOrTie) {
+            this.winOrTie = winOrTie;
+        }
+    }
+    
+    public class WinLooseTeamFormatter implements ObjectFormatMethod {
+
+        public WinLooseTeamFormatter() {
+        }
+
+        public String format( final Object obj )
+        {
+            if ( ! (WinLooseTeam.class).isInstance( obj ) )
+            {
+                throw new IllegalArgumentException();
+            }
+
+            WinLooseTeam wlt = (WinLooseTeam) obj;
+            
+            return wlt.getWinOrTie() ? ("<strong>" + wlt.getName() + "</strong>") : wlt.getName();
+        }
+    }    
 
 }
