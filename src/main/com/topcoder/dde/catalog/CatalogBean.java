@@ -322,7 +322,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         }
 
         searchtext = searchtext.toLowerCase();
-        if (searchtext.equals("")) searchtext = "*";
 
         SearchIterator matches = null;
         
@@ -419,6 +418,11 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 	            query.append(" ) ");
 	        } else {
 	        	// If there are no matches for the search text, return empty list
+	            try {
+	                matches.close();
+	            } catch (Exception e) {
+	            }
+
 	        	return new CatalogSearchView(new ArrayList());
 	        }
         }
@@ -482,7 +486,9 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             } catch (SQLException e) {
             }
             try {
-                matches.close();
+                if (matches != null) {
+                	matches.close();
+                }
             } catch (Exception e) {
             }
         }
