@@ -50,8 +50,6 @@ public class CurrentPredictions extends BaseProcessor {
         
         ObjectFormatter a = ObjectFormatterFactory.getEmptyFormatter();
         
-a.
-        
         DecimalFormat formatter = new DecimalFormat("000");
 
         setNextPage("/latestPrediction.jsp");
