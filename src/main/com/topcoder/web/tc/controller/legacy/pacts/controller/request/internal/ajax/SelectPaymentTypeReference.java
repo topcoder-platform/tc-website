@@ -56,7 +56,12 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                         break;
 
                     case REFERENCE_COMPONENT_PROJECT_ID:
-                        map = dib.findProjects("%" + search + "%");
+                        if (type == ASSEMBLY_COMPETITION_REVIEW || type == ASSEMBLY_PAYMENT) {
+                        	map = dib.findProjects("%" + search + "%", ASSEMBLY_PROJECT_CATEGORY_LU);                        	
+                        } else {
+                        	map = dib.findProjects("%" + search + "%");
+                        }
+                        
                         getRequest().setAttribute(COMPONENT_PROJECT_LIST, map.get(COMPONENT_PROJECT_LIST));
                         field = "component_project_id";
                         break;
