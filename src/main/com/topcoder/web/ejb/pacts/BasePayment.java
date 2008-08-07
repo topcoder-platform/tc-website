@@ -147,6 +147,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case COMPONENT_ENHANCEMENTS_PAYMENT: 
         case SPECIFICATION_REVIEW_PAYMENT: 
         case COMPONENT_BUILD_PAYMENT: 
+        case ASSEMBLY_COMPETITION_REVIEW:
+        case ASSEMBLY_PAYMENT:
             return REFERENCE_COMPONENT_PROJECT_ID;
 
         case PROBLEM_WRITING_PAYMENT:
@@ -215,6 +217,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case SPECIFICATION_REVIEW_PAYMENT: return new SpecificationReviewPayment(coderId, grossAmount, referenceId);
         case REVIEW_BOARD_BONUS_PAYMENT: return new ReviewBoardBonusPayment(coderId, grossAmount, referenceId);
         case COMPONENT_BUILD_PAYMENT: return new ComponentBuildPayment(coderId, grossAmount, referenceId);
+        case ASSEMBLY_COMPETITION_REVIEW: return new AssemblyReviewPayment(coderId, grossAmount, referenceId);
+        case ASSEMBLY_PAYMENT: return new AssemblyPayment(coderId, grossAmount, referenceId, placed);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
     }
