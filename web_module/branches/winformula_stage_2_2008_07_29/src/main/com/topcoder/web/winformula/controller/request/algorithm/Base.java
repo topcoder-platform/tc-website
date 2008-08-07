@@ -222,6 +222,7 @@ public abstract class Base extends BaseProcessor {
             ResultSetContainer rounds = getService().getRoundsByContest(getContestID());
             getRequest().setAttribute("rounds", rounds);
             Iterator<ResultSetRow> it = rounds.iterator();
+            boolean futureSet = false;
             while (it.hasNext()) {
                 ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
                 getRequest().setAttribute("previousRoundName"+row.getIntItem("round_id"), initialPreviousName);
@@ -229,9 +230,9 @@ public abstract class Base extends BaseProcessor {
                 if (row.getBooleanItem("coding_phase")) {
                     getRequest().setAttribute("currentRound", row);
                 }
-                if (row.getBooleanItem("future")) {
+                if (!futureSet && row.getBooleanItem("future")) {
+                    futureSet = true;
                     getRequest().setAttribute("nextRound", row);
-                    break;
                 }
             }
         }
