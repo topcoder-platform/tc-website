@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.topcoder.netCommon.contest.ContestConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.problemParser.ProblemComponentFactory;
@@ -68,7 +69,9 @@ public class WinFormulaServicesImpl {
             ps.setInt(2, coderId);
             rs = ps.executeQuery();
             
-            List<SubmissionHistoryItem> list = new LinkedList();
+            LinkedList<SubmissionHistoryItem> list = new LinkedList();
+            int prvSubmission = -1;
+            int prvRoundId = -1;
             while (rs.next()) {
                 int submissionNumber = rs.getInt(1);;
                 long submitTime = rs.getLong(2);
@@ -76,13 +79,16 @@ public class WinFormulaServicesImpl {
                 int statusId = rs.getInt(4);
                 int roundId = rs.getInt(5);
                 String name = rs.getString(6);
-                boolean lockedIn = rs.getBoolean(7); 
+                //The season is locked in, so the first submission in the season is the one locked
+                boolean lockedIn = prvRoundId != roundId && rs.getBoolean(7);
                 double accuracy = rs.getDouble(8);
                 if (rs.wasNull()) {
                     accuracy = -1;
                 }
                 boolean example = rs.getBoolean(9);
-                boolean inqueue = (statusId == 130);
+                boolean inqueue = (statusId == ContestConstants.NOT_CHALLENGED);
+                prvRoundId = roundId;
+                prvSubmission = submissionNumber;
                 list.add(new SubmissionHistoryItem(submissionNumber, new Date(submitTime), roundId, name, example, submissionPoints, lockedIn, accuracy, inqueue));
             }
             return list;
