@@ -54,6 +54,9 @@ public class ViewExampleResults extends Base {
                 List<Prediction> predictions = resolvePredictions(o);
                 weekNames = getWeekNames(predictions);
                 weekIndex = weekNames.indexOf("Week " + selectedWeek);
+                if (weekIndex == -1) { // if we can't find the requested week, default to the first one 
+                    weekIndex = 0;
+                }
                 result.setResultObject(predictions.get(weekIndex));
             }
 
