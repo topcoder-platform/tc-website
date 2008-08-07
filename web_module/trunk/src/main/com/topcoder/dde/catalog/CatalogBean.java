@@ -324,7 +324,11 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         searchtext = searchtext.toLowerCase();
         if (searchtext.equals("")) searchtext = "*";
 
-        SearchIterator matches = CatalogSearchEngine.getInstance().search(searchtext, 0);
+        SearchIterator matches = null;
+        
+        if (searchtext.trim().length() > 0) { 
+        	matches = CatalogSearchEngine.getInstance().search(searchtext, 0);        	
+        }
 
         Connection c = null;
         PreparedStatement ps = null;
@@ -398,18 +402,25 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             query.append(" ) ");
         }
         List matchesCopy = new ArrayList();
-        if (matches.hasNext()) {
-            Long id = new Long(matches.next());
-            matchesCopy.add(id);
-            query.append(" AND comp.component_id IN(?");
-            elements.add(id);
-            while (matches.hasNext()) {
-                id = new Long(matches.next());
-                matchesCopy.add(id);
-                query.append(",?");
-                elements.add(id);
-            }
-            query.append(" ) ");
+
+        // null matches means that no search is being done by search text
+        if (matches != null) {
+	        if (matches.hasNext()) {
+	            Long id = new Long(matches.next());
+	            matchesCopy.add(id);
+	            query.append(" AND comp.component_id IN(?");
+	            elements.add(id);
+	            while (matches.hasNext()) {
+	                id = new Long(matches.next());
+	                matchesCopy.add(id);
+	                query.append(",?");
+	                elements.add(id);
+	            }
+	            query.append(" ) ");
+	        } else {
+	        	// If there are no matches for the search text, return empty list
+	        	return new CatalogSearchView(new ArrayList());
+	        }
         }
 
         log.debug("elements size: " + elements.size());
@@ -477,9 +488,16 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         }
 
         List results = new ArrayList();
-        for (int i = 0; i < matchesCopy.size(); i++) {
-            Object o = hashedResults.get(matchesCopy.get(i));
-            if (o != null) results.add(o);
+        
+        if (matches != null) {
+	        for (int i = 0; i < matchesCopy.size(); i++) {
+	            Object o = hashedResults.get(matchesCopy.get(i));
+	            if (o != null) results.add(o);
+	        }
+        } else {
+        	for (Object o : hashedResults.values()) {
+	            if (o != null) results.add(o);        		
+        	}
         }
         return new CatalogSearchView(results);
     }
