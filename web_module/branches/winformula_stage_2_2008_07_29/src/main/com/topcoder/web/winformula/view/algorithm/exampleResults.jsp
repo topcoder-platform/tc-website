@@ -69,9 +69,7 @@
                 <pre><c:out value="${result.stdErr}"/></pre>
             </p>
             <p>
-            <span class="bodySubtitle">Result: </span><br />
-                <pre><c:out value="${result.resultObject}"/></pre>
-
+            <span class="bodySubtitle">Result: </span><br/><br/>
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
                   <tr class="resultTH">
                     <th scope="col"><a href="#">Home Team</a></th>
@@ -106,7 +104,7 @@
                           <td class="alignCenter">
                               <c:choose>
                                   <c:when test="${predictionItem.pickedWinner}">
-                                        <img src="images/icoChecked.png" alt="" />
+                                        <img src="/i/home/icons/v2/survey.png" alt="" />
                                   </c:when>
                                   <c:otherwise>
                                         &nbsp;

@@ -58,6 +58,9 @@ public class PredictionItem implements Serializable {
     }
     
     public Boolean getPickedWinner() {
+        if (realResult == null) {
+            return Boolean.FALSE;
+        }
         int real = realResult.getHomeScore() - realResult.getAwayScore();
         int pred = predictedResult.getHomeScore() - predictedResult.getAwayScore();
 
