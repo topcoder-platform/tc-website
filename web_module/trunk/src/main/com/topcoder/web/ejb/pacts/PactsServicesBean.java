@@ -5517,6 +5517,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     public Map findProjects(String search) throws SQLException {
+    	return findProjects(search, -1);
+    }
+    
+    public Map findProjects(String search, int categoryId) throws SQLException {
         StringBuffer query = new StringBuffer(1000);
 
         query.append(" select p.project_id, ");
@@ -5533,6 +5537,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" and pi_name.project_id = p.project_id ");
         query.append(" and pi_name.project_info_type_id = 6 ");
         query.append(" and " + filterCondition("pi_name.value", search));
+        if (categroyId > 0) {
+            query.append(" and p.project_category_id = " + categroyId);        	
+        }
         query.append(" order by pi_rated.value ");
 
 

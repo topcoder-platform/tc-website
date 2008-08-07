@@ -79,5 +79,7 @@ public interface Constants {
 
     public static final int DEFAULT_PAYMENT_METHOD_ID = 1;
     
+    public static final int ASSEMBLY_PROJECT_CATEGORY_LU = 14;
+    
 
 }
