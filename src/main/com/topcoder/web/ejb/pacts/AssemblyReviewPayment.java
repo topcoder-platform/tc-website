@@ -72,9 +72,9 @@ public class AssemblyReviewPayment extends ComponentProjectReferencePayment {
 
             String name = getComponentName(p.getProjectId());
             if (name.toLowerCase().endsWith("assembly competition")) {
-            	name = name.substring(0, name.length() - 2 - "assembly competition".length());
+            	name = name.substring(0, name.length() - 1 - "assembly competition".length());
             } else if (name.toLowerCase().endsWith("assembly")) {
-                name = name.substring(0, name.length() - 2 - "assembly".length());
+                name = name.substring(0, name.length() - 1 - "assembly".length());
             }
             
             return name + " Assembly Review";

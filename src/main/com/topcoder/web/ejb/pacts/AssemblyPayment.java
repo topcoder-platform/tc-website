@@ -94,7 +94,8 @@ public class AssemblyPayment extends ComponentProjectReferencePayment {
         public String lookupDescription(BasePayment payment) throws SQLException {
             ComponentProjectReferencePayment p = (ComponentProjectReferencePayment) payment;
 
-            String name = getComponentName(p.getProjectId());
+            String name = getComponentName(p.getProjectId()).trim();
+            
             if (!name.toLowerCase().endsWith("assembly competition")) {
             	if (name.toLowerCase().endsWith("assembly")) {
             		name = name + " Competition";
