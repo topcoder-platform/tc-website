@@ -357,21 +357,21 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         elements.add(new Long(Category.DELETED));
 
         if (phase.length > 0) {
-            query.append(" AND ( ");
+            query.append(" AND (v.phase_id IN(");
             for (int i = 0; i < phase.length; i++) {
-                query.append(" v.phase_id = ? ");
+            	query.append("?")
                 elements.add(new Long(phase[i]));
-                if (i + 1 < phase.length) query.append(" OR ");
+                if (i + 1 < phase.length) query.append(",");
             }
             query.append(" ) ");
         }
 
         if (catalog.length > 0) {
-            query.append(" AND ( ");
+            query.append(" AND (comp.root_category_id IN( ");
             for (int i = 0; i < catalog.length; i++) {
-                query.append(" comp.root_category_id = ? ");
+                query.append("?");
                 elements.add(new Long(catalog[i]));
-                if (i + 1 < catalog.length) query.append(" OR ");
+                if (i + 1 < catalog.length) query.append(",");
             }
             query.append(" ) ");
         }
@@ -389,11 +389,11 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         }
 
         if (category.length > 0) {
-            query.append(" AND ( ");
+            query.append(" AND cat.category_name IN(");
             for (int i = 0; i < category.length; i++) {
-                query.append(" cat.category_name = ? ");
+                query.append("?");
                 elements.add(category[i]);
-                if (i + 1 < category.length) query.append(" OR ");
+                if (i + 1 < category.length) query.append(", ");
             }
             query.append(" ) ");
         }
@@ -401,17 +401,20 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         if (matches.hasNext()) {
             Long id = new Long(matches.next());
             matchesCopy.add(id);
-            query.append(" AND ( comp.component_id = ? ");
+            query.append(" AND comp.component_id IN(?");
             elements.add(id);
             while (matches.hasNext()) {
                 id = new Long(matches.next());
                 matchesCopy.add(id);
-                query.append(" OR comp.component_id = ? ");
+                query.append(",?");
                 elements.add(id);
             }
             query.append(" ) ");
         }
 
+        log.debug("elements size: " + elements.size());
+        log.debug("query: " + query.toString());
+        
         Map hashedResults = new HashMap();
 
         try {
