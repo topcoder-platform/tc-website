@@ -89,7 +89,7 @@ public class WinFormulaServicesImpl {
                 boolean inqueue = (statusId == ContestConstants.NOT_CHALLENGED);
                 list.add(new SubmissionHistoryItem(submissionNumber, new Date(submitTime), roundId, name, example, submissionPoints, lockedIn, accuracy, inqueue));
                 if (prvRoundId != roundId && prvSubmission == submissionNumber) {
-                    SubmissionHistoryItem lastOne = list.peekLast();
+                    SubmissionHistoryItem lastOne = list.getLast();
                     if (!lastOne.isExample() && !lastOne.isLockedIn()) {
                         //The submission is just an initial copy that may be/was overwriten by the coder
                         list.removeLast();
