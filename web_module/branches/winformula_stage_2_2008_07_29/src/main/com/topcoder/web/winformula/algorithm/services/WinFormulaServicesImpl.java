@@ -87,14 +87,14 @@ public class WinFormulaServicesImpl {
                 }
                 boolean example = rs.getBoolean(9);
                 boolean inqueue = (statusId == ContestConstants.NOT_CHALLENGED);
-                list.add(new SubmissionHistoryItem(submissionNumber, new Date(submitTime), roundId, name, example, submissionPoints, lockedIn, accuracy, inqueue));
-                if (prvRoundId != roundId && prvSubmission == submissionNumber) {
+                if (prvRoundId != roundId && prvSubmission == submissionNumber && !list.isEmpty()) {
                     SubmissionHistoryItem lastOne = list.getLast();
                     if (!lastOne.isExample() && !lastOne.isLockedIn()) {
                         //The submission is just an initial copy that may be/was overwriten by the coder
                         list.removeLast();
                     }
                 }
+                list.add(new SubmissionHistoryItem(submissionNumber, new Date(submitTime), roundId, name, example, submissionPoints, lockedIn, accuracy, inqueue));
                 prvRoundId = roundId;
                 prvSubmission = submissionNumber;
 
