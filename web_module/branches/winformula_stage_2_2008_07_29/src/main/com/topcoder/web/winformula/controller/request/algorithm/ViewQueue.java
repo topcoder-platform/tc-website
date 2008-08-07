@@ -9,8 +9,6 @@ import java.util.Map;
 import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
 import com.topcoder.server.ejb.TestServices.LongTestQueueStatusItem;
 import com.topcoder.shared.common.ServicesConstants;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
@@ -39,7 +37,7 @@ public class ViewQueue extends Base {
                     longSummaryList.add(item);
                     Integer roundId = item.getRoundId();
                     if (!roundTypes.containsKey(roundId)) {
-                        roundTypes.put(roundId, getRoundType(roundId));
+                        roundTypes.put(roundId, new Integer(19));
                     }
                 }
             }
@@ -54,15 +52,4 @@ public class ViewQueue extends Base {
             throw new TCWebException(e);
         }
     }
-
-    private int getRoundType(int roundId) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("get_round_type");
-        r.setProperty(CodingConstants.ROUND_ID, roundId + "");
-
-        ResultSetContainer rsc = getDataAccess(true).getData(r).get("get_round_type");
-
-        return rsc.size() > 0? rsc.getIntItem(0, 0) : 13;
-    }
-
 }
