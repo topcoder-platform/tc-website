@@ -108,7 +108,7 @@
                 <br /><br />
                 
                 <strong>Timing</strong><br />
-                Payments of $25.00 or more are distributed on or before the 15th day of the following month. For example: payments earned between November 1 and November 30 will be sent out on or before December 15.
+                Payments of $25.00 or more are distributed on or before the 15th day of the following month. For example: a payments earned between July 29 (after Noon EDT) and August 25 (before Noon EDT) will be sent out on or before September 15.
                 <br /><br />
                 
                 
@@ -132,110 +132,47 @@
                                 <tr><td class="space" colspan="2">&nbsp;</td></tr>
                                 <tr class="light">
                                     <td class="valueW"><div>&nbsp;</div></td>
-                                    <td class="value">January 1-30</td>
-                                    <td class="value">February 15, 2008</td>
-                            
+                                    <td class="value">12:00 NOON on Monday July 28th<br />- 12:00 NOON on Monday Aug. 25th</td>
+                                    <td class="value">September 15, 2008</td>
                                     <td class="valueE"><div>&nbsp;</div></td>
                                 </tr>
                                 
                                 <tr><td class="space" colspan="2">&nbsp;</td></tr>
                                 <tr class="dark">
                                     <td class="valueW"><div>&nbsp;</div></td>
-                                    <td class="value">February 1-28</td>
-                                    <td class="value">March 15, 2008</td>
-                                    <td class="valueE"><div>&nbsp;</div></td>
-                                </tr>
-                                
-                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
-                                <tr class="light">
-                                    <td class="valueW"><div>&nbsp;</div></td>
-                                    <td class="value">March 1-31</td>
-                                    <td class="value">April 16, 2008</td>
-                                    <td class="valueE"><div>&nbsp;</div></td>
-                                </tr>
-                                
-                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
-                                <tr class="dark">
-                                    <td class="valueW"><div>&nbsp;</div></td>
-                            
-                                    <td class="value">April 1-30</td>
-                                    <td class="value">May 15, 2008</td>
-                                    <td class="valueE"><div>&nbsp;</div></td>
-                                </tr>
-                                
-                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
-                                <tr class="light">
-                                    <td class="valueW"><div>&nbsp;</div></td>
-                                    <td class="value">May 1-31</td>
-                            
-                                    <td class="value">June 15, 2008</td>
-                                    <td class="valueE"><div>&nbsp;</div></td>
-                                </tr>
-                                
-                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
-                                <tr class="dark">
-                                    <td class="valueW"><div>&nbsp;</div></td>
-                                    <td class="value">June 1-30</td>
-                                    <td class="value">July 16, 2008</td>
-                            
-                                    <td class="valueE"><div>&nbsp;</div></td>
-                                </tr>
-                                
-                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
-                                <tr class="light">
-                                    <td class="valueW"><div>&nbsp;</div></td>
-                                    <td class="value">July 1-31</td>
-                                    <td class="value">August 15, 2008</td>
-                                    <td class="valueE"><div>&nbsp;</div></td>
-                                </tr>
-                                
-                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
-                                <tr class="dark">
-                                    <td class="valueW"><div>&nbsp;</div></td>
-                                    <td class="value">August 1-31</td>
-                                    <td class="value">September 14, 2008</td>
-                                    <td class="valueE"><div>&nbsp;</div></td>
-                                </tr>
-                                
-                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
-                                <tr class="light">
-                                    <td class="valueW"><div>&nbsp;</div></td>
-                            
-                                    <td class="value">September 1-30</td>
+                                    <td class="value">12:00 NOON on Monday Aug. 25th<br />- 12:00 NOON on Monday Sept. 29th</td>
                                     <td class="value">October 15, 2008</td>
                                     <td class="valueE"><div>&nbsp;</div></td>
                                 </tr>
                                 
                                 <tr><td class="space" colspan="2">&nbsp;</td></tr>
-                                <tr class="dark">
+                                <tr class="light">
                                     <td class="valueW"><div>&nbsp;</div></td>
-                                    <td class="value">October 1-31</td>
-                            
+                                    <td class="value">12:00 NOON on Monday Sept. 29th<br />- 12:00 NOON on Monday Oct. 27th</td>
                                     <td class="value">November 15, 2008</td>
                                     <td class="valueE"><div>&nbsp;</div></td>
                                 </tr>
                                 
                                 <tr><td class="space" colspan="2">&nbsp;</td></tr>
+                                <tr class="dark">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="value">12:00 NOON, Monday Oct. 27th<br />- 12:00 NOON, Monday Nov. 24th</td>
+                                    <td class="value">December 15, 2008</td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
+                                </tr>
+                                
+                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
                                 <tr class="light">
                                     <td class="valueW"><div>&nbsp;</div></td>
-                                    <td class="value">November 1-30</td>
-                                    <td class="value">December 14, 2008</td>
-                            
+                                    <td class="value">12:00 NOON on Monday Nov. 24th<br />- 12:00 NOON, Monday Dec. 29th</td>
+                                    <td class="value">January 15, 2009</td>
                                     <td class="valueE"><div>&nbsp;</div></td>
                                 </tr>
                                 
                                 <tr><td class="space" colspan="2">&nbsp;</td></tr>
                                 <tr class="dark">
                                     <td class="valueW"><div>&nbsp;</div></td>
-                                    <td class="value">December 1-31</td>
-                                    <td class="value">January 15, 2009</td>
-                                    <td class="valueE"><div>&nbsp;</div></td>
-                                </tr>
-                                
-                                <tr><td class="space" colspan="2">&nbsp;</td></tr>
-                                <tr class="light">
-                                    <td class="valueW"><div>&nbsp;</div></td>
-                                    <td class="value" colspan="2">** Note: The date when you actually receive your payment will depend on the payment method you select.</td>
+                                    <td class="value" colspan="2">** Note: Deadlines are 12:00 NOON EDT/EST on each date, above. The date when you actually receive your payment will depend on the payment method you select.</td>
                                     <td class="valueE"><div>&nbsp;</div></td>
                                 </tr>
                                 
