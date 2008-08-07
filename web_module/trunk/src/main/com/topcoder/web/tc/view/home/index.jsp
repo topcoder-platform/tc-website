@@ -320,6 +320,12 @@
 </td>
 </tr>
 </table>
+<%-- TopCoder is Hiring! --%>
+<br />
+<div align="center" style="margin-bottom: 20px;">
+    <a style="display: block; width: 894px; height: 82px;" href="<tc-webtag:linkTracking link='/tc?module=Static&d1=about&d2=jobs' refer='homepage' />"><img src="/i/home/banner_hiring.jpg" alt="TopCoder is Hiring!" style="display: block;" /></a>
+</div>
+
 
 <%-- Footer --%>
 <div style="margin-top: 80px;">
