@@ -1,5 +1,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
+<%@ page import="com.topcoder.web.winformula.Constants" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -23,6 +25,17 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
+    <script type="text/javascript">
+        function changePeriod() {
+            var myForm = document.resultsForm;
+            <c:if test="${fn:length(results) > 0}">
+                myForm.<%=DataAccessConstants.START_RANK%>.value = '';
+                myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '';
+                myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '';
+            </c:if>
+            document.leaderBoardForm.submit()
+        }
+    </script>
 </head>
 
 <body>
@@ -70,6 +83,10 @@
             </p>
             <p>
             <span class="bodySubtitle">Result: </span><br/><br/>
+                <form name="resultsForm" action="${sessionInfo.servletPath}" method="get">
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewExampleResults"/>
+                <tc-webtag:hiddenInput name="rd"/>
+                <tc-webtag:hiddenInput name="week"/>
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
                   <tr class="resultTH">
                     <th scope="col"><a href="#">Home Team</a></th>
@@ -84,7 +101,7 @@
                   </tr>
                   <% boolean even = true;%>
                   <c:forEach items="${result.resultObject.predictions}" var="predictionItem" varStatus="status">
-                      <tr class="<%=even?"alt":""%>">
+                      <tr class="<%=even?"row_Alt":""%>">
                           <c:choose>
                               <c:when test="${predictionItem.realResult.homeScore > predictionItem.realResult.awayScore}">
                                     <td><strong class="green">${predictionItem.homeTeamName}</strong></td>
@@ -94,17 +111,30 @@
                                     <td>${predictionItem.homeTeamName}</td>
                                     <td><strong class="green">${predictionItem.awayTeamName}</strong></td>
                               </c:when>
-                              <c:otherwise>
+                              <c:when test="${not empty predictionItem.realResult and predictionItem.realResult.homeScore == predictionItem.realResult.awayScore}">
                                     <td><strong class="green">${predictionItem.homeTeamName}</strong></td>
                                     <td><strong class="green">${predictionItem.awayTeamName}</strong></td>
+                              </c:when>
+                              <c:otherwise>
+                                    <td>${predictionItem.homeTeamName}</td>
+                                    <td>${predictionItem.awayTeamName}</td>
                               </c:otherwise>
                           </c:choose>
                           <td class="alignCenter">${predictionItem.predictedResult.homeScore}-${predictionItem.predictedResult.awayScore}</td>
-                          <td class="alignCenter">${predictionItem.realResult.homeScore}-${predictionItem.realResult.awayScore}</td>
+                          <td class="alignCenter">
+                              <c:choose>
+                                  <c:when test="${not empty predictionItem.realResult}">
+                                        ${predictionItem.realResult.homeScore}-${predictionItem.realResult.awayScore}
+                                  </c:when>
+                                  <c:otherwise>
+                                        &nbsp;
+                                  </c:otherwise>
+                              </c:choose>
+                          </td>
                           <td class="alignCenter">
                               <c:choose>
                                   <c:when test="${predictionItem.pickedWinner}">
-                                        <img src="/i/home/icons/v2/survey.png" alt="" />
+                                        (x)
                                   </c:when>
                                   <c:otherwise>
                                         &nbsp;

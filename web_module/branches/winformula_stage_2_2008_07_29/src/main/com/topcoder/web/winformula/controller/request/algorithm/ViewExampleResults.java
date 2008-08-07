@@ -11,7 +11,6 @@ import java.util.List;
 import com.topcoder.server.ejb.TestServices.LongContestServices;
 import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
 import com.topcoder.server.ejb.TestServices.LongTestResult;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
@@ -35,8 +34,11 @@ public class ViewExampleResults extends Base {
             
             String selectedWeek = StringUtils.checkNull(request.getParameter("week"));
 
+            setDefault("selectedWeek", selectedWeek);
+            
             int coderId = getUserID();
             int roundId = Integer.parseInt(request.getParameter(CodingConstants.ROUND_ID));
+            setDefault(CodingConstants.ROUND_ID, roundId);
             log.debug("coder: " + coderId + " user " + getUser().getId());
             int subnum = getService().getLastSubmissionNumberFor(roundId, coderId);
             LongTestResult[] results = LongContestServicesLocator.getService().getLongTestResults(roundId, coderId, Constants.COMPONENT_ID_DEFAULT, LongContestServices.LONG_TEST_RESULT_TYPE_NON_SYSTEM);
