@@ -61,7 +61,7 @@ public class SimpleEvenOddRowRenderer implements RowRenderer {
 
         buffer.append(getFormattedOpenRow(rowDataTag));
 
-        buffer.append(getFormattedNonGroupColumns(rowDataTag));
+        buffer.append(getFormattedRow(rowDataTag));
         buffer.append("</tr>");
 
         return buffer.toString();
@@ -84,7 +84,7 @@ public class SimpleEvenOddRowRenderer implements RowRenderer {
         return buffer.toString();
     }
 
-    static String getFormattedNonGroupColumns(RowDataTag rowDataTag) {
+    static String getFormattedRow(RowDataTag rowDataTag) {
         StringBuffer buffer = new StringBuffer();
 
         // Get the current row data List

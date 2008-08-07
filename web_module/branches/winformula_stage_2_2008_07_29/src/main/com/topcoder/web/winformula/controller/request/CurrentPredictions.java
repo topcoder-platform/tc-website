@@ -16,6 +16,7 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SortInfo;
+import com.topcoder.web.tc.model.dr.IBoardRow;
 import com.topcoder.web.winformula.Constants;
 
 /**
@@ -137,11 +138,15 @@ public class CurrentPredictions extends BaseProcessor {
    
         int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
 
+        int sizeBeforeCrop = rsc.size();
         if (!full) {
             // crops data
             rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank), endRank);
         }
             
+        getRequest().setAttribute("croppedDataBefore", new Boolean(Integer.parseInt(startRank) > 1));
+        getRequest().setAttribute("croppedDataAfter", new Boolean(sizeBeforeCrop > Integer.parseInt(startRank) + rsc.size()));
+
         getRequest().setAttribute(FULL_LIST, full);
         return rsc;
     }
