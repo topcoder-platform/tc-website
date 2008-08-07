@@ -69,8 +69,8 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                         <tr class="resultTH">
                             <th class="center">Number</th>
                             <th class="center">Submitted</th>
-                            <th class="center">Examples</a></th>
                             <th class="center">Mini Season</th>
+                            <th class="center">Examples</th>
                             <th class="center">&nbsp;</th>
                             <th class="center">Accuracy</th>
                             <th class="center">Picks</th>
@@ -82,18 +82,18 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                             <c:set var="roundSubmission" value="rd=${submission.roundId}&subnum=${submission.number}"/>
                             <td class="alignCenter"><a href="?module=ViewProblemSolution&${roundSubmission}">${submission.number}</a></td>
                             <td><tc-webtag:format object="${submission.time}" format="MM.dd.yyyy HH:mm:ss"/></td>
+                             <td class="alignCenter">
+                                ${submission.roundName}
+                            </td>
                             <td class="alignCenter">
                                 <c:if test="${submission.example}">
                                     <a href="?module=ViewExampleResults&rd=${submission.roundId}">Example Results</a>
                                 </c:if>
                                 &nbsp;
                             </td>
-                             <td class="alignCenter">
-                                ${submission.roundName}
-                            </td>
                             <c:choose>
                                 <c:when test="${submission.lockedIn}">
-                                    <td class="alignCenter">&nbsp;</td>
+                                    <td class="alignCenter"><img src="/i/home/icons/v2/survey.png"/></td>
                                     <td class="alignCenter"><c:if test="${submission.accuracy != -1}">${submission.accuracy}</c:if></td>
                                     <td class="alignCenter"><c:if test="${submission.accuracy != -1}"><a href="?module=ViewPicks&${roundSubmission}">View Picks</a>&nbsp;</c:if></td>
                                 </c:when>
