@@ -15,5 +15,6 @@ public class CodingConstants extends Constants {
     public static final String LANGUAGES = "languages";
     public static final String QUEUE_LENGTH = "queuelen";
     public static final String SUBMISSION_NUMBER ="subnum";
+    public static final String SUBMISSION_PREFIX = "sub_";
 
  }
