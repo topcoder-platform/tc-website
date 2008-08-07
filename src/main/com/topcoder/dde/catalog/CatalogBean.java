@@ -359,7 +359,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         if (phase.length > 0) {
             query.append(" AND (v.phase_id IN(");
             for (int i = 0; i < phase.length; i++) {
-            	query.append("?")
+            	query.append("?");
                 elements.add(new Long(phase[i]));
                 if (i + 1 < phase.length) query.append(",");
             }
