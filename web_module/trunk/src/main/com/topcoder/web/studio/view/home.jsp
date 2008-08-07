@@ -259,34 +259,53 @@ ding="utf-8"?>
 
     <!-- news box -->
     <div id="newsBox" class="newsBox">
-     </div>
-
-     <div>
-	<script>
-	   function loadNews() {
+    <script>
+       function loadNews() {
               var rss = "rss/?feed=rss2";
               var template = "js/WhatsNewTemplate.txt";
-	      try {
+          try {
               var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
               document.getElementById("newsBox").innerHTML = (processor.transformRSSFeed(rss));
-	      } catch (e) {
+          } catch (e) {
 
               document.getElementById("newsBox").innerHTML = "Error reading news";
-	 	throw e;
-	      }
-	   }
-	</script>
+         throw e;
+          }
+       }
+    </script>
     </div>
+    
+    <%--
+    <div id="newsBox" class="newsBox">
+    </div>
+
+    <div>
+    <script>
+       function loadNews() {
+              var rss = "rss/?feed=rss2";
+              var template = "js/WhatsNewTemplate.txt";
+          try {
+              var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
+              document.getElementById("newsBox").innerHTML = (processor.transformRSSFeed(rss));
+          } catch (e) {
+
+              document.getElementById("newsBox").innerHTML = "Error reading news";
+         throw e;
+          }
+       }
+    </script>
+    </div>
+    --%>
 
     <!-- designer box -->
     <div class="designerBox">
         <h2>DESIGNER OF THE MONTH</h2>
 
         <p>
-            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/djackmania_big.jpg"/>
-            <b>June 2008</b><br />
-            <b>djackmania</b><br />
-            Won 8 contests, for a<br />total of $3950!
+            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/YomiSky_big.jpg"/>
+            <b>July 2008</b><br />
+            <b>YomiSky</b><br />
+            Joined 6/23/08 &amp; has<br />already won $1,475!
         </p>
 
         <div></div>
