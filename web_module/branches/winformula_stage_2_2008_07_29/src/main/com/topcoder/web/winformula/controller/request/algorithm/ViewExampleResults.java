@@ -6,13 +6,14 @@
 package com.topcoder.web.winformula.controller.request.algorithm;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import com.topcoder.server.ejb.TestServices.LongContestServices;
 import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
 import com.topcoder.server.ejb.TestServices.LongTestResult;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.winformula.Constants;
@@ -31,18 +32,36 @@ public class ViewExampleResults extends Base {
     protected void longContestProcessing() throws TCWebException {
         try {
             TCRequest request = getRequest();
+            
+            String selectedWeek = StringUtils.checkNull(request.getParameter("week"));
+
             int coderId = getUserID();
             int roundId = Integer.parseInt(request.getParameter(CodingConstants.ROUND_ID));
             log.debug("coder: " + coderId + " user " + getUser().getId());
             int subnum = getService().getLastSubmissionNumberFor(roundId, coderId);
             LongTestResult[] results = LongContestServicesLocator.getService().getLongTestResults(roundId, coderId, Constants.COMPONENT_ID_DEFAULT, LongContestServices.LONG_TEST_RESULT_TYPE_NON_SYSTEM);
-            for (int i = 0; i < results.length; i++) {
-                LongTestResult r = results[i];
-                Object o = r.getResultObject();
-                r.setResultObject(resolvePredictions(o));
+            
+            LongTestResult result = null;
+
+            List<String> weekNames = new ArrayList<String>(0);
+
+            int weekIndex = 0;
+            if (results.length > 0) {
+                result = results[0];
+                Object o = result.getResultObject();
+
+                // process predictions
+                List<Prediction> predictions = resolvePredictions(o);
+                weekNames = getWeekNames(predictions);
+                weekIndex = weekNames.indexOf("Week " + selectedWeek);
+                result.setResultObject(predictions.get(weekIndex));
             }
+
+            
             request.setAttribute(CodingConstants.CODER_ID, new Integer(coderId));
-            request.setAttribute("results", Arrays.asList(results));
+            request.setAttribute("result", result);
+            request.setAttribute("weekIndex", weekIndex);
+            request.setAttribute("weekNames", weekNames);
             request.setAttribute(CodingConstants.ROUND_ID, new Integer(roundId));
             request.setAttribute(CodingConstants.SUBMISSION_NUMBER, new Integer(subnum));
             setNextPage(Constants.PAGE_VIEW_EXAMPLE_RESULTS);
@@ -54,6 +73,16 @@ public class ViewExampleResults extends Base {
         }
     }
     
+    private List<String> getWeekNames(List<Prediction> predictions) {
+        List<String> weekNames = new ArrayList<String>(predictions.size());
+        
+        for (Prediction p : predictions) {
+            weekNames.add("Week " + p.getWeek());
+        }
+        
+        return weekNames;
+    }
+
     //ResultObject = Object[] {Week 1, .. Week n}
     //Week = Object [] {week id, score, prediction}
     //                  Integer, Integer, Prediction

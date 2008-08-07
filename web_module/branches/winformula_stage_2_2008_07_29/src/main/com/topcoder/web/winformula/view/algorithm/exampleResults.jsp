@@ -49,32 +49,30 @@
         <hr/>
 
             
-            <logic:iterate name="results" id="result" scope="request" indexId="i" type="com.topcoder.server.ejb.TestServices.LongTestResult">
-                <h2>${i}) Score: ${result.score}
-                    Run Time: ${result.processingTime} ms
-                </h2>
-                <p>
-                    <span class="bodySubtitle">Example Case: </span><br />
-                    <pre>${result.arg}</pre>
-                </p>
-                <p>
-                    <span class="bodySubtitle">Fatal Errors: </span><br />
-                    <pre><c:out value="${result.fatalErrors}"/></pre>
-                </p>
-                <p>
-                    <span class="bodySubtitle">Standard Out: </span><br />
-                    <pre><c:out value="${result.stdOut}"/></pre>
-                </p>
-                <p>
-                    <span class="bodySubtitle">Standard Error: </span><br />
-                    <pre><c:out value="${result.stdErr}"/></pre>
-                </p>
-                <p>
-                <span class="bodySubtitle">Result: </span><br />
-                    <pre><c:out value="${result.resultObject}"/></pre>
-                </p>
-                <hr />
-            </logic:iterate>
+            <h2>Score: ${result.score}
+                Run Time: ${result.processingTime} ms
+            </h2>
+            <p>
+                <span class="bodySubtitle">Example Case: </span><br />
+                <pre>${result.arg}</pre>
+            </p>
+            <p>
+                <span class="bodySubtitle">Fatal Errors: </span><br />
+                <pre><c:out value="${result.fatalErrors}"/></pre>
+            </p>
+            <p>
+                <span class="bodySubtitle">Standard Out: </span><br />
+                <pre><c:out value="${result.stdOut}"/></pre>
+            </p>
+            <p>
+                <span class="bodySubtitle">Standard Error: </span><br />
+                <pre><c:out value="${result.stdErr}"/></pre>
+            </p>
+            <p>
+            <span class="bodySubtitle">Result: </span><br />
+                <pre><c:out value="${result.resultObject}"/></pre>
+            </p>
+            <hr />
         <%-- Main Content --%>
         </div>
         <%-- End Container --%>
