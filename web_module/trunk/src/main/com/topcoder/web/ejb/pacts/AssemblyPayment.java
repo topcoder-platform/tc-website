@@ -95,14 +95,14 @@ public class AssemblyPayment extends ComponentProjectReferencePayment {
             ComponentProjectReferencePayment p = (ComponentProjectReferencePayment) payment;
 
             String name = getComponentName(p.getProjectId());
-            if (name.toLowerCase().endsWith("assembly competition")) {
+            if (!name.toLowerCase().endsWith("assembly competition")) {
             	if (name.toLowerCase().endsWith("assembly")) {
             		name = name + " Competition";
             	} else {
             		name = name + " Assembly Competition";
             	}
             }
-            return name + " " + getOrdinal(p.getPlaced());
+            return name;
 
         }
     }
