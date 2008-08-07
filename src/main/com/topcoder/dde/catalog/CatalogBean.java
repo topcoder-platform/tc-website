@@ -357,7 +357,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         elements.add(new Long(Category.DELETED));
 
         if (phase.length > 0) {
-            query.append(" AND (v.phase_id IN(");
+            query.append(" AND v.phase_id IN(");
             for (int i = 0; i < phase.length; i++) {
             	query.append("?");
                 elements.add(new Long(phase[i]));
@@ -367,7 +367,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         }
 
         if (catalog.length > 0) {
-            query.append(" AND (comp.root_category_id IN( ");
+            query.append(" AND comp.root_category_id IN( ");
             for (int i = 0; i < catalog.length; i++) {
                 query.append("?");
                 elements.add(new Long(catalog[i]));
