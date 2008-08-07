@@ -83,10 +83,13 @@
             </p>
             <p>
             <span class="bodySubtitle">Result: </span><br/><br/>
+
                 <form name="resultsForm" action="${sessionInfo.servletPath}" method="get">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewExampleResults"/>
                 <tc-webtag:hiddenInput name="rd"/>
-                <tc-webtag:hiddenInput name="week"/>
+                <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
+                    list="${viewSubmissionAnswers}" useTopValue="false"/>
+
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
                   <tr class="resultTH">
                     <th scope="col"><a href="#">Home Team</a></th>
