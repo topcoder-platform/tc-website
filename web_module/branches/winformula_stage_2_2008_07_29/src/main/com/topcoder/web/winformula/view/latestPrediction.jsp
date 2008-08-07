@@ -1,6 +1,7 @@
 <%@ page import="java.util.Collection" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.winformula.Constants" %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.topcoder.util.format.ObjectFormatter" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -19,6 +20,32 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
+    <script type="text/javascript">
+        function submitEnter(e) {
+            var keycode;
+            if (window.event) keycode = window.event.keyCode;
+            else if (e) keycode = e.which;
+            else return true;
+            if (keycode == 13) {
+                document.resultsForm.submit();
+                return false;
+            } else return true;
+        }
+        function next() {
+            var myForm = document.resultsForm;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = <%=((java.util.Map) request.getAttribute("processor_defaults")).get(DataAccessConstants.START_RANK)%> + parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.submit();
+        }
+        function previous() {
+            var myForm = document.resultsForm;
+            myForm.<%=DataAccessConstants.START_RANK%>.value =<%=((java.util.Map) request.getAttribute("processor_defaults")).get(DataAccessConstants.START_RANK)%>  - parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.submit();
+        }
+    </script>    
 </head>
 
 <body>
@@ -52,32 +79,32 @@
 List<ObjectFormatter> formatters = (List<ObjectFormatter>) request.getAttribute("formattersList");
 %>
                 <% boolean even = true;%>
-            <p:dataPaging pageSize="10" data="<%= (Collection) request.getAttribute("list") %>" id="pager">
-                <p:firstPageLink defaultText="&lt;&lt; First" />
-                <p:prevPageLink defaultText="&lt; Previous" />
-                <p:jumpLinks prefix="" suffix="&nbsp;" />
-                <p:nextPageLink defaultText="Next &gt;" />
-                <p:lastPageLink defaultText="Last &gt;&gt;" />
-        
-                <p:ifEmpty>
-                    No search results were found
-                </p:ifEmpty>
-                <p:page>
-                    <p:table sorting="true" renderer="customRenderer" styleClass="current-data">
-                        <!-- Display the table header, with column names as links -->
-                        <p:header>
-                            <p:column name="Home Team" index="1" />
-                            <p:column name="Away Team" index="2" />
-                            <p:column name="Pred. Score" index="3" />
-                        </p:header>
-            
-                        <!-- Display the tabular data -->
-                        <p:rowData rowStyles="row_Alt,row" formatters="<%= formatters %>"/>
-                        
-                    </p:table>            
-                </p:page>
-            
-            </p:dataPaging>
+
+            <form name="resultsForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewLeaderBoard"/>
+            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+                
+                <div class="pagingBox">
+                    <c:choose>
+                        <c:when test="${croppedDataBefore}">
+                            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+                        </c:when>
+                        <c:otherwise>
+                            &lt;&lt; prev
+                        </c:otherwise>
+                    </c:choose>
+                    |
+                    <c:choose>
+                        <c:when test="${croppedDataAfter}">
+                            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+                        </c:when>
+                        <c:otherwise>
+                            next &gt;&gt;
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+
               <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
                 <tr>
                   <th scope="col"><a href="${sessionInfo.servletPath}?module=CurrentPredictions<tc-webtag:sort column="5" includeParams="true" excludeParams="module"/>">Home Team</a></th>
@@ -105,6 +132,66 @@ List<ObjectFormatter> formatters = (List<ObjectFormatter>) request.getAttribute(
                     <%even = !even;%>
                 </rsc:iterator>
               </table>
+
+                <div class="pagingBox">
+                    <c:choose>
+                        <c:when test="${croppedDataBefore}">
+                            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+                        </c:when>
+                        <c:otherwise>
+                            &lt;&lt; prev
+                        </c:otherwise>
+                    </c:choose>
+                    |
+                    <c:choose>
+                        <c:when test="${croppedDataAfter}">
+                            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+                        </c:when>
+                        <c:otherwise>
+                            next &gt;&gt;
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+
+<div class="pagingBox">
+    View
+    <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
+    at a time starting with
+    <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
+    <a href="javascript:document.resultsForm.submit();" class="bcLink">[submit]</a>
+</div>
+
+
+            </form>
+
+            <p:dataPaging pageSize="10" data="<%= (Collection) request.getAttribute("list") %>" id="pager">
+                <p:firstPageLink defaultText="&lt;&lt; First" />
+                <p:prevPageLink defaultText="&lt; Previous" />
+                <p:jumpLinks prefix="" suffix="&nbsp;" />
+                <p:nextPageLink defaultText="Next &gt;" />
+                <p:lastPageLink defaultText="Last &gt;&gt;" />
+        
+                <p:ifEmpty>
+                    No search results were found
+                </p:ifEmpty>
+                <p:page>
+                    <p:table sorting="true" renderer="customRenderer" styleClass="current-data">
+                        <!-- Display the table header, with column names as links -->
+                        <p:header>
+                            <p:column name="Home Team" index="1" />
+                            <p:column name="Away Team" index="2" />
+                            <p:column name="Pred. Score" index="3" />
+                        </p:header>
+            
+                        <!-- Display the tabular data -->
+                        <p:rowData rowStyles="row_Alt,row" formatters="<%= formatters %>"/>
+                        
+                    </p:table>            
+                </p:page>
+            
+            </p:dataPaging>
+
+
               <div class="dataArea_Below">
                 <p class="pagination"><span class="disabled">&lt;&lt; First</span> | <span class="disabled">&lt; Prev</span> | <strong>1</strong> <a href="javascript:;">2</a> <a href="javascript:;">3</a> <a href="javascript:;">4</a> <a href="javascript:;">5</a> <a href="javascript:;">6</a> <a href="javascript:;">7</a> <a href="javascript:;">8</a> <a href="javascript:;">9</a> <a href="javascript:;">10</a> | <a href="javascript:;">Next</a> &gt; | <a href="javascript:;">Last</a> &gt;&gt;</p>
 
