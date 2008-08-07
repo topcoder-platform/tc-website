@@ -69,6 +69,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                         <tr class="resultTH">
                             <th class="center">Number</th>
                             <th class="center">Submitted Time</th>
+                            <th class="center">Season</th>
                             <th class="center">Prediction target</th>
                             <th class="center">Examples</th>
                             <th class="center">&nbsp;</th>
@@ -89,8 +90,9 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                                 </c:when>
                                 <c:otherwise>
 		                            <td class="alignCenter"><a href="?module=ViewProblemSolution&${roundSubmission}">${submission.number}</a></td>
-		                            <td>${submission}<tc-webtag:format object="${submission.time}" format="MM.dd.yyyy HH:mm:ss"/></td>
-                                    <td>X${submission.name}X</td>
+		                            <td><tc-webtag:format object="${submission.time}" format="MM.dd.yyyy HH:mm:ss"/></td>
+                                    <c:set var="prvRoundName" value="previousRoundName${submission.roundId}"/>
+                                    <td>${requestScore[prvRoundName]}</td>
                                 </c:otherwise>
                             </c:choose>
                             <c:set var="prvNum" value="${submission.number}"/>
