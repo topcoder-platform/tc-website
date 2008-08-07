@@ -1,5 +1,6 @@
 package com.topcoder.web.winformula.controller.request;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.util.format.ObjectFormatter;
+import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
@@ -43,6 +46,14 @@ public class CurrentPredictions extends BaseProcessor {
         
         getRequest().setAttribute("customRenderer", new SimpleEvenOddRowRenderer());
 
+        List formatters = new ArrayList();
+        
+        ObjectFormatter a = ObjectFormatterFactory.getEmptyFormatter();
+        
+a.
+        
+        DecimalFormat formatter = new DecimalFormat("000");
+
         setNextPage("/latestPrediction.jsp");
         setIsNextPageInContext(true);
     }
@@ -52,7 +63,7 @@ public class CurrentPredictions extends BaseProcessor {
         for (ResultSetRow rsr : rsc) {
             List<String> temp = new ArrayList<String>(3);
             temp.add(rsr.getStringItem("home"));
-            temp.add(rsr.getStringItem("visitor"));
+            temp.add("<strong>"+ rsr.getStringItem("visitor") + "<strong>");
             temp.add(rsr.getStringItem("home_pred") + "- " + rsr.getStringItem("visitor_pred"));
             list.add(temp);
         }
