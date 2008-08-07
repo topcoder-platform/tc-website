@@ -77,12 +77,22 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                         </tr>
                     </thead>
                     <tbody>
+                         <c:set var="prvNum" value="-1" /> 
 		                <logic:iterate name="submissions" id="submission" type="com.topcoder.web.winformula.algorithm.services.SubmissionHistoryItem">
                         <tr>
                             <c:set var="roundSubmission" value="rd=${submission.roundId}&subnum=${submission.number}"/>
-                            <td class="alignCenter"><a href="?module=ViewProblemSolution&${roundSubmission}">${submission.number}</a></td>
-                            <td><tc-webtag:format object="${submission.time}" format="MM.dd.yyyy HH:mm:ss"/></td>
-                             <td class="alignCenter">
+                            <c:choose>
+                                <c:when test="${prvNum eq submission.number}">
+                                    <td class="alignCenter">&nbsp;</td>
+                                    <td class="alignCenter">&nbsp;</td>
+                                </c:when>
+                                <c:otherwise>
+		                            <td class="alignCenter"><a href="?module=ViewProblemSolution&${roundSubmission}">${submission.number}</a></td>
+		                            <td><tc-webtag:format object="${submission.time}" format="MM.dd.yyyy HH:mm:ss"/></td>
+                                </c:otherwise>
+                            </c:choose>
+                            <c:set var="prvNum" value="${submission.number}"/>
+                            <td class="alignCenter">
                                 ${submission.roundName}
                             </td>
                             <td class="alignCenter">
