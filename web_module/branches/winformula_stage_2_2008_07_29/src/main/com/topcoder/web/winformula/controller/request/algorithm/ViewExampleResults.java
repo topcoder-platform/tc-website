@@ -15,6 +15,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
 import com.topcoder.web.winformula.model.GameResult;
@@ -44,29 +45,30 @@ public class ViewExampleResults extends Base {
             
             LongTestResult result = null;
 
-            List<String> weekNames = new ArrayList<String>(0);
-
-            int weekIndex = 0;
+            ArrayList<ListSelectTag.Option> weeks = new ArrayList<ListSelectTag.Option>(results.length);
             if (results.length > 0) {
                 result = results[0];
                 Object o = result.getResultObject();
 
                 // process predictions
                 List<Prediction> predictions = resolvePredictions(o);
-                weekNames = getWeekNames(predictions);
-                weekIndex = weekNames.indexOf("Week " + selectedWeek);
-                if (weekIndex == -1) { // if we can't find the requested week, default to the first one 
-                    weekIndex = 0;
+
+                int weekIndex = 0;
+                int i = 0;
+                for (Prediction p : predictions) {
+                    weeks.add(new ListSelectTag.Option(String.valueOf(p.getWeek()), "Week " + p.getWeek(), String.valueOf(p.getWeek()).equals(selectedWeek)));
+                    if (String.valueOf(p.getWeek()).equals(selectedWeek)) {
+                        weekIndex = i;
+                    }
+                    i++;
                 }
+
                 result.setResultObject(predictions.get(weekIndex));
             }
-
-            setDefault("week", "Week " + selectedWeek);
             
             request.setAttribute(CodingConstants.CODER_ID, new Integer(coderId));
             request.setAttribute("result", result);
-            request.setAttribute("weekIndex", weekIndex);
-            request.setAttribute("weekNames", weekNames);
+            request.setAttribute("weeks", weeks);
             request.setAttribute(CodingConstants.ROUND_ID, new Integer(roundId));
             request.setAttribute(CodingConstants.SUBMISSION_NUMBER, new Integer(subnum));
             setNextPage(Constants.PAGE_VIEW_EXAMPLE_RESULTS);

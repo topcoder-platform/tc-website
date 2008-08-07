@@ -77,7 +77,7 @@
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewExampleResults"/>
                 <tc-webtag:hiddenInput name="rd"/>
                 <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
-                    list="${weekNames}" useTopValue="true"/>
+                    list="${weeks}" useTopValue="true"/>
 
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
                   <tr class="resultTH">
