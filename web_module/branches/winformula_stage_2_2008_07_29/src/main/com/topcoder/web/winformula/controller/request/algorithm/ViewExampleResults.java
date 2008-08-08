@@ -128,7 +128,7 @@ public class ViewExampleResults extends Base {
                     if (arg0.getTotalScoreVariance() == null || arg1.getTotalScoreVariance() != null) {
                         return 1;
                     }
-                    if (arg0.getTotalScoreVariance() == null || arg1.getTotalScoreVariance() != null) {
+                    if (arg0.getTotalScoreVariance() != null || arg1.getTotalScoreVariance() == null) {
                         return -1;
                     }
                     if (arg0.getTotalScoreVariance() == null || arg1.getTotalScoreVariance() == null) {
@@ -143,7 +143,7 @@ public class ViewExampleResults extends Base {
                     if (arg0.getVictoryMarginVariance() == null || arg1.getVictoryMarginVariance() != null) {
                         return 1;
                     }
-                    if (arg0.getVictoryMarginVariance() == null || arg1.getVictoryMarginVariance() != null) {
+                    if (arg0.getVictoryMarginVariance() != null || arg1.getVictoryMarginVariance() == null) {
                         return -1;
                     }
                     if (arg0.getVictoryMarginVariance() == null || arg1.getVictoryMarginVariance() == null) {
@@ -158,7 +158,7 @@ public class ViewExampleResults extends Base {
                     if (arg0.getScore() == null || arg1.getScore() != null) {
                         return 1;
                     }
-                    if (arg0.getScore() == null || arg1.getScore() != null) {
+                    if (arg0.getScore() != null || arg1.getScore() == null) {
                         return -1;
                     }
                     if (arg0.getScore() == null || arg1.getScore() == null) {
