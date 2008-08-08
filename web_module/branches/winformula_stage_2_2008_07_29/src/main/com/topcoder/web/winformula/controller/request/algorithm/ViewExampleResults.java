@@ -6,16 +6,21 @@
 package com.topcoder.web.winformula.controller.request.algorithm;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import com.topcoder.server.ejb.TestServices.LongContestServices;
 import com.topcoder.server.ejb.TestServices.LongContestServicesLocator;
 import com.topcoder.server.ejb.TestServices.LongTestResult;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.common.tag.ListSelectTag;
+import com.topcoder.web.tc.model.dr.IBoardRow;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
 import com.topcoder.web.winformula.model.GameResult;
@@ -23,11 +28,17 @@ import com.topcoder.web.winformula.model.Prediction;
 import com.topcoder.web.winformula.model.PredictionItem;
 
 /**
- * @author Diego Belfer (Mural)
+ * @author Diego Belfer (Mural), Pablo Wolfus (pulky)
  * @version $Id$
  */
 public class ViewExampleResults extends Base {
     protected static final Logger log = Logger.getLogger(ViewExampleResults.class);
+    private static final int HOME_TEAM_COLUMN = 1;
+    private static final int AWAY_TEAM_COLUMN = 2;
+    private static final int PICKED_WINNER_COLUMN = 3;
+    private static final int TOTAL_SCORE_VARIANCE_COLUMN = 4;
+    private static final int VICTORY_MARGIN_VARIANCE_COLUMN = 5;
+    private static final int POINTS_COLUMN = 6;
 
     protected void longContestProcessing() throws TCWebException {
         try {
@@ -66,11 +77,17 @@ public class ViewExampleResults extends Base {
                     }
                     i++;
                 }
-
-                result.setResultObject(predictions.get(weekIndex));
+                
+                Prediction p = predictions.get(weekIndex);
+                sortResult(p);
+                
+                result.setResultObject(p);
             }
             
             request.setAttribute(CodingConstants.CODER_ID, new Integer(coderId));
+            
+            // sort result
+
             request.setAttribute("result", result);
             request.setAttribute("weeks", weeks);
             request.setAttribute(CodingConstants.ROUND_ID, new Integer(roundId));
@@ -84,14 +101,68 @@ public class ViewExampleResults extends Base {
         }
     }
     
-    private List<String> getWeekNames(List<Prediction> predictions) {
-        List<String> weekNames = new ArrayList<String>(predictions.size());
-        
-        for (Prediction p : predictions) {
-            weekNames.add("Week " + p.getWeek());
+    @SuppressWarnings("unchecked")
+    private void sortResult(Prediction p) {
+        if (p.getPredictions().size() == 0) {
+            return;
+        }
+
+        boolean invert = "desc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
+        // all other columns are already sorted (rank)
+        if (sortCol.equals(AWAY_TEAM_COLUMN)) {
+            Collections.sort(p.getPredictions(), new Comparator<PredictionItem>() {
+                public int compare(PredictionItem arg0, PredictionItem arg1) {
+                    return arg0.getAwayTeamName().compareTo(arg1.getAwayTeamName());
+                }
+            });
+        } else if (sortCol.equals(PICKED_WINNER_COLUMN)) {
+            Collections.sort(p.getPredictions(), new Comparator<PredictionItem>() {
+                public int compare(PredictionItem arg0, PredictionItem arg1) {
+                    return arg0.getPickedWinner().compareTo(arg1.getPickedWinner());
+                }
+            });
+        } else if (sortCol.equals(TOTAL_SCORE_VARIANCE_COLUMN)) {
+            Collections.sort(p.getPredictions(), new Comparator<PredictionItem>() {
+                public int compare(PredictionItem arg0, PredictionItem arg1) {
+                    return arg0.getTotalScoreVariance().compareTo(arg1.getTotalScoreVariance());
+                }
+            });
+        } else if (sortCol.equals(VICTORY_MARGIN_VARIANCE_COLUMN)) {
+            Collections.sort(p.getPredictions(), new Comparator<PredictionItem>() {
+                public int compare(PredictionItem arg0, PredictionItem arg1) {
+                    return arg0.getVictoryMarginVariance().compareTo(arg1.getVictoryMarginVariance());
+                }
+            });
+        } else if (sortCol.equals(POINTS_COLUMN)) {
+            Collections.sort(p.getPredictions(), new Comparator<PredictionItem>() {
+                public int compare(PredictionItem arg0, PredictionItem arg1) {
+                    return arg0.getScore().compareTo(arg1.getScore());
+                }
+            });
+        } else {
+            // Default, sort by home team.
+            Collections.sort(p.getPredictions(), new Comparator<PredictionItem>() {
+                public int compare(PredictionItem arg0, PredictionItem arg1) {
+                    return arg0.getHomeTeamName().compareTo(arg1.getHomeTeamName());
+                }
+            });
+        }
+
+        if (invert) {
+            Collections.reverse(p.getPredictions());
         }
         
-        return weekNames;
+        SortInfo s = new SortInfo();
+        s.addDefault(HOME_TEAM_COLUMN, "asc");
+        s.addDefault(AWAY_TEAM_COLUMN, "asc");
+        s.addDefault(PICKED_WINNER_COLUMN, "asc");
+        s.addDefault(TOTAL_SCORE_VARIANCE_COLUMN, "asc");
+        s.addDefault(VICTORY_MARGIN_VARIANCE_COLUMN, "asc");
+        s.addDefault(POINTS_COLUMN, "desc");
+
+        getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
 
     //ResultObject = Object[] {Week 1, .. Week n}
@@ -137,20 +208,5 @@ public class ViewExampleResults extends Base {
         }
         return predictions;
     }
-    
-    
-    //FIXME remove me
-//    public static void main(String[] args) {
-//        Object[] weeks = new Object[2];
-//        for (int j = 0; j < 2; j++) {
-//            Object[] games = new Object[20];
-//            for (int i = 0; i < 20; i++) {
-//                games[i] = new Object[] {"A"+i, "B"+i, new Integer(1+i), new Integer(2+i), new Integer(2+i), new Integer(4+i), new Integer(5+i)};
-//            }
-//            weeks[j] = new Object[] {new Integer(1000+j), new Integer(j+50), games};
-//        }
-//        List<Prediction> x = resolvePredictions(weeks);
-//        System.out.println(x);
-//    }
 }
 

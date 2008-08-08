@@ -77,21 +77,22 @@
                   <c:when test="${not empty result and not empty result.resultObject}">
                         <form name="resultsForm" action="${sessionInfo.servletPath}" method="get">
                         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewExampleResults"/>
+                        <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+                        <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
                         <tc-webtag:hiddenInput name="rd"/>
                         <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
                             list="${weeks}" useTopValue="false"/>
         
                         <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
                           <tr class="resultTH">
-                            <th scope="col"><a href="#">Home Team</a></th>
-                            <th scope="col"><a href="#">Away Team</a></th>
+                            <th scope="col"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="1" includeParams="true"/>">Home Team</a></th>
+                            <th scope="col"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true"/>">Away Team</a></th>
                             <th scope="col" class="center">Pred. Score</th>
                             <th scope="col" class="center">Actual Score</th>
-        
-                            <th scope="col" class="center"><a href="#">Picked Winner</a></th>
-                            <th scope="col" class="center"><a href="#">Total Score Variance</a></th>
-                            <th scope="col" class="center"><a href="#">Victory Margin Variance</a></th>
-                            <th scope="col" class="center"><a href="#">Points</a></th>
+                            <th scope="col" class="center"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true"/>">Picked Winner</a></th>
+                            <th scope="col" class="center"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="4" includeParams="true"/>">Total Score Variance</a></th>
+                            <th scope="col" class="center"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="5" includeParams="true"/>">Victory Margin Variance</a></th>
+                            <th scope="col" class="center"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="6" includeParams="true"/>">Points</a></th>
                           </tr>
                           <% boolean even = true;%>
                           <c:forEach items="${result.resultObject.predictions}" var="predictionItem" varStatus="status">
@@ -136,20 +137,24 @@
                                       </c:choose>
                                   </td>
                                   <td class="alignCenter">
+                                      <c:choose>
                                       <c:when test="${not empty predictionItem.realResult}">
                                             ${predictionItem.totalScoreVariance}
                                       </c:when>
                                       <c:otherwise>
                                             &nbsp;
                                       </c:otherwise>
+                                      </c:choose>
                                   </td>
                                   <td class="alignCenter">
+                                      <c:choose>
                                       <c:when test="${not empty predictionItem.realResult}">
                                             ${predictionItem.victoryMarginVariance}
                                       </c:when>
                                       <c:otherwise>
                                             &nbsp;
                                       </c:otherwise>
+                                      </c:choose>
                                   </td>
                                   <td class="alignCenter">${predictionItem.score}</td>
                               </tr>
@@ -157,10 +162,10 @@
                           </c:forEach>
                         </table>
                         </form>
-              </c:when>
-              <c:otherwise>
-                    There are no results to display.
-              </c:otherwise>
+                  </c:when>
+                  <c:otherwise>
+                        There are no results to display.
+                  </c:otherwise>
               </c:choose>
             </p>
             <hr />
