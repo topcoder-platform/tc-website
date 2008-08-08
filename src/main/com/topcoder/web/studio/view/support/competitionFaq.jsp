@@ -116,7 +116,7 @@
                 <br /><br />
                 
                 <div align="center">
-                    <div class="statHolder" style="width: 400px;">
+                    <div class="statHolder" style="width: 500px;">
                         <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
                         <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
                             <table class="stat" cellpadding="0" cellspacing="0">
