@@ -66,4 +66,24 @@ public class PredictionItem implements Serializable {
 
         return ((real > 0 && pred > 0) || (real < 0 && pred < 0) || (real == 0 && pred == 0)); 
     }
+    
+    public Integer getTotalScoreVariance() {
+        if (realResult == null) {
+            return null;
+        }
+        int homeDif = predictedResult.getHomeScore() - realResult.getHomeScore();
+        int awayDif = predictedResult.getAwayScore() - realResult.getAwayScore();
+
+        return Math.abs(homeDif) + Math.abs(awayDif); 
+    }
+    
+    public Integer getVictoryMarginVariance() {
+        if (realResult == null) {
+            return null;
+        }
+        int homeDif = predictedResult.getHomeScore() - realResult.getHomeScore();
+        int awayDif = predictedResult.getAwayScore() - realResult.getAwayScore();
+
+        return Math.abs(homeDif - awayDif); 
+    }
 }

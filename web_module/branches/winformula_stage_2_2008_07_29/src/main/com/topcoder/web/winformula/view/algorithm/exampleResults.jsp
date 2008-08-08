@@ -77,7 +77,7 @@
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewExampleResults"/>
                 <tc-webtag:hiddenInput name="rd"/>
                 <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
-                    list="${weeks}" useTopValue="true"/>
+                    list="${weeks}" useTopValue="false"/>
 
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
                   <tr class="resultTH">
@@ -133,8 +133,22 @@
                                   </c:otherwise>
                               </c:choose>
                           </td>
-                          <td class="alignCenter">12</td>
-                          <td class="alignCenter">4</td>
+                          <td class="alignCenter">
+                              <c:when test="${not empty predictionItem.realResult}">
+                                    ${predictionItem.totalScoreVariance}
+                              </c:when>
+                              <c:otherwise>
+                                    &nbsp;
+                              </c:otherwise>
+                          </td>
+                          <td class="alignCenter">
+                              <c:when test="${not empty predictionItem.realResult}">
+                                    ${predictionItem.victoryMarginVariance}
+                              </c:when>
+                              <c:otherwise>
+                                    &nbsp;
+                              </c:otherwise>
+                          </td>
                           <td class="alignCenter">${predictionItem.score}</td>
                       </tr>
                     <%even = !even;%>
