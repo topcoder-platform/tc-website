@@ -16,7 +16,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>ESPN Winning Formula Challenge :: Powered by TopCoder - Manage My Algorithms</title>
+    <title>ESPN Winning Formula Challenge :: Powered by TopCoder - Algorithm Admin</title>
     <%-- Meta Tags --%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -38,10 +38,10 @@
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-        Resubmit <a href="?module=ViewAdminForceSubmit&rd=30834">mini-season 1</a>
-        Resubmit <a href="?module=ViewAdminForceSubmit&rd=30835">mini-season 2</a>
-        Resubmit <a href="?module=ViewAdminForceSubmit&rd=30836">mini-season 3</a>
-        Resubmit <a href="?module=ViewAdminForceSubmit&rd=30837">mini-season 4</a>
+        Resubmit <a href="?module=ViewAdminForceSubmit&rd=30834">mini-season 1</a><br/>
+        Resubmit <a href="?module=ViewAdminForceSubmit&rd=30835">mini-season 2</a><br/>
+        Resubmit <a href="?module=ViewAdminForceSubmit&rd=30836">mini-season 3</a><br/>
+        Resubmit <a href="?module=ViewAdminForceSubmit&rd=30837">mini-season 4</a><br/>
 
         <%-- Main Content --%>
         </div>
