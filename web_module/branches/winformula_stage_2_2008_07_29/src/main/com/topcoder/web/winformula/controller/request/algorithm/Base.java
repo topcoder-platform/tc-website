@@ -138,6 +138,7 @@ public abstract class Base extends BaseProcessor {
         getResponse().setContentType("text/html");
 
         getResponse().getWriter().print(code);
+        getResponse().getWriter().flush();
 
     }
 
@@ -249,7 +250,7 @@ public abstract class Base extends BaseProcessor {
     public int getUserID() throws Exception {
         String coderID = getRequest().getParameter(CodingConstants.CODER_ID);
         if (coderID != null && isAdmin()) {
-            log.debug("Using coder in paramenter: " + coderID);
+            log.debug("Using coder in parameter: " + coderID);
             getRequest().setAttribute("adminExtraParams", "&"+CodingConstants.CODER_ID+"="+coderID);
             return Integer.parseInt(coderID);
         } else {
