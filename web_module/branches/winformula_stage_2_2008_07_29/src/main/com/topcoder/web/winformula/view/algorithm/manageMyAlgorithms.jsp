@@ -93,7 +93,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
 		                            <td class="alignCenter"><a href="?module=ViewProblemSolution&${roundSubmission}${adminExtraParams}">${submission.number}</a></td>
 		                            <td><tc-webtag:format object="${submission.time}" format="MM.dd.yyyy HH:mm:ss"/></td>
                                     <c:set var="prvRoundName" value="previousRoundName${submission.roundId}"/>
-                                    <td>${requestScore[prvRoundName]}</td>
+                                    <td>${requestScope[prvRoundName]}</td>
                                 </c:otherwise>
                             </c:choose>
                             <c:set var="prvNum" value="${submission.number}"/>
