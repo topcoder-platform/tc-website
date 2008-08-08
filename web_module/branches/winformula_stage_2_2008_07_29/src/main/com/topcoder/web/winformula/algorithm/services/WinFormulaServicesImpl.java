@@ -282,7 +282,7 @@ public class WinFormulaServicesImpl {
             if (language == null) {
                 language = getLanguageIdForCoder(coderId);
             }
-            return null;
+            return language;
         } catch (WinFormulaServicesException e) {
             throw e;
         } catch (Exception e) {
