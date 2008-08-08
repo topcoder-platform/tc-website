@@ -36,7 +36,7 @@ public class ViewExampleResults extends Base {
             String selectedWeek = StringUtils.checkNull(request.getParameter("week"));
 
             int coderId = getUserID();
-            if (isUserRegisteredInContest(getContestID(), coderId)) {
+            if (!isUserRegisteredInContest(getContestID(), coderId)) {
                 registrationNeeded("You need to be registered in order to view your results.");
                 return;
             }
