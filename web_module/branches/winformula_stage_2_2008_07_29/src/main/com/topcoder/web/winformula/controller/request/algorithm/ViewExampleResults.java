@@ -125,8 +125,8 @@ public class ViewExampleResults extends Base {
         } else if (sortCol.equals(String.valueOf(TOTAL_SCORE_VARIANCE_COLUMN))) {
             Collections.sort(p.getPredictions(), new Comparator<PredictionItem>() {
                 public int compare(PredictionItem arg0, PredictionItem arg1) {
-                    if (arg0.getTotalScoreVariance() == null || arg1.getTotalScoreVariance() == null) {
-                        return 0;
+                    if (arg0.getTotalScoreVariance() == null) {
+                        return -1;
                     }
                     return arg0.getTotalScoreVariance().compareTo(arg1.getTotalScoreVariance());
                 }
@@ -134,8 +134,8 @@ public class ViewExampleResults extends Base {
         } else if (sortCol.equals(String.valueOf(VICTORY_MARGIN_VARIANCE_COLUMN))) {
             Collections.sort(p.getPredictions(), new Comparator<PredictionItem>() {
                 public int compare(PredictionItem arg0, PredictionItem arg1) {
-                    if (arg0.getVictoryMarginVariance() == null || arg1.getVictoryMarginVariance() == null) {
-                        return 0;
+                    if (arg0.getVictoryMarginVariance() == null) {
+                        return -1;
                     }
                     return arg0.getVictoryMarginVariance().compareTo(arg1.getVictoryMarginVariance());
                 }
@@ -143,8 +143,8 @@ public class ViewExampleResults extends Base {
         } else if (sortCol.equals(String.valueOf(POINTS_COLUMN))) {
             Collections.sort(p.getPredictions(), new Comparator<PredictionItem>() {
                 public int compare(PredictionItem arg0, PredictionItem arg1) {
-                    if (arg0.getScore() == null || arg1.getScore() == null) {
-                        return 0;
+                    if (arg0.getScore() == null) {
+                        return -1;
                     }
                     return arg0.getScore().compareTo(arg1.getScore());
                 }
@@ -165,7 +165,7 @@ public class ViewExampleResults extends Base {
         SortInfo s = new SortInfo();
         s.addDefault(HOME_TEAM_COLUMN, "asc");
         s.addDefault(AWAY_TEAM_COLUMN, "asc");
-        s.addDefault(PICKED_WINNER_COLUMN, "asc");
+        s.addDefault(PICKED_WINNER_COLUMN, "desc");
         s.addDefault(TOTAL_SCORE_VARIANCE_COLUMN, "asc");
         s.addDefault(VICTORY_MARGIN_VARIANCE_COLUMN, "asc");
         s.addDefault(POINTS_COLUMN, "desc");
