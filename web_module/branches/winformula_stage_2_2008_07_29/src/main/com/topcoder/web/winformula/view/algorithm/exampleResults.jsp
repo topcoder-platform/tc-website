@@ -73,87 +73,95 @@
             <p>
             <span class="bodySubtitle">Result: </span><br/><br/>
 
-                <form name="resultsForm" action="${sessionInfo.servletPath}" method="get">
-                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewExampleResults"/>
-                <tc-webtag:hiddenInput name="rd"/>
-                <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
-                    list="${weeks}" useTopValue="false"/>
-
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
-                  <tr class="resultTH">
-                    <th scope="col"><a href="#">Home Team</a></th>
-                    <th scope="col"><a href="#">Away Team</a></th>
-                    <th scope="col" class="center">Pred. Score</th>
-                    <th scope="col" class="center">Actual Score</th>
-
-                    <th scope="col" class="center"><a href="#">Picked Winner</a></th>
-                    <th scope="col" class="center"><a href="#">Total Score Variance</a></th>
-                    <th scope="col" class="center"><a href="#">Victory Margin Variance</a></th>
-                    <th scope="col" class="center"><a href="#">Points</a></th>
-                  </tr>
-                  <% boolean even = true;%>
-                  <c:forEach items="${result.resultObject.predictions}" var="predictionItem" varStatus="status">
-                      <tr class="<%=even?"row_Alt":""%>">
-                          <c:choose>
-                              <c:when test="${predictionItem.realResult.homeScore > predictionItem.realResult.awayScore}">
-                                    <td><strong class="green">${predictionItem.homeTeamName}</strong></td>
-                                    <td>${predictionItem.awayTeamName}</td>
-                              </c:when>
-                              <c:when test="${predictionItem.realResult.homeScore < predictionItem.realResult.awayScore}">
-                                    <td>${predictionItem.homeTeamName}</td>
-                                    <td><strong class="green">${predictionItem.awayTeamName}</strong></td>
-                              </c:when>
-                              <c:when test="${not empty predictionItem.realResult and predictionItem.realResult.homeScore == predictionItem.realResult.awayScore}">
-                                    <td><strong class="green">${predictionItem.homeTeamName}</strong></td>
-                                    <td><strong class="green">${predictionItem.awayTeamName}</strong></td>
-                              </c:when>
-                              <c:otherwise>
-                                    <td>${predictionItem.homeTeamName}</td>
-                                    <td>${predictionItem.awayTeamName}</td>
-                              </c:otherwise>
-                          </c:choose>
-                          <td class="alignCenter">${predictionItem.predictedResult.homeScore}-${predictionItem.predictedResult.awayScore}</td>
-                          <td class="alignCenter">
-                              <c:choose>
-                                  <c:when test="${not empty predictionItem.realResult}">
-                                        ${predictionItem.realResult.homeScore}-${predictionItem.realResult.awayScore}
-                                  </c:when>
-                                  <c:otherwise>
-                                        &nbsp;
-                                  </c:otherwise>
-                              </c:choose>
-                          </td>
-                          <td class="alignCenter">
-                              <c:choose>
-                                  <c:when test="${predictionItem.pickedWinner}">
-                                        (x)
-                                  </c:when>
-                                  <c:otherwise>
-                                        &nbsp;
-                                  </c:otherwise>
-                              </c:choose>
-                          </td>
-                          <td class="alignCenter">
-                              <c:when test="${not empty predictionItem.realResult}">
-                                    ${predictionItem.totalScoreVariance}
-                              </c:when>
-                              <c:otherwise>
-                                    &nbsp;
-                              </c:otherwise>
-                          </td>
-                          <td class="alignCenter">
-                              <c:when test="${not empty predictionItem.realResult}">
-                                    ${predictionItem.victoryMarginVariance}
-                              </c:when>
-                              <c:otherwise>
-                                    &nbsp;
-                              </c:otherwise>
-                          </td>
-                          <td class="alignCenter">${predictionItem.score}</td>
-                      </tr>
-                    <%even = !even;%>
-                  </c:forEach>
-                </table>
+              <c:choose>
+                  <c:when test="${not empty result and not empty result.resultObject}">
+                        <form name="resultsForm" action="${sessionInfo.servletPath}" method="get">
+                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewExampleResults"/>
+                        <tc-webtag:hiddenInput name="rd"/>
+                        <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
+                            list="${weeks}" useTopValue="false"/>
+        
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
+                          <tr class="resultTH">
+                            <th scope="col"><a href="#">Home Team</a></th>
+                            <th scope="col"><a href="#">Away Team</a></th>
+                            <th scope="col" class="center">Pred. Score</th>
+                            <th scope="col" class="center">Actual Score</th>
+        
+                            <th scope="col" class="center"><a href="#">Picked Winner</a></th>
+                            <th scope="col" class="center"><a href="#">Total Score Variance</a></th>
+                            <th scope="col" class="center"><a href="#">Victory Margin Variance</a></th>
+                            <th scope="col" class="center"><a href="#">Points</a></th>
+                          </tr>
+                          <% boolean even = true;%>
+                          <c:forEach items="${result.resultObject.predictions}" var="predictionItem" varStatus="status">
+                              <tr class="<%=even?"row_Alt":""%>">
+                                  <c:choose>
+                                      <c:when test="${predictionItem.realResult.homeScore > predictionItem.realResult.awayScore}">
+                                            <td><strong class="green">${predictionItem.homeTeamName}</strong></td>
+                                            <td>${predictionItem.awayTeamName}</td>
+                                      </c:when>
+                                      <c:when test="${predictionItem.realResult.homeScore < predictionItem.realResult.awayScore}">
+                                            <td>${predictionItem.homeTeamName}</td>
+                                            <td><strong class="green">${predictionItem.awayTeamName}</strong></td>
+                                      </c:when>
+                                      <c:when test="${not empty predictionItem.realResult and predictionItem.realResult.homeScore == predictionItem.realResult.awayScore}">
+                                            <td><strong class="green">${predictionItem.homeTeamName}</strong></td>
+                                            <td><strong class="green">${predictionItem.awayTeamName}</strong></td>
+                                      </c:when>
+                                      <c:otherwise>
+                                            <td>${predictionItem.homeTeamName}</td>
+                                            <td>${predictionItem.awayTeamName}</td>
+                                      </c:otherwise>
+                                  </c:choose>
+                                  <td class="alignCenter">${predictionItem.predictedResult.homeScore}-${predictionItem.predictedResult.awayScore}</td>
+                                  <td class="alignCenter">
+                                      <c:choose>
+                                          <c:when test="${not empty predictionItem.realResult}">
+                                                ${predictionItem.realResult.homeScore}-${predictionItem.realResult.awayScore}
+                                          </c:when>
+                                          <c:otherwise>
+                                                &nbsp;
+                                          </c:otherwise>
+                                      </c:choose>
+                                  </td>
+                                  <td class="alignCenter">
+                                      <c:choose>
+                                          <c:when test="${predictionItem.pickedWinner}">
+                                                (x)
+                                          </c:when>
+                                          <c:otherwise>
+                                                &nbsp;
+                                          </c:otherwise>
+                                      </c:choose>
+                                  </td>
+                                  <td class="alignCenter">
+                                      <c:when test="${not empty predictionItem.realResult}">
+                                            ${predictionItem.totalScoreVariance}
+                                      </c:when>
+                                      <c:otherwise>
+                                            &nbsp;
+                                      </c:otherwise>
+                                  </td>
+                                  <td class="alignCenter">
+                                      <c:when test="${not empty predictionItem.realResult}">
+                                            ${predictionItem.victoryMarginVariance}
+                                      </c:when>
+                                      <c:otherwise>
+                                            &nbsp;
+                                      </c:otherwise>
+                                  </td>
+                                  <td class="alignCenter">${predictionItem.score}</td>
+                              </tr>
+                            <%even = !even;%>
+                          </c:forEach>
+                        </table>
+                        </form>
+              </c:when>
+              <c:otherwise>
+                    There are no results to display.
+              </c:otherwise>
+              </c:choose>
             </p>
             <hr />
         <%-- Main Content --%>
