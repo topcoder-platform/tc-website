@@ -110,31 +110,31 @@ public class ViewExampleResults extends Base {
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
         // all other columns are already sorted (rank)
-        if (sortCol.equals(AWAY_TEAM_COLUMN)) {
+        if (sortCol.equals(String.valueOf(AWAY_TEAM_COLUMN))) {
             Collections.sort(p.getPredictions(), new Comparator<PredictionItem>() {
                 public int compare(PredictionItem arg0, PredictionItem arg1) {
                     return arg0.getAwayTeamName().compareTo(arg1.getAwayTeamName());
                 }
             });
-        } else if (sortCol.equals(PICKED_WINNER_COLUMN)) {
+        } else if (sortCol.equals(String.valueOf(PICKED_WINNER_COLUMN))) {
             Collections.sort(p.getPredictions(), new Comparator<PredictionItem>() {
                 public int compare(PredictionItem arg0, PredictionItem arg1) {
                     return arg0.getPickedWinner().compareTo(arg1.getPickedWinner());
                 }
             });
-        } else if (sortCol.equals(TOTAL_SCORE_VARIANCE_COLUMN)) {
+        } else if (sortCol.equals(String.valueOf(TOTAL_SCORE_VARIANCE_COLUMN))) {
             Collections.sort(p.getPredictions(), new Comparator<PredictionItem>() {
                 public int compare(PredictionItem arg0, PredictionItem arg1) {
                     return arg0.getTotalScoreVariance().compareTo(arg1.getTotalScoreVariance());
                 }
             });
-        } else if (sortCol.equals(VICTORY_MARGIN_VARIANCE_COLUMN)) {
+        } else if (sortCol.equals(String.valueOf(VICTORY_MARGIN_VARIANCE_COLUMN))) {
             Collections.sort(p.getPredictions(), new Comparator<PredictionItem>() {
                 public int compare(PredictionItem arg0, PredictionItem arg1) {
                     return arg0.getVictoryMarginVariance().compareTo(arg1.getVictoryMarginVariance());
                 }
             });
-        } else if (sortCol.equals(POINTS_COLUMN)) {
+        } else if (sortCol.equals(String.valueOf(POINTS_COLUMN))) {
             Collections.sort(p.getPredictions(), new Comparator<PredictionItem>() {
                 public int compare(PredictionItem arg0, PredictionItem arg1) {
                     return arg0.getScore().compareTo(arg1.getScore());
