@@ -5,7 +5,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>ESPN Winning Formula Challange :: Powered by TopCoder - My Profile</title>
+    <title>ESPN Winning Formula Challenge :: Powered by TopCoder - Current Algorithm's Predictions</title>
     <%-- Meta Tags --%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -18,7 +18,7 @@
     <div id="wrapper">
     <%-- Wrapper --%>
     
-        <jsp:include page="nav.jsp">
+        <jsp:include page="/nav.jsp">
         <jsp:param name="tabLev1" value="profile" />
         <jsp:param name="tabLev2" value="" />
         <jsp:param name="tabLev3" value="" />
