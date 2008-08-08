@@ -90,7 +90,7 @@ public class ViewExampleResults extends Base {
             request.setAttribute("result", result);
             request.setAttribute("weeks", weeks);
             request.setAttribute(CodingConstants.ROUND_ID, new Integer(roundId));
-            request.setAttribute(CodingConstants.SUBMISSION_NUMBER, new Integer(subnum));
+            request.setAttribute(CodingConstants.SUBMISSION_NUMBER, subnum);
             setNextPage(Constants.PAGE_VIEW_EXAMPLE_RESULTS);
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
