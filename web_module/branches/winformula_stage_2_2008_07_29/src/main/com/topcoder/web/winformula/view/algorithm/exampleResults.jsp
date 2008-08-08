@@ -82,6 +82,7 @@
                             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewExampleResults"/>
                             <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
                             <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+                            <tc-webtag:hiddenInput name="cr" value="${cr}"/>
                             <tc-webtag:hiddenInput name="rd"/>
                             <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
                                 list="${weeks}" useTopValue="false"/>

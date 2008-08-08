@@ -252,9 +252,11 @@ public abstract class Base extends BaseProcessor {
         if (coderID != null && isAdmin()) {
             log.debug("Using coder in parameter: " + coderID);
             getRequest().setAttribute("adminExtraParams", "&"+CodingConstants.CODER_ID+"="+coderID);
+            getRequest().setAttribute(CodingConstants.CODER_ID, new Integer(coderID));
             return Integer.parseInt(coderID);
         } else {
             getRequest().setAttribute("adminExtraParams", "");
+            getRequest().setAttribute(CodingConstants.CODER_ID, new Integer((int) getUser().getId()));
         }
         return (int) getUser().getId();
     }
