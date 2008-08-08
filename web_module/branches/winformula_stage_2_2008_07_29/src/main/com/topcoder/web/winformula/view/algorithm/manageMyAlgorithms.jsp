@@ -50,7 +50,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-            <div class="sub-navigation"> Manage My Algorithms | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredicitions">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
+            <div class="sub-navigation"> Manage My Algorithms | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredicitions${adminExtraParams}">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
             <h1>Manage My Algorithms</h1>
             <br>
             <h2>
@@ -90,7 +90,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                                     <td class="alignCenter">&nbsp;</td>
                                 </c:when>
                                 <c:otherwise>
-		                            <td class="alignCenter"><a href="?module=ViewProblemSolution&${roundSubmission}">${submission.number}</a></td>
+		                            <td class="alignCenter"><a href="?module=ViewProblemSolution&${roundSubmission}${adminExtraParams}">${submission.number}</a></td>
 		                            <td><tc-webtag:format object="${submission.time}" format="MM.dd.yyyy HH:mm:ss"/></td>
                                     <c:set var="prvRoundName" value="previousRoundName${submission.roundId}"/>
                                     <td>${requestScore[prvRoundName]}</td>
@@ -102,7 +102,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                             </td>
                             <td class="alignCenter">
                                 <c:if test="${submission.example}">
-                                    <a href="?module=ViewExampleResults&rd=${submission.roundId}">Example Results</a>
+                                    <a href="?module=ViewExampleResults&rd=${submission.roundId}${adminExtraParams}">Example Results</a>
                                 </c:if>
                                 &nbsp;
                             </td>
@@ -118,7 +118,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                             <c:choose>
                                 <c:when test="${submission.lockedIn}">
                                     <td class="alignCenter"><c:if test="${submission.accuracy != -1}">${submission.accuracy}</c:if>&nbsp;</td>
-                                    <td class="alignCenter"><c:if test="${submission.hasPrediction}"><a href="#">View Picks</a></c:if>&nbsp;</td>
+                                    <td class="alignCenter"><c:if test="${submission.hasPrediction}"><a href="#${adminExtraParams}">View Picks</a></c:if>&nbsp;</td>
                                 </c:when>
                                 <c:otherwise>
                                     <td class="alignCenter">&nbsp;</td>

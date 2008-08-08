@@ -247,9 +247,13 @@ public abstract class Base extends BaseProcessor {
     }
     
     public int getUserID() throws Exception {
-        if (getRequest().getParameter(CodingConstants.CODER_ID) != null && isAdmin()) {
-            log.debug("Using coder in paramenter: " + getRequest().getParameter(CodingConstants.CODER_ID));
-            return Integer.parseInt(getRequest().getParameter(CodingConstants.CODER_ID));
+        String coderID = getRequest().getParameter(CodingConstants.CODER_ID);
+        if (coderID != null && isAdmin()) {
+            log.debug("Using coder in paramenter: " + coderID);
+            getRequest().setAttribute("adminExtraParams", "&"+CodingConstants.CODER_ID+"="+coderID);
+            return Integer.parseInt(coderID);
+        } else {
+            getRequest().setAttribute("adminExtraParams", "");
         }
         return (int) getUser().getId();
     }
