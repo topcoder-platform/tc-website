@@ -22,6 +22,11 @@ public class ViewProblemSolution extends Base {
             int submissionNumber = Integer.parseInt(request.getParameter(CodingConstants.SUBMISSION_NUMBER));
             int coderId = getUserID();
             
+            if (isUserRegisteredInContest(getContestID(), coderId)) {
+                registrationNeeded("You need to be registered in order to view your solution.");
+                return;
+            }
+            
             log.debug("coder: " + coderId + " by user " + getUser().getId());
             
             LongSubmissionData submission = LongContestServicesLocator.getService().getSubmission(roundId, coderId, Constants.COMPONENT_ID_DEFAULT, false, submissionNumber);

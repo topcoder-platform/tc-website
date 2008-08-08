@@ -42,7 +42,7 @@
         <%-- Main Content --%>
         <div class="sub-navigation"><a href="?module=ManageMyAlgorithms">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredicitions">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
         <h1>Successful Submission</h1>
-
+        <br/>
             <%
                 int count = ((Number) request.getAttribute(CodingConstants.QUEUE_LENGTH)).intValue();
             %>

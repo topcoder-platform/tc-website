@@ -41,8 +41,8 @@ public class Submit extends Base {
     private static final String ACTION_SUBMIT = "submit";
     
     private static final String NEAR_END =
-            "Note: There are less than " + CodingConstants.SUBMISSION_RATE / 60 + " hours remaining in this event.  " +
-                    "If you make\na submission at any point between now and the end of the mini-season\nyou will " +
+            "Note: There are less than " + CodingConstants.SUBMISSION_RATE / 60 + " hours remaining in this mini-season.  " +
+                    "If you make\na submission at any point between now and the end of the it\nyou will " +
                     "not be able to make any further subimssions for\nthe duration of the mini-season.";
 
     protected void longContestProcessing() throws TCWebException {
@@ -52,6 +52,11 @@ public class Submit extends Base {
             int coderId = getUserID();
             int contestId = getContestID();
             int componentId = getComponentID();
+
+            if (!isUserRegisteredInContest(getContestID(), coderId)) {
+                registrationNeeded("You need to be registered in order to make a submission.");
+                return;
+            }
             
             // Get the query parameters
             String action = request.getParameter(CodingConstants.ACTION_KEY);
@@ -73,10 +78,6 @@ public class Submit extends Base {
             getRequest().getSession().removeAttribute(CodingConstants.LANGUAGE_ID);
             getRequest().getSession().removeAttribute(CodingConstants.MESSAGE);
             
-            if (!isUserRegisteredInContest(getContestID(),coderId)) {
-                throw new NavigationException("You need to be registered to make a submission.");
-            }
-
             generateRounds();
             int roundId = verifySeasonStatus(request, coderId);
             List allowedLanguages = getLanguages(roundId);

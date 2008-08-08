@@ -268,5 +268,12 @@ public abstract class Base extends BaseProcessor {
         }
         return JavaLanguage.ID;
     }
+    
+    protected void registrationNeeded(String text) {
+        getRequest().setAttribute("message", text);
+        setNextPage(Constants.PAGE_REG_NEEDED);
+        setIsNextPageInContext(true);
+    }
+
 }
 

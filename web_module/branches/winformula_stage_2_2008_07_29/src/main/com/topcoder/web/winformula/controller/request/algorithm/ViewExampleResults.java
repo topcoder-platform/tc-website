@@ -35,8 +35,12 @@ public class ViewExampleResults extends Base {
             
             String selectedWeek = StringUtils.checkNull(request.getParameter("week"));
 
-            
             int coderId = getUserID();
+            if (isUserRegisteredInContest(getContestID(), coderId)) {
+                registrationNeeded("You need to be registered in order to view your results.");
+                return;
+            }
+            
             int roundId = Integer.parseInt(request.getParameter(CodingConstants.ROUND_ID));
             setDefault(CodingConstants.ROUND_ID, roundId);
             log.debug("coder: " + coderId + " user " + getUser().getId());

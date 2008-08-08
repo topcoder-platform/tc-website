@@ -17,10 +17,9 @@ public class ManageMyAlgorithms extends Base {
     protected void longContestProcessing() throws TCWebException {
         try {
             TCRequest request = getRequest();
-            if (isUserRegisteredInContest(getContestID(), getContestID())) {
-                request.setAttribute("message", "You need to be registered in order to manage your algorithms");
-                setNextPage(CodingConstants.PAGE_REG_NEEDED);
-                setIsNextPageInContext(true);
+            if (isUserRegisteredInContest(getContestID(), getUserID())) {
+                registrationNeeded("You need to be registered in order to manage your algorithms");
+                return;
             }
             generateRounds();
             //Get user submissions

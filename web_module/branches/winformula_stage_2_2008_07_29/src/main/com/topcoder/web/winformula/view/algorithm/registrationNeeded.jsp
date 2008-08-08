@@ -19,9 +19,10 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>ESPN Winning Formula Challenge :: Powered by TopCoder - Submit</title>
+    <title>ESPN Winning Formula Challenge :: Powered by TopCoder - Registration Needed</title>
     <%-- Meta Tags --%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -48,10 +49,10 @@
 
         <%-- Main Content --%>
         <div class="sub-navigation"><a href="?module=ManageMyAlgorithms">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredicitions">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
-        <h1>Error</h1>
-<jsp:useBean id="message" class="java.lang.String"/>
-<h2>${message}</h2>
-
+        <h1>Registration Needed</h1>
+        <br/>
+        <jsp:useBean id="message" class="java.lang.String"/>
+        <h2>${message}</h2>
         <%-- Main Content --%>
         </div>
         <%-- End Container --%>

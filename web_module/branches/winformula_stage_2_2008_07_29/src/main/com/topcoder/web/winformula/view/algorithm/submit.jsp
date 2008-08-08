@@ -130,11 +130,11 @@ Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
                         <%
                             if (request.getAttribute(CodingConstants.CODE) == null || request.getAttribute(CodingConstants.CODE).toString().equals("")) {
                         %>
-                        <textarea cols="70" rows="20" name="code" class="codeTextArea" wrap="off"></textarea>
+                        <textarea cols="100" rows="20" name="code" class="codeTextArea" wrap="off"></textarea>
                         <%
                             } else {
                         %>
-                        <textarea cols="70" rows="20" name="code" class="codeTextArea" wrap="off"><%=StringUtils.replace((String) request.getAttribute(CodingConstants.CODE), "&", "&amp;")%></textarea>
+                        <textarea cols="100" rows="20" name="code" class="codeTextArea" wrap="off"><%=StringUtils.replace((String) request.getAttribute(CodingConstants.CODE), "&", "&amp;")%></textarea>
 
                         <%
                             }

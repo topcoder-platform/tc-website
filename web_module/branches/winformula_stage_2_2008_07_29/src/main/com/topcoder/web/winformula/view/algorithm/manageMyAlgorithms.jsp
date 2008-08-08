@@ -52,6 +52,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
         <%-- Main Content --%>
             <div class="sub-navigation"> Manage My Algorithms | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredicitions">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
             <h1>Manage My Algorithms</h1>
+            <br>
             <h2>
             <c:choose>
                 <c:when test="${currentRound != null}">Submission period for ${currentRound.map['name']} ends at <tc-webtag:format object="${currentRound.map['end_time']}" format="MM.dd.yyyy HH:mm:ss"/></c:when>
@@ -59,7 +60,6 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                 <c:otherwise>Submission period has finished.</c:otherwise>
             </c:choose>
             </h2>
-            <%-- Does not have any sense h3>Your current algorithm was submitted on 2008-07-09 at 13:45:32 ET (<a href="manage-algorithms_current-picks.htm">view its predictions</a>)</h3--%>
             <p>&nbsp;</p>
             <hr />
             <p>&nbsp;</p>
@@ -78,9 +78,10 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                         </tr>
                     </thead>
                     <tbody>
-                         <c:set var="prvNum" value="-1" /> 
+                         <c:set var="prvNum" value="-1" />
+                        <%boolean even = true;%> 
 		                <logic:iterate name="submissions" id="submission" type="com.topcoder.web.winformula.algorithm.services.SubmissionHistoryItem">
-                        <tr>
+                        <tr class="<%=even?"light":"dark"%>">
                             <c:set var="roundSubmission" value="rd=${submission.roundId}&subnum=${submission.number}"/>
                             <c:choose>
                                 <c:when test="${prvNum eq submission.number}">
@@ -117,7 +118,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                             <c:choose>
                                 <c:when test="${submission.lockedIn}">
                                     <td class="alignCenter"><c:if test="${submission.accuracy != -1}">${submission.accuracy}</c:if>&nbsp;</td>
-                                    <td class="alignCenter"><c:if test="${submission.hasPrediction}"><a href="?module=ViewPicks&rd=${rd}">View Picks</a></c:if>&nbsp;</td>
+                                    <td class="alignCenter"><c:if test="${submission.hasPrediction}"><a href="#">View Picks</a></c:if>&nbsp;</td>
                                 </c:when>
                                 <c:otherwise>
                                     <td class="alignCenter">&nbsp;</td>
@@ -126,6 +127,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                             </c:choose>
                             
                         </tr>
+                        <%even = !even;%>
 		                </logic:iterate>
                     </tbody>
                 </table>
