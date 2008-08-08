@@ -79,7 +79,7 @@
 
         <jsp:useBean id="submission" class="com.topcoder.server.ejb.TestServices.LongSubmissionData" scope="request"/>
 
-        <div class="sub-navigation"><a href="?module=ManageMyAlgorithms">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredictions">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
+        <div class="sub-navigation"><a href="?module=ManageMyAlgorithms${adminExtraParams}">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredictions${adminExtraParams}">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
         <h1>Problem Solution</h1>
           
         <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId="${cr}"/></span>
