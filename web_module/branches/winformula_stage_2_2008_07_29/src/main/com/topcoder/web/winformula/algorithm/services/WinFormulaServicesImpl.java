@@ -316,7 +316,7 @@ public class WinFormulaServicesImpl {
         }
     }
 
-    public int getLastSubmissionNumberFor(int roundId, int coderId) throws WinFormulaServicesException {
+    public Integer getLastSubmissionNumberFor(int roundId, int coderId) throws WinFormulaServicesException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -328,8 +328,10 @@ public class WinFormulaServicesImpl {
             ps.setInt(1, roundId);
             ps.setInt(2, coderId);
             rs = ps.executeQuery();
-            rs.next();
-            return rs.getInt(1);
+            if (rs.next()) {
+                return new Integer(rs.getInt(1));
+            } 
+            return null;
         } catch (Exception e) {
             log.error("Could not process required method", e);
             throw new WinFormulaServicesException("INTERNAL_SERVER");

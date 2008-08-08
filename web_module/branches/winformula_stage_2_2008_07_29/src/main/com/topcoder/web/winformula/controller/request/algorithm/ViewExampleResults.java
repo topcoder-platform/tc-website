@@ -54,7 +54,7 @@ public class ViewExampleResults extends Base {
             int roundId = Integer.parseInt(request.getParameter(CodingConstants.ROUND_ID));
             setDefault(CodingConstants.ROUND_ID, roundId);
             log.debug("coder: " + coderId + " user " + getUser().getId());
-            int subnum = getService().getLastSubmissionNumberFor(roundId, coderId);
+            Integer subnum = getService().getLastSubmissionNumberFor(roundId, coderId);
             LongTestResult[] results = LongContestServicesLocator.getService().getLongTestResults(roundId, coderId, Constants.COMPONENT_ID_DEFAULT, LongContestServices.LONG_TEST_RESULT_TYPE_NON_SYSTEM);
             
             LongTestResult result = null;
