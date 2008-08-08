@@ -66,14 +66,6 @@
                     <pre><c:out value="${result.fatalErrors}"/></pre>
                 </p>
                 <p>
-                    <span class="bodySubtitle">Standard Out: </span><br />
-                    <pre><c:out value="${result.stdOut}"/></pre>
-                </p>
-                <p>
-                    <span class="bodySubtitle">Standard Error: </span><br />
-                    <pre><c:out value="${result.stdErr}"/></pre>
-                </p>
-                <p>
                 <span class="bodySubtitle">Result: </span><br/><br/>
     
                   <c:choose>
@@ -172,6 +164,15 @@
                       </c:otherwise>
                   </c:choose>
                 </p>
+                <p>
+                    <span class="bodySubtitle">Standard Out: </span><br />
+                    <pre><c:out value="${result.stdOut}"/></pre>
+                </p>
+                <p>
+                    <span class="bodySubtitle">Standard Error: </span><br />
+                    <pre><c:out value="${result.stdErr}"/></pre>
+                </p>
+
                 <hr />
               </c:when>
               <c:otherwise>
