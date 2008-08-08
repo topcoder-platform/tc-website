@@ -263,7 +263,7 @@ public class WinFormulaServicesImpl {
             ps.setInt(1, coderId);
             rs = ps.executeQuery();
             if (rs.next()) {
-                DBUtils.getInt(rs, 1);
+                return DBUtils.getInt(rs, 1);
             }
             return null;
         } catch (Exception e) {
