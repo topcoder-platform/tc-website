@@ -51,7 +51,7 @@
         <div class="sub-navigation"><a href="?module=ManageMyAlgorithms">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredicitions">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
         <h1>Registration Needed</h1>
         <br/>
-        <jsp:useBean id="message" class="java.lang.String"/>
+        <jsp:useBean id="message" class="java.lang.String" scope="request"/>
         <h2>${message}</h2>
         <%-- Main Content --%>
         </div>
