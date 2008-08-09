@@ -73,7 +73,7 @@
 
         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
 
-            <tr><td><a href="?<%=CodingConstants.MODULE%>=SecureStatic&d1=admin">Back to the Long Contest Admin Home</a></td></tr>
+            <tr><td><a href="${pageContext.request.contextPath}/?<%=CodingConstants.MODULE%>=Static&d1=adminMenu">Back to the Long Contest Admin Home</a></td></tr>
 
             <tr>
                 <td>
@@ -130,7 +130,7 @@
                                     <rsc:item row="<%=resultRow%>" name="language_name"/>
                                 </td>
                                 <td class="<%=even?"statLt":"statDk"%>">
-                                    <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=CodingConstants.MODULE%>=ViewProblemSolution&<%=CodingConstants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=CodingConstants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=CodingConstants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=CodingConstants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>" class="statLink">
+                                    <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>/..?<%=CodingConstants.MODULE%>=ViewProblemSolution&<%=CodingConstants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=CodingConstants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=CodingConstants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>" class="statLink">
                                         <rsc:item row="<%=resultRow%>" name="submission_number"/>
                                     </A>
                                 </td>

@@ -46,7 +46,7 @@
         <div id="main-content">
         <%-- Main Content --%>
 
-        <p><a href="?<%=CodingConstants.MODULE%>=SecureStatic&d1=admin">Back to the Long Contest Admin Home</a></p>
+        <p><a href="${pageContext.request.contextPath}/?<%=CodingConstants.MODULE%>=Static&d1=adminMenu">Back to the Long Contest Admin Home</a></p>
         <p>
             <pre>
                 <%=request.getAttribute(CodingConstants.MESSAGE)%>
