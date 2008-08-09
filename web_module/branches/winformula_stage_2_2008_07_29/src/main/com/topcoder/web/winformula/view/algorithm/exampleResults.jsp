@@ -111,7 +111,16 @@
                                                 <td>${predictionItem.awayTeamName}</td>
                                           </c:otherwise>
                                       </c:choose>
-                                      <td class="alignCenter">${predictionItem.predictedResult.homeScore}-${predictionItem.predictedResult.awayScore}</td>
+                                      <td class="alignCenter">
+                                            <c:choose>
+                                              <c:when test="${not empty predictionItem.predictedResult}">
+                                                    ${predictionItem.predictedResult.homeScore}-${predictionItem.predictedResult.awayScore}
+                                              </c:when>
+                                              <c:otherwise>
+                                                    &nbsp;
+                                              </c:otherwise>
+                                          </c:choose>
+                                      </td>
                                       <td class="alignCenter">
                                           <c:choose>
                                               <c:when test="${not empty predictionItem.realResult}">
