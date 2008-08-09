@@ -58,29 +58,33 @@ public class ViewExampleResults extends Base {
             LongTestResult[] results = LongContestServicesLocator.getService().getLongTestResults(roundId, coderId, Constants.COMPONENT_ID_DEFAULT, LongContestServices.LONG_TEST_RESULT_TYPE_NON_SYSTEM);
             
             LongTestResult result = null;
-
-            ArrayList<ListSelectTag.Option> weeks = new ArrayList<ListSelectTag.Option>(results.length);
-            if (results.length > 0) {
-                result = results[0];
-                Object o = result.getResultObject();
-
-                // process predictions
-                List<Prediction> predictions = resolvePredictions(o);
-
-                int weekIndex = 0;
-                int i = 0;
-                for (Prediction p : predictions) {
-                    weeks.add(new ListSelectTag.Option(String.valueOf(p.getWeek()), "Week " + p.getWeek(), String.valueOf(p.getWeek()).equals(selectedWeek)));
-                    if (String.valueOf(p.getWeek()).equals(selectedWeek)) {
-                        weekIndex = i;
+            List<ListSelectTag.Option> weeks;
+            if (results != null && results.length > 0) {
+                weeks = new ArrayList<ListSelectTag.Option>(results.length);
+                if (results.length > 0) {
+                    result = results[0];
+                    Object o = result.getResultObject();
+    
+                    // process predictions
+                    List<Prediction> predictions = resolvePredictions(o);
+    
+                    int weekIndex = 0;
+                    int i = 0;
+                    for (Prediction p : predictions) {
+                        weeks.add(new ListSelectTag.Option(String.valueOf(p.getWeek()), "Week " + p.getWeek(), String.valueOf(p.getWeek()).equals(selectedWeek)));
+                        if (String.valueOf(p.getWeek()).equals(selectedWeek)) {
+                            weekIndex = i;
+                        }
+                        i++;
                     }
-                    i++;
+                    
+                    Prediction p = predictions.get(weekIndex);
+                    sortResult(p);
+                    
+                    result.setResultObject(p);
                 }
-                
-                Prediction p = predictions.get(weekIndex);
-                sortResult(p);
-                
-                result.setResultObject(p);
+            } else {
+                weeks = Collections.emptyList();
             }
             
             request.setAttribute(CodingConstants.CODER_ID, new Integer(coderId));
