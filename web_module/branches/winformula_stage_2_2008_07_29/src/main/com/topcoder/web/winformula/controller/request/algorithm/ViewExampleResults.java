@@ -224,12 +224,12 @@ public class ViewExampleResults extends Base {
                 Integer awayScore = (Integer) game[5];
                 Integer predictionScore = (Integer) game[6];
                 GameResult pscore = null;
-                if (homePScore != null) {
+                if (homePScore != null && awayPScore != null) {
                     pscore = new GameResult(homePScore.intValue(), awayPScore.intValue());
                 }
     
                 GameResult rscore = null;
-                if (homeScore != null) {
+                if (homeScore != null && awayScore != null) {
                     rscore = new GameResult(homeScore.intValue(), awayScore.intValue());
                 }
                 items.add(new PredictionItem(homeTeam, awayTeam, pscore, rscore, predictionScore));
