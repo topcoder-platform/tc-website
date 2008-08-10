@@ -525,6 +525,8 @@ public class RBoardApplicationBean extends BaseEJB {
      * is active and without a finished review), the reviewer gets a compounded delay of
      * APPLICATION_DELAY_PER_ACTIVE_PROJECT.
      *
+     * [TCWEB-442]: don't count a project as active if submission phase is closed and there are no active submissions.
+     *  
      * @param conn   the connection being used
      * @param userId the user id to inspect
      * @return the time to wait in milliseconds
@@ -559,6 +561,17 @@ public class RBoardApplicationBean extends BaseEJB {
             "                              from upload u " +
             "                             where u.resource_id = r.resource_id " +
             "                               and u.upload_type_id = 2))) " +
+            " and ( exists (select 1  " +                              // There's at least one active submission... 
+            "            from submission s " + 
+            "             , upload u " + 
+            "             where u.project_id = p.project_id     " +
+            "             and u.upload_type_id = 1              " +
+            "             and u.upload_id = s.upload_id         " +
+            "             and s.submission_status_id = 1)    " +
+            "         or exists(                               " +  // ... or the submission phase is scheduled or open 
+            "            select 1 from project_phase pp_subm where pp_subm.phase_type_id = 2 " + 
+            "            and pp_subm.phase_status_id in (1,2) " +
+            "            and pp_subm.project_id = p.project_id)) " +
             "   and p.project_id = r.project_id " +
             "   and r.resource_role_id in (4, 5, 6, 7) " +
             "   and r.resource_id = ri_userid.resource_id " +
