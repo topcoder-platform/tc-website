@@ -49,7 +49,7 @@
          <c:choose>
               <c:when test="${not empty result}">
     
-            <span class="bodySubtitle">Submission: <a href="?module=ViewProblemSolution&rd=${rd}&subnum=${subnum}${adminExtraParams}">${subnum}</a></span>
+            <span class="bodySubtitle">Submission: <a href="?module=ViewProblemSolution&amp;rd=${rd}&amp;subnum=${subnum}${adminExtraParams}">${subnum}</a></span>
             <br/>
             <hr/>
     
@@ -134,10 +134,10 @@
                                       <td class="alignCenter">
                                           <c:choose>
                                               <c:when test="${predictionItem.pickedWinner}">
-                                                    (x)
+                                                    <img src="/i/tournament/tco08/iconAdvanced.png" alt="Good Prediction"/>
                                               </c:when>
                                               <c:otherwise>
-                                                    &nbsp;
+                                                    <img src="/i/tournament/tco08/iconEliminated.png" alt="Bad Prediction" />
                                               </c:otherwise>
                                           </c:choose>
                                       </td>
