@@ -57,16 +57,18 @@
                 <h2>Score: ${result.score}
                     Run Time: ${result.processingTime} ms
                 </h2>
-                <p>
-                    <span class="bodySubtitle">Example Case: </span><br />
+                <div>
+                    <strong>Example Case: </strong><br />
                     <pre>${result.arg}</pre>
-                </p>
-                <p>
-                    <span class="bodySubtitle">System Messages: </span><br />
+                </div>
+                <br />
+                <div>
+                    <strong>Fatal Errors: </strong><br />
                     <pre><c:out value="${result.fatalErrors}"/></pre>
-                </p>
-                <p>
-                <span class="bodySubtitle">Result: </span><br /><br />
+                </div>
+                <br />
+                <div>
+                <strong>Result: </strong><br /><br />
     
                   <c:choose>
                       <c:when test="${not empty result and not empty result.resultObject}">
@@ -172,15 +174,17 @@
                             There are no results to display.
                       </c:otherwise>
                   </c:choose>
-                </p>
-                <p>
-                    <span class="bodySubtitle">Standard Out: </span><br />
+                </div>
+                <br />
+                <div>
+                    <strong>Standard Out: </strong><br />
                     <pre><c:out value="${result.stdOut}"/></pre>
-                </p>
-                <p>
-                    <span class="bodySubtitle">Standard Error: </span><br />
+                </div>
+                <br />
+                <div>
+                    <strong>Standard Error: </strong><br />
                     <pre><c:out value="${result.stdErr}"/></pre>
-                </p>
+                </div>
 
                 <hr />
               </c:when>
