@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="IntroEventConfig" table="intro_event_config">
+        <composite-id name="id" class="IntroEventConfig$Identifier">
+            <key-many-to-one name="introEvent" class="IntroEvent" column="event_id" />
+            <key-property name="propertyId" column="property_id" access="field"/>
+        </composite-id>
+    
+        <property name="value" column="property_value" access="field"/>
+    </class>
+</hibernate-mapping>
