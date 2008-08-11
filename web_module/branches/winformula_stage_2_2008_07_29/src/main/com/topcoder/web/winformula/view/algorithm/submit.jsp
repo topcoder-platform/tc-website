@@ -83,20 +83,20 @@
             <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
                 <tr>
                     <td valign="top">
-                        <span class="bodyTitle">Coding Area</span><br/>
-                        <strong>Class Name: <%=request.getAttribute(CodingConstants.CLASS_NAME)%></strong><br/>
-                        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&popup=false<%=(lang!=null?"&lid="+lang:"")%>" class="statLink">Problem
+                        <span class="bodyTitle">Coding Area</span><br />
+                        <strong>Class Name: <%=request.getAttribute(CodingConstants.CLASS_NAME)%></strong><br />
+                        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&amp;popup=false<%=(lang!=null?"&amp;lid="+lang:"")%>" class="statLink">Problem
                             Statement</a>
-                        (<a href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&popup=true<%=(lang!=null?"&lid="+lang:"")%>', 'Problem Statement');" class="statLink">new
+                        (<a href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&amp;popup=true<%=(lang!=null?"&amp;lid="+lang:"")%>', 'Problem Statement');" class="statLink">new
                         window</a>)
                     </td>
-                    <td align="right" valign="top">Choose your language:<br/>
+                    <td align="right" valign="top">Choose your language:<br />
                         <tc-webtag:listIterator id="language" listKey="languages" type="com.topcoder.shared.language.Language">
                             <tc-webtag:radioButton name="<%=CodingConstants.LANGUAGE_ID%>" value="<%=String.valueOf(language.getId())%>"  selected="<%=language.getId() == lang.intValue() ? "true" : "false" %>"/>
                             &#160;
                             <jsp:getProperty name="language" property="name"/>
                             &#160;
-                        </tc-webtag:listIterator><br/>
+                        </tc-webtag:listIterator><br />
                         <%
                             if (request.getAttribute(CodingConstants.FORUM_ID) != null) {
                         %>
@@ -126,7 +126,7 @@ Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <span class="bodySubtitle">Submission</span><br>
+                        <span class="bodySubtitle">Submission</span><br />
                         <%
                             if (request.getAttribute(CodingConstants.CODE) == null || request.getAttribute(CodingConstants.CODE).toString().equals("")) {
                         %>
@@ -143,7 +143,7 @@ Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <span class="bodySubtitle">Messages</span><br>
+                        <span class="bodySubtitle">Messages</span><br />
                         <textarea cols="70" rows="5" name="messages" class="messageTextArea" wrap="off" readonly><%=(request.getAttribute(CodingConstants.MESSAGE) != null ? "" + request.getAttribute(CodingConstants.MESSAGE) : "")%></textarea>
                     </td>
                 </tr>
@@ -155,11 +155,11 @@ Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
                     </td>
                     <td align="right" valign="top">
                         <div style="float:right; padding: 5px 0px 0px 5px;">
-                            <A href="javascript:submit();"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0"/></A>
+                            <a href="javascript:submit();"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0"/></a>
                         </div>
 
                         <div style="float:right; padding: 5px 0px 0px 5px;">
-                            <A href="javascript:save();"><img src="/i/interface/btn_save.gif" alt="Save" border="0"/></A>
+                            <a href="javascript:save();"><img src="/i/interface/btn_save.gif" alt="Save" border="0"/></a>
                         </div>
 
                     </td>
