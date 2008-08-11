@@ -57,17 +57,17 @@
                 <h2>Score: ${result.score}
                     Run Time: ${result.processingTime} ms
                 </h2>
-                <div>
+                <div style="padding:5px; border: 1px solid #999999;">
                     <strong>Example Case: </strong><br />
                     <pre>${result.arg}</pre>
                 </div>
                 <br />
-                <div>
+                <div style="padding:5px; border: 1px solid #999999;">
                     <strong>Fatal Errors: </strong><br />
                     <pre><c:out value="${result.fatalErrors}"/></pre>
                 </div>
                 <br />
-                <div>
+                <div style="padding:5px; border: 1px solid #999999;">
                 <strong>Result: </strong><br /><br />
     
                   <c:choose>
@@ -176,12 +176,12 @@
                   </c:choose>
                 </div>
                 <br />
-                <div>
+                <div style="padding:5px; border: 1px solid #999999;">
                     <strong>Standard Out: </strong><br />
                     <pre><c:out value="${result.stdOut}"/></pre>
                 </div>
                 <br />
-                <div>
+                <div style="padding:5px; border: 1px solid #999999;">
                     <strong>Standard Error: </strong><br />
                     <pre><c:out value="${result.stdErr}"/></pre>
                 </div>
