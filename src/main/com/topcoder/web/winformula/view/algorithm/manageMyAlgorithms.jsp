@@ -108,10 +108,10 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                             </td>
                             <td class="alignCenter">
                                 <c:if test="${submission.lockedIn}">
-                                   <img src="/i/home/icons/v2/survey.png" alt="Locked submission"/>
+                                   <img src="/i/events/winformula/interface/lock.png" alt="Locked submission"/>
                                 </c:if>
                                 <c:if test="${submission.inQueue}">
-                                   <img src="/i/home/icons/v2/analysis.png" alt="In Queue"/>
+                                   <img src="/i/events/winformula/interface/testing.png" alt="In Queue"/>
                                 </c:if>
                                 &nbsp;
                             </td>
