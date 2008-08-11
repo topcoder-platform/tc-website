@@ -13,6 +13,7 @@
     <property name="lib.dir" value="lib"/>
     <property name="jars.dir" value="${lib.dir}/jars"/>
     <property name="jive.dir" value="lib/jars/jive"/>
+    <property name="struts.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
     <property name="src.dir" value="src"/>
     <property name="shared.build" value="${basedir}/../shared"/>
     <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
@@ -88,6 +89,11 @@
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
 
+        <!-- Long contest dependencies -->
+        <pathelement location="${jars.dir}/TestServices.jar"/>
+        <pathelement location="${jars.dir}/asyncservices.jar"/>
+        <!-- app side dependencies...get rid of this if possible it's bad long contest design -->
+        <pathelement location="${jars.dir}/tc.jar"/>
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
@@ -119,6 +125,7 @@
                 >
             <include name="com/topcoder/ejb/**"/>
             <include name="com/topcoder/security/**"/>
+            <include name="com/topcoder/web/codinginterface/*.java"/>
             <include name="com/topcoder/web/ejb/BaseEJB.java"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
@@ -178,6 +185,7 @@
     <target name="war-winformula" depends="compile">
         <war warfile="${war.dir}/winformula.war" webxml="${resources}/winformula/web.xml">
             <classes dir="${classes}">
+                <include name="com/topcoder/web/codinginterface/*.class"/>
                 <include name="com/topcoder/web/winformula/**/*.class"/>
                 <include name="com/topcoder/web/forums/**/*.class"/>
             </classes>
@@ -199,6 +207,7 @@
             <fileset dir="${java}/com/topcoder/web/jsp">
                 <include name="style.jsp"/>
                 <include name="date_time.jsp"/>
+                <include name="script.jsp"/>
             </fileset>
             <webinf dir="${resources}/winformula">
                 <include name="jboss-web.xml"/>
@@ -214,7 +223,16 @@
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
+                <include name="tc.jar"/>
+                <include name="TestServices.jar"/>
+                <include name="asyncservices.jar"/>
             </lib>
+            <lib dir="${struts.dir}">
+                <include name="*.jar"/>
+            </lib>
+            <webinf dir="${struts.dir}">
+                <include name="struts-logic.tld"/>
+            </webinf>
         </war>
         <delete file="${jboss_deploy}/winformula.war"/>
         <unwar src="${war.dir}/winformula.war" dest="${jboss_deploy}/winformula.war/" overwrite="yes"/>
@@ -281,6 +299,8 @@
         <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/EmailEngineConfig.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/winformula/ProblemParser.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/problem.xsd"/>
 
         <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jgroups.jar"/>
         <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jboss-cache-jdk50.jar"/>

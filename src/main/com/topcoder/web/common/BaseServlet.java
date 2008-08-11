@@ -40,7 +40,7 @@ public abstract class BaseServlet extends HttpServlet {
     public static final String NEXT_PAGE_KEY = "nextpage";
     public static final String SESSION_INFO_KEY = "sessionInfo";
 
-    private static final Logger log = Logger.getLogger(BaseServlet.class);
+    private final Logger log = Logger.getLogger(getClass());
 
     protected static final Throttle throttle = new Throttle(10, 5000);
     protected static boolean throttleEnabled = true;

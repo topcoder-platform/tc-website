@@ -1,14 +1,15 @@
 package com.topcoder.web.winformula.controller;
 
+import java.util.MissingResourceException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.MissingResourceException;
 
 /**
  * @author dok
@@ -17,9 +18,16 @@ import java.util.MissingResourceException;
  */
 public class WinformulaServlet extends BaseServlet {
     private static final Logger log = Logger.getLogger(WinformulaServlet.class);
-
+    private static TCResourceBundle bundle;
+    
     static {
         throttleEnabled = false;
+        try {
+            bundle = new TCResourceBundle("Winformula");
+        } catch (Exception e) {
+            log.error("Could not load Winformula properties",e);
+        }
+
     }
 
 /*
@@ -33,8 +41,6 @@ public class WinformulaServlet extends BaseServlet {
     protected String getProcessor(String key) {
         String ret = super.getProcessor(key);
         if (ret.equals(key)) {
-            //yuck, gonna throw errors all over the place
-            TCResourceBundle bundle = new TCResourceBundle("Winformula");
             try {
                 ret = bundle.getProperty(key);
             } catch (MissingResourceException ignore) {
