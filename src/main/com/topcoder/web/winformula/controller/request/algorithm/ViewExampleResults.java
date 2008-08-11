@@ -68,7 +68,7 @@ public class ViewExampleResults extends Base {
                     // process predictions
                     List<Prediction> predictions = resolvePredictions(o);
     
-                    int weekIndex = 0;
+                    int weekIndex = -1;
                     int i = 0;
                     for (Prediction p : predictions) {
                         weeks.add(new ListSelectTag.Option(String.valueOf(p.getWeek()), "Week " + p.getWeek(), String.valueOf(p.getWeek()).equals(selectedWeek)));
@@ -77,11 +77,11 @@ public class ViewExampleResults extends Base {
                         }
                         i++;
                     }
-                    
-                    Prediction p = predictions.get(weekIndex);
-                    sortResult(p);
-                    
-                    result.setResultObject(p);
+                    if (weekIndex != -1) {
+                        Prediction p = predictions.get(weekIndex);
+                        sortResult(p);
+                        result.setResultObject(p);
+                    }
                 }
             } else {
                 weeks = Collections.emptyList();
