@@ -42,7 +42,7 @@
         <%-- Main Content --%>
         <div class="sub-navigation"><a href="?module=ManageMyAlgorithms">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredictions">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
         <h1>Successful Submission</h1>
-        <br/>
+        <br />
             <%
                 int count = ((Number) request.getAttribute(CodingConstants.QUEUE_LENGTH)).intValue();
             %>
@@ -62,15 +62,15 @@
                 }
             %>
 
-            <br/>
-            <br/>
-            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ManageMyAlgorithms">Manage My Algorithms</A>
-            <br/>
-            <br/>
-            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewQueue">View Queue</A>
-            <br/>
-            <br/>
-            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit">Submit Again</A>
+            <br />
+            <br />
+            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ManageMyAlgorithms">Manage My Algorithms</a>
+            <br />
+            <br />
+            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewQueue">View Queue</a>
+            <br />
+            <br />
+            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit">Submit Again</a>
         <%-- Main Content --%>
         </div>
         <%-- End Container --%>
