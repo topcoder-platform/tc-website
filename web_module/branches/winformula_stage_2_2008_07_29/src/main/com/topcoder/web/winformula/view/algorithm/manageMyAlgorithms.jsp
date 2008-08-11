@@ -52,7 +52,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
         <%-- Main Content --%>
             <div class="sub-navigation"> Manage My Algorithms | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredictions${adminExtraParams}">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
             <h1>Manage My Algorithms</h1>
-            <br>
+            <br />
             <h2>
             <c:choose>
                 <c:when test="${currentRound != null}">Submission period for ${currentRound.map['name']} ends at <tc-webtag:format object="${currentRound.map['end_time']}" format="MM.dd.yyyy HH:mm:ss"/></c:when>
@@ -80,9 +80,9 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                     <tbody>
                          <c:set var="prvNum" value="-1" />
                         <%boolean even = true;%> 
-		                <logic:iterate name="submissions" id="submission" type="com.topcoder.web.winformula.algorithm.services.SubmissionHistoryItem">
+                        <logic:iterate name="submissions" id="submission" type="com.topcoder.web.winformula.algorithm.services.SubmissionHistoryItem">
                         <tr class="<%=even?"light":"dark"%>">
-                            <c:set var="roundSubmission" value="rd=${submission.roundId}&subnum=${submission.number}"/>
+                            <c:set var="roundSubmission" value="rd=${submission.roundId}&amp;subnum=${submission.number}"/>
                             <c:choose>
                                 <c:when test="${prvNum eq submission.number}">
                                     <td class="alignCenter">&nbsp;</td>
@@ -90,10 +90,10 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                                     <td class="alignCenter">&nbsp;</td>
                                 </c:when>
                                 <c:otherwise>
-		                            <td class="alignCenter"><a href="?module=ViewProblemSolution&${roundSubmission}${adminExtraParams}">${submission.number}</a></td>
-		                            <td><tc-webtag:format object="${submission.time}" format="MM.dd.yyyy HH:mm:ss"/></td>
+                                    <td class="alignCenter"><a href="?module=ViewProblemSolution&amp;${roundSubmission}${adminExtraParams}">${submission.number}</a></td>
+                                    <td class="alignCenter"><tc-webtag:format object="${submission.time}" format="MM.dd.yyyy HH:mm:ss"/></td>
                                     <c:set var="prvRoundName" value="previousRoundName${submission.roundId}"/>
-                                    <td>${requestScope[prvRoundName]}</td>
+                                    <td class="alignCenter">${requestScope[prvRoundName]}</td>
                                 </c:otherwise>
                             </c:choose>
                             <c:set var="prvNum" value="${submission.number}"/>
@@ -102,7 +102,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                             </td>
                             <td class="alignCenter">
                                 <c:if test="${submission.example}">
-                                    <a href="?module=ViewExampleResults&rd=${submission.roundId}${adminExtraParams}">Example Results</a>
+                                    <a href="?module=ViewExampleResults&amp;rd=${submission.roundId}${adminExtraParams}">Example Results</a>
                                 </c:if>
                                 &nbsp;
                             </td>
@@ -128,7 +128,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                             
                         </tr>
                         <%even = !even;%>
-		                </logic:iterate>
+                        </logic:iterate>
                     </tbody>
                 </table>
         <%-- Main Content --%>

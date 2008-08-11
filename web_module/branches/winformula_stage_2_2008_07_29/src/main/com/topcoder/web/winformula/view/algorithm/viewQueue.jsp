@@ -53,32 +53,32 @@
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="stat">
             <tbody>
                 <tr>
-                    <td class="title" colspan="6">Queue Status</td>
+                    <th class="alignCenter" colspan="6">Queue Status</th>
                 </tr>
-                <tr>
-                    <td class="header">
+                <tr class="resultTH">
+                    <th class="alignCenter">
                         Handle
-                    </td>
-                    <td class="header">
+                    </th>
+                    <th class="center">
                         Contest
-                    </td>
-                    <td class="header">
+                    </th>
+                    <th class="center">
                         Language
-                    </td>
-                    <td class="headerC">
+                    </th>
+                    <th class="center">
                         Entered Queue
-                    </td>
-                    <td class="headerR">
+                    </th>
+                    <th class="center">
                         Type
-                    </td>
-                    <td class="headerR">
+                    </th>
+                    <th class="center">
                         Tests Remaining
-                    </td>
+                    </th>
                 </tr>
                 <% if (result.isEmpty()) { %>
                 <tr class="light">
-                    <td colspan="6" class="valueC">
-                        <div align="center" style="margin: 40px 0px 40px 0px;">
+                    <td colspan="6" class="valueC center">
+                        <div style="margin: 40px 0px 40px 0px;">
                             There are currently no submissions in the queue.
                         </div>
                     </td>
