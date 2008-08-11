@@ -123,7 +123,7 @@
         </init-param>
         <init-param>
             <param-name>default_processor</param-name>
-            <param-value>Home</param-value>
+            <param-value>ManageMyAlgorithms</param-value>
         </init-param>
         <init-param>
             <param-name>login_processor</param-name>
