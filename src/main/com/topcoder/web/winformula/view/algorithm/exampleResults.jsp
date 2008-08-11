@@ -62,7 +62,7 @@
                     <pre>${result.arg}</pre>
                 </p>
                 <p>
-                    <span class="bodySubtitle">Fatal Errors: </span><br />
+                    <span class="bodySubtitle">System Messages: </span><br />
                     <pre><c:out value="${result.fatalErrors}"/></pre>
                 </p>
                 <p>
