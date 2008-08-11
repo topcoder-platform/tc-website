@@ -83,9 +83,9 @@
         <h1>Problem Solution</h1>
           
         <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId="${cr}"/></span>
-        <br/>
+        <br />
         <span class="bodySubtitle">Submission: ${submission.number}</span>
-        <br/>
+        <br />
         <hr>
         <div class="problemText" style="color:black">
              <%=addSpace(submission.getText())%>

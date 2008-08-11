@@ -45,12 +45,12 @@
         <h1>Example Results</h1>
           
         <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId="${cr}"/></span>
-        <br/>
+        <br />
          <c:choose>
               <c:when test="${not empty result}">
     
             <span class="bodySubtitle">Submission: <a href="?module=ViewProblemSolution&amp;rd=${rd}&amp;subnum=${subnum}${adminExtraParams}">${subnum}</a></span>
-            <br/>
+            <br />
             <hr/>
     
                 
@@ -66,7 +66,7 @@
                     <pre><c:out value="${result.fatalErrors}"/></pre>
                 </p>
                 <p>
-                <span class="bodySubtitle">Result: </span><br/><br/>
+                <span class="bodySubtitle">Result: </span><br /><br />
     
                   <c:choose>
                       <c:when test="${not empty result and not empty result.resultObject}">
