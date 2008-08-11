@@ -61,14 +61,14 @@ public class ViewExampleResults extends Base {
             List<ListSelectTag.Option> weeks;
             if (results != null && results.length > 0) {
                 weeks = new ArrayList<ListSelectTag.Option>(results.length);
-                if (results.length > 0) {
-                    result = results[0];
-                    Object o = result.getResultObject();
-    
-                    // process predictions
-                    List<Prediction> predictions = resolvePredictions(o);
-    
-                    int weekIndex = -1;
+                result = results[0];
+                Object o = result.getResultObject();
+
+                // process predictions
+                List<Prediction> predictions = resolvePredictions(o);
+
+                if (predictions.size() > 0) {
+                    int weekIndex = 0;
                     int i = 0;
                     for (Prediction p : predictions) {
                         weeks.add(new ListSelectTag.Option(String.valueOf(p.getWeek()), "Week " + p.getWeek(), String.valueOf(p.getWeek()).equals(selectedWeek)));
@@ -77,13 +77,15 @@ public class ViewExampleResults extends Base {
                         }
                         i++;
                     }
-                    if (weekIndex != -1) {
-                        Prediction p = predictions.get(weekIndex);
-                        sortResult(p);
-                        result.setResultObject(p);
-                    }
+                    Prediction p = predictions.get(weekIndex);
+                    sortResult(p);
+                    result.setResultObject(p);
+                } else  {
+                    log.info("prediction for test case 0 was null or empty");
+                    weeks = Collections.emptyList();
                 }
             } else {
+                log.info("results is null or empty");
                 weeks = Collections.emptyList();
             }
             
