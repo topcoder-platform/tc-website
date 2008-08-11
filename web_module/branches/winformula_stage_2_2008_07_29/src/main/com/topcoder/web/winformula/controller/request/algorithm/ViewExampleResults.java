@@ -204,7 +204,7 @@ public class ViewExampleResults extends Base {
     
     private  List<Prediction> resolvePredictions(Object o) {
         if (o == null) {
-            return null;
+            return Collections.emptyList();
         }
         Object[] weeks = (Object[]) o;
         List<Prediction> predictions = new ArrayList(weeks.length);
