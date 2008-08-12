@@ -38,10 +38,10 @@
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-        Resubmit <a href="algorithm/admin?module=ViewAdminForceSubmit&rd=30834">mini-season 1</a><br/>
-        Resubmit <a href="algorithm/admin?module=ViewAdminForceSubmit&rd=30835">mini-season 2</a><br/>
-        Resubmit <a href="algorithm/admin?module=ViewAdminForceSubmit&rd=30836">mini-season 3</a><br/>
-        Resubmit <a href="algorithm/admin?module=ViewAdminForceSubmit&rd=30837">mini-season 4</a><br/>
+        Resubmit <a href="algorithm/admin?module=ViewAdminForceSubmit&rd=13602">mini-season 1</a><br/>
+        Resubmit <a href="algorithm/admin?module=ViewAdminForceSubmit&rd=13603">mini-season 2</a><br/>
+        Resubmit <a href="algorithm/admin?module=ViewAdminForceSubmit&rd=13604">mini-season 3</a><br/>
+        Resubmit <a href="algorithm/admin?module=ViewAdminForceSubmit&rd=13605">mini-season 4</a><br/>
 
         <%-- Main Content --%>
         </div>
