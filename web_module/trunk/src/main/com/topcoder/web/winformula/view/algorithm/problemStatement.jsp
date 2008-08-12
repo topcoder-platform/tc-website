@@ -39,7 +39,7 @@
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-        <div class="sub-navigation"><a href="?module=ManageMyAlgorithms">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredictions">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
+        <div class="sub-navigation"><a href="?module=ManageMyAlgorithms">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> <%-- | <a href="?module=ViewLastPredictions${adminExtraParams}">Current Algorithm's Predictions</a> --%>| <a href="?module=ViewQueue">Queue Status</a></div>
         <h1>Problem Statement</h1>
         <jsp:include page="problemStatementContent.jsp"/>
         <%-- Main Content --%>
