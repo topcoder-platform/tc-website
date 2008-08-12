@@ -50,7 +50,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-            <div class="sub-navigation"> Manage My Algorithms | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredictions${adminExtraParams}">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
+            <div class="sub-navigation"> Manage My Algorithms | <a href="?module=Submit">Submit</a> <%-- | <a href="?module=ViewLastPredictions${adminExtraParams}">Current Algorithm's Predictions</a> --%> | <a href="?module=ViewQueue">Queue Status</a></div>
             <h1>Manage My Algorithms</h1>
             <br />
             <h2>
