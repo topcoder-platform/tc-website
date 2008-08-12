@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />08.12.08<br />6:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm413">SRM 413 - Problem Set &amp; Analysis</a></span><br /><br />
+      In both divisions the SRM started with average times on the easy. The division 1 easy (division 2 medium) was a bit unusual but the forgiving example cases didn't stop many people from submitting their (incorrect) solutions. The division 1 medium (hard version of division 2 hard) was a bit more unusual.</td>
+         <td class="newsPhoto"><%--<img src="/i/m/Eryx_big2.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="21547660" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm413">details</a> | 
+        <tc-webtag:forumLink forumID="522709" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />08.05.08<br />3:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2313">PROFLO JQuery Plugin Contest at TopCoder Studio!</a></span><br /><br />
@@ -153,20 +169,3 @@
         <a href="/truveo/forums">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />07.21.08<br />2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm410">SRM 410 - Problem Set &amp; Analysis</a></span><br /><br />
-      In both divisions, coders faced 1000-point problems that were even tougher than I'd anticipated. In Division 1, the hard problem received only two submissions, neither of which passed. In the end, the battle was between <tc-webtag:handle coderId="8355516" context="algorithm"/> and <tc-webtag:handle coderId="9906197" context="algorithm"/>.</td>
-         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm410">details</a> | 
-        <tc-webtag:forumLink forumID="522342" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
