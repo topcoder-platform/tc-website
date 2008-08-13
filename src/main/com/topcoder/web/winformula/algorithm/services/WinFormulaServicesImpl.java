@@ -385,7 +385,6 @@ public class WinFormulaServicesImpl {
             ps = cnn.prepareStatement(cmd);
             ps.setInt(1, contestId);
             rs = ps.executeQuery();
-            rs.next();
             return new ResultSetContainer(rs);
         } catch (Exception e) {
             log.error("Could not process required method", e);
