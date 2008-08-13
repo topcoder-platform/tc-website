@@ -13,7 +13,7 @@ public class SummaryReport extends AlgorithmBase {
         try {
             TCRequest request = getRequest();
             ResultSetContainer lastActiveRound = getService().getLastActiveRound(getContestID());
-            ResultSetContainer report = getService().getSummaryReport(getContestID(), lastActiveRound.getIntItem(1, "round_id"));
+            ResultSetContainer report = getService().getSummaryReport(getContestID(), lastActiveRound.getIntItem(0, "round_id"));
             request.setAttribute("report", report); 
             request.setAttribute("lastActiveRound", lastActiveRound);
             setNextPage("/summaryReport.jsp");
