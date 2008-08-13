@@ -214,6 +214,7 @@
             <classes dir="${resources}/hibernate">
                 <include name="com/topcoder/web/common/model/**/*.xml"/>
                 <include name="com/topcoder/web/aolicq/model/**/*.xml"/>
+                <include name="com/topcoder/web/common/voting/**/*.xml"/>
             </classes>
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
