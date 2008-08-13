@@ -8,9 +8,10 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
 import com.topcoder.web.winformula.algorithm.services.SubmissionHistoryItem;
 import com.topcoder.web.winformula.algorithm.services.WinFormulaServicesImpl;
+import com.topcoder.web.winformula.controller.request.AlgorithmBase;
 
 
-public class ManageMyAlgorithms extends Base {
+public class ManageMyAlgorithms extends AlgorithmBase {
     protected static final Logger log = Logger.getLogger(ManageMyAlgorithms.class);
     private static final WinFormulaServicesImpl services = new WinFormulaServicesImpl();
 

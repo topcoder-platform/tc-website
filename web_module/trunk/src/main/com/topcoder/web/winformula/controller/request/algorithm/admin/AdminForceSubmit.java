@@ -12,14 +12,14 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
-import com.topcoder.web.winformula.controller.request.algorithm.Base;
+import com.topcoder.web.winformula.controller.request.AlgorithmBase;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Feb 2, 2006
  */
-public class AdminForceSubmit extends Base {
+public class AdminForceSubmit extends AlgorithmBase {
 
     protected void longContestProcessing() throws Exception {
         //get all the submissions that need to be submited and do so

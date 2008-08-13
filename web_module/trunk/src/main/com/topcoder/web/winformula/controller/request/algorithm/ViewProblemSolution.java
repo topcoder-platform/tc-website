@@ -10,9 +10,10 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
+import com.topcoder.web.winformula.controller.request.AlgorithmBase;
 
 
-public class ViewProblemSolution extends Base {
+public class ViewProblemSolution extends AlgorithmBase {
     protected static final Logger log = Logger.getLogger(ViewProblemSolution.class);
 
     protected void longContestProcessing() throws TCWebException {

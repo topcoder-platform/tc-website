@@ -27,6 +27,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.render.DataTypeRenderer;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
 import com.topcoder.web.winformula.algorithm.services.LastCompilationInfo;
+import com.topcoder.web.winformula.controller.request.AlgorithmBase;
 
 /**
  * Allows a coder to submit code for a round.
@@ -34,7 +35,7 @@ import com.topcoder.web.winformula.algorithm.services.LastCompilationInfo;
  * @author farsight
  * @version 1.0
  */
-public class Submit extends Base {
+public class Submit extends AlgorithmBase {
 
     private static final String ACTION_SHOW_ERROR = "error";
     private static final String ACTION_SAVE = "save";

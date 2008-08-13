@@ -22,6 +22,7 @@ import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
+import com.topcoder.web.winformula.controller.request.AlgorithmBase;
 import com.topcoder.web.winformula.model.GameResult;
 import com.topcoder.web.winformula.model.Prediction;
 import com.topcoder.web.winformula.model.PredictionItem;
@@ -30,7 +31,7 @@ import com.topcoder.web.winformula.model.PredictionItem;
  * @author Diego Belfer (Mural), Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class ViewExampleResults extends Base {
+public class ViewExampleResults extends AlgorithmBase {
     protected static final Logger log = Logger.getLogger(ViewExampleResults.class);
     private static final int HOME_TEAM_COLUMN = 1;
     private static final int AWAY_TEAM_COLUMN = 2;
