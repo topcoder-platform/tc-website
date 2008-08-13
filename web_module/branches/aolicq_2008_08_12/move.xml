@@ -341,6 +341,44 @@
     </target>
 
 
+    <target name="package-aolicq" >
+
+        <delete dir="build"/>
+        <delete file="aolicq.jar"/>
+
+        <exec dir="." executable="svn">
+            <arg line="update src resources lib build_aolicq.xml"/>
+        </exec>
+
+        <exec dir="../shared" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <ant antfile="build_aolicq.xml" target="dist"/>
+        <ant antfile="build_aolicq.xml" target="build-security"/>
+
+        <jar destfile="aolicq.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/*.jar"/>
+                <include name="build/wars/*.war"/>
+                <include name="build/ears/*.ear"/>
+                <include name="resources/aolicq/**"/>
+                <include name="resources/forums/filter/**"/>
+                <include name="resources/forums/aolicq/**"/>
+                <include name="resources/Aolicq.properties"/>
+                <include name="move.xml"/>
+                <include name="build_aolicq.xml"/>
+                <include name="lib/bin/*.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
+
+
 
     <target name="package-winformula" >
 

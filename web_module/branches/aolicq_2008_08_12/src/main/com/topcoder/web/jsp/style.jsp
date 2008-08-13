@@ -85,4 +85,11 @@
 <link type="text/css" rel="stylesheet" href="/css/winformula/forums.css" />
 <link type="text/css" rel="stylesheet" href="/css/winformula/screen.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
+<% } else if (key.equals("tc_aolicq")) { %>
+<link type="text/css" rel="stylesheet" href="/css/aolicq/main.css" />
+<link type="text/css" rel="stylesheet" href="/css/coders.css" />
+<% } else if (key.equals("tc_aolicq_forums")) { %>
+<link type="text/css" rel="stylesheet" href="/css/aolicq/forums.css" />
+<link type="text/css" rel="stylesheet" href="/css/aolicq/main.css" />
+<link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <% } %>
