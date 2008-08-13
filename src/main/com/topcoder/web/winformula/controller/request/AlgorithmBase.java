@@ -1,4 +1,4 @@
-package com.topcoder.web.winformula.controller.request.algorithm;
+package com.topcoder.web.winformula.controller.request;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
@@ -39,7 +39,7 @@ import com.topcoder.web.winformula.algorithm.services.WinFormulaServicesImpl;
  * @author dok
  * @version $Revision$ $Date$
  */
-public abstract class Base extends BaseProcessor {
+public abstract class AlgorithmBase extends BaseProcessor {
     protected final Logger log = Logger.getLogger(getClass());
     private static final Set locks = new HashSet();
     private WinFormulaServicesImpl service = new WinFormulaServicesImpl();

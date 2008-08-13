@@ -340,4 +340,59 @@ public class WinFormulaServicesImpl {
             DBUtils.endDBBlock();
         }
     }
+    
+    
+    public ResultSetContainer getSummaryReport(int contestId, int roundId) throws WinFormulaServicesException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            Connection cnn = DBUtils.initDBBlock();
+            String cmd=   "SELECT u.handle, cs.submission_number, cs.points, ls.submit_time, cr.user_id"
+                        + " FROM contest_registration cr, user u, OUTER(long_component_state cs,  long_submission ls)"
+                        + " WHERE cr.contest_id = ?"
+                        + "   AND u.user_id = cr.user_id"
+                        + "   AND cs.round_id = ?"
+                        + "   AND cs.coder_id = cr.user_id"
+                        + "   AND ls.long_component_state_id = cs.long_component_state_id"
+                        + "   AND ls.submission_number = cs.submission_number"
+                        + "   AND ls.example = 0 "
+                        + " ORDER BY cs.points desc, u.handle";
+            ps = cnn.prepareStatement(cmd);
+            ps.setInt(1, contestId);
+            ps.setInt(2, roundId);
+            rs = ps.executeQuery();
+            return new ResultSetContainer(rs);
+        } catch (Exception e) {
+            log.error("Could not process required method", e);
+            throw new WinFormulaServicesException("INTERNAL_SERVER");
+        } finally {
+            DBMS.close(ps, rs);
+            DBUtils.endDBBlock();
+        }
+    }
+ 
+    
+    public ResultSetContainer getLastActiveRound(int contestId) throws WinFormulaServicesException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            Connection cnn = DBUtils.initDBBlock();
+            String cmd = "SELECT rs.round_id, r.name "+
+                            " FROM round_segment rs, round r " +
+                            " WHERE rs.round_id = r.round_id and rs.segment_id = 2 and r.contest_id = ?" +
+                            "       AND current > start_time" +
+                            " ORDER BY 1 DESC";
+            ps = cnn.prepareStatement(cmd);
+            ps.setInt(1, contestId);
+            rs = ps.executeQuery();
+            rs.next();
+            return new ResultSetContainer(rs);
+        } catch (Exception e) {
+            log.error("Could not process required method", e);
+            throw new WinFormulaServicesException("INTERNAL_SERVER");
+        } finally {
+            DBMS.close(ps, rs);
+            DBUtils.endDBBlock();
+        }
+    }
 }

@@ -12,13 +12,14 @@ import com.topcoder.shared.common.ServicesConstants;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
+import com.topcoder.web.winformula.controller.request.AlgorithmBase;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Feb 17, 2006
  */
-public class ViewQueue extends Base {
+public class ViewQueue extends AlgorithmBase {
     protected static final Logger log = Logger.getLogger(ViewQueue.class);
 
     protected void longContestProcessing() throws TCWebException {

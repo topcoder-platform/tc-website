@@ -4,14 +4,14 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
-import com.topcoder.web.winformula.controller.request.algorithm.Base;
+import com.topcoder.web.winformula.controller.request.AlgorithmBase;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Feb 2, 2006
  */
-public class ViewAdminForceSubmit extends Base {
+public class ViewAdminForceSubmit extends AlgorithmBase {
 
     protected void longContestProcessing() throws Exception {
         //get a list of the submissions and put them in the request for display
