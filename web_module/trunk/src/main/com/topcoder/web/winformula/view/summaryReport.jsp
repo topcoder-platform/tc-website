@@ -40,13 +40,10 @@
         <div id="main-content">
         <%-- Main Content --%>
 
-<jsp:useBean id="lastActiveRound" type="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow" scope="request"/>
-<jsp:useBean id="lastActiveRound" type="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow" scope="request"/>
-
-            <div class="sub-navigation"><a href="?module=ManageMyAlgorithms${adminExtraParams}">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> <%-- | <a href="?module=ViewLastPredictions${adminExtraParams}">Current Algorithm's Predictions</a> --%>| <a href="?module=ViewQueue">Queue Status</a></div>
+	<jsp:useBean id="lastActiveRound" type="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request"/>
             <h1>Submission Summary Report</h1>
           
-            <span class="bodySubtitle">Season: <tc-webtag:handle context='marathon_match' coderId="${cr}"/></span>
+            <span class="bodySubtitle">Generated at: <tc-webtag:format object="<%=new Date()%>" format="MM.dd.yyyy HH:mm:ss"/></span>
             <br />
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
@@ -58,11 +55,11 @@
               </tr>
               <% boolean even = true;%>
               <rsc:iterator list="${report}" id="resultRow">
-                  <c:set var="roundCoderParams" value="&rd=${lastActiveRound.map['round_id']}&cr=${resultRow.map['user_id']}" />
+                  <c:set var="roundCoderParams" value="&rd=${lastActiveRound[0].map['round_id']}&cr=${resultRow.map['user_id']}" />
                   <tr class="<%=even?"row_Alt":""%>">
                         <td><tc-webtag:handle context='marathon_match' coderId="${resultRow.map['user_id']}"/></td>
-                        <td><a href="algorithm/module=ViewProblemSolution${roundCoderParams}&subnum=${resultRow.map['submission_number']}">${resultRow.map['submission_number']}</a></td>
-                        <td class="right"><a href="algorithm/module=ViewExampleResults&rd=${roundCoderParams]}">${resultRow.map['points']}</td>
+                        <td><a href="algorithm?module=ViewProblemSolution${roundCoderParams}&subnum=${resultRow.map['submission_number']}">${resultRow.map['submission_number']}</a></td>
+                        <td class="right"><a href="algorithm?module=ViewExampleResults${roundCoderParams}">${resultRow.map['points']}</td>
                         <td class="alignCenter">
                              <tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/>
                         </td>
