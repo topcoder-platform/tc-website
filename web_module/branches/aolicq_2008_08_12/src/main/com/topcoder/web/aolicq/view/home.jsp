@@ -3,7 +3,6 @@
 <%@ page import="com.topcoder.web.aolicq.Constants" %>
 <%@ page import="com.topcoder.web.aolicq.controller.request.Login" %>
 <%@ page import="java.util.Map" %>
-<% ResultSetContainer recentWinners = (ResultSetContainer) ((Map) request.getAttribute("aolicq_home_data")).get("recent_winners");%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="aolicq.tld" prefix="aolicq" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
