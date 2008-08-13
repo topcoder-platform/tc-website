@@ -73,7 +73,7 @@
                                 </td>
                             </c:otherwise>
                         </c:choose>
-                        <td class="alignCenter"> &nbsp; </td>
+                        <td class="alignCenter">&nbsp;</td>
                   </tr>
                 <%even = !even;%>
               </rsc:iterator>
