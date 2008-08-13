@@ -377,7 +377,7 @@ public class WinFormulaServicesImpl {
         ResultSet rs = null;
         try {
             Connection cnn = DBUtils.initDBBlock();
-            String cmd = "SELECT rs.round_id, r.name "+
+            String cmd = "SELECT FIRST 1 rs.round_id, r.name "+
                             " FROM round_segment rs, round r " +
                             " WHERE rs.round_id = r.round_id and rs.segment_id = 2 and r.contest_id = ?" +
                             "       AND current > start_time" +
