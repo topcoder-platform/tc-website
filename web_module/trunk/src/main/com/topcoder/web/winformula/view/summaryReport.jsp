@@ -43,16 +43,16 @@
 
 	<jsp:useBean id="lastActiveRound" type="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request"/>
             <h1>Submission Summary Report</h1>
-          
-            <span class="bodySubtitle">Generated at: <tc-webtag:format object="<%=new Date()%>" format="MM.dd.yyyy HH:mm:ss"/></span>
             <br />
-
-            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
+            <span class="bodySubtitle" style="text-align: right">Generated at: <tc-webtag:format object="<%=new Date()%>" format="MM.dd.yyyy HH:mm:ss"/></span>
+            <br />
+            <hr />
+            <table width="100%" border="0" cellpadding="2" cellspacing="0" class="current-data">
               <tr class="resultTH">
-                <th scope="col">Handle</th>
-                <th scope="col" class="center">Submission Number</th>
-                <th scope="col" class="center">Score</th>
-                <th scope="col" class="center">Submission Date</th>
+                <th>Handle</th>
+                <th class="alignRight" nowrap="nowrap">Submission Number</th>
+                <th class="alignRight" nowrap="nowrap">Score</th>
+                <th class="alignCenter">Submission Date</th>
               </tr>
               <% boolean even = true;%>
               <rsc:iterator list="${report}" id="resultRow">
@@ -61,18 +61,19 @@
                         <td><tc-webtag:handle context='marathon_match' coderId="${resultRow.map['user_id']}"/></td>
                         <c:choose>
                             <c:when test="${empty resultRow.map['submission_number']}">
-		                        <td class="alignCenter"> - </td>
-		                        <td class="alignCenter">&nbsp;</td>
+		                        <td class="alignRight"> - </td>
+		                        <td class="alignCenter"> &nbsp; </td>
 		                        <td class="alignCenter"> - </td>
                             </c:when>
                             <c:otherwise>
-                                <td class="alignCenter"><a href="algorithm?module=ViewProblemSolution${roundCoderParams}&subnum=${resultRow.map['submission_number']}">${resultRow.map['submission_number']}</a></td>
-                                <td class="alignCenter"><a href="algorithm?module=ViewExampleResults${roundCoderParams}"><fmt:formatNumber type="number" value="${resultRow.map['points']}" pattern="#"/> </td>
+                                <td class="alignRight"><a href="algorithm?module=ViewProblemSolution${roundCoderParams}&subnum=${resultRow.map['submission_number']}">${resultRow.map['submission_number']}</a></td>
+                                <td class="alignRight"><a href="algorithm?module=ViewExampleResults${roundCoderParams}"><fmt:formatNumber type="number" value="${resultRow.map['points']}" pattern="#"/> </td>
                                 <td class="alignCenter">
                                      <tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/>
                                 </td>
                             </c:otherwise>
                         </c:choose>
+                        <td class="alignCenter"> &nbsp; </td>
                   </tr>
                 <%even = !even;%>
               </rsc:iterator>
