@@ -361,7 +361,7 @@ public class WinFormulaServicesImpl {
             ps.setInt(1, contestId);
             ps.setInt(2, roundId);
             rs = ps.executeQuery();
-            return new ResultSetContainer(rs);
+            return new ResultSetContainer(rs, false);
         } catch (Exception e) {
             log.error("Could not process required method", e);
             throw new WinFormulaServicesException("INTERNAL_SERVER");

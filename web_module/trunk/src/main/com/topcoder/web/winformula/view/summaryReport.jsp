@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
@@ -49,8 +50,8 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
               <tr class="resultTH">
                 <th scope="col">Handle</th>
-                <th scope="col">Submission Number</th>
-                <th scope="col" class="right">Score</th>
+                <th scope="col" class="center">Submission Number</th>
+                <th scope="col" class="center">Score</th>
                 <th scope="col" class="center">Submission Date</th>
               </tr>
               <% boolean even = true;%>
@@ -58,11 +59,20 @@
                   <c:set var="roundCoderParams" value="&rd=${lastActiveRound[0].map['round_id']}&cr=${resultRow.map['user_id']}" />
                   <tr class="<%=even?"row_Alt":""%>">
                         <td><tc-webtag:handle context='marathon_match' coderId="${resultRow.map['user_id']}"/></td>
-                        <td><a href="algorithm?module=ViewProblemSolution${roundCoderParams}&subnum=${resultRow.map['submission_number']}">${resultRow.map['submission_number']}</a></td>
-                        <td class="right"><a href="algorithm?module=ViewExampleResults${roundCoderParams}">${resultRow.map['points']}</td>
-                        <td class="alignCenter">
-                             <tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/>
-                        </td>
+                        <c:choose>
+                            <c:when test="${empty resultRow.map['submission_number']}">
+		                        <td class="alignCenter"> - </td>
+		                        <td class="alignCenter">&nbsp;</td>
+		                        <td class="alignCenter"> - </td>
+                            </c:when>
+                            <c:otherwise>
+                                <td class="alignCenter"><a href="algorithm?module=ViewProblemSolution${roundCoderParams}&subnum=${resultRow.map['submission_number']}">${resultRow.map['submission_number']}</a></td>
+                                <td class="alignCenter"><a href="algorithm?module=ViewExampleResults${roundCoderParams}"><fmt:formatNumber type="number" value="${resultRow.map['points']}" pattern="#"/> </td>
+                                <td class="alignCenter">
+                                     <tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/>
+                                </td>
+                            </c:otherwise>
+                        </c:choose>
                   </tr>
                 <%even = !even;%>
               </rsc:iterator>
