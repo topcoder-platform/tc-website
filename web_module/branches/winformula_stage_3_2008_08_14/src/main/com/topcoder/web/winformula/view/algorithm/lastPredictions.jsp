@@ -8,6 +8,15 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/html;charset=utf-8" %>
+
+
+<c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
+<c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
+<c:set value="<%=DataAccessConstants.SORT_COLUMN%>" var="sortCol"/>
+<c:set value="<%=DataAccessConstants.SORT_DIRECTION%>" var="sortDir"/>
+<c:set value="<%=DataAccessConstants.NUMBER_RECORDS%>" var="numRecords"/>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -16,11 +25,17 @@
     <%-- Meta Tags --%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <jsp:include page="style.jsp">
+    <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
     <script type="text/javascript">
-       function submitEnter(e) {
+        var sr = <c:out value="${requestScope[defaults][startRank]}"/>;
+        var sc = <c:out value="${requestScope[defaults][sortCol]}"/>;
+        var sd = <c:out value="${requestScope[defaults][sortDir]}"/>;
+        var nr = <c:out value="${requestScope[defaults][numRecords]}"/>;
+        var ts = <c:out value="${totalSize}"/>; 
+
+        function submitEnter(e) {
             var keycode;
             if (window.event) keycode = window.event.keyCode;
             else if (e) keycode = e.which;
@@ -32,30 +47,27 @@
         }
         function next() {
             var myForm = document.resultsForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = <%=((java.util.Map) request.getAttribute("processor_defaults")).get(DataAccessConstants.START_RANK)%> + parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
-            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.<%=DataAccessConstants.START_RANK%>.value = sr + nr;
             myForm.submit();
         }
         function previous() {
             var myForm = document.resultsForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value =<%=((java.util.Map) request.getAttribute("processor_defaults")).get(DataAccessConstants.START_RANK)%>  - parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
-            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.<%=DataAccessConstants.START_RANK%>.value = sr - nr;
             myForm.submit();
         }
         function first() {
             var myForm = document.resultsForm;
             myForm.<%=DataAccessConstants.START_RANK%>.value = '1';
-            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
             myForm.submit();
         }
         function last() {
             var myForm = document.resultsForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = sizeBeforeCrop - (sizeBeforeCrop % parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value));
-            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.<%=DataAccessConstants.START_RANK%>.value = ts - (ts % nr);
+            myForm.submit();
+        }
+        function setSize(size) {
+            var myForm = document.resultsForm;
+            myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value = size;
             myForm.submit();
         }
     </script>    
@@ -65,7 +77,7 @@
     <div id="wrapper">
     <%-- Wrapper --%>
     
-        <jsp:include page="nav.jsp">
+        <jsp:include page="../nav.jsp">
         <jsp:param name="tabLev1" value="profile" />
         <jsp:param name="tabLev2" value="" />
         <jsp:param name="tabLev3" value="" />
@@ -75,33 +87,32 @@
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-            <h1>Current Algorithm's <%=request.getServletPath()%></h1>
+            <h1>Current Algorithm's predictions%></h1>
             <p>Your current algorithm's predictions will not be viewable to other contestants or the public until all contestants algorithms have been locked for the week.</p>
             <p class="hightlight"><strong>Your algorithm submitted on 2008-07-14 at 12:38:45 ET is 7 of 21 in the <a href="manage-algorithms_queue.htm">queue</a>.</strong></p>
             <h2>Predictions based on your algorithm uploaded on 2008-07-09 at 13:45:32 ET</h2>
             <div class="dataArea" style="width:60%;">
-              <div class="dataArea_Above">
-
-                <p class="pagination"><span class="disabled">&lt;&lt; First</span> | <span class="disabled">&lt; Prev</span> | <strong>1</strong> <a href="javascript:;">2</a> <a href="javascript:;">3</a> <a href="javascript:;">4</a> <a href="javascript:;">5</a> <a href="javascript:;">6</a> <a href="javascript:;">7</a> <a href="javascript:;">8</a> <a href="javascript:;">9</a> <a href="javascript:;">10</a> | <a href="javascript:;">Next</a> &gt; | <a href="javascript:;">Last</a> &gt;&gt;</p>
-
-                <p class="numResults">show results: <strong>10</strong> | <a href="javascript:;">25</a> | <a href="javascript:;">50</a> | <a href="javascript:;">all</a></p>
-              </div>
 
 <!-- Prepares some collection data and formatter -->
                 <% boolean even = true;%>
             <form name="resultsForm" action="${sessionInfo.servletPath}" method="get">
-            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CurrentPredictions"/>
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewLastPredictions"/>
             <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
             <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
                 
-                <div class="pagingBox">
+              <div class="dataArea_Above">
+
+                <p class="pagination">
                     <c:choose>
                         <c:when test="${croppedDataBefore}">
                             <a href="Javascript:first()" class="bcLink">&lt;&lt; first</a> |
                             <a href="Javascript:previous()" class="bcLink">&lt; prev</a>
                         </c:when>
                         <c:otherwise>
-                            &lt;&lt; prev
+                            <span class="disabled">
+                                &lt;&lt; first |
+                                &lt; prev
+                            </span>
                         </c:otherwise>
                     </c:choose>
                     |
@@ -111,15 +122,48 @@
                             <a href="Javascript:last()" class="bcLink">last &gt;&gt;</a>
                         </c:when>
                         <c:otherwise>
-                            next &gt;&gt;
+                            <span class="disabled">
+                                next &gt; |
+                                last &gt;&gt;
+                            </span>
                         </c:otherwise>
                     </c:choose>
-                </div>
+                </p>
 
+                <p class="numResults">show results:
+                    <c:choose>
+                        <c:when test="${requestScope[defaults][numRecords] == 25}">
+                            <a href="Javascript:setSize(10)">10</a> | 
+                            <strong>25</strong> | 
+                            <a href="Javascript:setSize(50)">50</a> | 
+                            <a href="Javascript:setSize(${ts})">all</a> 
+                        </c:when>
+                        <c:when test="${requestScope[defaults][numRecords] == 50}">
+                            <a href="Javascript:setSize(10)">10</a> | 
+                            <a href="Javascript:setSize(25)">25</a> | 
+                            <strong>50</strong> | 
+                            <a href="Javascript:setSize(${ts})">all</a> 
+                        </c:when>
+                        <c:when test="${requestScope[defaults][numRecords] == ts}">
+                            <a href="Javascript:setSize(10)">10</a> | 
+                            <a href="Javascript:setSize(25)">25</a> | 
+                            <a href="Javascript:setSize(50)">50</a> | 
+                            <strong>all</strong> 
+                        </c:when>
+                        <c:otherwise> <!-- default is 10 -->
+                            <strong>10</strong> | 
+                            <a href="Javascript:setSize(25)">25</a> | 
+                            <a href="Javascript:setSize(50)">50</a> | 
+                            <a href="Javascript:setSize(${ts})">all</a> 
+                        </c:otherwise>
+                    </c:choose>
+                </p>
+               </div>
+                <br/><br/>
               <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
                 <tr>
-                  <th scope="col"><a href="${sessionInfo.servletPath}?module=CurrentPredictions<tc-webtag:sort column="5" includeParams="true" excludeParams="module"/>">Home Team</a></th>
-                  <th scope="col"><a href="${sessionInfo.servletPath}?module=CurrentPredictions<tc-webtag:sort column="7" includeParams="true" excludeParams="module"/>">Away Team</a></th>
+                  <th scope="col"><a href="${sessionInfo.servletPath}?module=ViewLastPredictions<tc-webtag:sort column="5" includeParams="true" excludeParams="module"/>">Home Team</a></th>
+                  <th scope="col"><a href="${sessionInfo.servletPath}?module=ViewLastPredictions<tc-webtag:sort column="7" includeParams="true" excludeParams="module"/>">Away Team</a></th>
                   <th scope="col">Pred. Score</th>
                 </tr>
                 <rsc:iterator list="${results}" id="resultRow">

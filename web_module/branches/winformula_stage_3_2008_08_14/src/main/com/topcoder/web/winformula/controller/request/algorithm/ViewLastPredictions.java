@@ -64,11 +64,15 @@ public class ViewLastPredictions extends AlgorithmBase {
     private void sortResult(ResultSetContainer rsc) {
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-        if (!(sortCol.equals("")) && rsc != null) {
-            rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
-            setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
-            setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
+        if (sortCol.equals("")) {
+            sortCol = "5";
+            sortDir = "asc";
         }
+        if (rsc != null) {
+            rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
+        }
+        setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
+        setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
         setSortInfo(rsc);
     }
 
