@@ -54,7 +54,7 @@
                 <h2>You must log in using your TopCoder username and password to see this page.</h2>
                 <p>If you are not a TopCoder member and would like to register for the Winning Formula Challenge, you may <a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" target="_blank">sign up for free</a>. View our <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=howToCompete">How to Compete</a> page for more information.</p>
                 <div class="form-content">
-                    <form method="post" name="frmLogin2" action="${sessionInfo.servletPath}" >
+                    <form method="post" name="frmLogin2" action="${sessionInfo.secureAbsoluteServletPath}" >
                         <input type="hidden" name="module" value="Login" />
                         <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>" />
 
