@@ -11,7 +11,7 @@
 
 
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
-<c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
+<c:set value="np" var="numPage"/>
 <c:set value="<%=DataAccessConstants.SORT_COLUMN%>" var="sortCol"/>
 <c:set value="<%=DataAccessConstants.SORT_DIRECTION%>" var="sortDir"/>
 <c:set value="<%=DataAccessConstants.NUMBER_RECORDS%>" var="numRecords"/>
@@ -29,9 +29,7 @@
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
     <script type="text/javascript">
-        var sr = <c:out value="${requestScope[defaults][startRank]}"/>;
-        var sc = <c:out value="${requestScope[defaults][sortCol]}"/>;
-        var sd = <c:out value="${requestScope[defaults][sortDir]}"/>;
+        var np = <c:out value="${requestScope[defaults][numPage]}"/>;
         var nr = <c:out value="${requestScope[defaults][numRecords]}"/>;
         var ts = <c:out value="${totalSize}"/>; 
 
@@ -47,27 +45,33 @@
         }
         function next() {
             var myForm = document.resultsForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = sr + nr;
+            myForm.np.value = np + 1;
             myForm.submit();
         }
         function previous() {
             var myForm = document.resultsForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = sr - nr;
+            myForm.np.value = np - 1;
             myForm.submit();
         }
         function first() {
             var myForm = document.resultsForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = '1';
+            myForm.np.value = '1';
             myForm.submit();
         }
         function last() {
             var myForm = document.resultsForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = ts - (ts % nr);
+            myForm.np.value = (ts % nr);
             myForm.submit();
         }
         function setSize(size) {
             var myForm = document.resultsForm;
             myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value = size;
+            myForm.submit();
+        }
+        function setSizeToAll() {
+            var myForm = document.resultsForm;
+            myForm.np.value = '1';
+            myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value = ts;
             myForm.submit();
         }
     </script>    
@@ -87,7 +91,7 @@
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-            <h1>Current Algorithm's predictions%></h1>
+            <h1>Current Algorithm's predictions</h1>
             <p>Your current algorithm's predictions will not be viewable to other contestants or the public until all contestants algorithms have been locked for the week.</p>
             <p class="hightlight"><strong>Your algorithm submitted on 2008-07-14 at 12:38:45 ET is 7 of 21 in the <a href="manage-algorithms_queue.htm">queue</a>.</strong></p>
             <h2>Predictions based on your algorithm uploaded on 2008-07-09 at 13:45:32 ET</h2>
@@ -97,8 +101,10 @@
                 <% boolean even = true;%>
             <form name="resultsForm" action="${sessionInfo.servletPath}" method="get">
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewLastPredictions"/>
-            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
-            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+            <tc-webtag:hiddenInput name="${sortCol}"/>
+            <tc-webtag:hiddenInput name="${sortDir}"/>
+            <tc-webtag:hiddenInput name="${numRecords}"/>
+            <tc-webtag:hiddenInput name="${numPage}"/>
                 
               <div class="dataArea_Above">
 
@@ -115,7 +121,7 @@
                             </span>
                         </c:otherwise>
                     </c:choose>
-                    |
+                    | <c:forEach begin="${1}" end="${totalSize % requestScope[defaults][numRecords]}" step:"${1}"></ul></c:forEach> |
                     <c:choose>
                         <c:when test="${croppedDataAfter}">
                             <a href="Javascript:next()" class="bcLink">next &gt;</a> |
@@ -136,15 +142,15 @@
                             <a href="Javascript:setSize(10)">10</a> | 
                             <strong>25</strong> | 
                             <a href="Javascript:setSize(50)">50</a> | 
-                            <a href="Javascript:setSize(${ts})">all</a> 
+                            <a href="Javascript:setSizeToAll()">all</a> 
                         </c:when>
                         <c:when test="${requestScope[defaults][numRecords] == 50}">
                             <a href="Javascript:setSize(10)">10</a> | 
                             <a href="Javascript:setSize(25)">25</a> | 
                             <strong>50</strong> | 
-                            <a href="Javascript:setSize(${ts})">all</a> 
+                            <a href="Javascript:setSizeToAll()">all</a> 
                         </c:when>
-                        <c:when test="${requestScope[defaults][numRecords] == ts}">
+                        <c:when test="${requestScope[defaults][numRecords] == totalSize}">
                             <a href="Javascript:setSize(10)">10</a> | 
                             <a href="Javascript:setSize(25)">25</a> | 
                             <a href="Javascript:setSize(50)">50</a> | 
@@ -154,7 +160,7 @@
                             <strong>10</strong> | 
                             <a href="Javascript:setSize(25)">25</a> | 
                             <a href="Javascript:setSize(50)">50</a> | 
-                            <a href="Javascript:setSize(${ts})">all</a> 
+                            <a href="Javascript:setSizeToAll()">all</a> 
                         </c:otherwise>
                     </c:choose>
                 </p>
@@ -207,16 +213,6 @@
                         </c:otherwise>
                     </c:choose>
                 </div>
-
-<div class="pagingBox">
-    View
-    <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-    at a time starting with
-    <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-    <a href="javascript:document.resultsForm.submit();" class="bcLink">[submit]</a>
-</div>
-
-
             </form>
 
               <div class="dataArea_Below">

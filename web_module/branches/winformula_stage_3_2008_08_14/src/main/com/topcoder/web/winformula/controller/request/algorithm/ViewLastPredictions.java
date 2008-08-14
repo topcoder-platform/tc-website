@@ -95,38 +95,40 @@ public class ViewLastPredictions extends AlgorithmBase {
      * @throws Exception
      */
     private ResultSetContainer cropResult(ResultSetContainer rsc) throws Exception {
-        Boolean full = "true".equals(StringUtils.checkNull(getRequest().getParameter(FULL_LIST)));
-
-        String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+        String numPage = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_PAGE));
         String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
 
-        if ("".equals(numRecords)) {
+        int sizeBeforeCrop = rsc.size();
+
+        if (!"25".equals(numRecords) &&
+                !"50".equals(numRecords) &&
+                !String.valueOf(sizeBeforeCrop).equals(numRecords)) {
             numRecords = "10";
-        } else if (Integer.parseInt(numRecords) > 200) {
-            numRecords = "200";
         }
    
-        if (startRank.equals("") || Integer.parseInt(startRank) <= 0) {
-            startRank = "1";
+        if (numPage.equals("") || Integer.parseInt(numPage) <= 0) {
+            numPage = "1";
         }
    
-        setDefault(DataAccessConstants.START_RANK, startRank);
+        setDefault(DataAccessConstants.NUMBER_PAGE, numPage);
         setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
    
-        int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
+        rsc = new ResultSetContainer(rsc, 
+                getStartRank(Integer.parseInt(numPage), Integer.parseInt(numRecords)), 
+                getEndRank(Integer.parseInt(numPage), Integer.parseInt(numRecords)));
 
-        int sizeBeforeCrop = rsc.size();
         getRequest().setAttribute("totalSize", sizeBeforeCrop);
-        
-        if (!full) {
-            // crops data
-            rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank), endRank);
-        }
-            
-        getRequest().setAttribute("croppedDataBefore", new Boolean(Integer.parseInt(startRank) > 1));
-        getRequest().setAttribute("croppedDataAfter", new Boolean(sizeBeforeCrop > Integer.parseInt(startRank) + rsc.size()));
+        getRequest().setAttribute("croppedDataBefore", rsc.croppedDataBefore());
+        getRequest().setAttribute("croppedDataAfter", rsc.croppedDataAfter());
 
-        getRequest().setAttribute(FULL_LIST, full);
         return rsc;
+    }
+
+    private int getStartRank(int numPage, int numRecords) {
+        return (numPage - 1) * numRecords + 1;
+    }
+
+    private int getEndRank(int numPage, int numRecords) {
+        return numPage * numRecords + 1;
     }
 }
