@@ -57,6 +57,18 @@
                 <h2>Score: ${result.score}<br/>
                     Run Time: ${result.processingTime} ms <br/>
                 </h2>
+                <%--div style="padding:5px; border: 1px solid #999999;">
+                    <strong>Example Case: </strong><br />
+                    <pre>${result.arg}</pre>
+                </div> --%>
+                <br />
+                <div style="padding:5px; border: 1px solid #999999;">
+                    <strong>Fatal Errors: </strong><br />
+                    <pre><c:out value="${result.fatalErrors}"/></pre>
+                </div>
+                <br />
+                <div style="padding:5px; border: 1px solid #999999;">
+                <strong>Result: </strong><br /><br />
                    <c:if test="${summary.stats.totalItems != 0}">
                     <br/>
                     <h3>Statistics</h3>
@@ -88,20 +100,8 @@
                             <td class="alignRight"><fmt:formatNumber type="number" value="${summary.stats.accuracy * 100}" pattern="0.00"/>%</td>
                           </tr>
                     </table>
-                   </c:if>
-                <%--div style="padding:5px; border: 1px solid #999999;">
-                    <strong>Example Case: </strong><br />
-                    <pre>${result.arg}</pre>
-                </div> --%>
-                <br />
-                <div style="padding:5px; border: 1px solid #999999;">
-                    <strong>Fatal Errors: </strong><br />
-                    <pre><c:out value="${result.fatalErrors}"/></pre>
-                </div>
-                <br />
-                <div style="padding:5px; border: 1px solid #999999;">
-                <strong>Result: </strong><br /><br />
-    
+                   </c:if> 
+                  <hr/> <br/>   
                   <c:choose>
                       <c:when test="${not empty result and not empty result.resultObject}">
                             <form name="resultsForm" action="${sessionInfo.servletPath}" method="get">
