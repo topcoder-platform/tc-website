@@ -68,9 +68,8 @@
                 </div>
                 <br />
                 <div style="padding:5px; border: 1px solid #999999;">
-                <h3>Result: </h3><br /><br />
+                <h3>Result: </h3>
                    <c:if test="${summary.stats.totalItems != 0}">
-                    <br />
                     <table width="40%" border="0" cellpadding="0" cellspacing="0" class="stat">
                           <tr class="resultTH">
                             <th scope="col">&nbsp;</th>
