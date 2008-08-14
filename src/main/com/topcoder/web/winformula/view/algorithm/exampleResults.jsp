@@ -63,15 +63,14 @@
                 </div> --%>
                 <br />
                 <div style="padding:5px; border: 1px solid #999999;">
-                    <strong>Fatal Errors: </strong><br />
+                    <h3>Fatal Errors: </h3><br />
                     <pre><c:out value="${result.fatalErrors}"/></pre>
                 </div>
                 <br />
                 <div style="padding:5px; border: 1px solid #999999;">
-                <strong>Result: </strong><br /><br />
+                <h3>Result: </h3><br /><br />
                    <c:if test="${summary.stats.totalItems != 0}">
-                    <br/>
-                    <h3>Statistics</h3>
+                    <br />
                     <table width="40%" border="0" cellpadding="0" cellspacing="0" class="stat">
                           <tr class="resultTH">
                             <th scope="col">&nbsp;</th>
@@ -224,12 +223,12 @@
                 </div>
                 <br />
                 <div style="padding:5px; border: 1px solid #999999;">
-                    <strong>Standard Out: </strong><br />
+                    <h3>Standard Out: </h3><br />
                     <pre><c:out value="${result.stdOut}"/></pre>
                 </div>
                 <br />
                 <div style="padding:5px; border: 1px solid #999999;">
-                    <strong>Standard Error: </strong><br />
+                    <h3>Standard Error: </h3><br />
                     <pre><c:out value="${result.stdErr}"/></pre>
                 </div>
 
