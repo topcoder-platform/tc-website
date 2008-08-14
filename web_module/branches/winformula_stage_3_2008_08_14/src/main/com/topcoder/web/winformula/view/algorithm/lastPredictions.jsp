@@ -11,7 +11,7 @@
 
 
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
-<c:set value="np" var="numPage"/>
+<c:set value="<%=DataAccessConstants.NUMBER_PAGE%>" var="numPage"/>
 <c:set value="<%=DataAccessConstants.SORT_COLUMN%>" var="sortCol"/>
 <c:set value="<%=DataAccessConstants.SORT_DIRECTION%>" var="sortDir"/>
 <c:set value="<%=DataAccessConstants.NUMBER_RECORDS%>" var="numRecords"/>
@@ -28,53 +28,6 @@
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
-    <script type="text/javascript">
-        var np = <c:out value="${requestScope[defaults][numPage]}"/>;
-        var nr = <c:out value="${requestScope[defaults][numRecords]}"/>;
-        var ts = <c:out value="${totalSize}"/>; 
-
-        function submitEnter(e) {
-            var keycode;
-            if (window.event) keycode = window.event.keyCode;
-            else if (e) keycode = e.which;
-            else return true;
-            if (keycode == 13) {
-                document.resultsForm.submit();
-                return false;
-            } else return true;
-        }
-        function next() {
-            var myForm = document.resultsForm;
-            myForm.np.value = np + 1;
-            myForm.submit();
-        }
-        function previous() {
-            var myForm = document.resultsForm;
-            myForm.np.value = np - 1;
-            myForm.submit();
-        }
-        function first() {
-            var myForm = document.resultsForm;
-            myForm.np.value = '1';
-            myForm.submit();
-        }
-        function last() {
-            var myForm = document.resultsForm;
-            myForm.np.value = (ts % nr);
-            myForm.submit();
-        }
-        function setSize(size) {
-            var myForm = document.resultsForm;
-            myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value = size;
-            myForm.submit();
-        }
-        function setSizeToAll() {
-            var myForm = document.resultsForm;
-            myForm.np.value = '1';
-            myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value = ts;
-            myForm.submit();
-        }
-    </script>    
 </head>
 
 <body>
@@ -106,66 +59,15 @@
             <tc-webtag:hiddenInput name="${numRecords}"/>
             <tc-webtag:hiddenInput name="${numPage}"/>
                 
-              <div class="dataArea_Above">
-
-                <p class="pagination">
-                    <c:choose>
-                        <c:when test="${croppedDataBefore}">
-                            <a href="Javascript:first()" class="bcLink">&lt;&lt; first</a> |
-                            <a href="Javascript:previous()" class="bcLink">&lt; prev</a>
-                        </c:when>
-                        <c:otherwise>
-                            <span class="disabled">
-                                &lt;&lt; first |
-                                &lt; prev
-                            </span>
-                        </c:otherwise>
-                    </c:choose>
-                    | <c:forEach begin="${1}" end="${totalSize % requestScope[defaults][numRecords]}" step:"${1}"></ul></c:forEach> |
-                    <c:choose>
-                        <c:when test="${croppedDataAfter}">
-                            <a href="Javascript:next()" class="bcLink">next &gt;</a> |
-                            <a href="Javascript:last()" class="bcLink">last &gt;&gt;</a>
-                        </c:when>
-                        <c:otherwise>
-                            <span class="disabled">
-                                next &gt; |
-                                last &gt;&gt;
-                            </span>
-                        </c:otherwise>
-                    </c:choose>
-                </p>
-
-                <p class="numResults">show results:
-                    <c:choose>
-                        <c:when test="${requestScope[defaults][numRecords] == 25}">
-                            <a href="Javascript:setSize(10)">10</a> | 
-                            <strong>25</strong> | 
-                            <a href="Javascript:setSize(50)">50</a> | 
-                            <a href="Javascript:setSizeToAll()">all</a> 
-                        </c:when>
-                        <c:when test="${requestScope[defaults][numRecords] == 50}">
-                            <a href="Javascript:setSize(10)">10</a> | 
-                            <a href="Javascript:setSize(25)">25</a> | 
-                            <strong>50</strong> | 
-                            <a href="Javascript:setSizeToAll()">all</a> 
-                        </c:when>
-                        <c:when test="${requestScope[defaults][numRecords] == totalSize}">
-                            <a href="Javascript:setSize(10)">10</a> | 
-                            <a href="Javascript:setSize(25)">25</a> | 
-                            <a href="Javascript:setSize(50)">50</a> | 
-                            <strong>all</strong> 
-                        </c:when>
-                        <c:otherwise> <!-- default is 10 -->
-                            <strong>10</strong> | 
-                            <a href="Javascript:setSize(25)">25</a> | 
-                            <a href="Javascript:setSize(50)">50</a> | 
-                            <a href="Javascript:setSizeToAll()">all</a> 
-                        </c:otherwise>
-                    </c:choose>
-                </p>
-               </div>
-                <br/><br/>
+            <jsp:include page="../pagination.jsp">
+                <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
+                <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />
+                <jsp:param name="totalSize" value="${totalSize}" />
+                <jsp:param name="numRecords" value="${requestScope[defaults][numRecords]}" />
+                <jsp:param name="numPage" value="${requestScope[defaults][numPage]}" />
+                <jsp:param name="formName" value="document.resultsForm"/>
+            </jsp:include>
+    
               <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
                 <tr>
                   <th scope="col"><a href="${sessionInfo.servletPath}?module=ViewLastPredictions<tc-webtag:sort column="5" includeParams="true" excludeParams="module"/>">Home Team</a></th>
@@ -194,34 +96,16 @@
                 </rsc:iterator>
               </table>
 
-                <div class="pagingBox">
-                    <c:choose>
-                        <c:when test="${croppedDataBefore}">
-                            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
-                        </c:when>
-                        <c:otherwise>
-                            &lt;&lt; prev
-                        </c:otherwise>
-                    </c:choose>
-                    |
-                    <c:choose>
-                        <c:when test="${croppedDataAfter}">
-                            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
-                        </c:when>
-                        <c:otherwise>
-                            next &gt;&gt;
-                        </c:otherwise>
-                    </c:choose>
-                </div>
             </form>
-
-              <div class="dataArea_Below">
-                <p class="pagination"><span class="disabled">&lt;&lt; First</span> | <span class="disabled">&lt; Prev</span> | <strong>1</strong> <a href="javascript:;">2</a> <a href="javascript:;">3</a> <a href="javascript:;">4</a> <a href="javascript:;">5</a> <a href="javascript:;">6</a> <a href="javascript:;">7</a> <a href="javascript:;">8</a> <a href="javascript:;">9</a> <a href="javascript:;">10</a> | <a href="javascript:;">Next</a> &gt; | <a href="javascript:;">Last</a> &gt;&gt;</p>
-
-                <p class="numResults">show results: <strong>10</strong> | <a href="javascript:;">25</a> | <a href="javascript:;">50</a> | <a href="javascript:;">all</a></p>
-                </div>
-              </div>
-
+            <br/>
+            <jsp:include page="../pagination.jsp">
+                <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
+                <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />
+                <jsp:param name="totalSize" value="${totalSize}" />
+                <jsp:param name="numRecords" value="${requestScope[defaults][numRecords]}" />
+                <jsp:param name="numPage" value="${requestScope[defaults][numPage]}" />
+                <jsp:param name="formName" value="document.resultsForm"/>
+            </jsp:include>
             <p>&nbsp;</p>
         </div>
         
