@@ -3,6 +3,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <%@ page import="com.topcoder.web.winformula.Constants" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
@@ -52,8 +53,7 @@
             <span class="bodySubtitle">Submission: <a href="?module=ViewProblemSolution&amp;rd=${rd}&amp;subnum=${subnum}${adminExtraParams}">${subnum}</a></span>
             <br />
             <hr/>
-    
-                
+               
                 <h2>Score: ${result.score}<br/>
                     Run Time: ${result.processingTime} ms <br/>
                     Games with results: ${summary.stats.totalItems}<br/>
@@ -61,7 +61,7 @@
                     Accuracy: 
                             <c:choose>
                                 <c:when test="${summary.stats.totalItems != 0}">
-                                    <fmt:formatNumber type="percent" value="summary.stats.accuracy" pattern="#"/>
+                                    <fmt:formatNumber type="number" value="${summary.stats.accuracy * 100}" pattern="#.##"/>%
                                 </c:when>
                                 <c:otherwise>
                                     -
@@ -91,19 +91,19 @@
                             <tc-webtag:hiddenInput name="rd"/>
                             <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
                                 list="${weeks}" useTopValue="false"/>
-                            <hr/>
-		                    Games with results: ${result.stats.totalItems}<br/>
-		                    Picked Winner: ${result.stats.correctItems} <br/>
+                            <hr/> <br/>
+		                    Games with results: ${result.resultObject.stats.totalItems}<br/>
+		                    Picked Winner: ${result.resultObject.stats.correctItems} <br/>
 		                    Accuracy: 
 		                            <c:choose>
-		                                <c:when test="${summary.stats.totalItems != 0}">
-		                                    <fmt:formatNumber type="percent" value="summary.stats.accuracy" pattern="#"/>
+		                                <c:when test="${result.resultObject.stats.totalItems != 0}">
+		                                    <fmt:formatNumber type="number" value="${result.resultObject.stats.accuracy * 100}" pattern="#.##"/>%
 		                                </c:when>
 		                                <c:otherwise>
 		                                    -
 		                                </c:otherwise>
 		                            </c:choose>
-                            <hr/>
+                            <hr/><br/><br/>
             
                             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
                               <tr class="resultTH">
