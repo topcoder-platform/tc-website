@@ -219,6 +219,8 @@ public class ViewExampleResults extends AlgorithmBase {
         
         Object[] weeks = (Object[]) o;
         List<Prediction> predictions = new ArrayList(weeks.length);
+        int bestWeekIndex=-1;
+        int worstWeekIndex=-1;
         for (int i = 0; i < weeks.length; i++) {
             Object[] week = (Object[]) weeks[i];
             Integer weekId = (Integer) week[0];
@@ -251,11 +253,21 @@ public class ViewExampleResults extends AlgorithmBase {
                 }
                 items.add(predictionItem);
             }
-            predictions.add(new Prediction(weekId.intValue(), items, score, new PredictionStat(weekWithScore, weekCorrect)));
+            Prediction prediction = new Prediction(weekId.intValue(), items, score, new PredictionStat(weekWithScore, weekCorrect));
+            Double weekAccuracy = prediction.getStats().getAccuracy();
+            if (weekAccuracy != null) {
+                if (bestWeekIndex == -1 || predictions.get(bestWeekIndex).getStats().getAccuracy().compareTo(weekAccuracy) < 0) {
+                    bestWeekIndex = i;
+                }
+                if (worstWeekIndex == -1 || predictions.get(worstWeekIndex).getStats().getAccuracy().compareTo(weekAccuracy) > 0) {
+                    worstWeekIndex = i;
+                }
+            }
+            predictions.add(prediction);
             totalCorrect += weekCorrect;
             totalGamesWithScore += weekWithScore;
         }
-        return new PredictionSummary(new PredictionStat(totalGamesWithScore, totalCorrect), predictions);
+        return new PredictionSummary(new PredictionStat(totalGamesWithScore, totalCorrect), predictions, worstWeekIndex, bestWeekIndex);
     }
 }
 

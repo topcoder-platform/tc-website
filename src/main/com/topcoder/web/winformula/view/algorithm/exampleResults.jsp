@@ -54,20 +54,17 @@
             <br />
             <hr/>
                
-                <h2>Score: ${result.score}<br/>
+                <h2>Score: ${result.score}<br/></h2>
+                <h3>
                     Run Time: ${result.processingTime} ms <br/>
-                    Games with results: ${summary.stats.totalItems}<br/>
-                    Picked Winner: ${summary.stats.correctItems} <br/>
-                    Accuracy: 
-                            <c:choose>
-                                <c:when test="${summary.stats.totalItems != 0}">
-                                    <fmt:formatNumber type="number" value="${summary.stats.accuracy * 100}" pattern="#.##"/>%
-                                </c:when>
-                                <c:otherwise>
-                                    -
-                                </c:otherwise>
-                            </c:choose>
-                </h2>
+                   <c:if test="${summary.stats.totalItems != 0}">
+	                    Games with actual score: ${summary.stats.totalItems}<br/>
+	                    Picked Winner: ${summary.stats.correctItems} <br/>
+	                    Accuracy: <fmt:formatNumber type="number" value="${summary.stats.accuracy * 100}" pattern="#.##"/>%
+                        Best Week: ${summary.bestWeek.week} Accuracy: ${summary.bestWeek.stats.accuracy}
+                        Worst Week: ${summary.worstWeek.week} Accuracy: ${summary.worstWeek.stats.accuracy} 
+                   </c:if>
+                </h3>
                 <div style="padding:5px; border: 1px solid #999999;">
                     <strong>Example Case: </strong><br />
                     <pre>${result.arg}</pre>
@@ -92,7 +89,8 @@
                             <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
                                 list="${weeks}" useTopValue="false"/>
                             <hr/> <br/>
-		                    Games with results: ${result.resultObject.stats.totalItems}<br/>
+                            <h4>
+		                    Games with actual score: ${result.resultObject.stats.totalItems}<br/>
 		                    Picked Winner: ${result.resultObject.stats.correctItems} <br/>
 		                    Accuracy: 
 		                            <c:choose>
@@ -103,6 +101,7 @@
 		                                    -
 		                                </c:otherwise>
 		                            </c:choose>
+                            </h4>
                             <hr/><br/><br/>
             
                             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
