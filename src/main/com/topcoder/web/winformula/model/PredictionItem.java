@@ -58,7 +58,7 @@ public class PredictionItem implements Serializable {
     }
     
     public Boolean getPickedWinner() {
-        if (realResult == null) {
+        if (realResult == null || predictedResult == null) {
             return Boolean.FALSE;
         }
         int real = realResult.getHomeScore() - realResult.getAwayScore();
@@ -68,7 +68,7 @@ public class PredictionItem implements Serializable {
     }
     
     public Integer getTotalScoreVariance() {
-        if (realResult == null) {
+        if (realResult == null || predictedResult == null) {
             return null;
         }
         int homeDif = predictedResult.getHomeScore() - realResult.getHomeScore();
@@ -78,7 +78,7 @@ public class PredictionItem implements Serializable {
     }
     
     public Integer getVictoryMarginVariance() {
-        if (realResult == null) {
+        if (realResult == null || predictedResult == null) {
             return null;
         }
         int homeDif = predictedResult.getHomeScore() - realResult.getHomeScore();
