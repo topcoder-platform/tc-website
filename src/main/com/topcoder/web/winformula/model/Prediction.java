@@ -16,13 +16,15 @@ public class Prediction implements Serializable {
     private int week;
     private List<PredictionItem> predictions;
     private Integer score;
+    private PredictionStat stats;
     
     
     
-    public Prediction(int week, List<PredictionItem> predictions, Integer score) {
+    public Prediction(int week, List<PredictionItem> predictions, Integer score, PredictionStat stats) {
         this.week = week;
         this.predictions = predictions;
         this.score = score;
+        this.stats = stats;
     }
     public Integer getScore() {
         return score;
@@ -33,7 +35,10 @@ public class Prediction implements Serializable {
     public List getPredictions() {
         return predictions;
     }
-   
+    public PredictionStat getStats() {
+        return stats;
+    }
+    
     @Override
     public String toString() {
         return "Week ID: "+week+", Score: "+score+" Predictions: "+predictions;
