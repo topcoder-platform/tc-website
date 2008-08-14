@@ -13,6 +13,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.controller.request.AlgorithmBase;
@@ -27,19 +28,23 @@ public class ViewLastPredictions extends AlgorithmBase {
     public static final String FULL_LIST = "full";
 
     protected void longContestProcessing() throws Exception {
-        // get data from DB
-        ResultSetContainer rsc = getData();
-
-        // sort result
-        sortResult(rsc);
-
-        // crop result
-        rsc = cropResult(rsc);
-
-        getRequest().setAttribute("results", rsc);
-        
-        setNextPage("/latestPrediction.jsp");
-        setIsNextPageInContext(true);
+        try {
+            // get data from DB
+            ResultSetContainer rsc = getData();
+    
+            // sort result
+            sortResult(rsc);
+    
+            // crop result
+            rsc = cropResult(rsc);
+    
+            getRequest().setAttribute("results", rsc);
+            
+            setNextPage(Constants.PAGE_LAST_PREDICTIONS);
+            setIsNextPageInContext(true);
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
     }
     
     private ResultSetContainer getData() throws Exception {
