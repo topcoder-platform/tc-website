@@ -54,8 +54,19 @@
             <hr/>
     
                 
-                <h2>Score: ${result.score}
-                    Run Time: ${result.processingTime} ms
+                <h2>Score: ${result.score}<br/>
+                    Run Time: ${result.processingTime} ms <br/>
+                    Games with results: ${summary.stats.totalItems}<br/>
+                    Picked Winner: ${summary.stats.correctItems} <br/>
+                    Accuracy: 
+                            <c:choose>
+                                <c:when test="${summary.stats.totalItems != 0}">
+                                    <fmt:formatNumber type="percent" value="summary.stats.accuracy" pattern="#"/>
+                                </c:when>
+                                <c:otherwise>
+                                    -
+                                </c:otherwise>
+                            </c:choose>
                 </h2>
                 <div style="padding:5px; border: 1px solid #999999;">
                     <strong>Example Case: </strong><br />
@@ -80,6 +91,19 @@
                             <tc-webtag:hiddenInput name="rd"/>
                             <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
                                 list="${weeks}" useTopValue="false"/>
+                            <hr/>
+		                    Games with results: ${result.stats.totalItems}<br/>
+		                    Picked Winner: ${result.stats.correctItems} <br/>
+		                    Accuracy: 
+		                            <c:choose>
+		                                <c:when test="${summary.stats.totalItems != 0}">
+		                                    <fmt:formatNumber type="percent" value="summary.stats.accuracy" pattern="#"/>
+		                                </c:when>
+		                                <c:otherwise>
+		                                    -
+		                                </c:otherwise>
+		                            </c:choose>
+                            <hr/>
             
                             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
                               <tr class="resultTH">

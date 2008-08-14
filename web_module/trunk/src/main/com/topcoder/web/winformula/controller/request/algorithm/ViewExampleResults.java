@@ -26,6 +26,8 @@ import com.topcoder.web.winformula.controller.request.AlgorithmBase;
 import com.topcoder.web.winformula.model.GameResult;
 import com.topcoder.web.winformula.model.Prediction;
 import com.topcoder.web.winformula.model.PredictionItem;
+import com.topcoder.web.winformula.model.PredictionStat;
+import com.topcoder.web.winformula.model.PredictionSummary;
 
 /**
  * @author Diego Belfer (Mural), Pablo Wolfus (pulky)
@@ -58,6 +60,7 @@ public class ViewExampleResults extends AlgorithmBase {
             Integer subnum = getService().getLastSubmissionNumberFor(roundId, coderId);
             LongTestResult[] results = LongContestServicesLocator.getService().getLongTestResults(roundId, coderId, Constants.COMPONENT_ID_DEFAULT, LongContestServices.LONG_TEST_RESULT_TYPE_NON_SYSTEM);
             
+            PredictionSummary summary = null;
             LongTestResult result = null;
             List<ListSelectTag.Option> weeks;
             if (results != null && results.length > 0) {
@@ -66,7 +69,8 @@ public class ViewExampleResults extends AlgorithmBase {
                 Object o = result.getResultObject();
 
                 // process predictions
-                List<Prediction> predictions = resolvePredictions(o);
+                summary = resolvePredictions(o);
+                List<Prediction> predictions = summary.getPredictions();
 
                 if (predictions.size() > 0) {
                     int weekIndex = 0;
@@ -94,6 +98,7 @@ public class ViewExampleResults extends AlgorithmBase {
             
             // sort result
 
+            request.setAttribute("summary", summary);
             request.setAttribute("result", result);
             request.setAttribute("weeks", weeks);
             request.setAttribute(CodingConstants.ROUND_ID, new Integer(roundId));
@@ -205,10 +210,13 @@ public class ViewExampleResults extends AlgorithmBase {
     //Game = Object[] {homeTeam, awayTeam, homePScore, awayPScore, homeScore, awayScore, predictionScore}
     //                 String,   String, Integer, Integer, Integer, Integer, Integer
     
-    private  List<Prediction> resolvePredictions(Object o) {
+    private  PredictionSummary resolvePredictions(Object o) {
         if (o == null) {
-            return Collections.emptyList();
+            return PredictionSummary.NULL_SUMMARY;
         }
+        int totalGamesWithScore = 0;
+        int totalCorrect = 0;
+        
         Object[] weeks = (Object[]) o;
         List<Prediction> predictions = new ArrayList(weeks.length);
         for (int i = 0; i < weeks.length; i++) {
@@ -217,6 +225,8 @@ public class ViewExampleResults extends AlgorithmBase {
             Integer score = (Integer) week[1];
             Object[] results = (Object[]) week[2];
             List<PredictionItem> items = new ArrayList(results.length);
+            int weekCorrect = 0;
+            int weekWithScore = 0;
             for (int j = 0; j < results.length; j++) {
                 Object[] game = (Object[]) results[j];
                 String homeTeam = (String) game[0];
@@ -230,16 +240,22 @@ public class ViewExampleResults extends AlgorithmBase {
                 if (homePScore != null && awayPScore != null) {
                     pscore = new GameResult(homePScore.intValue(), awayPScore.intValue());
                 }
-    
                 GameResult rscore = null;
                 if (homeScore != null && awayScore != null) {
+                    weekWithScore++;
                     rscore = new GameResult(homeScore.intValue(), awayScore.intValue());
                 }
-                items.add(new PredictionItem(homeTeam, awayTeam, pscore, rscore, predictionScore));
+                PredictionItem predictionItem = new PredictionItem(homeTeam, awayTeam, pscore, rscore, predictionScore);
+                if (predictionItem.getPickedWinner().booleanValue()) {
+                    weekCorrect++;
+                }
+                items.add(predictionItem);
             }
-            predictions.add(new Prediction(weekId.intValue(), items, score));
+            predictions.add(new Prediction(weekId.intValue(), items, score, new PredictionStat(weekWithScore, weekCorrect)));
+            totalCorrect += weekCorrect;
+            totalGamesWithScore += weekWithScore;
         }
-        return predictions;
+        return new PredictionSummary(new PredictionStat(totalGamesWithScore, totalCorrect), predictions);
     }
 }
 
