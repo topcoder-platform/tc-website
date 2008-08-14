@@ -54,21 +54,45 @@
             <br />
             <hr/>
                
-                <h2>Score: ${result.score}<br/></h2>
-                <h3>
+                <h2>Score: ${result.score}<br/>
                     Run Time: ${result.processingTime} ms <br/>
+                </h2>
                    <c:if test="${summary.stats.totalItems != 0}">
-	                    Games with actual score: ${summary.stats.totalItems}<br/>
-	                    Picked Winner: ${summary.stats.correctItems} <br/>
-	                    Accuracy: <fmt:formatNumber type="number" value="${summary.stats.accuracy * 100}" pattern="#.##"/>%
-                        Best Week: ${summary.bestWeek.week} Accuracy: ${summary.bestWeek.stats.accuracy}
-                        Worst Week: ${summary.worstWeek.week} Accuracy: ${summary.worstWeek.stats.accuracy} 
+                    <br/>
+                    <h3>Statistics</h3>
+                    <table width="40%" border="0" cellpadding="0" cellspacing="0" class="stat">
+                          <tr class="resultTH">
+                            <th scope="col">&nbsp;</th>
+                            <th scope="col" class="center">Week</th>
+                            <th scope="col" class="alignRight"># Games</th>
+                            <th scope="col" class="alignRight"># Picked Winner</th>
+                            <th scope="col" class="alignRight">Accuracy</th>
+                          </tr>
+                          <tr>
+                            <td>Best</td>
+                            <td class="alignCenter">${summary.bestWeek.week}</td>
+                            <td class="alignRight">${summary.bestWeek.stats.totalItems}</td>
+                            <td class="alignRight">${summary.bestWeek.stats.correctItems}</td>
+                            <td class="alignRight"><fmt:formatNumber type="number" value="${summary.bestWeek.stats.accuracy * 100}" pattern="0.00"/>%</td>
+                          </tr><tr class="row_Alt">
+                            <td>Worst</td>
+                            <td class="alignCenter">${summary.worstWeek.week}</td>
+                            <td class="alignRight">${summary.worstWeek.stats.totalItems}</td>
+                            <td class="alignRight">${summary.worstWeek.stats.correctItems}</td>
+                            <td class="alignRight"><fmt:formatNumber type="number" value="${summary.worstWeek.stats.accuracy * 100}" pattern="0.00"/>%</td>
+                          </tr><tr>
+                            <td>Average</td>
+                            <td class="alignCenter">-</td>
+                            <td class="alignRight">${summary.stats.totalItems}</td>
+                            <td class="alignRight">${summary.stats.correctItems}</td>
+                            <td class="alignRight"><fmt:formatNumber type="number" value="${summary.stats.accuracy * 100}" pattern="0.00"/>%</td>
+                          </tr>
+                    </table>
                    </c:if>
-                </h3>
-                <div style="padding:5px; border: 1px solid #999999;">
+                <%--div style="padding:5px; border: 1px solid #999999;">
                     <strong>Example Case: </strong><br />
                     <pre>${result.arg}</pre>
-                </div>
+                </div> --%>
                 <br />
                 <div style="padding:5px; border: 1px solid #999999;">
                     <strong>Fatal Errors: </strong><br />
@@ -95,7 +119,7 @@
 		                    Accuracy: 
 		                            <c:choose>
 		                                <c:when test="${result.resultObject.stats.totalItems != 0}">
-		                                    <fmt:formatNumber type="number" value="${result.resultObject.stats.accuracy * 100}" pattern="#.##"/>%
+		                                    <fmt:formatNumber type="number" value="${result.resultObject.stats.accuracy * 100}" pattern="0.00"/>%
 		                                </c:when>
 		                                <c:otherwise>
 		                                    -
