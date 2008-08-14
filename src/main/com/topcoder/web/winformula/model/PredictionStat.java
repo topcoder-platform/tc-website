@@ -30,7 +30,7 @@ public class PredictionStat {
     public Double getAccuracy() {
         if (totalItems > 0) {
             if (correctItems > 0) {
-                return new Double(((double) totalItems) / correctItems);
+                return new Double(((double) correctItems)/ totalItems);
             } else {
                 return ZERO;
             }
