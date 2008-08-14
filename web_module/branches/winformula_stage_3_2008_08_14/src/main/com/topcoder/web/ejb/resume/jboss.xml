@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss>
+  <enterprise-beans>
+    <session>
+      <ejb-name>ResumeServices</ejb-name>
+      <jndi-name>com.topcoder.web.ejb.resume.ResumeServicesHome</jndi-name>
+    </session>
+  </enterprise-beans>
+</jboss>
