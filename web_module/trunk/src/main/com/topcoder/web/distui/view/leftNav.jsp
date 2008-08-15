@@ -209,8 +209,11 @@ function flipMenu(myMenuName){
         <%-- UML Tool 
         <a href="<tc-webtag:linkTracking link='/wiki/display/tc/TopCoder+UML+Tool' refer='leftnav' />"><img src="/i/leftnav/umlTool.png" alt="UML Tool" /></a>
         --%>
-        <%-- TopCoder Distance --%>
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=distance' refer='leftnav' />"><img src="/i/leftnav/tcDistance.png" alt="TopCoder Distance" /></a>
+        <%-- TopCoder Distance
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=distance' refer='leftnav' />"><img src="/i/leftnav/tcDistance.png" alt="TopCoder Distance" /></a> --%>
+        
+        <%-- TopCoder is Hiring --%>
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=about&d2=jobs' refer='leftnav' />"><img src="/i/leftnav/banner_hiring_tc.png" alt="TopCoder is Hiring" /></a>
         
         <%-- TC Channel 
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel' refer='leftnav' />"><img src="/i/tcchannel/leftnavLogo.png" alt="TC Channel" /></a>
