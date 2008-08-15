@@ -39,7 +39,7 @@ ding="utf-8"?>
 <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 
-<body onLoad=loadNews()>
+<body onLoad="loadWinners();loadNews()">
 
 <div align="center">
 <div id="wrapper">
@@ -119,83 +119,23 @@ ding="utf-8"?>
 
     <!-- winners box -->
     <div class="winners">
-        <div>
-            <h2><span>RECENT WINNERS</span></h2>
-
-            <span class="more"><a href="/?module=ViewPastContests">View All</a></span>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="img"><a href="/?module=ViewContestResults&ct=2235 "><img alt="winner 1" src="/i/v3/winners/winner1.png"/></a></td>
-                        <td>
-                            <span class="coderText">oninkxronda</span><br />
-                            <a href="/?module=ViewContestDetails&ct=2235">TCO08 FINALS Round Three</a><br />
-                            Championship prize won: $20,000
-                        </td>
-                    </tr>
-                    <tr class="last_row">
-                        <td class="img">
-                            <a href="/?module=ViewContestResults&ct=2219"><img alt="winner 2" src="/i/v3/winners/winner2.png"/></a>
-                        </td>
-                        <td>
-                            <span class="coderText">maxsense</span><br />
-                            <a href="/?module=ViewContestDetails&ct=2219">Hermes Bracket Storyboards</a><br />
-                            $700.00
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="img">
-                            <a href="/?module=ViewContestResults&ct=2230"><img alt="winner 3" src="/i/v3/winners/winner3.png"/></a>
-                        </td>
-                        <td>
-
-                            <span class="coderText">sweetpea</span><br />
-                            <a href="/?module=ViewContestDetails&ct=2230">Lending Tree Promo Banner Ads</a><br />
-                            $500.00
-                        </td>
-                    </tr>
-
-<%--
-                    <rsc:iterator list="<%=recentWinners%>" id="resultRow">
-                        <c:set var="showSubmissions" value="${resultRow.map['show_submissions']}"/>
-                        <c:set var="hasPreviewImage" value="${resultRow.map['has_preview_image']}"/>
-                        <c:set var="submissionId" value="${resultRow.map['submission_id']}"/>
-                        <c:set var="contestId" value="${resultRow.map['contest_id']}"/>
-                        <c:set var="galleryImageCount" value="${resultRow.map['gallery_image_count']}"/>
-
-
-                        <tr>
-                            <td class="img">
-                                <c:choose>
-                                    <c:when test="${showSubmissions}">
-                                        <studio_tags:viewSubmissionLink hasPreviewImage="${hasPreviewImage}"
-                                                                        submissionId="${submissionId}"
-                                                                        galleryImageCount="${galleryImageCount}"
-                                                                        targetPresentationType="medium"
-                                                                        previewPresentationType="tiny"
-                                                                        contestId="${contestId}"/>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <img src="/i/v2/interface/magnifyFade.png" alt=""/>
-                                    </c:otherwise>
-                                </c:choose>
-                            </td>
-                            <td>
-                                <studio:handle coderId="${resultRow.map['user_id']}"/><br/>
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">
-                                        ${resultRow.map['name']}</a><br/>
-                                <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
-                            </td>
-                        </tr>
-                    </rsc:iterator>
---%>
-                </tbody>
-            </table>
-            <div>
-                <div></div>
-            </div>
-        </div>
-    </div>
+	<div id="winners">
+	</div>
+   </div>
+    <script>
+       function loadWinners() {
+			  var rss = "rss/?feed=rss2&cat=9";
+              var template = "js/RecentWinnersTemplate.txt";
+          try {
+              var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
+              document.getElementById("winners").innerHTML = (processor.transformRSSFeed(rss));
+          } catch (e) {
+              document.getElementById("winners").innerHTML = "Error reading recent winners feed.";
+         throw e;
+          }
+      }
+    </script>
+    
 </div>
 <!-- end left container -->
 
