@@ -30,10 +30,10 @@
                 <td class="nav"><a href="/pl/?module=Static&amp;d1=vicc&amp;d2=login"><img src="/i/events/vicc/tabs/ver_L2_registrationOff.gif" alt="" border="0"/></a></td>
                 <% } %>
                 <% if (tabLev2.equals("results")) {%>
-                <td class="nav"><a href="/pl/?module=Static&amp;d1=vicc&amp;d2=resultsSrm1"><img src="/i/events/vicc/tabs/ver_L2_resultsOn.gif" alt="" border="0"/></a>
+                <td class="nav"><a href="/pl/?module=Static&amp;d1=vicc&amp;d2=resultsFinals"><img src="/i/events/vicc/tabs/ver_L2_resultsOn.gif" alt="" border="0"/></a>
                 </td>
                 <% } else { %>
-                <td class="nav"><a href="/pl/?module=Static&amp;d1=vicc&amp;d2=resultsSrm1"><img src="/i/events/vicc/tabs/ver_L2_resultsOff.gif" alt="" border="0"/></a>
+                <td class="nav"><a href="/pl/?module=Static&amp;d1=vicc&amp;d2=resultsFinals"><img src="/i/events/vicc/tabs/ver_L2_resultsOff.gif" alt="" border="0"/></a>
                 </td>
                 <% } %>
                 <%--
