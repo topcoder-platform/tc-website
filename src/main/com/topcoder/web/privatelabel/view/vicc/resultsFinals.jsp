@@ -74,6 +74,11 @@ Check back in August to find who the winner will be!
                <td class="sidebarText"><strong>vshah8de</strong></td>
             </tr>
          </table>
+         
+         <div align="center">
+            <p><span class="bigTitle">Congratulations to the winner, sjovanovski!!</span></p>
+            <p><a target="_blank" href="/i/events/verisign06/finals/vts08_01.png"><img style="border: 1px solid #000000;" src="/i/events/verisign06/finals/vts08_01sm.png" alt="2008 Finalists" /></a><br /><br /><a target="_blank" href="/i/events/verisign06/finals/vts08_02.png"><img style="border: 1px solid #000000;" src="/i/events/verisign06/finals/vts08_02sm.png" alt="2008 Finalists" /></a><br /><br /><a target="_blank" href="/i/events/verisign06/finals/vts08_03.png"><img style="border: 1px solid #000000;" src="/i/events/verisign06/finals/vts08_03sm.png" alt="2008 Finalists" /></a></p>
+         </div>
 
             <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             <br /><br /><br /><br /><br />
