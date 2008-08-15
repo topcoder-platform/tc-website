@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry excluding="com/topcoder/web/creative/|com/topcoder/web/csf/|com/topcoder/web/openaim/|com/topcoder/web/truveo/|com/topcoder/web/wiki/" kind="src" path="src/main"/>
+	<classpathentry kind="src" path="resources/taglib"/>
 	<classpathentry kind="lib" path="lib/checkstyle/checkstyle-3.4.jar"/>
 	<classpathentry kind="lib" path="lib/checkstyle/checkstyle-all-3.4.jar"/>
 	<classpathentry kind="lib" path="lib/checkstyle/checkstyle-optional-3.4.jar"/>
@@ -165,8 +166,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/topcoder-shared"/>
 	<classpathentry kind="lib" path="lib/jars/jboss/jbossall-client.jar"/>
-	<classpathentry kind="lib" path="/IvyCache/com.topcoder.internal/arena-shared/jars/arena-shared-6.5.1.jar"/>
-	<classpathentry kind="lib" path="/IvyCache/com.topcoder.internal/custom-serialization/jars/custom-serialization-1.0.0.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/tcsUtil.jar"/>
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/image_manipulation-1.0.1.jar"/>
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/image_overlay-1.0.0.jar"/>
@@ -177,6 +176,5 @@
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/random_string_image-1.0.jar"/>
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/jboss-4.2.2-ejb3x.jar"/>
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/jboss-4.2.2-jaxws.jar"/>
-	<classpathentry kind="lib" path="/IvyCache/com.topcoder.internal/logging/jars/logging-1.0.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
