@@ -98,8 +98,9 @@
 <a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />"><img src="/i/home/winformula_preview510x54.png" alt="ESPN Winning Formula Challenge Powered by TopCoder" /></a>
 
 
-<%-- Truveo --%>
+<%-- Truveo 
 <br /><br />
 <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />"><img src="/i/home/truveo_winners.png" alt="Truveo Developer Challenge Powered by TopCoder" /></a>
+--%>
 
 
