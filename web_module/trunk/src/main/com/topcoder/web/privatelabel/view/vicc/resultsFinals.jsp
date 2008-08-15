@@ -24,7 +24,10 @@
 
 <span class="bigTitle">VTS Finals </span>
 <br /><br />
+<%--
 Congratulations to the Top Four Finalists who will be participating in the VTS Finals on August 12th:
+--%>
+Congratulations to the Top Four Finalists who participated in the VTS Finals on August 12th:
 <br /><br />
 <%--
 H2O<br />
