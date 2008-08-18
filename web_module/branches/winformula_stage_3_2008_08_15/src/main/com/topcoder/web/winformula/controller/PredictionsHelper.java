@@ -164,7 +164,7 @@ public class PredictionsHelper {
         log.debug("startRank: " + sizeBeforeCrop);
         
         request.setAttribute("croppedDataBefore", new Boolean(startRank > 1));
-        request.setAttribute("croppedDataAfter", new Boolean(sizeBeforeCrop != endRank));
+        request.setAttribute("croppedDataAfter", new Boolean(endRank != sizeBeforeCrop - 1));
 
         request.setAttribute("totalSize", sizeBeforeCrop);
     }
