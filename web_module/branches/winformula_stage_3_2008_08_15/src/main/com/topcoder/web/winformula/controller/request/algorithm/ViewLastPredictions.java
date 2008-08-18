@@ -120,11 +120,18 @@ public class ViewLastPredictions extends AlgorithmBase {
             int score = 0;
             List<PredictionItem> lpi = new ArrayList<PredictionItem>(rsc.size()); 
             for (ResultSetRow rsr : rsc) {
+                String home = rsr.getStringItem("home");
+                String visitor = rsr.getStringItem("visitor");
+                Integer homePred = getNullableItem(rsr, "home_pred");
+                Integer visitorPred = getNullableItem(rsr, "visitor_pred");
+                Integer homeScore = getNullableItem(rsr, "home_score");
+                Integer visitorScore = getNullableItem(rsr, "visitor_score");
+                Integer predictionPoints = getNullableItem(rsr, "prediction_points");
                 
-                PredictionItem pi = new PredictionItem(rsr.getStringItem("home"), rsr.getStringItem("visitor"), 
-                        new GameResult(getNullableItem(rsr, "home_pred"), getNullableItem(rsr, "visitor_pred")),
-                        new GameResult(getNullableItem(rsr, "home_score"), getNullableItem(rsr, "visitor_score")),
-                        getNullableItem(rsr, "prediction_points"));
+                PredictionItem pi = new PredictionItem(home, visitor, 
+                        new GameResult(homePred, visitorPred),
+                        new GameResult(homeScore, visitorScore),
+                        predictionPoints);
 
                 lpi.add(pi);
                 
