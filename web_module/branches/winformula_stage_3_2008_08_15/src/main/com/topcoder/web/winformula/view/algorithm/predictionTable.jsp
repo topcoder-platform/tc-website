@@ -1,7 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.topcoder.web.winformula.model.PredictionItem" %>
 
-<c:set value="<%=request.getParameter("predictions")%>" var="predictions"/>
+<%--<c:set value="<%=(List<PredictionItem>) request.getParameter("predictions")%>" var="predictions"/> --%>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
   <tr class="resultTH">
@@ -15,7 +17,7 @@
     <th scope="col" class="center"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="6" includeParams="true"/>">Points</a></th>
   </tr>
   <% boolean even = true;%>
-  <c:forEach items="${predictions}" var="predictionItem" varStatus="status">
+  <c:forEach items="${result.resultObject.predictions}" var="predictionItem" varStatus="status">
       <tr class="<%=even?"row_Alt":""%>">
           <c:choose>
               <c:when test="${predictionItem.realResult.homeScore > predictionItem.realResult.awayScore}">

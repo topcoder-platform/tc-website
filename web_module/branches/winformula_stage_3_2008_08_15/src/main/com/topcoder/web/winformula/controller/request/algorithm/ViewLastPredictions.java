@@ -7,6 +7,7 @@ package com.topcoder.web.winformula.controller.request.algorithm;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import com.topcoder.server.ejb.TestServices.LongTestResult;
@@ -24,6 +25,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.winformula.Constants;
+import com.topcoder.web.winformula.controller.PredictionsHelper;
 import com.topcoder.web.winformula.controller.request.AlgorithmBase;
 import com.topcoder.web.winformula.model.GameResult;
 import com.topcoder.web.winformula.model.Prediction;
@@ -59,16 +61,16 @@ public class ViewLastPredictions extends AlgorithmBase {
             // then the predictions
             ResultSetContainer rsc = getData();
     
-            // sort result
-            sortResult(rsc);
-    
-            // crop result
-            rsc = cropResult(rsc);
-    
-            request.setAttribute("results", rsc);
-            
             // make it a list of beans
-            request.setAttribute("result", processResult(rsc, weekId));
+            LongTestResult result = processResult(rsc, weekId);
+
+            // sort
+            PredictionsHelper.sortResult(request, (Prediction) result.getResultObject());
+    
+            // crop
+            PredictionsHelper.cropResult(request, (Prediction) result.getResultObject());
+    
+            request.setAttribute("result", result);
 
             setNextPage(Constants.PAGE_LAST_PREDICTIONS);
             setIsNextPageInContext(true);
@@ -191,48 +193,4 @@ public class ViewLastPredictions extends AlgorithmBase {
         s.addDefault(rsc.getColumnIndex("visitor"), "asc");
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
    }
-    
-    /**
-     * Crops the result as specified
-     * 
-     * @param rsc the resultsetcontainter to crop
-     * @throws Exception
-     */
-    private ResultSetContainer cropResult(ResultSetContainer rsc) throws Exception {
-        String numPage = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_PAGE));
-        String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
-
-        int sizeBeforeCrop = rsc.size();
-
-        if (!"25".equals(numRecords) &&
-                !"50".equals(numRecords) &&
-                !String.valueOf(sizeBeforeCrop).equals(numRecords)) {
-            numRecords = "10";
-        }
-   
-        if (numPage.equals("") || Integer.parseInt(numPage) <= 0) {
-            numPage = "1";
-        }
-   
-        setDefault(DataAccessConstants.NUMBER_PAGE, numPage);
-        setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
-   
-        rsc = new ResultSetContainer(rsc, 
-                getStartRank(Integer.parseInt(numPage), Integer.parseInt(numRecords)), 
-                getEndRank(Integer.parseInt(numPage), Integer.parseInt(numRecords)));
-
-        getRequest().setAttribute("totalSize", sizeBeforeCrop);
-        getRequest().setAttribute("croppedDataBefore", rsc.croppedDataBefore());
-        getRequest().setAttribute("croppedDataAfter", rsc.croppedDataAfter());
-
-        return rsc;
-    }
-
-    private int getStartRank(int numPage, int numRecords) {
-        return (numPage - 1) * numRecords + 1;
-    }
-
-    private int getEndRank(int numPage, int numRecords) {
-        return numPage * numRecords + 1;
-    }
 }

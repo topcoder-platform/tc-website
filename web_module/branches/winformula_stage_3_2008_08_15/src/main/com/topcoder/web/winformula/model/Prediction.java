@@ -32,8 +32,11 @@ public class Prediction implements Serializable {
     public int getWeek() {
         return week;
     }
-    public List getPredictions() {
+    public List<PredictionItem> getPredictions() {
         return predictions;
+    }
+    public void setPredictions(List<PredictionItem> predictions) {
+        this.predictions = predictions;
     }
     public PredictionStat getStats() {
         return stats;
