@@ -147,13 +147,16 @@ public class PredictionsHelper {
 
         int startRank = getStartRank(Integer.parseInt(numPage), Integer.parseInt(numRecords));
         int endRank = getEndRank(Integer.parseInt(numPage), Integer.parseInt(numRecords));
-        
+        if (endRank >= sizeBeforeCrop) {
+            endRank = sizeBeforeCrop - 1;
+        }
+            
         if (sizeBeforeCrop > 0) {
             p.setPredictions(p.getPredictions().subList(startRank, endRank));
         }
 
         request.setAttribute("croppedDataBefore", new Boolean(startRank > 1));
-        request.setAttribute("croppedDataAfter", new Boolean(sizeBeforeCrop == endRank));
+        request.setAttribute("croppedDataAfter", new Boolean(sizeBeforeCrop != endRank));
 
         request.setAttribute("totalSize", sizeBeforeCrop);
     }
