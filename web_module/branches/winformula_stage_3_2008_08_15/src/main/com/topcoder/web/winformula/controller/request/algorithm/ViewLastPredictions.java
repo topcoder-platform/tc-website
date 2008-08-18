@@ -103,6 +103,14 @@ public class ViewLastPredictions extends AlgorithmBase {
         return weeks;
     }
     
+    Integer getNullableItem(ResultSetRow rsr, String columnName) {
+        if (rsr.getItem(columnName).getResultData() == null) {
+            return null;
+        } else {
+            return rsr.getIntItem(columnName);
+        }
+    }
+    
     private LongTestResult processResult(ResultSetContainer rsc, int week) {
         if (rsc.size() > 0) {
             int total = 0;
@@ -110,10 +118,11 @@ public class ViewLastPredictions extends AlgorithmBase {
             int score = 0;
             List<PredictionItem> lpi = new ArrayList<PredictionItem>(rsc.size()); 
             for (ResultSetRow rsr : rsc) {
+                
                 PredictionItem pi = new PredictionItem(rsr.getStringItem("home"), rsr.getStringItem("visitor"), 
-                        new GameResult(rsr.getIntItem("home_pred"), rsr.getIntItem("visitor_pred")),
-                        new GameResult(rsr.getIntItem("home_score"), rsr.getIntItem("visitor_score")),
-                        rsr.getIntItem("prediction_points"));
+                        new GameResult(getNullableItem(rsr, "home_pred"), getNullableItem(rsr, "visitor_pred")),
+                        new GameResult(getNullableItem(rsr, "home_score"), getNullableItem(rsr, "visitor_score")),
+                        getNullableItem(rsr, "prediction_points"));
 
                 lpi.add(pi);
                 

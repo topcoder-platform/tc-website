@@ -75,7 +75,7 @@
              <c:choose>
                 <c:when test="${not empty result}">
                     <jsp:include page="predictionTable.jsp">
-                        <jsp:param name="${result.resultObject.predictions}" value="${croppedDataBefore}" />
+                        <jsp:param name="predictions" value="${result.resultObject.predictions}" />
                     </jsp:include>
                 </c:when>
                 <c:otherwise>
