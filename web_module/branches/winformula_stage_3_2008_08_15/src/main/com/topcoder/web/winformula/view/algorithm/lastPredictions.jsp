@@ -71,6 +71,17 @@
                 <jsp:param name="numPage" value="${requestScope[defaults][numPage]}" />
                 <jsp:param name="formName" value="document.resultsForm"/>
             </jsp:include>
+
+             <c:choose>
+                <c:when test="${not empty result}">
+                    <jsp:include page="predictionTable.jsp">
+                        <jsp:param name="${result.resultObject.predictions}" value="${croppedDataBefore}" />
+                    </jsp:include>
+                </c:when>
+                <c:otherwise>
+                    There are no results to show.
+                </c:otherwise>
+             </c:choose>
     
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
               <tr class="resultTH">

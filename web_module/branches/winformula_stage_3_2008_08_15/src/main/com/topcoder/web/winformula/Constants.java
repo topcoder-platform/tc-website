@@ -41,6 +41,7 @@ public class Constants implements CodingInterfaceConstants {
 
     public static final String RESULT_KEY = "result_key";
     
+    public static final String WEEK_ID = "wid";
 
     public static final String WIDTH = "width";
     public static final String HEIGHT = "height";
