@@ -129,8 +129,8 @@ public class ViewLastPredictions extends AlgorithmBase {
                 Integer predictionPoints = getNullableItem(rsr, "prediction_points");
                 
                 PredictionItem pi = new PredictionItem(home, visitor, 
-                        new GameResult(homePred, visitorPred),
-                        new GameResult(homeScore, visitorScore),
+                        (homePred == null || visitorPred == null) ? null : new GameResult(homePred, visitorPred),
+                        (homeScore == null || visitorScore == null) ? null : new GameResult(homeScore, visitorScore),
                         predictionPoints);
 
                 lpi.add(pi);
