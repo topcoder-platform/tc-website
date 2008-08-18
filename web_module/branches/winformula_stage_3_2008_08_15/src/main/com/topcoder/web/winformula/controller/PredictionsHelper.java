@@ -160,7 +160,7 @@ public class PredictionsHelper {
 
     
     private static int getStartRank(int numPage, int numRecords) {
-        return (numPage - 1) * numRecords + 1;
+        return (numPage - 1) * numRecords;
     }
 
     private static int getEndRank(int numPage, int numRecords) {

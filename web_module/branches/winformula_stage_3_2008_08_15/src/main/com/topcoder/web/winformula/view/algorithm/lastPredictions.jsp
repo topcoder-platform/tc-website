@@ -66,8 +66,8 @@
                 <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
                 <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />
                 <jsp:param name="totalSize" value="${totalSize}" />
-                <jsp:param name="numRecords" value="${numRecords}" />
-                <jsp:param name="numPage" value="${numPage}" />
+                <jsp:param name="numRecords" value="${nr}" />
+                <jsp:param name="numPage" value="${np}" />
                 <jsp:param name="formName" value="document.resultsForm"/>
             </jsp:include>
 
@@ -88,8 +88,8 @@
                 <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
                 <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />
                 <jsp:param name="totalSize" value="${totalSize}" />
-                <jsp:param name="numRecords" value="${numRecords}" />
-                <jsp:param name="numPage" value="${numPage}" />
+                <jsp:param name="numRecords" value="${nr}" />
+                <jsp:param name="numPage" value="${np}" />
                 <jsp:param name="formName" value="document.resultsForm"/>
             </jsp:include>
             <p>&nbsp;</p>

@@ -31,6 +31,10 @@
             myForm.np.value = divide(ts, nr) + 1;
             myForm.submit();
         }
+        function setPage(page) {
+            myForm.np.value = page;
+            myForm.submit();
+        }
         function setSize(size) {
             myForm.np.value = '1';
             myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value = size;
