@@ -7,9 +7,11 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.model.SortInfo;
+import com.topcoder.web.winformula.controller.request.algorithm.ViewExampleResults;
 import com.topcoder.web.winformula.model.Prediction;
 import com.topcoder.web.winformula.model.PredictionItem;
 
@@ -22,6 +24,8 @@ import com.topcoder.web.winformula.model.PredictionItem;
  * Create Date: Aug 18, 2008
  */
 public class PredictionsHelper {
+
+    protected static final Logger log = Logger.getLogger(ViewExampleResults.class);
 
     public static final int HOME_TEAM_COLUMN = 1;
     public static final int AWAY_TEAM_COLUMN = 2;
@@ -155,6 +159,10 @@ public class PredictionsHelper {
             p.setPredictions(p.getPredictions().subList(startRank, endRank));
         }
 
+        log.debug("startRank: " + startRank);
+        log.debug("startRank: " + endRank);
+        log.debug("startRank: " + sizeBeforeCrop);
+        
         request.setAttribute("croppedDataBefore", new Boolean(startRank > 1));
         request.setAttribute("croppedDataAfter", new Boolean(sizeBeforeCrop != endRank));
 

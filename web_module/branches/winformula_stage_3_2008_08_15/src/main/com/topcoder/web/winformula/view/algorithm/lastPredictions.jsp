@@ -73,9 +73,7 @@
 
              <c:choose>
                 <c:when test="${not empty result}">
-                    <jsp:include page="predictionTable.jsp">
-                        <jsp:param name="predictions" value="${result.resultObject.predictions}" />
-                    </jsp:include>
+                    <jsp:include page="predictionTable.jsp"/>
                 </c:when>
                 <c:otherwise>
                     There are no results to show.
