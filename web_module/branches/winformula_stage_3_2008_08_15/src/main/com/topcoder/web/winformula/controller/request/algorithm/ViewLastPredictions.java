@@ -128,7 +128,7 @@ public class ViewLastPredictions extends AlgorithmBase {
                 
                 total++;
                 correct += pi.getPickedWinner() ? 1 : 0;
-                score += pi.getScore();
+                score += pi.getScore() == null ? 0 : pi.getScore();
             }
             
             Prediction p = new Prediction(week, lpi, score, new PredictionStat(total, correct));
