@@ -3,6 +3,7 @@
     <property name="Name" value="TopCoder"/>
     <property name="build" value="build"/>
     <property name="war.dir" value="${build}/wars"/>
+    <property name="tools.dir" value="${build}/tools"/>
     <property name="ear.dir" value="${build}/ears"/>
     <property name="ejb_jars" value="${build}/ejb_jars"/>
     <property name="classes" value="${build}/classes"/>
@@ -105,6 +106,7 @@
         <mkdir dir="${ejb_jars}"/>
         <mkdir dir="${war.dir}"/>
         <mkdir dir="${ear.dir}"/>
+        <mkdir dir="${tools.dir}"/>
     </target>
 
     <target name="compile_common" depends="init" unless="compile_common_set">
@@ -239,6 +241,30 @@
         <delete dir="${jboss_deploy}/winformula.war/META-INF"/>
     </target>
 
+    <target name="tools" depends="compile">
+            <jar jarfile="${tools.dir}/winformula-tools.jar">
+                <fileset dir="${classes}">
+                    <include name="com/topcoder/web/codinginterface/*.class"/>
+                    <include name="com/topcoder/web/winformula/**/*.class"/>
+                    <include name="com/topcoder/web/forums/**/*.class"/>
+                </fileset>
+
+            </jar>
+            <copy todir="${tools.dir}" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
+            <copy todir="${tools.dir}" file="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
+            <copy todir="${tools.dir}">
+                <fileset dir="${resources}">
+                        <include name="Winformula.properties"/>
+                </fileset>
+            </copy>
+            <copy todir="${tools.dir}/com/topcoder/db/connectionfactory/"
+                  file="${tools.dir}/com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
+            <copy todir="${tools.dir}/com/topcoder/util/config/"
+                  file="${resources}/com/topcoder/util/config/ConfigManager.properties"/>
+                
+    </target>
+
+    
     <target name="dist" depends="war-winformula,build-security">
         <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
