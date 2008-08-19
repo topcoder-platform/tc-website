@@ -43,8 +43,24 @@
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-            <div class="sub-navigation"> <a href="?module=ManageMyAlgorithms${adminExtraParams}">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> | Current Algorithm's Predictions | <a href="?module=ViewQueue">Queue Status</a></div>
-            <h1>Current Algorithm's predictions</h1>
+            <div class="sub-navigation"> <a href="?module=ManageMyAlgorithms${adminExtraParams}">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> |
+            <c:choose>
+                <c:when test="${empty round}">
+                    Current Algorithm's Predictions
+                </c:when>
+                <c:otherwise>
+                    <a href="?module=ViewLastPredictions${adminExtraParams}">Current Algorithm's Predictions</a>
+                </c:otherwise>
+            </c:choose> 
+            | <a href="?module=ViewQueue">Queue Status</a></div>
+            <c:choose>
+                <c:when test="${empty round}">
+                    <h1>Current Algorithm's predictions</h1>
+                </c:when>
+                <c:otherwise>
+                    <h1>View Picks</h1>
+                </c:otherwise>
+            </c:choose> 
             <p>Your current algorithm's predictions will not be viewable to other contestants or the public until all contestants algorithms have been locked for the week.</p>
             <c:if test="${not empty algoDate}">
             <h2>Predictions based on your algorithm uploaded on ${algoDate}</h2>

@@ -3,17 +3,29 @@
  */
 package com.topcoder.web.winformula.controller;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
+import com.topcoder.server.ejb.TestServices.LongTestResult;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.model.SortInfo;
+import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.controller.request.algorithm.ViewExampleResults;
+import com.topcoder.web.winformula.model.GameResult;
 import com.topcoder.web.winformula.model.Prediction;
 import com.topcoder.web.winformula.model.PredictionItem;
+import com.topcoder.web.winformula.model.PredictionStat;
 
 /**
  * Copyright (c) 2001-2008 TopCoder, Inc. All rights reserved.
@@ -33,6 +45,16 @@ public class PredictionsHelper {
     public static final int TOTAL_SCORE_VARIANCE_COLUMN = 4;
     public static final int VICTORY_MARGIN_VARIANCE_COLUMN = 5;
     public static final int POINTS_COLUMN = 6;
+
+    public static ResultSetContainer getPredictionsData(long userId, int weekId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("user_predictions");
+        r.setProperty(Constants.USER_ID, String.valueOf(userId));
+        r.setProperty(Constants.WEEK_ID, String.valueOf(weekId));
+
+        DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
+        return dai.getData(r).get("user_predictions");
+    }
 
     @SuppressWarnings("unchecked")
     public static void sortResult(TCRequest request, Prediction p) {
@@ -176,6 +198,51 @@ public class PredictionsHelper {
 
     private static int getEndRank(int numPage, int numRecords) {
         return numPage * numRecords;
+    }
+
+    public static Integer getNullableIntItem(ResultSetRow rsr, String columnName) {
+        if (rsr.getItem(columnName).getResultData() == null) {
+            return null;
+        } else {
+            return rsr.getIntItem(columnName);
+        }
+    }
+    
+    public static LongTestResult processResult(ResultSetContainer rsc, int week) {
+        if (rsc.size() > 0) {
+            int total = 0;
+            int correct = 0;
+            int score = 0;
+            List<PredictionItem> lpi = new ArrayList<PredictionItem>(rsc.size()); 
+            for (ResultSetRow rsr : rsc) {
+                String home = rsr.getStringItem("home");
+                String visitor = rsr.getStringItem("visitor");
+                Integer homePred = PredictionsHelper.getNullableIntItem(rsr, "home_pred");
+                Integer visitorPred = PredictionsHelper.getNullableIntItem(rsr, "visitor_pred");
+                Integer homeScore = PredictionsHelper.getNullableIntItem(rsr, "home_score");
+                Integer visitorScore = PredictionsHelper.getNullableIntItem(rsr, "visitor_score");
+                Integer predictionPoints = PredictionsHelper.getNullableIntItem(rsr, "prediction_points");
+                
+                PredictionItem pi = new PredictionItem(home, visitor, 
+                        (homePred == null || visitorPred == null) ? null : new GameResult(homePred, visitorPred),
+                        (homeScore == null || visitorScore == null) ? null : new GameResult(homeScore, visitorScore),
+                        predictionPoints);
+
+                lpi.add(pi);
+                
+                total++;
+                correct += pi.getPickedWinner() ? 1 : 0;
+                score += pi.getScore() == null ? 0 : pi.getScore();
+            }
+            
+            Prediction p = new Prediction(week, lpi, score, new PredictionStat(total, correct));
+    
+            LongTestResult ltr = new LongTestResult(); 
+            ltr.setResultObject(p);
+            return ltr;
+        } else {
+            return null;
+        }
     }
 
 }

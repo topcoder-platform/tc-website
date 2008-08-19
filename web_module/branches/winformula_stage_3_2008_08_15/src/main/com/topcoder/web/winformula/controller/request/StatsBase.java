@@ -25,6 +25,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
+import com.topcoder.web.winformula.algorithm.services.WinFormulaServicesException;
 
 /**
  * @author dok
@@ -151,7 +152,21 @@ public abstract class StatsBase extends BaseProcessor {
         getRequest().setAttribute("subject", subject);
         return subject;
     }
-    
+       
+    public int getUserID() throws Exception {
+        String coderID = getRequest().getParameter(CodingConstants.CODER_ID);
+        if (coderID != null && isAdmin()) {
+            log.debug("Using coder in parameter: " + coderID);
+            getRequest().setAttribute("adminExtraParams", "&"+CodingConstants.CODER_ID+"="+coderID);
+            getRequest().setAttribute(CodingConstants.CODER_ID, new Integer(coderID));
+            return Integer.parseInt(coderID);
+        } else {
+            getRequest().setAttribute("adminExtraParams", "");
+            getRequest().setAttribute(CodingConstants.CODER_ID, new Integer((int) getUser().getId()));
+        }
+        return (int) getUser().getId();
+    }
+     
 
 }
 
