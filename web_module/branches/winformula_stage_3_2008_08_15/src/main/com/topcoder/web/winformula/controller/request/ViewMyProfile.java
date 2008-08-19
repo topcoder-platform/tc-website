@@ -17,6 +17,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.tag.ListSelectTag;
@@ -40,6 +41,13 @@ public class ViewMyProfile extends StatsBase {
         try {
             TCRequest request = getRequest();
 
+            String selectedWeek = StringUtils.checkNull(request.getParameter("week"));
+
+            try {
+                weekId = Integer.parseInt(selectedWeek);
+            } catch (Exception e) {
+            }
+
             // get data from DB
             // first the weeks
             request.setAttribute("weeks", getWeeks());
@@ -51,11 +59,13 @@ public class ViewMyProfile extends StatsBase {
             LongTestResult result = processResult(rsc, weekId);
 
             // sort
-            PredictionsHelper.sortResult(request, (Prediction) result.getResultObject());
-    
-            // crop
-            PredictionsHelper.cropResult(request, (Prediction) result.getResultObject());
-    
+            if (result != null) {
+                PredictionsHelper.sortResult(request, (Prediction) result.getResultObject());
+        
+                // crop
+                PredictionsHelper.cropResult(request, (Prediction) result.getResultObject());
+            }
+            
             request.setAttribute("result", result);
 
             setNextPage(Constants.PAGE_MY_PROFILE);
@@ -82,7 +92,8 @@ public class ViewMyProfile extends StatsBase {
                 }
             }
             if (!found && rscWeeks.size() > 0) {
-                weekId = rscWeeks.get(0).getIntItem("week_id");
+                weekId = rscWeeks.get(rscWeeks.size() - 1).getIntItem("week_id");
+                log.debug("using week: " + weekId);
             }
         } else { 
             log.info("weeks is null or empty");

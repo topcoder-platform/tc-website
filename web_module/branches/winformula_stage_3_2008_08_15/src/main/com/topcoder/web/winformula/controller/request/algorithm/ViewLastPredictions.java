@@ -64,11 +64,13 @@ public class ViewLastPredictions extends AlgorithmBase {
             LongTestResult result = processResult(rsc, weekId);
 
             // sort
-            PredictionsHelper.sortResult(request, (Prediction) result.getResultObject());
-    
-            // crop
-            PredictionsHelper.cropResult(request, (Prediction) result.getResultObject());
-    
+            if (result != null) {
+                PredictionsHelper.sortResult(request, (Prediction) result.getResultObject());
+        
+                // crop
+                PredictionsHelper.cropResult(request, (Prediction) result.getResultObject());
+            }
+            
             request.setAttribute("result", result);
 
             setNextPage(Constants.PAGE_LAST_PREDICTIONS);
