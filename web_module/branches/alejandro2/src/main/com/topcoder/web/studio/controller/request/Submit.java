@@ -168,7 +168,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 					UploadedFile sourceFile = r
 							.getUploadedFile(Constants.SUBMISSION_SOURCE);
 					UploadedFile previewFile = r
-							.getUploadedFile(Constants.SUBMISSION_FILE_INDEX);
+							.getUploadedFile(Constants.SUBMISSION_PREVIEW);
 
 					log.debug("submission: " + submissionFile.getRemoteFileName());
 					log.debug("submission content type: " + submissionFile.getContentType());
@@ -392,12 +392,12 @@ public class Submit extends BaseSubmissionDataProcessor {
 		addFileToZip(archiveFile, input, name);
 
 		// source
-		input = submissionFile.getInputStream();
+		input = sourceFile.getInputStream();
 		name = "source/" + sourceFile.getRemoteFileName();
 		addFileToZip(archiveFile, input, name);
 
 		// preview
-		input = submissionFile.getInputStream();
+		input = previewFile.getInputStream();
 		name = "submission/" + previewFile.getRemoteFileName();
 		addFileToZip(archiveFile, input, name);
 				
