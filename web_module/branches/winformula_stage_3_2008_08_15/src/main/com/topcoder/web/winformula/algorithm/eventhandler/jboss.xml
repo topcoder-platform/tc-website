@@ -1,8 +1,8 @@
 <jboss>
    <invoker-proxy-bindings>
       <invoker-proxy-binding>
-         <name>my-mdb-invoker</name>
-         <invoker-mbean>MM-MDB-INVOKER</invoker-mbean>
+         <name>MM-MDB-INVOKER<</name>
+         <invoker-mbean>does-not-matter</invoker-mbean>
          <proxy-factory>org.jboss.ejb.plugins.jms.JMSContainerInvoker</proxy-factory>
          <proxy-factory-config>
             <JMSProviderAdapterJNDI>MMServerJMSProvider</JMSProviderAdapterJNDI>
