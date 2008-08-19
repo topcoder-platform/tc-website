@@ -248,20 +248,32 @@
                     <include name="com/topcoder/web/winformula/**/*.class"/>
                     <include name="com/topcoder/web/forums/**/*.class"/>
                 </fileset>
-
             </jar>
-            <copy todir="${tools.dir}" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
-            <copy todir="${tools.dir}" file="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
-            <copy todir="${tools.dir}">
+            <copy todir="${tools.dir}/lib">
+                <fileset dir="${jars.dir}">
+                    <include name="tc.jar"/>
+                    <include name="TestServices.jar"/>
+                    <include name="asyncservices.jar"/>
+                </fileset>
+            </copy>
+            <copy todir="${tools.dir}/lib" file="${bin}/shared.jar"/>
+            <copy todir="${tools.dir}/lib" file="${bin}/tcwebcommon.jar"/>
+        
+            <copy todir="${tools.dir}/lib" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
+            <copy todir="${tools.dir}/lib" file="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
+            <copy todir="${tools.dir}/resources">
                 <fileset dir="${resources}">
                         <include name="Winformula.properties"/>
                 </fileset>
             </copy>
-            <copy todir="${tools.dir}/com/topcoder/db/connectionfactory/"
+            <copy todir="${tools.dir}/resources/com/topcoder/db/connectionfactory/"
                   file="${resources}/com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
-            <copy todir="${tools.dir}/com/topcoder/util/config/"
+            <copy todir="${tools.dir}/resources/com/topcoder/util/config/"
                   file="${resources}/com/topcoder/util/config/ConfigManager.properties"/>
-                
+            
+            <copy todir="${tools.dir}/resources" file="${resources}/ApplicationServer.properties"/>
+            <copy todir="${tools.dir}/resources" file="${resources}/DBMS.properties"/>
+            <copy todir="${tools.dir}/resources" file="${resources}/EmailEngineConfig.properties"/>
     </target>
 
     
