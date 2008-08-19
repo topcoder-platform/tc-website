@@ -106,7 +106,8 @@ public class PredictionLoader {
             if (coderId > 0) {
                 cmd = cmd + " AND coder_id = ? ";
             }
-            ps = cnn.prepareStatement(cmd);
+            
+            ps = cnn.prepareStatement(cmd, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY, ResultSet.HOLD_CURSORS_OVER_COMMIT);
             ps.setInt(1, roundId);
             if (coderId > 0) {
                ps.setInt(2, coderId); 
@@ -120,7 +121,8 @@ public class PredictionLoader {
         } catch (Exception e) {
             log.error("Failed to process", e);
         } finally {
-            DBMS.close(cnn, ps, rs);
+            DBMS.close(ps, rs);
+            DBUtils.endDBBlock();
         }
     }
 }
