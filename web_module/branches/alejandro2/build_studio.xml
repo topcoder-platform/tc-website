@@ -141,6 +141,7 @@
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
             <include name="com/topcoder/web/forums/**"/>
             <include name="com/topcoder/web/studio/**"/>
+        	<include name="com/topcoder/servlet/request/**"/>
         </javac>
         <property name="compile_set" value="true"/>
     </target>
@@ -197,6 +198,7 @@
             <classes dir="${classes}">
                 <include name="com/topcoder/web/studio/**/*.class"/>
                 <include name="com/topcoder/web/forums/**/*.class"/>
+            	<include name="com/topcoder/servlet/request/**/*.class"/>
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
