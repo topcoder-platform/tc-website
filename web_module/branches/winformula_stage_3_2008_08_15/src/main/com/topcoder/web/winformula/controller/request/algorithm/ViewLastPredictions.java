@@ -7,11 +7,10 @@ package com.topcoder.web.winformula.controller.request.algorithm;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import com.topcoder.server.ejb.TestServices.LongTestResult;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -22,7 +21,6 @@ import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.controller.PredictionsHelper;
@@ -60,7 +58,10 @@ public class ViewLastPredictions extends AlgorithmBase {
 
             // then the predictions
             ResultSetContainer rsc = getData();
-    
+
+            // Set algo date
+            request.setAttribute("algoDate", getSubmissionDate());
+            
             // make it a list of beans
             LongTestResult result = processResult(rsc, weekId);
 
@@ -160,6 +161,21 @@ public class ViewLastPredictions extends AlgorithmBase {
         return dai.getData(r).get("latest_user_prediction");
     }
 
+    private Date getSubmissionDate() throws Exception {
+        Request r = new Request();
+        r.setContentHandle("user_prediction_submission");
+        r.setProperty(Constants.USER_ID, String.valueOf(getUser().getId()));
+
+        DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
+        ResultSetContainer rsc = dai.getData(r).get("user_prediction_submission");
+        
+        if (rsc.size() > 0) {
+            return new Date(rsc.get(0).getIntItem("submit_time"));            
+        } else {
+            return null;
+        }
+    }
+
     private ResultSetContainer getWeeksData() throws Exception {
         Request r = new Request();
         r.setContentHandle("user_prediction_weeks");
@@ -168,36 +184,4 @@ public class ViewLastPredictions extends AlgorithmBase {
         DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
         return dai.getData(r).get("user_prediction_weeks");
     }
-
-    /**
-     * Sorts the result as specified
-     * 
-     * @param rsc the resultsetcontainter to sort
-     */
-    private void sortResult(ResultSetContainer rsc) {
-        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-        if (sortCol.equals("")) {
-            sortCol = "5";
-            sortDir = "asc";
-        }
-        if (rsc != null) {
-            rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
-        }
-        setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
-        setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
-        setSortInfo(rsc);
-    }
-
-    /**
-     * Sets sort information
-     * 
-     * @param rsc
-     */
-    private void setSortInfo(ResultSetContainer rsc) {
-        SortInfo s = new SortInfo();
-        s.addDefault(rsc.getColumnIndex("home"), "asc");
-        s.addDefault(rsc.getColumnIndex("visitor"), "asc");
-        getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
-   }
 }

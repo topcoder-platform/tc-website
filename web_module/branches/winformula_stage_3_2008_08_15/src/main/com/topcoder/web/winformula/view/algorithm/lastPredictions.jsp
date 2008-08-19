@@ -46,8 +46,9 @@
             <div class="sub-navigation"> <a href="?module=ManageMyAlgorithms${adminExtraParams}">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> | Current Algorithm's Predictions | <a href="?module=ViewQueue">Queue Status</a></div>
             <h1>Current Algorithm's predictions</h1>
             <p>Your current algorithm's predictions will not be viewable to other contestants or the public until all contestants algorithms have been locked for the week.</p>
-            <p class="hightlight"><strong>Your algorithm submitted on 2008-07-14 at 12:38:45 ET is 7 of 21 in the <a href="manage-algorithms_queue.htm">queue</a>.</strong></p>
-            <h2>Predictions based on your algorithm uploaded on 2008-07-09 at 13:45:32 ET</h2>
+            <c:if test="${not empty algoDate}">
+            <h2>Predictions based on your algorithm uploaded on ${algoDate}</h2>
+            </c:if>
             <div class="dataArea" style="width:100%;">
 
 <!-- Prepares some collection data and formatter -->

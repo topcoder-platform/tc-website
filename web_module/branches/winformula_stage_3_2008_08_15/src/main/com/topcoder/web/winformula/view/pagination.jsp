@@ -66,7 +66,15 @@
                 </span>
             </c:otherwise>
         </c:choose>
-        | <c:forEach begin="${1}" end="${1 + totalSize / numRecords}" step="${1}" var="i"> 
+        <c:choose>
+            <c:when test="${totalSize % numRecords == 0}">
+                <c:set var="totalPages" value="${totalSize / numRecords}"/>
+            </c:when>
+            <c:otherwise>
+                <c:set var="totalPages" value="${totalSize / numRecords + 1}"/>
+            </c:otherwise>
+        </c:choose>
+        | <c:forEach begin="${1}" end="${totalPages}" step="${1}" var="i"> 
             <c:choose>
                 <c:when test="${i == numPage}">
                     <strong>${i}</strong> 
