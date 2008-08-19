@@ -270,10 +270,6 @@
                   file="${resources}/com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
             <copy todir="${tools.dir}/resources/com/topcoder/util/config/"
                   file="${resources}/com/topcoder/util/config/ConfigManager.properties"/>
-            
-            <copy todir="${tools.dir}/resources" file="${resources}/ApplicationServer.properties"/>
-            <copy todir="${tools.dir}/resources" file="${resources}/DBMS.properties"/>
-            <copy todir="${tools.dir}/resources" file="${resources}/EmailEngineConfig.properties"/>
     </target>
 
     
