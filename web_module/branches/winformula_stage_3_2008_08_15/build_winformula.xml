@@ -258,7 +258,7 @@
                 </fileset>
             </copy>
             <copy todir="${tools.dir}/com/topcoder/db/connectionfactory/"
-                  file="${tools.dir}/com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
+                  file="${resources}/com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
             <copy todir="${tools.dir}/com/topcoder/util/config/"
                   file="${resources}/com/topcoder/util/config/ConfigManager.properties"/>
                 
