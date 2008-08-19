@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />08.19.08<br />9:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/tc?module=ProjectDetail&pj=30005063' refer='/tc' />">MySQL Memory Engine Architecture Contest Re-Launched!</a></span><br /><br />
+        TopCoder is working with eBay and MySQL to improve the MySQL Memory Engine. The design and code will be submitted to MySQL for inclusion into future releases of their database product. Help give back to the Open Source community and compete for the $4,500 first place prize.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/tc?module=ProjectDetail&pj=30005063' refer='/tc' />">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3721">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />08.12.08<br />6:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -157,15 +170,3 @@
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />07.22.08<br />10:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />">Use the New TC Battle Widget to Vote for Your Favorite Truveo Apps!</a></span><br /><br />
-        The $100,000 Truveo Developer Challenge has come to a close, and now is your chance to help pick one TopCoder Community Favorite from the 96 submitted applications. The TC favorite counts for 20% of the app's final score, and we've built a Voting Widget just for the occasion. Check out the widget, check out the apps, and let us know what you think in the forums!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/truveo/' refer='/tc' />">details</a> | 
-        <a href="/truveo/forums">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
