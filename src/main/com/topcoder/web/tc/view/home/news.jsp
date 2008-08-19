@@ -6,12 +6,12 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />08.19.08<br />9:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/tc?module=ProjectDetail&pj=30005063' refer='/tc' />">MySQL Memory Engine Architecture Contest Re-Launched!</a></span><br /><br />
+        <a href="<tc-webtag:linkTracking link='/tc?module=ProjectDetail&pj=30005074' refer='/tc' />">MySQL Memory Engine Architecture Contest Re-Launched!</a></span><br /><br />
         TopCoder is working with eBay and MySQL to improve the MySQL Memory Engine. The design and code will be submitted to MySQL for inclusion into future releases of their database product. Help give back to the Open Source community and compete for the $4,500 first place prize.</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/tc?module=ProjectDetail&pj=30005063' refer='/tc' />">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3721">discuss this</a> | 
+        <a href="<tc-webtag:linkTracking link='/tc?module=ProjectDetail&pj=30005074' refer='/tc' />">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3726">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
 
