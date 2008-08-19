@@ -23,7 +23,6 @@ import com.topcoder.shared.util.IdGeneratorClient;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.web.winformula.algorithm.services.DBUtils.UnitOfWork;
-import com.topcoder.web.winformula.controller.request.algorithm.WeekInfo;
 import com.topcoder.web.winformula.model.Prediction;
 import com.topcoder.web.winformula.model.PredictionItem;
 
