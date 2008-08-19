@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">08.19.08 9:30 AM - </td><td width="100%"><a href="/tc?module=ProjectDetail&amp;pj=30005063">MySQL Memory Engine Architecture Contest Re-Launched!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.22.08 10:30 PM - </td><td width="100%"><a href="/truveo/">Use the New TC Battle Widget to Vote for Your Favorite Truveo Apps!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.08.08 7:30 PM - </td><td width="100%"><a href="/truveo/">Two Weeks Left in the Truveo Challenge!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.26.08 1:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=617309">Changes Coming to Digital Run</a><br /></td></tr>
