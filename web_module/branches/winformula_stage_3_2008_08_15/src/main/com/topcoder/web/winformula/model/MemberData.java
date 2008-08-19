@@ -40,64 +40,64 @@ public class MemberData implements Serializable {
         this.winPercent = winPercent;
     }
 
-    protected Integer getUserId() {
+    public Integer getUserId() {
         return userId;
     }
-    protected void setUserId(Integer userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
-    protected String getHandle() {
+    public String getHandle() {
         return handle;
     }
-    protected void setHandle(String handle) {
+    public void setHandle(String handle) {
         this.handle = handle;
     }
-    protected Integer getTotalRankedMembers() {
+    public Integer getTotalRankedMembers() {
         return totalRankedMembers;
     }
-    protected void setTotalRankedMembers(Integer totalRankedMembers) {
+    public void setTotalRankedMembers(Integer totalRankedMembers) {
         this.totalRankedMembers = totalRankedMembers;
     }
-    protected Integer getOverallRank() {
+    public Integer getOverallRank() {
         return overallRank;
     }
-    protected void setOverallRank(Integer overallRank) {
+    public void setOverallRank(Integer overallRank) {
         this.overallRank = overallRank;
     }
-    protected Integer getHighestOverallRank() {
+    public Integer getHighestOverallRank() {
         return highestOverallRank;
     }
-    protected void setHighestOverallRank(Integer highestOverallRank) {
+    public void setHighestOverallRank(Integer highestOverallRank) {
         this.highestOverallRank = highestOverallRank;
     }
-    protected String getHighestOverallRankWeek() {
+    public String getHighestOverallRankWeek() {
         return highestOverallRankWeek;
     }
-    protected void setHighestOverallRankWeek(String highestOverallRankWeek) {
+    public void setHighestOverallRankWeek(String highestOverallRankWeek) {
         this.highestOverallRankWeek = highestOverallRankWeek;
     }
-    protected Integer getHighestWeeklyRank() {
+    public Integer getHighestWeeklyRank() {
         return highestWeeklyRank;
     }
-    protected void setHighestWeeklyRank(Integer highestWeeklyRank) {
+    public void setHighestWeeklyRank(Integer highestWeeklyRank) {
         this.highestWeeklyRank = highestWeeklyRank;
     }
-    protected String getHighestWeeklyRankWeek() {
+    public String getHighestWeeklyRankWeek() {
         return highestWeeklyRankWeek;
     }
-    protected void setHighestWeeklyRankWeek(String highestWeeklyRankWeek) {
+    public void setHighestWeeklyRankWeek(String highestWeeklyRankWeek) {
         this.highestWeeklyRankWeek = highestWeeklyRankWeek;
     }
-    protected Integer getHighestWeeklyRankPoints() {
+    public Integer getHighestWeeklyRankPoints() {
         return highestWeeklyRankPoints;
     }
-    protected void setHighestWeeklyRankPoints(Integer highestWeeklyRankPoints) {
+    public void setHighestWeeklyRankPoints(Integer highestWeeklyRankPoints) {
         this.highestWeeklyRankPoints = highestWeeklyRankPoints;
     }
-    protected Double getWinPercent() {
+    public Double getWinPercent() {
         return winPercent;
     }
-    protected void setWinPercent(Double winPercent) {
+    public void setWinPercent(Double winPercent) {
         this.winPercent = winPercent;
     }
 
