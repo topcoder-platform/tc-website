@@ -124,8 +124,12 @@
                     <strong>My design:</strong><br />
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
                         <br /></tc-webtag:errorIterator>
-                    <input type="file" name="<%=Constants.SUBMISSION%>">
+                    <input type="file" name="<%=Constants.SUBMISSION%>"/>
                     <br />(must be a Zip file)
+                    <input type="file" name="<%=Constants.SUBMISSION_SOURCE%>"/>
+                    <br />(must be a Zip file)
+                    <input type="file" name="<%=Constants.SUBMISSION_PREVIEW%>"/>
+                    <br />(must be a image file)
                 </p>
 
                 <p>
