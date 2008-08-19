@@ -19,6 +19,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
+import com.topcoder.web.winformula.algorithm.services.PredictionResultTransformer;
 import com.topcoder.web.winformula.controller.PredictionsHelper;
 import com.topcoder.web.winformula.controller.request.AlgorithmBase;
 import com.topcoder.web.winformula.model.Prediction;
