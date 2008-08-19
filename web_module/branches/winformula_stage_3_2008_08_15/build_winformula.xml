@@ -187,8 +187,8 @@
         <jar
             jarfile="${ejb_jars}/prediction-handler.jar"
             basedir="${classes}"
-            includes="com/topcoder/web/winformula/algorithm/evenhandler/**">
-            <metainf dir="${java}/com/topcoder/web/winformula/algorithm/evenhandler" includes="*.xml"/>
+            includes="com/topcoder/web/winformula/algorithm/eventhandler/**">
+            <metainf dir="${java}/com/topcoder/web/winformula/algorithm/eventhandler" includes="*.xml"/>
         </jar>
     </target>
     
