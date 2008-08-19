@@ -183,7 +183,15 @@
         </jar>
     </target>
 
-
+    <target name="package-predictionHandler" depends="compile">
+        <jar
+            jarfile="${ejb_jars}/prediction-handler.jar"
+            basedir="${classes}"
+            includes="com/topcoder/web/winformula/algorithm/evenhandler/**">
+            <metainf dir="${java}/com/topcoder/web/winformula/algorithm/evenhandler" includes="*.xml"/>
+        </jar>
+    </target>
+    
     <target name="war-winformula" depends="compile">
         <war warfile="${war.dir}/winformula.war" webxml="${resources}/winformula/web.xml">
             <classes dir="${classes}">
@@ -277,6 +285,7 @@
         <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
+        <antcall target="package-predictionHandler"/>
     </target>
 
     <target name="deploy" depends="dist">
@@ -324,6 +333,7 @@
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/prediction-handler.jar"/>
         <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
         <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
 
