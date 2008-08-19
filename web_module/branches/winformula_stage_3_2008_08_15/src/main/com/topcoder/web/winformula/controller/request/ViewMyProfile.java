@@ -91,8 +91,8 @@ public class ViewMyProfile extends StatsBase {
             weeks = new ArrayList<ListSelectTag.Option>(rscWeeks.size());
             boolean found = false;
             for (ResultSetRow rsr : rscWeeks) {
-                weeks.add(new ListSelectTag.Option(String.valueOf(rsr.getIntItem("week_id")), rsr.getStringItem("week_desc"), String.valueOf(rsr.getIntItem("week_id")).equals(weekId)));
-                if (String.valueOf(rsr.getIntItem("week_id")).equals(weekId)) {
+                weeks.add(new ListSelectTag.Option(String.valueOf(rsr.getIntItem("week_id")), rsr.getStringItem("week_desc"), rsr.getIntItem("week_id") == weekId));
+                if (rsr.getIntItem("week_id") == weekId) {
                     found = true;
                 }
             }
