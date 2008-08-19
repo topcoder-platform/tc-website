@@ -38,7 +38,6 @@ public class WinFormulaServicesImpl {
     private static final int PREDICTION_STATUS_TEMPORARY = 2;
     
     private final Logger log = Logger.getLogger(getClass());
-    private final Logger alertLog = Logger.getLogger("ALERT."+getClass().getName());
     
     
    /**
@@ -411,7 +410,7 @@ public class WinFormulaServicesImpl {
     
     
     
-    public void recordPrediction(final int roundId, final int coderId, final int submissionNumber, final int weekIndex, final Prediction prediction) {
+    public void recordPrediction(final int roundId, final int coderId, final int submissionNumber, final int weekIndex, final Prediction prediction) throws WinFormulaServicesException {
         try {
             Connection cnn = DBUtils.initDBBlock();
             UnitOfWork unitOfWork = new DBUtils.UnitOfWork() {
@@ -426,7 +425,7 @@ public class WinFormulaServicesImpl {
                     insertPredictionHeader(predictionId, roundId, coderId, weekIndex);
                     List<PredictionItem> games = prediction.getPredictions();
                     if (week.getGameCount() != games.size()) {
-                        log.info("Game count differes, defined in DB: "+ week.getGameCount()+" returned by tester: "+games.size());
+                        log.info("Game count differs, defined in DB: "+ week.getGameCount()+" returned by tester: "+games.size());
                     }
                     for (PredictionItem game : games) {
                         int gameId = week.getGameId(game.getHomeTeamName(), game.getAwayTeamName());
@@ -437,16 +436,18 @@ public class WinFormulaServicesImpl {
                             awayPrediction = Integer.valueOf(game.getPredictedResult().getAwayScore());
                         }
                         insertPredictionItem(predictionId, gameId, coderId, homePrediction, awayPrediction);
-                        log.info("Finished: Processing prediction result for roundId="+roundId+" coderId="+coderId+" submissionNumber="+submissionNumber+" weekIndex="+weekIndex);
                     }
                     updatePredictionStatus(predictionId, PREDICTION_STATUS_TEMPORARY);
+                    log.info("Finished: Processing prediction result for roundId="+roundId+" coderId="+coderId+" submissionNumber="+submissionNumber+" weekIndex="+weekIndex);
                     return null;
                 }
             };
             DBUtils.invoke(cnn, unitOfWork);
+        } catch (WinFormulaServicesException e) {
+            throw e;
         } catch (Exception e) {
             log.error("Could not store prediction", e);
-            alertLog.error("Failed to insert/update prediction for coder: ", e);
+            throw new WinFormulaServicesException("INTERNAL_SERVER");
         } finally {
             DBUtils.endDBBlock();
         }
@@ -539,11 +540,8 @@ public class WinFormulaServicesImpl {
         }
     }
 
-    //FIXME DEBUG on IDE
-    static int dbid = 10000;
     private int getNextID() throws IDGenerationException {
-        return dbid++;
-        //return IdGeneratorClient.getSeqIdAsInt(GENERIC_SEQ);
+        return IdGeneratorClient.getSeqIdAsInt(GENERIC_SEQ);
     }
 
 
