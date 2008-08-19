@@ -74,7 +74,7 @@
 
              <c:choose>
                 <c:when test="${not empty result}">
-                    <jsp:include page="predictionTable.jsp"/>
+                    <jsp:include page="../predictionTable.jsp"/>
                 </c:when>
                 <c:otherwise>
                     There are no results to show.

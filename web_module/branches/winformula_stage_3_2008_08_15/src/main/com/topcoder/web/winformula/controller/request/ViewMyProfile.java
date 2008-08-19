@@ -24,6 +24,7 @@ import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.controller.PredictionsHelper;
 import com.topcoder.web.winformula.model.GameResult;
+import com.topcoder.web.winformula.model.MemberData;
 import com.topcoder.web.winformula.model.Prediction;
 import com.topcoder.web.winformula.model.PredictionItem;
 import com.topcoder.web.winformula.model.PredictionStat;
@@ -53,6 +54,9 @@ public class ViewMyProfile extends StatsBase {
             request.setAttribute("weeks", getWeeks());
 
             // then the predictions
+            MemberData md = getMemberData();
+
+            // then the predictions
             ResultSetContainer rsc = getData();
 
             // make it a list of beans
@@ -66,6 +70,7 @@ public class ViewMyProfile extends StatsBase {
                 PredictionsHelper.cropResult(request, (Prediction) result.getResultObject());
             }
             
+            request.setAttribute("member", md);
             request.setAttribute("result", result);
 
             setNextPage(Constants.PAGE_MY_PROFILE);
@@ -157,6 +162,35 @@ public class ViewMyProfile extends StatsBase {
         return dai.getData(r).get("user_predictions");
     }
 
+    private MemberData getMemberData() throws Exception {
+        Request r = new Request();
+        r.setContentHandle("member_data");
+        r.setProperty(Constants.USER_ID, String.valueOf(getUser().getId()));
+
+        DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
+        ResultSetContainer rsc = dai.getData(r).get("member_data");
+        
+        if (rsc.size() > 0) {
+            ResultSetRow rsr = rsc.get(0);
+            String handle = rsr.getStringItem("handle");
+            Integer highestOverallRank = getNullableItem(rsr, "highest_overall_rank");
+            String highestOverallRankWeek = rsr.getStringItem("highest_overall_rank_week");
+            Integer highestWeeklyRank = getNullableItem(rsr, "highest_weekly_rank");
+            Integer highestWeeklyRankPoints = getNullableItem(rsr, "highest_weekly_rank_points");
+            String highestWeeklyRankWeek = rsr.getStringItem("highest_weekly_rank_week");
+            Integer overallRank = getNullableItem(rsr, "overall_rank");
+            Integer totalRankedMembers = getNullableItem(rsr, "total_ranked_members");
+            Integer userId = getNullableItem(rsr, "user_id");
+            Double winPercent = rsr.getDoubleItem("win_percent");
+
+            return new MemberData(handle, highestOverallRank, highestOverallRankWeek,
+                    highestWeeklyRank, highestWeeklyRankPoints, highestWeeklyRankWeek,
+                    overallRank, totalRankedMembers, userId, winPercent);
+        } else {
+            return null;
+        }
+    }
+
     private ResultSetContainer getWeeksData() throws Exception {
         Request r = new Request();
         r.setContentHandle("user_prediction_weeks");
@@ -165,4 +199,6 @@ public class ViewMyProfile extends StatsBase {
         DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
         return dai.getData(r).get("user_prediction_weeks");
     }
+    
+    
 }

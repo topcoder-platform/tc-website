@@ -24,7 +24,7 @@
     <%-- Meta Tags --%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <jsp:include page="../style.jsp">
+    <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
 </head>
@@ -50,11 +50,11 @@
 
                     <dl>
                         <dt>Member Name:</dt>
-                        <dd>MyMemberName</dd>
+                        <dd>${member.handle}</dd>
                     </dl>
                     <dl>
                         <dt>Overall Rank:</dt>
-                        <dd>10 of 239</dd>
+                        <dd>${member.overallRank} of ${member.totalRankedMembers}</dd>
 
                     </dl>
                       <dl>
@@ -63,19 +63,17 @@
                     </dl>
                       <dl>
                         <dt>Highest Overall Rank:</dt>
-
-                        <dd>7 (week 3)</dd>
+                        <dd>${member.highestOverallRank} (${member.highestOverallRankWeek})</dd>
                       </dl>
                     <dl>
                         <dt>Highest Weekly Rank:</dt>
-                        <dd>2 (week 4 - 298 points)</dd>
+                        <dd>${member.highestWeeklyRank} (${member.highestWeeklyRankWeek} - ${member.highestWeeklyRankPoints} points)</dd>
                     </dl>
                       <dl>
-
                         <dt>Win Percentage:</dt>
-                        <dd>61%</dd>
+                        <dd>${member.winPercent}</dd>
                       </dl>
-                      <dl>
+<%--                  <dl>
                         <dt>Prizes/Awards Won:</dt>
                         <dd>Closest Score Award Weekly Top 3</dd>
                       </dl>
@@ -83,10 +81,10 @@
                       <dl>
                         <dt>Total Prizes Money:</dt>
                         <dd>$36.600</dd>
-                      </dl>
+                      </dl> --%>
                   </div>
                 </div>
-                <div class="right-content">
+                <%--<div class="right-content">
                     <h2>Performance vs Community</h2>
 
                     <table width="90%" border="0" cellpadding="0" cellspacing="0" class="current-data">
@@ -118,7 +116,7 @@
                       <td >932</td>
                     </tr>
                   </table>
-                </div>
+                </div>--%>
                 
             </div>
 
@@ -126,7 +124,7 @@
             <!-- Prepares some collection data and formatter -->
                 <% boolean even = true;%>
             <form name="resultsForm" action="${sessionInfo.servletPath}" method="get">
-            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewLastPredictions"/>
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewMyProfile"/>
             <tc-webtag:hiddenInput name="${sortCol}"/>
             <tc-webtag:hiddenInput name="${sortDir}"/>
             <tc-webtag:hiddenInput name="${numRecords}" value="${nr}"/>
@@ -135,7 +133,7 @@
             <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
                 list="${weeks}" useTopValue="false"/>
                 
-            <jsp:include page="../pagination.jsp">
+            <jsp:include page="pagination.jsp">
                 <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
                 <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />
                 <jsp:param name="totalSize" value="${totalSize}" />
@@ -155,7 +153,7 @@
     
             </form>
             <br/>
-            <jsp:include page="../pagination.jsp">
+            <jsp:include page="pagination.jsp">
                 <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
                 <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />
                 <jsp:param name="totalSize" value="${totalSize}" />
