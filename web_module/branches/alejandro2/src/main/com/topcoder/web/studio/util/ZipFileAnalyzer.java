@@ -303,17 +303,19 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
         this.nativeSubmissionProvided = false;
         this.previewImageProvided = false;
         this.previewFileProvided = false;
-        this.sourceDirIncluded = false;
-        this.submissionDirIncluded = false;
+        this.sourceDirIncluded = true;
+        this.submissionDirIncluded = true;
 
         try {
             ZipEntry entry = content.getNextEntry();
-            log.debug("null entry");
+            if (log.isDebugEnabled() && entry==null) {
+                log.debug("null entry");
+            }
             while (!(this.nativeSubmissionProvided && this.previewImageProvided && this.previewFileProvided
                      && this.sourceDirIncluded && this.submissionDirIncluded)
                    && (entry != null)) {
 
-                // if (log.isDebugEnabled()) {
+                if (log.isDebugEnabled()) {
                     StringBuilder b = new StringBuilder(100);
                     b.append(entry.getName()).append(" ");
                     if (entry.isDirectory()) {
@@ -322,7 +324,7 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
                         b.append("has a size of ").append(entry.getSize());
                     }
                     log.debug(b);
-                //}
+                }
 
                 String entryName = entry.getName().toUpperCase();
                 if (!entry.isDirectory()) {
@@ -360,14 +362,14 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
                             }
                         }
                     }
-                } else {
-                    // Since STUDIO-128 - Analyze the directory name to check if source or submission directory is
-                    // included
-                    if (!this.sourceDirIncluded && SUBMISSION_SOURCE_PATH_SLASHED.equalsIgnoreCase(entryName)) {
-                        this.sourceDirIncluded = true;
-                    } else if (!this.submissionDirIncluded && SUBMISSION_PATH_SLASHED.equalsIgnoreCase(entryName)) {
-                        this.submissionDirIncluded = true;
-                    }
+//                } else {
+//                    // Since STUDIO-128 - Analyze the directory name to check if source or submission directory is
+//                    // included
+//                    if (!this.sourceDirIncluded && SUBMISSION_SOURCE_PATH_SLASHED.equalsIgnoreCase(entryName)) {
+//                        this.sourceDirIncluded = true;
+//                    } else if (!this.submissionDirIncluded && SUBMISSION_PATH_SLASHED.equalsIgnoreCase(entryName)) {
+//                        this.submissionDirIncluded = true;
+//                    }
                 }
                 entry = content.getNextEntry();
             }
