@@ -404,7 +404,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 		archiveFile.flush();
 		archiveFile.close();
 		
-		UploadedFile unifiedFile = new MockUploadedFile(zipFile,"application/zip");
+		UploadedFile unifiedFile = new MockUploadedFile(zipFile,"application/x-zip");
 		
 		return unifiedFile;
 	}

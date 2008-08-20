@@ -308,14 +308,12 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
 
         try {
             ZipEntry entry = content.getNextEntry();
-            if (log.isDebugEnabled() && entry==null) {
-                log.debug("null entry");
-            }
+            log.debug("null entry");
             while (!(this.nativeSubmissionProvided && this.previewImageProvided && this.previewFileProvided
                      && this.sourceDirIncluded && this.submissionDirIncluded)
                    && (entry != null)) {
 
-                if (log.isDebugEnabled()) {
+                // if (log.isDebugEnabled()) {
                     StringBuilder b = new StringBuilder(100);
                     b.append(entry.getName()).append(" ");
                     if (entry.isDirectory()) {
@@ -323,7 +321,8 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
                     } else {
                         b.append("has a size of ").append(entry.getSize());
                     }
-                }
+                    log.debug(b);
+                //}
 
                 String entryName = entry.getName().toUpperCase();
                 if (!entry.isDirectory()) {
