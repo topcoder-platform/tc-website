@@ -32,6 +32,7 @@
 <link type="text/css" rel="stylesheet" href="/css/style.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
+<link type="text/css" rel="stylesheet" href="/css/jobsRemix.css" />
 <% } else if (key.equals("tc_reg")) { %>
 <link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
 <link type="text/css" rel="stylesheet" href="/css/tcReg.css" />
