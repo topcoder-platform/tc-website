@@ -39,7 +39,7 @@
 
     <%-- jobs_header begin --%>
     <div id="jobs_header">
-        <h1><a onfocus="this.blur();" href="/tc?module=Static&amp;d1=pressroom&amp;d2=index" name="jobs_top">Press Room</a></h1>
+        <h1><a onfocus="this.blur();" href="/tc?module=Static&amp;d1=about&amp;d2=jobs" name="jobs_top">Press Room</a></h1>
     </div>
     <%-- jobs_header end --%>
     
