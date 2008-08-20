@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />08.20.08<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=MatchDetails&amp;rd=13564">Marathon Match 39 has begun with $5,000 in prizes!</a></span><br /><br />
+        Marathon 39 is here and will be a one-week competition that highlights encryption technology with a $5000 cash purse! Participate in the next encryption match today… Unir sha naq tbbq yhpx!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=MatchDetails&amp;rd=13564">details</a> | 
+        <tc-webtag:forumLink forumID="522940" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />08.19.08<br />9:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=ProjectDetail&pj=30005074' refer='/tc' />">MySQL Memory Engine Architecture Contest Re-Launched!</a></span><br /><br />
@@ -155,18 +168,5 @@
         <a href="/tc?module=ViewSurvey&amp;sid=28234">details</a> | 
         <tc-webtag:forumLink forumID="522464" message="discuss this" /> | 
         <a href="/tc?&amp;module=SurveyList">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />07.23.08<br />11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfairChat20080719">Betfair SRM 410 Chat Transcript Available</a></span><br /><br />
-        Betfair representatives met with members in the Arena to discuss their career opportunities. Check it out!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfairChat20080719">details</a> | 
-        <tc-webtag:forumLink forumID="521830" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
    </td></tr>
    
