@@ -382,7 +382,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 			FileDoesNotExistException {
 
 		// Create ZIP file
-		File zipFile = new File("unifiedSubmission.zip");
+		File zipFile = new File("UUID_unifiedSubmission.zip");
 		FileOutputStream out = new FileOutputStream(zipFile);
 		ZipOutputStream archiveFile = new ZipOutputStream(out);
 
