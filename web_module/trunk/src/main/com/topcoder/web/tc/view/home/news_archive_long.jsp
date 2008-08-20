@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">08.20.08 1:00 PM - </td><td width="100%"><a href="/tc?module=MatchDetails&amp;rd=13564">Marathon Match 39 has begun with $5,000 in prizes!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.15.08 1:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">Marathon Matches added to Event Calendar through December 2008</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.20.08 5:30 PM - </td><td width="100%"><a href="/tc?module=MatchDetails&amp;rd=12202">Marathon Match 36 – Schedule Changed and Prizes Awarded!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.09.08 4:00 PM - </td><td width="100%"><a href="/longcontest/stats/?module=ViewOverview&amp;rd=12167">AMD Multicore Threadfest Competition 2 Winners Announced!</a></td></tr>
