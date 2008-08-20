@@ -49,6 +49,14 @@
                         <jsp:include page="leftBox.jsp"/>
                         <jsp:include page="topNav.jsp"/>
                         <div class="newsBox">
+                            <c:if test="${not empty homeData}">
+                                <p>
+                                    Registered competitors: ${homeData.map['registered_competitors']} <br/>
+                                    Number of submitted Apps: ${homeData.map['submissions']} <br/>
+                                    Days remaining: ${homeData.map['days_remaining']} <br/>
+                                </p>
+                            </c:if>
+
                             <iframe src="http://aolicqblog.aol.com/<c:out value="${param['myframe']}" default="" escapeXml="true"/>" marginheight="0" marginwidth="0"></iframe>
                             <p align="center">
                                 <a href="/aolicq/?myframe=page%2f1%2f">Page 1</a>
