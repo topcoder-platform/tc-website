@@ -282,7 +282,7 @@
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
         <antcall target="package-predictionHandler"/>
-        <copy tofile="${bin}">
+        <copy todir="${bin}">
            <fileset dir="${jars.dir}">
                 <include name="tc.jar"/>
                 <include name="TestServices.jar"/>
