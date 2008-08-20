@@ -50,7 +50,8 @@
                         <jsp:include page="topNav.jsp"/>
                         <div class="newsBox">
                             <c:if test="${not empty homeData}">
-                                <p>
+                                <p align="left">
+                                    <br/>
                                     Registered competitors: ${homeData.map['registered_competitors']} <br/>
                                     Number of submitted Apps: ${homeData.map['submissions']} <br/>
                                     Days remaining: ${homeData.map['days_remaining']} <br/>
