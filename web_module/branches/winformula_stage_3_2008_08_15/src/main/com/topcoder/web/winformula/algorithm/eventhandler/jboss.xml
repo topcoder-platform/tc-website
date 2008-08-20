@@ -29,6 +29,7 @@
 			<configuration-name>Standard Message Driven Bean</configuration-name>
 			<destination-jndi-name>topic/servicesEventTopic</destination-jndi-name>
             <mdb-client-id>WinFormulaWebServer</mdb-client-id>
+            <mdb-subscription-id>WinFormulaWebServerX</mdb-subscription-id>
             <invoker-bindings>
               <invoker>      
                  <invoker-proxy-binding-name>MM-MDB-INVOKER</invoker-proxy-binding-name>
