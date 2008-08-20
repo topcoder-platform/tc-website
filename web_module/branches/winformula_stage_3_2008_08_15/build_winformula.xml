@@ -233,9 +233,6 @@
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
-                <include name="tc.jar"/>
-                <include name="TestServices.jar"/>
-                <include name="asyncservices.jar"/>
             </lib>
             <lib dir="${struts.dir}">
                 <include name="*.jar"/>
@@ -316,7 +313,13 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/ifxjdbc.jar"/>
-
+        <copy todir="${jboss_lib}">
+            <fileset dir="${jars.dir}">
+                <include name="tc.jar"/>
+                <include name="TestServices.jar"/>
+                <include name="asyncservices.jar"/>
+            </fileset>
+        </copy>
 <!--
         <copy todir="${jboss_lib}" file="${jars.dir}/axis.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/commons-discovery-0.2.jar"/>
