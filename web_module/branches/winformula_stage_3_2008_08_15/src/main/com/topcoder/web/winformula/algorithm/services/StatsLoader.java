@@ -1,5 +1,5 @@
 /*
- * ScoreLoader
+ * StatsLoader
  * 
  * Created Aug 15, 2008
  */
