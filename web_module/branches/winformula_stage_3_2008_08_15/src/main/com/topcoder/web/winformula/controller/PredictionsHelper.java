@@ -251,7 +251,7 @@ public class PredictionsHelper {
                 lpi.add(pi);
                 
                 total++;
-                correct += pi.getPickedWinner() ? 1 : 0;
+                correct += (pi.getPickedWinner() != null && pi.getPickedWinner()) ? 1 : 0;
                 score += pi.getScore() == null ? 0 : pi.getScore();
             }
             
