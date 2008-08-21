@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />08.21.08<br />9:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/wiki/display/docs/Competition+Environments">$3500 in Bug Races – Get on the Cloud!</a></span><br /><br />
+        We have a swarm of new <a href="/wiki/display/tc/Active+Bug+Races">Bug Races</a> for you, including for the first time: races to fix bugs in TopCoder's own applications. Each competitor will have access to their own virtual machine complete with all required software and source code.  Now is your chance to fix all those bugs that have been annoying you and make some extra cash at the same time!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/wiki/display/docs/Competition+Environments">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=620187">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />08.20.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=MatchDetails&amp;rd=13564">Marathon Match 39 has begun with $5,000 in prizes!</a></span><br /><br />
@@ -156,17 +169,3 @@
         <a href="http://winningformula.espn.com/forums">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_alg">archive</a>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Survey News" border="0" /><br />07.24.08<br />2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=ViewSurvey&amp;sid=28234">Survey: What websites are you hitting?</a></span><br /><br />
-        TopCoder wants to know what other developer websites you're hitting most frequently.  Well, besides ours of course!  Thanks for taking our survey.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=ViewSurvey&amp;sid=28234">details</a> | 
-        <tc-webtag:forumLink forumID="522464" message="discuss this" /> | 
-        <a href="/tc?&amp;module=SurveyList">archive</a>
-   </td></tr>
-   
