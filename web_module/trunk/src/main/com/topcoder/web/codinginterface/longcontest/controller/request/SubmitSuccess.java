@@ -18,6 +18,8 @@ public class SubmitSuccess extends Base {
             getRequest().setAttribute(Constants.ROUND_ID, getRequest().getParameter(Constants.ROUND_ID));
             getRequest().setAttribute(Constants.COMPONENT_ID, getRequest().getParameter(Constants.COMPONENT_ID));
             getRequest().setAttribute(Constants.CONTEST_ID, getRequest().getParameter(Constants.CONTEST_ID));
+            getRequest().setAttribute(Constants.MESSAGE, getRequest().getSession().getAttribute(Constants.MESSAGE));
+            getRequest().getSession().removeAttribute(Constants.MESSAGE);
             setNextPage(Constants.PAGE_SUBMIT_SUCCESS);
             setIsNextPageInContext(true);
         } catch (Exception e) {

@@ -249,6 +249,7 @@ public class Submit extends Base {
                     }
                     if (res.getCompileStatus()) {
                         // everything went ok! :)
+                        request.getSession().setAttribute(Constants.MESSAGE, res.getCompileError());
                         closeProcessingPage(buildProcessorRequestString("SubmitSuccess",
                                     new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID},
                                     new String[]{String.valueOf(rid), String.valueOf(cd), String.valueOf(cid)}));
