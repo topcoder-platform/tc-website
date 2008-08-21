@@ -75,6 +75,15 @@ public class PredictionsHelper {
         } else if (sortCol.equals(String.valueOf(PICKED_WINNER_COLUMN))) {
             Collections.sort(p.getPredictions(), new Comparator<PredictionItem>() {
                 public int compare(PredictionItem arg0, PredictionItem arg1) {
+                    if (arg0.getPickedWinner() == null && arg1.getPickedWinner() != null) {
+                        return 1;
+                    }
+                    if (arg0.getPickedWinner() != null && arg1.getPickedWinner() == null) {
+                        return -1;
+                    }
+                    if (arg0.getPickedWinner() == null && arg1.getPickedWinner() == null) {
+                        return 0;
+                    }
                     return arg0.getPickedWinner().compareTo(arg1.getPickedWinner());
                 }
             });
