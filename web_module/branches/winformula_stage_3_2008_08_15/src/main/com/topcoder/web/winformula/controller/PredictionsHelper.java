@@ -208,6 +208,14 @@ public class PredictionsHelper {
         }
     }
     
+    public static Boolean getNullableBoolItem(ResultSetRow rsr, String columnName) {
+        if (rsr.getItem(columnName).getResultData() == null) {
+            return null;
+        } else {
+            return rsr.getBooleanItem(columnName);
+        }
+    }
+    
     public static LongTestResult processResult(ResultSetContainer rsc, int week) {
         if (rsc.size() > 0) {
             int total = 0;
@@ -221,12 +229,15 @@ public class PredictionsHelper {
                 Integer visitorPred = PredictionsHelper.getNullableIntItem(rsr, "visitor_pred");
                 Integer homeScore = PredictionsHelper.getNullableIntItem(rsr, "home_score");
                 Integer visitorScore = PredictionsHelper.getNullableIntItem(rsr, "visitor_score");
-                Integer predictionPoints = PredictionsHelper.getNullableIntItem(rsr, "prediction_points");
+                Integer predictionPoints = PredictionsHelper.getNullableIntItem(rsr, "prediction_detail_points");
+                Integer totalScoreVariance = PredictionsHelper.getNullableIntItem(rsr, "prediction_detail_total_score_variance");
+                Integer victoryMarginVariance = PredictionsHelper.getNullableIntItem(rsr, "prediction_detail_victory_margin_variance");
+                Boolean pickedWinner = PredictionsHelper.getNullableBoolItem(rsr, "prediction_detail_picked_winner");
                 
                 PredictionItem pi = new PredictionItem(home, visitor, 
                         (homePred == null || visitorPred == null) ? null : new GameResult(homePred, visitorPred),
                         (homeScore == null || visitorScore == null) ? null : new GameResult(homeScore, visitorScore),
-                        predictionPoints);
+                        predictionPoints, totalScoreVariance, victoryMarginVariance, pickedWinner);
 
                 lpi.add(pi);
                 
