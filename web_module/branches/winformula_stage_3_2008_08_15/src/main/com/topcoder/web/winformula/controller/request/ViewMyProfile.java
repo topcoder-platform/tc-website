@@ -39,6 +39,10 @@ public class ViewMyProfile extends StatsBase {
         try {
             TCRequest request = getRequest();
 
+            int coderId = getUserID();
+
+            log.debug("coder: " + coderId + " user " + getUser().getId());
+
             String selectedWeek = StringUtils.checkNull(request.getParameter("week"));
 
             try {
@@ -48,13 +52,13 @@ public class ViewMyProfile extends StatsBase {
 
             // get data from DB
             // first the weeks
-            request.setAttribute("weeks", getWeeks());
+            request.setAttribute("weeks", getWeeks(coderId));
 
             // then the predictions
-            MemberData md = getMemberData();
+            MemberData md = getMemberData(coderId);
 
             // then the predictions
-            ResultSetContainer rsc = PredictionsHelper.getPredictionsData(getUser().getId(), weekId);
+            ResultSetContainer rsc = PredictionsHelper.getPredictionsData(coderId, weekId);
 
             // make it a list of beans
             LongTestResult result = PredictionsHelper.processResult(rsc, weekId);
@@ -81,8 +85,8 @@ public class ViewMyProfile extends StatsBase {
      * @param selectedWeek
      * @throws Exception
      */
-    private List<ListSelectTag.Option> getWeeks() throws Exception {
-        ResultSetContainer rscWeeks = getWeeksData();
+    private List<ListSelectTag.Option> getWeeks(int coderId) throws Exception {
+        ResultSetContainer rscWeeks = getWeeksData(coderId);
         List<ListSelectTag.Option> weeks;
         if (rscWeeks.size() > 0) {
             weeks = new ArrayList<ListSelectTag.Option>(rscWeeks.size());
@@ -104,10 +108,10 @@ public class ViewMyProfile extends StatsBase {
         return weeks;
     }
         
-    private MemberData getMemberData() throws Exception {
+    private MemberData getMemberData(int coderId) throws Exception {
         Request r = new Request();
         r.setContentHandle("member_data");
-        r.setProperty(Constants.USER_ID, String.valueOf(getUser().getId()));
+        r.setProperty(Constants.USER_ID, String.valueOf(coderId));
 
         DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
         ResultSetContainer rsc = dai.getData(r).get("member_data");
@@ -133,10 +137,10 @@ public class ViewMyProfile extends StatsBase {
         }
     }
 
-    private ResultSetContainer getWeeksData() throws Exception {
+    private ResultSetContainer getWeeksData(int coderId) throws Exception {
         Request r = new Request();
         r.setContentHandle("user_prediction_weeks");
-        r.setProperty(Constants.USER_ID, String.valueOf(getUser().getId()));
+        r.setProperty(Constants.USER_ID, String.valueOf(coderId));
 
         DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
         return dai.getData(r).get("user_prediction_weeks");
