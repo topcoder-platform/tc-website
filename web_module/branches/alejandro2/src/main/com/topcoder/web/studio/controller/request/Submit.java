@@ -299,10 +299,14 @@ public class Submit extends BaseSubmissionDataProcessor {
 						f = new File(p.getPath() + s.getSystemFileName());
 
 						FileOutputStream fos = new FileOutputStream(f);
-						byte[] fileBytes = new byte[(int) submissionFile
-								.getSize()];
-						submissionFile.getInputStream().read(fileBytes);
-						fos.write(fileBytes);
+						byte[] fileBytes = new byte[512];
+						InputStream ios = submissionFile.getInputStream();
+						int read;
+						while ((read=ios.read(fileBytes))!=-1)
+						{
+							fos.write(fileBytes,0,read);
+						}
+						ios.close();
 						fos.close();
 
 						if (mt.getFileType().isImageFile()) {
@@ -368,6 +372,9 @@ public class Submit extends BaseSubmissionDataProcessor {
 						generateAlternateRepresentations(c, s, submissionFile,
 								u);
 
+						u = DAOUtil.getFactory().getUserDAO().find(
+								getUser().getId());
+
 						if (contestChannel != null
 								&& u.getPrimaryEmailAddress().getStatusId()
 										.equals(Email.STATUS_ID_ACTIVE)) {
@@ -377,8 +384,6 @@ public class Submit extends BaseSubmissionDataProcessor {
 								String response = "Your submission has been automatically screened and passed for this Cockpit contest.";
 
 
-								u = DAOUtil.getFactory().getUserDAO().find(
-										getUser().getId());
 								ReviewStatus rs = StudioDAOUtil.getFactory()
 										.getReviewStatusDAO().find(
 												ReviewStatus.PASSED);
