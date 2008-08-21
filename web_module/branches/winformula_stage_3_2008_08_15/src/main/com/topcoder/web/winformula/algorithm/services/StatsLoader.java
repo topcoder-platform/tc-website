@@ -199,7 +199,7 @@ public class StatsLoader {
     }
 
     private void rank(Connection cnn, String tableName, Integer weekId, String scope) throws Exception {
-        String cmd = " select coder_id, points, rank from " + tableName;
+        String cmd = " select * from " + tableName;
 
         if (scope.equals("week")) {
             cmd += " where week_id = ?";
