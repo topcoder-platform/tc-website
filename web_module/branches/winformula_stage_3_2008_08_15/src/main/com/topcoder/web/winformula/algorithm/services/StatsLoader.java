@@ -238,13 +238,13 @@ public class StatsLoader {
                 rs.updateInt("rank", rank);
                 if (!scope.equals("overall")) {
                     psRankDiff.clearParameters();
-                    ps.setInt(1, rs.getInt(scope + "_id") - 1); 
-                    ps.setInt(2, rs.getInt("coder_id")); 
-                    rsRankDiff = ps.executeQuery();
-                    if (rs.next()) {
+                    psRankDiff.setInt(1, rs.getInt(scope + "_id") - 1); 
+                    psRankDiff.setInt(2, rs.getInt("coder_id")); 
+                    rsRankDiff = psRankDiff.executeQuery();
+                    if (rsRankDiff.next()) {
                         rs.updateInt("rank_diff", rank - rsRankDiff.getInt("rank"));
                     }
-                    DBMS.close(rs);
+                    DBMS.close(rsRankDiff);
                 }
                 rs.updateRow();
 
