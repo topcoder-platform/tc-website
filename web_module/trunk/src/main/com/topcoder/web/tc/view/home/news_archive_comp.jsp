@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">08.21.08 9:45 AM - </td><td width="100%"><a href="/wiki/display/docs/Competition+Environments">$3500 in Bug Races – Get on the Cloud!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.19.08 9:30 AM - </td><td width="100%"><a href="/tc?module=ProjectDetail&amp;pj=30005074">MySQL Memory Engine Architecture Contest Re-Launched!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.22.08 10:30 PM - </td><td width="100%"><a href="/truveo/">Use the New TC Battle Widget to Vote for Your Favorite Truveo Apps!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.08.08 7:30 PM - </td><td width="100%"><a href="/truveo/">Two Weeks Left in the Truveo Challenge!</a><br /></td></tr>
