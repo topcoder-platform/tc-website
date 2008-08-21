@@ -83,9 +83,9 @@
             <br/>
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&amp;${roundId}=${requestScope[roundId]}&amp;${contestId}=${requestScope[contestId]}&amp;${componentId}=${requestScope[componentId]}">Submit
                 Again</A>
-            <br/>
+            <br/><br/>
         <c:if test="${not empty mess}">
-            <hr/><br/>
+            <hr/>
             <span class="bodySubtitle">Messages</span><br>
             <textarea cols="70" rows="5" name="messages" class="messageTextArea" wrap="off" readonly>${mess}</textarea>
             <hr/><br/>
