@@ -1,0 +1,180 @@
+/*
+ * ScoreLoader
+ * 
+ * Created Aug 15, 2008
+ */
+package com.topcoder.web.winformula.algorithm.services;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.winformula.model.GameResult;
+
+/**
+ * @author Pablo Wolfus (pulky)
+ * @version $Id$
+ */
+public class ScoreLoader {
+    private static final Logger log = Logger.getLogger(ScoreLoader.class);
+    
+    public static void main(String[] args) {
+        if (args.length > 2 || args.length == 0) {
+            System.out.println("Usage: weekId [coderId]");
+            return;
+        }
+        int weekId = Integer.parseInt(args[0]);
+        int coderId = -1;
+        if (args.length > 1) {
+            coderId = Integer.parseInt(args[1]);
+        }
+        new ScoreLoader().process(weekId, coderId);
+        
+    }
+    
+    private void process(int weekId, int coderId) {
+        Connection cnn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            cnn = DBMS.getDirectConnection();
+            DBUtils.initDBBlock(cnn);
+            String cmd =    " select pd.prediction_detail_id, pd.home_score as home_pred, pd.visitor_score as visitor_pred, " + 
+                            " g.home_score, g.visitor_score " +
+                            " from prediction p, prediction_detail pd, game g, week w " +
+                            " where p.prediction_id = pd.prediction_id " +
+                            " and pd.game_id = g.game_id " +
+                            " and p.week_id = w.week_id " +
+                            " and w.week_id = ? " +
+                            " and p.status_id = ?";
+            
+            if (coderId > 0) {
+                cmd = cmd + " and p.coder_id = ? ";
+            }
+            
+            ps = cnn.prepareStatement(cmd, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+            ps.setInt(1, weekId);
+            ps.setInt(2, WinFormulaServicesImpl.PREDICTION_STATUS_TEMPORARY); 
+            if (coderId > 0) {
+               ps.setInt(3, coderId); 
+            }
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int predictionDetailId = rs.getInt("prediction_detail_id");
+                GameResult predictedResult = new GameResult(rs.getInt("home_pred"), rs.getInt("visitor_pred"));
+                GameResult realResult = new GameResult(rs.getInt("home_score"), rs.getInt("visitor_score"));
+                
+                int points = getScore(predictedResult, realResult);
+                int totalScoreVariance = getTotalScoreVariance(predictedResult, realResult);
+                int victoryMarginVariance = getVictoryMarginVariance(predictedResult, realResult);
+                boolean pickedWinner = getPickedWinner(predictedResult, realResult);
+                
+                addUpdateScores(cnn, predictionDetailId, points, totalScoreVariance, victoryMarginVariance, pickedWinner);
+            }
+
+            // in case we are calculating a whole week, update week's status
+            if (coderId < 0) {
+                // TODO: update week status
+            }
+        } catch (Exception e) {
+            log.error("Failed to process", e);
+        } finally {
+            DBMS.close(ps, rs);
+            DBUtils.endDBBlock();
+        }
+    }
+    
+    private void addUpdateScores(Connection cnn, int predictionDetailId,
+            int points, int totalScoreVariance, int victoryMarginVariance,
+            boolean pickedWinner) throws Exception {
+        PreparedStatement insert = null;
+        PreparedStatement update = null;
+        
+        try {
+            final String UPDATE = "update prediction_scores set " +
+            		" prediction_detail_points = ?, " +
+                    " prediction_detail_total_score_variance = ?, " +
+                    " prediction_detail_victory_margin_variance = ?, " +
+                    " prediction_detail_picked_winner = ? " +
+            		" where prediction_detail_id = ? ";
+            
+            final String INSERT = "insert into prediction_scores (" +
+            		" prediction_detail_points, " +
+                    " prediction_detail_total_score_variance, " +
+                    " prediction_detail_victory_margin_variance, " +
+            		" prediction_detail_picked_winner, " +
+                    " prediction_detail_id) " +
+                " values (?, ?, ?, ?, ?) ";
+            
+            update = cnn.prepareStatement(UPDATE);
+
+            int j = 1;
+            update.setInt(j++, points);
+            update.setInt(j++, totalScoreVariance);
+            update.setInt(j++, victoryMarginVariance);
+            update.setBoolean(j++, pickedWinner);
+            update.setInt(j++, predictionDetailId);
+            int retVal = update.executeUpdate();
+
+            if (retVal == 0) {
+                insert = cnn.prepareStatement(INSERT);
+                j = 1;
+                insert.setInt(j++, points);
+                insert.setInt(j++, totalScoreVariance);
+                insert.setInt(j++, victoryMarginVariance);
+                insert.setBoolean(j++, pickedWinner);
+                insert.setInt(j++, predictionDetailId);
+                insert.executeUpdate();
+            }
+        } finally {
+            DBMS.close(update);
+            DBMS.close(insert);
+        }        
+    }
+
+
+
+
+
+    private boolean getPickedWinner(GameResult predictedResult, GameResult realResult) {
+        int real = realResult.getHomeScore() - realResult.getAwayScore();
+        int pred = predictedResult.getHomeScore() - predictedResult.getAwayScore();
+
+        return ((real > 0 && pred > 0) || (real < 0 && pred < 0) || (real == 0 && pred == 0)); 
+    }
+    
+    private int getTotalScoreVariance(GameResult predictedResult, GameResult realResult) {
+        int homeDif = predictedResult.getHomeScore() - realResult.getHomeScore();
+        int awayDif = predictedResult.getAwayScore() - realResult.getAwayScore();
+
+        return Math.abs(homeDif) + Math.abs(awayDif); 
+    }
+    
+    private int getVictoryMarginVariance(GameResult predictedResult, GameResult realResult) {
+        int homeDif = predictedResult.getHomeScore() - realResult.getHomeScore();
+        int awayDif = predictedResult.getAwayScore() - realResult.getAwayScore();
+
+        return Math.abs(homeDif - awayDif); 
+    }
+
+    int[] ds = {20,18,16,13,10,7,4,1};
+    private int getScore(GameResult predictedResult, GameResult realResult) {
+        int ret = 0;
+        if(realResult.getHomeScore() > realResult.getAwayScore() && 
+                predictedResult.getHomeScore() > predictedResult.getAwayScore() || 
+                realResult.getHomeScore() < realResult.getAwayScore() && 
+                predictedResult.getHomeScore() < predictedResult.getAwayScore()){
+            ret += 60;
+            int diff = Math.abs(realResult.getHomeScore() - realResult.getAwayScore() - 
+                    predictedResult.getHomeScore() + predictedResult.getAwayScore());
+            if (diff < ds.length) {
+                ret += ds[diff];
+            }
+        }
+        ret += Math.max(0, 10 - Math.abs(predictedResult.getHomeScore() - realResult.getHomeScore()));
+        ret += Math.max(0, 10 - Math.abs(predictedResult.getAwayScore() - realResult.getAwayScore()));
+        return ret;
+    }
+}

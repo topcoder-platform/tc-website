@@ -33,8 +33,8 @@ import com.topcoder.web.winformula.model.PredictionItem;
 public class WinFormulaServicesImpl {
     private static final String GENERIC_SEQ = "WINFORMULA_SEQ";
     
-    private static final int PREDICTION_STATUS_NO_PREDICTION = 1;
-    private static final int PREDICTION_STATUS_TEMPORARY = 2;
+    public static final int PREDICTION_STATUS_NO_PREDICTION = 1;
+    public static final int PREDICTION_STATUS_TEMPORARY = 2;
     
     private final Logger log = Logger.getLogger(getClass());
     
@@ -471,7 +471,7 @@ public class WinFormulaServicesImpl {
         }        
     }
 
-    private void updatePredictionStatus(int predictionId, int statusId) throws SQLException {
+    public void updatePredictionStatus(int predictionId, int statusId) throws SQLException {
         PreparedStatement ps = null;
         try {
             Connection cnn = DBUtils.initDBBlock();
