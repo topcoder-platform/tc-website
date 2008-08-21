@@ -125,9 +125,11 @@
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
                         <br /></tc-webtag:errorIterator><br />
                     Submission zip file:<input type="file" name="<%=Constants.SUBMISSION%>"/>
+                    <br />
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_SOURCE%>"><span class="bigRed">${err}</span>
                         <br /></tc-webtag:errorIterator><br />
                     Submission source zip file:<input type="file" name="<%=Constants.SUBMISSION_SOURCE%>"/>
+                    <br />
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_PREVIEW%>"><span class="bigRed">${err}</span>
                         <br /></tc-webtag:errorIterator><br />
                     Submission preview image:<input type="file" name="<%=Constants.SUBMISSION_PREVIEW%>"/>
