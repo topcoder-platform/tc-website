@@ -199,6 +199,9 @@ public class StatsLoader {
     }
 
     private void rank(Connection cnn, String tableName, Integer weekId, String scope) throws Exception {
+        log.info("tableName: " + tableName);
+        log.info("weekId: " + weekId);
+        log.info("scope: " + scope);
         String cmd = " select * from " + tableName;
 
         if (scope.equals("week")) {
@@ -212,6 +215,8 @@ public class StatsLoader {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
+        log.info("cmd: " + cmd);
+
         try {
             ps = cnn.prepareStatement(cmd, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             if (!scope.equals("overall")) {
@@ -221,12 +226,15 @@ public class StatsLoader {
             int rank = 0;
             int oldPoints = -1;
             while (rs.next()) {
+                log.info("points: " + rs.getInt("points"));
                 if (oldPoints != rs.getInt("points")) {
                     rank++;
                 }
                 rs.updateInt("rank", rank);
                 rs.updateRow();
-                
+
+                log.info("rank: " + rank);
+
                 oldPoints = rs.getInt("points");
             }
             
