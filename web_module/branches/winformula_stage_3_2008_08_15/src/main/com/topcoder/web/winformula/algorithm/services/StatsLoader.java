@@ -250,16 +250,6 @@ public class StatsLoader {
 
                 oldPoints = rs.getInt("points");
             }
-            
-            // populate rank_diff
-            if (scope.equals("week")) {
-                cmd += " update " + tableName + 
-                       " set rank_diff = (rank - (nvl(select old.rank from " + tableName + " old where old.week_id = week_id - 1 ),0)) " +
-                       " where week_id = ?";
-            } else if (scope.equals("mini_season")) {
-                cmd += " where mini_season_id = (select w2.mini_season_id from week w2 where w2.week_id = ?) ";
-            }
-            
         } finally {
             DBMS.close(ps, rs);
             DBUtils.endDBBlock();
