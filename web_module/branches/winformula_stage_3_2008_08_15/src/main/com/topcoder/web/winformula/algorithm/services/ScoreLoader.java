@@ -48,7 +48,7 @@ public class ScoreLoader {
                             " and pd.game_id = g.game_id " +
                             " and p.week_id = w.week_id " +
                             " and w.week_id = ? " +
-                            " and p.status_id = ?";
+                            " and p.prediction_status_id = ?";
             
             if (coderId > 0) {
                 cmd = cmd + " and p.coder_id = ? ";
