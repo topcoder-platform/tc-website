@@ -73,6 +73,7 @@
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewLastPredictions"/>
             <tc-webtag:hiddenInput name="${sortCol}"/>
             <tc-webtag:hiddenInput name="${sortDir}"/>
+            <tc-webtag:hiddenInput name="cr" value="${cr}"/>
             <tc-webtag:hiddenInput name="${numRecords}" value="${nr}"/>
             <tc-webtag:hiddenInput name="${numPage}" value="${np}"/>
 

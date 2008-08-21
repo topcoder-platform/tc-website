@@ -118,7 +118,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                             <c:choose>
                                 <c:when test="${submission.lockedIn}">
                                     <td class="alignCenter"><c:if test="${submission.accuracy != -1}">${submission.accuracy}</c:if>&nbsp;</td>
-                                    <td class="alignCenter"><c:if test="${submission.hasPrediction}"><a href="?module=ViewPicks&amp;${submission.roundId}${adminExtraParams}">View Picks</a></c:if>&nbsp;</td>
+                                    <td class="alignCenter"><c:if test="${submission.hasPrediction}"><a href="?module=ViewPicks&amp;rd=${submission.roundId}${adminExtraParams}">View Picks</a></c:if>&nbsp;</td>
                                 </c:when>
                                 <c:otherwise>
                                     <td class="alignCenter">&nbsp;</td>
