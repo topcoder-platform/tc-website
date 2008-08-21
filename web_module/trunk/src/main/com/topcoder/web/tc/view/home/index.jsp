@@ -190,7 +190,7 @@
         <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/" class="tabHeader"><span>Software</span></a>
     </td>
     <td align="center">
-        <a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/cfo_20080103_v2.pdf' refer='homepage_promo' />" class="tabHeader"><span>News &amp; Events</span></a>
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_082108' refer='homepage_promo_inc500' />" class="tabHeader"><span>News &amp; Events</span></a>
     </td>
 </tr>
 
@@ -311,8 +311,12 @@
                 <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082707' refer='homepage_promo' />"><img src="/i/home/tc_inc500_promo.png" alt="TopCoder on 2007 Inc. 500" /></a>
                 --%>
                 
-                <%-- CFO: Gaming the System --%>
+                <%-- CFO: Gaming the System
                 <a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/cfo_20080103_v2.pdf' refer='homepage_promo' />"><img src="/i/home/cfoGamingTheSystem_promo.png" alt="CFO Magazine: Gaming the System" /></a>
+                 --%>
+                
+                <%-- Inc. 500 x 2 --%>
+                <a target="_blank" href="<tc-webtag:linkTracking link='http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_082108' refer='homepage_promo_inc500' />"><img src="/i/home/2x_500.png" alt="Inc. 500 x 2" /></a>
                 
             </td>
         </tr>
