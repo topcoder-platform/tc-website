@@ -79,7 +79,7 @@ public class ScoreLoader {
 
             // in case we are calculating a whole week, update week's status
             if (coderId < 0) {
-                // TODO: update week status
+                updateWeekStatus(cnn, weekId, WeekInfo.WEEK_SCORED_AND_CLOSED);
             }
         } catch (Exception e) {
             log.error("Failed to process", e);
@@ -89,6 +89,22 @@ public class ScoreLoader {
         }
     }
     
+    private void updateWeekStatus(Connection cnn,int weekId, int statusId) throws Exception {
+        PreparedStatement update = null;
+        final String UPDATE = "update week set week_status_id = ? " +
+                              " where week_id = ?";
+        
+        try {
+            update = cnn.prepareStatement(UPDATE);
+    
+            update.setInt(1, statusId);
+            update.setInt(2, weekId);
+            update.executeUpdate();
+        } finally {
+            DBMS.close(update);
+        }        
+    }
+
     private void addUpdateScores(Connection cnn, int predictionDetailId,
             int points, int totalScoreVariance, int victoryMarginVariance,
             boolean pickedWinner) throws Exception {
