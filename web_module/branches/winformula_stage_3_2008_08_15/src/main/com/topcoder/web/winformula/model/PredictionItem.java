@@ -28,6 +28,12 @@ public class PredictionItem implements Serializable {
     }
     
     public PredictionItem(String homeTeamName, String awayTeamName, GameResult predictedResult, GameResult realResult,
+            Integer predictionScore) {
+        this(homeTeamName, awayTeamName, predictedResult, realResult, predictionScore, null, null, null);
+        
+    }
+    
+    public PredictionItem(String homeTeamName, String awayTeamName, GameResult predictedResult, GameResult realResult,
             Integer predictionScore, Integer totalScoreVariance, Integer victoryMarginVariance,
             Boolean pickedWinner) {
         this.homeTeamName = homeTeamName;
