@@ -59,7 +59,7 @@ public class WinFormulaServicesImpl {
                          + "     , r.round_id"
                          + "     , r.name"
                          + "     , rs.end_time < current as locked" 
-                         + "     , p.prediction_accuracy" 
+                         + "     , ps.avg_picked_winner " 
                          + "     , EXISTS(SELECT coder_id FROM long_system_test_result ltr "
                          + "              WHERE ltr.round_id = r.round_id AND ltr.coder_id = cs.coder_id AND" 
                          + "                    ltr.submission_number = s.submission_number AND test_action = 10) as example"
@@ -70,12 +70,14 @@ public class WinFormulaServicesImpl {
                          + "     , round_component rc" 
                          + "     , round_segment rs"
                          + "     , OUTER mini_season_prediction p"
+                         + "     , OUTER user_mini_season_stats ps"
                          + " WHERE r.contest_id = ?"
                          + "   AND rc.round_id = r.round_id"
                          + "   AND cs.round_id = r.round_id AND cs.coder_id = ? AND cs.component_id = rc.component_id"
                          + "   AND s.long_component_state_id = cs.long_component_state_id AND s.example = 0"
                          + "   AND rs.round_id = r.round_id AND rs.segment_id = 2"
                          + "   AND p.coder_id = cs.coder_id AND p.round_id = r.round_id"
+                         + "   AND ps.coder_id = cs.coder_id AND ps.mini_season_id = r.round_id"
                          + " ORDER BY s.submission_number desc, r.round_id desc";
             ps = cnn.prepareStatement(cmd);
             ps.setInt(1, contestId);
