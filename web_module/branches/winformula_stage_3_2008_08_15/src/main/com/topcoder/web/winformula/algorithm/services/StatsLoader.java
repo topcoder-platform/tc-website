@@ -199,26 +199,32 @@ public class StatsLoader {
     }
 
     private void rank(Connection cnn, String tableName, Integer weekId, String scope) throws Exception {
-        log.info("tableName: " + tableName);
-        log.info("weekId: " + weekId);
-        log.info("scope: " + scope);
         String cmd = " select * from " + tableName;
+        String cmdRankDiff = null;
 
         if (scope.equals("week")) {
             cmd += " where week_id = ?";
+            cmdRankDiff = "select rank from " + tableName + 
+            " where week_id = ? and coder_id = ?";
         } else if (scope.equals("mini_season")) {
             cmd += " where mini_season_id = (select w2.mini_season_id from week w2 where w2.week_id = ?) ";
+            cmdRankDiff = "select rank from " + tableName + 
+            " where mini_season_id = ? and coder_id = ?";
         }
+        
         
         cmd += " order by points desc ";
 
         PreparedStatement ps = null;
         ResultSet rs = null;
-
-        log.info("cmd: " + cmd);
+        PreparedStatement psRankDiff = null;
+        ResultSet rsRankDiff = null;
 
         try {
             ps = cnn.prepareStatement(cmd, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            if (cmdRankDiff != null) {
+                psRankDiff = cnn.prepareStatement(cmdRankDiff, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+            }
             if (!scope.equals("overall")) {
                ps.setInt(1, weekId); 
             }
@@ -226,20 +232,33 @@ public class StatsLoader {
             int rank = 0;
             int oldPoints = -1;
             while (rs.next()) {
-                log.info("points: " + rs.getInt("points"));
                 if (oldPoints != rs.getInt("points")) {
                     rank++;
                 }
                 rs.updateInt("rank", rank);
+                if (!scope.equals("overall")) {
+                    psRankDiff.clearParameters();
+                    ps.setInt(1, rs.getInt(scope + "_id") - 1); 
+                    ps.setInt(2, rs.getInt("coder_id")); 
+                    rsRankDiff = ps.executeQuery();
+                    if (rs.next()) {
+                        rs.updateInt("rank_diff", rank - rsRankDiff.getInt("rank"));
+                    }
+                    DBMS.close(rs);
+                }
                 rs.updateRow();
-
-                log.info("rank: " + rank);
 
                 oldPoints = rs.getInt("points");
             }
             
             // populate rank_diff
-            
+            if (scope.equals("week")) {
+                cmd += " update " + tableName + 
+                       " set rank_diff = (rank - (nvl(select old.rank from " + tableName + " old where old.week_id = week_id - 1 ),0)) " +
+                       " where week_id = ?";
+            } else if (scope.equals("mini_season")) {
+                cmd += " where mini_season_id = (select w2.mini_season_id from week w2 where w2.week_id = ?) ";
+            }
             
         } finally {
             DBMS.close(ps, rs);
