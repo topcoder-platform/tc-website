@@ -7,6 +7,7 @@ package com.topcoder.web.winformula.algorithm.services;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
@@ -80,6 +81,9 @@ public class StatsLoader {
             int retVal = insert.executeUpdate();
 
             log.info("Week stats: " + retVal + " rows inserted");
+            
+            rank(cnn, "user_week_stats", weekId, "week");
+            
         } catch (Exception e) {
             log.error("Failed to process", e);
         } finally {
@@ -134,6 +138,8 @@ public class StatsLoader {
             int retVal = insert.executeUpdate();
 
             log.info("Mini Season stats: " + retVal + " rows inserted");
+
+            rank(cnn, "user_mini_season_stats", weekId, "mini_season");
         } catch (Exception e) {
             log.error("Failed to process", e);
         } finally {
@@ -181,6 +187,8 @@ public class StatsLoader {
             int retVal = insert.executeUpdate();
 
             log.info("Overall stats: " + retVal + " rows inserted");
+
+            rank(cnn, "user_week_stats", null, "overall");
         } catch (Exception e) {
             log.error("Failed to process", e);
         } finally {
@@ -188,6 +196,47 @@ public class StatsLoader {
             DBMS.close(insert);
             DBUtils.endDBBlock();
         }
+    }
+
+    private void rank(Connection cnn, String tableName, Integer weekId, String scope) throws Exception {
+        String cmd = " select coder_id, points, rank from " + tableName;
+
+        if (scope.equals("week")) {
+            cmd += " where week_id = ?";
+        } else if (scope.equals("mini_season")) {
+            cmd += " where mini_season_id = (select w2.mini_season_id from week w2 where w2.week_id = ?) ";
+        }
+        
+        cmd += " order by points desc ";
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            ps = cnn.prepareStatement(cmd, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            if (!scope.equals("overall")) {
+               ps.setInt(1, weekId); 
+            }
+            rs = ps.executeQuery();
+            int rank = 0;
+            int oldPoints = -1;
+            while (rs.next()) {
+                if (oldPoints != rs.getInt("points")) {
+                    rank++;
+                }
+                rs.updateInt("rank", rank);
+                rs.updateRow();
+                
+                oldPoints = rs.getInt("points");
+            }
+            
+            // populate rank_diff
+            
+            
+        } finally {
+            DBMS.close(ps, rs);
+            DBUtils.endDBBlock();
+        }        
     }
 
 }
