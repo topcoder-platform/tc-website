@@ -103,22 +103,4 @@ public interface BundledFileAnalyzer {
      */
     Map<String, byte[]> getFiles(byte[] content) throws IOException;
 
-    /**
-     * <p>Checks if <code>source</code> directory is included into analyzed bundled file or not.</p>
-     *
-     * @return <code>true</code> if <code>source</code> directory is included into analyzed bundled file;
-     *         <code>false</code> otherwise.
-     * @since STUDIO-128
-     */
-    boolean isSourceDirectoryAvailable();
-
-    /**
-     * <p>Checks if <code>submission</code> directory is included into analyzed bundled file or not.</p>
-     *
-     * @return <code>true</code> if <code>submission</code> directory is included into analyzed bundled file;
-     *         <code>false</code> otherwise.
-     * @since STUDIO-128
-     */
-    boolean isSubmissionDirectoryAvailable();
-
 }

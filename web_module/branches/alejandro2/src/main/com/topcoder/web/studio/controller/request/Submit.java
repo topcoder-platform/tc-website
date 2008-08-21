@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.TimeZone;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -20,6 +21,7 @@ import java.util.zip.ZipOutputStream;
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
 
+import com.topcoder.common.web.error.TCException;
 import com.topcoder.servlet.request.FileDoesNotExistException;
 import com.topcoder.servlet.request.MockUploadedFile;
 import com.topcoder.servlet.request.PersistenceException;
@@ -50,6 +52,7 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestChannel;
+import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.FilePath;
 import com.topcoder.web.studio.model.MimeType;
@@ -59,7 +62,9 @@ import com.topcoder.web.studio.model.SubmissionReview;
 import com.topcoder.web.studio.model.SubmissionStatus;
 import com.topcoder.web.studio.model.SubmissionType;
 import com.topcoder.web.studio.util.FileGenerator;
-import com.topcoder.web.studio.validation.SubmissionValidator;
+import com.topcoder.web.studio.validation.ImageSubmissionValidator;
+import com.topcoder.web.studio.validation.SourceSubmissionValidator;
+import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
 
 /**
  * <p>
@@ -170,38 +175,47 @@ public class Submit extends BaseSubmissionDataProcessor {
 					UploadedFile previewFile = r
 							.getUploadedFile(Constants.SUBMISSION_PREVIEW);
 
-					log.debug("submission: " + submissionFile.getRemoteFileName());
-					log.debug("submission content type: " + submissionFile.getContentType());
-					log.debug("submission file id: " + submissionFile.getFileId());
-					
-					submissionFile = gnerateUnifiedSubmissionFile(
-							submissionFile, sourceFile, previewFile);
+					log.debug("submission: "
+							+ submissionFile.getRemoteFileName());
+					log.debug("submission content type: "
+							+ submissionFile.getContentType());
+					log.debug("submission file id: "
+							+ submissionFile.getFileId());
 
-					log.debug("unified submission: " + submissionFile.getRemoteFileName());
-
-					// do validation
-					ValidationResult submissionValidationResult = new SubmissionValidator(
-							c).validate(new ObjectInput(submissionFile));
+					// Source submission is always requried
+					ValidationResult submissionValidationResult = new SourceSubmissionValidator()
+							.validate(new ObjectInput(sourceFile));
 					if (!submissionValidationResult.isValid()) {
-						addError(Constants.SUBMISSION,
+						addError(Constants.SUBMISSION_SOURCE,
 								submissionValidationResult.getMessage());
 					}
 
-					// ValidationResult sourceValidationResult = new
-					// SubmissionValidator(
-					// c).validate(new ObjectInput(sourceFile));
-					// if (!sourceValidationResult.isValid()) {
-					// addError(Constants.SUBMISSION, sourceValidationResult
-					// .getMessage());
-					// }
-					//
-					// ValidationResult previewValidationResult = new
-					// SubmissionValidator(
-					// c).validate(new ObjectInput(previewFile));
-					// if (!previewValidationResult.isValid()) {
-					// addError(Constants.SUBMISSION, previewValidationResult
-					// .getMessage());
-					// }
+					// Submission preview bundled file is not always required
+					Map<Integer, String> contestConfig = c.getConfigMap();
+					boolean previewFileRequired = Boolean
+							.parseBoolean(contestConfig
+									.get(ContestProperty.REQUIRE_PREVIEW_FILE));
+					if (previewFileRequired) {
+						submissionValidationResult = new SourceSubmissionValidator()
+								.validate(new ObjectInput(submissionFile));
+						if (!submissionValidationResult.isValid()) {
+							addError(Constants.SUBMISSION,
+									submissionValidationResult.getMessage());
+						}
+					}
+
+					// Preview image is not always required
+					boolean previewImageRequired = Boolean
+							.parseBoolean(contestConfig
+									.get(ContestProperty.REQUIRE_PREVIEW_IMAGE));
+					if (previewImageRequired) {
+						submissionValidationResult = new ImageSubmissionValidator()
+								.validate(new ObjectInput(submissionFile));
+						if (!submissionValidationResult.isValid()) {
+							addError(Constants.SUBMISSION_PREVIEW,
+									submissionValidationResult.getMessage());
+						}
+					}
 
 					StringInput rankInput = new StringInput(rank);
 					ValidationResult rankResult = new IntegerValidator(
@@ -222,7 +236,21 @@ public class Submit extends BaseSubmissionDataProcessor {
 						setNextPage("/submit.jsp");
 						setIsNextPageInContext(true);
 					} else {
-						MimeType mt = SubmissionValidator
+						
+						submissionFile = gnerateUnifiedSubmissionFile(
+								submissionFile, sourceFile, previewFile, u);
+
+						log.debug("unified submission: "
+								+ submissionFile.getRemoteFileName());
+
+						// do thorough validation
+						ValidationResult thoroughValidationResult = new UnifiedSubmissionValidator(
+								c).validate(new ObjectInput(submissionFile));
+						if (!thoroughValidationResult.isValid()) {
+							throw new TCException(submissionValidationResult.getMessage());
+						}
+
+						MimeType mt = UnifiedSubmissionValidator
 								.getMimeType(submissionFile);
 						Submission s = new Submission();
 						s.setContest(c);
@@ -328,6 +356,12 @@ public class Submit extends BaseSubmissionDataProcessor {
 							}
 						}
 
+						closeConversation();
+						// have to wrap up the last stuff, and get into
+						// new stuff. we don't want
+						// sending email to be in the transaction
+						beginCommunication();
+
 						// Since TopCoder Studio Modifications Assembly -
 						// generate alternate representations for the
 						// submission. Req# 5.7
@@ -342,11 +376,6 @@ public class Submit extends BaseSubmissionDataProcessor {
 
 								String response = "Your submission has been automatically screened and passed for this Cockpit contest.";
 
-								closeConversation();
-								// have to wrap up the last stuff, and get into
-								// new stuff. we don't want
-								// sending email to be in the transaction
-								beginCommunication();
 
 								u = DAOUtil.getFactory().getUserDAO().find(
 										getUser().getId());
@@ -378,34 +407,38 @@ public class Submit extends BaseSubmissionDataProcessor {
 
 	private UploadedFile gnerateUnifiedSubmissionFile(
 			UploadedFile submissionFile, UploadedFile sourceFile,
-			UploadedFile previewFile) throws IOException, PersistenceException,
+			UploadedFile previewFile, User u) throws IOException, PersistenceException,
 			FileDoesNotExistException {
 
 		// Create ZIP file
-		File zipFile = new File("UUID_unifiedSubmission.zip");
+		File zipFile = new File(Constants.TEMPORARY_STORAGE_PATH + "/" + "generated_" + System.currentTimeMillis() + "_" + u.getId() + "_unifiedSubmission.zip");
 		FileOutputStream out = new FileOutputStream(zipFile);
 		ZipOutputStream archiveFile = new ZipOutputStream(out);
 
 		// submission
 		InputStream input = submissionFile.getInputStream();
-		String name = "submission/" + submissionFile.getRemoteFileName();
+		String name = Constants.SUBMISSION_PATH + "/"
+				+ submissionFile.getRemoteFileName();
 		addFileToZip(archiveFile, input, name);
 
 		// source
 		input = sourceFile.getInputStream();
-		name = "source/" + sourceFile.getRemoteFileName();
+		name = Constants.SUBMISSION_SOURCE_PATH + "/"
+				+ sourceFile.getRemoteFileName();
 		addFileToZip(archiveFile, input, name);
 
 		// preview
 		input = previewFile.getInputStream();
-		name = "submission/" + previewFile.getRemoteFileName();
+		name = Constants.SUBMISSION_PATH + "/"
+				+ previewFile.getRemoteFileName();
 		addFileToZip(archiveFile, input, name);
-				
+
 		archiveFile.flush();
 		archiveFile.close();
-		
-		UploadedFile unifiedFile = new MockUploadedFile(zipFile,"application/x-zip");
-		
+
+		UploadedFile unifiedFile = new MockUploadedFile(zipFile,
+				"application/x-zip");
+
 		return unifiedFile;
 	}
 
@@ -545,5 +578,5 @@ public class Submit extends BaseSubmissionDataProcessor {
 						"TopCoder Studio Admin");
 		EmailEngine.send(mail);
 	}
-	
+
 }

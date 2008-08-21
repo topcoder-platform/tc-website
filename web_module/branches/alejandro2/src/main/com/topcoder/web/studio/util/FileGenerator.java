@@ -27,7 +27,7 @@ import com.topcoder.web.studio.model.ContestType;
 import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionImage;
-import com.topcoder.web.studio.validation.SubmissionValidator;
+import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -182,7 +182,7 @@ public class FileGenerator implements Runnable {
         try {
             SubmissionDAO submissionDAO = StudioDAOUtil.getFactory().getSubmissionDAO();
 
-            BundledFileAnalyzer analyzer = SubmissionValidator.getBundledFileParser(this.submission.getMimeType());
+            BundledFileAnalyzer analyzer = UnifiedSubmissionValidator.getBundledFileParser(this.submission.getMimeType());
             analyzer.analyze(this.submissionFile, true);
 
             // Holds a flag indicating whether the submission has been updated and needs the changes to be saved
@@ -195,7 +195,7 @@ public class FileGenerator implements Runnable {
             if (analyzer.isPreviewImageAvailable()) {
                 String fileName = null;
                 try {
-                    fileName = SubmissionValidator.getFileName(analyzer.getPreviewImagePath());
+                    fileName = UnifiedSubmissionValidator.getFileName(analyzer.getPreviewImagePath());
                     byte[] fileContent = analyzer.getPreviewImageContent();
                     StudioFileType fileType = analyzer.getPreviewImageFileType();
                     generateImages(fileName, fileContent, fileType, GALLERY_PLAIN_IMAGE_TYPE_IDS, GALLERY_PLAIN_IMAGE_SIZES,
@@ -213,7 +213,7 @@ public class FileGenerator implements Runnable {
             // Generate "preview" representation and gallery images from preview file if it is provided
             if (analyzer.isPreviewFileAvailable()) {
                 byte[] previewFileContent = analyzer.getPreviewFileContent();
-                String fullName = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter,
+                String fullName = UnifiedSubmissionValidator.calcAlternateFileName(this.contest, this.submitter,
                                                                             this.submission,
                                                                             analyzer.getPreviewFilePath(), "preview");
                 writeFile(fullName, previewFileContent);
@@ -225,7 +225,7 @@ public class FileGenerator implements Runnable {
                 HibernateUtils.getSession().refresh(contestType);
                 if (contestType.getIncludeGallery()) {
                     BundledFileAnalyzer previewFileAnalyzer
-                            = SubmissionValidator.getBundledFileParser(analyzer.getPreviewFilePath());
+                            = UnifiedSubmissionValidator.getBundledFileParser(analyzer.getPreviewFilePath());
                     Map<String, byte[]> files = previewFileAnalyzer.getFiles(previewFileContent);
                     for (Map.Entry<String, byte[]> file : files.entrySet()) {
                         String fileName = null;
@@ -235,7 +235,7 @@ public class FileGenerator implements Runnable {
                                 log.debug("generating for " + fileName);
                             }
                             byte[] fileContent = file.getValue();
-                            StudioFileType fileType = SubmissionValidator.getFileType(fileName);
+                            StudioFileType fileType = UnifiedSubmissionValidator.getFileType(fileName);
                             if ((fileType != null) && fileType.isImageFile()) {
                                 generateImages(fileName, fileContent, fileType,
                                         GALLERY_PLAIN_IMAGE_TYPE_IDS, GALLERY_PLAIN_IMAGE_SIZES, false,
@@ -310,16 +310,16 @@ public class FileGenerator implements Runnable {
                                                    String previewImagePath, boolean previewFileAvailable)
             throws IOException, ImageException, ImagePersistenceException, UnsupportedFormatException,
             ImageOverlayProcessingException {
-        String imageName = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter, this.submission,
+        String imageName = UnifiedSubmissionValidator.calcAlternateFileName(this.contest, this.submitter, this.submission,
                                                                      previewImagePath, "image");
         String watermarkedImageName
-                = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter, this.submission,
+                = UnifiedSubmissionValidator.calcAlternateFileName(this.contest, this.submitter, this.submission,
                                                             previewImagePath, "imagew");
         writeFile(imageName, imageContent);
         createPresentation(watermarkedImageName, true, ORIGINAL_IMAGE_SIZE, imageContent, previewImageFileType);
 
         if (!previewFileAvailable) {
-            String fullName = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter,
+            String fullName = UnifiedSubmissionValidator.calcAlternateFileName(this.contest, this.submitter,
                     this.submission, previewImagePath,
                     "preview");
             createPresentation(fullName, true, ORIGINAL_IMAGE_SIZE, imageContent, previewImageFileType);
@@ -351,7 +351,7 @@ public class FileGenerator implements Runnable {
             int imageTypeId = imageTypeIds[i];
             int imageSize = imageTypeSizes[i];
             String imageFileName
-                    = SubmissionValidator.calcAlternateFileName(this.contest, this.submitter, this.submission,
+                    = UnifiedSubmissionValidator.calcAlternateFileName(this.contest, this.submitter, this.submission,
                     originalImagePath,
                     String.valueOf(imageTypeId) + "_" + fileIndex);
             Image presentation = createPresentation(imageFileName, watermark, imageSize, imageContent,
@@ -363,7 +363,7 @@ public class FileGenerator implements Runnable {
             DAOUtil.getFactory().getPathDAO().saveOrUpdate(imagePath);
 
             com.topcoder.web.common.model.Image image = new com.topcoder.web.common.model.Image();
-            String justFileName = SubmissionValidator.getFileName(imageFileName);
+            String justFileName = UnifiedSubmissionValidator.getFileName(imageFileName);
             if (watermark) { // If the image is watermarked then the extension must be changed to match the type of
                 // watermarked image
                 int pos = justFileName.lastIndexOf(".");
@@ -375,7 +375,7 @@ public class FileGenerator implements Runnable {
             image.setHeight(presentation.getHeight());
             image.setImageTypeId(imageTypeId);
             image.setNew(true);
-            image.setOriginalFileName(SubmissionValidator.getFileName(originalImagePath));
+            image.setOriginalFileName(UnifiedSubmissionValidator.getFileName(originalImagePath));
             image.setPath(imagePath);
             image.setWidth(presentation.getWidth());
             imageDAO.saveOrUpdate(image);

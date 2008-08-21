@@ -123,13 +123,13 @@
                 <p>
                     <strong>My design:</strong><br />
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
-                        <br /></tc-webtag:errorIterator>
-                    <input type="file" name="<%=Constants.SUBMISSION%>"/>
-                    <br />(must be a Zip file)
-                    <input type="file" name="<%=Constants.SUBMISSION_SOURCE%>"/>
-                    <br />(must be a Zip file)
-                    <input type="file" name="<%=Constants.SUBMISSION_PREVIEW%>"/>
-                    <br />(must be a image file)
+                        <br /></tc-webtag:errorIterator><br />
+                    Submission zip file:<input type="file" name="<%=Constants.SUBMISSION%>"/>
+                    <br />
+                    Submission source zip file:<input type="file" name="<%=Constants.SUBMISSION_SOURCE%>"/>
+                    <br />
+                    Submission preview image:<input type="file" name="<%=Constants.SUBMISSION_PREVIEW%>"/>
+                    <br />
                 </p>
 
                 <p>
