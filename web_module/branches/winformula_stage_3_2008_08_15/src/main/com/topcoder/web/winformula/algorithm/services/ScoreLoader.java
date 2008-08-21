@@ -62,6 +62,9 @@ public class ScoreLoader {
             }
             rs = ps.executeQuery();
             while (rs.next()) {
+                
+                // TODO: verify data
+                
                 int predictionDetailId = rs.getInt("prediction_detail_id");
                 GameResult predictedResult = new GameResult(rs.getInt("home_pred"), rs.getInt("visitor_pred"));
                 GameResult realResult = new GameResult(rs.getInt("home_score"), rs.getInt("visitor_score"));
@@ -93,14 +96,14 @@ public class ScoreLoader {
         PreparedStatement update = null;
         
         try {
-            final String UPDATE = "update prediction_scores set " +
+            final String UPDATE = "update prediction_detail_score set " +
             		" prediction_detail_points = ?, " +
                     " prediction_detail_total_score_variance = ?, " +
                     " prediction_detail_victory_margin_variance = ?, " +
                     " prediction_detail_picked_winner = ? " +
             		" where prediction_detail_id = ? ";
             
-            final String INSERT = "insert into prediction_scores (" +
+            final String INSERT = "insert into prediction_detail_score (" +
             		" prediction_detail_points, " +
                     " prediction_detail_total_score_variance, " +
                     " prediction_detail_victory_margin_variance, " +
@@ -133,10 +136,6 @@ public class ScoreLoader {
             DBMS.close(insert);
         }        
     }
-
-
-
-
 
     private boolean getPickedWinner(GameResult predictedResult, GameResult realResult) {
         int real = realResult.getHomeScore() - realResult.getAwayScore();
