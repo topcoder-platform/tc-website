@@ -34,8 +34,8 @@ public class StatsLoader {
     
     private void process(int weekId, int coderId) {
         loadWeekStats(weekId, coderId);
-        // loadSeasonStats(weekId, coderId);
-        // loadOverallStats(coderId);
+        loadMiniSeasonStats(weekId, coderId);
+        loadOverallStats(coderId);
     }
 
     private void loadWeekStats(int weekId, int coderId) {
@@ -53,10 +53,9 @@ public class StatsLoader {
                 " avg(pds.prediction_detail_total_score_variance) as avg_total_score_variance, " +
                 " avg(pds.prediction_detail_victory_margin_variance) as avg_victory_margin_variance, " +
                 " sum(case when pds.prediction_detail_picked_winner then 1 else 0 end) / count(*) * 100 as avg_picked_winner " +
-                " from prediction p, prediction_detail pd, prediction_detail_score pds, game g " +
+                " from prediction p, prediction_detail pd, prediction_detail_score pds " +
                 " where p.prediction_id = pd.prediction_id " +
                 " and pd.prediction_detail_id = pds.prediction_detail_id " +
-                " and pd.game_id = g.game_id " +
                 " and p.week_id = ? ";
             
             if (coderId > 0) {
@@ -80,7 +79,7 @@ public class StatsLoader {
             }
             int retVal = insert.executeUpdate();
 
-            log.info("" + retVal + " rows inserted");
+            log.info("Week stats: " + retVal + " rows inserted");
         } catch (Exception e) {
             log.error("Failed to process", e);
         } finally {
@@ -90,4 +89,105 @@ public class StatsLoader {
         }
     }
     
+
+    private void loadMiniSeasonStats(int weekId, int coderId) {
+        Connection cnn = null;
+        PreparedStatement delete = null;
+        PreparedStatement insert = null;
+        try {
+            cnn = DBMS.getDirectConnection();
+            DBUtils.initDBBlock(cnn);
+            String DELETE = " delete from user_mini_season_stats " + 
+                            " where mini_season_id = (select w2.mini_season_id from week w2 where w2.week_id = ?)";
+            
+            String INSERT = " insert into user_mini_season_stats " +
+            "     select ms.mini_season_id, p.coder_id, 0 as rank, 0 as rank_diff, sum(nvl(pds.prediction_detail_points,0)) as points, " + 
+            "            avg(pds.prediction_detail_total_score_variance) as avg_total_score_variance, " +
+            "            avg(pds.prediction_detail_victory_margin_variance) as avg_victory_margin_variance, " +
+            "            sum(case when pds.prediction_detail_picked_winner then 1 else 0 end) / count(*) * 100 as avg_picked_winner " +
+            "     from prediction p, prediction_detail pd, prediction_detail_score pds, week w, mini_season ms " +
+            "     where p.prediction_id = pd.prediction_id " +
+            "     and pd.prediction_detail_id = pds.prediction_detail_id " +
+            "     and w.week_id = p.week_id " +
+            "     and ms.mini_season_id = w.mini_season_id " +
+            "     and ms.mini_season_id = (select w2.mini_season_id from week w2 where w2.week_id = ?) ";
+            
+            if (coderId > 0) {
+                INSERT += " and coder_id = ? ";
+                DELETE += " and coder_id = ? ";
+            }
+
+            INSERT += " group by ms.mini_season_id, p.coder_id ";
+
+            delete = cnn.prepareStatement(DELETE);
+            delete.setInt(1, weekId);
+            if (coderId > 0) {
+                delete.setInt(2, coderId); 
+            }
+            delete.executeUpdate();
+
+            insert = cnn.prepareStatement(INSERT);
+            insert.setInt(1, weekId);
+            if (coderId > 0) {
+                insert.setInt(2, coderId); 
+            }
+            int retVal = insert.executeUpdate();
+
+            log.info("Mini Season stats: " + retVal + " rows inserted");
+        } catch (Exception e) {
+            log.error("Failed to process", e);
+        } finally {
+            DBMS.close(delete);
+            DBMS.close(insert);
+            DBUtils.endDBBlock();
+        }
+    }
+
+    private void loadOverallStats(int coderId) {
+        Connection cnn = null;
+        PreparedStatement delete = null;
+        PreparedStatement insert = null;
+        try {
+            cnn = DBMS.getDirectConnection();
+            DBUtils.initDBBlock(cnn);
+            String DELETE = " delete from user_overall_stats ";
+            
+            String INSERT = " insert into user_overall_stats " +
+                   " select p.coder_id, 0 as rank, sum(nvl(pds.prediction_detail_points,0)) as points, " + 
+                   "        avg(pds.prediction_detail_total_score_variance) as avg_total_score_variance, " +
+                   "        avg(pds.prediction_detail_victory_margin_variance) as avg_victory_margin_variance, " +
+                   "        sum(case when pds.prediction_detail_picked_winner then 1 else 0 end) / count(*) * 100 as avg_picked_winner " +
+                   " from prediction p, prediction_detail pd, prediction_detail_score pds " +
+                   " where p.prediction_id = pd.prediction_id " +
+                   " and pd.prediction_detail_id = pds.prediction_detail_id ";
+            
+            if (coderId > 0) {
+                INSERT += " and coder_id = ? ";
+                DELETE += " where coder_id = ? ";
+            }
+
+            INSERT += " group by p.coder_id ";
+
+            delete = cnn.prepareStatement(DELETE);
+            if (coderId > 0) {
+                delete.setInt(1, coderId); 
+            }
+            delete.executeUpdate();
+
+            insert = cnn.prepareStatement(INSERT);
+            if (coderId > 0) {
+                insert.setInt(1, coderId); 
+            }
+            int retVal = insert.executeUpdate();
+
+            log.info("Overall stats: " + retVal + " rows inserted");
+        } catch (Exception e) {
+            log.error("Failed to process", e);
+        } finally {
+            DBMS.close(delete);
+            DBMS.close(insert);
+            DBUtils.endDBBlock();
+        }
+    }
+
 }
