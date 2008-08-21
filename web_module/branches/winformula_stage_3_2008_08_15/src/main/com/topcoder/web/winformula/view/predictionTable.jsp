@@ -59,6 +59,9 @@
           </td>
           <td class="alignCenter">
               <c:choose>
+                  <c:when test="${empty predictionItem.pickedWinner}">
+                        &nbsp;
+                  </c:when>
                   <c:when test="${predictionItem.pickedWinner}">
                         <img src="/i/tournament/tco08/iconAdvanced.png" alt="Good Prediction"/>
                   </c:when>
