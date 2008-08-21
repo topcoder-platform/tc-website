@@ -188,7 +188,7 @@ public class StatsLoader {
 
             log.info("Overall stats: " + retVal + " rows inserted");
 
-            rank(cnn, "user_week_stats", null, "overall");
+            rank(cnn, "user_overall_stats", null, "overall");
         } catch (Exception e) {
             log.error("Failed to process", e);
         } finally {
