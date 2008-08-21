@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />08.21.08<br />11:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082108">TopCoder One of Inc. Magazine's 500 Fastest-Growing Private Companies in America for Second Consecutive Year</a></span><br /><br />
+        TopCoder has been named to the Inc. 500 list of fastest growing U.S. private companies for the second year in a row!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082108">details</a> | 
+        <tc-webtag:forumLink forumID="522960" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />08.21.08<br />9:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/wiki/display/docs/Competition+Environments">$3500 in Bug Races – Get on the Cloud!</a></span><br /><br />
@@ -157,15 +170,3 @@
         <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br />07.29.08<br />1:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />">Announcing the $100,000 ESPN Winning Formula Challenge</a></span><br /><br />
-        Can you write the algorithm that will use ESPN's comprehensive game data to predict the outcome of American college football games? If you can there's $100,000 in prize money to be won, including a $50,000 first prize for the top performer at the end of the 15 week season! Hit the link to learn more about this exciting new contest.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />">details</a> | 
-        <a href="http://winningformula.espn.com/forums">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_alg">archive</a>
-   </td></tr>
