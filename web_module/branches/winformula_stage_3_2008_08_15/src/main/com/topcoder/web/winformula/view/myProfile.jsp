@@ -135,9 +135,9 @@
                 list="${weeks}" useTopValue="false"/>
             <br/><br/>
             <p class="textLarge">
-                <strong>${ws.weekName} Totals: &nbsp;&nbsp;&nbsp;&nbsp;Rank:</strong> ${ws.rank} of ${ws.maxRank}
-                <strong>&nbsp;&nbsp;&nbsp;&nbsp;Win Percentage:</strong> <fmt:formatNumber value="${ws.winPercent}" pattern="0.00"/>%
-                <strong>&nbsp;&nbsp;&nbsp;&nbsp;Points:</strong> ${ws.points}
+                <strong>${weekStats.weekName} Totals: &nbsp;&nbsp;&nbsp;&nbsp;Rank:</strong> ${weekStats.rank} of ${weekStats.maxRank}
+                <strong>&nbsp;&nbsp;&nbsp;&nbsp;Win Percentage:</strong> <fmt:formatNumber value="${weekStats.winPercent}" pattern="0.00"/>%
+                <strong>&nbsp;&nbsp;&nbsp;&nbsp;Points:</strong> ${weekStats.points}
             </p>
             <jsp:include page="pagination.jsp">
                 <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
