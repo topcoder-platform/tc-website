@@ -199,14 +199,14 @@ public class StatsHelper {
         if (rsc.size() > 0) {
             List<StandingsItem> lsi = new ArrayList<StandingsItem>(rsc.size()); 
             for (ResultSetRow rsr : rsc) {
-                Integer rank = StatsHelper.getNullableIntItem(rsr, "home_pred");
-                Integer rankDiff = StatsHelper.getNullableIntItem(rsr, "visitor_pred");
-                Integer coderId = StatsHelper.getNullableIntItem(rsr, "home_score");
-                String handle = rsr.getStringItem("home");
-                Integer points = StatsHelper.getNullableIntItem(rsr, "visitor_score");
-                Double avgTotalScoreVariance = rsr.getDoubleItem("prediction_detail_total_score_variance");
-                Double avgVictoryMarginVariance = rsr.getDoubleItem("prediction_detail_victory_margin_variance");
-                Double avgPickedWinner = rsr.getDoubleItem("prediction_detail_points");
+                Integer rank = StatsHelper.getNullableIntItem(rsr, "rank");
+                Integer rankDiff = StatsHelper.getNullableIntItem(rsr, "rank_diff");
+                Integer coderId = StatsHelper.getNullableIntItem(rsr, "coder_id");
+                String handle = rsr.getStringItem("handle");
+                Integer points = StatsHelper.getNullableIntItem(rsr, "points");
+                Double avgTotalScoreVariance = rsr.getDoubleItem("avg_total_score_variance");
+                Double avgVictoryMarginVariance = rsr.getDoubleItem("avg_victory_margin_variance");
+                Double avgPickedWinner = rsr.getDoubleItem("avg_picked_winner");
                 
                 StandingsItem si = new StandingsItem(rank, rankDiff, handle,
                         coderId, points, avgTotalScoreVariance,
