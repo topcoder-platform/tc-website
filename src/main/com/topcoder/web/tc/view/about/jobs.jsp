@@ -4,7 +4,7 @@
 
 <html>
 <head>
-    <title>Careers at TopCoder</title>
+    <title>Working at TopCoder</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <jsp:include page="/script.jsp" />
     <jsp:include page="/style.jsp">
@@ -39,15 +39,15 @@
 
     <%-- jobs_header begin --%>
     <div id="jobs_header">
-        <h1><a onfocus="this.blur();" href="/tc?module=Static&amp;d1=about&amp;d2=jobs" name="jobs_top">Careers at TopCoder</a></h1>
+        <h1><a onfocus="this.blur();" href="/tc?module=Static&amp;d1=about&amp;d2=jobs" name="jobs_top">Press Room</a></h1>
     </div>
     <%-- jobs_header end --%>
     
     <%-- jobs_menu begin --%>
     <div id="jobs_menu">
         <ul>
-            <li id="jobs_menuactive"><a href="/tc?module=Static&amp;d1=about&amp;d2=jobs" title="Overview"><span>Overview</span></a></li>
-            <li><a href="/tc?module=Static&amp;d1=about&amp;d2=jobsGreat" title="Great Jobs at TopCoder"><span>Great Jobs at TopCoder</span></a></li>
+            <li id="jobs_menuactive"><a href="/tc?module=Static&amp;d1=about&amp;d2=jobs" title="Great Jobs at TopCoder"><span>Great Jobs at TopCoder</span></a></li>
+            <li><a href="/tc?module=Static&amp;d1=about&amp;d2=jobsAboutTC" title="About TopCoder"><span>About TopCoder</span></a></li>
         </ul>
     </div>
     <%-- jobs_menu end --%>
@@ -64,31 +64,92 @@
                 <div class="jobs_featured_main">
                     <div>
                         <br />
-                        <h3>About TopCoder</h3>
+                        <h3>Great Jobs at TopCoder</h3>
+                        <p>If you're reading this you already know that TopCoder is an exciting company full of talented people on a mission to revolutionize the software industry - and have a lot of fun doing it. We work hard, we play hard. We pay well, offer flexible schedules and benefits and now's your chance to be part of the team. If you think you're right for TopCoder and TopCoder is right for you, check out our open positions and <a href="mailto:jobs@topcoder.com">apply today</a>.</p>
                         <br />
-                        <p><img src="/i/about/man_computer.jpg" alt="man_computer" style="margin: 0px 10px 10px 0px; float:left; width:200px; height:151px; border: 1px solid #999999;" />
-                        TopCoder, Inc. provides a variety of service offerings.  We are the recognized leader in organizing and hosting online and onsite programming 
-                        competitions for a global community of members.  Our software development methodology is building cutting edge enterprise software solutions 
-                        for Fortune 500 clients by utilizing the largest and most diverse global workforce on the market, and our recruiting operation provides corporations 
-                        with an unparalleled level of talent which is evaluated through our programming competitions.</p>
-                        <br />
-                        <p>TopCoder members extend across all professional and collegiate levels. The attraction of competition and the associated rewards create the most 
-                        powerful community of programmers in the world. Corporate partners access this member base for value in terms of employment, software development 
-                        and sponsorship.</p>
-                        <br />
-                        <p>Incorporated in 2001, TopCoder, Inc. has become the standard by which talent and software are measured. Our small staff is young, enthusiastic 
-                        and welcomes the challenges of charting new territory within the industry. The Company has been built with integrity as our cornerstone, and we value 
-                        professional and ethical standards at every level - from our employees and our clients alike.</p>
-                        <br />
-                        <p>Through our revolutionary software development methodology, cutting-edge recruiting offerings, and world-renowned programming tournaments, we are 
-                        committed to excellence. We expect the same commitment and drive from our current and future employees.</p>
-                        <br />
-                        <p>If you are interested in joining this fast growing company, please view our open positions below and apply <a href="mailto:jobs@topcoder.com">here</a>.</p>
                     </div>
                 </div>
                 <div class="jobs_clear"></div>
             </div>
             <%-- .jobs_featured end --%>
+            
+            <%-- Current Openings Content Container --%>
+            <div class="jobs_subheader">
+                <h2><span>Current Openings</span></h2>
+            </div>
+            
+            <%-- jobs_border creation --%>
+            <div class="jobs_box"><div class="jobs_box2"><div class="jobs_boxcontent">
+                
+                <%-- Software Application Architect begin --%>
+                <div class="jobs_newsitem">
+                    <div class="jobs_img">
+                        &nbsp;
+                    </div>
+                    <div class="jobs_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=about&amp;d2=software_application_architect">Software Application Architect</a></h3>
+                        <p>Work closely with TopCoder Software project managers to break applications down into functional areas for concurrent development. Break down customer applications into components using the TopCoder Component Catalog for existing components and the TopCoder...  <small><a href="/tc?module=Static&amp;d1=about&amp;d2=software_application_architect">[read full description]</a></small></p>
+                    </div>
+                    <div class="jobs_imgR">
+                        <a href="/tc?module=Static&amp;d1=about&amp;d2=software_application_architect"><img src="/i/about/jobs/arrow.png" alt="arrow" border="0" /></a>
+                    </div>
+                    <div class="jobs_clear"></div>
+                </div>
+                <%-- Software Application Architect end --%>
+                
+                <%-- Salesperson begin --%>
+                <div class="jobs_newsitem">
+                    <div class="jobs_img">
+                        &nbsp;
+                    </div>
+                    <div class="jobs_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=about&amp;d2=tcs_salesdirector">Salesperson</a></h3>
+                        <p>TopCoder, Inc. is a rapidly growing and progressive company looking to build a sales team that is motivated, has the proven ability and desire to sell to Fortune 1000 C-Level executives, and that can articulate the TopCoder value. TopCoder markets application development services to Fortune 1000 companies...  <small><a href="/tc?module=Static&amp;d1=about&amp;d2=tcs_salesdirector">[read full description]</a></small></p>
+                    </div>
+                    <div class="jobs_imgR">
+                        <a href="/tc?module=Static&amp;d1=about&amp;d2=tcs_salesdirector"><img src="/i/about/jobs/arrow.png" alt="arrow" border="0" /></a>
+                    </div>
+                    <div class="jobs_clear"></div>
+                </div>
+                <%-- Salesperson end --%>
+                
+                <%-- Deployment Engineer begin --%>
+                <div class="jobs_newsitem">
+                    <div class="jobs_img">
+                        &nbsp;
+                    </div>
+                    <div class="jobs_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=about&amp;d2=deployment_engineer">Deployment Engineer</a></h3>
+                        <p>The Deployment Engineer will work with TopCoder Project Managers and Software Architects in configuring, installing, and running applications created through the TopCoder competition process. This opportunity seeks a candidate who has prior experience in running a diverse...  <small><a href="/tc?module=Static&amp;d1=about&amp;d2=deployment_engineer">[read full description]</a></small></p>
+                    </div>
+                    <div class="jobs_imgR">
+                        <a href="/tc?module=Static&amp;d1=about&amp;d2=deployment_engineer"><img src="/i/about/jobs/arrow.png" alt="arrow" border="0" /></a>
+                    </div>
+                    <div class="jobs_clear"></div>
+                </div>
+                <%-- Deployment Engineer end --%>
+                
+                <%-- Software Project Manager begin --%>
+                <div class="jobs_newsitem">
+                    <div class="jobs_img">
+                        &nbsp;
+                    </div>
+                    <div class="jobs_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=about&amp;d2=project_manager">Software Project Manager</a></h3>
+                        <p>Work closely with TopCoder Software customers to identify business needs. Manage all phases of the TopCoder Software Application Development Methodology to deliver high quality software applications that add significant business value to our customers...  <small><a href="/tc?module=Static&amp;d1=about&amp;d2=project_manager">[read full description]</a></small></p>
+                    </div>
+                    <div class="jobs_imgR">
+                        <a href="/tc?module=Static&amp;d1=about&amp;d2=project_manager"><img src="/i/about/jobs/arrow.png" alt="arrow" border="0" /></a>
+                    </div>
+                    <div class="jobs_clear"></div>
+                </div>
+                <%-- Software Project Manager end --%>
+                
+                <p class="jobs_backtop"><a href="#jobs_top">Back to Top</a></p>
+                <div class="jobs_clear"></div>
+                
+            </div></div></div>
+            <%-- Current Openings Container end --%>
 
         </div>
         <%-- jobs_content end --%>
