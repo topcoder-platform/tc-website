@@ -91,9 +91,11 @@ public class ViewStandings extends AlgorithmBase {
         if (weekId != null) {
             rsc = getPeriodData("weeks_data", weekId);
             selectedId = weekId;
-        } else {
+        } else if (miniSeasonId != null) {
             rsc = getPeriodData("mini_season_data", miniSeasonId);
             selectedId = miniSeasonId;
+        } else {
+            return null;
         }
 
         List<ListSelectTag.Option> periods;
