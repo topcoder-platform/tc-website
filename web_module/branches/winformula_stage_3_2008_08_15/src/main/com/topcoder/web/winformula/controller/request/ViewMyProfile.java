@@ -25,6 +25,7 @@ import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.controller.PredictionsHelper;
 import com.topcoder.web.winformula.model.MemberData;
 import com.topcoder.web.winformula.model.Prediction;
+import com.topcoder.web.winformula.model.WeekStats;
 
 /**
  * @autor Pablo Wolfus (pulky)
@@ -71,6 +72,9 @@ public class ViewMyProfile extends StatsBase {
                 PredictionsHelper.cropResult(request, (Prediction) result.getResultObject());
             }
             
+            WeekStats ws = getWeekStats(coderId, weekId);
+            
+            request.setAttribute("weekStats", ws);
             request.setAttribute("member", md);
             request.setAttribute("result", result);
 
@@ -121,6 +125,7 @@ public class ViewMyProfile extends StatsBase {
             String handle = rsr.getStringItem("handle");
             Integer highestOverallRank = PredictionsHelper.getNullableIntItem(rsr, "highest_overall_rank");
             String highestOverallRankWeek = rsr.getStringItem("highest_overall_rank_week");
+            Integer overallPoints = PredictionsHelper.getNullableIntItem(rsr, "overall_points");
             Integer highestWeeklyRank = PredictionsHelper.getNullableIntItem(rsr, "highest_weekly_rank");
             Integer highestWeeklyRankPoints = PredictionsHelper.getNullableIntItem(rsr, "highest_weekly_rank_points");
             String highestWeeklyRankWeek = rsr.getStringItem("highest_weekly_rank_week");
@@ -129,9 +134,32 @@ public class ViewMyProfile extends StatsBase {
             Integer userId = PredictionsHelper.getNullableIntItem(rsr, "user_id");
             Double winPercent = rsr.getDoubleItem("win_percent");
 
-            return new MemberData(handle, highestOverallRank, highestOverallRankWeek,
+            return new MemberData(handle, highestOverallRank, highestOverallRankWeek, overallPoints,
                     highestWeeklyRank, highestWeeklyRankPoints, highestWeeklyRankWeek,
                     overallRank, totalRankedMembers, userId, winPercent);
+        } else {
+            return null;
+        }
+    }
+
+    private WeekStats getWeekStats(int coderId, int weekId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("user_week_stats");
+        r.setProperty(Constants.USER_ID, String.valueOf(coderId));
+        r.setProperty(Constants.WEEK_ID, String.valueOf(weekId));
+
+        DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
+        ResultSetContainer rsc = dai.getData(r).get("user_week_stats");
+        
+        if (rsc.size() > 0) {
+            ResultSetRow rsr = rsc.get(0);
+            String weekName = rsr.getStringItem("week_desc");
+            Integer rank = PredictionsHelper.getNullableIntItem(rsr, "rank");
+            Integer maxRank = PredictionsHelper.getNullableIntItem(rsr, "max_rank");
+            Double winPercent = rsr.getDoubleItem("avg_picked_winner");
+            Integer points = PredictionsHelper.getNullableIntItem(rsr, "points");
+
+            return new WeekStats(weekName, rank, maxRank, winPercent, points);
         } else {
             return null;
         }

@@ -7,6 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 
@@ -59,7 +60,7 @@
                     </dl>
                       <dl>
                         <dt>Points:</dt>
-                        <dd>984 points</dd>
+                        <dd>${member.overallPoints} points</dd>
                     </dl>
                       <dl>
                         <dt>Highest Overall Rank:</dt>
@@ -71,7 +72,7 @@
                     </dl>
                       <dl>
                         <dt>Win Percentage:</dt>
-                        <dd>${member.winPercent}</dd>
+                        <dd><fmt:formatNumber value="${member.winPercent}" pattern="0.00"/>%</dd>
                       </dl>
 <%--                  <dl>
                         <dt>Prizes/Awards Won:</dt>
@@ -119,7 +120,6 @@
                 </div>--%>
                 
             </div>
-
             <div class="dataArea" style="width:100%;">
             <!-- Prepares some collection data and formatter -->
                 <% boolean even = true;%>
@@ -133,7 +133,12 @@
 
             <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
                 list="${weeks}" useTopValue="false"/>
-                
+            <br/><br/>
+            <p class="textLarge">
+                <strong>${ws.weekName} Totals: &nbsp;&nbsp;&nbsp;&nbsp;Rank:</strong> ${ws.rank} of ${ws.maxRank}
+                <strong>&nbsp;&nbsp;&nbsp;&nbsp;Win Percentage:</strong> <fmt:formatNumber value="${ws.winPercent}" pattern="0.00"/>%
+                <strong>&nbsp;&nbsp;&nbsp;&nbsp;Points:</strong> ${ws.points}
+            </p>
             <jsp:include page="pagination.jsp">
                 <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
                 <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />

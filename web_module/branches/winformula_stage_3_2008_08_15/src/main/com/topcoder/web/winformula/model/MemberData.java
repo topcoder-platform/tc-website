@@ -15,6 +15,7 @@ public class MemberData implements Serializable {
     private String handle;
     private Integer highestOverallRank;
     private String highestOverallRankWeek;
+    private Integer overallPoints;
     private Integer highestWeeklyRank;
     private Integer highestWeeklyRankPoints;
     private String highestWeeklyRankWeek;
@@ -24,13 +25,14 @@ public class MemberData implements Serializable {
     private Double winPercent;
     
     public MemberData(String handle, Integer highestOverallRank, String highestOverallRankWeek,
-            Integer highestWeeklyRank, Integer highestWeeklyRankPoints,
+            Integer overallPoints, Integer highestWeeklyRank, Integer highestWeeklyRankPoints,
             String highestWeeklyRankWeek, Integer overallRank, Integer totalRankedMembers,
             Integer userId, Double winPercent) {
         super();
         this.handle = handle;
         this.highestOverallRank = highestOverallRank;
         this.highestOverallRankWeek = highestOverallRankWeek;
+        this.overallPoints = overallPoints;
         this.highestWeeklyRank = highestWeeklyRank;
         this.highestWeeklyRankPoints = highestWeeklyRankPoints;
         this.highestWeeklyRankWeek = highestWeeklyRankWeek;
@@ -38,6 +40,14 @@ public class MemberData implements Serializable {
         this.totalRankedMembers = totalRankedMembers;
         this.userId = userId;
         this.winPercent = winPercent;
+    }
+
+    public Integer getOverallPoints() {
+        return overallPoints;
+    }
+
+    public void setOverallPoints(Integer overallPoints) {
+        this.overallPoints = overallPoints;
     }
 
     public Integer getUserId() {
