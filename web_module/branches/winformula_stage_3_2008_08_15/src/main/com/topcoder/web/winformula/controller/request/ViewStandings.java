@@ -1,0 +1,132 @@
+/*
+ * ViewStandings
+ * 
+ * Created Aug 8, 2008
+ */
+package com.topcoder.web.winformula.controller.request;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.tag.ListSelectTag;
+import com.topcoder.web.winformula.Constants;
+import com.topcoder.web.winformula.controller.StatsHelper;
+import com.topcoder.web.winformula.model.StandingsItem;
+
+/**
+ * @autor Pablo Wolfus (pulky)
+ * @version $Id$
+ */
+public class ViewStandings extends AlgorithmBase {
+    protected static final Logger log = Logger.getLogger(ViewStandings.class);
+
+    protected Integer weekId = null;
+    protected Integer miniSeasonId = null;
+
+    protected void longContestProcessing() throws Exception {
+        try {
+            TCRequest request = getRequest();
+
+            String selectedWeek = StringUtils.checkNull(request.getParameter("week"));
+            String selectedMiniSeason = StringUtils.checkNull(request.getParameter("msi"));
+
+            try {
+                weekId = Integer.parseInt(selectedWeek);
+            } catch (Exception e) {
+            }
+
+            try {
+                miniSeasonId = Integer.parseInt(selectedMiniSeason);
+            } catch (Exception e) {
+            }
+
+            // get data from DB
+            request.setAttribute("periods", getPeriods());
+
+            // then the stats
+            ResultSetContainer rsc = StatsHelper.getStats(weekId, miniSeasonId);
+
+            // make it a list of beans
+            List<StandingsItem> result = StatsHelper.processResult(rsc);
+
+            // sort
+            if (result != null) {
+                StatsHelper.sortResult(request, result);
+        
+                // crop
+                StatsHelper.cropResult(request, result);
+            }
+            
+            request.setAttribute("result", result);
+
+            setNextPage(nextPage());
+            setIsNextPageInContext(true);
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+    }
+    
+    protected String nextPage() {
+        return Constants.PAGE_STANDINGS;
+    }
+
+    /**
+     * @throws Exception
+     */
+    private List<ListSelectTag.Option> getPeriods() throws Exception {
+        ResultSetContainer rsc = null; 
+        int selectedId;
+
+        if (weekId != null) {
+            rsc = getPeriodData("weeks_data", weekId);
+            selectedId = weekId;
+        } else {
+            rsc = getPeriodData("mini_season_data", miniSeasonId);
+            selectedId = miniSeasonId;
+        }
+
+        List<ListSelectTag.Option> periods;
+        if (rsc.size() > 0) {
+            periods = new ArrayList<ListSelectTag.Option>(rsc.size());
+            boolean found = false;
+            for (ResultSetRow rsr : rsc) {
+                int periodId = rsr.getIntItem("period_id");
+                periods.add(new ListSelectTag.Option(String.valueOf(periodId), rsr.getStringItem("period_desc"), periodId == selectedId));
+                if (periodId == selectedId) {
+                    found = true;
+                }
+            }
+            if (!found && rsc.size() > 0) {
+                if (weekId != null) {
+                    weekId = rsc.get(0).getIntItem("period_id");
+                } else {
+                    miniSeasonId = rsc.get(0).getIntItem("period_id");
+                }
+            }
+        } else { 
+            log.info("period is null or empty");
+            periods = Collections.emptyList();
+        }
+        return periods;
+    }
+    
+
+    private ResultSetContainer getPeriodData(String commandName, long selectedId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle(commandName);
+        r.setProperty(Constants.PERIOD_ID, String.valueOf(selectedId));
+        DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
+        return dai.getData(r).get(commandName);
+    }
+}
