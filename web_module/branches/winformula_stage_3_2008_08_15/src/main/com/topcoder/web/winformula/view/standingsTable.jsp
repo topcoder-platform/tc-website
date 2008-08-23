@@ -6,8 +6,8 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
   <tr class="resultTH">
-    <th scope="col"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="1" includeParams="true"/>">Rank (change)</a></th>
-    <th scope="col"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a></th>
+    <th scope="col" align="left"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="1" includeParams="true"/>">Rank (change)</a></th>
+    <th scope="col" align="left"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a></th>
     <th scope="col" class="center"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true"/>">Points</a></th>
     <th scope="col" class="center"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="4" includeParams="true"/>">Win %</a></th>
     <th scope="col" class="center"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="5" includeParams="true"/>">Avg Total Score Variance</a></th>
@@ -19,7 +19,7 @@
           <td>
                 <strong class="green">${standingsItem.rank}</strong>
                 <c:if test="${not empty standingsItem.rankDiff and standingsItem.rankDiff != 0}">
-                    (${standingsItem.rankDiff})
+                    (<fmt:formatNumber value="${standingsItem.rankDiff}" pattern="+#;-#"/>)
                 </c:if>
           </td>
           <td><a href="${sessionInfo.servletPath}?module=ViewProfile&amp;cr=${standingsItem.coderId}">${standingsItem.handle}</a></td>

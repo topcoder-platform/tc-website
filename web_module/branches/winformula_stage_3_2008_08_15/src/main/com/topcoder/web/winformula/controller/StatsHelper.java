@@ -187,6 +187,14 @@ public class StatsHelper {
         }
     }
     
+    public static Double getNullableDoubleItem(ResultSetRow rsr, String columnName) {
+        if (rsr.getItem(columnName).getResultData() == null) {
+            return null;
+        } else {
+            return rsr.getDoubleItem(columnName);
+        }
+    }
+    
     public static Boolean getNullableBoolItem(ResultSetRow rsr, String columnName) {
         if (rsr.getItem(columnName).getResultData() == null) {
             return null;
@@ -204,9 +212,9 @@ public class StatsHelper {
                 Integer coderId = StatsHelper.getNullableIntItem(rsr, "coder_id");
                 String handle = rsr.getStringItem("handle");
                 Integer points = StatsHelper.getNullableIntItem(rsr, "points");
-                Double avgTotalScoreVariance = rsr.getDoubleItem("avg_total_score_variance");
-                Double avgVictoryMarginVariance = rsr.getDoubleItem("avg_victory_margin_variance");
-                Double avgPickedWinner = rsr.getDoubleItem("avg_picked_winner");
+                Double avgTotalScoreVariance = StatsHelper.getNullableDoubleItem(rsr, "avg_total_score_variance");
+                Double avgVictoryMarginVariance = StatsHelper.getNullableDoubleItem(rsr, "avg_victory_margin_variance");
+                Double avgPickedWinner = StatsHelper.getNullableDoubleItem(rsr, "avg_picked_winner");
                 
                 StandingsItem si = new StandingsItem(rank, rankDiff, handle,
                         coderId, points, avgTotalScoreVariance,
