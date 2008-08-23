@@ -65,7 +65,7 @@ public class ViewStandings extends AlgorithmBase {
                 StatsHelper.sortResult(request, result);
         
                 // crop
-                StatsHelper.cropResult(request, result);
+                result = StatsHelper.cropResult(request, result);
             }
             
             request.setAttribute("result", result);

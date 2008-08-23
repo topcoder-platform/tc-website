@@ -177,7 +177,7 @@ public class StatsHelper {
      * @param rsc the resultsetcontainter to crop
      * @throws Exception
      */
-    public static void cropResult(TCRequest request, List<StandingsItem> l) {
+    public static List<StandingsItem> cropResult(TCRequest request, List<StandingsItem> l) {
         String numRecords = StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
 
         int sizeBeforeCrop = l.size();
@@ -201,8 +201,11 @@ public class StatsHelper {
             endRank = sizeBeforeCrop - 1;
         }
             
+        List<StandingsItem> result;
         if (sizeBeforeCrop > 0) {
-            l = l.subList(startRank, endRank);
+            result = l.subList(startRank, endRank);
+        } else { 
+            result = Collections.emptyList();
         }
 
         log.debug("startRank: " + startRank);
@@ -213,6 +216,8 @@ public class StatsHelper {
         request.setAttribute("croppedDataAfter", new Boolean(endRank != sizeBeforeCrop - 1));
 
         request.setAttribute("totalSize", sizeBeforeCrop);
+        
+        return result;
     }
 
     
