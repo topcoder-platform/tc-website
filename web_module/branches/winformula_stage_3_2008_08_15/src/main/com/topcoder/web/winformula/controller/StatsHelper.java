@@ -202,7 +202,7 @@ public class StatsHelper {
         }
             
         if (sizeBeforeCrop > 0) {
-            l = new ArrayList<StandingsItem>(l.subList(startRank, endRank));
+            l = l.subList(startRank, endRank);
         }
 
         log.debug("startRank: " + startRank);

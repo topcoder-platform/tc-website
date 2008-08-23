@@ -43,8 +43,7 @@
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-            <div class="sub-navigation"> <a href="?module=ManageMyAlgorithms${adminExtraParams}">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> |
-            | <a href="?module=ViewQueue">Queue Status</a></div>
+            <div class="sub-navigation"> <a href="?module=ViewStandings">Overall Standings</a> | <a href="?module=ViewStandings&amp;msi=1">Mini-Season Standings</a> | <a href="?module=ViewStandings&amp;week=68">Weekly Standings</a></div>
 
             <h1>Standings - </h1>
 
@@ -60,9 +59,10 @@
             <tc-webtag:hiddenInput name="${numRecords}" value="${nr}"/>
             <tc-webtag:hiddenInput name="${numPage}" value="${np}"/>
 
-            <tc-webtag:listSelect name="${periodKey}" styleClass="dropdown" onChange="document.resultsForm.submit()"
-                list="${periods}" useTopValue="false"/>
-                
+            <c:if test="${not empty periods}">
+                <tc-webtag:listSelect name="${periodKey}" styleClass="dropdown" onChange="document.resultsForm.submit()"
+                    list="${periods}" useTopValue="false"/>
+            </c:if>
             <jsp:include page="pagination.jsp">
                 <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
                 <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />

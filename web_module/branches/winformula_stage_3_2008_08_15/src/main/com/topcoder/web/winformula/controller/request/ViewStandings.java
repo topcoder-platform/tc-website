@@ -89,11 +89,11 @@ public class ViewStandings extends AlgorithmBase {
         int selectedId;
 
         if (weekId != null) {
-            rsc = getPeriodData("weeks_data", weekId);
+            rsc = getPeriodData("weeks_data");
             selectedId = weekId;
             getRequest().setAttribute("periodKey", "week");
         } else if (miniSeasonId != null) {
-            rsc = getPeriodData("mini_season_data", miniSeasonId);
+            rsc = getPeriodData("mini_season_data");
             selectedId = miniSeasonId;
             getRequest().setAttribute("periodKey", "ms");
         } else {
@@ -126,10 +126,9 @@ public class ViewStandings extends AlgorithmBase {
     }
     
 
-    private ResultSetContainer getPeriodData(String commandName, long selectedId) throws Exception {
+    private ResultSetContainer getPeriodData(String commandName) throws Exception {
         Request r = new Request();
         r.setContentHandle(commandName);
-        r.setProperty(Constants.PERIOD_ID, String.valueOf(selectedId));
         DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
         return dai.getData(r).get(commandName);
     }
