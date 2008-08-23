@@ -77,7 +77,7 @@
             <div id="lCorner-nav"><%-- Left Corner Navigation --%></div>
                 <ul>
                     <li id="nav-home"<% if (tabLev1.equals("homepage")) {%> class="on"<% } %>><a title="Home" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/"><span class="hide">Home</span></a></li>
-                    <li id="nav-standing"<% if (tabLev1.equals("standings")) {%> class="on"<% } %>><a title="Standings" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=standings"><span class="hide">Standings</span></a></li>
+                    <li id="nav-standing"<% if (tabLev1.equals("standings")) {%> class="on"<% } %>><a title="Standings" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewStandings"><span class="hide">Standings</span></a></li>
                     <li id="nav-how-to-compete"<% if (tabLev1.equals("compete")) {%> class="on"<% } %>><a title="How to Compete" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=howToCompete"><span class="hide">How to Compete</span></a></li>
                     <li id="nav-register"<% if (tabLev1.equals("register")) {%> class="on"<% } %>><a title="Register" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewRegistration&amp;ct=1001"><span class="hide">Register</span></a></li>
                     <li id="nav-manage-algorithm"<% if (tabLev1.equals("manage")) {%> class="on"<% } %>><a title="Manage My Algorithm" onfocus="this.blur();" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/algorithm?module=ManageMyAlgorithms"><span class="hide">Manage My Algorithms</span></a></li>

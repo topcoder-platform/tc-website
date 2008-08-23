@@ -3,8 +3,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.topcoder.web.winformula.model.PredictionItem" %>
 
-<%--<c:set value="<%=(List<PredictionItem>) request.getParameter("predictions")%>" var="predictions"/> --%>
-
 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
   <tr class="resultTH">
     <th scope="col"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="1" includeParams="true"/>">Home Team</a></th>

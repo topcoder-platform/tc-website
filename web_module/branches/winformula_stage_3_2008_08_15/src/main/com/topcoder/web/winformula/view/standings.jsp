@@ -33,7 +33,7 @@
     <div id="wrapper">
     <%-- Wrapper --%>
     
-        <jsp:include page="../nav.jsp">
+        <jsp:include page="nav.jsp">
         <jsp:param name="tabLev1" value="standings" />
         <jsp:param name="tabLev2" value="" />
         <jsp:param name="tabLev3" value="" />
@@ -45,9 +45,8 @@
         <%-- Main Content --%>
             <div class="sub-navigation"> <a href="?module=ManageMyAlgorithms${adminExtraParams}">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> |
             | <a href="?module=ViewQueue">Queue Status</a></div>
-            <c:choose>
-                <h1>Standings - </h1>
-            </c:choose> 
+
+            <h1>Standings - </h1>
 
             <div class="dataArea" style="width:100%;">
 
@@ -73,14 +72,14 @@
                 <jsp:param name="formName" value="document.resultsForm"/>
             </jsp:include>
 
-<%--             <c:choose>
+            <c:choose>
                  <c:when test="${not empty result}">
                     <jsp:include page="standingsTable.jsp"/>
                 </c:when>
                 <c:otherwise>
                     There are no results to show.
                 </c:otherwise>
-             </c:choose> --%>
+             </c:choose>
     
             </form>
             <br/>
