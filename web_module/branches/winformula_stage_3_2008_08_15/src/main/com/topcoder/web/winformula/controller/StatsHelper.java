@@ -81,24 +81,60 @@ public class StatsHelper {
         } else if (sortCol.equals(String.valueOf(POINTS_COLUMN))) {
             Collections.sort(l, new Comparator<StandingsItem>() {
                 public int compare(StandingsItem arg0, StandingsItem arg1) {
+                    if (arg0.getPoints() == null && arg1.getPoints() != null) {
+                        return 1;
+                    }
+                    if (arg0.getPoints() != null && arg1.getPoints() == null) {
+                        return -1;
+                    }
+                    if (arg0.getPoints() == null && arg1.getPoints() == null) {
+                        return 0;
+                    }
                     return arg0.getPoints().compareTo(arg1.getPoints());
                 }
             });
         } else if (sortCol.equals(String.valueOf(WIN_PERCENTAGE_COLUMN))) {
             Collections.sort(l, new Comparator<StandingsItem>() {
                 public int compare(StandingsItem arg0, StandingsItem arg1) {
+                    if (arg0.getWinPercent() == null && arg1.getWinPercent() != null) {
+                        return 1;
+                    }
+                    if (arg0.getWinPercent() != null && arg1.getWinPercent() == null) {
+                        return -1;
+                    }
+                    if (arg0.getWinPercent() == null && arg1.getWinPercent() == null) {
+                        return 0;
+                    }
                     return arg0.getWinPercent().compareTo(arg1.getWinPercent());
                 }
             });
         } else if (sortCol.equals(String.valueOf(AVG_TOTAL_SCORE_VARIANCE_COLUMN))) {
             Collections.sort(l, new Comparator<StandingsItem>() {
                 public int compare(StandingsItem arg0, StandingsItem arg1) {
+                    if (arg0.getAvgTotalScoreVariance() == null && arg1.getAvgTotalScoreVariance() != null) {
+                        return 1;
+                    }
+                    if (arg0.getAvgTotalScoreVariance() != null && arg1.getAvgTotalScoreVariance() == null) {
+                        return -1;
+                    }
+                    if (arg0.getAvgTotalScoreVariance() == null && arg1.getAvgTotalScoreVariance() == null) {
+                        return 0;
+                    }
                     return arg0.getAvgTotalScoreVariance().compareTo(arg1.getAvgTotalScoreVariance());
                 }
             });
         } else if (sortCol.equals(String.valueOf(AVG_VICTORY_MARGIN_VARIANCE_COLUMN))) {
             Collections.sort(l, new Comparator<StandingsItem>() {
                 public int compare(StandingsItem arg0, StandingsItem arg1) {
+                    if (arg0.getAvgVictoryMarginVariance() == null && arg1.getAvgVictoryMarginVariance() != null) {
+                        return 1;
+                    }
+                    if (arg0.getAvgVictoryMarginVariance() != null && arg1.getAvgVictoryMarginVariance() == null) {
+                        return -1;
+                    }
+                    if (arg0.getAvgVictoryMarginVariance() == null && arg1.getAvgVictoryMarginVariance() == null) {
+                        return 0;
+                    }
                     return arg0.getAvgVictoryMarginVariance().compareTo(arg1.getAvgVictoryMarginVariance());
                 }
             });
@@ -106,6 +142,15 @@ public class StatsHelper {
             // Default, sort by home team.
             Collections.sort(l, new Comparator<StandingsItem>() {
                 public int compare(StandingsItem arg0, StandingsItem arg1) {
+                    if (arg0.getRank() == null && arg1.getRank() != null) {
+                        return 1;
+                    }
+                    if (arg0.getRank() != null && arg1.getRank() == null) {
+                        return -1;
+                    }
+                    if (arg0.getRank() == null && arg1.getRank() == null) {
+                        return 0;
+                    }
                     return arg0.getRank().compareTo(arg1.getRank());
                 }
             });
