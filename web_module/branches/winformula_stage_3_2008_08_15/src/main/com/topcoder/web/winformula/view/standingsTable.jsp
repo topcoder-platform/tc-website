@@ -31,7 +31,7 @@
                     <td class="alignCenter"><fmt:formatNumber value="${standingsItem.avgVictoryMarginVariance}" pattern="0.00"/></td>
                 </c:when>
                 <c:otherwise>
-                    <td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td>
+                    <td class="alignCenter">n/a</td><td class="alignCenter">n/a</td><td class="alignCenter">n/a</td><td class="alignCenter">n/a</td>
                 </c:otherwise>
           </c:choose>
           </td>

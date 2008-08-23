@@ -60,7 +60,7 @@
             <tc-webtag:hiddenInput name="${numRecords}" value="${nr}"/>
             <tc-webtag:hiddenInput name="${numPage}" value="${np}"/>
 
-            <tc-webtag:listSelect name="period" styleClass="dropdown" onChange="document.resultsForm.submit()"
+            <tc-webtag:listSelect name="${periodKey}" styleClass="dropdown" onChange="document.resultsForm.submit()"
                 list="${periods}" useTopValue="false"/>
                 
             <jsp:include page="pagination.jsp">

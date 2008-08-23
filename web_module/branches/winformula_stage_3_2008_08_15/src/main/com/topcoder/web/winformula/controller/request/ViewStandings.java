@@ -91,9 +91,11 @@ public class ViewStandings extends AlgorithmBase {
         if (weekId != null) {
             rsc = getPeriodData("weeks_data", weekId);
             selectedId = weekId;
+            getRequest().setAttribute("periodKey", "week");
         } else if (miniSeasonId != null) {
             rsc = getPeriodData("mini_season_data", miniSeasonId);
             selectedId = miniSeasonId;
+            getRequest().setAttribute("periodKey", "ms");
         } else {
             return null;
         }
