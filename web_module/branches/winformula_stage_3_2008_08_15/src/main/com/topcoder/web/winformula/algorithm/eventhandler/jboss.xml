@@ -8,7 +8,7 @@
             <JMSProviderAdapterJNDI>MMServerJMSProvider</JMSProviderAdapterJNDI>
             <ServerSessionPoolFactoryJNDI>StdJMSPool</ServerSessionPoolFactoryJNDI>
             <MinimumSize>1</MinimumSize>
-            <MaximumSize>15</MaximumSize>
+            <MaximumSize>1</MaximumSize>
             <KeepAliveMillis>30000</KeepAliveMillis>
             <MaxMessages>1</MaxMessages>
             <MDBConfig>
