@@ -5,10 +5,6 @@
  */
 package com.topcoder.web.winformula.controller.request;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import com.topcoder.server.ejb.TestServices.LongTestResult;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -23,7 +19,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.cache.MaxAge;
-import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
 import com.topcoder.web.winformula.controller.PredictionsHelper;
@@ -71,7 +66,7 @@ public class ViewProfile extends StatsBase {
 
             // get data from DB
             // first the weeks
-            request.setAttribute("weeks", getWeeks(coderId));
+            setWeeksData(coderId);
 
             // then member data
             MemberData md = getMemberData(coderId);
@@ -111,14 +106,11 @@ public class ViewProfile extends StatsBase {
      * @param selectedWeek
      * @throws Exception
      */
-    private List<ListSelectTag.Option> getWeeks(int coderId) throws Exception {
+    private void setWeeksData(int coderId) throws Exception {
         ResultSetContainer rscWeeks = getWeeksData(coderId);
-        List<ListSelectTag.Option> weeks;
         if (rscWeeks.size() > 0) {
-            weeks = new ArrayList<ListSelectTag.Option>(rscWeeks.size());
             boolean found = false;
             for (ResultSetRow rsr : rscWeeks) {
-                weeks.add(new ListSelectTag.Option(String.valueOf(rsr.getIntItem("week_id")), rsr.getStringItem("week_desc"), rsr.getIntItem("week_id") == weekId));
                 if (rsr.getIntItem("week_id") == weekId) {
                     found = true;
                 }
@@ -132,10 +124,7 @@ public class ViewProfile extends StatsBase {
             }
         } else { 
             log.info("weeks is null or empty");
-            weeks = Collections.emptyList();
         }
-        
-        return weeks;
     }
         
     private MemberData getMemberData(int coderId) throws Exception {
