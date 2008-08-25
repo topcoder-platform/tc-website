@@ -86,7 +86,7 @@ public class ViewStandings extends AlgorithmBase {
      */
     private List<ListSelectTag.Option> getPeriods() throws Exception {
         ResultSetContainer rsc = null; 
-        String selectedDesc = "Overall";
+        String selectedDesc = null;
         int selectedId;
 
         if (weekId != null) {
@@ -96,8 +96,9 @@ public class ViewStandings extends AlgorithmBase {
         } else if (miniSeasonId != null) {
             rsc = getPeriodData("mini_season_data");
             selectedId = miniSeasonId;
-            getRequest().setAttribute("periodKey", "ms");
+            getRequest().setAttribute("periodKey", "msi");
         } else {
+            getRequest().setAttribute("periodDesc", "Overall");
             return null;
         }
 

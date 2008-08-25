@@ -43,7 +43,32 @@
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-            <div class="sub-navigation"> <a href="?module=ViewStandings">Overall Standings</a> | <a href="?module=ViewStandings&amp;msi=1">Mini-Season Standings</a> | <a href="?module=ViewStandings&amp;week=68">Weekly Standings</a></div>
+            <div class="sub-navigation">
+                <c:choose>
+                    <c:when test="${empty periodKey}">
+                        Overall Standings | 
+                    </c:when>
+                    <c:otherwise>
+                        <a href="?module=ViewStandings">Overall Standings</a> | 
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${periodKey == 'msi'}">
+                        Mini-Season Standings | 
+                    </c:when>
+                    <c:otherwise>
+                        <a href="?module=ViewStandings&amp;msi=1">Mini-Season Standings</a> | 
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${periodKey == 'week'}">
+                        Weekly Standings 
+                    </c:when>
+                    <c:otherwise>
+                        <a href="?module=ViewStandings&amp;week=68">Weekly Standings</a>
+                    </c:otherwise>
+                </c:choose>
+            </div>
 
             <h1>Standings - ${periodDesc}</h1>
 
