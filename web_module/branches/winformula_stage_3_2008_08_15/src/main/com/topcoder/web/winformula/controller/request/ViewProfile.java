@@ -22,6 +22,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
@@ -91,6 +92,7 @@ public class ViewProfile extends StatsBase {
             
             WeekStats ws = getWeekStats(coderId, weekId);
             
+            request.setAttribute("week", weekId);
             request.setAttribute("weekStats", ws);
             request.setAttribute("member", md);
             request.setAttribute("result", result);
@@ -125,10 +127,14 @@ public class ViewProfile extends StatsBase {
                 weekId = rscWeeks.get(0).getIntItem("week_id");
                 log.debug("using week: " + weekId);
             }
+            if (rscWeeks.size() > 0) {
+                getRequest().setAttribute("maxWeek", rscWeeks.get(rscWeeks.size()-1).getIntItem("week_id"));
+            }
         } else { 
             log.info("weeks is null or empty");
             weeks = Collections.emptyList();
         }
+        
         return weeks;
     }
         
@@ -190,7 +196,7 @@ public class ViewProfile extends StatsBase {
         r.setContentHandle("user_prediction_weeks");
         r.setProperty(Constants.USER_ID, String.valueOf(coderId));
 
-        DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
+        DataAccessInt dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.WINFORMULA_DATASOURCE_NAME);
         return dai.getData(r).get("user_prediction_weeks");
     }
     

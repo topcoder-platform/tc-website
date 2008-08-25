@@ -35,6 +35,12 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
+    <script type="text/javascript">
+        function changeWeek(week) {
+        	document.resultsForm.week.value = week;
+        	document.resultsForm.submit();
+        }
+    </script>
 </head>
 
 <body>
@@ -154,6 +160,22 @@
                 </div>--%>
                 
             </div>
+            <div class="tab-navigation" id="inner-tab-navigation">
+                <ul>
+                    <c:forEach begin="${1}" end="${15}" step="${1}" var="i"> 
+                        <li class="small ${i+67==week?'selected':''}">
+                            <c:choose>
+                                <c:when test="${maxWeek >= i+67}">
+                                    <a href="javascript:changeWeek(${i+67})">W${i}</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <span>W${i}</span>
+                                </c:otherwise>
+                            </c:choose>
+                        </li>
+                    </c:forEach>
+                </ul>
+            </div>
             <div class="dataArea" style="width:100%;">
              <c:choose>
                 <c:when test="${not empty result}">
@@ -166,9 +188,10 @@
                     <tc-webtag:hiddenInput name="cr" value="${cr}"/>
                     <tc-webtag:hiddenInput name="${numRecords}" value="${nr}"/>
                     <tc-webtag:hiddenInput name="${numPage}" value="${np}"/>
+                    <tc-webtag:hiddenInput name="week"/>
         
-                    <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
-                        list="${weeks}" useTopValue="false"/>
+<%--                     <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
+                        list="${weeks}" useTopValue="false"/>--%>
                     <br/><br/>
                     <c:if test="${not empty weekStats}">
                         <p class="textLarge">
