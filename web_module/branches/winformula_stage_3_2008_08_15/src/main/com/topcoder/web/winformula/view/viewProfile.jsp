@@ -84,7 +84,6 @@
                             <dl>
                                 <dt>Overall Rank:</dt>
                                 <dd>${member.overallRank} of ${member.totalRankedMembers}</dd>
-        
                             </dl>
                               <dl>
                                 <dt>Points:</dt>
