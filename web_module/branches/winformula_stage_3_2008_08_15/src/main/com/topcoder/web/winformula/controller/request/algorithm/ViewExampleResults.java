@@ -23,7 +23,6 @@ import com.topcoder.web.winformula.algorithm.services.PredictionResultTransforme
 import com.topcoder.web.winformula.controller.PredictionsHelper;
 import com.topcoder.web.winformula.controller.request.AlgorithmBase;
 import com.topcoder.web.winformula.model.Prediction;
-import com.topcoder.web.winformula.model.PredictionItem;
 import com.topcoder.web.winformula.model.PredictionSummary;
 
 /**

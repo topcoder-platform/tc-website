@@ -29,8 +29,11 @@ public class PredictionItem implements Serializable {
     
     public PredictionItem(String homeTeamName, String awayTeamName, GameResult predictedResult, GameResult realResult,
             Integer predictionScore) {
-        this(homeTeamName, awayTeamName, predictedResult, realResult, predictionScore, null, null, null);
-        
+
+        this(homeTeamName, awayTeamName, predictedResult, realResult, predictionScore, 
+                getTotalScoreVariance(predictedResult, realResult), 
+                getVictoryMarginVariance(predictedResult, realResult), 
+                getPickedWinner(predictedResult, realResult));
     }
     
     public PredictionItem(String homeTeamName, String awayTeamName, GameResult predictedResult, GameResult realResult,
@@ -81,4 +84,38 @@ public class PredictionItem implements Serializable {
     public String toString() {
         return "{home="+homeTeamName+", away="+awayTeamName+", score="+score+", totalScoreVariance="+totalScoreVariance+", victoryMarginVariance="+victoryMarginVariance+", pickedWinner="+pickedWinner+", predicted="+predictedResult+", real="+realResult+"}";
     }
+    
+    
+    // helper methods for some calculated values
+    
+    private static Boolean getPickedWinner(GameResult pr, GameResult rr) {
+        if (rr == null || pr == null) {
+            return Boolean.FALSE;
+        }
+        int real = rr.getHomeScore() - rr.getAwayScore();
+        int pred = pr.getHomeScore() - pr.getAwayScore();
+
+        return ((real > 0 && pred > 0) || (real < 0 && pred < 0) || (real == 0 && pred == 0)); 
+    }
+    
+    private static Integer getTotalScoreVariance(GameResult pr, GameResult rr) {
+        if (rr == null || pr == null) {
+            return null;
+        }
+        int homeDif = pr.getHomeScore() - rr.getHomeScore();
+        int awayDif = pr.getAwayScore() - rr.getAwayScore();
+
+        return Math.abs(homeDif) + Math.abs(awayDif); 
+    }
+    
+    private static Integer getVictoryMarginVariance(GameResult pr, GameResult rr) {
+        if (rr == null || pr == null) {
+            return null;
+        }
+        int homeDif = pr.getHomeScore() - rr.getHomeScore();
+        int awayDif = pr.getAwayScore() - rr.getAwayScore();
+
+        return Math.abs(homeDif - awayDif); 
+    }
+
 }
