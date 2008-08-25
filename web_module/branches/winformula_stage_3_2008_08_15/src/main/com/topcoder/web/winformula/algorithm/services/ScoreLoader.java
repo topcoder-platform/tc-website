@@ -41,14 +41,19 @@ public class ScoreLoader {
         try {
             cnn = DBMS.getDirectConnection();
             DBUtils.initDBBlock(cnn);
-            String cmd =    " select pd.prediction_detail_id, pd.home_score as home_pred, pd.visitor_score as visitor_pred, " + 
+            String cmd =    " select pd.prediction_detail_id, pd.home_score as home_pred, " +
+            		        " pd.visitor_score as visitor_pred, " + 
                             " g.home_score, g.visitor_score " +
                             " from prediction p, prediction_detail pd, game g, week w " +
                             " where p.prediction_id = pd.prediction_id " +
                             " and pd.game_id = g.game_id " +
                             " and p.week_id = w.week_id " +
+                            " and pd.home_score is not null " +
+                            " and pd.visitor_score is not null " +
+                            " and g.home_score is not null " +
+                            " and g.visitor_score is not null " +
                             " and w.week_id = ? " +
-                            " and p.prediction_status_id = ?";
+                            " and p.prediction_status_id >= ?";
             
             if (coderId > 0) {
                 cmd = cmd + " and p.coder_id = ? ";
@@ -61,25 +66,19 @@ public class ScoreLoader {
                ps.setInt(3, coderId); 
             }
             rs = ps.executeQuery();
+            int count = 0; 
             while (rs.next()) {
-                
-                // TODO: verify data
-                
                 int predictionDetailId = rs.getInt("prediction_detail_id");
                 GameResult predictedResult = new GameResult(rs.getInt("home_pred"), rs.getInt("visitor_pred"));
                 GameResult realResult = new GameResult(rs.getInt("home_score"), rs.getInt("visitor_score"));
-                
+
                 int points = getScore(predictedResult, realResult);
                 int totalScoreVariance = getTotalScoreVariance(predictedResult, realResult);
                 int victoryMarginVariance = getVictoryMarginVariance(predictedResult, realResult);
                 boolean pickedWinner = getPickedWinner(predictedResult, realResult);
                 
                 addUpdateScores(cnn, predictionDetailId, points, totalScoreVariance, victoryMarginVariance, pickedWinner);
-            }
-
-            // in case we are calculating a whole week, update week's status
-            if (coderId < 0) {
-                updateWeekStatus(cnn, weekId, WeekInfo.WEEK_SCORED_AND_CLOSED);
+                count++;
             }
         } catch (Exception e) {
             log.error("Failed to process", e);
@@ -89,22 +88,6 @@ public class ScoreLoader {
         }
     }
     
-    private void updateWeekStatus(Connection cnn,int weekId, int statusId) throws Exception {
-        PreparedStatement update = null;
-        final String UPDATE = "update week set week_status_id = ? " +
-                              " where week_id = ?";
-        
-        try {
-            update = cnn.prepareStatement(UPDATE);
-    
-            update.setInt(1, statusId);
-            update.setInt(2, weekId);
-            update.executeUpdate();
-        } finally {
-            DBMS.close(update);
-        }        
-    }
-
     private void addUpdateScores(Connection cnn, int predictionDetailId,
             int points, int totalScoreVariance, int victoryMarginVariance,
             boolean pickedWinner) throws Exception {
