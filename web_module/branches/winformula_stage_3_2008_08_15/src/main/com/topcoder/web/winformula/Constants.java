@@ -69,9 +69,11 @@ public class Constants implements CodingInterfaceConstants {
 
     public static int TIMEOUT_MILLISECS = 10000;
 
+    public static int WISDOM_ALL;
+    public static int WISDOM_BEST;
     
     /*------------------------------------------------------------------------------
-     * Coding Intefarce 
+     * Coding Interface 
      *-----------------------------------------------------------------------------*/
     
     //The component ID default

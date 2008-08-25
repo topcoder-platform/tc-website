@@ -31,7 +31,7 @@ import com.topcoder.web.winformula.model.PredictionItem;
  * @version $Id$
  */
 public class WinFormulaServicesImpl {
-    private static final String GENERIC_SEQ = "WINFORMULA_SEQ";
+    public static final String GENERIC_SEQ = "WINFORMULA_SEQ";
     
     public static final int PREDICTION_STATUS_NO_PREDICTION = 1;
     public static final int PREDICTION_STATUS_TEMPORARY = 2;
@@ -436,7 +436,7 @@ public class WinFormulaServicesImpl {
                             homePrediction = Integer.valueOf(game.getPredictedResult().getHomeScore());
                             awayPrediction = Integer.valueOf(game.getPredictedResult().getAwayScore());
                         }
-                        insertPredictionItem(predictionId, gameId, coderId, homePrediction, awayPrediction);
+                        insertPredictionItem(predictionId, gameId, homePrediction, awayPrediction);
                     }
                     updatePredictionStatus(predictionId, PREDICTION_STATUS_TEMPORARY);
                     log.info("Finished: Processing prediction result for roundId="+roundId+" coderId="+coderId+" submissionNumber="+submissionNumber+" weekIndex="+weekIndex);
@@ -456,7 +456,7 @@ public class WinFormulaServicesImpl {
         
     }
 
-    private void insertPredictionHeader(int predictionId, int roundId, int coderId, int weekIndex) throws SQLException {
+    public void insertPredictionHeader(int predictionId, int roundId, int coderId, int weekIndex) throws SQLException {
         PreparedStatement ps = null;
         try {
             Connection cnn = DBUtils.initDBBlock();
@@ -521,7 +521,7 @@ public class WinFormulaServicesImpl {
     }
 
 
-    private void insertPredictionItem(int predictionId, int gameId, int coderId, Integer homePrediction, Integer awayPrediction) throws SQLException, IDGenerationException {
+    public void insertPredictionItem(int predictionId, int gameId, Integer homePrediction, Integer awayPrediction) throws SQLException, IDGenerationException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -541,7 +541,7 @@ public class WinFormulaServicesImpl {
         }
     }
 
-    private int getNextID() throws IDGenerationException {
+    public int getNextID() throws IDGenerationException {
         return IdGeneratorClient.getSeqIdAsInt(GENERIC_SEQ);
     }
 
