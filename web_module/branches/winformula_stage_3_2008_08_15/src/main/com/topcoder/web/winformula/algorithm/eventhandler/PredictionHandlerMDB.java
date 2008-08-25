@@ -16,6 +16,7 @@ import com.topcoder.server.ejb.TestServices.LongRoundOverallScore;
 import com.topcoder.shared.serviceevent.ServiceEventMessageListener;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.winformula.algorithm.services.PredictionLoader;
+import com.topcoder.web.winformula.algorithm.services.WisdomPredictionGenerator;
 
 /**
  * Message driven bean responsible for handling events from the MM Engine
@@ -28,6 +29,7 @@ public class PredictionHandlerMDB implements MessageListener, MessageDrivenBean 
     private static final Logger alertLog = Logger.getLogger("ALERT."+PredictionHandlerMDB.class.getName());
     private final ServiceEventMessageListener listener;
     private final PredictionLoader loader = new PredictionLoader();
+    private final WisdomPredictionGenerator generator = new WisdomPredictionGenerator();
     
     @SuppressWarnings("unused")
     private MessageDrivenContext ctx;
@@ -71,6 +73,11 @@ public class PredictionHandlerMDB implements MessageListener, MessageDrivenBean 
                 if (log.isDebugEnabled()) {
                     log.debug("Coder registered roundId="+roundId+" coderId="+coderId);
                 }
+            }
+
+            public void roundSystemTestingCompleted(int roundId) {
+                log.info("System Testing complete roundId="+roundId);
+                generator.generatePredictionsForOpenedWeeksOfRound(roundId);
             }
         });
     }
