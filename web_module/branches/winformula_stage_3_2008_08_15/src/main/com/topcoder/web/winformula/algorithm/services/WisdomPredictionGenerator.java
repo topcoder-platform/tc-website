@@ -56,6 +56,7 @@ public class WisdomPredictionGenerator {
                 log.info("All weeks are closed for the given round");
                 return;
             }
+            
             deletePredictions(weeks);
             
             
@@ -64,7 +65,6 @@ public class WisdomPredictionGenerator {
                          "   WHERE pd.prediction_id = p.prediction_id AND p.week_id = ?  AND pd.home_score IS NOT NULL AND pd.visitor_score IS NOT NULL" +
                          "         AND p.coder_id NOT IN (?,?)"  + 
                          "   GROUP BY game_id order by 1";
-            
             generatePredictions(weeks, roundId, Constants.WISDOM_ALL, cmd);
             
             cmd =  "SELECT game_id, avg(pd.home_score) as home_score, avg(pd.visitor_score) as visitor_score" + 
@@ -72,8 +72,7 @@ public class WisdomPredictionGenerator {
                     "      WHERE pd.prediction_id = p.prediction_id AND p.week_id = ? AND pd.home_score IS NOT NULL and pd.visitor_score IS NOT NULL" + 
                     "            AND p.coder_id IN (select coder_id from user_overall_stats uos where uos.rank <= 10 + (select count(*) from  user_overall_stats where rank <= 10 and coder_id in (?,?)))" + 
                     "      group by game_id order by 1";
-             
-             generatePredictions(weeks, roundId, Constants.WISDOM_BEST, cmd);
+            generatePredictions(weeks, roundId, Constants.WISDOM_BEST, cmd);
                    
         } catch (Exception e) {
             log.error("Failed to process", e);
@@ -109,47 +108,9 @@ public class WisdomPredictionGenerator {
     }
 
 
-    private void deletePredictions(List<Integer> weeks) throws SQLException {
-        PreparedStatement ps = null;
-        try {
-            Connection cnn = DBUtils.getCurrentConnection();
-    
-            String cmd = "DELETE FROM prediction_detail_score " +
-                         "  WHERE prediction_detail_id IN " +
-                         "       (SELECT prediction_detail_id FROM prediction_detail pd, prediction p " +
-                         "         WHERE pd.prediction_id = p.prediction_id AND coder_id = ? AND " + DBUtils.sqlStrInList("week_id", weeks)+")";
-            ps = cnn.prepareStatement(cmd);
-            ps.setInt(1, Constants.WISDOM_ALL);
-            ps.executeUpdate();
-            ps.setInt(1, Constants.WISDOM_BEST);
-            ps.executeUpdate();
-            DBMS.close(ps);
-            
-            ps = cnn.prepareStatement("DELETE FROM prediction_detail WHERE prediction_id IN (SELECT prediction_id FROM prediction  WHERE coder_id = ? AND " + DBUtils.sqlStrInList("week_id", weeks)+")");
-            ps.setInt(1, Constants.WISDOM_ALL);
-            ps.executeUpdate();
-            ps.setInt(1, Constants.WISDOM_BEST);
-            ps.executeUpdate();
-            DBMS.close(ps);
-            
-            
-            ps = cnn.prepareStatement("DELETE FROM user_week_stats WHERE coder_id = ? AND " + DBUtils.sqlStrInList("week_id", weeks));
-            ps.setInt(1, Constants.WISDOM_ALL);
-            ps.executeUpdate();
-            ps.setInt(1, Constants.WISDOM_BEST);
-            ps.executeUpdate();
-            DBMS.close(ps);
-            
-            ps = cnn.prepareStatement("DELETE FROM prediction WHERE coder_id = ? AND " + DBUtils.sqlStrInList("week_id", weeks));
-            ps.setInt(1, Constants.WISDOM_ALL);
-            ps.executeUpdate();
-            ps.setInt(1, Constants.WISDOM_BEST);
-            ps.executeUpdate();
-            DBMS.close(ps);
-        } finally {
-            DBMS.close(ps);
-        }
-        
+    private void deletePredictions(List<Integer> weeks) throws WinFormulaServicesException {
+        service.deletePredictions(weeks, Constants.WISDOM_ALL);
+        service.deletePredictions(weeks, Constants.WISDOM_BEST);
     }
 
 

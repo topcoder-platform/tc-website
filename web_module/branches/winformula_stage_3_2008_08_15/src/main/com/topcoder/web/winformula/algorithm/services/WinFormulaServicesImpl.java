@@ -625,4 +625,35 @@ public class WinFormulaServicesImpl {
             DBUtils.endDBBlock();
         }
     }
+    
+    
+    public void deletePredictions(List<Integer> weeks, int coderId) throws WinFormulaServicesException {
+        PreparedStatement ps = null;
+        try {
+            Connection cnn = DBUtils.initDBBlock();
+
+            ps = cnn.prepareStatement("DELETE FROM prediction_detail WHERE prediction_id IN (SELECT prediction_id FROM prediction  WHERE coder_id = ? AND " + DBUtils.sqlStrInList("week_id", weeks)+")");
+            ps.setInt(1, coderId);
+            ps.executeUpdate();
+            DBMS.close(ps);
+            
+            
+            ps = cnn.prepareStatement("DELETE FROM user_week_stats WHERE coder_id = ? AND " + DBUtils.sqlStrInList("week_id", weeks));
+            ps.setInt(1, coderId);
+            ps.executeUpdate();
+            DBMS.close(ps);
+            
+            ps = cnn.prepareStatement("DELETE FROM prediction WHERE coder_id = ? AND " + DBUtils.sqlStrInList("week_id", weeks));
+            ps.setInt(1, coderId);
+            ps.executeUpdate();
+            DBMS.close(ps);
+        }  catch (Exception e) {
+            log.error("Could not process required method", e);
+            throw new WinFormulaServicesException("INTERNAL_SERVER");
+        } finally {
+            DBMS.close(ps);
+            DBUtils.endDBBlock();
+        }
+        
+    }
 }
