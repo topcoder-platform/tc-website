@@ -101,6 +101,7 @@ public class WisdomPredictionGenerator {
                while (rs.next()) {
                    service.insertPredictionItem(predictionId, rs.getInt(1), DBUtils.getInt(rs, 2), DBUtils.getInt(rs, 3));
                }
+               DBMS.close(rs);
             }
         } finally {
             DBMS.close(ps, rs);
