@@ -64,7 +64,7 @@ public class PredictionResultTransformer {
                     rscore = new GameResult(homeScore.intValue(), awayScore.intValue());
                 }
                 PredictionItem predictionItem = new PredictionItem(homeTeam, awayTeam, pscore, rscore, predictionScore);
-                if (predictionItem.getPickedWinner().booleanValue()) {
+                if (predictionItem.getPickedWinner() != null && predictionItem.getPickedWinner().booleanValue()) {
                     weekCorrect++;
                 }
                 items.add(predictionItem);
