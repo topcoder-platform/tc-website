@@ -44,6 +44,11 @@
 
     <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
     <tr><td valign="middle" class="bodyText" colspan="2">
+    <strong>August</strong></td></tr>
+    <tr><td class="bodyText">08.16.08</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 54 - <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm54">Problem Set &amp; Analysis</a></td></tr>
+    
+    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+    <tr><td valign="middle" class="bodyText" colspan="2">
     <strong>July</strong></td></tr>
     <tr><td class="bodyText">07.23.08</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 53 - <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm53">Problem Set &amp; Analysis</a></td></tr>
     <tr><td class="bodyText">07.01.08</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 52 - <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm52">Problem Set &amp; Analysis</a></td></tr>
