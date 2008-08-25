@@ -199,7 +199,7 @@ public class StatsHelper {
         int startRank = getStartRank(Integer.parseInt(numPage), Integer.parseInt(numRecords));
         int endRank = getEndRank(Integer.parseInt(numPage), Integer.parseInt(numRecords));
         if (endRank >= sizeBeforeCrop) {
-            endRank = sizeBeforeCrop - 1;
+            endRank = sizeBeforeCrop;
         }
             
         List<StandingsItem> result;
@@ -211,7 +211,7 @@ public class StatsHelper {
 
         log.debug("startRank: " + startRank);
         log.debug("startRank: " + endRank);
-        log.debug("startRank: " + sizeBeforeCrop);
+        log.debug("sizeBeforeCrop: " + sizeBeforeCrop);
         
         request.setAttribute("croppedDataBefore", new Boolean(startRank > 1));
         request.setAttribute("croppedDataAfter", new Boolean(endRank != sizeBeforeCrop - 1));
