@@ -18,6 +18,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.controller.request.algorithm.ViewExampleResults;
@@ -58,7 +59,7 @@ public class StatsHelper {
             r.setContentHandle(commandName);
         }
 
-        DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
+        DataAccessInt dai = new CachedDataAccess(MaxAge.FIVE_MINUTES, DBMS.WINFORMULA_DATASOURCE_NAME);
         return dai.getData(r).get(commandName);
     }
 
