@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.topcoder.server.ejb.TestServices.LongTestResult;
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -21,6 +22,7 @@ import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.controller.PredictionsHelper;
@@ -120,11 +122,19 @@ public class ViewLastPredictions extends AlgorithmBase {
 
     private Date getSubmissionDate(long coderId) throws Exception {
         Request r = new Request();
-        r.setContentHandle("user_prediction_submission");
-        r.setProperty(Constants.USER_ID, String.valueOf(coderId));
+        String commandName = "user_prediction_latest_submission";
+        if (roundId != null) {
+            commandName = "user_prediction_round_submission";
+        }
+        r.setContentHandle(commandName);
 
-        DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
-        ResultSetContainer rsc = dai.getData(r).get("user_prediction_submission");
+        r.setProperty(Constants.USER_ID, String.valueOf(coderId));
+        if (roundId != null) {
+            r.setProperty(Constants.ROUND_ID, String.valueOf(roundId));
+        }
+
+        DataAccessInt dai = new DataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
+        ResultSetContainer rsc = dai.getData(r).get(commandName);
         
         if (rsc.size() > 0) {
             return new Date(rsc.get(0).getIntItem("submit_time"));            
@@ -144,7 +154,7 @@ public class ViewLastPredictions extends AlgorithmBase {
         if (roundId != null) {
             r.setProperty(Constants.ROUND_ID, String.valueOf(roundId));
         }
-        DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
+        DataAccessInt dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.WINFORMULA_DATASOURCE_NAME);
         return dai.getData(r).get(commandName);
     }
 }
