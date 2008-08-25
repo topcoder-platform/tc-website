@@ -166,10 +166,14 @@
                         <li class="small ${i+67==week?'selected':''}">
                             <c:choose>
                                 <c:when test="${maxWeek >= i+67}">
-                                    <a href="javascript:changeWeek(${i+67})">W${i}</a>
+                                    <a href="javascript:changeWeek(${i+67})">
+                                        <c:choose><c:when test="${i==1}">Week 1</c:when><c:otherwise>W${i}</c:otherwise></c:choose>
+                                    </a>
                                 </c:when>
                                 <c:otherwise>
-                                    <span>W${i}</span>
+                                    <span>
+                                        <c:choose><c:when test="${i==1}">Week 1</c:when><c:otherwise>W${i}</c:otherwise></c:choose>
+                                    </span>
                                 </c:otherwise>
                             </c:choose>
                         </li>
