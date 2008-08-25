@@ -170,11 +170,13 @@
                     <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
                         list="${weeks}" useTopValue="false"/>
                     <br/><br/>
-                    <p class="textLarge">
-                        <strong>${weekStats.weekName} Totals: &nbsp;&nbsp;&nbsp;&nbsp;Rank:</strong> ${weekStats.rank} of ${weekStats.maxRank}
-                        <strong>&nbsp;&nbsp;&nbsp;&nbsp;Win Percentage:</strong> <fmt:formatNumber value="${weekStats.winPercent}" pattern="0.00"/>%
-                        <strong>&nbsp;&nbsp;&nbsp;&nbsp;Points:</strong> ${weekStats.points}
-                    </p>
+                    <c:if test="${not empty weekStats}">
+                        <p class="textLarge">
+                            <strong>${weekStats.weekName} Totals: &nbsp;&nbsp;&nbsp;&nbsp;Rank:</strong> ${weekStats.rank} of ${weekStats.maxRank}
+                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Win Percentage:</strong> <fmt:formatNumber value="${weekStats.winPercent}" pattern="0.00"/>%
+                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Points:</strong> ${weekStats.points}
+                        </p>
+                    </c:if>
                     <jsp:include page="pagination.jsp">
                         <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
                         <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />
