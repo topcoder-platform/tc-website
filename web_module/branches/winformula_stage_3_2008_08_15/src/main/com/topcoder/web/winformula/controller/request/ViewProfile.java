@@ -59,11 +59,18 @@ public class ViewProfile extends StatsBase {
                 coderId = (int) getUser().getId();
             }
             
+            String selectedWeek = StringUtils.checkNull(request.getParameter("week"));
+
+            try {
+                weekId = Integer.parseInt(selectedWeek);
+            } catch (Exception e) {
+            }
+
             // get data from DB
             // first the weeks
             request.setAttribute("weeks", getWeeks(coderId));
 
-            // then the predictions
+            // then member data
             MemberData md = getMemberData(coderId);
 
             // then the predictions
