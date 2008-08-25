@@ -95,10 +95,10 @@
                         <div class="tab-navigation" id="inner-tab-navigation">
                             <ul>
                                 <c:forEach begin="${1}" end="${4}" step="${1}" var="i">
-                                    <li class="small ${i==periodId?'selected':''}">
+                                    <li class="small ${i+30833==periodId?'selected':''}">
                                         <c:choose>
-                                            <c:when test="${maxPeriod>= i}">
-                                                <a href="javascript:changeMiniSeason(${i})">
+                                            <c:when test="${maxPeriod>= i+30833}">
+                                                <a href="javascript:changeMiniSeason(${i+30833})">
                                                     <c:choose>
                                                         <c:when test="${i==1}">Mini-Season 1 (Weeks 1-3)</c:when>
                                                         <c:when test="${i==2}">Mini-Season 2 (W4-W7)</c:when>

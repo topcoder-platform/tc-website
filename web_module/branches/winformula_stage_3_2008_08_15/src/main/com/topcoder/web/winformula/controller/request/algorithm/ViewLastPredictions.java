@@ -137,7 +137,7 @@ public class ViewLastPredictions extends AlgorithmBase {
         ResultSetContainer rsc = dai.getData(r).get(commandName);
         
         if (rsc.size() > 0) {
-            return new Date(rsc.get(0).getIntItem("submit_time"));            
+            return new Date(rsc.get(0).getIntItem("submit_time"));
         } else {
             return null;
         }

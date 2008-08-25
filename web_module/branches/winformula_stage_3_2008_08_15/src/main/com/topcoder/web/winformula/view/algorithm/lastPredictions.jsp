@@ -62,7 +62,7 @@
                 </c:otherwise>
             </c:choose> 
             <c:if test="${not empty algoDate}">
-            <h2>Predictions based on your algorithm uploaded on ${algoDate}</h2>
+            <h2>Predictions based on your algorithm uploaded on <tc-webtag:format object="${algoDate}" format="MM.dd.yyyy HH:mm:ss"/></h2>
             </c:if>
             <div class="dataArea" style="width:100%;">
              <c:choose>
