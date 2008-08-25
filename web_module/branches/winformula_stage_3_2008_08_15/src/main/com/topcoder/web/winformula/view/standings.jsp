@@ -84,14 +84,14 @@
 
             <div class="tab-navigation" id="inner-tab-navigation">
                 <ul>
-                    <c:choose>
+<%--                     <c:choose>
                         <c:when test="${empty periodKey}">
                             <li class="small selected"><span>Overall</span></li>
                         </c:when>
                         <c:otherwise>
                             <li class="small"><a href="#">Overall</a></li>
                         </c:otherwise>
-                    </c:choose>
+                    </c:choose> --%>
                     <c:choose>
                         <c:when test="${periodKey == 'msi'}">
                             <c:forEach begin="${1}" end="${4}" step="${1}" var="i">
