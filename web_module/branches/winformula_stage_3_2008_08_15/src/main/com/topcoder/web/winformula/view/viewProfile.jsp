@@ -192,7 +192,7 @@
                     <tc-webtag:hiddenInput name="cr" value="${cr}"/>
                     <tc-webtag:hiddenInput name="${numRecords}" value="${nr}"/>
                     <tc-webtag:hiddenInput name="${numPage}" value="${np}"/>
-                    <tc-webtag:hiddenInput name="week"/>
+                    <tc-webtag:hiddenInput name="week" value="${week}"/>
         
 <%--                     <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
                         list="${weeks}" useTopValue="false"/>--%>
