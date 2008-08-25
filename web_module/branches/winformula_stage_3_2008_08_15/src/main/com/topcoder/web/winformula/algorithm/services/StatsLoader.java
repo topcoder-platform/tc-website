@@ -50,7 +50,8 @@ public class StatsLoader {
                             " where week_id = ? ";
             
             String INSERT = "insert into user_week_stats " +
-                " select p.week_id, p.coder_id, 0 as rank, 0 as rank_diff, sum(nvl(pds.prediction_detail_points,0)) as points, " + 
+                " select p.week_id, p.coder_id, 0 as rank, 0 as rank_diff, " +
+                " sum(nvl(pds.prediction_detail_points,0)) as points, " + 
                 " avg(pds.prediction_detail_total_score_variance) as avg_total_score_variance, " +
                 " avg(pds.prediction_detail_victory_margin_variance) as avg_victory_margin_variance, " +
                 " sum(case when pds.prediction_detail_picked_winner then 1 else 0 end) / count(*) * 100 as avg_picked_winner " +
@@ -105,7 +106,8 @@ public class StatsLoader {
                             " where mini_season_id = (select w2.mini_season_id from week w2 where w2.week_id = ?)";
             
             String INSERT = " insert into user_mini_season_stats " +
-            "     select ms.mini_season_id, p.coder_id, 0 as rank, 0 as rank_diff, sum(nvl(pds.prediction_detail_points,0)) as points, " + 
+            "     select ms.mini_season_id, p.coder_id, 0 as rank, 0 as rank_diff, " +
+            "     sum(nvl(pds.prediction_detail_points,0)) as points, " + 
             "            avg(pds.prediction_detail_total_score_variance) as avg_total_score_variance, " +
             "            avg(pds.prediction_detail_victory_margin_variance) as avg_victory_margin_variance, " +
             "            sum(case when pds.prediction_detail_picked_winner then 1 else 0 end) / count(*) * 100 as avg_picked_winner " +
@@ -165,7 +167,8 @@ public class StatsLoader {
                    "        sum(case when pds.prediction_detail_picked_winner then 1 else 0 end) / count(*) * 100 as avg_picked_winner " +
                    " from prediction p, prediction_detail pd, prediction_detail_score pds " +
                    " where p.prediction_id = pd.prediction_id " +
-                   " and pd.prediction_detail_id = pds.prediction_detail_id ";
+                   " and pd.prediction_detail_id = pds.prediction_detail_id " +
+                   " and p.week_id > 70";   // first three weeks doesn't cound for overall stats
             
             if (coderId > 0) {
                 INSERT += " and coder_id = ? ";

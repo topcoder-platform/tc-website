@@ -80,6 +80,10 @@ public class ScoreLoader {
                 addUpdateScores(cnn, predictionDetailId, points, totalScoreVariance, victoryMarginVariance, pickedWinner);
                 count++;
             }
+            log.info("Score loader: " + count + " rows updated/inserted");
+            if (count == 0) {
+                log.info("** missing predictions or games results???");
+            }
         } catch (Exception e) {
             log.error("Failed to process", e);
         } finally {
