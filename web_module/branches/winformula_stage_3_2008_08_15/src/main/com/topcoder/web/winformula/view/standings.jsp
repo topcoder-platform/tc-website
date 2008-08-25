@@ -82,8 +82,6 @@
 
             <h1>Standings - ${periodDesc}</h1>
 
-            <div class="tab-navigation" id="inner-tab-navigation">
-                <ul>
 <%--                     <c:choose>
                         <c:when test="${empty periodKey}">
                             <li class="small selected"><span>Overall</span></li>
@@ -92,57 +90,62 @@
                             <li class="small"><a href="#">Overall</a></li>
                         </c:otherwise>
                     </c:choose> --%>
-                    <c:choose>
-                        <c:when test="${periodKey == 'msi'}">
-                            <c:forEach begin="${1}" end="${4}" step="${1}" var="i">
-                                <li class="small ${i==periodId?'selected':''}">
-                                    <c:choose>
-                                        <c:when test="${maxPeriod>= i}">
-                                            <a href="javascript:changeMiniSeason(${i})">
-                                                <c:choose>
-                                                    <c:when test="${i==1}">Mini-Season 1 (Weeks 1-3)</c:when>
-                                                    <c:when test="${i==2}">Mini-Season 2 (W4-W7)</c:when>
-                                                    <c:when test="${i==3}">Mini-Season 3 (W8-W11)</c:when>
-                                                    <c:when test="${i==4}">Mini-Season 4 (W12-W15)</c:when>
-                                                </c:choose>
-                                            </a>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <span>
-                                                <c:choose>
-                                                    <c:when test="${i==1}">Mini-Season 1 (Weeks 1-3)</c:when>
-                                                    <c:when test="${i==2}">Mini-Season 2 (W4-W7)</c:when>
-                                                    <c:when test="${i==3}">Mini-Season 3 (W8-W11)</c:when>
-                                                    <c:when test="${i==4}">Mini-Season 4 (W12-W15)</c:when>
-                                                </c:choose>
-                                            </span>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </li>
-                            </c:forEach>
-
-                        </c:when>
-                        <c:when test="${periodKey == 'week'}">
-                            <c:forEach begin="${1}" end="${15}" step="${1}" var="i"> 
-                                <li class="small ${i+67==periodId?'selected':''}">
-                                    <c:choose>
-                                        <c:when test="${maxPeriod>= i+67}">
-                                            <a href="javascript:changeWeek(${i+67})">
-                                                <c:choose><c:when test="${i==1}">Week 1</c:when><c:otherwise>W${i}</c:otherwise></c:choose>
-                                            </a>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <span>
-                                                <c:choose><c:when test="${i==1}">Week 1</c:when><c:otherwise>W${i}</c:otherwise></c:choose>
-                                            </span>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </li>
-                            </c:forEach>
-                        </c:when>
-                    </c:choose>
-                </ul>
-            </div>
+                <c:choose>
+                    <c:when test="${periodKey == 'msi'}">
+                        <div class="tab-navigation" id="inner-tab-navigation">
+                            <ul>
+                                <c:forEach begin="${1}" end="${4}" step="${1}" var="i">
+                                    <li class="small ${i==periodId?'selected':''}">
+                                        <c:choose>
+                                            <c:when test="${maxPeriod>= i}">
+                                                <a href="javascript:changeMiniSeason(${i})">
+                                                    <c:choose>
+                                                        <c:when test="${i==1}">Mini-Season 1 (Weeks 1-3)</c:when>
+                                                        <c:when test="${i==2}">Mini-Season 2 (W4-W7)</c:when>
+                                                        <c:when test="${i==3}">Mini-Season 3 (W8-W11)</c:when>
+                                                        <c:when test="${i==4}">Mini-Season 4 (W12-W15)</c:when>
+                                                    </c:choose>
+                                                </a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <span>
+                                                    <c:choose>
+                                                        <c:when test="${i==1}">Mini-Season 1 (Weeks 1-3)</c:when>
+                                                        <c:when test="${i==2}">Mini-Season 2 (W4-W7)</c:when>
+                                                        <c:when test="${i==3}">Mini-Season 3 (W8-W11)</c:when>
+                                                        <c:when test="${i==4}">Mini-Season 4 (W12-W15)</c:when>
+                                                    </c:choose>
+                                                </span>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </li>
+                                </c:forEach>
+                            </ul>
+                        </div>
+                    </c:when>
+                    <c:when test="${periodKey == 'week'}">
+                        <div class="tab-navigation" id="inner-tab-navigation">
+                            <ul>
+                                <c:forEach begin="${1}" end="${15}" step="${1}" var="i"> 
+                                    <li class="small ${i+67==periodId?'selected':''}">
+                                        <c:choose>
+                                            <c:when test="${maxPeriod>= i+67}">
+                                                <a href="javascript:changeWeek(${i+67})">
+                                                    <c:choose><c:when test="${i==1}">Week 1</c:when><c:otherwise>W${i}</c:otherwise></c:choose>
+                                                </a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <span>
+                                                    <c:choose><c:when test="${i==1}">Week 1</c:when><c:otherwise>W${i}</c:otherwise></c:choose>
+                                                </span>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </li>
+                                </c:forEach>
+                            </ul>
+                        </div>
+                    </c:when>
+                </c:choose>
             
             <div class="dataArea" style="width:100%;">
 
