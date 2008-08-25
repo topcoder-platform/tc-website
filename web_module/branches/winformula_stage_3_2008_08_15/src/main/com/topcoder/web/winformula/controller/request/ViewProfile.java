@@ -1,5 +1,5 @@
 /*
- * ViewMyProfile
+ * ViewProfile
  * 
  * Created Aug 8, 2008
  */
@@ -22,6 +22,7 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.winformula.Constants;
+import com.topcoder.web.winformula.algorithm.CodingConstants;
 import com.topcoder.web.winformula.controller.PredictionsHelper;
 import com.topcoder.web.winformula.model.MemberData;
 import com.topcoder.web.winformula.model.Prediction;
@@ -31,26 +32,28 @@ import com.topcoder.web.winformula.model.WeekStats;
  * @autor Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class ViewMyProfile extends StatsBase {
-    protected static final Logger log = Logger.getLogger(ViewMyProfile.class);
+public class ViewProfile extends StatsBase {
+    protected static final Logger log = Logger.getLogger(ViewProfile.class);
     
     private int weekId = -1;
 
     protected void statsProcessing() throws Exception {
         try {
             TCRequest request = getRequest();
+            Boolean myProfile = Boolean.FALSE;
 
-            int coderId = getUserID();
-
-            log.debug("coder: " + coderId + " user " + getUser().getId());
-
-            String selectedWeek = StringUtils.checkNull(request.getParameter("week"));
-
+            int coderId = 0;
+            String selectedCoder = StringUtils.checkNull(request.getParameter(CodingConstants.CODER_ID));
             try {
-                weekId = Integer.parseInt(selectedWeek);
+                coderId = Integer.parseInt(selectedCoder);
             } catch (Exception e) {
             }
 
+            if (coderId == 0) {
+                myProfile = Boolean.TRUE;
+                coderId = (int) getUser().getId();
+            }
+            
             // get data from DB
             // first the weeks
             request.setAttribute("weeks", getWeeks(coderId));
@@ -76,7 +79,9 @@ public class ViewMyProfile extends StatsBase {
             
             request.setAttribute("weekStats", ws);
             request.setAttribute("member", md);
+            request.setAttribute(CodingConstants.CODER_ID, coderId);
             request.setAttribute("result", result);
+            request.setAttribute("myProfile", myProfile);
 
             setNextPage(Constants.PAGE_MY_PROFILE);
             setIsNextPageInContext(true);

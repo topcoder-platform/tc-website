@@ -21,7 +21,14 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>ESPN Winning Formula Challenge :: Powered by TopCoder - My Profile</title>
+    <c:choose>
+        <c:when test="${myProfile}">
+            <title>ESPN Winning Formula Challenge :: Powered by TopCoder - My Profile</title>
+        </c:when>
+        <c:otherwise>
+            <title>ESPN Winning Formula Challenge :: Powered by TopCoder - View Profile</title>
+        </c:otherwise>
+    </c:choose>
     <%-- Meta Tags --%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -34,25 +41,44 @@
     <div id="wrapper">
     <%-- Wrapper --%>
     
-        <jsp:include page="nav.jsp">
-        <jsp:param name="tabLev1" value="profile" />
-        <jsp:param name="tabLev2" value="" />
-        <jsp:param name="tabLev3" value="" />
-        </jsp:include>
+    <c:choose>
+        <c:when test="${myProfile}">
+            <jsp:include page="nav.jsp">
+            <jsp:param name="tabLev1" value="profile" />
+            <jsp:param name="tabLev2" value="" />
+            <jsp:param name="tabLev3" value="" />
+            </jsp:include>
+        </c:when>
+        <c:otherwise>
+            <jsp:include page="nav.jsp">
+            <jsp:param name="tabLev1" value="standings" />
+            <jsp:param name="tabLev2" value="" />
+            <jsp:param name="tabLev3" value="" />
+            </jsp:include>
+        </c:otherwise>
+    </c:choose>
         
         <div id="container">
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
             <div id="profile-box">
-                <h1>My Profile</h1>
+                <c:choose>
+                    <c:when test="${myProfile}">
+                        <h1>My Profile</h1>
+                    </c:when>
+                    <c:otherwise>
+                        <h1>${member.handle}</h1>
+                    </c:otherwise>
+                </c:choose>
                 <div class="left-content">
                   <div class="form-content">
-
-                    <dl>
-                        <dt>Member Name:</dt>
-                        <dd>${member.handle}</dd>
-                    </dl>
+                    <c:if test="${myProfile}">
+                        <dl>
+                            <dt>Member Name:</dt>
+                            <dd>${member.handle}</dd>
+                        </dl>
+                    </c:if>
                     <dl>
                         <dt>Overall Rank:</dt>
                         <dd>${member.overallRank} of ${member.totalRankedMembers}</dd>
@@ -124,7 +150,7 @@
             <!-- Prepares some collection data and formatter -->
                 <% boolean even = true;%>
             <form name="resultsForm" action="${sessionInfo.servletPath}" method="get">
-            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewMyProfile"/>
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewProfile"/>
             <tc-webtag:hiddenInput name="${sortCol}"/>
             <tc-webtag:hiddenInput name="${sortDir}"/>
             <tc-webtag:hiddenInput name="cr" value="${cr}"/>
