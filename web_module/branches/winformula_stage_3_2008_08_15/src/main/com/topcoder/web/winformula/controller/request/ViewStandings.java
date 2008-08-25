@@ -67,7 +67,13 @@ public class ViewStandings extends AlgorithmBase {
                 // crop
                 result = StatsHelper.cropResult(request, result);
             }
-            
+
+            if (weekId != null) {
+                request.setAttribute("periodId", weekId);
+            } else if (miniSeasonId != null) {
+                request.setAttribute("miniSeasonId", weekId);
+            }
+
             request.setAttribute("result", result);
 
             setNextPage(nextPage());
@@ -122,6 +128,9 @@ public class ViewStandings extends AlgorithmBase {
                     miniSeasonId = rsc.get(0).getIntItem("period_id");
                 }
                 selectedDesc = rsc.get(0).getStringItem("period_desc");
+            }
+            if (rsc.size() > 0) {
+                getRequest().setAttribute("maxPeriod", rsc.get(rsc.size()-1).getIntItem("period_id"));
             }
         } else { 
             log.info("period is null or empty");

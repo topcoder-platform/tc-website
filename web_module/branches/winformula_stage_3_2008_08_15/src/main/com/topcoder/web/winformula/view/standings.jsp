@@ -27,6 +27,16 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_winformula"/>
     </jsp:include>
+    <script type="text/javascript">
+    function changeWeek(week) {
+        document.resultsForm.week.value = week;
+        document.resultsForm.submit();
+    }
+    function changeMiniSeason(msi) {
+        document.resultsForm.msi.value = msi;
+        document.resultsForm.submit();
+    }
+    </script>
 </head>
 
 <body>
@@ -72,6 +82,68 @@
 
             <h1>Standings - ${periodDesc}</h1>
 
+            <div class="tab-navigation" id="inner-tab-navigation">
+                <ul>
+                    <c:choose>
+                        <c:when test="${empty periodKey}">
+                            <li class="small selected">Overall</li>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="small">Overall</li>
+                        </c:otherwise>
+                    </c:choose>
+                    <c:choose>
+                        <c:when test="${periodKey == 'msi'}">
+                            <c:forEach begin="${1}" end="${4}" step="${1}" var="i"> 
+                                <li class="small ${i==periodId?'selected':''}">
+                                    <c:choose>
+                                        <c:when test="${maxPeriod>= i+67}">
+                                            <a href="javascript:changeMiniSeason(${i})">
+                                                <c:choose>
+                                                    <c:when test="${i==1}">Mini-Season 1 (Weeks 1-3)</c:when>
+                                                    <c:when test="${i==2}">Mini-Season 2 (W4-W7)</c:when>
+                                                    <c:when test="${i==3}">Mini-Season 3 (W8-W11)</c:when>
+                                                    <c:when test="${i==4}">Mini-Season 4 (W12-W15)</c:when>
+                                                </c:choose>
+                                            </a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span>
+                                                <c:choose>
+                                                    <c:when test="${i==1}">Mini-Season 1 (Weeks 1-3)</c:when>
+                                                    <c:when test="${i==2}">Mini-Season 2 (W4-W7)</c:when>
+                                                    <c:when test="${i==3}">Mini-Season 3 (W8-W11)</c:when>
+                                                    <c:when test="${i==4}">Mini-Season 4 (W12-W15)</c:when>
+                                                </c:choose>
+                                            </span>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </li>
+                            </c:forEach>
+
+                        </c:when>
+                        <c:when test="${periodKey == 'week'}">
+                            <c:forEach begin="${1}" end="${15}" step="${1}" var="i"> 
+                                <li class="small ${i+67==periodId?'selected':''}">
+                                    <c:choose>
+                                        <c:when test="${maxPeriod>= i+67}">
+                                            <a href="javascript:changeWeek(${i+67})">
+                                                <c:choose><c:when test="${i==1}">Week 1</c:when><c:otherwise>W${i}</c:otherwise></c:choose>
+                                            </a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span>
+                                                <c:choose><c:when test="${i==1}">Week 1</c:when><c:otherwise>W${i}</c:otherwise></c:choose>
+                                            </span>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </li>
+                            </c:forEach>
+                        </c:when>
+                    </c:choose>
+                </ul>
+            </div>
+            
             <div class="dataArea" style="width:100%;">
 
 <!-- Prepares some collection data and formatter -->
@@ -83,10 +155,11 @@
             <tc-webtag:hiddenInput name="cr" value="${cr}"/>
             <tc-webtag:hiddenInput name="${numRecords}" value="${nr}"/>
             <tc-webtag:hiddenInput name="${numPage}" value="${np}"/>
+            <tc-webtag:hiddenInput name="${periodKey}" value="${periodId}"/>
 
-            <c:if test="${not empty periods}">
+<%--             <c:if test="${not empty periods}">
                 <tc-webtag:listSelect name="${periodKey}" styleClass="dropdown" onChange="document.resultsForm.submit()"
-                    list="${periods}" useTopValue="false"/>
+                    list="${periods}" useTopValue="false"/> --%>
             </c:if>
             <jsp:include page="pagination.jsp">
                 <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
