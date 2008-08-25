@@ -61,54 +61,60 @@
                     <h1>View Picks</h1>
                 </c:otherwise>
             </c:choose> 
-            <p>Your current algorithm's predictions will not be viewable to other contestants or the public until all contestants algorithms have been locked for the week.</p>
             <c:if test="${not empty algoDate}">
             <h2>Predictions based on your algorithm uploaded on ${algoDate}</h2>
             </c:if>
             <div class="dataArea" style="width:100%;">
-
-<!-- Prepares some collection data and formatter -->
-                <% boolean even = true;%>
-            <form name="resultsForm" action="${sessionInfo.servletPath}" method="get">
-            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewLastPredictions"/>
-            <tc-webtag:hiddenInput name="${sortCol}"/>
-            <tc-webtag:hiddenInput name="${sortDir}"/>
-            <tc-webtag:hiddenInput name="cr" value="${cr}"/>
-            <tc-webtag:hiddenInput name="${numRecords}" value="${nr}"/>
-            <tc-webtag:hiddenInput name="${numPage}" value="${np}"/>
-
-            <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
-                list="${weeks}" useTopValue="false"/>
-                
-            <jsp:include page="../pagination.jsp">
-                <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
-                <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />
-                <jsp:param name="totalSize" value="${totalSize}" />
-                <jsp:param name="numRecords" value="${nr}" />
-                <jsp:param name="numPage" value="${np}" />
-                <jsp:param name="formName" value="document.resultsForm"/>
-            </jsp:include>
-
              <c:choose>
                 <c:when test="${not empty result}">
+
+                    <!-- Prepares some collection data and formatter -->
+                    <% boolean even = true;%>
+                    <form name="resultsForm" action="${sessionInfo.servletPath}" method="get">
+                    <c:choose>
+                        <c:when test="${not empty round}">
+                            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewPicks"/>
+                        </c:when>
+                        <c:otherwise>
+                            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewLastPredictions"/>
+                        </c:otherwise>
+                    </c:choose>
+                    <tc-webtag:hiddenInput name="${sortCol}"/>
+                    <tc-webtag:hiddenInput name="${sortDir}"/>
+                    <tc-webtag:hiddenInput name="cr" value="${cr}"/>
+                    <tc-webtag:hiddenInput name="${numRecords}" value="${nr}"/>
+                    <tc-webtag:hiddenInput name="${numPage}" value="${np}"/>
+                    <tc-webtag:hiddenInput name="rd" value="${round}"/>
+        
+                    <tc-webtag:listSelect name="week" styleClass="dropdown" onChange="document.resultsForm.submit()"
+                        list="${weeks}" useTopValue="false"/>
+                        
+                    <jsp:include page="../pagination.jsp">
+                        <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
+                        <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />
+                        <jsp:param name="totalSize" value="${totalSize}" />
+                        <jsp:param name="numRecords" value="${nr}" />
+                        <jsp:param name="numPage" value="${np}" />
+                        <jsp:param name="formName" value="document.resultsForm"/>
+                    </jsp:include>
+
                     <jsp:include page="../predictionTable.jsp"/>
+                    </form>
+                    <br/>
+                    <jsp:include page="../pagination.jsp">
+                        <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
+                        <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />
+                        <jsp:param name="totalSize" value="${totalSize}" />
+                        <jsp:param name="numRecords" value="${nr}" />
+                        <jsp:param name="numPage" value="${np}" />
+                        <jsp:param name="formName" value="document.resultsForm"/>
+                    </jsp:include>
+                    <p>&nbsp;</p>
                 </c:when>
                 <c:otherwise>
                     There are no results to show.
                 </c:otherwise>
              </c:choose>
-    
-            </form>
-            <br/>
-            <jsp:include page="../pagination.jsp">
-                <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
-                <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />
-                <jsp:param name="totalSize" value="${totalSize}" />
-                <jsp:param name="numRecords" value="${nr}" />
-                <jsp:param name="numPage" value="${np}" />
-                <jsp:param name="formName" value="document.resultsForm"/>
-            </jsp:include>
-            <p>&nbsp;</p>
         </div>
         
   </div>
