@@ -56,6 +56,13 @@ public class GameResultsLoader {
             int count = rs.getInt(1);
             DBMS.close(ps, rs);
             
+            cmd = "UPDATE week SET week_status_id = ? WHERE week_id = ?";
+            ps = cnn.prepareStatement(cmd);
+            ps.setInt(1, WeekInfo.WEEK_SCORED_AND_CLOSED);
+            ps.setInt(2, weekId);
+            ps.executeUpdate();
+            DBMS.close(ps);
+            
             DBUtils.invoke(cnn, new DBUtils.UnitOfWork() {
                 public Object doWork(Connection cnn) throws Exception {
                     Set processed = new HashSet();
