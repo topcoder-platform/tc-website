@@ -217,6 +217,15 @@ public class PredictionsHelper {
         }
     }
     
+    public static Double getNullableDoubleItem(ResultSetRow rsr, String columnName) {
+        if (rsr.getItem(columnName).getResultData() == null) {
+            return null;
+        } else {
+            return rsr.getDoubleItem(columnName);
+        }
+    }
+    
+
     public static Boolean getNullableBoolItem(ResultSetRow rsr, String columnName) {
         if (rsr.getItem(columnName).getResultData() == null) {
             return null;

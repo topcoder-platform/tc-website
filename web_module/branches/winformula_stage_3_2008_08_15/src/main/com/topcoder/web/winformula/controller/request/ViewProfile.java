@@ -137,7 +137,7 @@ public class ViewProfile extends StatsBase {
             Integer overallRank = PredictionsHelper.getNullableIntItem(rsr, "overall_rank");
             Integer totalRankedMembers = PredictionsHelper.getNullableIntItem(rsr, "total_ranked_members");
             Integer userId = PredictionsHelper.getNullableIntItem(rsr, "user_id");
-            Double winPercent = rsr.getDoubleItem("win_percent");
+            Double winPercent = PredictionsHelper.getNullableDoubleItem(rsr, "win_percent");
 
             return new MemberData(handle, highestOverallRank, highestOverallRankWeek, overallPoints,
                     highestWeeklyRank, highestWeeklyRankPoints, highestWeeklyRankWeek,
@@ -161,7 +161,7 @@ public class ViewProfile extends StatsBase {
             String weekName = rsr.getStringItem("week_desc");
             Integer rank = PredictionsHelper.getNullableIntItem(rsr, "rank");
             Integer maxRank = PredictionsHelper.getNullableIntItem(rsr, "max_rank");
-            Double winPercent = rsr.getDoubleItem("avg_picked_winner");
+            Double winPercent = PredictionsHelper.getNullableDoubleItem(rsr, "avg_picked_winner");
             Integer points = PredictionsHelper.getNullableIntItem(rsr, "points");
 
             return new WeekStats(weekName, rank, maxRank, winPercent, points);
