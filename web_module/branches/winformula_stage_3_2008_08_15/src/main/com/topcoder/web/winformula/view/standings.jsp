@@ -86,18 +86,18 @@
                 <ul>
                     <c:choose>
                         <c:when test="${empty periodKey}">
-                            <li class="small selected">Overall</li>
+                            <li class="small selected"><span>Overall</span></li>
                         </c:when>
                         <c:otherwise>
-                            <li class="small">Overall</li>
+                            <li class="small"><a href="#">Overall</a></li>
                         </c:otherwise>
                     </c:choose>
                     <c:choose>
                         <c:when test="${periodKey == 'msi'}">
-                            <c:forEach begin="${1}" end="${4}" step="${1}" var="i"> 
+                            <c:forEach begin="${1}" end="${4}" step="${1}" var="i">
                                 <li class="small ${i==periodId?'selected':''}">
                                     <c:choose>
-                                        <c:when test="${maxPeriod>= i+67}">
+                                        <c:when test="${maxPeriod>= i}">
                                             <a href="javascript:changeMiniSeason(${i})">
                                                 <c:choose>
                                                     <c:when test="${i==1}">Mini-Season 1 (Weeks 1-3)</c:when>
@@ -159,8 +159,8 @@
 
 <%--             <c:if test="${not empty periods}">
                 <tc-webtag:listSelect name="${periodKey}" styleClass="dropdown" onChange="document.resultsForm.submit()"
-                    list="${periods}" useTopValue="false"/> --%>
-            </c:if>
+                    list="${periods}" useTopValue="false"/> 
+            </c:if>--%>
             <jsp:include page="pagination.jsp">
                 <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
                 <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />

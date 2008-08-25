@@ -71,7 +71,7 @@ public class ViewStandings extends AlgorithmBase {
             if (weekId != null) {
                 request.setAttribute("periodId", weekId);
             } else if (miniSeasonId != null) {
-                request.setAttribute("miniSeasonId", weekId);
+                request.setAttribute("miniSeasonId", miniSeasonId);
             }
 
             request.setAttribute("result", result);
