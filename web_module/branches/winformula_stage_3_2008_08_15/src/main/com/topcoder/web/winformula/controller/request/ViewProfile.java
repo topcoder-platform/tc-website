@@ -14,9 +14,11 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
@@ -50,6 +52,9 @@ public class ViewProfile extends StatsBase {
             }
 
             if (coderId == 0) {
+                if (!userLoggedIn()) {
+                    throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+                }
                 myProfile = Boolean.TRUE;
                 coderId = (int) getUser().getId();
             }
@@ -85,6 +90,8 @@ public class ViewProfile extends StatsBase {
 
             setNextPage(Constants.PAGE_MY_PROFILE);
             setIsNextPageInContext(true);
+        } catch (PermissionException pe) {
+            throw pe;
         } catch (Exception e) {
             throw new TCWebException(e);
         }

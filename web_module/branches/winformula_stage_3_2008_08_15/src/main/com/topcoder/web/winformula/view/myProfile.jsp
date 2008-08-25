@@ -79,27 +79,36 @@
                             <dd>${member.handle}</dd>
                         </dl>
                     </c:if>
-                    <dl>
-                        <dt>Overall Rank:</dt>
-                        <dd>${member.overallRank} of ${member.totalRankedMembers}</dd>
-
-                    </dl>
-                      <dl>
-                        <dt>Points:</dt>
-                        <dd>${member.overallPoints} points</dd>
-                    </dl>
-                      <dl>
-                        <dt>Highest Overall Rank:</dt>
-                        <dd>${member.highestOverallRank} (${member.highestOverallRankWeek})</dd>
-                      </dl>
-                    <dl>
-                        <dt>Highest Weekly Rank:</dt>
-                        <dd>${member.highestWeeklyRank} (${member.highestWeeklyRankWeek} - ${member.highestWeeklyRankPoints} points)</dd>
-                    </dl>
-                      <dl>
-                        <dt>Win Percentage:</dt>
-                        <dd><fmt:formatNumber value="${member.winPercent}" pattern="0.00"/>%</dd>
-                      </dl>
+                    <c:choose>
+                        <c:when test="${not empty member.overallRank}">
+                            <dl>
+                                <dt>Overall Rank:</dt>
+                                <dd>${member.overallRank} of ${member.totalRankedMembers}</dd>
+        
+                            </dl>
+                              <dl>
+                                <dt>Points:</dt>
+                                <dd>${member.overallPoints} points</dd>
+                            </dl>
+                              <dl>
+                                <dt>Highest Overall Rank:</dt>
+                                <dd>${member.highestOverallRank} (${member.highestOverallRankWeek})</dd>
+                              </dl>
+                            <dl>
+                                <dt>Highest Weekly Rank:</dt>
+                                <dd>${member.highestWeeklyRank} (${member.highestWeeklyRankWeek} - ${member.highestWeeklyRankPoints} points)</dd>
+                            </dl>
+                              <dl>
+                                <dt>Win Percentage:</dt>
+                                <dd><fmt:formatNumber value="${member.winPercent}" pattern="0.00"/>%</dd>
+                              </dl>
+                        </c:when>
+                        <c:otherwise>
+                              <dl>
+                                <dt>There are no statistics to show</dt>
+                              </dl>
+                        </c:otherwise> 
+                    </c:choose>                    
 <%--                  <dl>
                         <dt>Prizes/Awards Won:</dt>
                         <dd>Closest Score Award Weekly Top 3</dd>
