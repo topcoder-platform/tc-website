@@ -214,7 +214,7 @@ public class StatsHelper {
         log.debug("sizeBeforeCrop: " + sizeBeforeCrop);
         
         request.setAttribute("croppedDataBefore", new Boolean(startRank > 1));
-        request.setAttribute("croppedDataAfter", new Boolean(endRank != sizeBeforeCrop - 1));
+        request.setAttribute("croppedDataAfter", new Boolean(endRank != sizeBeforeCrop));
 
         request.setAttribute("totalSize", sizeBeforeCrop);
         

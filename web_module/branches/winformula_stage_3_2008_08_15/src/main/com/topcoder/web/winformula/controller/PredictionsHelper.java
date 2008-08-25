@@ -184,7 +184,8 @@ public class PredictionsHelper {
         int startRank = getStartRank(Integer.parseInt(numPage), Integer.parseInt(numRecords));
         int endRank = getEndRank(Integer.parseInt(numPage), Integer.parseInt(numRecords));
         if (endRank >= sizeBeforeCrop) {
-            endRank = sizeBeforeCrop - 1;
+//            endRank = sizeBeforeCrop - 1;
+            endRank = sizeBeforeCrop;
         }
             
         if (sizeBeforeCrop > 0) {
@@ -196,7 +197,8 @@ public class PredictionsHelper {
         log.debug("startRank: " + sizeBeforeCrop);
         
         request.setAttribute("croppedDataBefore", new Boolean(startRank > 1));
-        request.setAttribute("croppedDataAfter", new Boolean(endRank != sizeBeforeCrop - 1));
+//        request.setAttribute("croppedDataAfter", new Boolean(endRank != sizeBeforeCrop - 1));
+        request.setAttribute("croppedDataAfter", new Boolean(endRank != sizeBeforeCrop));
 
         request.setAttribute("totalSize", sizeBeforeCrop);
     }
