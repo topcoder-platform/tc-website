@@ -45,7 +45,7 @@
         <%-- Main Content --%>
             <div class="sub-navigation"> <a href="?module=ViewStandings">Overall Standings</a> | <a href="?module=ViewStandings&amp;msi=1">Mini-Season Standings</a> | <a href="?module=ViewStandings&amp;week=68">Weekly Standings</a></div>
 
-            <h1>Standings - </h1>
+            <h1>Standings - ${periodDesc}</h1>
 
             <div class="dataArea" style="width:100%;">
 

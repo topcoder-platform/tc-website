@@ -86,6 +86,7 @@ public class ViewStandings extends AlgorithmBase {
      */
     private List<ListSelectTag.Option> getPeriods() throws Exception {
         ResultSetContainer rsc = null; 
+        String selectedDesc = "Overall";
         int selectedId;
 
         if (weekId != null) {
@@ -106,9 +107,11 @@ public class ViewStandings extends AlgorithmBase {
             boolean found = false;
             for (ResultSetRow rsr : rsc) {
                 int periodId = rsr.getIntItem("period_id");
-                periods.add(new ListSelectTag.Option(String.valueOf(periodId), rsr.getStringItem("period_desc"), periodId == selectedId));
+                String periodDesc = rsr.getStringItem("period_desc");
+                periods.add(new ListSelectTag.Option(String.valueOf(periodId), periodDesc, periodId == selectedId));
                 if (periodId == selectedId) {
                     found = true;
+                    selectedDesc = periodDesc;
                 }
             }
             if (!found && rsc.size() > 0) {
@@ -117,11 +120,13 @@ public class ViewStandings extends AlgorithmBase {
                 } else {
                     miniSeasonId = rsc.get(0).getIntItem("period_id");
                 }
+                selectedDesc = rsc.get(0).getStringItem("period_desc");
             }
         } else { 
             log.info("period is null or empty");
             periods = Collections.emptyList();
         }
+        getRequest().setAttribute("periodDesc", selectedDesc);
         return periods;
     }
     

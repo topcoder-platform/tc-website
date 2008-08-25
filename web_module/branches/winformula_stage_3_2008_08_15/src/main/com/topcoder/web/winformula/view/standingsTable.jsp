@@ -22,13 +22,10 @@
                     <c:when test="${not empty standingsItem.rankDiff and standingsItem.rankDiff != 0}">
                         (<fmt:formatNumber value="${standingsItem.rankDiff}" pattern="+#;-#"/>)
                     </c:when>
-                    <c:when test="${not empty standingsItem.rankDiff}">
+                    <c:when test="${not empty standingsItem.rank and not empty standingsItem.rankDiff}">
                         (=)
                     </c:when>
                 </c:choose>
-                <c:if test="">
-                    
-                </c:if>
           </td>
           <td><a href="${sessionInfo.servletPath}?module=ViewProfile&amp;cr=${standingsItem.coderId}">${standingsItem.handle}</a></td>
           <c:choose>
