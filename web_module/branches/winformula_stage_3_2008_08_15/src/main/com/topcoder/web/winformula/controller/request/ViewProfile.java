@@ -57,6 +57,8 @@ public class ViewProfile extends StatsBase {
                 }
                 myProfile = Boolean.TRUE;
                 coderId = (int) getUser().getId();
+            } else {
+                request.setAttribute(CodingConstants.CODER_ID, coderId);
             }
             
             String selectedWeek = StringUtils.checkNull(request.getParameter("week"));
@@ -91,7 +93,6 @@ public class ViewProfile extends StatsBase {
             
             request.setAttribute("weekStats", ws);
             request.setAttribute("member", md);
-            request.setAttribute(CodingConstants.CODER_ID, coderId);
             request.setAttribute("result", result);
             request.setAttribute("myProfile", myProfile);
 
