@@ -368,7 +368,7 @@
         <copy todir="${jboss_conf}/com/topcoder/servlet/request/"
               file="${resources}/com/topcoder/servlet/request/FileUpload.xml"/>
 
-        <delete file="${jboss_deploy}/winformula.war"/>
+        <delete dir="${jboss_deploy}/winformula.war" />
         <unwar src="${war.dir}/winformula.war" dest="${jboss_deploy}/winformula.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/winformula.war/META-INF"/>
         <copy todir="${jboss_conf}">
