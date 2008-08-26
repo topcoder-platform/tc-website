@@ -572,6 +572,7 @@ public class WinFormulaServicesImpl {
                     ps.executeUpdate();
                 }
             } else {
+                DBMS.close(ps, rs);
                 ps = cnn.prepareStatement("INSERT INTO mini_season_prediction (round_id, coder_id, submission_number) VALUES (?, ?, ?)");
                 ps.setInt(1, roundId);
                 ps.setInt(2, coderId);
