@@ -69,7 +69,7 @@
     }
 </script>
         <%-- Main Content --%>
-        <div class="sub-navigation"><a href="?module=ManageMyAlgorithms">Manage My Algorithms</a> | Submit <%-- | <a href="?module=ViewLastPredictions${adminExtraParams}">Current Algorithm's Predictions</a> --%>| <a href="?module=ViewQueue">Queue Status</a></div>
+        <div class="sub-navigation"><a href="?module=ManageMyAlgorithms">Manage My Algorithms</a> | Submit | <a href="?module=ViewLastPredictions${adminExtraParams}">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
         <h1>Submit</h1>
 
         <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>

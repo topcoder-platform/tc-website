@@ -50,7 +50,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-            <div class="sub-navigation"> Manage My Algorithms | <a href="?module=Submit">Submit</a> <%-- | <a href="?module=ViewLastPredictions${adminExtraParams}">Current Algorithm's Predictions</a> --%> | <a href="?module=ViewQueue">Queue Status</a></div>
+            <div class="sub-navigation"> Manage My Algorithms | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredictions${adminExtraParams}">Current Algorithm's Predictions</a> | <a href="?module=ViewQueue">Queue Status</a></div>
             <h1>Manage My Algorithms</h1>
             <br />
             <h2>
@@ -118,7 +118,7 @@ ResultSetRow nextRound = (ResultSetRow) request.getAttribute("nextRound");
                             <c:choose>
                                 <c:when test="${submission.lockedIn}">
                                     <td class="alignCenter"><c:if test="${submission.accuracy != -1}">${submission.accuracy}</c:if>&nbsp;</td>
-                                    <td class="alignCenter"><c:if test="${submission.hasPrediction}"><a href="#${adminExtraParams}">View Picks</a></c:if>&nbsp;</td>
+                                    <td class="alignCenter"><c:if test="${submission.hasPrediction}"><a href="?module=ViewPicks&amp;rd=${submission.roundId}${adminExtraParams}">View Picks</a></c:if>&nbsp;</td>
                                 </c:when>
                                 <c:otherwise>
                                     <td class="alignCenter">&nbsp;</td>

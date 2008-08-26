@@ -41,6 +41,9 @@ public class Constants implements CodingInterfaceConstants {
 
     public static final String RESULT_KEY = "result_key";
     
+    public static final String WEEK_ID = "wid";
+    public static final String PERIOD_ID = "pid";
+    public static final String MINI_SEASON_ID = "msi";
 
     public static final String WIDTH = "width";
     public static final String HEIGHT = "height";
@@ -66,9 +69,14 @@ public class Constants implements CodingInterfaceConstants {
 
     public static int TIMEOUT_MILLISECS = 10000;
 
+    public static int WISDOM_ALL;
+    public static int WISDOM_BEST;
+    
+    public static int FIRST_WEEK_ID;
+    public static int FIRST_MINI_SEASON_ID;
     
     /*------------------------------------------------------------------------------
-     * Coding Intefarce 
+     * Coding Interface 
      *-----------------------------------------------------------------------------*/
     
     //The component ID default
@@ -88,6 +96,8 @@ public class Constants implements CodingInterfaceConstants {
     public static String PAGE_PROBLEM_SOLUTION;
     public static String PAGE_VIEW_EXAMPLE_RESULTS;
     public static String PAGE_LAST_PREDICTIONS;
+    public static String PAGE_MY_PROFILE;
+    public static String PAGE_STANDINGS;
     
     
         

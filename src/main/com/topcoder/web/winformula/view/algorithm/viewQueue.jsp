@@ -39,7 +39,7 @@
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
-        <div class="sub-navigation"><a href="?module=ManageMyAlgorithms">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> <%-- | <a href="?module=ViewLastPredictions${adminExtraParams}">Current Algorithm's Predictions</a> --%>| Queue Status</div>
+        <div class="sub-navigation"><a href="?module=ManageMyAlgorithms">Manage My Algorithms</a> | <a href="?module=Submit">Submit</a> | <a href="?module=ViewLastPredictions${adminExtraParams}">Current Algorithm's Predictions</a> | Queue Status</div>
         <h1>Queue Status</h1>
             <% java.util.Map roundTypes = (java.util.Map) request.getAttribute("roundTypes"); %>
             <jsp:useBean id="result" type="java.util.List" scope="request"/>
