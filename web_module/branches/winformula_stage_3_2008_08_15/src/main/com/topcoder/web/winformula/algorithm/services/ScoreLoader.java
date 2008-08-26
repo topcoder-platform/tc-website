@@ -19,7 +19,23 @@ import com.topcoder.web.winformula.model.GameResult;
  */
 public class ScoreLoader {
     private static final Logger log = Logger.getLogger(ScoreLoader.class);
-    
+
+    private final String UPDATE = "update prediction_detail_score set " +
+        " prediction_detail_points = ?, " +
+        " prediction_detail_total_score_variance = ?, " +
+        " prediction_detail_victory_margin_variance = ?, " +
+        " prediction_detail_picked_winner = ? " +
+        " where prediction_detail_id = ? ";
+
+    private final String INSERT = "insert into prediction_detail_score (" +
+        " prediction_detail_points, " +
+        " prediction_detail_total_score_variance, " +
+        " prediction_detail_victory_margin_variance, " +
+        " prediction_detail_picked_winner, " +
+        " prediction_detail_id) " +
+    " values (?, ?, ?, ?, ?) ";
+
+
     public static void main(String[] args) {
         if (args.length > 2 || args.length == 0) {
             System.out.println("Usage: weekId [coderId]");
@@ -37,10 +53,16 @@ public class ScoreLoader {
     private void process(int weekId, int coderId) {
         Connection cnn = null;
         PreparedStatement ps = null;
+        PreparedStatement insert = null;
+        PreparedStatement update = null;
         ResultSet rs = null;
         try {
             cnn = DBMS.getDirectConnection();
             DBUtils.initDBBlock(cnn);
+            
+            insert = cnn.prepareStatement(INSERT);
+            update = cnn.prepareStatement(UPDATE);
+
             String cmd =    " select pd.prediction_detail_id, pd.home_score as home_pred, " +
             		        " pd.visitor_score as visitor_pred, " + 
                             " g.home_score, g.visitor_score " +
@@ -77,8 +99,11 @@ public class ScoreLoader {
                 int victoryMarginVariance = getVictoryMarginVariance(predictedResult, realResult);
                 boolean pickedWinner = getPickedWinner(predictedResult, realResult);
                 
-                addUpdateScores(cnn, predictionDetailId, points, totalScoreVariance, victoryMarginVariance, pickedWinner);
+                addUpdateScores(cnn, insert, update, predictionDetailId, points, totalScoreVariance, victoryMarginVariance, pickedWinner);
                 count++;
+                if (count % 10 == 0) {
+                    log.info("loading... " + count + " rows...");    
+                }
             }
             log.info("Score loader: " + count + " rows updated/inserted");
             if (count == 0) {
@@ -87,57 +112,36 @@ public class ScoreLoader {
         } catch (Exception e) {
             log.error("Failed to process", e);
         } finally {
+            DBMS.close(update);
+            DBMS.close(insert);
             DBMS.close(ps, rs);
             DBUtils.endDBBlock();
         }
     }
     
-    private void addUpdateScores(Connection cnn, int predictionDetailId,
+    private void addUpdateScores(Connection cnn, PreparedStatement insert, PreparedStatement update, int predictionDetailId,
             int points, int totalScoreVariance, int victoryMarginVariance,
             boolean pickedWinner) throws Exception {
-        PreparedStatement insert = null;
-        PreparedStatement update = null;
         
-        try {
-            final String UPDATE = "update prediction_detail_score set " +
-            		" prediction_detail_points = ?, " +
-                    " prediction_detail_total_score_variance = ?, " +
-                    " prediction_detail_victory_margin_variance = ?, " +
-                    " prediction_detail_picked_winner = ? " +
-            		" where prediction_detail_id = ? ";
-            
-            final String INSERT = "insert into prediction_detail_score (" +
-            		" prediction_detail_points, " +
-                    " prediction_detail_total_score_variance, " +
-                    " prediction_detail_victory_margin_variance, " +
-            		" prediction_detail_picked_winner, " +
-                    " prediction_detail_id) " +
-                " values (?, ?, ?, ?, ?) ";
-            
-            update = cnn.prepareStatement(UPDATE);
+        int j = 1;
+        update.clearParameters();
+        update.setInt(j++, points);
+        update.setInt(j++, totalScoreVariance);
+        update.setInt(j++, victoryMarginVariance);
+        update.setBoolean(j++, pickedWinner);
+        update.setInt(j++, predictionDetailId);
+        int retVal = update.executeUpdate();
 
-            int j = 1;
-            update.setInt(j++, points);
-            update.setInt(j++, totalScoreVariance);
-            update.setInt(j++, victoryMarginVariance);
-            update.setBoolean(j++, pickedWinner);
-            update.setInt(j++, predictionDetailId);
-            int retVal = update.executeUpdate();
-
-            if (retVal == 0) {
-                insert = cnn.prepareStatement(INSERT);
-                j = 1;
-                insert.setInt(j++, points);
-                insert.setInt(j++, totalScoreVariance);
-                insert.setInt(j++, victoryMarginVariance);
-                insert.setBoolean(j++, pickedWinner);
-                insert.setInt(j++, predictionDetailId);
-                insert.executeUpdate();
-            }
-        } finally {
-            DBMS.close(update);
-            DBMS.close(insert);
-        }        
+        if (retVal == 0) {
+            j = 1;
+            insert.clearParameters();
+            insert.setInt(j++, points);
+            insert.setInt(j++, totalScoreVariance);
+            insert.setInt(j++, victoryMarginVariance);
+            insert.setBoolean(j++, pickedWinner);
+            insert.setInt(j++, predictionDetailId);
+            insert.executeUpdate();
+        }
     }
 
     private boolean getPickedWinner(GameResult predictedResult, GameResult realResult) {
