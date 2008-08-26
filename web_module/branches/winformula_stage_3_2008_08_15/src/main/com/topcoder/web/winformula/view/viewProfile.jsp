@@ -85,35 +85,62 @@
                             <dd>${member.handle}</dd>
                         </dl>
                     </c:if>
-                    <c:choose>
-                        <c:when test="${not empty member.overallRank}">
-                            <dl>
-                                <dt>Overall Rank:</dt>
+                    <dl>
+                        <dt>Overall Rank:</dt>
+                        <c:choose>
+                            <c:when test="${not empty member.overallRank}">
                                 <dd>${member.overallRank} of ${member.totalRankedMembers}</dd>
-                            </dl>
-                              <dl>
-                                <dt>Points:</dt>
+                            </c:when>
+                            <c:otherwise>
+                                <dd>n/a</dd>
+                            </c:otherwise>
+                        </c:choose>
+                    </dl>
+                      <dl>
+                        <dt>Points:</dt>
+                        <c:choose>
+                            <c:when test="${not empty member.overallPoints}">
                                 <dd>${member.overallPoints} points</dd>
-                            </dl>
-                              <dl>
-                                <dt>Highest Overall Rank:</dt>
+                            </c:when>
+                            <c:otherwise>
+                                <dd>n/a</dd>
+                            </c:otherwise>
+                        </c:choose>
+                    </dl>
+                      <dl>
+                        <dt>Highest Overall Rank:</dt>
+                        <c:choose>
+                            <c:when test="${not empty member.highestOverallRank}">
                                 <dd>${member.highestOverallRank} (${member.highestOverallRankWeek})</dd>
-                              </dl>
-                            <dl>
-                                <dt>Highest Weekly Rank:</dt>
+                            </c:when>
+                            <c:otherwise>
+                                <dd>n/a</dd>
+                            </c:otherwise>
+                        </c:choose>
+                      </dl>
+                    <dl>
+                        <dt>Highest Weekly Rank:</dt>
+                        <c:choose>
+                            <c:when test="${not empty member.highestWeeklyRank}">
                                 <dd>${member.highestWeeklyRank} (${member.highestWeeklyRankWeek} - ${member.highestWeeklyRankPoints} points)</dd>
-                            </dl>
-                              <dl>
-                                <dt>Win Percentage:</dt>
+                            </c:when>
+                            <c:otherwise>
+                                <dd>n/a</dd>
+                            </c:otherwise>
+                        </c:choose>
+                    </dl>
+                      <dl>
+                        <dt>Win Percentage:</dt>
+                        <c:choose>
+                            <c:when test="${not empty member.winPercent}">
                                 <dd><fmt:formatNumber value="${member.winPercent}" pattern="0.00"/>%</dd>
-                              </dl>
-                        </c:when>
-                        <c:otherwise>
-                              <dl>
-                                <dt>There are no statistics to show</dt>
-                              </dl>
-                        </c:otherwise> 
-                    </c:choose>                    
+                            </c:when>
+                            <c:otherwise>
+                                <dd>n/a</dd>
+                            </c:otherwise>
+                        </c:choose>
+                      </dl>
+                      <dl>* Overall statistics will show when Mini-Season 2 starts</dl>
 <%--                  <dl>
                         <dt>Prizes/Awards Won:</dt>
                         <dd>Closest Score Award Weekly Top 3</dd>
