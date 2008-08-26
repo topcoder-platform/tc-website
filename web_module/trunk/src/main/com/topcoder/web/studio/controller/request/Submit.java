@@ -210,7 +210,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 									.get(ContestProperty.REQUIRE_PREVIEW_IMAGE));
 					if (previewImageRequired) {
 						submissionValidationResult = new ImageSubmissionValidator()
-								.validate(new ObjectInput(submissionFile));
+								.validate(new ObjectInput(previewFile));
 						if (!submissionValidationResult.isValid()) {
 							addError(Constants.SUBMISSION_PREVIEW,
 									submissionValidationResult.getMessage());
