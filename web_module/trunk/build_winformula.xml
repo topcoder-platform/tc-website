@@ -3,6 +3,7 @@
     <property name="Name" value="TopCoder"/>
     <property name="build" value="build"/>
     <property name="war.dir" value="${build}/wars"/>
+    <property name="tools.dir" value="${build}/tools"/>
     <property name="ear.dir" value="${build}/ears"/>
     <property name="ejb_jars" value="${build}/ejb_jars"/>
     <property name="classes" value="${build}/classes"/>
@@ -105,6 +106,7 @@
         <mkdir dir="${ejb_jars}"/>
         <mkdir dir="${war.dir}"/>
         <mkdir dir="${ear.dir}"/>
+        <mkdir dir="${tools.dir}"/>
     </target>
 
     <target name="compile_common" depends="init" unless="compile_common_set">
@@ -181,14 +183,17 @@
         </jar>
     </target>
 
-
-    <target name="war-winformula" depends="compile">
+    <target name="package-predictionHandler" depends="compile">
+        <jar
+            jarfile="${ejb_jars}/prediction-handler.jar"
+            basedir="${classes}"
+            includes="com/topcoder/web/winformula/algorithm/eventhandler/**">
+            <metainf dir="${java}/com/topcoder/web/winformula/algorithm/eventhandler" includes="*.xml"/>
+        </jar>
+    </target>
+    
+    <target name="war-winformula" depends="package-winformula-jar">
         <war warfile="${war.dir}/winformula.war" webxml="${resources}/winformula/web.xml">
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/codinginterface/*.class"/>
-                <include name="com/topcoder/web/winformula/**/*.class"/>
-                <include name="com/topcoder/web/forums/**/*.class"/>
-            </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
                 <include name="nav.tld"/>
@@ -223,9 +228,6 @@
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
-                <include name="tc.jar"/>
-                <include name="TestServices.jar"/>
-                <include name="asyncservices.jar"/>
             </lib>
             <lib dir="${struts.dir}">
                 <include name="*.jar"/>
@@ -238,11 +240,55 @@
         <unwar src="${war.dir}/winformula.war" dest="${jboss_deploy}/winformula.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/winformula.war/META-INF"/>
     </target>
+    
+    <target name="package-winformula-jar" depends="compile">
+           <jar jarfile="${bin}/winformula.jar">
+               <fileset dir="${classes}">
+                   <include name="com/topcoder/web/codinginterface/*.class"/>
+                   <include name="com/topcoder/web/winformula/**/*.class"/>
+                   <include name="com/topcoder/web/forums/**/*.class"/>
+               </fileset>
+           </jar>
+    </target>
 
+    <target name="tools" depends="package-winformula-jar">
+            <copy file="${bin}/winformula.jar" tofile="${tools.dir}/winformula.jar"/>
+            <copy todir="${tools.dir}/lib">
+                <fileset dir="${jars.dir}">
+                    <include name="tc.jar"/>
+                    <include name="TestServices.jar"/>
+                    <include name="asyncservices.jar"/>
+                </fileset>
+            </copy>
+            <copy todir="${tools.dir}/lib" file="${bin}/shared.jar"/>
+            <copy todir="${tools.dir}/lib" file="${bin}/tcwebcommon.jar"/>
+        
+            <copy todir="${tools.dir}/lib" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
+            <copy todir="${tools.dir}/lib" file="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
+            <copy todir="${tools.dir}/resources">
+                <fileset dir="${resources}">
+                        <include name="Winformula.properties"/>
+                </fileset>
+            </copy>
+            <copy todir="${tools.dir}/resources/com/topcoder/db/connectionfactory/"
+                  file="${resources}/com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
+            <copy todir="${tools.dir}/resources/com/topcoder/util/config/"
+                  file="${resources}/com/topcoder/util/config/ConfigManager.properties"/>
+    </target>
+
+    
     <target name="dist" depends="war-winformula,build-security">
         <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
+        <antcall target="package-predictionHandler"/>
+        <copy todir="${bin}">
+           <fileset dir="${jars.dir}">
+                <include name="tc.jar"/>
+                <include name="TestServices.jar"/>
+                <include name="asyncservices.jar"/>
+            </fileset>
+        </copy>
     </target>
 
     <target name="deploy" depends="dist">
@@ -253,6 +299,15 @@
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcjive.jar"/>
+        <copy todir="${jboss_lib}" file="${bin}/winformula.jar"/>
+        <copy todir="${jboss_lib}">
+            <fileset dir="${bin}">
+                <include name="tc.jar"/>
+                <include name="TestServices.jar"/>
+                <include name="asyncservices.jar"/>
+            </fileset>
+        </copy>
+        
         <copy todir="${jboss_lib}" file="${ejb_jars}/security.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
@@ -273,7 +328,6 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/ifxjdbc.jar"/>
-
 <!--
         <copy todir="${jboss_lib}" file="${jars.dir}/axis.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/commons-discovery-0.2.jar"/>
@@ -290,6 +344,7 @@
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/prediction-handler.jar"/>
         <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
         <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
 
@@ -313,7 +368,7 @@
         <copy todir="${jboss_conf}/com/topcoder/servlet/request/"
               file="${resources}/com/topcoder/servlet/request/FileUpload.xml"/>
 
-        <delete file="${jboss_deploy}/winformula.war"/>
+        <delete dir="${jboss_deploy}/winformula.war" />
         <unwar src="${war.dir}/winformula.war" dest="${jboss_deploy}/winformula.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/winformula.war/META-INF"/>
         <copy todir="${jboss_conf}">

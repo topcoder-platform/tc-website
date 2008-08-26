@@ -115,6 +115,43 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
         return ret;
     }
 
+    public String listLike(String s) {
+        InitialContext ctx = null;
+        TCResourceBundle b = new TCResourceBundle("cache");
+        try {
+            ctx = TCContext.getInitial(b.getProperty("host_url"));
+            TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
+            return listLike(new StringBuilder(1024), s, "/", cache).toString();
+        } catch (NamingException e) {
+            throw new RuntimeException(e);
+        } catch (CacheException e) {
+            throw new RuntimeException("Couldn't remove the root ", e);
+        } finally {
+            TCContext.close(ctx);
+        }
+    }
+    
+    private StringBuilder listLike(StringBuilder sb, String key, String parent, TreeCacheMBean cache) throws CacheException {
+        String kid;
+        String fqn;
+        for (Object child : cache.getChildrenNames(parent)) {
+            kid = (String) child;
+            fqn = parent + Fqn.SEPARATOR + kid;
+            if (kid.indexOf(key) >= 0) {
+                if (log.isDebugEnabled()) {
+                    log.debug("removing " + fqn);
+                }
+                sb.append(fqn).append("\n");
+            } else {
+                Set kids = cache.getChildrenNames(fqn);
+                if (kids != null && !kids.isEmpty()) {
+                    listLike(sb, key, fqn, cache);
+                }
+            }
+        }
+        return sb;
+    }
+    
     private int removelike(Set<String> s, String parent, TreeCacheMBean cache) throws CacheException {
         String kid;
         String fqn;
