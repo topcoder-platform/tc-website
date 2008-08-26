@@ -115,6 +115,8 @@ public class WisdomPredictionGenerator {
                    service.insertPredictionItem(predictionId, rs.getInt(1), DBUtils.getInt(rs, 2), DBUtils.getInt(rs, 3));
                }
                DBMS.close(rs);
+               
+               service.updatePredictionStatus(predictionId, WinFormulaServicesImpl.PREDICTION_STATUS_TEMPORARY);
             }
         } finally {
             DBMS.close(ps, rs);
