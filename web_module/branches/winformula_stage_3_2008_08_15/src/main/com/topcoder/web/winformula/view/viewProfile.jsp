@@ -223,9 +223,34 @@
                     <br/><br/>
                     <c:if test="${not empty weekStats}">
                         <p class="textLarge">
-                            <strong>${weekStats.weekName} Totals: &nbsp;&nbsp;&nbsp;&nbsp;Rank:</strong> ${weekStats.rank} of ${weekStats.maxRank}
-                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Win Percentage:</strong> <fmt:formatNumber value="${weekStats.winPercent}" pattern="0.00"/>%
-                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Points:</strong> ${weekStats.points}
+                            <strong>${weekStats.weekName} Totals: &nbsp;&nbsp;&nbsp;&nbsp;Rank:</strong> 
+                            <c:choose>
+                                <c:when test="${not empty weekStats.rank}">
+                                    ${weekStats.rank} of ${weekStats.maxRank}
+                                </c:when>
+                                <c:otherwise>
+                                    n/a
+                                </c:otherwise>
+                            </c:choose>
+                            
+                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Win Percentage:</strong> 
+                            <c:choose>
+                                <c:when test="${not empty weekStats.winPercent}">
+                                    <fmt:formatNumber value="${weekStats.winPercent}" pattern="0.00"/>%
+                                </c:when>
+                                <c:otherwise>
+                                    n/a
+                                </c:otherwise>
+                            </c:choose>
+                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Points:</strong> 
+                            <c:choose>
+                                <c:when test="${not empty weekStats.points}">
+                                    ${weekStats.points}
+                                </c:when>
+                                <c:otherwise>
+                                    n/a
+                                </c:otherwise>
+                            </c:choose>
                         </p>
                     </c:if>
                     <jsp:include page="pagination.jsp">
