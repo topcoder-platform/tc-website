@@ -268,8 +268,8 @@ public class StatsHelper {
                 Double avgPickedWinner = StatsHelper.getNullableDoubleItem(rsr, "avg_picked_winner");
                 
                 StandingsItem si = new StandingsItem(rank, rankDiff, handle,
-                        coderId, points, avgTotalScoreVariance,
-                        avgVictoryMarginVariance, avgPickedWinner);
+                        coderId, points, avgPickedWinner, avgTotalScoreVariance,
+                        avgVictoryMarginVariance);
 
                 lsi.add(si);
             }
