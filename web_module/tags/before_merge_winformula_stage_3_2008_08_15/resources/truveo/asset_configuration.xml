@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+
+<CMConfig>
+
+	<Property name="asset_dao_classname">
+		<Value>com.topcoder.web.tc.view.voting.persistence.MySqlAssetDao</Value>
+	</Property>
+
+	<Property name="connection_name">
+		<Value>MySqlAssetDao</Value>
+	</Property>
+
+	<Config name="connection_factory_config">
+		<Property
+			name="com.topcoder.db.connectionfactory.DBConnectionFactoryImpl">
+			<Property name="connections">
+				<Property name="default">
+					<Value>MySqlAssetDao</Value>
+				</Property>
+				<Property name="MySqlAssetDao">
+					<Property name="producer">
+						<Value>com.topcoder.db.connectionfactory.producers.JDBCConnectionProducer</Value>
+					</Property>
+					<Property name="parameters">
+						<Property name="jdbc_driver">
+							<Value>com.informix.jdbc.IfxDriver</Value>
+						</Property>
+						<Property name="jdbc_url">
+							<Value>jdbc:informix-sqli://63.118.154.250:1526/voting_widget:INFORMIXSERVER=informix_shm</Value>
+						</Property>
+						<Property name="user">
+							<Value>widget</Value>
+						</Property>
+						<Property name="password">
+							<Value>Xmm8sNgQ</Value>
+						</Property>
+					</Property>
+				</Property>
+			</Property>
+		</Property>
+	</Config>
+	
+	<Property name="asset_pairing_alg_token">
+		<Value>least_comparisons</Value>
+	</Property>
+	
+	<Config name="asset_pairing_alg_config">
+		<Property name="least_comparisons">
+			<Property name="type">
+				<Value>com.topcoder.web.tc.view.voting.pairingalgorithms.WeakestAssetPairingAlgorithm</Value>
+			</Property>
+		</Property>
+	</Config>
+
+</CMConfig>
