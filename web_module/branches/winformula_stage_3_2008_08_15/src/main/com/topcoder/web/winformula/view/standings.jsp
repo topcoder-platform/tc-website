@@ -82,14 +82,7 @@
 
             <h1>Standings - ${periodDesc}</h1>
 
-<%--                     <c:choose>
-                        <c:when test="${empty periodKey}">
-                            <li class="small selected"><span>Overall</span></li>
-                        </c:when>
-                        <c:otherwise>
-                            <li class="small"><a href="#">Overall</a></li>
-                        </c:otherwise>
-                    </c:choose> --%>
+            <c:if test="${empty periodKey}"><p>* Overall standings will show when Mini-Season 2 starts</p></c:if>
                 <c:choose>
                     <c:when test="${periodKey == 'msi'}">
                         <div class="tab-navigation" id="inner-tab-navigation">
