@@ -19,6 +19,7 @@ import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.controller.StatsHelper;
@@ -144,7 +145,7 @@ public class ViewStandings extends AlgorithmBase {
     private ResultSetContainer getPeriodData(String commandName) throws Exception {
         Request r = new Request();
         r.setContentHandle(commandName);
-        DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
+        DataAccessInt dai = new CachedDataAccess(MaxAge.FIVE_MINUTES, DBMS.WINFORMULA_DATASOURCE_NAME);
         return dai.getData(r).get(commandName);
     }
 }
