@@ -1,8 +1,11 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@page import="com.topcoder.web.winformula.Constants"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>ESPN Winning Formula Challenge :: Powered by TopCoder - Homepage</title>
@@ -289,9 +292,11 @@
             <div class="emptyBoxTop"></div>
             <div class="emptyBoxBottom">
                 <div class="rightContentBox">
-                    <h2 class="titleWisdom"> <span class="hide"> Wisdom of the Code </span></h2>
-                        <p>We've created two automated contestants based on the community's picks. <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=wisdomCode">CommunityAverage</a> is based on the community's average picks and <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=wisdomCode">CommunityTop10</a> is based on the average picks of the top 10 overall contestants after each week. See how contestants score against the Wisdom of the Code!<br /><br />
+                    <h2 class="titleWisdom"> <span class="hide">Wisdom of the Code</span></h2>
+                        <p>We've created two automated contestants based on the community's picks. <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&cr=<%=Constants.WISDOM_ALL%>">CommunityAverage</a> is based on the community's average picks and <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&cr=<%=Constants.WISDOM_BEST%>">CommunityTop10</a> is based on the average picks of the top 10 overall contestants after each week. See how contestants score against the Wisdom of the Code!<br /><br />
                         <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=wisdomCode" class="learnButton" title="Learn More"><span>Learn More</span></a></p>
+
+
                 </div>
                 <div class="imgLeft"> <img src="/i/events/winformula/brain.png" alt="Helmet" /> </div>
             </div>
