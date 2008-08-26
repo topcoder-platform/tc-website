@@ -72,6 +72,9 @@ public class Constants implements CodingInterfaceConstants {
     public static int WISDOM_ALL;
     public static int WISDOM_BEST;
     
+    public static int FIRST_WEEK_ID;
+    public static int FIRST_MINI_SEASON_ID;
+    
     /*------------------------------------------------------------------------------
      * Coding Interface 
      *-----------------------------------------------------------------------------*/
