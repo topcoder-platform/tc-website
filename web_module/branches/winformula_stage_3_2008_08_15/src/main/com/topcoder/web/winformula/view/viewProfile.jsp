@@ -16,6 +16,8 @@
 <c:set value="<%=DataAccessConstants.SORT_DIRECTION%>" var="sortDir"/>
 <c:set value="<%=DataAccessConstants.NUMBER_RECORDS%>" var="numRecords"/>
 
+<c:set value="<%=Constants.FIRST_WEEK_ID%>" var="firstWeekId"/>
+<c:set value="<%=Constants.FIRST_MINI_SEASON_ID%>" var="firstMiniSeasonId"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -190,10 +192,10 @@
             <div class="tab-navigation" id="inner-tab-navigation">
                 <ul>
                     <c:forEach begin="${1}" end="${15}" step="${1}" var="i"> 
-                        <li class="small ${i+67==week?'selected':''}">
+                        <li class="small ${i+firstWeekId-1==week?'selected':''}">
                             <c:choose>
-                                <c:when test="${maxWeek >= i+67}">
-                                    <a href="javascript:changeWeek(${i+67})">
+                                <c:when test="${maxWeek >= i+firstWeekId-1}">
+                                    <a href="javascript:changeWeek(${i+firstWeekId-1})">
                                         <c:choose><c:when test="${i==1}">Week 1</c:when><c:otherwise>W${i}</c:otherwise></c:choose>
                                     </a>
                                 </c:when>
