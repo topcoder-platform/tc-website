@@ -62,7 +62,7 @@ public class WisdomPredictionGenerator {
             deletePredictions(weeks);
             
             
-            String cmd = "SELECT game_id, avg(pd.home_score) as home_score, avg(pd.visitor_score) as visitor_score" + 
+            String cmd = "SELECT game_id, round(avg(pd.home_score)) as home_score, round(avg(pd.visitor_score)) as visitor_score" + 
                          " FROM prediction p, prediction_detail pd" +
                          "   WHERE pd.prediction_id = p.prediction_id AND p.week_id = ?  AND pd.home_score IS NOT NULL AND pd.visitor_score IS NOT NULL" +
                          "         AND p.coder_id NOT IN (?,?)"  + 
@@ -73,7 +73,7 @@ public class WisdomPredictionGenerator {
             if (areOverallStatsGenerated()) {
                 log.info("Using overall stats for TOP 10 generation");
                 int rank = resolveRankToTakeOnOverall();
-                cmd =  "SELECT game_id, avg(pd.home_score) as home_score, avg(pd.visitor_score) as visitor_score" + 
+                cmd =  "SELECT game_id, round(avg(pd.home_score)) as home_score, round(avg(pd.visitor_score)) as visitor_score" + 
                        "   FROM prediction p, prediction_detail pd" + 
                        "      WHERE pd.prediction_id = p.prediction_id AND p.week_id = ? AND pd.home_score IS NOT NULL and pd.visitor_score IS NOT NULL" + 
                        "            AND p.coder_id NOT IN (?,?) AND p.coder_id IN (select coder_id from user_overall_stats uos where uos.rank <= "+rank+")" + 
@@ -81,7 +81,7 @@ public class WisdomPredictionGenerator {
             } else if (areMiniSeasonStatsGenerated()) {
                 log.info("Using mini-season stats for TOP 10 generation");
                 int rank = resolveRankToTakeOnMiniSeason();
-                cmd =  "SELECT game_id, avg(pd.home_score) as home_score, avg(pd.visitor_score) as visitor_score" + 
+                cmd =  "SELECT game_id, round(avg(pd.home_score)) as home_score, round(avg(pd.visitor_score)) as visitor_score" + 
                        "   FROM prediction p, prediction_detail pd" + 
                        "      WHERE pd.prediction_id = p.prediction_id AND p.week_id = ? AND pd.home_score IS NOT NULL and pd.visitor_score IS NOT NULL" + 
                        "            AND p.coder_id NOT IN (?,?) AND p.coder_id IN (select coder_id from user_mini_season_stats uos where uos.rank <= "+rank+")" + 
