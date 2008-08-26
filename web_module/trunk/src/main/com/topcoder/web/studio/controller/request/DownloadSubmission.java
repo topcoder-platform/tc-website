@@ -13,7 +13,7 @@ import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionImage;
 import com.topcoder.web.studio.util.SubmissionPresentationFilter;
 import com.topcoder.web.studio.util.Util;
-import com.topcoder.web.studio.validation.SubmissionValidator;
+import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -232,7 +232,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 // tiny, small, medium and full
                 targetFileName = submission.getPath().getPath() + fileNames[0];
                 destFileName = fileNames[0];
-                StudioFileType fileType = SubmissionValidator.getFileType(destFileName);
+                StudioFileType fileType = UnifiedSubmissionValidator.getFileType(destFileName);
                 Set<MimeType> mimeTypes = fileType.getMimeTypes();
                 if (!mimeTypes.isEmpty()) {
                     contentType = mimeTypes.iterator().next().getDescription();

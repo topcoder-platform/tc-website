@@ -23,7 +23,7 @@ import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionStatus;
 import com.topcoder.web.studio.model.SubmissionType;
-import com.topcoder.web.studio.validation.SubmissionValidator;
+import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
@@ -79,7 +79,7 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                 tempContest.setFileTypes(ft);
                 tempContest.setConfig(c.getConfig());
                 //do validation
-                ValidationResult submissionResult = new SubmissionValidator(tempContest).validate(new ObjectInput(submissionFile));
+                ValidationResult submissionResult = new UnifiedSubmissionValidator(tempContest).validate(new ObjectInput(submissionFile));
                 if (!submissionResult.isValid()) {
                     addError(Constants.SUBMISSION, submissionResult.getMessage());
                 }
@@ -130,7 +130,7 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                         
                         // accept the file
     
-                        MimeType mt = SubmissionValidator.getMimeType(submissionFile);
+                        MimeType mt = UnifiedSubmissionValidator.getMimeType(submissionFile);
                         Submission s = new Submission();
                         s.setContest(c);
                         s.setOriginalFileName(submissionFile.getRemoteFileName());
