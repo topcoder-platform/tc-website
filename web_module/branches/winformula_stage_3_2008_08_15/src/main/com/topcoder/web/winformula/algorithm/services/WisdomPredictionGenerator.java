@@ -67,11 +67,15 @@ public class WisdomPredictionGenerator {
                          "   GROUP BY game_id order by 1";
             generatePredictions(weeks, roundId, Constants.WISDOM_ALL, cmd);
             
-            cmd =  "SELECT game_id, avg(pd.home_score) as home_score, avg(pd.visitor_score) as visitor_score" + 
-                    "   FROM prediction p, prediction_detail pd" + 
-                    "      WHERE pd.prediction_id = p.prediction_id AND p.week_id = ? AND pd.home_score IS NOT NULL and pd.visitor_score IS NOT NULL" + 
-                    "            AND p.coder_id IN (select coder_id from user_overall_stats uos where uos.rank <= 10 + (select count(*) from  user_overall_stats where rank <= 10 and coder_id in (?,?)))" + 
-                    "      group by game_id order by 1";
+            
+            if (areStatsGenerated()) {
+                cmd =  "SELECT game_id, avg(pd.home_score) as home_score, avg(pd.visitor_score) as visitor_score" + 
+                       "   FROM prediction p, prediction_detail pd" + 
+                       "      WHERE pd.prediction_id = p.prediction_id AND p.week_id = ? AND pd.home_score IS NOT NULL and pd.visitor_score IS NOT NULL" + 
+                       "            AND p.coder_id IN (select coder_id from user_overall_stats uos where uos.rank <= 10 + (select count(*) from  user_overall_stats where rank <= 10 and coder_id in (?,?)))" + 
+                       "      group by game_id order by 1";
+            }
+            
             generatePredictions(weeks, roundId, Constants.WISDOM_BEST, cmd);
                    
         } catch (Exception e) {
@@ -132,6 +136,21 @@ public class WisdomPredictionGenerator {
                 weeks.add(Integer.valueOf(rs.getInt(1)));
             }
             return weeks;
+        } finally {
+            DBMS.close(ps, rs);
+        }
+    }
+    
+    
+    private boolean areStatsGenerated() throws SQLException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            Connection cnn = DBUtils.getCurrentConnection();
+            String cmd = "SELECT FIRST 1 coder_id FROM  user_overall_stats";
+            ps = cnn.prepareStatement(cmd);
+            rs = ps.executeQuery();
+            return rs.next();
         } finally {
             DBMS.close(ps, rs);
         }
