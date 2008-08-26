@@ -72,17 +72,19 @@ public class WisdomPredictionGenerator {
             
             if (areOverallStatsGenerated()) {
                 log.info("Using overall stats for TOP 10 generation");
+                int rank = resolveRankToTakeOnOverall();
                 cmd =  "SELECT game_id, avg(pd.home_score) as home_score, avg(pd.visitor_score) as visitor_score" + 
                        "   FROM prediction p, prediction_detail pd" + 
                        "      WHERE pd.prediction_id = p.prediction_id AND p.week_id = ? AND pd.home_score IS NOT NULL and pd.visitor_score IS NOT NULL" + 
-                       "            AND p.coder_id IN (select coder_id from user_overall_stats uos where uos.rank <= 10 + (select count(*) from  user_overall_stats where rank <= 10 and coder_id in (?,?)))" + 
+                       "            AND p.coder_id NOT IN (?,?) AND p.coder_id IN (select coder_id from user_overall_stats uos where uos.rank <= "+rank+")" + 
                        "      group by game_id order by 1";
             } else if (areMiniSeasonStatsGenerated()) {
                 log.info("Using mini-season stats for TOP 10 generation");
+                int rank = resolveRankToTakeOnMiniSeason();
                 cmd =  "SELECT game_id, avg(pd.home_score) as home_score, avg(pd.visitor_score) as visitor_score" + 
                        "   FROM prediction p, prediction_detail pd" + 
                        "      WHERE pd.prediction_id = p.prediction_id AND p.week_id = ? AND pd.home_score IS NOT NULL and pd.visitor_score IS NOT NULL" + 
-                       "            AND p.coder_id IN (select coder_id from user_mini_season_stats uos where uos.rank <= 10 + (select count(*) from  user_mini_season_stats where rank <= 10 and coder_id in (?,?)))" + 
+                       "            AND p.coder_id NOT IN (?,?) AND p.coder_id IN (select coder_id from user_mini_season_stats uos where uos.rank <= "+rank+")" + 
                        "      group by game_id order by 1";
             } else {
                 log.info("We don't have stats, using same as ALL for TOP 10 generation");
@@ -180,6 +182,51 @@ public class WisdomPredictionGenerator {
             ps = cnn.prepareStatement(cmd);
             rs = ps.executeQuery();
             return rs.next();
+        } finally {
+            DBMS.close(ps, rs);
+        }
+    }
+    
+    
+    private int resolveRankToTakeOnOverall() throws SQLException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            Connection cnn = DBUtils.getCurrentConnection();
+            String cmd = "SELECT rank FROM user_overall_stats WHERE coder_id IN (?, ?)";
+            ps = cnn.prepareStatement(cmd);
+            ps.setInt(1, Constants.WISDOM_ALL);
+            ps.setInt(2, Constants.WISDOM_BEST);
+            rs = ps.executeQuery();
+            int rank = 10;
+            while (rs.next()) {
+                if (rs.getInt(1) <= rank) {
+                    rank++;
+                }
+            }
+            return rank;
+        } finally {
+            DBMS.close(ps, rs);
+        }
+    }
+    
+    private int resolveRankToTakeOnMiniSeason() throws SQLException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            Connection cnn = DBUtils.getCurrentConnection();
+            String cmd = "SELECT rank FROM user_mini_season_stats WHERE coder_id IN (?, ?)";
+            ps = cnn.prepareStatement(cmd);
+            ps.setInt(1, Constants.WISDOM_ALL);
+            ps.setInt(2, Constants.WISDOM_BEST);
+            rs = ps.executeQuery();
+            int rank = 10;
+            while (rs.next()) {
+                if (rs.getInt(1) <= rank) {
+                    rank++;
+                }
+            }
+            return rank;
         } finally {
             DBMS.close(ps, rs);
         }
