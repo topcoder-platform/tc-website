@@ -78,6 +78,7 @@ public class WisdomPredictionGenerator {
                        "      WHERE pd.prediction_id = p.prediction_id AND p.week_id = ? AND pd.home_score IS NOT NULL and pd.visitor_score IS NOT NULL" + 
                        "            AND p.coder_id NOT IN (?,?) AND p.coder_id IN (select coder_id from user_overall_stats uos where uos.rank <= "+rank+")" + 
                        "      group by game_id order by 1";
+                log.info("Using rank <= " + rank);
             } else if (areMiniSeasonStatsGenerated()) {
                 log.info("Using mini-season stats for TOP 10 generation");
                 int rank = resolveRankToTakeOnMiniSeason();
@@ -86,6 +87,7 @@ public class WisdomPredictionGenerator {
                        "      WHERE pd.prediction_id = p.prediction_id AND p.week_id = ? AND pd.home_score IS NOT NULL and pd.visitor_score IS NOT NULL" + 
                        "            AND p.coder_id NOT IN (?,?) AND p.coder_id IN (select coder_id from user_mini_season_stats uos where uos.rank <= "+rank+")" + 
                        "      group by game_id order by 1";
+                log.info("Using rank <= " + rank);
             } else {
                 log.info("We don't have stats, using same as ALL for TOP 10 generation");
             }
