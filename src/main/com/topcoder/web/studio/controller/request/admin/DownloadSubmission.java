@@ -12,7 +12,7 @@ import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionImage;
 import com.topcoder.web.studio.util.SubmissionPresentationFilter;
-import com.topcoder.web.studio.validation.SubmissionValidator;
+import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -140,7 +140,7 @@ public class DownloadSubmission extends Base {
                 // tiny, small, medium and full (but full only if preview file required for contest; otherwise - image)
                 targetFileName = s.getPath().getPath() + fileNames[0];
                 destFileName = fileNames[0];
-                StudioFileType fileType = SubmissionValidator.getFileType(destFileName);
+                StudioFileType fileType = UnifiedSubmissionValidator.getFileType(destFileName);
                 Set<MimeType> mimeTypes = fileType.getMimeTypes();
                 for (MimeType mimeType : mimeTypes) {
                     contentType = mimeType.getDescription();

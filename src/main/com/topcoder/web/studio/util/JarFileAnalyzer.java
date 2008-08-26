@@ -36,7 +36,7 @@ public class JarFileAnalyzer extends ZipFileAnalyzer {
      * @throws IOException if an I/O error occurs while reading the content.
      */
     public void analyze(InputStream content, boolean retrieveFiles) throws IOException {
-        analyze(new JarInputStream(content), retrieveFiles);
+        super.analyze(new JarInputStream(content), retrieveFiles);
     }
 
     /**

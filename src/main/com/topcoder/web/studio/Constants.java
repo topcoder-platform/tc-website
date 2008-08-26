@@ -22,6 +22,9 @@ public class Constants implements WebConstants {
     public static String DEFAULT_PAGE;
 
     public static final String SUBMISSION = "sbm";
+    public static final String SUBMISSION_SOURCE = "sbm_src";
+    public static final String SUBMISSION_PREVIEW = "sbm_prvw";
+
     public static final String SUBMISSION_ID = "sbmid";
     public static final String REVIEW_STATUS_ID = "rstid";
     public static final String SUBMISSION_STATUS_ID = "sbstid";

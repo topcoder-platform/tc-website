@@ -42,12 +42,12 @@ import java.util.Map;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 29, 2006
  */
-public class SubmissionValidator implements Validator {
+public class UnifiedSubmissionValidator implements Validator {
 
     /**
      * <p>A <code>Logger</code> to be used for logging the events occurring in the course of submission validations.</p>
      */
-    protected static final Logger log = Logger.getLogger(SubmissionValidator.class);
+    protected static final Logger log = Logger.getLogger(UnifiedSubmissionValidator.class);
 
     /**
      * <p>A <code>Contest</code> representing the contest which the submissions to be validated by this validator belong
@@ -61,7 +61,7 @@ public class SubmissionValidator implements Validator {
      *
      * @param contest a <code>Contest</code> which the submissions to be validated by this validator belong to. 
      */
-    public SubmissionValidator(Contest contest) {
+    public UnifiedSubmissionValidator(Contest contest) {
         this.contest = contest;
     }
 
@@ -117,21 +117,7 @@ public class SubmissionValidator implements Validator {
 
             try {
                 fileParser.analyze(new ByteArrayInputStream(arr), false);
-                
-                // Since STUDIO-128 - Check if source directory is included into submitted archive
-                if (!fileParser.isSourceDirectoryAvailable()) {
-                    return new BasicResult(false, MessageFormat.format(Constants.ERROR_MSG_NO_DIRECTORY,
-                                                                       "/" + Constants.SUBMISSION_SOURCE_PATH));
-                }
-                // Since STUDIO-128 - Check if submission directory is included into submitted archive in case any of
-                // preview image/file is required
-                if (previewImageRequired || previewFileRequired) {
-                    if (!fileParser.isSubmissionDirectoryAvailable()) {
-                        return new BasicResult(false, MessageFormat.format(Constants.ERROR_MSG_NO_DIRECTORY,
-                                                                           "/" + Constants.SUBMISSION_PATH));
-                    }
-                }
-                
+                                
                 boolean nativeSubmissionProvided = fileParser.isNativeSubmissionAvailable();
                 boolean previewImageProvided = !previewImageRequired || fileParser.isPreviewImageAvailable();
                 boolean previewFileProvided = !previewFileRequired || fileParser.isPreviewFileAvailable();
@@ -305,7 +291,7 @@ public class SubmissionValidator implements Validator {
      * @return <code>true</code> if specified mime type corresponds to a bundled file; <code>false</code> otherwise.
      * @since TopCoder Studio Modifications Assembly (Req# 5.6)
      */
-    private static boolean isBundledFile(MimeType mimeType) {
+    public static boolean isBundledFile(MimeType mimeType) {
         return mimeType.getFileType().isBundledFile();
     }
 }
