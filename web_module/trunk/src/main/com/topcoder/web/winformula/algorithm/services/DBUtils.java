@@ -377,6 +377,21 @@ public class DBUtils {
     }
 
     /**
+     * Associates the given connection with the current thread, if no connection
+     * is already associated. If a connection was already associated with the Thread throws 
+     * an IllegalStateException
+     */
+    public static void initDBBlock(Connection cnn) {
+        ConnectionCount cnc;
+        cnc = (ConnectionCount) connection.get();
+        if (cnc.count != 0) {
+            throw new IllegalStateException("Connection already created");
+        }
+        cnc.cnn = cnn;
+        cnc.count++;
+    }
+    
+    /**
      * Decrement the connection reference count for the calling thread, if after decrementing
      * the count is 0, the connection is close. If is greater than 0, it is left open.
      * 
