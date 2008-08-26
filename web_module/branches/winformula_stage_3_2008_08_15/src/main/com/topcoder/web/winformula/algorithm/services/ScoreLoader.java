@@ -59,7 +59,9 @@ public class ScoreLoader {
         try {
             cnn = DBMS.getDirectConnection();
             DBUtils.initDBBlock(cnn);
-            
+
+            log.info("Loading scores:");
+
             insert = cnn.prepareStatement(INSERT);
             update = cnn.prepareStatement(UPDATE);
 
@@ -105,7 +107,7 @@ public class ScoreLoader {
                     log.info("loading... " + count + " rows...");    
                 }
             }
-            log.info("Score loader: " + count + " rows updated/inserted");
+            log.info(count + " rows updated/inserted");
             if (count == 0) {
                 log.info("** missing predictions or games results???");
             }

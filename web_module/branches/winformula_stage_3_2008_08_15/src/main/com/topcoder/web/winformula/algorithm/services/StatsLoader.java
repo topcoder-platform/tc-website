@@ -34,6 +34,7 @@ public class StatsLoader {
     }
     
     private void process(int weekId, int coderId) {
+        log.info("Loading stats:");
         loadWeekStats(weekId, coderId);
         loadMiniSeasonStats(weekId, coderId);
         loadOverallStats(coderId);
@@ -46,6 +47,7 @@ public class StatsLoader {
         try {
             cnn = DBMS.getDirectConnection();
             DBUtils.initDBBlock(cnn);
+
             String DELETE = " delete from user_week_stats " + 
                             " where week_id = ? ";
             
