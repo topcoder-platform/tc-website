@@ -74,16 +74,18 @@
                 <c:set var="totalPages" value="${totalSize / numRecords + 1}"/>
             </c:otherwise>
         </c:choose>
-        | <c:forEach begin="${1}" end="${totalPages}" step="${1}" var="i"> 
-            <c:choose>
-                <c:when test="${i == numPage}">
-                    <strong>${i}</strong> 
-                </c:when>
-                <c:otherwise>
-                    <a href="Javascript:setPage(${i})">${i}</a> 
-                </c:otherwise>
-            </c:choose>
-        </c:forEach> |
+       | <c:if test="${numPage-5 > 1}">...</c:if><c:forEach begin="${numPage >= 5 ? numPage - 5 : 1}" end="${numPage+5}" step="${1}" var="i"> 
+            <c:if test="${i >= 1 && i <= totalPages}">
+                <c:choose>
+                    <c:when test="${i == numPage}">
+                        <strong>${i}</strong> 
+                    </c:when>
+                    <c:otherwise>
+                        <a href="Javascript:setPage(${i})">${i}</a> 
+                    </c:otherwise>
+                </c:choose>
+            </c:if>
+        </c:forEach> <c:if test="${numPage+5 < totalPages}">...</c:if> |
         <c:choose>
             <c:when test="${croppedDataAfter}">
                 <a href="Javascript:next()" class="bcLink">Next</a> &gt; |
