@@ -30,7 +30,7 @@
           <td><a href="${sessionInfo.servletPath}?module=ViewProfile&amp;cr=${standingsItem.coderId}">${standingsItem.handle}</a></td>
           <c:choose>
                 <c:when test="${not empty standingsItem.points}">
-                    <td class="alignCenter"><fmt:formatNumber value="${standingsItem.points}" pattern="0.00"/></td>
+                    <td class="alignCenter"><fmt:formatNumber value="${standingsItem.points}" pattern="0"/></td>
                     <td class="alignCenter"><fmt:formatNumber value="${standingsItem.winPercent}" pattern="0.00"/> %</td>
                     <td class="alignCenter"><fmt:formatNumber value="${standingsItem.avgTotalScoreVariance}" pattern="0.00"/></td>
                     <td class="alignCenter"><fmt:formatNumber value="${standingsItem.avgVictoryMarginVariance}" pattern="0.00"/></td>
