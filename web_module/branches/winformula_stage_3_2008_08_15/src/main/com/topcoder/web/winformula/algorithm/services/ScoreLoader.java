@@ -101,7 +101,7 @@ public class ScoreLoader {
                 
                 addUpdateScores(cnn, insert, update, predictionDetailId, points, totalScoreVariance, victoryMarginVariance, pickedWinner);
                 count++;
-                if (count % 10 == 0) {
+                if (count % 500 == 0) {
                     log.info("loading... " + count + " rows...");    
                 }
             }
