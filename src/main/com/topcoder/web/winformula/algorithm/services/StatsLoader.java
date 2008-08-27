@@ -183,7 +183,7 @@ public class StatsLoader {
                 DELETE += " and coder_id = ? ";
             }
 
-            INSERT += " group by p.coder_id ";
+            INSERT += " group by p.week_id, p.coder_id ";
 
             delete = cnn.prepareStatement(DELETE);
             delete.setInt(1, weekId); 
