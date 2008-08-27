@@ -178,6 +178,8 @@ public class Constants {
         DB_LIST.add(new DatabaseBean(DBMS.CORP_OLTP_DATASOURCE_NAME, "Corporate"));
         DB_LIST.add(new DatabaseBean(DBMS.SCREENING_OLTP_DATASOURCE_NAME, "Screening"));
         DB_LIST.add(new DatabaseBean(DBMS.STUDIO_DATASOURCE_NAME, "TC Studio"));
+        DB_LIST.add(new DatabaseBean(DBMS.AOLICQ_DATASOURCE_NAME, "Aolicq - Openxtraz"));
+        DB_LIST.add(new DatabaseBean(DBMS.WINFORMULA_DATASOURCE_NAME, "Winning Formula"));
         DB_LIST.add(new DatabaseBean("java:/PIPELINE", "Pipeline"));
 /*
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_OLTP", "Google"));
