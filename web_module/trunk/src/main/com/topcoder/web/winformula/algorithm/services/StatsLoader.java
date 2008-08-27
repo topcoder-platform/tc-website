@@ -37,7 +37,11 @@ public class StatsLoader {
         log.info("Loading stats:");
         loadWeekStats(weekId, coderId);
         loadMiniSeasonStats(weekId, coderId);
-        loadOverallStats(coderId);
+        if (weekId >= 71) {
+            loadOverallStats(weekId, coderId);
+        } else {
+            log.info("Skipping overall stats load: this weeks corresponds to pre-season (mini-season 1)");
+        }
     }
 
     private void loadWeekStats(int weekId, int coderId) {
@@ -153,47 +157,51 @@ public class StatsLoader {
         }
     }
 
-    private void loadOverallStats(int coderId) {
+    private void loadOverallStats(int weekId, int coderId) {
         Connection cnn = null;
         PreparedStatement delete = null;
         PreparedStatement insert = null;
         try {
             cnn = DBMS.getDirectConnection();
             DBUtils.initDBBlock(cnn);
-            String DELETE = " delete from user_overall_stats ";
+            String DELETE = " delete from user_overall_stats " + 
+                            " where week_id = ? ";
             
             String INSERT = " insert into user_overall_stats " +
-                   " select p.coder_id, 0 as rank, sum(nvl(pds.prediction_detail_points,0)) as points, " + 
+                   " select p.week_id, p.coder_id, 0 as rank, 0 as rank_diff, sum(nvl(pds.prediction_detail_points,0)) as points, " + 
                    "        avg(pds.prediction_detail_total_score_variance) as avg_total_score_variance, " +
                    "        avg(pds.prediction_detail_victory_margin_variance) as avg_victory_margin_variance, " +
                    "        sum(case when pds.prediction_detail_picked_winner then 1 else 0 end) / count(*) * 100 as avg_picked_winner " +
                    " from prediction p, prediction_detail pd, prediction_detail_score pds " +
                    " where p.prediction_id = pd.prediction_id " +
                    " and pd.prediction_detail_id = pds.prediction_detail_id " +
-                   " and p.week_id > 70";   // first three weeks doesn't cound for overall stats
+                   " and p.week_id >= 71" +
+                   " and p.week_id <= ?";
             
             if (coderId > 0) {
                 INSERT += " and coder_id = ? ";
-                DELETE += " where coder_id = ? ";
+                DELETE += " and coder_id = ? ";
             }
 
             INSERT += " group by p.coder_id ";
 
             delete = cnn.prepareStatement(DELETE);
+            delete.setInt(1, weekId); 
             if (coderId > 0) {
-                delete.setInt(1, coderId); 
+                delete.setInt(2, coderId); 
             }
             delete.executeUpdate();
 
             insert = cnn.prepareStatement(INSERT);
+            insert.setInt(1, weekId); 
             if (coderId > 0) {
-                insert.setInt(1, coderId); 
+                insert.setInt(2, coderId); 
             }
             int retVal = insert.executeUpdate();
 
             log.info("Overall stats: " + retVal + " rows inserted");
 
-            rank(cnn, "user_overall_stats", null, "overall");
+            rank(cnn, "user_overall_stats", weekId, "overall");
         } catch (Exception e) {
             log.error("Failed to process", e);
         } finally {
@@ -215,8 +223,11 @@ public class StatsLoader {
             cmd += " where mini_season_id = (select w2.mini_season_id from week w2 where w2.week_id = ?) ";
             cmdRankDiff = "select rank from " + tableName + 
             " where mini_season_id = ? and coder_id = ?";
+        } else if (scope.equals("overall")) {
+            cmd += " where week_id = ?";
+            cmdRankDiff = "select rank from " + tableName + 
+            " where week_id = ? and coder_id = ?";
         }
-        
         
         cmd += " order by points desc ";
 
@@ -227,21 +238,23 @@ public class StatsLoader {
 
         try {
             ps = cnn.prepareStatement(cmd, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            if (cmdRankDiff != null) {
+            if (!scope.equals("overall") || weekId != 71) {
                 psRankDiff = cnn.prepareStatement(cmdRankDiff, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY, ResultSet.HOLD_CURSORS_OVER_COMMIT);
             }
-            if (!scope.equals("overall")) {
-               ps.setInt(1, weekId); 
-            }
+ 
+            ps.setInt(1, weekId); 
             rs = ps.executeQuery();
             int rank = 0;
             int oldPoints = -1;
+            if (scope.equals("overall")) {
+                scope = "week"; // the historic rank is by week
+            }
             while (rs.next()) {
                 if (oldPoints != rs.getInt("points")) {
                     rank++;
                 }
                 rs.updateInt("rank", rank);
-                if (!scope.equals("overall")) {
+                if (psRankDiff != null) {
                     psRankDiff.clearParameters();
                     psRankDiff.setInt(1, rs.getInt(scope + "_id") - 1); 
                     psRankDiff.setInt(2, rs.getInt("coder_id")); 
