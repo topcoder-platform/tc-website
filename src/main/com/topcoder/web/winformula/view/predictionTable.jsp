@@ -3,7 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.topcoder.web.winformula.model.PredictionItem" %>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="current-data">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="stat">
   <tr class="resultTH">
     <th scope="col"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="1" includeParams="true"/>">Home Team</a></th>
     <th scope="col"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true"/>">Away Team</a></th>
@@ -61,10 +61,10 @@
                         &nbsp;
                   </c:when>
                   <c:when test="${predictionItem.pickedWinner}">
-                        <img src="/i/tournament/tco08/iconAdvanced.png" alt="Good Prediction"/>
+                        <img src="/i/events/winformula/icoChecked.png" alt="Good Prediction"/>
                   </c:when>
                   <c:otherwise>
-                        <img src="/i/tournament/tco08/iconEliminated.png" alt="Bad Prediction" />
+                        <img src="/i/events/winformula/icoRedX.png" alt="Bad Prediction" />
                   </c:otherwise>
               </c:choose>
           </td>
