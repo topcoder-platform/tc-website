@@ -162,6 +162,9 @@
                     <c:when test="${typeId == 18 && payment.seasonId > 0}">
                         <A href="/tc?module=RookieBoard&ph=112&seid=${payment.seasonId}" class="bcLink">${payment.description}</A>                    
                     </c:when>
+                    <c:when test="${typeId == 40 && payment.trackId > 0}">
+                        <A href="/dr?module=ViewLeaderBoard&tid=${payment.trackId}" class="bcLink">${payment.description}</A>                    
+                    </c:when>
                     <c:when test="${typeId == 21 && payment.roundId > 0}">
                         <A href="/longcontest/?module=ViewOverview&rd=${payment.roundId}>" class="bcLink">${payment.description}</A>                    
                     </c:when>                
