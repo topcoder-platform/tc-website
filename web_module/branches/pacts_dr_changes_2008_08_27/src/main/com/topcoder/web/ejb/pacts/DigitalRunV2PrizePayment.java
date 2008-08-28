@@ -69,7 +69,7 @@ public class DigitalRunV2PrizePayment extends DigitalRunTrackReferencePayment {
         public String lookupDescription(BasePayment payment) throws SQLException {
             DigitalRunTrackReferencePayment p = (DigitalRunTrackReferencePayment) payment;
 
-            return getTrackName(p.getTrackId()) + ", " + getOrdinal(p.getPlaced());
+            return getTrackName(p.getTrackId()) + " " + getOrdinal(p.getPlaced());
         }
 
     }
