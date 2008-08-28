@@ -85,6 +85,10 @@
                 </tr>
                 <tr>
                     <td valign="top" align="left" colspan="2">
+                    <a href="/i/flash/global_platform/vcab.swf" target="_blank"><img src="/i/tcs_global_platform.png" alt="Global Platform" width="530" height="70" border="0" /></a>                    </td>
+              </tr>
+                <tr>
+                    <td valign="top" align="left" colspan="2">
                     <%--
                     <map name="morris_promo">
                     <area shape="rect" alt="Application Development Methodology" coords="53,64,238,78" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/applDevMethod.mp4" />
