@@ -8,6 +8,7 @@
 <c:set var="problems" value="${requestScope.algorithm_problem_list}"/>
 <c:set var="projects" value="${requestScope.component_project_list}"/>
 <c:set var="stages" value="${requestScope.digital_run_stage_list}"/>
+<c:set var="tracks" value="${requestScope.digital_run_track_list}"/>
 <c:set var="seasons" value="${requestScope.digital_run_season_list}"/>
 <c:set var="rounds" value="${requestScope.algorithm_round_list}"/>
 <c:set var="studioContests" value="${requestScope.studio_contest_list}"/>
@@ -26,6 +27,7 @@
 <c:set var="STUDIO_CONTEST" value="<%= PactsConstants.REFERENCE_STUDIO_CONTEST_ID + "" %>" />
 <c:set var="COMPONENT_CONTEST" value="<%= PactsConstants.REFERENCE_COMPONENT_CONTEST_ID + "" %>" />
 <c:set var="DIGITAL_RUN_STAGE" value="<%= PactsConstants.REFERENCE_DIGITAL_RUN_STAGE_ID + "" %>" />
+<c:set var="DIGITAL_RUN_TRACK" value="<%= PactsConstants.REFERENCE_DIGITAL_RUN_TRACK_ID + "" %>" />
 <c:set var="DIGITAL_RUN_SEASON" value="<%= PactsConstants.REFERENCE_DIGITAL_RUN_SEASON_ID + "" %>" />
 <c:set var="PARENT_PAYMENT" value="<%= PactsConstants.REFERENCE_PARENT_PAYMENT_ID + "" %>" />
 <c:set var="COMPONENT_WINNING" value="<%= PactsConstants.COMPONENT_PAYMENT + "" %>" />
@@ -229,6 +231,18 @@
                         <c:if test="${not firstLoad}">  
                             <script type="text/javascript">
                                 referenceChanged('digital_run_stage_id');
+                            </script>
+                        </c:if>
+                                                        
+                     </c:when>                       
+                     
+                     <c:when test="${refId == DIGITAL_RUN_TRACK}">
+                         <tc-webtag:rscSelect name="digital_run_track_id" list="${tracks}" 
+                                 fieldText="track_desc" fieldValue="track_id"  selectedValue="${param.reference_id}"                                            
+                                 useTopValue="false" onChange="referenceChanged('digital_run_track_id')"/>
+                        <c:if test="${not firstLoad}">  
+                            <script type="text/javascript">
+                                referenceChanged('digital_run_track_id');
                             </script>
                         </c:if>
                                                         

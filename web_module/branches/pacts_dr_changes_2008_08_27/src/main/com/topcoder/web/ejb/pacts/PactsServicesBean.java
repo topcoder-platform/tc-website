@@ -3630,8 +3630,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, client, ");
             insertPaymentDetail.append("  algorithm_round_id, component_project_id, algorithm_problem_id, studio_contest_id, ");
             insertPaymentDetail.append("  component_contest_id, digital_run_stage_id, digital_run_season_id, parent_payment_id, ");
-            insertPaymentDetail.append("  charity_ind, total_amount, installment_number) ");
-            insertPaymentDetail.append(" VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            insertPaymentDetail.append("  charity_ind, total_amount, installment_number, digital_run_track_id) ");
+            insertPaymentDetail.append(" VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
             ps = c.prepareStatement(insertPaymentDetail.toString());
             ps.setLong(1, paymentDetailId);
@@ -3679,6 +3679,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     break;
                 case REFERENCE_PARENT_PAYMENT_ID:
                     setNullableLong(ps, 21, p.getHeader().getParentPaymentId());
+                    break;
+                case REFERENCE_DIGITAL_RUN_TRACK_ID:
+                    setNullableLong(ps, 25, p.getHeader().getDigitalRunTrackId());
                     break;
             }
             ps.setBoolean(22, p.isCharity());
@@ -5758,6 +5761,20 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return hm;
     }
 
+    public Map getDigitalRunTrackList() throws SQLException {
+        StringBuffer query = new StringBuffer(1000);
+        query.append(" select track_id, track_desc");
+        query.append(" from track t ");
+        query.append(" where t.track_status_id <= 2");
+
+        ResultSetContainer rsc = runSearchQuery(DBMS.TCS_DW_DATASOURCE_NAME, query.toString(),
+                new ArrayList());
+
+        HashMap hm = new HashMap();
+        hm.put(DIGITAL_RUN_TRACK_LIST, rsc);
+        return hm;
+    }
+
 
     /**
      * Look up and fill data in the payment object.
@@ -5867,6 +5884,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 break;
             case REFERENCE_PARENT_PAYMENT_ID:
                 p.getHeader().setParentPaymentId(((ParentReferencePayment) payment).getParentId());
+                break;
+            case REFERENCE_DIGITAL_RUN_TRACK_ID:
+                p.getHeader().setDigitalRunTrackId(((DigitalRunTrackReferencePayment) payment).getTrackId());
                 break;
         }
 

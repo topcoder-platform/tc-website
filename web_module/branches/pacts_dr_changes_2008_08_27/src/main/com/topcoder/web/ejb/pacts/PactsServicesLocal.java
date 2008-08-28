@@ -228,6 +228,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     Map getDigitalRunStageList() throws SQLException;
 
+    Map getDigitalRunTrackList() throws SQLException;
+
     Map findComponentContests(String search) throws SQLException;
 
     Map findStudioContests(String search) throws SQLException;
