@@ -306,9 +306,9 @@
             <table border="0" align="center" cellpadding="0" width="100%" class="predict-table">
                 <tr>
                     <td><strong>Clemson</strong></td>
-                    <td class="alignRight dottedRight"><strong>28</strong></td>
+                    <td class="alignRight dottedRight"><strong>27</strong></td>
                     <td><strong>Missouri</strong></td>
-                    <td class="alignRight dottedRight"><strong>37</strong></td>
+                    <td class="alignRight dottedRight"><strong>36</strong></td>
                     <td>E Carolina</td>
                     <td class="alignRight dottedRight">18</td>
                     <td><strong>Michigan</strong></td>
@@ -320,13 +320,13 @@
                 </tr>
                 <tr>
                     <td>Alabama</td>
-                    <td class="alignRight dottedRight">17</td>
+                    <td class="alignRight dottedRight">16</td>
                     <td>Illinois</td>
                     <td class="alignRight dottedRight">18</td>
                     <td><strong>VA Tech</strong></td>
                     <td class="alignRight dottedRight"><strong>32</strong></td>
                     <td>Utah</td>
-                    <td class="alignRight dottedRight">19</td>
+                    <td class="alignRight dottedRight">18</td>
                     <td><strong>USC</strong></td>
                     <td class="alignRight dottedRight"><strong>28</strong></td>
                     <td>Tennessee</td>
