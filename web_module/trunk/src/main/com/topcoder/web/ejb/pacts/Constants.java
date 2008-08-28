@@ -44,6 +44,8 @@ public interface Constants {
     public static final int COMPONENT_ENHANCEMENTS_PAYMENT = 37;
     public static final int REVIEW_BOARD_BONUS_PAYMENT = 38;
     public static final int COMPONENT_BUILD_PAYMENT = 39;
+    public static final int DIGITAL_RUN_V2_PRIZE_PAYMENT = 40;
+    public static final int DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT = 41;
 
     public static final int NO_REFERENCE = 0;
     public static final int REFERENCE_ALGORITHM_ROUND_ID = 1;
@@ -54,6 +56,7 @@ public interface Constants {
     public static final int REFERENCE_DIGITAL_RUN_STAGE_ID = 6;
     public static final int REFERENCE_DIGITAL_RUN_SEASON_ID = 7;
     public static final int REFERENCE_PARENT_PAYMENT_ID = 8;
+    public static final int REFERENCE_DIGITAL_RUN_TRACK_ID = 9;
 
     // Modficiation rationale codes
     public static final int MODIFICATION_NEW = 1;

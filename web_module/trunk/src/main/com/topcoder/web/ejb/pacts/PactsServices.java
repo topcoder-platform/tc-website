@@ -211,6 +211,8 @@ public interface PactsServices extends EJBObject {
 
     Map getDigitalRunStageList() throws RemoteException, SQLException;
 
+    Map getDigitalRunTrackList() throws RemoteException, SQLException;
+
     Map findComponentContests(String search) throws RemoteException, SQLException;
 
     Map findStudioContests(String search) throws RemoteException, SQLException;

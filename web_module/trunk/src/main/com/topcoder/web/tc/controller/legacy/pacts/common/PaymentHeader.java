@@ -38,7 +38,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
      * serialization for this object, i.e. when data members are changed.
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     private static Logger log = Logger.getLogger(PaymentHeader.class);
 
@@ -75,6 +75,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private long digitalRunStageId;
     private long digitalRunSeasonId;
     private long parentPaymentId;
+    private long digitalRunTrackId;
 
     private String modifyDate;
     private String createDate;
@@ -186,6 +187,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         digitalRunStageId = TCData.getTCLong(rsr, "digital_run_stage_id", 0, false);
         digitalRunSeasonId = TCData.getTCLong(rsr, "digital_run_season_id", 0, false);
         parentPaymentId = TCData.getTCLong(rsr, "parent_payment_id", 0, false);
+        digitalRunTrackId = TCData.getTCLong(rsr, "digital_run_track_id", 0, false);
 
         createDate = TCData.getTCDate(rsr, "create_date", "00/00/00", false);
         modifyDate = TCData.getTCDate(rsr, "modify_date", "00/00/00", false);
@@ -350,6 +352,14 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         this.digitalRunStageId = digitalRunStageId;
     }
 
+    public long getDigitalRunTrackId() {
+        return digitalRunTrackId;
+    }
+
+    public void setDigitalRunTrackId(long digitalRunTrackId) {
+        this.digitalRunTrackId = digitalRunTrackId;
+    }
+
     public long getStudioContestId() {
         return studioContestId;
     }
@@ -375,6 +385,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         case REFERENCE_DIGITAL_RUN_STAGE_ID : return digitalRunStageId;
         case REFERENCE_DIGITAL_RUN_SEASON_ID : return digitalRunSeasonId;
         case REFERENCE_PARENT_PAYMENT_ID : return parentPaymentId;
+        case REFERENCE_DIGITAL_RUN_TRACK_ID : return digitalRunTrackId;
         }
         return 0;
     }

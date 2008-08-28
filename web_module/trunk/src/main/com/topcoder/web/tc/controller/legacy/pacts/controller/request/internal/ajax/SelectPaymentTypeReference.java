@@ -98,6 +98,11 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                     getRequest().setAttribute(DIGITAL_RUN_STAGE_LIST, map.get(DIGITAL_RUN_STAGE_LIST));
                     field = "digital_run_season_id";
                     break;
+                case REFERENCE_DIGITAL_RUN_TRACK_ID:
+                    map = dib.getDigitalRunTrackList();
+                    getRequest().setAttribute(DIGITAL_RUN_TRACK_LIST, map.get(DIGITAL_RUN_TRACK_LIST));
+                    field = "digital_run_track_id";
+                    break;
             }
             
             if (type == PROBLEM_TESTING_PAYMENT) {
