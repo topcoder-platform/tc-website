@@ -95,58 +95,63 @@
 </div>
 
 <h1>Submit Your Design</h1>
+        <p>Thank you for accepting the terms of the contest. Please use the form below to upload your submission.</p>
+        <h2>Upload Submission</h2>
+        <p>Please follow the instructions on the Contest Details page regarding how to format your ZIP file.</p>
+        <p>The following file formats are acceptable in your source folder:</p>
 
-        <p>
-            Thank you for accepting the terms of the contest. Please use the form below to upload your submission.
-        </p>
-
-        <p>
-            Please follow the instructions on the Contest Details page regarding how to format your ZIP file.
-        </p>
-
-        <p>
-            The following file formats are acceptable in your source folder:
-        </p>
-
-        <ul>
+        <ul class="submit_form_list">
             <c:forEach items="${contest.fileTypes}" var="fileType">
                 <li>
                         ${fileType.description}
                 </li>
             </c:forEach>
         </ul>
-
-        <div align="center">
+        <div class="statHolder">
+    	<div class="NE"><img src="i/v2/stat_tableNE.png" alt="" /></div>
+    	<div class="NW"><img src="i/v2/stat_tableNW.png" alt="" /></div>
+    	<div class="container">
             <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" onsubmit="showProcessing()">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
                 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-                <p>
-                    <strong>My design:</strong><br />
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
+                
+                <table class="submission_form">
+                  <tr>
+                    <th colspan="2" class="label">My Design</th>
+                  </tr>
+                  <tr>
+                    <td class="label"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
                         <br /></tc-webtag:errorIterator>
-                    Submission zip file:&nbsp;&nbsp;<input type="file" name="<%=Constants.SUBMISSION%>"/>
-                    <br /><br />
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_SOURCE%>"><span class="bigRed">${err}</span>
+                    Submission zip file:</td>
+                    <td class="browse"><input type="file" name="<%=Constants.SUBMISSION%>"/></td>
+                  </tr>
+                  <tr>
+                    <td class="label"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_SOURCE%>"><span class="bigRed">${err}</span>
                         <br /></tc-webtag:errorIterator>
-                    Submission source zip file:&nbsp;&nbsp;<input type="file" name="<%=Constants.SUBMISSION_SOURCE%>"/>
-                    <br /><br />
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_PREVIEW%>"><span class="bigRed">${err}</span>
+                    Submission source zip file:</td>
+                    <td class="browse"><input type="file" name="<%=Constants.SUBMISSION_SOURCE%>"/></td>
+                  </tr>
+                  <tr>
+                    <td class="label"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_PREVIEW%>"><span class="bigRed">${err}</span>
                         <br /></tc-webtag:errorIterator>
-                    Submission preview image:&nbsp;&nbsp;<input type="file" name="<%=Constants.SUBMISSION_PREVIEW%>"/>
-                    <br />
-                </p>
-
-                <p>
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_RANK%>"><span class="bigRed">${err}</span>
+                    Submission preview image:</td>
+                    <td class="browse"><input type="file" name="<%=Constants.SUBMISSION_PREVIEW%>"/></td>
+                  </tr>
+                  <tr>
+                    <td class="label"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_RANK%>"><span class="bigRed">${err}</span>
                         <br /></tc-webtag:errorIterator>
-                    as rank:&nbsp;<tc-webtag:textInput name="<%=Constants.SUBMISSION_RANK%>" maxlength="3" size="2"/>
-                </p>
-
-                <p id="submitButton">
-                    <input type="image" src="/i/v2/interface/btnSubmit.png" />
-                </p>
+                    as rank:&nbsp;<tc-webtag:textInput name="<%=Constants.SUBMISSION_RANK%>" maxlength="3" size="2"/>                    </td>
+                    <td class="browse"><span id="submitButton"><input type="image" src="/i/v2/interface/btnSubmit.png" /></span></td>
+                  </tr>
+                </table>
+                
+                
             </form>
         </div>
+        <div class="SE"><img src="i/v2/stat_tableSE.png" alt="" /></div>
+    	<div class="SW"><img src="i/v2/stat_tableSW.png" alt="" /></div>
+        </div>
+
 
 <%
     GregorianCalendar gc = new GregorianCalendar(2007, Calendar.JULY, 23);
@@ -154,7 +159,9 @@
 <c:set value="<%=new Timestamp(gc.getTime().getTime())%>" var="bigStart"/>
 
 
-<div style="margin: 40px 0px 20px 0px;">
+<div>
+	<p>&nbsp;</p>
+    <h2>Rank Your Submissions</h2>
     <form name="submissionForm" action="#">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${contest.id}"/>
@@ -163,17 +170,17 @@
 
         <c:choose>
             <c:when test="${contest.startTime > bigStart}">
-                <div align="center">
-                    <strong>In the table below</strong> you can rank your submissions. <br />
+                <div>
+                    <p><strong>In the table below</strong> you can rank your submissions.</p>
 
                              <c:choose>
                                  <c:when test="${not empty contest.maxSubmissions.value}">
-                                     Up to ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
+                                     <p>Up to ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
                                      will count for this contest.  They will be indicated by
                                     <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr>.  Those submissions that do not have the icon will <strong>NOT</strong> count and
                                      they will neither be screened nor reviewed.
                                      If you make more than ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
-                                     for this contest, you can rearrange the order of your submissions until the end of the Submission Phase.
+                                     for this contest, you can rearrange the order of your submissions until the end of the Submission Phase.</p>
                                  </c:when>
                              <c:otherwise>
                                  <nobr>This icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates preferred submissions that will count for
@@ -183,21 +190,16 @@
                     </div>
             </c:when>
             <c:otherwise>
-                <div align="center">
-                    <strong>In the table below</strong> you can rank your submissions.
-                    <br /><nobr>This icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates preferred submissions that will count for
-                    this contest.
-                    <br />Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
-                    to the bottom of the page.
-                    <br />If one of your preferred submissions fails after the submission phase, the next passing submission will
-                    take its place.
+                <div>
+                    <p><strong>In the table below</strong> you can rank your submissions.</p>
+                    <p><nobr>This icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates preferred submissions that will count for
+                    this contest. Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
+                    to the bottom of the page. If one of your preferred submissions fails after the submission phase, the next passing submission will
+                    take its place.</p>
                 </div>
             </c:otherwise>
         </c:choose>
 
-
-
-        <br /><br />
 <div class="statHolder">
     <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
     <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
