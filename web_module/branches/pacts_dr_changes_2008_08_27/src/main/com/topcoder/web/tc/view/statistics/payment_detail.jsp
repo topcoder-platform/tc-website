@@ -261,6 +261,9 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                     resultRow.getIntItem("payment_type_id") == 25) && 
                     resultRow.getItem("reference_id").getResultData() != null) {%>
                 <A href="/tc?module=LeaderBoard&ph=112&staid=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">DR Stage details</A>
+                <% } else if (resultRow.getIntItem("payment_type_id") == 40 && 
+                    resultRow.getItem("reference_id").getResultData() != null) {%>
+                <A href="/dr?module=ViewLeaderBoard&tid=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">DR Track details</A>
                 <% } else if (resultRow.getIntItem("payment_type_id") == 18 && resultRow.getItem("reference_id").getResultData() != null) {%>
                 <A href="/tc?module=RookieBoard&ph=112&seid=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">DR Stage details</A>
                 <% } else if (resultRow.getIntItem("payment_type_id") == 21 && resultRow.getItem("reference_id").getResultData() != null) {%>
