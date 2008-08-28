@@ -6425,7 +6425,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     query.append("  pd.digital_run_season_id = ? OR ");
                     query.append("  pd.digital_run_track_id = ? OR ");
                     query.append("  pd.parent_payment_id = ?)");
-                    for (int j = 0; j < 8; j++) {
+                    for (int j = 0; j < 9; j++) {
                         objects.add(value);
                     }
                 } else if (key.equals(PAYMENT_STATUS_ID)) {
