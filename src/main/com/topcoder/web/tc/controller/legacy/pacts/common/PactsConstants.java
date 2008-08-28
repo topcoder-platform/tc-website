@@ -53,7 +53,8 @@ public interface PactsConstants extends Constants {
             ASSEMBLY_PAYMENT, TESTING_PAYMENT, LOGO_CONTEST_PAYMENT, TC_STUDIO_PAYMENT, CCIP_PAYMENT, DIGITAL_RUN_PRIZE_PAYMENT,
             DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT, COMPONENT_TOURNAMENT_BONUS_PAYMENT, MARATHON_MATCH_PAYMENT, ALGORITHM_TOURNAMENT_PRIZE_PAYMENT,
             RELIABILITY_BONUS_PAYMENT, DIGITAL_RUN_TOP_THIRD_PAYMENT, MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT, TC_STUDIO_TOURNAMENT_PRIZE_PAYMENT,
-            HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT, STUDIO_REVIEW_BOARD_PAYMENT, ARCHITECTURE_PAYMENT, REVIEW_BOARD_BONUS_PAYMENT};
+            HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT, STUDIO_REVIEW_BOARD_PAYMENT, ARCHITECTURE_PAYMENT, REVIEW_BOARD_BONUS_PAYMENT,
+            DIGITAL_RUN_V2_PRIZE_PAYMENT, DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT};
 
     // Contract type codes
     public static final int DEVELOPMENT_CONTRACT = 1;
@@ -173,6 +174,7 @@ public interface PactsConstants extends Constants {
     public static final String STUDIO_CONTEST_LIST = "studio_contest_list";
     public static final String COMPONENT_CONTEST_LIST = "component_contest_list";
     public static final String DIGITAL_RUN_STAGE_LIST = "digital_run_stage_list";
+    public static final String DIGITAL_RUN_TRACK_LIST = "digital_run_track_list";
     public static final String DIGITAL_RUN_SEASON_LIST = "digital_run_season_list";
     public static final String PARENT_REFERENCE_LIST = "parent_reference_list";
 

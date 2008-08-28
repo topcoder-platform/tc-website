@@ -22,6 +22,7 @@ import com.topcoder.web.ejb.pacts.ComponentProjectReferencePayment;
 import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
 import com.topcoder.web.ejb.pacts.DigitalRunSeasonReferencePayment;
 import com.topcoder.web.ejb.pacts.DigitalRunStageReferencePayment;
+import com.topcoder.web.ejb.pacts.DigitalRunTrackReferencePayment;
 import com.topcoder.web.ejb.pacts.ParentReferencePayment;
 import com.topcoder.web.ejb.pacts.ReviewBoardPayment;
 import com.topcoder.web.ejb.pacts.StudioContestReferencePayment;
@@ -357,8 +358,11 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
         	((ComponentContestReferencePayment) payment).setContestId(getLongParameter(useRef? rf : "component_contest_id"));
         	
         } else if (payment instanceof DigitalRunStageReferencePayment) {
-        	((DigitalRunStageReferencePayment) payment).setStageId(getLongParameter(useRef? rf : "digital_run_stage_id"));
-        	
+            ((DigitalRunStageReferencePayment) payment).setStageId(getLongParameter(useRef? rf : "digital_run_stage_id"));
+            
+        } else if (payment instanceof DigitalRunTrackReferencePayment) {
+            ((DigitalRunTrackReferencePayment) payment).setTrackId(getLongParameter(useRef? rf : "digital_run_track_id"));
+            
         } else if (payment instanceof DigitalRunSeasonReferencePayment) {
         	((DigitalRunSeasonReferencePayment) payment).setSeasonId(getLongParameter(useRef? rf : "digital_run_season_id"));
         	
@@ -386,6 +390,9 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
         } else if (payment instanceof DigitalRunStageReferencePayment) {
         	return ((DigitalRunStageReferencePayment) payment).getStageId();
         	
+        } else if (payment instanceof DigitalRunTrackReferencePayment) {
+            return ((DigitalRunTrackReferencePayment) payment).getTrackId();
+            
         } else if (payment instanceof DigitalRunSeasonReferencePayment) {
         	return ((DigitalRunSeasonReferencePayment) payment).getSeasonId();
         	
