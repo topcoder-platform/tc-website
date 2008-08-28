@@ -40,12 +40,14 @@
             <div align="left" style="margin-bottom: 20px;">
                 <img src="/i/introevent/bcsLogo.png" alt="" />
             </div>
-            <h2>Problem Statement for RevealTriangle</h2>
+            <h2>Problem Statement for OlympicCandles</h2>
 
             <div>
             <strong>
             Problem Statement 
-            | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=revealTriangleSol" class="bcLink">Solution</a>
+            <%--
+            | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=olympicCandlesSol" class="bcLink">Solution</a>
+            --%>
             </strong>
             </div>
             
@@ -57,15 +59,8 @@
                     <tr>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td>
-                            <p>Suppose there is a triangle of digits like the following:</p>
-                            <pre>
-74932
-1325
-457
-92
-1</pre>
-                            <p>Each digit, with the exception of those in the top row, is equal to the last digit of the sum of its upper and upper-right neighboring digits.</p>
-                            <p>You will be given a String[] <strong>questionMarkTriangle</strong> containing a triangle where only one digit in each row is known and all others are represented by '?'s (see example 0 for clarification). Each element of <strong>questionMarkTriangle</strong> represents a row of the triangle, and the rows are given from top to bottom. Each element contains exactly one digit ('0'-'9') and the remaining characters are all '?'s. Restore the triangle and return it as a String[] without '?'s.</p>
+                            <p>To celebrate the upcoming Thought Challenge Olympics, you are going to follow tradition and light candles. On the first night of the event, you will light one candle. At the end of the night, you will extinguish the candle. On each subsequent night, you will light one more candle than you did on the previous night, so that on the <em>n</em>-th night (indexed from 1) you will light n candles (and extinguish them all in the morning). Each night that you light a candle, its height will decrease by 1 inch; once its height reaches 0 inches, you cannot use it anymore.</p>
+                            <p>You are given a int[] <strong>candles</strong>, the i-th element of which is the height of the i-th candle that you own. Return the maximum number of nights you can celebrate the event without going to the store to get more candles. For example, if you have three candles of height 2, you can light one the first night, the other two on the second night, and then all three candles on the third night.</p>
                         </td>
                     </tr>
                     <tr>
@@ -81,23 +76,23 @@
                                 <tbody>
                                     <tr>
                                         <td>Class:</td>
-                                        <td>RevealTriangle</td>
+                                        <td>OlympicCandles</td>
                                     </tr>
                                     <tr>
                                         <td>Method:</td>
-                                        <td>calcTriangle</td>
+                                        <td>numberOfNights</td>
                                     </tr>
                                     <tr>
                                         <td>Parameters:</td>
-                                        <td>String[]</td>
+                                        <td>int[]</td>
                                     </tr>
                                     <tr>
                                         <td>Returns:</td>
-                                        <td>String[]</td>
+                                        <td>int</td>
                                     </tr>
                                     <tr>
                                         <td>Method signature:</td>
-                                        <td>String[] calcTriangle(String[] questionMarkTriangle)</td>
+                                        <td>int numberOfNights(int[] candles)</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">(be sure your method is public)</td>
@@ -120,7 +115,7 @@
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td><strong>questionMarkTriangle</strong> will contain between 1 and 50 elements, inclusive.</td>
+                        <td><strong>candles</strong> will contain between 1 and 50 elements, inclusive.</td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
@@ -128,7 +123,7 @@
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td>Each element of <strong>questionMarkTriangle</strong> will contain exactly one digit ('0'-'9') and all others characters will be '?'s.</td>
+                        <td>Each element of <strong>candles</strong> will be between 1 and 100, inclusive.</td>
                     </tr>
                     <tr>
                         <td colspan="2"><h3>Examples</h3></td>
@@ -148,9 +143,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{"4??", 
- "?2", 
- "1"}</pre>
+                                                            <pre>{2, 2, 2}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -159,7 +152,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: {"457", "92", "1" }</pre>
+                                            <pre>Returns: 3</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -167,16 +160,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">Let's substitute '?'s with unknown variables:<br /><pre>4ab 
-c2 
-1
-</pre><br />Having done that, we start solving for the variables from the bottom to the top. First, we know that the last digit of (c + 2) is 1. Therefore, c must be 9:<br /><pre>4ab 
-92 
-1
-</pre><br />Now we know that the last digit of (4 + a) is 9, which means a is 5:<br /><pre>45b 
-92 
-1
-</pre>And, finally, the last digit of (5 + b) is 2, so b is 7.</td>
+                                                        <td colspan="2">The example from the statement.</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -201,7 +185,7 @@ c2
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{"1"}</pre>
+                                                            <pre>{2, 2, 2, 4}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -210,7 +194,7 @@ c2
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: {"1" }</pre>
+                                            <pre>Returns: 4</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -218,7 +202,7 @@ c2
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">&nbsp;</td>
+                                                        <td colspan="2">With an extra candle we are able to use the candles for four nights.</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -243,7 +227,7 @@ c2
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{"???2", "??2", "?2", "2"}</pre>
+                                                            <pre>{5, 2, 2, 1}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -252,7 +236,7 @@ c2
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: {"0002", "002", "02", "2" }</pre>
+                                            <pre>Returns: 3</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -285,7 +269,7 @@ c2
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{"??5?", "??9", "?4", "6"}</pre>
+                                                            <pre>{1, 2, 3, 4, 5, 6}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -294,7 +278,49 @@ c2
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: {"7054", "759", "24", "6" }</pre>
+                                            <pre>Returns: 6</pre>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2">&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" nowrap="true">4)</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <pre>{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}</pre>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <pre>Returns: 4</pre>
                                         </td>
                                     </tr>
                                     <tr>

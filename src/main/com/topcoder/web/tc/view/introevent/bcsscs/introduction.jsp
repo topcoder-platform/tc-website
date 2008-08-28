@@ -48,20 +48,29 @@
 
                 <%--
                 <div style="margin-bottom: 20px;">
-                    <h2>June 2008</h2>
-                    <strong>RevealTriangle</strong>
-                    <br /><a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=revealTriangle">Problem statement</a>
-                    | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=revealTriangleSol">Solution</a>
+                    <h2>August 2008</h2>
+                    <strong>ArithmeticProgression</strong>
+                    <br /><a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=arithmeticProgression">Problem statement</a>
+                    | Solution posted with next month's problem!
+                    | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=arithmeticProgressionSol">Solution</a>
                 </div>
                 --%>
+                
+                <div style="margin-bottom: 20px;">
+                    <h2>July 2008</h2>
+                    <strong>OlympicCandles</strong>
+                    <br /><a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=olympicCandles">Problem statement</a>
+                    | Solution posted with next month's problem!
+                    <%--
+                    | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=olympicCandlesSol">Solution</a>
+                    --%>
+                </div>
+                
                 <div style="margin-bottom: 20px;">
                     <h2>June 2008</h2>
                     <strong>RevealTriangle</strong>
                     <br /><a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=revealTriangle">Problem statement</a>
-                    | Solution posted with next month's problem!
-                    <%--
                     | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=revealTriangleSol">Solution</a>
-                    --%>
                 </div>
                 
                 <div style="margin-bottom: 20px;">
