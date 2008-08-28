@@ -168,7 +168,7 @@ public class StatsLoader {
                             " where week_id = ? ";
             
             String INSERT = " insert into user_overall_stats " +
-                   " select p.week_id, p.coder_id, 0 as rank, 0 as rank_diff, sum(nvl(pds.prediction_detail_points,0)) as points, " + 
+                   " select " + weekId + " as week_id, p.coder_id, 0 as rank, 0 as rank_diff, sum(nvl(pds.prediction_detail_points,0)) as points, " + 
                    "        avg(pds.prediction_detail_total_score_variance) as avg_total_score_variance, " +
                    "        avg(pds.prediction_detail_victory_margin_variance) as avg_victory_margin_variance, " +
                    "        sum(case when pds.prediction_detail_picked_winner then 1 else 0 end) / count(*) * 100 as avg_picked_winner " +
