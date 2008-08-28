@@ -167,6 +167,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             return REFERENCE_DIGITAL_RUN_STAGE_ID;
 
         case DIGITAL_RUN_V2_PRIZE_PAYMENT:
+        case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT:
             return REFERENCE_DIGITAL_RUN_TRACK_ID;
 
         case DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT:
@@ -223,6 +224,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case ASSEMBLY_COMPETITION_REVIEW: return new AssemblyReviewPayment(coderId, grossAmount, referenceId);
         case ASSEMBLY_PAYMENT: return new AssemblyPayment(coderId, grossAmount, referenceId, placed);
         case DIGITAL_RUN_V2_PRIZE_PAYMENT: return new DigitalRunV2PrizePayment(coderId, grossAmount, referenceId, placed);
+        case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT: return new DigitalRunV2TopPerformersPayment(coderId, grossAmount, referenceId, placed);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
     }
@@ -334,7 +336,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case INTRO_EVENT_COMP_PAYMENT: return "Introductory Event Component Contest Payment";
             case REVIEW_BOARD_BONUS_PAYMENT: return "Review Board Bonus Payment";
             case COMPONENT_BUILD_PAYMENT: return "Component Build Payment";
-            case DIGITAL_RUN_V2_PRIZE_PAYMENT: return "Digital Run Payment";
+            case DIGITAL_RUN_V2_PRIZE_PAYMENT: return "Digital Run v2 Payment";
+            case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT: return "Digital Run v2 Top Performers Payment";
             default: return "Other Payment";
         }
     }
