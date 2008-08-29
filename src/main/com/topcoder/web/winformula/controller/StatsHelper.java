@@ -222,8 +222,8 @@ public class StatsHelper {
 
     private static String resolveSize(TCRequest request, TCResponse response, int sizeBeforeCrop) {
         String numRecords = StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
-        if (numRecords == null) {
-            numRecords = getSizeCookie(request);
+        if (numRecords.length() == 0) {
+            numRecords = StringUtils.checkNull(getSizeCookie(request));
             if (log.isDebugEnabled()) {
                 log.debug("Number records not specified. Cookie is: "+numRecords);
             }
