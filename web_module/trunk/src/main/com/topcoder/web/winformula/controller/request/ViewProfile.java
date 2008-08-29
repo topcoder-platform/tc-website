@@ -82,7 +82,7 @@ public class ViewProfile extends StatsBase {
                 PredictionsHelper.sortResult(request, (Prediction) result.getResultObject());
         
                 // crop
-                PredictionsHelper.cropResult(request, (Prediction) result.getResultObject());
+//                PredictionsHelper.cropResult(request, (Prediction) result.getResultObject());
             }
             
             WeekStats ws = getWeekStats(coderId, weekId);
