@@ -245,13 +245,14 @@ public class StatsLoader {
             ps.setInt(1, weekId); 
             rs = ps.executeQuery();
             int rank = 0;
+            int i = 1;
             int oldPoints = -1;
             if (scope.equals("overall")) {
                 scope = "week"; // the historic rank is by week
             }
             while (rs.next()) {
                 if (oldPoints != rs.getInt("points")) {
-                    rank++;
+                    rank = i;
                 }
                 rs.updateInt("rank", rank);
                 if (psRankDiff != null) {
@@ -267,6 +268,7 @@ public class StatsLoader {
                 rs.updateRow();
 
                 oldPoints = rs.getInt("points");
+                i++;
             }
         } finally {
             DBMS.close(ps, rs);
