@@ -86,7 +86,7 @@
                     Prizes will be awarded to the season winner and possibly to the next nine finishers. Weekly prizes will also be awarded, even for the "preseason" weeks. While the prize breakout is to be determined, there will be a total of $100,000 awarded!</li>
                 </ol>
             </div>
-            
+            <%-- 
             <div class="results-box">
             <h2 class="titleResults"><span class="hide">Results</span></h2>
             <table width="97%" class="current-data">
@@ -144,7 +144,7 @@
               </tbody>
             </table>
             </div>
-            
+            --%>
             <%-- Temporarily Hidden 
             <div class="overall-box">
             <h2 class="titleLeader"><span class="hide">Overall Leaders</span></h2>
