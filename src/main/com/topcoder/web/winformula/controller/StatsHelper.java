@@ -8,6 +8,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -18,6 +20,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.winformula.Constants;
@@ -33,6 +36,8 @@ import com.topcoder.web.winformula.model.StandingsItem;
  * Create Date: Aug 18, 2008
  */
 public class StatsHelper {
+
+    private static final String SIZE_COOKIE = "wf_stats_"+DataAccessConstants.NUMBER_RECORDS;
 
     protected static final Logger log = Logger.getLogger(ViewExampleResults.class);
 
@@ -178,15 +183,9 @@ public class StatsHelper {
      * @param rsc the resultsetcontainter to crop
      * @throws Exception
      */
-    public static List<StandingsItem> cropResult(TCRequest request, List<StandingsItem> l) {
-        String numRecords = StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
-
+    public static List<StandingsItem> cropResult(TCRequest request, TCResponse response, List<StandingsItem> l) {
         int sizeBeforeCrop = l.size();
-        if (!"50".equals(numRecords) &&
-                !"100".equals(numRecords) &&
-                !String.valueOf(sizeBeforeCrop).equals(numRecords)) {
-            numRecords = "25";
-        }
+        String numRecords = resolveSize(request, response, sizeBeforeCrop);
    
         String numPage = StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_PAGE));
         if (numPage.equals("") || Integer.parseInt(numPage) <= 0) {
@@ -219,6 +218,45 @@ public class StatsHelper {
         request.setAttribute("totalSize", sizeBeforeCrop);
         
         return result;
+    }
+
+    private static String resolveSize(TCRequest request, TCResponse response, int sizeBeforeCrop) {
+        String numRecords = StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
+        if (numRecords == null) {
+            numRecords = getSizeCookie(request);
+            if ("all".equals(numRecords)) {
+                numRecords = String.valueOf(sizeBeforeCrop);
+            }
+        }
+        
+        if (!"50".equals(numRecords) &&
+                !"100".equals(numRecords) &&
+                !String.valueOf(sizeBeforeCrop).equals(numRecords)) {
+            numRecords = "25";
+        }
+        
+        if (String.valueOf(sizeBeforeCrop).equals(numRecords)) {
+            if (!"all".equals(getSizeCookie(request))) {
+                setSizeCookie(response, "all");
+            }
+        } else {
+            if (!numRecords.equals(getSizeCookie(request))) {
+                setSizeCookie(response, numRecords);
+            }
+        }
+        return numRecords;
+    }
+
+    private static String getSizeCookie(TCRequest request) {
+        Cookie cookie = request.getCookie(SIZE_COOKIE);
+        if (cookie == null) {
+            return null;
+        }
+        return cookie.getValue(); 
+    }
+    
+    private static void setSizeCookie(TCResponse response, String size) {
+        response.addCookie(new Cookie(SIZE_COOKIE, size));
     }
 
     
