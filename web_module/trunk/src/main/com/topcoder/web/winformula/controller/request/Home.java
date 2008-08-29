@@ -53,8 +53,10 @@ public class Home extends BaseProcessor {
             r.setProperty(propertyName, propertyValue);
             if (userIdentified()) {
                 r.setProperty(Constants.USER_ID, String.valueOf(getUser().getId()));
+                getRequest().setAttribute("showUserId", getUser().getId());
             } else {
                 r.setProperty(Constants.USER_ID, "0");
+                getRequest().setAttribute("showUserId", 0);
             }
         }
         DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
