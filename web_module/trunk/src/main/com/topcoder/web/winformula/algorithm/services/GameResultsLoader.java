@@ -41,6 +41,7 @@ public class GameResultsLoader {
         
     }
     
+    @SuppressWarnings("boxing")
     public void process(final int weekId, File fileName) throws Exception {
         final CSVReader reader = new CSVReader(fileName);
         Connection cnn = null;
@@ -108,10 +109,10 @@ public class GameResultsLoader {
             if (count != reader.getReadCount()) {
                 log.warn("The game count differs DB games: "+count+" file: "+reader.getReadCount());
             }
-            if (ignoreCount.intValue() > 0) {
+            if (ignoreCount > 0) {
                 log.info("Missing score games: "+ignoreCount);
             }
-            log.info("Game results loaded: "+reader.getReadCount());
+            log.info("Game results loaded: "+(reader.getReadCount()-ignoreCount));
         } finally {
             DBMS.close(ps, rs);
             DBUtils.endDBBlock();
