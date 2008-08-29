@@ -118,6 +118,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- InfoWorld: What does programming have to do with football? begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/08/what_does_progr.html' refer='pr_index' />"><img src="/i/pressroom/infoworld_logo.gif" alt="InfoWorld" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/08/what_does_progr.html' refer='pr_index' />">What does programming have to do with football?</a></h3>
+                        <p>The ESPN/TopCoder Winning Formula Challenge asks for algorithms to predict NCAA football scores from historical data  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/08/what_does_progr.html' refer='pr_index' />">[August 29]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- InfoWorld: What does programming have to do with football? end --%>
+                
                 <%-- TopCoder One of Inc. Magazine's 500 Fastest-Growing Private Companies in America for Second Consecutive Year begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
