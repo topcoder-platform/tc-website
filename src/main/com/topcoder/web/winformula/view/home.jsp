@@ -1,7 +1,11 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@page import="com.topcoder.web.winformula.Constants"%>
+
+<c:set value="<%=Constants.WISDOM_ALL%>" var="WisdomOfAllId"/>
+<c:set value="<%=Constants.WISDOM_BEST%>" var="WisdomOfTheBestId"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -83,109 +87,65 @@
                 </ol>
             </div>
             
-            <%-- Temporarily Hidden 
-            <div class="weekly-box">
-                <h2 class="titleWeekly"><span class="hide">Week 4 Winners</span></h2>
-                <table width="97%" class="stat">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Handle</th>
-                            <th>%</th>
-                            <th>Pts.</th>
-                            <th>Picks</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="light">
-                            <td class="alignCenter">1</td>
-                            <td><a href="member.htm">fb_boss</a></td>
-                            <td>88%</td>
-                            <td>329</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="dark">
-                            <td class="alignCenter">2</td>
-                            <td><a href="member.htm">chekm8</a></td>
-                            <td>83%</td>
-                            <td>298</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="light">
-                            <td class="alignCenter">3</td>
-                            <td><a href="member.htm">somegirl</a></td>
-                            <td>76%</td>
-                            <td>247</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="dark">
-                            <td class="alignCenter">4</td>
-                            <td><a href="member.htm">fantasyfber</a></td>
-                            <td>75%</td>
-                            <td>178</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="light">
-                            <td class="alignCenter"><strong>5</strong></td>
-                            <td><a href="member.htm"><strong>CommunityTop10</strong></a></td>
-                            <td>71%</td>
-                            <td><strong>157</strong></td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="dark">
-                            <td class="alignCenter">6</td>
-                            <td><a href="member.htm">Twixter83</a></td>
-                            <td>66%</td>
-                            <td>127</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="light">
-                            <td class="alignCenter">7</td>
-                            <td><a href="member.htm">ForRealzMomma</a></td>
-                            <td>64%</td>
-                            <td>124</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="dark">
-                            <td class="alignCenter">8</td>
-                            <td><a href="member.htm">ThaPantha</a></td>
-                            <td>64%</td>
-                            <td>117</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="light">
-                            <td class="alignCenter">9</td>
-                            <td><a href="member.htm">QBHive</a></td>
-                            <td>61%</td>
-                            <td>109</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="dark">
-                            <td class="alignCenter">10</td>
-                            <td><a href="member.htm">YFL</a></td>
-                            <td>60%</td>
-                            <td>99</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
+            <div class="results-box">
+            <h2 class="titleResults"><span class="hide">Results</span></h2>
+            <table width="97%" class="current-data">
+              <thead>
+                <tr>
+                  <th>#</th>
+
+                  <th>Handle</th>
+                  <th>%</th>
+                  <th>Pts.</th>
+                  <th>Picks</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+                  <th colspan="5"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewStandings&amp;week=${lp.weekId}" class="viewLink">All ${lp.weekDesc} Results</a> ${lp.weekDesc} Top 5</th>
+                </tr>
+
+              <c:forEach items="${weekStandings}" var="standingsItem">
+                <c:choose>
+                    <c:when test="${standingsItem.coderId == WisdomOfAllId || standingsItem.coderId == WisdomOfTheBestId}">
                         <tr class="newSection">
-                            <td class="alignCenter"><strong>17</strong></td>
-                            <td><a href="member.htm"><strong>MyMemberName</strong></a></td>
-                            <td>59%</td>
-                            <td><strong>96</strong></td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="dark newSection">
-                            <td class="alignCenter"><strong>22</strong></td>
-                            <td><a href="member.htm"><strong>CommunityAverage</strong></a></td>
-                            <td>58%</td>
-                            <td><strong>89</strong></td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p><a class="viewLink" href="standings_weekx.htm">View All Week 4 Results</a></p>
+                    </c:when>
+                    <c:otherwise>
+                        <tr>
+                    </c:otherwise>
+                </c:choose>
+                  <td class="alignCenter">${standingsItem.rank}</td>
+                  <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}&amp;week=${lp.weekId}">${standingsItem.handle}</a></td>
+                  <td ><fmt:formatNumber value="${standingsItem.winPercent}" pattern="0.00"/> %</td>
+                  <td ><fmt:formatNumber value="${standingsItem.points}" pattern="0"/></td>
+                  <td ><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}&amp;week=${lp.weekId}">picks</a></td>
+                </tr>
+              </c:forEach>
+                <tr>
+                  <th colspan="5"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewStandings&amp;msi=${lp.miniSeasonId}" class="viewLink">All ${lp.miniSeasonDesc} Leaders</a> ${lp.miniSeasonDesc} Top 5</th>
+                </tr>
+                <c:forEach items="${miniSeasonStandings}" var="standingsItem">
+                    <c:choose>
+                        <c:when test="${standingsItem.coderId == WisdomOfAllId || standingsItem.coderId == WisdomOfTheBestId}">
+                            <tr class="newSection">
+                        </c:when>
+                        <c:otherwise>
+                            <tr>
+                        </c:otherwise>
+                    </c:choose>
+                  <td class="alignCenter">${standingsItem.rank}</td>
+                  <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}">${standingsItem.handle}</a></td>
+                  <td ><fmt:formatNumber value="${standingsItem.winPercent}" pattern="0.00"/> %</td>
+                  <td ><fmt:formatNumber value="${standingsItem.points}" pattern="0"/></td>
+                  <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}">picks</a></td>
+                </tr>
+              </c:forEach>
+              </tbody>
+            </table>
             </div>
             
+            <%-- Temporarily Hidden 
             <div class="overall-box">
             <h2 class="titleLeader"><span class="hide">Overall Leaders</span></h2>
             <table width="97%" class="stat">
