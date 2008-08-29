@@ -249,7 +249,7 @@
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/Constants.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/PactsClient*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/payments/*.class"/>
-            <zipfileset dir="${classes}" includesc="com/topcoder/web/ejb/pacts/assignmentdocuments/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/assignmentdocuments/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/bean/DataInterfaceBean.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/common/PactsConstants.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/model/AssignmentDocumentType.class"/>
