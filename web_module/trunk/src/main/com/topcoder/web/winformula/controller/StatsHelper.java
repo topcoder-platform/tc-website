@@ -224,6 +224,9 @@ public class StatsHelper {
         String numRecords = StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
         if (numRecords == null) {
             numRecords = getSizeCookie(request);
+            if (log.isDebugEnabled()) {
+                log.debug("Number records not specified. Cookie is: "+numRecords);
+            }
             if ("all".equals(numRecords)) {
                 numRecords = String.valueOf(sizeBeforeCrop);
             }
@@ -237,10 +240,14 @@ public class StatsHelper {
         
         if (String.valueOf(sizeBeforeCrop).equals(numRecords)) {
             if (!"all".equals(getSizeCookie(request))) {
+                log.debug("Setting cookie to all");
                 setSizeCookie(response, "all");
             }
         } else {
             if (!numRecords.equals(getSizeCookie(request))) {
+                if (log.isDebugEnabled()) {
+                    log.debug("Setting cookie to all"+numRecords);
+                }
                 setSizeCookie(response, numRecords);
             }
         }
