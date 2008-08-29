@@ -1,5 +1,6 @@
 package com.topcoder.web.common;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
@@ -14,5 +15,13 @@ public class SimpleRequest extends HttpServletRequestWrapper implements TCReques
         super(httpServletRequest);
     }
 
-
+    public Cookie getCookie(String name) {
+        Cookie[] cookies = getCookies();
+        for (Cookie cookie : cookies) {
+            if (name.equals(cookie.getName())) {
+                return cookie;
+            }
+        }
+        return null;
+    }
 }
