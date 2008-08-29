@@ -262,7 +262,9 @@ public class StatsHelper {
         if (log.isDebugEnabled()) {
             log.debug("Setting cookie to "+size);
         }
-        response.addCookie(new Cookie(SIZE_COOKIE, size));
+        Cookie cookie = new Cookie(SIZE_COOKIE, size);
+        cookie.setMaxAge(Integer.MAX_VALUE);
+        response.addCookie(cookie);
     }
 
     
