@@ -102,28 +102,28 @@
 
     <p class="numResults">show results:
         <c:choose>
-            <c:when test="${numRecords == 25}">
-                <a href="Javascript:setSize(10)">10</a> | 
-                <strong>25</strong> | 
-                <a href="Javascript:setSize(50)">50</a> | 
-                <a href="Javascript:setSizeToAll()">all</a> 
-            </c:when>
             <c:when test="${numRecords == 50}">
-                <a href="Javascript:setSize(10)">10</a> | 
                 <a href="Javascript:setSize(25)">25</a> | 
                 <strong>50</strong> | 
+                <a href="Javascript:setSize(100)">100</a> | 
+                <a href="Javascript:setSizeToAll()">all</a> 
+            </c:when>
+            <c:when test="${numRecords == 100}">
+                <a href="Javascript:setSize(25)">25</a> | 
+                <a href="Javascript:setSize(50)">50</a> | 
+                <strong>100</strong> | 
                 <a href="Javascript:setSizeToAll()">all</a> 
             </c:when>
             <c:when test="${numRecords == totalSize}">
-                <a href="Javascript:setSize(10)">10</a> | 
                 <a href="Javascript:setSize(25)">25</a> | 
                 <a href="Javascript:setSize(50)">50</a> | 
+                <a href="Javascript:setSize(100)">100</a> | 
                 <strong>all</strong> 
             </c:when>
-            <c:otherwise> <!-- default is 10 -->
-                <strong>10</strong> | 
-                <a href="Javascript:setSize(25)">25</a> | 
+            <c:otherwise> <!-- default is 25 -->
+                <strong>25</strong> | 
                 <a href="Javascript:setSize(50)">50</a> | 
+                <a href="Javascript:setSize(100)">100</a> | 
                 <a href="Javascript:setSizeToAll()">all</a> 
             </c:otherwise>
         </c:choose>

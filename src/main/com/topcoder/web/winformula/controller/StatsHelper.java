@@ -182,10 +182,10 @@ public class StatsHelper {
         String numRecords = StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
 
         int sizeBeforeCrop = l.size();
-        if (!"25".equals(numRecords) &&
-                !"50".equals(numRecords) &&
+        if (!"50".equals(numRecords) &&
+                !"100".equals(numRecords) &&
                 !String.valueOf(sizeBeforeCrop).equals(numRecords)) {
-            numRecords = "10";
+            numRecords = "25";
         }
    
         String numPage = StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_PAGE));
