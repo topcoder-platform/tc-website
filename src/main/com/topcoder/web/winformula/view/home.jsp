@@ -108,7 +108,7 @@
 
               <c:forEach items="${weekStandings}" var="standingsItem">
                 <c:choose>
-                    <c:when test="${standingsItem.coderId == WisdomOfAllId || standingsItem.coderId == WisdomOfTheBestId}">
+                    <c:when test="${standingsItem.coderId == WisdomOfAllId || standingsItem.coderId == WisdomOfTheBestId || standingsItem.coderId == showUserId}">
                         <tr class="newSection">
                     </c:when>
                     <c:otherwise>
@@ -127,7 +127,7 @@
                 </tr>
                 <c:forEach items="${miniSeasonStandings}" var="standingsItem">
                     <c:choose>
-                        <c:when test="${standingsItem.coderId == WisdomOfAllId || standingsItem.coderId == WisdomOfTheBestId}">
+                        <c:when test="${standingsItem.coderId == WisdomOfAllId || standingsItem.coderId == WisdomOfTheBestId || standingsItem.coderId == showUserId}">
                             <tr class="newSection">
                         </c:when>
                         <c:otherwise>
