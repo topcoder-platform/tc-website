@@ -110,7 +110,7 @@
 	<classpathentry kind="lib" path="lib/jars/tcs/application_screening/1.0/application_screening.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/base_exception.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/catalog.jar"/>
-	<classpathentry kind="lib" path="lib/jars/tcs/compression_utility/2.0/compression_utility.jar"/>
+	<classpathentry kind="lib" path="lib/jars/tcs/compression_utility/2.0/compression_utility.jar" sourcepath="C:/TopCoder/SVN/catalog/java/compression_utility/trunk/src"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/data_validation/1.0/data_validation.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
@@ -120,7 +120,7 @@
 	<classpathentry kind="lib" path="lib/jars/tcs/executable_wrapper.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/file_class/1.0/file_class.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/file_system_server/1.0/file_system_server.jar"/>
-	<classpathentry kind="lib" path="lib/jars/tcs/file_upload/2.0/file_upload.jar"/>
+	<classpathentry kind="lib" path="lib/jars/tcs/file_upload/2.0.2.0/file_upload.jar" sourcepath="C:/TopCoder/SVN/catalog/java/file_upload/trunk"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/generic_event_manager/1.0/generic_event_manager.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/guid_generator/1.0/guid_generator.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/heartbeat/1.0/heartbeat.jar"/>
@@ -176,5 +176,8 @@
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/random_string_image-1.0.jar"/>
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/jboss-4.2.2-ejb3x.jar"/>
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/jboss-4.2.2-jaxws.jar"/>
+	<classpathentry kind="lib" path="/IvyCache/com.topcoder.internal/logging/jars/logging-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/IvyCache/com.topcoder.internal/arena-shared/jars/arena-shared-6.5.1.jar"/>
+	<classpathentry kind="lib" path="/IvyCache/com.topcoder.internal/custom-serialization/jars/custom-serialization-1.0.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

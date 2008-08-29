@@ -233,9 +233,11 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 targetFileName = submission.getPath().getPath() + fileNames[0];
                 destFileName = fileNames[0];
                 StudioFileType fileType = UnifiedSubmissionValidator.getFileType(destFileName);
-                Set<MimeType> mimeTypes = fileType.getMimeTypes();
-                if (!mimeTypes.isEmpty()) {
-                    contentType = mimeTypes.iterator().next().getDescription();
+                if (fileType!=null) {
+                    Set<MimeType> mimeTypes = fileType.getMimeTypes();
+                    if (!mimeTypes.isEmpty()) {
+                        contentType = mimeTypes.iterator().next().getDescription();
+                    }                	
                 }
             }
         } else {
