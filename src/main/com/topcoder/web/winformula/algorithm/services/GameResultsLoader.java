@@ -63,11 +63,12 @@ public class GameResultsLoader {
             ps.executeUpdate();
             DBMS.close(ps);
             
-            DBUtils.invoke(cnn, new DBUtils.UnitOfWork() {
+            Integer ignoreCount = (Integer) DBUtils.invoke(cnn, new DBUtils.UnitOfWork() {
                 public Object doWork(Connection cnn) throws Exception {
                     Set processed = new HashSet();
                     PreparedStatement ps = null;
                     ResultSet rs = null;
+                    int ignoreCount = 0;
                     try {
                         String cmd = " UPDATE game SET home_score = ?, visitor_score = ? WHERE week_id = ? AND home_team_id = ? AND visitor_team_id = ? ";
                         ps = cnn.prepareStatement(cmd);
@@ -75,30 +76,40 @@ public class GameResultsLoader {
                         while (reader.next()) {
                             int homeId = reader.getInt(1);
                             int visitorId = reader.getInt(2);
-                            int homeScore = reader.getInt(3);
-                            int visitorScore = reader.getInt(4);
-                            String key = homeId+","+visitorId;
-                            if (processed.contains(key)) {
-                                throw new IllegalArgumentException("The file contains duplicated games: homeId,visitorId="+homeId+","+visitorId);
-                            }
-                            processed.add(key);
-                            ps.setInt(1, homeScore);
-                            ps.setInt(2, visitorScore);
-                            ps.setInt(4, homeId);
-                            ps.setInt(5, visitorId);
-                            if (ps.executeUpdate() != 1) {
-                                throw new IllegalArgumentException("The file contains a game which does not belong to the week: homeId,visitorId="+homeId+","+visitorId);
+                            if (!reader.isEmpty(3) && !reader.isEmpty(4)) { 
+                                int homeScore = reader.getInt(3);
+                                int visitorScore = reader.getInt(4);
+                                String key = homeId+","+visitorId;
+                                if (processed.contains(key)) {
+                                    throw new IllegalArgumentException("The file contains duplicated games: homeId,visitorId="+homeId+","+visitorId);
+                                }
+                                processed.add(key);
+                                ps.setInt(1, homeScore);
+                                ps.setInt(2, visitorScore);
+                                ps.setInt(4, homeId);
+                                ps.setInt(5, visitorId);
+                                if (ps.executeUpdate() != 1) {
+                                    throw new IllegalArgumentException("The file contains a game which does not belong to the week: homeId,visitorId="+homeId+","+visitorId);
+                                }
+                            } else {
+                                if (reader.isEmpty(3) ^ reader.isEmpty(4)) {
+                                    throw new IllegalArgumentException("Home results was filled and the other was not: homeId,visitorId="+homeId+","+visitorId);
+                                }
+                                log.info("Ignoring game since we don't have results for it: homeId,visitorId="+homeId+","+visitorId);
+                                ignoreCount++;
                             }
                         }
                     } finally {
                         DBMS.close(ps, rs);
                     }
-                    return null;
+                    return Integer.valueOf(ignoreCount);
                 }
             });
-            
             if (count != reader.getReadCount()) {
                 log.warn("The game count differs DB games: "+count+" file: "+reader.getReadCount());
+            }
+            if (ignoreCount.intValue() > 0) {
+                log.info("Missing score games: "+ignoreCount);
             }
             log.info("Game results loaded: "+reader.getReadCount());
         } finally {
