@@ -18,6 +18,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.tag.ListSelectTag;
@@ -38,6 +39,7 @@ public class ViewStandings extends AlgorithmBase {
     protected void longContestProcessing() throws Exception {
         try {
             TCRequest request = getRequest();
+            TCResponse response = getResponse();
 
             String selectedWeek = StringUtils.checkNull(request.getParameter("week"));
             String selectedMiniSeason = StringUtils.checkNull(request.getParameter("msi"));
@@ -66,7 +68,7 @@ public class ViewStandings extends AlgorithmBase {
                 StatsHelper.sortResult(request, result);
         
                 // crop
-                result = StatsHelper.cropResult(request, result);
+                result = StatsHelper.cropResult(request, response, result);
             }
 
             if (weekId != null) {
