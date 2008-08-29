@@ -240,14 +240,10 @@ public class StatsHelper {
         
         if (String.valueOf(sizeBeforeCrop).equals(numRecords)) {
             if (!"all".equals(getSizeCookie(request))) {
-                log.debug("Setting cookie to all");
                 setSizeCookie(response, "all");
             }
         } else {
             if (!numRecords.equals(getSizeCookie(request))) {
-                if (log.isDebugEnabled()) {
-                    log.debug("Setting cookie to all"+numRecords);
-                }
                 setSizeCookie(response, numRecords);
             }
         }
@@ -263,6 +259,9 @@ public class StatsHelper {
     }
     
     private static void setSizeCookie(TCResponse response, String size) {
+        if (log.isDebugEnabled()) {
+            log.debug("Setting cookie to "+size);
+        }
         response.addCookie(new Cookie(SIZE_COOKIE, size));
     }
 
