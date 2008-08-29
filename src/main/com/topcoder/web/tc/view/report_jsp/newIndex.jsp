@@ -61,6 +61,7 @@ New Software Reports
     <LI><A HREF="<%=baseTCSUrl+"active_competitions_registrants"%>">Active Competitions' Registrants</a></LI>
 
 
+    <LI><A HREF="<%=baseTCSDWURL+"bonus_first_dev_complete"%>">Bonus for designer whose components were completed in the first development competition</a></LI>
 </UL>
 <br/>
 
@@ -215,7 +216,7 @@ Other
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=tccc07_reg&"+Constants.DB_KEY+"="+DBMS.OLTP_DATASOURCE_NAME%>">TCCC
             07 Reg Info</A></LI>
-	<LI>
+    <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=tco07_reg&"+Constants.DB_KEY+"="+DBMS.OLTP_DATASOURCE_NAME%>">TCO
             07 Reg Info</A></LI>
     <LI>
