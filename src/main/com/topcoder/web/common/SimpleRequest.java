@@ -17,9 +17,11 @@ public class SimpleRequest extends HttpServletRequestWrapper implements TCReques
 
     public Cookie getCookie(String name) {
         Cookie[] cookies = getCookies();
-        for (Cookie cookie : cookies) {
-            if (name.equals(cookie.getName())) {
-                return cookie;
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (name.equals(cookie.getName())) {
+                    return cookie;
+                }
             }
         }
         return null;
