@@ -185,16 +185,17 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
                 Total<br />Points</a>**
         </td>
     </tr>
+<%-- 
     <tr>
-        <td class="header" colspan="2">&#160;</td>
-        <td class="headerR B" colspan="3">TOTALS:</td>
+        <td class="header B" colspan="2">&#160;</td>
+        <td class="header B" colspan="3">TOTALS:</td>
         <td class="headerR B"><fmt:formatNumber value="${resultObject.totalPoints}"  minFractionDigits="2" maxFractionDigits="2"/></td>
         <td class="headerR B"><fmt:formatNumber value="${resultObject.totalTopFivePrize}" type="currency" currencySymbol="$"/></td>
         <td class="headerR B"><fmt:formatNumber value="${resultObject.totalTopPerformerPrize}" type="currency" currencySymbol="$"/></td>
         <td class="headerR B"><fmt:formatNumber value="${resultObject.totalPrizes}" type="currency" currencySymbol="$"/></td>
         <td class="headerC" colspan="2">&#160;</td>
     </tr>
-
+--%>
     <c:forEach items="${resultObject.results}" var="boardRow" varStatus="status">
     <tr class='${status.index % 2 == 1? "dark" : "light" }'>
         <td class="valueC">${boardRow.rank}</td>
