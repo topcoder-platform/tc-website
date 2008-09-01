@@ -183,7 +183,7 @@ public class WisdomPredictionGenerator {
         ResultSet rs = null;
         try {
             Connection cnn = DBUtils.getCurrentConnection();
-            String cmd = "SELECT FIRST 1 coder_id FROM user_week_stats AND week_id = ?";
+            String cmd = "SELECT FIRST 1 coder_id FROM user_week_stats WHERE week_id = ?";
             ps = cnn.prepareStatement(cmd);
             ps.setInt(1, weekId);
             rs = ps.executeQuery();
