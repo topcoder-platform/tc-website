@@ -84,7 +84,7 @@
             <arg line="update"/>
         </exec>
 
-        <ant antfile="build.xml" target="clean"/>
+        <ant antfile="build_old.xml" target="clean"/>
         <ant antfile="build_tcs.xml" target="build-site"/>
         <!--remove with new OR
                 <ant antfile="build_tcs.xml" target="build-screening"/>
