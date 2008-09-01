@@ -22,7 +22,7 @@
     <script type="text/javascript">
         function changePeriod() {
             var myForm = document.leaderBoardForm;
-            <c:if test="${fn:length(results) > 0}">
+            <c:if test="${fn:length(resultObject.results) > 0}">
             myForm.<%=DataAccessConstants.START_RANK%>.value = '';
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '';
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '';
@@ -102,7 +102,7 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
     <br /><br />
     There are no results for the selected track.
 </c:when>
-<c:when test="${not empty results}">
+<c:when test="${not empty resultObject.results}">
 
 <div class="pagingBox">
     <c:choose>
@@ -167,9 +167,23 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
                 Total<br />Points</a>**
         </th>
     </tr>
+    <tr>
+        <th class="b" colspan="2">&nbsp;</th>
+        <th class="c b" colspan="7">Completed Contests</th>
+        <th class="c" colspan="2" nowrap="nowrap">Current Contests</th>
+    </tr>
+    <tr>
+        <th class="b" colspan="2">&nbsp;</th>
+        <th class="b" colspan="3">TOTALS:</th>
+        <th class="b"><fmt:formatNumber value="${resultObject.totalPoints}"  minFractionDigits="2" maxFractionDigits="2"/></th>
+        <th class="b"><fmt:formatNumber value="${resultObject.totalTopFivePrize}" type="currency" currencySymbol="$"/></th>
+        <th class="b"><fmt:formatNumber value="${resultObject.totalTopPerformerPrize}" type="currency" currencySymbol="$"/></th>
+        <th class="b"><fmt:formatNumber value="${resultObject.totalPrizes}" type="currency" currencySymbol="$"/></th>
+        <th class="b" colspan="2">&#160;</th>
+    </tr>
 </thead>    
 <tbody>
-    <c:forEach items="${results}" var="boardRow" varStatus="status">
+    <c:forEach items="${resultObject.results}" var="boardRow" varStatus="status">
         <tr class='${status.index % 2 == 1? "odd" : "even" }'>
             <td class="c">${boardRow.rank}</td>
             <td class="b">

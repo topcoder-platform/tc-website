@@ -103,7 +103,12 @@ public abstract class BaseBoardV2 extends BaseProcessor {
      * @return
      * @throws Exception
      */
-    protected List<LeaderBoardRow> getTrackResults(int trackId) throws Exception {
+    protected LeaderBoardResult getTrackResults(int trackId) throws Exception {
+        Double totalPoints = 0d;
+        Double totalTopFivePrize = 0d;
+        Double totalTopPerformerPrize = 0d;
+        Double totalPrizes = 0d;
+
         Request r = new Request();
         r.setContentHandle("drv2_results");
         r.setProperty(Constants.TRACK_ID, String.valueOf(trackId));
@@ -124,8 +129,13 @@ public abstract class BaseBoardV2 extends BaseProcessor {
             
             results.add(lbr);
             
+            totalPoints += lbr.getPoints();
+            totalTopFivePrize += lbr.getPlacementPrize();
+            totalTopPerformerPrize += lbr.getPointsPrize();
+            totalPrizes += lbr.getTotalPrize();
         }
-        return results;
+
+        return new LeaderBoardResult(results, totalPoints, totalTopFivePrize, totalTopPerformerPrize, totalPrizes);
     }
 
 
@@ -556,6 +566,58 @@ public abstract class BaseBoardV2 extends BaseProcessor {
             return placementPrize + pointsPrize;
         }
 
+    }
+
+    public class LeaderBoardResult {
+
+        List<LeaderBoardRow> results;
+        Double totalPoints;
+        Double totalTopFivePrize;
+        Double totalTopPerformerPrize;
+        Double totalPrizes;
+
+        
+        public LeaderBoardResult(List<LeaderBoardRow> results, Double totalPoints,
+                Double totalTopFivePrize, Double totalTopPerformerPrize, Double totalPrizes) {
+            super();
+            this.results = results;
+            this.totalPoints = totalPoints;
+            this.totalPrizes = totalPrizes;
+            this.totalTopFivePrize = totalTopFivePrize;
+            this.totalTopPerformerPrize = totalTopPerformerPrize;
+        }
+        
+        public List<LeaderBoardRow> getResults() {
+            return results;
+        }
+        public void setResults(List<LeaderBoardRow> results) {
+            this.results = results;
+        }
+        public Double getTotalPoints() {
+            return totalPoints;
+        }
+        public void setTotalPoints(Double totalPoints) {
+            this.totalPoints = totalPoints;
+        }
+        public Double getTotalTopFivePrize() {
+            return totalTopFivePrize;
+        }
+        public void setTotalTopFivePrize(Double totalTopFivePrize) {
+            this.totalTopFivePrize = totalTopFivePrize;
+        }
+        public Double getTotalTopPerformerPrize() {
+            return totalTopPerformerPrize;
+        }
+        public void setTotalTopPerformerPrize(Double totalTopPerformerPrize) {
+            this.totalTopPerformerPrize = totalTopPerformerPrize;
+        }
+        public Double getTotalPrizes() {
+            return totalPrizes;
+        }
+        public void setTotalPrizes(Double totalPrizes) {
+            this.totalPrizes = totalPrizes;
+        }
+        
     }
 
 }
