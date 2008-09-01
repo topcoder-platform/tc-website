@@ -169,11 +169,6 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
     </tr>
     <tr>
         <th class="b" colspan="2">&nbsp;</th>
-        <th class="c b" colspan="7">Completed Contests</th>
-        <th class="c" colspan="2" nowrap="nowrap">Current Contests</th>
-    </tr>
-    <tr>
-        <th class="b" colspan="2">&nbsp;</th>
         <th class="b" colspan="3">TOTALS:</th>
         <th class="b"><fmt:formatNumber value="${resultObject.totalPoints}"  minFractionDigits="2" maxFractionDigits="2"/></th>
         <th class="b"><fmt:formatNumber value="${resultObject.totalTopFivePrize}" type="currency" currencySymbol="$"/></th>
