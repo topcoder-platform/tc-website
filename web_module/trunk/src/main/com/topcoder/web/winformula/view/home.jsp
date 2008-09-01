@@ -86,46 +86,28 @@
                     Prizes will be awarded to the season winner and possibly to the next nine finishers. Weekly prizes will also be awarded, even for the "preseason" weeks. While the prize breakout is to be determined, there will be a total of $100,000 awarded!</li>
                 </ol>
             </div>
-            <%-- 
+            
+            <%-- Pablo please verify the problem I specified in the email 
             <div class="results-box">
-            <h2 class="titleResults"><span class="hide">Results</span></h2>
-            <table width="97%" class="current-data">
-              <thead>
-                <tr>
-                  <th>#</th>
-
-                  <th>Handle</th>
-                  <th>%</th>
-                  <th>Pts.</th>
-                  <th>Picks</th>
-                </tr>
-              </thead>
-              <tbody>
-
-                <tr>
-                  <th colspan="5"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewStandings&amp;week=${lp.weekId}" class="viewLink">All ${lp.weekDesc} Results</a> ${lp.weekDesc} Top 5</th>
-                </tr>
-
-              <c:forEach items="${weekStandings}" var="standingsItem">
-                <c:choose>
-                    <c:when test="${standingsItem.coderId == WisdomOfAllId || standingsItem.coderId == WisdomOfTheBestId || standingsItem.coderId == showUserId}">
-                        <tr class="newSection">
-                    </c:when>
-                    <c:otherwise>
-                        <tr>
-                    </c:otherwise>
-                </c:choose>
-                  <td class="alignCenter">${standingsItem.rank}</td>
-                  <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}&amp;week=${lp.weekId}">${standingsItem.handle}</a></td>
-                  <td ><fmt:formatNumber value="${standingsItem.winPercent}" pattern="0.00"/> %</td>
-                  <td ><fmt:formatNumber value="${standingsItem.points}" pattern="0"/></td>
-                  <td ><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}&amp;week=${lp.weekId}">picks</a></td>
-                </tr>
-              </c:forEach>
-                <tr>
-                  <th colspan="5"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewStandings&amp;msi=${lp.miniSeasonId}" class="viewLink">All ${lp.miniSeasonDesc} Leaders</a> ${lp.miniSeasonDesc} Top 5</th>
-                </tr>
-                <c:forEach items="${miniSeasonStandings}" var="standingsItem">
+                <h2 class="titleResults"><span class="hide">Results</span></h2>
+                <table width="295px" class="stat">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+    
+                      <th>Handle</th>
+                      <th>%</th>
+                      <th>Pts.</th>
+                      <th>Picks</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+    
+                    <tr>
+                      <th colspan="5" class="resultsAndLeaders"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewStandings&amp;week=${lp.weekId}" class="viewLink">All ${lp.weekDesc} Results</a> ${lp.weekDesc} Top 5</th>
+                    </tr>
+    
+                  <c:forEach items="${weekStandings}" var="standingsItem">
                     <c:choose>
                         <c:when test="${standingsItem.coderId == WisdomOfAllId || standingsItem.coderId == WisdomOfTheBestId || standingsItem.coderId == showUserId}">
                             <tr class="newSection">
@@ -134,17 +116,37 @@
                             <tr>
                         </c:otherwise>
                     </c:choose>
-                  <td class="alignCenter">${standingsItem.rank}</td>
-                  <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}">${standingsItem.handle}</a></td>
-                  <td ><fmt:formatNumber value="${standingsItem.winPercent}" pattern="0.00"/> %</td>
-                  <td ><fmt:formatNumber value="${standingsItem.points}" pattern="0"/></td>
-                  <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}">picks</a></td>
-                </tr>
-              </c:forEach>
-              </tbody>
-            </table>
+                      <td class="alignCenter">${standingsItem.rank}</td>
+                      <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}&amp;week=${lp.weekId}">${standingsItem.handle}</a></td>
+                      <td ><fmt:formatNumber value="${standingsItem.winPercent}" pattern="0.00"/> %</td>
+                      <td ><fmt:formatNumber value="${standingsItem.points}" pattern="0"/></td>
+                      <td ><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}&amp;week=${lp.weekId}">picks</a></td>
+                    </tr>
+                  </c:forEach>
+                    <tr>
+                      <th colspan="5" class="resultsAndLeaders"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewStandings&amp;msi=${lp.miniSeasonId}" class="viewLink">All ${lp.miniSeasonDesc} Leaders</a> ${lp.miniSeasonDesc} Top 5</th>
+                    </tr>
+                    <c:forEach items="${miniSeasonStandings}" var="standingsItem">
+                        <c:choose>
+                            <c:when test="${standingsItem.coderId == WisdomOfAllId || standingsItem.coderId == WisdomOfTheBestId || standingsItem.coderId == showUserId}">
+                                <tr class="newSection">
+                            </c:when>
+                            <c:otherwise>
+                                <tr>
+                            </c:otherwise>
+                        </c:choose>
+                      <td class="alignCenter">${standingsItem.rank}</td>
+                      <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}">${standingsItem.handle}</a></td>
+                      <td ><fmt:formatNumber value="${standingsItem.winPercent}" pattern="0.00"/> %</td>
+                      <td ><fmt:formatNumber value="${standingsItem.points}" pattern="0"/></td>
+                      <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}">picks</a></td>
+                    </tr>
+                  </c:forEach>
+                  </tbody>
+                </table>
             </div>
             --%>
+            
             <%-- Temporarily Hidden 
             <div class="overall-box">
             <h2 class="titleLeader"><span class="hide">Overall Leaders</span></h2>
