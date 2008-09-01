@@ -25,7 +25,7 @@
     <script type="text/javascript">
         function changePeriod() {
             var myForm = document.leaderBoardForm;
-            <c:if test="${fn:length(results) > 0}">
+            <c:if test="${fn:length(resultObject.results) > 0}">
             myForm.<%=DataAccessConstants.START_RANK%>.value = '';
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '';
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '';
@@ -124,7 +124,7 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
     <br /><br />
     There are no results for the selected track.
 </c:when>
-<c:when test="${not empty results}">
+<c:when test="${not empty resultObject.results}">
 
 <div class="pagingBox" style="width:300px;">
     <c:choose>
@@ -185,8 +185,17 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
                 Total<br />Points</a>**
         </td>
     </tr>
+    <tr>
+        <td class="header" colspan="2">&#160;</td>
+        <td class="headerR B" colspan="3">TOTALS:</td>
+        <td class="headerR B"><fmt:formatNumber value="${resultObject.totalPoints}"  minFractionDigits="2" maxFractionDigits="2"/></td>
+        <td class="headerR B"><fmt:formatNumber value="${resultObject.totalTopFivePrize}" type="currency" currencySymbol="$"/></td>
+        <td class="headerR B"><fmt:formatNumber value="${resultObject.totalTopPerformerPrize}" type="currency" currencySymbol="$"/></td>
+        <td class="headerR B"><fmt:formatNumber value="${resultObject.totalPrizes}" type="currency" currencySymbol="$"/></td>
+        <td class="headerC" colspan="2">&#160;</td>
+    </tr>
 
-    <c:forEach items="${results}" var="boardRow" varStatus="status">
+    <c:forEach items="${resultObject.results}" var="boardRow" varStatus="status">
     <tr class='${status.index % 2 == 1? "dark" : "light" }'>
         <td class="valueC">${boardRow.rank}</td>
         <td class="value B">
