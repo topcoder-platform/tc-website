@@ -48,6 +48,7 @@ public class WisdomPredictionGenerator {
     }
 
 
+    @SuppressWarnings("boxing")
     public void generatePredictionsForOpenedWeeksOfRound(int roundId) {
         try {
             log.info("Generating predictins for roundId: "+ roundId);
@@ -67,33 +68,32 @@ public class WisdomPredictionGenerator {
                          "   WHERE pd.prediction_id = p.prediction_id AND p.week_id = ?  AND pd.home_score IS NOT NULL AND pd.visitor_score IS NOT NULL" +
                          "         AND p.coder_id NOT IN (?,?)"  + 
                          "   GROUP BY game_id order by 1";
-            generatePredictions(weeks, roundId, Constants.WISDOM_ALL, cmd);
+            generatePredictions(weeks, roundId, Constants.WISDOM_ALL, cmd, true);
             
-            
-            if (areOverallStatsGenerated()) {
+            int previousWeek = weeks.get(0) - 1;
+            boolean bindCoders = true;
+            if (areOverallStatsGenerated(previousWeek)) {
                 log.info("Using overall stats for TOP 10 generation");
-                int rank = resolveRankToTakeOnOverall();
+                int rank = resolveRankToTakeOnOverall(previousWeek);
                 cmd =  "SELECT game_id, round(avg(pd.home_score)) as home_score, round(avg(pd.visitor_score)) as visitor_score" + 
                        "   FROM prediction p, prediction_detail pd" + 
                        "      WHERE pd.prediction_id = p.prediction_id AND p.week_id = ? AND pd.home_score IS NOT NULL and pd.visitor_score IS NOT NULL" + 
                        "            AND p.coder_id NOT IN (?,?) AND p.coder_id IN (select coder_id from user_overall_stats uos where uos.rank <= "+rank+")" + 
                        "      group by game_id order by 1";
                 log.info("Using rank <= " + rank);
-            } else if (areMiniSeasonStatsGenerated()) {
-                log.info("Using mini-season stats for TOP 10 generation");
-                int rank = resolveRankToTakeOnMiniSeason();
+            } else if (areWeeklyStatsGenerated(previousWeek)) {
+                log.info("Using weekly stats for TOP 10 generation: weekID <= "+previousWeek);
                 cmd =  "SELECT game_id, round(avg(pd.home_score)) as home_score, round(avg(pd.visitor_score)) as visitor_score" + 
-                       "   FROM prediction p, prediction_detail pd" + 
-                       "      WHERE pd.prediction_id = p.prediction_id AND p.week_id = ? AND pd.home_score IS NOT NULL and pd.visitor_score IS NOT NULL" + 
-                       "            AND p.coder_id NOT IN (?,?) AND p.coder_id IN (select coder_id from user_mini_season_stats uos where uos.rank <= "+rank+")" + 
-                       "      group by game_id order by 1";
-                log.info("Using rank <= " + rank);
+                              "   FROM prediction p, prediction_detail pd" + 
+                              "      WHERE pd.prediction_id = p.prediction_id AND p.week_id = ? AND pd.home_score IS NOT NULL and pd.visitor_score IS NOT NULL" +
+                              "            AND " +  resolveCodersToTakeFromWeeklyStats(previousWeek) +
+                              "      group by game_id order by 1";
+                bindCoders = false;
             } else {
-                log.info("We don't have stats, using same as ALL for TOP 10 generation");
+                log.warn("We don't have proper stats, avoiding TOP 10 generation");
+                return;
             }
-            
-            generatePredictions(weeks, roundId, Constants.WISDOM_BEST, cmd);
-                   
+            generatePredictions(weeks, roundId, Constants.WISDOM_BEST, cmd, bindCoders);
         } catch (Exception e) {
             log.error("Failed to process", e);
         } finally {
@@ -102,15 +102,17 @@ public class WisdomPredictionGenerator {
     }
 
 
-    private void generatePredictions(List<Integer> weeks, int roundId, int coderId, String cmd) throws SQLException, IDGenerationException {
+    private void generatePredictions(List<Integer> weeks, int roundId, int coderId, String cmd, boolean bindCoders) throws SQLException, IDGenerationException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             log.info("Generating predictions for coder: " +coderId);
             Connection cnn = DBUtils.getCurrentConnection();
             ps = cnn.prepareStatement(cmd);
-            ps.setInt(2, Constants.WISDOM_ALL);
-            ps.setInt(3, Constants.WISDOM_BEST);
+            if (bindCoders) {
+                ps.setInt(2, Constants.WISDOM_ALL);
+                ps.setInt(3, Constants.WISDOM_BEST);
+            }
             
             for (Integer week : weeks) {
                int weekId = week.intValue();
@@ -161,13 +163,14 @@ public class WisdomPredictionGenerator {
     }
     
     
-    private boolean areOverallStatsGenerated() throws SQLException {
+    private boolean areOverallStatsGenerated(int weekId) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             Connection cnn = DBUtils.getCurrentConnection();
-            String cmd = "SELECT FIRST 1 coder_id FROM  user_overall_stats";
+            String cmd = "SELECT FIRST 1 coder_id FROM user_overall_stats WHERE week_id = ?";
             ps = cnn.prepareStatement(cmd);
+            ps.setInt(1, weekId);
             rs = ps.executeQuery();
             return rs.next();
         } finally {
@@ -175,13 +178,14 @@ public class WisdomPredictionGenerator {
         }
     }
     
-    private boolean areMiniSeasonStatsGenerated() throws SQLException {
+    private boolean areWeeklyStatsGenerated(int weekId) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             Connection cnn = DBUtils.getCurrentConnection();
-            String cmd = "SELECT FIRST 1 coder_id FROM  user_mini_season_stats";
+            String cmd = "SELECT FIRST 1 coder_id FROM user_week_stats AND week_id = ?";
             ps = cnn.prepareStatement(cmd);
+            ps.setInt(1, weekId);
             rs = ps.executeQuery();
             return rs.next();
         } finally {
@@ -190,16 +194,18 @@ public class WisdomPredictionGenerator {
     }
     
     
-    private int resolveRankToTakeOnOverall() throws SQLException {
+    private int resolveRankToTakeOnOverall(int weekId) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             Connection cnn = DBUtils.getCurrentConnection();
-            String cmd = "SELECT rank FROM user_overall_stats WHERE coder_id IN (?, ?)";
+            String cmd = "SELECT rank FROM user_overall_stats WHERE coder_id IN (?, ?) AND week_id = ?";
             ps = cnn.prepareStatement(cmd);
             ps.setInt(1, Constants.WISDOM_ALL);
             ps.setInt(2, Constants.WISDOM_BEST);
+            ps.setInt(3, weekId);
             rs = ps.executeQuery();
+
             int rank = 10;
             while (rs.next()) {
                 if (rs.getInt(1) <= rank) {
@@ -212,23 +218,34 @@ public class WisdomPredictionGenerator {
         }
     }
     
-    private int resolveRankToTakeOnMiniSeason() throws SQLException {
+    private String resolveCodersToTakeFromWeeklyStats(int weekId) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
+            List topTenIds = new ArrayList(12);
             Connection cnn = DBUtils.getCurrentConnection();
-            String cmd = "SELECT rank FROM user_mini_season_stats WHERE coder_id IN (?, ?)";
+            String cmd = "SELECT coder_id, sum(points) FROM user_week_stats WHERE coder_id NOT IN (?, ?) and week_id <= ? GROUP BY 1 ORDER BY 2 DESC";
             ps = cnn.prepareStatement(cmd);
             ps.setInt(1, Constants.WISDOM_ALL);
             ps.setInt(2, Constants.WISDOM_BEST);
+            ps.setInt(3, weekId);
             rs = ps.executeQuery();
-            int rank = 10;
+            int rank = 0;
+            int lastPoints = Integer.MAX_VALUE; 
             while (rs.next()) {
-                if (rs.getInt(1) <= rank) {
+                int points = rs.getInt(2);
+                if (lastPoints != points) {
                     rank++;
+                    lastPoints = points;
+                }
+                if (rank <= 10) {
+                    topTenIds.add(Integer.valueOf(rs.getInt(1)));
+                } else {
+                    break;
                 }
             }
-            return rank;
+            log.info("Using Top Ten coders: "+topTenIds);
+            return DBUtils.sqlStrInList("coder_id", topTenIds);
         } finally {
             DBMS.close(ps, rs);
         }
