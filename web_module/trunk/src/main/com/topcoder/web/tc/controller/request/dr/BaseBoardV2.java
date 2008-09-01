@@ -19,6 +19,8 @@ import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.dr.IBoardRow;
+import com.topcoder.web.tc.model.dr.LeaderBoardResult;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
 
 /**
@@ -104,7 +106,12 @@ public abstract class BaseBoardV2 extends BaseProcessor {
      * @return
      * @throws Exception
      */
-    protected List<LeaderBoardRow> getTrackResults(int trackId) throws Exception {
+    protected LeaderBoardResult getTrackResults(int trackId) throws Exception {
+        Double totalPoints = 0d;
+        Double totalTopFivePrize = 0d;
+        Double totalTopPerformerPrize = 0d;
+        Double totalPrizes = 0d;
+
         Request r = new Request();
         r.setContentHandle("drv2_results");
         r.setProperty(Constants.TRACK_ID, String.valueOf(trackId));
@@ -114,7 +121,7 @@ public abstract class BaseBoardV2 extends BaseProcessor {
         ResultSetContainer rsc = (ResultSetContainer) m.get("drv2_results");
             
         // Put the results in a list
-        List<LeaderBoardRow> results = new ArrayList<LeaderBoardRow>();
+        List<IBoardRow> results = new ArrayList<IBoardRow>();
         for (ResultSetContainer.ResultSetRow row : rsc) {
             LeaderBoardRow lbr = new LeaderBoardRow(trackId, 1, row.getIntItem("current_place"), row.getLongItem("coder_id"),
                  row.getStringItem("handle"),
@@ -124,9 +131,14 @@ public abstract class BaseBoardV2 extends BaseProcessor {
                  hasWonTrip(row.getIntItem("current_place"), 1));
             
             results.add(lbr);
-            
+
+            totalPoints += lbr.getPoints();
+            totalTopFivePrize += lbr.getPlacementPrize();
+            totalTopPerformerPrize += lbr.getPointsPrize();
+            totalPrizes += lbr.getTotalPrize();
         }
-        return results;
+        
+        return new LeaderBoardResult(results, totalPoints, totalTopFivePrize, totalTopPerformerPrize, totalPrizes);
     }
 
 

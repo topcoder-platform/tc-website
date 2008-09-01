@@ -15,7 +15,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.IBoardRow;
-import com.topcoder.web.tc.model.dr.LeaderBoardRow;
+import com.topcoder.web.tc.model.dr.LeaderBoardResult;
 
 /**
  * <strong>Purpose</strong>:
@@ -76,16 +76,16 @@ public class ViewLeaderBoard extends BaseBoardV2 {
         getRequest().setAttribute("tracks", tracks);
 
         // Get the results from database
-        List<LeaderBoardRow> results = getTrackResults(trackId);
+        LeaderBoardResult resultObject = getTrackResults(trackId);
             
         // Sort and crop the list
-        sortResult(results, sortCol, invert);
-        List<IBoardRow> cropped = cropResult(results, startRank, numRecords);
+        sortResult(resultObject.getResults(), sortCol, invert);
+        resultObject.setResults(cropResult(resultObject.getResults(), startRank, numRecords));
 
         getRequest().setAttribute("concurrentTrack",  getConcurrentTrack(trackId, trackInfo.getTrackTypeId()));  // design type
 
         getRequest().setAttribute("hasRookieCompetition", Boolean.FALSE);
-        getRequest().setAttribute("results", cropped);
+        getRequest().setAttribute("resultObject", resultObject);
         getRequest().setAttribute("topTripWinners", 1);
         getRequest().setAttribute("trackExists", true);            
 
