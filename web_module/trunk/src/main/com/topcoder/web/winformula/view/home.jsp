@@ -321,7 +321,7 @@
             <br />
             
             <div class="full-content">
-                <p><strong>Participation in ESPN Winning Formula Challenge is completely FREE! Click Here to find out how to compete.</strong></p>
+                <p><strong>Participation in ESPN Winning Formula Challenge is completely FREE! <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=howToCompete">Click Here</a> to find out how to compete.</strong></p>
                 <br />
                 <%-- Old info 
                 <p>Participation in ESPN Winning Formula Challenge is completely FREE! Just follow the simple steps below and you'll be on your way to possibly claiming some of our $100,000 in prize money! Here's a quick overview:</p>
