@@ -68,7 +68,7 @@
                     <%-- old version
                     <span style="padding-left:125px;"><a href="#linktonews"><img src="/i/pressroom/featured_tco07.png" width="440" height="136" ></a></span>
                     --%>
-                    <div style="padding-left:90px;">
+                    <div style="padding-left:70px;">
                         <%-- UML Tool 
                         <a href="<tc-webtag:linkTracking link='/wiki/display/tc/TopCoder+UML+Tool' refer='pr_index' />"><img src="/i/home/umltool20080226.jpg" alt="UML Tool Release" /></a>
                         --%>
@@ -79,7 +79,7 @@
                         <a href="<tc-webtag:linkTracking link='/truveo/' refer='pr_index' />"><img src="/i/home/truveo_vote.png" alt="Truveo Developer Challenge Powered by TopCoder" /></a>
                         --%>
                         <%-- ESPN Winning Formula Challange --%>
-                        <a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='pr_index' />"><img src="/i/home/winformula_preview510x100.png" alt="ESPN Winning Formula Challange Powered by TopCoder" /></a>
+                        <a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='pr_index' />"><img src="/i/home/winformula85_540x120.png" alt="ESPN Winning Formula Challange Powered by TopCoder" /></a>
                         
                         <%-- TCO08 
                         <map name="tco08">
