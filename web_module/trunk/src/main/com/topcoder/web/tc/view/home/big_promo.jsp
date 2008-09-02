@@ -95,7 +95,7 @@
 
 <%-- ESPN Winning Formula Challenge --%>
 <br />
-<a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />"><img src="/i/home/winformula_preview510x54.png" alt="ESPN Winning Formula Challenge Powered by TopCoder" /></a>
+<a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />"><img src="/i/home/winformula85_510x64.png" alt="ESPN Winning Formula Challenge Powered by TopCoder" /></a>
 
 
 <%-- Truveo 
