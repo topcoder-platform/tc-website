@@ -145,7 +145,7 @@
                     </thead>
                     <tbody>
                         <tr class="light">
-                            <td colspan="5"><h3 align="center">Overall leaders will show<br />when Mini-Season 2 starts.</h3></td>
+                            <td colspan="5"><h3 align="center">Overall season leaders will show September 18.</h3></td>
                         </tr>
                         <tr class="dark">
                             <td>&nbsp;</td>
@@ -321,6 +321,9 @@
             <br />
             
             <div class="full-content">
+                <p><strong>Participation in ESPN Winning Formula Challenge is completely FREE! Click Here to find out how to compete.</strong></p>
+                <br />
+                <%-- Old info 
                 <p>Participation in ESPN Winning Formula Challenge is completely FREE! Just follow the simple steps below and you'll be on your way to possibly claiming some of our $100,000 in prize money! Here's a quick overview:</p>
                 <ol class="howCompete">
                     <li><strong><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" target="_blank">Sign up</a> to become a TopCoder member</strong> (select at least the &quot;Competition Registration&quot; checkbox)<br />
@@ -336,6 +339,7 @@
                     <li><strong>Win Cash!</strong><br />
                     Prizes will be awarded to the season winner and possibly to the next nine finishers. Weekly prizes will also be awarded, even for the "preseason" weeks. While the prize breakout is to be determined, there will be a total of $100,000 awarded!</li>
                 </ol>
+                --%>
             </div>
             
             <div class="emptyBoxTop"></div>
