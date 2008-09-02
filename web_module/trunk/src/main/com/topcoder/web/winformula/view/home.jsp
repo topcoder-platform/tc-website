@@ -66,31 +66,9 @@
                 </div>
             </div>
             
-            <div align="center"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=howToCompete"><img src="/i/events/winformula/timeline_sm.png" alt="Winning Formula Timeline" /></a></div>
-            <br />
-            
-            <div class="full-content">
-                <p>Participation in ESPN Winning Formula Challenge is completely FREE! Just follow the simple steps below and you'll be on your way to possibly claiming some of our $100,000 in prize money! Here's a quick overview:</p>
-                <ol class="howCompete">
-                    <li><strong><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" target="_blank">Sign up</a> to become a TopCoder member</strong> (select at least the &quot;Competition Registration&quot; checkbox)<br />
-                    ESPN Winning Formula Challenge is run using TopCoder's patented competition engine and administered by TopCoder's professional competition staff. TopCoder members are a worldwide community of programmers who compete in algorithm and development contests for prize money. Become a member now to compete in this challenge and other TopCoder contests! If you are already a TopCoder member, go to step 2.  <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" target="_blank">Sign up at TopCoder &gt;&gt;</a></li>
-                    <li><strong><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewRegistration&amp;ct=1001">Register</a> for the Winning Formula Challenge</strong><br />
-                    Once you are a TopCoder member, all you have to do is register for the Winning Formula Challenge! Register now to participate in this contest!  <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewRegistration&amp;ct=1001">Contest registration &gt;&gt;</a></li>
-                    <li><strong><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/algorithm?module=ViewProblemStatement">Read the problem statement</a></strong><br />
-                    The problem statement explains the task, scoring mechanism, and specification to the competitor so that the code works with TopCoder's judging engine.  <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/algorithm?module=ViewProblemStatement">View the problem statement &gt;&gt;</a></li>
-                    <li><strong><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=downloadStats">Download ESPN's statistical data</a> and build your algorithm</strong><br />
-                    Now that you've registered and read the problem statement, you'll need to download ESPN's statistical data on which your algorithm will be basing its predictions. Use this data to test your algorithm locally.  <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=downloadStats">Download the data &gt;&gt;</a></li>
-                    <li><strong><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/algorithm?module=ManageMyAlgorithms">Submit your algorithm</a></strong> (through November 11th)<br />
-                    After August 12th, you can submit your algorithm at any time. Your code will be judged by the performance of your algorithm during each mini-season (a period of 3-4 weeks as detailed below. Your algorithm will lock in at 12:01 EDT on the day before each mini-season, but you can make changes for the next mini-season at any time through week 11. After November 11th (day before week 12 and the last mini-season), you may not make any changes to your algorithm and your latest uploaded algorithm will be used for the final mini-season.  <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/algorithm?module=ManageMyAlgorithms">Submit your algorithm &gt;&gt;</a></li>
-                    <li><strong>Win Cash!</strong><br />
-                    Prizes will be awarded to the season winner and possibly to the next nine finishers. Weekly prizes will also be awarded, even for the "preseason" weeks. While the prize breakout is to be determined, there will be a total of $100,000 awarded!</li>
-                </ol>
-            </div>
-            
-            <%-- Pablo please verify the problem I specified in the email 
             <div class="results-box">
                 <h2 class="titleResults"><span class="hide">Results</span></h2>
-                <table width="295px" class="stat">
+                <table width="282px" class="stat" align="center">
                   <thead>
                     <tr>
                       <th>#</th>
@@ -104,7 +82,9 @@
                   <tbody>
     
                     <tr>
-                      <th colspan="5" class="resultsAndLeaders"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewStandings&amp;week=${lp.weekId}" class="viewLink">All ${lp.weekDesc} Results</a> ${lp.weekDesc} Top 5</th>
+                      <th colspan="2" class="resultsAndLeaders"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewStandings&amp;week=${lp.weekId}" class="viewLink">All ${lp.weekDesc} Results</a></th>
+                      <th class="resultsAndLeaders">&nbsp;</th>
+                      <th colspan="2" class="resultsAndLeaders">${lp.weekDesc} Top 5</th>
                     </tr>
     
                   <c:forEach items="${weekStandings}" var="standingsItem">
@@ -124,7 +104,12 @@
                     </tr>
                   </c:forEach>
                     <tr>
-                      <th colspan="5" class="resultsAndLeaders"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewStandings&amp;msi=${lp.miniSeasonId}" class="viewLink">All ${lp.miniSeasonDesc} Leaders</a> ${lp.miniSeasonDesc} Top 5</th>
+                      <%-- 
+                      <th colspan="2" class="resultsAndLeaders"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewStandings&amp;msi=${lp.miniSeasonId}" class="viewLink">All ${lp.miniSeasonDesc} Leaders</a></th>
+                      <th class="resultsAndLeaders">&nbsp;</th>
+                      <th colspan="2" class="resultsAndLeaders">${lp.miniSeasonDesc} Top 5</th>
+                      --%>
+                      <th colspan="5" class="resultsAndLeaders"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewStandings&amp;msi=${lp.miniSeasonId}" class="viewLink">All ${lp.miniSeasonDesc} Leaders</a>&nbsp;${lp.miniSeasonDesc} Top 5</th>
                     </tr>
                     <c:forEach items="${miniSeasonStandings}" var="standingsItem">
                         <c:choose>
@@ -145,111 +130,213 @@
                   </tbody>
                 </table>
             </div>
-            --%>
             
-            <%-- Temporarily Hidden 
             <div class="overall-box">
-            <h2 class="titleLeader"><span class="hide">Overall Leaders</span></h2>
-            <table width="97%" class="stat">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Handle</th>
-                        <th>%</th>
-                        <th>Pts.</th>
-                        <th>Picks</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="light">
-                        <td class="alignCenter">1</td>
-                        <td><a href="member.htm">SouthSyde</a></td>
-                        <td>84%</td>
-                        <td>1432</td>
-                        <td><a href="#">picks</a></td>
-                    </tr>
-                    <tr class="dark">
-                        <td class="alignCenter">2</td>
-                        <td><a href="member.htm">wicked_games</a></td>
-                        <td>81%</td>
-                        <td>1388</td>
-                        <td><a href="#">picks</a></td>
-                    </tr>
-                    <tr class="light">
-                        <td class="alignCenter">3</td>
-                        <td><a href="member.htm">enterDragon</a></td>
-                        <td>77%</td>
-                        <td>1355</td>
-                        <td><a href="#">picks</a></td>
-                    </tr>
-                    <tr class="dark">
-                        <td class="alignCenter">4</td>
-                        <td><a href="member.htm">fb_boss</a></td>
-                        <td>72%</td>
-                        <td>1279</td>
-                        <td><a href="#">picks</a></td>
-                    </tr>
-                    <tr class="light">
-                        <td class="alignCenter">5</td>
-                        <td><a href="member.htm">call_me_sista</a></td>
-                        <td>71%</td>
-                        <td>1232</td>
-                        <td><a href="#">picks</a></td>
-                    </tr>
-                    <tr class="dark">
-                        <td class="alignCenter"><strong>6</strong></td>
-                        <td><a href="member.htm"><strong>CommunityTop10</strong></a></td>
-                        <td>68%</td>
-                        <td><strong>1287</strong></td>
-                        <td><a href="#">picks</a></td>
-                    </tr>
-                    <tr class="light">
-                        <td class="alignCenter">7</td>
-                        <td><a href="member.htm">theprophet</a></td>
-                        <td>68%</td>
-                        <td>1188</td>
-                        <td><a href="#">picks</a></td>
-                    </tr>
-                    <tr class="dark">
-                        <td class="alignCenter">8</td>
-                        <td><a href="member.htm">motrrrhead</a></td>
-                        <td>62%</td>
-                        <td>1045</td>
-                        <td><a href="#">picks</a></td>
-                    </tr>
-                    <tr class="light">
-                        <td class="alignCenter">9</td>
-                        <td><a href="member.htm">somegirl</a></td>
-                        <td>61%</td>
-                        <td>997</td>
-                        <td><a href="#">picks</a></td>
-                    </tr>
-                    <tr class="dark">
-                        <td class="alignCenter">10</td>
-                        <td><a href="member.htm">chekm8</a></td>
-                        <td>61%</td>
-                        <td>984</td>
-                        <td><a href="#">picks</a></td>
-                    </tr>
-                    <tr class="newSection">
-                        <td class="alignCenter"><strong>12</strong></td>
-                        <td><a href="member.htm"><strong>MyMemberName</strong></a></td>
-                        <td>60%</td>
-                        <td><strong>980</strong></td>
-                        <td><a href="#">picks</a></td>
-                    </tr>
-                    <tr class="dark">
-                        <td class="alignCenter"><strong>38</strong></td>
-                        <td><a href="member.htm"><strong>CommunityAverage</strong></a></td>
-                        <td>58%</td>
-                        <td><strong>932</strong></td>
-                        <td><a href="#">picks</a></td>
-                    </tr>
-                </tbody>
-            </table>
-            <p><a href="standings.htm" class="viewLink">View Complete Standings</a></p>
+                <h2 class="titleLeader"><span class="hide">Overall Leaders</span></h2>
+                <table width="282px" class="stat" align="center">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Handle</th>
+                            <th>%</th>
+                            <th>Pts.</th>
+                            <th>Picks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="light">
+                            <td colspan="5"><h3 align="center">Overall leaders will show<br />when Mini-Season 2 starts.</h3></td>
+                        </tr>
+                        <tr class="dark">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="light">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="dark">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="light">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="dark">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="light">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="dark">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="light">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="dark">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="light">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="newSection">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="dark">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <%-- Temporarily Hidden 
+                        <tr class="dark">
+                            <td class="alignCenter">2</td>
+                            <td><a href="member.htm">wicked_games</a></td>
+                            <td>81%</td>
+                            <td>1388</td>
+                            <td><a href="#">picks</a></td>
+                        </tr>
+                        <tr class="light">
+                            <td class="alignCenter">3</td>
+                            <td><a href="member.htm">enterDragon</a></td>
+                            <td>77%</td>
+                            <td>1355</td>
+                            <td><a href="#">picks</a></td>
+                        </tr>
+                        <tr class="dark">
+                            <td class="alignCenter">4</td>
+                            <td><a href="member.htm">fb_boss</a></td>
+                            <td>72%</td>
+                            <td>1279</td>
+                            <td><a href="#">picks</a></td>
+                        </tr>
+                        <tr class="light">
+                            <td class="alignCenter">5</td>
+                            <td><a href="member.htm">call_me_sista</a></td>
+                            <td>71%</td>
+                            <td>1232</td>
+                            <td><a href="#">picks</a></td>
+                        </tr>
+                        <tr class="dark">
+                            <td class="alignCenter"><strong>6</strong></td>
+                            <td><a href="member.htm"><strong>CommunityTop10</strong></a></td>
+                            <td>68%</td>
+                            <td><strong>1287</strong></td>
+                            <td><a href="#">picks</a></td>
+                        </tr>
+                        <tr class="light">
+                            <td class="alignCenter">7</td>
+                            <td><a href="member.htm">theprophet</a></td>
+                            <td>68%</td>
+                            <td>1188</td>
+                            <td><a href="#">picks</a></td>
+                        </tr>
+                        <tr class="dark">
+                            <td class="alignCenter">8</td>
+                            <td><a href="member.htm">motrrrhead</a></td>
+                            <td>62%</td>
+                            <td>1045</td>
+                            <td><a href="#">picks</a></td>
+                        </tr>
+                        <tr class="light">
+                            <td class="alignCenter">9</td>
+                            <td><a href="member.htm">somegirl</a></td>
+                            <td>61%</td>
+                            <td>997</td>
+                            <td><a href="#">picks</a></td>
+                        </tr>
+                        <tr class="dark">
+                            <td class="alignCenter">10</td>
+                            <td><a href="member.htm">chekm8</a></td>
+                            <td>61%</td>
+                            <td>984</td>
+                            <td><a href="#">picks</a></td>
+                        </tr>
+                        <tr class="newSection">
+                            <td class="alignCenter"><strong>12</strong></td>
+                            <td><a href="member.htm"><strong>MyMemberName</strong></a></td>
+                            <td>60%</td>
+                            <td><strong>980</strong></td>
+                            <td><a href="#">picks</a></td>
+                        </tr>
+                        <tr class="dark">
+                            <td class="alignCenter"><strong>38</strong></td>
+                            <td><a href="member.htm"><strong>CommunityAverage</strong></a></td>
+                            <td>58%</td>
+                            <td><strong>932</strong></td>
+                            <td><a href="#">picks</a></td>
+                        </tr>
+                        --%>
+                    </tbody>
+                </table>
+                <%--
+                <p><a href="standings.htm" class="viewLink">View Complete Standings</a></p>
+                --%>
             </div>
-            --%>
+            
+            <div align="center"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=howToCompete"><img src="/i/events/winformula/timeline_sm.png" alt="Winning Formula Timeline" /></a></div>
+            <br />
+            
+            <div class="full-content">
+                <p>Participation in ESPN Winning Formula Challenge is completely FREE! Just follow the simple steps below and you'll be on your way to possibly claiming some of our $100,000 in prize money! Here's a quick overview:</p>
+                <ol class="howCompete">
+                    <li><strong><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" target="_blank">Sign up</a> to become a TopCoder member</strong> (select at least the &quot;Competition Registration&quot; checkbox)<br />
+                    ESPN Winning Formula Challenge is run using TopCoder's patented competition engine and administered by TopCoder's professional competition staff. TopCoder members are a worldwide community of programmers who compete in algorithm and development contests for prize money. Become a member now to compete in this challenge and other TopCoder contests! If you are already a TopCoder member, go to step 2.  <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" target="_blank">Sign up at TopCoder &gt;&gt;</a></li>
+                    <li><strong><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewRegistration&amp;ct=1001">Register</a> for the Winning Formula Challenge</strong><br />
+                    Once you are a TopCoder member, all you have to do is register for the Winning Formula Challenge! Register now to participate in this contest!  <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewRegistration&amp;ct=1001">Contest registration &gt;&gt;</a></li>
+                    <li><strong><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/algorithm?module=ViewProblemStatement">Read the problem statement</a></strong><br />
+                    The problem statement explains the task, scoring mechanism, and specification to the competitor so that the code works with TopCoder's judging engine.  <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/algorithm?module=ViewProblemStatement">View the problem statement &gt;&gt;</a></li>
+                    <li><strong><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=downloadStats">Download ESPN's statistical data</a> and build your algorithm</strong><br />
+                    Now that you've registered and read the problem statement, you'll need to download ESPN's statistical data on which your algorithm will be basing its predictions. Use this data to test your algorithm locally.  <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=downloadStats">Download the data &gt;&gt;</a></li>
+                    <li><strong><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/algorithm?module=ManageMyAlgorithms">Submit your algorithm</a></strong> (through November 11th)<br />
+                    After August 12th, you can submit your algorithm at any time. Your code will be judged by the performance of your algorithm during each mini-season (a period of 3-4 weeks as detailed below. Your algorithm will lock in at 12:01 EDT on the day before each mini-season, but you can make changes for the next mini-season at any time through week 11. After November 11th (day before week 12 and the last mini-season), you may not make any changes to your algorithm and your latest uploaded algorithm will be used for the final mini-season.  <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/algorithm?module=ManageMyAlgorithms">Submit your algorithm &gt;&gt;</a></li>
+                    <li><strong>Win Cash!</strong><br />
+                    Prizes will be awarded to the season winner and possibly to the next nine finishers. Weekly prizes will also be awarded, even for the "preseason" weeks. While the prize breakout is to be determined, there will be a total of $100,000 awarded!</li>
+                </ol>
+            </div>
             
             <div class="emptyBoxTop"></div>
             <div class="emptyBoxBottom">
