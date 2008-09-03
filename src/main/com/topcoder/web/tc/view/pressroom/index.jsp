@@ -407,11 +407,11 @@
                 <%-- Courant.com - Glastonbury Firm's Online Software Contests Attract High-Rolling Sponsors begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.courant.com/business/hc-cornershop0416.artapr16,0,6766513.story' refer='pr_index' />"><img src="/i/pressroom/courant_logo.png" alt="courant.com logo" border="0" /></a>
+                        <a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/courant_20080416.pdf' refer='pr_index' />"><img src="/i/pressroom/courant_logo.png" alt="courant.com logo" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.courant.com/business/hc-cornershop0416.artapr16,0,6766513.story' refer='pr_index' />">Glastonbury Firm's Online Software Contests Attract High-Rolling Sponsors</a></h3>
-                        <p>TopCoder is a nontraditional workplace, staging online competitions for software design, many sponsored by Fortune 1000 companies.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.courant.com/business/hc-cornershop0416.artapr16,0,6766513.story' refer='pr_index' />">[April 16]</a></small></p>
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/courant_20080416.pdf' refer='pr_index' />">Glastonbury Firm's Online Software Contests Attract High-Rolling Sponsors</a></h3>
+                        <p>TopCoder is a nontraditional workplace, staging online competitions for software design, many sponsored by Fortune 1000 companies.  <small><a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/courant_20080416.pdf' refer='pr_index' />">[April 16]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
                 </div>
