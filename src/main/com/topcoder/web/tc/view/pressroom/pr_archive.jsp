@@ -73,6 +73,7 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_090308">TopCoder Featured in New Book "Crowdsourcing: Why the Power of the Crowd is Driving the Future of Business" <br /><small style="margin-left:10px;">[September 3]</small></a></dd>
                     <dd>TopCoder One of Inc. Magazine's 500 Fastest-Growing Private Companies in America for Second Consecutive Year [August 21]<br /><small style="margin-left:10px;"><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082108">original press release</a> | <a target="_blank" href="/i/pressroom/pdfs/inc500_20080821.pdf">PDF</a></small></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_080408b">TopCoder &amp; Think Services Announce Dr. Dobb's Architecture &amp; Design World 2008 Software Design Contest Winner <br /><small style="margin-left:10px;">[August 4]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_080408">Truveo Developer Challenge Showcases 93 New Ways To View Video Online <br /><small style="margin-left:10px;">[August 4]</small></a></dd>                    
