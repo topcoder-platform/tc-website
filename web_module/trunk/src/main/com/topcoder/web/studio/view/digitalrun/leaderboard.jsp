@@ -137,7 +137,7 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
         <th class="c" colspan="2" nowrap="nowrap">Current Contests</th>
     </tr>
 
-    <tr align="left">
+    <tr>
         <th class="c">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Rank</a>
         </th>
@@ -149,22 +149,22 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
         </th>
         <th class="r" nowrap="nowrap" width="16%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top
-                Five Prize</a>*</th>
+                Five<br />Prize</a>*</th>
         <th class="r" nowrap="nowrap" width="16%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top
-                Performer Prize</a>*</th>
+                Performer<br />Prize</a>*</th>
 
         <th class="r b" width="16%">
-            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Total
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Total<br />
                 Prizes</a>*</th>
         <th class="r" width="16%">
-            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Potential
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Potential<br />
                 Points</a>**
         </th>
 
         <th class="r" nowrap="nowrap" width="16%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Potential
-                Total Points</a>**
+                Total<br />Points</a>**
         </th>
     </tr>
 </thead>    
