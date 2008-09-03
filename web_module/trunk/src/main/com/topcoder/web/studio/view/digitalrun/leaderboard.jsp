@@ -137,7 +137,7 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
         <th class="c" colspan="2" nowrap="nowrap">Current Contests</th>
     </tr>
 
-    <tr>
+    <tr align="left">
         <th class="c">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Rank</a>
         </th>
@@ -149,29 +149,30 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
         </th>
         <th class="r" nowrap="nowrap" width="16%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top
-                Five<br />Prize</a>*</th>
+                Five Prize</a>*</th>
         <th class="r" nowrap="nowrap" width="16%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top
-                Performer<br />Prize</a>*</th>
+                Performer Prize</a>*</th>
 
         <th class="r b" width="16%">
-            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Total<br />
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Total
                 Prizes</a>*</th>
         <th class="r" width="16%">
-            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Potential<br />
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Potential
                 Points</a>**
         </th>
 
         <th class="r" nowrap="nowrap" width="16%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Potential
-                Total<br />Points</a>**
+                Total Points</a>**
         </th>
     </tr>
 </thead>    
 <tbody>
     <c:forEach items="${results}" var="boardRow" varStatus="status">
         <tr class='${status.index % 2 == 1? "odd" : "even" }'>
-            <td class="c">${boardRow.rank}</td>
+            <td class="c">
+        ${boardRow.rank}</td>
             <td class="b">
                 <span class="coderText"><tc-webtag:handle coderId='${boardRow.userId}' context='${context}'/></span></td>
             <td class="c">
