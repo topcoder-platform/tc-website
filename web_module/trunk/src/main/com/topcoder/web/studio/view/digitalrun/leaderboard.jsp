@@ -171,8 +171,7 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
 <tbody>
     <c:forEach items="${results}" var="boardRow" varStatus="status">
         <tr class='${status.index % 2 == 1? "odd" : "even" }'>
-            <td class="c">
-        ${boardRow.rank}</td>
+            <td class="c">${boardRow.rank}</td>
             <td class="b">
                 <span class="coderText"><tc-webtag:handle coderId='${boardRow.userId}' context='${context}'/></span></td>
             <td class="c">
