@@ -118,6 +118,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- TopCoder &amp; Think Services Announce Dr. Dobb's Architecture &amp; Design World 2008 Software Design Contest Winner begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_090308"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_090308">TopCoder Featured in New Book "Crowdsourcing: Why the Power of the Crowd is Driving the Future of Business"</a></h3>
+                        <p>Wired magazine's Jeff Howe describes the process by which the power of the many can be leveraged to accomplish feats that were once the province of the specialized few  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_090308">[September 3]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder &amp; Think Services Announce Dr. Dobb's Architecture &amp; Design World 2008 Software Design Contest Winner end --%>
+                
                 <%-- InfoWorld: What does programming have to do with football? begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
