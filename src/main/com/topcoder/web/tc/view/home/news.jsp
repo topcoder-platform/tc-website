@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />09.03.08<br />11:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=ViewAssemblyActiveContests">High Prizes, High DR, High Profile</a></span><br /><br />
+        Here is your chance to compete on a project to be used by <a target="_blank" href="<tc-webtag:linkTracking link='http://tree.com' refer='/tc' />">Tree.com</a> (formerly LendingTree) and see your work deployed and in production on a major website.  If you know ASP.NET and would like a chance to rewrite part of their application, register and compete on the <a href="/tc?module=ProjectDetail&amp;pj=30005128">Purchase Form</a> and/or <a href="/tc?module=ProjectDetail&amp;pj=30005129">Refinance Form</a> assembly competitions.  Registration is open until tomorrow afternoon, so sign up now!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=ViewAssemblyActiveContests">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3756">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />08.29.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/08/what_does_progr.html' refer='/tc' />">What does programming have to do with football?</a></span><br /><br />
@@ -154,18 +167,5 @@
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_080408b">details</a> | 
         <tc-webtag:forumLink forumID="522683" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />08.04.08<br />4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_080408">Truveo Developer Challenge Showcases 93 New Ways To View Video Online</a></span><br /><br />
-        Contest Yields 93 Innovative New Video Search Applications Based on Truveo API</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_080408">details</a> | 
-        <tc-webtag:forumLink forumID="522682" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
