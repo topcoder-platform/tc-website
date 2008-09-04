@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-  <rboardUtil>
-    <sourcesList>
-        <source name = "tcs_catalog" value = "jdbc:informix-sqli://63.118.154.190:1526/tcs_catalog:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec"/>
-    </sourcesList>
-    <onlyAnalyze>true</onlyAnalyze>
-    <parameterList>
-    </parameterList>
-  </rboardUtil>
