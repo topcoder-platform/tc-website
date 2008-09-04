@@ -39,7 +39,8 @@
             <jsp:param name="title" value="General News"/>
         </jsp:include>
 
-<table border="0" cellpadding="2" cellspacing="0" width="100%"> 
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">09.04.08 2:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2339">New Contest at TopCoder Studio – My eBay HTML Optimization!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.05.08 3:45 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2313">PROFLO JQuery Plugin Contest at TopCoder Studio!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.16.08 10:00 AM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2288">Facebook Application Build at TopCoder Studio!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.13.08 10:00 AM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">Event Calendar updated through December 2008</a></td></tr>
