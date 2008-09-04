@@ -34,13 +34,13 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     private static Logger log = Logger.getLogger(DefaultPriceComponent.class);
 
-    private final static float[] DESIGN_PRICE_LOOKUP = {0f, 800f, 800f};
+    private final static float[] DESIGN_PRICE_LOOKUP = {0f, 600f, 600f};
     private final static float[] DEV_PRICE_LOOKUP = {0f, 500f, 500f};
     private final static float[] TESTING_PRICE_LOOKUP = {0f, 200f, 200f};
 
-    private final static float DEV_REVIEW_RATE = 27f;
-    private final static float DESIGN_REVIEW_RATE = 26f;
-    private final static float TESTING_REVIEW_RATE = 25f;
+    private final static float DEV_REVIEW_RATE = 24f;
+    private final static float DESIGN_REVIEW_RATE = 23f;
+    private final static float TESTING_REVIEW_RATE = 22f;
 
     protected int phaseId;
     protected int level;
