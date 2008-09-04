@@ -242,10 +242,10 @@ ding="utf-8"?>
         <h2>DESIGNER OF THE MONTH</h2>
 
         <p>
-            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/YomiSky_big.jpg"/>
-            <b>July 2008</b><br />
-            <b>YomiSky</b><br />
-            Joined 6/23/08 &amp; has<br />already won $1,475!
+            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/maxsense_big4.jpg"/>
+            <b>August 2008</b><br />
+            <b>maxsense</b><br />
+            Won First Place in<br />8 contests and $5075!
         </p>
 
         <div></div>
