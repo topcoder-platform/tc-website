@@ -157,7 +157,7 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
         <td class="headerC B" colspan="7">Completed Contests</td>
         <td class="headerC" colspan="2" nowrap="nowrap">Current Contests</td>
     </tr>
-    <tr align="left">
+    <tr>
         <td class="headerC">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Rank</a>
         </td>
@@ -185,7 +185,7 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
                 Total <br />Points</a>**
         </td>
     </tr>
-<%-- 
+
     <tr>
         <td class="header B" colspan="2">&#160;</td>
         <td class="header B" colspan="3">TOTALS:</td>
@@ -195,7 +195,7 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
         <td class="headerR B"><fmt:formatNumber value="${resultObject.totalPrizes}" type="currency" currencySymbol="$"/></td>
         <td class="headerC" colspan="2">&#160;</td>
     </tr>
---%>
+
     <c:forEach items="${resultObject.results}" var="boardRow" varStatus="status">
     <tr class='${status.index % 2 == 1? "dark" : "light" }'>
         <td class="valueC">${boardRow.rank}</td>
