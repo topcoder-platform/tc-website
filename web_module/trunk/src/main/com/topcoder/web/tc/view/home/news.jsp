@@ -4,6 +4,33 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />09.05.08<br />4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2343">Flex Your Muscles In Studio</a></span><br /><br />
+        Top Coder is currently running an Adobe Flex contest for a widget and tab view-based interface component on Studio!  Flex, Adobe's latest development platform, enables rapid development of Rich Internet Applications that run in the Adobe Flash Player.  If you're an expert in Actionscript, you're already half-way there to becoming a Flex expert.  Are you ready to flex your muscles?  There's a $2000 purse up for grabs in this latest of many upcoming Flex competitions!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2343">details</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&amp;forumID=332">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />09.05.08<br />4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=ProjectDetail&amp;pj=30005156">Supercharge the TC Platform!</a></span><br /><br />
+        TopCoder is competition-sourcing more and more of its internal systems and famous competition development platform to our community.  This means opening up the architecture design, component design, development and bug fixing to you.  Many new projects like Cockpit and Control Panel are strategic efforts destined to provide many opportunities for you to make money and garner new skills.  In addition, you'll use new cutting edge tools like Amazon's EC2 Virtual Machines as part of your development efforts.  There are competitions and bug races running right now that you can participate in. Don't miss these opportunities to get ahead of the curve!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=ProjectDetail&amp;pj=30005156">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=623368">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />09.04.08<br />2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2339">New Contest at TopCoder Studio – My eBay HTML Optimization!</a></span><br /><br />
@@ -138,33 +165,3 @@
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3726">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />08.12.08<br />6:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm413">SRM 413 - Problem Set &amp; Analysis</a></span><br /><br />
-      In both divisions the SRM started with average times on the easy. The division 1 easy (division 2 medium) was a bit unusual but the forgiving example cases didn't stop many people from submitting their (incorrect) solutions. The division 1 medium (hard version of division 2 hard) was a bit more unusual.</td>
-         <td class="newsPhoto"><%--<img src="/i/m/Eryx_big2.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="21547660" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm413">details</a> | 
-        <tc-webtag:forumLink forumID="522709" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />08.05.08<br />3:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2313">PROFLO JQuery Plugin Contest at TopCoder Studio!</a></span><br /><br />
-        We have just launched a contest over on <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2313">Studio</a> to build the 'PROFLO Javascript Carousel'. The competition runs for seven days, and there's $250 in prize money up for grabs. Check it out!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2313">details</a> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&amp;threadID=2110&amp;start=0">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
-   </td></tr>
-   
