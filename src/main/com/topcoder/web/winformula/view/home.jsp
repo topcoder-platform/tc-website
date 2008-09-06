@@ -358,32 +358,32 @@
             <h2 class="titlePredicted"> <span class="hide"> Predicted Results For This Week's Top Games </span></h2>
             <table border="0" align="center" cellpadding="0" width="100%" class="predict-table">
                 <tr>
-                    <td><strong>Clemson</strong></td>
-                    <td class="alignRight dottedRight"><strong>27</strong></td>
-                    <td><strong>Missouri</strong></td>
-                    <td class="alignRight dottedRight"><strong>36</strong></td>
-                    <td>E Carolina</td>
+                    <td>Miami</td>
+                    <td class="alignRight dottedRight">19</td>
+                    <td>Cincinnati</td>
+                    <td class="alignRight dottedRight">22</td>
+                    <td><strong>W Virgina</strong></td>
+                    <td class="alignRight dottedRight"><strong>39</strong></td>
+                    <td>Stanford</td>
                     <td class="alignRight dottedRight">18</td>
-                    <td><strong>Michigan</strong></td>
-                    <td class="alignRight dottedRight"><strong>25</strong></td>
-                    <td>Virginia</td>
+                    <td>S Miss</td>
                     <td class="alignRight dottedRight">18</td>
-                    <td><strong>UCLA</strong></td>
-                    <td class="alignRight"><strong>24</strong></td>
+                    <td>Georgia Tech</td>
+                    <td class="alignRight">13</td>
                 </tr>
                 <tr>
-                    <td>Alabama</td>
-                    <td class="alignRight dottedRight">16</td>
-                    <td>Illinois</td>
+                    <td><strong>Florida</strong></td>
+                    <td class="alignRight dottedRight"><strong>31</strong></td>
+                    <td><strong>Oklahoma</strong></td>
+                    <td class="alignRight dottedRight"><strong>35</strong></td>
+                    <td>E Carolina</td>
                     <td class="alignRight dottedRight">18</td>
-                    <td><strong>VA Tech</strong></td>
-                    <td class="alignRight dottedRight"><strong>32</strong></td>
-                    <td>Utah</td>
-                    <td class="alignRight dottedRight">18</td>
-                    <td><strong>USC</strong></td>
-                    <td class="alignRight dottedRight"><strong>28</strong></td>
-                    <td>Tennessee</td>
-                    <td class="alignRight">21</td>
+                    <td><strong>Arizona St</strong></td>
+                    <td class="alignRight dottedRight"><strong>38</strong></td>
+                    <td><strong>Auburn</strong></td>
+                    <td class="alignRight dottedRight"><strong>29</strong></td>
+                    <td><strong>Boston Col.</strong></td>
+                    <td class="alignRight"><strong>27</strong></td>
                 </tr>
             </table>
             <p class="info">*Based on <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&cr=<%=Constants.WISDOM_BEST%>">WisdomOfTheBest's picks</a>. See also <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&cr=<%=Constants.WISDOM_ALL%>">WisdomOfAll's picks</a>.</p>
