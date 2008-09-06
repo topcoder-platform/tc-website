@@ -138,7 +138,7 @@
         --%>
         
         <%-- ESPN Winning Formula Challange --%>
-        <a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='homepage' />"><img src="/i/home/winformula85_540x120.png" alt="ESPN Winning Formula Challange Powered by TopCoder" /></a>
+        <a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='homepage' />"><img src="/i/home/winformula_preview510x100.png" alt="ESPN Winning Formula Challange Powered by TopCoder" /></a>
         
     </td>
     <td align="right" valign="top">

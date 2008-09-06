@@ -39,7 +39,8 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">09.05.08 4:30 AM - </td><td width="100%"><a href="/tc?module=ProjectDetail&amp;pj=30005156">Supercharge the TC Platform!</a><br /></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.06.08 10:30 AM - </td><td width="100%"><a href="/tc?module=ViewAssemblyActiveContests">5000 DR Points in the NORM Assembly Run!</a><br /></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.05.08 4:30 PM - </td><td width="100%"><a href="/tc?module=ProjectDetail&amp;pj=30005156">Supercharge the TC Platform!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.03.08 11:45 AM - </td><td width="100%"><a href="/tc?module=ViewAssemblyActiveContests">High Prizes, High DR, High Profile</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.21.08 9:45 AM - </td><td width="100%"><a href="/wiki/display/docs/Competition+Environments">$3500 in Bug Races – Get on the Cloud!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.19.08 9:30 AM - </td><td width="100%"><a href="/tc?module=ProjectDetail&amp;pj=30005074">MySQL Memory Engine Architecture Contest Re-Launched!</a><br /></td></tr>
