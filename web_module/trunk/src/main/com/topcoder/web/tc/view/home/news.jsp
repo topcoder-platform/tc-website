@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />09.06.08<br />10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=ViewAssemblyActiveContests">5000 DR Points in the NORM Assembly Run!</a></span><br /><br />
+        TopCoder is pleased to announce the launching of the NORM Assembly Run competition – a great way to get ahead in the Digital Run!  The first of seven assemblies launched today with more coming over the course of the next three weeks. Each competition is worth 714.3 DR points for a total of 5000.1 points!  Get a head-start on the September DR prize now!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=ViewAssemblyActiveContests">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3744">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />09.05.08<br />4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2343">Flex Your Muscles In Studio</a></span><br /><br />
@@ -151,17 +165,4 @@
         <a href="/tc?module=MatchDetails&amp;rd=13564">details</a> | 
         <tc-webtag:forumLink forumID="522940" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />08.19.08<br />9:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/tc?module=ProjectDetail&pj=30005074' refer='/tc' />">MySQL Memory Engine Architecture Contest Re-Launched!</a></span><br /><br />
-        TopCoder is working with eBay and MySQL to improve the MySQL Memory Engine. The design and code will be submitted to MySQL for inclusion into future releases of their database product. Help give back to the Open Source community and compete for the $4,500 first place prize.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/tc?module=ProjectDetail&pj=30005074' refer='/tc' />">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3726">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
