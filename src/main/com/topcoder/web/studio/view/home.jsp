@@ -78,6 +78,9 @@ ding="utf-8"?>
        <a href="/?module=ViewContestDetails&amp;ct=2239"><img alt="Register Now!" src="/i/v3/lending_tree_banner.png" width="536" height="88" border="0"/></a>
     </div>
     --%>
+    <div>
+       <a href="/?module=ViewContestDetails&ct=2343"><img alt="Flex your muscles in Studio" src="/i/v3/flexbanner.png" width="535" height="60" border="0"/></a>
+    </div>
 
     <!-- contest box -->
     <c:if test="${not empty contests}">
