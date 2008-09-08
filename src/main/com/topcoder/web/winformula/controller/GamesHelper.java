@@ -211,7 +211,7 @@ public class GamesHelper {
         if (!"50".equals(numRecords) &&
                 !"100".equals(numRecords) &&
                 !String.valueOf(sizeBeforeCrop).equals(numRecords)) {
-            numRecords = "25";
+            numRecords = "5";
         }
         
         if (String.valueOf(sizeBeforeCrop).equals(numRecords)) {
