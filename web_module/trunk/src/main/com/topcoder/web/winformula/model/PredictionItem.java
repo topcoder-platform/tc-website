@@ -20,8 +20,19 @@ public class PredictionItem implements Serializable {
     private Integer totalScoreVariance;
     private Integer victoryMarginVariance;
     private Boolean pickedWinner;
+    private Long userId;
+    private String handle;
     
-    
+    // new constructor for game-view page
+    public PredictionItem(Long userId, String handle, GameResult predictedResult,
+        Integer predictionScore, Integer totalScoreVariance, Integer victoryMarginVariance,
+        Boolean pickedWinner) {
+
+        this(null, null, predictedResult, null,
+                predictionScore, totalScoreVariance, victoryMarginVariance,
+                pickedWinner, userId, handle);
+    }
+
     public PredictionItem(String homeTeamName, String awayTeamName, GameResult predictedResult) {
         this(homeTeamName, awayTeamName, predictedResult, null, null, null, null, null);
         
@@ -39,6 +50,13 @@ public class PredictionItem implements Serializable {
     public PredictionItem(String homeTeamName, String awayTeamName, GameResult predictedResult, GameResult realResult,
             Integer predictionScore, Integer totalScoreVariance, Integer victoryMarginVariance,
             Boolean pickedWinner) {
+        this(homeTeamName, awayTeamName, predictedResult, realResult, predictionScore, totalScoreVariance, 
+                victoryMarginVariance, pickedWinner, null, null);
+    }
+    
+    public PredictionItem(String homeTeamName, String awayTeamName, GameResult predictedResult, GameResult realResult,
+            Integer predictionScore, Integer totalScoreVariance, Integer victoryMarginVariance,
+            Boolean pickedWinner, Long userId, String handle) {
         this.homeTeamName = homeTeamName;
         this.awayTeamName = awayTeamName;
         this.predictedResult = predictedResult;
@@ -47,6 +65,8 @@ public class PredictionItem implements Serializable {
         this.totalScoreVariance = totalScoreVariance;
         this.victoryMarginVariance = victoryMarginVariance;
         this.pickedWinner = pickedWinner;
+        this.userId = userId;
+        this.handle = handle;
     }
 
     public String getHomeTeamName() {
@@ -118,4 +138,16 @@ public class PredictionItem implements Serializable {
         return Math.abs(homeDif - awayDif); 
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public String getHandle() {
+        return handle;
+    }
+
+    public String getHandleLower() {
+        return handle.toLowerCase();
+    }
+    
 }

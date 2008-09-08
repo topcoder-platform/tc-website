@@ -42,6 +42,7 @@ public class Constants implements CodingInterfaceConstants {
     public static final String RESULT_KEY = "result_key";
     
     public static final String WEEK_ID = "wid";
+    public static final String GAME_ID = "gid";
     public static final String PERIOD_ID = "pid";
     public static final String MINI_SEASON_ID = "msi";
 
@@ -98,6 +99,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String PAGE_LAST_PREDICTIONS;
     public static String PAGE_MY_PROFILE;
     public static String PAGE_STANDINGS;
+    public static String PAGE_GAME_DETAILS;
     
     
         
