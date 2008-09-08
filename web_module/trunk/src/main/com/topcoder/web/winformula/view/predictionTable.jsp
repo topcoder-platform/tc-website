@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="java.util.List" %>
@@ -19,20 +20,20 @@
       <tr class="<%=even?"row_Alt":""%>">
           <c:choose>
               <c:when test="${predictionItem.realResult.homeScore > predictionItem.realResult.awayScore}">
-                    <td><strong class="green">${predictionItem.homeTeamName}</strong></td>
-                    <td>${predictionItem.awayTeamName}</td>
+                    <td><strong class="green"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=${predictionItem.gameId}">${predictionItem.homeTeamName}</a></strong></td>
+                    <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=${predictionItem.gameId}">${predictionItem.awayTeamName}</a></td>
               </c:when>
               <c:when test="${predictionItem.realResult.homeScore < predictionItem.realResult.awayScore}">
-                    <td>${predictionItem.homeTeamName}</td>
-                    <td><strong class="green">${predictionItem.awayTeamName}</strong></td>
+                    <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=${predictionItem.gameId}">${predictionItem.homeTeamName}</a></td>
+                    <td><strong class="green"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=${predictionItem.gameId}">${predictionItem.awayTeamName}</a></strong></td>
               </c:when>
               <c:when test="${not empty predictionItem.realResult and predictionItem.realResult.homeScore == predictionItem.realResult.awayScore}">
-                    <td><strong class="green">${predictionItem.homeTeamName}</strong></td>
-                    <td><strong class="green">${predictionItem.awayTeamName}</strong></td>
+                    <td><strong class="green"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=${predictionItem.gameId}">${predictionItem.homeTeamName}</a></strong></td>
+                    <td><strong class="green"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=${predictionItem.gameId}">${predictionItem.awayTeamName}</a></strong></td>
               </c:when>
               <c:otherwise>
-                    <td>${predictionItem.homeTeamName}</td>
-                    <td>${predictionItem.awayTeamName}</td>
+                    <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=${predictionItem.gameId}">${predictionItem.homeTeamName}</a></td>
+                    <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=${predictionItem.gameId}">${predictionItem.awayTeamName}</a></td>
               </c:otherwise>
           </c:choose>
           <td class="alignCenter">
