@@ -75,10 +75,10 @@ public class GamesHelper {
             Collections.sort(l, new Comparator<PredictionItem>() {
                 public int compare(PredictionItem arg0, PredictionItem arg1) {
                     if (arg0.getPickedWinner() == null && arg1.getPickedWinner() != null) {
-                        return 1;
+                        return -1;
                     }
                     if (arg0.getPickedWinner() != null && arg1.getPickedWinner() == null) {
-                        return -1;
+                        return 1;
                     }
                     if (arg0.getPickedWinner() == null && arg1.getPickedWinner() == null) {
                         return 0;
@@ -90,10 +90,10 @@ public class GamesHelper {
             Collections.sort(l, new Comparator<PredictionItem>() {
                 public int compare(PredictionItem arg0, PredictionItem arg1) {
                     if (arg0.getTotalScoreVariance() == null && arg1.getTotalScoreVariance() != null) {
-                        return 1;
+                        return -1;
                     }
                     if (arg0.getTotalScoreVariance() != null && arg1.getTotalScoreVariance() == null) {
-                        return -1;
+                        return 1;
                     }
                     if (arg0.getTotalScoreVariance() == null && arg1.getTotalScoreVariance() == null) {
                         return 0;
@@ -105,10 +105,10 @@ public class GamesHelper {
             Collections.sort(l, new Comparator<PredictionItem>() {
                 public int compare(PredictionItem arg0, PredictionItem arg1) {
                     if (arg0.getVictoryMarginVariance() == null && arg1.getVictoryMarginVariance() != null) {
-                        return 1;
+                        return -1;
                     }
                     if (arg0.getVictoryMarginVariance() != null && arg1.getVictoryMarginVariance() == null) {
-                        return -1;
+                        return 1;
                     }
                     if (arg0.getVictoryMarginVariance() == null && arg1.getVictoryMarginVariance() == null) {
                         return 0;
@@ -121,10 +121,10 @@ public class GamesHelper {
             Collections.sort(l, new Comparator<PredictionItem>() {
                 public int compare(PredictionItem arg0, PredictionItem arg1) {
                     if (arg0.getScore() == null && arg1.getScore() != null) {
-                        return 1;
+                        return -1;
                     }
                     if (arg0.getScore() != null && arg1.getScore() == null) {
-                        return -1;
+                        return 1;
                     }
                     if (arg0.getScore() == null && arg1.getScore() == null) {
                         return 0;
