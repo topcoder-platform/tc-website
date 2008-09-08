@@ -27,7 +27,16 @@
                     </c:when>
                 </c:choose>
           </td>
-          <td><a href="${sessionInfo.servletPath}?module=ViewProfile&amp;cr=${standingsItem.coderId}">${standingsItem.handle}</a></td>
+          <td>
+                <c:choose>
+                <c:when test="${periodKey == 'week'}">
+                    <a href="${sessionInfo.servletPath}?module=ViewProfile&amp;cr=${standingsItem.coderId}&amp;week=${periodId}">${standingsItem.handle}</a>
+                </c:when>
+                <c:otherwise>
+                    <a href="${sessionInfo.servletPath}?module=ViewProfile&amp;cr=${standingsItem.coderId}">${standingsItem.handle}</a>
+                </c:otherwise>
+                </c:choose>
+          </td>
           <c:choose>
                 <c:when test="${not empty standingsItem.points}">
                     <td class="alignCenter"><fmt:formatNumber value="${standingsItem.points}" pattern="0"/></td>
