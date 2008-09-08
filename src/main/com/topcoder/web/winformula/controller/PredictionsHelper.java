@@ -22,7 +22,6 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.winformula.Constants;
-import com.topcoder.web.winformula.controller.request.algorithm.ViewExampleResults;
 import com.topcoder.web.winformula.model.GameResult;
 import com.topcoder.web.winformula.model.Prediction;
 import com.topcoder.web.winformula.model.PredictionItem;

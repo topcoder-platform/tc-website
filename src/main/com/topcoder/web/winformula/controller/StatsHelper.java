@@ -24,7 +24,6 @@ import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.winformula.Constants;
-import com.topcoder.web.winformula.controller.request.algorithm.ViewExampleResults;
 import com.topcoder.web.winformula.model.StandingsItem;
 
 /**
