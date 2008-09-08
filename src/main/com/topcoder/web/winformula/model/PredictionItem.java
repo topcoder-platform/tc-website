@@ -12,6 +12,7 @@ import java.io.Serializable;
  * @version $Id$
  */
 public class PredictionItem implements Serializable {
+    private Integer gameId;
     private String homeTeamName;
     private String awayTeamName;
     private GameResult predictedResult;
@@ -28,35 +29,36 @@ public class PredictionItem implements Serializable {
         Integer predictionScore, Integer totalScoreVariance, Integer victoryMarginVariance,
         Boolean pickedWinner) {
 
-        this(null, null, predictedResult, null,
+        this(null, null, null, predictedResult, null,
                 predictionScore, totalScoreVariance, victoryMarginVariance,
                 pickedWinner, userId, handle);
     }
 
     public PredictionItem(String homeTeamName, String awayTeamName, GameResult predictedResult) {
-        this(homeTeamName, awayTeamName, predictedResult, null, null, null, null, null);
+        this(null, homeTeamName, awayTeamName, predictedResult, null, null, null, null, null);
         
     }
     
     public PredictionItem(String homeTeamName, String awayTeamName, GameResult predictedResult, GameResult realResult,
             Integer predictionScore) {
 
-        this(homeTeamName, awayTeamName, predictedResult, realResult, predictionScore, 
+        this(null, homeTeamName, awayTeamName, predictedResult, realResult, predictionScore, 
                 getTotalScoreVariance(predictedResult, realResult), 
                 getVictoryMarginVariance(predictedResult, realResult), 
                 getPickedWinner(predictedResult, realResult));
     }
     
-    public PredictionItem(String homeTeamName, String awayTeamName, GameResult predictedResult, GameResult realResult,
+    public PredictionItem(Integer gameId, String homeTeamName, String awayTeamName, GameResult predictedResult, GameResult realResult,
             Integer predictionScore, Integer totalScoreVariance, Integer victoryMarginVariance,
             Boolean pickedWinner) {
-        this(homeTeamName, awayTeamName, predictedResult, realResult, predictionScore, totalScoreVariance, 
+        this(gameId, homeTeamName, awayTeamName, predictedResult, realResult, predictionScore, totalScoreVariance, 
                 victoryMarginVariance, pickedWinner, null, null);
     }
     
-    public PredictionItem(String homeTeamName, String awayTeamName, GameResult predictedResult, GameResult realResult,
+    public PredictionItem(Integer gameId, String homeTeamName, String awayTeamName, GameResult predictedResult, GameResult realResult,
             Integer predictionScore, Integer totalScoreVariance, Integer victoryMarginVariance,
             Boolean pickedWinner, Long userId, String handle) {
+        this.gameId = gameId;
         this.homeTeamName = homeTeamName;
         this.awayTeamName = awayTeamName;
         this.predictedResult = predictedResult;

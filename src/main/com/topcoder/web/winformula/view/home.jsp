@@ -144,172 +144,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="light">
-                            <td colspan="5"><h3 align="center">Overall season leaders will show September 18.</h3></td>
+                        <c:forEach items="${overallStandings}" var="standingsItem">
+                            <c:choose>
+                                <c:when test="${standingsItem.coderId == WisdomOfAllId || standingsItem.coderId == WisdomOfTheBestId || standingsItem.coderId == showUserId}">
+                                    <tr class="newSection">
+                                </c:when>
+                                <c:otherwise>
+                                    <tr>
+                                </c:otherwise>
+                            </c:choose>
+                          <td class="alignCenter">${standingsItem.rank}</td>
+                          <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}">${standingsItem.handle}</a></td>
+                          <td ><fmt:formatNumber value="${standingsItem.winPercent}" pattern="0.00"/> %</td>
+                          <td ><fmt:formatNumber value="${standingsItem.points}" pattern="0"/></td>
+                          <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}">picks</a></td>
                         </tr>
-                        <tr class="dark">
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr class="light">
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr class="dark">
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr class="light">
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr class="dark">
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr class="light">
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr class="dark">
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr class="light">
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr class="dark">
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr class="light">
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr class="newSection">
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr class="dark">
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <%-- Temporarily Hidden 
-                        <tr class="dark">
-                            <td class="alignCenter">2</td>
-                            <td><a href="member.htm">wicked_games</a></td>
-                            <td>81%</td>
-                            <td>1388</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="light">
-                            <td class="alignCenter">3</td>
-                            <td><a href="member.htm">enterDragon</a></td>
-                            <td>77%</td>
-                            <td>1355</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="dark">
-                            <td class="alignCenter">4</td>
-                            <td><a href="member.htm">fb_boss</a></td>
-                            <td>72%</td>
-                            <td>1279</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="light">
-                            <td class="alignCenter">5</td>
-                            <td><a href="member.htm">call_me_sista</a></td>
-                            <td>71%</td>
-                            <td>1232</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="dark">
-                            <td class="alignCenter"><strong>6</strong></td>
-                            <td><a href="member.htm"><strong>CommunityTop10</strong></a></td>
-                            <td>68%</td>
-                            <td><strong>1287</strong></td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="light">
-                            <td class="alignCenter">7</td>
-                            <td><a href="member.htm">theprophet</a></td>
-                            <td>68%</td>
-                            <td>1188</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="dark">
-                            <td class="alignCenter">8</td>
-                            <td><a href="member.htm">motrrrhead</a></td>
-                            <td>62%</td>
-                            <td>1045</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="light">
-                            <td class="alignCenter">9</td>
-                            <td><a href="member.htm">somegirl</a></td>
-                            <td>61%</td>
-                            <td>997</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="dark">
-                            <td class="alignCenter">10</td>
-                            <td><a href="member.htm">chekm8</a></td>
-                            <td>61%</td>
-                            <td>984</td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="newSection">
-                            <td class="alignCenter"><strong>12</strong></td>
-                            <td><a href="member.htm"><strong>MyMemberName</strong></a></td>
-                            <td>60%</td>
-                            <td><strong>980</strong></td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        <tr class="dark">
-                            <td class="alignCenter"><strong>38</strong></td>
-                            <td><a href="member.htm"><strong>CommunityAverage</strong></a></td>
-                            <td>58%</td>
-                            <td><strong>932</strong></td>
-                            <td><a href="#">picks</a></td>
-                        </tr>
-                        --%>
+                      </c:forEach>
                     </tbody>
                 </table>
                 <%--
