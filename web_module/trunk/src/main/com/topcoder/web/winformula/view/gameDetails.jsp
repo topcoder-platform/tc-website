@@ -89,7 +89,7 @@
                         <p class="textLarge">
                             <strong>${result.week.desc}</strong> 
                             <strong>&nbsp;&nbsp;&nbsp;&nbsp;Game:</strong> ${result.home} vs. ${result.away}
-                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Result:</strong>
+                            <br /><strong>Result:</strong>
                             <c:choose>
                                 <c:when test="${not empty result.result}">
                                     ${result.result.homeScore} - ${result.result.awayScore}
