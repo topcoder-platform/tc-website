@@ -92,7 +92,7 @@ public class ViewGameDetails extends StatsBase {
                     GamesHelper.sortResult(request, predictions);
             
                     // crop
-                    GamesHelper.cropResult(request, response, predictions);
+                    predictions = GamesHelper.cropResult(request, response, predictions);
 
                     gd.setPredictions(predictions);
                 }
