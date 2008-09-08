@@ -52,13 +52,15 @@
         <%-- Container --%>
         <div id="main-content">
         <%-- Main Content --%>
+         <c:choose>
+            <c:when test="${not empty result}">
             <div class="tab-navigation" id="inner-tab-navigation">
                 <ul>
                     <c:forEach begin="${1}" end="${15}" step="${1}" var="i"> 
                         <li class="small ${i+firstWeekId-1==week?'selected':''}">
                             <c:choose>
                                 <c:when test="${maxWeek >= i+firstWeekId-1}">
-                                    <a href="javascript:changeWeek(${i+firstWeekId-1})">
+                                    <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;week=${i+firstWeekId-1}">
                                         <c:choose><c:when test="${i==1}">Week 1</c:when><c:otherwise>W${i}</c:otherwise></c:choose>
                                     </a>
                                 </c:when>
@@ -73,18 +75,14 @@
                 </ul>
             </div>
             <div class="dataArea" style="width:100%;">
-             <c:choose>
-                <c:when test="${not empty result}">
                     <!-- Prepares some collection data and formatter -->
                         <% boolean even = true;%>
                     <form name="resultsForm" action="${sessionInfo.servletPath}" method="get">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewGameDetails"/>
                     <tc-webtag:hiddenInput name="${sortCol}"/>
                     <tc-webtag:hiddenInput name="${sortDir}"/>
-<%--                     <tc-webtag:hiddenInput name="game" value="${game}"/> --%>
                     <tc-webtag:hiddenInput name="${numRecords}" value="${nr}"/>
                     <tc-webtag:hiddenInput name="${numPage}" value="${np}"/> 
-                    <tc-webtag:hiddenInput name="week" value="${week}"/>
                     <br/><br/>
 
                     <c:if test="${not empty result}">
@@ -126,12 +124,12 @@
                     </jsp:include>
                     <p>&nbsp;</p>
                     </form>
-                </c:when>
-                <c:otherwise>
-                    There are no game details to show.
-                </c:otherwise>
-             </c:choose>
-        </div>
+                </div>
+            </c:when>
+            <c:otherwise>
+                There are no game details to show.
+            </c:otherwise>
+         </c:choose>
      </div>        
   </div>
   
