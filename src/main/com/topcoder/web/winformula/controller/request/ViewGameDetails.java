@@ -76,9 +76,9 @@ public class ViewGameDetails extends StatsBase {
 
                     gd.setPredictions(predictions);
                 }
+                request.setAttribute("week", gd.getWeek().getId());
             }    
             
-            request.setAttribute("week", gd.getWeek().getId());
             request.setAttribute("game", gameId);
             request.setAttribute("result", gd);
 
