@@ -93,15 +93,15 @@
 <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />"><img src="/i/home/openAIMslimBannerVote.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
 --%>
 
-<%-- ESPN Winning Formula Challenge 
+<%-- ESPN Winning Formula Challenge --%>
 <br />
-<a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />"><img src="/i/home/winformula_preview510x54.png" alt="ESPN Winning Formula Challenge Powered by TopCoder" /></a>
---%>
+<a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />"><img src="/i/home/winformula_week2_510x64.gif" alt="ESPN Winning Formula Challenge Powered by TopCoder" /></a>
 
-<%-- NORM Assembly Run --%>
+
+<%-- NORM Assembly Run 
 <br />
 <a href="<tc-webtag:linkTracking link='/tc?module=ViewAssemblyActiveContests' refer='/tc' />"><img src="/i/home/norm_banner03_510x54.png" alt="NORM Assembly Run" /></a>
-
+--%>
 
 <%-- Truveo 
 <br /><br />
