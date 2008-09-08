@@ -24,7 +24,8 @@ import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.winformula.Constants;
-import com.topcoder.web.winformula.controller.request.algorithm.ViewExampleResults;
+import com.topcoder.web.winformula.model.GameResult;
+import com.topcoder.web.winformula.model.PredictionItem;
 import com.topcoder.web.winformula.model.StandingsItem;
 
 /**
@@ -35,11 +36,11 @@ import com.topcoder.web.winformula.model.StandingsItem;
  * @version $Id$
  * Create Date: Aug 18, 2008
  */
-public class StatsHelper {
+public class GamesHelper {
 
     private static final String SIZE_COOKIE = "wf_stats_"+DataAccessConstants.NUMBER_RECORDS;
 
-    protected static final Logger log = Logger.getLogger(StatsHelper.class);
+    protected static final Logger log = Logger.getLogger(GamesHelper.class);
 
     public static final int RANK_COLUMN = 1;
     public static final int HANDLE_COLUMN = 2;
@@ -48,24 +49,12 @@ public class StatsHelper {
     public static final int AVG_TOTAL_SCORE_VARIANCE_COLUMN = 5;
     public static final int AVG_VICTORY_MARGIN_VARIANCE_COLUMN = 6;
 
-    public static ResultSetContainer getStats(Integer weekId, Integer miniSeasonId) throws Exception {
+    public static ResultSetContainer getGamesPredictions(Integer gameId) throws Exception {
         Request r = new Request();
-        String commandName;
-        if (weekId != null) {
-            commandName = "week_standings";
-            r.setContentHandle(commandName);
-            r.setProperty(Constants.WEEK_ID, String.valueOf(weekId));
-        } else if (miniSeasonId != null) {
-            commandName = "mini_season_standings";
-            r.setContentHandle(commandName);
-            r.setProperty(Constants.MINI_SEASON_ID, String.valueOf(miniSeasonId));
-        } else {
-            commandName = "overall_standings";
-            r.setContentHandle(commandName);
-        }
-
+        r.setContentHandle("game_predictions");
+        r.setProperty(Constants.GAME_ID, String.valueOf(gameId));
         DataAccessInt dai = new CachedDataAccess(MaxAge.FIVE_MINUTES, DBMS.WINFORMULA_DATASOURCE_NAME);
-        return dai.getData(r).get(commandName);
+        return dai.getData(r).get("game_predictions");
     }
 
     @SuppressWarnings("unchecked")
@@ -262,9 +251,7 @@ public class StatsHelper {
         if (log.isDebugEnabled()) {
             log.debug("Setting cookie to "+size);
         }
-        Cookie cookie = new Cookie(SIZE_COOKIE, size);
-        cookie.setMaxAge(Integer.MAX_VALUE);
-        response.addCookie(cookie);
+        response.addCookie(new Cookie(SIZE_COOKIE, size));
     }
 
     
@@ -300,26 +287,25 @@ public class StatsHelper {
         }
     }
     
-    public static List<StandingsItem> processResult(ResultSetContainer rsc) throws Exception {
+    public static List<PredictionItem> processResult(ResultSetContainer rsc) throws Exception {
         if (rsc.size() > 0) {
-            List<StandingsItem> lsi = new ArrayList<StandingsItem>(rsc.size()); 
+            List<PredictionItem> lpi = new ArrayList<PredictionItem>(rsc.size()); 
             for (ResultSetRow rsr : rsc) {
-                Integer rank = StatsHelper.getNullableIntItem(rsr, "rank");
-                Integer rankDiff = StatsHelper.getNullableIntItem(rsr, "rank_diff");
-                Integer coderId = StatsHelper.getNullableIntItem(rsr, "coder_id");
+                Long userId = rsr.getLongItem("user_id");
                 String handle = rsr.getStringItem("handle");
-                Integer points = StatsHelper.getNullableIntItem(rsr, "points");
-                Double avgTotalScoreVariance = StatsHelper.getNullableDoubleItem(rsr, "avg_total_score_variance");
-                Double avgVictoryMarginVariance = StatsHelper.getNullableDoubleItem(rsr, "avg_victory_margin_variance");
-                Double avgPickedWinner = StatsHelper.getNullableDoubleItem(rsr, "avg_picked_winner");
+                Integer homePred = GamesHelper.getNullableIntItem(rsr, "home_pred");
+                Integer awayPred = GamesHelper.getNullableIntItem(rsr, "visitor_pred");
+                Integer points = GamesHelper.getNullableIntItem(rsr, "prediction_detail_points");
+                Integer totalScoreVariance = GamesHelper.getNullableIntItem(rsr, "prediction_detail_total_score_variance");
+                Integer victoryMarginVariance = GamesHelper.getNullableIntItem(rsr, "prediction_detail_victory_margin_variance");
+                Boolean pickedWinner = GamesHelper.getNullableBoolItem(rsr, "prediction_detail_picked_winner");
                 
-                StandingsItem si = new StandingsItem(rank, rankDiff, handle,
-                        coderId, points, avgPickedWinner, avgTotalScoreVariance,
-                        avgVictoryMarginVariance);
+                PredictionItem pi = new PredictionItem(userId, handle, new GameResult(homePred, awayPred), 
+                        points, totalScoreVariance, victoryMarginVariance, pickedWinner);
 
-                lsi.add(si);
+                lpi.add(pi);
             }
-            return lsi;
+            return lpi;
         } else {
             return null;
         }

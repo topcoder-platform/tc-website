@@ -38,7 +38,7 @@ import com.topcoder.web.winformula.model.PredictionStat;
  */
 public class PredictionsHelper {
 
-    protected static final Logger log = Logger.getLogger(ViewExampleResults.class);
+    protected static final Logger log = Logger.getLogger(PredictionsHelper.class);
 
     public static final int HOME_TEAM_COLUMN = 1;
     public static final int AWAY_TEAM_COLUMN = 2;
