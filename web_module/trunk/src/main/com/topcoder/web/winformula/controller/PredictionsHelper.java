@@ -243,6 +243,7 @@ public class PredictionsHelper {
             int score = 0;
             List<PredictionItem> lpi = new ArrayList<PredictionItem>(rsc.size()); 
             for (ResultSetRow rsr : rsc) {
+                Integer gameId = rsr.getIntItem("game_id");
                 String home = rsr.getStringItem("home");
                 String visitor = rsr.getStringItem("visitor");
                 Integer homePred = PredictionsHelper.getNullableIntItem(rsr, "home_pred");
@@ -254,7 +255,7 @@ public class PredictionsHelper {
                 Integer victoryMarginVariance = PredictionsHelper.getNullableIntItem(rsr, "prediction_detail_victory_margin_variance");
                 Boolean pickedWinner = PredictionsHelper.getNullableBoolItem(rsr, "prediction_detail_picked_winner");
                 
-                PredictionItem pi = new PredictionItem(home, visitor, 
+                PredictionItem pi = new PredictionItem(gameId, home, visitor, 
                         (homePred == null || visitorPred == null) ? null : new GameResult(homePred, visitorPred),
                         (homeScore == null || visitorScore == null) ? null : new GameResult(homeScore, visitorScore),
                         predictionPoints, totalScoreVariance, victoryMarginVariance, pickedWinner);
