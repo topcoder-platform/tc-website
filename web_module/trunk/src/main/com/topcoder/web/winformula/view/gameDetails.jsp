@@ -103,7 +103,7 @@
                     </c:if>
                     <tc-webtag:listSelect name="game" styleClass="dropdown" onChange="document.resultsForm.submit()"
                         list="${games}" useTopValue="false"/>
-
+                    <br/><br/>
                     <jsp:include page="pagination.jsp">
                         <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
                         <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />
