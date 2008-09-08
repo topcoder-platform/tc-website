@@ -68,7 +68,7 @@ public class GamesHelper {
         if (sortCol.equals(String.valueOf(HANDLE_COLUMN))) {
             Collections.sort(l, new Comparator<PredictionItem>() {
                 public int compare(PredictionItem arg0, PredictionItem arg1) {
-                    return arg0.getHandle().compareTo(arg1.getHandle());
+                    return arg0.getHandleLower().compareTo(arg1.getHandleLower());
                 }
             });
         } else if (sortCol.equals(String.valueOf(PICKED_WINNER_COLUMN))) {
@@ -132,6 +132,10 @@ public class GamesHelper {
                     return arg0.getScore().compareTo(arg1.getScore());
                 }
             });
+            if (!sortCol.equals(String.valueOf(POINTS_COLUMN))) {
+                // default to descending
+                invert = true;
+            }
         }
 
         if (invert) {
