@@ -59,7 +59,7 @@ public class ViewGameDetails extends StatsBase {
                 setWeeks();
 
                 // then the games
-                setGames(gd.getWeek().getId());
+                request.setAttribute("games", setGames(gd.getWeek().getId()));
     
                 // then the games predictions
                 ResultSetContainer rsc = GamesHelper.getGamesPredictions(gameId);
