@@ -52,6 +52,26 @@ public class ViewGameDetails extends StatsBase {
             } catch (Exception e) {
             }
 
+            if (gameId == -1) {
+                String selectedWeek = StringUtils.checkNull(request.getParameter("week"));
+                int weekId = -1;
+                try {
+                    weekId = Integer.parseInt(selectedWeek);
+                } catch (Exception e) {
+                }
+
+                if (weekId > 0) {
+                    ResultSetContainer rsc = getGamesForWeek(weekId);
+                    if (rsc.size() > 0) {
+                        gameId = rsc.getIntItem(0, "game_id");
+                    } else {
+                        throw new TCWebException("Invalid parameters");
+                    }
+                } else {
+                    throw new TCWebException("Invalid parameters");
+                }
+            }
+            
             // get data from DB
             // first the game's general data
             GameData gd = getGameData(gameId);
