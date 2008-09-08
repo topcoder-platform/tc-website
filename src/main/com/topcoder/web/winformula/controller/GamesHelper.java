@@ -287,7 +287,13 @@ public class GamesHelper {
                 Integer victoryMarginVariance = GamesHelper.getNullableIntItem(rsr, "prediction_detail_victory_margin_variance");
                 Boolean pickedWinner = GamesHelper.getNullableBoolItem(rsr, "prediction_detail_picked_winner");
                 
-                PredictionItem pi = new PredictionItem(userId, handle, new GameResult(homePred, awayPred), 
+                GameResult gr = null;
+                
+                if (homePred != null && awayPred != null) {
+                    gr = new GameResult(homePred, awayPred);
+                }
+                
+                PredictionItem pi = new PredictionItem(userId, handle, gr, 
                         points, totalScoreVariance, victoryMarginVariance, pickedWinner);
 
                 lpi.add(pi);
