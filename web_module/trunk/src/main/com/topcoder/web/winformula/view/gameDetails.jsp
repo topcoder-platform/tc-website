@@ -98,7 +98,7 @@
                                     n/a
                                 </c:otherwise>
                             </c:choose>                             
-                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Win %: </strong> 
+                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Win Percent: </strong> 
                             <c:choose>
                                 <c:when test="${not empty result.winPercent}">
                                     <fmt:formatNumber value="${result.winPercent}" pattern="0.00"/>%
