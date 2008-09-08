@@ -28,37 +28,48 @@ public class Home extends BaseProcessor {
         request.setAttribute("lp", lp);
         
         // get week standings
-        List<StandingsItem> weekStandings = StatsHelper.processResult(getData("week_top_five", Constants.WEEK_ID, String.valueOf(lp.getWeekId())));
+        List<StandingsItem> weekStandings = StatsHelper.processResult(getStandingsData("week_top_five", Constants.WEEK_ID, String.valueOf(lp.getWeekId())));
         request.setAttribute("weekStandings", weekStandings);
         
         // get mini season standings
-        List<StandingsItem> miniSeasonStandings = StatsHelper.processResult(getData("mini_season_top_five", Constants.MINI_SEASON_ID, String.valueOf(lp.getMiniSeasonId())));
+        List<StandingsItem> miniSeasonStandings = StatsHelper.processResult(getStandingsData("mini_season_top_five", Constants.MINI_SEASON_ID, String.valueOf(lp.getMiniSeasonId())));
         request.setAttribute("miniSeasonStandings", miniSeasonStandings);
+        
+        // get overall standings
+        List<StandingsItem> overallStandings = StatsHelper.processResult(getStandingsData("overall_top_ten", null, null));
+        request.setAttribute("overallStandings", overallStandings);
         
         setNextPage("/home.jsp");
         setIsNextPageInContext(true);
     }
     
     private LatestPeriod getLatestStatsPeriods() throws Exception {
-        ResultSetContainer rsc = getData("latest_periods", null, null);
+        ResultSetContainer rsc = getData("latest_periods");
         
         return new LatestPeriod(rsc.getIntItem(0, "mini_season_id"), rsc.getStringItem(0, "mini_season_desc"),
                 rsc.getIntItem(0, "week_id"), rsc.getStringItem(0, "week_desc"));
     }
 
-    private ResultSetContainer getData(String commandName, String propertyName, String propertyValue) throws Exception {
+    private ResultSetContainer getStandingsData(String commandName, String propertyName, String propertyValue) throws Exception {
         Request r = new Request();
         r.setContentHandle(commandName);
         if (propertyName != null) {
             r.setProperty(propertyName, propertyValue);
-            if (userIdentified()) {
-                r.setProperty(Constants.USER_ID, String.valueOf(getUser().getId()));
-                getRequest().setAttribute("showUserId", getUser().getId());
-            } else {
-                r.setProperty(Constants.USER_ID, "0");
-                getRequest().setAttribute("showUserId", 0);
-            }
         }
+        if (userIdentified()) {
+            r.setProperty(Constants.USER_ID, String.valueOf(getUser().getId()));
+            getRequest().setAttribute("showUserId", getUser().getId());
+        } else {
+            r.setProperty(Constants.USER_ID, "0");
+            getRequest().setAttribute("showUserId", 0);
+        }
+        DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
+        return dai.getData(r).get(commandName);
+    }
+
+    private ResultSetContainer getData(String commandName) throws Exception {
+        Request r = new Request();
+        r.setContentHandle(commandName);
         DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
         return dai.getData(r).get(commandName);
     }
