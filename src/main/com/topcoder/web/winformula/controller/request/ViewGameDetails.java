@@ -115,12 +115,12 @@ public class ViewGameDetails extends StatsBase {
 
     private void setWeeks() throws Exception {
         Request r = new Request();
-        r.setContentHandle("weeks_data");
+        r.setContentHandle("prediction_weeks");
 
         DataAccessInt dai = new CachedDataAccess(MaxAge.FIVE_MINUTES, DBMS.WINFORMULA_DATASOURCE_NAME);
-        ResultSetContainer rscWeeks = dai.getData(r).get("weeks_data");
+        ResultSetContainer rscWeeks = dai.getData(r).get("prediction_weeks");
 
-        getRequest().setAttribute("maxWeek", rscWeeks.get(rscWeeks.size()-1).getIntItem("period_id"));
+        getRequest().setAttribute("maxWeek", rscWeeks.get(rscWeeks.size()-1).getIntItem("week_id"));
     }
         
     private GameData getGameData(int gameId) throws Exception {
