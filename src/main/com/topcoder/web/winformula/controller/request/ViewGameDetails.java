@@ -44,7 +44,7 @@ public class ViewGameDetails extends StatsBase {
         try {
             TCRequest request = getRequest();
 
-            String selectedGame = StringUtils.checkNull(request.getParameter("gid"));
+            String selectedGame = StringUtils.checkNull(request.getParameter("game"));
             try {
                 gameId = Integer.parseInt(selectedGame);
             } catch (Exception e) {
@@ -98,7 +98,7 @@ public class ViewGameDetails extends StatsBase {
         DataAccessInt dai = new CachedDataAccess(MaxAge.FIVE_MINUTES, DBMS.WINFORMULA_DATASOURCE_NAME);
         ResultSetContainer rscWeeks = dai.getData(r).get("weeks_data");
 
-        getRequest().setAttribute("maxWeek", rscWeeks.get(rscWeeks.size()-1).getIntItem("week_id"));
+        getRequest().setAttribute("maxWeek", rscWeeks.get(rscWeeks.size()-1).getIntItem("period_id"));
     }
         
     private GameData getGameData(int gameId) throws Exception {
