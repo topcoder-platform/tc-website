@@ -157,7 +157,7 @@ public class ViewGameDetails extends StatsBase {
             boolean found = false;
             for (ResultSetRow rsr : rscGames) {
                 games.add(new ListSelectTag.Option(String.valueOf(rsr.getIntItem("game_id")), rsr.getStringItem("game_desc"), rsr.getIntItem("game_id") == gameId));
-                if (rsr.getIntItem("fame_id") == gameId) {
+                if (rsr.getIntItem("game_id") == gameId) {
                     found = true;
                 }
             }
