@@ -7,10 +7,10 @@
   <tr class="resultTH">
     <th scope="col"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="1" includeParams="true"/>">Handle</a></th>
     <th scope="col" class="center">Pred. Score</th>
-    <th scope="col" class="center"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true"/>">Picked Winner</a></th>
-    <th scope="col" class="center"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="4" includeParams="true"/>">Total Score Variance</a></th>
-    <th scope="col" class="center"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="5" includeParams="true"/>">Victory Margin Variance</a></th>
-    <th scope="col" class="center"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="6" includeParams="true"/>">Points</a></th>
+    <th scope="col" class="center"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true"/>">Picked Winner</a></th>
+    <th scope="col" class="center"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true"/>">Total Score Variance</a></th>
+    <th scope="col" class="center"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="4" includeParams="true"/>">Victory Margin Variance</a></th>
+    <th scope="col" class="center"><a href="${sessionInfo.servletPath}?<tc-webtag:sort column="5" includeParams="true"/>">Points</a></th>
   </tr>
   <% boolean even = true;%>
   <c:forEach items="${result.predictions}" var="predictionItem" varStatus="status">

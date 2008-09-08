@@ -26,7 +26,6 @@ import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.model.GameResult;
 import com.topcoder.web.winformula.model.PredictionItem;
-import com.topcoder.web.winformula.model.StandingsItem;
 
 /**
  * Copyright (c) 2001-2008 TopCoder, Inc. All rights reserved.
@@ -42,12 +41,11 @@ public class GamesHelper {
 
     protected static final Logger log = Logger.getLogger(GamesHelper.class);
 
-    public static final int RANK_COLUMN = 1;
-    public static final int HANDLE_COLUMN = 2;
-    public static final int POINTS_COLUMN = 3;
-    public static final int WIN_PERCENTAGE_COLUMN = 4;
-    public static final int AVG_TOTAL_SCORE_VARIANCE_COLUMN = 5;
-    public static final int AVG_VICTORY_MARGIN_VARIANCE_COLUMN = 6;
+    public static final int HANDLE_COLUMN = 1;
+    public static final int PICKED_WINNER_COLUMN = 2;
+    public static final int TOTAL_SCORE_VARIANCE_COLUMN = 3;
+    public static final int VICTORY_MARGIN_VARIANCE_COLUMN = 4;
+    public static final int POINTS_COLUMN = 5;
 
     public static ResultSetContainer getGamesPredictions(Integer gameId) throws Exception {
         Request r = new Request();
@@ -58,7 +56,7 @@ public class GamesHelper {
     }
 
     @SuppressWarnings("unchecked")
-    public static void sortResult(TCRequest request, List<StandingsItem> l) {
+    public static void sortResult(TCRequest request, List<PredictionItem> l) {
         if (l.size() == 0) {
             return;
         }
@@ -68,85 +66,70 @@ public class GamesHelper {
 
         // all other columns are already sorted (rank)
         if (sortCol.equals(String.valueOf(HANDLE_COLUMN))) {
-            Collections.sort(l, new Comparator<StandingsItem>() {
-                public int compare(StandingsItem arg0, StandingsItem arg1) {
+            Collections.sort(l, new Comparator<PredictionItem>() {
+                public int compare(PredictionItem arg0, PredictionItem arg1) {
                     return arg0.getHandle().compareTo(arg1.getHandle());
                 }
             });
-        } else if (sortCol.equals(String.valueOf(POINTS_COLUMN))) {
-            Collections.sort(l, new Comparator<StandingsItem>() {
-                public int compare(StandingsItem arg0, StandingsItem arg1) {
-                    if (arg0.getPoints() == null && arg1.getPoints() != null) {
+        } else if (sortCol.equals(String.valueOf(PICKED_WINNER_COLUMN))) {
+            Collections.sort(l, new Comparator<PredictionItem>() {
+                public int compare(PredictionItem arg0, PredictionItem arg1) {
+                    if (arg0.getPickedWinner() == null && arg1.getPickedWinner() != null) {
                         return 1;
                     }
-                    if (arg0.getPoints() != null && arg1.getPoints() == null) {
+                    if (arg0.getPickedWinner() != null && arg1.getPickedWinner() == null) {
                         return -1;
                     }
-                    if (arg0.getPoints() == null && arg1.getPoints() == null) {
+                    if (arg0.getPickedWinner() == null && arg1.getPickedWinner() == null) {
                         return 0;
                     }
-                    return arg0.getPoints().compareTo(arg1.getPoints());
+                    return arg0.getPickedWinner().compareTo(arg1.getPickedWinner());
                 }
             });
-        } else if (sortCol.equals(String.valueOf(WIN_PERCENTAGE_COLUMN))) {
-            Collections.sort(l, new Comparator<StandingsItem>() {
-                public int compare(StandingsItem arg0, StandingsItem arg1) {
-                    if (arg0.getWinPercent() == null && arg1.getWinPercent() != null) {
+        } else if (sortCol.equals(String.valueOf(TOTAL_SCORE_VARIANCE_COLUMN))) {
+            Collections.sort(l, new Comparator<PredictionItem>() {
+                public int compare(PredictionItem arg0, PredictionItem arg1) {
+                    if (arg0.getTotalScoreVariance() == null && arg1.getTotalScoreVariance() != null) {
                         return 1;
                     }
-                    if (arg0.getWinPercent() != null && arg1.getWinPercent() == null) {
+                    if (arg0.getTotalScoreVariance() != null && arg1.getTotalScoreVariance() == null) {
                         return -1;
                     }
-                    if (arg0.getWinPercent() == null && arg1.getWinPercent() == null) {
+                    if (arg0.getTotalScoreVariance() == null && arg1.getTotalScoreVariance() == null) {
                         return 0;
                     }
-                    return arg0.getWinPercent().compareTo(arg1.getWinPercent());
+                    return arg0.getTotalScoreVariance().compareTo(arg1.getTotalScoreVariance());
                 }
             });
-        } else if (sortCol.equals(String.valueOf(AVG_TOTAL_SCORE_VARIANCE_COLUMN))) {
-            Collections.sort(l, new Comparator<StandingsItem>() {
-                public int compare(StandingsItem arg0, StandingsItem arg1) {
-                    if (arg0.getAvgTotalScoreVariance() == null && arg1.getAvgTotalScoreVariance() != null) {
+        } else if (sortCol.equals(String.valueOf(VICTORY_MARGIN_VARIANCE_COLUMN))) {
+            Collections.sort(l, new Comparator<PredictionItem>() {
+                public int compare(PredictionItem arg0, PredictionItem arg1) {
+                    if (arg0.getVictoryMarginVariance() == null && arg1.getVictoryMarginVariance() != null) {
                         return 1;
                     }
-                    if (arg0.getAvgTotalScoreVariance() != null && arg1.getAvgTotalScoreVariance() == null) {
+                    if (arg0.getVictoryMarginVariance() != null && arg1.getVictoryMarginVariance() == null) {
                         return -1;
                     }
-                    if (arg0.getAvgTotalScoreVariance() == null && arg1.getAvgTotalScoreVariance() == null) {
+                    if (arg0.getVictoryMarginVariance() == null && arg1.getVictoryMarginVariance() == null) {
                         return 0;
                     }
-                    return arg0.getAvgTotalScoreVariance().compareTo(arg1.getAvgTotalScoreVariance());
-                }
-            });
-        } else if (sortCol.equals(String.valueOf(AVG_VICTORY_MARGIN_VARIANCE_COLUMN))) {
-            Collections.sort(l, new Comparator<StandingsItem>() {
-                public int compare(StandingsItem arg0, StandingsItem arg1) {
-                    if (arg0.getAvgVictoryMarginVariance() == null && arg1.getAvgVictoryMarginVariance() != null) {
-                        return 1;
-                    }
-                    if (arg0.getAvgVictoryMarginVariance() != null && arg1.getAvgVictoryMarginVariance() == null) {
-                        return -1;
-                    }
-                    if (arg0.getAvgVictoryMarginVariance() == null && arg1.getAvgVictoryMarginVariance() == null) {
-                        return 0;
-                    }
-                    return arg0.getAvgVictoryMarginVariance().compareTo(arg1.getAvgVictoryMarginVariance());
+                    return arg0.getVictoryMarginVariance().compareTo(arg1.getVictoryMarginVariance());
                 }
             });
         } else {
-            // Default, sort by home team.
-            Collections.sort(l, new Comparator<StandingsItem>() {
-                public int compare(StandingsItem arg0, StandingsItem arg1) {
-                    if (arg0.getRank() == null && arg1.getRank() != null) {
+            // Default, sort by points.
+            Collections.sort(l, new Comparator<PredictionItem>() {
+                public int compare(PredictionItem arg0, PredictionItem arg1) {
+                    if (arg0.getScore() == null && arg1.getScore() != null) {
                         return 1;
                     }
-                    if (arg0.getRank() != null && arg1.getRank() == null) {
+                    if (arg0.getScore() != null && arg1.getScore() == null) {
                         return -1;
                     }
-                    if (arg0.getRank() == null && arg1.getRank() == null) {
+                    if (arg0.getScore() == null && arg1.getScore() == null) {
                         return 0;
                     }
-                    return arg0.getRank().compareTo(arg1.getRank());
+                    return arg0.getScore().compareTo(arg1.getScore());
                 }
             });
         }
@@ -154,14 +137,14 @@ public class GamesHelper {
         if (invert) {
             Collections.reverse(l);
         }
-        
+
+
         SortInfo s = new SortInfo();
-        s.addDefault(RANK_COLUMN, "asc");
         s.addDefault(HANDLE_COLUMN, "asc");
+        s.addDefault(PICKED_WINNER_COLUMN, "desc");
+        s.addDefault(TOTAL_SCORE_VARIANCE_COLUMN, "asc");
+        s.addDefault(VICTORY_MARGIN_VARIANCE_COLUMN, "asc");
         s.addDefault(POINTS_COLUMN, "desc");
-        s.addDefault(WIN_PERCENTAGE_COLUMN, "asc");
-        s.addDefault(AVG_TOTAL_SCORE_VARIANCE_COLUMN, "asc");
-        s.addDefault(AVG_VICTORY_MARGIN_VARIANCE_COLUMN, "asc");
 
         request.setAttribute(SortInfo.REQUEST_KEY, s);
     }
@@ -172,7 +155,7 @@ public class GamesHelper {
      * @param rsc the resultsetcontainter to crop
      * @throws Exception
      */
-    public static List<StandingsItem> cropResult(TCRequest request, TCResponse response, List<StandingsItem> l) {
+    public static List<PredictionItem> cropResult(TCRequest request, TCResponse response, List<PredictionItem> l) {
         int sizeBeforeCrop = l.size();
         String numRecords = resolveSize(request, response, sizeBeforeCrop);
    
@@ -190,7 +173,7 @@ public class GamesHelper {
             endRank = sizeBeforeCrop;
         }
             
-        List<StandingsItem> result;
+        List<PredictionItem> result;
         if (sizeBeforeCrop > 0) {
             result = l.subList(startRank, endRank);
         } else { 
