@@ -25,12 +25,10 @@ import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.controller.GamesHelper;
-import com.topcoder.web.winformula.controller.PredictionsHelper;
 import com.topcoder.web.winformula.model.GameData;
 import com.topcoder.web.winformula.model.GameResult;
 import com.topcoder.web.winformula.model.PredictionItem;
 import com.topcoder.web.winformula.model.WeekData;
-import com.topcoder.web.winformula.model.WeekStats;
 
 /**
  * @autor Pablo Wolfus (pulky)
@@ -137,8 +135,9 @@ public class ViewGameDetails extends StatsBase {
             String weekDesc = rsr.getStringItem("week_desc");
             String home = rsr.getStringItem("home");
             String away = rsr.getStringItem("away");
-            Integer homeScore = PredictionsHelper.getNullableIntItem(rsr, "home_score");
-            Integer awayScore = PredictionsHelper.getNullableIntItem(rsr, "away_score");
+            Integer homeScore = GamesHelper.getNullableIntItem(rsr, "home_score");
+            Integer awayScore = GamesHelper.getNullableIntItem(rsr, "away_score");
+            Double winPercent = GamesHelper.getNullableDoubleItem(rsr, "win_percent");
 
             GameResult gr = null;
             
@@ -146,8 +145,7 @@ public class ViewGameDetails extends StatsBase {
                 gr = new GameResult(homeScore, awayScore);
             }
             
-            // ToDo: complete winpercent and predictions
-            return new GameData(new WeekData(weekId, weekDesc), home, away, gr, null, null);
+            return new GameData(new WeekData(weekId, weekDesc), home, away, gr, winPercent, null);
             
         } else {
             return null;
