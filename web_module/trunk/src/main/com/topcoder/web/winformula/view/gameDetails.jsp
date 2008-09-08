@@ -81,7 +81,7 @@
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewGameDetails"/>
                     <tc-webtag:hiddenInput name="${sortCol}"/>
                     <tc-webtag:hiddenInput name="${sortDir}"/>
-                    <tc-webtag:hiddenInput name="game" value="${game}"/>
+<%--                     <tc-webtag:hiddenInput name="game" value="${game}"/> --%>
                     <tc-webtag:hiddenInput name="${numRecords}" value="${nr}"/>
                     <tc-webtag:hiddenInput name="${numPage}" value="${np}"/> 
                     <tc-webtag:hiddenInput name="week" value="${week}"/>
@@ -103,24 +103,27 @@
                             </c:choose>
                         </p>
                     </c:if>
-                    <jsp:include page="pagination.jsp">
+                    <tc-webtag:listSelect name="game" styleClass="dropdown" onChange="document.resultsForm.submit()"
+                        list="${games}" useTopValue="false"/>
+
+<%--                     <jsp:include page="pagination.jsp">
                         <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
                         <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />
                         <jsp:param name="totalSize" value="${totalSize}" />
                         <jsp:param name="numRecords" value="${nr}" />
                         <jsp:param name="numPage" value="${np}" />
                         <jsp:param name="formName" value="document.resultsForm"/>
-                    </jsp:include>
-                    <jsp:include page="predictionTable.jsp"/>
+                    </jsp:include> --%>
+                    <jsp:include page="gamePredictionTable.jsp"/>
                     <br/>
-                    <jsp:include page="pagination.jsp">
+<%--                    <jsp:include page="pagination.jsp">
                         <jsp:param name="croppedDataBefore" value="${croppedDataBefore}" />
                         <jsp:param name="croppedDataAfter" value="${croppedDataAfter}" />
                         <jsp:param name="totalSize" value="${totalSize}" />
                         <jsp:param name="numRecords" value="${nr}" />
                         <jsp:param name="numPage" value="${np}" />
                         <jsp:param name="formName" value="document.resultsForm"/>
-                    </jsp:include>
+                    </jsp:include> --%>
                     <p>&nbsp;</p>
                     </form>
                 </c:when>
@@ -129,7 +132,7 @@
                 </c:otherwise>
              </c:choose>
         </div>
-        
+     </div>        
   </div>
   
   <div id="footer">
