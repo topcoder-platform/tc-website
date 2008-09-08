@@ -88,9 +88,17 @@
                     <c:if test="${not empty result}">
                         <p class="textLarge">
                             <strong>${result.week.desc}</strong> 
-                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Game: ${result.home} vs. ${result.away}</strong> 
-                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;(${result.result.homeScore} - ${result.result.awayScore})</strong> 
-                            <strong>Win %: </strong> 
+                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Game: ${result.home} vs. ${result.away}</strong>
+                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Result:</strong>
+                            <c:choose>
+                                <c:when test="${not empty result.result}">
+                                    <strong>${result.result.homeScore} - ${result.result.awayScore}</strong>
+                                </c:when>
+                                <c:otherwise>
+                                    n/a
+                                </c:otherwise>
+                            </c:choose>                             
+                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Win %: </strong> 
                             <c:choose>
                                 <c:when test="${not empty result.winPercent}">
                                     <fmt:formatNumber value="${result.winPercent}" pattern="0.00"/>%

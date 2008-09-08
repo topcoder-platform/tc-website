@@ -140,36 +140,19 @@ public class ViewGameDetails extends StatsBase {
             Integer homeScore = PredictionsHelper.getNullableIntItem(rsr, "home_score");
             Integer awayScore = PredictionsHelper.getNullableIntItem(rsr, "away_score");
 
+            GameResult gr = null;
+            
+            if (homeScore != null && awayScore != null) {
+                gr = new GameResult(homeScore, awayScore);
+            }
+            
             // ToDo: complete winpercent and predictions
-            return new GameData(new WeekData(weekId, weekDesc), home, away, new GameResult(homeScore, awayScore), null, null);
+            return new GameData(new WeekData(weekId, weekDesc), home, away, gr, null, null);
             
         } else {
             return null;
         }
     }
-
-    private WeekStats getWeekStats(int coderId, int gameId) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("user_week_stats");
-        r.setProperty(Constants.USER_ID, String.valueOf(coderId));
-        r.setProperty(Constants.WEEK_ID, String.valueOf(gameId));
-
-        DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
-        ResultSetContainer rsc = dai.getData(r).get("user_week_stats");
-        
-        if (rsc.size() > 0) {
-            ResultSetRow rsr = rsc.get(0);
-            String weekName = rsr.getStringItem("week_desc");
-            Integer rank = PredictionsHelper.getNullableIntItem(rsr, "rank");
-            Integer maxRank = PredictionsHelper.getNullableIntItem(rsr, "max_rank");
-            Double winPercent = PredictionsHelper.getNullableDoubleItem(rsr, "avg_picked_winner");
-            Integer points = PredictionsHelper.getNullableIntItem(rsr, "points");
-
-            return new WeekStats(weekName, rank, maxRank, winPercent, points);
-        } else {
-            return null;
-        }
-    }    
 
     private List<ListSelectTag.Option> setGames(long weekId) throws Exception {
         ResultSetContainer rscGames = getGamesForWeek(weekId);
