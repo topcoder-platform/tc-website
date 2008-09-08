@@ -148,6 +148,10 @@ public class PredictionItem implements Serializable {
         return handle;
     }
 
+    public Integer getGameId() {
+        return gameId;
+    }
+
     public String getHandleLower() {
         return handle.toLowerCase();
     }
