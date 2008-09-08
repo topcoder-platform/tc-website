@@ -67,8 +67,11 @@ ding="utf-8"?>
             <p>Show off your creative skills in a competitive environment and get paid for being the best!</p>
         </div>
         <div id="welcome_banner">
-            <%-- default banner --%>
+            <%-- default banner
             <a href="/?module=ViewActiveContests"><img alt="Get Started Now!" src="/i/v3/welcome_banner.png" width="536" height="121" border="0"/></a>
+             --%>
+             <%-- birthday banner --%>
+            <a href="http://tcstudioblogs.com/?p=39"><img alt="Studio Celebrates Two Years of Design Contests!" src="/i/v3/banner_birthday_536x121.png" width="536" height="121" border="0"/></a>
         </div>
     </div>
 
