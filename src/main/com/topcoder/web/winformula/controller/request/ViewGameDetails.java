@@ -19,6 +19,7 @@ import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.tag.ListSelectTag;
@@ -43,6 +44,7 @@ public class ViewGameDetails extends StatsBase {
     protected void statsProcessing() throws Exception {
         try {
             TCRequest request = getRequest();
+            TCResponse response = getResponse();
 
             String selectedGame = StringUtils.checkNull(request.getParameter("game"));
             try {
@@ -69,10 +71,10 @@ public class ViewGameDetails extends StatsBase {
     
                 // sort
                 if (predictions != null) {
-//                    GamesHelper.sortResult(request, predictions);
+                    GamesHelper.sortResult(request, predictions);
             
                     // crop
-//                    GamesHelper.cropResult(request, predictions);
+                    GamesHelper.cropResult(request, response, predictions);
 
                     gd.setPredictions(predictions);
                 }
