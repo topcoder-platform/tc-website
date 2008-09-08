@@ -52,6 +52,9 @@ public class StandingsItem implements Serializable {
     public String getHandle() {
         return handle;
     }
+    public String getHandleLower() {
+        return handle.toLowerCase();
+    }
     public void setHandle(String handle) {
         this.handle = handle;
     }

@@ -80,7 +80,7 @@ public class StatsHelper {
         if (sortCol.equals(String.valueOf(HANDLE_COLUMN))) {
             Collections.sort(l, new Comparator<StandingsItem>() {
                 public int compare(StandingsItem arg0, StandingsItem arg1) {
-                    return arg0.getHandle().compareTo(arg1.getHandle());
+                    return arg0.getHandleLower().compareTo(arg1.getHandleLower());
                 }
             });
         } else if (sortCol.equals(String.valueOf(POINTS_COLUMN))) {
