@@ -62,13 +62,16 @@ public class WisdomPredictionGenerator {
             
             deletePredictions(weeks);
             
-            
             String cmd = "SELECT game_id, round(avg(pd.home_score)) as home_score, round(avg(pd.visitor_score)) as visitor_score" + 
                          " FROM prediction p, prediction_detail pd" +
                          "   WHERE pd.prediction_id = p.prediction_id AND p.week_id = ?  AND pd.home_score IS NOT NULL AND pd.visitor_score IS NOT NULL" +
                          "         AND p.coder_id NOT IN (?,?)"  + 
                          "   GROUP BY game_id order by 1";
             generatePredictions(weeks, roundId, Constants.WISDOM_ALL, cmd, true);
+            
+            
+            updateWeekStatus(weeks.get(0), WeekInfo.WEEK_WITH_FINAL_PREDICTIONS);
+            
             
             int previousWeek = weeks.get(0) - 1;
             boolean bindCoders = true;
@@ -101,6 +104,20 @@ public class WisdomPredictionGenerator {
         }
     }
 
+
+    private void updateWeekStatus(Integer weekId, int status) throws SQLException {
+        PreparedStatement ps = null;
+        try {
+            Connection cnn = DBUtils.getCurrentConnection();
+            ps = cnn.prepareStatement("UPDATE week SET week_status_id = ? WHERE week_id = ?");
+            ps.setInt(1, status);
+            ps.setInt(2, weekId.intValue());
+            ps.executeUpdate();
+        } finally {
+            DBMS.close(ps);
+        }
+        
+    }
 
     private void generatePredictions(List<Integer> weeks, int roundId, int coderId, String cmd, boolean bindCoders) throws SQLException, IDGenerationException {
         PreparedStatement ps = null;
