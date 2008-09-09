@@ -14,6 +14,7 @@ import java.util.Map;
  */
 public class WeekInfo {
     public static final int WEEK_ALLOW_PREDICTIONS = 1;
+    public static final int WEEK_WITH_FINAL_PREDICTIONS = 2;
     public static final int WEEK_SCORED_AND_CLOSED = 3;
     
     private int id;
