@@ -15,7 +15,9 @@
   <% boolean even = true;%>
   <c:forEach items="${result.predictions}" var="predictionItem" varStatus="status">
       <tr class="<%=even?"row_Alt":""%>">
-          <td>${predictionItem.handle}</td>
+          <td>
+                <a href="${sessionInfo.servletPath}?module=ViewProfile&amp;cr=${predictionItem.userId}&amp;week=${week}">${predictionItem.handle}</a>
+          </td>
           <td class="alignCenter">
                 <c:choose>
                   <c:when test="${not empty predictionItem.predictedResult}">
