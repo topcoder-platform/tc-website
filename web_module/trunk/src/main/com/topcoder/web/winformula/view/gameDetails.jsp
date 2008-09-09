@@ -86,10 +86,10 @@
                     <br/><br/>
 
                     <c:if test="${not empty result}">
-                        <p class="textLarge">
-                            <strong>${result.week.desc}</strong> 
-                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Game:</strong> ${result.home} vs. ${result.away}
-                            <br /><strong>Result:</strong>
+                        <p class="textLarge dataArea_Standings">
+                            <span style="width:20%; float:left;"><strong>${result.week.desc}</strong></span> 
+                            <span style="width:80%; float:left;"><strong>Game:</strong> ${result.home} vs. ${result.away}</span>
+                            <span style="width:20%; float:left;"><strong>Result:</strong> 
                             <c:choose>
                                 <c:when test="${not empty result.result}">
                                     ${result.result.homeScore} - ${result.result.awayScore}
@@ -97,8 +97,8 @@
                                 <c:otherwise>
                                     n/a
                                 </c:otherwise>
-                            </c:choose>                             
-                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Win Percent: </strong> 
+                            </c:choose></span>
+                            <span style="width:80%; float:left;"><strong>Win Percent: </strong> 
                             <c:choose>
                                 <c:when test="${not empty result.winPercent}">
                                     <fmt:formatNumber value="${result.winPercent}" pattern="0.00"/>%
@@ -106,8 +106,9 @@
                                 <c:otherwise>
                                     n/a
                                 </c:otherwise>
-                            </c:choose>
+                            </c:choose></span>
                         </p>
+                        <br />
                     </c:if>
                     <tc-webtag:listSelect name="game" styleClass="dropdown" onChange="document.resultsForm.submit()"
                         list="${games}" useTopValue="false"/>
