@@ -21,6 +21,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
+import com.topcoder.web.winformula.algorithm.services.WeekInfo;
 import com.topcoder.web.winformula.controller.PredictionsHelper;
 import com.topcoder.web.winformula.model.MemberData;
 import com.topcoder.web.winformula.model.Prediction;
@@ -110,13 +111,23 @@ public class ViewProfile extends StatsBase {
         ResultSetContainer rscWeeks = getWeeksData(coderId);
         if (rscWeeks.size() > 0) {
             boolean found = false;
+            Integer showWeekId = null;
             for (ResultSetRow rsr : rscWeeks) {
                 if (rsr.getIntItem("week_id") == weekId) {
                     found = true;
                 }
+                Integer weekStatusId = rsr.getIntItem("week_status_id"); 
+                if (weekStatusId.equals(WeekInfo.WEEK_WITH_FINAL_PREDICTIONS) || 
+                        weekStatusId.equals(WeekInfo.WEEK_SCORED_AND_CLOSED)) {
+                    showWeekId = rsr.getIntItem("week_id");
+                }
             }
             if (!found && rscWeeks.size() > 0) {
-                weekId = rscWeeks.get(0).getIntItem("week_id");
+                if (showWeekId != null) {
+                    weekId = showWeekId;   
+                } else {
+                    weekId = rscWeeks.get(0).getIntItem("week_id");
+                }
                 log.debug("using week: " + weekId);
             }
             if (rscWeeks.size() > 0) {
