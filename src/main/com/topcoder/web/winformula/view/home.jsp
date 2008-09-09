@@ -100,7 +100,7 @@
                       <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}&amp;week=${lp.weekId}">${standingsItem.handle}</a></td>
                       <td ><fmt:formatNumber value="${standingsItem.winPercent}" pattern="0.00"/> %</td>
                       <td ><fmt:formatNumber value="${standingsItem.points}" pattern="0"/></td>
-                      <td ><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}&amp;week=${lp.weekId}">picks</a></td>
+                      <td ><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}">picks</a></td>
                     </tr>
                   </c:forEach>
                     <tr>
@@ -121,7 +121,7 @@
                             </c:otherwise>
                         </c:choose>
                       <td class="alignCenter">${standingsItem.rank}</td>
-                      <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}">${standingsItem.handle}</a></td>
+                      <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}&amp;week=${lp.weekId}">${standingsItem.handle}</a></td>
                       <td ><fmt:formatNumber value="${standingsItem.winPercent}" pattern="0.00"/> %</td>
                       <td ><fmt:formatNumber value="${standingsItem.points}" pattern="0"/></td>
                       <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}">picks</a></td>
@@ -154,7 +154,7 @@
                                 </c:otherwise>
                             </c:choose>
                           <td class="alignCenter">${standingsItem.rank}</td>
-                          <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}">${standingsItem.handle}</a></td>
+                          <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}&amp;week=${lp.weekId}">${standingsItem.handle}</a></td>
                           <td ><fmt:formatNumber value="${standingsItem.winPercent}" pattern="0.00"/> %</td>
                           <td ><fmt:formatNumber value="${standingsItem.points}" pattern="0"/></td>
                           <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}">picks</a></td>
