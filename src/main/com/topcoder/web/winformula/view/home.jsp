@@ -167,9 +167,6 @@
                 --%>
             </div>
             
-            <div align="center"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=howToCompete"><img src="/i/events/winformula/timeline_sm.png" alt="Winning Formula Timeline" /></a></div>
-            <br />
-            
             <div class="full-content">
                 <p><strong>Participation in ESPN Winning Formula Challenge is completely FREE! <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=howToCompete">Click Here</a> to find out how to compete.</strong></p>
                 <br />
@@ -237,7 +234,12 @@
                 </tr>
             </table>
             <p class="info">*Based on <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&cr=<%=Constants.WISDOM_BEST%>">WisdomOfTheBest's picks</a>. See also <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&cr=<%=Constants.WISDOM_ALL%>">WisdomOfAll's picks</a>.</p>
+            <br /><br /><br />
         </div>
+        
+        <div><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=howToCompete"><img src="/i/events/winformula/timeline_sm.png" alt="Winning Formula Timeline" /></a></div>
+        <br />
+        
                       
         <%-- Main Content --%>
         </div>
