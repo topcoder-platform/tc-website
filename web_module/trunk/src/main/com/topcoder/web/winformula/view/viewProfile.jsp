@@ -11,6 +11,9 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 
 
+<c:set value="<%=Constants.WISDOM_ALL%>" var="WisdomOfAllId"/>
+<c:set value="<%=Constants.WISDOM_BEST%>" var="WisdomOfTheBestId"/>
+
 <c:set value="<%=DataAccessConstants.NUMBER_PAGE%>" var="numPage"/>
 <c:set value="<%=DataAccessConstants.SORT_COLUMN%>" var="sortCol"/>
 <c:set value="<%=DataAccessConstants.SORT_DIRECTION%>" var="sortDir"/>
@@ -167,22 +170,32 @@
                       <th>Win %</th>
                       <th>Points</th>
                     </tr>
-
-                      <c:forEach items="${performance}" var="standingsItem">
-                        <c:choose>
-                            <c:when test="${standingsItem.coderId == WisdomOfAllId || standingsItem.coderId == WisdomOfTheBestId || standingsItem.coderId == showUserId}">
-                                <tr class="newSection">
-                            </c:when>
-                            <c:otherwise>
-                                <tr>
-                            </c:otherwise>
-                        </c:choose>
-                          <td class="alignCenter">${standingsItem.rank}</td>
-                          <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}&amp;week=${lp.weekId}">${standingsItem.handle}</a></td>
-                          <td><fmt:formatNumber value="${standingsItem.winPercent}" pattern="0.00"/> %</td>
-                          <td><fmt:formatNumber value="${standingsItem.points}" pattern="0"/></td>
-                        </tr>
-                      </c:forEach>
+                      <c:choose>
+                        <c:when test="${not empty performance}">
+                          <c:forEach items="${performance}" var="standingsItem">
+                            <tr>
+                              <td>${standingsItem.rank}</td>
+                              <td>
+                                <c:choose>
+                                    <c:when test="${standingsItem.coderId == WisdomOfAllId || standingsItem.coderId == WisdomOfTheBestId}">
+                                        <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}&amp;week=${week}">${standingsItem.handle}</a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        ${standingsItem.handle} 
+                                    </c:otherwise>
+                                </c:choose>
+                              </td>
+                              <td><fmt:formatNumber value="${standingsItem.winPercent}" pattern="0.00"/> %</td>
+                              <td><fmt:formatNumber value="${standingsItem.points}" pattern="0"/></td>
+                            </tr>
+                          </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <tr>
+                              <td colspan="4">There are no results to show.</td>
+                            </tr>
+                        </c:otherwise>
+                      </c:choose>
                   </table>
                 </div>
             </div>
