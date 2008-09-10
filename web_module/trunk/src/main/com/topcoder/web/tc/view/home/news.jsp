@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />09.10.08<br />12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/threadfest' refer='/tc' />">AMD Multicore Threadfest Competition 3 is Underway</a></span><br /><br />
+        The third edition of the AMD Multicore Threadfest Competition is now underway.  Your chance at part of the $5,000 prize purse starts now.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/threadfest' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="523289" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />09.06.08<br />10:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=ViewAssemblyActiveContests">5000 DR Points in the NORM Assembly Run!</a></span><br /><br />
@@ -152,17 +165,4 @@
         <a href="/wiki/display/docs/Competition+Environments">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=620187">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />08.20.08<br />1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=MatchDetails&amp;rd=13564">Marathon Match 39 has begun with $5,000 in prizes!</a></span><br /><br />
-        Marathon 39 is here and will be a one-week competition that highlights encryption technology with a $5000 cash purse! Participate in the next encryption match today… Unir sha naq tbbq yhpx!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=MatchDetails&amp;rd=13564">details</a> | 
-        <tc-webtag:forumLink forumID="522940" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
    </td></tr>
