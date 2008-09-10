@@ -46,7 +46,7 @@ public class PredictionsDump {
             cnn = DBUtils.initDBBlock();
             ps = cnn.prepareStatement(  "SELECT g.week_id, p.coder_id, u.handle, g.home_team_id, g.visitor_team_id, pd.home_score, pd.visitor_score" +
                                         " FROM game g, prediction p, user u, prediction_detail pd " +
-                                        " WHERE g.week_id ? AND g.week_id <= ? AND " +
+                                        " WHERE g.week_id >= ? AND g.week_id <= ? AND " +
                                         "      pd.game_id = g.game_id AND p.prediction_id = pd.prediction_id AND" +
                                         "      u.user_id = p.coder_id AND" +
                                         "      pd.home_score IS NOT NULL AND pd.visitor_score IS NOT NULL"+
