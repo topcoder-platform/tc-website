@@ -1,7 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
-<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
@@ -21,26 +20,6 @@
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
     <script type="text/javascript" src="/js/v2/popup.js"></script>
-    <script type="text/javascript"><!--
-    function next() {
-        var myForm = document.submissionsForm;
-        myForm.<%=DataAccessConstants.START_RANK%>.value =<%=contests.getStartRow()-1+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
-        myForm.<%=DataAccessConstants.END_RANK%>.value =<%=contests.getStartRow()-1+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE*2%>;
-        myForm.submit();
-    }
-    function previous() {
-        var myForm = document.submissionsForm;
-        myForm.<%=DataAccessConstants.START_RANK%>.value =<%=contests.getStartRow()-1-Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
-        myForm.<%=DataAccessConstants.END_RANK%>.value =<%=contests.getStartRow()-1%>;
-        myForm.submit();
-    }
-    function filterDateChange(){
-        var myForm = document.submissionsForm;
-	 myForm.<%=DataAccessConstants.START_RANK%>.value ="";
-        myForm.<%=DataAccessConstants.END_RANK%>.value ="";
-	 myForm.submit();
-    }
-    //--></script>
 </head>
 
 <body>
@@ -62,34 +41,10 @@
 
 <h1>Past Contests</h1>
 
-<form name="submissionsForm" method="get" action="${sessionInfo.servletPath}">
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewPastContests"/>
-<input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
-<input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
-
 <div align="right"><strong>Need help? Learn how to
     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get
         started</a>.<br />
     Got <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">questions</a>?</strong>
-</div>
-
-<div class="pagingBox">
-    Date Range:<select name="filterDate" onChange="filterDateChange()">
-<%
-String val = request.getAttribute("filterDate").toString();
-if(val == null) val = "2592000000";
-%>
-    <option value="-1" <%= val.equals("-1") ? "selected" : "" %>>All</option>
-    <option value="604800000" <%= val.equals("604800000") ? "selected" : "" %>>Last 7 Days</option>
-    <option value="2592000000" <%= val.equals("2592000000") ? "selected" : "" %>>This Month</option>
-    <option value="5184000000" <%= val.equals("5184000000") ? "selected" : "" %>>Last Month</option>
-    <option value="7776000000" <%= val.equals("7776000000") ? "selected" : "" %>>Two Months Ago</option>
-    <option value="31536000000" <%= val.equals("31536000000") ? "selected" : "" %>>This Year</option>
-    <option value="63072000000" <%= val.equals("63072000000") ? "selected" : "" %>>Last Year</option>
-    </select> 
-    
-    <%=(contests.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
-    | <%=(contests.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt; </a>" : "next &gt;&gt;")%>
 </div>
 
 <div class="tableTabOff" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a></div>
@@ -219,13 +174,6 @@ if(val == null) val = "2592000000";
     <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
     <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
 </div>
-
-<div class="pagingBox">
-    <%=(contests.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
-    | <%=(contests.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt; </a>" : "next &gt;&gt;")%>
-</div>
-
-</form>
 
 <div align="right" style="padding-top: 10px;"><strong>Would you like to see some of our <a href="${sessionInfo.servletPath}?module=Static&amp;d1=oldcontests&amp;d2=archive">older logo design contests</a>?</strong></div>
 
