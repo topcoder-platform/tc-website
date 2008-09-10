@@ -57,11 +57,11 @@ public class PredictionsDump {
             rs = ps.executeQuery();
             while (rs.next()) {
                 output.print(rs.getInt(1)-67);
-                output.print(",\"");
-                output.print(rs.getInt(2));
-                output.print("\",");
-                output.print(rs.getString(3));
                 output.print(",");
+                output.print(rs.getInt(2));
+                output.print(",\"");
+                output.print(rs.getString(3));
+                output.print("\",");
                 output.print(rs.getInt(4));
                 output.print(",");
                 output.print(rs.getInt(5));
