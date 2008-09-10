@@ -46,12 +46,13 @@ public class PredictionsDump {
             cnn = DBUtils.initDBBlock();
             ps = cnn.prepareStatement(  "SELECT g.week_id, p.coder_id, u.handle, g.home_team_id, g.visitor_team_id, pd.home_score, pd.visitor_score" +
                                         " FROM game g, prediction p, user u, prediction_detail pd " +
-                                        " WHERE g.week_id >= 67 AND g.week_id <= 68 AND " +
+                                        " WHERE g.week_id ? AND g.week_id <= ? AND " +
                                         "      pd.game_id = g.game_id AND p.prediction_id = pd.prediction_id AND" +
                                         "      u.user_id = p.coder_id AND" +
                                         "      pd.home_score IS NOT NULL AND pd.visitor_score IS NOT NULL"+
                                         " ORDER BY 1, 2, 4", ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-
+            ps.setInt(1, fromWeekId);
+            ps.setInt(2, toWeekId);
             PrintStream output = System.out;
             output.println("week_id,coder_id,handle,home_team_id,away_team_id,predicted_home_score,predicted_away_score");
             rs = ps.executeQuery();
