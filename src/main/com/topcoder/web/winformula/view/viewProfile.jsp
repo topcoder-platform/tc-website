@@ -154,40 +154,37 @@
                       </dl> --%>
                   </div>
                 </div>
-                <%--<div class="right-content">
-                    <h2>Performance vs Community</h2>
+                <div class="right-content">
+                    <h2>Performance vs Community
+                    <c:if test="${not empty weekStats}">
+                (${weekStats.weekName})
+            </c:if></h2>
 
-                    <table width="90%" border="0" cellpadding="0" cellspacing="0" class="current-data">
-                    <tr class="normalTH">
+                    <table width="90%" border="0" cellpadding="0" cellspacing="0" class="stat">
+                    <tr>
                       <th>Rank</th>
                       <th>Handle</a></th>
                       <th>Win %</th>
                       <th>Points</th>
                     </tr>
 
-                    <tr>
-                      <td>6</td>
-                      <td><a href="#">LeadersAverage</a></td>
-                      <td >68%</td>
-                      <td >1287</td>
-                    </tr>
-                    <tr>
-
-                      <td>10</td>
-                      <td class="alt">chekm8</td>
-                      <td >61%</td>
-                      <td >984</td>
-                    </tr>
-                    <tr>
-                      <td>38</td>
-
-                      <td><a href="#">ConsensusPicks</a></td>
-                      <td >58%</td>
-                      <td >932</td>
-                    </tr>
+                      <c:forEach items="${performance}" var="standingsItem">
+                        <c:choose>
+                            <c:when test="${standingsItem.coderId == WisdomOfAllId || standingsItem.coderId == WisdomOfTheBestId || standingsItem.coderId == showUserId}">
+                                <tr class="newSection">
+                            </c:when>
+                            <c:otherwise>
+                                <tr>
+                            </c:otherwise>
+                        </c:choose>
+                          <td class="alignCenter">${standingsItem.rank}</td>
+                          <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}&amp;week=${lp.weekId}">${standingsItem.handle}</a></td>
+                          <td><fmt:formatNumber value="${standingsItem.winPercent}" pattern="0.00"/> %</td>
+                          <td><fmt:formatNumber value="${standingsItem.points}" pattern="0"/></td>
+                        </tr>
+                      </c:forEach>
                   </table>
-                </div>--%>
-                
+                </div>
             </div>
             <div class="tab-navigation" id="inner-tab-navigation">
                 <ul>

@@ -5,6 +5,8 @@
  */
 package com.topcoder.web.winformula.controller.request;
 
+import java.util.List;
+
 import com.topcoder.server.ejb.TestServices.LongTestResult;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -23,8 +25,10 @@ import com.topcoder.web.winformula.Constants;
 import com.topcoder.web.winformula.algorithm.CodingConstants;
 import com.topcoder.web.winformula.algorithm.services.WeekInfo;
 import com.topcoder.web.winformula.controller.PredictionsHelper;
+import com.topcoder.web.winformula.controller.StatsHelper;
 import com.topcoder.web.winformula.model.MemberData;
 import com.topcoder.web.winformula.model.Prediction;
+import com.topcoder.web.winformula.model.StandingsItem;
 import com.topcoder.web.winformula.model.WeekStats;
 
 /**
@@ -87,7 +91,11 @@ public class ViewProfile extends StatsBase {
             }
             
             WeekStats ws = getWeekStats(coderId, weekId);
-            
+
+            // performance vs community 
+            List<StandingsItem> performance = StatsHelper.processResult(getPerformanceData(coderId, weekId));
+            request.setAttribute("performance", performance);
+
             request.setAttribute("week", weekId);
             request.setAttribute("weekStats", ws);
             request.setAttribute("member", md);
@@ -200,5 +208,13 @@ public class ViewProfile extends StatsBase {
         return dai.getData(r).get("user_prediction_weeks");
     }
     
-    
+    private ResultSetContainer getPerformanceData(int coderId, int weekId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("performance_vs_community");
+        r.setProperty(Constants.USER_ID, String.valueOf(coderId));
+        r.setProperty(Constants.WEEK_ID, String.valueOf(weekId));
+
+        DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
+        return dai.getData(r).get("performance_vs_community");
+    }
 }
