@@ -236,6 +236,9 @@
             <lib dir="${build}/ejb_jars/">
                 <include name="PactsClientServices.jar"/>
             </lib>
+            <lib dir="${jars.dir}/tcs/file_upload/2.0.2.0/">
+                <include name="file_upload.jar"/>
+            </lib>
         </war>
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>
         <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/default/deploy/studio.war/" overwrite="yes"/>
@@ -263,7 +266,6 @@
         <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
 
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/data_validation/1.0/data_validation.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_system_server/1.0/file_system_server.jar"/>
