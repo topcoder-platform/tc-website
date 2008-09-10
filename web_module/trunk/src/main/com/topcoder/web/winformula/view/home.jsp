@@ -205,31 +205,31 @@
             <h2 class="titlePredicted"> <span class="hide"> Predicted Results For This Week's Top Games </span></h2>
             <table border="0" align="center" cellpadding="0" width="100%" class="predict-table">
                 <tr>
-                    <td><strong>USC</strong></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=157">USC</a></strong></td>
                     <td class="alignRight dottedRight"><strong>33</strong></td>
-                    <td>S Florida</td>
+                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=118">S Florida</a></td>
                     <td class="alignRight dottedRight">19</td>
-                    <td>S Carolina</td>
+                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=149">S Carolina</a></td>
                     <td class="alignRight dottedRight">19</td>
-                    <td><strong>BYU</strong></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=126">BYU</a></strong></td>
                     <td class="alignRight dottedRight"><strong>25</strong></td>
-                    <td><strong>Fresno St</strong></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=130">Fresno St</a></strong></td>
                     <td class="alignRight dottedRight"><strong>30</strong></td>
-                    <td>Purdue</td>
+                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=147">Purdue</a></td>
                     <td class="alignRight">25</td>
                 </tr>
                 <tr>
-                    <td>Ohio St</td>
+                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=157">Ohio St</a></td>
                     <td class="alignRight dottedRight">20</td>
-                    <td><strong>Kansas</strong></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=118">Kansas</a></strong></td>
                     <td class="alignRight dottedRight"><strong>21</strong></td>
-                    <td><strong>Georgia</strong></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=149">Georgia</a></strong></td>
                     <td class="alignRight dottedRight"><strong>22</strong></td>
-                    <td>UCLA</td>
+                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=126">UCLA</a></td>
                     <td class="alignRight dottedRight">20</td>
-                    <td>Wisconsin</td>
+                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=130">Wisconsin</a></td>
                     <td class="alignRight dottedRight">26</td>
-                    <td><strong>Oregon</strong></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=147">Oregon</a></strong></td>
                     <td class="alignRight"><strong>32</strong></td>
                 </tr>
             </table>
