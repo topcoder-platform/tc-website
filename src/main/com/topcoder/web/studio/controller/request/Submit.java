@@ -74,7 +74,7 @@ import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
  * presentations for the submission and generates the passing review for those
  * submissions which come from <code>TopCoder Direct</code> contests.
  * </p>
- * 
+ *
  * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00 Create Date: Jul 20,
  *          2006
@@ -110,7 +110,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 	 * <code>
      * TopCoder Direct</code> contests generates the passing review.
 	 * </p>
-	 * 
+	 *
 	 * @throws Exception
 	 *             if an unexpected error occurs.
 	 */
@@ -226,7 +226,6 @@ public class Submit extends BaseSubmissionDataProcessor {
 								.getMessage());
 					}
 
-					String remoteFileName = submissionFile.getRemoteFileName();
 					if (hasErrors()) {
 						setDefault(Constants.CONTEST_ID, contestId.toString());
 						setDefault(Constants.SUBMISSION_RANK, rank);
@@ -236,9 +235,11 @@ public class Submit extends BaseSubmissionDataProcessor {
 						setNextPage("/submit.jsp");
 						setIsNextPageInContext(true);
 					} else {
-						
+
 						submissionFile = gnerateUnifiedSubmissionFile(
 								submissionFile, sourceFile, previewFile, u);
+
+						String remoteFileName = submissionFile.getRemoteFileName();
 
 						log.debug("unified submission: "
 								+ submissionFile.getRemoteFileName());
@@ -483,7 +484,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 	 * Generates the alternate representations for the submission submitted by
 	 * the specified user for specified contest.
 	 * </p>
-	 * 
+	 *
 	 * @param contest
 	 *            a <code>Contest</code> representing the contest which the
 	 *            submission belongs to.
@@ -524,7 +525,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 	 * <p>
 	 * Gets the list of threads currently running by this controller.
 	 * </p>
-	 * 
+	 *
 	 * @return a <code>List</code> combining the threads running by this
 	 *         controller.
 	 */
