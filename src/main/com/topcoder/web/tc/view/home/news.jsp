@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />09.11.08<br />10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=1000132">Calling all Designers!  We Need a TCO09 Logo!</a></span><br /><br />
+        The hunt for the 2009 TopCoder Open logo is on!  Head on over to Studio to check out the contest details and submit your best design for the new TCO09 logo design contest.  Our premier event of the year is just getting started and we need an innovative look to help us get on our way.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=1000132">details</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&amp;forumID=344&amp;mc=1">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />09.10.08<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/threadfest' refer='/tc' />">AMD Multicore Threadfest Competition 3 is Underway</a></span><br /><br />
@@ -152,17 +165,4 @@
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082108">details</a> | 
         <tc-webtag:forumLink forumID="522960" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />08.21.08<br />9:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/wiki/display/docs/Competition+Environments">$3500 in Bug Races – Get on the Cloud!</a></span><br /><br />
-        We have a swarm of new <a href="/wiki/display/tc/Active+Bug+Races">Bug Races</a> for you, including for the first time: races to fix bugs in TopCoder's own applications. Each competitor will have access to their own virtual machine complete with all required software and source code.  Now is your chance to fix all those bugs that have been annoying you and make some extra cash at the same time!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/wiki/display/docs/Competition+Environments">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=620187">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
