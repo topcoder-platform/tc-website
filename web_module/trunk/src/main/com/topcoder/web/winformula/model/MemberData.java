@@ -6,6 +6,7 @@
 package com.topcoder.web.winformula.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @autor Pablo Wolfus (pulky)
@@ -23,11 +24,14 @@ public class MemberData implements Serializable {
     private Integer totalRankedMembers;
     private Integer userId;
     private Double winPercent;
+    private Double totalPrizes;
+    private List<String> achievements;
+    
     
     public MemberData(String handle, Integer highestOverallRank, String highestOverallRankWeek,
             Integer overallPoints, Integer highestWeeklyRank, Integer highestWeeklyRankPoints,
             String highestWeeklyRankWeek, Integer overallRank, Integer totalRankedMembers,
-            Integer userId, Double winPercent) {
+            Integer userId, Double winPercent, Double totalPrizes, List<String> achievements) {
         super();
         this.handle = handle;
         this.highestOverallRank = highestOverallRank;
@@ -40,6 +44,8 @@ public class MemberData implements Serializable {
         this.totalRankedMembers = totalRankedMembers;
         this.userId = userId;
         this.winPercent = winPercent;
+        this.totalPrizes = totalPrizes; 
+        this.achievements = achievements;
     }
 
     public Integer getOverallPoints() {
@@ -111,5 +117,19 @@ public class MemberData implements Serializable {
         this.winPercent = winPercent;
     }
 
-    
+    public Double getTotalPrizes() {
+        return totalPrizes;
+    }
+
+    public void setTotalPrizes(Double totalPrizes) {
+        this.totalPrizes = totalPrizes;
+    }
+
+    public List<String> getAchievements() {
+        return achievements;
+    }
+
+    public void setAchievements(List<String> achievements) {
+        this.achievements = achievements;
+    }
 }
