@@ -231,6 +231,6 @@ and stop it when <strong>k</strong> of them were generated.
 </div>
 
 
-</strong>ody>
+</body>
 
 </html>
