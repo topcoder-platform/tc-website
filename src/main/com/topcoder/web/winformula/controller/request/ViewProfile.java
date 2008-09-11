@@ -187,6 +187,7 @@ public class ViewProfile extends StatsBase {
                 for (ResultSetRow rsr : rsc) {
                     achievements.add(rsr.getStringItem("achievement_desc"));
                 }
+                md.setAchievements(achievements);
             }
             return md;
         }        
