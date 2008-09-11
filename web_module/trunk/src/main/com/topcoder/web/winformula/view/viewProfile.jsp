@@ -145,16 +145,21 @@
                             </c:otherwise>
                         </c:choose>
                       </dl>
+                      <c:if test="${not empty member.achievements}">
+                        <dl>
+                            <dt>Prizes/Awards Won:</dt>
+                            <c:forEach items="${member.achievements}" var="achievement">
+                                <dd>${achievement}</dd>
+                            </c:forEach>
+                         </dl>
+                      </c:if>
+                      <c:if test="${not empty member.totalPrizes}">
+                         <dl>
+                             <dt>Total Prizes Money:</dt>
+                             <dd><fmt:formatNumber value="${member.totalPrizes}" type="currency" currencySymbol="$"/></dd>
+                         </dl>
+                      </c:if>
                       <dl>* Overall statistics will show when Mini-Season 2 starts</dl>
-<%--                  <dl>
-                        <dt>Prizes/Awards Won:</dt>
-                        <dd>Closest Score Award Weekly Top 3</dd>
-                      </dl>
-
-                      <dl>
-                        <dt>Total Prizes Money:</dt>
-                        <dd>$36.600</dd>
-                      </dl> --%>
                   </div>
                 </div>
                 <div class="right-content">
