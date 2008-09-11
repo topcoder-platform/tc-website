@@ -5,6 +5,7 @@
  */
 package com.topcoder.web.winformula.controller.request;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.topcoder.server.ejb.TestServices.LongTestResult;
@@ -154,6 +155,8 @@ public class ViewProfile extends StatsBase {
         DataAccessInt dai = new CachedDataAccess(DBMS.WINFORMULA_DATASOURCE_NAME);
         ResultSetContainer rsc = dai.getData(r).get("member_data");
         
+        MemberData md = null;
+        
         if (rsc.size() > 0) {
             ResultSetRow rsr = rsc.get(0);
             String handle = rsr.getStringItem("handle");
@@ -167,13 +170,26 @@ public class ViewProfile extends StatsBase {
             Integer totalRankedMembers = PredictionsHelper.getNullableIntItem(rsr, "total_ranked_members");
             Integer userId = PredictionsHelper.getNullableIntItem(rsr, "user_id");
             Double winPercent = PredictionsHelper.getNullableDoubleItem(rsr, "win_percent");
+            Double totalPrizes = PredictionsHelper.getNullableDoubleItem(rsr, "total_prizes");
 
-            return new MemberData(handle, highestOverallRank, highestOverallRankWeek, overallPoints,
+            md = new MemberData(handle, highestOverallRank, highestOverallRankWeek, overallPoints,
                     highestWeeklyRank, highestWeeklyRankPoints, highestWeeklyRankWeek,
-                    overallRank, totalRankedMembers, userId, winPercent);
-        } else {
-            return null;
+                    overallRank, totalRankedMembers, userId, winPercent, totalPrizes, null);
         }
+
+        if (md == null) {
+            return null;
+        } else {
+            // get achievements
+            rsc = dai.getData(r).get("member_achievements");
+            if (rsc.size() > 0) {
+                List<String> achievements = new ArrayList<String>(rsc.size());
+                for (ResultSetRow rsr : rsc) {
+                    achievements.add(rsr.getStringItem("achievement_desc"));
+                }
+            }
+            return md;
+        }        
     }
 
     private WeekStats getWeekStats(int coderId, int weekId) throws Exception {
