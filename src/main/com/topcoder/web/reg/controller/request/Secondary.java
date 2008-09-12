@@ -173,6 +173,7 @@ public class Secondary extends Base {
         }
 
         if (getFactory().getCountryDAO().getUS().equals(a.getCountry())) {
+            a.setProvince(null);
             if (fields.contains(Constants.STATE_CODE)) {
                 a.setState(getFactory().getStateDAO().find((String) params.get(Constants.STATE_CODE)));
             }
