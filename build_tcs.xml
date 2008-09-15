@@ -71,7 +71,7 @@
         <pathelement location="${jars.dir}/tcs/document_generation.jar"/>
         <pathelement location="${jars.dir}/tcs/email_engine.jar"/>
         <pathelement location="${jars.dir}/tcs/file_class/1.0/file_class.jar"/>
-        <pathelement location="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
+        <pathelement location="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar"/>
         <pathelement location="${jars.dir}/tcs/job_scheduling.jar"/>
         <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
         <pathelement location="${jars.dir}/tcs/math_matrix.jar"/>
@@ -517,7 +517,7 @@
             </fileset>
         </copy>
     	<copy todir="${jboss.lib.dir}">
-            <fileset dir="${jars.dir}/tcs/file_upload/2.0">
+            <fileset dir="${jars.dir}/tcs/file_upload/2.0.2.0">
                 <include name="file_upload.jar"/>
             </fileset>
         </copy>

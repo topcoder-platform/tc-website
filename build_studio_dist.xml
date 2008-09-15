@@ -50,7 +50,7 @@
         <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
         <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
-        <pathelement location="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
+        <pathelement location="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar"/>
 
         <pathelement location="${jars.dir}/axis.jar"/>
         <pathelement location="${jars.dir}/activation.jar"/>
@@ -169,7 +169,7 @@
                 <include name="jboss/javax.servlet.jar"/>
                 <include name="jboss/jbossall-client.jar"/>
                 <include name="jboss/javax.servlet.jsp.jar"/>
-                <include name="tcs/file_upload/2.0/file_upload.jar"/>
+                <include name="tcs/file_upload/2.0.2.0/file_upload.jar"/>
 
                 <include name="axis.jar"/>
 
@@ -192,7 +192,7 @@
 
 
                 <include name="tcs/id_generator/3.0/id_generator.jar"/>
-                <include name="tcs/file_upload/2.0/file_upload.jar"/>
+                <include name="tcs/file_upload/2.0.2.0/file_upload.jar"/>
                 <include name="tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
                 <include name="tcs/data_validation/1.0/data_validation.jar"/>
                 <include name="tcs/file_system_server/1.0/file_system_server.jar"/>
@@ -405,7 +405,7 @@
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
         <copy todir="${jboss_lib}" file="${ejb_jars}/security.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/data_validation/1.0/data_validation.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_system_server/1.0/file_system_server.jar"/>
