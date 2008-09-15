@@ -72,16 +72,16 @@ public class PredictionsDump {
                 output.print(",");
                 output.print(rs.getInt(6));
                 output.print(",");
-                output.println(rs.getInt(7));
+                output.print(rs.getInt(7));
                 output.print(",");
-                output.println(rs.getInt(8));
+                output.print(rs.getInt(8));
                 output.print(",");
-                output.println(rs.getInt(9));
+                output.print(rs.getInt(9));
                 output.print(",\"");
                 output.print(rs.getString(10));
                 output.print("\",\"");
                 output.print(rs.getString(11));
-                output.print("\"");
+                output.println("\"");
             }
         } finally {
             DBMS.close(ps, rs);
