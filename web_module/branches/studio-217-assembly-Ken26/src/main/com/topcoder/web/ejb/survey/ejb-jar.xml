@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE ejb-jar PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+        "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+
+<ejb-jar>
+    <description>Survey Jar</description>
+    <display-name>Survey Jar</display-name>
+    <enterprise-beans>
+        <session>
+            <description>Response EJB</description>
+            <display-name>Response EJB</display-name>
+            <ejb-name>Response</ejb-name>
+            <home>com.topcoder.web.ejb.survey.ResponseHome</home>
+            <remote>com.topcoder.web.ejb.survey.Response</remote>
+            <local>com.topcoder.web.ejb.survey.ResponseLocal</local>
+            <ejb-class>com.topcoder.web.ejb.survey.ResponseBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+        <session>
+            <description>Answer EJB</description>
+            <display-name>Answer EJB</display-name>
+            <ejb-name>Answer</ejb-name>
+            <home>com.topcoder.web.ejb.survey.AnswerHome</home>
+            <remote>com.topcoder.web.ejb.survey.Answer</remote>
+            <local>com.topcoder.web.ejb.survey.AnswerLocal</local>
+            <ejb-class>com.topcoder.web.ejb.survey.AnswerBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+        <session>
+            <description>Question EJB</description>
+            <display-name>Question EJB</display-name>
+            <ejb-name>Question</ejb-name>
+            <home>com.topcoder.web.ejb.survey.QuestionHome</home>
+            <remote>com.topcoder.web.ejb.survey.Question</remote>
+            <local>com.topcoder.web.ejb.survey.QuestionLocal</local>
+            <ejb-class>com.topcoder.web.ejb.survey.QuestionBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+        <session>
+            <description>SurveyQuestion EJB</description>
+            <display-name>SurveyQuestion EJB</display-name>
+            <ejb-name>SurveyQuestion</ejb-name>
+            <home>com.topcoder.web.ejb.survey.SurveyQuestionHome</home>
+            <remote>com.topcoder.web.ejb.survey.SurveyQuestion</remote>
+            <local>com.topcoder.web.ejb.survey.SurveyQuestionLocal</local>
+            <ejb-class>com.topcoder.web.ejb.survey.SurveyQuestionBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+        <session>
+            <description>Survey EJB</description>
+            <display-name>Survey EJB</display-name>
+            <ejb-name>Survey</ejb-name>
+            <home>com.topcoder.web.ejb.survey.SurveyHome</home>
+            <remote>com.topcoder.web.ejb.survey.Survey</remote>
+            <local>com.topcoder.web.ejb.survey.SurveyLocal</local>
+            <ejb-class>com.topcoder.web.ejb.survey.SurveyBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+    </enterprise-beans>
+    <assembly-descriptor>
+        <container-transaction>
+            <method>
+                <ejb-name>Response</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        <container-transaction>
+            <method>
+                <ejb-name>Answer</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        <container-transaction>
+            <method>
+                <ejb-name>Survey</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        <container-transaction>
+            <method>
+                <ejb-name>SurveyQuestion</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        <container-transaction>
+            <method>
+                <ejb-name>Question</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+    </assembly-descriptor>
+</ejb-jar>
+
+
+
