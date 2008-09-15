@@ -519,5 +519,6 @@ public interface PactsConstants extends Constants {
     // Minimum points in order to win a prize
     public static final int INTRO_EVENT_MIN_POINTS = 5;
 
+    public static final String REFERRAL_PAYMENTS_CLIENT = "TopCoder";
 }
 

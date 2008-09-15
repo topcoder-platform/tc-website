@@ -3789,7 +3789,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     referPay.getHeader().setParentPaymentId(paymentId);
                     
                     // use the same client as the parent
-                    referPay.getHeader().setClient(p.getHeader().getClient());
+                    // referral payments always get "TopCoder" as client
+                    referPay.getHeader().setClient(REFERRAL_PAYMENTS_CLIENT);
                     log.debug("referrer found:" + handle);
 
                     // Recursive call
