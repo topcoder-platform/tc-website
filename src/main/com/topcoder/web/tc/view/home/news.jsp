@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />09.16.08<br />2:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm417">SRM 417 - Problem Set &amp; Analysis</a></span><br /><br />
+      In the first division competitors faced a technical easy problem, a tricky hard, and a medium where they had to choose between two completely different approaches. <tc-webtag:handle coderId="9941146" context="algorithm"/> enjoys his first match victory thanks to his good performance on all three problems.</td>
+         <td class="newsPhoto"><img src="/i/m/Pawa_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="10323773" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm417">details</a> | 
+        <tc-webtag:forumLink forumID="523296" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />09.11.08<br />6:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -153,20 +169,3 @@
         <tc-webtag:forumLink forumID="523168" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />08.25.08<br />2:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm414">SRM 414 - Problem Set &amp; Analysis</a></span><br /><br />
-      In both divisions competitors faced relatively strightforward easy and medium problems, but tough hard problems which only elicited a single passing submission between them. The only passing hard submission from <tc-webtag:handle coderId="22686851" context="algorithm"/> handed him the win in division 1.</td>
-         <td class="newsPhoto"><img src="/i/m/StevieT_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="21911760" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm414">details</a> | 
-        <tc-webtag:forumLink forumID="522866" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
