@@ -90,7 +90,8 @@ ding="utf-8"?>
     <div class="contests">
         <div>
             <h2><span>ACTIVE CONTESTS</span></h2>
-            <span class="more"><a href="/?module=ViewActiveContests">View All</a></span>
+            <span class="more"><a href="/?module=ViewActiveContests">View All <%=activeContests.size()%> Active Contests
+</a></span>
             <table>
                 <thead>
                     <tr>
