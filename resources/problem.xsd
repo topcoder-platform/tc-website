@@ -20,7 +20,7 @@
         <xs:enumeration value="String"/>
         <xs:enumeration value="String[]"/>
         <xs:enumeration value="String[][]"/>
-		<xs:enumeration value="int[][]"/>
+        <xs:enumeration value="int[][]"/>
         <xs:enumeration value="long[][]"/>
         <xs:enumeration value="Matrix2D"/>
     </xs:restriction>
@@ -98,7 +98,7 @@
         <xs:group ref="inline"/>
         <xs:group ref="block"/>
     </xs:choice>
-	<xs:attribute name="escaped" type="xs:boolean" use="optional"/>
+    <xs:attribute name="escaped" type="xs:boolean" use="optional"/>
 </xs:complexType>
 
 <xs:complexType name="inline" mixed="true">
@@ -182,6 +182,7 @@
             <xs:element ref="roundType" minOccurs="0"/>
         </xs:all>
         <xs:attribute name="name" type="xs:token"/>
+        <xs:attribute name="code_length_limit" type="xs:positiveInteger"/>
     </xs:complexType>
 </xs:element>
 
