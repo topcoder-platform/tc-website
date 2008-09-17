@@ -1,15 +1,22 @@
 package com.topcoder.web.studio.controller.request.admin;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.MimeTypeDAO;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.*;
-
-import java.io.File;
-import java.io.FileOutputStream;
+import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.Document;
+import com.topcoder.web.studio.model.DocumentType;
+import com.topcoder.web.studio.model.FilePath;
+import com.topcoder.web.studio.model.MimeType;
 
 /**
  * @author dok, isv
@@ -56,10 +63,25 @@ public class AddDocument extends Base {
                 addError(Constants.DOCUMENT, "Document was empty");
             }
 
-            MimeType mt = StudioDAOUtil.getFactory().getMimeTypeDAO().find(file.getContentType());
+            MimeTypeDAO mimeTypeDAO = StudioDAOUtil.getFactory().getMimeTypeDAO();
+            MimeType mt = mimeTypeDAO.find(file.getContentType());
 
             if (mt == null) {
-                addError(Constants.SUBMISSION, "Unknown file type: " + file.getContentType());
+            	 List<MimeType> types = mimeTypeDAO.findAll();
+            	 List<String> extensions = new ArrayList<String>();
+            	 String typesMessage="";
+            	 for (MimeType mimeType : types) {
+            		 String ext = mimeType.getFileType().getExtension();
+            		 if (!extensions.contains(ext))
+            		 {
+            			 extensions.add(ext);
+            			 typesMessage+=ext + ", ";
+            		 }
+            		 
+				}
+            	 typesMessage = typesMessage.substring(0, typesMessage.length()-2);
+            	 addError(Constants.DOCUMENT, "Unknown file type: " + file.getContentType() + 
+            			 "<p> Accepted types: " + typesMessage);
             }
 
             Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
