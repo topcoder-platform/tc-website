@@ -40,6 +40,11 @@
                 <div align="center">
                     <img src="/i/hs/banner.jpg" alt="TopCoder High School" border="0">
                 </div>
+                <br />
+                <div align="center">
+                    <a href="/tc?module=Static&amp;d1=hs&amp;d2=spotlightSessions"><img src="/i/hs/spotlight_sessions_header.png" alt="Spotlight Sessions" border="0"></a>
+                </div>
+                <br />
 
                     <span class="title">TopCoder High School</span>
                     <br /><br />

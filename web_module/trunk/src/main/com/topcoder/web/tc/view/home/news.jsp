@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />09.17.08<br />3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Introducing Spotlight Sessions at TopCoder</a></span><br /><br />
+        Designed exclusively for high school students, TopCoder is excited to announce Spotlight Sessions!  Spotlight Sessions will feature some of the best role models at TopCoder in the Arena to chat with you about how they got where they are today.  This is your chance to learn from the best, pick up some great tips, and improve your skills.  Don't miss all of the great chat sessions.  The first one will be on Saturday at 11:00 a.m. EDT (GMT -4) in the TopCoder Arena before TCHS SRM 57 featuring <tc-webtag:handle coderId="10574855" context="algorithm" />.  Check out more details <a href="/tc?module=Static&amp;d1=hs&amp;d2=spotlightSessions">here</a>!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="523401" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />09.16.08<br />2:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -155,17 +168,4 @@
         <a href="/tc?module=ViewAssemblyActiveContests">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3756">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />08.29.08<br />10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/08/what_does_progr.html' refer='/tc' />">What does programming have to do with football?</a></span><br /><br />
-        The ESPN/TopCoder Winning Formula Challenge asks for algorithms to predict NCAA football scores from historical data.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/08/what_does_progr.html' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="523168" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
