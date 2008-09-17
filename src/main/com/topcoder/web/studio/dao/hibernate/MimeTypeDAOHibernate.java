@@ -1,9 +1,15 @@
 package com.topcoder.web.studio.dao.hibernate;
 
+import java.util.List;
+
+import javax.persistence.UniqueConstraint;
+
+import org.hibernate.Query;
+import org.hibernate.annotations.Check;
+
 import com.topcoder.web.common.dao.hibernate.Base;
 import com.topcoder.web.studio.dao.MimeTypeDAO;
 import com.topcoder.web.studio.model.MimeType;
-import org.hibernate.Query;
 
 /**
  * @author dok
@@ -22,5 +28,11 @@ public class MimeTypeDAOHibernate extends Base implements MimeTypeDAO {
         Query q = session.createQuery(query.toString());
         q.setString(0, description);
         return (MimeType) q.uniqueResult();
+    }
+    
+	@SuppressWarnings("unchecked")    
+	public List<MimeType> findAll()
+    {
+    	return super.findAll(MimeType.class);
     }
 }

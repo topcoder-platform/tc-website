@@ -1,5 +1,7 @@
 package com.topcoder.web.studio.dao;
 
+import java.util.List;
+
 import com.topcoder.web.studio.model.MimeType;
 
 /**
@@ -11,4 +13,6 @@ public interface MimeTypeDAO {
     MimeType find(Integer id);
 
     MimeType find(String description);
+    
+    List<MimeType> findAll();
 }
