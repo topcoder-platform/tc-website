@@ -95,7 +95,7 @@
 
 <%-- ESPN Winning Formula Challenge --%>
 <br />
-<a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />"><img src="/i/home/winformula_week2_510x64.gif" alt="ESPN Winning Formula Challenge Powered by TopCoder" /></a>
+<a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />"><img src="/i/home/winformula_preview510x54.png" alt="ESPN Winning Formula Challenge Powered by TopCoder" /></a>
 
 
 <%-- NORM Assembly Run 
