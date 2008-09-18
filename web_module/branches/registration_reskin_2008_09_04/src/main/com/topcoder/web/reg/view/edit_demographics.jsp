@@ -64,6 +64,12 @@
                                         </select>
                                     </li>
                                     <li class="form-row">
+                                        <label for="primary_interest">* How Did You Hear About TopCoder:</label>
+                                        <select name="primary_interest" id="primary_interest">
+                                            <option>Decline To Answer</option>
+                                        </select>
+                                    </li>
+                                    <li class="form-row">
                                         <label for="clubs">* Clubs/Organizations:</label>
                                         <select name="clubs" id="clubs">
                                             <option>Decline To Answer</option>

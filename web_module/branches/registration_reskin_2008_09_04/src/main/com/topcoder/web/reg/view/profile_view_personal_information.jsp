@@ -76,6 +76,14 @@
                                     <td class="field-value">Crammer</td>
                                 </tr>
                                 <tr>
+                                    <td class="field-name">Date of Birth:<br /><span>(MM/DD/YYYY)</span></td>
+                                    <td class="field-value">01/01/1989</td>
+                                </tr>
+                                <tr>
+                                    <td class="field-name">Pursuing Secondary Education:</td>
+                                    <td class="field-value">Yes</td>
+                                </tr>
+                                <tr>
                                     <td class="field-name">Address:</td>
                                     <td class="field-value">1234 Streetname</td>
                                 </tr>
@@ -109,10 +117,6 @@
                                 </tr>
                                 <tr>
                                   <td class="field-name">Email Address:</td>
-                                  <td class="field-value">ralph@mycomany.com</td>
-                              </tr>
-                                <tr>
-                                  <td class="field-name">Confirm Email Address:</td>
                                   <td class="field-value">ralph@mycomany.com</td>
                               </tr>
                                 <tr>

@@ -52,6 +52,17 @@
                                         <p class="label-description">Surname</p>
                                     </li>
                                     <li class="form-row">
+                                        <label for="address_1">* Date of Birth:</label>
+                                        <input type="text" name="dob" id="dob" size="10" value="" />
+                                        
+                                        <p class="label-description">MM/DD/YYYY</p>
+                                    </li>
+                                    <li class="form-row">
+                                      <label for="secondary_education">* Pursuing Secondary Education:</label>
+                                        <input type="radio" name="radio" id="radio" value="radio" />Yes        
+                                      <input type="radio" name="radio2" id="radio2" value="radio2" />No
+                                    </li>
+                                    <li class="form-row">
                                         <label for="address_1">* Address Line 1:</label>
                                         <input type="text" name="address_1" id="address_1" size="60" value="" />
                                         

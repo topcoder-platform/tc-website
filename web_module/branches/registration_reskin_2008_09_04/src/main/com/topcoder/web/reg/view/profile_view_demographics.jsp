@@ -85,6 +85,10 @@
                                   <td class="field-value">Creative Competition</td>
                               </tr>
                                 <tr>
+                                  <td class="field-name">How Did You Hear About TopCoder:</td>
+                                  <td class="field-value">Friend</td>
+                              </tr>
+                                <tr>
                                   <td class="field-name">Clubs/Organizations:</td>
                                   <td class="field-value">SHPE</td>
                               </tr>
