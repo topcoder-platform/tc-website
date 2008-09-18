@@ -6,7 +6,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Surveys" border="0" /><br />09.18.08<br />4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=ViewSurvey&amp;sid=28284">Fill out our survey for a chance a prize!</a></span><br /><br />
+        <a href="/tc?module=ViewSurvey&amp;sid=28284">Fill out our survey for a chance to win a prize!</a></span><br /><br />
         Want a chance to win a TopCoder prize?  Fill out this survey by September 26, 2008 and you'll be automatically entered to win!</td>
    </tr>
    <tr><td class="newsLinksCell">
