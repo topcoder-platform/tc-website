@@ -4,10 +4,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />09.18.08<br />10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/wiki/display/tc/Active+Bug+Races">TopCoder: Kills Bugs Dead</a></span><br /><br />
+        As we've mentioned, TopCoder recently began posting contests for many of our internal systems and the TopCoder Direct Cockpit, giving you the full resources of the Amazon cloud to work with. If you're not checking out the <a href="/wiki/display/tc/Active+Bug+Races">Active Bug Races</a> regularly, you're missing out on many opportunities for quick work, quick cash, and the chance to use the latest technology as we begin to put more and more on the virtual machines. Right now there are more than 75 Bug Races running for a total of over $6000 in prizes. Go get 'em!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/wiki/display/tc/Active+Bug+Races">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=623368">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />09.17.08<br />3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Introducing Spotlight Sessions at TopCoder</a></span><br /><br />
-        Designed exclusively for high school students, TopCoder is excited to announce Spotlight Sessions!  Spotlight Sessions will feature some of the best role models at TopCoder in the Arena to chat with you about how they got where they are today.  This is your chance to learn from the best, pick up some great tips, and improve your skills.  Don't miss all of the great chat sessions.  The first one will be on Saturday at 11:00 a.m. EDT (GMT -4) in the TopCoder Arena before TCHS SRM 57 featuring <tc-webtag:handle coderId="10574855" context="algorithm" />.  Check out more details <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">here</a>!</td>
+        Designed exclusively for high school students, TopCoder is excited to announce Spotlight Sessions!  Spotlight Sessions will feature some of the best role models at TopCoder in the Arena to chat with you about how they got where they are today.  This is your chance to learn from the best, pick up some great tips, and improve your skills.  Don't miss all of the great chat sessions.  The first one will be on Saturday at 11:00 a.m. EDT (GMT -4) in the TopCoder Arena before <a href="/tc?module=MatchDetails&amp;rd=13526">TCHS SRM 57</a> featuring <tc-webtag:handle coderId="10574855" context="algorithm" />.  Check out more details <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">here</a>!</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">details</a> | 
@@ -155,17 +169,4 @@
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_090308">details</a> | 
         <tc-webtag:forumLink forumID="523212" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />09.03.08<br />11:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=ViewAssemblyActiveContests">High Prizes, High DR, High Profile</a></span><br /><br />
-        Here is your chance to compete on a project to be used by <a target="_blank" href="<tc-webtag:linkTracking link='http://tree.com' refer='/tc' />">Tree.com</a> (formerly LendingTree) and see your work deployed and in production on a major website.  If you know ASP.NET and would like a chance to rewrite part of their application, register and compete on the <a href="/tc?module=ProjectDetail&amp;pj=30005128">Purchase Form</a> and/or <a href="/tc?module=ProjectDetail&amp;pj=30005129">Refinance Form</a> assembly competitions.  Registration is open until tomorrow afternoon, so sign up now!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=ViewAssemblyActiveContests">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3756">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
