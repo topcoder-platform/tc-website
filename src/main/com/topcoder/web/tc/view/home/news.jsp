@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Surveys" border="0" /><br />09.18.08<br />4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=ViewSurvey&amp;sid=28284">Fill out our survey for a chance a prize!</a></span><br /><br />
+        Want a chance to win a TopCoder prize?  Fill out this survey by September 26, 2008 and you'll be automatically entered to win!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=ViewSurvey&amp;sid=28284">details</a> | 
+        <tc-webtag:forumLink forumID="523403" message="discuss this" /> | 
+        <a href="/tc?&amp;module=SurveyList">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />09.18.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/wiki/display/tc/Active+Bug+Races">TopCoder: Kills Bugs Dead</a></span><br /><br />
@@ -157,16 +170,3 @@
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />09.03.08<br />2:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_090308">TopCoder Featured in New Book "Crowdsourcing: Why the Power of the Crowd is Driving the Future of Business"</a></span><br /><br />
-        New book from <em>Wired</em>'s Jeff Howe features TopCoder, describes the process by which the power of the many can be leveraged to accomplish feats that were once the province of the specialized few.
-</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_090308">details</a> | 
-        <tc-webtag:forumLink forumID="523212" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
