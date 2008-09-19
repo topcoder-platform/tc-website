@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss>
+  <enterprise-beans>
+    <session>
+      <ejb-name>School</ejb-name>
+      <jndi-name>com.topcoder.web.ejb.school.SchoolHome</jndi-name>
+    </session>
+      <session>
+        <ejb-name>CurrentSchool</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.school.CurrentSchoolHome</jndi-name>
+      </session>
+  </enterprise-beans>
+</jboss>
