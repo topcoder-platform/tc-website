@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />09.19.08<br />12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.cio.com/article/449523/Cool_Programmer_Challenge_Football_Algorithm_' refer='/tc' />">CIO: Cool Programmer Challenge: Football Algorithm = $50,000</a></span><br /><br />
+        ESPN plans to use the algorithm for prognostication, on-air prediction and pregame previews. That's a competitive advantage for ESPN, which can use accurate predictions to drive more viewers to their TV channels and website, points out Atwood.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.cio.com/article/449523/Cool_Programmer_Challenge_Football_Algorithm_' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="523430" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Surveys" border="0" /><br />09.18.08<br />4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=ViewSurvey&amp;sid=28284">Fill out our survey for a chance to win a prize!</a></span><br /><br />
@@ -154,19 +167,5 @@
         <a href="/tc?module=ProjectDetail&amp;pj=30005156">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=623368">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-   
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />09.04.08<br />2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2339">New Contest at TopCoder Studio – My eBay HTML Optimization!</a></span><br /><br />
-        Try your programming and design skills at this first contest in an exciting new series of competitions to optimize parts of the eBay website! The goal is to reduce page weight and above the fold render time for sections of "My eBay". The total prize purse for the contest is $1,500.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2339">details</a> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&amp;forumID=328&amp;mc=10">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
    

@@ -118,6 +118,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- CIO: Cool Programmer Challenge: Football Algorithm = $50,000 begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.cio.com/article/449523/Cool_Programmer_Challenge_Football_Algorithm_' refer='pr_index' />"><img src="/i/pressroom/ciocom_logo_1201.gif" alt="CIO" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.cio.com/article/449523/Cool_Programmer_Challenge_Football_Algorithm_' refer='pr_index' />">Cool Programmer Challenge: Football Algorithm = $50,000</a></h3>
+                        <p>ESPN plans to use the algorithm for prognostication, on-air prediction and pregame previews. That's a competitive advantage for ESPN, which can use accurate predictions to drive more viewers to their TV channels and website, points out Atwood.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.cio.com/article/449523/Cool_Programmer_Challenge_Football_Algorithm_' refer='pr_index' />">[September 19]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- CIO: Cool Programmer Challenge: Football Algorithm = $50,000 end --%>
+                
                 <%-- TopCoder &amp; Think Services Announce Dr. Dobb's Architecture &amp; Design World 2008 Software Design Contest Winner begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
@@ -264,7 +277,7 @@
                 <%-- WSJ: Keeping it Simple Pays for a Champion Coder begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a target="_blank" href="http://blogs.wsj.com/biztech/2008/05/16/keeping-it-simple-pays-for-a-champion-coder/?mod=WSJBlog"><img src="/i/pressroom/wsj_logo.gif" alt="CIO" border="0" /></a>
+                        <a target="_blank" href="http://blogs.wsj.com/biztech/2008/05/16/keeping-it-simple-pays-for-a-champion-coder/?mod=WSJBlog"><img src="/i/pressroom/wsj_logo.gif" alt="Wall Street Journal" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
                         <h3><a target="_blank" href="http://blogs.wsj.com/biztech/2008/05/16/keeping-it-simple-pays-for-a-champion-coder/?mod=WSJBlog">Keeping it Simple Pays for a Champion Coder</a></h3>
