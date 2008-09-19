@@ -219,7 +219,7 @@
                     <td class="alignRight"><strong>27</strong></td>
                 </tr>
                 <tr>
-                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=170">LA St</a></strong></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=170">LSU</a></strong></td>
                     <td class="alignRight dottedRight"><strong>21</strong></td>
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=166">Georgia</a></strong></td>
                     <td class="alignRight dottedRight"><strong>27</strong></td>
@@ -227,7 +227,7 @@
                     <td class="alignRight dottedRight"><strong>29</strong></td>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=176">Wake Forest</a></td>
                     <td class="alignRight dottedRight">21</td>
-                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=163">W VA U</a></strong></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=163">WVU</a></strong></td>
                     <td class="alignRight dottedRight"><strong>31</strong></td>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=180">Notre Dame</a></td>
                     <td class="alignRight">19</td>
