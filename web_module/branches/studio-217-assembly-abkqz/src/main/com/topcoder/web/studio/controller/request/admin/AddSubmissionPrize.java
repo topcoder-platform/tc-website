@@ -1,5 +1,8 @@
 package com.topcoder.web.studio.controller.request.admin;
 
+import java.util.Hashtable;
+
+import javax.naming.Context;
 import javax.naming.InitialContext;
 
 import com.topcoder.service.studio.StudioService;
@@ -34,7 +37,11 @@ public class AddSubmissionPrize extends Base {
             throw new NavigationException("Invalid prize Specified");
         }
         //throw new RuntimeException("AddSubmissionPrize_new: submissionId=" + submissionId + " prizeId=" + prizeId);
-        InitialContext ctx = new InitialContext();
+        Hashtable props = new Hashtable();
+        //Properties props = new Properties();
+        props.put(Context.PROVIDER_URL, "jnp://67.202.41.143:1099");
+        //props.put("java.naming.provider.url", "jnp://67.202.41.143:1099");
+        Context ctx = new InitialContext(props);
         StudioService studioService = (StudioService)ctx.lookup("StudioServiceBean/remote");
         studioService.setSubmissionPlacement(submissionId, prizeId);
         
