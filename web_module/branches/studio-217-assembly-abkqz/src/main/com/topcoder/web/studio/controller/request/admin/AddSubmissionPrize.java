@@ -36,13 +36,23 @@ public class AddSubmissionPrize extends Base {
         } else {
             throw new NavigationException("Invalid prize Specified");
         }
+        if (log.isDebugEnabled()) {
+            log.debug("AddSubmissionPrize_new: submissionId=" + submissionId + " prizeId=" + prizeId);
+        }
         //throw new RuntimeException("AddSubmissionPrize_new: submissionId=" + submissionId + " prizeId=" + prizeId);
         Hashtable props = new Hashtable();
         //Properties props = new Properties();
-        props.put(Context.PROVIDER_URL, "jnp://67.202.41.143:1099");
+        props.put(Context.PROVIDER_URL, "jnp://10.251.38.99:1099");
         //props.put("java.naming.provider.url", "jnp://67.202.41.143:1099");
         Context ctx = new InitialContext(props);
+        if (log.isDebugEnabled()) {
+            log.debug("Obtained context");
+        }
         StudioService studioService = (StudioService)ctx.lookup("StudioServiceBean/remote");
+        if (log.isDebugEnabled()) {
+            log.debug("Obtained studio service");
+        }
+        
         studioService.setSubmissionPlacement(submissionId, prizeId);
         
         setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
