@@ -84,7 +84,6 @@
 
             <h1>Standings - ${periodDesc}</h1>
 
-            <c:if test="${empty periodKey}"><p>* Overall standings will show when Mini-Season 2 starts</p></c:if>
                 <c:choose>
                     <c:when test="${periodKey == 'msi'}">
                         <div class="tab-navigation" id="inner-tab-navigation">
