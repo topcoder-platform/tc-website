@@ -162,9 +162,7 @@
                       </c:forEach>
                     </tbody>
                 </table>
-                <%--
-                <p><a href="standings.htm" class="viewLink">View Complete Standings</a></p>
-                --%>
+                <p><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewStandings" class="viewLink">View Complete Standings</a></p>
             </div>
             
             <div class="full-content">
