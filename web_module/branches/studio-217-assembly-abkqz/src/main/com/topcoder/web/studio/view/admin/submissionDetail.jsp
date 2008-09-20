@@ -200,7 +200,7 @@
 
 
                     <form action="${sessionInfo.servletPath}" method="POST" name="placedForm">
-                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AddSubmissionPrize"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AddSubmissionPrize2"/>
                         <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
 
                         <p>
