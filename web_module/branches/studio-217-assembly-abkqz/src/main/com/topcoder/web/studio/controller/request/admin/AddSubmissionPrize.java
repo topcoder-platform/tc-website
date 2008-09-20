@@ -1,5 +1,8 @@
 package com.topcoder.web.studio.controller.request.admin;
 
+import javax.naming.InitialContext;
+
+import com.topcoder.service.studio.StudioService;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
@@ -30,8 +33,14 @@ public class AddSubmissionPrize extends Base {
         } else {
             throw new NavigationException("Invalid prize Specified");
         }
-        throw new RuntimeException("AddSubmissionPrize_new: submissionId=" + submissionId + " prizeId=" + prizeId);
-		
+        //throw new RuntimeException("AddSubmissionPrize_new: submissionId=" + submissionId + " prizeId=" + prizeId);
+        InitialContext ctx = new InitialContext();
+        StudioService studioService = (StudioService)ctx.lookup("StudioServiceBean/remote");
+        studioService.setSubmissionPlacement(submissionId, prizeId);
+        
+        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
+                "=ViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + submissionId);
+        setIsNextPageInContext(false);
 	}
 	
     /*protected void submissionProcessing(Submission s, Prize p) throws Exception {
