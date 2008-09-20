@@ -1,10 +1,5 @@
 package com.topcoder.web.studio.controller.request.admin;
 
-import javax.naming.InitialContext;
-
-import sun.util.logging.resources.logging;
-
-import com.topcoder.service.studio.StudioService;
 import com.topcoder.web.admin.controller.request.Base;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
