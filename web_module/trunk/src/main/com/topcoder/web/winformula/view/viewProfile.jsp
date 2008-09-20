@@ -159,14 +159,10 @@
                              <dd><fmt:formatNumber value="${member.totalPrizes}" type="currency" currencySymbol="$"/></dd>
                          </dl>
                       </c:if>
-                      <dl>* Overall statistics will show when Mini-Season 2 starts</dl>
                   </div>
                 </div>
                 <div class="right-content">
-                    <h2>Performance vs Community
-                    <c:if test="${not empty weekStats}">
-                (${weekStats.weekName})
-            </c:if></h2>
+                    <h2>Performance vs Community</h2>
 
                     <table width="90%" border="0" cellpadding="0" cellspacing="0" class="stat">
                     <tr>
