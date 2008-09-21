@@ -53,7 +53,7 @@ public class AddSubmissionPrize extends Base {
             log.debug("Obtained studio service");
         }
         
-        studioService.setSubmissionPlacement(submissionId, prizeId);
+        //studioService.setSubmissionPlacement(submissionId, prizeId);
         
         setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
                 "=ViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + submissionId);
