@@ -28,7 +28,7 @@ import com.topcoder.shared.util.logging.Logger;
 // if (cr == null) {
 // cr = new ContestResult(s);
 // }
-// if (cr.getPlaced() == null) {
+// if (cr.getPlaced() == null) { 
 // cr.setPlaced(p.getPlace());
 // }
 // }
