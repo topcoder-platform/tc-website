@@ -42,7 +42,7 @@ public class AddSubmissionPrize extends Base {
         //throw new RuntimeException("AddSubmissionPrize_new: submissionId=" + submissionId + " prizeId=" + prizeId);
         Hashtable props = new Hashtable();
         //Properties props = new Properties();
-        props.put(Context.PROVIDER_URL, "jnp://10.251.38.99:1099");
+        props.put(Context.PROVIDER_URL, "127.0.0.1:1399");
         //props.put("java.naming.provider.url", "jnp://67.202.41.143:1099");
         Context ctx = new InitialContext(props);
         if (log.isDebugEnabled()) {
