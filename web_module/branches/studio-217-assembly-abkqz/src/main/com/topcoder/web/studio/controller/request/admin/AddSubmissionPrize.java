@@ -6,6 +6,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 
 import com.topcoder.service.studio.StudioService;
+import com.topcoder.service.studio.ejb.StudioServiceBean;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
@@ -43,12 +44,11 @@ public class AddSubmissionPrize extends Base {
         Hashtable props = new Hashtable();
         //Properties props = new Properties();
         props.put(Context.PROVIDER_URL, "127.0.0.1:1399");
-        //props.put("java.naming.provider.url", "jnp://67.202.41.143:1099");
         Context ctx = new InitialContext(props);
         if (log.isDebugEnabled()) {
             log.debug("Obtained context");
         }
-        StudioService studioService = (StudioService)ctx.lookup("StudioServiceBean/remote");
+        StudioServiceBean studioService = (StudioServiceBean)ctx.lookup("StudioServiceBean/remote");
         if (log.isDebugEnabled()) {
             log.debug("Obtained studio service");
         }
