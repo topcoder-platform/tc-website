@@ -57,6 +57,7 @@
 
         <pathelement location="${build}/ejb_jars/security.jar"/>
         <pathelement location="${build}/ejb_jars/PactsClientServices.jar"/>
+		<pathelement location="${build}/ejb_jars/studio_service-1.0.2.jar"/>
         <pathelement location="${jars.dir}/object_formatter.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
 
@@ -397,6 +398,7 @@
             </lib>
             <lib dir="${build}/ejb_jars/">
                 <include name="PactsClientServices.jar"/>
+				<include name="studio_service-1.0.2.jar"/>
             </lib>
         </war>
     </target>

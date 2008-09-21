@@ -58,7 +58,7 @@
         <pathelement location="${jars.dir}/httpunit.jar"/>
 
         <pathelement location="${build}/ejb_jars/PactsClientServices.jar"/>
-
+		<pathelement location="${build}/ejb_jars/studio_service-1.0.2.jar"/>
         <pathelement location="${jars.dir}/axis.jar"/>
 
         <pathelement location="${jive.dir}/jivebase.jar"/>
@@ -235,6 +235,7 @@
             </lib>
             <lib dir="${build}/ejb_jars/">
                 <include name="PactsClientServices.jar"/>
+				<include name="studio_service-1.0.2.jar"/>
             </lib>
         </war>
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>
