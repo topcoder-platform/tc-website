@@ -58,7 +58,7 @@
         <pathelement location="${jars.dir}/httpunit.jar"/>
 
         <pathelement location="${build}/ejb_jars/PactsClientServices.jar"/>
-		<pathelement location="${build}/ejb_jars/studio_service-1.0.2.jar"/>
+		<pathelement location="${build}/ejb_jars/studio_service.jar"/>
         <pathelement location="${jars.dir}/axis.jar"/>
 
         <pathelement location="${jive.dir}/jivebase.jar"/>
@@ -104,6 +104,93 @@
 
         <!-- only for tests -->
         <pathelement location="${external.jars.dir}/mockejb-0.6-beta2.jar"/>
+    	
+    	<!-- to be deleted -->
+    	
+        <!--<pathelement location="${jboss_lib}/jboss-saaj.jar"/>
+    	<pathelement location="${jboss_lib}/jboss-serialization"/>
+		<pathelement location="${jboss_lib}/jboss-remoting.jar"/>
+		<pathelement location="${jboss_lib}/jboss-remoting-int.jar"/>-->    	
+    	
+
+    	
+        <pathelement location="${jboss_lib}/jboss-transaction.jar"/>
+        <pathelement location="${jboss_lib}/javax.servlet.jsp.jar"/>
+    	<pathelement location="${jboss_lib}/javax.servlet.jar"/>
+        <pathelement location="${jboss_lib}/bindingservice-plugin.jar"/>
+    	<pathelement location="${jboss_lib}/jboss-backport-concurrent.jar "/>
+    	<pathelement location="${jboss_lib}/jbossha.jar"/>
+		<pathelement location="${jboss_lib}/jboss-cache.jar"/>
+		<pathelement location="${jboss_lib}/jboss-common-jdbc-wrapper.jar "/>
+		<pathelement location="${jboss_lib}/jboss-management.jar"/>
+		<pathelement location="${jboss_lib}/jboss-j2ee.jar"/>
+		<pathelement location="${jboss_lib}/jboss-jsr88.jar"/>
+		<pathelement location="${jboss_lib}/jboss-jsr77.jar"/>
+		<pathelement location="${jboss_lib}/jboss-jca.jar"/>
+		<pathelement location="${jboss_lib}/jbosssx.jar"/>
+		<pathelement location="${jboss_lib}/jboss-jaxrpc.jar "/>
+		<pathelement location="${jboss_lib}/jboss-monitoring.jar"/>
+		<pathelement location="${jboss_lib}/jmx-adaptor-plugin.jar"/>
+    	<pathelement location="${jboss_lib}/jbossretro-rt.jar"/>
+		<pathelement location="${jboss_lib}/jboss-srp.jar"/>
+		<pathelement location="${jboss_lib}/jboss.jar"/>
+    	
+    	<pathelement location="./jboss-saaj.jar"/>
+    	<pathelement location="./jboss-serialization"/>
+		<pathelement location="./jboss-remoting.jar"/>
+		<pathelement location="./jboss-remoting-int.jar"/>
+    	<pathelement location="./jboss-ejb3-client.jar"/>
+    	<pathelement location="./jboss-ejb3x.jar"/>
+    	
+    	<!--
+    	activation.jar                
+    	data_validation.jar                
+    	jai_codec-1.1.3.jar            
+    	           
+    	mail.jar
+    	antlr-2.7.6.jar               
+    	db_connection_factory.jar          
+    	jai_core-1.1.3.jar             
+    	object_formatter.jar
+    	autonumber-plugin.jar         
+    	ehcache-1.2.2.jar                  
+    	javassist.jar                  
+    	           
+    	properties-plugin.jar
+    	axis.jar                      
+    	ejb3-persistence.jar               
+    	              
+    	scheduler-plugin-example.jar
+    	bcel.jar                      
+    	file_system_server.jar             
+    	               
+    	scheduler-plugin.jar
+    	     
+    	guid_generator.jar                 
+    	 
+    	              
+    	shared.jar
+    	bsf.jar                       
+    	heartbeat.jar                      
+    	                
+    	jbossmq.jar              
+    	snmp-support.jar
+    	bsh-1.3.0.jar                 
+    	hibernate-annotations.jar          
+    	 
+    	        
+    	tcjive.jar
+    	bsh-deployer.jar              hibernate-commons-annotations.jar  jboss-hibernate.jar                         tcwebcommon.jar
+    	cglib.jar                     hibernate3.jar                                    jgroups.jar              typesafe_enum.jar
+    	commons-codec-1.3.jar         hsqldb-plugin.jar                                jivebase.jar             velocity-dep.jar
+    	commons-collections.jar       hsqldb.jar                                           jiveforums.jar           webwork.jar
+    	commons-discovery-0.2.jar     htmlparser.jar                                        wsdl4j-1.5.1.jar
+    	commons-httpclient-3.0.1.jar  ifxjdbc.jar                                        jnpserver.jar            wsdl4j.jar
+    	commons-httpclient.jar        image_manipulation-1.0.1.jar                  jpl-pattern.jar          xmlentitymgr.jar
+    	commons-logging.jar           image_overlay-1.0.0.jar                       jpl-util.jar             xwork.jar
+    	configuration_api-2.0.0.jar   image_resizing-1.0.0.jar                    log4j.jar
+    	configuration_manager.jar     ip_server.jar                                   mail-plugin.jar
+-->
 
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
@@ -144,6 +231,26 @@
         	<include name="com/topcoder/servlet/request/**"/>
         </javac>
         <property name="compile_set" value="true"/>
+    </target>
+	
+    <target name="compile_ejb" depends="compile">
+        <java classpathref="class.path"
+        	classname="com.topcoder.web.studio.controller.request.admin.AddSubmissionPrize"
+        	fork="true"
+        	jvmversion="1.5" 
+        	> 
+        	<jvmarg value="-Djava.security.auth.login.config=/home/studio/auth.conf"/>
+        </java>
+    </target>
+	
+    <target name="run_ejb">
+        <java classpathref="class.path"
+        	classname="com.topcoder.web.studio.controller.request.admin.AddSubmissionPrize"
+        	fork="true"
+        	jvmversion="1.5" 
+        	> 
+        	<jvmarg value="-Djava.security.auth.login.config=/home/studio/auth.conf"/>
+        </java>
     </target>
 
 
@@ -235,7 +342,7 @@
             </lib>
             <lib dir="${build}/ejb_jars/">
                 <include name="PactsClientServices.jar"/>
-				<include name="studio_service-1.0.2.jar"/>
+				<include name="studio_service.jar"/>
             </lib>
         </war>
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>
