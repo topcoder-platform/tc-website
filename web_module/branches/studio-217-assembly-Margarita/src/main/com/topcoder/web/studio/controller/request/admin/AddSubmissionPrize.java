@@ -16,7 +16,9 @@ import javax.naming.Context;
  */
 public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
 
+    @Override
     protected void dbProcessing() throws Exception {
+        // submission id, that will retrieved from request
         Long submissionId;
         try {
             submissionId = new Long(getRequest().getParameter(Constants.SUBMISSION_ID));
@@ -24,7 +26,8 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
             throw new NavigationException("Invalid Submission Specified");
         }
 
-        Long prizeId = null;
+        // prize id, that will retrieved from request
+        Long prizeId;
         if (!"".equals(StringUtils.checkNull(getRequest().getParameter(Constants.PRIZE_ID)))) {
             try {
                 prizeId = new Long(getRequest().getParameter(Constants.PRIZE_ID));
@@ -35,27 +38,20 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
             throw new NavigationException("Invalid prize Specified");
         }
         if (log.isDebugEnabled()) {
-            log.debug("got prize: " + prizeId);
+            log.debug("submission id: " + submissionId + " got prize: " + prizeId);
         }
 
+        // get context to Cockpit Jboss Instance.
         Context context = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
-        log.debug("got context");
-
-        StudioService studioService = (StudioService)context.lookup("StudioServiceBean/remote");
-        studioService.setSubmissionPlacement(submissionId, prizeId);
-        /*submissionProcessing(submission, p);
-            }
-            try {
-                HashSet<String> cachedStuff = new HashSet<String>();
-                cachedStuff.add(Constants.CONTEST_ID + "=" + submission.getContest().getId().toString());
-                cachedStuff.add("studio_home_data");
-                CacheClearer.removelike(cachedStuff);
-            } catch (Exception ignore) {
-                ignore.printStackTrace();
-            }
-
+        // get remote StudioServiceBean
+        StudioService studioService = (StudioService) context.lookup("StudioServiceBean/remote");
+        if (log.isDebugEnabled()) {
+            log.debug("got remote StudioServiceBean");
         }
-        */
+        // execute needed logic
+        studioService.setSubmissionPlacement(submissionId, prizeId);
+
+        // redirect
         setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=ViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + submissionId);
         setIsNextPageInContext(false);
     }
