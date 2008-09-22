@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />09.22.08<br />6:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20080920' refer='/tc' />">Spotlight Session with Petr Chat Transcript</a></span><br /><br />
+        Before <a href="/tc?module=MatchDetails&amp;rd=13526">TCHS SRM 57</a>, the first of our Spotlight Sessions took place with <tc-webtag:handle coderId="10574855" context="algorithm" />.  If you missed this educational and motivational chat session, be sure to check out the <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20080920' refer='/tc' />">chat transcript</a>.  Don't miss the rest of the <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Spotlight Sessions</a> coming up!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20080920' refer='/tc' />">details</a> | 
+        <tc-webtag:forumLink forumID="523401" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />09.19.08<br />12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a target="_blank" href="<tc-webtag:linkTracking link='http://www.cio.com/article/449523/Cool_Programmer_Challenge_Football_Algorithm_' refer='/tc' />">CIO: Cool Programmer Challenge: Football Algorithm = $50,000</a></span><br /><br />
@@ -154,18 +167,5 @@
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2343">details</a> | 
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&amp;forumID=332">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />09.05.08<br />4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=ProjectDetail&amp;pj=30005156">Supercharge the TC Platform!</a></span><br /><br />
-        TopCoder is competition-sourcing more and more of its internal systems and famous competition development platform to our community.  This means opening up the architecture design, component design, development and bug fixing to you.  Many new projects like Cockpit and Control Panel are strategic efforts destined to provide many opportunities for you to make money and garner new skills.  In addition, you'll use new cutting edge tools like Amazon's EC2 Virtual Machines as part of your development efforts.  There are competitions and bug races running right now that you can participate in. Don't miss these opportunities to get ahead of the curve!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=ProjectDetail&amp;pj=30005156">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=623368">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
    
