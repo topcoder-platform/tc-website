@@ -44,7 +44,7 @@
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
         <pathelement location="${jars.dir}/activation.jar"/>
 
-    	<pathelement location="${jboss_lib}/jboss-ejb3-client.jar"/>
+    	<pathelement location="${jars.dir}/jboss/jboss-ejb3-client.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
         <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
