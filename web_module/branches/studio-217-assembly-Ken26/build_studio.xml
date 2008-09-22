@@ -54,6 +54,8 @@
         <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
         <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
         <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
+    	<pathelement location="${jars.dir}/jboss/jboss-ejb3x.jar"/>
+    	
         <pathelement location="${jars.dir}/httpunit.jar"/>
 
         <pathelement location="${build}/ejb_jars/PactsClientServices.jar"/>
@@ -295,6 +297,8 @@
     </target>
 
     <target name="expand-studio">
+    	<copy todir="${jboss_lib}" file="${jars.dir}/jboss/jboss-ejb3x.jar"/>
+    	
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcjive.jar"/>
