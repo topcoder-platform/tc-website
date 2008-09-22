@@ -44,10 +44,19 @@ public class AddSubmissionPrize extends Base {
 			env.setProperty(Context.SECURITY_PRINCIPAL, "heffan");
 			env.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
 			env.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces");
-			InitialContext ctx = new InitialContext(env);
-			// Look up the EJB
-			StudioService service = (StudioService) ctx.lookup("StudioServiceBean/remote");
-			System.out.println("SERVICE FOUND: " + service);
+			
+			StudioService service = null;
+			try {
+				InitialContext ctx = new InitialContext(env);
+				service = (StudioService) ctx.lookup("StudioServiceBean/remote");
+				System.out.println("SERVICE FOUND: " + service);
+			} catch (Exception e) {
+				System.out.println("SERVICE NOT FOUND: " + service);
+				System.out.println("Exception: " + e.getMessage());
+				e.printStackTrace();
+			}
+			
+			
 		}
 	
 	protected static final Logger log = Logger.getLogger(AddSubmissionPrize.class);
