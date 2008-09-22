@@ -177,22 +177,12 @@
         <property name="compile_set" value="true"/>
     </target>
 	
-    <target name="compile_ejb" depends="compile">
-        <java classpathref="class.path"
-        	classname="com.topcoder.web.studio.controller.request.admin.AddSubmissionPrize"
-        	fork="true"
-        	jvmversion="1.5" 
-        	> 
-        	<jvmarg value="-Djava.security.auth.login.config=/home/studio/web/auth.conf"/>
-        </java>
-    </target>
-	
     <target name="run_ejb">
         <java classpathref="class.path"
         	classname="com.topcoder.web.studio.controller.request.admin.AddSubmissionPrize"
         	fork="true"
         	jvmversion="1.5">
-        	<jvmarg value="-Djboss.remoting.version=4"/>
+        	<!-- <jvmarg value="-Djboss.remoting.version=4"/> -->
         	<jvmarg value="-Djava.security.auth.login.config=/home/studio/web/auth.conf"/>
         </java>
     </target>
