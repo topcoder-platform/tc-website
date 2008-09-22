@@ -129,12 +129,12 @@
 		<pathelement location="${jboss_lib}/jboss-srp.jar"/>
 		<pathelement location="${jboss_lib}/jboss.jar"/>
     	
-    	<pathelement location="./jboss-saaj.jar"/>
-    	<pathelement location="./jboss-ejb3-client.jar"/>
-    	<pathelement location="./jboss-ejb3x.jar"/>
-    	<pathelement location="./jboss-serialization.jar"/>
-		<pathelement location="./jboss-remoting.jar"/>
-		<pathelement location="./jboss-remoting-int.jar"/>
+    	<pathelement location="${jboss_lib}/jboss-saaj.jar"/>
+    	<pathelement location="${jboss_lib}/jboss-ejb3-client.jar"/>
+    	<pathelement location="${jboss_lib}/jboss-ejb3x.jar"/>
+    	<pathelement location="${jboss_lib}/jboss-serialization.jar"/>
+		<pathelement location="${jboss_lib}/jboss-remoting.jar"/>
+		<pathelement location="${jboss_lib}/jboss-remoting-int.jar"/>
     	
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
