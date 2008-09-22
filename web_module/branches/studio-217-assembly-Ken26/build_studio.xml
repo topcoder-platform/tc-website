@@ -107,7 +107,7 @@
     	<!-- to be deleted -->
     	
         <!-- <pathelement location="${jboss_lib}/jboss-saaj.jar"/> -->
-    	<!--
+    	
         <pathelement location="${jboss_lib}/jboss-transaction.jar"/>
         <pathelement location="${jboss_lib}/javax.servlet.jsp.jar"/>
     	<pathelement location="${jboss_lib}/javax.servlet.jar"/>
@@ -129,7 +129,7 @@
 		<pathelement location="${jboss_lib}/jboss-srp.jar"/>
 		<pathelement location="${jboss_lib}/jboss.jar"/>
     	
-    	<pathelement location="./jboss-saaj.jar"/>
+    	<!--<pathelement location="./jboss-saaj.jar"/>
     	<pathelement location="./jboss-serialization"/>
 		<pathelement location="./jboss-remoting.jar"/>
 		<pathelement location="./jboss-remoting-int.jar"/>
