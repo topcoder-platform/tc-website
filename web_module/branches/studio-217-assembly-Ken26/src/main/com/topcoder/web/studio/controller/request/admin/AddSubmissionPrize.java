@@ -27,7 +27,7 @@ import com.topcoder.shared.util.logging.Logger;
 // if (cr == null) {
 // cr = new ContestResult(s);
 // }
-// if (cr.getPlaced() == null) { 
+// if (cr.getPlaced() == null) {
 // cr.setPlaced(p.getPlace());
 // }
 // }
@@ -35,104 +35,125 @@ import com.topcoder.shared.util.logging.Logger;
 // }
 public class AddSubmissionPrize extends Base {
 
-		public static void main(String args[]) throws Exception {
-			Properties env = new Properties();
-			// Try with a login that should succeed
-			env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialContextFactory");
-			env.setProperty(Context.PROVIDER_URL, "jnp://localhost:1399");
-			env.setProperty(Context.SECURITY_CREDENTIALS, "password");
-			env.setProperty(Context.SECURITY_PRINCIPAL, "heffan");
-			env.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
-			env.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces");
-			
-			StudioService service = null;
-			try {
-				InitialContext ctx = new InitialContext(env);
-				service = (StudioService) ctx.lookup("StudioServiceBean/remote");
-				System.out.println("SERVICE FOUND: " + service);
-			} catch (Exception e) {
-				System.out.println("SERVICE NOT FOUND: " + service);
-				System.out.println("Exception: " + e.getMessage());
-				e.printStackTrace();
-			}
-			
-			
-		}
-	
-	protected static final Logger log = Logger.getLogger(AddSubmissionPrize.class);
+	public static void main(String args[]) throws Exception {
+		processLookup();
+	}
 
-	protected void dbProcessing() throws Exception {
+	protected static void processLookup() {
+		Properties env = new Properties();
+		// env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+		// "org.jnp.interfaces.NamingContextFactory");
+		// env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+		// "org.jboss.security.jndi.LoginInitialContextFactory");
+		env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.JndiLoginInitialContextFactory");
+		env.setProperty(Context.PROVIDER_URL, "jnp://localhost:1399");
+		env.setProperty(Context.SECURITY_CREDENTIALS, "password");
+		env.setProperty(Context.SECURITY_PRINCIPAL, "heffan");
+		env.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
+		env.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces");
 
-//		 Properties env = new Properties(); // Try with a login that should succeed
-//		 env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialContextFactory");
-//		 env.setProperty(Context.PROVIDER_URL, "jnp://localhost:1099/");
-//		 env.setProperty(Context.SECURITY_CREDENTIALS, "cat");
-//		 env.setProperty(Context.SECURITY_PRINCIPAL, "userA");
-//		 env.setProperty(Context.SECURITY_PROTOCOL, "JBossLoginModuleDemoDomain");
-//		 InitialContext ctx = new InitialContext(env); // Look up the EJB JBossLoginDemoHome
-//		 // Use the JBossLoginDemoHome to create a JBossLoginDemo
-//		 ejbHome = (JBossLoginDemoHome) ctx.lookup("demo/JBossLoginDemoEJB");
-//		 JBossLoginDemo ejbObject = ejbHome.create(); // Request the EJBs service.
-//		 System.out.println("Server: " + ejbObject.sayHello1());
-		
-		
-//		TCResourceBundle bundle = new TCResourceBundle("ApplicationServer");
-//		bundle.getProperty("STUDIO_SERVER_NAME", "studio.dev.topcoder.com");
-
-		
-//        try {
-//            Properties prop = new XProperties();
-//            java.io.InputStream in = new java.io.FileInputStream("Sample.properties");
-//            prop.load(in);
-//            env.put(javax.naming.Context.INITIAL_CONTEXT_FACTORY, prop.getProperty("JNDI_FACTORY"));
-//            env.put(javax.naming.Context.PROVIDER_URL, prop.getProperty("PACTS_HOST_URL"));
-//            env.put(Context.URL_PKG_PREFIXES, "jboss.naming:org.jnp.interfaces");
-//        } catch (java.io.FileNotFoundException exception1) {
-//            log.error("Error locating properties file for Pacts context");
-//        } catch (java.io.IOException exception2) {
-//            log.error("Error reading properties file for Pacts context");
-//        } catch (java.lang.Exception exception3) {
-//            log.error("Error getting context for Pacts");
-//        }		
-		
-//		 Hashtable<String, String> env = new Hashtable<String, String>();
-//		 env.put("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory");
-//		 env.put("java.naming.factory.initial", "org.jboss.security.jndi.JndiLoginInitialContextFactory");		 
-//		 env.put("java.naming.provider.url", "jnp://localhost:1399");
-//		 env.put("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");
-//		 env.put(Context.SECURITY_PRINCIPAL, "heffan");
-//		 env.put(Context.SECURITY_CREDENTIALS, "password");
-
-		 Properties env = new Properties();
-		 env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialContextFactory");
-		 //env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.JndiLoginInitialContextFactory");
-		 //env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-		 env.setProperty(Context.PROVIDER_URL, "jnp://localhost:1399");
-		 env.setProperty(Context.SECURITY_PRINCIPAL, "heffan");
-		 env.setProperty(Context.SECURITY_CREDENTIALS, "password");
-		 env.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
-		 env.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces");
-		 
 		StudioService service = null;
-		Context ctx = null;
-//		Hashtable<String, String> env = new Hashtable<String, String>();
-//		env.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-//		env.put(Context.PROVIDER_URL, "jnp://127.0.0.1:1399");
-//		env.put(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces");
-
 		try {
-			ctx = new InitialContext(env);
-			//Context ctx = TCContext.getInitial("jnp://localhost:1399");
-			log.debug("Context created...");
-			log.debug("ctx = "+ctx.toString());
+			InitialContext ctx = new InitialContext(env);
 			service = (StudioService) ctx.lookup("StudioServiceBean/remote");
-			//service = (StudioService) ctx.lookup("cockpit/CockpitEJB");
-			log.debug("StudioService FOUND ! : " + service);
-			// service.setSubmissionPlacement(s.getId(), long prizeId);
-		}  catch (Exception e) {
+			System.out.println("SERVICE FOUND: " + service);
+		} catch (Exception e) {
 			System.out.println("SERVICE NOT FOUND: " + service);
 			System.out.println("Exception: " + e.getMessage());
 			e.printStackTrace();
 		}
+	}
+
+	protected static final Logger log = Logger
+			.getLogger(AddSubmissionPrize.class);
+
+	protected void dbProcessing() throws Exception {
+		processLookup();
+		// Properties env = new Properties(); // Try with a login that should
+		// succeed
+		// env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+		// "org.jboss.security.jndi.LoginInitialContextFactory");
+		// env.setProperty(Context.PROVIDER_URL, "jnp://localhost:1099/");
+		// env.setProperty(Context.SECURITY_CREDENTIALS, "cat");
+		// env.setProperty(Context.SECURITY_PRINCIPAL, "userA");
+		// env.setProperty(Context.SECURITY_PROTOCOL,
+		// "JBossLoginModuleDemoDomain");
+		// InitialContext ctx = new InitialContext(env); // Look up the EJB
+		// JBossLoginDemoHome
+		// // Use the JBossLoginDemoHome to create a JBossLoginDemo
+		// ejbHome = (JBossLoginDemoHome) ctx.lookup("demo/JBossLoginDemoEJB");
+		// JBossLoginDemo ejbObject = ejbHome.create(); // Request the EJBs
+		// service.
+		// System.out.println("Server: " + ejbObject.sayHello1());
+
+		// TCResourceBundle bundle = new TCResourceBundle("ApplicationServer");
+		// bundle.getProperty("STUDIO_SERVER_NAME", "studio.dev.topcoder.com");
+
+		// try {
+		// Properties prop = new XProperties();
+		// java.io.InputStream in = new
+		// java.io.FileInputStream("Sample.properties");
+		// prop.load(in);
+		// env.put(javax.naming.Context.INITIAL_CONTEXT_FACTORY,
+		// prop.getProperty("JNDI_FACTORY"));
+		// env.put(javax.naming.Context.PROVIDER_URL,
+		// prop.getProperty("PACTS_HOST_URL"));
+		// env.put(Context.URL_PKG_PREFIXES, "jboss.naming:org.jnp.interfaces");
+		// } catch (java.io.FileNotFoundException exception1) {
+		// log.error("Error locating properties file for Pacts context");
+		// } catch (java.io.IOException exception2) {
+		// log.error("Error reading properties file for Pacts context");
+		// } catch (java.lang.Exception exception3) {
+		// log.error("Error getting context for Pacts");
+		// }
+
+		// Hashtable<String, String> env = new Hashtable<String, String>();
+		// env.put("java.naming.factory.initial",
+		// "org.jnp.interfaces.NamingContextFactory");
+		// env.put("java.naming.factory.initial",
+		// "org.jboss.security.jndi.JndiLoginInitialContextFactory");
+		// env.put("java.naming.provider.url", "jnp://localhost:1399");
+		// env.put("java.naming.factory.url.pkgs",
+		// "org.jboss.naming:org.jnp.interfaces");
+		// env.put(Context.SECURITY_PRINCIPAL, "heffan");
+		// env.put(Context.SECURITY_CREDENTIALS, "password");
+		//
+		// Properties env = new Properties();
+		// //env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+		// "org.jboss.security.jndi.LoginInitialContextFactory");
+		// env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+		// "org.jboss.security.jndi.JndiLoginInitialContextFactory");
+		// //env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+		// "org.jnp.interfaces.NamingContextFactory");
+		// env.setProperty(Context.PROVIDER_URL, "jnp://localhost:1399");
+		// env.setProperty(Context.SECURITY_PRINCIPAL, "heffan");
+		// env.setProperty(Context.SECURITY_CREDENTIALS, "password");
+		// env.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
+		// env.setProperty(Context.URL_PKG_PREFIXES,
+		// "org.jboss.naming:org.jnp.interfaces");
+		//		 
+		// StudioService service = null;
+		// Context ctx = null;
+		// // Hashtable<String, String> env = new Hashtable<String, String>();
+		// // env.put(Context.INITIAL_CONTEXT_FACTORY,
+		// "org.jnp.interfaces.NamingContextFactory");
+		// // env.put(Context.PROVIDER_URL, "jnp://127.0.0.1:1399");
+		// // env.put(Context.URL_PKG_PREFIXES,
+		// "org.jboss.naming:org.jnp.interfaces");
+		//
+		// try {
+		// ctx = new InitialContext(env);
+		// //Context ctx = TCContext.getInitial("jnp://localhost:1399");
+		// log.debug("Context created...");
+		// log.debug("ctx = "+ctx.toString());
+		// service = (StudioService) ctx.lookup("StudioServiceBean/remote");
+		// //service = (StudioService) ctx.lookup("cockpit/CockpitEJB");
+		// log.debug("StudioService FOUND ! : " + service);
+		// // service.setSubmissionPlacement(s.getId(), long prizeId);
+		// } catch (Exception e) {
+		// System.out.println("SERVICE NOT FOUND: " + service);
+		// System.out.println("Exception: " + e.getMessage());
+		// e.printStackTrace();
+		// }
 	}
 }
