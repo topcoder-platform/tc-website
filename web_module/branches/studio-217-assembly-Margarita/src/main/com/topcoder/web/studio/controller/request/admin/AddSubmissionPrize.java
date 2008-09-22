@@ -1,15 +1,13 @@
 package com.topcoder.web.studio.controller.request.admin;
 
+import com.topcoder.service.studio.StudioService;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
 
 import javax.naming.Context;
-import javax.naming.InitialContext;
-import java.util.HashSet;
-
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.TCContext;
 
 /**
  * @author dok
@@ -42,8 +40,9 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
 
         Context context = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
         log.debug("got context");
-        //Context ctx = new InitialContext();
-        //StudioServiceBean studioServiceBean = (StudioServiceBean)context.lookup("");
+
+        StudioService studioService = (StudioService)context.lookup("StudioServiceBean/remote");
+        studioService.setSubmissionPlacement(submissionId, prizeId);
         /*submissionProcessing(submission, p);
             }
             try {
@@ -56,9 +55,9 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
             }
 
         }
-
-        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=ViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + submission.getId());
-        setIsNextPageInContext(false);*/
+        */
+        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=ViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + submissionId);
+        setIsNextPageInContext(false);
     }
 
     /*protected void submissionProcessing(Submission s, Prize p) throws Exception {
