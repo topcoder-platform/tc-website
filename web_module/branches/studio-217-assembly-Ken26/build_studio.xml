@@ -196,7 +196,7 @@
         	fork="true"
         	jvmversion="1.5" 
         	> 
-        	<jvmarg value="-Djava.security.auth.login.config=/home/studio/auth.conf"/>
+        	<jvmarg value="-Djava.security.auth.login.config=/home/studio/web/auth.conf"/>
         </java>
     </target>
 
