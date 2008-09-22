@@ -40,8 +40,13 @@
                 <div align="center">
                     <img src="/i/hs/banner.jpg" alt="TopCoder High School" border="0">
                 </div>
+                <div style="float: right;">
+                <h3 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h3>
+                    <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20080920">TCHS SRM 57: Spotlight Session with <tc-webtag:handle coderId="10574855" context="algorithm" /></a></strong><br />
+                    <span style="text-decoration:none;"><tc-webtag:forumLink forumID="523401" message="Discuss this" /></span>
+                </div>
+                <br /><br />
 
-                <br />
                 <p style="font-family:lucida sans"><span class="title">Spotlight Sessions</span></p>
                 <p style="font:12px lucida sans;">TopCoder is proud to present a new series for high school students. Join the new <span style="font:18px lucida sans;">Spotlight Sessions</span> in the Arena.</p>
                 <p style="font:12px lucida sans;">Have you ever wondered what it feels like to be a <span style="font:18px lucida sans;">TopCoder champion</span>?  Is there a problem that you always wanted to ask the pros at TopCoder about but never had the right forum for it?  Did you ever just want to get to know your superiors and learn some <span style="font:18px lucida sans;">valuable tips</span> that can help your future?</p>
