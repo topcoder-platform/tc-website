@@ -51,12 +51,14 @@ public class AddSubmissionPrize extends Base {
 		env.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces");
 
 		StudioService service = null;
+		Object o = null;
 		try {
 			InitialContext ctx = new InitialContext(env);
-			service = (StudioService) ctx.lookup("StudioServiceBean/remote");
-			System.out.println("SERVICE FOUND: " + service);
+			//service = (StudioService) ctx.lookup("StudioServiceBean/remote");
+			o = (Object) ctx.lookup("StudioServiceBean/remote");
+			System.out.println("SERVICE FOUND: " + o);
 		} catch (Exception e) {
-			System.out.println("SERVICE NOT FOUND: " + service);
+			System.out.println("SERVICE NOT FOUND: " + o);
 			System.out.println("Exception: " + e.getMessage());
 			e.printStackTrace();
 		}
