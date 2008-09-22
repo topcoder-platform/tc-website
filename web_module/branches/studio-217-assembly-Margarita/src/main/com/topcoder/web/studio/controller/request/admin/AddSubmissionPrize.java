@@ -8,6 +8,8 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
 
 import javax.naming.Context;
+import javax.naming.InitialContext;
+import java.util.Properties;
 
 /**
  * @author dok
@@ -41,8 +43,16 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
             log.debug("submission id: " + submissionId + " got prize: " + prizeId);
         }
 
+        final Properties p = new Properties();
+        p.setProperty(Context.SECURITY_PRINCIPAL, "user");
+        p.setProperty(Context.SECURITY_CREDENTIALS, "password");
+        p.setProperty(Context.INITIAL_CONTEXT_FACTORY, ApplicationServer.JNDI_FACTORY);
+        p.setProperty(Context.PROVIDER_URL, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
+
+        Context context = new InitialContext(p);
+
         // get context to Cockpit Jboss Instance.
-        Context context = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
+        //Context context = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
         // get remote StudioServiceBean
         StudioService studioService = (StudioService) context.lookup("StudioServiceBean/remote");
         if (log.isDebugEnabled()) {
