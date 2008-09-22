@@ -55,10 +55,10 @@ public class AddSubmissionPrize extends Base {
 		try {
 			InitialContext ctx = new InitialContext(env);
 			//service = (StudioService) ctx.lookup("StudioServiceBean/remote");
-			o = (Object) ctx.lookup("StudioServiceBean/remote");
-			System.out.println("SERVICE FOUND: " + o);
+			service = (StudioService) ctx.lookup("StudioServiceBean/remote");
+			System.out.println("SERVICE FOUND: " + service);
 		} catch (Exception e) {
-			System.out.println("SERVICE NOT FOUND: " + o);
+			System.out.println("SERVICE NOT FOUND: " + service);
 			System.out.println("Exception: " + e.getMessage());
 			e.printStackTrace();
 		}
