@@ -123,14 +123,16 @@ public class AddSubmissionPrize extends Base {
 		try {
 			ctx = new InitialContext(env);
 			//Context ctx = TCContext.getInitial("jnp://localhost:1399");
-			log.debug("****Context created...");
+			log.debug("Context created...");
 			log.debug("ctx = "+ctx.toString());
 			service = (StudioService) ctx.lookup("StudioServiceBean/remote");
 			//service = (StudioService) ctx.lookup("cockpit/CockpitEJB");
-			log.debug("****StudioService FOUND ! : " + service);
+			log.debug("StudioService FOUND ! : " + service);
 			// service.setSubmissionPlacement(s.getId(), long prizeId);
-		} catch (NamingException e) {
-			log.error("****StudioService NOT FOUND ! : " + e.getMessage());
+		}  catch (Exception e) {
+			System.out.println("SERVICE NOT FOUND: " + service);
+			System.out.println("Exception: " + e.getMessage());
+			e.printStackTrace();
 		}
 	}
 }
