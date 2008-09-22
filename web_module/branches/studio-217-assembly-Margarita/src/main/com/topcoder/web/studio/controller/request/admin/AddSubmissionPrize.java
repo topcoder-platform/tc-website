@@ -1,6 +1,5 @@
 package com.topcoder.web.studio.controller.request.admin;
 
-import com.topcoder.service.studio.ejb.StudioServiceBean;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
