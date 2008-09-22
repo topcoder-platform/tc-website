@@ -40,7 +40,7 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
             log.debug("got prize: " + prizeId);
         }
 
-        Context context = TCContext.getContext(ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
+        Context context = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
         log.debug("got context");
         //Context ctx = new InitialContext();
         //StudioServiceBean studioServiceBean = (StudioServiceBean)context.lookup("");
