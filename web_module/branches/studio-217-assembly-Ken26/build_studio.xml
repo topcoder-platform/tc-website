@@ -297,7 +297,7 @@
     </target>
 
     <target name="expand-studio">
-    	<copy todir="${jboss_lib}" file="${jars.dir}/jboss/jboss-ejb3x.jar"/>
+    	<!-- <copy todir="${jboss_lib}" file="${jars.dir}/jboss/jboss-ejb3x.jar"/> -->
     	
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
@@ -345,12 +345,11 @@
         <copy todir="${jboss_lib}" file="${external.jars.dir}/jai_codec-1.1.3.jar"/>
         <copy todir="${jboss_lib}" file="${external.jars.dir}/jai_core-1.1.3.jar"/>
 
-
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
-        <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
         <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
-
+    	<copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
+    		
         <copy todir="${jboss_conf}" file="${resources}/forums/studio/jive_init.xml"/>
         <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/ApplicationServer.properties"/>
