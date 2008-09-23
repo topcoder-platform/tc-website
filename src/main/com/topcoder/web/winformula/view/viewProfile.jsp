@@ -164,10 +164,10 @@
                   --%>
                   <table width="90%" border="0" cellpadding="0" cellspacing="0" class="stat">
                     <tr>
-                      <td width="50%"><strong>Member Name:</strong></td>
-                      <td width="50%">Handle</td>
+                      <td width="55%"><strong>Member Name:</strong></td>
+                      <td width="45%">Handle</td>
                     </tr>
-                    <tr class="dark">
+                    <tr>
                       <td><strong>Overall Rank:</strong></td>
                       <td>Rank</td>
                     </tr>
@@ -175,7 +175,7 @@
                       <td><strong>Points:</strong></td>
                       <td>Points</td>
                     </tr>
-                    <tr class="dark">
+                    <tr>
                       <td><strong>Highest Overall Rank:</strong></td>
                       <td>Rank</td>
                     </tr>
@@ -183,7 +183,7 @@
                       <td><strong>Highest Weekly Rank:</strong></td>
                       <td>Rank</td>
                     </tr>
-                    <tr class="dark">
+                    <tr>
                       <td><strong>Win Percentage:</strong></td>
                       <td>Win %</td>
                     </tr>
@@ -195,7 +195,7 @@
                           Regalo 4
                       </td>
                     </tr>
-                    <tr class="dark">
+                    <tr>
                       <td><strong>Total Prizes/Awards Won:</strong></td>
                       <td>Regalos</td>
                     </tr>
