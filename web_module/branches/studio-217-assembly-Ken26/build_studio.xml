@@ -36,6 +36,7 @@
 
     <path id="class.path">
     	<!-- PREPENDED JBOSS 4.2 libraries -->
+    	<pathelement location="${jars.dir}/jboss-add/kenichi_service.jar"/>
     	<!--
     	<pathelement location="${jars.dir}/jboss-add/jaxb-api.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jaxws-api.jar"/>
@@ -45,7 +46,7 @@
     	<pathelement location="${jars.dir}/jboss-add/jbossall-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jbosssx.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/log4j.jar"/>
-    	<pathelement location="${jars.dir}/jboss-add/kenichi_service.jar"/>
+    	
     	
     	
     	<pathelement location="${jars.dir}/jboss-add/jboss-aspect-jdk50-client.jar"/>
