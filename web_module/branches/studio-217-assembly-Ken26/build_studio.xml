@@ -38,6 +38,7 @@
     	<!-- PREPENDED JBOSS 4.2 libraries -->
     	<pathelement location="${jars.dir}/jboss-add/kenichi_service.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-ejb3-client.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jboss-ejb3x.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-aop-jdk50-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-aspect-jdk50-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-remoting.jar"/>
@@ -316,6 +317,7 @@
             <lib dir="${jars.dir}/jboss-add/">
             	<include name="kenichi_service.jar"/>
             	<include name="jboss-ejb3-client.jar"/>
+            	<include name="jboss-ejb3x.jar"/>            	
             	<include name="jboss-aop-jdk50-client.jar"/>
             	<include name="jboss-aspect-jdk50-client.jar"/>
             	<include name="jboss-remoting.jar"/>
