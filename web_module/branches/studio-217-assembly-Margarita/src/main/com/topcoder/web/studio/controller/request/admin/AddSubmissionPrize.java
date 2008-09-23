@@ -54,8 +54,8 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
         InitialContext ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
         log.debug("got context");
 
-        //StudioService studioService = (StudioService)context.lookup("StudioServiceBean/remote");
-	 StudioService studioService = (StudioService)createEJB(ctx, StudioService.class);
+        StudioService studioService = (StudioService)context.lookup("StudioServiceBean/remote");
+	 //StudioService studioService = (StudioService)createEJB(ctx, StudioService.class);
         if (log.isDebugEnabled()) {
             log.debug("got remote StudioServiceBean");
         }
