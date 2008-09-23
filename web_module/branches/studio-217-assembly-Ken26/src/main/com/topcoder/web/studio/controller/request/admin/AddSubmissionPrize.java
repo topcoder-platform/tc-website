@@ -39,7 +39,6 @@ public class AddSubmissionPrize extends Base {
 	public static void main(String args[]) throws Exception {
 		processLookup();
 	}
-	//-2711693270411201590
 	protected static void processLookup() {
 		Properties env = new Properties();
 		// env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
@@ -52,19 +51,16 @@ public class AddSubmissionPrize extends Base {
 		env.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces");
 
 		StudioService service = null;
-		Object o = null;
 		try {
 			InitialContext ctx = new InitialContext(env);
-			//service = (StudioService) ctx.lookup("StudioServiceBean/remote");
 			service = (StudioService) ctx.lookup("StudioServiceBean/remote");
+			System.out.println("SERVICE FOUND: " + service);
 			List<ContestData> list = service.getAllContests();
 			System.out.println("total contest retrieved: " + list.size());
 			for (ContestData c : list) {
 				System.out.println("contest = " + c);
 			}
-			System.out.println("SERVICE FOUND: " + service);
 		} catch (Exception e) {
-			System.out.println("SERVICE NOT FOUND: " + service);
 			System.out.println("Exception: " + e.getMessage());
 			e.printStackTrace();
 		}
