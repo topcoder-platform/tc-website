@@ -41,69 +41,92 @@ public class AddSubmissionPrize extends Base {
 	public static void main(String args[]) throws Exception {
 		processLookup();
 	}
+
 	protected static void processLookup() {
-//		Properties env = new Properties();
-//		env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-//		//env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialContextFactory");
-//		//env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.JndiLoginInitialContextFactory");
-//		env.setProperty(Context.PROVIDER_URL, "jnp://localhost:1399");
-//		//env.setProperty(Context.SECURITY_CREDENTIALS, "password");
-//		//env.setProperty(Context.SECURITY_PRINCIPAL, "heffan");
-//		//env.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
-//		env.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces");
-//
-//		StudioService service = null;
-//		try {
-//			InitialContext ctx = new InitialContext(env);
-//			service = (StudioService) ctx.lookup("StudioServiceBean/remote");
-//			System.out.println("SERVICE FOUND: " + service);
-//			List<ContestData> list = service.getAllContests();
-//			System.out.println("total contest retrieved: " + list.size());
-//			for (ContestData c : list) {
-//				System.out.println("contest = " + c);
-//			}
-//		} catch (Exception e) {
-//			System.out.println("Exception: " + e.getMessage());
-//			e.printStackTrace();
-//		}
-		
+		// Properties env = new Properties();
+		// env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+		// "org.jnp.interfaces.NamingContextFactory");
+		// //env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+		// "org.jboss.security.jndi.LoginInitialContextFactory");
+		// //env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+		// "org.jboss.security.jndi.JndiLoginInitialContextFactory");
+		// env.setProperty(Context.PROVIDER_URL, "jnp://localhost:1399");
+		// //env.setProperty(Context.SECURITY_CREDENTIALS, "password");
+		// //env.setProperty(Context.SECURITY_PRINCIPAL, "heffan");
+		// //env.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
+		// env.setProperty(Context.URL_PKG_PREFIXES,
+		// "org.jboss.naming:org.jnp.interfaces");
+		//
+		// StudioService service = null;
+		// try {
+		// InitialContext ctx = new InitialContext(env);
+		// service = (StudioService) ctx.lookup("StudioServiceBean/remote");
+		// System.out.println("SERVICE FOUND: " + service);
+		// List<ContestData> list = service.getAllContests();
+		// System.out.println("total contest retrieved: " + list.size());
+		// for (ContestData c : list) {
+		// System.out.println("contest = " + c);
+		// }
+		// } catch (Exception e) {
+		// System.out.println("Exception: " + e.getMessage());
+		// e.printStackTrace();
+		// }
+		StudioService service = null;
+		SubmissionData submission = null;
 		// JBoss' default remote jndi: <ejb-name>/remote
 		try {
 			Properties env = new Properties();
-			env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialContextFactory");
+			env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+					"org.jboss.security.jndi.LoginInitialContextFactory");
 			env.setProperty(Context.PROVIDER_URL, "jnp://localhost:1399");
-			env.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces");
+			env.setProperty(Context.URL_PKG_PREFIXES,
+					"org.jboss.naming:org.jnp.interfaces");
 			env.setProperty(Context.SECURITY_CREDENTIALS, "password");
 			env.setProperty(Context.SECURITY_PRINCIPAL, "user");
 			env.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
 
-//			final String jndiName = "FooBean/remote";
-			final String jndiName = "StudioServiceBean/remote";			
+			// final String jndiName = "FooBean/remote";
+			final String jndiName = "StudioServiceBean/remote";
 			Context ic = new InitialContext(env);
 			System.out.println("about to look up jndi name " + jndiName);
 			Object obj = ic.lookup(jndiName);
 			System.out.println("lookup returned " + obj);
-//			FooRemote foo = (FooRemote) obj;
-//			String s = foo.echo("Hello Foo on JBoss!");
-//			System.out.println(foo + " echo returned " + s);
-			StudioService service = (StudioService)obj;
-			
+			// FooRemote foo = (FooRemote) obj;
+			// String s = foo.echo("Hello Foo on JBoss!");
+			// System.out.println(foo + " echo returned " + s);
+			service = (StudioService) obj;
+
+		} catch (Exception e) {
+			System.out.println("Exception: " + e.getMessage());
+			e.printStackTrace();
+		}
+		try {
 			// Test 1
-			System.out.println("TEST #1 =============================");			
+			System.out.println("TEST #1 =============================");
 			List<ContestData> list = service.getAllContests();
 			System.out.println("total contest retrieved: " + list.size());
 			for (ContestData c : list) {
 				System.out.println("contest = " + c);
 			}
-			
+		} catch (Exception e) {
+			System.out.println("Exception: " + e.getMessage());
+			e.printStackTrace();
+		}
+		try {
 			// Test 2
-			System.out.println("TEST #2 =============================");			
-			SubmissionData submission = service.retrieveSubmission(24048);
-			System.out.println("Retrieved submission : " + submission.toString());
-			System.out.println("isPassedScreening : " + submission.isPassedScreening());
-			
+			System.out.println("TEST #2 =============================");
+			submission = service.retrieveSubmission(24048);
+			System.out.println("Retrieved submission : "
+					+ submission.toString());
+			System.out.println("isPassedScreening : "
+					+ submission.isPassedScreening());
+		} catch (Exception e) {
+			System.out.println("Exception: " + e.getMessage());
+			e.printStackTrace();
+		}
+		try {
 			// Test 3
-			System.out.println("TEST #3 =============================");			
+			System.out.println("TEST #3 =============================");
 			ContestData contest = service.getContest(submission.getContestId());
 			System.out.println("Retrieved contest : " + contest.toString());
 			List<PrizeData> prizes = contest.getPrizes();
@@ -111,18 +134,22 @@ public class AddSubmissionPrize extends Base {
 			for (PrizeData p : prizes) {
 				System.out.println("prize=" + p.toString());
 			}
-			
+		} catch (Exception e) {
+			System.out.println("Exception: " + e.getMessage());
+			e.printStackTrace();
+		}
+		try {
 			// Test 4
 			System.out.println("TEST #4 =============================");
 			service.setSubmissionPlacement(12345, 1999);
-			
 		} catch (Exception e) {
 			System.out.println("Exception: " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
 
-	protected static final Logger log = Logger.getLogger(AddSubmissionPrize.class);
+	protected static final Logger log = Logger
+			.getLogger(AddSubmissionPrize.class);
 
 	protected void dbProcessing() throws Exception {
 		processLookup();
