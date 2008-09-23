@@ -29,13 +29,11 @@ System.out.println("in MyCallBackHandler.handle ");
 			for(int i = 0; i < callbacks.length; ++i){
 				if(callbacks[i] instanceof NameCallback){
 					NameCallback nc = (NameCallback) callbacks[i];
-					//System.out.print(nc.getPrompt());
-					nc.setName("user");
+					nc.setName(ApplicationServer.STUDIO_SERVICES_USERNAME);
 				}
 				if(callbacks[i] instanceof PasswordCallback){
 					PasswordCallback pc = (PasswordCallback) callbacks[i];
-					//System.out.print(pc.getPrompt());
-					pc.setPassword("password".toCharArray());
+					pc.setPassword(ApplicationServer.STUDIO_SERVICES_PASSWORD.toCharArray());
 				}
 			}
 			
@@ -73,8 +71,8 @@ System.out.println("in MyCallBackHandler.handle ");
 	 log.debug("logged in");
 
         final Properties p = new Properties();
-        p.setProperty(Context.SECURITY_PRINCIPAL, "user");
-        p.setProperty(Context.SECURITY_CREDENTIALS, "password");
+        p.setProperty(Context.SECURITY_PRINCIPAL, ApplicationServer.STUDIO_SERVICES_USERNAME);
+        p.setProperty(Context.SECURITY_CREDENTIALS, ApplicationServer.STUDIO_SERVICES_PASSWORD);
         //p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
 	 p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.JndiLoginInitialContextFactory");
 	 p.setProperty(Context.PROVIDER_URL, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
