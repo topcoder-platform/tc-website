@@ -5,10 +5,13 @@ import java.util.Properties;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 import com.topcoder.service.studio.ContestData;
 import com.topcoder.service.studio.StudioService;
 import com.topcoder.shared.util.logging.Logger;
+
+import foo.FooRemote;
 
 /**
  * @author dok
@@ -40,26 +43,50 @@ public class AddSubmissionPrize extends Base {
 		processLookup();
 	}
 	protected static void processLookup() {
-		Properties env = new Properties();
-		env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-		//env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialContextFactory");
-		//env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.JndiLoginInitialContextFactory");
-		env.setProperty(Context.PROVIDER_URL, "jnp://localhost:1399");
-		//env.setProperty(Context.SECURITY_CREDENTIALS, "password");
-		//env.setProperty(Context.SECURITY_PRINCIPAL, "heffan");
-		//env.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
-		env.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces");
-
-		StudioService service = null;
+//		Properties env = new Properties();
+//		env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
+//		//env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialContextFactory");
+//		//env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.JndiLoginInitialContextFactory");
+//		env.setProperty(Context.PROVIDER_URL, "jnp://localhost:1399");
+//		//env.setProperty(Context.SECURITY_CREDENTIALS, "password");
+//		//env.setProperty(Context.SECURITY_PRINCIPAL, "heffan");
+//		//env.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
+//		env.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces");
+//
+//		StudioService service = null;
+//		try {
+//			InitialContext ctx = new InitialContext(env);
+//			service = (StudioService) ctx.lookup("StudioServiceBean/remote");
+//			System.out.println("SERVICE FOUND: " + service);
+//			List<ContestData> list = service.getAllContests();
+//			System.out.println("total contest retrieved: " + list.size());
+//			for (ContestData c : list) {
+//				System.out.println("contest = " + c);
+//			}
+//		} catch (Exception e) {
+//			System.out.println("Exception: " + e.getMessage());
+//			e.printStackTrace();
+//		}
+		
+		// JBoss' default remote jndi: <ejb-name>/remote
 		try {
-			InitialContext ctx = new InitialContext(env);
-			service = (StudioService) ctx.lookup("StudioServiceBean/remote");
-			System.out.println("SERVICE FOUND: " + service);
-			List<ContestData> list = service.getAllContests();
-			System.out.println("total contest retrieved: " + list.size());
-			for (ContestData c : list) {
-				System.out.println("contest = " + c);
-			}
+			Properties env = new Properties();
+			env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
+			env.setProperty(Context.PROVIDER_URL, "jnp://localhost:1399");
+			env.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces");
+			// env.setProperty(Context.SECURITY_CREDENTIALS, "password");
+			// env.setProperty(Context.SECURITY_PRINCIPAL, "heffan");
+			// env.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
+
+			final String jndiName = "FooBean/remote";
+			Context ic = new InitialContext(env);
+			System.out.println("about to look up jndi name " + jndiName);
+			Object obj = ic.lookup(jndiName);
+			System.out.println("lookup returned " + obj);
+
+			FooRemote foo = (FooRemote) obj;
+			String s = foo.echo("Hello Foo on JBoss!");
+			System.out.println(foo + " echo returned " + s);
 		} catch (Exception e) {
 			System.out.println("Exception: " + e.getMessage());
 			e.printStackTrace();

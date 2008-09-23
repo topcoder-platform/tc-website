@@ -313,6 +313,11 @@
                 <include name="PactsClientServices.jar"/>
 				<include name="studio_service.jar"/>
             </lib>
+            <lib dir="${jars.dir}/jboss-add/">
+            	<include name="kenichi_service.jar"/>
+                <include name="jbossall-client.jar"/>
+                <include name="log4j.jar"/>
+            </lib>
         </war>
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>
         <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/default/deploy/studio.war/" overwrite="yes"/>
