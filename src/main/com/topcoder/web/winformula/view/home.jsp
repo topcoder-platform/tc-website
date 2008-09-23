@@ -208,7 +208,7 @@
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=237">Penn St</a></strong></td>
                     <td class="alignRight dottedRight"><strong>34</strong></td>
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=235">Oklahoma</a></strong></td>
-                    <td class="alignRight dottedRight">33</td>
+                    <td class="alignRight dottedRight"><strong>33</strong></td>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=231">Nebraska</a></td>
                     <td class="alignRight dottedRight">23</td>
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=245">UCLA</a></strong></td>
