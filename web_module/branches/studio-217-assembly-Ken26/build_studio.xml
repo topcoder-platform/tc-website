@@ -49,6 +49,7 @@
     	<pathelement location="${jars.dir}/jboss-add/jaxws-api.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jsr181-api.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jsr250-api.jar"/>
+    	<!--
     	<pathelement location="${jars.dir}/jboss-add/jbossall-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-aop-jdk50-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-aspect-jdk50-client.jar"/>
@@ -58,7 +59,7 @@
     	<pathelement location="${jars.dir}/jboss-add/jboss-serialization.jar"/>
 		<pathelement location="${jars.dir}/jboss-add/jboss-remoting.jar"/>
 		<pathelement location="${jars.dir}/jboss-add/jboss-remoting-int.jar"/>
-    	<pathelement location="${jars.dir}/jboss-add/jboss-saaj.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jboss-saaj.jar"/> -->
     	<!-- ADDED JBOSS 4.2 libraries -->
     	
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
