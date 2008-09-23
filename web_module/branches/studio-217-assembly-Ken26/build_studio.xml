@@ -45,7 +45,8 @@
     	<pathelement location="${jars.dir}/jboss-add/jboss-common-core.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-serialization.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/log4j.jar"/>
-    	
+    	<pathelement location="${jars.dir}/jboss-add/xercesImpl.jar"/>
+
     	
     	<pathelement location="${jars.dir}/jboss-add/jaxb-api.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jaxws-api.jar"/>
@@ -324,6 +325,7 @@
             	<include name="jboss-common-core.jar"/>
             	<include name="jboss-serialization.jar"/>
             	<include name="log4j.jar"/>
+            	<include name="xercesImpl.jar"/>            	
             </lib>
         </war>
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>
