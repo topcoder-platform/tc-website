@@ -76,9 +76,9 @@ System.out.println("in MyCallBackHandler.handle ");
         p.setProperty(Context.SECURITY_PRINCIPAL, "user");
         p.setProperty(Context.SECURITY_CREDENTIALS, "password");
         //p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-	 p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialContextFactory");
+	 p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.JndiLoginInitialContextFactory");
 	 p.setProperty(Context.PROVIDER_URL, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
-	 p.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces"); 
+	 //p.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces"); 
         p.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
         Context context = new InitialContext(p);
 
