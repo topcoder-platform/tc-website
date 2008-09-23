@@ -52,7 +52,7 @@
     	<pathelement location="${jars.dir}/jboss-add/jboss-aop-jdk50-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jbossall-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jbosssx.jar"/>
-    	<pathelement location="${jars.dir}/jboss-add/jboss-logging-log4j.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/log4j.jar"/>
     	
     	<!--
     	<pathelement location="${jars.dir}/jboss-add/jbossall-client.jar"/>
