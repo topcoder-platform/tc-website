@@ -12,6 +12,8 @@ import javax.naming.InitialContext;
 import java.util.Properties;
 
 import javax.security.auth.login.LoginContext;
+import javax.security.auth.callback.*;
+import java.io.*;
 
 /**
  * @author dok
@@ -19,6 +21,25 @@ import javax.security.auth.login.LoginContext;
  *          Create Date: Aug 29, 2006
  */
 public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
+
+	public class MyCallBackHandler implements CallbackHandler{
+
+		public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
+			for(int i = 0; i < callbacks.length; ++i){
+				if(callbacks[i] instanceof NameCallback){
+					NameCallback nc = (NameCallback) callbacks[i];
+					//System.out.print(nc.getPrompt());
+					nc.setName(new BufferedReader(new InputStreamReader(System.in)).readLine().toString());
+				}
+				if(callbacks[i] instanceof PasswordCallback){
+					PasswordCallback pc = (PasswordCallback) callbacks[i];
+					//System.out.print(pc.getPrompt());
+					pc.setPassword(new BufferedReader(new InputStreamReader(System.in)).readLine().toCharArray());
+				}
+			}
+			
+		}
+	}
 
     @Override
     protected void dbProcessing() throws Exception {
@@ -45,17 +66,17 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
             log.debug("submission id: " + submissionId + " got prize: " + prizeId);
         }
 
- 	 java.lang.System.setProperty("java.security.auth.login.config", "auth.conf");
-	 LoginContext lc = new LoginContext("cockpitDomain", new org.jboss.security.auth.callback.UsernamePasswordHandler("user", "password"));
+ 	 //java.lang.System.setProperty("java.security.auth.login.config", "auth.conf");
+	 LoginContext lc = new LoginContext("cockpitDomain", new MyCallBackHandler());
  	 lc.login();
 
         final Properties p = new Properties();
-        p.setProperty(Context.SECURITY_PRINCIPAL, "user");
-        p.setProperty(Context.SECURITY_CREDENTIALS, "password");
-        //p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-	 p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialContextFactory");
+        //p.setProperty(Context.SECURITY_PRINCIPAL, "user");
+        //p.setProperty(Context.SECURITY_CREDENTIALS, "password");
+        p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
+	 //p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialContextFactory");
 	 p.setProperty(Context.PROVIDER_URL, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
-	 p.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces"); 
+	 //p.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces"); 
         p.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
         Context context = new InitialContext(p);
 
