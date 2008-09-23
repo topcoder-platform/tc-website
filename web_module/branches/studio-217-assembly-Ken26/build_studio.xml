@@ -41,6 +41,7 @@
     	<pathelement location="${jars.dir}/jboss-add/jboss-aop-jdk50-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-aspect-jdk50-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-remoting.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jboss-common-core.jar"/>    	
     	<pathelement location="${jars.dir}/jboss-add/log4j.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jaxb-api.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jaxws-api.jar"/>
