@@ -76,7 +76,7 @@ public class AddSubmissionPrize extends Base {
 			env.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces");
 			env.setProperty(Context.SECURITY_CREDENTIALS, "password");
 			env.setProperty(Context.SECURITY_PRINCIPAL, "heffan");
-			// env.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
+			env.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
 
 //			final String jndiName = "FooBean/remote";
 			final String jndiName = "StudioServiceBean/remote";			
