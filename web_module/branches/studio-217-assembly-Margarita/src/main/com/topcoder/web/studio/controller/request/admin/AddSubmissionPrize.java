@@ -77,15 +77,16 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
 	 //p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialContextFactory");
 	 p.setProperty(Context.PROVIDER_URL, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
 	 //p.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces"); 
-        p.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
+        //p.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
         Context context = new InitialContext(p);
 
         // get context to Cockpit Jboss Instance.
         //InitialContext context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
         log.debug("got context");
 
-        StudioService studioService = (StudioService)context.lookup("StudioServiceBean/remote");
-	 //StudioService studioService = (StudioService)createEJB(ctx, StudioService.class);
+        //StudioService studioService = (StudioService)context.lookup("StudioServiceBean/remote");
+	 Object ref = cx.lookup(StudioService.class.getName());
+	 StudioService studioService = (StudioService)javax.rmi.PortableRemoteObject.narrow(ref,StudioService.class);
         if (log.isDebugEnabled()) {
             log.debug("got remote StudioServiceBean");
         }
