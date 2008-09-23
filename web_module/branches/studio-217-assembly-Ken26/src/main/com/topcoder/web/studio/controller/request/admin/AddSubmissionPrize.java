@@ -5,13 +5,12 @@ import java.util.Properties;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 
 import com.topcoder.service.studio.ContestData;
+import com.topcoder.service.studio.PrizeData;
 import com.topcoder.service.studio.StudioService;
+import com.topcoder.service.studio.SubmissionData;
 import com.topcoder.shared.util.logging.Logger;
-
-import foo.FooRemote;
 
 /**
  * @author dok
@@ -88,11 +87,34 @@ public class AddSubmissionPrize extends Base {
 //			String s = foo.echo("Hello Foo on JBoss!");
 //			System.out.println(foo + " echo returned " + s);
 			StudioService service = (StudioService)obj;
+			
+			// Test 1
+			System.out.println("TEST #1 =============================");			
 			List<ContestData> list = service.getAllContests();
 			System.out.println("total contest retrieved: " + list.size());
 			for (ContestData c : list) {
 				System.out.println("contest = " + c);
 			}
+			
+			// Test 2
+			System.out.println("TEST #2 =============================");			
+			SubmissionData submission = service.retrieveSubmission(24048);
+			System.out.println("Retrieved submission : " + submission.toString());
+			System.out.println("isPassedScreening : " + submission.isPassedScreening());
+			
+			// Test 3
+			System.out.println("TEST #3 =============================");			
+			ContestData contest = service.getContest(submission.getContestId());
+			System.out.println("Retrieved contest : " + contest.toString());
+			List<PrizeData> prizes = contest.getPrizes();
+			System.out.println("Total prizes: " + prizes.size());
+			for (PrizeData p : prizes) {
+				System.out.println("prize=" + p.toString());
+			}
+			
+			// Test 4
+			System.out.println("TEST #4 =============================");
+			service.setSubmissionPlacement(12345, 1999);
 			
 		} catch (Exception e) {
 			System.out.println("Exception: " + e.getMessage());
