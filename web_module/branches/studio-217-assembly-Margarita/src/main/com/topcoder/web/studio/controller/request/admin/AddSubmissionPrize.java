@@ -29,12 +29,12 @@ System.out.println("in MyCallBackHandler.handle ");
 			for(int i = 0; i < callbacks.length; ++i){
 				if(callbacks[i] instanceof NameCallback){
 					NameCallback nc = (NameCallback) callbacks[i];
-					System.out.print(nc.getPrompt());
+					//System.out.print(nc.getPrompt());
 					nc.setName("user");
 				}
 				if(callbacks[i] instanceof PasswordCallback){
 					PasswordCallback pc = (PasswordCallback) callbacks[i];
-					System.out.print(pc.getPrompt());
+					//System.out.print(pc.getPrompt());
 					pc.setPassword("password".toCharArray());
 				}
 			}
@@ -67,19 +67,19 @@ System.out.println("in MyCallBackHandler.handle ");
             log.debug("submission id: " + submissionId + " got prize: " + prizeId);
         }
 
- 	 //java.lang.System.setProperty("java.security.auth.login.config", "auth.conf");
-	 LoginContext lc = new LoginContext("cockpitDomain", new MyCallBackHandler());
+ 	 java.lang.System.setProperty("java.security.auth.login.config", "auth.conf");
+	 LoginContext lc = new LoginContext("default", new MyCallBackHandler());
  	 lc.login();
-	log.debug("logged in");
+	 log.debug("logged in");
 
         final Properties p = new Properties();
-        //p.setProperty(Context.SECURITY_PRINCIPAL, "user");
-        //p.setProperty(Context.SECURITY_CREDENTIALS, "password");
-        p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-	 //p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialContextFactory");
+        p.setProperty(Context.SECURITY_PRINCIPAL, "user");
+        p.setProperty(Context.SECURITY_CREDENTIALS, "password");
+        //p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
+	 p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialContextFactory");
 	 p.setProperty(Context.PROVIDER_URL, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
-	 //p.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces"); 
-        //p.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
+	 p.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces"); 
+        p.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
         Context context = new InitialContext(p);
 
         // get context to Cockpit Jboss Instance.
