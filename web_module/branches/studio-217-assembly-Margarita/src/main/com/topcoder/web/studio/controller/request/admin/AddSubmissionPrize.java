@@ -43,6 +43,7 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
             log.debug("submission id: " + submissionId + " got prize: " + prizeId);
         }
 
+ 	 java.lang.System.setProperty("java.security.auth.login.config", "other { org.jboss.security.ClientLoginModule required; };");
         final Properties p = new Properties();
         p.setProperty(Context.SECURITY_PRINCIPAL, "user");
         p.setProperty(Context.SECURITY_CREDENTIALS, "password");
