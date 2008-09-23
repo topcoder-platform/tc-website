@@ -45,9 +45,7 @@
     	<pathelement location="${jars.dir}/jboss-add/jbosssx.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/log4j.jar"/>
     	
-    	<!--
-    	<pathelement location="${jars.dir}/jboss-add/jbossall-client.jar"/>
-    	<pathelement location="${jars.dir}/jboss-add/jboss-aop-jdk50-client.jar"/>
+    	
     	<pathelement location="${jars.dir}/jboss-add/jboss-aspect-jdk50-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-annotations-ejb3.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-ejb3-client.jar"/>
@@ -55,7 +53,7 @@
     	<pathelement location="${jars.dir}/jboss-add/jboss-serialization.jar"/>
 		<pathelement location="${jars.dir}/jboss-add/jboss-remoting.jar"/>
 		<pathelement location="${jars.dir}/jboss-add/jboss-remoting-int.jar"/>
-    	<pathelement location="${jars.dir}/jboss-add/jboss-saaj.jar"/> -->
+    	<pathelement location="${jars.dir}/jboss-add/jboss-saaj.jar"/>
     	<!-- PREPENDED JBOSS 4.2 libraries -->
     		
     		
