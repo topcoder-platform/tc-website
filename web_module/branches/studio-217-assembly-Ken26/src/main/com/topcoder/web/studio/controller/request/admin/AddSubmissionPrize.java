@@ -78,7 +78,8 @@ public class AddSubmissionPrize extends Base {
 			// env.setProperty(Context.SECURITY_PRINCIPAL, "heffan");
 			// env.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
 
-			final String jndiName = "FooBean/remote";
+//			final String jndiName = "FooBean/remote";
+			final String jndiName = "StudioServiceBean/remote";			
 			Context ic = new InitialContext(env);
 			System.out.println("about to look up jndi name " + jndiName);
 			Object obj = ic.lookup(jndiName);
@@ -93,8 +94,7 @@ public class AddSubmissionPrize extends Base {
 		}
 	}
 
-	protected static final Logger log = Logger
-			.getLogger(AddSubmissionPrize.class);
+	protected static final Logger log = Logger.getLogger(AddSubmissionPrize.class);
 
 	protected void dbProcessing() throws Exception {
 		processLookup();
