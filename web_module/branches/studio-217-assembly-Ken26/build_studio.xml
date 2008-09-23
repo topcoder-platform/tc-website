@@ -44,6 +44,7 @@
     	<pathelement location="${jars.dir}/jboss-add/jbossall-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jbosssx.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/log4j.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/kenichi_service.jar"/>
     	
     	
     	<pathelement location="${jars.dir}/jboss-add/jboss-aspect-jdk50-client.jar"/>
@@ -194,14 +195,23 @@
         <property name="compile_set" value="true"/>
     </target>
 	
-    <target name="run_ejb">
+    <target name="run_kenichi_service">
+        <java classpathref="class.path"
+        	classname="foo.Client"
+        	fork="true"
+        	jvmversion="1.5">
+        	<!-- <jvmarg value="-Djava.security.auth.login.config=/home/studio/web/auth.conf"/> -->
+        	<!-- <jvmarg value="-Djboss.remoting.version=4"/> -->
+        </java>
+    </target>
+    	
+    <target name="run_ejb_client">
         <java classpathref="class.path"
         	classname="com.topcoder.web.studio.controller.request.admin.AddSubmissionPrize"
         	fork="true"
         	jvmversion="1.5">
         	<jvmarg value="-Djava.security.auth.login.config=/home/studio/web/auth.conf"/>
         	<!-- <jvmarg value="-Djboss.remoting.version=4"/> -->
-        	
         </java>
     </target>
 
