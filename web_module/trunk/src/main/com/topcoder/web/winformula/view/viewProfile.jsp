@@ -83,121 +83,89 @@
                     </c:otherwise>
                 </c:choose>
                 <div class="left-content">
-                  <%-- Old list style data.  Delete when you are done with the table below it.
-                  <div class="form-content">
-                    <c:if test="${myProfile}">
-                        <dl>
-                            <dt>Member Name:</dt>
-                            <dd>${member.handle}</dd>
-                        </dl>
-                    </c:if>
-                    <dl>
-                        <dt>Overall Rank:</dt>
-                        <c:choose>
-                            <c:when test="${not empty member.overallRank}">
-                                <dd>${member.overallRank} of ${member.totalRankedMembers}</dd>
-                            </c:when>
-                            <c:otherwise>
-                                <dd>n/a</dd>
-                            </c:otherwise>
-                        </c:choose>
-                    </dl>
-                      <dl>
-                        <dt>Points:</dt>
-                        <c:choose>
-                            <c:when test="${not empty member.overallPoints}">
-                                <dd>${member.overallPoints} points</dd>
-                            </c:when>
-                            <c:otherwise>
-                                <dd>n/a</dd>
-                            </c:otherwise>
-                        </c:choose>
-                    </dl>
-                      <dl>
-                        <dt>Highest Overall Rank:</dt>
-                        <c:choose>
-                            <c:when test="${not empty member.highestOverallRank}">
-                                <dd>${member.highestOverallRank} (${member.highestOverallRankWeek})</dd>
-                            </c:when>
-                            <c:otherwise>
-                                <dd>n/a</dd>
-                            </c:otherwise>
-                        </c:choose>
-                      </dl>
-                    <dl>
-                        <dt>Highest Weekly Rank:</dt>
-                        <c:choose>
-                            <c:when test="${not empty member.highestWeeklyRank}">
-                                <dd>${member.highestWeeklyRank} (${member.highestWeeklyRankWeek} - ${member.highestWeeklyRankPoints} points)</dd>
-                            </c:when>
-                            <c:otherwise>
-                                <dd>n/a</dd>
-                            </c:otherwise>
-                        </c:choose>
-                    </dl>
-                      <dl>
-                        <dt>Win Percentage:</dt>
-                        <c:choose>
-                            <c:when test="${not empty member.winPercent}">
-                                <dd><fmt:formatNumber value="${member.winPercent}" pattern="0.00"/>%</dd>
-                            </c:when>
-                            <c:otherwise>
-                                <dd>n/a</dd>
-                            </c:otherwise>
-                        </c:choose>
-                      </dl>
-                      <c:if test="${not empty member.achievements}">
-                        <dl>
-                            <dt>Prizes/Awards Won:</dt>
-                            <c:forEach items="${member.achievements}" var="achievement">
-                                <dd><span style="float:right;">${achievement}</span></dd>
-                            </c:forEach>
-                         </dl>
-                      </c:if>
-                      <c:if test="${not empty member.totalPrizes}">
-                         <dl>
-                             <dt>Total Prizes Money:</dt>
-                             <dd><fmt:formatNumber value="${member.totalPrizes}" type="currency" currencySymbol="$"/></dd>
-                         </dl>
-                      </c:if>
-                  </div>
-                  --%>
                   <table width="90%" border="0" cellpadding="0" cellspacing="0" class="stat">
-                    <tr>
-                      <td width="55%"><strong>Member Name:</strong></td>
-                      <td width="45%">Handle</td>
-                    </tr>
+                    <c:if test="${myProfile}">
+                        <tr>
+                          <td width="55%"><strong>Member Name:</strong></td>
+                          <td width="45%">${member.handle}</td>
+                        </tr>
+                    </c:if>
                     <tr>
                       <td><strong>Overall Rank:</strong></td>
-                      <td>Rank</td>
+                      <td>
+                        <c:choose>
+                            <c:when test="${not empty member.overallRank}">
+                                ${member.overallRank} of ${member.totalRankedMembers}
+                            </c:when>
+                            <c:otherwise>
+                                n/a
+                            </c:otherwise>
+                        </c:choose>
+                      </td>
                     </tr>
                     <tr>
                       <td><strong>Points:</strong></td>
-                      <td>Points</td>
+                      <td>
+                        <c:choose>
+                            <c:when test="${not empty member.overallPoints}">
+                                ${member.overallPoints} points
+                            </c:when>
+                            <c:otherwise>
+                                n/a
+                            </c:otherwise>
+                        </c:choose>
+                      </td>
                     </tr>
                     <tr>
                       <td><strong>Highest Overall Rank:</strong></td>
-                      <td>Rank</td>
+                      <td>
+                        <c:choose>
+                            <c:when test="${not empty member.highestOverallRank}">
+                                ${member.highestOverallRank} (${member.highestOverallRankWeek})
+                            </c:when>
+                            <c:otherwise>
+                                n/a
+                            </c:otherwise>
+                        </c:choose>
+                      </td>
                     </tr>
                     <tr>
                       <td><strong>Highest Weekly Rank:</strong></td>
-                      <td>Rank</td>
+                      <td>
+                        <c:choose>
+                            <c:when test="${not empty member.highestWeeklyRank}">
+                                ${member.highestWeeklyRank} (${member.highestWeeklyRankWeek} - ${member.highestWeeklyRankPoints} points)
+                            </c:when>
+                            <c:otherwise>
+                                n/a
+                            </c:otherwise>
+                        </c:choose>
+                      </td>
                     </tr>
                     <tr>
                       <td><strong>Win Percentage:</strong></td>
-                      <td>Win %</td>
+                      <td>
+                        <c:choose>
+                            <c:when test="${not empty member.winPercent}">
+                                <fmt:formatNumber value="${member.winPercent}" pattern="0.00"/>%
+                            </c:when>
+                            <c:otherwise>
+                                n/a
+                            </c:otherwise>
+                        </c:choose>
+                      </td>
                     </tr>
                     <tr>
                       <td valign="top"><strong>Prizes/Awards Won:</strong></td>
-                      <td>Regalo 1<br />
-                          Regalo 2<br />
-                          Regalo 3<br />
-                          Regalo 4
+                      <td>
+                        <c:forEach items="${member.achievements}" var="achievement">
+                            ${achievement}<br/>
+                        </c:forEach>
                       </td>
                     </tr>
                     <tr>
                       <td><strong>Total Prizes/Awards Won:</strong></td>
-                      <td>Regalos</td>
+                      <td><fmt:formatNumber value="${member.totalPrizes}" type="currency" currencySymbol="$"/></td>
                     </tr>
                   </table>
                 </div>
