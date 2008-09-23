@@ -85,7 +85,7 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
         log.debug("got context");
 
         //StudioService studioService = (StudioService)context.lookup("StudioServiceBean/remote");
-	 Object ref = cx.lookup(StudioService.class.getName());
+	 Object ref = context.lookup(StudioService.class.getName());
 	 StudioService studioService = (StudioService)javax.rmi.PortableRemoteObject.narrow(ref,StudioService.class);
         if (log.isDebugEnabled()) {
             log.debug("got remote StudioServiceBean");
