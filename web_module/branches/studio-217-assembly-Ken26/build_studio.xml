@@ -38,6 +38,7 @@
     	<!-- PREPENDED JBOSS 4.2 libraries -->
     	<pathelement location="${jars.dir}/jboss-add/kenichi_service.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jbossall-client.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/log4j.jar"/>
 
     	<!--
     	<pathelement location="${jars.dir}/jboss-add/jaxb-api.jar"/>
