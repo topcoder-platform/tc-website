@@ -68,23 +68,21 @@ System.out.println("in MyCallBackHandler.handle ");
  	 java.lang.System.setProperty("java.security.auth.login.config", "auth.conf");
 	 LoginContext lc = new LoginContext("default", new MyCallBackHandler());
  	 lc.login();
-	 log.debug("logged in");
+        if (log.isDebugEnabled()) {
+            	 log.debug("logged in");
+        }
 
         final Properties p = new Properties();
         p.setProperty(Context.SECURITY_PRINCIPAL, ApplicationServer.STUDIO_SERVICES_USERNAME);
         p.setProperty(Context.SECURITY_CREDENTIALS, ApplicationServer.STUDIO_SERVICES_PASSWORD);
-        //p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
 	 p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.JndiLoginInitialContextFactory");
 	 p.setProperty(Context.PROVIDER_URL, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
-	 //p.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces"); 
         p.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
-        Context context = new InitialContext(p);
-
         // get context to Cockpit Jboss Instance.
-        //InitialContext context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
-        log.debug("got context");
-
-        //StudioService studioService = (StudioService)context.lookup("StudioServiceBean/remote");
+        Context context = new InitialContext(p);
+        if (log.isDebugEnabled()) {
+            log.debug("got context");
+        }
 	 Object ref = context.lookup("StudioServiceBean/remote");
 	 StudioService studioService = (StudioService)javax.rmi.PortableRemoteObject.narrow(ref,StudioService.class);
         if (log.isDebugEnabled()) {
