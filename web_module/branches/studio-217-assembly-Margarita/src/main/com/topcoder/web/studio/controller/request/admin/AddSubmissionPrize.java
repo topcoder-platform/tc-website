@@ -29,12 +29,12 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
 				if(callbacks[i] instanceof NameCallback){
 					NameCallback nc = (NameCallback) callbacks[i];
 					//System.out.print(nc.getPrompt());
-					nc.setName(new BufferedReader(new InputStreamReader(System.in)).readLine().toString());
+					nc.setName("user");
 				}
 				if(callbacks[i] instanceof PasswordCallback){
 					PasswordCallback pc = (PasswordCallback) callbacks[i];
 					//System.out.print(pc.getPrompt());
-					pc.setPassword(new BufferedReader(new InputStreamReader(System.in)).readLine().toCharArray());
+					pc.setPassword("password");
 				}
 			}
 			
