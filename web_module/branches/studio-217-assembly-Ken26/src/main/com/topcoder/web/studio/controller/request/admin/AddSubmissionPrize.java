@@ -1,11 +1,12 @@
 package com.topcoder.web.studio.controller.request.admin;
 
+import java.util.List;
 import java.util.Properties;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 
+import com.topcoder.service.studio.ContestData;
 import com.topcoder.service.studio.StudioService;
 import com.topcoder.shared.util.logging.Logger;
 
@@ -56,6 +57,11 @@ public class AddSubmissionPrize extends Base {
 			InitialContext ctx = new InitialContext(env);
 			//service = (StudioService) ctx.lookup("StudioServiceBean/remote");
 			service = (StudioService) ctx.lookup("StudioServiceBean/remote");
+			List<ContestData> list = service.getAllContests();
+			System.out.println("total contest retrieved: " + list.size());
+			for (ContestData c : list) {
+				System.out.println("contest = " + c);
+			}
 			System.out.println("SERVICE FOUND: " + service);
 		} catch (Exception e) {
 			System.out.println("SERVICE NOT FOUND: " + service);
