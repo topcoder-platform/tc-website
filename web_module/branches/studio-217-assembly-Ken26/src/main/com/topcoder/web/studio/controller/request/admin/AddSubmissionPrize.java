@@ -41,13 +41,13 @@ public class AddSubmissionPrize extends Base {
 	}
 	protected static void processLookup() {
 		Properties env = new Properties();
-		// env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-		env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialContextFactory");
+		env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
+		//env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialContextFactory");
 		//env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.JndiLoginInitialContextFactory");
 		env.setProperty(Context.PROVIDER_URL, "jnp://localhost:1399");
-		env.setProperty(Context.SECURITY_CREDENTIALS, "password");
-		env.setProperty(Context.SECURITY_PRINCIPAL, "heffan");
-		env.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
+		//env.setProperty(Context.SECURITY_CREDENTIALS, "password");
+		//env.setProperty(Context.SECURITY_PRINCIPAL, "heffan");
+		//env.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
 		env.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces");
 
 		StudioService service = null;
