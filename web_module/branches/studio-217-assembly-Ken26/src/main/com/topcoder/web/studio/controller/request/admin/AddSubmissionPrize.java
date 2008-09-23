@@ -84,10 +84,16 @@ public class AddSubmissionPrize extends Base {
 			System.out.println("about to look up jndi name " + jndiName);
 			Object obj = ic.lookup(jndiName);
 			System.out.println("lookup returned " + obj);
-
-			FooRemote foo = (FooRemote) obj;
-			String s = foo.echo("Hello Foo on JBoss!");
-			System.out.println(foo + " echo returned " + s);
+//			FooRemote foo = (FooRemote) obj;
+//			String s = foo.echo("Hello Foo on JBoss!");
+//			System.out.println(foo + " echo returned " + s);
+			StudioService service = (StudioService)obj;
+			List<ContestData> list = service.getAllContests();
+			System.out.println("total contest retrieved: " + list.size());
+			for (ContestData c : list) {
+				System.out.println("contest = " + c);
+			}
+			
 		} catch (Exception e) {
 			System.out.println("Exception: " + e.getMessage());
 			e.printStackTrace();
