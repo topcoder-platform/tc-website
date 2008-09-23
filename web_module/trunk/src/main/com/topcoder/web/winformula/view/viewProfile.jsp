@@ -162,12 +162,7 @@
                       </c:if>
                   </div>
                   --%>
-                  <table width="90%" border="0" cellpadding="0" cellspacing="0" class="stat" style="border: 1px solid #cccccc; padding:10px;">
-                    <%--
-                    <tr>
-                      <th colspan="2"><h2>Achievements</h2></th>
-                    </tr>
-                    --%>
+                  <table width="90%" border="0" cellpadding="0" cellspacing="0" class="stat">
                     <tr>
                       <td width="50%"><strong>Member Name:</strong></td>
                       <td width="50%">Handle</td>
