@@ -50,12 +50,13 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
  	 lc.login();
 
         final Properties p = new Properties();
-        //p.setProperty(Context.SECURITY_PRINCIPAL, "user");
-        //p.setProperty(Context.SECURITY_CREDENTIALS, "password");
-        p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-        p.setProperty(Context.PROVIDER_URL, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
+        p.setProperty(Context.SECURITY_PRINCIPAL, "user");
+        p.setProperty(Context.SECURITY_CREDENTIALS, "password");
+        //p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
+	 p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialontextFactory");
+	 p.setProperty(Context.PROVIDER_URL, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
 	 p.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces"); 
-        //p.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
+        p.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
         Context context = new InitialContext(p);
 
         // get context to Cockpit Jboss Instance.
