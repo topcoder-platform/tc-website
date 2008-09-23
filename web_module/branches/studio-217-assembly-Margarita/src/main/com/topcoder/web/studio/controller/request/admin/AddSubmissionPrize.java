@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.util.Properties;
 
+import javax.security.auth.login.LoginContext;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -44,11 +46,15 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
         }
 
  	 java.lang.System.setProperty("java.security.auth.login.config", "auth.conf");
+	 LoginContext lc = new LoginContext("cockpitDomain", new org.jboss.security.auth.callback.UsernamePasswordHandler("user", "password"));
+ 	 lc.login();
+
         final Properties p = new Properties();
-        p.setProperty(Context.SECURITY_PRINCIPAL, "user");
-        p.setProperty(Context.SECURITY_CREDENTIALS, "password");
-        p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.LoginInitialContextFactory");
+        //p.setProperty(Context.SECURITY_PRINCIPAL, "user");
+        //p.setProperty(Context.SECURITY_CREDENTIALS, "password");
+        p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.InitialContextFactory");
         p.setProperty(Context.PROVIDER_URL, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
+	 p.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces"); 
         //p.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
         Context context = new InitialContext(p);
 
