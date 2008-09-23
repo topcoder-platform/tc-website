@@ -25,15 +25,16 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
 	public class MyCallBackHandler implements CallbackHandler{
 
 		public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
+System.out.println("in MyCallBackHandler.handle ");
 			for(int i = 0; i < callbacks.length; ++i){
 				if(callbacks[i] instanceof NameCallback){
 					NameCallback nc = (NameCallback) callbacks[i];
-					//System.out.print(nc.getPrompt());
+					System.out.print(nc.getPrompt());
 					nc.setName("user");
 				}
 				if(callbacks[i] instanceof PasswordCallback){
 					PasswordCallback pc = (PasswordCallback) callbacks[i];
-					//System.out.print(pc.getPrompt());
+					System.out.print(pc.getPrompt());
 					pc.setPassword("password".toCharArray());
 				}
 			}
@@ -69,6 +70,7 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
  	 //java.lang.System.setProperty("java.security.auth.login.config", "auth.conf");
 	 LoginContext lc = new LoginContext("cockpitDomain", new MyCallBackHandler());
  	 lc.login();
+	log.debug("logged in");
 
         final Properties p = new Properties();
         //p.setProperty(Context.SECURITY_PRINCIPAL, "user");
