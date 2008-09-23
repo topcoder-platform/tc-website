@@ -34,7 +34,7 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
 				if(callbacks[i] instanceof PasswordCallback){
 					PasswordCallback pc = (PasswordCallback) callbacks[i];
 					//System.out.print(pc.getPrompt());
-					pc.setPassword("password");
+					pc.setPassword("password".toCharArray());
 				}
 			}
 			
