@@ -43,15 +43,15 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
             log.debug("submission id: " + submissionId + " got prize: " + prizeId);
         }
 
-        final Properties p = new Properties();
-        p.setProperty(Context.SECURITY_PRINCIPAL, "user");
-        p.setProperty(Context.SECURITY_CREDENTIALS, "password");
+        //final Properties p = new Properties();
+        //p.setProperty(Context.SECURITY_PRINCIPAL, "user");
+        //p.setProperty(Context.SECURITY_CREDENTIALS, "password");
         //p.setProperty(Context.INITIAL_CONTEXT_FACTORY, ApplicationServer.JNDI_FACTORY);
         //p.setProperty(Context.PROVIDER_URL, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
         //Context context = new InitialContext(p);
 
         // get context to Cockpit Jboss Instance.
-        Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
+        InitialContext ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
         log.debug("got context");
 
         //StudioService studioService = (StudioService)context.lookup("StudioServiceBean/remote");
