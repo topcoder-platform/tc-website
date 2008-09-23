@@ -35,16 +35,7 @@
     </target>
 
     <path id="class.path">
-        <pathelement location="${classes}"/>
-        <pathelement location="${testclasses}"/>
-        <pathelement location="${resources}"/>
-        <pathelement location="${resources}/hibernate"/>
-        <pathelement location="${shared.jar}"/>
-        <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
-        <pathelement location="${jars.dir}/ifxjdbc.jar"/>
-        <pathelement location="${jars.dir}/activation.jar"/>
-    	
-    	<!-- ADDED JBOSS 4.2 libraries -->
+    	<!-- PREPENDED JBOSS 4.2 libraries -->
     	<pathelement location="${jars.dir}/jboss-add/jaxb-api.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jaxws-api.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jsr181-api.jar"/>
@@ -65,7 +56,17 @@
 		<pathelement location="${jars.dir}/jboss-add/jboss-remoting.jar"/>
 		<pathelement location="${jars.dir}/jboss-add/jboss-remoting-int.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-saaj.jar"/> -->
-    	<!-- ADDED JBOSS 4.2 libraries -->
+    	<!-- PREPENDED JBOSS 4.2 libraries -->
+    		
+    		
+        <pathelement location="${classes}"/>
+        <pathelement location="${testclasses}"/>
+        <pathelement location="${resources}"/>
+        <pathelement location="${resources}/hibernate"/>
+        <pathelement location="${shared.jar}"/>
+        <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+        <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+        <pathelement location="${jars.dir}/activation.jar"/>
     	
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
