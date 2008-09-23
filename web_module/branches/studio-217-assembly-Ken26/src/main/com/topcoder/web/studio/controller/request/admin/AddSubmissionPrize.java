@@ -38,7 +38,7 @@ public class AddSubmissionPrize extends Base {
 	public static void main(String args[]) throws Exception {
 		processLookup();
 	}
-
+	//-2711693270411201590
 	protected static void processLookup() {
 		Properties env = new Properties();
 		// env.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
