@@ -44,6 +44,8 @@
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
         <pathelement location="${jars.dir}/activation.jar"/>
     	
+    	<!-- ADDED JBOSS 4.2 libraries -->
+    	<pathelement location="${jars.dir}/jboss-add/jaxb-api.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-aop-jdk50-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-aspect-jdk50-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-annotations-ejb3.jar"/>
@@ -53,6 +55,7 @@
 		<pathelement location="${jars.dir}/jboss-add/jboss-remoting.jar"/>
 		<pathelement location="${jars.dir}/jboss-add/jboss-remoting-int.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-saaj.jar"/>
+    	<!-- ADDED JBOSS 4.2 libraries -->
     	
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
