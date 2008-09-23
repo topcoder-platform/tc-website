@@ -39,6 +39,7 @@
     	<pathelement location="${jars.dir}/jboss-add/kenichi_service.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-ejb3-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-aop-jdk50-client.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jboss-aspect-jdk50-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/log4j.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jaxb-api.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jaxws-api.jar"/>
@@ -50,8 +51,6 @@
     	<pathelement location="${jars.dir}/jboss-add/jbosssx.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-ejb3-client.jar"/>
     	
-    	
-    	<pathelement location="${jars.dir}/jboss-add/jboss-aspect-jdk50-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-annotations-ejb3.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-ejb3-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-ejb3x.jar"/>
