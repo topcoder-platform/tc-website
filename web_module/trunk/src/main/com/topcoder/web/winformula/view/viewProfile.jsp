@@ -83,6 +83,7 @@
                     </c:otherwise>
                 </c:choose>
                 <div class="left-content">
+                  <%-- Old list style data.  Delete when you are done with the table below it.
                   <div class="form-content">
                     <c:if test="${myProfile}">
                         <dl>
@@ -149,7 +150,7 @@
                         <dl>
                             <dt>Prizes/Awards Won:</dt>
                             <c:forEach items="${member.achievements}" var="achievement">
-                                <dd>${achievement}</dd>
+                                <dd><span style="float:right;">${achievement}</span></dd>
                             </c:forEach>
                          </dl>
                       </c:if>
@@ -160,6 +161,44 @@
                          </dl>
                       </c:if>
                   </div>
+                  --%>
+                  <table width="90%" border="0" cellpadding="0" cellspacing="0" class="stat" style="border: 1px solid #cccccc; padding:10px;">
+                    <tr>
+                      <th colspan="2"><h2>Achievements</h2></th>
+                    </tr>
+                    <tr>
+                      <td width="50%"><strong>Member Name:</strong></td>
+                      <td width="50%">Handle</td>
+                    </tr>
+                    <tr class="dark">
+                      <td><strong>Overall Rank:</strong></td>
+                      <td>Rank</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Points:</strong></td>
+                      <td>Points</td>
+                    </tr>
+                    <tr class="dark">
+                      <td><strong>Highest Overall Rank:</strong></td>
+                      <td>Rank</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Highest Weekly Rank:</strong></td>
+                      <td>Rank</td>
+                    </tr>
+                    <tr class="dark">
+                      <td><strong>Win Percentage:</strong></td>
+                      <td>Win %</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Prizes/Awards Won:</strong></td>
+                      <td>Regalo</td>
+                    </tr>
+                    <tr class="dark">
+                      <td><strong>Total Prizes/Awards Won:</strong></td>
+                      <td>Regalos</td>
+                    </tr>
+                  </table>
                 </div>
                 <div class="right-content">
                     <h2>Performance vs Community</h2>
@@ -167,7 +206,7 @@
                     <table width="90%" border="0" cellpadding="0" cellspacing="0" class="stat">
                     <tr>
                       <th>Rank</th>
-                      <th>Handle</a></th>
+                      <th>Handle</th>
                       <th>Win %</th>
                       <th>Points</th>
                     </tr>
