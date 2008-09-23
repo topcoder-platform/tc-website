@@ -163,9 +163,11 @@
                   </div>
                   --%>
                   <table width="90%" border="0" cellpadding="0" cellspacing="0" class="stat" style="border: 1px solid #cccccc; padding:10px;">
+                    <%--
                     <tr>
                       <th colspan="2"><h2>Achievements</h2></th>
                     </tr>
+                    --%>
                     <tr>
                       <td width="50%"><strong>Member Name:</strong></td>
                       <td width="50%">Handle</td>
@@ -191,8 +193,12 @@
                       <td>Win %</td>
                     </tr>
                     <tr>
-                      <td><strong>Prizes/Awards Won:</strong></td>
-                      <td>Regalo</td>
+                      <td valign="top"><strong>Prizes/Awards Won:</strong></td>
+                      <td>Regalo 1<br />
+                          Regalo 2<br />
+                          Regalo 3<br />
+                          Regalo 4
+                      </td>
                     </tr>
                     <tr class="dark">
                       <td><strong>Total Prizes/Awards Won:</strong></td>
