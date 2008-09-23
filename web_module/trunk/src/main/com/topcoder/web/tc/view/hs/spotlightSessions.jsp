@@ -55,9 +55,14 @@
                 <p style="font:12px lucida sans;">This is a great time to refer your friends for them to benefit from these chat sessions.  Don't forget about our <a href="/tc?module=Static&amp;d1=hs&amp;d2=referralProgram">referral program</a>!</p>
                 <p style="font:12px lucida sans;">Don't miss the SRMs and the great chats before them:</p>
                 
+                <%-- Done 
                 <p style="font:12px lucida sans;"><span class="subtitle">Saturday, September 20 at 11:00 a.m. EDT (GMT -4)<br />
                 Spotlight Session with <tc-webtag:handle coderId="10574855" context="algorithm" /></span></p>
                 <p style="font:12px lucida sans;"><tc-webtag:handle coderId="10574855" context="algorithm" /> is the #1 ranked Algorithm Coder at TopCoder and is helping to edge the second rated Russians past the Pols in our top Country list.  He was the Algorithm Champion for the 2007 TopCoder Collegiate Challenge, the 2006 TopCoder Collegiate Challenge and the 2006 TopCoder Open.  He has been to the last six onsite events and hit the highest rating ever achieved in May 2008 at 3890.  <tc-webtag:handle coderId="10574855" context="algorithm" /> is known world wide for his programming talents and boosts to have around 200 programming t-shirts.  We're sure you can learn a lot from <tc-webtag:handle coderId="10574855" context="algorithm" /> in the chat room!</p>
+                --%>
+                <p style="font:12px lucida sans;"><span class="subtitle">Saturday, September 20 at 11:00 a.m. EDT (GMT -4)<br />
+                Spotlight Session with <tc-webtag:handle coderId="10574855" context="algorithm" /></span></p>
+                <p style="font:12px lucida sans;">View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20080920">here</a>.</p>
                 
                 <p style="font:12px lucida sans;"><span class="subtitle">Thursday, October 2 at 6:00 a.m. EDT (GMT -4)<br />
                 Spotlight Session with <tc-webtag:handle coderId="272072" context="algorithm" /></span></p>
