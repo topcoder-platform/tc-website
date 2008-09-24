@@ -48,7 +48,7 @@ import java.util.Iterator;
 
 public class ForumsBean extends BaseEJB {
 
-    private static Logger log = Logger.getLogger(ForumsBean.class);
+    private static com.opensymphony.util.Logger log = Logger.getLogger(ForumsBean.class);
     private static ForumFactory forumFactory = ForumFactory.getInstance(new TCAuthToken(100129));
     private static final long TCS_FORUMS_ROOT_CATEGORY_ID = WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID;
     private static long swAdminID = 305384;
@@ -795,7 +795,9 @@ public class ForumsBean extends BaseEJB {
     private long createForum(long categoryID, String name, String description) throws Exception {
         try {
             ForumCategory category = forumFactory.getForumCategory(categoryID);
+            log.info("Category: " + category); 
             Forum forum = forumFactory.createForum(name, description, category);
+            log.info("Forum: " + forum); 
             return forum.getID();
         } catch (Exception e) {
             logException(e, "error in creating software component forums");
@@ -829,6 +831,16 @@ public class ForumsBean extends BaseEJB {
             return -1;
         }
     }
+    
+    public void createForumWatch(long userID, long forumID) throws UnauthorizedException, UserNotFoundException {
+        WatchManager watchManager = forumFactory.getWatchManager();
+        User user = forumFactory.getUserManager().getUser(userID);
+        Forum forum = forumFactory.getForum(forumID);
+        if (!watchManager.isWatched(user, forum)) {
+            watchManager.createWatch(user, forum);
+        }
+    }
+
 
     private void logException(Exception e, String msg) {
         log.info("*** " + msg + ": " + e);
