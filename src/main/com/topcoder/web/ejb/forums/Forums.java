@@ -9,6 +9,7 @@ import javax.ejb.EJBException;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.UserNotFoundException;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
+import com.jivesoftware.forum.ForumNotFoundException;
 
 public interface Forums extends EJBObject {
     
@@ -57,6 +58,6 @@ public interface Forums extends EJBObject {
     
     public long createStudioForum(String name) throws EJBException, RemoteException;
     
-    public void createForumWatch(long userID, long forumID) throws UnauthorizedException, UserNotFoundException, EJBException, RemoteException;
+    public void createForumWatch(long userID, long forumID) throws UnauthorizedException, UserNotFoundException, ForumNotFoundException, EJBException, RemoteException;
 
 }

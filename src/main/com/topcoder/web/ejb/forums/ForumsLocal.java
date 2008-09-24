@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.forums;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.UserNotFoundException;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
+import com.jivesoftware.forum.ForumNotFoundException;
 import com.topcoder.web.common.RowNotFoundException;
 
 import javax.ejb.EJBException;
@@ -87,6 +88,6 @@ public interface ForumsLocal extends EJBLocalObject {
     
     public long createStudioForum(String name) throws EJBException;
     
-    public void createForumWatch(long userID, long forumID) throws UnauthorizedException, UserNotFoundException, EJBException;
+    public void createForumWatch(long userID, long forumID) throws UnauthorizedException, UserNotFoundException, ForumNotFoundException, EJBException;
 
 }

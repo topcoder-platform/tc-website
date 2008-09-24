@@ -11,6 +11,7 @@ import com.jivesoftware.base.UserNotFoundException;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
+import com.jivesoftware.forum.ForumNotFoundException;
 import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumPermissions;
 import com.jivesoftware.forum.ResultFilter;
@@ -832,7 +833,7 @@ public class ForumsBean extends BaseEJB {
         }
     }
     
-    public void createForumWatch(long userID, long forumID) throws UnauthorizedException, UserNotFoundException {
+    public void createForumWatch(long userID, long forumID) throws UnauthorizedException, UserNotFoundException, ForumNotFoundException {
         WatchManager watchManager = forumFactory.getWatchManager();
         User user = forumFactory.getUserManager().getUser(userID);
         Forum forum = forumFactory.getForum(forumID);
