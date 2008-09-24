@@ -17,15 +17,6 @@
 	
 - log in with studio user
 
-- modify Studio JBoss loggin configuration file : /home/studio/jboss-4.0.4.GA/server/default/conf/login-config.xml
-
-- added modification :
-	    <application-policy name="cockpitDomain">
-	       <authentication>
-	          <login-module code="org.jboss.security.ClientLoginModule" flag="required" />
-	       </authentication>
-	    </application-policy>
-
 - svn update: cd /home/studio/web; svn up;
 
 - build and war studio : ant -f build_studio.xml war-studio
@@ -80,9 +71,10 @@
 
    
 Path
-src/main/com/topcoder/web/studio/controller/request/admin/AddSubmissionPrize.java
-src/main/com/topcoder/web/studio/util/ApplicationServer.java
-src/main/com/topcoder/web/studio/util/StudioServiceLocator.java
+/home/studio/web/src/main/com/topcoder/web/studio/controller/request/admin/AddSubmissionPrize.java
+/home/studio/web/src/main/com/topcoder/web/studio/util/ApplicationServer.java
+/home/studio/web/src/main/com/topcoder/web/studio/util/StudioServiceLocator.java
+/home/studio/web/resources/ApplicationServer.properties
    
    
 #==================================================================================#

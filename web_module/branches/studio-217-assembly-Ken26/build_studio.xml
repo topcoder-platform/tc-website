@@ -330,6 +330,7 @@
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>
         <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/default/deploy/studio.war/" overwrite="yes"/>
         <delete dir="${jboss_home}/server/default/deploy/studio.war/META-INF"/>
+    	<copy todir="${jboss_conf}" file="${resources}/login-config.xml"/>
     </target>
 
     <target name="deploy" depends="war-studio">
