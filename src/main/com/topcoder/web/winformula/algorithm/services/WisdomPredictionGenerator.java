@@ -81,9 +81,9 @@ public class WisdomPredictionGenerator {
                 cmd =  "SELECT game_id, round(avg(pd.home_score)) as home_score, round(avg(pd.visitor_score)) as visitor_score" + 
                        "   FROM prediction p, prediction_detail pd" + 
                        "      WHERE pd.prediction_id = p.prediction_id AND p.week_id = ? AND pd.home_score IS NOT NULL and pd.visitor_score IS NOT NULL" + 
-                       "            AND p.coder_id NOT IN (?,?) AND p.coder_id IN (select coder_id from user_overall_stats uos where uos.rank <= "+rank+")" + 
+                       "            AND p.coder_id NOT IN (?,?) AND p.coder_id IN (select coder_id from user_overall_stats uos where uos.rank <= "+rank+" and uos.week_id = "+previousWeek+")" + 
                        "      group by game_id order by 1";
-                log.info("Using rank <= " + rank);
+                log.info("Using rank <= " + rank+" on week ="+previousWeek);
             } else if (areWeeklyStatsGenerated(previousWeek)) {
                 log.info("Using weekly stats for TOP 10 generation: weekID <= "+previousWeek);
                 cmd =  "SELECT game_id, round(avg(pd.home_score)) as home_score, round(avg(pd.visitor_score)) as visitor_score" + 
