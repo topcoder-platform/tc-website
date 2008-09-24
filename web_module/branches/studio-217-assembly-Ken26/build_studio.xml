@@ -398,6 +398,7 @@
         <copy todir="${jboss_conf}" file="${resources}/forums/studio/jive_init.xml"/>
         <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/ApplicationServer.properties"/>
+    	<copy todir="${jboss_conf}" file="${resources}/login-config.xml"/>
         <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/EmailEngineConfig.properties"/>

@@ -13,7 +13,7 @@
 		JAVA_OPTS="-Dprogram.name=$PROGNAME $JAVA_OPTS"
 		JAVA_OPTS="-Djboss.remoting.pre_2_0_compatible=true $JAVA_OPTS"
 
-- restart JBoss : jbb; ./kill.sh; ./starts.sh; tn;
+- restart JBoss server: jbb; ./kill.sh; ./start.sh; tn;
 	
 - log in with studio user
 
@@ -30,7 +30,7 @@
 
 - build and war studio : ant -f build_studio.xml war-studio
 
-- restart JBoss : jbb; ./kill.sh; ./starts.sh; tn;
+- restart Studio JBoss server: jbb; ./kill.sh; ./start.sh; tn;
 
 - test studio application
 
