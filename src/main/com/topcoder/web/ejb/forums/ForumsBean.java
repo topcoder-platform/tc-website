@@ -796,9 +796,9 @@ public class ForumsBean extends BaseEJB {
     private long createForum(long categoryID, String name, String description) throws Exception {
         try {
             ForumCategory category = forumFactory.getForumCategory(categoryID);
-            log.info("Category: " + category); 
+
             Forum forum = forumFactory.createForum(name, description, category);
-            log.info("Forum: " + forum); 
+
             return forum.getID();
         } catch (Exception e) {
             logException(e, "error in creating software component forums");
@@ -833,13 +833,19 @@ public class ForumsBean extends BaseEJB {
         }
     }
     
-    public void createForumWatch(long userID, long forumID) throws UnauthorizedException, UserNotFoundException, ForumNotFoundException {
-        WatchManager watchManager = forumFactory.getWatchManager();
-        User user = forumFactory.getUserManager().getUser(userID);
-        Forum forum = forumFactory.getForum(forumID);
-        if (!watchManager.isWatched(user, forum)) {
-            watchManager.createWatch(user, forum);
-        }
+    public void createForumWatch(long userID, long forumID) throws Exception {
+    	try {
+	        WatchManager watchManager = forumFactory.getWatchManager();
+	        User user = forumFactory.getUserManager().getUser(userID);
+	        Forum forum = forumFactory.getForum(forumID);
+	        if (!watchManager.isWatched(user, forum)) {
+	            watchManager.createWatch(user, forum);
+	        }
+    	} catch (Exception e) {
+    		logException(e, "Can't create a forum watch for userid " + userID + " , forumID = " + forumID);
+    		throw new Exception("Can't create a forum watch for userid " + userID + " , forumID = " + forumID, e);
+    	}
+        
     }
 
 

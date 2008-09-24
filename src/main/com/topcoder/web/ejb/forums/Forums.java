@@ -58,6 +58,6 @@ public interface Forums extends EJBObject {
     
     public long createStudioForum(String name) throws EJBException, RemoteException;
     
-    public void createForumWatch(long userID, long forumID) throws UnauthorizedException, UserNotFoundException, ForumNotFoundException, EJBException, RemoteException;
+    public void createForumWatch(long userID, long forumID) throws Exception, EJBException, RemoteException;
 
 }
