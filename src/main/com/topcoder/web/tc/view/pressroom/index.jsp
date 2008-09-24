@@ -121,7 +121,7 @@
                 <%-- CIO: Cool Programmer Challenge: Football Algorithm = $50,000 begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.cio.com/article/449523/Cool_Programmer_Challenge_Football_Algorithm_' refer='pr_index' />"><img src="/i/pressroom/ciocom_logo_1201.gif" alt="CIO" border="0" /></a>
+                        <a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/cio_20080919.pdf' refer='pr_index' />"><img src="/i/pressroom/ciocom_logo_1201.gif" alt="CIO" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
                         <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.cio.com/article/449523/Cool_Programmer_Challenge_Football_Algorithm_' refer='pr_index' />">Cool Programmer Challenge: Football Algorithm = $50,000</a></h3>
