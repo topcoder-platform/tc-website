@@ -139,7 +139,6 @@
         <pathelement location="${external.jars.dir}/mockejb-0.6-beta2.jar"/>
     	
     	<!-- to be deleted -->
-    	
         <!-- <pathelement location="${jboss_lib}/jboss-saaj.jar"/> -->
     	
         <pathelement location="${jboss_lib}/jboss-transaction.jar"/>
