@@ -32,8 +32,15 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
 	 * This class is needed to login into cockpit server.
 	 */
 	public class CockpitLoginCallBackHandler implements CallbackHandler{
-
-		@Override
+		
+		/**
+		* Sets credentials for login
+		*
+		* @param callbacks an array of Callback objects provided by an underlying security service which contains the information requested to be retrieved.
+		*
+		* @throws IOException if an input or output error occurs.
+		* @throws UnsupportedCallbackException if the implementation of this method does not support one or more of the Callbacks specified in the callbacks parameter.
+		*/
 		public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
 			System.out.println("in CockpitLoginCallBackHandler.handle ");
 			for(int i = 0; i < callbacks.length; ++i){
