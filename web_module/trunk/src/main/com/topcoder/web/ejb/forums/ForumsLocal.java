@@ -86,4 +86,7 @@ public interface ForumsLocal extends EJBLocalObject {
     public long createMarathonForum(long roundID, String name) throws EJBException;
     
     public long createStudioForum(String name) throws EJBException;
+    
+    public void createForumWatch(long userID, long forumID) throws UnauthorizedException, UserNotFoundException, EJBException;
+
 }
