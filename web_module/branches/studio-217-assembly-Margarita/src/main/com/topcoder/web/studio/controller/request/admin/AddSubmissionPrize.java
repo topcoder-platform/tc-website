@@ -22,10 +22,10 @@ import java.io.*;
  */
 public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
 
-	public class MyCallBackHandler implements CallbackHandler{
+	public class CockpitLoginCallBackHandler implements CallbackHandler{
 
 		public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
-System.out.println("in MyCallBackHandler.handle ");
+			System.out.println("in CockpitLoginCallBackHandler.handle ");
 			for(int i = 0; i < callbacks.length; ++i){
 				if(callbacks[i] instanceof NameCallback){
 					NameCallback nc = (NameCallback) callbacks[i];
@@ -66,7 +66,7 @@ System.out.println("in MyCallBackHandler.handle ");
         }
 
  	 java.lang.System.setProperty("java.security.auth.login.config", "auth.conf");
-	 LoginContext lc = new LoginContext("default", new MyCallBackHandler());
+	 LoginContext lc = new LoginContext("default", new CockpitLoginCallBackHandler());
  	 lc.login();
         if (log.isDebugEnabled()) {
             	 log.debug("logged in");
