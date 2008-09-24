@@ -10,6 +10,9 @@ import com.topcoder.web.studio.Constants;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.util.Properties;
+import java.util.HashSet;
+
+import com.topcoder.shared.util.dwload.CacheClearer;
 
 import javax.security.auth.login.LoginContext;
 import javax.security.auth.callback.*;
@@ -90,6 +93,14 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
         }
         studioService.setSubmissionPlacement(submissionId, prizeId);
 
+        try {
+            HashSet<String> cachedStuff = new HashSet<String>();
+            cachedStuff.add(Constants.CONTEST_ID + "=" + getRequest().getParameter(Constants.CONTEST_ID));
+            cachedStuff.add("studio_home_data");
+            CacheClearer.removelike(cachedStuff);
+        } catch (Exception ignore) {
+                ignore.printStackTrace();
+        }
         // redirect
         setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=ViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + submissionId);
         setIsNextPageInContext(false);
