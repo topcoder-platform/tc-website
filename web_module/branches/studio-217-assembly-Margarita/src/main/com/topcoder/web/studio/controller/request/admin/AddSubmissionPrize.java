@@ -24,18 +24,27 @@ import java.io.*;
  *          Create Date: Aug 29, 2006
  */
 public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
-
+	
+	/**
+	 * @author TCSDEVELOPER
+	 * @version 1.0
+	 *          Create Date: Sep 23, 2008
+	 * This class is needed to login into cockpit server.
+	 */
 	public class CockpitLoginCallBackHandler implements CallbackHandler{
 
+		@Override
 		public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
 			System.out.println("in CockpitLoginCallBackHandler.handle ");
 			for(int i = 0; i < callbacks.length; ++i){
 				if(callbacks[i] instanceof NameCallback){
 					NameCallback nc = (NameCallback) callbacks[i];
+					// set user name
 					nc.setName(ApplicationServer.STUDIO_SERVICES_USERNAME);
 				}
 				if(callbacks[i] instanceof PasswordCallback){
 					PasswordCallback pc = (PasswordCallback) callbacks[i];
+					// set password
 					pc.setPassword(ApplicationServer.STUDIO_SERVICES_PASSWORD.toCharArray());
 				}
 			}
