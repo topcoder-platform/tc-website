@@ -48,7 +48,7 @@ import java.util.Iterator;
 
 public class ForumsBean extends BaseEJB {
 
-    private static com.opensymphony.util.Logger log = Logger.getLogger(ForumsBean.class);
+    private static Logger log = Logger.getLogger(ForumsBean.class);
     private static ForumFactory forumFactory = ForumFactory.getInstance(new TCAuthToken(100129));
     private static final long TCS_FORUMS_ROOT_CATEGORY_ID = WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID;
     private static long swAdminID = 305384;
