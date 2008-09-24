@@ -103,12 +103,13 @@
                       <td ><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}">picks</a></td>
                     </tr>
                   </c:forEach>
-                    <tr>
-                      <%-- 
+                    <%-- commented till mini 2 starts <tr> --%>
+                      <%-- retain commenting here for now 
                       <th colspan="2" class="resultsAndLeaders"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewStandings&amp;msi=${lp.miniSeasonId}" class="viewLink">All ${lp.miniSeasonDesc} Leaders</a></th>
                       <th class="resultsAndLeaders">&nbsp;</th>
                       <th colspan="2" class="resultsAndLeaders">${lp.miniSeasonDesc} Top 5</th>
                       --%>
+                      <%-- commented till mini 2 starts 
                       <th colspan="5" class="resultsAndLeaders"><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewStandings&amp;msi=${lp.miniSeasonId}" class="viewLink">All ${lp.miniSeasonDesc} Leaders</a>&nbsp;${lp.miniSeasonDesc} Top 5</th>
                     </tr>
                     <c:forEach items="${miniSeasonStandings}" var="standingsItem">
@@ -127,6 +128,7 @@
                       <td><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&amp;cr=${standingsItem.coderId}">picks</a></td>
                     </tr>
                   </c:forEach>
+                  --%>
                   </tbody>
                 </table>
             </div>
