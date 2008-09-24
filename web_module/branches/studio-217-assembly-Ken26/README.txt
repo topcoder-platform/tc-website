@@ -1,4 +1,4 @@
-SVN TAG : 
+SVN Branch = https://coder.topcoder.com/internal/web_module/branches/studio-217-assembly-Ken26
 
 #==================================================================================#
 # DEPLOYMENT
