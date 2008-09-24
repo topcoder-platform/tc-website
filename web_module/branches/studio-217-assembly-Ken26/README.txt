@@ -64,13 +64,12 @@
    
 ** Purpose: configure additional jars in automated ant build/deploy scripts
    Impacted file(s): /home/studio/web/build_studio.xml
-   					 /home/studio/web/build_studio_dist.xml
    Description: 
    Ref: N/A
 
 
    
-Path
+** other impacted files
 /home/studio/web/src/main/com/topcoder/web/studio/controller/request/admin/AddSubmissionPrize.java
 /home/studio/web/src/main/com/topcoder/web/studio/util/ApplicationServer.java
 /home/studio/web/src/main/com/topcoder/web/studio/util/StudioServiceLocator.java
