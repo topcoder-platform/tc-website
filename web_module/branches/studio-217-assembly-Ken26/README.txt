@@ -2,7 +2,7 @@
 # DEPLOYMENT
 #==================================================================================#
 
-** Pre-requisites : switch to the correct SVN branch and do a checkout
+** Pre-requisites : switch to the correct SVN branch and do a checkout in your test environment
 
 - log in with cockpit user
 
