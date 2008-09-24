@@ -820,6 +820,16 @@ public class ForumsBean extends BaseEJB {
         }
     }
 
+    public long createStudioForum(String name) {
+        try {
+            long forumID = createForum(3, name);
+            return forumID;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
     private void logException(Exception e, String msg) {
         log.info("*** " + msg + ": " + e);
         StackTraceElement[] ste = e.getStackTrace();
