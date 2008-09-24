@@ -54,4 +54,7 @@ public interface Forums extends EJBObject {
     //public long getSoftwareComponentID(ForumCategory category) throws EJBException, RemoteException, SQLException;
     
     public long createMarathonForum(long roundID, String name) throws EJBException, RemoteException;
+    
+    public long createStudioForum(String name) throws EJBException, RemoteException;
+
 }

@@ -7,6 +7,8 @@ import com.topcoder.web.common.RowNotFoundException;
 
 import javax.ejb.EJBException;
 import javax.ejb.EJBLocalObject;
+
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -82,4 +84,6 @@ public interface ForumsLocal extends EJBLocalObject {
     public void convertTCSPerms() throws EJBException;
 
     public long createMarathonForum(long roundID, String name) throws EJBException;
+    
+    public long createStudioForum(String name) throws EJBException;
 }
