@@ -32,6 +32,7 @@ ding="utf-8"?>
     <!--script type='text/javascript' src='http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js'></script-->
     <link rel="stylesheet" href="/js/thickbox-3.1/thickbox-3.1.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="/css/v2/home.css" media="all" type="text/css"/>
+    
 </head>
 
 <c:set var="contests" value="<%=activeContests%>"/>
@@ -48,7 +49,7 @@ ding="utf-8"?>
         <jsp:include page="top.jsp">
             <jsp:param name="section" value="home"/>
         </jsp:include>
-        <jsp:include page="topNav.jsp">
+    	<jsp:include page="topNav.jsp">
             <jsp:param name="node" value="home"/>
         </jsp:include>
     </div>
@@ -67,11 +68,11 @@ ding="utf-8"?>
             <p>Show off your creative skills in a competitive environment and get paid for being the best!</p>
         </div>
         <div id="welcome_banner">
-            <%-- default banner
+            <%-- default banner --%>
             <a href="/?module=ViewActiveContests"><img alt="Get Started Now!" src="/i/v3/welcome_banner.png" width="536" height="121" border="0"/></a>
-             --%>
-             <%-- birthday banner --%>
-            <a href="http://tcstudioblogs.com/?p=39"><img alt="Studio Celebrates Two Years of Design Contests!" src="/i/v3/banner_birthday_536x121.png" width="536" height="121" border="0"/></a>
+            
+             <%-- birthday banner
+            <a href="http://tcstudioblogs.com/?p=39"><img alt="Studio Celebrates Two Years of Design Contests!" src="/i/v3/banner_birthday_536x121.png" width="536" height="121" border="0"/></a> --%>
         </div>
     </div>
 
@@ -84,6 +85,25 @@ ding="utf-8"?>
     <%-- <div>
        <a href="/?module=ViewContestDetails&ct=2343"><img alt="Flex your muscles in Studio" src="/i/v3/flexbanner.png" width="535" height="60" border="0"/></a>
     </div>   --%>
+    
+    <!-- winners box -->
+    <div class="winners">
+	<div id="winners">
+	</div>
+   </div>
+    <script>
+       function loadWinners() {
+			  var rss = "rss/?feed=rss2&cat=9";
+              var template = "js/RecentWinnersTemplate.txt";
+          try {
+              var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
+              document.getElementById("winners").innerHTML = (processor.transformRSSFeed(rss));
+          } catch (e) {
+              document.getElementById("winners").innerHTML = "Error reading recent winners feed.";
+         throw e;
+          }
+      }
+    </script>
 
     <!-- contest box -->
     <c:if test="${not empty contests}">
@@ -121,24 +141,7 @@ ding="utf-8"?>
     </div>
     </c:if>
 
-    <!-- winners box -->
-    <div class="winners">
-	<div id="winners">
-	</div>
-   </div>
-    <script>
-       function loadWinners() {
-			  var rss = "rss/?feed=rss2&cat=9";
-              var template = "js/RecentWinnersTemplate.txt";
-          try {
-              var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
-              document.getElementById("winners").innerHTML = (processor.transformRSSFeed(rss));
-          } catch (e) {
-              document.getElementById("winners").innerHTML = "Error reading recent winners feed.";
-         throw e;
-          }
-      }
-    </script>
+    
     
 </div>
 <!-- end left container -->
