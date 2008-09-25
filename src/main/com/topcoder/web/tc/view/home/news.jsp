@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Surveys" border="0" /><br />09.25.08<br />10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=ViewSurvey&amp;sid=28354">What do you know about AMD?</a></span><br /><br />
+        Please fill out this survey about AMD by October 9 for a chance to win a great AMD prize!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=ViewSurvey&amp;sid=28354">details</a> | 
+        <tc-webtag:forumLink forumID="520259" message="discuss this" /> | 
+        <a href="/tc?&amp;module=SurveyList">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />09.22.08<br />6:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20080920' refer='/tc' />">Spotlight Session with Petr Chat Transcript</a></span><br /><br />
@@ -153,19 +166,5 @@
         <a href="/tc?module=ViewAssemblyActiveContests">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3744">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-   
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />09.05.08<br />4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2343">Flex Your Muscles In Studio</a></span><br /><br />
-        Top Coder is currently running an Adobe Flex contest for a widget and tab view-based interface component on Studio!  Flex, Adobe's latest development platform, enables rapid development of Rich Internet Applications that run in the Adobe Flash Player.  If you're an expert in Actionscript, you're already half-way there to becoming a Flex expert.  Are you ready to flex your muscles?  There's a $2000 purse up for grabs in this latest of many upcoming Flex competitions!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2343">details</a> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&amp;forumID=332">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
    
