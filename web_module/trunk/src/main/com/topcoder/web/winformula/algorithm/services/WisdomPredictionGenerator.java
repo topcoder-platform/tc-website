@@ -58,11 +58,12 @@ public class WisdomPredictionGenerator {
                 log.info("All weeks are closed for the given round");
                 return;
             }
+            
             log.info("Opened week in round "+weeks);
             
             deletePredictions(weeks);
             
-            String cmd = "SELECT game_id, round(avg(pd.home_score)) as home_score, round(avg(pd.visitor_score)) as visitor_score" + 
+            String cmd = "SELECT game_id, round(avg(pd.home_score)) as home_score, round(avg(pd.visitor_score)) as visitor_score, avg(pd.home_score) as nr_home_score, avg(pd.visitor_score) as nr_visitor_score " + 
                          " FROM prediction p, prediction_detail pd" +
                          "   WHERE pd.prediction_id = p.prediction_id AND p.week_id = ?  AND pd.home_score IS NOT NULL AND pd.visitor_score IS NOT NULL" +
                          "         AND p.coder_id NOT IN (?,?)"  + 
@@ -78,7 +79,7 @@ public class WisdomPredictionGenerator {
             if (areOverallStatsGenerated(previousWeek)) {
                 log.info("Using overall stats for TOP 10 generation");
                 int rank = resolveRankToTakeOnOverall(previousWeek);
-                cmd =  "SELECT game_id, round(avg(pd.home_score)) as home_score, round(avg(pd.visitor_score)) as visitor_score" + 
+                cmd =  "SELECT game_id, round(avg(pd.home_score)) as home_score, round(avg(pd.visitor_score)) as visitor_score, avg(pd.home_score) as nr_home_score, avg(pd.visitor_score) as nr_visitor_score" + 
                        "   FROM prediction p, prediction_detail pd" + 
                        "      WHERE pd.prediction_id = p.prediction_id AND p.week_id = ? AND pd.home_score IS NOT NULL and pd.visitor_score IS NOT NULL" + 
                        "            AND p.coder_id NOT IN (?,?) AND p.coder_id IN (select coder_id from user_overall_stats uos where uos.rank <= "+rank+" and uos.week_id = "+previousWeek+")" + 
@@ -86,7 +87,7 @@ public class WisdomPredictionGenerator {
                 log.info("Using rank <= " + rank+" on week ="+previousWeek);
             } else if (areWeeklyStatsGenerated(previousWeek)) {
                 log.info("Using weekly stats for TOP 10 generation: weekID <= "+previousWeek);
-                cmd =  "SELECT game_id, round(avg(pd.home_score)) as home_score, round(avg(pd.visitor_score)) as visitor_score" + 
+                cmd =  "SELECT game_id, round(avg(pd.home_score)) as home_score, round(avg(pd.visitor_score)) as visitor_score, avg(pd.home_score) as nr_home_score, avg(pd.visitor_score) as nr_visitor_score" + 
                               "   FROM prediction p, prediction_detail pd" + 
                               "      WHERE pd.prediction_id = p.prediction_id AND p.week_id = ? AND pd.home_score IS NOT NULL and pd.visitor_score IS NOT NULL" +
                               "            AND " +  resolveCodersToTakeFromWeeklyStats(previousWeek) +
@@ -139,7 +140,23 @@ public class WisdomPredictionGenerator {
             
                rs = ps.executeQuery();
                while (rs.next()) {
-                   service.insertPredictionItem(predictionId, rs.getInt(1), DBUtils.getInt(rs, 2), DBUtils.getInt(rs, 3));
+                   int gameId = rs.getInt(1);
+                   Integer finalHomeScore = DBUtils.getInt(rs, 2);
+                   Integer finalAwayScore = DBUtils.getInt(rs, 3);
+                   Double homeScore = DBUtils.getDouble(rs, 4);
+                   Double awayScore = DBUtils.getDouble(rs, 5);
+                   if (finalHomeScore.equals(finalAwayScore)) {
+                       log.info("Converting tie on game " + gameId +" from "+ finalHomeScore + "," +finalAwayScore +"("+homeScore + "," +awayScore+")");
+                       if (Math.abs(homeScore.doubleValue() - finalHomeScore.doubleValue()) > Math.abs(awayScore.doubleValue() - finalHomeScore.doubleValue())) {
+                           finalAwayScore = finalHomeScore;
+                           finalHomeScore = getTweakScore(finalHomeScore, homeScore);  
+                       } else {
+                           finalHomeScore = finalAwayScore;
+                           finalAwayScore = getTweakScore(finalAwayScore, awayScore);
+                       }
+                       log.info("TO "+ finalHomeScore + "," +finalAwayScore);
+                   }
+                   service.insertPredictionItem(predictionId, gameId, finalHomeScore, finalAwayScore);
                }
                DBMS.close(rs);
                
@@ -148,6 +165,10 @@ public class WisdomPredictionGenerator {
         } finally {
             DBMS.close(ps, rs);
         }
+    }
+
+    private Integer getTweakScore(Integer roundedScore, Double realScore) {
+        return realScore.compareTo(roundedScore.doubleValue()) <= 0 ? new Integer((int) Math.floor(realScore.doubleValue())) : new Integer((int) Math.ceil(realScore.doubleValue()));
     }
 
 
