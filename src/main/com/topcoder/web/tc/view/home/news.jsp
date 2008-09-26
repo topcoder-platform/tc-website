@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />09.26.08<br />4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm418">SRM 418 - Problem Set &amp; Analysis</a></span><br /><br />
+      During SRM 418, Division One coders were presented with a straightforward easy problem which gave them more time for very technical and time-consuming medium. Those who managed to finish (or skipped) 500-pointer faced a tricky 900-pointer with some tempting but incorrect solutions.</td>
+         <td class="newsPhoto"><img src="/i/m/weds_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="21157942" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm418">details</a> | 
+        <tc-webtag:forumLink forumID="523422" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Surveys" border="0" /><br />09.25.08<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=ViewSurvey&amp;sid=28354">What do you know about AMD?</a></span><br /><br />
@@ -154,17 +170,3 @@
         <tc-webtag:forumLink forumID="523289" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />09.06.08<br />10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=ViewAssemblyActiveContests">5000 DR Points in the NORM Assembly Run!</a></span><br /><br />
-        TopCoder is pleased to announce the launching of the NORM Assembly Run competition – a great way to get ahead in the Digital Run!  The first of seven assemblies launched today with more coming over the course of the next three weeks. Each competition is worth 714.3 DR points for a total of 5000.1 points!  Get a head-start on the September DR prize now!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=ViewAssemblyActiveContests">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3744">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-   
