@@ -1,5 +1,15 @@
 package com.topcoder.web.common;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Set;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
@@ -12,15 +22,6 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.throttle.Throttle;
-
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Set;
 
 /**
  * A base implementation for TC servlets.  It should provide
@@ -193,7 +194,7 @@ public abstract class BaseServlet extends HttpServlet {
                     }
 
                     //log.debug("path " + PATH);
-                    String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
+                    String processorName = getFullProcessorName(cmd);
 
                     if (log.isDebugEnabled()) {
                         log.debug("creating request processor for " + processorName);
@@ -243,6 +244,10 @@ public abstract class BaseServlet extends HttpServlet {
             out.println("</body></html>");
             out.flush();
         }
+    }
+
+    protected String getFullProcessorName(String cmd) {
+        return PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
     }
 
     protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
