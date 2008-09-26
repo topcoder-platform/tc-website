@@ -44,7 +44,7 @@
     <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">Archive</a><br />
     <span id="printableLink"><a href="Javascript:makeInvisible();">Printable view</a><br /></span>
     <span id="navigableLink" class="invisible"><a href="Javascript:makeNavigable();">Normal view</a><br /></span>
-    <a href="/stat?c=round_overview&er=5&amp;rd=13508">Match Overview</a><br />
+    <a href="/stat?c=round_overview&amp;er=5&amp;rd=13508">Match Overview</a><br />
     <tc-webtag:forumLink forumID="523296" message="Discuss this match" />
 </div>
 <span class="bodySubtitle">SRM 417</span><br />Thursday, September 11, 2008
