@@ -3,19 +3,17 @@
  */
 package com.topcoder.web.studio.validation;
 
-import com.topcoder.web.common.validation.Validator;
-import com.topcoder.web.common.validation.ValidationResult;
-import com.topcoder.web.common.validation.ValidationInput;
-import com.topcoder.web.common.validation.BasicResult;
-import com.topcoder.web.studio.dao.FileTypeDAO;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.dao.MediumDAO;
-import com.topcoder.web.studio.model.StudioFileType;
-import com.topcoder.web.studio.model.Medium;
-import com.topcoder.web.studio.Constants;
-
-import java.util.List;
 import java.util.Iterator;
+import java.util.List;
+
+import com.topcoder.web.common.validation.BasicResult;
+import com.topcoder.web.common.validation.ValidationInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.common.validation.Validator;
+import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.MediumDAO;
+import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.studio.model.Medium;
 
 /**
  * <p>A validator for intended medium types for submissions for the created contests.</p>
