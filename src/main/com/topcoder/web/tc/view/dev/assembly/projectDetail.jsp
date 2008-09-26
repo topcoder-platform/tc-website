@@ -135,7 +135,7 @@
 </p>
 
 <br>
-<span class="bigRed">NOTE: Please see the eligibility requirements below. Competitors must sign a non-disclosure agreement before being admitted into this competition.   If you have previously completed these documents, no further action is needed.</span>
+<span class="bigRed">NOTE: Please see the eligibility requirements below.</span>
 
 <p>
 <div align="right"><A href="/tc?module=Static&d1=features&d2=061906"><img src="/i/development/assembly/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
@@ -219,7 +219,7 @@ Final payment is conditional on acceptance of the fully functional assembly by t
             need to do anything to become authorized)</li>
     </ul>
 
-<span class="bigRed">Your ability to participate in this competition is contingent on the agreement to the Assembly Terms of Work and signing of a Non Disclosure Agreement. Once you have registered this information will be emailed to you and should be returned within 24 hours.  If you have previously completed these documents, no further action is needed.</span>
+<span class="bigRed">Your ability to participate in this competition is contingent on the agreement to the Assembly Terms of Work.</span>
 </p>
 
 </td>
