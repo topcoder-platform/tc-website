@@ -42,7 +42,8 @@ public class MediumValidator implements Validator {
     public ValidationResult validate(ValidationInput input) {
         List mediums = (List) input.getInput();
         if (mediums == null || mediums.isEmpty()) {
-            return new BasicResult(false, Constants.ERROR_MSG_NO_MEDIUM);
+            //return new BasicResult(false, Constants.ERROR_MSG_NO_MEDIUM);
+            return ValidationResult.SUCCESS;
         } else {
             try {
                 MediumDAO dao = StudioDAOUtil.getFactory().getMediumDAO();

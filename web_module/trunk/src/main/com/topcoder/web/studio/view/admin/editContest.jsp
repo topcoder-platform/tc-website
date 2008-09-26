@@ -283,7 +283,7 @@
 </tr>
 <tr>
     <td class="field">
-        <div>* Medium: (Check all that apply)</div>
+        <div>Medium: (Check all that apply)</div>
     </td>
     <td class="value" width="100%">
         <c:forEach items="${mediumTypes}" var="medium">
