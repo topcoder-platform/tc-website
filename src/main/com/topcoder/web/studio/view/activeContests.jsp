@@ -46,13 +46,12 @@
 <div align="right"><strong>Need help? Learn how to
     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get
         started</a>.<br />
-    Got <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">questions</a>?</strong>
 </div>
 
 <div class="tableTabOn" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a></div>
 <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a></div>
+            <a href="http://www.topcoder.com/tc?module=BasicRSS&amp;c=rss_active_contests&amp;dsid=33"><img align="right" src="/i/v2/interface/btnRSS.png" alt="RSS" style="vertical-align:midium; margin-right: 5px; margin-top:5px "/></a>
 <br  clear="all"/>
-
 <div class="statHolder">
     <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
     <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
