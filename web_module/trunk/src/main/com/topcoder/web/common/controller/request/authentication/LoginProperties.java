@@ -15,7 +15,7 @@ import com.topcoder.shared.util.TCResourceBundle;
  */
 public class LoginProperties {
     private static final String LOGIN_FILE = "Login";
-    private static ConcurrentHashMap<String, LoginProperties> contextProps;
+    private static ConcurrentHashMap<String, LoginProperties> contextProps = new ConcurrentHashMap<String, LoginProperties>();
     private TCResourceBundle props;
     
     protected LoginProperties(TCResourceBundle p) {
