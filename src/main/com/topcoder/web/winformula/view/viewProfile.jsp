@@ -155,18 +155,22 @@
                         </c:choose>
                       </td>
                     </tr>
-                    <tr>
-                      <td valign="top"><strong>Prizes/Awards Won:</strong></td>
-                      <td>
-                        <c:forEach items="${member.achievements}" var="achievement">
-                            ${achievement}<br/>
-                        </c:forEach>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><strong>Total Prizes/Awards Won:</strong></td>
-                      <td><fmt:formatNumber value="${member.totalPrizes}" type="currency" currencySymbol="$"/></td>
-                    </tr>
+                      <c:if test="${not empty member.achievements}">
+                        <tr>
+                          <td valign="top"><strong>Prizes/Awards Won:</strong></td>
+                          <td>
+                            <c:forEach items="${member.achievements}" var="achievement">
+                                ${achievement}<br/>
+                            </c:forEach>
+                          </td>
+                        </tr>
+                      </c:if>
+                      <c:if test="${not empty member.totalPrizes}">
+                        <tr>
+                          <td><strong>Total Prizes/Awards Won:</strong></td>
+                          <td><fmt:formatNumber value="${member.totalPrizes}" type="currency" currencySymbol="$"/></td>
+                        </tr>
+                      </c:if>
                   </table>
                 </div>
                 <div class="right-content">
