@@ -2,7 +2,6 @@ package com.topcoder.web.common.controller.request.authentication;
 
 import java.util.Arrays;
 
-import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.security.LoginException;
@@ -11,13 +10,10 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.WebConstants;
-import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.user.User;
 
@@ -88,7 +84,6 @@ public class Login extends BaseProcessor {
                                     log.debug("on successful login, going to " + getNextPage());
                                 }
                                 getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("on"));
-                                doLegacyCrap(getRequest());
                                 return;
                             }
                         } else {
@@ -159,18 +154,6 @@ public class Login extends BaseProcessor {
         result = email.getStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
                 DBMS.COMMON_OLTP_DATASOURCE_NAME);
         return result;
-    }
-
-    private void doLegacyCrap(TCRequest request) throws Exception {
-        TCSubject user = SecurityHelper.getUserSubject(getAuthentication().getActiveUser().getId());
-        CoderSessionInfo ret = new CoderSessionInfo(request, getAuthentication(), user.getPrincipals());
-        Navigation nav = (Navigation) request.getSession(true).getAttribute("navigation");
-        if (nav == null) {
-            nav = new Navigation(request, ret);
-            request.getSession(true).setAttribute("navigation", nav);
-        } else {
-            nav.setCoderSessionInfo(ret);
-        }
     }
 
     private String determineNextPage() {
