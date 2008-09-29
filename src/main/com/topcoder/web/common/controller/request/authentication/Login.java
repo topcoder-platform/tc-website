@@ -1,12 +1,6 @@
 package com.topcoder.web.common.controller.request.authentication;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.Arrays;
-
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.rmi.PortableRemoteObject;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.TCSubject;
@@ -144,12 +138,16 @@ public class Login extends BaseProcessor {
     }
 
 
-    /*------------------------------------------------------------------------------------------------------------------------
-     * This must be changed for a call to an service only 
-     * -----------------------------------------------------------------------------------------------------------------------*/
+    /**
+     * shouldn't use ejb slooooooooow
+     *
+     * @param userId
+     * @return
+     * @throws Exception if user doesn't exist or some other ejb problem
+     */
     private char getStatus(long userId) throws Exception {
         char result;
-        User user = (User) createEJBFromENC(getInitialContext(), User.class);
+        User user = (User) createEJB(getInitialContext(), User.class);
         result = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
         return result;
 
@@ -157,23 +155,11 @@ public class Login extends BaseProcessor {
 
     private int getEmailStatus(long userId) throws Exception {
         int result;
-        Email email = (Email) createEJBFromENC(getInitialContext(), Email.class);
+        Email email = (Email) createEJB(getInitialContext(), Email.class);
         result = email.getStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
                 DBMS.COMMON_OLTP_DATASOURCE_NAME);
         return result;
     }
-
-    private Object createEJBFromENC(InitialContext ctx, Class c) throws NamingException, SecurityException, ClassCastException, 
-            NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
-        
-        Object home = ctx.lookup("java:/comp/env/ejb/" + c.getSimpleName() + "LocalHome");
-        Method createmethod = PortableRemoteObject.narrow(home, home.getClass()).getClass().getMethod("create", (Class[]) null);
-        return createmethod.invoke(home, (Object[]) null);
-    }
-    
-    /*------------------------------------------------------------------------------------------------------------------------
-     * End- This must be changed for a call to an service only 
-     * -----------------------------------------------------------------------------------------------------------------------*/
 
     private void doLegacyCrap(TCRequest request) throws Exception {
         TCSubject user = SecurityHelper.getUserSubject(getAuthentication().getActiveUser().getId());
