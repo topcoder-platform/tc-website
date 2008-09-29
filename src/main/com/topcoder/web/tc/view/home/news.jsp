@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />09.29.08<br />7:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/wiki/display/docs/Seam">JBoss Seam Contests Approaching</a></span><br /><br />
+        Later this week, TopCoder will be posting the first in a series of component and assembly competitions that target the exciting <a target="_blank" href="<tc-webtag:linkTracking link='http://seamframework.org/' refer='/tc' />">JBoss Seam</a> framework. Seam integrates diverse technologies from the world of J2EE, eliminating the need for boilerplate code. To support these contests TopCoder is pleased to announce a <a href="/wiki/display/docs/Seam">Seam-centric technology hub</a> comprising a wiki site, articles and discussion forums, open to all members of the TopCoder community.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/wiki/display/docs/Seam">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3736">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />09.26.08<br />4:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -158,15 +171,3 @@
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />09.10.08<br />12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/threadfest' refer='/tc' />">AMD Multicore Threadfest Competition 3 is Underway</a></span><br /><br />
-        The third edition of the AMD Multicore Threadfest Competition is now underway.  Your chance at part of the $5,000 prize purse starts now.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/threadfest' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="523289" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
-   </td></tr>
