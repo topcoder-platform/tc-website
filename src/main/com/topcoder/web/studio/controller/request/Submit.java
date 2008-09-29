@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -255,6 +256,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 								.getMimeType(submissionFile);
 						Submission s = new Submission();
 						s.setContest(c);
+						s.setCreateDate(new Timestamp(now.getTime()));
 						s.setOriginalFileName(remoteFileName);
 						s.setSubmitter(u);
 						s.setMimeType(mt);
