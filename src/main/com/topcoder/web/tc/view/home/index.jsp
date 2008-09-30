@@ -47,7 +47,7 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
-        <td class="homeTopBar" align="left" width="30%"><br /><a href="/tc?module=Static&amp;d1=about&amp;d2=contactus"><img src="/i/home/contactUsButton.png" alt="Contact Us" style="display:block;" /></a></td>
+        <td class="homeTopBar" align="left" width="30%"><br /><a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=about&d2=contactus' refer='homepage' />"><img src="/i/home/contactUsButton.png" alt="Contact Us" style="display:block;" /></a></td>
         <td class="homeTopBar" align="center" width="40%"><br /><a href="/"><img src="/i/home/tcLogo352.png" alt="TopCoder, Inc." style="display: block;" /></a></td>
         <td class="homeTopBar" align="right" width="30%">&nbsp;</td>
     </tr>
