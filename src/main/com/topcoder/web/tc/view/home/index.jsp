@@ -47,7 +47,9 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
-        <td class="homeTopBar" align="center" colspan="2"><br /><a href="/"><img src="/i/home/tcLogo352.png" alt="TopCoder, Inc." style="display: block;" /></a></td>
+        <td class="homeTopBar" align="left" width="30%"><br /><a href="/tc?module=Static&amp;d1=about&amp;d2=contactus"><img src="/i/home/contactUsButton.png" alt="Contact Us" style="display:block;" /></a></td>
+        <td class="homeTopBar" align="center" width="40%"><br /><a href="/"><img src="/i/home/tcLogo352.png" alt="TopCoder, Inc." style="display: block;" /></a></td>
+        <td class="homeTopBar" align="right" width="30%">&nbsp;</td>
     </tr>
     <tr>
         <td class="homeTopBar" align="left">
@@ -56,6 +58,7 @@
             -
             <tc-webtag:format object="${sessionInfo.date}" format="MMMM d, yyyy"/>
         </td>
+        <td class="homeTopBar" align="center">&nbsp;</td>
         <td class="homeTopBar" align="right">
             <a href="/reg/" class="loginLinks">Register Now</a>
             | <a href="/tc?module=Static&amp;d1=about&amp;d2=index" class="loginLinks">About TopCoder</a></td>
