@@ -82,7 +82,7 @@
                                 <td colspan="2"><textarea id="00N40000001mBlp" name="00N40000001mBlp" type="text" wrap="soft" style="width:260px; height:100px;"></textarea><br /></td>
                             </tr>
                             <tr>
-                                <td colspan="2" style="font-size:11px;"><label for="phone"><span style="font-size:10px;">(optional)</span> Leave a phone number &amp; we'll call you</label></td>
+                                <td colspan="2" style="font-size:11px;"><label for="phone"><span style="font-size:10px;">(optional)</span> Leave a phone number and we'll call you</label></td>
                             </tr>
                             <tr>
                                 <td colspan="2"><input id="phone" maxlength="40" name="phone" type="text" style="width:260px;" /><br /></td>
