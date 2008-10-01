@@ -40,12 +40,12 @@
             <div align="left" style="margin-bottom: 20px;">
                 <img src="/i/introevent/bcsLogo.png" alt="" />
             </div>
-            <h2>Problem Statement for OlympicCandles</h2>
+            <h2>Problem Statement for RevealTriangle</h2>
 
             <div>
             <strong>
             Problem Statement 
-            | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=olympicCandlesSol" class="bcLink">Solution</a>
+            | <a href="/tc?module=Static&amp;d1=introevent&amp;d2=bcsscs&amp;d3=arithmeticProgressionSol" class="bcLink">Solution</a>
             </strong>
             </div>
             
@@ -57,8 +57,8 @@
                     <tr>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td>
-                            <p>To celebrate the upcoming Thought Challenge Olympics, you are going to follow tradition and light candles. On the first night of the event, you will light one candle. At the end of the night, you will extinguish the candle. On each subsequent night, you will light one more candle than you did on the previous night, so that on the <em>n</em>-th night (indexed from 1) you will light n candles (and extinguish them all in the morning). Each night that you light a candle, its height will decrease by 1 inch; once its height reaches 0 inches, you cannot use it anymore.</p>
-                            <p>You are given a int[] <strong>candles</strong>, the i-th element of which is the height of the i-th candle that you own. Return the maximum number of nights you can celebrate the event without going to the store to get more candles. For example, if you have three candles of height 2, you can light one the first night, the other two on the second night, and then all three candles on the third night.</p>
+                            <p>In mathematics, an arithmetic progression or arithmetic sequence is a sequence of numbers such that the difference of any two successive members of the sequence is a constant. For instance, the sequence 3, 5, 7, 9, 11, 13... is an arithmetic progression with common difference 2. An arithmetic sequence can always be represented as a<sub>n</sub>=a0+n*d.</p>
+                            <p>You will be given a sequence <strong>seq</strong>, where <strong>seq</strong><sub>i</sub> = [a<sub>i+1</sub>] for some nondecreasing arithmetic sequence a (both indices are 0-based). [x] denotes the floor function (see Notes). The sequence a is defined as <strong>a0</strong>+i*d. Return the minimal possible value for d. If no possible value exists for d, return -1 instead.</p>
                         </td>
                     </tr>
                     <tr>
@@ -74,23 +74,23 @@
                                 <tbody>
                                     <tr>
                                         <td>Class:</td>
-                                        <td>OlympicCandles</td>
+                                        <td>ArithmeticProgression</td>
                                     </tr>
                                     <tr>
                                         <td>Method:</td>
-                                        <td>numberOfNights</td>
+                                        <td>minCommonDifference</td>
                                     </tr>
                                     <tr>
                                         <td>Parameters:</td>
-                                        <td>int[]</td>
+                                        <td>int, int[]</td>
                                     </tr>
                                     <tr>
                                         <td>Returns:</td>
-                                        <td>int</td>
+                                        <td>double</td>
                                     </tr>
                                     <tr>
                                         <td>Method signature:</td>
-                                        <td>int numberOfNights(int[] candles)</td>
+                                        <td>double minCommonDifference(int a0, int[] seq)</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">(be sure your method is public)</td>
@@ -109,19 +109,26 @@
                         <td colspan="2">&nbsp;</td>
                     </tr>
                     <tr>
+                        <td colspan="2"><h3>Notes</h3></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">-</td>
+                        <td>[x] denotes the floor function of x which returns the highest integer less than or equal to x. For example, [3.4] = 3, [0.6] = 0, [-1.2] = -2 and [-0.6] = -1.<br />Your return value must be accurate to within an absolute or relative tolerance of 1E-9.</td>
+                        </tr>
+                    <tr>
                         <td colspan="2"><h3>Constraints</h3></td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td><strong>candles</strong> will contain between 1 and 50 elements, inclusive.</td>
+                        <td><strong>seq</strong> will contain between 0 and 50 elements, inclusive.</td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td>Element i (0 indexed) of <strong>questionMarkTriangle</strong> will contain exactly n-i characters, where n is the number of elements in <strong>questionMarkTriangle</strong>.</td>
+                        <td>Each element of <strong>seq</strong> will be between -10^6 and 10^6, inclusive.</td>
                     </tr>
                     <tr>
                         <td align="center" valign="top">-</td>
-                        <td>Each element of <strong>candles</strong> will be between 1 and 100, inclusive.</td>
+                        <td><strong>a0</strong> will be between -10^6 and 10^6, inclusive.</td>
                     </tr>
                     <tr>
                         <td colspan="2"><h3>Examples</h3></td>
@@ -141,7 +148,9 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{2, 2, 2}</pre>
+                                                            <pre>0
+
+{6, 13, 20, 27}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -150,7 +159,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 3</pre>
+                                            <pre>Returns: 6.75</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -158,7 +167,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">The example from the statement.</td>
+                                                        <td colspan="2">&nbsp;</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -183,7 +192,9 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{2, 2, 2, 4}</pre>
+                                                            <pre>1
+
+{2, 3, 4, 5, 6}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -192,7 +203,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 4</pre>
+                                            <pre>Returns: 1.0</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -200,7 +211,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">With an extra candle we are able to use the candles for four nights.</td>
+                                                        <td colspan="2">&nbsp;</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -225,7 +236,9 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{5, 2, 2, 1}</pre>
+                                                            <pre>3
+
+{}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -234,7 +247,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 3</pre>
+                                            <pre>Returns: 0.0</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -242,7 +255,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2">&nbsp;</td>
+                                                        <td colspan="2">Since the sequence a is nondecreasing, d must be at least 0.</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -267,7 +280,9 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{1, 2, 3, 4, 5, 6}</pre>
+                                                            <pre>3
+
+{3, 3, 3, 3, 4}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -276,7 +291,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 6</pre>
+                                            <pre>Returns: 0.2</pre>
                                         </td>
                                     </tr>
                                     <tr>
@@ -309,7 +324,9 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <pre>{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}</pre>
+                                                            <pre>1
+
+{-3}</pre>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -318,7 +335,51 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <pre>Returns: 4</pre>
+                                            <pre>Returns: -1.0</pre>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2">&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" nowrap="true">5)</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <pre>0
+
+{6, 14}</pre>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <pre>Returns: -1.0</pre>
                                         </td>
                                     </tr>
                                     <tr>
