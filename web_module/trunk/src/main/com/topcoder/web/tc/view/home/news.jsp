@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />10.01.08<br />4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Spotlight Sessions with SnapDragon</a></span><br /><br />
+        The next Spotlight Session is about to happen!  Don't miss <tc-webtag:handle coderId="272072" context="algorithm" /> in the chat room one hour prior to <a href="/tc?module=MatchDetails&amp;rd=13527">TCHS SRM 58</a> Thursday, October 2, 2008 at 6:00 a.m. EDT (GMT-4).  All members are welcome to join in the chat session and learn some valuable tips from a great coder.  Learn more about <tc-webtag:handle coderId="272072" context="algorithm" /> and Spotlight Sessions <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">here</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=624104">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />09.29.08<br />7:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/wiki/display/docs/Seam">JBoss Seam Contests Approaching</a></span><br /><br />
@@ -156,18 +169,5 @@
         <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm56">details</a> | 
         <tc-webtag:forumLink forumID="523238" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />09.11.08<br />10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=1000132">Calling all Designers!  We Need a TCO09 Logo!</a></span><br /><br />
-        The hunt for the 2009 TopCoder Open logo is on!  Head on over to Studio to check out the contest details and submit your best design for the new TCO09 logo design contest.  Our premier event of the year is just getting started and we need an innovative look to help us get on our way.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=1000132">details</a> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&amp;forumID=344&amp;mc=1">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
    
