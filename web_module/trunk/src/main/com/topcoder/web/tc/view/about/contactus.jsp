@@ -39,7 +39,7 @@
                 <p align="center"><a href="/tc?module=Static&amp;d1=about&amp;d2=contactus"><img src="/i/about/hdr_contactus.png" alt="Contact Us" /></a></p>
                 
                 <p align="center"><strong><span style="font:12px arial;">However big or small your company, however big or small your problem,</span><br />
-                <img src="/i/about/bnr_tc_solution.png" alt="TopCoder can help you find the solution." /><br />
+                <img style="margin:10px;" src="/i/about/bnr_tc_solution.png" alt="TopCoder can help you find the solution." /><br />
                 <span style="font:12px arial;">Every day we work with Fortune 500 companies, small businesses and individuals alike, <br />
                 helping them tap into the resources of our Global Community to tackle issues just like yours.</span><br /><br />
                 <span style="font:14px arial;">Send us an email, and let's talk about how TopCoder can work for you!</span></strong></p>
@@ -64,34 +64,28 @@
                         
                         <table align="center" width="268px">
                             <tr>
-                                <td><label for="first_name">First Name</label></td>
+                                <td style="font-size:11px;"><label for="first_name">First Name</label></td><td style="font-size:11px;"><label for="last_name">Last Name</label></td>
                             </tr>
                             <tr>
-                                <td><input id="first_name" maxlength="40" name="first_name" size="38" type="text" /><br /></td>
+                                <td><input id="first_name" maxlength="40" name="first_name" type="text" style="width:90px;" /></td><td><input id="last_name" maxlength="80" name="last_name" type="text" style="width:160px;" /><br /></td>
                             </tr>
                             <tr>
-                                <td><label for="last_name">Last Name</label></td>
+                                <td colspan="2" style="font-size:11px;"><label for="email">Your Email Address</label></td>
                             </tr>
                             <tr>
-                                <td><input id="last_name" maxlength="80" name="last_name" size="38" type="text" /><br /></td>
+                                <td colspan="2"><input id="email" maxlength="80" name="email" type="text" style="width:260px;" /><br /></td>
                             </tr>
                             <tr>
-                                <td><label for="email">Your Email Address</label></td>
+                                <td colspan="2" style="font-size:11px;">How Can We Help You?</td>
                             </tr>
                             <tr>
-                                <td><input id="email" maxlength="80" name="email" size="38" type="text" /><br /></td>
+                                <td colspan="2"><textarea id="00N40000001mBlp" name="00N40000001mBlp" type="text" wrap="soft" style="width:260px; height:100px;"></textarea><br /></td>
                             </tr>
                             <tr>
-                                <td>How Can We Help You</td>
+                                <td colspan="2" style="font-size:11px;"><label for="phone"><span style="font-size:10px;">(optional)</span> Leave a phone number &amp; we'll call you</label></td>
                             </tr>
                             <tr>
-                                <td><textarea id="00N40000001mBlp" name="00N40000001mBlp" type="text" wrap="soft"></textarea><br /></td>
-                            </tr>
-                            <tr>
-                                <td><label for="phone"><span style="font-size:10px;">(optional)</span> Leave a phone number &amp; we'll call you</label></td>
-                            </tr>
-                            <tr>
-                                <td><input id="phone" maxlength="40" name="phone" size="38" type="text" /><br /></td>
+                                <td colspan="2"><input id="phone" maxlength="40" name="phone" type="text" style="width:260px;" /><br /></td>
                             </tr>
                         </table>
                         <br />
