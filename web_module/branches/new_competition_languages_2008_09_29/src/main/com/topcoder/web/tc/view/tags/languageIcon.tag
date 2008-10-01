@@ -1,4 +1,3 @@
-<%@ tag import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ tag body-content="empty" %>
 <%@ tag description="This tag translates a catalog name to an icon representation" %>
 <%@ attribute name="catalogName" required="true" type="java.lang.String"%>
@@ -13,5 +12,6 @@
     <c:when test="${catalogName == '.NET Custom'}"><img src="/i/development/smNetCustom.gif" alt="${catalogName}" /></c:when>
     <c:when test="${catalogName == 'Flash'}"><img src="/i/development/flashSm.gif" alt="${catalogName}" /></c:when>
     <c:when test="${catalogName == 'C++'}"><img src="/i/development/smCpp.png" alt="${catalogName}" /></c:when>
+    <c:when test="${catalogName == 'Application'}"><img src="/i/development/smApp.gif" alt="${catalogName}" /></c:when>
     <c:otherwise>${catalogName}</c:otherwise>
 </c:choose>

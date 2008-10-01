@@ -6,6 +6,7 @@
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="tc_tags" tagdir="/WEB-INF/tags" %>
 <% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
 <% String type = (String) request.getAttribute(Constants.TYPE_KEY);
     String phaseId = (String) request.getAttribute(Constants.PHASE_ID);
@@ -95,23 +96,7 @@
     <rsc:iterator list="<%=contests%>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
             <td class="valueC">
-                <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
-                <img src="/i/development/smAOL.gif"/>
-                <% } else if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smJava.gif"/>
-                <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smJavaCustom.gif"/>
-                <% } else if (".NET".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/netSm.gif"/>
-                <% } else if (".NET Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smNetCustom.gif"/>
-                <% } else if ("Flash".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/flashSm.gif"/>
-                <% } else if ("C++".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smCpp.png"/>
-                <% } else { %>
-                <rsc:item name="catalog_name" row="<%=resultRow%>"/>
-                <% } %>
+                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/> 
             </td>
             <td class="value">
                 <% if (resultRow.getIntItem("viewable") == 1) { %>
