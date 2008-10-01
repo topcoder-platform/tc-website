@@ -45,14 +45,14 @@
            <jsp:param name="title" value="Working at TopCoder"/>
         </jsp:include>
 
-        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-                  <TR>
-                        <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="10" BORDER="0"/></TD>
-                     </TR>
-                      <TR>
-                        <TD CLASS="statText" BGCOLOR="#43515E" HEIGHT="18" VALIGN="middle">&#160;&#160;<B>Great Jobs at TopCoder</B></TD>
-                     </TR>
-                  </TABLE>
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                  <tr>
+                        <td><img src="/i/clear.gif" alt="" width="11" height="10" border="0"/></td>
+                     </tr>
+                      <tr>
+                        <td class="statText" bgcolor="#43515E" height="18" valign="middle">&#160;&#160;<strong>Great Jobs at TopCoder</strong></td>
+                     </tr>
+                  </table>
 
 
             <table border="0" cellspacing="0" cellpadding="0"  width="100%">
@@ -64,25 +64,33 @@
 
                        <strong>Job Description: </strong>
 
-                        <p>TopCoder, Inc. is a rapidly growing and progressive company looking to build a sales team that is motivated, has the proven ability and desire to sell to Fortune 1000 C-Level executives, and that can articulate the TopCoder value. TopCoder markets application development services to Fortune 1000 companies in multiple industries using our member base of thousands of highly-skilled developers from all over the world, our competition-based methodology, and our catalogs of re-usable components.  TopCoder delivers high-quality software at a lower cost than the competition.
-                        <A href="http://software.topcoder.com/applications/index.jsp">Learn more</A></p>
+                        <p>Competition is the driving force behind TopCoder.  What started as simply trying to identify the world's best technical talent became a re-engineering of the entire software development process. <strong>We are now looking to build the best sales team in the business</strong> - a team that is passionate about innovations in technology, building relationships with customers, and with the desire to be a part of a thriving, entrepreneurial and rapidly growing company.  Our sales team plays a critical role in defining, creating and executing a strategy to penetrate the world's leading companies to provide technology solutions to drive their businesses.
+                        <a href="http://software.topcoder.com/applications/index.jsp">Learn more</a></p>
 
-                        <strong>Responsibilities include: </strong>
+                        <strong>Candidates MUST be able to:</strong>
                         <ul>
-                            <li>Exceed all revenue targets - Following a six-month period to build a sales pipeline, we expect our sales representatives to exceed quarterly revenue goals.</li>
-                            <li>Build sales pipeline - Identify new customer prospects via professional networks, cold calling and any other means necessary to build a sales pipeline.</li>
-                            <li>Build business plan - Build a plan for developing the assigned business including specific customers and timeframes.</li>
+                            <li>Fit into the TopCoder culture: integrity, strong work ethic, forward-thinking and a successful mindset for themselves, our organization and our clients.</li>
+                            <li>Deeply understand the superiority of our business model and be motivated by the opportunity to have a role in changing how software is developed today.</li>
+                            <li>Immediately begin development of a sales pipeline and creation of a business plan including specific target accounts and strategies to exceed revenue goals.</li>
+                            <li>Balance aggressively identifying potential revenue-generating prospects with developing long-lasting, relationship-based business partnerships that benefit both parties.</li>
+                            <li>Visualize and articulate innovative ways TopCoder can have a direct, beneficial impact on a prospect's business.</li>
+                            <li>Think outside of the "cold-call the CIO" box.</li>
+                            <li>Utilize strong research and networking skills critical for pipeline/account development.</li>
+                            <li>Demonstrate interest in exploring the latest technology trends and gadgets.</li>
+                            <li>Utilize social networking tools like LinkedIn/Facebook/blogs/forums etc.</li>
+                            <li>Travel frequently. This position can be based anywhere in the US.</li>
                         </ul>
 
-                        <strong>Qualifications include: </strong>
+                        <strong>Qualifications:</strong>
                         <ul>
-                            <li>Strong selling skills - Ideal candidates should have experience identifying, qualifying and closing software or services deals.</li>
-                            <li>Research - Ability to research prospects, customers and industries to identify opportunities for prospects.</li>
-                            <li>Prior success - Ideal candidates should have a demonstrated ability to consistently exceed quota.</li>
-                            <li>Relationship building - Ideal candidates should be able to work with customers to build long term relationships.</li>
-                            <li>Strong work ethic - Ideal candidates should be able to grow a pipeline two to four times the size of quota targets and prioritize likely prospects.</li>
+                            <li>Bachelor's degree.</li>
+                            <li>Demonstrated strong selling skills or an aptitude for identifying/closing business opportunities.</li>
+                            <li>A basic understanding of software development - although the ability to discuss social networking, crowdsourcing and other "Web 2.0" concepts would suffice.</li>
+                            <li>Candidates must be US Citizens, have a valid Greencard, or be eligible for a TN visa.</li>
                         </ul>
-
+                        
+                        <p>TopCoder is passionate about innovation and building long lasting relationships with companies interested in finding 'a better way' to do things.  To start or continue a sales career in a forward-thinking environment that offers a lucrative compensation structure focused on performance including a corporate benefits package, <a href="mailto:jobs@topcoder.com?subject=Salesperson">apply for this job<a/>.</p>
+                        <%--
                         <strong>Salary: </strong>
                         <ul>
                             <li>Base Salary</li>
@@ -91,9 +99,10 @@
                         </ul>
 
                         <p>
-                        <A href="mailto:jobs@topcoder.com?subject=Salesperson">Apply for this job.<a/>
+                        <a href="mailto:jobs@topcoder.com?subject=Salesperson">Apply for this job.<a/>
                         </p>
                         <p><br /></p>
+                        --%>
                     </td>
                 </tr>
             </table>

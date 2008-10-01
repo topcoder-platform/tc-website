@@ -104,7 +104,7 @@
                     </div>
                     <div class="jobs_headlines">
                         <h3><a href="/tc?module=Static&amp;d1=about&amp;d2=tcs_salesdirector">Salesperson</a></h3>
-                        <p>TopCoder, Inc. is a rapidly growing and progressive company looking to build a sales team that is motivated, has the proven ability and desire to sell to Fortune 1000 C-Level executives, and that can articulate the TopCoder value. TopCoder markets application development services to Fortune 1000 companies...  <small><a href="/tc?module=Static&amp;d1=about&amp;d2=tcs_salesdirector">[read full description]</a></small></p>
+                        <p>Competition is the driving force behind TopCoder.  What started as simply trying to identify the world's best technical talent became a re-engineering of the entire software development process. We are now looking to build the best sales team in the business...  <small><a href="/tc?module=Static&amp;d1=about&amp;d2=tcs_salesdirector">[read full description]</a></small></p>
                     </div>
                     <div class="jobs_imgR">
                         <a href="/tc?module=Static&amp;d1=about&amp;d2=tcs_salesdirector"><img src="/i/about/jobs/arrow.png" alt="arrow" border="0" /></a>

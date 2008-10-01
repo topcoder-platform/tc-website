@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -32,30 +33,93 @@
 
 <%-- Center Column Begins --%>
         <td width="100%" align="center" class="bodyColumn">
-            <div class="fixedWidthBody">
+            <div class="fixedWidth700Body">
 
-      <jsp:include page="/page_title.jsp">
-          <jsp:param name="image" value="contact_us"/>
-          <jsp:param name="title" value="&nbsp;"/>
-      </jsp:include>
-
-        <p>TopCoder is dedicated to servicing members, partnering companies, the media and anyone else interested in what 
-        TopCoder is about. Please feel free to contact us using your preferred method:</p>
-
-        <p><strong>By mail:</strong><br />
-        TopCoder, Inc.<br />
-        95 Glastonbury Blvd<br />
-        Glastonbury, CT 06033 U.S.A.</p>
-        
-        <p><strong>By phone or fax:</strong><br />
-        tel: 860.633.5540<br />
-        fax: 860.657.4276</p>
-        
-        <p><strong>By email:</strong><br />
-        <a href="mailto:service@topcoder.com">Support & Service</a><br />
-        <a href="mailto:sales@topcoder.com">Sales</a><br />
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=mediaRequestForm">Public Relations</a></p>
-
+            <div>
+                <p align="center"><a href="/tc?module=Static&amp;d1=about&amp;d2=contactus"><img src="/i/about/hdr_contactus.png" alt="Contact Us" /></a></p>
+                
+                <p align="center"><strong><span style="font:12px arial;">However big or small your company, however big or small your problem,</span><br />
+                <img src="/i/about/bnr_tc_solution.png" alt="TopCoder can help you find the solution." /><br />
+                <span style="font:12px arial;">Every day we work with Fortune 500 companies, small businesses and individuals alike, <br />
+                helping them tap into the resources of our Global Community to tackle issues just like yours.</span><br /><br />
+                <span style="font:14px arial;">Send us an email, and let's talk about how TopCoder can work for you!</span></strong></p>
+                
+                <br />
+                
+                <div style="width:268px; float:left; margin-right:100px;">
+                    <div align="center"><img src="/i/about/hdr_contact_form.png" alt="Contact Form" /></div>
+                    <br />
+                    <form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=utf-8" method="post">
+                    
+                        <input type=hidden name="oid" value="00D300000001UY4">
+                        <input type=hidden name="retURL" value="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=contactusSuccess">
+                        <input type=hidden name="lead_source" id="lead_source" value="Web" />
+                        
+                        <%--  ----------------------------------------------------------------------  --%>
+                        <%--  NOTE: These fields are optional debugging elements.  Please uncomment   --%>
+                        <%--  these lines if you wish to test in debug mode.                          --%>
+                        <%--  <input type="hidden" name="debug" value=1>                              --%>
+                        <%--  <input type="hidden" name="debugEmail" value="mpackard@topcoder.com">   --%>
+                        <%--  ----------------------------------------------------------------------  --%>
+                        
+                        <table align="center" width="268px">
+                            <tr>
+                                <td><label for="first_name">First Name</label></td>
+                            </tr>
+                            <tr>
+                                <td><input id="first_name" maxlength="40" name="first_name" size="38" type="text" /><br /></td>
+                            </tr>
+                            <tr>
+                                <td><label for="last_name">Last Name</label></td>
+                            </tr>
+                            <tr>
+                                <td><input id="last_name" maxlength="80" name="last_name" size="38" type="text" /><br /></td>
+                            </tr>
+                            <tr>
+                                <td><label for="email">Your Email Address</label></td>
+                            </tr>
+                            <tr>
+                                <td><input id="email" maxlength="80" name="email" size="38" type="text" /><br /></td>
+                            </tr>
+                            <tr>
+                                <td>How Can We Help You</td>
+                            </tr>
+                            <tr>
+                                <td><textarea id="00N40000001mBlp" name="00N40000001mBlp" type="text" wrap="soft"></textarea><br /></td>
+                            </tr>
+                            <tr>
+                                <td><label for="phone"><span style="font-size:10px;">(optional)</span> Leave a phone number &amp; we'll call you</label></td>
+                            </tr>
+                            <tr>
+                                <td><input id="phone" maxlength="40" name="phone" size="38" type="text" /><br /></td>
+                            </tr>
+                        </table>
+                        <br />
+                        <%-- 
+                        <p align="right"><input type="submit" name="submit"></p>
+                        --%>
+                        <p align="right"><input type="image" name="submit" img src="/i/about/btn_submit.png" alt="Submit"></p>
+                    </form>
+                </div>
+                
+                <div style="width:314px; float:left;">
+                    <div align="center"><img src="/i/about/hdr_corporate.png" alt="Corporate" /></div>
+                    <p style="font:arial 14px;"><strong>TopCoder, Inc.</strong><br />
+                    95 Glastonbury Blvd.<br />
+                    Glastonbury, CT 06033 U.S.A.</p>
+                    
+                    <div align="center"><img src="/i/about/hdr_phonefax.png" alt="Phone and Fax" /></div>
+                    <p style="font:arial 14px;"><strong>Speak to a TopCoder Representative Today</strong><br />
+                    866.867.2633 or 860.633.5540<br />
+                    Fax: 860.657.4276</p>
+                    
+                    <div align="center"><img src="/i/about/hdr_email.png" alt="Email" /></div>
+                    <p style="font:arial 14px;"><a href="mailto:service@topcoder.com">TopCoder Support &amp; Service</a><br />
+                    <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=mediaRequestForm">Public Relations</a></p>
+                </div>
+                
+            
+            </div>
 
             </div>
         </td>
