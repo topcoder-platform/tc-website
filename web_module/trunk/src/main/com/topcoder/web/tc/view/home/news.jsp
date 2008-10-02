@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.02.08<br />5:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm57">TCHS SRM 57 - Problem Set &amp; Analysis</a></span><br /><br />
+      TCHS SRM 57 was easier than a typical TCHS SRM, with higher than 50% success rate in all 3 problems. More than 30 coders submitted all 3 problems, and 16 coders were able to get all 3 correct. The winner was <tc-webtag:handle coderId="22664055" context="hs_algorithm"/>, who finished 3 problems within 20 minutes after the contest started.</td>
+         <td class="newsPhoto"><img src="/i/m/ltdtl_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="15511417" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm57">details</a> | 
+        <tc-webtag:forumLink forumID="523423" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />10.01.08<br />4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Spotlight Sessions with SnapDragon</a></span><br /><br />
@@ -153,21 +169,5 @@
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm416">details</a> | 
         <tc-webtag:forumLink forumID="523237" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />09.11.08<br />6:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm56">TCHS SRM 56 - Problem Set &amp; Analysis</a></span><br /><br />
-      TCHS SRM 56 was more difficult than a typical SRM, with a low success rate in both the medium and hard problem. Only 2 coders were able to solve all three problems, the winner <tc-webtag:handle coderId="22707311" context="hs_algorithm"/> and the runner-up <tc-webtag:handle coderId="22698470" context="hs_algorithm"/>.</td>
-         <td class="newsPhoto"><%--<img src="/i/m/mateuszek_big.jpg" alt="Author" width="55" height="61"/>--%><br />by <tc-webtag:handle coderId="20635649" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm56">details</a> | 
-        <tc-webtag:forumLink forumID="523238" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
    </td></tr>
    
