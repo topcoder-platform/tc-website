@@ -7,6 +7,7 @@
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -20,6 +21,25 @@
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
     <script type="text/javascript" src="/js/v2/popup.js"></script>
+    <script type="text/javascript">
+<!--
+    function filterDateChange(){
+        var myForm = document.submissionsForm;
+	 myForm.<%=DataAccessConstants.START_RANK%>.value ="";
+        myForm.<%=DataAccessConstants.END_RANK%>.value ="";
+	 myForm.submit();
+    }
+     function filterYearChange(value,filterMonth){
+        if(value == "All"){
+         var i,num,op;
+         num = filterMonth.length;
+           for(i=0;i<num;i++){
+               op= filterMonth.options[i]
+               if(op.value=="All") op.selected=true;
+           }
+        }
+    }
+    //--></script>
 </head>
 
 <body>
@@ -41,11 +61,17 @@
 
 <h1>Past Contests</h1>
 
+<form name="submissionsForm" method="get" action="${sessionInfo.servletPath}">
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewPastContests"/>
+<input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
+<input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
+
 <div align="right"><strong>Need help? Learn how to
     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get
         started</a>.<br />
     Got <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">questions</a>?</strong>
 </div>
+
 
 <div class="tableTabOff" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a></div>
 <div class="tableTabOn"><a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a></div>
@@ -55,9 +81,54 @@
     <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
     <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
     <div class="container">
+
+<table style="padding-bottom: 5px;">
+<tr>
+<td width="80%" align="right">
+<b>Filter by Date:</b>
+</td>
+<td>
+<%
+String val = request.getAttribute("filterMonth") == null ? null : request.getAttribute("filterMonth").toString();
+%>
+<select name="filterMonth">
+<option value="1" <%= val.equals("1") ? "selected" : "" %>>January</option>
+<option value="2" <%= val.equals("2") ? "selected" : "" %>>February </option>
+<option value="3" <%= val.equals("3") ? "selected" : "" %>>March</option>
+<option value="4" <%= val.equals("4") ? "selected" : "" %>>April</option>
+<option value="5" <%= val.equals("5") ? "selected" : "" %>>May</option>
+<option value="6" <%= val.equals("6") ? "selected" : "" %>>June</option>
+<option value="7" <%= val.equals("7") ? "selected" : "" %>>July</option>
+<option value="8" <%= val.equals("8") ? "selected" : "" %>>August</option>
+<option value="9" <%= val.equals("9") ? "selected" : "" %>>September</option>
+<option value="10" <%= val.equals("10") ? "selected" : "" %>>October</option>
+<option value="11" <%= val.equals("11") ? "selected" : "" %>>November</option>
+<option value="12" <%= val.equals("12") ? "selected" : "" %>>December</option>
+<option value="All" <%= val.equals("All") ? "selected" : "" %>>Entire Year</option>
+</select>
+</td>
+<td>
+<%
+val = request.getAttribute("filterYear") == null ? null : request.getAttribute("filterYear").toString();
+%>
+<select name="filterYear" onChange="filterYearChange(submissionsForm.filterYear.options[submissionsForm.filterYear.selectedIndex].value,submissionsForm.filterMonth)">
+<option value="2008" <%= val.equals("2008") ? "selected" : "" %>>2008</option>
+<option value="2007" <%= val.equals("2007") ? "selected" : "" %>>2007</option>
+<option value="2006" <%= val.equals("2006") ? "selected" : "" %>>2006</option>
+<option value="All" <%= val.equals("All") ? "selected" : "" %>>All Years</option>
+</select>
+</td>
+<td>
+<input type="image" src="/i/v2/view-button.png" onClick="filterDateChange"></input>
+</td>
+</tr>
+</table>
+
 <table class="stat" cellpadding="0" cellspacing="0">
     <tbody>
-        <tr><td class="title" colspan="11">Past Contests</td></tr>
+        <tr>
+</tr>
+
         <tr>
             <td class="headerW"><div>&nbsp;</div></td>
             <td class="header" width="100%">
@@ -175,7 +246,8 @@
     <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
 </div>
 
-<div align="right" style="padding-top: 10px;"><strong>Would you like to see some of our <a href="${sessionInfo.servletPath}?module=Static&amp;d1=oldcontests&amp;d2=archive">older logo design contests</a>?</strong></div>
+</form>
+
 
                         <br clear="all"/>
                     </div>                
