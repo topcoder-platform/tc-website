@@ -58,7 +58,6 @@
     <div class="container">
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tbody>
-            <tr><td class="title" colspan="11">Active Contests</td></tr>
             <tr>
                 <td class="headerW">
                     <div>&nbsp;</div>
