@@ -45,7 +45,7 @@
                     <li><strong><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/algorithm?module=ManageMyAlgorithms">Submit your algorithm</a></strong> (through November 11th)<br />
                     After August 12th, you can submit your algorithm at any time. Your code will be judged by the performance of your algorithm during each mini-season (a period of 3-4 weeks as detailed below. Your algorithm will lock in at 12:01 EDT on the day before each mini-season, but you can make changes for the next mini-season at any time through week 11. After November 11th (day before week 12 and the last mini-season), you may not make any changes to your algorithm and your latest uploaded algorithm will be used for the final mini-season.  <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/algorithm?module=ManageMyAlgorithms">Submit your algorithm &gt;&gt;</a></li>
                     <li><strong>Win Cash!</strong><br />
-                    Prizes will be awarded to the season winner and possibly to the next nine finishers. Weekly prizes will also be awarded, even for the "preseason" weeks. While the prize breakout is to be determined, there will be a total of $100,000 awarded!</li>
+                    Prizes will be awarded to the season winner and possibly to the next nine finishers. Some pretty decent prizes will also be awarded at the conclusion of each mini-season. All in all, there will be a total of $100,000 awarded!</li>
                 </ol>
                 <br />
                 <div align="center"><img src="/i/events/winformula/timeline.png" alt="Winning Formula Timeline" /></div>
