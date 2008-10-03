@@ -7,6 +7,9 @@
 <table width="530" border="0" cellspacing="0" cellpadding="4">
 
    <tr><td class="prHead">
+         <a target="_blank" href="http://archives.subscribermail.com/msg/349a8c0529c941a1b0d7f53c33025f7a.htm">TopCoder Features in New Business Book</a> | <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/tc_developments_200810.pdf">PDF</a> [October 2008]
+   </td></tr>
+   <tr><td class="prHead">
          <a target="_blank" href="http://archives.subscribermail.com/msg/a0908530f6a44d469a11e5ce4695fe78.htm">TopCoder One of Inc. Magazine's 500 Fastest-Growing Private Companies in America for Second Consecutive Year</a> | <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/tc_developments_200809.pdf">PDF</a> [September 2008]
    </td></tr>
    <tr><td class="prHead">
