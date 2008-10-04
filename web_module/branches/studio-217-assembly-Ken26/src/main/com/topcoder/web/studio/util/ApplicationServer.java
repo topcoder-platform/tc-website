@@ -2,6 +2,14 @@ package com.topcoder.web.studio.util;
 
 import com.topcoder.shared.util.TCResourceBundle;
 
+/**
+ * <p>
+ * Parameters for Studio services located in Cockpit application server.<br>
+ * Values are provided by ApplicationServer.properties file located in the classpath.
+ * </p>
+ *
+ * @author TCSDEVELOPER
+ */
 public class ApplicationServer {
 	
 	private static TCResourceBundle bundle = new TCResourceBundle("ApplicationServer");

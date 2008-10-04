@@ -11,6 +11,7 @@ import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Locator for Studio services
+ * @author TCSDEVELOPER
  */
 public class StudioServiceLocator {
 	
