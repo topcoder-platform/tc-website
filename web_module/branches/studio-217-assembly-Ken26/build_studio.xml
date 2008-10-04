@@ -316,11 +316,13 @@
                 <include name="studio_service.jar"/>
             </lib>
             <lib dir="${jars.dir}/jboss-add/">
+            	<include name="jboss-saaj.jar"/>
             	<include name="jboss-ejb3-client.jar"/>
             	<include name="jboss-ejb3x.jar"/>            	
             	<include name="jboss-aop-jdk50-client.jar"/>
             	<include name="jboss-aspect-jdk50-client.jar"/>
             	<include name="jboss-remoting.jar"/>
+            	<include name="jboss-remoting-int.jar"/>
             	<include name="jboss-common-core.jar"/>
             	<include name="jboss-serialization.jar"/>
             	<include name="log4j.jar"/>
