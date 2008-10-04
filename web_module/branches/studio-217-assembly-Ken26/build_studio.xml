@@ -36,7 +36,6 @@
 
     <path id="class.path">
     	<!-- PREPENDED JBOSS 4.2 libraries -->
-    	<pathelement location="${jars.dir}/jboss-add/kenichi_service.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-ejb3-client.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-ejb3x.jar"/>
     	<pathelement location="${jars.dir}/jboss-add/jboss-aop-jdk50-client.jar"/>
@@ -91,7 +90,7 @@
         <pathelement location="${jars.dir}/httpunit.jar"/>
 
         <pathelement location="${build}/ejb_jars/PactsClientServices.jar"/>
-		<pathelement location="${build}/ejb_jars/studio_service.jar"/>
+		<pathelement location="${jars.dir}/tcs/studio_service.jar"/>
         <pathelement location="${jars.dir}/axis.jar"/>
 
         <pathelement location="${jive.dir}/jivebase.jar"/>
@@ -312,10 +311,11 @@
             </lib>
             <lib dir="${build}/ejb_jars/">
                 <include name="PactsClientServices.jar"/>
-				<include name="studio_service.jar"/>
+            </lib>
+            <lib dir="${jars.dir}/tcs/">
+                <include name="studio_service.jar"/>
             </lib>
             <lib dir="${jars.dir}/jboss-add/">
-            	<include name="kenichi_service.jar"/>
             	<include name="jboss-ejb3-client.jar"/>
             	<include name="jboss-ejb3x.jar"/>            	
             	<include name="jboss-aop-jdk50-client.jar"/>
