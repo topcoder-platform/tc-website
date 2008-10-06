@@ -118,6 +118,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31 begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100608"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100608">TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31</a></h3>
+                        <p>TopCoder Algorithm Contest Takes Center Stage in Boston, TopCoder Presentation on Harnessing the Benefits of Crowdsourcing Highlight of San Francisco  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100608">[October 6]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31 end --%>
+                
                 <%-- CIO: Cool Programmer Challenge: Football Algorithm = $50,000 begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
