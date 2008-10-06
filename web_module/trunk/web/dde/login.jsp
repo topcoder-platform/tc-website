@@ -156,10 +156,11 @@
 
 <!-- Center Column begins -->
         <td width="99%"><img src="/images/clear.gif" width="400" height="11" alt="" border="0"><br>
-
+		<div class="minheight">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                <tr valign="top">
                     <td class="bodyText" width="100%">
+                    
                         <img src="/images/clear.gif" alt="" width="380" height="1" border="0"/><br/>
                         <p><b>Forgot your password?</b><br/>
                         If you cannot remember your password <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click here</A>
@@ -168,6 +169,7 @@
                         <p><b>New to TopCoder?</b><br/>
                         <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" class="bodyText">Register now.</A>
                         After you complete the registration process, we will send your account activation code via email.</p>
+                      
                     </td>
                 </tr>
 
@@ -210,7 +212,7 @@
                     </form>
                 </tr>
             </table>
-
+			  </div>
             <p><br></p>
             <p><br></p>
 

@@ -2222,6 +2222,6 @@ font-size:11px !important
 
 .top-li {background-image:url(/images/top-nav-background.gif);}
 .leftColumn { background: #FFF;background-image:url(/images/fade-line.gif); background-position:top right;background-repeat:no-repeat;}
-
+.minheight {min-height:450px;height:450px;}
 
 hr { margin: 12px 0;}
