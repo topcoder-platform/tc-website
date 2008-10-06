@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.dde.user.User" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<!--Header begins-->
+<%--Header begins--%>
 <%
     boolean isHomePage = "true".equals(request.getParameter("isHomePage"));
 %>
@@ -12,11 +12,11 @@
 <div id="header">
 		<div class="wrapper">
 			
-<!-- MASTHEAD AND LOGO -->
+<%-- MASTHEAD AND LOGO --%>
 			<h1><a href="#" title="TopCoder Direct"><span>TopCoder Direct</span></a> <sup><small>BETA</small></sup></h1>
 			<h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
 			
-<!-- MAIN NAVIGATION -->
+<%-- MAIN NAVIGATION --%>
 			<div id="nav">
 				<h3 class="hide">Main Navigation</h3>
 				<ul>
@@ -27,19 +27,19 @@
 					<li <% if (TCDlevel.equals("training")) {%> class="left on" <% } %>><a href="/TCD/training.jsp">Training &amp; Mentoring</a></li>
 					<li <% if (TCDlevel.equals("support")) {%> class="left on" <% } %>><a href="/TCD/support.jsp">Support &amp; Maintenance</a></li>
 				</ul>
-			</div><!-- #navigation ends -->
+			</div><%-- #navigation ends --%>
 			
-			<!-- SUB NAVIGATION -->
+			<%-- SUB NAVIGATION --%>
 			<div id="nav_support">
 				<h3 class="hide">SUB Navigation</h3>
 				<ul>
                 	<li class="left"><a href="http://www.topcoder.com/">TopCoder.com</a></li>
-                	<li><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=index">About TopCoder</a></li>
-					<li><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=index">News</a></li>
-					<li><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=contactus">Contact Us</a></li>
+                	<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=index">About TopCoder</a></li>
+					<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=index">News</a></li>
+					<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=contactus">Contact Us</a></li>
 					<li class="right"><a href="/login.jsp">Login</a></li>
 				</ul>
-			</div><!-- #navigation ends -->
+			</div><%-- #navigation ends --%>
 			
-		</div><!-- .wrapper ends -->
-	</div><!-- #header ends -->
+		</div><%-- .wrapper ends --%>
+	</div><%-- #header ends --%>

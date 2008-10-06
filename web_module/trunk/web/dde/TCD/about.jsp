@@ -16,12 +16,12 @@
 <jsp:param name="TCDlevel" value="about"/>
 </jsp:include>
 
-<!-- CONTENT BLOCKS -->
+<%-- CONTENT BLOCKS --%>
 	<div id="content">
 		<div class="wrapper">
 			
 			<div id="content_main">
-<!-- TABS BUTTON -->
+<%-- TABS BUTTON --%>
 				<div id="tabs_button">
 					<h3 class="hide">Tabs Navigation</h3>
 					<ul>
@@ -31,12 +31,12 @@
 					</ul>
 				</div>
 				
-<!-- TABS CONTENT -->
+<%-- TABS CONTENT --%>
 				<div id="tabs_panel">
 					
-					<!-- *************************************************
+					<%-- *************************************************
 					TABS 01
-					************************************************** -->
+					************************************************** --%>
 					<div id="tabsContent01" class="tabs_content">
 					
 						<div class="content_columns">							
@@ -52,13 +52,13 @@
                                   <br />
                                 You will see no talk of hours and rates here.  All pricing is by the deliverable.  Most importantly, that pricing is set by you.  Need to flesh our an idea,  graphic for a web page,  a new section of the web site or an entirely new web presence integrated to your supply chain and customer relationship system, the TopCoder platform can be plugged in to add scale to any problem – big or small.  It’s the world at your fingertips.</p>
 <p><strong>Jack Hughes<br />Founder, TopCoder</strong></p>							
-						</div><!-- .content_columns -->
+						</div><%-- .content_columns --%>
 						
-					</div><!-- .tabs_content #01 -->
+					</div><%-- .tabs_content #01 --%>
 					
-					<!-- *************************************************
+					<%-- *************************************************
 					TABS 02
-					************************************************** -->
+					************************************************** --%>
 					<div id="tabsContent02" class="tabs_content">
 						<div class="content_columns">
 							<h2><img src="images/how_does_direct_works.png" width="315" height="27" alt="How does TC Direct Work?" /></h2>				
@@ -78,12 +78,12 @@
 							<h3>Still not sure?</h3>
 							<p>Don't worry, you can change your tier at any time!</p>
 
-							</div><!-- .content_columns ends -->
-					</div><!-- .tabs_content #02 -->
+							</div><%-- .content_columns ends --%>
+					</div><%-- .tabs_content #02 --%>
 					
-					<!-- *************************************************
+					<%-- *************************************************
 					TABS 03
-					************************************************** -->
+					************************************************** --%>
 					<div id="tabsContent03" class="tabs_content">
 						<div class="content_columns">
 							<h2><img src="images/the_topcoder_methodology.png" width="284" height="27" alt="The TopCoder Methodology" /></h2>			
@@ -124,20 +124,20 @@
 								<li>Incorporates constant measurement and analytics to ensure you are always making well educated decisions</li>
 							</ul>
 
-						</div><!-- .content_columns ends -->
-					</div><!-- .tabs_content #03 -->
+						</div><%-- .content_columns ends --%>
+					</div><%-- .tabs_content #03 --%>
 					
 											
-				</div><!-- #tabs_panel ends -->
+				</div><%-- #tabs_panel ends --%>
 			
-			</div><!-- #content_main -->
+			</div><%-- #content_main --%>
 			
-		</div><!-- .wrapper ends -->
-	</div><!-- #content ends -->
+		</div><%-- .wrapper ends --%>
+	</div><%-- #content ends --%>
 
-<!-- Footer begins -->
+<%-- Footer begins --%>
 <jsp:include page="/includes/foot.jsp" flush="true" />
-<!-- Footer ends -->
+<%-- Footer ends --%>
 	
 <script type="text/javascript">
 //<![CDATA[

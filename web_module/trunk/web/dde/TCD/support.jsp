@@ -11,15 +11,15 @@
 </head>
 <body>
 <jsp:include page="/includes/top.jsp">
-<jsp:param name="TCDlevel" value="support"/>
+<jsp:param name="TCDlevel" value="support	"/>
 </jsp:include>
 
-<!-- CONTENT BLOCKS -->
+<%-- CONTENT BLOCKS --%>
 	<div id="content">
 		<div class="wrapper">
 		
 			<div id="content_main">
-<!-- TABS BUTTON -->
+<%-- TABS BUTTON --%>
 				<div id="tabs_button">
 					<h3 class="hide">Tabs Navigation</h3>
 					<ul>
@@ -27,12 +27,12 @@
 					</ul>
 				</div>
 				
-<!-- TABS CONTENT -->
+<%-- TABS CONTENT --%>
 				<div id="tabs_panel">
 					
-					<!-- *************************************************
+					<%-- *************************************************
 					TABS 01
-					************************************************** -->
+					************************************************** --%>
 					<div id="tabsContent01" class="tabs_content">
 					
 						<div class="content_columns">
@@ -69,19 +69,19 @@
 							<h4 class="red">On-Site Support</h4>
 							<p>TopCoder resources are deployable on-site to help troubleshoot and manage issues and/or change.</p>
 
-						</div><!-- .content_columns -->
-					</div><!-- .tabs_content #04 -->
+						</div><%-- .content_columns --%>
+					</div><%-- .tabs_content #04 --%>
 						
-				</div><!-- #tabs_panel ends -->
+				</div><%-- #tabs_panel ends --%>
 			
-			</div><!-- #content_main -->
+			</div><%-- #content_main --%>
 			
-		</div><!-- .wrapper ends -->
-	</div><!-- #content ends -->
+		</div><%-- .wrapper ends --%>
+	</div><%-- #content ends --%>
 
-<!-- Footer begins -->
+<%-- Footer begins --%>
 <jsp:include page="/includes/foot.jsp" flush="true" />
-<!-- Footer ends -->
+<%-- Footer ends s
 	
 <script type="text/javascript">
 //<![CDATA[
