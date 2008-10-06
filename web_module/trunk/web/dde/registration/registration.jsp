@@ -244,6 +244,7 @@
     <title>Register a New Account at TopCoder Software</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
+<jsp:include page="/includes/header-files.jsp" />
 
 <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js">
 </script>

@@ -21,6 +21,7 @@
 <head>
     <title>Application Development, .NET&#8482; and Java&#8482; Software Components at TopCoder Software</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
+<jsp:include page="/includes/header-files.jsp" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
 </head>
 
