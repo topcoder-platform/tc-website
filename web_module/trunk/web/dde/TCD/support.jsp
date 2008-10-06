@@ -11,7 +11,7 @@
 </head>
 <body>
 <jsp:include page="/includes/top.jsp">
-<jsp:param name="TCDlevel" value="home"/>
+<jsp:param name="TCDlevel" value="support"/>
 </jsp:include>
 
 <!-- CONTENT BLOCKS -->
