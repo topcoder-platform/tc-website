@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.dde.util.ApplicationServer" %>
 
-<!-- LINKS BLOCK -->
+<%-- LINKS BLOCK --%>
 	<div id="links">
 		<div class="wrapper">
 			<div class="col">
@@ -11,7 +11,7 @@
 					<li><a href="http://topcoderblogs.com/direct/?page_id=24">Terms &amp; Conditions</a></li>
 					
 				</ul>
-			</div><!-- .col ends -->
+			</div><%-- .col ends --%>
 			
 			<div class="col">
 				<h4>About TopCoder</h4>
@@ -23,7 +23,7 @@
 					<li><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=jobs">Working at TopCoder</a></li>
 					<li><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=terms">Legal Information</a></li>
 				</ul>
-			</div><!-- .col ends -->
+			</div><%-- .col ends --%>
 			
 			<div class="col">
 				<h4>Platform Tools</h4>
@@ -36,7 +36,7 @@
 					<li><a href="http://software.topcoder.com/catalog/index.jsp">Component Catalog</a></li>
 					<li><a href="http://www.topcoder.com/wiki/">TopCoder Wiki</a></li>
 				</ul>
-			</div><!-- .col ends -->
+			</div><%-- .col ends --%>
 			
 			<div class="col">
 				<h4>TopCoder Community</h4>
@@ -51,7 +51,7 @@
 					<li><a href="http://topcoderblogs.com/direct/">TopCoder Direct</a></li>
 					<li><a href="http://tcstudioblogs.com/">Studio TopCoder</a></li>
 				</ul>
-			</div><!-- .col ends -->
+			</div><%-- .col ends --%>
 			
 			<div class="col">
 				<h4>My Account</h4>
@@ -61,7 +61,7 @@
                     <li><a href="http://www.topcoder.com/dr">TopCoder Digital Run</a></li>
                     <li><a href="http://studio.topcoder.com/?module=Static&d1=digitalrun&d2=2008v2&d3=home">Studio Cup</a></li>
 				</ul>
-			</div><!-- .col ends -->
+			</div><%-- .col ends --%>
 			
 			<div class="col">
 				<h4>Powered by TopCoder</h4>
@@ -70,11 +70,11 @@
 					<li><a href="http://www.topcoder.com/">TopCoder.com</a></li>
 					<li><a href="http://studio.topcoder.com">Studio TopCoder</a></li>
 				</ul>
-			</div><!-- .col ends -->
-		</div><!-- .wrapper ends -->
-	</div><!-- #links block ends -->
+			</div><%-- .col ends --%>
+		</div><%-- .wrapper ends --%>
+	</div><%-- #links block ends --%>
 
-<!-- FOOTER BLOCK -->
+<%-- FOOTER BLOCK --%>
 	<div id="footer">
 		<div class="wrapper">
 			
@@ -84,5 +84,5 @@
 			<p>TopCoder is the world's largest competitive software development community with more than 167,000 developers representing over 200 countries.</p>
 			
 			<p>Copyright &copy;2001-2008, TopCoder, Inc. All rights reserved.</p>
-		</div><!-- .wrapper ends -->
-	</div><!-- #footer ends -->
+		</div><%-- .wrapper ends --%>
+	</div><%-- #footer ends --%>

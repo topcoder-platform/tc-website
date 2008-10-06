@@ -7,5 +7,5 @@
 <p class="more"><a href="[%= link %]">Read more</a> &gt;</p>
 [% /foreach %]
  
-<!-- leave the following empty paragraph in to remove phantom character in IE6 -->
+<%-- leave the following empty paragraph in to remove phantom character in IE6 --%>
 <p></p>
