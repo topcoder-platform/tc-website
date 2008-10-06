@@ -1,0 +1,11 @@
+<div class="light-top"></div>
+<h2>What's New</h2>
+[% foreach item %]
+<h3><a class="title" href="[%= link %]">[%= title %]</a></h3>
+<p class="date"><strong>[%= pubDate format:M D Y%]</strong></p>
+<p>[%= description %]</p>
+<p class="more"><a href="[%= link %]">Read more</a> &gt;</p>
+[% /foreach %]
+ 
+<!-- leave the following empty paragraph in to remove phantom character in IE6 -->
+<p></p>

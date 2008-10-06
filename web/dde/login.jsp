@@ -125,7 +125,7 @@
 </script>
 <script language="JavaScript" type="text/javascript" src="http://www.TopCoder.com/js/script.js">
 </script>
-
+<jsp:include page="/includes/header-files.jsp" />
 </head>
 
 <body class="body" onLoad="frmLogin.txtHandle.focus()">

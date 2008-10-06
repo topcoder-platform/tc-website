@@ -218,6 +218,7 @@
 <head>
     <title>Catalogs of Java and .NET Components at TopCoder Software</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
+<jsp:include page="/includes/header-files.jsp" />
     <link rel="stylesheet" type="text/css" href="http://<%=ApplicationServer.SERVER_NAME%>/css/coders.css" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
 

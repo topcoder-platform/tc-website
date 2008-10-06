@@ -1,156 +1,322 @@
-<%@ page import="javax.naming.*,
-                 com.topcoder.dde.util.ApplicationServer" %>
-<%@ page import="javax.ejb.CreateException" %>
-<%@ page import="java.io.*" %>
-<%@ page import="java.rmi.*" %>
-<%@ page import="javax.rmi.*" %>
-<%@ page import="java.util.*" %>
-<%@ page import="java.sql.*" %>
-<%@ page import="java.lang.reflect.*" %>
-<%@ page import="com.topcoder.util.idgenerator.bean.*" %>
-<%@ page import="javax.naming.Context" %>
-<%@ page import="javax.naming.InitialContext.*" %>
-<%@	page import="javax.rmi.PortableRemoteObject" %>
-
-<%@ include file="/includes/util.jsp" %>
-<%@ include file="/includes/session.jsp" %>
-<%@ include file="/includes/formclasses.jsp" %>
-
-
-<%
-    // STANDARD PAGE VARIABLES
-    String page_name = "s_index.jsp";
-    String action = request.getParameter("a");
-%>
-
-<%
-    String code = request.getParameter("code");
-    if (code == null) {
-        code = "";
-    }
-    if (action != null) {
-        if (action.equalsIgnoreCase("authentication")) {
-            response.sendRedirect("c_register_activate.jsp?code="+code);
-            return;
-        }
-    }
-%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+		
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Application Development, .NET&#8482; and Java&#8482; Software Components at TopCoder Software</title>
-    <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-    <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<jsp:include page="/includes/header-files.jsp" />
+<title>TopCoder Direct</title>
+<script src="/scripts/RSSProcessor.js" type="text/javascript"></script>
+<script src="/scripts/AJAXProcessor.js" type="text/javascript"></script>
+<script src="/scripts/direct.js" type="text/javascript"></script>
+
+
 </head>
-
-<body class="body">
-
-<!-- Header begins -->
-<jsp:include page="/includes/top.jsp"/>
-<jsp:include page="/includes/menu.jsp" >
-    <jsp:param name="isSoftwarePage" value="true"/>
+<body>
+<jsp:include page="/includes/top.jsp">
+<jsp:param name="TCDlevel" value="home"/>
 </jsp:include>
-<!-- Header ends -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="middle">
-    <tr valign="top">
+<!-- CONTENT BLOCKS -->
+	<div id="content">
+		<div class="wrapper">
+		
+<!-- TOPCODER DIRECT BANNER -->
+			<div id="direct_banner">
+				<p><img src="images/plug_into_the_world_largest.png" width="556" height="68" alt="Plug into the world largest community of competitive software developers and designers" /></p>
+			</div>
+			
+			<div id="content_main">
+<!-- TABS BUTTON -->
+				<div id="tabs_button">
+					<h3 class="hide">Tabs Navigation</h3>
+					<ul>
+						<li id="tabs_intro" class="tabs_bar first"><a href="#tabsContent01"><span>Introduction &amp; Overview</span></a></li>
+						<li id="tabs_tcdirect" class="tabs_bar"><a href="#tabsContent02"><span>What is TC Direct?</span></a></li>
+						<li id="tabs_pricing" class="tabs_bar"><a href="#tabsContent03"><span>Platform Pricing Details</span></a></li>
+						<li id="tabs_question" class="tabs_bar last"><a href="#tabsContent04"><span>Have Questions?</span></a></li>
+					</ul>
+				</div>
+				
+<!-- TABS CONTENT -->
+				<div id="tabs_panel">
+					
+					<!-- *************************************************
+					TABS 01
+					************************************************** -->
+					<div id="tabsContent01" class="tabs_content">
+					
+						<div class="content_columns">
+							<div class="content_column1">
+								<h2><img src="images/welcome_to_topcoder_direct.png" width="295" height="27" alt="Welcome to TopCoder Direct" /></h2>
+								
+								<p id="start_your_project"><a href="#start"><img src="images/start_your_project.png" width="297" height="143" alt="Start your Project" /></a></p>
+								
+								<p>The launch of TopCoder Direct is not simply the means for you to access the amazing pool of talent in this community; it's your chance to become part of it.</p>
+								
+								<p class="learn_more"><a href="#">Read More</a></p>
+							</div><!-- .content_col1 ends -->
+							
+							<div class="content_column2">
+								<h2><img src="images/what_do_you_want_todo.png" width="256" height="27" alt="What do you want to do?" /></h2>
+								
+								<ul id="what_todo">
+									<li id="what_design">
+										<div class="item">
+											<h3><strong>Design</strong></h3>
+											
+											<p>Logos, Storyboards, Print, User Interface and much more...</p>
+											
+											<p class="learn_more"><a href="#">Learn More</a></p>
+										</div>
+									</li>
+									
+									<li id="what_define">
+										<div class="item">
+											<h3><strong>Define</strong></h3>
+											
+											<p>Application specifications, architecture specifiations...</p>
+											
+											<p class="learn_more"><a href="#">Learn More</a></p>
+										</div>
+									</li>
+									
+									<li id="what_build">
+										<div class="item">
+											<h3><strong>Build and Assemble</strong></h3>
+											
+											<p>Components, applications, test plans and test scripts...</p>
+											
+											<p class="learn_more"><a href="#">Learn More</a></p>
+										</div>
+									</li>
+									
+									<li id="what_test">
+										<div class="item">
+											<h3><strong>Test</strong></h3>
+											
+											<p>Components and applications...</p>
+											
+											<p class="learn_more"><a href="#">Learn More</a></p>
+										</div>
+									</li>
+									
+									<li id="what_fix">
+										<div class="item">
+											<h3><strong>Fix</strong></h3>
+											
+											<p>Components and applicatiobs, Bug Races...</p>
+											
+											<p class="learn_more"><a href="#">Learn More</a></p>
+										</div>
+									</li>
+								</ul>
+							</div><!-- .content_col2 ends -->
+							
+							<div class="clear"></div><!-- CLEARINGS -->
+							
+						</div><!-- .content_columns -->
+						
+					</div><!-- .tabs_content #01 -->
+					
+					<!-- *************************************************
+					TABS 02
+					************************************************** -->
+					<div id="tabsContent02" class="tabs_content">
+						<div class="content_columns">
+							<h2><img src="images/what_is_topcoder_direct.png" width="256" height="27" alt="What Is TopCoder Direct" /></h2>						
+							<p><img src="images/relationship_tree.png" width="680" height="123" alt="" /></p>
+							
+							<ul class="what_is_list">
+								<li>
+									<span class="list_title">The TopCoder Developer Network</span>
+									<p>Over 160,000 members strong, the TC community represents your virtual workforce comprised of thousands of brilliant individuals from virtually every country on earth.</p>
+								</li>
+								<li>
+									<span class="list_title">Our Asset-Based Development Methodology</span>
+									<p>On average, 50% of your next application already exist in the TopCoder Component Catalog. These components are free to subscribers.</p>
+								</li>
+								<li>
+									<span class="list_title">The TopCoder Developer Network</span>
+									<p>Over 160,000 members strong, the TC community represents your virtual workforce comprised of thousands of brilliant individuals from virtually every country on earth.</p>
+								</li>
+							</ul>
+							
+							<p class="learn_more right"><a href="#">Read More</a></p>
+							</div><!-- .content_columns ends -->
+					</div><!-- .tabs_content #02 -->
+					
+					<!-- *************************************************
+					TABS 03
+					************************************************** -->
+					<div id="tabsContent03" class="tabs_content">
+						<div class="content_columns">
+							<div class="pricing_image"></div>
+							<h2><img src="images/platform_pricing_details.png" width="278" height="29" alt="Platform Pricing Details" /></h2>			
+							<ul class="pricing_list">
+								<li>On-demand access to the TopCoder community of 160,000+ developers, architects and graphic designers.</li>
+								<li>The tools to launch a wide variety of competitions to source high-quality products</li>
+								<li>Unlimited enterprise usage of the full TopCoder component catalog</li>
+							</ul>
+							
+							<h2><img src="images/which_tier_is_right_for_you.png" width="250" height="18" alt="Which Tier Is Right For You" /></h2>
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<thead>
+									<tr><td colspan="6">&nbsp;</td></tr>
+								</thead>
+								<tfoot>
+									<tr><td colspan="6">&nbsp;</td></tr>
+								</tfoot>
+								<tbody>
+									<tr class="table_title">
+										<td>Platform Tier</td>
+										<td>Monthly Fee</td>
+										<td>Unlimited Catalog Access</td>
+										<td>Included New Catalog Components/Year</td>
+										<td>Competition Fee: Add'l New Catalog Components</td>
+										<td>Competition Fee: Custom Development</td>
+									</tr>
+									<tr class="row1">
+										<td>Lorem Ipsum</td>
+										<td>Dolor sit</td>
+										<td><img src="images/check.png" width="16" height="16" alt="" /></td>
+										<td>Quisque porttitor</td>
+										<td>sagittis enim</td>
+										<td>&nbsp;</td>
+									</tr>
+									<tr class="row2">
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td><img src="images/check.png" width="16" height="16" alt="" /></td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+									</tr>
+									<tr class="row1">
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td><img src="images/check.png" width="16" height="16" alt="" /></td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+									</tr>
+									<tr class="row2">
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td><img src="images/check.png" width="16" height="16" alt="" /></td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+									</tr>
+									<tr class="row1">
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td><img src="images/check.png" width="16" height="16" alt="" /></td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+									</tr>
+								</tbody>
+								
+							</table>
+							<p class="learn_more right"><a href="#">Read More</a></p>
+						</div><!-- .content_columns ends -->
+					</div><!-- .tabs_content #03 -->
+					
+					<!-- *************************************************
+					TABS 04
+					************************************************** -->
+					<div id="tabsContent04" class="tabs_content">
+						<div class="content_columns">
+							<div class="help_image"></div>
+							<h2><img src="images/have_questions.png" width="170" height="27" alt="Have Questions?" /></h2>
+							<h3><img src="images/faq.png" width="241" height="19" alt="Frequently Asked Questions" /></h3>
+							<h4>Platform Pricing</h4>
+							<p class="ask">Which Tier is Right for You?</p>
+							<p class="ans">As you move up in tiers, a larger fixed platform fee is offset by lower variable competition fees – therefore, as you push more through the platform, higher tiers become more cost effective.</p>
+							<p class="ans">To determine which tier is right for you, speak to one of TopCoder’s Sales Professionals.</p>
+							
+							<h4>Training &amp; Mentoring</h4>
+							<p class="ask">Our IT organization already has defined best practices. Why do I need to have my team learn more?</p>
+							<p class="ans">Our principles are specific to realizing efficiency in using the TopCoder Platform. Think of it like the Rosetta stone for translating your team’s success in TopCoder.</p>
 
-<!-- Left Column begins -->
-        <td width="180" class="leftColumn">
-        <jsp:include page="/includes/left.jsp" >
-            <jsp:param name="level1" value="index"/>
-        </jsp:include>
-        </td>
-<!-- Left Column ends -->
+							<p class="ask">Is there certification for my staff?</p>
+							<p class="ans">Yes. A TopCoder mentor will be measuring progress and providing feedback throughout the training program so you can be assured your staff is fully prepared to begin taking advantage of the TC Process.</p>
+							
+							<h4>Support &amp; Maintenance</h4>
+							<p class="ask">How can a TC Co-Pilot help me?</p>
+							<ul class="support_list">
+								<li>Troubleshooting an issue</li>
+								<li>Launching new contests</li>
+								<li>Manage an upgrade to an existing application delivered by TopCoder, Inc.</li>
+								<li>Help with project planning</li>
+								<li>Run Bug Races to resolve software issues</li>
+								<li>Assist my team with running TopCoder contests</li>
+							</ul>
+							<p class="ask">How quick are Bug Races?</p>
+							<p class="ans">They range based on complexity of the issue, but typical durations are under a few hours for trivial issues and less than 2 days for more complex issues.</p>
+							<p class="learn_more right"><a href="#">Read More</a></p>
+						</div><!-- .content_columns ends -->
+					</div><!-- .tabs_content #04 -->
+						
+				</div><!-- #tabs_panel ends -->
+			
+			</div><!-- #content_main -->
+			
+		</div><!-- .wrapper ends -->
+	</div><!-- #content ends -->
+	
+<!-- NEWS -->
+	<div id="news">
+		<div class="wrapper">
+			<h2 id="whats_new"><span>What's New</span></h2>
+      
+            <div id="feed">
+            	<!-- Filled by the RSS Template -->
+            </div>
+        
+         <script>    
+         var rss = "http://www.topcoder.com/direct/blogs/?feed=rss2";
 
-<!-- Gutter 1 begins -->
-        <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-<!-- Gutter 1 ends -->
+            //A sample URL to get Template
+            var template = "/TCD/WhatsNewTemplate.txt";
 
-<!-- Middle Column begins -->
-        <td width="99%" align="center">
-            <table border="0" cellpadding="0" cellspacing="10" width="530">
-                <tr>
-                    <td align="left">
-                        <br/><a href="/applications/index.jsp"><img src="/images/promos/promo_home_1.png" alt="" width="270" height="63" border="0" /></a><br/><br/>
-                        Using our member base of thousands of highly-skilled developers from all over the world, our competition-based
-                        methodology, and our catalogs of re-usable components, TopCoder delivers high-quality software at a lower cost than the competition.
-                        <strong><a href="/applications/index.jsp">Learn more</a></strong>
-                    </td>
-                    <td align="left">
-                        <a href="/movies/TopCoder_software_013107.mov"><img src="/images/promos/020507softwareMovie.jpg" alt="" width="247" height="175" border="0" /></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td valign="top" align="left" colspan="2">
-                    <a href="/i/flash/global_platform/vcab.swf" target="_blank"><img src="/i/tcs_global_platform.png" alt="Global Platform" width="530" height="70" border="0" /></a>                    </td>
-              </tr>
-                <tr>
-                    <td valign="top" align="left" colspan="2">
-                    <%--
-                    <map name="morris_promo">
-                    <area shape="rect" alt="Application Development Methodology" coords="53,64,238,78" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/applDevMethod.mp4" />
-                    <area shape="rect" alt="Requirements and Specifications" coords="53,79,238,92" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/reqSpecs.mp4" />
-                    <area shape="rect" alt="Specification Phase" coords="53,93,238,106" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/specPhase.mp4" />
-                    <area shape="rect" alt="Specification Phase - QA Plan" coords="53,107,238,121" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/specPhaseQA.mp4" />
-                    <area shape="rect" alt="Application Architecture Phase" coords="53,122,238,135" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/applArchPhase.mp4" />
-                    <area shape="rect" alt="Manufacturing Discipline" coords="53,136,238,148" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/manuDiscipline.mp4" />
-                    <area shape="rect" alt="Using Competition to Build Software I" coords="53,149,238,162" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/usingCompetitionI.mp4" />
-                    <area shape="rect" alt="Using Competition to Build Software II" coords="53,163,238,176" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/usingCompetitionII.mp4" />      
-                    </map>
-                    <img src="/images/promos/promo_morris.jpg" alt="Mike Morris Promo" border="0" usemap="#morris_promo"/>
-                    --%>
-                    <a href="http://software.topcoder.com/media/misc3x2.jsp"><img src="/i/promos/promo_jackBIF3_2.png" alt="Jack Hughes at BIF-3" width="530" height="188" border="0" /></a>
-                    </td>
-                </tr>
-				<%	InitialContext context = new InitialContext();
-            		Object o = context.lookup("idgenerator/IdGenEJB");
-           	 		IdGenHome idGenHome = (IdGenHome) PortableRemoteObject.narrow(o, IdGenHome.class);
-            		IdGen idGen = idGenHome.create(); %>
-            </table>
+            var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
+            document.getElementById("feed").innerHTML = (processor.transformRSSFeed(rss));
+			alert(processor);
+        </script>	
+            
+            
+			<div class="post">
+				<h3><a href="http://topcoderblogs.com/direct/?p=14">1st iPhone App UI Designed Through TC Cockpit</a> <small>| Aug 26, 2008</small></h3>
+			  <p>Radio station tagging service RadioTAGr used the TopCoder Direct Cockpit to design the front end for its new Apple iPhone App...</p>
+				<p class="learn_more"><a href="http://topcoderblogs.com/direct/?p=14">Learn More</a></p>
+		  </div>
+			
+			<div class="post">
+				<h3><a href="http://topcoderblogs.com/direct/?p=4">Your Cockpit is Waiting</a> <small>| Jul 3, 2008</small></h3>
+			  <p>The TopCoder Cockpit version 1.0 Release is the tool you'll use to access our community with TopCoder Direct...</p>
+				<p class="learn_more"><a href="http://topcoderblogs.com/direct/?p=4">Learn More</a></p>
+		  </div>
+		</div><!-- .wrapper ends -->
+	</div><!-- #news ends -->
+		
 
-		<!--	<jsp:include page="/includes/customers_featured.jsp" flush="true" />-->
-         <jsp:include page="/includes/press_highlights.jsp" flush="true" />
-            <p><br></p>
-
-        </td>
-
-        <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-        <td width="170">
-        <jsp:include page="/includes/topDownloads.jsp" />
-        <jsp:include page="/includes/right.jsp" >
-            <jsp:param name="level1" value="index"/>
-        </jsp:include>
-
-        <jsp:include page="/includes/newReleases.jsp" />
-        <jsp:include page="/includes/right.jsp" >
-            <jsp:param name="level1" value="index"/>
-        </jsp:include>
-        </td>
-        <td width="10"><img src="/images/clear.gif" alt="" width="10" height="10" border="0" /></td>
-    </tr>
-</table>
 
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
-
-<%-- CrazyEgg website heatmapping code --%>
-<script type="text/javascript" src="http://cetrk.com/pages/scripts/0004/0536.js"> </script>
-
-<%-- Google Analytics --%>
+	
 <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+//<![CDATA[
+var tabsBar = ["tabs_button"];
+var tabsPanel = ["tabs_panel"];
+var defaultTab = 0;	// index of default tab started from 0
+
+window.onload = initDocument;
+//]]>
 </script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-3257193-2");
-_udn="topcoder.com";
-pageTracker._initData();
-pageTracker._trackPageview();
-</script>
+       
 
 </body>
 </html>

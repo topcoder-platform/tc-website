@@ -5,41 +5,41 @@
 <%
     boolean isHomePage = "true".equals(request.getParameter("isHomePage"));
 %>
-
-<a name="top"></a>
-<table width="100%" border=0 cellpadding=0 cellspacing=0>
-    <tr>
-        <td class=homeTopBar align=right>
-            <strong><%= (session.getAttribute("TCUSER") == null ? "" : "Hello, <strong>" + ((User) session.getAttribute("TCUSER")).getRegInfo().getUsername() + "</strong>") %></strong>
-
-            <% if (session.getAttribute("TCUSER") == null) { %>
-
-            <% if ("/login.jsp".equals(request.getParameter("page_name"))) { %>
-            <strong>Login</strong>
-            <% } else { %>
-            <a href="/login.jsp" class="loginLinks">Login</a>
-            <% } %>
-
-            <% if ("registration.jsp".equals(request.getParameter("page_name"))) { %>
-            &#160;&#160;|&#160;&#160;<strong>Register</strong>
-            <% } else { %>
-            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" class="loginLinks">Register</a>
-            <% } %>
-
-            <% } else { %>
-            &#160;&#160;|&#160;&#160;<a href="/login.jsp?a=logout" class="loginLinks">Logout</a>
-            <% } %>
-
-            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>" class="loginLinks">Home</a>
-        </td>
-    </tr>
-</table>
-
-<table width="100%" border=0 cellpadding=0 cellspacing=0>
-    <tr>
-        <td class=homeLogo><a href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/images/logo.gif" width="206"
-                                                                                    height="49" border="0"
-                                                                                    alt="TopCoder"></a></td>
-    </tr>
-</table>
-<!-- Header ends -->
+<%
+    String TCDlevel = request.getParameter("TCDlevel") == null ? "" : request.getParameter("TCDlevel");
+    
+%>			
+<div id="header">
+		<div class="wrapper">
+			
+<!-- MASTHEAD AND LOGO -->
+			<h1><a href="#" title="TopCoder Direct"><span>TopCoder Direct</span></a> <sup><small>BETA</small></sup></h1>
+			<h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
+			
+<!-- MAIN NAVIGATION -->
+			<div id="nav">
+				<h3 class="hide">Main Navigation</h3>
+				<ul>
+					<li <% if (TCDlevel.equals("home")) {%> class="left on" <% } %>><a href="/index.jsp">Home</a></li>
+					<li <% if (TCDlevel.equals("about")) {%> class="left on" <% } %>><a href="/TCD/about.jsp">About TopCoder Direct</a></li>
+					<li <% if (TCDlevel.equals("platform")) {%> class="left on" <% } %>><a href="/TCD/platform-tools.jsp">Platform Tools</a></li>
+					<li <% if (TCDlevel.equals("software")) {%> class="left on" <% } %>><a href="/indexTCS.jsp">Software</a></li>
+					<li <% if (TCDlevel.equals("training")) {%> class="left on" <% } %>><a href="/TCD/training.jsp">Training &amp; Mentoring</a></li>
+					<li <% if (TCDlevel.equals("support")) {%> class="left on" <% } %>><a href="/TCD/support.jsp">Support &amp; Maintenance</a></li>
+				</ul>
+			</div><!-- #navigation ends -->
+			
+			<!-- SUB NAVIGATION -->
+			<div id="nav_support">
+				<h3 class="hide">SUB Navigation</h3>
+				<ul>
+                	<li class="left"><a href="http://www.topcoder.com/">TopCoder.com</a></li>
+                	<li><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=index">About TopCoder</a></li>
+					<li><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=index">News</a></li>
+					<li><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=contactus">Contact Us</a></li>
+					<li class="right"><a href="/login.jsp">Login</a></li>
+				</ul>
+			</div><!-- #navigation ends -->
+			
+		</div><!-- .wrapper ends -->
+	</div><!-- #header ends -->

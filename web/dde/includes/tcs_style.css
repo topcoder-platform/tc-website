@@ -392,6 +392,7 @@ A.catalogCategoryLink:active
 	background-image: url(/images/header_grad.gif);
 	padding: 5px 10px 5px 10px;
 	border: 1px solid #999;
+	margin: 10px 0 5px 0;
 }
 .catalogTable { background-color: #CCCCCC; }
 
@@ -1549,9 +1550,9 @@ ul
 li
 {
 	list-style-type: square;
-	line-height: 1.2em;
+	line-height: 15px;
 	padding-top: 2px;
-	padding-bottom: 2px;
+	padding: 4px 0;
 }
 
 .pageDivider
@@ -2205,3 +2206,22 @@ border-bottom: 1px solid #0000FF;
 background-color: #EEEEFF
 
 }
+
+#nav-sidebar {width:148px;background-repeat:repeat-y;padding:23px 0 0 0;margin:0 0 0 30px;background-color:#FFFFFF;text-align:left;}
+#side-navigation {list-style-type:none;width:148px;padding:0;margin:0;font-size:12px;font-family:Arial, Helvetica, sans-serif;color:#666;}
+#side-navigation li {margin:0;padding:0;background-image:url(/images/nav-background.gif);list-style:none;}
+#side-navigation ul {margin-top:1px;list-style-type:none;margin:0;padding:0;display:none;}
+#side-navigation ul li {width:148px;background-image:url(/images/secondary-nav-background.gif);left-margin:0;left-padding:0;}
+#side-navigation ul li ul {margin-top:0px;font-size:11px;}
+#side-navigation ul li a {font-size:11px;padding-left:10px;display:block;width:138px;height:21px;padding-top:8px; border-bottom:1px solid #c1c1c1;}
+#side-navigation li a, #side-navigation li a:visited {color:#666;text-decoration:none;font-weight:bold;display:block;height:25px;width:138px; padding-left:10px;padding-top:12px;}
+#side-navigation li ul li a, #side-navigation li ul li a:visted {
+font-size:11px !important
+;}
+#side-navigation li a:hover {color:#000;}
+
+.top-li {background-image:url(/images/top-nav-background.gif);}
+.leftColumn { background: #FFF;background-image:url(/images/fade-line.gif); background-position:top right;background-repeat:no-repeat;}
+
+
+hr { margin: 12px 0;}

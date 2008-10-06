@@ -12,6 +12,7 @@ import="com.topcoder.dde.util.Constants,
 <head>
     <title>TopCoder Software</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
+<jsp:include page="/includes/header-files.jsp" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
          <c:set var="hasErrors" value="${not empty errors}"/>
          <c:set var="hasWarnings" value="${not empty warnings}"/>
