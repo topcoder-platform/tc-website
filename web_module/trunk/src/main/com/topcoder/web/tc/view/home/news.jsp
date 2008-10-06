@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />10.06.08<br />1:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081002' refer='/tc' />">Spotlight Session with SnapDragon Chat Transcript</a></span><br /><br />
+        Before <a href="/tc?module=MatchDetails&amp;rd=13527">TCHS SRM 58</a>, Spotlight Sessions with <tc-webtag:handle coderId="272072" context="algorithm" /> took place. If you missed this exciting and informative chat session, be sure to check out the <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081002' refer='/tc' />">chat transcript</a>. Don't miss the rest of the <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Spotlight Sessions</a> coming up!
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081002' refer='/tc' />">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=625148">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.02.08<br />5:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -152,22 +165,6 @@
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm417">details</a> | 
         <tc-webtag:forumLink forumID="523296" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />09.11.08<br />6:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm416">SRM 416 - Problem Set &amp; Analysis</a></span><br /><br />
-      Division 1 saw a hard problem that seemed more approachable than usual. After all, everything was given in the problem statement, the contestants "only" had to implement it. However, the problem turned out to be worth each and every of those 1000 points, and in the end only two coders (<tc-webtag:handle coderId="10574855" context="algorithm"/> and <tc-webtag:handle coderId="19849563" context="algorithm"/>) were able to submit flawless solutions &ndash; and claimed the top two spots, in this order.</td>
-         <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm416">details</a> | 
-        <tc-webtag:forumLink forumID="523237" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
    
