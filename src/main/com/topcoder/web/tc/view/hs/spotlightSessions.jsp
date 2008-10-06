@@ -42,6 +42,7 @@
                 </div>
                 <div style="float: right;">
                 <h3 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h3>
+                    <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081002">TCHS SRM 58: Spotlight Session with <tc-webtag:handle coderId="272072" context="algorithm" /></a></strong><br />
                     <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20080920">TCHS SRM 57: Spotlight Session with <tc-webtag:handle coderId="10574855" context="algorithm" /></a></strong><br />
                     <span style="text-decoration:none;"><tc-webtag:forumLink forumID="523401" message="Discuss this" /></span>
                 </div>
@@ -64,9 +65,14 @@
                 Spotlight Session with <tc-webtag:handle coderId="10574855" context="algorithm" /></span></p>
                 <p style="font:12px lucida sans;">View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20080920">here</a>.</p>
                 
+                <%-- Done 
                 <p style="font:12px lucida sans;"><span class="subtitle">Thursday, October 2 at 6:00 a.m. EDT (GMT -4)<br />
                 Spotlight Session with <tc-webtag:handle coderId="272072" context="algorithm" /></span></p>
                 <p style="font:12px lucida sans;"><tc-webtag:handle coderId="272072" context="algorithm" /> is an elite TopCoder member.  He holds the highest total number of SRM wins and was a tournament finalist in 2002, 2003, 2004, 2006, and 2007.  <tc-webtag:handle coderId="272072" context="algorithm" /> is an ACM - 98 Gold Medalist and now he is a Judge and Writer for multiple ACM contests, including the World Finals.  Not only is <tc-webtag:handle coderId="272072" context="algorithm" /> a TopCoder celebrity, but he's also a gaming celebrity.  Tetris Attack, Pokemon Puzzle League, Amplitude, Super Monkey Ball and Prince of Persia, are a just a few of the games that <tc-webtag:handle coderId="272072" context="algorithm" /> has incredible achievements with.  And don't forget his amazing showing at the 2006 TopCoder Open when he wowed the crowed with his incredibly quick Dance, Dance Revolution moves.  Don't miss <tc-webtag:handle coderId="272072" context="algorithm" /> in the chat room!</p>
+                --%>
+                <p style="font:12px lucida sans;"><span class="subtitle">Thursday, October 2 at 6:00 a.m. EDT (GMT -4)<br />
+                Spotlight Session with <tc-webtag:handle coderId="272072" context="algorithm" /></span></p>
+                <p style="font:12px lucida sans;">View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081002">here</a>.</p>
                 
                 <p style="font:12px lucida sans;"><span class="subtitle">Wednesday, October 8 at 10:00 a.m. EDT (GMT -4)<br />
                 Spotlight Session with <tc-webtag:handle coderId="19849563" context="algorithm" /></span></p>
