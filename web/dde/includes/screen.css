@@ -584,6 +584,151 @@ CONTENT
 			padding: 0;
 		}
 
+/*home*/
+
+.left_content {
+    float: left;
+    width: 408px;
+    background: url( "../images/leftBg.png" ) no-repeat;
+    padding-top: 100px;
+    text-align: center;
+    margin-left: 45px;
+    display: inline;
+}
+
+.left_content li, .right_content li {
+    text-align: left;
+    float: left;
+    list-style: none;
+    width: 148px;
+    height: 29px;
+    padding-top: 7px;
+    margin-left: 30px;
+    margin-right: 5px;
+    display: inline;
+}
+
+.button, .button1, .button2 {
+    text-align: left;
+    color: #616161;
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    padding-left: 15px;
+    width: 147px;
+    height: 28px;
+    padding-top: 7px;
+    display: block;
+}
+
+.left_content .startNow {
+    clear: left;
+    margin-top: 20px;
+    display: inline;
+}
+
+.button {
+    margin-left: auto;
+    margin-right: auto;
+    background: url( "../images/buttonbg.png" ) no-repeat;
+}
+
+.button1 {
+    background: url( "../images/buttonbg1.png" ) no-repeat;
+}
+
+.button2 {
+    background: url( "../images/buttonbg2.png" ) no-repeat;
+}
+
+.button:hover {
+    text-decoration: none;
+    background: url( "../images/buttonOverbg.png" ) no-repeat;
+}
+
+.button1:hover {
+    text-decoration: none;
+    background: url( "../images/buttonOverbg1.png" ) no-repeat;
+}
+
+.button2:hover {
+    text-decoration: none;
+    background: url( "../images/buttonOverbg2.png" ) no-repeat;
+}
+
+.right_content {
+    float: right;
+    width: 408px;
+    background: url( "../images/rightBg.png" ) no-repeat;
+    padding-top: 100px;
+    text-align: center;
+    margin-right: 40px;
+    display: inline;
+}
+
+.right_content .icons {
+    clear: left;
+    margin-left: 30px;
+}
+
+.right_content .icons li {
+    float: left;
+    width: 80px !important;
+    margin-top: 35px;
+	display:block;
+    height:70px;
+    text-align: center;
+    padding-left: 0;
+    margin-right: 8px;
+    margin-left: 0;
+}
+
+.right_content .icons li a {
+    padding-left: 0;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+	display:block;
+	height:100%;
+	width:80px;
+	line-height:145px;
+}
+
+.right_content .discovery {
+    background: url( "../images/discovery_icon.png" ) no-repeat;
+}
+
+.right_content .design {
+    background: url( "../images/design_icon.png" ) no-repeat;
+}
+
+.right_content .build {
+    background: url( "../images/build_icon.png" ) no-repeat;
+}
+
+.right_content .test {
+    background: url( "../images/test_icon.png" ) no-repeat;
+}
+
+.right_content .findOut {
+    clear: left;
+    margin-top: 31px;
+    margin-bottom: 3px;
+    display: inline;
+}
+
+/*---------------------------------------
+BANNER AD
+---------------------------------------*/
+#bannerAd {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+
+
 /* ------------------------------------
 NEWS
 ------------------------------------ */
