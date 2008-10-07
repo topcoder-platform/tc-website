@@ -23,16 +23,16 @@
 <head>
     <title>Find Components</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-<jsp:include page="/includes/header-files.jsp" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+    <jsp:include page="/includes/header-files.jsp" />
 </head>
 
 <body class="body">
 
 <!-- Header begins -->
-<jsp:include page="/includes/top.jsp"/>
+<jsp:include page="/includes/top.jsp" />
 <jsp:include page="/includes/menu.jsp" >
-    <jsp:param name="isSoftwarePage" value="true"/>
+    <jsp:param name="isSoftwarePage" value="true" />
 </jsp:include>
 <!-- Header ends -->
 
@@ -40,42 +40,39 @@
     <tr valign="top">
 
 <!-- Left Column begins -->
-        <td width="179" class="leftColumn">
+        <td width="180" class="leftColumn">
             <jsp:include page="/includes/left.jsp" >
-                <jsp:param name="level1" value="components"/>
-                <jsp:param name="level2" value="find"/>
+                <jsp:param name="level1" value="components" />
+                <jsp:param name="level2" value="find" />
             </jsp:include>
         </td>
 <!-- Left Column ends -->
 
 <!-- Gutter begins -->
-        <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+        <td width="25"><img src="/images/clear.gif" alt="" width="25" height="10" border="0" /></td>
 <!-- Gutter ends -->
 
 <!-- Middle Column begins -->
-        <td width="100%">
-        <table cellspacing=0 cellpadding=0 border=0 width=510 align=center>
+        <td align="center">
+        <table cellspacing="0" cellpadding="0" border="0" width="95%">
             <tr>
-                <td colspan=2>
-                <img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br/>
-                <img src="/images/headComponentsShort.gif" alt="Components" width="153" height="32" border="0"><br/>
+                <td colspan="2">
+                <img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br />
+                <img src="/images/headComponentsShort.gif" alt="Components" width="153" height="32" border="0" /><br />
                 <img src="/images/clear.gif" alt="" width="10" height="15" border="0" />
                 </td>
             </tr>
-            <tr>
-                <td class=catalogIndexHeader colspan=2>Find Components</td>
+           	<tr valign="top">
+                <td class="catalogIndexCell"><a href="/components/appSuiteIndex.jsp"><img src="/images/catalog/appSuiteBtn.jpg" border="0" /></a></td>
+                <td class="catalogIndexCell" width="100%"><a href="/components/appSuiteIndex.jsp"><b>Browse Application Suites</b></a><br />Application Suites are multi-purpose tools to solve a variety of software needs in one package. Thinking of adding an eCommerce section to your site? Our eCommerce Application Suite has everything you will need from a shopping cart to security.</td>
             </tr>
-            <tr valign=top>
-                <td class=catalogIndexCell><A href="/components/appSuiteIndex.jsp"><img src="/images/catalog/appSuiteBtn.jpg" border=0/></A></td>
-                <td class=catalogIndexCell width=100%><A href="/components/appSuiteIndex.jsp"><b>Browse Application Suites</b></A><br/>Application Suites are multi-purpose tools to solve a variety of software needs in one package. Thinking of adding an eCommerce section to your site? Our eCommerce Application Suite has everything you will need from a shopping cart to security.</td>
+            <tr valign="top">
+                <td class="catalogIndexCell"><a href="/catalog/c_showroom.jsp"><img src="/images/catalog/categoryBtn.jpg" border="0" /></a></td>
+                <td class="catalogIndexCell"><a href="/catalog/c_showroom.jsp"><b>Browse Components by Category</b></a><br />Need some Security Tools? How about some Administration Tools? If you have a specific software functionality need, browse here to view our Component Catalog broken up into categories.</td>
             </tr>
-            <tr valign=top>
-                <td class=catalogIndexCell><A href="/catalog/c_showroom.jsp"><img src="/images/catalog/categoryBtn.jpg" border=0/></A></td>
-                <td class=catalogIndexCell><A href="/catalog/c_showroom.jsp"><b>Browse Components by Category</b></A><br/>Need some Security Tools? How about some Administration Tools? If you have a specific software functionality need, browse here to view our Component Catalog broken up into categories.</td>
-            </tr>
-            <tr valign=top>
-                <td class=catalogIndexCell><A href="/catalog/c_showroom.jsp?a=all"><img src="/images/catalog/indexBtn.jpg" border=0/></A></td>
-                <td class=catalogIndexCell><A href="/catalog/c_showroom.jsp?a=all"><b>Browse Component Index</b></A><br/>An alphabetical listing of our components, both Java and .Net.  Browse here if you know the exact component that you are looking for.</td>
+            <tr valign="top">
+                <td class="catalogIndexCell"><a href="/catalog/c_showroom.jsp?a=all"><img src="/images/catalog/indexBtn.jpg" border="0" /></a></td>
+                <td class="catalogIndexCell"><a href="/catalog/c_showroom.jsp?a=all"><b>Browse Component Index</b></a><br />An alphabetical listing of our components, both Java and .Net.  Browse here if you know the exact component that you are looking for.</td>
             </tr>
         </table>
         </td>
@@ -88,7 +85,7 @@
 <!-- Right Column begins -->
         <td width="170">
         <jsp:include page="/includes/right.jsp" >
-            <jsp:param name="level1" value="components"/>
+            <jsp:param name="level1" value="components" />
         </jsp:include>
         </td>
 <!--Right Column ends -->
