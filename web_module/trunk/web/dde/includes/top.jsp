@@ -13,7 +13,8 @@
 		<div class="wrapper">
 			
 <%-- MASTHEAD AND LOGO --%>
-			<h1><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/index.jsp" title="TopCoder Direct"><span>TopCoder Direct</span></a> <sup><small>BETA</small></sup></h1>
+			<h1><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/index.jsp" title="TopCoder Direct"><span>TopCoder Direct</span></a> 
+			<%--<sup><small>BETA</small></sup>--%></h1>
 			<h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
 			
 <%-- MAIN NAVIGATION --%>
