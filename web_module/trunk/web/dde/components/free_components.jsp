@@ -145,14 +145,14 @@
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
-        <td width="99%" align="center">
+        <td width="99%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
                 <tr><td class="normal"><img src="/images/headComponents.gif" alt="Components" width="545" height="32" border="0" /></td></tr>
                 <tr><td align="center"><img src="/images/header_look_under_hood.gif" alt="Look under the hood. Kick the tires." width="442" height="53" border="0" /></td></tr>
             </table>
 
-            <table width="545" border="0" cellpadding="0" cellspacing="0">
+            <table width="95%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td class="bodyText">
                         <strong>To illustrate the rigorous process that goes into every TopCoder component we have provided these sample
@@ -165,7 +165,7 @@
 
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="360" class="bodyText">
+                    <td width="70%" class="bodyText">
                         <p>These samples are only a few of the dozens of components available in our .NET&#8482; and Java&#8482; <a href="/catalog/c_showroom.jsp">component catalogs.</a> To
                         access all of our components or to use them in a commercial application, purchase a <a href="/components/subscriptions.jsp">subscription</a> to either of the catalogs.</p>
 
@@ -183,14 +183,14 @@
 
                         <div align="center">
                         <img src="/images/clear.gif" alt="" width="10" height="5" border="0" />
-                        <form id=Form1 name=Form1 method="post"><table border="0" cellpadding="3" cellspacing="0" width="100">
+                        <form id=Form1 name=Form1 method="post"><table border="0" cellpadding="3" cellspacing="0" width="100%">
 
 <!-- Possible error text goes here -->
                             <%
                             if(error){
                             %>
                                 <tr valign="middle">
-                                   <td class="errorSymbol" width="1"></td>
+                                   <td class="errorSymbol"></td>
                                    <td class="registerError">You did not fill out a field correctly</td>
                                </tr>
                             <%
@@ -199,7 +199,7 @@
 <!-- Possible error text goes here -->
 
                             <tr valign="middle">
-                                <td class="errorSymbol" width="1">
+                                <td class="errorSymbol">
 
                                 <% if(action.equals("post") && firstName.equals("")){ %>
                                       <img src="../images/errorSymbol.gif" alt="&gt;" width="22" height="22" hspace="10" border="0" />
@@ -212,7 +212,7 @@
                             </tr>
 
                             <tr valign="middle">
-                                <td class="errorSymbol" width="1">
+                                <td class="errorSymbol">
                                 <% if(action.equals("post") && lastName.equals("")){ %>
                                     <img src="/images/errorSymbol.gif" alt="&gt;" width="22" height="22" hspace="10"
                                     border="0" />
@@ -226,7 +226,7 @@
                             </tr>
 
                             <tr valign="middle">
-                                <td class="errorSymbol" width="1">
+                                <td class="errorSymbol">
 
                                 <% if(action.equals("post") && (!validEmail || emailAddress.equals(""))){ %>
                                      <img src="/images/errorSymbol.gif" alt="&gt;" width="22" height="22" hspace="10"
@@ -240,20 +240,20 @@
                             </tr>
 
                             <tr valign="middle">
-                                <td class="errorSymbol" width="1"></td>
+                                <td class="errorSymbol"></td>
                                 <td class="registerLabel"><input type="checkbox" size="5" name="contactMe" value="checked" checked="<%=contactMe%>" class="registerElement" /> I would like to receive news, updates, and other special offers from TopCoder.</td>
                             </tr>
 
                             <% if(action.equals("post") && country_code==-2){%>
                             <tr valign="middle">
-                                <td class="errorSymbol" width="1"></td>
+                                <td class="errorSymbol"></td>
                                 <td class="registerError">Your country does not have download permissions</td>
                             </tr>
                            <% country_code = -1;
                              } %>
 
                             <tr valign="middle">
-                                <td class="errorSymbol" width="1">
+                                <td class="errorSymbol">
                                 <% if(action.equals("post") && country_code==-1){%>
                                     <img src="/images/errorSymbol.gif" alt="&gt;" width="22" height="22" hspace="10" border="0" />
                                 <%
@@ -270,7 +270,7 @@
 
                         <strong>Select Download:</strong>
 
-                        <table border="0" cellpadding="0" cellspacing="8" width="360">
+                        <table border="0" cellpadding="0" cellspacing="8" width="100%">
                             <tr valign="top">
                                 <td class="small" width="168" align="center"><a href="javascript:submitForm('dotnet')">
                                     <img src="/images/button_samp_comp_dotnet.gif" alt=".NET Components" width="145" height="66" border="0" vspace="2" /></a><br/>
@@ -324,7 +324,7 @@
 
                        <strong>Other helpful links:</strong>
 
-                        <table border="0" cellpadding="0" cellspacing="8" width="360">
+                        <table border="0" cellpadding="0" cellspacing="8" width="100%">
                             <tr valign="top">
                                 <td class="bodyText">
                                     <a href="http://www.gentleware.com/products/download.php4" target="_blank">Poseidon 2.0</a><br/>
@@ -335,9 +335,9 @@
                         <img src="/images/clear.gif" alt="" width="360" height="1" border="0" />
                     </td>
 
-                    <td width="10"><img src="/images/clear.gif" alt="" width="10" height="10" border="0" /></td>
+                    <td width="2%"><img src="/images/clear.gif" alt="" width="10" height="10" border="0" /></td>
 
-                    <td width="175" class="bodyText">
+                    <td width="20%" class="bodyText">
                         <table border="0" cellpadding="3" cellspacing="0" class="sidebarFrame" width="175">
                             <tr><td class="sidebarTitle">About the Components</td></tr>
 
