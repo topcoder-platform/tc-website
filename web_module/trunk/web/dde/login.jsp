@@ -121,10 +121,8 @@
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
 
-<script language="JavaScript" type="text/javascript" src="/scripts/javascript.js">
-</script>
-<script language="JavaScript" type="text/javascript" src="http://www.TopCoder.com/js/script.js">
-</script>
+<script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://www.TopCoder.com/js/script.js"></script>
 <jsp:include page="/includes/header-files.jsp" />
 </head>
 
@@ -132,10 +130,10 @@
 
 <!-- Header begins -->
 <jsp:include page="/includes/top.jsp">
-    <jsp:param name="page_name" value="login.jsp"/>
+    <jsp:param name="page_name" value="login.jsp" />
 </jsp:include>
 <jsp:include page="/includes/menu.jsp" >
-    <jsp:param name="isSoftwarePage" value="true"/>
+    <jsp:param name="isSoftwarePage" value="true" />
 </jsp:include>
 <!-- Header ends -->
 
@@ -145,29 +143,29 @@
 <!-- Left Column begins -->
         <td width="180" class="leftColumn">
         <jsp:include page="/includes/left.jsp" >
-            <jsp:param name="level1" value="index"/>
+            <jsp:param name="level1" value="index" />
         </jsp:include>
         </td>
 <!-- Left Column ends -->
 
 <!-- Gutter 1 begins -->
-        <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+        <td width="25"><img src="/images/clear.gif" alt="" width="25" height="10" border="0" /></td>
 <!-- Gutter 1 ends -->
 
 <!-- Center Column begins -->
-        <td width="99%"><img src="/images/clear.gif" width="400" height="11" alt="" border="0"><br>
-		<div class="minheight">
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <td width="99%"><img src="/images/clear.gif" width="400" height="11" alt="" border="0" /><br />
+		<div class="minheight" align="center">
+            <table width="75%" border="0" cellpadding="0" cellspacing="0">
                <tr valign="top">
                     <td class="bodyText" width="100%">
                     
-                        <img src="/images/clear.gif" alt="" width="380" height="1" border="0"/><br/>
-                        <p><b>Forgot your password?</b><br/>
-                        If you cannot remember your password <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click here</A>
+                        <img src="/images/clear.gif" alt="" width="380" height="10" border="0" /><br />
+                        <p><b>Forgot your password?</b><br />
+                        If you cannot remember your password <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click here</a>
                         and we can help you restore your account.</p>
-
-                        <p><b>New to TopCoder?</b><br/>
-                        <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" class="bodyText">Register now.</A>
+						<br />
+                        <p><b>New to TopCoder?</b><br />
+                        <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" class="bodyText">Register now.</a>
                         After you complete the registration process, we will send your account activation code via email.</p>
                       
                     </td>
@@ -175,10 +173,11 @@
 
                 <tr valign="middle">
                     <form name="frmLogin" action="<%= page_name %>" METHOD="POST">
-                    <input type="hidden" name="a" value="login">
+                    <input type="hidden" name="a" value="login" />
                     <td align="center">
+                    	<br />
                         <table border="0" cellpadding="3" cellspacing="0">
-                           <tr><td colspan="3"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
+                           <tr><td colspan="3"><img src="/images/clear.gif" width="10" height="3" alt="" border="0" /></td></tr>
 
 <!-- User Name Error Text -->
                             <tr valign="top">
@@ -187,14 +186,14 @@
 
 <!-- User Name -->
                             <tr valign="middle">
-                                <td nowrap class="bodyText" align="right">User Name:</td>
-                                <td colspan="2" align="left"><input type="text" name="txtHandle" value ="" size="12" maxlength="30"></td>
+                                <td nowrap class="bodyText" align="right">Username:</td>
+                                <td colspan="2" align="left"><input type="text" name="txtHandle" value="" size="15" maxlength="30"></td>
                             </tr>
 
 <!-- Password -->
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Password:</td>
-                                <td align="left"><input onkeypress="submitEnter(event,document.frmLogin)" type="password" name="txtPassword" value ="" size="12" maxlength="30"></td>
+                                <td align="left"><input onkeypress="submitEnter(event,document.frmLogin)" type="password" name="txtPassword" value="" size="15" maxlength="30"></td>
                                 <td nowrap class="bodyText">&#160;&#160;<a href="javascript:document.frmLogin.submit()">Login &gt;</a></td>
                             </tr>
 
@@ -203,10 +202,10 @@
                                 <td nowrap class="bodyText" colspan="2" align="left">Remember Me</td>
                             </tr>
 
-                           <tr><td colspan="3"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
+                           <tr><td colspan="3"><img src="/images/clear.gif" width="10" height="3" alt="" border="0" /></td></tr>
                         </table>
 
-                        <p><br/></p>
+                        <p><br /></p>
 
                     </td>
                     </form>
