@@ -28,6 +28,12 @@ $(document).ready(function(){
 			return false;
 		}
 		});
+		
+	var randomImage = Math.floor(Math.random()*5);
+	
+	$("#bannerAd img").attr({
+		src: "/images/rotated-image-" + randomImage +".png"
+	});
 });
 
 

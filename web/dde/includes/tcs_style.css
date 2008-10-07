@@ -2274,17 +2274,6 @@ table.stat tr.highlight td.value, table.stat tr.highlight td.valueC, table.stat 
 	font-size: 11px;
 }
 
-#side-navigation ul li a
-{
-	font-size: 11px;
-	padding-left: 10px;
-	display: block;
-	width: 138px;
-	height: 21px;
-	padding-top: 8px;
-	border-bottom: 1px solid #c1c1c1;
-}
-
 #side-navigation li a, #side-navigation li a:visited
 {
 	color: #666;
@@ -2297,9 +2286,23 @@ table.stat tr.highlight td.value, table.stat tr.highlight td.valueC, table.stat 
 	padding-top: 12px;
 }
 
-#side-navigation li ul li a, #side-navigation li ul li a:visted { font-size: 11px !important; }
+
+.submenu li a
+{
+	font-size: 11px;
+	padding-left: 10px;
+	display: block;
+	width: 138px;
+	height: 21px !important;
+	padding-top: 8px !important;
+	border-bottom: 1px solid #c1c1c1;
+}
+
+
+.submenu li a, .submenu li a:visted { height:21px !important;font-size: 11px !important; }
 #side-navigation li a:hover { color: #000; }
 .top-li { background-image: url(/images/top-nav-background.gif); }
+.sub-active {height:21px;}
 
 .leftColumn
 {
