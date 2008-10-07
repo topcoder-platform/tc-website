@@ -37,7 +37,7 @@
 					<div id="tabsContent01" class="tabs_content">
 					
 						<div class="content_columns">
-							<h2><img src="images/training_and_mentoring.png" width="241" height="27" alt="Training and Mentoring" /></h2>
+							<h2><img src="/images/training_and_mentoring.png" width="241" height="27" alt="Training and Mentoring" /></h2>
 							<h3>Overview</h3>
 							<p>Because TopCoder's method of building and delivering software is unique, clients can take advantage of training and mentoring their project's personnel. Think of it as TopCoder 101 to jump start your team's proficiency.</p>
 						  <p>Our training program can take the form of traditional classroom-style training with a qualified TopCoder educator on-site or via a self-paced program allowing participants to engage with the materials any time of the day.</p>

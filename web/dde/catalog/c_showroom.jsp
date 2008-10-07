@@ -411,7 +411,7 @@
 
 <% } else if (all) { %>
 
-        <td width="99%" align="center">
+        <td width="99%">
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
                     <td>
@@ -478,7 +478,7 @@
         else if (expand.contains(new Long(flashId))) refCatalog = 2;
 %>
 
-        <td width="99%" align="center">
+        <td width="99%">
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
                     <td>
@@ -520,7 +520,7 @@
                             <tr valign="middle"><td class="catalogType"><%= summary.getName() %></td></tr>
                         </table>
 
-                        <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" class="catalogTable">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="1" class="catalogTable">
 
                             <%
                                 out.print(displayDetailed(summary, 0, 2, refCatalog));

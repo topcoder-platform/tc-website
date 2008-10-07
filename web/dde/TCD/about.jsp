@@ -40,7 +40,7 @@
 					<div id="tabsContent01" class="tabs_content">
 					
 						<div class="content_columns">							
-								<h2><img src="images/welcome_to_topcoder_direct.png" width="295" height="27" alt="Welcome to TopCoder Direct" /></h2>
+								<h2><img src="/images/welcome_to_topcoder_direct.png" width="295" height="27" alt="Welcome to TopCoder Direct" /></h2>
 								<h3>A Message from Jack Hughes</h3>
 								<p><strong>Why is it that there always seems too much work to do?  Why do we always seem to be waiting?  Waiting for someone to finish before we can move on?  Why is it that, even with all of the new tools, processes and methods, the list of things to do grows faster than what gets done?  Why is that, no matter how hard we try - how much resource we add (and the cost that goes with it), users, customers and management never seem to be satisfied?</strong><br />
                                   <br />
@@ -61,7 +61,7 @@
 					************************************************** -->
 					<div id="tabsContent02" class="tabs_content">
 						<div class="content_columns">
-							<h2><img src="images/how_does_direct_works.png" width="315" height="27" alt="How does TC Direct Work?" /></h2>				
+							<h2><img src="/images/how_does_direct_works.png" width="315" height="27" alt="How does TC Direct Work?" /></h2>				
 							<h3>Some of the most talented people in the world are ready to compete to build your next application.</h3>
 							<ul class="bug_race_list">
                             	<li>On-demand access to the TopCoder community of 160,000+ developers, architects and graphic designers</li>
@@ -87,7 +87,7 @@
 					************************************************** -->
 					<div id="tabsContent03" class="tabs_content">
 						<div class="content_columns">
-							<h2><img src="images/the_topcoder_methodology.png" width="284" height="27" alt="The TopCoder Methodology" /></h2>			
+							<h2><img src="/images/the_topcoder_methodology.png" width="284" height="27" alt="The TopCoder Methodology" /></h2>			
 							<h3>How will this Global Community build my application?</h3>
 							<p>Through this methodology, you have a consistent and clear mechanism to utilize the TopCoder Platform. We provide a distinct set of contests and tools to define the specific deliverables for your project, which are then presented to the TopCoder community through various competition types.</p>
 							<p>The phases and competitions may be used in series from start to finish, individually or in creative combinations to complete your tasks in the most effective way possible.</p>
