@@ -18,7 +18,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>Component Development Methodology at TopCoder</title>
-    <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css"/>
+    <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
     <jsp:include page="/includes/header-files.jsp" />
 </head>
@@ -26,66 +26,66 @@
 <body class="body">
 
 <!-- Header begins -->
-<jsp:include page="/includes/top.jsp"/>
+<jsp:include page="/includes/top.jsp" />
 <jsp:include page="/includes/menu.jsp">
-    <jsp:param name="isSoftwarePage" value="true"/>
+    <jsp:param name="isSoftwarePage" value="true" />
 </jsp:include>
 <!-- Header ends -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="middle">
 <tr valign="top">
 
 <!-- Left Column begins -->
 <td width="165" class="leftColumn">
     <jsp:include page="/includes/left.jsp">
-        <jsp:param name="level1" value="components"/>
-        <jsp:param name="level2" value="methodology"/>
+        <jsp:param name="level1" value="components" />
+        <jsp:param name="level2" value="methodology" />
     </jsp:include>
 </td>
 <!-- Left Column ends -->
 
 <!-- Gutter 1 begins -->
-<td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0"/></td>
+<td width="25"><img src="/images/clear.gif" alt="" width="25" height="10" border="0" /></td>
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
-        <td align="center">
-        <table cellspacing=0 cellpadding=0 border=0 width=530>
-            <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+    <td align="left">
+        <table cellspacing="0" cellpadding="0" border="0" width="95%">
+            <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
             <tr><td class="normal">
-                <img src="/images/headComponents.gif" alt="Components" width="545" height="32" border="0"/></td></tr>
+                <img src="/images/headComponents.gif" alt="Components" width="545" height="32" border="0" /></td></tr>
             <tr><td class="subhead">Competition-Based Methodology</td></tr>
-            <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+            <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
         </table>
 
-    <div align="center">
-        <table width="530" border="0" cellpadding="0" cellspacing="0">
+    <div align="left">
+        <table cellspacing="0" cellpadding="0" border="0" width="95%">
             <tr>
-                <td rowspan="3"><img src="/images/clear.gif" width="59" height="204" alt=""/></td>
-                <td><img src="/images/meth_complete.gif" width="161" height="67" alt="Complete" border="0"/></td>
-                <td><img src="/images/meth_software_02.gif" width="118" height="67" alt=""/></td>
-                <td><img src="/images/meth_collaboration.gif" width="177" height="67" alt="Collaboration" border="0"/>
+                <td rowspan="3"><img src="/images/clear.gif" width="59" height="204" alt="" /></td>
+                <td><img src="/images/meth_complete.gif" width="161" height="67" alt="Complete" border="0" /></td>
+                <td><img src="/images/meth_software_02.gif" width="118" height="67" alt="" /></td>
+                <td><img src="/images/meth_collaboration.gif" width="177" height="67" alt="Collaboration" border="0" />
                 </td>
-                <td rowspan="3"><img src="/images/clear.gif" width="50" height="204" alt=""/></td>
+                <td rowspan="3"><img src="/images/clear.gif" width="50" height="204" alt="" /></td>
             </tr>
 
             <tr>
-                <td><img src="/images/meth_software_04.gif" width="161" height="56" alt=""/></td>
-                <td><img src="/images/meth_software_05.gif" width="118" height="56" alt=""/></td>
-                <td><img src="/images/meth_software_06.gif" width="177" height="56" alt=""/></td>
+                <td><img src="/images/meth_software_04.gif" width="161" height="56" alt="" /></td>
+                <td><img src="/images/meth_software_05.gif" width="118" height="56" alt="" /></td>
+                <td><img src="/images/meth_software_06.gif" width="177" height="56" alt="" /></td>
             </tr>
 
             <tr>
-                <td><img src="/images/meth_development.gif" width="161" height="81" alt="Development" border="0"/></td>
-                <td><img src="/images/meth_software_8.gif" width="118" height="81" alt=""/></td>
-                <td><img src="/images/meth_design.gif" width="177" height="81" alt="Design" border="0"/></td>
+                <td><img src="/images/meth_development.gif" width="161" height="81" alt="Development" border="0" /></td>
+                <td><img src="/images/meth_software_8.gif" width="118" height="81" alt="" /></td>
+                <td><img src="/images/meth_design.gif" width="177" height="81" alt="Design" border="0" /></td>
             </tr>
         </table>
     </div>
 
-    <hr width="530" size="1px" noshade>
+    <hr width="640" size="1px" noshade="noshade" />
 
-    <table border="0" cellspacing="0" cellpadding="0" width="530">
+    <table cellspacing="0" cellpadding="0" border="0" width="95%">
         <tr valign="top">
             <td class="bodyText">
                 <!-- Collaboration begins -->
@@ -136,7 +136,7 @@
         </tr>
     </table>
 
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <table cellspacing="0" cellpadding="0" border="0" width="95%">
         <tr>
             <td colspan="2" class="bodyText" align="center">
 
@@ -149,26 +149,26 @@
 <!-- Middle Column ends -->
 
 <!-- Gutter 2 begins -->
-<td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0"/></td>
+<td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
 <!-- Gutter 2 ends -->
 
 <!-- Right Column begins -->
 <td width="170">
     <jsp:include page="/includes/right.jsp">
-        <jsp:param name="level1" value="components"/>
+        <jsp:param name="level1" value="components" />
     </jsp:include>
 </td>
 <!--Right Column ends -->
 
 <!-- Gutter 3 begins -->
-<td width="10"><img src="/images/clear.gif" alt="" width="10" height="10" border="0"/></td>
+<td width="10"><img src="/images/clear.gif" alt="" width="10" height="10" border="0" /></td>
 <!-- Gutter 3 ends -->
 
 </tr>
 </table>
 
 <!-- Footer begins -->
-<jsp:include page="/includes/foot.jsp" flush="true"/>
+<jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
 
 </body>

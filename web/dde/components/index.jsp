@@ -37,11 +37,11 @@
 </jsp:include>
 <!-- Header ends -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
-    <tr valign="top">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="middle">
+<tr valign="top">
 
 <!-- Left Column begins -->
-        <td width="180" class="leftColumn">
+        <td width="165" class="leftColumn">
         <jsp:include page="/includes/left.jsp" >
             <jsp:param name="level1" value="components" />
             <jsp:param name="level2" value="overview" />
@@ -58,7 +58,7 @@
             <img src="/images/clear.gif" width="1" height="15" alt="" border="0" /><br />
             <img src="/images/headComponents.gif" alt="Components" width="545" height="32" border="0" /><br />
             <div align="left">
-            <table cellspacing="0" cellpadding="0" border="0" width="95%">
+            <table cellspacing="0" cellpadding="0" border="0" width="100%">
                 <tr>
                     <td width="510" align="left">
                         <img src="/images/comps_home_promoA.gif" alt="Component-Based Development" width="510" height="65" border="0" /><br />
