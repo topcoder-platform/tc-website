@@ -132,8 +132,8 @@
 <head>
     <title>Upload a submission to TopCoder</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-<jsp:include page="/includes/header-files.jsp" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+    <jsp:include page="/includes/header-files.jsp" />
 </head>
 
 <body class="body">
@@ -149,7 +149,7 @@
     <tr valign="top">
 
 <!-- Left Column begins -->
-        <td width="180" class="leftColumn">
+        <td width="165" class="leftColumn">
             <jsp:include page="/includes/left.jsp" >
                 <jsp:param name="level1" value="catalog"/>
                 <jsp:param name="level2" value="submission"/>

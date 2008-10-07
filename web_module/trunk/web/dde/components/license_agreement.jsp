@@ -4,7 +4,6 @@
 <title>TopCoder Component Catalog Developer Subscription Agreement</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-<jsp:include page="/includes/header-files.jsp" />
 </head>
 <body>
 <table cellpadding="10" cellspacing="0" width="700" border="0" align="center">

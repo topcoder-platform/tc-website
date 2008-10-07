@@ -32,7 +32,7 @@
     <tr valign="top">
 
 <!-- Left Column begins -->
-        <td width="180" class="leftColumn">
+        <td width="165" class="leftColumn">
             <jsp:include page="/includes/left.jsp" >
             <jsp:param name="level1" value="index"/>
             </jsp:include>

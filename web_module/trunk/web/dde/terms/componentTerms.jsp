@@ -21,8 +21,8 @@
 <head>
     <title>Application Development, .NET&#8482; and Java&#8482; Software Components at TopCoder Software</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-<jsp:include page="/includes/header-files.jsp" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+    <jsp:include page="/includes/header-files.jsp" />
 </head>
 
 <body class="body">
@@ -38,7 +38,7 @@
     <tr valign="top">
 
 <!-- Left Column begins -->
-        <td width="180" class="leftColumn">
+        <td width="165" class="leftColumn">
         <jsp:include page="/includes/left.jsp" >
             <jsp:param name="level1" value="index"/>
         </jsp:include>

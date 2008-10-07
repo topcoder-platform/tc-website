@@ -24,8 +24,8 @@
 <head>
     <title>Software Components form the basis of the applications built by TopCoder Software</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-<jsp:include page="/includes/header-files.jsp" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+    <jsp:include page="/includes/header-files.jsp" />
 </head>
 
 <body class="body">
@@ -41,7 +41,7 @@
     <tr valign="top">
 
 <!-- Left Column begins -->
-        <td width="180" class="leftColumn">
+        <td width="165" class="leftColumn">
         <jsp:include page="/includes/left.jsp" >
             <jsp:param name="level1" value="index"/>
         </jsp:include>
@@ -53,11 +53,11 @@
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
-        <td width="99%">
+        <td align="center">
             <img src="/images/clear.gif" width="1" height="15" alt="" border="0"><br>
             <img src="/images/headCaseStudy.gif" alt="Case Study" width="545" height="32" border="0" /><br>
             <div align="center">
-            <table border="0" cellpadding="0" cellspacing="0">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr>
                     <td width="510" align="left">
                         <p><img src="/images/case_study_promoA.gif" alt="We put our money where our mouth is" width="510" height="48" border="0" /><br>
@@ -70,9 +70,9 @@
             </table>
             </div>
 
-            <hr width="100%" size="1px" noshade>
+            <hr width="530" size="1px" noshade>
 
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="100%" class="bodyText">
                         <font size="3"><strong>Fast Facts:</strong></font>
@@ -84,7 +84,7 @@
                             <li><a target="_new" href="online_review_case_study.pdf">Download the PDF</a> of the case study</li>
                         </ul>
 
-                        <hr width="100%" size="1px" noshade>
+                        <hr width="530" size="1px" noshade>
 
                         <p><strong>Business Problem</strong><br>
                         The TopCoder Software Development Methodologies, for both components and applications, have a peer review process at their core.
@@ -129,7 +129,7 @@
                 </tr>
             </table>
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
 
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
