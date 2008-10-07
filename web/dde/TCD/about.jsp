@@ -61,7 +61,7 @@
 					************************************************** --%>
 					<div id="tabsContent02" class="tabs_content">
 						<div class="content_columns">
-							<h2><img src="images/how_does_direct_works.png" width="315" height="27" alt="How does TC Direct Work?" /></h2>				
+							<h2><img src="images/how_does_direct_works.png" width="335" height="27" alt="How does TC Direct Work?" /></h2>				
 							<h3>Some of the most talented people in the world are ready to compete to build your next application.</h3>
 							<p>On-demand access to the TopCoder community of 160,000+ developers, architects and graphic designers</p>
 							<p>The tools to launch a wide variety of competitions to source high-quality products</p>
