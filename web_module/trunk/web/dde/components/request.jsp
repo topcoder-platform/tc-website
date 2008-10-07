@@ -94,7 +94,7 @@
 <html>
 <head>
     <title>TopCoder Software</title>
-
+<jsp:include page="/includes/header-files.jsp" />
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css">
 
 <script language="JavaScript" src="/scripts/javascript.js">
