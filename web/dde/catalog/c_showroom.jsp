@@ -310,7 +310,7 @@
 <!-- Left Column ends -->
 
 <!-- Gutter 1 begins -->
-        <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+        <td width="25"><img src="/images/clear.gif" alt="" width="25" height="10" border="0" /></td>
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
@@ -323,15 +323,15 @@
     }
 %>
 
-        <td width="99%" align="center">
-            <table border="0" cellpadding="0" cellspacing="0" width="545">
+        <td width="99%">
+            <table border="0" cellpadding="0" cellspacing="0" width="95%">
                 <tr valign="top">
                     <td colspan="3">
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td class="normal">
-                                    <img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br/>
-                                    <img src="/images/headComponentsShort.gif" alt="Components" width="153" height="32" border="0"><br/>
+                                    <img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br />
+                                    <img src="/images/headComponentsShort.gif" alt="Components" width="153" height="32" border="0"><br />
                                     <img src="/images/clear.gif" alt="" width="10" height="15" border="0" />
                                 </td>
                             </tr>
@@ -418,8 +418,8 @@
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td class="normal">
-                                    <img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br/>
-                                    <img src="/images/headComponentsShort.gif" alt="Components" width="153" height="32" border="0"><br/>
+                                    <img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br />
+                                    <img src="/images/headComponentsShort.gif" alt="Components" width="153" height="32" border="0"><br />
                                     <img src="/images/clear.gif" alt="" width="10" height="15" border="0" />
                                 </td>
                             </tr>
@@ -485,8 +485,8 @@
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td class="normal">
-                                    <img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br/>
-                                    <img src="/images/headComponentsShort.gif" alt="Components" width="153" height="32" border="0"><br/>
+                                    <img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br />
+                                    <img src="/images/headComponentsShort.gif" alt="Components" width="153" height="32" border="0"><br />
                                     <img src="/images/clear.gif" alt="" width="10" height="15" border="0" />
                                 </td>
                             </tr>

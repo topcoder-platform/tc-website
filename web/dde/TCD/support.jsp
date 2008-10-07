@@ -36,7 +36,7 @@
 					<div id="tabsContent01" class="tabs_content">
 					
 						<div class="content_columns">
-							<h2><img src="images/support_and_maintenance.png" width="245" height="27" alt="Support &amp; Maintenance" /></h2>
+							<h2><img src="/images/support_and_maintenance.png" width="245" height="27" alt="Support &amp; Maintenance" /></h2>
 							<p>With TopCoder's unique method of building and delivering software, it follows suit that there is a unique model to maintain and support the software that is produced.</p>
 							<p>As a TopCoder customer, you have access to a number of support resources including on-site resources, online support, phone support, self-help documentation and tools.  Additionally, TopCoder has integrated its unique competition platform into the defect resolution process in the form of Bug Races to find and fix problems fast.</p>
 							<p><strong>TopCoder applications average 1 defect per KLOC and 3:1 ratio of test code to application code.</strong></p>
