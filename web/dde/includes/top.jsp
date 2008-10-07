@@ -35,9 +35,9 @@
 				<h3 class="hide">SUB Navigation</h3>
 				<ul>
                 	<li class="left"><a href="http://www.topcoder.com/">TopCoder.com</a></li>
-                	<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=index">About TopCoder</a></li>
+                	<li <% if (TCDlevel.equals("about-coder")) {%> class="on" <% } %>><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/about.jsp">About TopCoder</a></li>
 					<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=index">News</a></li>
-					<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=contactus">Contact Us</a></li>
+					<li<% if (TCDlevel.equals("contact")) {%> class="on" <% } %>><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a></li>
 					<li class="right"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/login.jsp">Login</a></li>
 				</ul>
 			</div><%-- #navigation ends --%>

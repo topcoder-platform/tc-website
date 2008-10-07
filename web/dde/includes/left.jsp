@@ -18,7 +18,7 @@
         <li><a href="#"class="expand-group">Components</a>
        	<ul <% if (level1.equals("components")) { %> style="display:block;" <% } %> class="submenu">
             	<li><a href="/catalog/index.jsp" <% if (level2.equals("find")) { %> class="sub-active" <% } %>>Find Components</a></li>
-                <li><a href="/components/index.jsp" <% if (level2.equals("overview")) { %> class="sub-active" <% } %>>What Are Components</a></li>
+                <li><a href="/components/index.jsp" <% if (level2.equals("comp-overview")) { %> class="sub-active" <% } %>>What Are Components</a></li>
                 <li><a href="/components/methodology.jsp" <% if (level2.equals("comp-methodology")) { %> class="sub-active" <% } %>>Methodology</a></li>
                 <li><a href="/components/subscriptions.jsp" <% if (level2.equals("subscriptions")) { %> class="sub-active" <% } %>>Subscriptions</a></li>
                 <li><a href="/components/request.jsp" <% if (level2.equals("suggest")) { %> class="sub-active" <% } %>>Suggest a Component</a></li>
