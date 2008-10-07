@@ -36,7 +36,7 @@
 </jsp:include>
 <!-- Header ends -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="middle">
     <tr valign="top">
 
 <!-- Left Column begins -->
@@ -53,7 +53,7 @@
 <!-- Gutter ends -->
 
 <!-- Middle Column begins -->
-        <td align="center">
+        <td align="left">
         <table cellspacing="0" cellpadding="0" border="0" width="95%">
             <tr>
                 <td colspan="2">
