@@ -1,10 +1,10 @@
-<table width="530" border="0" cellspacing="0" cellpadding="3">                     
+<table width="95%" border="0" cellspacing="0" cellpadding="3">                     
     <tr valign="middle">
         <td><h3>TopCoder Developments Newsletter</h3></td>
         <td class="viewAll" width="20%"><a target="_blank" href="/html/tcDevOptIn.htm" class="bodyText"><strong>Subscribe</strong></a></td>
     </tr>
 </table>
-<table width="530" border="0" cellspacing="0" cellpadding="4">
+<table width="95%" border="0" cellspacing="0" cellpadding="4">
 
    <tr><td class="prHead">
          <a target="_blank" href="http://archives.subscribermail.com/msg/349a8c0529c941a1b0d7f53c33025f7a.htm">TopCoder Features in New Business Book</a> | <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/tc_developments_200810.pdf">PDF</a> [October 2008]
@@ -28,14 +28,14 @@
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
 </table>
 <br />
-             <hr width="530" size="1px" noshade>
-<table width="530" border="0" cellspacing="0" cellpadding="3">                     
+             <hr width="95%" size="1px" noshade="noshade" />
+<table width="95%" border="0" cellspacing="0" cellpadding="3">                     
     <tr valign="middle">
         <td><h3>Press Room Highlights</h3></td>
         <td class="viewAll" width="20%"><a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=index" class="bodyText"><strong>View All</strong></a></td>
     </tr>
 </table>
-<table width="530" border="0" cellspacing="0" cellpadding="4">
+<table width="95%" border="0" cellspacing="0" cellpadding="4">
 
    <tr><td class="prHead">
          <a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051908_b">Truveo Developer Challenge Offers $100K in Prizes for New Video Search Applications</a> [May 19]
@@ -89,4 +89,4 @@
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
 
 </table>
-             <hr width="530" size="1px" noshade>
+             <hr width="95%" size="1px" noshade="noshade" />
