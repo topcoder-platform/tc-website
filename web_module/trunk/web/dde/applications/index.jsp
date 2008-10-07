@@ -14,16 +14,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>Software Components form the basis of the applications built by TopCoder</title>
-    <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css"/>
+    <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+    <jsp:include page="/includes/header-files.jsp" />
 </head>
 
 <body class="body">
 
 <!-- Header begins -->
-<jsp:include page="/includes/top.jsp"/>
+<jsp:include page="/includes/top.jsp" />
 <jsp:include page="/includes/menu.jsp">
-    <jsp:param name="isSoftwarePage" value="true"/>
+    <jsp:param name="isSoftwarePage" value="true" />
 </jsp:include>
 <!-- Header ends -->
 
@@ -33,83 +34,79 @@
 <!-- Left Column begins -->
 <td width="180" class="leftColumn">
     <jsp:include page="/includes/left.jsp">
-        <jsp:param name="level1" value="applications"/>
-        <jsp:param name="level2" value="overview"/>
+        <jsp:param name="level1" value="applications" />
+        <jsp:param name="level2" value="overview" />
     </jsp:include>
 </td>
 <!-- Left Column ends -->
 
 <!-- Gutter 1 begins -->
-<td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0"/></td>
+<td width="25"><img src="/images/clear.gif" alt="" width="25" height="10" border="0" /></td>
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
 <td width="99%">
-<div align="center">
-    <img src="/images/clear.gif" width="1" height="15" alt="" border="0"><br>
-    <img src="/images/apps/apps_title.gif" alt="Applications" width="530" height="30" border="0"/><br>
-    <img src="/images/apps/banner.gif" alt="TopCoder Software Applications" width="530" height="110" border="0"/>
-    <table border="0" cellpadding="0" cellspacing="0" width="530">
+	<div align="left">
+    <img src="/images/clear.gif" width="1" height="15" alt="" border="0" /><br />
+    <img src="/images/apps/apps_title.gif" alt="Applications" width="530" height="30" border="0" /><br />
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
-            <td class="bodyText" align="left">
-                <img src="/images/clear.gif" width="1" height="10" alt="" border="0">
+            <td class="bodyText" width="75%">
+                <img src="/images/clear.gif" width="1" height="10" alt="" border="0" />
 
-                <p><strong>We know you've probably become conditioned to tune out the claims made by other software
-                    companies. TopCoder is on a mission to prove
-                    that we can develop high-quality software applications differently from those companies. How do we
-                    do it?</strong></p>
-
-                <p>We utilize our member base of software developers who are differentiated by talent through
-                    competition. Combining this talent with our competition-based methodology and our catalogs of
-                    re-usable components is what allows us to develop
-                    faster, cheaper, and better.</p>
+                <p><strong>We know you've probably become conditioned to tune out the claims made by other software companies. TopCoder is on a mission to prove that we can develop high-quality software applications differently from those companies. How do we do it?</strong></p>
+				<br />
+                <p>We utilize our member base of software developers who are differentiated by talent through competition. 
+                Combining this talent with our competition-based methodology and our catalogs of re-usable components is what allows us to develop faster, cheaper, and better.</p>
+                <br />
             </td>
+            <td width="25%" class="bodyText" align="center">&nbsp;</td>
         </tr>
     </table>
 
-    <hr width="530" size="1" color="#666666" noshade>
+    <hr width="640" size="1" color="#666666" noshade="noshade" />
 
-    <table border="0" cellpadding="0" cellspacing="0" width="530">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr valign="top">
-            <td width="49%" class="bodyText">
-                <p><strong>No-Shore Development</strong><br>
+            <td width="50%" class="bodyText">
+                <p><strong>No-Shore Development</strong><br />
                     TopCoder's member base is a distributed resource that spans over 150 countries. Unlike strictly
                     off-shore development firms, it doesn't matter what
                     country our members call home, as long as they've proven that they can deliver a better
                     solution than their peers. Since our members work for
                     TopCoder as contractors, not employees, our fixed costs are much lower than our competition.</p>
             </td>
-            <td width="49%" class="bodyText" align="center">
-                <img src="/images/apps/apps_index_map.gif" alt="No-Shore Development" width="266" height="125" border="0"/>
-                <br><br>
+            <td width="50%" class="bodyText" align="center">
+                <img src="/images/apps/apps_index_map.gif" alt="No-Shore Development" width="266" height="125" border="0" />
+                <br /><br />
             </td>
         </tr>
     </table>
 
-    <hr width="530" size="1" color="#666666" noshade>
+    <hr width="640" size="1" color="#666666" noshade="noshade" />
 
-    <table border="0" cellpadding="0" cellspacing="0" width="530">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr valign="top">
-            <td width="49%" class="bodyText">
-                <p><strong>Component Catalog</strong><br>
+            <td width="50%" class="bodyText">
+                <p><strong>Component Catalog</strong><br />
                     In 2001, we began developing substantial <a href="/catalog/c_showroom.jsp">catalogs</a> of re-usable
                     Java and .NET components. Reusing these bits of
                     software over and over on client projects allows us to substantially shorten timelines and decrease
                     costs. We then pass these savings onto our clients.</p>
             </td>
-            <td width="49%" class="bodyText" align="center">
-                <a href="/catalog/c_showroom.jsp"><img src="/images/apps/apps_index_catalog.gif" alt="Component Catalog" width="216" height="152" border="0"/></a>
-                <br><br>
+            <td width="50%" class="bodyText" align="center">
+                <a href="/catalog/c_showroom.jsp"><img src="/images/apps/apps_index_catalog.gif" alt="Component Catalog" width="216" height="152" border="0" /></a>
+                <br /><br />
             </td>
         </tr>
     </table>
 
-    <hr width="530" size="1" color="#666666" noshade>
+    <hr width="640" size="1" color="#666666" noshade="noshade" />
 
-    <table border="0" cellpadding="0" cellspacing="0" width="530">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr valign="top">
-            <td width="49%" class="bodyText">
-                <p><strong>Uncompromising Quality</strong><br>
+            <td width="50%" class="bodyText">
+                <p><strong>Uncompromising Quality</strong><br />
                     Differentiating our members by talent through competition insures that only quality developers are
                     working on our code. Each week, hundreds of
                     TopCoder members compete in programming <a href="http://www.topcoder.com">competitions,</a> where
@@ -122,19 +119,19 @@
                     strives to develop as many applications with
                     re-usable components as possible.</p>
             </td>
-            <td width="49%" class="bodyText" align="center">
-                <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=compDocumentation"><img src="/images/apps/apps_index_scorecard.png" alt="Uncompromising Quality" width="216" height="212" border="0"/></a>
-                <br><br>
+            <td width="50%" class="bodyText" align="center">
+                <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=compDocumentation"><img src="/images/apps/apps_index_scorecard.png" alt="Uncompromising Quality" width="216" height="212" border="0" /></a>
+                <br /><br />
             </td>
         </tr>
-    </table>
+    </table>    
+    
+    <hr width="640" size="1" color="#666666" noshade="noshade" />
 
-    <hr width="530" size="1" color="#666666" noshade>
-
-    <table border="0" cellpadding="0" cellspacing="0" width="530">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr valign="top">
-            <td width="49%" class="bodyText">
-                <p><strong>Application Methodology</strong><br>
+            <td width="50%" class="bodyText">
+                <p><strong>Application Methodology</strong><br />
                     The TopCoder Application Development Methodology is designed to deliver a repeatable and consistent
                     solution to our customers. The TopCoder methodology
                     is comprised of phases and deliverables. The six-step methodology is administered by a TopCoder
@@ -161,42 +158,42 @@
                     the
                     highest quality.</p>
             </td>
-            <td width="49%" class="bodyText" align="center">
-                <a href="/applications/methodology.jsp"><img src="/images/apps/apps_index_meth.gif" alt="Application Methodology" width="253" height="168" border="0"/></a>
+            <td width="50%" class="bodyText" align="center">
+                <a href="/applications/methodology.jsp"><img src="/images/apps/apps_index_meth.gif" alt="Application Methodology" width="253" height="168" border="0" /></a>
             </td>
         </tr>
     </table>
 
-    <p><font size="3"><strong><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=contactus">Contact us</a>
-        today so we can get started developing your next application.</strong></font></p>
+    <p class="learn_more"><strong><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=contactus">Contact us</a>
+        today so we can get started developing your next application.</strong></p>
 
-    <p><br></p>
+    <p><br /></p>
 
 </div>
 </td>
 <!-- Middle Column ends -->
 
 <!-- Gutter 2 begins -->
-<td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0"/></td>
+<td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
 <!-- Gutter 2 ends -->
 
 <!-- Right Column begins -->
 <td width="170">
     <jsp:include page="/includes/right.jsp">
-        <jsp:param name="level1" value="index"/>
+        <jsp:param name="level1" value="index" />
     </jsp:include>
 </td>
 <!--Right Column ends -->
 
 <!-- Gutter 3 begins -->
-<td width="10"><img src="/images/clear.gif" alt="" width="10" height="10" border="0"/></td>
+<td width="10"><img src="/images/clear.gif" alt="" width="10" height="10" border="0" /></td>
 <!-- Gutter 3 ends -->
 
 </tr>
 </table>
 
 <!-- Footer begins -->
-<jsp:include page="/includes/foot.jsp" flush="true"/>
+<jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
 
 </body>
