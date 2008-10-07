@@ -39,7 +39,6 @@
                 <a href="http://www.topcoder.com/direct"><img class="startNow" src="images/start_your_project_now.png" alt="start your project now" /></a>
                 <a class="button" href="http://www.topcoder.com/direct">LAUNCH DIRECT</a>
             </div>
-            
             <div class="right_content">
                 <ul>
                     <li><a class="button1" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/platform-tools.jsp">TOOLS</a></li>
