@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 		
@@ -46,24 +47,8 @@
                     <p>Competitions provide an understanding of a person's capabilities through a demonstration of skill. What was lacking in the world of programming
                     competitions was a format that offered immediate and objective scoring. The solution was the creation of a "Single Round Match".</p>
 
-                    <p>In addition to regular Single Round Matches, TopCoder holds two major multiple-round, elimination tournaments each year.  These tournaments span many weeks and include significant prize purses along three independent tracks of competition: algorithm, component design, and component development.</p>
-
-                    <h4>How Members Benefit</h4>
-
-                    <ul>
-                        <li><A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=whyjoin"><strong>Competition</strong></A><br />
-
-                        Each Single Round Match offers a fun, time-based, and challenging set of problems that put a developer's skills to the test. This, coupled
-                        with Divisions,</A> offer a more level
-                        field of competition for newer members in order to build ratings and move into potential
-                        <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=home">Tournament</A> opportunities.</li><br />
-
-                        <li><A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=112"><strong>Design</strong></A> and <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=113"><strong>Development</strong></A><br />
-                        Rated TopCoder members are eligible to participate in TopCoder Component Development. Members submit design and development solutions
-                        for these challenging and potentially lucrative projects. Winning solutions are rewarded with cash payouts and royalties. For every
-                        commercial sale, TopCoder will pay the members who designed and developed the component a percentage of the sale. </li><br />
-
-                    </ul>
+                    <p>In addition to regular Single Round Matches, TopCoder holds two major multiple-round, elimination tournaments each year.  These tournaments span many weeks and include significant prize purses along three independent tracks of competition: algorithm, component design, and component development<br />
+                    </p>
 
                     <h4>How Companies Benefit</h4>
 
@@ -83,11 +68,26 @@
                         Reaching the developer community is a difficult task at best. Marketing budgets are limited and with the advent of the Internet,
                         the expectation for measuring results has only grown. TopCoder offers companies a means of targeting this desired community
                         through the targeted sponsorship of Single Round Matches
-                        and <A href="http://www.topcoder.com/corp/?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournaments.</A></li><br />
+                        and <A href="http://www.topcoder.com/corp/?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournaments.</A></li>
+                        </ul>
 
-                    </ul>
-
-						</div><%-- .content_columns --%>
+					  <h4>How Members Benefit</h4>
+					  <ul>
+                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=whyjoin"><strong>Competition</strong></a><br />
+                          Each Single Round Match offers a fun, time-based, and challenging set of problems that put a developer's skills to the test. This, coupled
+                          with Divisions,</A> offer a more level
+                          field of competition for newer members in order to build ratings and move into potential <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=home">Tournament</a> opportunities.</li>
+					    <br />
+                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=112"><strong>Design</strong></a> and <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=113"><strong>Development</strong></a><br />
+                          Rated TopCoder members are eligible to participate in TopCoder Component Development. Members submit design and development solutions
+                          for these challenging and potentially lucrative projects. Winning solutions are rewarded with cash payouts and royalties. For every
+                          commercial sale, TopCoder will pay the members who designed and developed the component a percentage of the sale. </li>
+					    </ul>
+					  <p>&nbsp;</p>
+					  <ul>
+					    <br />
+					      </ul>
+					  </div><%-- .content_columns --%>
 						
 					</div><%-- .tabs_content #01 --%>
 						
