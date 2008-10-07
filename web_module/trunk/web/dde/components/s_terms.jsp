@@ -42,7 +42,7 @@
 </table>
 <!-- breadcrumb ends -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="middle">
     <tr valign="top">
 
 <!-- Left Column begins -->
