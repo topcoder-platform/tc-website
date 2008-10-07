@@ -56,11 +56,11 @@
 <!-- Middle Column begins -->
         <td align="left">
             <img src="/images/clear.gif" width="1" height="15" alt="" border="0" /><br />
-            <img src="hd_comp_what.png" alt="Components" border="0" /><br />
+            <img src="/images/hd_comp_what.png" alt="Components" border="0" /><br />
             <div align="left">
             <table cellspacing="0" cellpadding="0" border="0" width="100%">
                 <tr>
-                    <td width="510" align="left">
+                    <td width="510" align="left"><br /><br />
                         <img src="/images/comps_home_promoA.gif" alt="Component-Based Development" width="510" height="65" border="0" /><br />
                         <img src="/images/comps_home_promoB.gif" alt="gives a company the best of both worlds" width="510" height="97" border="0" /><br />
                         <img src="/images/comps_home_promoC.gif" alt="" width="510" height="83" border="0" />
