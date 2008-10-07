@@ -1574,12 +1574,15 @@ pre
 	text-align: left;
 }
 
+/* PRESS Highlights */
 .prHead
 {
 	color: #666;
 	font-size: 12px;
 	font-weight: normal;
 	text-align: left;
+	padding-top: 4px;
+	padding-bottom: 4px;
 }
 
 .prText
