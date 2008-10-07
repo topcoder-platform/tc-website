@@ -65,8 +65,8 @@
 		<td width="100%">
 			<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				<tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-				<tr><td class="normal"><img src="/images/headAboutUs.gif" alt="About Us" width="545" height="32" border="0" /></td></tr>
-				<tr><td class="subhead">Making the most of the code</td></tr>
+				<tr><td class="normal"><img src="hd_aboutus.png" alt="About Us" border="0" /></td></tr>
+				<tr><td><h3>Making the most of the code</h3></td></tr>
 				<tr><td class="normal">
 						<p>Neither end of the software development spectrum allows a company to get what they need at the price they desire.
 						Packaged software is monolithic, difficult to integrate and expensive to customize while custom software development is

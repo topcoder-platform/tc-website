@@ -148,7 +148,7 @@
         <td width="99%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-                <tr><td class="normal"><img src="/images/headComponents.gif" alt="Components" width="545" height="32" border="0" /></td></tr>
+                <tr><td class="normal"><img src="/images/hd_components.png" alt="Components" border="0" /></td></tr>
                 <tr><td align="center"><img src="/images/header_look_under_hood.gif" alt="Look under the hood. Kick the tires." width="442" height="53" border="0" /></td></tr>
             </table>
 

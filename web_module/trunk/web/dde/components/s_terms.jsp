@@ -61,8 +61,8 @@
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-                <tr><td class="normal"><img src="/images/headTermsConditions.gif" alt="Terms &amp; Conditions" width="545" height="32" border="0" /></td></tr>
-                <tr><td class="subhead">Acceptance of Terms and Revisions</td></tr>
+                <tr><td class="normal"><img src="/images/hd_terms.png" alt="Terms &amp; Conditions" border="0" /></td></tr>
+                <tr><td><h3>Acceptance of Terms and Revisions</h3></td></tr>
                 <tr><td class="normal">
                         <p>&nbsp;</p>
 
@@ -84,10 +84,10 @@
                         discontinue any aspect of software.topcoder.com, including your access to it. Unless explicitly stated, any new features will
                         be subject to these terms and conditions.</p>
 
-                        <p><strong>Privacy</strong><br />
+                        <h3>Privacy</h3>
                         <a href="../components/s_privacy.jsp">Click here</a> to see our complete privacy policy and statement.</p>
 
-                        <p><strong>Copyright, Trademark And Other Intellectual Property</strong></p>
+                        <h3>Copyright, Trademark And Other Intellectual Property</h3>
 
                         <p><strong>Protection</strong><br />
                         Except as otherwise indicated, this Web site and its entire contents (including, but not limited to, the text, information, software,
@@ -98,11 +98,11 @@
                         viewing, reading, and retaining for reference. Any other copying, distribution, retransmission, or modification of information or
                         materials on this Web site, whether in electronic or other form, without our express prior written permission is strictly
                         prohibited.</p>
-
+						<br />
                         <p><strong>Notice</strong><br />
                         All trademarks, service marks, and trade names are proprietary to us or other respective owners that have granted us the right
                         and license to use their marks.</p>
-
+						<br />
                         <p><strong>Copyright Complaints</strong><br />
                             We respect the intellectual property of others, and we ask you to do the same. We may, in appropriate circumstances and at
                             our sole discretion, terminate the access of users who infringe the copyright rights of others.</p>
@@ -121,7 +121,7 @@
                         BY PHONE: 860.633.5540</p>
 
                         <p>Repeat infringers will be blocked from accessing the TopCoder Software web site.</p>
-
+						<br />
                         <p><strong>Indemnification and Release</strong><br />
                         By accessing our Web site, you agree to indemnify us and any parent, subsidiary or affiliated entities, our officers and
                         employees, and officers and employees of any parent, subsidiary or affiliated entities and hold them harmless from any and
@@ -132,7 +132,7 @@
                         consequential), costs, and expenses of any kind or nature whatsoever, whether known or unknown, suspected or unsuspected,
                         disclosed or undisclosed, that you may have against them arising out of or in any way related to such disputes and/or to any
                         services or products available at our Web site. You hereby agree to waive all laws that may limit the efficacy of such releases.</p>
-
+						<br />
                         <p><strong>Disclaimer</strong><br />
                         The materials and services on our web site are provided "as is" and without warranties of any kind either
                         express or implied. To the fullest extent permissible pursuant to applicable law, we disclaim all
@@ -149,13 +149,13 @@
                         warranties, the above exclusions may not apply to you.</p>
 
                         <p>Documents, graphics and other materials appearing at our Web site may include technical inaccuracies, typographical errors, and out-of-date information and use of such documents, graphics or other materials is at your own risk.</p>
-
+						<br />
                         <p><strong>Limitation of Liability</strong><br />
                         To the fullest extent permissible pursuant to applicable law, topcoder software shall not be liable for any damages (including, but not limited to, direct, indirect, incidental, special or consequential damages), including, but not limited to, data or other damage to any tangible or intangible property, even if topcoder software has been advised of the possibility of such damages, resulting from (i) the use or inability to use this web site, (ii) the disclosure of, unauthorized access to or alteration of any transmission or data, (iii) the statements or conduct of any third party or (iv) any other matter relating to topcoder software.</p>
-
+						<br />
                         <p><strong>Links to Other Web Sites and Services</strong><br />
                         To the extent that our web site contains links to other web sites and outside services and resources, we do not control the availability and content of those web sites, services or resources, nor do we necessarily review or endorse materials available at or through such other web sites. Viewing other web sites or utilizing outside services and resources is done at your own risk. We shall not be liable for any loss or damage caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such site or resource.</p>
-
+						<br />
                         <p><strong>Materials Posted By Visitors</strong><br />
                         You irrevocably and unconditionally agree to transfer and assign to topcoder software all right, title and interest you have, may have or acquire in or to any material posted, uploaded or otherwise sent to our web site by you.</p>
 
@@ -168,23 +168,23 @@
                         <p>You are further forbidden from distributing or otherwise publishing any material on our Web site that contains any solicitation of funds, promotion, employment, advertising, or solicitation for goods or services; sending unsolicited commercial e-mail and other advertising, promotional materials or other forms of solicitation to other users of this site; harvesting names and e-mail addresses from other users of this site without their permission; soliciting passwords from other users; impersonating other users; or sending viruses or other destructive or expropriating content.</p>
 
                         <p>While we do not routinely review the contents of material posted or uploaded to our Web site, we nevertheless reserve the right to remove any postings or other uploaded materials in response to complaints of infringement, obscenity or defamation or to otherwise review or edit such materials as appropriate, in our sole discretion and without notice.</p>
-
+						<br />
                         <p><strong>Other Restrictions On Conduct</strong><br />
                         You agree not to disrupt, modify or interfere with the functioning of our Web site or any services provided on or through our Web site or with any associated software, hardware or servers in any way and you agree not to impede or interfere with others' use of our Web site. You also agree not to alter or tamper with any information or materials on, or associated with our Web site or services provided on or through our Web site.</p>
 
                         <p>We do not necessarily endorse, support, sanction, encourage, verify or agree with the comments, opinions, or other statements made public at our Web site by users through our Collaborative Discussion groups and/or newsgroups, or other interactive services available at our Web site. Any information or material sent by users to such forums, including advice and opinions, represents the views and is the responsibility of those users and does not necessarily represent our views.</p>
 
                         <p>You agree that no impediment exists to you using the TopCoder Software website, and your participation in TopCoder Software's website will not interfere with your performance of any other agreement or obligation which has been or will be made with any third party.</p>
-
+						<br />
                         <p><strong>Choice of Law and Forum</strong><br />
                         This agreement is governed by the laws of the Commonwealth of Massachusetts. You hereby agree to submit to the exclusive jurisdiction of the courts of the Commonwealth of Massachusetts. To the extent that applicable laws have mandatory application to this agreement or give you the right to bring action in any other courts, the above limitations may not apply to you. Use of this Web site is unauthorized in any jurisdiction that does not give full effect to all provisions of these Terms.</p>
-
+						<br />
                         <p><strong>Severability and Enforceability</strong><br />
                         If any provision or portion of these Terms is held illegal, invalid, or unenforceable, in whole or in part, it shall be modified to the minimum extent necessary to correct any deficiencies or replaced with a provision which is as close as is legally permissible to the provision found invalid or unenforceable and shall not affect the legality, validity or enforceability of any other provisions or portions of these Terms.</p>
-
+						<br />
                         <p><strong>Termination/Exclusion</strong><br />
                         We reserve the right, in our sole discretion, to revoke any and all privileges associated with accessing and/or using our web site, and to take any other action we deem appropriate including but not limited to terminating or suspending your use of software.topcoder.com, for no reason or any reason whatsoever, including improper use of this site or failure to comply with these Terms.</p>
-
+						<br />
                         <p><strong>General</strong><br />
                         We may assign, novate or subcontract any or all of our rights and obligations under these terms and conditions at any time.</p>
 

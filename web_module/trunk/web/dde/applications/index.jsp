@@ -48,7 +48,7 @@
 <td width="99%">
 	<div align="left">
     <img src="/images/clear.gif" width="1" height="15" alt="" border="0" /><br />
-    <img src="/images/apps/apps_title.gif" alt="Applications" width="530" height="30" border="0" /><br />
+    <img src="/images/hd_app_over.png" alt="Application Overview" border="0" /><br />
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <td class="bodyText" width="75%">

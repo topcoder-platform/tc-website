@@ -65,7 +65,7 @@
 		<td width="100%">
 			<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				<tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-				<tr><td class="normal"><img src="/images/headAboutUs.gif" alt="About Us" width="545" height="32" border="0" /></td></tr>
+				<tr><td class="normal"><img src="/images/hd_aboutus.png" alt="About Us" border="0" /></td></tr>
 				<tr><td class="subhead">How software will be built</td></tr>
 				<tr><td class="normal">
 						<p>TopCoder Software, a division of TopCoder, Inc. is committed to driving down the cost of software development by
