@@ -17,8 +17,7 @@
 				<h4>About TopCoder</h4>
 				<ul>
 					<li><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=contactus">Contact Us</a></li>
-					<li><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=mediaRequestForm
-">Public Relations</a></li>
+					<li><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=mediaRequestForm">Public Relations</a></li>
 					<li><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=index">Press Room</a></li>
 					<li><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=jobs">Working at TopCoder</a></li>
 					<li><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=terms">Legal Information</a></li>
@@ -30,8 +29,7 @@
 				<ul>
 					<li><a href="http://www.topcoder.com/direct">TopCoder Cockpit</a></li>
 					<li><a href="http://www.topcoder.com/wiki/display/tc/Upcoming+Contests">Pipeline</a></li>
-					<li><a href="http://www.topcoder.com/wiki/display/tc/TopCoder+UML+Tool
-">UML Tool</a></li>
+					<li><a href="http://www.topcoder.com/wiki/display/tc/TopCoder+UML+Tool">UML Tool</a></li>
 					<li><a href="http://forums.topcoder.com/?module=Category&categoryID=22">TopCoder Forums</a></li>
 					<li><a href="http://software.topcoder.com/catalog/index.jsp">Component Catalog</a></li>
 					<li><a href="http://www.topcoder.com/wiki/">TopCoder Wiki</a></li>

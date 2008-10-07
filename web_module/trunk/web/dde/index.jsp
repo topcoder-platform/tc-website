@@ -15,7 +15,7 @@
 </head>
 <body>
 <jsp:include page="/includes/top.jsp">
-<jsp:param name="TCDlevel" value="home"/>
+<jsp:param name="TCDlevel" value="home" />
 </jsp:include>
 
 <%-- CONTENT BLOCKS --%>
@@ -25,34 +25,35 @@
 <%-- TOPCODER DIRECT BANNER --%>
     <div id="direct_banner">
             <p><img src="images/plug_into_the_world_largest.png" width="556" height="68"
-                    alt="Plug into the world largest community of competitive software developers and designers"/></p>
+                    alt="Plug into the world largest community of competitive software developers and designers" /></p>
         </div>
 
         <div id="content_main">
             <div class="left_content">
                 <ul>
-                    <li><a class="button1" href="#">WEB SITES</a></li>
-                    <li><a class="button1" href="#">LOGO DESIGN</a></li>
-                    <li><a class="button2" href="#">PRINT DESIGN</a></li>
-                    <li><a class="button2" href="#">APPLICATIONS</a></li>
+                    <li><a class="button1" href="http://www.topcoder.com/direct">WEB SITES</a></li>
+                    <li><a class="button1" href="http://www.topcoder.com/direct">LOGO DESIGN</a></li>
+                    <li><a class="button2" href="http://www.topcoder.com/direct">PRINT DESIGN</a></li>
+                    <li><a class="button2" href="http://www.topcoder.com/direct">APPLICATIONS</a></li>
                 </ul>
-                <a href="#"><img class="startNow" src="images/start_your_project_now.png" alt="start your project now"/></a>
-                <a class="button" href="#">LAUNCH DIRECT</a>
+                <a href="http://www.topcoder.com/direct"><img class="startNow" src="images/start_your_project_now.png" alt="start your project now" /></a>
+                <a class="button" href="http://www.topcoder.com/direct">LAUNCH DIRECT</a>
             </div>
+            
             <div class="right_content">
                 <ul>
-                    <li><a class="button1" href="#">TOOLS</a></li>
-                    <li><a class="button1" href="#">TRAINING</a></li>
-                    <li><a class="button2" href="#">COMPONENTS</a></li>
-                    <li><a class="button2" href="#">SUPPORT</a></li>
+                    <li><a class="button1" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/platform-tools.jsp">TOOLS</a></li>
+                    <li><a class="button1" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/training.jsp">TRAINING</a></li>
+                    <li><a class="button2" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/index.jsp">COMPONENTS</a></li>
+                    <li><a class="button2" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/support.jsp">SUPPORT</a></li>
                 </ul>
                 <ul class="icons">
-                    <li class="discovery"><a href="#">Discovery</a></li>
-                    <li class="design"><a href="#">Design</a></li>
-                    <li class="build"><a href="#">Build</a></li>
-                    <li class="test"><a href="#">Test</a></li>
+                    <li class="discovery"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp">Discovery</a></li>
+                    <li class="design"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp">Design</a></li>
+                    <li class="build"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp">Build</a></li>
+                    <li class="test"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp">Test</a></li>
                 </ul>
-                <img class="findOut" src="images/find_out_more.png" alt="find out more"/>
+                <img class="findOut" src="images/find_out_more.png" alt="find out more" />
                 <a class="button" href="#">CONTACT US</a>
             </div>
             <div class="clear"></div>
@@ -65,7 +66,7 @@
 
 <%--BANNER AD--%>
 <div id="bannerAd">
-    <a href="#"><img src="images/bannerAd.png" alt="banner Ad"/></a>
+    <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp"><img src="images/bannerAd.png" alt="banner Ad" /></a>
 </div>
 <%-- NEWS --%>
 <div id="news">

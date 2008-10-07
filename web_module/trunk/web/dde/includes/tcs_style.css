@@ -1,4 +1,6 @@
 /* Body Style */
+a { outline: none; }
+
 .admin { background-color: #6C6C6C; }
 
 .adminBreadcrumb
