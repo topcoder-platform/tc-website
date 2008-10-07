@@ -45,6 +45,7 @@
 <!-- Left Column begins -->
         <td width="165" class="leftColumn">
         <jsp:include page="/includes/left.jsp" >
+            <jsp:param name="level1" value="customers"/>
             <jsp:param name="level2" value="customers"/>
         </jsp:include>
         </td>
