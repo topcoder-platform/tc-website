@@ -29,7 +29,7 @@ $(document).ready(function(){
 		}
 		});
 		
-	var randomImage = Math.floor(Math.random()*5);
+	var randomImage = Math.floor(Math.random()*4);
 	
 	$("#bannerAd img").attr({
 		src: "/images/rotated-image-" + randomImage +".png"
