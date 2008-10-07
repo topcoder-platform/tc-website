@@ -56,7 +56,7 @@
 <!-- Middle Column begins -->
         <td align="left">
             <img src="/images/clear.gif" width="1" height="15" alt="" border="0" /><br />
-            <img src="/images/headComponents.gif" alt="Components" width="545" height="32" border="0" /><br />
+            <img src="hd_comp_what.png" alt="Components" border="0" /><br />
             <div align="left">
             <table cellspacing="0" cellpadding="0" border="0" width="100%">
                 <tr>
