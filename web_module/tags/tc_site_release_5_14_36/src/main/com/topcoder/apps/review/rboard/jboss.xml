@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss>
+  <enterprise-beans>
+    <session>
+      <ejb-name>RBoardApplication</ejb-name>
+      <jndi-name>com.topcoder.apps.review.rboard.RBoardApplicationHome</jndi-name>
+    </session>
+    <session>
+      <ejb-name>RBoardPayment</ejb-name>
+      <jndi-name>com.topcoder.apps.review.rboard.RBoardPaymentHome</jndi-name>
+    </session>
+  </enterprise-beans>
+</jboss>
