@@ -58,7 +58,7 @@
 <!-- Middle Column begins -->
         <td align="left">
             <img src="/images/clear.gif" width="1" height="15" alt="" border="0"><br />
-            <img src="/images/headCustomers.gif" alt="Customers" width="530" height="32" border="0" /><br />
+            <img src="/images/hd_cust_our.png" alt="Our Customers" border="0" /><br />
         	
         	<br /><br />
             
