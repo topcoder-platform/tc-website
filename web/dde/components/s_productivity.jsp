@@ -66,7 +66,7 @@
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-                <tr><td class="normal"><img src="/images/headAboutUs.gif" alt="About Us" width="545" height="32" border="0" /></td></tr>
+                <tr><td class="normal"><img src="/images/hd_aboutus.png" alt="About Us" border="0" /></td></tr>
                 <tr><td class="subhead">Productivity: Lowering the cost of development</td></tr>
                 <tr><td class="normal">
                         <p>Custom software development is expensive due to the high cost of the software development team. Developers, Senior

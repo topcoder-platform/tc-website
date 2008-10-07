@@ -64,8 +64,8 @@
 		<td width="100%">
 			<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				<tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-				<tr><td class="normal"><img src="/images/headAboutUs.gif" alt="About Us" width="545" height="32" border="0" /></td></tr>
-				<tr><td class="subhead">Delivering Exceptional Code</td></tr>
+				<tr><td class="normal"><img src="/images/hd_aboutus.png" alt="About Us" border="0" /></td></tr>
+				<tr><td><h3>Delivering Exceptional Code</h3></td></tr>
 				<tr><td class="normal">
 						<p>One of the many advantages to purchasing software components from TopCoder Software is the quality of the components
 						themselves.  It is difficult when building custom software solutions to implement rigorous testing procedures.  Time is

@@ -65,7 +65,7 @@
 		<td width="100%">
 			<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				<tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-				<tr><td class="normal"><img src="/images/headAboutUs.gif" alt="About Us" width="545" height="32" border="0" /></td></tr>
+				<tr><td class="normal"><img src="/images/hd_aboutus.png" alt="About Us" border="0" /></td></tr>
 				<tr><td class="subhead">Use of standard frameworks</td></tr>
 				<tr><td class="normal">
 						<p>An important advantage to re-usable components is the flexibility they bring to business solutions. The utilization of

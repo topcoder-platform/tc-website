@@ -56,7 +56,7 @@
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-                <tr><td class="normal"><img src="/images/headRequestNewComp.gif" alt="Request a New Component" width="545" height="32" border="0" /></td></tr>
+                <tr><td class="normal"><img src="/images/hd_comp_suggest.png" alt="Suggest a Component" border="0" /></td></tr>
                 <tr><td class="subhead">Confirmation</td></tr>
                 <tr><td class="normal">
                         <p>Thank you. We have received your request and will process it over the next few days. If we decide to add your
