@@ -11,7 +11,7 @@
 </head>
 <body>
 <jsp:include page="/includes/top.jsp">
-<jsp:param name="TCDlevel" value="support	"/>
+<jsp:param name="TCDlevel" value="support" />
 </jsp:include>
 
 <%-- CONTENT BLOCKS --%>
@@ -81,7 +81,7 @@
 
 <%-- Footer begins --%>
 <jsp:include page="/includes/foot.jsp" flush="true" />
-<%-- Footer ends s
+<%-- Footer ends --%>	
 	
 <script type="text/javascript">
 //<![CDATA[
@@ -92,6 +92,6 @@ var defaultTab = 0;	// index of default tab started from 0
 window.onload = initDocument;
 //]]>
 </script>
-	
+
 </body>
 </html>

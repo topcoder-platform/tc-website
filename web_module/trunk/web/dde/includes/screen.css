@@ -57,10 +57,10 @@ HEADER
 	#header H1 A {
 		display: block;
 		position: absolute;
-		width: 222px;
+		width: 262px;
 		height: 83px;
 		top: 38px;
-		background: url(../images/tc_direct.png) no-repeat;
+		background: url(../images/topcoder.png) no-repeat;
 	}
 	
 	#header H1 A SPAN {
