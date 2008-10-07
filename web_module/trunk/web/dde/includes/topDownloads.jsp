@@ -13,8 +13,8 @@
 
 
 <table cellspacing="0" cellpadding="0" width="170">
-    <tr><td colspan="2"><img src="/images/clear.gif" width="1" height="6" border="0" alt=""></td></tr>
-    <tr><td colspan="2" align="right"><img src="/images/right_nav_top.gif" border="0" alt=""></td></tr>
+    <tr><td colspan="2"><img src="/images/clear.gif" width="1" height="6" border="0" alt="" /></td></tr>
+    <tr><td colspan="2" align="right"><img src="/images/right_nav_top.gif" border="0" alt="" /></td></tr>
     <tr><td class="topsTitle" colspan="2">Top 10 Most Downloaded Components*</td></tr>
     <tr>
         <td class="topsTitle">Name</td>
@@ -26,7 +26,7 @@
                 row = (ResultSetContainer.ResultSetRow)it.next();
         %>
             <tr>
-                <td class="topsText"><A href="/catalog/c_component.jsp?comp=<%=row.getLongItem("component_id")%>&ver=<%=row.getIntItem("version")%>"><%=row.getStringItem("component_name")%></A></td>
+                <td class="topsText" align="left"><a href="/catalog/c_component.jsp?comp=<%=row.getLongItem("component_id")%>&ver=<%=row.getIntItem("version")%>"><%=row.getStringItem("component_name")%></a></td>
                 <td class="topsText" align="right"><%=row.getIntItem("num_downloads")%></td>
             </tr>
         <%
