@@ -56,9 +56,8 @@
         <td align="left">
         <table cellspacing="0" cellpadding="0" border="0" width="95%">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-                <tr><td class="normal"><img src="/images/headComponents.gif" alt="Components" width="530" height="32" border="0" /></td>
+                <tr><td><img src="/images/hd_comp_sub.png" alt="Components - Subscriptions" border="0" /></td>
                 </tr>
-                <tr><td class="subhead">Subscriptions</td></tr>
                 <tr>
                 <td class="normal">
                         <br />

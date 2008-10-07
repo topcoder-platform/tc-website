@@ -58,7 +58,7 @@
             <tr>
                 <td colspan="2">
                 <img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br />
-                <img src="hd_comp_find.png" alt="Components" border="0" /><br />
+                <img src="/images/hd_comp_find.png" alt="Components" border="0" /><br />
                 <img src="/images/clear.gif" alt="" width="10" height="15" border="0" />
                 </td>
             </tr>
