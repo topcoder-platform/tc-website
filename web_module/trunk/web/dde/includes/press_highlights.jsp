@@ -28,7 +28,7 @@
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
 </table>
 <br />
-             <hr width="95%" size="1px" noshade="noshade" />
+<hr width="95%" size="1px" noshade="noshade" />
 <table width="95%" border="0" cellspacing="0" cellpadding="3">                     
     <tr valign="middle">
         <td><h3>Press Room Highlights</h3></td>
@@ -87,6 +87,5 @@
    </td></tr>
 
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
-
 </table>
-             <hr width="95%" size="1px" noshade="noshade" />
+<hr width="95%" size="1px" noshade="noshade" />
