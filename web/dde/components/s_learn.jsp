@@ -20,6 +20,7 @@
     <title>TopCoder Software</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css"/>
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+    <jsp:include page="/includes/header-files.jsp" />
 </head>
 
 <body class="body">

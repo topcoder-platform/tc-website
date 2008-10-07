@@ -218,9 +218,9 @@
 <head>
     <title>Catalogs of Java and .NET Components at TopCoder Software</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-<jsp:include page="/includes/header-files.jsp" />
     <link rel="stylesheet" type="text/css" href="http://<%=ApplicationServer.SERVER_NAME%>/css/coders.css" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+    <jsp:include page="/includes/header-files.jsp" />
 
 <STYLE TYPE="text/css">
 .statusIconOff, .statusIconOn{ width: 25%; text-align: center; }
@@ -244,7 +244,7 @@
     <tr valign="top">
 
 <!-- Left Column begins -->
-        <td width="180" class="leftColumn">
+        <td width="165" class="leftColumn">
         <jsp:include page="/includes/left.jsp" >
             <jsp:param name="level1" value="catalog" />
             <jsp:param name="level2" value="Java" />

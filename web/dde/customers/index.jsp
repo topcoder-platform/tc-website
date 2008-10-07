@@ -26,8 +26,8 @@
 <head>
     <title>Software Components form the basis of the applications built by TopCoder</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-<jsp:include page="/includes/header-files.jsp" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+    <jsp:include page="/includes/header-files.jsp" />
 </head>
 
 <body class="body">
@@ -39,11 +39,11 @@
 </jsp:include>
 <!-- Header ends -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="middle">
     <tr valign="top">
 
 <!-- Left Column begins -->
-        <td width="180" class="leftColumn">
+        <td width="165" class="leftColumn">
         <jsp:include page="/includes/left.jsp" >
             <jsp:param name="level1" value="customers"/>
         </jsp:include>
@@ -55,15 +55,16 @@
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
-        <td width="99%">
+        <td align="center">
             <img src="/images/clear.gif" width="1" height="15" alt="" border="0"><br>
-            <img src="/images/headCustomers.gif" alt="Customers" width="545" height="32" border="0" /><br>
-            <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Featured Customer</td></tr></table>
+            <img src="/images/headCustomers.gif" alt="Customers" width="530" height="32" border="0" /><br>
+        <table cellspacing=0 cellpadding=0 border=0 width=530>
+            <tr><td class="subhead">Featured Customer</td></tr></table>
             
 
 
 <!-- Caliper begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/caliper_logo.gif" alt="Caliper" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -74,13 +75,13 @@
             </table>
 <!-- Caliper ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
              
             <br><br>
-            <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Case Studies</td></tr></table>
+            <table width="530" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Case Studies</td></tr></table>
 
 <!-- retail client begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/siteMgmtCon_retailClient.gif" alt="Retail Client" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -91,11 +92,11 @@
             </table>
 <!-- retail client ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
             
 <%--
  sports entertainment network begins 
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/scalable_sportsEntCo.gif" alt="Sports Entertainment Network" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -106,11 +107,11 @@
             </table>
  sports entertainment network ends 
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
              --%>
             
 <!-- Direct Energy begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/directenergy_logo.gif" alt="Direct Energy" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -122,10 +123,10 @@
             </table>
 <!-- Direct Energy ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
             
 <!-- ABB begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/abb_logo.gif" alt="ABB" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -137,10 +138,10 @@
             </table>
 <!-- ABB ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
             
 <!-- financial institution begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/fin_services_logo.gif" alt="Financial Services" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -152,10 +153,10 @@
 
 <!-- financial institution ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
 
 <!-- IDENTITY MANAGEMENT begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/id_manage_logo.gif" alt="Identity Management" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -167,10 +168,10 @@
 
 <!-- IDENTITY MANAGEMENT ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
 
 <!-- Salk begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/salk_logo.gif" alt="Salk Institute" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -182,10 +183,10 @@
             </table>
 <!-- Salk ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
 
 <!-- StageStores begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/stagestores_logo.gif" alt="Stagestores" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -197,14 +198,14 @@
             </table>
 <!-- StageStores ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
             <br><br>
 
-            <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Other Customers</td></tr></table>
+            <table width="530" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Other Customers</td></tr></table>
 
 
 <!-- AOL begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/aol_logo.png" alt="AOL" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -215,10 +216,10 @@
             </table>
 <!-- AOL ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
              
 <!-- Borders begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/borders_logo.gif" alt="Borders" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -229,10 +230,10 @@
             </table>
 <!-- Borders ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
 
 <!-- Burlington begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/burlington_logo.gif" alt="Burlington Coat Factory" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -243,12 +244,12 @@
             </table>
 <!-- Burlington ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
              
 
              
 <!-- Detroit Edison begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/detroit_edison_logo.gif" alt="Detroit Edison" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -259,10 +260,10 @@
             </table>
 <!-- Detroit Edison ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
              
 <!-- Direct Energy begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/directenergy_logo.gif" alt="Direct Energy" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -273,10 +274,10 @@
             </table>
 <!-- Direct Energy ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
              
 <%-- ESPN begins 
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/espn_logo.png" alt="ESPN" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -286,12 +287,12 @@
                 </tr>
             </table>
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
 ESPN ends 
 --%>
 
 <!-- Ferguson begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/ferguson_logo.gif" alt="Ferguson" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -302,10 +303,10 @@ ESPN ends
             </table>
 <!-- Ferguson ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
 
 <!-- Franklin Mortgage begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/frankin_mortgage_logo.gif" alt="Franklin Mortgage" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -315,10 +316,10 @@ ESPN ends
             </table>
 <!-- Franklin Mortgage ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
 
 <!--Gentiva begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/gentiva_logo.gif" alt="Gentiva" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -329,10 +330,10 @@ ESPN ends
             </table>
 <!-- Gentiva ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
              
 <!--IMS Health begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/ims_logo.gif" alt="IMS Health" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -343,10 +344,10 @@ ESPN ends
             </table>
 <!-- IMS Health ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
              
 <!-- NEJ begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/nejLogo.jpg" alt="NEJ" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -357,10 +358,10 @@ ESPN ends
             </table>
 <!-- NEJ ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
              
 <!-- Oxford begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/oxford_logo.gif" alt="Oxford" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -371,10 +372,10 @@ ESPN ends
             </table>
 <!-- Oxford ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
 
 <!-- Philip Morris begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/philipmorris_logo.gif" alt="Philip Morris" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -385,10 +386,10 @@ ESPN ends
             </table>
 <!-- Philip Morris ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
 
 <!-- Praxair begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                <tr valign="top">
                     <td width="170"><img src="/images/clients/praxair_logo.gif" alt="Praxair" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -400,10 +401,10 @@ ESPN ends
             </table>
 <!-- Praxair ends -->
     
-            <hr width="100%" size="1px" noshade>
+            <hr width="530" size="1px" noshade>
 
 <!-- Rodale begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/rodale_logo.gif" alt="Rodale" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -414,9 +415,9 @@ ESPN ends
             </table>
 <!-- Rodale ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
 <!-- Talbots begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/talbots_logo.gif" alt="Talbots" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -427,10 +428,10 @@ ESPN ends
             </table>
 <!-- Talbots ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
              
 <!-- UBS begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/ubs_logo.png" alt="UBS" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -441,10 +442,10 @@ ESPN ends
             </table>
 <!-- UBS ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
              
 <!-- Verisign begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/verisign_logo.png" alt="Verisign" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -455,13 +456,13 @@ ESPN ends
             </table>
 <!-- Verisign ends -->
 
-             <hr width="100%" size="1px" noshade>
+             <hr width="530" size="1px" noshade>
              
              
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr>
                     <td colspan="2" class="bodyText" align="center">
-                        <p><font size="3"><strong><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=contactus">Contact us</a> today so we can get started developing your next application.</strong></font></p>
+                        <p class="learn_more"><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=contactus">Contact us</a> today so we can get started developing your next application.</p>
                     </td>
                 </tr>
             </table>

@@ -269,13 +269,13 @@
 <html>
 <head>
     <title>TopCoder Software</title>
-
+<jsp:include page="/includes/header-files.jsp" />
 <script language="JavaScript" src="/scripts/javascript.js">
 </script>
-
+<link rel="stylesheet" type="text/css" href="/includes/tcs_style.css">
 </head>
 
-<link rel="stylesheet" type="text/css" href="/includes/tcs_style.css">
+
 
 <body class="body" marginheight="0" marginwidth="0">
 <a name="top" />
@@ -291,7 +291,7 @@
     <tr valign="top">
 
 <!-- Left Column begins -->
-        <td width="180" class="leftColumn">
+        <td width="165" class="leftColumn">
         <jsp:include page="/includes/left.jsp" >
             <jsp:param name="level1" value="components"/>
             <jsp:param name="level2" value="find"/>
