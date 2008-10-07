@@ -108,8 +108,8 @@
 <head>
     <title>FREE .NET&#8482; and Java&#8482; Software Components at TopCoder Software</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-<jsp:include page="/includes/header-files.jsp" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+    <jsp:include page="/includes/header-files.jsp" />
 </head>
 
 <body class="body">
@@ -141,7 +141,7 @@
 <!-- Left Column ends -->
 
 <!-- Gutter 1 begins -->
-        <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+        <td width="25"><img src="/images/clear.gif" alt="" width="25" height="10" border="0" /></td>
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->

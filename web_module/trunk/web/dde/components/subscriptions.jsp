@@ -23,8 +23,8 @@
 <head>
     <title>TopCoder Software</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-<jsp:include page="/includes/header-files.jsp" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+    <jsp:include page="/includes/header-files.jsp" />
 </head>
 
 <body class="body">
@@ -49,14 +49,15 @@
 <!-- Left Column ends -->
 
 <!-- Gutter 1 begins -->
-        <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+        <td width="25"><img src="/images/clear.gif" alt="" width="25" height="10" border="0" /></td>
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
-        <td width="100%">
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <td align="center">
+        <table cellspacing=0 cellpadding=0 border=0 width=530>
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-                <tr><td class="normal"><img src="/images/headComponents.gif" alt="Components" width="545" height="32" border="0" /></td></tr>
+                <tr><td class="normal"><img src="/images/headComponents.gif" alt="Components" width="530" height="32" border="0" /></td>
+                </tr>
                 <tr><td class="subhead">Subscriptions</td></tr>
                 <tr><td class="normal">
                         <br>
@@ -67,10 +68,10 @@
                         <div align="center">
 
 <!-- Personal Subscription -->
-                        <table width="700" border="0" cellpadding="0" cellspacing="10">
+                        <table width="530" border="0" cellpadding="0" cellspacing="10">
                             <tr>
-                              <td class="catalogIndexHeader" width="50%">Developer Subscription</td>
-                              <td class="catalogIndexHeader" width="50%">Enterprise Subscriptions</td>
+                              <td width="50%"><h3>Developer Subscription</h3></td>
+                              <td width="50%"><h3>Enterprise Subscriptions</h3></td>
                            </tr>
                             <tr valign="top">
                                 <td align="left">
@@ -105,7 +106,7 @@
                             </tr>
                         </table><br />
 
-                        <hr noshade="noshade" size="1" />      
+                        <hr noshade="noshade" size="1" width="530" />      
 
                         </div>
 

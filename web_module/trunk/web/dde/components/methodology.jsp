@@ -20,6 +20,7 @@
     <title>Component Development Methodology at TopCoder</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css"/>
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+    <jsp:include page="/includes/header-files.jsp" />
 </head>
 
 <body class="body">
@@ -48,17 +49,17 @@
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
-<td width="100%">
-    <table width="100%" border="0" cellpadding="0" cellspacing="0">
-        <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
-        <tr><td class="normal">
-            <img src="/images/headComponents.gif" alt="Components" width="545" height="32" border="0"/></td></tr>
-        <tr><td class="subhead">Competition-Based Methodology</td></tr>
-        <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
-    </table>
+        <td align="center">
+        <table cellspacing=0 cellpadding=0 border=0 width=530>
+            <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+            <tr><td class="normal">
+                <img src="/images/headComponents.gif" alt="Components" width="545" height="32" border="0"/></td></tr>
+            <tr><td class="subhead">Competition-Based Methodology</td></tr>
+            <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+        </table>
 
     <div align="center">
-        <table width="565" border="0" cellpadding="0" cellspacing="0">
+        <table width="530" border="0" cellpadding="0" cellspacing="0">
             <tr>
                 <td rowspan="3"><img src="/images/clear.gif" width="59" height="204" alt=""/></td>
                 <td><img src="/images/meth_complete.gif" width="161" height="67" alt="Complete" border="0"/></td>
@@ -82,14 +83,14 @@
         </table>
     </div>
 
-    <hr width="100%" size="1px" noshade>
+    <hr width="530" size="1px" noshade>
 
-    <table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <table border="0" cellspacing="0" cellpadding="0" width="530">
         <tr valign="top">
             <td class="bodyText">
                 <!-- Collaboration begins -->
-                <p><strong>Specification</strong><br>
-                    TopCoder Project Managers (PM) moderate the TopCoder <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Software
+                <h3>Specification</h3>
+                   <p> TopCoder Project Managers (PM) moderate the TopCoder <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Software
                     Forums</a> to gather requirements about a new Component Project. Once the project scope has been determined, the PM
                     creates a Requirements Specification for the Design Phase of the project. New projects are regularly posted to the TopCoder
                     <a href="http://www.topcoder.com/tc?module=ViewActiveContests&amp;ph=112">Software Development site</a>
@@ -97,8 +98,8 @@
                 <!-- Collaboration ends -->
 
                 <!-- Design begins -->
-                <p><strong>Architecture and Design</strong><br>
-                    The PM creates an Architecture Review Board made up of three TopCoder members who regularly submit designs. 
+                <h3>Architecture and Design</h3>
+                    <p>The PM creates an Architecture Review Board made up of three TopCoder members who regularly submit designs. 
                     Submitted designs are scored using a standardized <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">scorecard</a>. 
                     The design with the best score above the minimum 
                     score is chosen for the project. The winning designer is given additional time to incorporate suggestions from the 
@@ -108,8 +109,8 @@
                 <!-- Design ends -->
 
                 <!-- Development begins -->
-                <p><strong>Development and Testing</strong><br>
-                    The PM creates a Development Review Board made up of three TopCoder members who regularly submit
+                <h3>Development and Testing</h3>
+                    <p>The PM creates a Development Review Board made up of three TopCoder members who regularly submit
                     development proposals for TopCoder Software
                     Projects. Submitted development solutions are scored using a standardized
                     <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=devReviewSample">scorecard</a>.
@@ -121,15 +122,15 @@
                 <!-- Development ends -->
 
                 <!-- Complete begins -->
-                <p><strong>Complete</strong><br>
-                    A complete TopCoder Software Component is added to a Component Catalog and is ready for download by
+                <h3>Complete</h3>
+                   <p>A complete TopCoder Software Component is added to a Component Catalog and is ready for download by
                     subscribers. It has been thoroughly
                     tested to ensure acceptable performance, accuracy of results, and abillity to handle bad data and
                     incorrect usage. Extensive documentation
                     is downloaded along with the component. Customers, the PM and other TopCoder members interact in the
                     <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Software Forums</a> to discuss the current complete version of
                     the component, as well as make
-                    suggestions for future versions of the component.</li>
+                    suggestions for future versions of the component.</li><br /><br />
                 <!-- Complete ends -->
             </td>
         </tr>
@@ -139,8 +140,7 @@
         <tr>
             <td colspan="2" class="bodyText" align="center">
 
-                <p><font size="3"><strong><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=contactus">Contact
-                    us</a> today so we can get started developing your next application.</strong></font></p>
+                <p class="learn_more"><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=contactus">Contact us</a> today so we can get started developing your next application.</p>
             </td>
         </tr>
     </table>

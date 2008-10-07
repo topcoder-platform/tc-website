@@ -142,7 +142,7 @@
             <tr><td>
             <table border="0" cellpadding="10" cellspacing="0" bgcolor="#cccccc"><form name="frmCompRequest" action="<%=page_name%>" method="post">
 <!-- Component Name Field -->
-				<tr><td class="catalogIndexHeader"><%=fieldsRequest.get("name").getLabel()%> a New or Existing Component</td></tr>
+				<tr><td><h3><%=fieldsRequest.get("name").getLabel()%> a New or Existing Component</h3></td></tr>
                 <tr>
                     <td><input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="84" maxlength="50"></td>
                 </tr>
@@ -151,7 +151,7 @@
                     <td class="registerError"><%=fieldsRequest.get("name").getError()%></td>
                 </tr>
 <!-- Description Field -->
-				<tr><td class="catalogIndexHeader"><%=fieldsRequest.get("desc").getLabel()%> of the Component</td></tr>
+				<tr><td><h3><%=fieldsRequest.get("desc").getLabel()%> of the Component</h3></td></tr>
                 <tr>
                     <td><textarea class="registerElement" name="<%=fieldsRequest.get("desc").getName()%>" value="" cols="80" rows="6"></textarea></td>
                 </tr>
@@ -160,7 +160,7 @@
                     <td class="registerError"><%=fieldsRequest.get("desc").getError()%></td>
                 </tr>
 <!-- Comment Field -->
-				<tr><td class="catalogIndexHeader"><%= fieldsRequest.get("comments").getLabel() %> or Suggestions</td></tr>
+				<tr><td><h3><%= fieldsRequest.get("comments").getLabel() %> or Suggestions</h3></td></tr>
                 <tr>
                     <td><textarea class="registerElement" name="<%=fieldsRequest.get("comments").getName()%>" value="" cols="80" rows="6"></textarea></td>
                 </tr>
