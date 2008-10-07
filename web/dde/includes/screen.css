@@ -324,7 +324,7 @@ CONTENT
 	}
 		.content_columns p
 		{
-			line-height: 120%;
+			line-height: 150%;
 			margin-bottom:12px;
 		}
 		
@@ -506,7 +506,8 @@ CONTENT
 		}
 		
 		.content_columns h3{
-			margin: 10px 0 6px 0;
+			margin: 0;
+			padding: 25px 0 0 0;
 			font-size: 16px;
 			color: #333;
 		}
@@ -518,9 +519,11 @@ CONTENT
 		
 		.content_columns h4{
 			margin: 10px 0 6px 0;
+			padding: 18px 0 0 0;
 			font-size: 120%;
 			color: #333;
 		}
+			
 			
 		.content_columns p.ans{
 			padding-left: 20px;
@@ -557,12 +560,6 @@ CONTENT
 			color: #d00;
 		}
 		
-		.content_columns h4
-		{
-			margin: 0 0 4px 0;
-			padding: 0;
-		}
-
 		.content_columns p
 		{
 			margin: 0;
@@ -579,11 +576,14 @@ CONTENT
 		.process
 		{
 			min-height: 100px;
-			height: 100px;
+			height: 110px;
 			margin: 8px 0;
 			padding: 0;
 		}
 
+		.process p
+		{ line-height:120% }
+		
 /*home*/
 
 .left_content {
@@ -953,3 +953,4 @@ MISC
 .center { text-align: center; }
 #accessibility, .hide { display: none; }
 .clear { clear: both; height:1%; }
+.sub-active, .sub-active:visited {background-color:#666666;color:#FFFFFF !important;}

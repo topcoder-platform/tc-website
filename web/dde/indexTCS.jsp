@@ -55,7 +55,7 @@
 </jsp:include>
 
 <jsp:include page="/includes/menu.jsp" >
-    <jsp:param name="isSoftwarePage" value="true"/>
+    <jsp:param name="isSoftwarePage" value="true" />
 </jsp:include>
 <!-- Header ends -->
 
@@ -63,20 +63,20 @@
     <tr valign="top">
 
 <!-- Left Column begins -->
-        <td width="180" class="leftColumn">
+        <td width="165" class="leftColumn">
         <jsp:include page="/includes/left.jsp" >
-            <jsp:param name="level1" value="index"/>
+            <jsp:param name="level1" value="index" />
         </jsp:include>
         </td>
 <!-- Left Column ends -->
 
 <!-- Gutter 1 begins -->
-        <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+        <td width="25"><img src="/images/clear.gif" alt="" width="25" height="10" border="0" /></td>
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
-        <td width="99%" align="center">
-            <table border="0" cellpadding="0" cellspacing="10" width="530">
+        <td width="99%" align="left">
+            <table border="0" cellpadding="0" cellspacing="10" width="95%">
                 <tr>
                     <td align="left">
                         <br/><a href="/applications/index.jsp"><img src="/images/promos/promo_home_1.png" alt="" width="270" height="63" border="0" /></a><br/><br/>
