@@ -51,7 +51,7 @@
 		<div class="platform_row">
 			<div>
 				<a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=umltool&d3=description&node=des_uml_tool"><img src="images/uml_tool.png" alt="UML Tool" class="platform_img" /></a>
-				<h3><a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=umltool&d3=description&node=des_uml_tool"><img src="images/uml_tool_text.png" alt="UML Tool" width="92" height="22" /></a><span class="sub_header"> - <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=umltool&d3=description&node=des_uml_tool">VIEW AND DOWNLOAD COMPONENTS NOW!</a></span></h3>				
+				<h3><a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=umltool&d3=description&node=des_uml_tool"><img src="images/uml_tool_text.png" alt="UML Tool" width="92" height="22" /></a><span class="sub_header"> - <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=umltool&d3=description&node=des_uml_tool">VIEW AND DOWNLOAD THE UML TOOL NOW!</a></span></h3>				
 				<p class="red-title">Software by the community for the community.</p>
 				<p>The UML Tool is a XML compliant UML tool geared towards the TopCoder process.</p>
 			</div>
@@ -59,7 +59,7 @@
 		<div class="platform_row_dark">
 			<div>
 				<a href="http://forums.topcoder.com/"><img src="images/forums.png" alt="Forums" class="platform_img" /></a>
-				<h3><a href="http://forums.topcoder.com/"><img src="images/forums_text.png" alt="Forums" width="75" height="22" /></a><span class="sub_header"> - <a href="http://forums.topcoder.com/">VIEW AND DOWNLOAD COMPONENTS NOW!</a></span></h3>				
+				<h3><a href="http://forums.topcoder.com/"><img src="images/forums_text.png" alt="Forums" width="75" height="22" /></a><span class="sub_header"> - <a href="http://forums.topcoder.com/">VISIT THE TOPCODER COMMUNITY!</a></span></h3>				
 				<p class="red-title">Communicate.</p>
 				<p>Allows collaboration with top technical talent from across the world. Used to discuss the latest technologies, best practices, and to answer or clarify any contest-related questions.</p>
 			</div>
