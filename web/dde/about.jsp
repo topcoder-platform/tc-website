@@ -12,7 +12,7 @@
 </head>
 <body>
 <jsp:include page="/includes/top.jsp">
-<jsp:param name="TCDlevel" value="about-coder"/>
+<jsp:param name="TCDlevel" value="about-coder" />
 </jsp:include>
 
 
@@ -36,8 +36,8 @@
 					************************************************** --%>
 					<div id="tabsContent01" class="tabs_content">
 						<div class="content_columns">
-							<h2>About TopCoder</h2>
-							                    <p>TopCoder is fast becoming the major league for programming competitions. TopCoder brings members together once a week to compete online
+							
+					<p>TopCoder is fast becoming the major league for programming competitions. TopCoder brings members together once a week to compete online
                     &#40;Single Round Match&#41; and twice a year both online and on location &#40;Tournaments&#41;.</p>
 
                     <h4>Why Online Competitions</h4>
@@ -51,30 +51,29 @@
                     <h4>How Companies Benefit</h4>
 
                     <ul>
-                        <li><A href="http://www.topcoder.com/corp/?module=Static&d1=corp&d2=tces_home"><strong>Employment Services</strong></A><br />
+                        <li><a href="http://www.topcoder.com/corp/?module=Static&d1=corp&d2=tces_home"><strong>Employment Services</strong></a><br />
                         The market for developers is either feast or famine. Regardless of how many developers there are or how many are available,
                         the issue remains the same&#151;how to determine which candidate is best suited to the needs of your organization. While
                         certification has offered some credibility, competitions that test a developer's skills in real-world challenges goes much
-                        further to differentiating one candidate from another.</li>
+                        further to differentiating one candidate from another.</li><br />
 
-                        <li><A href="http://software.topcoder.com/index.jsp"><strong>Software</strong></A><br />
-                        The best way to drive down the cost of software development is through re-use. The <A href="http://software.topcoder.com/components/index.jsp">Component Catalog</A>
+                        <li><a href="http://software.topcoder.com/index.jsp"><strong>Software</strong></a><br />
+                        The best way to drive down the cost of software development is through re-use. The <a href="http://software.topcoder.com/components/index.jsp">Component Catalog</a>
                         is a tool for increasing re-use and developer productivity within an organization. The component catalog continues to grow on a weekly basis as component
                         requirements are generated through requests from catalog customers, research from TopCoder Product Managers and from application development.</li><br />
 
-                        <li><A href="http://www.topcoder.com/corp/?module=Static&d1=corp&d2=spon_prog&d3=index"><strong>Sponsorship</strong></A><br />
+                        <li><a href="http://www.topcoder.com/corp/?module=Static&d1=corp&d2=spon_prog&d3=index"><strong>Sponsorship</strong></a><br />
                         Reaching the developer community is a difficult task at best. Marketing budgets are limited and with the advent of the Internet,
                         the expectation for measuring results has only grown. TopCoder offers companies a means of targeting this desired community
                         through the targeted sponsorship of Single Round Matches
-                        and <A href="http://www.topcoder.com/corp/?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournaments.</A></li>
+                        and <a href="http://www.topcoder.com/corp/?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournaments.</a></li>
                         </ul>
 
 					  <h4>How Members Benefit</h4>
 					  <ul>
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=whyjoin"><strong>Competition</strong></a><br />
                           Each Single Round Match offers a fun, time-based, and challenging set of problems that put a developer's skills to the test. This, coupled
-                          with Divisions,</A> offer a more level
-                          field of competition for newer members in order to build ratings and move into potential <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=home">Tournament</a> opportunities.</li>
+                          with Divisions, offer a more level field of competition for newer members in order to build ratings and move into potential <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=home">Tournament</a> opportunities.</li>
 					    <br />
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=112"><strong>Design</strong></a> and <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=113"><strong>Development</strong></a><br />
                           Rated TopCoder members are eligible to participate in TopCoder Component Development. Members submit design and development solutions
