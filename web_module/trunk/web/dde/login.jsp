@@ -181,7 +181,7 @@
 
 <!-- User Name Error Text -->
                             <tr valign="top">
-                                <td class="registerError" colspan="3"><p><%= strMsg %></p></td>
+                                <td class="registerError" colspan="3"><br /><%= strMsg %><br /></td>
                             </tr>
 
 <!-- User Name -->
