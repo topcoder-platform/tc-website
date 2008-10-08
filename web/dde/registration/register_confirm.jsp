@@ -59,7 +59,7 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
                 <tr><td class="normal"><img src="/images/headRegNewAcct.gif" alt="Register New Account" width="545" height="35" border="0" /></td></tr>
-                <tr><td class="subhead">Activate your New Account</td></tr>
+                <tr><td><h3>Activate your New Account</h3></td></tr>
             </table>
 
             <table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
