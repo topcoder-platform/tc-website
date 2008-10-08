@@ -31,14 +31,12 @@
 				
 <%-- TABS CONTENT --%>
 				<div id="tabs_panel">
-					
 					<%-- *************************************************
 					TABS 01
 					************************************************** --%>
 					<div id="tabsContent01" class="tabs_content">
-					
 						<div class="content_columns">
-							<h3>About TopCoder</h3>
+							<h2>About TopCoder</h2>
 							                    <p>TopCoder is fast becoming the major league for programming competitions. TopCoder brings members together once a week to compete online
                     &#40;Single Round Match&#41; and twice a year both online and on location &#40;Tournaments&#41;.</p>
 
