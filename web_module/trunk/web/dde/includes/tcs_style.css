@@ -1,7 +1,7 @@
 /* Body Style */
-A { color: #d50000; }
-A:hover { text-decoration: underline; }
-A img { border: 0; }
+a { color: #d50000; }
+a:hover { text-decoration: underline; }
+a img { border: 0; }
 a { outline: none; }
 
 .admin { background-color: #6C6C6C; }
@@ -221,29 +221,6 @@ a { outline: none; }
 	background: #4F4F4F url(../images/navBarAdminBkgd.gif);
 }
 
-A:link
-{
-	color: #00F;
-	text-decoration: underline;
-}
-
-A:visited
-{
-	color: #006;
-	text-decoration: underline;
-}
-
-A:hover
-{
-	color: #F00;
-	text-decoration: none;
-}
-
-A:active
-{
-	color: #F00;
-	text-decoration: none;
-}
 
 .appSuiteIndexBody
 {
@@ -286,25 +263,25 @@ A:active
 
 A.bodyText:link
 {
-	color: #00F;
-	text-decoration: underline;
+	color: #d50000;
+	text-decoration: none;
 }
 
 A.bodyText:visited
 {
-	color: #006;
-	text-decoration: underline;
+	color: #d50000;
+	text-decoration: none;
 }
 
 A.bodyText:hover
 {
-	color: #F00;
-	text-decoration: none;
+	color: #d50000;
+	text-decoration: underline;
 }
 
 A.bodyText:active
 {
-	color: #F00;
+	color: #d50000;
 	text-decoration: none;
 }
 
@@ -320,28 +297,28 @@ A.bodyText:active
 
 A.breadcrumbLinks:link
 {
-	color: #00F;
+	color: #d50000;
 	font-weight: bold;
 	text-decoration: none;
 }
 
 A.breadcrumbLinks:visited
 {
-	color: #00F;
+	color: #d50000;
 	font-weight: bold;
 	text-decoration: none;
 }
 
 A.breadcrumbLinks:hover
 {
-	color: #999;
+	color: #d50000;
 	font-weight: bold;
 	text-decoration: underline;
 }
 
 A.breadcrumbLinks:active
 {
-	color: #999;
+	color: #d50000;
 	font-weight: bold;
 	text-decoration: underline;
 }
@@ -401,7 +378,7 @@ A.catalogCategoryLink:active
 
 #find-components a
 {
-	color: #F03;
+	color: #d50000;
 	font-size: 16px;
 	text-decoration: none;
 }
@@ -640,25 +617,25 @@ A.edit:active
 
 A.footerLinks:link
 {
-	color: #00F;
+	color: #d50000;
 	text-decoration: none;
 }
 
 A.footerLinks:visited
 {
-	color: #006;
+	color: #d50000;
 	text-decoration: none;
 }
 
 A.footerLinks:hover
 {
-	color: #F00;
+	color: #d50000;
 	text-decoration: underline;
 }
 
 A.footerLinks:active
 {
-	color: #F00;
+	color: #d50000;
 	text-decoration: underline;
 }
 
@@ -1155,25 +1132,25 @@ H3
 
 A.homeTitleLink:link
 {
-	color: #990000;
+	color: #d50000;
 	text-decoration: none;
 }
 
 A.homeTitleLink:visited
 {
-	color: #990000;
+	color: #d50000;
 	text-decoration: none;
 }
 
 A.homeTitleLink:hover
 {
-	color: #FF0000;
+	color: #d50000;
 	text-decoration: underline;
 }
 
 A.homeTitleLink:active
 {
-	color: #FF0000;
+	color: #d50000;
 	text-decoration: underline;
 }
 
@@ -1209,13 +1186,13 @@ A.left:visited
 
 A.left:hover
 {
-	color: #F00;
-	text-decoration: none;
+	color: #d50000;
+	text-decoration: underline;
 }
 
 A.left:active
 {
-	color: #F00;
+	color: #d50000;
 	text-decoration: none;
 }
 
@@ -1234,12 +1211,12 @@ A.leftOn:visited
 A.leftOn:hover
 {
 	color: #F00;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 A.leftOn:active
 {
-	color: #F00;
+	color: #d50000;
 	text-decoration: none;
 }
 
@@ -1434,14 +1411,14 @@ A.loginLinks:visited
 
 A.loginLinks:hover
 {
-	color: #FC3;
+	color: #d50000;
 	font-weight: bold;
 	text-decoration: underline;
 }
 
 A.loginLinks:active
 {
-	color: #FC3;
+	color: #d50000;
 	font-weight: bold;
 	text-decoration: underline;
 }
@@ -1461,7 +1438,7 @@ A.loginText:link
 
 A.loginText:visited
 {
-	color: #B98B30;
+	color: #FC3;
 	text-decoration: none;
 }
 
@@ -1927,58 +1904,58 @@ TD, TH
 
 A.terciaryOff:link
 {
-	color: #00F;
+	color: #d50000;
 	font-weight: normal;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 A.terciaryOff:visited
 {
-	color: #006;
+	color: #d50000;
 	font-weight: normal;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 A.terciaryOff:hover
 {
-	color: #F00;
+	color: #d50000;
 	font-weight: normal;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 A.terciaryOff:active
 {
-	color: #F00;
+	color: #d50000;
 	font-weight: normal;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 A.terciaryOn:link
 {
-	color: #666666;
+	color: #d50000;
 	font-weight: bold;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 A.terciaryOn:visited
 {
-	color: #666666;
+	color: #d50000;
 	font-weight: bold;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 A.terciaryOn:hover
 {
-	color: #666666;
+	color: #d50000;
 	font-weight: bold;
 	text-decoration: none;
 }
 
 A.terciaryOn:active
 {
-	color: #666666;
+	color: #d50000;
 	font-weight: bold;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 .testFrame { border: 1px solid #999999; }
