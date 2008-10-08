@@ -54,27 +54,27 @@
 
 <!-- Middle Column begins -->
         <td align="left">
-        <table cellspacing="0" cellpadding="0" border="0" width="95%">
-            <tr>
-                <td colspan="2">
-                <img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br />
-                <img src="/images/hd_comp_find.png" alt="Components" border="0" /><br />
-                <img src="/images/clear.gif" alt="" width="10" height="15" border="0" />
-                </td>
-            </tr>
-           	<tr valign="top">
-                <td class="catalogIndexCell"><a href="/components/appSuiteIndex.jsp"><img src="/images/catalog/appSuiteBtn.jpg" border="0" /></a></td>
-                <td class="catalogIndexCell" width="100%"><a href="/components/appSuiteIndex.jsp"><b>Browse Application Suites</b></a><br />Application Suites are multi-purpose tools to solve a variety of software needs in one package. Thinking of adding an eCommerce section to your site? Our eCommerce Application Suite has everything you will need from a shopping cart to security.</td>
-            </tr>
-            <tr valign="top">
-                <td class="catalogIndexCell"><a href="/catalog/c_showroom.jsp"><img src="/images/catalog/categoryBtn.jpg" border="0" /></a></td>
-                <td class="catalogIndexCell"><a href="/catalog/c_showroom.jsp"><b>Browse Components by Category</b></a><br />Need some Security Tools? How about some Administration Tools? If you have a specific software functionality need, browse here to view our Component Catalog broken up into categories.</td>
-            </tr>
-            <tr valign="top">
-                <td class="catalogIndexCell"><a href="/catalog/c_showroom.jsp?a=all"><img src="/images/catalog/indexBtn.jpg" border="0" /></a></td>
-                <td class="catalogIndexCell"><a href="/catalog/c_showroom.jsp?a=all"><b>Browse Component Index</b></a><br />An alphabetical listing of our components, both Java and .Net.  Browse here if you know the exact component that you are looking for.</td>
-            </tr>
-        </table>
+        	<div id="find-components">
+				<h2><img src="/images/hd_comp_find.png" alt="Find Components" border="0" /></h2>
+        			<table cellspacing="0" cellpadding="0" border="0" width="95%">
+					<tr>
+						<td><a href="/components/appSuiteIndex.jsp"><img src="/images/catalog/mx_one.png" border="0" width="160" height="114" /></a></td>
+						<td class="browse"><a href="/components/appSuiteIndex.jsp">Browse Application Suites</a>
+						<p>Application Suites are multi-purpose tools to solve a variety of software needs in one package. 
+						Thinking of adding an eCommerce section to your site? Our eCommerce Application Suite has everything you will need from a shopping cart to security.</p></td>
+					</tr>
+					<tr>
+						<td><a href="/catalog/c_showroom.jsp"><img src="/images/catalog/mx_two.png" border="0" width="160" height="114" /></a></td>
+						<td class="browse"><a href="/catalog/c_showroom.jsp">Browse Components by Category</a>
+						<p>Need some Security Tools? How about some Administration Tools? If you have a specific software functionality need, browse here to view our Component Catalog broken up into categories.</p></td>
+					</tr>
+					<tr>
+						<td><a href="/catalog/c_showroom.jsp?a=all"><img src="/images/catalog/mx_three.png" border="0" width="160" height="114" /></a></td>
+						<td class="browse"><a href="/catalog/c_showroom.jsp?a=all">Browse Component Index</a>
+						<p>An alphabetical listing of our components, both Java and .Net.  Browse here if you know the exact component that you are looking for.</p></td>
+					</tr>
+				</table>
+			</div>
         </td>
 <!-- Middle Column ends -->
 

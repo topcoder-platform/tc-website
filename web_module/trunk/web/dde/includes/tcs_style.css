@@ -378,6 +378,35 @@ A.catalogCategoryLink:active
 	text-decoration: none;
 }
 
+/* New Catalog Graphics - Adroc */
+#find-components { margin-top: 15px; }
+#find-components h2 { padding-bottom: 20px; }
+
+#find-components td
+{
+	padding: 15px 0 12px 10px;
+	vertical-align: top;
+	border-bottom: 1px #DDD solid;
+}
+
+#find-components td.browse
+{
+	background-image: url(../images/catalog/mx_grad.png);
+	background-repeat: no-repeat;
+	background-position: left 10px;
+}
+
+#find-components a
+{
+	color: #F03;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+#find-components a:hover { text-decoration: underline; }
+#find-components p { padding-top: 12px; }
+/* End New */
+
 .catalogFoot { padding: 5px; }
 
 .catalogIndexCell
