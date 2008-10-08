@@ -22,8 +22,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<title>TopCoder Software</title>
-	<link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
+	<jsp:include page="/includes/header-files.jsp" />
+<link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
 	<script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+
 </head>
 
 <body class="body">
