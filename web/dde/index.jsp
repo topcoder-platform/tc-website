@@ -53,7 +53,7 @@
                     <li class="test"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp">Test</a></li>
                 </ul>
                 <img class="findOut" src="images/find_out_more.png" alt="find out more" />
-                <a class="button" href="#">CONTACT US</a>
+                <a class="button" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">CONTACT US</a>
             </div>
             <div class="clear"></div>
         </div>
@@ -68,34 +68,21 @@
     <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp"><img src="images/bannerAd.png" alt="banner Ad" /></a>
 </div>
 <%-- NEWS --%>
+
 <div id="news">
-    <div class="wrapper">
-        <h2 id="whats_new"><span>What's New</span></h2>
-
-        <div class="post">
-            <h3><a href="#">1st iPhone App UI Designed Through TC Cockpit</a>
-                <small>| Aug 26, 2008</small>
-            </h3>
-            <p>Radio station tagging service RadioTAGr used the TopCoder Direct Cockpit to design the front end for its
-                new Apple iPhone App...</p>
-
-            <p class="learn_more"><a href="#">Learn More</a></p>
-        </div>
-
-        <div class="post">
-            <h3><a href="#">Your Cockpit is Waiting</a>
-                <small>| Jul 3, 2008</small>
-            </h3>
-            <p>The TopCoder Cockpit version 1.0 Release is the tool you'll use to access our community with TopCoder
-                Direct...</p>
-
-            <p class="learn_more"><a href="#">Learn More</a></p>
-        </div>
-    </div>
     <%-- .wrapper ends --%>
 </div>
 <%-- #news ends --%>
 
+		<script>
+            var rss = "/direct/blogs/?feed=rss2";
+
+            //A sample URL to get Template
+            var template = "/TCD/WhatsNewTemplate.txt";
+
+            var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
+            document.getElementById("news").innerHTML = (processor.transformRSSFeed(rss));
+        </script>
 
 <%-- Footer begins --%>
 <jsp:include page="/includes/foot.jsp" flush="true" />
