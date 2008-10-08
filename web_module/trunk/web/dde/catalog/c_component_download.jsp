@@ -78,12 +78,12 @@
 <title>Download software from the Component Catalog at TopCoder</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css">
-<jsp:include page="/includes/top.jsp" />
+<jsp:include page="/includes/header-files.jsp" />
 <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js">
 </script>
 
 </head>
-
+<jsp:include page="/includes/top.jsp" />
 <body class="body">
 
 <!-- Header begins -->
