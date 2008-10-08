@@ -40,7 +40,7 @@
 					<div id="tabsContent01" class="tabs_content">
 					
 						<div class="content_columns">							
-								<h2><img src="/images/welcome_to_topcoder_direct.png" width="295" height="27" alt="Welcome to TopCoder Direct" /></h2>
+								<h2><img src="/i/welcome_to_topcoder_direct.png" width="295" height="27" alt="Welcome to TopCoder Direct" /></h2>
 								<p><strong>Why is it that there always seems too much work to do?  Why do we always seem to be waiting?  Waiting for someone to finish before we can move on?  Why is it that, even with all of the new tools, processes and methods, the list of things to do grows faster than what gets done?  Why is is that, no matter how hard we try - how much resource we add (and the cost that goes with it), users, customers and management never seem to be satisfied?</strong><br />
                                   <br />
                                   Enterprise IT today faces serious challenges.  With the explosion of information within and external to the enterprise, resource constrained IT has an increasingly difficult time keeping up with user requests.  Whether implementing and supporting enterprise class applications or responding to changes in existing systems or new technologies, resource constraints create contentious relationships with IT consumers as the organization tries to keep up.  There never seems to be enough money or resource to keep up with demand.  The net result is business functions that never seem to make the priority list, further adding to the frustration.<br />
@@ -60,7 +60,7 @@
 					************************************************** -->
 					<div id="tabsContent02" class="tabs_content">
 						<div class="content_columns">
-							<h2><img src="/images/how_does_direct_works.png" width="315" height="27" alt="How does TC Direct Work?" /></h2>				
+							<h2><img src="/i/how_does_direct_works.png" width="315" height="27" alt="How does TC Direct Work?" /></h2>				
 							<h3>Some of the most talented people in the world are ready to compete to build your next application.</h3>
 							<ul class="bug_race_list">
                             	<li>On-demand access to the TopCoder community of 160,000+ developers, architects and graphic designers</li>
@@ -86,33 +86,33 @@
 					************************************************** -->
 					<div id="tabsContent03" class="tabs_content">
 						<div class="content_columns">
-							<h2><img src="/images/the_topcoder_methodology.png" width="284" height="27" alt="The TopCoder Methodology" /></h2>			
+							<h2><img src="/i/the_topcoder_methodology.png" width="284" height="27" alt="The TopCoder Methodology" /></h2>			
 							<h3>How will this Global Community build my application?</h3>
 							<p>Through this methodology, you have a consistent and clear mechanism to utilize the TopCoder Platform. We provide a distinct set of contests and tools to define the specific deliverables for your project, which are then presented to the TopCoder community through various competition types.</p>
 							<p>The phases and competitions may be used in series from start to finish, individually or in creative combinations to complete your tasks in the most effective way possible.</p>
 							<h3>The Process</h3>
 							<div class="process">
-								<h4 class="red"><img src="images/specification.png" alt="Specification" class="app-icon" />Specification</h4>
+								<h4 class="red"><img src="/i/specification.png" alt="Specification" class="app-icon" />Specification</h4>
 								<p>Your application requirements are defined using standard UML, prototyping, written specifi cations and test plans. Like every phase of the TopCoder Methodology, outputs of the specifi cation process are peer reviewed and scored to ensure completeness and quality. Creating prototypes up front helps our clients visualize the look and feel of the application early and saves valuable time later in the process.</p>
 							</div>
 							<div class="process">
-								<h4 class="red"><img src="images/application_architecture.png" alt="Application Architecture" class="app-icon" />Application Architecture</h4>
+								<h4 class="red"><img src="/i/application_architecture.png" alt="Application Architecture" class="app-icon" />Application Architecture</h4>
 								<p>The architecture of the application is defined using standard UML and Architecture Competitions. The application is broken down into a component-based architecture, relevant pre-built catalog components are identified and component specifi cations are developed for Component Production.</p>
 							</div>
 							<div class="process">
-								<h4 class="red"><img src="images/component_production.png" alt="Component Production" class="app-icon" />Component Production</h4>
+								<h4 class="red"><img src="/i/component_production.png" alt="Component Production" class="app-icon" />Component Production</h4>
 								<p>The heart of the TopCoder methodology is component production. Each professionally packaged, high quality software component is produced as the result of Component Design, Component Development and Component Testing Competitions. Components fall into one of two categories: catalog or custom. Catalog components are generic and are added to the TopCoder Component Catalog whereas custom components become the intellectual property of the client.</p>
 							</div>
 							<div class="process">
-								<h4 class="red"><img src="images/assembly.png" alt="Assembly" class="app-icon" />Assembly</h4>
+								<h4 class="red"><img src="/i/assembly.png" alt="Assembly" class="app-icon" />Assembly</h4>
 								<p>The assembly of your application comes through a series of competitions as well. First the components are assembled into functioning modules, then the modules into full applications. In many cases, groups of developers form within the community to compete collaboratively as teams.</p>
 							</div>
 							<div class="process">
-								<h4 class="red"><img src="images/certification.png" alt="Certification" class="app-icon" />Certification</h4>
+								<h4 class="red"><img src="/i/certification.png" alt="Certification" class="app-icon" />Certification</h4>
 								<p>This phase uses testing competitions to test and certify application functionality based on requirements. Certifi cation also leverages Bug Races to address component and application code issues.</p>
 							</div>
 							<div class="process">
-								<h4 class="red"><img src="images/deployment.png" alt="Deployment" class="app-icon" />Deployment</h4>
+								<h4 class="red"><img src="/i/deployment.png" alt="Deployment" class="app-icon" />Deployment</h4>
 								<p>The last phase of The TopCoder Methodology results in the deployment and testing of the fi nal deliverables in the target environment. This is where the very best results from multiple competitions and competitors from around the world get delivered to your organization!</p><p>&nbsp;</p>
 							</div>
 							<h3>The Value</h3>
