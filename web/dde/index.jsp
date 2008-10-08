@@ -31,13 +31,13 @@
         <div id="content_main">
             <div class="left_content">
                 <ul>
-                    <li><a class="button1" href="http://www.topcoder.com/direct">WEB SITES</a></li>
-                    <li><a class="button1" href="http://www.topcoder.com/direct">LOGO DESIGN</a></li>
-                    <li><a class="button2" href="http://www.topcoder.com/direct">PRINT DESIGN</a></li>
-                    <li><a class="button2" href="http://www.topcoder.com/direct">APPLICATIONS</a></li>
+                    <li><a class="button1" href="http://<%=ApplicationServer.SERVER_NAME%>/direct">WEB SITES</a></li>
+                    <li><a class="button1" href="http://<%=ApplicationServer.SERVER_NAME%>/direct">LOGO DESIGN</a></li>
+                    <li><a class="button2" href="http://<%=ApplicationServer.SERVER_NAME%>/direct">PRINT DESIGN</a></li>
+                    <li><a class="button2" href="http://<%=ApplicationServer.SERVER_NAME%>/direct">APPLICATIONS</a></li>
                 </ul>
-                <a href="http://www.topcoder.com/direct/cockpit/cockpit.jsp"><img class="startNow" src="images/start_your_project_now.png" alt="start your project now" /></a>
-                <a class="button" href="http://www.topcoder.com/direct/cockpit/cockpit.jsp">LAUNCH DIRECT</a>
+                <a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/cockpit/cockpit.jsp"><img class="startNow" src="/i/start_your_project_now.png" alt="start your project now" /></a>
+                <a class="button" href="http://<%=ApplicationServer.SERVER_NAME%>/direct/cockpit/cockpit.jsp">LAUNCH DIRECT</a>
             </div>
             <div class="right_content">
                 <ul>
