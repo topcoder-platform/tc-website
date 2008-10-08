@@ -33,6 +33,7 @@ DTSTART;TZID=US/Eastern:<c:out value="${fn:trim(resultRow.map['start_time'])}" e
 DTEND;TZID=US/Eastern:<c:out value="${fn:trim(resultRow.map['end_time'])}" escapeXml="false"/>
 SUMMARY:<c:out value="${fn:trim(resultRow.map['summary'])}" escapeXml="false"/>
 DESCRIPTION:<c:out value="${fn:trim(resultRow.map['description'])}" escapeXml="false"/>
+URL:<c:out value="${fn:trim(resultRow.map['url'])}" escapeXml="false"/>
 TRANSP:TRANSPARENT
 END:VEVENT
 </rsc:iterator><%--
