@@ -42,7 +42,7 @@
 	  </div><%-- platform_row ends--%>
 		<div class="platform_row_dark">
 			<div>
-			  <img src="/i/online_review.png" alt="Online Review" class="platform_img" />
+			  <a href="http://software.topcoder.com/review"><img src="/i/online_review.png" alt="Online Review" class="platform_img" /></a>
 			  <h3><a href="http://software.topcoder.com/review"><img src="/i/online_review_text.png" alt="Online Review" width="149" height="22" /></a><span class="sub_header"> - <a href="http://software.topcoder.com/review">LOG INTO ONLINE REVIEW!</a></span></h3>
 			  <p class="red-title">Peer review just makes the process better.</p>
 				<p>Online review is a workflow monitoring solution that provides full transparency into the TopCoder process.</p>
