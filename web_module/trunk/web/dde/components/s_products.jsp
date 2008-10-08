@@ -73,8 +73,8 @@
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-                <tr><td class="normal"><img src="/images/headProducts.gif" alt="Products" width="545" height="32" border="0" /></td></tr>
-                <tr><td class="subhead">Driving down the cost of high quality software applications</td></tr>
+                <tr><td class="normal"><img src="/images/hd_products.png" alt="Products" border="0" /></td></tr>
+                <tr><td><h3>Driving down the cost of high quality software applications</h3></td></tr>
                 <tr><td class="normal">
                         <p><strong>Component Subscriptions</strong><br />
                         <img src="../images/button_select.gif" alt="Select" width="78" height="29" hspace="3" vspace="3" border="0" align="right" />

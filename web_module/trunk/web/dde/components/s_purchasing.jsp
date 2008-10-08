@@ -73,8 +73,8 @@
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-                <tr><td class="normal"><img src="/images/headLearnComponents.gif" alt="Learn About Components" width="545" height="32" border="0" /></td></tr>
-                <tr><td class="subhead">Affordable Software Solutions</td></tr>
+                <tr><td class="normal"><img src="/images/hd_comp_learn.png" alt="Learn About Components" border="0" /></td></tr>
+                <tr><td><h3>Affordable Software Solutions</h3></td></tr>
                 <tr><td class="normal">
                         <p>The key to success in driving down the cost of high quality software applications is in the re-use of software components.
                         The most efficient (cost effective) method for component re-use is to utilize components that exist in an environment

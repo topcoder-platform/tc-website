@@ -66,13 +66,13 @@
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
         <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
         <tr>
-            <td class="normal"><img src="/images/headProducts.gif" alt="Products" width="545" height="32" border="0"/>
+            <td class="normal"><img src="/images/hd_products.png" alt="Products" border="0"/>
             </td>
             <td class="normal" rowspan="2">
                 <a href="s_subscriptions.jsp"><img src="/images/tcs_prod_buy_now.gif" alt="Buy now" width="200" height="55" border="0"/></a>
             </td>
         </tr>
-        <tr><td class="subhead">Overview</td></tr>
+        <tr><td><h3>Overview</h3></td></tr>
     </table>
 
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
