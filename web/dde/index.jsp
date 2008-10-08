@@ -36,8 +36,8 @@
                     <li><a class="button2" href="http://www.topcoder.com/direct">PRINT DESIGN</a></li>
                     <li><a class="button2" href="http://www.topcoder.com/direct">APPLICATIONS</a></li>
                 </ul>
-                <a href="http://www.topcoder.com/direct"><img class="startNow" src="images/start_your_project_now.png" alt="start your project now" /></a>
-                <a class="button" href="http://www.topcoder.com/direct">LAUNCH DIRECT</a>
+                <a href="http://www.topcoder.com/direct/cockpit/cockpit.jsp"><img class="startNow" src="images/start_your_project_now.png" alt="start your project now" /></a>
+                <a class="button" href="http://www.topcoder.com/direct/cockpit/cockpit.jsp">LAUNCH DIRECT</a>
             </div>
             <div class="right_content">
                 <ul>
