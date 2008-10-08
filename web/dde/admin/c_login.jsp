@@ -139,7 +139,6 @@
 			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
 				<tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
 				<tr><td class="normal"><img src="/images/headAdminLogin.gif" alt="Login" width="545" height="35" border="0" /></td></tr>
-				<tr><td class="subhead"></td></tr>
 			</table>
 
 			<table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
