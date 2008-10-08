@@ -111,9 +111,9 @@
                     Fax: 860.657.4276</p>
                     
                     <div align="center"><img src="/images//hdr_email.png" alt="Email" /></div>
-                    <p style="font:arial 14px;"><a href="mailto:service@topcoder.com">TopCoder Support &amp; Service</a><br />
-
-                    <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=mediaRequestForm">Public Relations</a></p>
+                    <p style="font:arial 14px;"><a href="mailto:service@topcoder.com?subject=TopCoder Support &amp; Service">TopCoder Support &amp; Service</a><br />
+                    <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=mediaRequestForm">Public Relations</a><br />
+                    <a href="mailto:service@topcoder.com?subject=Member Questions">Member Questions</a></p>
                 </div>
                 
             
