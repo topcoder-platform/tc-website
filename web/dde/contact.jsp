@@ -10,8 +10,8 @@
 
 <script src="/scripts/direct.js" type="text/javascript"></script>
 <style>
-#email-table {width:268px;margin:0;border-spacing:2px;text-align:left;"background-color:none;}
-#email-table td {border:none;background-color:none;}
+#email-table {width:268px;margin:0;border-spacing:2px;text-align:left;background-color:none;}
+#email-table td {border:none;background-color:#FFF;}
 </style>
 </head>
 <body>
@@ -62,7 +62,7 @@
                         <input type=hidden name="retURL" value="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=contactusSuccess">
                         <input type=hidden name="lead_source" id="lead_source" value="Web" />
    
-                        <table align="center" id="email-table" >
+                        <table align="center" id="email-table">
                             <tr>
                                 <td style="font-size:11px;"><label for="first_name">First Name</label></td><td style="font-size:11px;"><label for="last_name">Last Name</label></td>
 
