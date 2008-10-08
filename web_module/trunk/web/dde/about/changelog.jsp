@@ -22,7 +22,9 @@
 <body class="body">
 
 <!-- Header begins -->
-<jsp:include page="/includes/top.jsp"/>
+<jsp:include page="/includes/top.jsp">
+<jsp:param name="TCDlevel" value="software" />
+</jsp:include>
 <jsp:include page="/includes/menu.jsp">
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
