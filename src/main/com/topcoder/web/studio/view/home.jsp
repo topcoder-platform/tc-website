@@ -249,10 +249,10 @@ ding="utf-8"?>
         <h2>DESIGNER OF THE MONTH</h2>
 
         <p>
-            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/maxsense_big4.jpg"/>
-            <b>August 2008</b><br />
-            <b>maxsense</b><br />
-            Won First Place in<br />8 contests and $5075!
+            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/nophoto.jpg"/>
+            <b>September 2008</b><br />
+            <b>capitalist</b><br />
+            New Member in Florida,<br />5 wins = $6500!
         </p>
 
         <div></div>
