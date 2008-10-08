@@ -181,25 +181,25 @@
 
 <!-- User Name Error Text -->
                             <tr valign="top">
-                                <td class="registerError" colspan="3"><%= strMsg %></td>
+                                <td class="registerError" colspan="3"><p><%= strMsg %></p></td>
                             </tr>
 
 <!-- User Name -->
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Username:</td>
-                                <td colspan="2" align="left"><input type="text" name="txtHandle" value="" size="15" maxlength="30"></td>
+                                <td colspan="2" align="left"> &nbsp; <input type="text" name="txtHandle" value="" size="15" maxlength="30"></td>
                             </tr>
 
 <!-- Password -->
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Password:</td>
-                                <td align="left"><input onkeypress="submitEnter(event,document.frmLogin)" type="password" name="txtPassword" value="" size="15" maxlength="30"></td>
-                                <td nowrap class="bodyText">&#160;&#160;<a href="javascript:document.frmLogin.submit()">Login &gt;</a></td>
+                                <td align="left"> &nbsp; <input onkeypress="submitEnter(event,document.frmLogin)" type="password" name="txtPassword" value="" size="15" maxlength="30"></td>
+                                <td nowrap class="bodyText">&#160;&#160;<strong><a href="javascript:document.frmLogin.submit()">Login &gt;</a></strong></td>
                             </tr>
 
                             <tr valign="middle">
-                                <td align="right"><input onkeypress="submitEnter(event,document.frmLogin)" type="checkbox" name="remember_me" value="true"></td>
-                                <td nowrap class="bodyText" colspan="2" align="left">Remember Me</td>
+                                <td align="right">&nbsp;</td>
+                                <td nowrap class="bodyText" colspan="2" align="left"> &nbsp; <input onkeypress="submitEnter(event,document.frmLogin)" type="checkbox" name="remember_me" value="true"> Remember Me</td>
                             </tr>
 
                            <tr><td colspan="3"><img src="/images/clear.gif" width="10" height="3" alt="" border="0" /></td></tr>
