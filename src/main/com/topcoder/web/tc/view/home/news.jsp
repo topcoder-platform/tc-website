@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />10.08.08<br />2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081008' refer='/tc' />">Spotlight Sessions with ACRush Chat Transcript</a></span><br /><br />
+        Before <a href="/tc?module=MatchDetails&amp;rd=13528">TCHS SRM 59</a>, <tc-webtag:handle coderId="19849563" context="algorithm" /> was in the Arena chatting with members and offering up some valuable advice.  Read all about it <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081008' refer='/tc' />">here</a>.</td>
+        
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081008' refer='/tc' />">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=625150">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />10.08.08<br />11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=ProjectDetail&amp;pj=30005332">Help Architect a new Flex-ible TopCoder</a></span><br /><br />
@@ -33,7 +47,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />10.06.08<br />1:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081002' refer='/tc' />">Spotlight Session with SnapDragon Chat Transcript</a></span><br /><br />
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081002' refer='/tc' />">Spotlight Sessions with SnapDragon Chat Transcript</a></span><br /><br />
         Before <a href="/tc?module=MatchDetails&amp;rd=13527">TCHS SRM 58</a>, Spotlight Sessions with <tc-webtag:handle coderId="272072" context="algorithm" /> took place. If you missed this exciting and informative chat session, be sure to check out the <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081002' refer='/tc' />">chat transcript</a>. Don't miss the rest of the <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Spotlight Sessions</a> coming up!</td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -117,7 +131,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />09.22.08<br />6:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20080920' refer='/tc' />">Spotlight Session with Petr Chat Transcript</a></span><br /><br />
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20080920' refer='/tc' />">Spotlight Sessions with Petr Chat Transcript</a></span><br /><br />
         Before <a href="/tc?module=MatchDetails&amp;rd=13526">TCHS SRM 57</a>, the first of our Spotlight Sessions took place with <tc-webtag:handle coderId="10574855" context="algorithm" />.  If you missed this educational and motivational chat session, be sure to check out the <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20080920' refer='/tc' />">chat transcript</a>.  Don't miss the rest of the <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Spotlight Sessions</a> coming up!</td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -150,18 +164,5 @@
         <a href="/tc?module=ViewSurvey&amp;sid=28284">details</a> | 
         <tc-webtag:forumLink forumID="523403" message="discuss this" /> | 
         <a href="/tc?&amp;module=SurveyList">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />09.18.08<br />10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/wiki/display/tc/Active+Bug+Races">TopCoder: Kills Bugs Dead</a></span><br /><br />
-        As we've mentioned, TopCoder recently began posting contests for many of our internal systems and the TopCoder Direct Cockpit, giving you the full resources of the Amazon cloud to work with. If you're not checking out the <a href="/wiki/display/tc/Active+Bug+Races">Active Bug Races</a> regularly, you're missing out on many opportunities for quick work, quick cash, and the chance to use the latest technology as we begin to put more and more on the virtual machines. Right now there are more than 75 Bug Races running for a total of over $6000 in prizes. Go get 'em!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/wiki/display/tc/Active+Bug+Races">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=623368">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
    

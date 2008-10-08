@@ -42,11 +42,12 @@
                 </div>
                 <div style="float: right;">
                 <h3 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h3>
-                    <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081002">TCHS SRM 58: Spotlight Session with <tc-webtag:handle coderId="272072" context="algorithm" /></a></strong><br />
-                    <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20080920">TCHS SRM 57: Spotlight Session with <tc-webtag:handle coderId="10574855" context="algorithm" /></a></strong><br />
+                    <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081008">TCHS SRM 59: Spotlight Session with</a> <tc-webtag:handle coderId="19849563" context="algorithm" /></strong><br />
+                    <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081002">TCHS SRM 58: Spotlight Session with</a> <tc-webtag:handle coderId="272072" context="algorithm" /></strong><br />
+                    <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20080920">TCHS SRM 57: Spotlight Session with</a> <tc-webtag:handle coderId="10574855" context="algorithm" /></strong><br />
                     <span style="text-decoration:none;"><tc-webtag:forumLink forumID="523401" message="Discuss this" /></span>
                 </div>
-                <br /><br />
+                <br /><br /><br /><br /><br />
 
                 <p style="font-family:lucida sans"><span class="title">Spotlight Sessions</span></p>
                 <p style="font:12px lucida sans;">TopCoder is proud to present a new series for high school students. Join the new <span style="font:18px lucida sans;">Spotlight Sessions</span> in the Arena.</p>
@@ -56,27 +57,32 @@
                 <p style="font:12px lucida sans;">This is a great time to refer your friends for them to benefit from these chat sessions.  Don't forget about our <a href="/tc?module=Static&amp;d1=hs&amp;d2=referralProgram">referral program</a>!</p>
                 <p style="font:12px lucida sans;">Don't miss the SRMs and the great chats before them:</p>
                 
-                <%-- Done 
+                <%-- Petr Done 
                 <p style="font:12px lucida sans;"><span class="subtitle">Saturday, September 20 at 11:00 a.m. EDT (GMT -4)<br />
                 Spotlight Session with <tc-webtag:handle coderId="10574855" context="algorithm" /></span></p>
                 <p style="font:12px lucida sans;"><tc-webtag:handle coderId="10574855" context="algorithm" /> is the #1 ranked Algorithm Coder at TopCoder and is helping to edge the second rated Russians past the Pols in our top Country list.  He was the Algorithm Champion for the 2007 TopCoder Collegiate Challenge, the 2006 TopCoder Collegiate Challenge and the 2006 TopCoder Open.  He has been to the last six onsite events and hit the highest rating ever achieved in May 2008 at 3890.  <tc-webtag:handle coderId="10574855" context="algorithm" /> is known world wide for his programming talents and boosts to have around 200 programming t-shirts.  We're sure you can learn a lot from <tc-webtag:handle coderId="10574855" context="algorithm" /> in the chat room!</p>
                 --%>
-                <p style="font:12px lucida sans;"><span class="subtitle">Saturday, September 20 at 11:00 a.m. EDT (GMT -4)<br />
+                <p class="grayedOut" style="font:12px lucida sans;"><span class="subtitle">Saturday, September 20 at 11:00 a.m. EDT (GMT -4)<br />
                 Spotlight Session with <tc-webtag:handle coderId="10574855" context="algorithm" /></span></p>
-                <p style="font:12px lucida sans;">View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20080920">here</a>.</p>
+                <p class="grayedOut" style="font:12px lucida sans;">View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20080920">here</a>.</p>
                 
-                <%-- Done 
+                <%-- SnapDragon Done 
                 <p style="font:12px lucida sans;"><span class="subtitle">Thursday, October 2 at 6:00 a.m. EDT (GMT -4)<br />
                 Spotlight Session with <tc-webtag:handle coderId="272072" context="algorithm" /></span></p>
                 <p style="font:12px lucida sans;"><tc-webtag:handle coderId="272072" context="algorithm" /> is an elite TopCoder member.  He holds the highest total number of SRM wins and was a tournament finalist in 2002, 2003, 2004, 2006, and 2007.  <tc-webtag:handle coderId="272072" context="algorithm" /> is an ACM - 98 Gold Medalist and now he is a Judge and Writer for multiple ACM contests, including the World Finals.  Not only is <tc-webtag:handle coderId="272072" context="algorithm" /> a TopCoder celebrity, but he's also a gaming celebrity.  Tetris Attack, Pokemon Puzzle League, Amplitude, Super Monkey Ball and Prince of Persia, are a just a few of the games that <tc-webtag:handle coderId="272072" context="algorithm" /> has incredible achievements with.  And don't forget his amazing showing at the 2006 TopCoder Open when he wowed the crowed with his incredibly quick Dance, Dance Revolution moves.  Don't miss <tc-webtag:handle coderId="272072" context="algorithm" /> in the chat room!</p>
                 --%>
-                <p style="font:12px lucida sans;"><span class="subtitle">Thursday, October 2 at 6:00 a.m. EDT (GMT -4)<br />
+                <p class="grayedOut" style="font:12px lucida sans;"><span class="subtitle">Thursday, October 2 at 6:00 a.m. EDT (GMT -4)<br />
                 Spotlight Session with <tc-webtag:handle coderId="272072" context="algorithm" /></span></p>
-                <p style="font:12px lucida sans;">View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081002">here</a>.</p>
+                <p class="grayedOut" style="font:12px lucida sans;">View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081002">here</a>.</p>
                 
+                <%-- ACRush Done 
                 <p style="font:12px lucida sans;"><span class="subtitle">Wednesday, October 8 at 10:00 a.m. EDT (GMT -4)<br />
                 Spotlight Session with <tc-webtag:handle coderId="19849563" context="algorithm" /></span></p>
                 <p style="font:12px lucida sans;">From China, <tc-webtag:handle coderId="19849563" context="algorithm" /> is ranked as the number one Algorithm competitor in his country and has been for two years, as well as the number one coder from his school, Tsinghua University.  Not only that, but <tc-webtag:handle coderId="19849563" context="algorithm" /> is third overall at TopCoder in Algorithm competition rating and has been a target since the 2006 TCCC (only a year since he had joined TopCoder).  <tc-webtag:handle coderId="19849563" context="algorithm" /> has been an onsite finalist at TopCoder events five times, holds numerous accolades at other prestigious events like the ACM and ICPC, and is considered by many the idol of all Chinese coders.  <tc-webtag:handle coderId="19849563" context="algorithm" /> has a positive outlook, believes accuracy is more important than ever these days, and confidence is the first secret of his success.  Be sure to join everyone in the chat room to hear from <tc-webtag:handle coderId="19849563" context="algorithm" />.</p>
+                --%>
+                <p class="grayedOut" style="font:12px lucida sans;"><span class="subtitle">Wednesday, October 8 at 10:00 a.m. EDT (GMT -4)<br />
+                Spotlight Session with <tc-webtag:handle coderId="19849563" context="algorithm" /></span></p>
+                <p class="grayedOut" style="font:12px lucida sans;">View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081008">here</a>.</p>
                 
                 <p style="font:12px lucida sans;"><span class="subtitle">Tuesday, October 28 at 8:00 p.m. EDT (GMT -4)<br />
                 Spotlight Session with <tc-webtag:handle coderId="270505" context="algorithm" /></span></p>
