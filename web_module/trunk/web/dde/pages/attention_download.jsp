@@ -68,8 +68,7 @@
 		<td width="100%">
 			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
 				<tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
-				<tr><td class="normal"><img src="/images/headAttention.gif" alt="Attention" width="545" height="35" border="0" /></td></tr>
-				<tr><td class="subhead">You need permission to download this software</td></tr>
+				<tr><td><h3>You need permission to download this software</h3></td></tr>
 				<tr><td class="normal">
 						<p><a href="s_subscriptions.jsp">Subscriptions</a> to the TopCoder Software Component Catalog include access to all components in the catalog, plus any updates and new 
 						components added during the term of your suscription. To purchase a Subscription call us at 1-866-TOP-CODE or email us at <a href="mailto:sales@topcodersoftware.com">sales@topcodersoftware.com</a>.</p>
