@@ -29,8 +29,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>TopCoder Software</title>
-    <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-    <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+<link rel="stylesheet" type="text/css" href="/includes/tcs_style.css">
+<jsp:include page="/includes/header-files.jsp" />
+<script language="JavaScript" type="text/javascript" src="/scripts/javascript.js">
+</script>
 </head>
 
 <body class="body">
@@ -41,8 +43,8 @@
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
 <!-- Header ends -->
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+<div class="minheight">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="middle">
     <tr valign="top">
 
 <!-- Left Column begins -->
@@ -54,15 +56,17 @@
 <!-- Left Column ends -->
 
 <!-- Gutter 1 begins -->
-        <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+        <td width="25"><img src="/images/clear.gif" alt="" width="25" height="10" border="0" /></td>
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
-        <td width="100%">
-            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+        <td width="100%" align="left">
+        	<h3>You need permission to participate in this Developer Forum</h3>
+            <table width="95%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-                <tr><td><h3>You need permission to participate in this Developer Forum</h3></td></tr>
-                <tr><td class="normal">
+               
+                <tr>
+                <td class="normal">
                         <p>TopCoder Software selects a few experienced individuals to participate in each Developer Forum. You always have access
                         to <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Customer Forums.</a></p>
 
@@ -70,7 +74,6 @@
                         can participate in future Developer Forums.</p>
                     </td>
                 </tr>
-                <tr><td height="40"><img src="/images/clear.gif" alt="" width="10" height="40" border="0" /></td></tr>
             </table>
         </td>
 
@@ -79,7 +82,7 @@
 <!-- Gutter 3 ends -->
     </tr>
 </table>
-
+</div>
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
