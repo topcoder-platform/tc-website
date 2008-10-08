@@ -61,7 +61,7 @@
                 <tr><td><h3>Competition-Based Methodology</h3?</td></tr>
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
 			</table>
-            <img src="/images/apps/apps_meth_graph.gif" alt="Application Methodology" width="530" height="200" border="0" />
+            <img src="/images/apps/apps_meth_graph.png" alt="Application Methodology" width="740" height="200" border="0" />
 
             
             
