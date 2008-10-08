@@ -105,7 +105,9 @@
 <body class="body" marginheight="0" marginwidth="0" onLoad="frmCompRequest.name.focus()">
 
 <!-- Header begins -->
-<jsp:include page="/includes/top.jsp"/>
+<jsp:include page="/includes/top.jsp">
+<jsp:param name="TCDlevel" value="software" />
+</jsp:include>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
