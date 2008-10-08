@@ -176,7 +176,7 @@
                     <td width="98%">
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
-                            <tr><td class="normal"><img src="/images/headSearchResults.gif" alt="Search Results" width="170" height="32" border="0"></td></tr>
+                            <tr><td class="normal"><img src="/images/hd_search_results.png" alt="Search Results" border="0"></td></tr>
                         </table>
                     <td width="1%">
                         <table width="199" border="0" cellpadding="0" cellspacing="0">
