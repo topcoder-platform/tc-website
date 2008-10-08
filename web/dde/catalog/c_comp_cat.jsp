@@ -90,7 +90,7 @@
 <!--Search-->
 
             <table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
-                <tr><td colspan="3" height="35"><img src="/images/catalogHeader.gif" alt="Component Catalog" width="400" height="35" border="0" /></td></tr>
+                <tr><td colspan="3" height="35"><img src="/images/hd_comp_catalog.png" alt="Component Catalog" border="0" /></td></tr>
                 <tr>
                     <td height="8"><img src="/images/clear.gif" alt="" width="150" height="8" border="0" /></td>
                     <td height="8"><img src="/images/clear.gif" alt="" width="150" height="8" border="0" /></td>

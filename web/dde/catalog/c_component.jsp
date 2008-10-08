@@ -279,7 +279,7 @@
 <!-- Middle Column begins -->
         <td width="99%" style="padding: 15px">
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
-                <tr><td class="normal" colspan="2" style="padding-bottom: 15px"><img src="/images/catalog/catpg_title.gif" alt="Component Catalogs" width="134" height="32" border="0" /></td></tr>
+                <tr><td class="normal" colspan="2" style="padding-bottom: 15px"><img src="/images/hd_comp_catalog.png" alt="Component Catalogs" border="0" /></td></tr>
                 <tr>
                     <td colspan="2">
                         <table cellspacing="0" cellpadding="0" border="0" style="padding-bottom: 15px">
