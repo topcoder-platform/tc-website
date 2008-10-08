@@ -98,9 +98,9 @@
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
                 <tr><td class="normal"><img src="/images/headRegNewAcct.gif" alt="Register New Account" width="545" height="35" border="0" /></td></tr>
 <%  if (activated) { %>
-                <tr><td class="subhead">New Account Activated</td></tr>
+                <tr><td><h3>New Account Activated</h3></td></tr>
 <%  } else { %>
-                <tr><td class="subhead">Invalid Activation Code!</td></tr>
+                <tr><td class="errorText">Invalid Activation Code!</td></tr>
 <%  } %>
             </table>
 
