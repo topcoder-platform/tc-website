@@ -464,7 +464,7 @@
         break;
     default:
     case (int)ComponentVersionInfo.COMPLETED:
-        strAvailability = "<strong><a href=\"/tcs?module=ViewComponentTerms&comp=" + componentInfo.getId() + "&ver=" + versionInfo.getVersion() + "\"><img src='/images/catalog/catpg_download.jpg' alt='' border='0' /></a></strong>";
+        strAvailability = "<strong><a href=\"/tcs?module=ViewComponentTerms&comp=" + componentInfo.getId() + "&ver=" + versionInfo.getVersion() + "\"><img src='/images/catalog/catpg_download.jpg' alt='' border='0'  /></a></strong>";
         break;
     }
 %>
