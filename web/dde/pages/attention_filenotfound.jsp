@@ -64,8 +64,7 @@
 		<td width="100%">
 			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
 				<tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
-				<tr><td class="normal"><img src="/images/headAttention.gif" alt="Attention" width="545" height="35" border="0" /></td></tr>
-				<tr><td class="subhead">This component is not available to download</td></tr>
+				<tr><td><h3>This component is not available to download</h3></td></tr>
 				<tr><td class="normal">
 						<p>There may be a problem with one of our servers.</p>
 
