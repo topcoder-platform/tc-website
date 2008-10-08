@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />10.08.08<br />11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=ProjectDetail&amp;pj=30005332">Help Architect a new Flex-ible TopCoder</a></span><br /><br />
+        In an effort to expand its Flex appeal, TopCoder will be hosting a broad range of Adobe Flex based competitions.  Today TopCoder launched its first Flex based architecture competition to coincide with the previous Studio effort "Flex 3 Calendar View".  TopCoder's Cockpit competitions continue as well as many others as more companies adopt the Adobe Flex platform.  Come see what other members are saying and be a part TopCoder's effort to build a new Flex component catalog.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=ProjectDetail&amp;pj=30005332">details</a> | 
+        <a href="http://tcstudioblogs.com/?p=37">flex blog</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&amp;threadID=2107&amp;start=0&amp;mc=9#10287">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />10.06.08<br />6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100608">TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31</a></span><br /><br />
@@ -20,7 +34,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />10.06.08<br />1:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081002' refer='/tc' />">Spotlight Session with SnapDragon Chat Transcript</a></span><br /><br />
-        Before <a href="/tc?module=MatchDetails&amp;rd=13527">TCHS SRM 58</a>, Spotlight Sessions with <tc-webtag:handle coderId="272072" context="algorithm" /> took place. If you missed this exciting and informative chat session, be sure to check out the <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081002' refer='/tc' />">chat transcript</a>. Don't miss the rest of the <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Spotlight Sessions</a> coming up!
+        Before <a href="/tc?module=MatchDetails&amp;rd=13527">TCHS SRM 58</a>, Spotlight Sessions with <tc-webtag:handle coderId="272072" context="algorithm" /> took place. If you missed this exciting and informative chat session, be sure to check out the <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081002' refer='/tc' />">chat transcript</a>. Don't miss the rest of the <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Spotlight Sessions</a> coming up!</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081002' refer='/tc' />">details</a> | 
@@ -149,19 +163,5 @@
         <a href="/wiki/display/tc/Active+Bug+Races">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=623368">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-   
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />09.17.08<br />3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Introducing Spotlight Sessions at TopCoder</a></span><br /><br />
-        Designed exclusively for high school students, TopCoder is excited to announce Spotlight Sessions!  Spotlight Sessions will feature some of the best role models at TopCoder in the Arena to chat with you about how they got where they are today.  This is your chance to learn from the best, pick up some great tips, and improve your skills.  Don't miss all of the great chat sessions.  The first one will be on Saturday at 11:00 a.m. EDT (GMT -4) in the TopCoder Arena before <a href="/tc?module=MatchDetails&amp;rd=13526">TCHS SRM 57</a> featuring <tc-webtag:handle coderId="10574855" context="algorithm" />.  Check out more details <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">here</a>!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">details</a> | 
-        <tc-webtag:forumLink forumID="523401" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
    
