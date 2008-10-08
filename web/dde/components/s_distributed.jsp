@@ -72,7 +72,7 @@
 			<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				<tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
 				<tr><td class="normal"><img src="/images/hd_comp_what.png" alt="What are Components" border="0" /></td></tr>
-				<tr><td class="subhead">Distributed Development</td></tr>
+				<tr><td><h3>Distributed Development</h3></tr>
 				<tr><td class="normal">
 						<p>All TopCoder Software is developed utilizing The TopCoder Software Distributed Development Methodology. This
 						methodology begins and ends with our customers. The four stages of component development are <strong>Collaboration,

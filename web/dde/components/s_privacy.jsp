@@ -62,8 +62,7 @@
 		<td width="100%">
 			<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				<tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-				<tr><td class="normal"><img src="/images/headPrivacyPolicy.gif" alt="Privacy Policy" width="545" height="32" border="0" /></td></tr>
-				<tr><td class="subhead">Privacy Statement</td></tr>
+				<tr><td class="normal"><img src="/images/hd_privacy_policy.png" alt="Privacy Policy" border="0" /></td></tr>
 				<tr><td class="normal">
 						<p>&nbsp;</p>
 
