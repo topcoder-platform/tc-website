@@ -160,11 +160,11 @@
                     <td class="bodyText" width="100%">
                     
                         <img src="/images/clear.gif" alt="" width="380" height="10" border="0" /><br />
-                        <p><b>Forgot your password?</b><br />
+                        <h2>Forgot your password?</h2>
                         If you cannot remember your password <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click here</a>
                         and we can help you restore your account.</p>
-						<br />
-                        <p><b>New to TopCoder?</b><br />
+						<br /><br />
+                        <h2>New to TopCoder?</h2>
                         <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" class="bodyText">Register now.</a>
                         After you complete the registration process, we will send your account activation code via email.</p>
                       
