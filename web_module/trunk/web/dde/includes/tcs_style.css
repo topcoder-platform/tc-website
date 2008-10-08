@@ -1,4 +1,7 @@
 /* Body Style */
+A { color: #d50000; }
+A:hover { text-decoration: underline; }
+A img { border: 0; }
 a { outline: none; }
 
 .admin { background-color: #6C6C6C; }
