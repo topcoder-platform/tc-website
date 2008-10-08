@@ -26,7 +26,7 @@
                 row = (ResultSetContainer.ResultSetRow)it.next();
         %>
             <tr>
-                <td class="topsText" align="left"><a href="/catalog/c_component.jsp?comp=<%=row.getLongItem("component_id")%>&ver=<%=row.getIntItem("version")%>"><%=row.getStringItem("component_name")%></a></td>
+                <td class="topsText" align="left"><a href="/catalog/c_component.jsp?comp=<%=row.getLongItem("component_id")%>&ver=<%=row.getIntItem("version")%>" class="top"><%=row.getStringItem("component_name")%></a></td>
                 <td class="topsText" align="right"><%=row.getIntItem("num_downloads")%></td>
             </tr>
         <%

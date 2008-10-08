@@ -2330,3 +2330,9 @@ table.stat tr.highlight td.value, table.stat tr.highlight td.valueC, table.stat 
 }
 
 hr { margin: 12px 0; }
+
+
+a.top { color: #333; text-decoration: none; }
+a.top: active { color: #333; text-decoration: none; }
+a.top: visited { color: #333; text-decoration: none; }
+a.top:hover { text-decoration: underline; color: #d50000; }
