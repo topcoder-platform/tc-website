@@ -116,7 +116,7 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
                 <tr><td class="normal"><img src="/images/headDownloadNow.gif" alt="Download Now" width="545" height="32" border="0" /></td></tr>
-                <tr><td class="subhead"><%= componentManager.getComponentInfo().getName() %> <span class="version"><%= componentManager.getVersionInfo().getVersionLabel() %></span></td></tr>
+                <tr><td><h3><%= componentManager.getComponentInfo().getName() %> <span class="version"><%= componentManager.getVersionInfo().getVersionLabel() %></span></h3></td></tr>
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
             </table>
 

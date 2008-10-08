@@ -61,8 +61,7 @@
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
-                <tr><td class="normal"><img src="/images/headAttention.gif" alt="Attention" width="545" height="35" border="0" /></td></tr>
-                <tr><td class="subhead">The required category was not found</td></tr>
+                <tr><td><h3>The required category was not found</h3></td></tr>
                 <tr><td class="normal">
 
                         <p>If you have any questions contact us at <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a>.</p>
