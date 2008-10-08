@@ -29,7 +29,6 @@
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css">
 
-<jsp:include page="/includes/header-files.jsp" />
 <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js">
 </script>
 
@@ -38,9 +37,7 @@
 <body class="body" marginheigh="0" marginwidth="0">
 
 <!-- Header begins -->
-<jsp:include page="/includes/top.jsp">
-<jsp:param name="TCDlevel" value="software" />
-</jsp:include>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
