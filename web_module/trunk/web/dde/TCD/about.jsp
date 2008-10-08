@@ -41,7 +41,6 @@
 					
 						<div class="content_columns">							
 								<h2><img src="/images/welcome_to_topcoder_direct.png" width="295" height="27" alt="Welcome to TopCoder Direct" /></h2>
-								<h3>A Message from Jack Hughes</h3>
 								<p><strong>Why is it that there always seems too much work to do?  Why do we always seem to be waiting?  Waiting for someone to finish before we can move on?  Why is it that, even with all of the new tools, processes and methods, the list of things to do grows faster than what gets done?  Why is is that, no matter how hard we try - how much resource we add (and the cost that goes with it), users, customers and management never seem to be satisfied?</strong><br />
                                   <br />
                                   Enterprise IT today faces serious challenges.  With the explosion of information within and external to the enterprise, resource constrained IT has an increasingly difficult time keeping up with user requests.  Whether implementing and supporting enterprise class applications or responding to changes in existing systems or new technologies, resource constraints create contentious relationships with IT consumers as the organization tries to keep up.  There never seems to be enough money or resource to keep up with demand.  The net result is business functions that never seem to make the priority list, further adding to the frustration.<br />
