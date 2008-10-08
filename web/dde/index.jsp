@@ -86,7 +86,7 @@
             <h3><a href="#">Your Cockpit is Waiting</a>
                 <small>| Jul 3, 2008</small>
             </h3>
-            <p>The TopCoder Cockpit version 1.0 Release is the tool you’ll use to access our community with TopCoder
+            <p>The TopCoder Cockpit version 1.0 Release is the tool you'll use to access our community with TopCoder
                 Direct...</p>
 
             <p class="learn_more"><a href="#">Learn More</a></p>
