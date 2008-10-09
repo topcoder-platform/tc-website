@@ -63,7 +63,7 @@
 </div>
 <%-- #content ends --%>
 
-<%--BANNER AD--%>
+<%--BANNER--%>
 <div id="banner">
     <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp"><img src="images/learnmore.png" alt="Learn More About TopCoder Direct" /></a>
 </div>
