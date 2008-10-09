@@ -26,8 +26,8 @@
 		</div><%-- platform_row ends--%>
 		<div class="platform_row_dark">
 			<div>
-				<a href="http://software.dev.topcoder.com/catalog/index.jsp"><img src="/i/component_catalog.png" alt="Component Catalog" class="platform_img" /></a>
-				<h3><a href="http://software.dev.topcoder.com/catalog/index.jsp"><img src="/i/component_catalog_text.png" alt="Component Catalog" width="204" height="29" /></a><span class="sub_header"> - <a href="http://software.dev.topcoder.com/catalog/index.jsp">VIEW AND DOWNLOAD COMPONENTS NOW!</a></span></h3>				
+				<a href="http://software.topcoder.com/catalog/index.jsp"><img src="/i/component_catalog.png" alt="Component Catalog" class="platform_img" /></a>
+				<h3><a href="http://software.topcoder.com/catalog/index.jsp"><img src="/i/component_catalog_text.png" alt="Component Catalog" width="204" height="29" /></a><span class="sub_header"> - <a href="http://software.topcoder.com/catalog/index.jsp">VIEW AND DOWNLOAD COMPONENTS NOW!</a></span></h3>				
 				<p class="red-title">Reuse, because you can.</p>
 				<p>Topcoder's catalog of re-usable components, TopCoder delivers high-quality software at a lower cost than the competition.</p>
 			</div>
