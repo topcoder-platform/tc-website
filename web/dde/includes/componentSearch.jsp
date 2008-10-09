@@ -1,4 +1,4 @@
-<table border="0" cellpadding="0" cellspacing="3">
+<table border="0" cellpadding="0" cellspacing="2">
     <tr><form name="frmSiteSearch" action="/catalog/c_showroom_search.jsp" method="post">
         <input type="hidden" name="a" value="search"/>
         <td valign="middle"><input class="searchForm" type="text" size="12" name="keywords" value="Search" maxlength="40" onFocus="javascript: if (document.frmSiteSearch.keywords.value=='Search') document.frmSiteSearch.keywords.value = '';" onBlur="javascript: if (document.frmSiteSearch.keywords.value == '') document.frmSiteSearch.keywords.value = 'Search';"></td>

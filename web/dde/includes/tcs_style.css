@@ -1754,6 +1754,8 @@ A.registerLinks:active
 	color: #000;
 	font-style: normal;
 	font-weight: normal;
+	width: 99px;
+	*width: 103px;
 }
 
 .searchResults
@@ -2206,7 +2208,7 @@ table.stat td.title
 
 table.stat td.header,table.stat td.headerC,table.stat td.headerR
 {
-	color: #FFFFFF;
+	color: #FFF;
 	background: #999999;
 	border-top: 1px solid #CCCCCC;
 	font-size: 12px;
