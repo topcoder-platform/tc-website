@@ -691,7 +691,7 @@ A.footerLinks:active
 	line-height: 14px;
 }
 
-.forumBkgd { background-color: #819DA9; }
+.forumBkgd { background-color: #bbbbbb;  }
 .forumHeadFoot { background-color: #777777; }
 
 .forumMessage
@@ -942,7 +942,7 @@ A.forumTitleLink:active
 	font-weight: bold;
 	font-style: normal;
 	text-align: left;
-	background-color: #DAE5EB;
+	background-color: #eeeeee;
 	padding: 5px;
 }
 
@@ -1761,7 +1761,7 @@ A.registerLinks:active
 .searchResults
 {
 	font-size: 12px;
-	color: #013466;
+	color: #777777;
 	font-weight: bold;
 	font-style: normal;
 	text-align: left;
