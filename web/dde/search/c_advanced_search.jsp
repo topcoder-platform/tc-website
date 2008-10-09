@@ -62,11 +62,11 @@
 <!-- Left Column ends -->
 
 <!-- Gutter 1 begins -->
-        <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+        <td width="25"><img src="/images/clear.gif" alt="" width="25" height="10" border="0" /></td>
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
-        <td width="99%" class="minheight">
+        <td width="99%" class="minheight" align="left">
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
@@ -74,7 +74,7 @@
                 <tr><td height="30"><img src="/images/clear.gif" alt="" width="10" height="30" border="0" /></td></tr>
             </table>
 
-            <div align="center">
+            
             <form action="/catalog/c_showroom_search.jsp" method="post" name="frmSiteSearch">
             <input type="hidden" name="a" value="search"/>
             <table width="80%" border="0" cellpadding="0" cellspacing="1" align="center" class="forumBkgd">
@@ -96,15 +96,15 @@
 
                             <tr valign="middle">
                                 <td width="49%">
-                                    <input type="checkbox" name="comp_status" value="<%= ComponentVersionInfo.COLLABORATION %>" onclick="singleclicked(this, status_all)" /> Collaboration<br>
-                                    <input type="checkbox" name="comp_status" value="<%= ComponentVersionInfo.SPECIFICATION %>" onclick="singleclicked(this, status_all)" /> Design and Architecture<br>
+                                    <input type="checkbox" name="comp_status" value="<%= ComponentVersionInfo.COLLABORATION %>" onclick="singleclicked(this, status_all)" /> Collaboration<br />
+                                    <input type="checkbox" name="comp_status" value="<%= ComponentVersionInfo.SPECIFICATION %>" onclick="singleclicked(this, status_all)" /> Design and Architecture<br />
                                 </td>
 
                                 <td width="10"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td>
 
                                 <td width="49%">
-                                    <input type="checkbox" name="comp_status" value="<%= ComponentVersionInfo.DEVELOPMENT %>" onclick="singleclicked(this, status_all)" /> Development and Testing<br>
-                                    <input type="checkbox" name="comp_status" value="<%= ComponentVersionInfo.COMPLETED %>" onclick="singleclicked(this, status_all)" /> Complete<br>
+                                    <input type="checkbox" name="comp_status" value="<%= ComponentVersionInfo.DEVELOPMENT %>" onclick="singleclicked(this, status_all)" /> Development and Testing<br />
+                                    <input type="checkbox" name="comp_status" value="<%= ComponentVersionInfo.COMPLETED %>" onclick="singleclicked(this, status_all)" /> Complete<br />
                                 </td>
                             </tr>
 
@@ -259,18 +259,19 @@
                     </td>
                 </tr>
             </table>
-
-            <table border="0" cellpadding="3" cellspacing="0">
-                <tr><td><img src="/images/clear.gif" width="1" height="3" alt="" border="0"></td></tr>
+		
+            <table border="0" cellpadding="3" cellspacing="0" width="80%" align="center">
+                <tr><td colspan="3"><img src="/images/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
 
                 <tr>
-                    <td class="bodyText" align="center"><input type="reset" name="Clear" value="Clear"></td>
-                    <td class="bodyText" align="center"><img src="/images/clear.gif" width="2" height="3" alt="" border="0"></td>
-                    <td class="bodyText" align="center"><input type="submit" name="Search" value="Search"></td>
+                    <td align="right"><input type="reset" name="Clear" value="Clear"></td>
+                    <td><img src="/images/clear.gif" width="1" height="10" alt="" border="0"></td>
+                    <td align="left"><input type="submit" name="Search" value="Search"></td>
                 </tr>
 
-                <tr><td><img src="/images/clear.gif" width="1" height="20" alt="" border="0"></td></tr>
+                <tr><td colspan="3"><img src="/images/clear.gif" width="1" height="20" alt="" border="0"></td></tr>
             </table>
+           
             </form>
             </div>
         </td>
