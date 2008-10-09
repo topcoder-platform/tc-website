@@ -37,7 +37,7 @@
 <head>
 	<title>TopCoder Software</title>
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-  
+  <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css"/>
 <script language="JavaScript" type="text/javascript" src="/scripts/javascriptAdmin.js">
 </script>
 

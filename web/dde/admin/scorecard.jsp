@@ -30,7 +30,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-  
+ <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css"/> 
 <script language="JavaScript" type="text/javascript" src="/scripts/javascriptAdmin.js">
 </script>
 
@@ -258,7 +258,7 @@ for (int stIdx=0; stIdx<stOptions.length; stIdx++) {
   <tr>
     <td colspan="2" bgcolor="#00FFFF">
       <strong>Place for new group</strong></td>
-    <td bgcolor="#00FFFF"><input type="submit" name="a" value="Add Group" onclick="<%="set(this.form,'addGroup',-1,0,0)"%>"></td>
+    <td bgcolor="#00FFFF"><input type="submit" name="a" value="Add Group" onClick="<%="set(this.form,'addGroup',-1,0,0)"%>"></td>
   </tr>
 <%
 if (groups == null) groups = new TGroup[0];
@@ -273,16 +273,16 @@ for (int groupIdx=0; groupIdx<groups.length; groupIdx++) {
   <a name="GO"></a>
 <%}%>
       <strong>Group: </strong><input type="text" name='<%=groupPrefix%>.groupName' value='<%=group.getGroupName()%>' size=50></td>
-    <td bgcolor="#00FFFF"><input type="submit" name="a" value="Delete Group" onclick="<%="set(this.form,'deleteGroup',"+groupIdx+",0,0)"%>"></td>
+    <td bgcolor="#00FFFF"><input type="submit" name="a" value="Delete Group" onClick="<%="set(this.form,'deleteGroup',"+groupIdx+",0,0)"%>"></td>
   </tr>
   <tr>
-    <td bgcolor="#00FFFF"><input type="submit" name="a" value="Add Group" onclick="<%="set(this.form,'addGroup'," +groupIdx+",0,0)"%>"></td>
+    <td bgcolor="#00FFFF"><input type="submit" name="a" value="Add Group" onClick="<%="set(this.form,'addGroup'," +groupIdx+",0,0)"%>"></td>
   </tr>
 
 <%-- Possibility to insert a section before the first section --%>
   <tr>
     <td colspan="2" bgcolor="#FF99FF"><strong>Place for new section</strong></td>
-    <td bgcolor="#FF99FF"><input type="submit" name="a" value="Add Section" onclick="<%="set(this.form,'addSection',"+groupIdx+",-1,0)"%>"></td>
+    <td bgcolor="#FF99FF"><input type="submit" name="a" value="Add Section" onClick="<%="set(this.form,'addSection',"+groupIdx+",-1,0)"%>"></td>
   </tr>
 
 <%
@@ -300,16 +300,16 @@ for (int sectionIdx=0; sectionIdx<sections.length; sectionIdx++) {
 <%}%>
       <strong>Section:</strong><br><textarea name='<%=sectionPrefix%>.sectionName' cols="65" rows="1"><%=section.getSectionName()%></textarea></td>
     <td rowspan="2" bgcolor="#FF99FF"><strong>Weight:</strong><input type="text" name='<%=sectionPrefix%>.sectionWeight' value='<%=section.getSectionWeight()%>'></td>
-    <td bgcolor="#FF99FF"><input type="submit" name="a" value="Delete Section" onclick="<%="set(this.form,'deleteSection',"+groupIdx+","+sectionIdx+",0)"%>"></td>
+    <td bgcolor="#FF99FF"><input type="submit" name="a" value="Delete Section" onClick="<%="set(this.form,'deleteSection',"+groupIdx+","+sectionIdx+",0)"%>"></td>
   </tr>
   <tr>
-    <td bgcolor="#FF99FF"><input type="submit" name="a" value="Add Section" onclick="<%="set(this.form,'addSection',"+groupIdx+","+sectionIdx+",0)"%>"></td>
+    <td bgcolor="#FF99FF"><input type="submit" name="a" value="Add Section" onClick="<%="set(this.form,'addSection',"+groupIdx+","+sectionIdx+",0)"%>"></td>
   </tr>
 
 <%-- Possibility to insert a question before the first question --%>
   <tr>
     <td colspan="2"><strong>Place for new question</strong></td>
-    <td><input type="submit" name="a" value="Add Question" onclick="<%="set(this.form,'addQuestion',"+groupIdx+","+sectionIdx+",-1)"%>"></td>
+    <td><input type="submit" name="a" value="Add Question" onClick="<%="set(this.form,'addQuestion',"+groupIdx+","+sectionIdx+",-1)"%>"></td>
   </tr>
 
 <%
@@ -327,7 +327,7 @@ for (int questionIdx=0; questionIdx<questions.length; questionIdx++) {
 <%}%>
       <strong>Question:</strong><br><textarea name="<%=questionPrefix%>.questionText" cols="65" rows="2"><%=question.getQuestionText()%></textarea></td>
     <td><strong>Weight:</strong><input type="text" name="<%=questionPrefix%>.questionWeight" value='<%=question.getQuestionWeight()%>'></td>
-    <td><input type="submit" name="a" value="Delete Question" onclick="<%="set(this.form,'deleteQuestion',"+groupIdx+","+sectionIdx+","+questionIdx+")"%>"></td>
+    <td><input type="submit" name="a" value="Delete Question" onClick="<%="set(this.form,'deleteQuestion',"+groupIdx+","+sectionIdx+","+questionIdx+")"%>"></td>
   </tr>
   <tr>
     <td><strong>Question Type:</strong><select name="<%=questionPrefix%>.questionType">
@@ -338,7 +338,7 @@ for (int optIdx=0; optIdx<qOptions.length; optIdx++) {
       <option value="<%=optIdx+1%>"<%if(question.getQuestionType()==optIdx+1){%> selected="selected"<%}%>> <%=qOptions[optIdx]%></option>
 <%}%>
     </select></td>
-    <td><input type="submit" name="a" value="Add Question" onclick="<%="set(this.form,'addQuestion',"+groupIdx+","+sectionIdx+","+questionIdx+")"%>"></td>
+    <td><input type="submit" name="a" value="Add Question" onClick="<%="set(this.form,'addQuestion',"+groupIdx+","+sectionIdx+","+questionIdx+")"%>"></td>
   </tr>
 <%-- End Question --%>
 <%-- End Section --%>
@@ -346,9 +346,9 @@ for (int optIdx=0; optIdx<qOptions.length; optIdx++) {
 <% }}} %>
 
 </table>
-<input type="submit" name="a" value="Save To NEW Scorecard" onclick="set(this.form,'save',0,0,0)"><br>
+<input type="submit" name="a" value="Save To NEW Scorecard" onClick="set(this.form,'save',0,0,0)"><br>
 <% if (template.getStatus() == 0 && template.getId() != -1) { %>
-<input type="submit" name="a" value="Save Existing Scorecard" onclick="set(this.form,'saveOld',0,0,0)"><br>
+<input type="submit" name="a" value="Save Existing Scorecard" onClick="set(this.form,'saveOld',0,0,0)"><br>
 <% } %>
 </form>
 
