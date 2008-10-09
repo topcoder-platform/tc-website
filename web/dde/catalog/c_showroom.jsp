@@ -333,7 +333,7 @@
                             <tr>
                                 <td class="normal">
                                     <img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br />
-                                    <img src="/images/headComponentsShort.gif" alt="Components" width="153" height="32" border="0"><br />
+                                    <img src="/images/hd_components.png" alt="Components" border="0"><br />
                                     <img src="/images/clear.gif" alt="" width="10" height="15" border="0" />
                                 </td>
                             </tr>
@@ -421,7 +421,7 @@
                             <tr>
                                 <td class="normal">
                                     <img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br />
-                                    <img src="/images/headComponentsShort.gif" alt="Components" width="153" height="32" border="0"><br />
+                                    <img src="/images/hd_components.png" alt="Components"border="0"><br />
                                     <img src="/images/clear.gif" alt="" width="10" height="15" border="0" />
                                 </td>
                             </tr>
@@ -488,7 +488,7 @@
                             <tr>
                                 <td class="normal">
                                     <img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br />
-                                    <img src="/images/headComponentsShort.gif" alt="Components" width="153" height="32" border="0"><br />
+                                    <img src="/images/hd_components.png" alt="Components" border="0"><br />
                                     <img src="/images/clear.gif" alt="" width="10" height="15" border="0" />
                                 </td>
                             </tr>
