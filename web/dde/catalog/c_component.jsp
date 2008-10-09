@@ -324,6 +324,7 @@
 <!-- Overview, Functionality -->
                 <tr valign="top">
                     <td width="50%" class="display" style="padding-right: 15px">
+                    	<br />
                         <p><strong>Overview</strong><br />
 
                         <%  BufferedReader reader = new BufferedReader(new StringReader(componentInfo.getDescription()));
@@ -338,7 +339,7 @@
                         %>
 
                         </p>
-
+						<br />
                         <p><strong>Functionality</strong><br /></p>
                         <ul>
 
@@ -372,7 +373,7 @@
 
 <!-- Technologies -->
                         <% if (technologies.length > 0) { %>
-
+						<br />
                         <p><strong>Technologies</strong><br />
 
                         <% for (int i=0; i < technologies.length - 1; i++) { %>
@@ -385,7 +386,7 @@
 
 <!-- Authors -->
                         <% if (teamMemberRoles.length > 0) { %>
-
+						<br />
                         <strong>Authors</strong>
                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
                          <tr valign="top">
@@ -477,7 +478,7 @@
                <tr>
 <!-- Documentation-->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 20px">
-                <tr><td><img src="/images/catalog/catpg_document.gif" alt="Documentation" width="116" height="13" border="0" />
+                <tr><td align="left"><img src="/images/catalog/catpg_document.gif" alt="Documentation" width="116" height="13" border="0" />
                       <font class="small"><a href="http://www.adobe.com/products/acrobat/readstep.html" target="_blank">Adobe Acrobat</a> is required to view TopCoder Software specification documentation.<br />
                   <hr width="100%" size="1" noshade="noshade" />
                       <table border="0" cellpadding="10" cellspacing="0" width="100%">
@@ -622,7 +623,7 @@
 
 <!-- Component Dependencies -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 20px">
-                <tr><td><img src="/images/catalog/catpg_compdep.gif" alt="Component Hierarchy" width="187" height="17" border="0" /><br />
+                <tr><td align="left"><img src="/images/catalog/catpg_compdep.gif" alt="Component Hierarchy" width="187" height="17" border="0" /><br />
                       <hr width="100%" size="1" noshade="noshade" />
                         <table border="0" cellpadding="0" cellspacing="0">
 <%  if (summaries.length == 0) {
@@ -653,11 +654,11 @@
 
 <!-- Enhancements -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 25px">
-                <tr><td><img src="/images/catalog/catpg_enhance.gif" alt="Enhancements" width="113" height="13" border="0" /><br />
+                <tr><td align="left"><img src="/images/catalog/catpg_enhance.gif" alt="Enhancements" width="113" height="13" border="0" /><br />
                       <hr width="100%" size="1" noshade="noshade" />
                         <table border="0" cellpadding="0" cellspacing="0">
                             <tr valign="top">
-                                <td class="rightColDisplay">Request an <a href="/components/request.jsp">enhancement</a>.</td>
+                                <td class="rightColDisplay"><a href="/components/request.jsp">Request an enhancement</a>.</td>
                             </tr>
                         </table>
                     </td>
@@ -667,7 +668,7 @@
 <!-- Forums for This Component -->
            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
 <!-- Current Forums begin -->
-                <tr><td><img src="/images/catalog/catpg_cforums.gif" alt="Current Forums" width="121" height="13" border="0" />
+                <tr><td align="left"><img src="/images/catalog/catpg_cforums.gif" alt="Current Forums" width="121" height="13" border="0" />
                       <font class="small">Participation in current forums requires user login and may require authorization</font><br />
                   <hr width="100%" size="1" noshade="noshade" />
 
@@ -681,14 +682,14 @@
                             <tr><td height="5"><img src="/images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
 
                             <tr><td width="170"><img src="/images/clear.gif" alt="" width="170" height="1" border="0" /></td></tr>
-                        </table>
+                        </table><br />
                     </td>
                 </tr>
 <!-- Current Forums end -->
 
 <!-- Previous Forums begin -->
 <%  if (hasPreviousForums) { %>
-                <tr><td><img src="/images/catalog/catpg_pforums.gif" alt="Previous Forums" width="129" height="13" border="0" />
+                <tr><td align="left"><img src="/images/catalog/catpg_pforums.gif" alt="Previous Forums" width="129" height="13" border="0" />
                 	<hr width="100%" size="1" noshade="noshade" />
                         <table border="0" cellspacing="0" cellpadding="0" width="100%">
 <%  for (int i=0; i < versions.length; i++) { %>

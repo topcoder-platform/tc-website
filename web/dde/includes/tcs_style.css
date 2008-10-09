@@ -428,9 +428,10 @@ A.breadcrumbLinks:active
 
 .catalogTable { background-color: #CCCCCC; }
 
-.catalogTable a:link { color: #333; text-decoration: underline; }
-.catalogTable a:visited { color: #666; text-decoration: underline; }
-.catalogTable a:active { color: #333; text-decoration: underline; }
+.catalogText a:link { color: #333; text-decoration: underline; }
+.catalogText a:visited { color: #666; text-decoration: underline; }
+.catalogText a:hover { color: #CC0000; text-decoration: underline; }
+.catalogText a:active { color: #333; text-decoration: underline; }
 
 .catalogTextOdd, .catalogTextEven, .catalogText
 {
