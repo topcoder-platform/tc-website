@@ -65,7 +65,7 @@
 
 <%--BANNER AD--%>
 <div id="bannerAd">
-    <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp"><img src="images/bannerAd.png" alt="banner Ad" /></a>
+    <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp"><img src="images/learnmore.png" alt="Learn More About TopCoder Direct" /></a>
 </div>
 <%-- NEWS --%>
 
