@@ -2354,3 +2354,9 @@ a.top { color: #333; text-decoration: underline; }
 a.top: visited { color: #333; text-decoration: underline; }
 a.top:hover { text-decoration: underline; color: #CC0000; }
 a.top: active { color: #333; text-decoration: underline; }
+
+.login-table td
+{
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
