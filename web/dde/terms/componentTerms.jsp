@@ -54,9 +54,9 @@
 <!-- Middle Column begins -->
         <td width="99%" align="center">
         	<div class="minheight">
-            <table border="0" cellpadding="0" cellspacing="10" width="530">
+            <table border="0" cellpadding="0" cellspacing="10" width="95%">
                 <tr>
-                    <td align="left" colspan="3">
+                    <td align="center">
                         <textarea name="terms" rows="20" cols="80" readonly ><%=request.getAttribute(Constants.TERMS)%></textarea>
                         <br />
                         <br />
