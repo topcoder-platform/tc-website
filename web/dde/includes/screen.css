@@ -95,6 +95,40 @@ HEADER
 		display: none;
 	}
 	
+	#member_count {
+		position: absolute;
+		width: auto;
+		height: 24px;
+		right:0;
+		top:106px;
+		color:#999999;
+		font-size:10px;
+		font-weight:normal;
+		margin:0;
+	}
+	
+	#member_count strong {
+	font-weight:bold;
+	color:#FF0000;
+	}
+	
+	#member_count2 {
+		position: absolute;
+		width: auto;
+		height: 24px;
+		left:0;
+		top:8px;
+		color:#999999;
+		font-size:10px;
+		font-weight:normal;
+		margin:0;
+	}
+	
+	#member_count2 strong {
+	font-weight:bold;
+	color:#FF0000;
+	}
+	
 	/* MAIN NAVIGATION */
 	#nav UL {
 		list-style-type: none;

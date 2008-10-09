@@ -132,7 +132,7 @@
 <html>
 <head>
     <title>Search the Component Catalog for software at TopCoder</title>
-
+<jsp:include page="/includes/header-files.jsp" />
 <script language="JavaScript" src="/scripts/javascript.js">
 </script>
 
@@ -170,7 +170,7 @@
 <!-- Middle Column begins -->
 <% if (componentSearchResults != null && forumSearchResults == null) {
 %>
-        <td width="100%">
+        <td width="100%" class="minheight">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="98%">
