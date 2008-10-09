@@ -15,7 +15,7 @@
 			<div class="col">
 				<h4>About TopCoder</h4>
 				<ul>
-					<li><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=contactus">Contact Us</a></li>
+					<li><a href="http://software.topcoder.com/contact.jsp">Contact Us</a></li>
 					<li><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=mediaRequestForm">Public Relations</a></li>
 					<li><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=index">Press Room</a></li>
 					<li><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=jobs">Working at TopCoder</a></li>
