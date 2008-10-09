@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <jsp:include page="/includes/header-files.jsp" />
-<title>TopCoder Direct - Support</title>
+<title>TopCoder Direct - Support &amp; Maintenance</title>
 
 <script src="scripts/direct.js" type="text/javascript"></script>
 </head>

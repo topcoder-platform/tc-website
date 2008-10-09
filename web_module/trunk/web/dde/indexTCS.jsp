@@ -40,7 +40,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Application Development, .NET&#8482; and Java&#8482; Software Components at TopCoder Software</title>
+    <title>Application Development, .NET&#8482; and Java&#8482; Software Components at TopCoder Direct</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
     <jsp:include page="/includes/header-files.jsp" />
