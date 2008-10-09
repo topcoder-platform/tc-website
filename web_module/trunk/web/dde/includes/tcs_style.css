@@ -1,10 +1,26 @@
 /* Body Style */
-a { color: #d50000; text-decoration: none; }
-a: active { color: #d50000; text-decoration: none; }
-a: visited { color: #d50000; text-decoration: none; }
+a
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+a: active
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+a: visited
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
 a:hover { text-decoration: underline; }
 a img { border: 0; }
 a { outline: none; }
+
 
 .admin { background-color: #6C6C6C; }
 
@@ -265,25 +281,25 @@ a { outline: none; }
 
 A.bodyText:link
 {
-	color: #d50000;
+	color: #CC0000;
 	text-decoration: none;
 }
 
 A.bodyText:visited
 {
-	color: #d50000;
+	color: #CC0000;
 	text-decoration: none;
 }
 
 A.bodyText:hover
 {
-	color: #d50000;
+	color: #CC0000;
 	text-decoration: underline;
 }
 
 A.bodyText:active
 {
-	color: #d50000;
+	color: #CC0000;
 	text-decoration: none;
 }
 
@@ -299,28 +315,28 @@ A.bodyText:active
 
 A.breadcrumbLinks:link
 {
-	color: #d50000;
+	color: #CC0000;
 	font-weight: bold;
 	text-decoration: none;
 }
 
 A.breadcrumbLinks:visited
 {
-	color: #d50000;
+	color: #CC0000;
 	font-weight: bold;
 	text-decoration: none;
 }
 
 A.breadcrumbLinks:hover
 {
-	color: #d50000;
+	color: #CC0000;
 	font-weight: bold;
 	text-decoration: underline;
 }
 
 A.breadcrumbLinks:active
 {
-	color: #d50000;
+	color: #CC0000;
 	font-weight: bold;
 	text-decoration: underline;
 }
@@ -336,25 +352,25 @@ A.breadcrumbLinks:active
 	padding: 5px;
 }
 
-A.catalogCategoryLink:link
+.catalogTable A.catalogCategoryLink:link
 {
 	color: #FFFFFF;
 	text-decoration: underline;
 }
 
-A.catalogCategoryLink:visited
+.catalogTable A.catalogCategoryLink:visited
 {
 	color: #FFFFFF;
 	text-decoration: underline;
 }
 
-A.catalogCategoryLink:hover
+.catalogTable A.catalogCategoryLink:hover
 {
 	color: #FFFFFF;
 	text-decoration: none;
 }
 
-A.catalogCategoryLink:active
+.catalogTable A.catalogCategoryLink:active
 {
 	color: #FFFFFF;
 	text-decoration: none;
@@ -380,7 +396,7 @@ A.catalogCategoryLink:active
 
 #find-components a
 {
-	color: #d50000;
+	color: #CC0000;
 	font-size: 16px;
 	text-decoration: none;
 }
@@ -412,6 +428,10 @@ A.catalogCategoryLink:active
 
 .catalogTable { background-color: #CCCCCC; }
 
+.catalogTable a:link { color: #333; text-decoration: underline; }
+.catalogTable a:visited { color: #666; text-decoration: underline; }
+.catalogTable a:active { color: #333; text-decoration: underline; }
+
 .catalogTextOdd, .catalogTextEven, .catalogText
 {
 	font-size: 11px;
@@ -440,7 +460,7 @@ A.catalogCategoryLink:active
 .comingSoon
 {
 	font-size: 10px;
-	color: #C00;
+	color: #CC0000;
 	font-weight: bold;
 	font-style: normal;
 	white-space: nowrap;
@@ -619,25 +639,25 @@ A.edit:active
 
 A.footerLinks:link
 {
-	color: #d50000;
+	color: #CC0000;
 	text-decoration: none;
 }
 
 A.footerLinks:visited
 {
-	color: #d50000;
+	color: #CC0000;
 	text-decoration: none;
 }
 
 A.footerLinks:hover
 {
-	color: #d50000;
+	color: #CC0000;
 	text-decoration: underline;
 }
 
 A.footerLinks:active
 {
-	color: #d50000;
+	color: #CC0000;
 	text-decoration: underline;
 }
 
@@ -1134,25 +1154,25 @@ H3
 
 A.homeTitleLink:link
 {
-	color: #d50000;
+	color: #CC0000;
 	text-decoration: none;
 }
 
 A.homeTitleLink:visited
 {
-	color: #d50000;
+	color: #CC0000;
 	text-decoration: none;
 }
 
 A.homeTitleLink:hover
 {
-	color: #d50000;
+	color: #CC0000;
 	text-decoration: underline;
 }
 
 A.homeTitleLink:active
 {
-	color: #d50000;
+	color: #CC0000;
 	text-decoration: underline;
 }
 
@@ -1188,13 +1208,13 @@ A.left:visited
 
 A.left:hover
 {
-	color: #d50000;
+	color: #CC0000;
 	text-decoration: underline;
 }
 
 A.left:active
 {
-	color: #d50000;
+	color: #CC0000;
 	text-decoration: none;
 }
 
@@ -1218,7 +1238,7 @@ A.leftOn:hover
 
 A.leftOn:active
 {
-	color: #d50000;
+	color: #CC0000;
 	text-decoration: none;
 }
 
@@ -1413,14 +1433,14 @@ A.loginLinks:visited
 
 A.loginLinks:hover
 {
-	color: #d50000;
+	color: #CC0000;
 	font-weight: bold;
 	text-decoration: underline;
 }
 
 A.loginLinks:active
 {
-	color: #d50000;
+	color: #CC0000;
 	font-weight: bold;
 	text-decoration: underline;
 }
@@ -1783,7 +1803,7 @@ A.registerLinks:active
 
 #specialMessage
 {
-	color: #C00;
+	color: #CC0000;
 	font-size: 11px;
 	font-weight: bold;
 	background-color: #CC6;
@@ -1906,56 +1926,56 @@ TD, TH
 
 A.terciaryOff:link
 {
-	color: #d50000;
+	color: #CC0000;
 	font-weight: normal;
 	text-decoration: none;
 }
 
 A.terciaryOff:visited
 {
-	color: #d50000;
+	color: #CC0000;
 	font-weight: normal;
 	text-decoration: none;
 }
 
 A.terciaryOff:hover
 {
-	color: #d50000;
+	color: #CC0000;
 	font-weight: normal;
 	text-decoration: underline;
 }
 
 A.terciaryOff:active
 {
-	color: #d50000;
+	color: #CC0000;
 	font-weight: normal;
 	text-decoration: underline;
 }
 
 A.terciaryOn:link
 {
-	color: #d50000;
+	color: #CC0000;
 	font-weight: bold;
 	text-decoration: underline;
 }
 
 A.terciaryOn:visited
 {
-	color: #d50000;
+	color: #CC0000;
 	font-weight: bold;
 	text-decoration: underline;
 }
 
 A.terciaryOn:hover
 {
-	color: #d50000;
+	color: #CC0000;
 	font-weight: bold;
 	text-decoration: none;
 }
 
 A.terciaryOn:active
 {
-	color: #d50000;
+	color: #CC0000;
 	font-weight: bold;
 	text-decoration: underline;
 }
@@ -2297,7 +2317,6 @@ table.stat tr.highlight td.value, table.stat tr.highlight td.valueC, table.stat 
 	padding-top: 12px;
 }
 
-
 .submenu li a
 {
 	font-size: 11px;
@@ -2308,7 +2327,6 @@ table.stat tr.highlight td.value, table.stat tr.highlight td.valueC, table.stat 
 	padding-top: 8px !important;
 	border-bottom: 1px solid #c1c1c1;
 }
-
 
 .submenu li a, .submenu li a:visted { height:21px !important;font-size: 11px !important; }
 #side-navigation li a:hover { color: #000; }
@@ -2331,8 +2349,7 @@ table.stat tr.highlight td.value, table.stat tr.highlight td.valueC, table.stat 
 
 hr { margin: 12px 0; }
 
-
 a.top { color: #333; text-decoration: underline; }
-a.top: active { color: #333; text-decoration: underline; }
 a.top: visited { color: #333; text-decoration: underline; }
-a.top:hover { text-decoration: underline; color: #d50000; }
+a.top:hover { text-decoration: underline; color: #CC0000; }
+a.top: active { color: #333; text-decoration: underline; }
