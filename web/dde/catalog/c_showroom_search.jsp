@@ -259,7 +259,7 @@
                         }
                             %></td>
                                 <td width="5" class="forumText"><img src="/images/clear.gif" alt="" width="5" height="5" border="0"/></td>
-                                <td width="165" class="forumText"><a href="c_component.jsp?comp=<%= summary.getComponentId() %>"><strong><%= summary.getName() %></strong></a><br />
+                                <td width="165" class="forumText"><a href="c_component.jsp?comp=<%= summary.getComponentId() %>" class="top"><strong><%= summary.getName() %></strong></a><br />
                                     <img src="/images/clear.gif" alt="" width="165" height="1" border="0"/></td>
                             </tr>
                         </table></td>

@@ -1513,30 +1513,30 @@ A.loginText:active
 
 A.more:link
 {
-	color: #00F;
+	color: #d50000;
 	font-weight: bold;
 	text-decoration: none;
 }
 
 A.more:visited
 {
-	color: #00F;
+	color: #d50000;
 	font-weight: bold;
 	text-decoration: none;
 }
 
 A.more:hover
 {
-	color: #F00;
+	color: #d50000;
 	font-weight: bold;
 	text-decoration: underline;
 }
 
 A.more:active
 {
-	color: #F00;
+	color: #d50000;
 	font-weight: bold;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 .nonBreadcrumb { background-color: #000; }
