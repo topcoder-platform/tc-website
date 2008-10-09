@@ -176,7 +176,7 @@
                     <input type="hidden" name="a" value="login" />
                     <td align="center">
                     	<br />
-                        <table border="0" cellpadding="3" cellspacing="0">
+                        <table border="0" cellpadding="3" cellspacing="0" class="login-table">
                            <tr><td colspan="3"><img src="/images/clear.gif" width="10" height="3" alt="" border="0" /></td></tr>
 
 <!-- User Name Error Text -->
@@ -194,7 +194,7 @@
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Password:</td>
                                 <td align="left"> &nbsp; <input onkeypress="submitEnter(event,document.frmLogin)" type="password" name="txtPassword" value="" size="15" maxlength="30"></td>
-                                <td nowrap class="bodyText">&#160;&#160;<strong><a href="javascript:document.frmLogin.submit()">Login &gt;</a></strong></td>
+                                <td nowrap="nowrap" class="bodyText" align="left">&#160;&#160;<strong><a href="javascript:document.frmLogin.submit()">Login &gt;</a></strong></td>
                             </tr>
 
                             <tr valign="middle">
