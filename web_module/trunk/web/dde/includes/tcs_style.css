@@ -50,7 +50,7 @@ a { outline: none; }
 	font-style: normal;
 	font-weight: bold;
 	text-align: center;
-	background-color: #547584;
+	background-color: #777777;
 }
 
 .adminControlSmall
@@ -61,7 +61,7 @@ a { outline: none; }
 	font-weight: normal;
 	line-height: 12px;
 	text-align: center;
-	background-color: #547584;
+	background-color: #777777;
 }
 
 .adminControlButton
@@ -72,7 +72,7 @@ a { outline: none; }
 	font-style: normal;
 	font-weight: bold;
 	text-align: center;
-	background-color: #547584;
+	background-color: #777777;
 }
 
 .adminControlForm
@@ -90,7 +90,7 @@ a { outline: none; }
 	color: #FFF;
 	font-style: normal;
 	font-weight: normal;
-	background-color: #547584;
+	background-color: #777777;
 	text-align: center;
 }
 
@@ -473,7 +473,7 @@ A.breadcrumbLinks:active
 	color: #FFFFFF;
 	font-style: normal;
 	font-weight: bold;
-	background-color: #547584;
+	background-color: #777777;
 }
 
 .compSmall
@@ -483,7 +483,7 @@ A.breadcrumbLinks:active
 	font-style: normal;
 	font-weight: normal;
 	line-height: 12px;
-	background-color: #547584;
+	background-color: #777777;
 }
 
 .compSearchButton
@@ -493,7 +493,7 @@ A.breadcrumbLinks:active
 	color: #FFF;
 	font-style: normal;
 	font-weight: bold;
-	background-color: #547584;
+	background-color: #777777;
 }
 
 .compSearchForm
@@ -510,7 +510,7 @@ A.breadcrumbLinks:active
 	color: #FFF;
 	font-style: normal;
 	font-weight: normal;
-	background-color: #547584;
+	background-color: #777777;
 	text-align: right;
 }
 
@@ -692,7 +692,7 @@ A.footerLinks:active
 }
 
 .forumBkgd { background-color: #819DA9; }
-.forumHeadFoot { background-color: #547584; }
+.forumHeadFoot { background-color: #777777; }
 
 .forumMessage
 {
@@ -888,7 +888,7 @@ A.footerLinks:active
 	font-weight: bold;
 	font-style: normal;
 	text-align: left;
-	background-color: #547584;
+	background-color: #777777;
 	padding: 5px;
 }
 
@@ -931,7 +931,7 @@ A.forumTitleLink:active
 	font-weight: bold;
 	font-style: normal;
 	text-align: right;
-	background-color: #547584;
+	background-color: #777777;
 	padding: 5px;
 }
 
@@ -953,7 +953,7 @@ A.forumTitleLink:active
 	font-weight: bold;
 	font-style: normal;
 	text-align: center;
-	background-color: #547584;
+	background-color: #777777;
 	padding: 5px;
 }
 
@@ -1628,7 +1628,7 @@ pre
 	text-align: left;
 }
 
-.register { background-color: #547584; }
+.register { background-color: #777777; }
 
 .errorSymbol
 {
@@ -1668,7 +1668,7 @@ pre
 	color: #FFFFFF;
 	text-align: center;
 	font-weight: bold;
-	background-color: #547584;
+	background-color: #777777;
 }
 
 .registerSmall { font-size: 10px; }

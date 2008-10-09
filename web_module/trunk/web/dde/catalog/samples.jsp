@@ -55,7 +55,7 @@
         <td width="99%" align="center">
             <div style="width:510px; margin-bottom: 40px;" align="left">
                 <div style="margin: 15px 0;">
-                    <img src="/images/headComponentsShort.gif" alt="Components" border="0" height="32" width="153">
+                    <img src="/images/hd_components.png" alt="Components" border="0" >
                 </div>
                 <p>
                     The following is a list of TopCoder components that are available to all members for download. These components may be used for trial or non-commercial purposes.  If you are interested in gaining full trial access to download components or you wish to purchase access to the components for commercial purposes, please send an email to <a href="mailto:service@topcoder.com">service@topcoder.com</a> and explain the situation. You may download from this list up to <strong>${max_downloads}</strong> times.
