@@ -48,11 +48,12 @@
 <!-- Left Column ends -->
 
 <!-- Gutter 1 begins -->
-        <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+        <td width="25"><img src="/images/clear.gif" alt="" width="25" height="10" border="0" /></td>
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
         <td width="99%" align="center">
+        	<div class="minheight">
             <table border="0" cellpadding="0" cellspacing="10" width="530">
                 <tr>
                     <td align="left" colspan="3">
@@ -64,7 +65,7 @@
                 </tr>
 
             </table>
-
+			</div>
             <p><br></p>
 
         </td>
