@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <jsp:include page="/includes/header-files.jsp" />
-<title>TopCoder Direct</title>
+<title>TopCoder Direct - Contact TopCoder</title>
 
 <script src="/scripts/direct.js" type="text/javascript"></script>
 <style>
