@@ -1615,8 +1615,8 @@ pre
 	font-size: 12px;
 	font-weight: normal;
 	text-align: left;
-	padding-top: 4px;
-	padding-bottom: 4px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 .prText
@@ -2350,13 +2350,19 @@ table.stat tr.highlight td.value, table.stat tr.highlight td.valueC, table.stat 
 
 hr { margin: 12px 0; }
 
-a.top { color: #333; text-decoration: underline; }
-a.top: visited { color: #333; text-decoration: underline; }
+a.top:link { color: #333; text-decoration: underline; }
+a.top:visited { color: #333; text-decoration: underline; }
 a.top:hover { text-decoration: underline; color: #CC0000; }
-a.top: active { color: #333; text-decoration: underline; }
+a.top:active { color: #333; text-decoration: underline; }
 
 .login-table td
 {
 	padding-top: 3px;
 	padding-bottom: 3px;
 }
+
+/* Software Home Links */
+a.linkage:link { color: #444; text-decoration: underline; }
+a.linkage:visited { color: #000; text-decoration: underline; }
+a.linkage:hover { text-decoration: underline; color: #CC0000; }
+a.linkage:active { color: #444; text-decoration: underline; }
