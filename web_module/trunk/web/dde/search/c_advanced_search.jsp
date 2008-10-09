@@ -31,7 +31,7 @@
     <title>Advanced Search for Software Components at TopCoder Software</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-
+<jsp:include page="/includes/header-files.jsp" />
 <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js">
 </script>
 <script language="JavaScript" type="text/javascript" src="/scripts/javascriptCheckAll.js">
@@ -66,7 +66,7 @@
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
-        <td width="99%">
+        <td width="99%" class="minheight">
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>

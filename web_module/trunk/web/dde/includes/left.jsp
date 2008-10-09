@@ -7,6 +7,15 @@
 	long tcsForumsID = WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID; 
 %>
 
+            <table width="148" style="margin-left:48px;"  cellspacing="0" cellpadding="0" border="0">
+                <tr><td id="leftNavTitle">Component Search:</td></tr>
+                <tr>
+                    <td id="leftNavTitle">
+                        <%@ include file="/includes/componentSearch.jsp" %>
+                    </td>
+                </tr>
+               </table>
+              
   <div id="nav-sidebar">
     <ul id="side-navigation">
     	<li class="top-li"><a href="#" class="expand-group">Applications</a>

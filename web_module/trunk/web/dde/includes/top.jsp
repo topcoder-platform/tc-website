@@ -15,7 +15,8 @@
 <%-- MASTHEAD AND LOGO --%>
 			<h1><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/index.jsp" title="TopCoder Direct"><span>TopCoder Direct</span></a><sup><small>BETA</small></sup></h1>
 			<h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
-			
+           	<h3 id="member_count">Current Member Count :  <strong>171,555 - October 9, 2008</strong></h3>
+			<h3 id="member_count2">Current Member Count :  <strong>171,555 - October 9, 2008</strong></h3>
 <%-- MAIN NAVIGATION --%>
 			<div id="nav">
 				<h3 class="hide">Main Navigation</h3>

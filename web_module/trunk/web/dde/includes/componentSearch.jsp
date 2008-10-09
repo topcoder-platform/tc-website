@@ -1,7 +1,7 @@
 <table border="0" cellpadding="0" cellspacing="3">
     <tr><form name="frmSiteSearch" action="/catalog/c_showroom_search.jsp" method="post">
         <input type="hidden" name="a" value="search"/>
-        <td valign="middle"><input class="searchForm" type="text" size="15" name="keywords" value="Search" maxlength="40" onFocus="javascript: if (document.frmSiteSearch.keywords.value=='Search') document.frmSiteSearch.keywords.value = '';" onBlur="javascript: if (document.frmSiteSearch.keywords.value == '') document.frmSiteSearch.keywords.value = 'Search';"></td>
+        <td valign="middle"><input class="searchForm" type="text" size="12" name="keywords" value="Search" maxlength="40" onFocus="javascript: if (document.frmSiteSearch.keywords.value=='Search') document.frmSiteSearch.keywords.value = '';" onBlur="javascript: if (document.frmSiteSearch.keywords.value == '') document.frmSiteSearch.keywords.value = 'Search';"></td>
 
 <!-- uncomment this option when entire site search is implemented -->
         <!-- <td valign="middle"><select name="target">
