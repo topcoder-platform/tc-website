@@ -51,4 +51,4 @@
 </div>
 
             
-            <div align="center"><img src="/images/logo_ghosted_bracket.gif" width="160" height="77" border="0" alt="[ TopCoder ]" vspace="10" /><br><br></center>
+           
