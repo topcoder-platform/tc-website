@@ -31,7 +31,7 @@ $(document).ready(function(){
 		
 	var randomImage = Math.floor(Math.random()*4);
 	
-	$("#bannerAd img").attr({
+	$("#banner img").attr({
 		src: "/images/rotated-image-" + randomImage +".png"
 	});
 });
