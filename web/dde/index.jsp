@@ -74,16 +74,6 @@
 </div>
 <%-- #news ends --%>
 
-		<script>
-            var rss = "/direct/blogs/?feed=rss2";
-
-            //A sample URL to get Template
-            var template = "/TCD/WhatsNewTemplate.txt";
-
-            var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
-            document.getElementById("news").innerHTML = (processor.transformRSSFeed(rss));
-        </script>
-
 <%-- Footer begins --%>
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <%-- Footer ends --%>
