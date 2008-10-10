@@ -210,27 +210,27 @@
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=321">LSU</a></td>
                     <td class="alignRight dottedRight">27</td>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=331">Oklahoma St</a></td>
-                    <td class="alignRight dottedRight">28</td>
+                    <td class="alignRight dottedRight">31</td>
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=354">Penn St</a></strong></td>
                     <td class="alignRight dottedRight"><strong>25</strong></td>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=348">Notre Dame</a></td>
-                    <td class="alignRight dottedRight">23</td>
+                    <td class="alignRight dottedRight">22</td>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=349">Arizona St</a></td>
-                    <td class="alignRight">18</td>
+                    <td class="alignRight">16</td>
                 </tr>
                 <tr>
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=338">OU</a></strong></td>
-                    <td class="alignRight dottedRight"><strong>32</strong></td>
+                    <td class="alignRight dottedRight"><strong>33</strong></td>
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=321">Florida</a></strong></td>
-                    <td class="alignRight dottedRight"><strong>29</strong></td>
+                    <td class="alignRight dottedRight"><strong>32</strong></td>
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=331">Missouri</a></strong></td>
-                    <td class="alignRight dottedRight"><strong>37</strong></td>
+                    <td class="alignRight dottedRight"><strong>40</strong></td>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=354">Wisconsin</a></td>
-                    <td class="alignRight dottedRight">24</td>
+                    <td class="alignRight dottedRight">21</td>
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=348">North Carolina</a></strong></td>
-                    <td class="alignRight dottedRight"><strong>24</strong></td>
+                    <td class="alignRight dottedRight"><strong>25</strong></td>
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=349">USC</a></strong></td>
-                    <td class="alignRight"><strong>38</strong></td>
+                    <td class="alignRight"><strong>35</strong></td>
                 </tr>
             </table>
             <p class="info">*Based on <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&cr=<%=Constants.WISDOM_BEST%>">WisdomOfTheBest's picks</a>. See also <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&cr=<%=Constants.WISDOM_ALL%>">WisdomOfAll's picks</a>.</p>
