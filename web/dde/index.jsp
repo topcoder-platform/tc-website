@@ -7,8 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <jsp:include page="/includes/header-files.jsp" />
 <title>TopCoder Direct - The world's most talented programmers and graphic designers are standing by to help develop your next application.</title>
-<script src="/scripts/RSSProcessor.js" type="text/javascript"></script>
-<script src="/scripts/AJAXProcessor.js" type="text/javascript"></script>
+
 <script src="/scripts/direct.js" type="text/javascript"></script>
 
 
