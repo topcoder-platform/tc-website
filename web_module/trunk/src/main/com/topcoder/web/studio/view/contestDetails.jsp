@@ -324,8 +324,7 @@
         <c:if test="${not empty contest.sizeRequirements.value}">
         <tr>
             <td nowrap="nowrap" valign="top">
-                <strong>Size Requirements:</strong>
-            </td>
+                <strong>Size:</strong>            </td>
             <td>
                 <studio:formatField text="${contest.sizeRequirements.value}"/>
             </td>
@@ -334,8 +333,7 @@
         <c:if test="${not empty contest.fontRequirements.value}">
         <tr>
             <td nowrap="nowrap" valign="top">
-                <strong>Font Requirements:</strong>
-            </td>
+                <strong>Font:</strong>            </td>
             <td>
                 <studio:formatField text="${contest.fontRequirements.value}"/>
             </td>
@@ -344,8 +342,7 @@
         <c:if test="${not empty contest.colorRequirements.value}">
         <tr>
             <td nowrap="nowrap" valign="top">
-                <strong>Color Requirements:</strong>
-            </td>
+                <strong>Color:</strong>            </td>
             <td>
                 <studio:formatField text="${contest.colorRequirements.value}"/>
             </td>
@@ -354,8 +351,7 @@
         <c:if test="${not empty contest.contentRequirements.value}">
         <tr>
             <td nowrap="nowrap" valign="top">
-                <strong>Content Requirements:</strong>
-            </td>
+                <strong>Content:</strong>            </td>
             <td>
                 <studio:formatField text="${contest.contentRequirements.value}"/>
             </td>
@@ -364,8 +360,7 @@
         <c:if test="${not empty contest.otherRequirements.value}">
         <tr>
             <td nowrap="nowrap" valign="top">
-                <strong>Other Requirements:</strong>
-            </td>
+                <strong>Other:</strong>            </td>
             <td>
                 <studio:formatField text="${contest.otherRequirements.value}"/>
             </td>
