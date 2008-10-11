@@ -75,14 +75,19 @@ ding="utf-8"?>
             <a href="http://tcstudioblogs.com/?p=39"><img alt="Studio Celebrates Two Years of Design Contests!" src="/i/v3/banner_birthday_536x121.png" width="536" height="121" border="0"/></a> --%>
         </div>
     </div>
-
+    
     <!-- banner -->
+    <%-- tournament banner --%>
+    	<div>
+            <a href="/?module=ViewContestDetails&ct=2379"><img alt="$1500 Mini-Tournament" src="/i/tournament_banner.png" width="535" height="60" border="0"/></a> 
+		</div>
+    
+    <%-- old banners --%>
     <%--
-    <div class="banner">
        <a href="/?module=ViewContestDetails&amp;ct=2239"><img alt="Register Now!" src="/i/v3/lending_tree_banner.png" width="536" height="88" border="0"/></a>
     </div>
     --%>
-    <%-- <div>
+    <%--
        <a href="/?module=ViewContestDetails&ct=2343"><img alt="Flex your muscles in Studio" src="/i/v3/flexbanner.png" width="535" height="60" border="0"/></a>
     </div>   --%>
     
