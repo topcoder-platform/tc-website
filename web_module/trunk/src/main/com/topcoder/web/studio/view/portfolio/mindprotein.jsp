@@ -38,6 +38,11 @@
             <div id="content">
                 <div class="contentTop">
                     <div class="contentMiddle">
+                    
+                    
+                    <!-- Back to Portfolio page -->
+                    <div style="padding: 10px 0;"><a href="/?module=Static&amp;d1=portfolio&amp;d2=portfolio">Portfolio</a></div>
+                    
                     <!-- Begin Main Content -->
                     
 					<h1>MindProtein.com</h1>
