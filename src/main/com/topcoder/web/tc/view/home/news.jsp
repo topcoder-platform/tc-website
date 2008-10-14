@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.14.08<br />4:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm59">TCHS SRM 59 - Problem Set &amp; Analysis</a></span><br /><br />
+      TCHS SRM 59 turned out to be both rather easy and quite unpredictable. The winner was <tc-webtag:handle coderId="22696982" context="hs_algorithm"/>, who managed to solve all 3 problems in half an hour. Two former green coders <tc-webtag:handle coderId="22696883" context="hs_algorithm"/> and <tc-webtag:handle coderId="22652051" context="hs_algorithm"/> also showed excellent performance and grabbed second and third place, respectively.</td>
+         <td class="newsPhoto"><img src="/i/m/Alexus_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="22627586" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm59">details</a> | 
+        <tc-webtag:forumLink forumID="523758" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />10.08.08<br />2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081008' refer='/tc' />">Spotlight Sessions with ACRush Chat Transcript</a></span><br /><br />
@@ -151,18 +167,5 @@
         <a target="_blank" href="<tc-webtag:linkTracking link='http://www.cio.com/article/449523/Cool_Programmer_Challenge_Football_Algorithm_' refer='/tc' />">details</a> | 
         <tc-webtag:forumLink forumID="523430" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Surveys" border="0" /><br />09.18.08<br />4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=ViewSurvey&amp;sid=28284">Fill out our survey for a chance to win a prize!</a></span><br /><br />
-        Want a chance to win a TopCoder prize?  Fill out this survey by September 26, 2008 and you'll be automatically entered to win!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=ViewSurvey&amp;sid=28284">details</a> | 
-        <tc-webtag:forumLink forumID="523403" message="discuss this" /> | 
-        <a href="/tc?&amp;module=SurveyList">archive</a>
    </td></tr>
    
