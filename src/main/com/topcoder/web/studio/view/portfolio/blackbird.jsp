@@ -76,7 +76,7 @@
 											</tr>
 											<tr>
 												<td>Logo Contest</td>
-												<td><a href="/i/portfolio/projects/truveo-summer/storyboards/1.png" class="thickbox" title="Blackbird Logo &amp; Splash Screen">Blackbird Logo &amp; Splash Screen</a></td>
+												<td><a href="/i/portfolio/projects/blackbird/logo/1.png" class="thickbox" title="Blackbird Logo &amp; Splash Screen">Blackbird Logo &amp; Splash Screen</a></td>
 												<td>7 Days</td>
 												<td align="center">163</td>
 												<td>
