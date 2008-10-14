@@ -22,7 +22,7 @@
 			<div id="nav">
 				<h3 class="hide">Main Navigation</h3>
 				<ul>
-					<li <% if (TCDlevel.equals("home")) {%> class="left on" <% } %>><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/index.jsp">Home</a></li>
+					<li <% if (TCDlevel.equals("home")) {%> class="left on" <% } %>><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/index.jsp">TopCoder Direct Home</a></li>
 					<li <% if (TCDlevel.equals("about")) {%> class="left on" <% } %>><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp">About TopCoder Direct</a></li>
 					<li <% if (TCDlevel.equals("platform")) {%> class="left on" <% } %>><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/platform-tools.jsp">Platform Tools</a></li>
 					<li <% if (TCDlevel.equals("software")) {%> class="left on" <% } %>><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/indexTCS.jsp">Software</a></li>
