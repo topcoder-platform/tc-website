@@ -49,7 +49,7 @@
                <a href="#">Hello <tc-webtag:handle coderId='<%=((User) session.getAttribute("TCUSER")).getId()%>'/></a>
                				</li>
                             <li class="right">
-                            	<a href="<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/login.jsp?a=logout">Log Out</a>
+                            	<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/login.jsp?a=logout">Log Out</a>
                             </li>
       						<% } %>
                     </li>
