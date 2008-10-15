@@ -16,14 +16,15 @@
 
 <%-- PLATFORM TOOLS --%>
 	<div id="platform">
-		<div class="platform_row">
-			<div>
+		<%--	<div class="platform_row">
+		<div>
 				<a href="http://www.topcoder.com/direct/"><img src="/i/topcoder_cockpit.png" alt="TopCoder Cockpit" width="131" height="131" class="platform_img" /></a>
-				<h3><a href="http://www.topcoder.com/direct/"><img src="/i/topcoder_cockpit_text.png" alt="TopCoder Cockpit" width="178" height="27" /></a><span class="sub_header"> - <a href="http://www.topcoder.com/direct/">LIVE! ACCESS THE COMMUNITY NOW!</a></span></h3>				
-				<p class="red-title">Engage the TopCoder Community.</p>
-				<p>The Cockpit is your tool for accessing the TopCoder Community to get your project built. You can launch and monitor a project, view and choose winners for your competitions, pay for and download your finished product, all through the functional widgets in your TC Direct Cockpit.</p>
-			</div>
-		</div><%-- platform_row ends--%>
+				<h3><a href="http://www.topcoder.com/direct/"><img src="/i/topcoder_direct_text.png" alt="TopCoder Cockpit" width="178" height="27" /></a><span class="sub_header"> - <a href="http://www.topcoder.com/direct/">LIVE! ACCESS THE COMMUNITY NOW!</a></span></h3>				
+			  <p class="red-title">Engage the TopCoder Community.</p>
+				<p>Topcoder Direct is your tool for accessing the TopCoder Community to get your project built. You can launch and monitor a project, view and choose winners for your competitions, pay for and download your finished product, all through the functional widgets in  TC Direct.</p>
+		  </div> 
+		</div>
+        --%>
 		<div class="platform_row_dark">
 			<div>
 				<a href="http://software.topcoder.com/catalog/index.jsp"><img src="/i/component_catalog.png" alt="Component Catalog" class="platform_img" /></a>
