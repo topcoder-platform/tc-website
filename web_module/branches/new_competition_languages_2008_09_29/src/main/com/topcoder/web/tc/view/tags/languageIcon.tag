@@ -13,5 +13,9 @@
     <c:when test="${catalogName == 'Flash'}"><img src="/i/development/flashSm.gif" alt="${catalogName}" /></c:when>
     <c:when test="${catalogName == 'C++'}"><img src="/i/development/smCpp.png" alt="${catalogName}" /></c:when>
     <c:when test="${catalogName == 'Application'}"><img src="/i/development/smApp.gif" alt="${catalogName}" /></c:when>
+    <c:when test="${catalogName == 'Action Script'}"><img src="/i/development/actionScriptSm.gif" alt="${catalogName}" /></c:when>
+    <c:when test="${catalogName == 'Action Script Custom'}"><img src="/i/development/actionScriptCustomSm.gif" alt="${catalogName}" /></c:when>
+    <c:when test="${catalogName == 'PHP'}"><img src="/i/development/phpSm.gif" alt="${catalogName}" /></c:when>
+    <c:when test="${catalogName == 'PHP Custom'}"><img src="/i/development/phpCustomSm.gif" alt="${catalogName}" /></c:when>
     <c:otherwise>${catalogName}</c:otherwise>
 </c:choose>
