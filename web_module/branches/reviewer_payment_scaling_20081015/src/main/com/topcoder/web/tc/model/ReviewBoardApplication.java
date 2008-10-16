@@ -25,8 +25,14 @@ public class ReviewBoardApplication {
     protected ReviewBoardApplication() {
     }
 
+    @Deprecated
     public ReviewBoardApplication(int phaseId, int level, int submissionCount, int submissionsPassedScreening) {
         this.component = new DefaultPriceComponent(level, submissionCount, submissionsPassedScreening, phaseId);
+        this.phaseId = phaseId;
+    }
+
+    public ReviewBoardApplication(int phaseId, int level, int submissionCount, int submissionsPassedScreening, float prize, float drPoints) {
+        this.component = new DefaultPriceComponent(level, submissionCount, submissionsPassedScreening, phaseId, prize, drPoints);
         this.phaseId = phaseId;
     }
 

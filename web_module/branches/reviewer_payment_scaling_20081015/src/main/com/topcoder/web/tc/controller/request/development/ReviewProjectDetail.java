@@ -78,24 +78,24 @@ public class ReviewProjectDetail extends Base {
                     //this one has not been assigned yet
                     if (row.getStringItem("handle") == null) {
                         reviewerList.add(makeApp(row.getStringItem("reviewer_type"),
-                                numSubmissions,
-                                numSubmissionsPassed,
-                                detail.getIntItem(0, "phase_id"),
-                                detail.getIntItem(0, "level_id"),
-                                detail.getLongItem(0, "project_id"),
-                                row.getIntItem("review_resp_id")));
+                                                 numSubmissions,
+                                                 numSubmissionsPassed,
+                                                 detail.getIntItem(0, "phase_id"),
+                                                 detail.getIntItem(0, "level_id"),
+                                                 detail.getLongItem(0, "project_id"),
+                                                 row.getIntItem("review_resp_id")));
                     } else {
                         //this one has been assigned
                         reviewerList.add(makeApp(row.getStringItem("reviewer_type"),
-                                numSubmissions,
-                                numSubmissionsPassed,
-                                detail.getIntItem(0, "phase_id"),
-                                detail.getIntItem(0, "level_id"),
-                                row.getLongItem("user_id"),
-                                row.getStringItem("handle"),
-                                row.getIntItem("primary") == 1,
-                                detail.getLongItem(0, "project_id"),
-                                row.getIntItem("review_resp_id")));
+                                                 numSubmissions,
+                                                 numSubmissionsPassed,
+                                                 detail.getIntItem(0, "phase_id"),
+                                                 detail.getIntItem(0, "level_id"),
+                                                 row.getLongItem("user_id"),
+                                                 row.getStringItem("handle"),
+                                                 row.getIntItem("primary") == 1,
+                                                 detail.getLongItem(0, "project_id"),
+                                                 row.getIntItem("review_resp_id")));
                     }
                 }
 
@@ -135,19 +135,19 @@ public class ReviewProjectDetail extends Base {
                 getRequest().setAttribute("reviewerList", reviewerList);
 
                 RBoardApplication rba = createRBoardApplication();
-        long applicationDelay = rba.getApplicationDelay(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
-        Timestamp opensOn = (Timestamp) ((TCTimestampResult) detail.getItem(0, "opens_on")).getResultData();
+                long applicationDelay = rba.getApplicationDelay(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
+                Timestamp opensOn = (Timestamp) ((TCTimestampResult) detail.getItem(0, "opens_on")).getResultData();
 
                 if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
                     getRequest().setAttribute("waitingToReview", Boolean.TRUE);
-            getRequest().setAttribute("waitingUntil", new Timestamp(opensOn.getTime() + applicationDelay));
+                    getRequest().setAttribute("waitingUntil", new Timestamp(opensOn.getTime() + applicationDelay));
                 } else {
                     getRequest().setAttribute("waitingToReview", Boolean.FALSE);
-            getRequest().setAttribute("waitingUntil", new Timestamp(0));
+                    getRequest().setAttribute("waitingUntil", new Timestamp(0));
                 }
 
-        getRequest().setAttribute("applicationDelayHours", new Integer((int) (applicationDelay / (1000 * 60 * 60))));
-        getRequest().setAttribute("applicationDelayMinutes", new Integer((int) ((applicationDelay % (1000 * 60 * 60)) / (1000 * 60))));
+                getRequest().setAttribute("applicationDelayHours", new Integer((int) (applicationDelay / (1000 * 60 * 60))));
+                getRequest().setAttribute("applicationDelayMinutes", new Integer((int) ((applicationDelay % (1000 * 60 * 60)) / (1000 * 60))));
             }
 
         } catch (TCWebException e) {
@@ -172,7 +172,7 @@ public class ReviewProjectDetail extends Base {
 
             Object objRBoardApplication = ctx.lookup(RBoardApplicationHome.class.getName());
             RBoardApplicationHome rBoardApplicationHome =
-                    (RBoardApplicationHome) PortableRemoteObject.narrow(objRBoardApplication, RBoardApplicationHome.class);
+                (RBoardApplicationHome) PortableRemoteObject.narrow(objRBoardApplication, RBoardApplicationHome.class);
 
             rBoardApplication = rBoardApplicationHome.create();
         } catch (Exception e) {
@@ -199,17 +199,18 @@ public class ReviewProjectDetail extends Base {
         return ret;
     }
 
+    @Deprecated
     protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed, int phaseId,
                                              int levelId, long projectId, int reviewerTypeId) throws Exception {
         //figure out if we have default money values for the reviewers
         Request r = new Request();
         r.setContentHandle("review_board_payments");
-/*
-        r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
-        r.setProperty(Constants.PHASE_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
-*/
+        /*
+          r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
+          r.setProperty(Constants.PHASE_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
+        */
         r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
-//        r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
+        //        r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
 
         Map results = getDataAccess().getData(r);
         ResultSetContainer detail = (ResultSetContainer) results.get("review_board_payments");
@@ -228,5 +229,28 @@ public class ReviewProjectDetail extends Base {
         return ret;
     }
 
+    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed, int phaseId,
+                                             int levelId, long projectId, int reviewerTypeId, float prize, float drPoints) throws Exception {
+        Request r = new Request();
+
+        r.setContentHandle("review_board_payments");
+        r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
+
+        Map results = getDataAccess().getData(r);
+        ResultSetContainer detail = (ResultSetContainer) results.get("review_board_payments");
+
+        ReviewBoardApplication ret = null;
+        if (detail.isEmpty()) {
+            ret = new ReviewBoardApplication(phaseId, levelId, numSubmissions, numSubmissionsPassed, prize, drPoints);
+        } else {
+            ret = new ReviewBoardApplication(phaseId, detail.getFloatItem(0, "primary_amount"), detail.getFloatItem(0, "amount"));
+        }
+
+        ret.setProjectId(projectId);
+        ret.setReviewerType(reviewerType);
+        ret.setReviewerTypeId(reviewerTypeId);
+
+        return ret;
+    }
 
 }
