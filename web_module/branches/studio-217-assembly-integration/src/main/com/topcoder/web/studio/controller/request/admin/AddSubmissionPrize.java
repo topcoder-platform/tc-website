@@ -1,26 +1,67 @@
 package com.topcoder.web.studio.controller.request.admin;
 
-import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.service.studio.StudioService;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.util.StudioServiceLocator;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import java.util.Properties;
+import java.util.HashSet;
+
+import com.topcoder.shared.util.dwload.CacheClearer;
+
+import javax.security.auth.login.LoginContext;
+import javax.security.auth.callback.*;
+import java.io.*;
 
 /**
- * AddSubmissionPrize has been refactored in order to delegate the submission placement 
- * to EJB 3 Studio services located in Cockpit Application Server. <br>
- * See : Assembly Contest - TopCoder Studio setSubmissionPlacement Service Integration  version 1.0
- * 
  * @author dok
- * @author TCSDEVELOPER
- * @version $Revision$ Date: 2005/01/01 00:00:00 Create Date: Aug 29, 2006
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: Aug 29, 2006
  */
-public class AddSubmissionPrize extends Base {
+public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
 	
-	private static Logger log = Logger.getLogger(AddSubmissionPrize.class);
-	
-	protected void dbProcessing() throws Exception {
+	/**
+	 * @author TCSDEVELOPER
+	 * @version 1.0
+	 *          Create Date: Sep 23, 2008
+	 * This class is needed to login into cockpit server.
+	 */
+	public class CockpitLoginCallBackHandler implements CallbackHandler{
+		
+		/**
+		* Sets credentials for login
+		*
+		* @param callbacks an array of Callback objects provided by an underlying security service which contains the information requested to be retrieved.
+		*
+		* @throws IOException if an input or output error occurs.
+		* @throws UnsupportedCallbackException if the implementation of this method does not support one or more of the Callbacks specified in the callbacks parameter.
+		*/
+		public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
+			System.out.println("in CockpitLoginCallBackHandler.handle ");
+			for(int i = 0; i < callbacks.length; ++i){
+				if(callbacks[i] instanceof NameCallback){
+					NameCallback nc = (NameCallback) callbacks[i];
+					// set user name
+					nc.setName(ApplicationServer.STUDIO_SERVICES_USERNAME);
+				}
+				if(callbacks[i] instanceof PasswordCallback){
+					PasswordCallback pc = (PasswordCallback) callbacks[i];
+					// set password
+					pc.setPassword(ApplicationServer.STUDIO_SERVICES_PASSWORD.toCharArray());
+				}
+			}
+			
+		}
+	}
 
+    @Override
+    protected void dbProcessing() throws Exception {
+        // submission id, that will retrieved from request
         Long submissionId;
         try {
             submissionId = new Long(getRequest().getParameter(Constants.SUBMISSION_ID));
@@ -28,29 +69,74 @@ public class AddSubmissionPrize extends Base {
             throw new NavigationException("Invalid Submission Specified");
         }
 
-        Long prizeId = null;
+        // prize id, that will retrieved from request
+        Long prizeId;
         if (!"".equals(StringUtils.checkNull(getRequest().getParameter(Constants.PRIZE_ID)))) {
             try {
                 prizeId = new Long(getRequest().getParameter(Constants.PRIZE_ID));
             } catch (NumberFormatException e) {
-                throw new NavigationException("Invalid Prize Specified");
+                throw new NavigationException("Invalid prize Specified");
             }
         } else {
-            throw new NavigationException("Invalid Prize Specified");
+            throw new NavigationException("Invalid prize Specified");
         }
-        
-		try {
-			log.debug("About to call StudioService setSubmissionPlacement(submissionId:" + submissionId + ", prizeId:" + prizeId + ")");
-			StudioServiceLocator.getService().setSubmissionPlacement(submissionId, prizeId);
-			log.debug("setSubmissionPlacement successfull");
-		} catch (Exception e) {
-			throw new NavigationException("Submission could not be assigned to a prize");
-		}
+        if (log.isDebugEnabled()) {
+            log.debug("submission id: " + submissionId + " got prize: " + prizeId);
+        }
 
-        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
-                "=ViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + submissionId);
+ 	 //java.lang.System.setProperty("java.security.auth.login.config", "auth.conf");
+	 LoginContext lc = new LoginContext("default", new CockpitLoginCallBackHandler());
+ 	 //lc.login();
+        if (log.isDebugEnabled()) {
+            	 log.debug("logged in");
+        }
+
+        final Properties p = new Properties();
+        p.setProperty(Context.SECURITY_PRINCIPAL, ApplicationServer.STUDIO_SERVICES_USERNAME);
+        p.setProperty(Context.SECURITY_CREDENTIALS, ApplicationServer.STUDIO_SERVICES_PASSWORD);
+	 p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.JndiLoginInitialContextFactory");
+	 p.setProperty(Context.PROVIDER_URL, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
+        p.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
+        // get context to Cockpit Jboss Instance.
+        Context context = new InitialContext(p);
+        if (log.isDebugEnabled()) {
+            log.debug("got context");
+        }
+	 Object ref = context.lookup("StudioServiceBean/remote");
+	 StudioService studioService = (StudioService)javax.rmi.PortableRemoteObject.narrow(ref,StudioService.class);
+        if (log.isDebugEnabled()) {
+            log.debug("got remote StudioServiceBean");
+        }
+        studioService.setSubmissionPlacement(submissionId, prizeId);
+
+        try {
+            HashSet<String> cachedStuff = new HashSet<String>();
+            cachedStuff.add(Constants.CONTEST_ID + "=" + getRequest().getParameter(Constants.CONTEST_ID));
+            cachedStuff.add("studio_home_data");
+            CacheClearer.removelike(cachedStuff);
+        } catch (Exception ignore) {
+                ignore.printStackTrace();
+        }
+        // redirect
+        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=ViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + submissionId);
         setIsNextPageInContext(false);
-
     }
 
+    /*protected void submissionProcessing(Submission s, Prize p) throws Exception {
+       s.addPrize(p);
+       //if the prize is a contest prize and we haven't set a contest result placed record for this
+       //then set one.  the site uses contest result to show place, so we need to set that up
+       //in the case that we're not using online review.
+       if (p.getType().getId().equals(PrizeType.CONTEST)) {
+           ContestResult cr = s.getResult();
+           if (cr == null) {
+               cr = new ContestResult(s);
+           }
+           if (cr.getPlaced() == null) {
+               cr.setPlaced(p.getPlace());
+           }
+       }
+   } */
 }
+
+
