@@ -1,0 +1,9 @@
+/* IE6 Specific CSS Document */
+
+.right_content .findOut
+{
+	clear: left;
+	margin-top: 43px;
+	margin-bottom: 3px;
+	display: inline;
+}
