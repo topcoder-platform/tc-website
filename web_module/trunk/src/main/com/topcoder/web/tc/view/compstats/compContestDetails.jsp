@@ -131,7 +131,7 @@
         <tr>
             <td class="value" valign="top" style="border: none; padding-top: 3px"><strong>Catalog:</strong></td>
             <TD class="value" align="right" valign="top" style="border: none; padding-top: 3px">
-                <tc_tags:languageIcon catalogName = "<rsc:item set="<%=projectInfo%>" name="category_desc"/>" aolBrand="false"/> 
+                <tc_tags:languageIcon catalogName = "<rsc:item set='<%=projectInfo%>' name='category_desc'/>" aolBrand="false"/> 
             </TD>
         </tr>
         <tr>
