@@ -9,6 +9,7 @@
 <%@ page import="java.util.Map" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="tc_tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -35,20 +36,6 @@
 
     long projectId = ((Long) request.getAttribute("pid")).longValue();
     boolean first = true;
-
-    String imgName = "";
-    if (projectInfo.getIntItem(0, "category_id") == WebConstants.JAVA_CATALOG) {
-        imgName = "/i/development/smJava.gif";
-    }
-    if (projectInfo.getIntItem(0, "category_id") == WebConstants.NET_CATALOG) {
-        imgName = "/i/development/netSm.gif";
-    }
-    if (projectInfo.getIntItem(0, "category_id") == WebConstants.JAVA_CUSTOM_CATALOG) {
-        imgName = "/i/development/smJavaCustom.gif";
-    }
-    if (projectInfo.getIntItem(0, "category_id") == WebConstants.NET_CUSTOM_CATALOG) {
-        imgName = "/i/development/smNetCustom.gif";
-    }
 
     boolean isComplete = ((Boolean) request.getAttribute("isComplete")).booleanValue() || sessionInfo.isAdmin();
     boolean isDev = "113".equals(projectInfo.getStringItem(0, "phase_id"));
@@ -144,7 +131,7 @@
         <tr>
             <td class="value" valign="top" style="border: none; padding-top: 3px"><strong>Catalog:</strong></td>
             <TD class="value" align="right" valign="top" style="border: none; padding-top: 3px">
-                <img src='<%=imgName%>' alt='<rsc:item set="<%=projectInfo%>" name="category_desc"/>' border="0"/>
+                <tc_tags:languageIcon catalogName = "<rsc:item set="<%=projectInfo%>" name="category_desc"/>" aolBrand="false"/> 
             </TD>
         </tr>
         <tr>
@@ -339,8 +326,7 @@
         <% } %>
         <TD class="valueC" nowrap="nowrap">
             <% if ((isComplete || userId == resultRow.getLongItem("user_id") || isReviewer) 
-                    && (sessionInfo.isAdmin() || (projectInfo.getIntItem(0, "category_id") != WebConstants.JAVA_CUSTOM_CATALOG
-                                                 && projectInfo.getIntItem(0, "category_id") != WebConstants.NET_CUSTOM_CATALOG))                  
+                    && (sessionInfo.isAdmin() || projectInfo.getIntItem(0, "viewable_category_ind") == 1)                  
                     ) { 
             
             %>

@@ -8,6 +8,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="tc_tags" tagdir="/WEB-INF/tags" %>
 <% int projectTypeId = ((Integer) request.getAttribute(Constants.PROJECT_TYPE_ID)).intValue();
 	ResultSetContainer registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get(Base.getRegistrantsCommandName(projectTypeId));
 %>
@@ -170,23 +171,7 @@
         <tr>
             <td class="cat" nowrap="nowrap" style="padding-top: 3px">Catalog:</td>
             <td class="stat" align="right" nowrap="nowrap" style="padding-top: 3px">
-            <% if (registrants.getItem(0, "aol_brand").getResultData() != null) { %>
-            <img src="/i/development/smAOL.gif" alt="AOL" border="0" />
-            <% } else if ("Java".equals(registrants.getStringItem(0, "catalog_name"))) { %>
-            <img src="/i/development/smJava.gif" alt="Java" border="0" />
-            <% } else if ("Java Custom".equals(registrants.getStringItem(0, "catalog_name"))) { %>
-            <img src="/i/development/smJavaCustom.gif"/>
-            <% } else if (".NET".equals(registrants.getStringItem(0, "catalog_name"))) { %>
-            <img src="/i/development/netSm.gif"/>
-            <% } else if (".NET Custom".equals(registrants.getStringItem(0, "catalog_name"))) { %>
-            <img src="/i/development/smNetCustom.gif"/>
-            <% } else if ("Flash".equals(registrants.getStringItem(0, "catalog_name"))) { %>
-            <img src="/i/development/flashSm.gif"/>
-            <% } else if ("C++".equals(registrants.getStringItem(0, "catalog_name"))) { %>
-            <img src="/i/development/smCpp.png"/>
-            <% } else { %>
-            <rsc:item name="catalog_name" set="<%=registrants%>"/>
-            <% } %>
+                <tc_tags:languageIcon catalogName = "<%=registrants.getStringItem(0, "catalog_name")%>" aolBrand="<%=(registrants.getItem(0, "aol_brand").getResultData() != null)%>"/> 
             </td>
         </tr>
     </table>

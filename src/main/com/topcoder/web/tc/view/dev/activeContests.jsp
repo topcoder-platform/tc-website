@@ -10,6 +10,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="tc_tags" tagdir="/WEB-INF/tags" %>
 <% ResultSetContainer devContests = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("dev_contests");%>
 <% ResultSetContainer designContests = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("design_contests");%>
 <% boolean design = ((Boolean) request.getAttribute("phase_id_is_design")).booleanValue(); %>
@@ -115,23 +116,7 @@
     <rsc:iterator list="<%=designContests%>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
             <td class="valueC">
-                <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
-                <img src="/i/development/smAOL.gif" alt="AOL" />
-                <% } else if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smJava.gif" alt="Java" />
-                <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smJavaCustom.gif" alt="Java Custom" />
-                <% } else if (".NET".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/netSm.gif" alt="netSm" />
-                <% } else if (".NET Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smNetCustom.gif" alt="smNetCustom" />
-                <% } else if ("Flash".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/flashSm.gif" alt="flashSm" />
-                <% } else if ("C++".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smCpp.png" alt="smCpp" />
-                <% } else { %>
-                <rsc:item name="catalog_name" row="<%=resultRow%>"/>
-                <% } %>
+                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/> 
             </td>
             <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
@@ -257,23 +242,7 @@
                 <rsc:item name="type" row="<%=resultRow%>"/>
             </td>
             <td class="valueC">
-                <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
-                <img src="/i/development/smAOL.gif" alt="AOL" />
-                <% } else if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smJava.gif" alt="Java" />
-                <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smJavaCustom.gif" alt="Java Custom" />
-                <% } else if (".NET".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/netSm.gif" alt="netSm" />
-                <% } else if (".NET Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smNetCustom.gif" alt="smNetCustom" />
-                <% } else if ("Flash".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/flashSm.gif" alt="flashSm" />
-                <% } else if ("C++".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smCpp.png" alt="smCpp" />
-                <% } else { %>
-                <rsc:item name="catalog_name" row="<%=resultRow%>"/>
-                <% } %>
+                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/> 
             </td>
             <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
