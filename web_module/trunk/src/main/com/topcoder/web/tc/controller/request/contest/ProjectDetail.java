@@ -47,10 +47,12 @@ public class ProjectDetail extends Base {
             boolean full = false;  //projects are never full in our current rules
             getRequest().setAttribute("projectFull", String.valueOf(full));
             getRequest().setAttribute("projectId", StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
-
+            
             if (details.isEmpty()) {
                 throw new NavigationException("Could not find project information.");
             }
+
+            getRequest().setAttribute("paysRoyalties", !details.getBooleanItem(0, "is_custom") );
 
             String projectDetailPage = getProjectDetailPage(projectTypeId);
             if (projectDetailPage.equals("")) {

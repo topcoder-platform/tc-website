@@ -7,6 +7,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="tc_tags" tagdir="/WEB-INF/tags" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer contests = (ResultSetContainer)request.getAttribute("contests");%>
 
@@ -171,23 +172,7 @@
             </c:if>
             <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != APPLICATION_TESTING_TYPE_ID}">
             <td class="valueC">
-                <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
-                <img src="/i/development/smAOL.gif"/>
-                <% } else if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smJava.gif"/>
-                <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smJavaCustom.gif"/>
-                <% } else if (".NET".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/netSm.gif"/>
-                <% } else if (".NET Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smNetCustom.gif"/>
-                <% } else if ("Flash".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/flashSm.gif"/>
-                <% } else if ("C++".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smCpp.png"/>
-                <% } else { %>
-                <rsc:item name="catalog_name" row="<%=resultRow%>"/>
-                <% } %>
+                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/> 
             </td>
             </c:if>
             <td class="value">
