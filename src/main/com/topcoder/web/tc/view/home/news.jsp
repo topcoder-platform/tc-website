@@ -4,6 +4,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.17.08<br />3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://www.topcoder.com/wiki/display/tc/TopCoder+Conceptualization+Contests">Compete in a Specification Contest!</a></span><br /><br />
+       A TopCoder Client wants YOU to develop their concept for a new application!  They have completed a questionnaire and are manning the forums - the rest is up to you.  Unlock their ideas, ask them questions to clarify their needs, and write up a Business Requirements Doc to define what their new system should do.  If you win, your document will be used to build a prototype, the Requirements Specification, and the application itself.  To learn details and download materials, please click <a href="http://www.topcoder.com/wiki/display/tc/TopCoder+Conceptualization+Contests">here</a>!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://www.topcoder.com/wiki/display/tc/TopCoder+Conceptualization+Contests">details</a> | 
+        <a href="http://forums.topcoder.com/?module=ThreadList&forumID=523949">forums</a>
+</td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.15.08<br />9:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
