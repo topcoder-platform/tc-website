@@ -43,6 +43,7 @@ public class FixedPriceComponent extends DefaultPriceComponent {
     /**
      * Constructor compatible with DefaultPriceComponent
      */
+    @Deprecated
     public FixedPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId,
                                float primaryFixedPayment, float secondaryFixedPayment) {
         super(levelId, submissionCount, submissionsPassedScreening, phaseId);
@@ -50,8 +51,26 @@ public class FixedPriceComponent extends DefaultPriceComponent {
         setPrimaryFixedPayment(primaryFixedPayment);
         setSecondaryFixedPayment(secondaryFixedPayment);
 
-        log.debug("level: " + levelId + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
-                submissionsPassedScreening + " phaseId: " + phaseId + " primaryFixedPayment: " + primaryFixedPayment + " secondaryFixedPayment: " + secondaryFixedPayment);
+        log.debug("level: " + levelId + " submissionCount: " + submissionCount + " submissionPassedScreening: "
+                  + submissionsPassedScreening + " phaseId: " + phaseId + " primaryFixedPayment: "
+                  + primaryFixedPayment + " secondaryFixedPayment: " + secondaryFixedPayment);
+    }
+
+    /**
+     * Constructor compatible with DefaultPriceComponent
+     */
+    public FixedPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId,
+                               float primaryFixedPayment, float secondaryFixedPayment, float prize, float drPoints) {
+        super(levelId, submissionCount, submissionsPassedScreening, phaseId, prize, drPoints);
+
+        setPrimaryFixedPayment(primaryFixedPayment);
+        setSecondaryFixedPayment(secondaryFixedPayment);
+
+        log.debug("level: " + levelId + " submissionCount: " + submissionCount
+                  + " submissionPassedScreening: " + submissionsPassedScreening
+                  + " phaseId: " + phaseId + " primaryFixedPayment: " + primaryFixedPayment
+                  + " secondaryFixedPayment: " + secondaryFixedPayment
+                  + " prize: " + prize + " drPoints: " + drPoints);
     }
 
     /**
