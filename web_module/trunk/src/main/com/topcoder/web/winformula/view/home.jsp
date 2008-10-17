@@ -214,7 +214,7 @@
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=379">OSU</a></strong></td>
                     <td class="alignRight dottedRight"><strong>21</strong></td>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=362">Virginia Tech</a></td>
-                    <td class="alignRight dottedRight">2</td>
+                    <td class="alignRight dottedRight">20</td>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=360">Mississippi</a></td>
                     <td class="alignRight">14</td>
                 </tr>
