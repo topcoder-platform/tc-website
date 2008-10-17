@@ -84,11 +84,11 @@ public class DefaultPriceComponent implements SoftwareComponent {
         this.submissionsPassedScreening = submissionsPassedScreening;
 
         if (phaseId == DESIGN_PHASE) {
-            this.prize = DESIGN_PRICE_LOOKUP[levelId];
-            this.drPoints = DESIGN_DR_LOOKUP[levelId];
+            this.prize = DESIGN_PRICE_LOOKUP[level];
+            this.drPoints = DESIGN_DR_LOOKUP[level];
         } else {
-            this.prize = DEV_PRICE_LOOKUP[levelId];
-            this.drPoints = DEV_DR_LOOKUP[levelId];
+            this.prize = DEV_PRICE_LOOKUP[level];
+            this.drPoints = DEV_DR_LOOKUP[level];
         }
 
         this.compensationRatio = 1f;
@@ -116,10 +116,10 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
         if (phaseId == DESIGN_PHASE) {
             this.compensationRatio = (calculateCompensation(prize, drPoints)
-                                      / calculateCompensation(DESIGN_PRICE_LOOKUP[levelId], DESIGN_DR_LOOKUP[levelId]));
+                                      / calculateCompensation(DESIGN_PRICE_LOOKUP[level], DESIGN_DR_LOOKUP[level]));
         } else {
             this.compensationRatio = (calculateCompensation(prize, drPoints)
-                                      / calculateCompensation(DEV_PRICE_LOOKUP[levelId], DEV_DR_LOOKUP[levelId]));
+                                      / calculateCompensation(DEV_PRICE_LOOKUP[level], DEV_DR_LOOKUP[level]));
         }
     }
 
