@@ -99,7 +99,7 @@ public class ReviewProjectDetail extends Base {
                                                  detail.getLongItem(0, "project_id"),
                                                  row.getIntItem("review_resp_id"),
                                                  detail.getFloatItem(0, "prize"),
-                                                 detail.getFloatItme(0, "dr_points")));
+                                                 detail.getFloatItem(0, "dr_points")));
                     }
                 }
 
