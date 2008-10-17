@@ -83,7 +83,9 @@ public class ReviewProjectDetail extends Base {
                                                  detail.getIntItem(0, "phase_id"),
                                                  detail.getIntItem(0, "level_id"),
                                                  detail.getLongItem(0, "project_id"),
-                                                 row.getIntItem("review_resp_id")));
+                                                 row.getIntItem("review_resp_id"),
+                                                 detail.getFloatItem(0, "prize"),
+                                                 detail.getFloatItem(0, "dr_points")));
                     } else {
                         //this one has been assigned
                         reviewerList.add(makeApp(row.getStringItem("reviewer_type"),
@@ -95,7 +97,9 @@ public class ReviewProjectDetail extends Base {
                                                  row.getStringItem("handle"),
                                                  row.getIntItem("primary") == 1,
                                                  detail.getLongItem(0, "project_id"),
-                                                 row.getIntItem("review_resp_id")));
+                                                 row.getIntItem("review_resp_id"),
+                                                 detail.getFloatItem(0, "prize"),
+                                                 detail.getFloatItme(0, "dr_points")));
                     }
                 }
 
@@ -189,10 +193,22 @@ public class ReviewProjectDetail extends Base {
         return rBoardApplication;
     }
 
+    @Deprecated
     protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed, int phaseId,
                                              int levelId, long userId, String handle, boolean primary,
                                              long projectId, int reviewerTypeId) throws Exception {
         ReviewBoardApplication ret = makeApp(reviewerType, numSubmissions, numSubmissionsPassed, phaseId, levelId, projectId, reviewerTypeId);
+        ret.setHandle(handle);
+        ret.setPrimary(primary);
+        ret.setUserId(userId);
+        return ret;
+    }
+
+    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed, int phaseId,
+                                             int levelId, long userId, String handle, boolean primary,
+                                             long projectId, int reviewerTypeId, float prize, float drPoints) throws Exception {
+        ReviewBoardApplication ret = makeApp(reviewerType, numSubmissions, numSubmissionsPassed, phaseId, levelId, projectId,
+                                             reviewerTypeId, prize, drPoints);
         ret.setHandle(handle);
         ret.setPrimary(primary);
         ret.setUserId(userId);
