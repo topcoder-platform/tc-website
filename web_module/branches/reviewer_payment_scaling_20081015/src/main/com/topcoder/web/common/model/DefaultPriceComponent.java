@@ -67,11 +67,31 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     @Deprecated
     public DefaultPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId) {
-        if (phaseId == DESIGN_PHASE) {
-            this(levelId, submissionCount, submissionsPassedScreening, phaseId, DESIGN_PRICE_LOOKUP[levelId], DESIGN_DR_LOOKUP[levelId]);
+        log.debug("level: " + levelId + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
+                submissionsPassedScreening + " phaseId: " + phaseId + " prize: " + prize + " drPoints: " + drPoints);
+
+        this.phaseId = phaseId;
+
+        if (levelId == LEVEL1) {
+            this.level = 1;
+        } else if (levelId == LEVEL2) {
+            this.level = 2;
         } else {
-            this(levelId, submissionCount, submissionsPassedScreening, phaseId, DEV_PRICE_LOOKUP[levelId], DEV_DR_LOOKUP[levelId]);
+            throw new IllegalArgumentException("invalid level provided " + levelId);
         }
+
+        this.submissionCount = submissionCount;
+        this.submissionsPassedScreening = submissionsPassedScreening;
+
+        if (phaseId == DESIGN_PHASE) {
+            this.prize = DESIGN_PRICE_LOOKUP[levelId];
+            this.drPoints = DESIGN_DR_LOOKUP[levelId];
+        } else {
+            this.prize = DEV_PRICE_LOOKUP[levelId];
+            this.drPoints = DEV_DR_LOOKUP[levelId];
+        }
+
+        this.compensationRatio = 1f;
     }
 
     public DefaultPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId, float prize, float drPoints) {
@@ -109,9 +129,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
         ret.level = this.level;
         ret.submissionCount = this.submissionCount;
         ret.submissionsPassedScreening = this.submissionsPassedScreening;
-	ret.prize = this.prize;
-	ret.drPoints = this.drPoints;
-	ret.compensationRatio = this.compensationRatio;
+        ret.prize = this.prize;
+        ret.drPoints = this.drPoints;
+        ret.compensationRatio = this.compensationRatio;
         return ret;
     }
 
@@ -130,15 +150,15 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     public float getDesignReviewRate() {
-	return DESIGN_REVIEW_RATE * this.compensationRatio;
+        return DESIGN_REVIEW_RATE * this.compensationRatio;
     }
 
     public float getDevReviewRate() {
-	return DEV_REVIEW_RATE * this.compensationRatio;
+        return DEV_REVIEW_RATE * this.compensationRatio;
     }
 
     public float getTestingReviewRate() {
-	return TESTING_REVIEW_RATE * this.compensationRatio;
+        return TESTING_REVIEW_RATE * this.compensationRatio;
     }
 
     public float getPrimaryReviewPrice() {
