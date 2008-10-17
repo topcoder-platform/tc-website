@@ -211,8 +211,8 @@
                     <td class="alignRight dottedRight">24</td>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=371">Vanderbilt</a></td>
                     <td class="alignRight dottedRight">15</td>
-                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=379">Ohio State</a></strong></td>
-                    <td class="alignRight dottedRight"><strong>25</strong></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=379">OSU</a></strong></td>
+                    <td class="alignRight dottedRight"><strong>21</strong></td>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=362">Virginia Tech</a></td>
                     <td class="alignRight dottedRight">2</td>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=360">Mississippi</a></td>
@@ -225,8 +225,8 @@
                     <td class="alignRight dottedRight"><strong>35</strong></td>
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=371">Georgia</a></strong></td>
                     <td class="alignRight dottedRight"><strong>29</strong></td>
-                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=379">Mich. State</a></td>
-                    <td class="alignRight dottedRight">21</td>
+                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=379">MSU</a></td>
+                    <td class="alignRight dottedRight">20</td>
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=362">Boston College</a></strong></td>
                     <td class="alignRight dottedRight"><strong>21</strong></td>
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=360">Alabama</a></strong></td>
