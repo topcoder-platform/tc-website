@@ -174,19 +174,23 @@ public class FixedPriceComponent extends DefaultPriceComponent {
      * Command line utility
      */
     private static void showPayments(int submissionCount, int submissionsPassedScreening, int phaseId,
-                                     float primaryFixedPayment, float secondaryFixedPayment) {
+                                     float primaryFixedPayment, float secondaryFixedPayment,
+                                     float prize, float drPoints) {
 
-        FixedPriceComponent fpc = new FixedPriceComponent(LEVEL1,
-                submissionCount, submissionsPassedScreening,
-                phaseId, primaryFixedPayment, secondaryFixedPayment);
+        FixedPriceComponent fpc = new FixedPriceComponent(LEVEL1, submissionCount, submissionsPassedScreening,
+                                                          phaseId, primaryFixedPayment, secondaryFixedPayment,
+                                                          prize, drPoints);
 
-        DefaultPriceComponent dpc = new DefaultPriceComponent(LEVEL1,
-                submissionCount,
-                submissionsPassedScreening,
-                phaseId);
+        DefaultPriceComponent dpc = new DefaultPriceComponent(LEVEL1, submissionCount, submissionsPassedScreening,
+                                                              phaseId, prize, drPoints);
 
-        System.out.println("submissionCount: " + submissionCount + " submissionPassedScreening: " +
-                submissionsPassedScreening + " phaseId: " + phaseId + " primaryFixedPayment: " + primaryFixedPayment + " secondaryFixedPayment: " + secondaryFixedPayment);
+        System.out.println("submissionCount: " + submissionCount
+                           + " submissionPassedScreening: " + submissionsPassedScreening
+                           + " phaseId: " + phaseId
+                           + " primaryFixedPayment: " + primaryFixedPayment
+                           + " secondaryFixedPayment: " + secondaryFixedPayment
+                           + " prize: " + prize
+                           + " drPoints: " + drPoints);
 
         System.out.println("Item ; Old ; new:");
         System.out.println("Aggregation ; " + dpc.getAggregationCost() + " ; " + fpc.getAggregationCost());
