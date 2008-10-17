@@ -438,9 +438,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
 */
 
     public static void main(String[] args) {
-        if (args.length != 4) {
+        if (args.length != 6) {
             System.out.println("usage: java " + SoftwareComponent.class.toString() + " " +
-                    "<level> <numSubmissions> <numSubmissionPassScreening> <phaseId>");
+                    "<level> <numSubmissions> <numSubmissionPassScreening> <phaseId> <prize> <drPoints>");
             System.out.println("dev phaseId " + DEV_PHASE);
             System.out.println("design phaseId " + DESIGN_PHASE);
         } else {
@@ -451,7 +451,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 level = LEVEL2;
             }
             DefaultPriceComponent sc = new DefaultPriceComponent(level, Integer.parseInt(args[1]),
-                    Integer.parseInt(args[2]), Integer.parseInt(args[3]));
+                                                                 Integer.parseInt(args[2]), Integer.parseInt(args[3]),
+                                                                 Float.parseFloat(args[4]), Float.parseFloat(args[5]));
             System.out.println("-------------------------------------------------------------");
             if (sc.phaseId == DEV_PHASE) {
                 System.out.println("        Dev Cost:            |      " + sc.getPrice());

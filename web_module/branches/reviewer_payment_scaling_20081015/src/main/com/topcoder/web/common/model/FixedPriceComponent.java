@@ -202,16 +202,17 @@ public class FixedPriceComponent extends DefaultPriceComponent {
      * Command line utility
      */
     public static void main(String[] args) {
-        if (args.length != 5) {
+        if (args.length != 7) {
             System.out.println("usage: java " + FixedPriceComponent.class.toString() + " " +
                     "<numSubmissions> <numSubmissionPassScreening> <phaseId> " +
-                    "<primaryFixedPayment> <secondaryFixedPayment>");
+                    "<primaryFixedPayment> <secondaryFixedPayment> <prize> <dr_points>");
             System.out.println("dev phaseId " + DEV_PHASE);
             System.out.println("design phaseId " + DESIGN_PHASE);
         } else {
 
             showPayments(Integer.parseInt(args[0]), Integer.parseInt(args[1]), Integer.parseInt(args[2]),
-                    Float.parseFloat(args[3]), Float.parseFloat(args[4]));
+                         Float.parseFloat(args[3]), Float.parseFloat(args[4]),
+                         Float.parseFloat(args[5]), Float.parseFloat(args[6]));
         }
     }
 }
