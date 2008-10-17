@@ -424,7 +424,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     private float calculateCompensation(float prize, float dr) {
-        return prize * 1.5 * 1.5 + dr; // Winner + second place + reliability bonuses + DR
+        return prize * 1.5f * 1.5f + dr; // Winner + second place + reliability bonuses + DR
     }
 
     public int getPhaseId() {
