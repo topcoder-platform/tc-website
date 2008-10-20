@@ -43,6 +43,7 @@ public class FixedPriceComponent extends DefaultPriceComponent {
     /**
      * Constructor compatible with DefaultPriceComponent
      */
+    @Deprecated
     public FixedPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId,
                                float primaryFixedPayment, float secondaryFixedPayment) {
         super(levelId, submissionCount, submissionsPassedScreening, phaseId);
@@ -50,8 +51,26 @@ public class FixedPriceComponent extends DefaultPriceComponent {
         setPrimaryFixedPayment(primaryFixedPayment);
         setSecondaryFixedPayment(secondaryFixedPayment);
 
-        log.debug("level: " + levelId + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
-                submissionsPassedScreening + " phaseId: " + phaseId + " primaryFixedPayment: " + primaryFixedPayment + " secondaryFixedPayment: " + secondaryFixedPayment);
+        log.debug("level: " + levelId + " submissionCount: " + submissionCount + " submissionPassedScreening: "
+                  + submissionsPassedScreening + " phaseId: " + phaseId + " primaryFixedPayment: "
+                  + primaryFixedPayment + " secondaryFixedPayment: " + secondaryFixedPayment);
+    }
+
+    /**
+     * Constructor compatible with DefaultPriceComponent
+     */
+    public FixedPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId,
+                               float primaryFixedPayment, float secondaryFixedPayment, float prize, float drPoints) {
+        super(levelId, submissionCount, submissionsPassedScreening, phaseId, prize, drPoints);
+
+        setPrimaryFixedPayment(primaryFixedPayment);
+        setSecondaryFixedPayment(secondaryFixedPayment);
+
+        log.debug("level: " + levelId + " submissionCount: " + submissionCount
+                  + " submissionPassedScreening: " + submissionsPassedScreening
+                  + " phaseId: " + phaseId + " primaryFixedPayment: " + primaryFixedPayment
+                  + " secondaryFixedPayment: " + secondaryFixedPayment
+                  + " prize: " + prize + " drPoints: " + drPoints);
     }
 
     /**
@@ -155,19 +174,23 @@ public class FixedPriceComponent extends DefaultPriceComponent {
      * Command line utility
      */
     private static void showPayments(int submissionCount, int submissionsPassedScreening, int phaseId,
-                                     float primaryFixedPayment, float secondaryFixedPayment) {
+                                     float primaryFixedPayment, float secondaryFixedPayment,
+                                     float prize, float drPoints) {
 
-        FixedPriceComponent fpc = new FixedPriceComponent(LEVEL1,
-                submissionCount, submissionsPassedScreening,
-                phaseId, primaryFixedPayment, secondaryFixedPayment);
+        FixedPriceComponent fpc = new FixedPriceComponent(LEVEL1, submissionCount, submissionsPassedScreening,
+                                                          phaseId, primaryFixedPayment, secondaryFixedPayment,
+                                                          prize, drPoints);
 
-        DefaultPriceComponent dpc = new DefaultPriceComponent(LEVEL1,
-                submissionCount,
-                submissionsPassedScreening,
-                phaseId);
+        DefaultPriceComponent dpc = new DefaultPriceComponent(LEVEL1, submissionCount, submissionsPassedScreening,
+                                                              phaseId, prize, drPoints);
 
-        System.out.println("submissionCount: " + submissionCount + " submissionPassedScreening: " +
-                submissionsPassedScreening + " phaseId: " + phaseId + " primaryFixedPayment: " + primaryFixedPayment + " secondaryFixedPayment: " + secondaryFixedPayment);
+        System.out.println("submissionCount: " + submissionCount
+                           + " submissionPassedScreening: " + submissionsPassedScreening
+                           + " phaseId: " + phaseId
+                           + " primaryFixedPayment: " + primaryFixedPayment
+                           + " secondaryFixedPayment: " + secondaryFixedPayment
+                           + " prize: " + prize
+                           + " drPoints: " + drPoints);
 
         System.out.println("Item ; Old ; new:");
         System.out.println("Aggregation ; " + dpc.getAggregationCost() + " ; " + fpc.getAggregationCost());
@@ -183,16 +206,17 @@ public class FixedPriceComponent extends DefaultPriceComponent {
      * Command line utility
      */
     public static void main(String[] args) {
-        if (args.length != 5) {
+        if (args.length != 7) {
             System.out.println("usage: java " + FixedPriceComponent.class.toString() + " " +
                     "<numSubmissions> <numSubmissionPassScreening> <phaseId> " +
-                    "<primaryFixedPayment> <secondaryFixedPayment>");
+                    "<primaryFixedPayment> <secondaryFixedPayment> <prize> <dr_points>");
             System.out.println("dev phaseId " + DEV_PHASE);
             System.out.println("design phaseId " + DESIGN_PHASE);
         } else {
 
             showPayments(Integer.parseInt(args[0]), Integer.parseInt(args[1]), Integer.parseInt(args[2]),
-                    Float.parseFloat(args[3]), Float.parseFloat(args[4]));
+                         Float.parseFloat(args[3]), Float.parseFloat(args[4]),
+                         Float.parseFloat(args[5]), Float.parseFloat(args[6]));
         }
     }
 }
