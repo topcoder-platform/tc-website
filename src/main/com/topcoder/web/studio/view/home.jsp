@@ -77,12 +77,14 @@ ding="utf-8"?>
     </div>
     
     <!-- banner -->
-    <%-- tournament banner --%>
-    	<div>
-            <a href="/?module=ViewContestDetails&ct=2379"><img alt="$1500 Mini-Tournament" src="/i/tournament_banner.png" width="535" height="60" border="0"/></a> 
-		</div>
     
     <%-- old banners --%>
+    <%-- tournament banner
+    	<div>
+            <a href="/?module=ViewContestDetails&ct=2379"><img alt="$1500 Mini-Tournament" src="/i/tournament_banner.png" width="535" height="60" border="0"/></a> 
+		</div> --%>
+    
+    
     <%--
        <a href="/?module=ViewContestDetails&amp;ct=2239"><img alt="Register Now!" src="/i/v3/lending_tree_banner.png" width="536" height="88" border="0"/></a>
     </div>
