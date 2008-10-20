@@ -11,7 +11,8 @@
                  java.util.ArrayList,
                  java.util.List"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>  
+<%@ taglib prefix="tc_tags" tagdir="/WEB-INF/tags" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ArrayList<Boolean> waitingToReview = (ArrayList<Boolean>) request.getAttribute("waitingToReview"); %>
 <% ArrayList<Timestamp> waitingUntil = (ArrayList<Timestamp>) request.getAttribute("waitingUntil"); %>
@@ -107,25 +108,7 @@
  <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DESIGN_PHASE) { %>
    <tr>
       <td class="statDk" align="center">
-         <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
-         <img src="/i/development/smAOL.gif" border="0"/>
-         <% } else if (resultRow.getLongItem("category_id")==Constants.DOT_NET_CATALOG_ID) { %>
-         <img src="/i/development/netSm.gif" border="0"/>
-         <% } else if (resultRow.getLongItem("category_id")==Constants.CUSTOM_DOT_NET_CATALOG_ID) {%>
-         <img src="/i/development/smNetCustom.gif" border="0"/>
-         <% } else if ((resultRow.getLongItem("category_id"))==Constants.JAVA_CATALOG_ID) { %>
-         <img src="/i/development/smJava.gif" border="0"/>
-         <% } else if (resultRow.getLongItem("category_id")==Constants.CUSTOM_JAVA_CATALOG_ID) { %>
-         <img src="/i/development/smJavaCustom.gif" border="0"/>
-         <% } else if ((resultRow.getLongItem("category_id"))==Constants.FLASH_CATALOG_ID) { %>
-         <img src="/i/development/flashSm.gif" border="0"/>
-         <% } else if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
-         <img src="/i/development/smApp.gif" border="0"/>
-          <% } else if ((resultRow.getLongItem("category_id"))==Constants.CPP_CATALOG_ID) { %>
-          <img src="/i/development/smCpp.png" border="0"/>
-         <% } else { %>
-         <rsc:item row="<%=resultRow%>" name="catalog"/>
-         <% } %>
+         <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/> 
       </td>
       <% if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
       <td class="statDk"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></td>
@@ -202,25 +185,7 @@
       <% } %>
       </td>
       <td class="statDk" align="center">
-        <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
-        <img src="/i/development/smAOL.gif" border="0"/>
-        <% } else if ((resultRow.getLongItem("category_id"))==Constants.DOT_NET_CATALOG_ID) { %>
-        <img src="/i/development/netSm.gif" border="0"/>
-        <% } else if (resultRow.getLongItem("category_id")==Constants.CUSTOM_DOT_NET_CATALOG_ID) {%>
-        <img src="/i/development/smNetCustom.gif" border="0"/>
-        <% } else if ((resultRow.getLongItem("category_id"))==Constants.JAVA_CATALOG_ID) { %>
-        <img src="/i/development/smJava.gif" border="0"/>
-        <% } else if (resultRow.getLongItem("category_id")==Constants.CUSTOM_JAVA_CATALOG_ID) { %>
-        <img src="/i/development/smJavaCustom.gif" border="0"/>
-        <% } else if ((resultRow.getLongItem("category_id"))==Constants.FLASH_CATALOG_ID) { %>
-        <img src="/i/development/flashSm.gif" border="0"/>
-        <% } else if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
-        <img src="/i/development/smApp.gif" border="0"/>
-        <% } else if ((resultRow.getLongItem("category_id"))==Constants.CPP_CATALOG_ID) { %>
-        <img src="/i/development/smCpp.png" border="0"/>
-        <% } else { %>
-        <rsc:item row="<%=resultRow%>" name="catalog"/>
-        <% } %>
+         <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/> 
       </td>
       <% if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
       <td class="statDk"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></td>

@@ -6,6 +6,7 @@
                  com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail");%>
 <% ResultSetContainer technologies = (ResultSetContainer) request.getAttribute("technologies");%>
@@ -204,50 +205,51 @@
         <td class="projectHeaders" align="left">Payment</td>
     </tr>
 </table>
-<% if (projectDetail.getIntItem(0, "root_category_id") == Constants.JAVA_CATALOG_ID || 
-projectDetail.getIntItem(0, "root_category_id") == Constants.DOT_NET_CATALOG_ID ||
-projectDetail.getIntItem(0, "root_category_id") == Constants.CPP_CATALOG_ID) {%>
-<p>
-    TopCoder will compensate members with first and second place submissions that have scored at least
-    75. First place compensation will consist of both initial payments and royalties on
-    the sale of the component. The initial payment will be distributed in two installments.
-    First Milestone: When the winning solution is submitted and review board suggestions are integrated.
-    Second Milestone: Is marked by the completion of the development project*.</p>
-
-<p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per
-    component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25%
-    to the developer(s), 25% to the Architecture Board member(s) and 25% to the Development Board member(s). Royalties
-    may be diluted if additional work is done to the component, as the total work effort for the component will
-    increase.</p>
-
-<p class="noSpListTitle"><strong>Winning Developer</strong></p>
-<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
-    <tr>
-        <td class="bodyText" nowrap="nowrap">Royalty Percentage -</td><td class="bodyText" align="right">25%</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap" colspan="2">&#160;</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">Total Payment -</td><td class="bodyText" align="right">$
-        <rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/></td>
-    </tr>
-</table>
-<% } else { %>
-<p>
-    TopCoder will compensate members with first and second place submissions that have scored at least
-    75. The initial payment will be distributed in two installments.
-    First Milestone: When the winning solution is submitted and review board suggestions are integrated.
-    Second Milestone: Is marked by the completion of the development project*.</p>
-
-<p class="noSpListTitle"><strong>Winning Developer</strong></p>
-<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
-    <tr>
-        <td class="bodyText" nowrap="nowrap">Total Payment -</td><td class="bodyText" align="right">$
-        <rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/></td>
-    </tr>
-</table>
-<% } %>
+<c:choose>
+    <c:when test="${paysRoyalties}">
+        <p>
+            TopCoder will compensate members with first and second place submissions that have scored at least
+            75. First place compensation will consist of both initial payments and royalties on
+            the sale of the component. The initial payment will be distributed in two installments.
+            First Milestone: When the winning solution is submitted and review board suggestions are integrated.
+            Second Milestone: Is marked by the completion of the development project*.</p>
+        
+        <p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per
+            component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25%
+            to the developer(s), 25% to the Architecture Board member(s) and 25% to the Development Board member(s). Royalties
+            may be diluted if additional work is done to the component, as the total work effort for the component will
+            increase.</p>
+        
+        <p class="noSpListTitle"><strong>Winning Developer</strong></p>
+        <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+            <tr>
+                <td class="bodyText" nowrap="nowrap">Royalty Percentage -</td><td class="bodyText" align="right">25%</td>
+            </tr>
+            <tr>
+                <td class="bodyText" nowrap="nowrap" colspan="2">&#160;</td>
+            </tr>
+            <tr>
+                <td class="bodyText" nowrap="nowrap">Total Payment -</td><td class="bodyText" align="right">$
+                <rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/></td>
+            </tr>
+        </table>
+    </c:when>
+    <c:otherwise>
+        <p>
+            TopCoder will compensate members with first and second place submissions that have scored at least
+            75. The initial payment will be distributed in two installments.
+            First Milestone: When the winning solution is submitted and review board suggestions are integrated.
+            Second Milestone: Is marked by the completion of the development project*.</p>
+        
+        <p class="noSpListTitle"><strong>Winning Developer</strong></p>
+        <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+            <tr>
+                <td class="bodyText" nowrap="nowrap">Total Payment -</td><td class="bodyText" align="right">$
+                <rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/></td>
+            </tr>
+        </table>
+    </c:otherwise>
+</c:choose>
 
 <p><strong>Second Place Developer</strong><br/>
     Total Payment - <rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br/>

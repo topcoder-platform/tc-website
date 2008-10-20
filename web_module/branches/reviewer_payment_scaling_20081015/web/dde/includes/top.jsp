@@ -36,7 +36,7 @@
 				<h3 class="hide">SUB Navigation</h3>
 				<ul>
                 	<li class="left"><a href="http://www.topcoder.com/">TopCoder.com</a></li>
-                	<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=index">About TopCoder</a></li>
+                	<li><a href="http://software.topcoder.com/about.jsp">About TopCoder</a></li>
 					<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=index">News</a></li>
 					<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=contactus">Contact Us</a></li>
 					
