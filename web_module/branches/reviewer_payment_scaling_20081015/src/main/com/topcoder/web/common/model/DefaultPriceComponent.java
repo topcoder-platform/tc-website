@@ -136,17 +136,15 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     public float getPrice() {
-        float ret = 0.0f;
-        if (phaseId == DEV_PHASE) {
-            ret = DEV_PRICE_LOOKUP[level];
-        } else if (phaseId == DESIGN_PHASE) {
-            ret = DESIGN_PRICE_LOOKUP[level];
-        } else if (phaseId == COMPONENT_TESTING) {
-            ret = TESTING_PRICE_LOOKUP[level];
-        } else {
-            throw new RuntimeException("invalid phaseId " + phaseId);
-        }
-        return Math.round(ret);
+        return this.prize;
+    }
+
+    public float getDR() {
+        return this.drPoints;
+    }
+
+    public float getCompetitorCompensation() {
+        return calculateCompensation(this.prize, this.drPoints);
     }
 
     public float getDesignReviewRate() {
@@ -455,9 +453,13 @@ public class DefaultPriceComponent implements SoftwareComponent {
                                                                  Float.parseFloat(args[4]), Float.parseFloat(args[5]));
             System.out.println("-------------------------------------------------------------");
             if (sc.phaseId == DEV_PHASE) {
-                System.out.println("        Dev Cost:            |      " + sc.getPrice());
+                System.out.println("        Dev Prize            |      " + sc.getPrice());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("     Dev Review Cost:        |      " + sc.getReviewPrice());
+                System.out.println("         Dev DR              |      " + sc.getDR());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("   Total Dev Compensation    |      " + sc.getCompetitorCompensation());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("     Dev Review Cost         |      " + sc.getReviewPrice());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("  Dev Primary Review Cost    |      " + sc.getPrimaryReviewPrice());
                 System.out.println("-----------------------------+-------------------------------");
@@ -469,9 +471,13 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("     Dev Core Review Cost    |      " + sc.getDevCoreReviewCost());
             } else if (sc.phaseId == DESIGN_PHASE) {
-                System.out.println("      Design Cost:           |      " + sc.getPrice());
+                System.out.println("      Design Cost            |      " + sc.getPrice());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("   Design Review Cost:       |      " + sc.getReviewPrice());
+                System.out.println("       Design DR             |      " + sc.getDR());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("  Total Design Compensation  |      " + sc.getCompetitorCompensation());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("    Design Review Cost       |      " + sc.getReviewPrice());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println(" Design Primary Review Cost: |      " + sc.getPrimaryReviewPrice());
                 System.out.println("-----------------------------+-------------------------------");
@@ -483,19 +489,23 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("   Design Core Review Cost   |      " + sc.getCoreDesignReviewCost());
             } else if (sc.phaseId == COMPONENT_TESTING) {
-                System.out.println("      Testing Cost:           |      " + sc.getPrice());
+                System.out.println("      Testing Cost           |      " + sc.getPrice());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("   Testing Review Cost:       |      " + sc.getReviewPrice());
+                System.out.println("       Testing DR            |      " + sc.getDR());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println(" Testing Primary Review Cost: |      " + sc.getPrimaryReviewPrice());
+                System.out.println(" Total Testing Compensation  |      " + sc.getCompetitorCompensation());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("  Testing Primary Screen Cost |      " + sc.getScreeningPrimaryTestingReviewCost());
+                System.out.println("   Testing Review Cost       |      " + sc.getReviewPrice());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("    Testing Primary Agg Cost  |      " + sc.getTestingAggregationCost());
+                System.out.println(" Testing Primary Review Cost |      " + sc.getPrimaryReviewPrice());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println(" Testing Primary Screen Cost |      " + sc.getScreeningPrimaryTestingReviewCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("   Testing Primary Agg Cost  |      " + sc.getTestingAggregationCost());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("Testing Primary Final Rev Cost|      " + sc.getTestingFinalReviewCost());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("   Testing Core Review Cost   |      " + sc.getTestingCoreReviewCost());
+                System.out.println("   Testing Core Review Cost  |      " + sc.getTestingCoreReviewCost());
             } else {
                 System.out.println("INVALID PHASE");
             }
