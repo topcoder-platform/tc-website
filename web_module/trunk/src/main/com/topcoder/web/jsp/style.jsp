@@ -34,8 +34,11 @@
 <link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
 <link type="text/css" rel="stylesheet" href="/css/jobsRemix.css" />
 <% } else if (key.equals("tc_reg")) { %>
+<link type="text/css" rel="stylesheet" href="/css/reg/regReskin20080904.css" />
+<%-- old reg style 
 <link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
 <link type="text/css" rel="stylesheet" href="/css/tcReg.css" />
+--%>
 <% } else if (key.equals("tc_stats")) { %>
 <link type="text/css" rel="stylesheet" href="/css/style.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
