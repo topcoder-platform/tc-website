@@ -4,6 +4,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -40,7 +41,8 @@
 			        <strong>Profile updated!</strong>
             		<br/><br/>
             		Your profile has been successfully updated
-	                <form method="post" action="/tc?module=MyHome">
+                    <form method="get" action="/tc">
+                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="MyHome"/>
     	                <ul class="lonebuttons">
         	                <li class="form-bottom">
             	                <button type="submit" id="submit">Continue to My Home</button>
