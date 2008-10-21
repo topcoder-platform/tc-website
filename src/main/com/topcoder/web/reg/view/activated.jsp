@@ -1,35 +1,44 @@
-<%@ page import="com.topcoder.web.reg.Constants"%>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<html>
-<head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Registration</title>
-    <jsp:include page="/style.jsp">
-        <jsp:param name="key" value="tc_reg"/>
-    </jsp:include>
-</head>
-
-<body>
-<div align="center" style="padding:6px 0px 6px; 0px;">
-<A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /></A>
-</div>
-<div align="center">
-   <div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
-
-     <jsp:include page="/page_title.jsp">
-         <jsp:param name="image" value="registration_w"/>
-         <jsp:param name="title" value="&#160;"/>
-     </jsp:include>
-
-   <div>
-   <strong>Your have successfully activated your account. Thank You!</strong>
-   </div>
-</div>
-
-<br><br>
-</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Registration Signup: Registration Areas</title>
+        <script type="text/javascript" src="/js/regReskin20080904.js"></script>
+        <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+        <jsp:include page="style.jsp">
+            <jsp:param name="key" value="tc_reg"/>
+        </jsp:include>
+    </head>
+    
+    <body>
+        
+        <div id="wrapper">
+        
+            <div id="box-head">
+                <jsp:include page="header.jsp" />
+                <div id="page-head">
+                    <h3 id="registration-signup"><span>Registration Signup: Personal Information</span></h3>
+                </div>
+            </div>
+            
+            <div id="box-body">
+                <p class="padded confirmation">
+                    <strong>Thank you for activating your account.<br />
+                    You are now a TopCoder member.</strong>
+                </p>
+                <form method="post" action="/tc?module=MyHome">
+                    <ul class="lonebuttons">
+                        <li class="form-bottom">
+                            <button type="submit" id="submit">Continue to My Home</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <jsp:include page="footer.jsp" />
+            
+        </div>
+        
+    </body>
 </html>

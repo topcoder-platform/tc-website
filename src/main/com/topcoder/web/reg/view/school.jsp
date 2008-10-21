@@ -1,18 +1,20 @@
 <%@ page import="com.topcoder.web.reg.Constants" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
 
-<head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Registration</title>
-    <jsp:include page="/style.jsp">
-        <jsp:param name="key" value="tc_reg"/>
-    </jsp:include>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>School Search</title>
+        <script type="text/javascript" src="/js/regReskin20080904.js"></script>
+        <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+        <jsp:include page="style.jsp">
+            <jsp:param name="key" value="tc_reg"/>
+        </jsp:include>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
     <script language="javascript" type="text/javascript">
         <!--
@@ -23,21 +25,28 @@
             }
         -->
     </script>
+    
+    <jsp:include page="registrationCss.jsp" />
+    
 </head>
 
-<body>
-<div align="center">
-    <div style="width:500px;padding:15px;text-align:left;">
-
-        <jsp:include page="/page_title.jsp">
-            <jsp:param name="image" value="registration_w"/>
-            <jsp:param name="title" value="School Search"/>
-        </jsp:include>
-
+    <body>
+        
+        <div id="wrapper">
+        
+            <div id="box-head">
+                <jsp:include page="header.jsp" />
+                <div id="page-head">
+                    <h3 id="registration-signup"><span>Registration Signup: Personal Information</span></h3>
+                </div>
+            </div>
+            
+            <div id="box-body">
+            
         <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="schoolSearchForm">
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SchoolSearch"/>
 
-            <span class="subtitle">School Search</span>
+            <span class="bodySubtitle">School Search</span>
             <br><br>
 
             <strong>School Name:</strong><br>
@@ -104,6 +113,9 @@
         </c:if>
 
     </div>
-</div>
-</body>
+            <jsp:include page="footer.jsp" />
+            
+        </div>
+        
+    </body>
 </html>

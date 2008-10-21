@@ -6,93 +6,66 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="reg-tags" prefix="rt" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Registration</title>
-    <jsp:include page="script.jsp"/>
-    <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_reg"/>
-    </jsp:include>
-</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Signup Personal Information</title>
+        <script type="text/javascript" src="/js/regReskin20080904.js"></script>
+        <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+        <jsp:include page="style.jsp">
+            <jsp:param name="key" value="tc_reg"/>
+        </jsp:include>
 
-<body>
-<div align="center" style="padding:6px 0px 6px; 0px;">
-    <A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder"
-                                                             border="0"/></A>
-</div>
+		<jsp:include page="registrationCss.jsp" />
+        
+	</head>
 
-<div align="center">
-<div style="padding: 0px 0px 10px 0px; width: 600px; text-align: left;">
-
-<jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="registration_w"/>
-    <jsp:param name="title" value="&#160;"/>
-</jsp:include>
-
-<div id="regBcContainer">
-    <div class="regBc">
-        <div class="title">
-            <c:if test="${sessionInfo.loggedIn}">
-                <div style="float:left;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A>
+    <body>
+        
+        <div id="wrapper">
+        
+            <div id="box-head">
+                <jsp:include page="header.jsp" />
+                <div id="page-head">
+                    <h3 id="registration-signup"><span>Registration Signup: Personal Information</span></h3>
                 </div>
-            </c:if>
-            Step <strong>4</strong> of
-            <c:choose>
-                <c:when test="${isNewReg}">
-                    <strong>6</strong>
-                </c:when>
-                <c:otherwise>
-                    <strong>5</strong>
-                </c:otherwise>
-            </c:choose>
-        </div>
+            </div>
+            
+            <div id="box-body">            
+                  
+                    <div class="sidebox">
 
-        <div class="off">Select Your Registration</div>
+                      <h4 class="floated">Is this information correct?</h4>
+                      <p class="bigRed">
+                          NOTE: You have not updated your information yet. You MUST click CONFIRM at the bottom of this page to complete registration.   
+                      </p>
 
-        <div class="off">General</div>
+                    </div>
 
-        <div class="off">Demographics</div>
+                    <div class="content">
+                    
+                        <h4 class="floated">
+                            <span>General</span><span class="end">&nbsp;</span>
+                            <a href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=Main" class="edit">Edit</a>
+                        </h4>
 
-        <div class="on">Confirm</div>
+                        <div class="content-body">
+                        
+                    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="confirmForm">
+					<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
 
-        <div class="off">Success</div>
-        <c:if test="${isNewReg}">
-            <div class="off">Activation</div>
-        </c:if>
-    </div>
-</div>
+                    
+                            <table width="100%" class="plain">
 
-<div style="width:400px; margin-right: 200px;">
-    <strong>Is this information correct?</strong>
-    <br><br>
-    <span class="bigRed">NOTE: You have not updated your information yet. You MUST click CONFIRM at the bottom of this page to complete registration.</span>
-    <br><br>
-</div>
-
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="confirmForm">
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
-
-<table cellpadding="0" cellspacing="0" border="0" class="regFields" style="width:400px; margin-right: 200px;">
-
-
-<tr>
-    <td class="name">
-        <strong>General:</strong>
-    </td>
-    <td class="value">
-        <strong><a href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=Main">edit</A></strong>
-    </td>
-</tr>
 
 <c:set value="<%=Constants.GIVEN_NAME%>" var="givenName"/>
 <c:if test="${cf:contains(fields, givenName)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Given Name:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.firstName}
         </td>
     </tr>
@@ -101,10 +74,10 @@
 <c:set value="<%=Constants.SURNAME%>" var="surname"/>
 <c:if test="${cf:contains(fields, surname)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Surname:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.lastName}
         </td>
     </tr>
@@ -116,10 +89,10 @@
     <c:set value="<%=Constants.TITLE%>" var="title"/>
     <c:if test="${cf:contains(fields, title)}">
         <tr>
-            <td class="name">
+            <td class="field-name">
                 Job Title:
             </td>
-            <td class="value">
+            <td class="field-value">
                     ${regUser.contact.title}
             </td>
         </tr>
@@ -128,10 +101,10 @@
     <c:set value="<%=Constants.COMPANY_NAME%>" var="companyName"/>
     <c:if test="${cf:contains(fields, companyName)}">
         <tr>
-            <td class="name">
+            <td class="field-name">
                 Company:
             </td>
-            <td class="value">
+            <td class="field-value">
                     ${regUser.contact.company.name}
             </td>
         </tr>
@@ -141,10 +114,10 @@
 <c:set value="<%=Constants.ADDRESS1%>" var="address1"/>
 <c:if test="${cf:contains(fields, address1)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Address1:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.homeAddress.address1}
         </td>
     </tr>
@@ -153,10 +126,10 @@
 <c:set value="<%=Constants.ADDRESS2%>" var="address2"/>
 <c:if test="${cf:contains(fields, address2)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Address2:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.homeAddress.address2}
         </td>
     </tr>
@@ -165,10 +138,10 @@
 <c:set value="<%=Constants.ADDRESS3%>" var="address3"/>
 <c:if test="${cf:contains(fields, address3)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Address3:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.homeAddress.address3}
         </td>
     </tr>
@@ -177,10 +150,10 @@
 <c:set value="<%=Constants.CITY%>" var="city"/>
 <c:if test="${cf:contains(fields, city)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             City:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.homeAddress.city}
         </td>
     </tr>
@@ -189,10 +162,10 @@
 <c:set value="<%=Constants.STATE_CODE%>" var="stateCode"/>
 <c:if test="${cf:contains(fields, stateCode)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             State:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.homeAddress.state.name}
         </td>
     </tr>
@@ -201,10 +174,10 @@
 <c:set value="<%=Constants.POSTAL_CODE%>" var="postalCode"/>
 <c:if test="${cf:contains(fields, postalCode)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Postal Code:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.homeAddress.postalCode}
         </td>
     </tr>
@@ -213,10 +186,10 @@
 <c:set value="<%=Constants.PROVINCE%>" var="province"/>
 <c:if test="${cf:contains(fields, province)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Province:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.homeAddress.province}
         </td>
     </tr>
@@ -225,10 +198,10 @@
 <c:set value="<%=Constants.COUNTRY_CODE%>" var="countryCode"/>
 <c:if test="${cf:contains(fields, countryCode)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Country:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.homeAddress.country.name}
         </td>
     </tr>
@@ -238,10 +211,10 @@
 <c:set value="<%=Constants.COMP_COUNTRY_CODE%>" var="compCountryCode"/>
 <c:if test="${cf:contains(fields, compCountryCode)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Country to represent:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.coder.compCountry.name}
         </td>
     </tr>
@@ -250,10 +223,10 @@
 <c:set value="<%=Constants.TIMEZONE%>" var="timeZone"/>
 <c:if test="${cf:contains(fields, timeZone)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Timezone:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.timeZone.description}
         </td>
     </tr>
@@ -262,10 +235,10 @@
 <c:set value="<%=Constants.PHONE_NUMBER%>" var="phoneNumber"/>
 <c:if test="${cf:contains(fields, phoneNumber)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Phone Number:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.primaryPhoneNumber.number}
         </td>
     </tr>
@@ -274,10 +247,10 @@
 <c:set value="<%=Constants.EMAIL%>" var="email"/>
 <c:if test="${cf:contains(fields, email)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Email Address:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.primaryEmailAddress.address}
         </td>
     </tr>
@@ -286,10 +259,10 @@
 <c:set value="<%=Constants.HANDLE%>" var="handle"/>
 <c:if test="${cf:contains(fields, handle)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             User Name:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.handle}
         </td>
     </tr>
@@ -298,10 +271,10 @@
 <c:set value="<%=Constants.PASSWORD%>" var="password"/>
 <c:if test="${cf:contains(fields, password)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Password:
         </td>
-        <td class="value">
+        <td class="field-value">
             ********
         </td>
     </tr>
@@ -310,10 +283,10 @@
 <c:set value="<%=Constants.SECRET_QUESTION%>" var="secretQuestion"/>
 <c:if test="${cf:contains(fields, secretQuestion)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Secret Question:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.secretQuestion.question}
         </td>
     </tr>
@@ -322,10 +295,10 @@
 <c:set value="<%=Constants.SECRET_QUESTION_RESPONSE%>" var="secretQuestionResponse"/>
 <c:if test="${cf:contains(fields, secretQuestionResponse)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Secret Question Response:
         </td>
-        <td class="value">
+        <td class="field-value">
             ********
         </td>
     </tr>
@@ -335,10 +308,10 @@
 <c:set value="<%=Constants.QUOTE%>" var="quote"/>
 <c:if test="${cf:contains(fields, quote)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Quote:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.coder.quote}
         </td>
     </tr>
@@ -348,10 +321,10 @@
 <c:if test="${cf:contains(fields, notification)}">
     <c:forEach items="${regUser.notifications}" var="notif">
         <tr>
-            <td class="name">
+            <td class="field-name">
                 Email Notifications:
             </td>
-            <td class="value">
+            <td class="field-value">
                     ${notif.name}
             </td>
         </tr>
@@ -361,10 +334,10 @@
 <c:set value="<%=Constants.MEMBER_CONTACT%>" var="memberContact"/>
 <c:if test="${cf:contains(fields, memberContact)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Member Contact Enabled:
         </td>
-        <td class="value">
+        <td class="field-value">
             <c:if test="${regUser.memberContactEnabled}">yes</c:if>
             <c:if test="${!regUser.memberContactEnabled}">no</c:if>
         </td>
@@ -375,15 +348,15 @@
 <c:set value="<%=Constants.CODER_TYPE%>" var="coderType"/>
 <c:if test="${cf:contains(fields, coderType)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Coder Type:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.coder.coderType.description}
         </td>
     </tr>
 </c:if>
-
+                                     
 <c:set value="<%=Constants.DEMOG_PREFIX%>" var="demogPrefix"/>
 <c:set value="<%=Constants.RESUME%>" var="resume"/>
 <c:set value="<%=Constants.GPA%>" var="gpa"/>
@@ -392,16 +365,23 @@
 <c:set value="<%=Constants.REFERRAL%>" var="referral"/>
 
 <c:if test="${cf:contains(fields, demogPrefix)||cf:contains(fields, resume)||(cf:contains(fields, gpa)&&cf:contains(fields, gpaScale))||cf:contains(fields, schoolName)||cf:contains(fields, referral)}">
-    <%--Demographics--%>
-    <tr>
-        <td class="name">
-            <strong>Demographics:</strong>
-        </td>
-        <td class="value">
-            <strong><a href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=Secondary">edit</A>
-            </strong>
-        </td>
-    </tr>
+    
+    <%-- Close General information section first--%>
+						</table>
+                      </div>
+                    </div>
+                    
+	<%--Open Demographics section--%>	                 
+                    <div class="sidebox" style="visibility: hidden;">
+                        <h4>&nbsp;</h4>
+                    </div>
+                    <div class="content">
+                        <h4 class="floated">
+                            <span>Demographics</span><span class="end">&nbsp;</span>
+                            <a href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=Secondary" class="edit">Edit</a>    
+                        </h4>
+                        <div class="content-body">
+                            <table width="98%" class="plain" align="center">
 </c:if>
 
 <c:if test="${cf:contains(fields, demogPrefix)}">
@@ -409,11 +389,11 @@
 
     <rt:responseIterator id="resp" collection="${regUser.transientResponses}">
         <tr>
-            <td class="name">
+            <td class="field-name">
                 <rt:demographicQuestionText response="${resp}"/>
                 :
             </td>
-            <td class="value">
+            <td class="field-value">
                 <rt:demographicAnswerText response="${resp}"/>
             </td>
         </tr>
@@ -423,10 +403,10 @@
 
 <c:if test="${cf:contains(fields, resume)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             Resume:
         </td>
-        <td class="value">
+        <td class="field-value">
             <c:forEach items="${regUser.coder.resumes}" var="resume">
                 ${resume.fileName}
             </c:forEach>
@@ -436,10 +416,10 @@
 
 <c:if test="${cf:contains(fields, gpa)&&cf:contains(fields, gpaScale)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             GPA:
         </td>
-        <td class="value">
+        <td class="field-value">
             <c:if test="${regUser.coder.currentSchool.GPA!=null&&regUser.coder.currentSchool.GPAScale!=null}">
                 ${regUser.coder.currentSchool.GPA}/${regUser.coder.currentSchool.GPAScale}
             </c:if>
@@ -449,10 +429,10 @@
 
 <c:if test="${cf:contains(fields, schoolName)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             School:
         </td>
-        <td class="value">
+        <td class="field-value">
             <c:choose>
                 <c:when test="${regUser.coder.currentSchool!=null}">
                     ${regUser.coder.currentSchool.school.name}
@@ -470,10 +450,10 @@
     <c:set value="<%=Constants.TITLE%>" var="title"/>
     <c:if test="${cf:contains(fields, title)}">
         <tr>
-            <td class="name">
+            <td class="field-name">
                 Title:
             </td>
-            <td class="value">
+            <td class="field-value">
                     ${regUser.contact.title}
             </td>
         </tr>
@@ -482,10 +462,10 @@
     <c:set value="<%=Constants.COMPANY_NAME%>" var="companyName"/>
     <c:if test="${cf:contains(fields, companyName)}">
         <tr>
-            <td class="name">
+            <td class="field-name">
                 Company:
             </td>
-            <td class="value">
+            <td class="field-value">
                     ${regUser.contact.company.name}
             </td>
         </tr>
@@ -495,27 +475,33 @@
 
 <c:if test="${cf:contains(fields, referral)}">
     <tr>
-        <td class="name">
+        <td class="field-name">
             How did you hear<br>about TopCoder?:
         </td>
-        <td class="value">
+        <td class="field-value">
                 ${regUser.coder.coderReferral.referral.description} ${regUser.coder.coderReferral.referenceCoder.user.handle} ${regUser.coder.coderReferral.other}
         </td>
     </tr>
 </c:if>
-
 </table>
+							<div class="form-bottom">
+								<button type="submit" id="submit">Submit</button>
+								<p>
+								    Or cancel and go to 
+								    <a href="http://<%=ApplicationServer.SERVER_NAME%>/" title="TopCoder">TopCoder</a> or 
+								    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/" title="Studio">Studio</a>
+								</p>
+								<p>&nbsp;</p>
+							</div>
 </form>
 
-<br><br>
-
-<div align="center">
-    <a href="#" onclick="document.confirmForm.submit();return false;">Confirm</a>
 </div>
+                    </div>
+            </div>
 
-</div>
-</div>
-<br><br>
-
-</body>
+            <jsp:include page="footer.jsp" />
+            
+        </div>
+        
+    </body>
 </html>
