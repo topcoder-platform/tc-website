@@ -31,24 +31,24 @@
             
             <div id="box-body">
                 <p class="padded confirmation">
-			    <c:choose>
-        			<c:when test="${isNewReg}">
+                <c:choose>
+                    <c:when test="${isNewReg}">
                     <strong>Thank you for registering.<br />
                     We have sent you a confirmation email with activation information.<br />
                     Please check your email and activate your account now.</strong>
                     </c:when>
                     <c:otherwise>
-			        <strong>Profile updated!</strong>
-            		<br/><br/>
-            		Your profile has been successfully updated
+                    <strong>Profile updated!</strong>
+                    <br/><br/>
+                    Your profile has been successfully updated
                     <form method="get" action="/tc">
                         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="MyHome"/>
-    	                <ul class="lonebuttons">
-        	                <li class="form-bottom">
-            	                <button type="submit" id="submit">Continue to My Home</button>
-                	        </li>
-                    	</ul>
-	                </form>
+                        <ul class="lonebuttons">
+                            <li class="form-bottom">
+                                <button type="submit" id="submit">Continue to My Home</button>
+                            </li>
+                        </ul>
+                    </form>
                     </c:otherwise>
                 </c:choose>
                 </p>

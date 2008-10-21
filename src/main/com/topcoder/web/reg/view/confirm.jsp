@@ -16,10 +16,7 @@
         <jsp:include page="style.jsp">
             <jsp:param name="key" value="tc_reg"/>
         </jsp:include>
-
-		<jsp:include page="registrationCss.jsp" />
-        
-	</head>
+    </head>
 
     <body>
         
@@ -53,7 +50,7 @@
                         <div class="content-body">
                         
                     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="confirmForm">
-					<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
 
                     
                             <table width="100%" class="plain">
@@ -367,11 +364,11 @@
 <c:if test="${cf:contains(fields, demogPrefix)||cf:contains(fields, resume)||(cf:contains(fields, gpa)&&cf:contains(fields, gpaScale))||cf:contains(fields, schoolName)||cf:contains(fields, referral)}">
     
     <%-- Close General information section first--%>
-						</table>
+                        </table>
                       </div>
                     </div>
                     
-	<%--Open Demographics section--%>	                 
+    <%--Open Demographics section--%>                     
                     <div class="sidebox" style="visibility: hidden;">
                         <h4>&nbsp;</h4>
                     </div>
@@ -484,15 +481,15 @@
     </tr>
 </c:if>
 </table>
-							<div class="form-bottom">
-								<button type="submit" id="submit">Submit</button>
-								<p>
-								    Or cancel and go to 
-								    <a href="http://<%=ApplicationServer.SERVER_NAME%>/" title="TopCoder">TopCoder</a> or 
-								    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/" title="Studio">Studio</a>
-								</p>
-								<p>&nbsp;</p>
-							</div>
+                            <div class="form-bottom">
+                                <button type="submit" id="submit">Submit</button>
+                                <p>
+                                    Or cancel and go to 
+                                    <a href="http://<%=ApplicationServer.SERVER_NAME%>/" title="TopCoder">TopCoder</a> or 
+                                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/" title="Studio">Studio</a>
+                                </p>
+                                <p>&nbsp;</p>
+                            </div>
 </form>
 
 </div>

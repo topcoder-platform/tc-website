@@ -26,8 +26,6 @@
         -->
     </script>
     
-    <jsp:include page="registrationCss.jsp" />
-    
 </head>
 
     <body>

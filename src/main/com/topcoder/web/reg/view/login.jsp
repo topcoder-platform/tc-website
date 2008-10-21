@@ -28,7 +28,6 @@
             } else return true;
         }
     </script>
-    <jsp:include page="registrationCss.jsp" />
 
 </head>
 
