@@ -183,6 +183,9 @@ Show submissions by (Enter Handle):
             </c:otherwise>
         </c:choose>
     </td>
+    <td class="headerC">
+    	Paid
+    </td>
     <td class="headerE">
         <div>&nbsp;</div>
     </td>
@@ -280,6 +283,19 @@ Show submissions by (Enter Handle):
                 </c:when>
                 <c:otherwise>
                     <rsc:item name="final_score" row="<%=resultRow%>" format="0.00" ifNull=""/>
+                </c:otherwise>
+            </c:choose>
+        </td>
+        <td class="valueC">
+            <c:choose>
+                <c:when test="${resultRow.map['paid']==true}">
+                    <div><span class="bigGreen">Paid</span></div>
+                </c:when>
+                <c:when test="${resultRow.map['paid']==false}">
+                    <div><span class="bigGreen">Not paid</span></div>
+                </c:when>
+                <c:otherwise>
+                    <div><span class="bigRed">Unknown</span></div>
                 </c:otherwise>
             </c:choose>
         </td>
