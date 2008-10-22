@@ -184,7 +184,7 @@ Show submissions by (Enter Handle):
         </c:choose>
     </td>
     <td class="headerC">
-    	Paid
+    	Payment Id
     </td>
     <td class="headerE">
         <div>&nbsp;</div>
@@ -287,17 +287,17 @@ Show submissions by (Enter Handle):
             </c:choose>
         </td>
         <td class="valueC">
-            <c:choose>
-                <c:when test="${resultRow.map['paid']==true}">
-                    <div><span class="bigGreen">Paid</span></div>
-                </c:when>
-                <c:when test="${resultRow.map['paid']==false}">
-                    <div><span class="bigGreen">Not paid</span></div>
+
+			<rsc:item name="payment_id" row="<%=resultRow%>" ifNull="-"/>
+
+            <!-- c:choose>
+                <c:when test="${resultRow.map['paymentId']!=null}">
+                    <div><span class="bigGreen">Sent</span></div>
                 </c:when>
                 <c:otherwise>
-                    <div><span class="bigRed">Unknown</span></div>
+                    <div><span class="bigRed">Not sent</span></div>
                 </c:otherwise>
-            </c:choose>
+            </c:choose -->
         </td>
         <td class="valueE">
             <div>&nbsp;</div>
