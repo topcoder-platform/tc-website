@@ -118,6 +118,32 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- BNET: AOL Finds TopCoder Tops begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://industry.bnet.com/technology/1000470/aol-finds-topcoder-tops/' refer='pr_index' />"><img src="/i/pressroom/bnet_logo.gif" alt="BNET logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://industry.bnet.com/technology/1000470/aol-finds-topcoder-tops/' refer='pr_index' />">AOL Finds TopCoder Tops</a></h3>
+                        <p>AOL technical director Nic Perez talks about his experience as a TopCoder client for a number of major projects over the last three years.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://industry.bnet.com/technology/1000470/aol-finds-topcoder-tops/' refer='pr_index' />">[October 17]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- BNET: AOL Finds TopCoder Tops end --%>
+                
+                <%-- PC World: TopCoder Eyeing SMB Market begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.pcworld.com/businesscenter/article/152324/topcoder_eyeing_smb_market.html' refer='pr_index' />"><img src="/i/pressroom/pcworld_logo.gif" alt="PC World logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="<tc-webtag:linkTracking link='http://www.pcworld.com/businesscenter/article/152324/topcoder_eyeing_smb_market.html' refer='pr_index' />">TopCoder Eyeing SMB Market</a></h3>
+                        <p>TopCoder is turning its sights on the SMB market with a new portal called TopCoder Direct that will come out of beta at the end of October.  <small><a target="_blank" href="<tc-webtag:linkTracking link='http://www.pcworld.com/businesscenter/article/152324/topcoder_eyeing_smb_market.html' refer='pr_index' />">[October 15]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- PC World: TopCoder Eyeing SMB Market end --%>
+                
                 <%-- TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31 begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
