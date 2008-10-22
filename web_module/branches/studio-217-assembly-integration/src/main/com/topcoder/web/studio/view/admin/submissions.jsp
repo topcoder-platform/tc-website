@@ -290,14 +290,14 @@ Show submissions by (Enter Handle):
 
 			<rsc:item name="payment_id" row="<%=resultRow%>" ifNull="-"/>
 
-            <!-- c:choose>
+            <%-- c:choose>
                 <c:when test="${resultRow.map['paymentId']!=null}">
                     <div><span class="bigGreen">Sent</span></div>
                 </c:when>
                 <c:otherwise>
                     <div><span class="bigRed">Not sent</span></div>
                 </c:otherwise>
-            </c:choose -->
+            </c:choose --%>
         </td>
         <td class="valueE">
             <div>&nbsp;</div>
