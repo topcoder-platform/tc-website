@@ -73,6 +73,8 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://industry.bnet.com/technology/1000470/aol-finds-topcoder-tops/' refer='art_archive' />">AOL Finds TopCoder Tops <br /><small style="margin-left:10px;">[October 17 - BNET]</small></a></dd>
+                    <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://www.pcworld.com/businesscenter/article/152324/topcoder_eyeing_smb_market.html' refer='art_archive' />">TopCoder Eyeing SMB Market <br /><small style="margin-left:10px;">[October 15 - PC World]</small></a></dd>
                     <dd>Cool Programmer Challenge: Football Algorithm = $50,000 [September 19 - CIO] <br /><a target="_blank" href="<tc-webtag:linkTracking link='http://www.cio.com/article/449523/Cool_Programmer_Challenge_Football_Algorithm_' refer='art_archive' />">original article</a> | <a target="_blank" href="/i/pressroom/pdfs/cio_20080919.pdf">PDF</a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='http://weblog.infoworld.com/stratdev/archives/2008/08/what_does_progr.html' refer='art_archive' />">What does programming have to do with football? <br /><small style="margin-left:10px;">[August 29 - InfoWorld]</small></a></dd>
                     <dd><a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/infoworld_20080716.pdf' refer='art_archive' />">Five Web 2.0 dev lessons for enterprise IT [PDF] <br /><small style="margin-left:10px;">[July 17 - InfoWorld]</small></a></dd>
