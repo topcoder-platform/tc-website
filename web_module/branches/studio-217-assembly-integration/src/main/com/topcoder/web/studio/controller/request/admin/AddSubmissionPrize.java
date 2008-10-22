@@ -1,22 +1,18 @@
 package com.topcoder.web.studio.controller.request.admin;
 
-import com.topcoder.service.studio.StudioService;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.studio.Constants;
+import java.lang.reflect.UndeclaredThrowableException;
+import java.util.HashSet;
+import java.util.Properties;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import java.util.Properties;
-import java.util.HashSet;
 
+import com.topcoder.service.studio.StudioService;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.dwload.CacheClearer;
-
-import javax.security.auth.login.LoginContext;
-import javax.security.auth.callback.*;
-import java.io.*;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.studio.Constants;
 
 /**
  * @author dok
@@ -102,12 +98,34 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
         if (log.isDebugEnabled()) {
             log.debug("got context");
         }
-	 Object ref = context.lookup("StudioServiceBean/remote");
-	 StudioService studioService = (StudioService)javax.rmi.PortableRemoteObject.narrow(ref,StudioService.class);
+        Object ref = context.lookup("StudioServiceBean/remote");
+        StudioService studioService = (StudioService)javax.rmi.PortableRemoteObject.narrow(ref,StudioService.class);
         if (log.isDebugEnabled()) {
             log.debug("got remote StudioServiceBean");
         }
+        
+        try {
         studioService.setSubmissionPlacement(submissionId, prizeId);
+        } catch (UndeclaredThrowableException e) {
+	    	log.warn("SocketException: " + e.getMessage() + " - Retrying...");
+	        p.setProperty(Context.SECURITY_PRINCIPAL, ApplicationServer.STUDIO_SERVICES_USERNAME);
+	        p.setProperty(Context.SECURITY_CREDENTIALS, ApplicationServer.STUDIO_SERVICES_PASSWORD);
+	        p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.JndiLoginInitialContextFactory");
+	        p.setProperty(Context.PROVIDER_URL, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
+	        p.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
+	        // get context to Cockpit Jboss Instance.
+	        context = new InitialContext(p);
+	        if (log.isDebugEnabled()) {
+	            log.debug("got context");
+	        }
+	        ref = context.lookup("StudioServiceBean/remote");
+	        studioService = (StudioService)javax.rmi.PortableRemoteObject.narrow(ref,StudioService.class);
+	        if (log.isDebugEnabled()) {
+	            log.debug("got remote StudioServiceBean");
+	        }
+	        
+	        studioService.setSubmissionPlacement(submissionId, prizeId);
+        }
 
         try {
             HashSet<String> cachedStuff = new HashSet<String>();
