@@ -29,7 +29,7 @@
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
 <!-- Header ends -->
-
+<div class="minheight">
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 
@@ -106,7 +106,7 @@
 
     </tr>
 </table>
-
+</div>
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
