@@ -307,6 +307,10 @@ Show submissions by (Enter Handle):
     | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
 </div>
 
+
+<div class="ProcessMissingPayments">
+	<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ProcessMissingPayments&amp;<%=Constants.CONTEST_ID%>=${contest.id}">
+    Process missing prize payments</a><br />
 </form>
 
                         <br clear="all"/>
