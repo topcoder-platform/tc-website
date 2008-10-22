@@ -4,14 +4,28 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.17.08<br />3:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />10.22.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a href="http://www.topcoder.com/wiki/display/tc/TopCoder+Conceptualization+Contests">Compete in a Specification Contest!</a></span><br /><br />
-       A TopCoder Client wants YOU to develop their concept for a new application!  They have completed a questionnaire and are manning the forums - the rest is up to you.  Unlock their ideas, ask them questions to clarify their needs, and write up a Business Requirements Doc to define what their new system should do.  If you win, your document will be used to build a prototype, the Requirements Specification, and the application itself.  To learn details and download materials, please click <a href="http://www.topcoder.com/wiki/display/tc/TopCoder+Conceptualization+Contests">here</a>!</td>
+        <a href="/tc?module=ProjectDetail&amp;pj=30005406">PHP Component Contest Running Now</a></span><br /><br />
+        The <a href="/tc?module=ProjectDetail&pj=30005406">AOL IDP Crypto Library</a> component design competition is ideal to get you started in PHP.  It provides a reference implementation in C that you will use to design the PHP component.  As one of our first PHP components, this is also your opportunity to contribute to the standards and guidelines for future PHP components.  <a href="/tc?module=ProjectDetail&pj=30005406">Check it out!</a></td>
    </tr>
    <tr><td class="newsLinksCell">
-        <a href="http://www.topcoder.com/wiki/display/tc/TopCoder+Conceptualization+Contests">details</a> | 
-        <a href="http://forums.topcoder.com/?module=ThreadList&forumID=523949">forums</a>
+        <a href="/tc?module=ProjectDetail&pj=30005406">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3904">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />10.17.08<br />3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/wiki/display/tc/TopCoder+Conceptualization+Contests">Compete in a Specification Contest!</a></span><br /><br />
+       A TopCoder Client wants YOU to develop their concept for a new application!  They have completed a questionnaire and are manning the forums - the rest is up to you.  Unlock their ideas, ask them questions to clarify their needs, and write up a Business Requirements Doc to define what their new system should do.  If you win, your document will be used to build a prototype, the Requirements Specification, and the application itself.  To learn details and download materials, please click <a href="/wiki/display/tc/TopCoder+Conceptualization+Contests">here</a>!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/wiki/display/tc/TopCoder+Conceptualization+Contests">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&amp;forumID=523949">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
 </td></tr>
 
 <%--------------------------------------------------------%>
@@ -156,31 +170,5 @@
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm418">details</a> | 
         <tc-webtag:forumLink forumID="523422" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Surveys" border="0" /><br />09.25.08<br />10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=ViewSurvey&amp;sid=28354">What do you know about AMD?</a></span><br /><br />
-        Please fill out this survey about AMD by October 9 for a chance to win a great AMD prize!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=ViewSurvey&amp;sid=28354">details</a> | 
-        <tc-webtag:forumLink forumID="520259" message="discuss this" /> | 
-        <a href="/tc?&amp;module=SurveyList">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />09.22.08<br />6:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20080920' refer='/tc' />">Spotlight Sessions with Petr Chat Transcript</a></span><br /><br />
-        Before <a href="/tc?module=MatchDetails&amp;rd=13526">TCHS SRM 57</a>, the first of our Spotlight Sessions took place with <tc-webtag:handle coderId="10574855" context="algorithm" />.  If you missed this educational and motivational chat session, be sure to check out the <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20080920' refer='/tc' />">chat transcript</a>.  Don't miss the rest of the <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Spotlight Sessions</a> coming up!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20080920' refer='/tc' />">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=624104">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
    
