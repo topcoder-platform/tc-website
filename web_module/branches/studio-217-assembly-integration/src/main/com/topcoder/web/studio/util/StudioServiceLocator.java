@@ -2,11 +2,13 @@ package com.topcoder.web.studio.util;
 
 import java.util.Properties;
 
+import javax.naming.CommunicationException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import com.topcoder.service.studio.StudioService;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 
 /**
@@ -27,6 +29,14 @@ public class StudioServiceLocator {
 		env.setProperty(Context.SECURITY_PROTOCOL, ApplicationServer.STUDIO_SERVICES_PROTOCOL);
 		Context ctx = new InitialContext(env);
     	try {
+			final String jndiName = ApplicationServer.STUDIO_SERVICES_JNDI_NAME;
+			log.debug("About to look up jndi name " + jndiName);
+			Object obj = ctx.lookup(jndiName);
+			log.debug("Lookup returned " + obj);
+			return (StudioService) obj;
+    	} catch (CommunicationException e) {
+    		log.warn("Received a CommunicationException.: "  + e.getMessage() + "Retrying...");
+    		ctx = new InitialContext(env);
 			final String jndiName = ApplicationServer.STUDIO_SERVICES_JNDI_NAME;
 			log.debug("About to look up jndi name " + jndiName);
 			Object obj = ctx.lookup(jndiName);
