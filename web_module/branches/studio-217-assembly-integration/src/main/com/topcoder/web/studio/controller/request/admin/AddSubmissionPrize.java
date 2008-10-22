@@ -25,39 +25,39 @@ import java.io.*;
  */
 public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
 	
-	/**
-	 * @author TCSDEVELOPER
-	 * @version 1.0
-	 *          Create Date: Sep 23, 2008
-	 * This class is needed to login into cockpit server.
-	 */
-	public class CockpitLoginCallBackHandler implements CallbackHandler{
-		
-		/**
-		* Sets credentials for login
-		*
-		* @param callbacks an array of Callback objects provided by an underlying security service which contains the information requested to be retrieved.
-		*
-		* @throws IOException if an input or output error occurs.
-		* @throws UnsupportedCallbackException if the implementation of this method does not support one or more of the Callbacks specified in the callbacks parameter.
-		*/
-		public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
-			System.out.println("in CockpitLoginCallBackHandler.handle ");
-			for(int i = 0; i < callbacks.length; ++i){
-				if(callbacks[i] instanceof NameCallback){
-					NameCallback nc = (NameCallback) callbacks[i];
-					// set user name
-					nc.setName(ApplicationServer.STUDIO_SERVICES_USERNAME);
-				}
-				if(callbacks[i] instanceof PasswordCallback){
-					PasswordCallback pc = (PasswordCallback) callbacks[i];
-					// set password
-					pc.setPassword(ApplicationServer.STUDIO_SERVICES_PASSWORD.toCharArray());
-				}
-			}
-			
-		}
-	}
+//	/**
+//	 * @author TCSDEVELOPER
+//	 * @version 1.0
+//	 *          Create Date: Sep 23, 2008
+//	 * This class is needed to login into cockpit server.
+//	 */
+//	public class CockpitLoginCallBackHandler implements CallbackHandler{
+//		
+//		/**
+//		* Sets credentials for login
+//		*
+//		* @param callbacks an array of Callback objects provided by an underlying security service which contains the information requested to be retrieved.
+//		*
+//		* @throws IOException if an input or output error occurs.
+//		* @throws UnsupportedCallbackException if the implementation of this method does not support one or more of the Callbacks specified in the callbacks parameter.
+//		*/
+//		public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
+//			System.out.println("in CockpitLoginCallBackHandler.handle ");
+//			for(int i = 0; i < callbacks.length; ++i){
+//				if(callbacks[i] instanceof NameCallback){
+//					NameCallback nc = (NameCallback) callbacks[i];
+//					// set user name
+//					nc.setName(ApplicationServer.STUDIO_SERVICES_USERNAME);
+//				}
+//				if(callbacks[i] instanceof PasswordCallback){
+//					PasswordCallback pc = (PasswordCallback) callbacks[i];
+//					// set password
+//					pc.setPassword(ApplicationServer.STUDIO_SERVICES_PASSWORD.toCharArray());
+//				}
+//			}
+//			
+//		}
+//	}
 
     @Override
     protected void dbProcessing() throws Exception {
@@ -85,7 +85,7 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
         }
 
  	 //java.lang.System.setProperty("java.security.auth.login.config", "auth.conf");
-	 LoginContext lc = new LoginContext("default", new CockpitLoginCallBackHandler());
+	 //LoginContext lc = new LoginContext("default", new CockpitLoginCallBackHandler());
  	 //lc.login();
         if (log.isDebugEnabled()) {
             	 log.debug("logged in");
@@ -94,8 +94,8 @@ public class AddSubmissionPrize extends Base /*extends SubmissionPrizeBase*/ {
         final Properties p = new Properties();
         p.setProperty(Context.SECURITY_PRINCIPAL, ApplicationServer.STUDIO_SERVICES_USERNAME);
         p.setProperty(Context.SECURITY_CREDENTIALS, ApplicationServer.STUDIO_SERVICES_PASSWORD);
-	 p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.JndiLoginInitialContextFactory");
-	 p.setProperty(Context.PROVIDER_URL, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
+        p.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.JndiLoginInitialContextFactory");
+        p.setProperty(Context.PROVIDER_URL, ApplicationServer.STUDIO_SERVICES_PROVIDER_URL);
         p.setProperty(Context.SECURITY_PROTOCOL, "cockpitDomain");
         // get context to Cockpit Jboss Instance.
         Context context = new InitialContext(p);
