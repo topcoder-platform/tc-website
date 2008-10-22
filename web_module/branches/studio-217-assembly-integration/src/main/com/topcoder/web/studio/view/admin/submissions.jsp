@@ -287,9 +287,7 @@ Show submissions by (Enter Handle):
             </c:choose>
         </td>
         <td class="valueC">
-
-			<rsc:item name="payment_id" row="<%=resultRow%>" ifNull="-"/>
-
+			<rsc:item name="payment_id" row="<%=resultRow%>" format="0" ifNull="-"/>
         </td>
         <td class="valueE">
             <div>&nbsp;</div>
