@@ -381,7 +381,7 @@
                             </c:if>
     
                             <li class="form-bottom"><br />
-                                <button id="submit" onclick="submitForm();">Submit</button>
+                                <button id="submitBtn" onclick="submitForm();">Submit</button>
                                 <p>
                                     Or cancel and go to 
                                     <a href="http://<%=ApplicationServer.SERVER_NAME%>/" title="TopCoder">TopCoder</a> or 
