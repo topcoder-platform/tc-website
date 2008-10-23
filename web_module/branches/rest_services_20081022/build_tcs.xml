@@ -32,7 +32,7 @@
 
 
     <property environment="env"/>
-    <property name="jboss.home.dir" value="../jboss-4.0.2"/>
+    <property name="jboss.home.dir" value="${env.JBOSS_HOME}"/>
     <property name="jboss.deploy.dir" value="${jboss.home.dir}/server/default/deploy"/>
     <property name="jboss.lib.dir" value="${jboss.home.dir}/server/default/lib"/>
     <property name="jboss.conf.dir" value="${jboss.home.dir}/server/default/conf"/>
@@ -41,6 +41,8 @@
     <property name="debug" value="true"/>
 
     <path id="class.path">
+        <pathelement location="../artifacts"/>
+
         <pathelement location="${shared.jar}"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
@@ -116,6 +118,7 @@
         <mkdir dir="${bin.dir}"/>
         <mkdir dir="${sar.dir}"/>
         <mkdir dir="${war.dir}"/>
+        <ant target="artifacts"/>
     </target>
 
     <target name="compile_common" depends="init" unless="compile_common_set">
