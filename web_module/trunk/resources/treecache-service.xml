@@ -152,6 +152,11 @@
                <attribute name="timeToLiveSeconds">0</attribute>
                <attribute name="maxAgeSeconds">900</attribute>
             </region>
+            <region name="/FIVE_MINUTES" policyClass="org.jboss.cache.eviction.LRUPolicy">
+               <attribute name="maxNodes">10000</attribute>
+               <attribute name="timeToLiveSeconds">0</attribute>
+               <attribute name="maxAgeSeconds">300</attribute>
+            </region>
          </config>
       </attribute>
 
