@@ -183,6 +183,9 @@ Show submissions by (Enter Handle):
             </c:otherwise>
         </c:choose>
     </td>
+    <td class="headerC">
+    	Payment Id
+    </td>
     <td class="headerE">
         <div>&nbsp;</div>
     </td>
@@ -283,6 +286,9 @@ Show submissions by (Enter Handle):
                 </c:otherwise>
             </c:choose>
         </td>
+        <td class="valueC">
+			<rsc:item name="payment_id" row="<%=resultRow%>" format="0" ifNull="-"/>
+        </td>
         <td class="valueE">
             <div>&nbsp;</div>
         </td>
@@ -301,6 +307,10 @@ Show submissions by (Enter Handle):
     | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
 </div>
 
+
+<div class="ProcessMissingPayments">
+	<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ProcessMissingPayments&amp;<%=Constants.CONTEST_ID%>=${contest.id}">
+    Process missing prize payments</a><br />
 </form>
 
                         <br clear="all"/>

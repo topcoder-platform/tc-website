@@ -36,6 +36,38 @@
 
 
     <path id="class.path">
+
+    	<!-- PREPENDED JBOSS 4.2 libraries -->
+    	<pathelement location="${jars.dir}/jboss-add/jboss-ejb3-client.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jboss-ejb3x.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jboss-aop-jdk50-client.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jboss-aspect-jdk50-client.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jboss-remoting.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jboss-common-core.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jboss-serialization.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/log4j.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/xercesImpl.jar"/>
+
+    	
+    	<pathelement location="${jars.dir}/jboss-add/jaxb-api.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jaxws-api.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jsr181-api.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jsr250-api.jar"/>
+    	
+    	<!--
+    	<pathelement location="${jars.dir}/jboss-add/jbossall-client.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jbosssx.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jboss-annotations-ejb3.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jboss-ejb3-client.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jboss-ejb3x.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jboss-serialization.jar"/>
+		<pathelement location="${jars.dir}/jboss-add/jboss-remoting.jar"/>
+		<pathelement location="${jars.dir}/jboss-add/jboss-remoting-int.jar"/>
+    	<pathelement location="${jars.dir}/jboss-add/jboss-saaj.jar"/>
+    	-->
+    	<!-- PREPENDED JBOSS 4.2 libraries -->
+    		
+    		
         <pathelement location="${classes}"/>
         <pathelement location="${testclasses}"/>
         <pathelement location="${resources}"/>
@@ -59,6 +91,7 @@
 
         <pathelement location="${build}/ejb_jars/PactsClientServices.jar"/>
 
+		<pathelement location="${jars.dir}/tcs/studio_service.jar"/>
         <pathelement location="${jars.dir}/axis.jar"/>
 
         <pathelement location="${jive.dir}/jivebase.jar"/>
@@ -76,6 +109,7 @@
         <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
         <pathelement location="${jars.dir}/tcs/guid_generator/1.0/guid_generator.jar"/>
         <pathelement location="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
+        <pathelement location="${jars.dir}/tcs/search_builder/1.4.0/search_builder.jar"/>
         <!--        <pathelement location="${jars.dir}/tcsUtil.jar"/>-->
         <!--
                 <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
@@ -105,6 +139,31 @@
         <!-- only for tests -->
         <pathelement location="${external.jars.dir}/mockejb-0.6-beta2.jar"/>
 
+    	
+    	<!-- to be deleted -->
+        <!-- <pathelement location="${jboss_lib}/jboss-saaj.jar"/> -->
+    	
+        <pathelement location="${jboss_lib}/jboss-transaction.jar"/>
+        <pathelement location="${jboss_lib}/javax.servlet.jsp.jar"/>
+    	<pathelement location="${jboss_lib}/javax.servlet.jar"/>
+        <pathelement location="${jboss_lib}/bindingservice-plugin.jar"/>
+    	<pathelement location="${jboss_lib}/jboss-backport-concurrent.jar "/>
+    	<pathelement location="${jboss_lib}/jbossha.jar"/>
+		<pathelement location="${jboss_lib}/jboss-cache.jar"/>
+		<pathelement location="${jboss_lib}/jboss-common-jdbc-wrapper.jar "/>
+		<pathelement location="${jboss_lib}/jboss-management.jar"/>
+		<pathelement location="${jboss_lib}/jboss-j2ee.jar"/>
+		<pathelement location="${jboss_lib}/jboss-jsr88.jar"/>
+		<pathelement location="${jboss_lib}/jboss-jsr77.jar"/>
+		<pathelement location="${jboss_lib}/jboss-jca.jar"/>
+		<pathelement location="${jboss_lib}/jbosssx.jar"/>
+		<pathelement location="${jboss_lib}/jboss-jaxrpc.jar "/>
+		<pathelement location="${jboss_lib}/jboss-monitoring.jar"/>
+		<pathelement location="${jboss_lib}/jmx-adaptor-plugin.jar"/>
+    	<pathelement location="${jboss_lib}/jbossretro-rt.jar"/>
+		<pathelement location="${jboss_lib}/jboss-srp.jar"/>
+		<pathelement location="${jboss_lib}/jboss.jar"/>
+    	
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
@@ -239,6 +298,22 @@
             <lib dir="${jars.dir}/tcs/file_upload/2.0.2.0/">
                 <include name="file_upload.jar"/>
             </lib>
+            <lib dir="${jars.dir}/tcs/">
+                <include name="studio_service.jar"/>
+            </lib>
+            <lib dir="${jars.dir}/jboss-add/">
+            	<include name="jboss-saaj.jar"/>
+            	<include name="jboss-ejb3-client.jar"/>
+            	<include name="jboss-ejb3x.jar"/>            	
+            	<include name="jboss-aop-jdk50-client.jar"/>
+            	<include name="jboss-aspect-jdk50-client.jar"/>
+            	<include name="jboss-remoting.jar"/>
+            	<include name="jboss-remoting-int.jar"/>
+            	<include name="jboss-common-core.jar"/>
+            	<include name="jboss-serialization.jar"/>
+            	<include name="log4j.jar"/>
+            	<include name="xercesImpl.jar"/>            	
+            </lib>
         </war>
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>
         <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/default/deploy/studio.war/" overwrite="yes"/>
@@ -266,6 +341,7 @@
         <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
 
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/data_validation/1.0/data_validation.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_system_server/1.0/file_system_server.jar"/>
@@ -273,7 +349,8 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/heartbeat/1.0/heartbeat.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/ip_server/2.0.1/ip_server.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
-
+    	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/search_builder/1.4.0/search_builder.jar"/>
+    	
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/ifxjdbc.jar"/>
@@ -302,12 +379,13 @@
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
-        <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
         <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
+        <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
 
         <copy todir="${jboss_conf}" file="${resources}/forums/studio/jive_init.xml"/>
         <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/ApplicationServer.properties"/>
+    	<copy todir="${jboss_conf}" file="${resources}/login-config.xml"/>
         <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/EmailEngineConfig.properties"/>
