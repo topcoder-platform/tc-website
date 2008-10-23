@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.23.08<br />3:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm422">SRM 422 - Problem Set &amp; Analysis</a></span><br /><br />
+      American (1-st, 4-th and 6-th places) and Chinese (2-nd and 3-rd places) coders occupied most of the top spots for this SRM. <tc-webtag:handle coderId="22663117" context="algorithm"/> won the match having 5 successful challenges, <tc-webtag:handle coderId="22675094" context="algorithm"/> was second, and <tc-webtag:handle coderId="19849563" context="algorithm"/> was the third with the most impressive challenge phase of the day (+375 points).</td>
+         <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm422">details</a> | 
+        <tc-webtag:forumLink forumID="523990" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />10.22.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=ProjectDetail&amp;pj=30005406">PHP Component Contest Running Now</a></span><br /><br />
@@ -154,21 +170,5 @@
         <a href="/wiki/display/docs/Seam">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3736">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />09.26.08<br />4:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm418">SRM 418 - Problem Set &amp; Analysis</a></span><br /><br />
-      During SRM 418, Division One coders were presented with a straightforward easy problem which gave them more time for very technical and time-consuming medium. Those who managed to finish (or skipped) 500-pointer faced a tricky 900-pointer with some tempting but incorrect solutions.</td>
-         <td class="newsPhoto"><img src="/i/m/weds_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="21157942" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm418">details</a> | 
-        <tc-webtag:forumLink forumID="523422" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
    
