@@ -84,6 +84,7 @@ public class ViewSubmissions extends Base {
             query.append(" , s.submission_id ");
             query.append(" , s.rank as submitter_rank");
             query.append(" , s.submission_type_id");
+            query.append(" , s.payment_id");
 
             from.append(" from submission s ");
             from.append(" , user u ");
@@ -116,6 +117,7 @@ public class ViewSubmissions extends Base {
             query.append(" , cr.placed");
             query.append(" , rs.review_status_id");
             query.append(" , s.or_submission_id");
+            query.append(" , s.payment_id");
 
             from.append(" from submission s");
             from.append(" , user u");
