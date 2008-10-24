@@ -205,32 +205,32 @@
             <h2 class="titlePredicted"> <span class="hide"> Predicted Results For This Week's Top Games </span></h2>
             <table border="0" align="center" cellpadding="0" width="100%" class="predict-table">
                 <tr>
-                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=395">Missouri</a></td>
+                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=447">Oklahoma St</a></td>
+                    <td class="alignRight dottedRight">26</td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=441">Penn St</a></strong></td>
+                    <td class="alignRight dottedRight"><strong>22</strong></td>
+                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=429">Georgia</a></td>
+                    <td class="alignRight dottedRight">22</td>
+                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=426">Texas Tech</a></td>
                     <td class="alignRight dottedRight">27</td>
-                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=386">Kansas</a></td>
-                    <td class="alignRight dottedRight">24</td>
-                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=371">Vanderbilt</a></td>
-                    <td class="alignRight dottedRight">15</td>
-                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=379">OSU</a></strong></td>
-                    <td class="alignRight dottedRight"><strong>21</strong></td>
-                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=362">Virginia Tech</a></td>
-                    <td class="alignRight dottedRight">20</td>
-                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=360">Mississippi</a></td>
-                    <td class="alignRight">14</td>
+                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=446">Alabama</a></td>
+                    <td class="alignRight dottedRight">19</td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=413">USC</a></strong></td>
+                    <td class="alignRight"><strong>31</strong></td>
                 </tr>
                 <tr>
-                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=395">Texas</a></strong></td>
-                    <td class="alignRight dottedRight"><strong>34</strong></td>
-                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=386">Oklahoma</a></strong></td>
-                    <td class="alignRight dottedRight"><strong>35</strong></td>
-                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=371">Georgia</a></strong></td>
-                    <td class="alignRight dottedRight"><strong>29</strong></td>
-                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=379">MSU</a></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=447">Texas</a></strong></td>
+                    <td class="alignRight dottedRight"><strong>39</strong></td>
+                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=441">Ohio St</a></td>
                     <td class="alignRight dottedRight">20</td>
-                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=362">Boston College</a></strong></td>
-                    <td class="alignRight dottedRight"><strong>21</strong></td>
-                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=360">Alabama</a></strong></td>
-                    <td class="alignRight"><strong>31</strong></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=429">LSU</a></strong></td>
+                    <td class="alignRight dottedRight"><strong>25</strong></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=426">Kansas</a></strong></td>
+                    <td class="alignRight dottedRight"><strong>31</strong></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=446">Tennessee</a></strong></td>
+                    <td class="alignRight dottedRight"><strong>20</strong></td>
+                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=413">Arizona</a></td>
+                    <td class="alignRight">20</td>
                 </tr>
             </table>
             <p class="info">*Based on <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&cr=<%=Constants.WISDOM_BEST%>">WisdomOfTheBest's picks</a>. See also <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&cr=<%=Constants.WISDOM_ALL%>">WisdomOfAll's picks</a>.</p>
