@@ -44,7 +44,7 @@
       --%>
                 <p align="center"><a href="/tc?module=Static&amp;d1=about&amp;d2=contactus"><img src="/i/about/hdr_contactus.png" alt="Contact Us" /></a></p>
                 <p style="margin-left:10px;">Thank you for your interest in TopCoder. We will be contacting you shortly.</p>
-                <p style="margin-left:10px;">For more information on TopCoder Direct, please click <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">here</a> or to learn more about TopCoder Studio, click <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=support&amp;d2=getStarted">here</a>.</p>
+                <p style="margin-left:10px;">For more information on TopCoder Direct, please click <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">here</a> or to learn more about TopCoder Studio, click <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">here</a>.</p>
                 <p style="margin-left:10px;">The Team at TopCoder</p>
                 
             </div>
