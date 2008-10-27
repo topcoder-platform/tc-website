@@ -42,7 +42,7 @@
 							<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests">Marathon Matches</a></li>
 							<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Bug+Races">Bug Races</a></li>
                             <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Studio</a></li
-                    	</ul>
+                    	></ul>
                     </li>
 					<li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">Studio</a>
                     	<ul>
@@ -57,7 +57,7 @@
                     	<ul>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Join</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome">My TopCoder</a></li>
-                            <li class="last-li"><a href="http://forums.topcoder.com/">Forums</a></li>
+                            <li class="last-li"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">Forums</a></li>
                        	</ul>
                     </li>
 					
