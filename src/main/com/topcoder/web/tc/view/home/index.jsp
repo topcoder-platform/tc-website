@@ -6,357 +6,343 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
-    <link type="text/css" rel="stylesheet" href="/css/home20080421.css"/>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <style type="text/css">
-        body {
-            text-align: center;
-        }
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/home/screen.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/home/jquery.jcarousel.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/home/main-navigation.css" />
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie.css" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie7.css" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie6.css" /><![endif]-->
+<title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
+<script src="/js/home/jquery-1.2.6.min.js" type="text/javascript"></script>
+<script src="/js/home/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+<script src="/js/home/jquery.jcarousel.pack.js" type="text/javascript"></script>
+<script src="/js/home/direct.js" type="text/javascript"></script>
+<script type="text/javascript" language="javascript">
+$(document).ready(function(){
+	$("#nav ul li").hoverIntent(function(){
+		$(this).children("ul").slideDown("fast");
+	}, function() {
+		$(this).children("ul").slideUp("fast");
+	});
+	
+	$("#nav ul ul li").hover(function() {
+		$(this).parents("#nav ul li").children('a').addClass("active-item");
+	}, function() {
+		$(this).parents("#nav ul li").children('a').removeClass("active-item");
+	});
+	
+	
+	jQuery(document).ready(function() {
+    	jQuery('#news-carousel').jcarousel({
+        	easing: 'swing',
+			wrap: 'both'  
+    	});
+	});
 
-        .centerer {
-            width: 600px;
-            margin: 0px auto;
-        }
-    </style>
-    <%--
-        <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            <!--
-            _uacct = "UA-321688-1"; urchinTracker();
-            -->
-        </script>
-    --%>
-    <script language="JavaScript" type="text/javascript"><!--
-    function openWin(url, name) {
+});
+
+	function openWin(url, name) {
         win = window.open(url, name, "menubar=no,status=no,scrollbars=yes,resizable=no,toolbar=no,width=650,height=650");
         win.location.href = url;
         win.focus();
     }
     window.name="main"; // required for whatistopcoder popup targeting
     //-->
-    </script>
+
+</script>
 </head>
 
 <body>
-<%--
-<div style="position:absolute; left:120px; top:120px;">
-<a href="<tc-webtag:linkTracking link='http://www.theball.com' refer='homepage' />" target="_blank"><img src="/i/interface/tinyBrackets.png" alt="" /></a>
-</div>
---%>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr>
-        <td class="homeTopBar" align="left" width="30%"><br /><a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=about&d2=contactus' refer='homepage' />"><img src="/i/home/contactUsButton.png" alt="Contact Us" style="display:block;" /></a></td>
-        <td class="homeTopBar" align="center" width="40%"><br /><a href="/"><img src="/i/home/tcLogo352.png" alt="TopCoder, Inc." style="display: block;" /></a></td>
-        <td class="homeTopBar" align="right" width="30%">&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="homeTopBar" align="left">
-            <span class="time">Current Member Count</span>&#160;:&#160;
-            <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/>
-            -
-            <tc-webtag:format object="${sessionInfo.date}" format="MMMM d, yyyy"/>
-        </td>
-        <td class="homeTopBar" align="center">&nbsp;</td>
-        <td class="homeTopBar" align="right">
-            <a href="/reg/" class="loginLinks">Register Now</a>
-            | <a href="/tc?module=Static&amp;d1=about&amp;d2=index" class="loginLinks">About TopCoder</a></td>
-    </tr>
-</table>
-
-<div align="center">
-<table cellpadding="0" cellspacing="0" width="100%">
-<tr>
-    <td align="left" valign="top" style="padding: 10px 0px 0px 10px;">
-        <p style="height:30px; width:151px;">&nbsp;</p>
-    </td>
-    <td align="center" style="padding: 20px;">
-        <%--
-        <div align="center" style="margin-bottom: 5px;"><a href="/tc?module=Static&amp;d1=about&amp;d2=contactus"><img src="/i/home/contactus.png" alt="Contact us" /></a></div>
-        --%>
-        
-        <%-- TCCC07 
-        <map name="tccc07">
-        <area shape="rect" alt="" coords="1,1,260,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=about" />
-        <area shape="rect" alt="" coords="280,9,480,30" target="_blank" href="/pdfs/tournaments/TCCC07_Program_View.pdf" />
-        <area shape="rect" alt="" coords="280,47,480,65" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=movies" />
-        <area shape="rect" alt="" coords="280,85,480,100" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=photos" />
-        <area shape="rect" alt="" coords="280,118,480,135" target="_blank" href="http://www.topcoder.com/wiki/pages/viewrecentblogposts.action?key=tccc07" />
-        </map>
-        <img src="/i/home/tccc07PDFphotosBlogs.png" alt="TCCC07" usemap="#tccc07" style="display: block;" />
-        --%>
-        
-        <%-- TCCC07 Prestigious Professor Program 
-        <map name="tccc07">
-        <area shape="rect" alt="" coords="10,26,253,118" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=about" />
-        <area shape="rect" alt="" coords="277,11,480,133" href="/tc?module=ViewSurvey&amp;sid=19559" />
-        </map>
-        <img src="/i/home/tccc07_ppa.png" alt="TCCC07 Prestigious Professor Program" usemap="#tccc07" style="display: block;" />
-        --%>
-        
-        <%-- TCHS08 
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=onlineSchedule' refer='homepage' />"><img src="/i/home/tchs08onlineRd1.png" alt="2008 TopCoder High School" /></a>
-        --%>
-        
-        <%-- TCHS08 And Architecture Competition 
-        <map name="tchs08">
-        <area shape="rect" alt="" coords="10,10,270,135" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tchs08&amp;d3=overview" />
-        <area shape="rect" alt="" coords="290,12,455,135" href="/tc?module=Static&amp;d1=architecture&amp;d2=beta" />
-        </map>
-        <img src="/i/home/tchs08ANDarchComp.png" alt="TCHS08" usemap="#tchs08" style="display: block;" />
-        --%>
-        
-        <%-- TCO08 
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about' refer='homepage' />"><img src="/i/home/tco08compRegBanner.png" alt="2008 TopCoder Open" /></a>
-        --%>
-        
-        <%-- TCO08 champs 
-        <map id="tco08" name="tco08">
-        <area shape="rect" alt="" coords="12,6,198,114" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about" />
-        <area shape="rect" alt="" coords="216,6,466,114" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=blog" />
-        <area shape="rect" alt="" coords="0,136,85,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=algorithm&amp;d4=algoFinals" />
-        <area shape="rect" alt="" coords="103,136,164,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=desSummary" />
-        <area shape="rect" alt="" coords="181,136,295,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=devSummary" />
-        <area shape="rect" alt="" coords="310,136,397,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=marathon&amp;d4=summary" />
-        <area shape="rect" alt="" coords="413,136,474,150" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=summary" />
-        </map>
-        <img src="/i/home/tco08champs.png" alt="TCO08" usemap="#tco08" style="display: block;" />
-        --%>
-
-        <%-- Architecture 
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=architecture&amp;d2=beta' refer='homepage' />"><img src="/i/home/architectureBeta.jpg" alt="Architecture Competition" /></a>
-        --%>
-        
-        <%-- UML Tool 
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=description' refer='homepage' />"><img src="/i/home/umltoolRelease.jpg" alt="UML Tool Release" /></a>
-        --%>
-
-        <%-- OpenAIM 
-        <a href="<tc-webtag:linkTracking link='/openaim/' refer='homepage' />"><img src="/i/home/openaim.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
-        --%>
-
-        <%-- Truveo 
-        <a href="<tc-webtag:linkTracking link='/truveo/' refer='homepage' />"><img src="/i/home/truveo_vote.png" alt="Truveo Developer Challenge Powered by TopCoder" /></a>
-        --%>
-        
-        <%-- ESPN Winning Formula Challange --%>
-        <a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='homepage' />"><img src="/i/home/winformula_preview510x100.png" alt="ESPN Winning Formula Challange Powered by TopCoder" /></a>
-        
-    </td>
-    <td align="right" valign="top">
-<%-- STUDIO DOGEAR --%>
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/"><img src="/i/home/studioDogEarStandard.png" style="display: block;" alt="TopCoder Studio" /></a>
-
-<%-- TCO DOGEAR 
-        <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=about"><img src="/i/home/dogTCO07.png" style="display: block;" alt="TCO07 Sponsored by AOL" /></a>
---%>
-    </td>
-</tr>
-</table>
-</div>
-
-<%-- Plug Into TopCoder V1
-<div align="center" style="margin-bottom: 20px;">
-    <a style="display: block; width: 900px; height: 150px;" href="<tc-webtag:linkTracking link='http://software.topcoder.com/tcs?module=Static&amp;d1=tour&amp;d2=page1' refer='plugInto01' />"><img src="/i/home/plugInto01.jpg" alt="Plug into TopCoder" style="display: block;" /></a>
-</div>
---%>
-<%-- Plug Into TopCoder V2 --%>
-<div align="center" style="margin-bottom: 20px;">
-    <a style="display: block; width: 900px; height: 150px;" href="<tc-webtag:linkTracking link='http://software.topcoder.com/tcs?module=Static&d1=tour&d2=page1' refer='plugInto02' />"><img src="/i/home/plugInto02.png" alt="Plug into TopCoder" style="display: block;" /></a>
-</div>
-
-<table border="0" cellpadding="0" cellspacing="0" class="centerer">
-<%-- Banners --%>
-<tr>
-    <td>
-        <a href="/tc" class="homeLeftBan"><span>Compete</span></a>
-    </td>
-    <td class="homeGutter" rowspan="5">&#160;</td>
-    <td>
-        <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/" class="homeCentBan"><span>Software</span></a>
-    </td>
-    <td class="homeGutter" rowspan="5">&#160;</td>
-    <td>
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index" class="homeRightBan"><span>News &amp; Events</span></a>
-    </td>
-</tr>
-<tr>
-    <td colspan="5">&nbsp;</td>
-</tr>
-<%-- Header Links Must Match Active Promo Links Below!! --%>
-<tr>
-    <td align="center">
-        <a href="/dr" class="tabHeader"><span>The Digital Run</span></a>
-    </td>
-    <td align="center">
-        <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/" class="tabHeader"><span>Software</span></a>
-    </td>
-    <td align="center">
-        <a target="_blank" href="<tc-webtag:linkTracking link='http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_082108' refer='homepage_promo_inc500' />" class="tabHeader"><span>News &amp; Events</span></a>
-    </td>
-</tr>
-
-<%-- Body --%>
-<tr>
-<%-- Left Column --%>
-<td class="homeLeftCol">
-    <table border="0" cellpadding="0" cellspacing="0">
-        <tr>
-            <td class="homeBigPromo">
-                <%-- DIGITAL RUN --%>
-                <a href="/dr"><img src="/i/home/dr2008v2.png" alt="The Digital Run" border="0" style="display:block;"/></a>
-                
-                
-                <%-- DIGITAL RUN ASSEMBLY CUP 
-                <a href="/dr"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></a>
-                --%>
-                
-                <%-- DIGITAL RUN DESIGN CUP 
-                <a href="/dr"><img src="/i/home/digitalrunDesCup.png" alt="The Digital Run Design Cup" border="0" style="display:block;"/></a>
-                --%>
-                
-                <%-- DIGITAL RUN DEVELOPMENT CUP 
-                <a href="/dr"><img src="/i/home/digitalrunDevCup.png" alt="The Digital Run Development Cup" border="0" style="display:block;"/></a>
-                --%>
-                
-                <%-- DIGITAL RUN TOTAL PRIZES 
-                <a href="/dr"><img src="/i/home/digitalrunTotalPrizes.png" alt="The Digital Run Total Prizes" border="0" style="display:block;"/></a>
-                --%>
-
-                <%-- Marathon Match Sponsor 
-                <map id="mm" name="mm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&amp;rd=13499" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&amp;d1=sponsors&amp;d2=predictiveOverview" />
-                </map>
-                <img src="/i/home/predictive1_tc2.png" alt="Predictive Marathon Competition 1" border="0" style="display:block;" usemap="#mm"/>
-                --%>
-
-                <%-- SRM SPONSOR 
-                <map id="srm" name="srm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&amp;rd=13503" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=bt" />
-                </map>
-                <img src="/i/home/srm412_bt.png" alt="SRM 412 brought to you by BT" border="0" style="display:block;" usemap="#srm"/>
-                --%>
-                
-                <%-- UML Tool 
-                <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></a>
-                --%>
-               
-                <%-- TCO08 
-                <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=sponsorpatrons&d4=betfair' refer='homepage_promo' />"><img src="/i/home/tco08betfairPromo.png" alt="Betfair sponsor of TCO08" /></a>
-                --%>
-                
-                <%-- AMD Multicore Threadfest 
-                <a href="<tc-webtag:linkTracking link='/threadfest' refer='homepage_promo' />"><img src="/i/home/amdMCT_promo.png" alt="AMD Multicore Threadfest" /></a>
-                --%>
-            </td>
-        </tr>
-    </table>
-</td>
-<%-- Center Column --%>
-<td class="homeCentCol">
-    <table border="0" cellpadding="0" cellspacing="0">
-        <tr>
-            <td class="homeBigPromo">
-                <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>"><img src="/i/home/tcs.jpg" alt="Software" border="0" style="display:block;"/></a>
-            </td>
-        </tr>
-    </table>
-</td>
-<%-- Right Column --%>
-<td class="homeRightCol">
-    <table border="0" cellpadding="0" cellspacing="0">
-        <tr>
-            <td class="homeBigPromo">
-                <%-- WSJ
-                <a href="/?t=sponsor&amp;c=link&amp;link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></a>
-                --%>
-    
-                <%-- AOL webcast team
-                <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=movies"><img src="/i/home/tccc06webcast20060108.jpg" alt="TCCC Webcast" border="0" style="display:block;"/></a>
-                --%>
-    
-                <%-- Marathon Match Sponsor 
-                <map name="mm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=schedule" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=nsa" />
-                </map>
-                <img src="/i/home/tco07Rd1-B_nsa.png" alt="TCO07 Round 1-B brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
-                --%>
-    
-                <%-- SRM SPONSOR 
-                <map name="mm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&amp;rd=10783" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=sponsorpatrons&amp;d4=db" />
-                </map>
-                <img src="/i/home/srm367_db.png" alt="SRM 367 brought to you by Deutsche Bank" border="0" style="display:block;" usemap="#mm"/>
-                --%>
+	<div id="header">
+		<div class="wrapper">
+			
+<!-- MASTHEAD AND LOGO -->
+			<h1 class="tc-header"><a href="http://www.topcoder.com" title="TopCoder"><span>TopCoder Direct</span></a> <sup><small>BETA</small></sup></h1>
+			<h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
+			
+<!-- MAIN NAVIGATION -->
+			<div id="nav">
+                <h3 class="hide">Main Navigation</h3>
+                <ul>
+                    <li class="left on"><a href="https://software.topcoder.com/">TopCoder Home</a></li>
+                    <li><a href="https://software.topcoder.com/">Engage</a>
+                        <ul>
+                            <li><a href="http://software.topcoder.com/TCD/about.jsp">TopCoder Direct</a></li>
+                            <li><a href="http://software.topcoder.com/catalog/">Components</a></li>
+                            <li><a href="http://software.topcoder.com/indexTCS.jsp">Software</a></li>
+                            <li><a href="http://software.topcoder.com/TCD/platform-tools.jsp">Platform Tools</a></li>
+                            <li><a href="http://software.topcoder.com/TCD/training.jsp">Training &amp; Mentoring</a></li>
+                            <li><a href="http://software.topcoder.com/TCD/support.jsp">Support &amp; Maintenance</a></li>
+                            <li class="last-li"><a href="http://software.topcoder.com/contact.jsp">Contact Us</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://www.topcoder.com/tc">Compete</a>
+                        <ul>
+                            <li><a href="http://www.topcoder.com/tc?module=ViewActiveContests&ph=112">Component Design</a></li>
+                            <li><a href="http://www.topcoder.com/tc?module=ViewActiveContests&ph=113">Component Development</a></li> 
+                            <li><a href="http://www.topcoder.com/tc?module=ViewAssemblyActiveContests">Assembly</a></li>
+                            <li><a href="http://www.topcoder.com/longcontest/?module=ViewActiveContests">Marathon Matches</a></li>
+                            <li><a href="http://www.topcoder.com/wiki/display/tc/Bug+Races">Bug Races</a></li>
+                            <li class="last-li"><a href="http://studio.topcoder.com/?module=ViewActiveContests">Studio</a></li>
+                        </ul>
+                    </li>
+<li><a href="http://studio.topcoder.com/">Studio</a>
+                        <ul>
+                            <li><a href="http://studio.topcoder.com/?module=ViewActiveContests">Active Contests</a></li>
+                            <li><a href="http://www.topcoder.com/direct/">Launch a Contest</a></li>
+                            <li><a href="http://studio.topcoder.com/forums">Studio Forums</a></li>
+                            <li><a href="http://www.tcstudioblogs.com/">Studio Blog</a></li>
+                            <li><a href="http://studio.topcoder.com/?module=MyStudioHome">My Studio</a></li>
+                            <li class="last-li"><a href="http://studio.topcoder.com/?module=MyStudioHome">Contact Studio</a></li>    
+                        </ul>
+                    </li>
+                    <li><a href="http://www.topcoder.com/tc">Community</a>
+                        <ul>
+                            <li><a href="http://www.topcoder.com/reg/">Join TopCoder</a></li>
+                            <li><a href="http://www.topcoder.com/tc?module=MyHome">My TopCoder</a></li>
+                            <li><a href="http://forums.topcoder.com/">Forums</a></li>
+                            <li class="last-li"><a href="http://studio.topcoder.com/forums">Studio Forums</a></li>
+                           </ul>
+                    </li>
                     
-                <%-- 2 Registration Prototype contests open @ Studio 
-                <a href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests" target="_blank"><img src="/i/home/regproto_studiopromo.png" alt="2 Registration Prototype contests open @ Studio" border="0" style="display:block;" /></a>
-                --%>
-                
-                <%-- UML Tool 
-                <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=description' refer='homepage_promo' />"><img src="/i/home/umltool_component.png" alt="UML Tool Release" /></a>
-                --%>
-                   
-                <%-- TOPCODER EMPLOYEE REFERRAL PROGRAM 
-                <a href="/tc?module=Static&amp;d1=my_home&amp;d2=empReferrals"><img src="/i/home/empRefSm_20070517.png" alt="TopCoder Employee Referral Program" border="0" style="display:block;"/></a>
-                 --%>
-                 
-                <%-- TC CHANNEL 
-                <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=media&amp;d2=tcchannel&amp;clip=ep03_sm' refer='homepage' />"><img src="/i/home/tcchannel_promo_ep3.png" alt="TC Channel: Episode 3" /></a>
-                --%>
-                
-                <%-- TopCoder on 2007 Inc. 500 
-                <a href="<tc-webtag:linkTracking link='/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082707' refer='homepage_promo' />"><img src="/i/home/tc_inc500_promo.png" alt="TopCoder on 2007 Inc. 500" /></a>
-                --%>
-                
-                <%-- CFO: Gaming the System
-                <a target="_blank" href="<tc-webtag:linkTracking link='/i/pressroom/pdfs/cfo_20080103_v2.pdf' refer='homepage_promo' />"><img src="/i/home/cfoGamingTheSystem_promo.png" alt="CFO Magazine: Gaming the System" /></a>
-                 --%>
-                
-                <%-- Inc. 500 x 2 --%>
-                <a target="_blank" href="<tc-webtag:linkTracking link='http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_082108' refer='homepage_promo_inc500' />"><img src="/i/home/2x_500.png" alt="Inc. 500 x 2" /></a>
-                
-            </td>
-        </tr>
-    </table>
-</td>
-</tr>
-</table>
-<%-- Let the World Compete --%>
-<br />
-<div align="center" style="margin-bottom: 20px;">
-    <a style="display: block; width: 894px; height: 82px;" href="<tc-webtag:linkTracking link='http://software.topcoder.com/' refer='homepage' />"><img src="/i/home/world_compete.jpg" alt="Let the World Compete on your Next Application" style="display: block;" /></a>
-</div>
+                </ul>
+            </div><!-- #navigation ends -->
+			
+			<!-- SUB NAVIGATION -->
+			<div id="nav_support">
+				<h3 class="hide">SUB Navigation</h3>
+				<ul>
+                	<li class="left"><a href="http://www.topcoder.com/">TopCoder.com</a></li>
+                	<li><a href="http://software.topcoder.com/about.jsp">About TopCoder</a></li>
+					<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=index">News</a></li>
+					<li><a href="http://software.dev.topcoder.com/contact.jsp">Contact Us</a></li>				
+                    <li class="right on"><a href="http://software.topcoder.com/login.jsp">Login</a></li>
+				</ul>
 
+			</div><!-- #navigation ends -->
+			
+		</div><!-- .wrapper ends -->
+	</div><!-- #header ends -->
 
-<%-- Footer --%>
-<div style="margin-top: 80px;">
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
-    <tr>
-        <td class="homeFooter" colspan="5">
-            <a href="/" class="footerLinks">Home</a>&#160;&#160;|&#160;&#160;
-            <a href="/tc?module=Static&amp;d1=about&amp;d2=index" class="footerLinks">About TopCoder</a>&#160;&#160;|&#160;&#160;
-            <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index" class="footerLinks">Press Room</a>&#160;&#160;|&#160;&#160;
-            <a href="/tc?module=Static&amp;d1=about&amp;d2=contactus">Contact Us</a>&#160;&#160;|&#160;&#160;
-            <a href="/tc?module=Static&amp;d1=about&amp;d2=jobs">Careers</a>&#160;&#160;|&#160;&#160;
-            <a href="/tc?module=Static&amp;d1=about&amp;d2=privacy" class="footerLinks">Privacy</a>&#160;&#160;|&#160;&#160;
-            <a href="/tc?module=Static&amp;d1=about&amp;d2=terms" class="footerLinks">Terms</a>
-            <br />
-            <a href="/tc" class="footerLinks">Competitions</a>&#160;&#160;|&#160;&#160;
-            <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/" class="footerLinks">Software</a>
-        </td>
-    </tr>
-    <tr>
-        <td class="copyright" colspan="5">Copyright &#169; 2001-2008, TopCoder, Inc. All rights reserved.</td>
-    </tr>
-</table>
-</div>
+<!-- CONTENT BLOCKS -->
+	<div id="content">
+		<div class="wrapper">
+		
+<!-- TOPCODER DIRECT BANNER -->
+			<div id="welcome-banner">
+				<h2><strong>Engage!</strong> Plug into the <em>world's largest community</em> of competitive <em>software developers</em></h2>
+            </div>
+<!-- MAIN CONTENT -->
+			<div id="content_main">
+            	<div id="client-content">
+                	<div id="client-box">
+                    	<div id="enterprise-solutions">
+                        	<h3>Enterprise Solutions</h3>
+                            <h4>TopCoder Global Platform</h4>
+                            <ul class="link-list">
+                            	<li class="first"><a href="http://software.topcoder.com/TCD/platform-tools.jsp">Tools</a></li>
+                                <li><a href="http://software.topcoder.com/TCD/training.jsp">Training</a></li>
+                                <li><a href="http://software.topcoder.com/catalog/index.jsp">Components</a></li>
+                                <li class="last"><a href="http://software.topcoder.com/TCD/support.jsp">Support</a></li>
+                            </ul>
+                            <div class="button-container">
+                            	<a class="button" href="http://software.topcoder.com/TCD/about.jsp">Learn More</a>
+                            </div>
+                        </div>
+                        <div id="tc-direct">
+                        	<h3><a href="http://www.topcoder.com/direct/cockpit/cockpit.jsp">TopCoder Direct</a></h3>
+                            <h4>Launch your own design competition!</h4>
+                            <ul class="link-list">
+                            	<li class="first"><a href="http://www.topcoder.com/direct">Web Sites</a></li>
+                                <li><a href="http://www.topcoder.com/direct">Logo Design</a></li>
+                                <li><a href="http://www.topcoder.com/direct">Print Design</a></li>
+                                <li class="last"><a href="http://www.topcoder.com/direct">Applications</a></li>
+                            </ul>
+                            <div class="button-container">
+                            	<a class="button" href="http://www.topcoder.com/direct/cockpit/cockpit.jsp">Launch Direct</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="client-box-bottom"></div>
+                    <div class="wide-ad-banner">
+                    	<a href="http://www.topcoder.com/tc?module=LinkTracking&link=http://winningformula.espn.com/&refer=homepage"><img src="/images/home/espn-banner.png" alt="Are you ready for some football" /></a>
+                    </div>
+                </div>
+                <div id="member-content">
+                	<div id="member-box">
+                    	<div id="member-area">
+                        	<div id="member-count">		
+                            	<h4><span><tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/></span> members and growing!</h4>
+                         	</div>
+                             <div id="member-buttons">
+                                <a class="small-button" href="http://www.topcoder.com/reg/"><span>Register</span></a>
+                                <a class="small-button" href="http://www.topcoder.com/tc?module=MyHome"><span>My TopCoder</span></a>
+                                <a class="small-button" href="http://forums.topcoder.com/"><span>Forums</span></a>
+                            </div>
+                        </div>
+                        <div id="compete">
+                        	<h2>Compete against the <strong>best!</strong></h2>
+                            <div id="compete-competitions">
+                            	<a href="http://www.topcoder.com/tc"><img src="/images/home/competition-tc-thumbnail.png" alt="TC Competitions" /></a>
+                                <h3><a href="http://www.topcoder.com/tc">Competitions</a></h3>
+                                <p>Component Design, Component Development, Assembly, Bug Races, Marathon, Algorithm&hellip;</p>
+                            </div>
+                            <div id="compete-studio">
+                            	<a href="http://studio.topcoder.com/"><img src="/images/home/competition-studio-thumbnail.png" alt="TopCoder Studio" /></a>
+                                <h3><a href="http://studio.topcoder.com/">TopCoder Studio</a></h3>
+                                <p>The creative side of TopCoder. Logos, posters, storyboards, prototypes&hellip;</p>
+                            </div>
+                            <div id="compete-digitalrun">
+                            	<a href="http://www.topcoder.com/dr"><img src="/images/home/competition-digitalrun-thumbnail.png" alt="Digital Run" /></a>
+                                <h3><a href="http://www.topcoder.com/dr">Digital Run</a></h3>
+                                <p>More Tracks, More Money, More Often!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="member-box-bottom"></div>
+                </div>
+			</div><!-- #content_main -->
+			
+		</div><!-- .wrapper ends -->
+	</div><!-- #content ends -->
+	
+<!-- NEWS -->
+	<div id="news">
+		<div class="wrapper">
+			<h2>News and Announcements</h2>
+			<ul id="news-carousel" class="tc-news">
+    	<li>
+        	<div class="news-image">
+            	<a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_102308"><img src="/images/home/news-carousel/sd-bestpractices.png" alt="Software Development Best Practices TopCoder Challenge" /></a>     
+            </div>
+        	 <div class="news-text">
+            	<p><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_102308">TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31</a></p>
+            </div>
+        </li>
+        <li>
+        	<div class="news-image">
+            	<a href="http://www.topcoder.com/tc?module=LinkTracking&link=http://industry.bnet.com/technology/1000470/aol-finds-topcoder-tops/&refer=pr_index"><img src="/images/home/news-carousel/bnet.png" alt="BNET" /></a>
+            </div>
+        	<div class="news-text">
+            	<p><a href="http://www.topcoder.com/tc?module=LinkTracking&link=http://industry.bnet.com/technology/1000470/aol-finds-topcoder-tops/&refer=pr_index">AOL Finds TopCoder Tops</a></p>
+           		<p class="news-description">AOL technical director Nic Perez talks about his experience as a TopCoder client for a number of major projects over the last three years.</p>
+            </div>
+        </li>
+    	<li>
+        	<div class="news-image">
+            	<a href="http://www.topcoder.com/tc?module=LinkTracking&link=http://www.pcworld.com/businesscenter/article/152324/topcoder_eyeing_smb_market.html&refer=pr_index"><img src="/images/home/news-carousel/pcworld.png" alt="PCWorld" /></a>
+            </div>
+        	<div class="news-text">
+            	<p><a href="http://www.topcoder.com/tc?module=LinkTracking&link=http://www.pcworld.com/businesscenter/article/152324/topcoder_eyeing_smb_market.html&refer=pr_index">TopCoder Eyeing SMB Market</a></p>
+            	<p class="news-description">TopCoder is turning its sights on the SMB market with a new portal called TopCoder Direct that will come out of beta at the end of October.</p>
+            </div>
+        </li>
+        <li>
+        	<div class="news-image">
+            	<a href="http://www.topcoder.com/tc?module=LinkTracking&link=http://www.cio.com/article/449523/Cool_Programmer_Challenge_Football_Algorithm_&refer=pr_index"><img src="/images/home/news-carousel/cio.png" alt="CIO" /></a>
+            </div>
+        	<div class="news-text">
+            	<p><a href="http://www.topcoder.com/tc?module=LinkTracking&link=http://www.cio.com/article/449523/Cool_Programmer_Challenge_Football_Algorithm_&refer=pr_index">Cool Programmer Challenge: Football Algorithm = $50,000</a></p>
+            	<p class="news-description">ESPN plans to use the algorithm for prognostication, on-air prediction and pregame previews.</p>
+            </div>
+        </li>
+        <li>
+        	<div class="news-image">
+            	<a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_082108"><img src="/images/home/news-carousel/inc500.png" alt="Inc 500" /></a>
+            </div>
+        	<div class="news-text">
+            	<p><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_082108">TopCoder One of Inc. Magazine's 500 Fastest-Growing Private Companies in America for Second Consecutive Year</a></p>
+            </div>
+        </li>
+    </ul>
+		</div><!-- .wrapper ends -->
+	</div><!-- #news ends -->
+	
+    
+    	
+<!-- LINKS BLOCK -->
+	<div id="links">
+		<div class="wrapper">
+			<div class="col">
+				<h4>Customer Service</h4>
+				<ul>
+					<li><a href="http://software.dev.topcoder.com/contact.jsp">Contact Support</a></li>
+					<li><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=privacy">Privacy Policy</a></li>
+					<li><a href="http://topcoderblogs.com/direct/?page_id=24">Terms &amp; Conditions</a></li>
+				</ul>
+			</div>
+			
+			<div class="col">
+				<h4>About TopCoder</h4>
+				<ul>
+					<li><a href="http://software.topcoder.com/contact.jsp">Contact Us</a></li>
+					<li><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=mediaRequestForm">Public Relations</a></li>
+                    <li><a href="http://software.topcoder.com/TCD/rss.jsp">RSS Feeds</a></li>
+					<li><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=index">Press Room</a></li>
+					<li><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=jobs">Working at TopCoder</a></li>
+					<li><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=terms">Legal Information</a></li>
+				</ul>
 
+			</div>
+			
+			<div class="col">
+				<h4>Platform Tools</h4>
+				<ul><li><a href="http://www.topcoder.com/wiki/display/tc/Upcoming+Contests">Pipeline</a></li>
+					<li><a href="http://www.topcoder.com/wiki/display/tc/TopCoder+UML+Tool">UML Tool</a></li>
+					<li><a href="http://forums.topcoder.com/?module=Category&categoryID=22">TopCoder Forums</a></li>
+					<li><a href="http://software.topcoder.com/catalog/index.jsp">Component Catalog</a></li>
+					<li><a href="http://www.topcoder.com/wiki/">TopCoder Wiki</a></li>
+				</ul>
+		  </div>
+			
+			<div class="col">
+				<h4>TopCoder Community</h4>
+				<ul>
+               		<li><a href="http://www.topcoder.com/tc">TopCoder Community Home</a></li>
+					<li><a href="http://forums.topcoder.com/">TopCoder Forums</a></li>
+					<li><a href="http://studio.topcoder.com/forums">Studio Forums</a></li>
+				</ul>
+			
+				<h4>TopCoder Blogs</h4>
+				<ul>
+					<li><a href="http://topcoderblogs.com/direct/">TopCoder Direct</a></li>
+					<li><a href="http://tcstudioblogs.com/">Studio TopCoder</a></li>
+				</ul>
+			</div>
+			
+			<div class="col">
+				<h4>My Account</h4>
+				<ul>
+                	<li><a href="http://www.topcoder.com/reg/">TopCoder Registration</a></li>
+					<li><a href="http://www.topcoder.com/tc?module=MyHome">Manage Profile</a></li>
+                    <li><a href="http://www.topcoder.com/dr">TopCoder Digital Run</a></li>
+                    <li><a href="http://studio.topcoder.com/?module=Static&d1=digitalrun&d2=2008v2&d3=home">Studio Cup</a></li>
+				</ul>
+			</div>
+			
+			<div class="col">
+				<h4>Powered by TopCoder</h4>
+				<ul>
+					<li><a href="http://software.topcoder.com/">TopCoder Direct</a></li>
+					<li><a href="http://www.topcoder.com/">TopCoder.com</a></li>
+					<li><a href="http://studio.topcoder.com">Studio TopCoder</a></li>
+				</ul>
+			</div>
+
+		</div><!-- .wrapper ends -->
+	</div><!-- #links block ends -->
+
+<!-- FOOTER BLOCK -->
+	<div id="footer">
+		<div class="wrapper">
+			<p id="footer_1800"><strong>1-866-TOPCODER or Service@TopCoder.com</strong></p>
+			<p>TopCoder is the world's largest competitive software development community with more than 167,000 developers representing over 200 countries.</p>
+			<p>Copyright &copy;2001-2008, TopCoder, Inc. All rights reserved.</p>
+		</div><!-- .wrapper ends -->
+	</div><!-- #footer ends -->
+	
 <%-- Google Analytics --%>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
