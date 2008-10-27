@@ -118,7 +118,7 @@ $(document).ready(function(){
                 	<li><a href="http://software.topcoder.com/about.jsp">About TopCoder</a></li>
 					<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=index">News</a></li>
 					<li><a href="http://software.dev.topcoder.com/contact.jsp">Contact Us</a></li>				
-                    <li class="right on"><a href="http://software.topcoder.com/login.jsp">Login</a></li>
+                    <li class="right on"><a href="http://www.topcoder.com/tc?&module=Login">Login</a></li>
 				</ul>
 
 			</div><!-- #navigation ends -->
