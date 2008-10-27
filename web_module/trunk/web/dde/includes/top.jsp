@@ -22,8 +22,8 @@
 			<div id="nav">
 				<h3 class="hide">Main Navigation</h3>
 				<ul>
-					<li class="left on"><a href="https://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">TopCoder Home</a></li>
-					<li><a href="https://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">Engage</a>
+					<li><a href="https://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">TopCoder Home</a></li>
+					<li  class="left on"><a href="https://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">Engage</a>
                     	<ul>
                             <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp">TopCoder Direct</a></li>
                             <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/">Components</a></li>
@@ -56,7 +56,6 @@
 					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Community</a>
                     	<ul>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Join</a></li>
-                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Slash TC</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome">My TopCoder</a></li>
                             <li class="last-li"><a href="http://forums.topcoder.com/">Forums</a></li>
                        	</ul>
