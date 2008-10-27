@@ -124,7 +124,7 @@
                         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308">TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31</a></h3>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308">TopCoder Ranked Number 11 in Deloitte's Technology Fast 50 Program for New York, New Jersey and Connecticut</a></h3>
                         <p>Expanded Use of TopCoder Community for Competitive Software Development and Creative Design Drives 3,206 Percent Revenue Growth  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308">[October 23]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>

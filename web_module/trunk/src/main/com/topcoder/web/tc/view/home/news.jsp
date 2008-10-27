@@ -6,7 +6,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />10.24.08<br />4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308">TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31</a></span><br /><br />
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308">TopCoder Ranked Number 11 in Deloitte's Technology Fast 50 Program for New York, New Jersey and Connecticut</a></span><br /><br />
         TopCoder has been named to Deloitte's prestigious Technology Fast 50 Program for New York, New Jersey and Connecticut, a ranking of the 50 fastest growing technology, media, telecommunications and life sciences companies in the area by one of the nation’s leading professional services organizations.</td>
    </tr>
    <tr><td class="newsLinksCell">
