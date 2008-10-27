@@ -66,7 +66,7 @@ $(document).ready(function(){
 			<div id="nav">
                 <h3 class="hide">Main Navigation</h3>
                 <ul>
-                    <li class="left on"><a href="https://software.topcoder.com/">TopCoder Home</a></li>
+                    <li class="left on"><a href="https://www.topcoder.com/">TopCoder Home</a></li>
                     <li><a href="https://software.topcoder.com/">Engage</a>
                         <ul>
                             <li><a href="http://software.topcoder.com/TCD/about.jsp">TopCoder Direct</a></li>
