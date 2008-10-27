@@ -704,6 +704,7 @@ CONTENT
     text-align: center;
     margin-left: 45px;
     display: inline;
+	background-position: left -2px;
 }
 
 .left_content li, .right_content li {
