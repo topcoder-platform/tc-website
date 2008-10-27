@@ -11,6 +11,7 @@
 <!--[if IE 7]><link rel="stylesheet" type="text/css" href="/includes/screen-ie7.css" /><![endif]-->
 <!--[if IE 6]><link rel="stylesheet" type="text/css" href="/includes/screen-ie6.css" /><![endif]-->
 <script src="/scripts/jquery-1.2.6.min.js" type="text/javascript"></script>
+<script src="/scripts/jquery.hoverIntent.minified.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$(".expand-group").click(function(){
@@ -34,6 +35,19 @@ $(document).ready(function(){
 	$("#banner img").attr({
 		src: "/images/rotated-image-" + randomImage +".png"
 	});
+	
+	$("#nav ul li").hoverIntent(function(){
+		$(this).children("ul").slideDown("fast");
+	}, function() {
+		$(this).children("ul").slideUp("fast");
+	});
+	
+	$("#nav ul ul li").hover(function() {
+		$(this).parents("#nav ul li").children('a').addClass("active-item");
+	}, function() {
+		$(this).parents("#nav ul li").children('a').removeClass("active-item");
+	});
+	
 });
 
 

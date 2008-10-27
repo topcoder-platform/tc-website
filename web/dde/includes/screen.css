@@ -134,8 +134,6 @@ HEADER
 		list-style-type: none;
 		width: 100%;
 		float: left;
-		margin:0;
-		padding:0;
 	}
 	
 	#nav UL LI {
@@ -144,9 +142,10 @@ HEADER
 		background: url(../images/nav_sprites.png) no-repeat;
 		background-position: 0 -64px;
 		padding-left: 1px;
+		width:180px;
+		position:relative;
 		list-style:none;
-		line-height:1.0em;
-		padding-top:0px;
+		padding:0;
 	}
 	
 	#nav UL LI.left {
@@ -155,32 +154,101 @@ HEADER
 	}
 	
 	#nav UL LI A {
-		width: auto;
 		height: 32px;
 		background: url(../images/nav_sprites.png) no-repeat;
 		background-position: right -96px;
-		padding: 9px 21px 8px 22px;
-		line-height: 32px;
-		
+		padding: 9px 0 0 0;
+		line-height: 12px;
+		width:180px;
 		text-decoration: none;
 		font-size: 90%;
 		font-weight: bold;
-		color: #313131;		
+		color: #313131;
+		display:block;
+		text-align:center;	
 	}
 	
 	#nav UL LI.on {
 		background-position: 0 0;
-		margin:0;
-		padding:0;
 	}
 	
 	#nav UL LI.on A {
 		background-position: right -32px;
+		padding-top:0px;
+		line-height:28px;
+	}
+	
+	#nav UL LI.on UL A {
+		background-position:top;
+		line-height:16px;
+		padding:13px 0 8px 12px;
 	}
 	
 	#nav UL LI A:hover {
-		background-position: right -192px;
+		background-position: right -192px 
 	}
+	
+	.active-item {
+	background: url(../images/nav_sprites.png) no-repeat;
+	background-position: right -192px !important;
+	}
+	
+	/* #nav UL LI:hover UL {display:block;} */
+	
+	#nav UL UL {
+		background:url(../images/dropdown_nav_background.png) no-repeat bottom;
+		display:none;
+		width:180px;
+		list-style-type:none;
+		position:absolute;
+		top:32px;
+		left:0px;
+		z-index:100;
+		margin:0;
+		padding:0;
+	}
+	
+	#nav UL UL LI {
+		height:auto;
+		background-image:none;
+		list-style:none;
+		margin:0;
+		padding:0;
+	}
+	
+	
+	#nav UL UL LI A {
+		background:url(../images/dropdown_nav_divider.png) no-repeat;
+		height:20px;
+		display:block;
+		width:168px;
+		color:#e9e9e9;
+		text-align:left;
+		line-height:16px;
+		padding:13px 0 8px 12px;
+		vertical-align:middle;
+	}
+	
+	#nav UL UL LI A:hover {
+		background-color:#eeeeee;
+		color:#000;
+		margin: 1px 1px 0px 1px;
+		width:167px;
+		padding-top:12px;
+		padding-left:11px;
+		height:20px;
+	}
+	
+	#nav UL UL LI.last-li A:hover {
+		background-color:none;
+		background:url(../images/li-bottom-background.png) bottom no-repeat;
+		color:#000;
+		margin:0px !important;
+		padding: 13px 0 8px 12px !important;
+		width:168px;
+		
+	}
+	
 	
 	/* SUB NAVIGATION */
 	#nav_support {
@@ -658,7 +726,7 @@ CONTENT
     font-weight: bold;
     text-decoration: none;
     padding-left: 15px;
-    width: 147px;
+    width: 132px;
     height: 28px;
     padding-top: 7px;
     display: block;
