@@ -85,7 +85,7 @@ $(document).ready(function(){
                             <li><a href="http://www.topcoder.com/tc?module=ViewAssemblyActiveContests">Assembly</a></li>
                             <li><a href="http://www.topcoder.com/longcontest/?module=ViewActiveContests">Marathon Matches</a></li>
                             <li><a href="http://www.topcoder.com/wiki/display/tc/Bug+Races">Bug Races</a></li>
-                            <li class="last-li"><a href="http://studio.topcoder.com/?module=ViewActiveContests">Studio</a></li>
+                            <li class="last-li"><a href="http://studio.topcoder.com/?module=ViewActiveContests">Studio Competitions</a></li>
                         </ul>
                     </li>
 <li><a href="http://studio.topcoder.com/">Studio</a>
@@ -102,7 +102,7 @@ $(document).ready(function(){
                         <ul>
                             <li><a href="http://www.topcoder.com/reg/">Join TopCoder</a></li>
                             <li><a href="http://www.topcoder.com/tc?module=MyHome">My TopCoder</a></li>
-                            <li><a href="http://forums.topcoder.com/">Forums</a></li>
+                            <li><a href="http://forums.topcoder.com/">TopCoder Forums</a></li>
                             <li class="last-li"><a href="http://studio.topcoder.com/forums">Studio Forums</a></li>
                            </ul>
                     </li>
