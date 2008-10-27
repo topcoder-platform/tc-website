@@ -22,23 +22,57 @@
 			<div id="nav">
 				<h3 class="hide">Main Navigation</h3>
 				<ul>
-					<li <% if (TCDlevel.equals("home")) {%> class="left on" <% } %>><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/index.jsp">TopCoder Direct Home</a></li>
-					<li <% if (TCDlevel.equals("about")) {%> class="left on" <% } %>><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp">About TopCoder Direct</a></li>
-					<li <% if (TCDlevel.equals("platform")) {%> class="left on" <% } %>><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/platform-tools.jsp">Platform Tools</a></li>
-					<li <% if (TCDlevel.equals("software")) {%> class="left on" <% } %>><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/indexTCS.jsp">Software</a></li>
-					<li <% if (TCDlevel.equals("training")) {%> class="left on" <% } %>><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/training.jsp">Training &amp; Mentoring</a></li>
-					<li <% if (TCDlevel.equals("support")) {%> class="left on" <% } %>><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/support.jsp">Support &amp; Maintenance</a></li>
+					<li class="left on"><a href="https://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">TopCoder Home</a></li>
+					<li><a href="https://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">Engage</a>
+                    	<ul>
+                            <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp">TopCoder Direct</a></li>
+                            <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/">Components</a></li>
+                            <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/indexTCS.jsp">Software</a></li>
+                            <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/platform-tools.jsp">Platform Tools</a></li>
+                            <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/training.jsp">Training &amp; Mentoring</a></li>
+                            <li class="last-li"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/support.jsp">Support &amp; Maintenance</a></li>
+                        </ul>
+                    </li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Compete</a>
+                    	<ul>
+                        	<li><a href="">Launch the Arena</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=112">Component Design</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=113">Component Development</a></li> 
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewAssemblyActiveContests">Assembly</a></li>
+							<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests">Marathon Matches</a></li>
+							<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Bug+Races">Bug Races</a></li>
+                            <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Studio</a></li
+                    	</ul>
+                    </li>
+					<li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">Studio</a>
+                    	<ul>
+                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active Contests</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">Launch a Contest</a></li>
+                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Forums</a></li>
+                            <li><a href="http://www.tcstudioblogs.com/">Studio Blog</a></li>
+                            <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=MyStudioHome">My Studio</a></li>
+                    	</ul>
+                    </li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Community</a>
+                    	<ul>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Join</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Slash TC</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome">My TopCoder</a></li>
+                            <li class="last-li"><a href="http://forums.topcoder.com/">Forums</a></li>
+                       	</ul>
+                    </li>
+					
 				</ul>
-			</div><%-- #navigation ends --%>
+			</div>
 			
 			<%-- SUB NAVIGATION --%>
 			<div id="nav_support">
 				<h3 class="hide">SUB Navigation</h3>
 				<ul>
-                	<li class="left"><a href="http://www.topcoder.com/">TopCoder.com</a></li>
-                	<li><a href="http://software.topcoder.com/about.jsp">About TopCoder</a></li>
-					<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=index">News</a></li>
-					<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=contactus">Contact Us</a></li>
+                	<li class="left"><a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder.com</a></li>
+                	<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/about.jsp">About TopCoder</a></li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=index">News</a></li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=contactus">Contact Us</a></li>
 					
 					
                            <% if (session.getAttribute("TCUSER") == null) { %>
