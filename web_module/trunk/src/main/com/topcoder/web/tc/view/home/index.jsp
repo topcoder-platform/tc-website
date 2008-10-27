@@ -95,7 +95,7 @@ $(document).ready(function(){
                             <li><a href="http://studio.topcoder.com/forums">Studio Forums</a></li>
                             <li><a href="http://www.tcstudioblogs.com/">Studio Blog</a></li>
                             <li><a href="http://studio.topcoder.com/?module=MyStudioHome">My Studio</a></li>
-                            <li class="last-li"><a href="http://studio.topcoder.com/?module=MyStudioHome">Contact Studio</a></li>    
+                            <li class="last-li"><a href="http://studio.topcoder.com/?module=Static&d1=contactUs">Contact Studio</a></li>    
                         </ul>
                     </li>
                     <li><a href="http://www.topcoder.com/tc">Community</a>
