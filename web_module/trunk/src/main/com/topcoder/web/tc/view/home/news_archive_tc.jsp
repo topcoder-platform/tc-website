@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">10.28.08 1:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=hs&amp;d2=spotlightSessions">Spotlight Sessions with John Dethridge</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.08.08 2:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081008">Spotlight Sessions with ACRush Chat Transcript</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.08.08 11:00 AM - </td><td width="100%"><a href="/tc?module=ProjectDetail&amp;pj=30005332">Help Architect a new Flex-ible TopCoder</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.06.08 1:30 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081002">Spotlight Sessions with SnapDragon Chat Transcript</a></td></tr>
