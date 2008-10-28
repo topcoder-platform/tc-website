@@ -48,7 +48,7 @@
 
 <!-- Middle Column begins -->
 <td width="99%">
-	<div align="left">
+    <div align="left">
     <img src="/images/clear.gif" width="1" height="15" alt="" border="0" /><br />
     <img src="/images/hd_app_over.png" alt="Application Overview" border="0" /><br />
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -57,7 +57,7 @@
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0" />
 
                 <p><strong>We know you've probably become conditioned to tune out the claims made by other software companies. TopCoder is on a mission to prove that we can develop high-quality software applications differently from those companies. How do we do it?</strong></p>
-				<br />
+                <br />
                 <p>We utilize our member base of software developers who are differentiated by talent through competition. 
                 Combining this talent with our competition-based methodology and our catalogs of re-usable components is what allows us to develop faster, cheaper, and better.</p>
                 <br />
@@ -66,111 +66,81 @@
         </tr>
     </table>
 
-    <hr width="640" size="1" color="#666666" noshade="noshade" />
 
+    <div id="platform" align="left" style="margin-bottom:10px;">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr valign="top">
-            <td width="50%" class="bodyText">
-                <p><strong>No-Shore Development</strong><br />
-                    TopCoder's member base is a distributed resource that spans over 150 countries. Unlike strictly
-                    off-shore development firms, it doesn't matter what
-                    country our members call home, as long as they've proven that they can deliver a better
-                    solution than their peers. Since our members work for
-                    TopCoder as contractors, not employees, our fixed costs are much lower than our competition.</p>
-            </td>
-            <td width="50%" class="bodyText" align="center">
-                <img src="/images/apps/apps_index_map.gif" alt="No-Shore Development" width="266" height="125" border="0" />
-                <br /><br />
+            <td width="100%" class="bodyText">
+                <div class="platform_row_dark">
+                    <div style="float:left;">
+                        <a href="http://software.topcoder.com/catalog/index.jsp"><img src="/i/component_catalog.png" alt="Component Catalog" class="platform_img" /></a>
+                        <h3 style="margin-top:-15px;"><a href="http://software.topcoder.com/catalog/index.jsp"><img src="/i/component_catalog_text.png" alt="Component Catalog" width="204" height="29" /></a></h3>
+                        <p>In 2001, we began developing substantial catalogs of re-usable Java and .NET components. Reusing these bits of software over and over on client projects allows us to substantially shorten timelines and decrease costs. We then pass these savings onto our clients.</p>
+                    </div>
+                </div><%-- platform_row_dark ends--%>
             </td>
         </tr>
     </table>
 
-    <hr width="640" size="1" color="#666666" noshade="noshade" />
+
 
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr valign="top">
-            <td width="50%" class="bodyText">
-                <p><strong>Component Catalog</strong><br />
-                    In 2001, we began developing substantial <a href="/catalog/c_showroom.jsp">catalogs</a> of re-usable
-                    Java and .NET components. Reusing these bits of
-                    software over and over on client projects allows us to substantially shorten timelines and decrease
-                    costs. We then pass these savings onto our clients.</p>
-            </td>
-            <td width="50%" class="bodyText" align="center">
-                <a href="/catalog/c_showroom.jsp"><img src="/images/apps/apps_index_catalog.gif" alt="Component Catalog" width="216" height="152" border="0" /></a>
-                <br /><br />
+            <td width="100%" class="bodyText">
+                <div class="platform_row">
+                    <div style="float:left; padding-left:50px;">
+                      <span style="float:right;"><img src="/i/no_shore.png" alt="No-Shore Development" class="platform_img" /></span>
+                      <h3 style="margin-top:-15px;"><img src="/i/no_shore_text.png" alt="No-Shore Development" /></h3>
+                      <p>TopCoder's member base is a distributed resource that spans over 150 countries. Unlike strictly off-shore development firms, it doesn't matter what country our members call home, as long as they've proven that they can deliver a better solution than their peers. Since our members work for TopCoder as contractors, not employees, our fixed costs are much lower than our competition.</p>
+                    </div>
+                </div><%-- platform_row ends--%>
             </td>
         </tr>
     </table>
 
-    <hr width="640" size="1" color="#666666" noshade="noshade" />
+
 
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr valign="top">
-            <td width="50%" class="bodyText">
-                <p><strong>Uncompromising Quality</strong><br />
-                    Differentiating our members by talent through competition insures that only quality developers are
-                    working on our code. Each week, hundreds of
-                    TopCoder members compete in programming <a href="http://www.topcoder.com">competitions,</a> where
-                    they are rated based on the results.
-                    Only members with acceptable ratings are allowed to develop software for TopCoder.</p>
-
-                <p>Our Component Catalogs are made up of the extremely high quality components developed by our members.
-                    These components are of such high
-                    quality due to the fact that they have been used and re-used in multiple applications. TopCoder
-                    strives to develop as many applications with
-                    re-usable components as possible.</p>
-            </td>
-            <td width="50%" class="bodyText" align="center">
-                <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=compDocumentation"><img src="/images/apps/apps_index_scorecard.png" alt="Uncompromising Quality" width="216" height="212" border="0" /></a>
-                <br /><br />
+            <td width="100%" class="bodyText">
+                <div class="platform_row_dark">
+                    <div style="float:left;">
+                        <img src="/i/uncompromising_quality.png" alt="Uncompromising Quality" class="platform_img" />
+                        <h3 style="margin-top:-15px;"><img src="/i/uncompromising_quality_text.png" alt="Uncompromising Quality" /></a></h3>
+                        <p>Differentiating our members by talent through competition insures that only quality developers are working on our code. Each week, hundreds of TopCoder members compete in programming competitions, where they are rated based on the results. Only members with acceptable ratings are allowed to develop software for TopCoder.</p>
+                        <p>Our Component Catalogs are made up of the extremely high quality components developed by our members. These components are of such high quality due to the fact that they have been used and re-used in multiple applications. TopCoder strives to develop as many applications with re-usable components as possible.</p>
+                    </div>
+                </div><%-- platform_row_dark ends--%>
             </td>
         </tr>
     </table>    
     
-    <hr width="640" size="1" color="#666666" noshade="noshade" />
 
-	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr valign="top">
-            <td width="50%" class="bodyText">
-                <p><strong>Application Methodology</strong><br />
-                    The TopCoder Application Development Methodology is designed to deliver a repeatable and consistent
-                    solution to our customers. The TopCoder methodology
-                    is comprised of phases and deliverables. The six-step methodology is administered by a TopCoder
-                    Project Manager skilled in Component Based Development
-                    (CBD) techniques, requirements gathering, and project management.</p>
-
-                <p>During the specification phase, the Project Manager works hand-in-hand with our customers to develop
-                    specifications that satisfy all of our customers'
-                    requirements. In the component architecture phase, the Project Manager and TopCoder Component
-                    Architect identify and design the components required to
-                    build the application. Next, the component production phase uses TopCoder's unique
-                    <a href="/components/methodology.jsp">component methodology,</a> to create all of the components.
-                    During the
-                    application assembly phase, the Project Manager hand-selects only proven members to participate in
-                    the assembly of the application. The application
-                    assemblers must sign a non-disclosure agreement to protect our clients. During this phase, the
-                    components are linked together to build the application.
-                    Once assembled, the certification phase begins. Prior to deployment at the customer's site, the
-                    application is rigorously tested at TopCoder. After
-                    certification, the application is delivered to our customers and deployed to their quality assurance
-                    environment, as part of the deployment phase. Our
-                    rigorous <a href="/applications/methodology.jsp">application methodology,</a> combined with our
-                    competition-tested members and our re-usable components, allow TopCoder to deliver applications of
-                    the
-                    highest quality.</p>
-            </td>
-            <td width="50%" class="bodyText" align="center">
-                <a href="/applications/methodology.jsp"><img src="/images/apps/apps_index_meth.gif" alt="Application Methodology" width="253" height="168" border="0" /></a>
+            <td width="100%" class="bodyText">
+                <div class="platform_row">
+            <div style="float:left; padding-left:50px; margin-bottom:50px;">
+                <span style="float:right;"><img src="/i/app_methodology.png" alt="Application Methodology" class="platform_img" /></span>
+                <h3 style="margin-top:-15px;"><img src="/i/app_methodology_text.png" alt="Application Methodology" /></a></h3>                
+                <p>The TopCoder Application Development Methodology is designed to deliver a repeatable and consistent 
+                solution to our customers. The TopCoder methodology is comprised of phases and deliverables. The 
+                six-step methodology is administered by a TopCoder Project Manager skilled in Component Based 
+                Development (CBD) techniques, requirements gathering, and project management. During the specification 
+                phase, the Project Manager works hand-in-hand with our customers to develop specifications that satisfy 
+                all of our customers' requirements. In the component architecture phase, the Project Manager and 
+                TopCoder Component Architect identify and design the components required to build the application. Next, 
+                the component production phase uses TopCoder's unique component methodology, to create all of the components. During the application assembly phase, the Project Manager hand-selects only proven members to participate in the assembly of the application. The application assemblers must sign a non-disclosure agreement to protect our clients. During this phase, the components are linked together to build the application. Once assembled, the certification phase begins. Prior to deployment at the customer's site, the application is rigorously tested at TopCoder. After certification, the application is delivered to our customers and deployed to their quality assurance environment, as part of the deployment phase. Our rigorous application methodology, combined with our competition-tested members and our re-usable components, allow TopCoder to deliver applications of the highest quality.</p>
+                </div>
+            </div><%-- platform_row ends--%>
             </td>
         </tr>
     </table>
-
-    <p class="learn_more"><strong><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=contactus">Contact us</a>
-        today so we can get started developing your next application.</strong></p>
-
-    <p><br /></p>
-
+    </div><%-- platform ends --%>
+<%--
+    <div style="height:20px; margin-top:20px;">&nbsp;<br />&nbsp;<br /></div>
+    --%>
 </div>
 </td>
 <!-- Middle Column ends -->
