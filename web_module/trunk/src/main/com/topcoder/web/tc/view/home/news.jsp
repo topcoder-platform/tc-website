@@ -6,7 +6,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />10.28.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Spotlight Sessions with John Detheridge</a></span><br /><br />
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Spotlight Sessions with John Dethridge</a></span><br /><br />
         The next Spotlight Session is about to happen!  Don't miss <tc-webtag:handle coderId="270505" context="algorithm" /> in the chat room one hour prior to <a href="/tc?module=MatchDetails&amp;rd=13529">TCHS SRM 60</a> Tuesday, October 28, 2008 at 8:00 p.m. EDT (GMT-4).  All members are welcome to join in the chat session and learn some valuable tips from a great coder.  Learn more about <tc-webtag:handle coderId="270505" context="algorithm" /> and Spotlight Sessions <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">here</a>.</td>
    </tr>
    <tr><td class="newsLinksCell">
