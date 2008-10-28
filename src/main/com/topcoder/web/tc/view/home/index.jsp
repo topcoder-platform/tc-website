@@ -1,5 +1,4 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ page import="com.topcoder.dde.user.User" %>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -70,7 +69,7 @@ $(document).ready(function(){
                     <li class="left on"><a href="https://www.topcoder.com/">TopCoder Home</a></li>
                     <li><a href="https://software.topcoder.com/">Engage</a>
                         <ul>
-                            <li><a href="http://software.topcoder.com/TCD/about.jsp">TopCoder Direct</a></li>
+                            <li><a href="http://www.topcoder.com/direct/cockpit/cockpit.jsp">TopCoder Direct</a></li>
                             <li><a href="http://software.topcoder.com/catalog/">Components</a></li>
                             <li><a href="http://software.topcoder.com/indexTCS.jsp">Software</a></li>
                             <li><a href="http://software.topcoder.com/TCD/platform-tools.jsp">Platform Tools</a></li>
@@ -119,19 +118,7 @@ $(document).ready(function(){
                 	<li><a href="http://software.topcoder.com/about.jsp">About TopCoder</a></li>
 					<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=index">News</a></li>
 					<li><a href="http://software.dev.topcoder.com/contact.jsp">Contact Us</a></li>				
-                    <!--<li class="right"><a href="http://www.topcoder.com/tc?&module=Login">Login</a></li>-->
-                    <% if (session.getAttribute("TCUSER") == null) { %>
-                           <li class="right">
-                 <a href="http://www.topcoder.com/tc?&module=Login">Login</a>
-                             </li>
-                             <% } else { %>
-                            <li>
-               <a href="#">Hello <tc-webtag:handle coderId='<%=((User) session.getAttribute("TCUSER")).getId()%>'/></a>
-                               </li>
-                            <li class="right">
-                                <a href="http://www.topcoder.com/tc?module=Logout">Log Out</a>
-                            </li>
-                              <% } %>
+                    <li class="right"><a href="http://www.topcoder.com/tc?&module=Login">Login</a></li>
 				</ul>
 
 			</div><!-- #navigation ends -->
@@ -151,7 +138,14 @@ $(document).ready(function(){
 			<div id="content_main">
             	<div id="client-content">
                 	<div id="client-box">
-                    	<div id="enterprise-solutions">
+                    	<!--<div id="contact-tc">
+                        	<h3>Contact TopCoder</h3>
+                            <h4>Find out more about how TopCoder can work for you!</h4>
+                            <div class="button-container">
+                            	<a class="button" href="http://software.topcoder.com/contact.jsp">Contact Us</a>
+                            </div>
+                        </div>-->
+                        <div id="enterprise-solutions">
                         	<h3>Enterprise Solutions</h3>
                             <h4>TopCoder Global Platform</h4>
                             <ul class="link-list">
