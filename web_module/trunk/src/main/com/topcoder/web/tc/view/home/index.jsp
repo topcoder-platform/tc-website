@@ -166,7 +166,7 @@ $(document).ready(function(){
                             </div>
                         </div>-->
                         <div id="enterprise-solutions">
-                        	<h3>Enterprise Solutions</h3>
+                            <h3><a href="http://software.topcoder.com/TCD/methodology.jsp">Enterprise Solutions</a></h3>
                             <h4>TopCoder Global Platform</h4>
                             <ul class="link-list">
                             	<li class="first"><a href="http://software.topcoder.com/TCD/platform-tools.jsp">Tools</a></li>
@@ -175,7 +175,7 @@ $(document).ready(function(){
                                 <li class="last"><a href="http://software.topcoder.com/TCD/support.jsp">Support</a></li>
                             </ul>
                             <div class="button-container">
-                            	<a class="button" href="http://software.topcoder.com/TCD/about.jsp">Learn More</a>
+                            	<a class="button" href="http://software.topcoder.com/TCD/methodology.jsp">Learn More</a>
                             </div>
                         </div>
                         <div id="tc-direct">
