@@ -71,7 +71,7 @@
                             You need to log in before continuing:
                         </p>
                         <p align="center">
-                            <a href="/tcs?module=RequestPermissionView">Log in</a> | <a href="https://<%=ApplicationServer.TC_SERVER%>/reg/?module=Main&rt=5">Register</a>
+                            <a href="/tcs?module=RequestPermissionView">Log in</a> | <a href="https://<%=ApplicationServer.TC_SERVER%>/reg/?module=Main&rt=2">Register</a>
                         </p>
                     </c:otherwise>
                 </c:choose>
