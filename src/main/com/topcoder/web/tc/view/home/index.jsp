@@ -39,6 +39,13 @@ $(document).ready(function(){
 			wrap: 'both'  
     	});
 	});
+	
+	jQuery('#news-carousel').css("width","1375px");
+	
+	window.alert = function() {
+	return;
+};
+
 
 });
 
@@ -59,7 +66,7 @@ $(document).ready(function(){
 		<div class="wrapper">
 			
 <!-- MASTHEAD AND LOGO -->
-			<h1><a href="http://www.topcoder.com" title="TopCoder"><span>TopCoder Direct</span></a> <!-- <sup><small>BETA</small></sup>--></h1>
+			<h1><a href="http://www.topcoder.com" title="TopCoder"><span>TopCoder Direct</span></a><!--<sup><small>BETA</small></sup>--></h1>
 			<h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
 			
 <!-- MAIN NAVIGATION -->
@@ -222,10 +229,10 @@ $(document).ready(function(){
 			<ul id="news-carousel" class="tc-news">
     	<li>
         	<div class="news-image">
-            	<a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_102308"><img src="/images/home/news-carousel/sd-bestpractices.png" alt="Software Development Best Practices TopCoder Challenge" /></a>     
+            	<a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_100608"><img src="/images/home/news-carousel/sd-bestpractices.png" alt="Software Development Best Practices TopCoder Challenge" /></a>     
             </div>
         	 <div class="news-text">
-            	<p><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_102308">TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31</a></p>
+            	<p><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_100608">TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31</a></p>
             </div>
         </li>
         <li>
