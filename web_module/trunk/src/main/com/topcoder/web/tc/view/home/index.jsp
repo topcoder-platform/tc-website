@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.dde.user.User" %>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -118,7 +119,19 @@ $(document).ready(function(){
                 	<li><a href="http://software.topcoder.com/about.jsp">About TopCoder</a></li>
 					<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=index">News</a></li>
 					<li><a href="http://software.dev.topcoder.com/contact.jsp">Contact Us</a></li>				
-                    <li class="right on"><a href="http://www.topcoder.com/tc?&module=Login">Login</a></li>
+                    <!--<li class="right"><a href="http://www.topcoder.com/tc?&module=Login">Login</a></li>-->
+                    <% if (session.getAttribute("TCUSER") == null) { %>
+                           <li class="right">
+                 <a href="http://www.topcoder.com/tc?&module=Login">Login</a>
+                             </li>
+                             <% } else { %>
+                            <li>
+               <a href="#">Hello <tc-webtag:handle coderId='<%=((User) session.getAttribute("TCUSER")).getId()%>'/></a>
+                               </li>
+                            <li class="right">
+                                <a href="http://www.topcoder.com/tc?module=Logout">Log Out</a>
+                            </li>
+                              <% } %>
 				</ul>
 
 			</div><!-- #navigation ends -->
@@ -132,7 +145,7 @@ $(document).ready(function(){
 		
 <!-- TOPCODER DIRECT BANNER -->
 			<div id="welcome-banner">
-				<h2><strong>Engage!</strong> Plug into the <em>world's largest community</em> of competitive <em>software developers</em></h2>
+				<h2><a href="http://software.topcoder.com"><strong>Engage!</strong> Plug into the <em>world's largest community</em> of competitive <em>software developers</em></a></h2>
             </div>
 <!-- MAIN CONTENT -->
 			<div id="content_main">
