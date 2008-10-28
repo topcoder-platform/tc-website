@@ -1,7 +1,14 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer,
+				 com.topcoder.web.common.BaseServlet, com.topcoder.web.common.SessionInfo" %>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
+    String level1 = request.getParameter("level1")==null?"competition":request.getParameter("level1");
+
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -124,8 +131,14 @@ $(document).ready(function(){
                 	<li class="left"><a href="http://www.topcoder.com/">TopCoder.com</a></li>
                 	<li><a href="http://software.topcoder.com/about.jsp">About TopCoder</a></li>
 					<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=index">News</a></li>
-					<li><a href="http://software.dev.topcoder.com/contact.jsp">Contact Us</a></li>				
-                    <li class="right"><a href="http://www.topcoder.com/tc?&module=Login">Login</a></li>
+					<li><a href="http://software.dev.topcoder.com/contact.jsp">Contact Us</a></li>	
+                    
+                    			
+					<% if ( !sessionInfo.isAnonymous() ) { %>
+            <li>Hello,&nbsp;<tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" /></li><li class="right"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout">Logout</a></li>
+        <% } else {%>
+                <li class="right"><a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Login">Login</a></li>
+            <% } %>
 				</ul>
 
 			</div><!-- #navigation ends -->
@@ -227,7 +240,15 @@ $(document).ready(function(){
 		<div class="wrapper">
 			<h2>News and Announcements</h2>
 			<ul id="news-carousel" class="tc-news">
-    	<li>
+        <li>
+            <div class="news-image">
+                <a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_102308"><img src="/images/home/news-carousel/fast50.png" alt="Deloitte Technology Fast 50" /></a>     
+            </div>
+             <div class="news-text">
+                <p><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_102308">TopCoder Ranked Number 11 in Deloitte's Technology Fast 50 Program for New York, New Jersey and Connecticut</a></p>
+            </div>
+        </li>
+        <li>
         	<div class="news-image">
             	<a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_100608"><img src="/images/home/news-carousel/sd-bestpractices.png" alt="Software Development Best Practices TopCoder Challenge" /></a>     
             </div>
@@ -262,14 +283,14 @@ $(document).ready(function(){
             	<p class="news-description">ESPN plans to use the algorithm for prognostication, on-air prediction and pregame previews.</p>
             </div>
         </li>
-        <li>
+        <!--<li>
         	<div class="news-image">
             	<a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_082108"><img src="/images/home/news-carousel/inc500.png" alt="Inc 500" /></a>
             </div>
         	<div class="news-text">
             	<p><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_082108">TopCoder One of Inc. Magazine's 500 Fastest-Growing Private Companies in America for Second Consecutive Year</a></p>
             </div>
-        </li>
+        </li>-->
     </ul>
 		</div><!-- .wrapper ends -->
 	</div><!-- #news ends -->
@@ -282,7 +303,7 @@ $(document).ready(function(){
 			<div class="col">
 				<h4>Customer Service</h4>
 				<ul>
-					<li><a href="http://software.dev.topcoder.com/contact.jsp">Contact Support</a></li>
+					<li><a href="http://software.topcoder.com/contact.jsp">Contact Support</a></li>
 					<li><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=privacy">Privacy Policy</a></li>
 					<li><a href="http://topcoderblogs.com/direct/?page_id=24">Terms &amp; Conditions</a></li>
 				</ul>
