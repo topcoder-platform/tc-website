@@ -7,7 +7,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />10.30.08<br />12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008">TopCoder Direct Platform Opens Access to 170,000 Member Community of Software Designers, Developers &amp; Creative Artists</a></span><br /><br />
-        Any size business can now use same level of talent as Fortune 500 to build Web Applications, Infrastructure and More.</td>
+        Any size business can now use same level of talent as Fortune 500 to build Web Applications, Infrastructure and more.</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008">details</a> | 
