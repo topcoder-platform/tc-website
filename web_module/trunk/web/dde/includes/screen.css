@@ -33,6 +33,12 @@ LAYOUT
 	margin: 0 auto;
 	text-align: left;
 }
+	#full-wrapper {
+		width: 100%;
+		float: left;
+		margin: 0 auto;
+		text-align: left;
+	}
 
 /* ------------------------------------
 HEADER
@@ -921,23 +927,73 @@ PLATFORM TOOLS
 #platform
 {
 	padding: 0 0 50px 0;
-	font-size: 85%;
-	line-height: 150%;
 	background-color: #FFF;
 }
 
 	.platform_row, .platform_row_dark{
-		height: 160px;
+		font-size: 12px;
+		line-height: 150%;
+		text-align: left;
+		padding: 20px 5%;
+		float: left;
+		width: 90%;
+		clear: left;
 	}
+		.platform_row p,
+		.platform_row_dark p {
+			padding: 8px 0px;
+		}
 	
-	.platform_row_dark{
+	.platform_row_dark {
 		background: #f4f4f4 url(../images/bg_platform_dark.png) top left repeat-x;
 	}
-	
-	.platform_row_dark div, .platform_row div{
-		width: 930px;
-		margin: 0 auto;
-		text-align: left;
+	.platform_row h3,
+	.platform_row_dark h3 {
+		height: 40px;
+		text-indent: -3000px;
+	}
+	#platform-header-appoverview {
+		background-image: url(../images/header-applications-overview.png);
+		background-position: left top;
+		background-repeat: no-repeat;
+	}
+	#platform-header-componentcatalog a {
+		background-image: url(../images/header-component-catalog.png);
+		background-position: left top;
+		background-repeat: no-repeat;
+		height: 40px;
+		width: 300px;
+		display: block;
+		float: left;
+	}
+	#platform-header-noshore {
+		background-image: url(../images/header-noshore.png);
+		background-position: left top;
+		background-repeat: no-repeat;
+	}
+	#platform-header-uncompromisingquality span {
+		background-image: url(../images/header-uncompromisingquality.png);
+		background-position: left top;
+		background-repeat: no-repeat;
+		height: 40px;
+		width: 300px;
+		display: block;
+		float: left; 
+	}
+	#platform-header-appmethodology {
+		background-image: url(../images/header-appmethodology.png);
+		background-position: left top;
+		background-repeat: no-repeat;
+	}
+	.platform_row .image, 
+	.platform_row_dark .image {
+		float: left;
+		padding: 0px 20px 20px 0px;
+	}
+	.platform_row .right, 
+	.platform_row_dark .right {
+		float: right;
+		padding: 0px 0px 20px 20px;
 	}
 	
 	#platform .platform_img{
@@ -946,9 +1002,20 @@ PLATFORM TOOLS
 		margin: 16px 20px 0 50px;
 	}
 	
+	.application-index #platform .platform_img{
+		clear: both;
+		float: left;
+		margin: 16px 20px 0 0px;
+	}
+	
 	#platform h3{
 		padding-top: 30px;
 		margin-right: 10px;
+	}
+	
+	.application-index #platform h3 {
+	margin-right:10px;
+	padding-top:10px;
 	}
 	
 	#platform .sub_header{
