@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />10.30.08<br />12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008">TopCoder Direct Platform Opens Access to 170,000 Member Community of Software Designers, Developers &amp; Creative Artists</a></span><br /><br />
+        Any size business can now use same level of talent as Fortune 500 to build Web Applications, Infrastructure and More.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008">details</a> | 
+        <tc-webtag:forumLink forumID="524347" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />10.28.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Spotlight Sessions with John Dethridge</a></span><br /><br />
@@ -20,7 +33,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />10.24.08<br />4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308">TopCoder Ranked Number 11 in Deloitte's Technology Fast 50 Program for New York, New Jersey and Connecticut</a></span><br /><br />
-        TopCoder has been named to Deloitte's prestigious Technology Fast 50 Program for New York, New Jersey and Connecticut, a ranking of the 50 fastest growing technology, media, telecommunications and life sciences companies in the area by one of the nation’s leading professional services organizations.</td>
+        TopCoder has been named to Deloitte's prestigious Technology Fast 50 Program for New York, New Jersey and Connecticut, a ranking of the 50 fastest growing technology, media, telecommunications and life sciences companies in the area by one of the nation's leading professional services organizations.</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308">details</a> | 
