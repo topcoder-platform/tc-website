@@ -121,6 +121,19 @@
                 <%-- TopCoder Ranked Number 11 in Deloitte's Technology Fast 50 Program for New York, New Jersey and Connecticut begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008"><img src="/i/pressroom/tcdirect_logo.png" alt="TopCoder Direct logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008">TopCoder Direct Platform Opens Access to 170,000 Member Community of Software Designers, Developers and Creative Artists</a></h3>
+                        <p>Any Size Business Can Now Use Same Level of Talent as Fortune 500 to Build Web Applications, Infrastructure and More  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008">[October 30]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder Ranked Number 11 in Deloitte's Technology Fast 50 Program for New York, New Jersey and Connecticut end --%>
+                
+                <%-- TopCoder Ranked Number 11 in Deloitte's Technology Fast 50 Program for New York, New Jersey and Connecticut begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
                         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
