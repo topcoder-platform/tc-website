@@ -1244,7 +1244,17 @@ A.leftOn:active
 }
 
 .leftColumn { background: #FFF; }
-
+	#full-wrapper .leftColumn {
+		float: left;
+		/*width: 197px;*/
+		width: 20%;
+		height: 600px;
+	}
+	#full-wrapper .leftColumn table,
+	#full-wrapper .leftColumn #nav-sidebar {
+		float: right;
+		margin-right: 1px;
+	}
 #leftNav
 {
 	color: #000;
