@@ -215,7 +215,7 @@
                     <td class="alignRight dottedRight">29</td>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=478">Wisconsin</a></td>
                     <td class="alignRight dottedRight">22</td>
-                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=413">W. VA</a></strong></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=413">WVU</a></strong></td>
                     <td class="alignRight"><strong>22</strong></td>
                 </tr>
                 <tr>
@@ -225,9 +225,9 @@
                     <td class="alignRight dottedRight">24</td>
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=470">Georgia Tech</a></strong></td>
                     <td class="alignRight dottedRight"><strong>23</strong></td>
-                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=468">Cali.</a></strong></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=468">California</a></strong></td>
                     <td class="alignRight dottedRight"><strong>31</strong></td>
-                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=478">Michigan St</a></strong></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=478">MSU</a></strong></td>
                     <td class="alignRight dottedRight"><strong>28</strong></td>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=413">UCONN</a></td>
                     <td class="alignRight">19</td>
