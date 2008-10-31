@@ -134,7 +134,7 @@
                 <%-- TopCoder Ranked Number 11 in Deloitte's Technology Fast 50 Program for New York, New Jersey and Connecticut begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308"><img src="/i/pressroom/deloitteFast50_2008_logo.png" alt="Deloitte Fast 50 logo" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
                         <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308">TopCoder Ranked Number 11 in Deloitte's Technology Fast 50 Program for New York, New Jersey and Connecticut</a></h3>
