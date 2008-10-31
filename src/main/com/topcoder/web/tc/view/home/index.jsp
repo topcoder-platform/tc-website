@@ -17,9 +17,9 @@
 <link rel="stylesheet" type="text/css" media="screen" href="/css/home/screen.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="/css/home/jquery.jcarousel.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="/css/home/main-navigation.css" />
-<%--[if IE]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie.css" /><![endif]--%>
-<%--[if IE 7]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie7.css" /><![endif]--%>
-<%--[if IE 6]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie6.css" /><![endif]--%>
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie.css" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie7.css" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie6.css" /><![endif]-->
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 <script src="/js/home/jquery-1.2.6.min.js" type="text/javascript"></script>
 <script src="/js/home/jquery.hoverIntent.minified.js" type="text/javascript"></script>
