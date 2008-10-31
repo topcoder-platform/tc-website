@@ -51,16 +51,16 @@
 </jsp:include>
 
 <span class="title">Write for TopCoder</span>
-<br><br>
+<br /><br />
 By writing for TopCoder, you can demonstrate your skills and share your hard-earned knowledge with other members - and get paid for it. TopCoder is currently looking for content in the following areas:
-<br><br>
+<br /><br />
 <span class="bodySubtitle">Feature Articles</span><br/>
 Features are generally the shortest and least technical of TopCoder articles, ranging from "tips and tricks" articles to interviews with well-known members. Whatever its content, the focus of a feature article should be engaging members and building a sense of community. 
-<br><br>
-Article length:	750 - 1,500 words<br>
-Payment: 	$200<br>
-> <A href="/tc?module=Static&d1=features&d2=030205">see an example</A>
-<br><br>
+<br /><br />
+Article length:    750 - 1,500 words<br />
+Payment:     $200<br />
+&gt; <a href="/tc?module=Static&amp;d1=features&amp;d2=030205">see an example</a>
+<br /><br />
 Sample topics:
 <ul>
 <li>Interview with Top 10-ranked members</li>
@@ -71,11 +71,11 @@ Sample topics:
 
 <span class="bodySubtitle">Educational Content</span><br/>
 Members compete at TopCoder not only for the sake of competition but to learn, and to hone their skills for use outside TopCoder - at their jobs and in their studies. With our educational content, we want to provide information and examples that helps members become better coders.
-<br><br>
-Article length:	1,500 - 5,000 words<br>
-Payment: 	$400<br>
-> <A href="/tc?module=Static&d1=tutorials&d2=math_for_topcoders">see an example</A>
-<br><br>
+<br /><br />
+Article length:    1,500 - 5,000 words<br />
+Payment:     $100<br />
+&gt; <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=math_for_topcoders">see an example</a>
+<br /><br />
 Sample topics:
 <ul>
 <li>Design for reuse: advantages and trade-offs</li>
@@ -91,19 +91,19 @@ Sample topics:
 
 <span class="bodySubtitle">Component Tutorials</span><br/>
 These tutorials provide real-world examples of how components can be used, with interactive, hands-on demonstrations. Examples should be drawn from TopCoder's component catalog; review the list of most-downloaded components for ideas.
-<br><br>
-Article length:	1,000 - 5,000 words<br>
-Payment: 	$450<br>
-> <A href="/tc?module=Static&d1=tutorials&d2=xmiDocumenter">see an example</A>
-<br><br>
+<br /><br />
+Article length:    1,000 - 5,000 words<br />
+Payment:     $450<br />
+&gt; <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=xmiDocumenter">see an example</a>
+<br /><br />
 
 <span class="bodySubtitle">Requirements</span><br/>
 The article must contain original content written by the submitter of the article. A member photo is also required to accompany the article. If you have not already submitted a photo, please login and follow the instructions on your member home page.
-<br><br>
+<br /><br />
 
 <span class="bodySubtitle">Submit your article:</span><br/>
-If you've created an article that you would like published on <A href="/">www.topcoder.com</A>, send your file (.doc, .txt, or .html) to <A href="mailto:editorial@topcoder.com">editorial@topcoder.com</A>
-<br><br>
+If you've created an article that you would like published on <a href="/">www.topcoder.com</a>, send your file (.doc, .txt, or .html) to <a href="mailto:editorial@topcoder.com">editorial@topcoder.com</a>
+<br /><br />
 
 <span class="bodySubtitle">Eligibility Criteria</span><br/>
 To write for TopCoder, you must be a TopCoder member, at least 18 years of age, and be either (i) a citizen or lawful permanent resident of the U.S. (including the U.S. territories of Guam, Puerto Rico, and the U.S. Virgin Islands); (ii) currently residing in the U.S. with valid employment authorization; or (iii) a non-U.S. citizen writing within your country of residence. 
