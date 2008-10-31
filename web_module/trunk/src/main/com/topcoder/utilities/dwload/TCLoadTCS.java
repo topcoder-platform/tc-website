@@ -59,7 +59,7 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  * @version 1.1.2
  */
 public class TCLoadTCS extends TCLoad {
-    private static final String LOAD_CATEGORIES = "(1, 2, 5, 7, 13, 14)";
+    private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14)";
 
     private static Logger log = Logger.getLogger(TCLoadTCS.class);
 
