@@ -157,6 +157,57 @@
 </tr>
 <c:set value="<%=ReviewStatus.PASSED%>" var="passed"/>
 
+<%int colspan=7; %>
+<c:choose>
+	  <c:when test="${contest.configMap[viewSubmitters]}">
+		<% colspan=7; %>
+	  </c:when>
+	  <c:otherwise>
+		<% colspan=6; %>
+	  </c:otherwise>
+</c:choose>
+			
+<c:choose>
+	<c:when test="${contest.status.id==11}">
+            <tr><td class="space" colspan="<%=colspan%>">&nbsp;</td></tr>
+			 <tr class="light" colspan="<%=colspan%>">
+       			<td class="valueW">
+           			<div>&nbsp;</div>
+       			</td>
+           		<td colspan="<%=colspan-2%>">
+					<p class="note_title">
+This contest has been abandoned
+</p><p class="note_text">
+When a contest is abandoned, the client has made no effort to complete their responsibility 
+toward the competition. This includes choosing winners, communication with TopCoder Studio and 
+other obligations. This inaction reflects very poorly on the client with any future contests 
+and their standing within the community and our company.</p>
+				</td>
+       			<td class="valueE">
+           			<div>&nbsp;</div>
+       			</td>
+			</tr>
+	</c:when>
+	<c:when test="${contest.status.id==10}">
+            <tr><td class="space" colspan="<%=colspan%>">&nbsp;</td></tr>
+			 <tr class="light" colspan="<%=colspan%>">
+       			<td class="valueW">
+           			<div>&nbsp;</div>
+       			</td>
+           		<td colspan="<%=colspan-2%>">
+					<p class="note_title">
+No winners have been chosen
+</p><p class="note_text">
+The client has decided not to choose any winners for this competition. Please refer to the forums
+for further details. 
+Thank you for participating in this and all Studio contests.</p>
+				</td>
+       			<td class="valueE">
+           			<div>&nbsp;</div>
+       			</td>
+			</tr>
+	</c:when>
+    <c:otherwise>
 <% boolean even = true;
     int i = 0; %>
 <rsc:iterator list="<%=submissions%>" id="resultRow">
@@ -225,6 +276,10 @@
     <% even = !even;
         i++; %>
 </rsc:iterator>
+
+	</c:otherwise>
+</c:choose>
+
 </tbody>
 </table>
     </div>
