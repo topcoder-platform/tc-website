@@ -112,7 +112,7 @@
             
             <div id="box-body">
 
-            <form action="${sessionInfo.secureAbsoluteServletPath}" name="secondaryForm" method="post">
+            <form action="${sessionInfo.secureAbsoluteServletPath}" name="secondaryForm" <c:if test="${cf:contains(fields, resume)}">enctype="multipart/form-data"</c:if> method="post">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Confirm"/>
 
                 <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
