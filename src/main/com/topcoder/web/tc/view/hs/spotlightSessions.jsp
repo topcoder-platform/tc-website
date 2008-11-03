@@ -42,6 +42,7 @@
                 </div>
                 <div style="float: right;">
                 <h3 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h3>
+                    <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081008">TCHS SRM 60: Spotlight Session with</a> <tc-webtag:handle coderId="270505" context="algorithm" /></strong><br />
                     <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081008">TCHS SRM 59: Spotlight Session with</a> <tc-webtag:handle coderId="19849563" context="algorithm" /></strong><br />
                     <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081002">TCHS SRM 58: Spotlight Session with</a> <tc-webtag:handle coderId="272072" context="algorithm" /></strong><br />
                     <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20080920">TCHS SRM 57: Spotlight Session with</a> <tc-webtag:handle coderId="10574855" context="algorithm" /></strong><br />
@@ -84,9 +85,18 @@
                 Spotlight Session with <tc-webtag:handle coderId="19849563" context="algorithm" /></span></p>
                 <p class="grayedOut" style="font:12px lucida sans;">View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081008">here</a>.</p>
                 
+                <%-- John Dethridge Done 
                 <p style="font:12px lucida sans;"><span class="subtitle">Tuesday, October 28 at 8:00 p.m. EDT (GMT -4)<br />
                 Spotlight Session with <tc-webtag:handle coderId="270505" context="algorithm" /></span></p>
                 <p style="font:12px lucida sans;">You may recognize this Aussie from the TopCoder webcasts as your announcer.  He was there bringing you the live coverage of the 2006 TopCoder Collegiate Challenge and the 2007 TopCoder Open.  <tc-webtag:handle coderId="270505" context="algorithm" /> has been a TopCoder member since 2002 and he went on to become the TopCoder Invitational Champion that year.  He has also been an onsite finalist four times.  Those of you who don't know, John is a killer Laser Tag soldier.  Make sure to get on his team.  A chat session with one of our all-time greats is one you're not going to want to miss!</p>
+                --%>
+                <p class="grayedOut" style="font:12px lucida sans;"><span class="subtitle">Tuesday, October 28 at 8:00 p.m. EDT (GMT -4)<br />
+                Spotlight Session with <tc-webtag:handle coderId="270505" context="algorithm" /></span></p>
+                <p class="grayedOut" style="font:12px lucida sans;">View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081028">here</a>.</p>
+                
+                <p style="font:12px lucida sans;"><span class="subtitle">Thursday, November 6 at 6:00 a.m. EST (GMT -5)<br />
+                Spotlight Session with <tc-webtag:handle coderId="10597114" context="algorithm" /></span></p>
+                <p style="font:12px lucida sans;">2008 TCO Marathon Champion, <tc-webtag:handle coderId="10597114" context="algorithm" /> became a TopCoder member in 2004 at the start of his programming career.  He was the 2007 Algorithm Imagine Cup winner and placed second in 2006.  These days, <tc-webtag:handle coderId="10597114" context="algorithm" /> is a judge and problem writer for the Imagine Cup.  This year <tc-webtag:handle coderId="10597114" context="algorithm" /> got to compete in the WPC finals and he was also a skilled gamer at king.com.  Right now his hobbies include music composing, practical psychology, acting, and game design.  Except from problem solving, <tc-webtag:handle coderId="10597114" context="algorithm" /> pretty much hates programming and he also dislikes computers in general, but since most of his hobbies require them he's got to live with that.  This will certainly make for an interesting chat session, so don't miss it!</p>
                 
                 <p style="font:12px lucida sans;"><span class="subtitle">Saturday, November 22 at 11:00 a.m. EST (GMT -5)<br />
                 Spotlight Session with <tc-webtag:handle coderId="269554" context="algorithm" /></span></p>
