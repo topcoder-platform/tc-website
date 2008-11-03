@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.02.08<br />12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081028' refer='/tc' />">Spotlight Sessions with John Dethridge Chat Transcript</a></span><br /><br />
+        Before <a href="/tc?module=MatchDetails&amp;rd=13529">TCHS SRM 60</a>, <tc-webtag:handle coderId="270505" context="algorithm" /> had a chat session with members.  Check out this chat transcript <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081028' refer='/tc' />">here</a>.  If you missed the Spotlight Session with <tc-webtag:handle coderId="270505" context="algorithm" />, this week we've got the 2008 TCO Marathon Champion, <tc-webtag:handle coderId="10597114" context="algorithm" /> in the Arena before <a href="/tc?module=MatchDetails&amp;rd=13530">TCHS 61</a>.  Mark  your calendars!  Read more about the Spotlight Sessions <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">here</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081028' refer='/tc' />">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=627051">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Surveys" border="0" /><br />10.31.08<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=ViewSurvey&sid=28404' refer='/tc' />">TopCoder Survey with Five Prizes!</a></span><br /><br />
@@ -154,18 +167,5 @@
         <a href="http://tcstudioblogs.com/?p=37">flex blog</a> | 
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&amp;threadID=2107&amp;start=0&amp;mc=9#10287">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />10.06.08<br />6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100608">TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31</a></span><br /><br />
-        We'll be onsite at two tradeshows in Boston and San Francisco October 28-31. If you're attending either show make sure to take some time to stop by and visit.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100608">details</a> | 
-        <tc-webtag:forumLink forumID="523757" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
    </td></tr>
    
