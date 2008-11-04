@@ -4,6 +4,35 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.04.08<br />9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/wiki/pages/viewpage.action?spaceKey=tc&amp;title=Contest+Details+-+Aether+OCS">$900 Conceptualization Contest - You Write The Business Requirements</a></span><br /><br />
+        A TopCoder Client wants YOU to develop their concept for their new application!  They have completed a questionnaire and are manning the forums - the rest is up to you.  Unlock their ideas, ask them questions to clarify their needs, and write up a Business Requirements Doc to define what their new system should do.  If you win, your document will be used to build a prototype, the Requirements Specification, and the application itself.  To learn details and download materials, please click <a href="/wiki/display/tc/Contest+Details+-+Aether+OCS">here</a>!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/wiki/pages/viewpage.action?spaceKey=tc&amp;title=Contest+Details+-+Aether+OCS">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3958">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.04.08<br />9:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm60">TCHS SRM 60 - Problem Set &amp; Analysis</a></span><br /><br />
+      The match atracted 66 competitors. Coders were faced with standard Easy problem, a little bit easier Medium and a little bit harder Hard problem. Success rate for Easy problem was low - only 56.52%. Only 5 coders managed to solve Hard problem correctly.</td>
+         <td class="newsPhoto"><img src="/i/m/boba5551_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20394568" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm60">details</a> | 
+        <tc-webtag:forumLink forumID="524127" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.02.08<br />12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081028' refer='/tc' />">Spotlight Sessions with John Dethridge Chat Transcript</a></span><br /><br />
@@ -139,33 +168,5 @@
         <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm59">details</a> | 
         <tc-webtag:forumLink forumID="523758" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />10.08.08<br />2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081008' refer='/tc' />">Spotlight Sessions with ACRush Chat Transcript</a></span><br /><br />
-        Before <a href="/tc?module=MatchDetails&amp;rd=13528">TCHS SRM 59</a>, <tc-webtag:handle coderId="19849563" context="algorithm" /> was in the Arena chatting with members and offering up some valuable advice.  Read all about it <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081008' refer='/tc' />">here</a>.</td>
-        
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081008' refer='/tc' />">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=625150">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />10.08.08<br />11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=ProjectDetail&amp;pj=30005332">Help Architect a new Flex-ible TopCoder</a></span><br /><br />
-        In an effort to expand its Flex appeal, TopCoder will be hosting a broad range of Adobe Flex based competitions.  Today TopCoder launched its first Flex based architecture competition to coincide with the previous Studio effort "Flex 3 Calendar View".  TopCoder's Cockpit competitions continue as well as many others as more companies adopt the Adobe Flex platform.  Come see what other members are saying and be a part TopCoder's effort to build a new Flex component catalog.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=ProjectDetail&amp;pj=30005332">details</a> | 
-        <a href="http://tcstudioblogs.com/?p=37">flex blog</a> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&amp;threadID=2107&amp;start=0&amp;mc=9#10287">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
    
