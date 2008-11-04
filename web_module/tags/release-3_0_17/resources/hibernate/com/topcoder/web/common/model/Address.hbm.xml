@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="Address" table="address">
+        <id name="id" column="address_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">ADDRESS_SEQ</param>
+            </generator>
+        </id>
+        <set name="users" table="user_address_xref" inverse="true" access="field">
+            <key column="address_id"/>
+            <many-to-many column="user_id" class="User"/>
+        </set>
+        <property name="addressTypeId" column="address_type_id" access="field"/>
+        <property name="address1" access="field"/>
+        <property name="address2" access="field"/>
+        <property name="address3" access="field"/>
+        <property name="city" access="field"/>
+        <many-to-one name="state" column="state_code" class="State" access="field"/>
+        <many-to-one name="country" column="country_code" class="Country" access="field"/>
+        <property name="postalCode" column="zip" access="field"/>
+        <property name="province" access="field"/>
+    </class>
+</hibernate-mapping>
