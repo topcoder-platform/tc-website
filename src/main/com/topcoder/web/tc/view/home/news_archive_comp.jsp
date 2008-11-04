@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">11.04.08 9:00 AM - </td><td width="100%"><a href="/wiki/pages/viewpage.action?spaceKey=tc&amp;title=Contest+Details+-+Aether+OCS">$900 Conceptualization Contest - You Write The Business Requirements</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.22.08 1:00 PM - </td><td width="100%"><a href="/tc?module=ProjectDetail&amp;pj=30005406">PHP Component Contest Running Now</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.17.08 3:00 PM - </td><td width="100%"><a href="/wiki/display/tc/TopCoder+Conceptualization+Contests">Compete in a Specification Contest!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.29.08 7:00 PM - </td><td width="100%"><a href="/wiki/display/docs/Seam">JBoss Seam Contests Approaching</a><br /></td></tr>
