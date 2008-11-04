@@ -155,6 +155,9 @@ $(document).ready(function(){
             <div id="welcome-banner">
                 <h2><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/"><strong>Engage!</strong> Plug into the <em>world's largest community</em> of competitive <em>software developers</em></a></h2>
             </div>
+            <div id="contact-button">
+            	<h2><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Let's Talk about how TopCoder can work for you! Contact us</a></h2>
+            </div>
 <%-- MAIN CONTENT --%>
             <div id="content_main">
                 <div id="client-content">
