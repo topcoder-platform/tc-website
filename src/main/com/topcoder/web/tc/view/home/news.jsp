@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.04.08<br />4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2405">$1,500 Studio Mini-Tournament to develop a Flash Arcade-style Game</a></span><br /><br />
+        Put on your "gamer" hat and compete in this exciting two-part contest.  Round One will end with four $125 prize winners who will go on to compete for another $1,000 in Round Two!  This is a great opportunity to show off your Flash animation and actionscripting skills while developing a fun and challenging arcade game for ESPN.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2405">details</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&amp;forumID=479">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.04.08<br />9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/wiki/pages/viewpage.action?spaceKey=tc&amp;title=Contest+Details+-+Aether+OCS">$900 Conceptualization Contest - You Write The Business Requirements</a></span><br /><br />
@@ -152,21 +165,5 @@
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm421">details</a> | 
         <tc-webtag:forumLink forumID="523759" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.14.08<br />4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm59">TCHS SRM 59 - Problem Set &amp; Analysis</a></span><br /><br />
-      TCHS SRM 59 turned out to be both rather easy and quite unpredictable. The winner was <tc-webtag:handle coderId="22696982" context="hs_algorithm"/>, who managed to solve all 3 problems in half an hour. Two former green coders <tc-webtag:handle coderId="22696883" context="hs_algorithm"/> and <tc-webtag:handle coderId="22652051" context="hs_algorithm"/> also showed excellent performance and grabbed second and third place, respectively.</td>
-         <td class="newsPhoto"><img src="/i/m/Alexus_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="22627586" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm59">details</a> | 
-        <tc-webtag:forumLink forumID="523758" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
    </td></tr>
    
