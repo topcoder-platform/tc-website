@@ -77,7 +77,9 @@ ding="utf-8"?>
     </div>
     
     <!-- banner -->
-    
+    	<div>
+            <a href="/?module=ViewContestDetails&ct=2405"><img alt="$1500 Mini-Tournament" src="/i/tournament_flash_banner.png" width="535" height="60" border="0"/></a> 
+		</div>
     <%-- old banners --%>
     <%-- tournament banner
     	<div>
