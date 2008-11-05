@@ -1,13 +1,4 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer,
-                 com.topcoder.web.common.BaseServlet, com.topcoder.web.common.SessionInfo" %>
-<%@ page language="java" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
-    String level1 = request.getParameter("level1")==null?"competition":request.getParameter("level1");
-
-%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
 <%-- LINKS BLOCK --%>
     <div id="links">
@@ -84,7 +75,7 @@
         <div class="wrapper">
             <p id="footer_1800"><strong>1-866-TOPCODER or Service@TopCoder.com</strong></p>
             
-            <p>TopCoder is the world's largest competitive software development community with more than <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> developers representing over 200 countries.</p>
+            <p>TopCoder is the world's largest competitive software development community with more than 167,000 developers representing over 200 countries.</p>
             
             <p>Copyright &copy;2001-2008, TopCoder, Inc. All rights reserved.</p>
         </div><%-- .wrapper ends --%>
