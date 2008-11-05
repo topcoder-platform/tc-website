@@ -60,6 +60,7 @@
         </table>
 
     <div align="left">
+        <%--
         <table cellspacing="0" cellpadding="0" border="0" width="95%">
             <tr>
                 <td rowspan="3"><img src="/images/clear.gif" width="59" height="204" alt="" /></td>
@@ -82,9 +83,13 @@
                 <td><img src="/images/meth_design.gif" width="177" height="81" alt="Design" border="0" /></td>
             </tr>
         </table>
+        --%>
+        <img src="/i/meth_comp.jpg" alt="Component Methodology" />
     </div>
 
+    <%--
     <hr width="640" size="1px" noshade="noshade" />
+    --%>
 
     <table cellspacing="0" cellpadding="0" border="0" width="95%">
         <tr valign="top">
