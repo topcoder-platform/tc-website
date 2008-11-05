@@ -1,4 +1,21 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.dataAccess.Request,
+                 com.topcoder.shared.dataAccess.DataAccessInt,
+                 com.topcoder.web.common.CachedDataAccess,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.shared.util.DBMS,
+                 com.topcoder.web.common.cache.MaxAge,
+                 com.topcoder.shared.util.ApplicationServer"%>
+<%@ page language="java" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%
+        CachedDataAccess countDai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.DW_DATASOURCE_NAME);
+        Request countReq = new Request();
+        countReq.setContentHandle("member_count");
+        Integer memberCount = Integer.valueOf(((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count"));
+%>
+
 
 <%-- LINKS BLOCK --%>
     <div id="links">
@@ -74,8 +91,8 @@
     <div id="footer">
         <div class="wrapper">
             <p id="footer_1800"><strong>1-866-TOPCODER or Service@TopCoder.com</strong></p>
-            
-            <p>TopCoder is the world's largest competitive software development community with more than 167,000 developers representing over 200 countries.</p>
+
+            <p>TopCoder is the world's largest competitive software development community with more than <tc-webtag:format object="<%=memberCount%>" format="#,##0"/> developers representing over 200 countries.</p>
             
             <p>Copyright &copy;2001-2008, TopCoder, Inc. All rights reserved.</p>
         </div><%-- .wrapper ends --%>
