@@ -13,38 +13,42 @@
 
 <div class="leftColContent">
    <div style="padding-left:3px;">
-   <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br />- September</div>
+   <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br />- October</div>
    <table cellpadding="0" cellspacing="0" border="0" width="165">
    <tr>
-      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/XiaoXiaoqing_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</a></strong><br />
-         <tc-webtag:handle coderId="22679311" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br />
+         <tc-webtag:handle coderId="22651925" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br />
          <span class="small">
-         SRM 419: 2156<br />
-         SRM 418: 2010<br />
-         SRM 417: 1920<br />
-         SRM 416: 1765
+         SRM 423: 2460<br />
+         SRM 422: 2378<br />
+         SRM 421: 2293<br />
+         SRM 420: 2176
+         </span><br /><br />
+      </td>
+   </tr>
+   <tr>
+      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/MiG-29_big.jpg" alt="" width="55" height="61"/></td>
+      <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
+         <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</a></strong><br />
+         <tc-webtag:handle coderId="20437508" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br /> 
+         <span class="small">
+         Seven wins<br />
+         One 2nd place<br />
+         One 3rd place
          </span><br /><br />
       </td>
    </tr>
    <tr>
       <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
-         <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</a></strong><br />
-         <tc-webtag:handle coderId="310233" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br /> 
-         <span class="small">
-         Eight wins<br /><br />
-         </span><br /><br />
-      </td>
-   </tr>
-   <tr>
-      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/cyberjag_big.jpg" alt="" width="55" height="61"/></td>
-      <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</a></strong><br />
-         <tc-webtag:handle coderId="15763205" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br />
+         <tc-webtag:handle coderId="22652995" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br />
          <span class="small">
-         Four wins<br /><br />
+         Two wins<br />
+         One 2nd place<br />
+         One 3rd place
          </span><br /><br />
       </td>
    </tr>
