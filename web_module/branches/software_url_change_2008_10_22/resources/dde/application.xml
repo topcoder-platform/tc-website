@@ -45,7 +45,7 @@
     <module>
         <web>
             <web-uri>dde.war</web-uri>
-            <context-root>/</context-root>
+            <context-root>/engage</context-root>
         </web>
     </module>
 
