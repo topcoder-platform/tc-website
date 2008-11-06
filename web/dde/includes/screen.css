@@ -235,6 +235,18 @@ HEADER
 		vertical-align:middle;
 	}
 	
+	#nav UL UL LI:first-child A {
+		background:url(../images/dropdown_nav_divider_top.png) no-repeat;
+		height:20px;
+		display:block;
+		width:168px;
+		color:#e9e9e9;
+		text-align:left;
+		line-height:16px;
+		padding:13px 0 8px 12px;
+		vertical-align:middle;
+	}
+	
 	#nav UL UL LI A:hover {
 		background-color:#eeeeee;
 		color:#000;
