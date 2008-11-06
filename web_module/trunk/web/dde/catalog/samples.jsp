@@ -57,10 +57,10 @@
                 <div style="margin: 15px 0;">
                     <img src="/images/hd_components.png" alt="Components" border="0" >
                 </div>
-                <p  style="padding-bottom: 5px;">
+                <p  style="padding-bottom: 10px;">
                     The following is a list of TopCoder components that are available to all members for download. These components may be used for trial or non-commercial purposes.  If you are interested in gaining full trial access to download components or you wish to purchase access to the components for commercial purposes, please send an email to <a href="mailto:service@topcoder.com">service@topcoder.com</a> and explain the situation. You may download from this list up to <strong>${max_downloads}</strong> times.
                 </p>
-                <p style="padding-bottom: 5px;">
+                <p style="padding-bottom: 10px;">
                     NOTE: ${max_downloads} downloads does not mean ${max_downloads} components.  For example if you download the same component twice, it counts as 2 downloads.
                 </p>
                 <p align="center" style="padding-bottom: 10px;">
