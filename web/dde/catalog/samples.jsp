@@ -48,12 +48,12 @@
 <!-- Left Column ends -->
 
 <!-- Gutter begins -->
-        <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0"></td>
+        <td width="25"><img src="/images/clear.gif" alt="" width="25" height="10" border="0"></td>
 <!-- Gutter ends -->
 
 <!-- Center Column begins -->
-        <td width="99%" align="center">
-            <div style="width:510px; margin-bottom: 40px;" align="left">
+        <td width="99%">
+            <div style="width:580px; margin-bottom: 40px;" align="left">
                 <div style="margin: 15px 0;">
                     <img src="/images/hd_components.png" alt="Components" border="0" >
                 </div>
@@ -66,7 +66,7 @@
                 <p align="center" style="padding-bottom: 10px;">
                     You have <strong>${remaining_downloads}</strong> downloads remaining.
                 </p>
-                <p style="border-bottom: 1px solid #000000;">
+                <p style="border-bottom: 1px solid #000000; padding-bottom: 5px;">
                     <strong>Sample components</strong>
                 </p>
                 <p>
