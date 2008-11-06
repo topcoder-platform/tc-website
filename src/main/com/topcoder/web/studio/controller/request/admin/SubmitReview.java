@@ -92,7 +92,9 @@ public class SubmitReview extends Base {
             User submitter = DAOUtil.getFactory().getUserDAO().find(submitterId);
 
             if (!"".equals(response) && submitter.getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE)) {
-                sendEmail(submitter, response, s.getOriginalFileName(), rs, reviewer, s.getCreateDate());
+                // BUGR-628: change the parameter for method sendEmail()
+		  Contest contest = StudioDAOUtil.getFactory().getSubmissionReviewDAO().find(submissionId).getSubmission().getContest();
+                sendEmail(submitter, response, s.getId(), rs, reviewer, s.getCreateDate(), contest.getName());
             }
 
             sr = StudioDAOUtil.getFactory().getSubmissionReviewDAO().find(submissionId);
@@ -116,7 +118,10 @@ public class SubmitReview extends Base {
 
     }
 
-    private void sendEmail(User submitter, String text, String fileName, ReviewStatus status, User reviewer, Date submitDate) throws Exception {
+    // BUGR-628 Change: change the parameter for this method.
+    // Change the third parameter 'String fileName' to 'Long SubmissionId', and add a parameter 'String contestName'.
+    private void sendEmail(User submitter, String text, Long SubmissionId,
+			ReviewStatus status, User reviewer, Date submitDate, String contestName) throws Exception {
 
         TCSEmailMessage mail = new TCSEmailMessage();
         if (ReviewStatus.PASSED.equals(status.getId())) {
@@ -133,8 +138,12 @@ public class SubmitReview extends Base {
         msgText.append("Dear ");
         msgText.append(submitter.getHandle());
         msgText.append(",\n\n");
-        msgText.append("This email is in regard to ");
-        msgText.append(fileName);
+        msgText.append("This email is in regard to submission Id ");
+        // BUGR-628 change: change 'fileName' to 'SubmissionId'
+	 msgText.append(SubmissionId);
+        // BUGR-628 change: add the following two lines
+        msgText.append(" for contest ");
+        msgText.append(contestName);
         msgText.append(" submitted on ");
 
         ObjectFormatter formatter = ObjectFormatterFactory.getEmptyFormatter();

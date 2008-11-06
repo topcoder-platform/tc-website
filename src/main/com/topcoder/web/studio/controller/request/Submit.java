@@ -391,8 +391,9 @@ public class Submit extends BaseSubmissionDataProcessor {
 										.getReviewStatusDAO().find(
 												ReviewStatus.PASSED);
 
-								sendEmail(u, response, s.getOriginalFileName(),
-										rs, new Date());
+                                                                // BUGR-628 Change: change the parameter for sendEmail() method
+								sendEmail(u, response, s.getId(),
+										rs, new Date(), c.getName());
 
 							}
 						}
@@ -535,8 +536,10 @@ public class Submit extends BaseSubmissionDataProcessor {
 		return this.generatorThreads;
 	}
 
-	private void sendEmail(User submitter, String text, String fileName,
-			ReviewStatus status, Date submitDate) throws Exception {
+        // BUGR-628 Change: change the parameter for this method.
+        // Change the third parameter 'String fileName' to 'Long SubmissionId', and add a parameter 'String contestName'.
+	private void sendEmail(User submitter, String text, Long SubmissionId,
+			ReviewStatus status, Date submitDate, String contestName) throws Exception {
 
 		TCSEmailMessage mail = new TCSEmailMessage();
 		if (ReviewStatus.PASSED.equals(status.getId())) {
@@ -553,9 +556,13 @@ public class Submit extends BaseSubmissionDataProcessor {
 		msgText.append("Dear ");
 		msgText.append(submitter.getHandle());
 		msgText.append(",\n\n");
-		msgText.append("This email is in regard to ");
-		msgText.append(fileName);
-		msgText.append(" submitted on ");
+		msgText.append("This email is in regard to submission Id ");
+                // BUGR-628 change: change 'fileName' to 'SubmissionId'
+		msgText.append(SubmissionId);
+                // BUGR-628 change: add the following two lines
+                msgText.append(" for contest ");
+                msgText.append(contestName);
+		msgText.append(" submitted on ");;
 
 		ObjectFormatter formatter = ObjectFormatterFactory.getEmptyFormatter();
 		formatter
