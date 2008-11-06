@@ -79,13 +79,13 @@
             <table border="0" cellpadding="0" cellspacing="10" width="95%">
                 <tr>
                     <td align="left">
-                        <br/><a href="/applications/index.jsp"><img src="/images/promos/promo_home_1.png" alt="" width="270" height="63" border="0" /></a><br/><br/>
+                        <a href="/movies/TopCoder_software_013107.mov"><img src="/images/promos/TCSoftware_Video2.jpg" alt="" width="247px" height="175px" border="0" /></a>
+                    </td>
+                    <td align="left">
+                        <br /><a href="/applications/index.jsp"><img src="/images/promos/promo_home_1.png" alt="" width="270" height="63" border="0" /></a><br /><br />
                         Using our member base of thousands of highly-skilled developers from all over the world, our competition-based
                         methodology, and our catalogs of re-usable components, TopCoder delivers high-quality software at a lower cost than the competition.
                         <strong><a href="/applications/index.jsp">Learn more</a></strong><br /><br /><br />
-                    </td>
-                    <td align="left">
-                        <a href="/movies/TopCoder_software_013107.mov"><img src="/images/promos/020507softwareMovie.jpg" alt="" width="247" height="175" border="0" /></a>
                     </td>
                 </tr>
 				<%	InitialContext context = new InitialContext();
