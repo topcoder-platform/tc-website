@@ -136,7 +136,7 @@ $(document).ready(function(){
                     
                                 
                     <% if ( !sessionInfo.isAnonymous() ) { %>
-            <li>Hello,&nbsp;<tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" /></li><li class="right"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout">Logout</a></li>
+            <li><a href="#">Hello,&nbsp;</a><tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" /></li><li class="right"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout">Logout</a></li>
         <% } else {%>
                 <li class="right"><a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Login">Login</a></li>
             <% } %>
