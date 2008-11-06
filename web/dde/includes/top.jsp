@@ -84,10 +84,10 @@
                  			</li>
      						<% } else { %>
                             <li>
-               <a href="#">Hello <tc-webtag:handle coderId='<%=((User) session.getAttribute("TCUSER")).getId()%>'/></a>
+               <a href="#">Hello, <tc-webtag:handle coderId='<%=((User) session.getAttribute("TCUSER")).getId()%>'/></a>
                				</li>
                             <li class="right">
-                            	<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/login.jsp?a=logout">Log Out</a>
+                            	<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/login.jsp?a=logout">Logout</a>
                             </li>
       						<% } %>
                     </li>
