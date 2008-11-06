@@ -255,6 +255,7 @@ HEADER
 		padding-top:12px;
 		padding-left:11px;
 		height:20px;
+		background-image:none; 
 	}
 	
 	#nav UL UL LI.last-li A:hover {
