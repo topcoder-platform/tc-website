@@ -42,13 +42,14 @@
                 </div>
                 <div style="float: right;">
                 <h3 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h3>
+                    <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081106">TCHS SRM 61: Spotlight Session with</a> <tc-webtag:handle coderId="10597114" context="algorithm" /></strong><br />
                     <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081028">TCHS SRM 60: Spotlight Session with</a> <tc-webtag:handle coderId="270505" context="algorithm" /></strong><br />
                     <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081008">TCHS SRM 59: Spotlight Session with</a> <tc-webtag:handle coderId="19849563" context="algorithm" /></strong><br />
                     <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081002">TCHS SRM 58: Spotlight Session with</a> <tc-webtag:handle coderId="272072" context="algorithm" /></strong><br />
                     <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20080920">TCHS SRM 57: Spotlight Session with</a> <tc-webtag:handle coderId="10574855" context="algorithm" /></strong><br />
                     <span style="text-decoration:none;"><tc-webtag:forumLink forumID="523401" message="Discuss this" /></span>
                 </div>
-                <br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br />
 
                 <p style="font-family:lucida sans"><span class="title">Spotlight Sessions</span></p>
                 <p style="font:12px lucida sans;">TopCoder is proud to present a new series for high school students. Join the new <span style="font:18px lucida sans;">Spotlight Sessions</span> in the Arena.</p>
@@ -94,9 +95,14 @@
                 Spotlight Session with <tc-webtag:handle coderId="270505" context="algorithm" /></span></p>
                 <p class="grayedOut" style="font:12px lucida sans;">View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081028">here</a>.</p>
                 
+                <%-- Psyho Done 
                 <p style="font:12px lucida sans;"><span class="subtitle">Thursday, November 6 at 6:00 a.m. EST (GMT -5)<br />
                 Spotlight Session with <tc-webtag:handle coderId="10597114" context="algorithm" /></span></p>
                 <p style="font:12px lucida sans;">2008 TCO Marathon Champion, <tc-webtag:handle coderId="10597114" context="algorithm" /> became a TopCoder member in 2004 at the start of his programming career.  He was the 2007 Algorithm Imagine Cup winner and placed second in 2006.  These days, <tc-webtag:handle coderId="10597114" context="algorithm" /> is a judge and problem writer for the Imagine Cup.  This year <tc-webtag:handle coderId="10597114" context="algorithm" /> got to compete in the WPC finals and he was also a skilled gamer at king.com.  Right now his hobbies include music composing, practical psychology, acting, and game design.  Except from problem solving, <tc-webtag:handle coderId="10597114" context="algorithm" /> pretty much hates programming and he also dislikes computers in general, but since most of his hobbies require them he's got to live with that.  This will certainly make for an interesting chat session, so don't miss it!</p>
+                --%>
+                <p class="grayedOut" style="font:12px lucida sans;"><span class="subtitle">Thursday, November 6 at 6:00 a.m. EST (GMT -5)<br />
+                Spotlight Session with <tc-webtag:handle coderId="10597114" context="algorithm" /></span></p>
+                <p class="grayedOut" style="font:12px lucida sans;">View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081106">here</a>.</p>
                 
                 <p style="font:12px lucida sans;"><span class="subtitle">Saturday, November 22 at 11:00 a.m. EST (GMT -5)<br />
                 Spotlight Session with <tc-webtag:handle coderId="269554" context="algorithm" /></span></p>

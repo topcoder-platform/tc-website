@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.06.08<br />4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081106' refer='/tc' />">Spotlight Sessions with Psyho Chat Transcript</a></span><br /><br />
+        Before <a href="/tc?module=MatchDetails&amp;rd=13530">TCHS SRM 61</a>, <tc-webtag:handle coderId="10597114" context="algorithm" /> was in the Arena for a special Spotlight Session.  If you missed the chat, be sure to check out the transcript <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081106' refer='/tc' />">here</a>.  There are still a few more <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Spotlight Sessions</a> coming up so don't miss them!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081106' refer='/tc' />">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=627051">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.04.08<br />4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2405">$1,500 Studio Mini-Tournament to develop a Flash Arcade-style Game</a></span><br /><br />
@@ -49,7 +62,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.02.08<br />12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081028' refer='/tc' />">Spotlight Sessions with John Dethridge Chat Transcript</a></span><br /><br />
-        Before <a href="/tc?module=MatchDetails&amp;rd=13529">TCHS SRM 60</a>, <tc-webtag:handle coderId="270505" context="algorithm" /> had a chat session with members.  Check out this chat transcript <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081028' refer='/tc' />">here</a>.  If you missed the Spotlight Session with <tc-webtag:handle coderId="270505" context="algorithm" />, this week we've got the 2008 TCO Marathon Champion, <tc-webtag:handle coderId="10597114" context="algorithm" /> in the Arena before <a href="/tc?module=MatchDetails&amp;rd=13530">TCHS 61</a>.  Mark  your calendars!  Read more about the Spotlight Sessions <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">here</a>.</td>
+        Before <a href="/tc?module=MatchDetails&amp;rd=13529">TCHS SRM 60</a>, <tc-webtag:handle coderId="270505" context="algorithm" /> had a chat session with members.  Check out this chat transcript <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081028' refer='/tc' />">here</a>.  If you missed the Spotlight Session with <tc-webtag:handle coderId="270505" context="algorithm" />, this week we've got the 2008 TCO Marathon Champion, <tc-webtag:handle coderId="10597114" context="algorithm" /> in the Arena before <a href="/tc?module=MatchDetails&amp;rd=13530">TCHS SRM 61</a>.  Mark  your calendars!  Read more about the Spotlight Sessions <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">here</a>.</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081028' refer='/tc' />">details</a> | 
@@ -150,20 +163,3 @@
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&amp;forumID=523949">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
 </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.15.08<br />9:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm421">SRM 421 - Problem Set &amp; Analysis</a></span><br /><br />
-      In SRM 421 coders from Div1 saw quite a tough problem set. In the easy problem they had to implement binary search algorithm and the only one trick was accurate search termination. The medium problem could be solved with a greedy algorithm, which was not easy to see and to prove. The hard problem proposed to find not so obvious algorithm, based on dynamic programming on tree, which additionally was quite hard to implement because of many different cases.</td>
-         <td class="newsPhoto"><img src="/i/m/ivan_metelsky_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="10481120" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm421">details</a> | 
-        <tc-webtag:forumLink forumID="523759" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
