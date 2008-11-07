@@ -40,7 +40,7 @@
             <div align="left" style="margin-bottom: 20px;">
                 <img src="/i/introevent/bcsLogo.png" alt="" />
             </div>
-            <h2>Problem Statement for RevealTriangle</h2>
+            <h2>Problem Statement for ArithmeticProgression</h2>
 
             <div>
             <strong>
