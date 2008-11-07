@@ -73,6 +73,7 @@
                 <div class="pr_newsarchive">
                     <dl>
                     <dt>&nbsp;</dt>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_110708">TopCoder Recognized As One of Fastest Growing Connecticut Companies By Connecticut Technology Council <br /><small style="margin-left:10px;">[November 7]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008">TopCoder Direct Platform Opens Access to 170,000 Member Community of Software Designers, Developers and Creative Artists <br /><small style="margin-left:10px;">[October 30]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308">TopCoder Ranked Number 11 in Deloitte's Technology Fast 50 Program for New York, New Jersey and Connecticut <br /><small style="margin-left:10px;">[October 23]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100608">TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31 <br /><small style="margin-left:10px;">[October 6]</small></a></dd>

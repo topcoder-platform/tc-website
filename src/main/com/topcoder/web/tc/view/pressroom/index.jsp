@@ -118,6 +118,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- TopCoder Recognized As One of Fastest Growing Connecticut Companies By Connecticut Technology Council begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_110708"><img src="/i/pressroom/techtop40_logo.png" alt="Tech Top 40 logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_110708">TopCoder Recognized As One of Fastest Growing Connecticut Companies By Connecticut Technology Council</a></h3>
+                        <p>UHY LLP Tech Top 40 Added To Inc. 500 and Deloitte Fast 50 Awards for TopCoder in 2008  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_110708">[November 7]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder Recognized As One of Fastest Growing Connecticut Companies By Connecticut Technology Council end --%>
+                
                 <%-- TopCoder Ranked Number 11 in Deloitte's Technology Fast 50 Program for New York, New Jersey and Connecticut begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">

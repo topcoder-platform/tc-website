@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.07.08<br />11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_110708">TopCoder Recognized As One of Fastest Growing Connecticut Companies By Connecticut Technology Council</a></span><br /><br />
+        UHY LLP Tech Top 40 Added To Inc. 500 and Deloitte Fast 50 Awards for TopCoder in 2008.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_110708">details</a> | 
+        <tc-webtag:forumLink forumID="524470" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.06.08<br />4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081106' refer='/tc' />">Spotlight Sessions with Psyho Chat Transcript</a></span><br /><br />
@@ -151,15 +164,3 @@
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />10.17.08<br />3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/wiki/display/tc/TopCoder+Conceptualization+Contests">Compete in a Specification Contest!</a></span><br /><br />
-       A TopCoder Client wants YOU to develop their concept for a new application!  They have completed a questionnaire and are manning the forums - the rest is up to you.  Unlock their ideas, ask them questions to clarify their needs, and write up a Business Requirements Doc to define what their new system should do.  If you win, your document will be used to build a prototype, the Requirements Specification, and the application itself.  To learn details and download materials, please click <a href="/wiki/display/tc/TopCoder+Conceptualization+Contests">here</a>!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/wiki/display/tc/TopCoder+Conceptualization+Contests">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&amp;forumID=523949">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-</td></tr>
