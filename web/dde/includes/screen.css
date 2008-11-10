@@ -951,6 +951,7 @@ PLATFORM TOOLS
 		float: left;
 		width: 90%;
 		clear: left;
+		background-color: #fff;
 	}
 		.platform_row p,
 		.platform_row_dark p {
@@ -964,6 +965,11 @@ PLATFORM TOOLS
 	.platform_row_dark h3 {
 		height: 40px;
 		text-indent: -3000px;
+	}
+	.platform_row h3.image-header,
+	.platform_row_dark h3.image-header {
+		height: auto;
+		text-indent: 0;
 	}
 	#platform-header-appoverview {
 		background-image: url(../images/header-applications-overview.png);
