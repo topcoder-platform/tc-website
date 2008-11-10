@@ -9,7 +9,7 @@
 
 <script src="scripts/direct.js" type="text/javascript"></script>
 </head>
-<body>
+<body style="background-color: #fff;">
 <jsp:include page="/includes/top.jsp">
 <jsp:param name="TCDlevel" value="platform"/>
 </jsp:include>
