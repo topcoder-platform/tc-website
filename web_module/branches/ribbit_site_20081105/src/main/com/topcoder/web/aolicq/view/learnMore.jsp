@@ -6,7 +6,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Aolicq Developer Challenge :: Powered by TopCoder</title>
+    <title>Ribbit - $100,000 Killer App Challenge - Home</title>
 
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_aolicq"/>
@@ -15,131 +15,33 @@
 
 <body>
 
-<jsp:include page="tcTop.jsp"/>
+<jsp:include page="aolicqTop.jsp"/>
+<jsp:include page="topNav.jsp">
+	<jsp:param name="active_page" value="learnMore"/>
+</jsp:include>
 
-<div align="center">
-    <div id="aimFrame">
-        <div id="aimFrameN">
-            <div id="aimFrameS">
-
-                <jsp:include page="aolicqTop.jsp"/>
-
-                <div class="contentWithLeft" align="right">
-                    <div class="contentTexture">
-                        <jsp:include page="leftBox.jsp"/>
-                        <jsp:include page="topNav.jsp"/>
-                        <div class="siteBoxHalf">
-
-    
-<div align="center" style="margin: 10px 0 20px 0;">
-    <img src="/i/events/aolicq/aolicq_logo_white.png" alt="Aolicq Developer Challenge, Powered by TopCoder" />
-</div>
-
-<p align="center">
-<span style="font-weight:bold; font-size: 16px;">$100,000 in prize money</span>
-<br />May 13th through July 21st
-</p>
-
-<p>
-    Aolicq wants to set the top developers in the world loose with the APIs to search and index a hundred million video clips and challenge you to build the next great video Aolicq application. Now's your chance to show em what you got for a piece of $100,000 in prize money!
-</p>
-<p>
-    Aolicq indexes millions of videos and makes them searchable and organizable through a wide variety of criteria, and all of Aolicq's functions can be accessed through its API.  Many sites have implemented simple search boxes using Aolicq and others have gone much further. Let's show them how far the TopCoder community can go!
-</p>
-<p>
-    We will award nine (9) $10,000 prizes and twenty (20) $500 prizes for the most creative, successful and ingenious submissions - plus we'll give a TopCoder/Aolicq T-Shirt to anyone who submits. We'll put your app within the reach of millions of users!
-</p>
-
-<h2>How to Compete</h2>
-
-<p align="center">
-    Be sure to read the <a href="${sessionInfo.servletPath}?module=Static&amp;d1=rules">full contest rules and terms & conditions</a>
-</p>
-<p>
-    If you're not already a TopCoder member, <a href="/reg/?module=Main&amp;rt=9">register here</a>, then <a href="${sessionInfo.servletPath}?module=ViewContestDetails&ct=1001">register for the Aolicq Developer Challenge</a>.
-</p>
-<p>
-    Check out the API's at <a href="http://developer.aolicq.com">developer.aolicq.com</a>, sign up for a free <a href="http://developer.aolicq.com/DirectorAccountsOverview.php">"Director's Account"</a> and get a <a href="http://dev.aol.com/aolicq/">usage key</a> - your unique identifier giving you access to the Aolicq network. The keys let Aolicq know how popular your application is, which will play a big factor in your overall score. <strong>Each time you obtain an API key add "/topcoder" to the URL you provide when you sign up - or let us know by emailing us at <a href="mailto:service@topcoder.com">service@topcoder.com</a> - Even if you never use it in an app, we want to show how many API Keys are being registered by TopCoder members.</strong>
-</p>
-<p align="center">
-    <a href="http://dev.aol.com/aolicq/">Learn more about Aolicq API keys</a>
-</p>
-<p>
-    Then build a widget, a gadget, a mashup, a web application - whatever you want - and put it somewhere where we can see it. You can put it on your own site or blog, or any one of the social network sites such as Facebook, MySpace, Friendster, BEBO, Cyworld, Skyblog, Hi5, Orkut, or Live Journal - anywhere where web users can play with it and give us the URL with your submission so we can make it public. Remember, the more web users your application gets, the better chance you've got to win.
-</p>
-<p>
-    You may enter as many unique submissions as you like, but each individual submission should have its own unique API key. You are also free to update and upgrade your submission through the duration of the contest (and after if you want). You don't need to resubmit, just let us know you've updated your app, and we'll update your submission information for you.
-</p>
-
-<h2>How to Submit</h2>
-
-<p>
-    Once your app is live, <a href="${sessionInfo.servletPath}?module=ViewContestDetails&ct=1001">submit it to the contest</a>.
-</p>
-<p>
-    You will need to submit a zip file to TopCoder which includes 2 items: 
-</p>
-<ul>
-    <li>A text document containing:
-        <ul>
-            <li>Your TopCoder handle name</li>
-            <li>Your unique Aolicq API key</li>
-            <li>A title and brief overview of the application to be used as an online description</li>
-            <li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
-        </ul>
-    </li>
-    <li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels).</li>
-</ul>
-</p>
-<p>
-    Submit early, then tell a friend - in fact, tell a hundred friends, because a large percentage of your score will depend on how many people use your app. 
-</p>
-<p align="center">
-    <a href="${sessionInfo.servletPath}?module=Static&amp;d1=rules">Full Official Contest Rules and Terms & Conditions</a>
-</p>
-
-<h2>How Your App will be Scored</h2>
-
-<p>
-    Submissions will be judged by the Competition judging team. Submissions will be evaluated using a scorecard that includes the following criteria: 
-</p>
-<ul>
-<li>Usage (20%): Usage will be determined based on usage statistics. It is strictly prohibited to manufacture or attempt to manufacture usage in any way. Usage and activity shall be subject to audit by TopCoder and/or Aolicq.</li>
-<li>Innovation (20%): Determined by the Competition judges</li>
-<li>Best Use of APIs (20%): Best use of the functionality provided by the Specified Technology</li>
-<li>Aolicq favorite (20%): Popularity among Aolicq staff</li>
-<li>TopCoder Community Favorite (20%): Popularity among the TopCoder Community</li>
-</ul>
-
-<p align="center">
-    <a href="${sessionInfo.servletPath}?module=Static&amp;d1=rules">Full Official Contest Rules and Terms & Conditions</a>
-</p>
-
-<h2>What You Can Build</h2>
-
-<p>
-    Anything you want!
-</p>
-<p>
-    Do something creative using the Aolicq API. We'd love to see widgets, or gadgets for Microsoft Vista or Apple OSX, or something for a portal like MyYahoo or iGoogle, or any of the social networking sites. Build your <i>own</i> site, build a plugin for AIM - whatever you can dream of we want to see it.
-</p>
-<p>
-    Good luck - and remember if you have any questions you can always ask them in the <a href="${sessionInfo.servletPath}forums">forums</a>.
-</p>
-<p align="center">
-    <a href="${sessionInfo.servletPath}?module=Static&amp;d1=rules">Full Official Contest Rules and Terms & Conditions</a>
-</p>
-
-
-                        </div>
-                        <div style="clear: both;">&nbsp;</div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
+ <!-- Body Starts Here -->	    
+    <div id="wrapper">
+        <div class="secondary-body" id="learn-more">
+            <h2 class="learn-more">Learn More</h2>
+            <h3 class="highlight">Announcing the $100,000 Ribbit Killer App Challenge</h3>
+            <h3>Call for Entries</h3>
+            <p>The Ribbit Voice Platform gives Flash and Flex Developers direct access to the world's first global, programmable phone company - and we're challenging you to help create the next killer application.</p>
+            <h3>Categories / Criteria</h3>
+            <ul>
+            	<li><strong>Business and Productivity</strong> - Push business apps even further by bringing voice and rich communication features into the application workflow.</li>
+            	<li><strong>Carrier and Network Integration</strong> - Show us the most innovative integration to an existing cable, carrier or mobile network.</li>
+            	<li><strong>Media, Advertising and Entertainment</strong> - To win this category you need to captivate an audience and add unprecedented interactive value.</li>
+            	<li><strong>Social Networking and Communication</strong> - Give us a Web 3.0 preview with the best example of connecting people via open telephony.</li>
+            	<li><strong>Wildcard</strong> - Blow us away by improving the usability of any device or interface (from vending machines to ticket kiosks).</li>
+            </ul>
+            <h3>Prizes</h3>
+            <p>Prizes will be awarded to the Killer Apps that best utilize the Ribbit platform to captivate, innovate, and have the best overall market potential. We can't wait to see what develops. And the best part is - everyone wins. These are your inventions, your applications. We don't own them, you do. Entries must be received by March 12, 2009.</p>
+           	<h3>Contest Details</h3>
+            <p>For contest information and details on the Ribbit API, please visit: <a href="http://ribbit.com/killerappchallenge/">ribbit.com/killerappchallenge</a>.</p>
+            <p> For full contest rules, eligibility, and to register to participate, go to: <a href="http://www.topcoder.com/killerappchallenge/">topcoder.com/killerappchallenge</a>.</p>
+            <p class="footnote"><em>Contest not valid where restricted or otherwise not permitted by local law.</em></p>
+      </div>              
 
 <jsp:include page="tcFoot.jsp"/>
 

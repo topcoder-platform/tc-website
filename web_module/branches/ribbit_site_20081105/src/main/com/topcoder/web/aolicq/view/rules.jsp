@@ -280,15 +280,7 @@ TopCoder, Inc. (http://www.topcoder.com)
 </p>
 </div>
 
-                        </div>
-                        <div style="clear: both;">&nbsp;</div>
-                    </div>
-                </div>
-
-            </div>
         </div>
-    </div>
-</div>
 
 <jsp:include page="tcFoot.jsp"/>
 

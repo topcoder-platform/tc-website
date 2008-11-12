@@ -135,15 +135,7 @@
                 </div>
 
 
-                        </div>
-                        <div style="clear: both;">&nbsp;</div>
-                    </div>
-                </div>
-
-            </div>
         </div>
-    </div>
-</div>
 
 <jsp:include page="tcFoot.jsp"/>
 

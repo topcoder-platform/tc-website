@@ -179,15 +179,7 @@
     <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
 </div>
 
-                        </div>
-                        <div style="clear: both;">&nbsp;</div>
-                    </div>
-                </div>
-
-            </div>
         </div>
-    </div>
-</div>
 
 <jsp:include page="tcFoot.jsp"/>
 

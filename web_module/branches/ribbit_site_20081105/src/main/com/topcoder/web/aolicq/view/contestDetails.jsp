@@ -257,15 +257,7 @@ All submissions are required to be submitted by the End Date.
     </table>
 </div>
 
-                        </div>
-                        <div style="clear: both;">&nbsp;</div>
-                    </div>
-                </div>
-
-            </div>
         </div>
-    </div>
-</div>
 
 <jsp:include page="tcFoot.jsp"/>
 

@@ -7,27 +7,24 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Aolicq Developer Challenge :: Powered by TopCoder</title>
     <script language="JavaScript" type="text/javascript" src="/js/tcscript.js"></script>
+    <title>Ribbit - $100,000 Killer App Challenge - Forums  :: Powered by TopCoder</title>
+
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_aolicq"/>
+        <jsp:param name="key" value="tc_aolicq_forums"/>
     </jsp:include>
 </head>
 
 <body>
 
-<jsp:include page="tcTop.jsp"/>
+<jsp:include page="aolicqTop.jsp"/>
 
-<div align="center">
-    <div id="aimFrame">
-        <div id="aimFrameN">
-            <div id="aimFrameS">
-
-                <jsp:include page="aolicqTop.jsp"/>
-
-                <div class="content" align="right">
-                    <div class="contentTexture">
-                        <jsp:include page="topNav.jsp"/>
+<jsp:include page="topNav.jsp">
+	<jsp:param name="active_page" value="forums"/>
+</jsp:include>
+   <div id="wrapper">
+        <div class="secondary-body" id="forums">
+            <h2 class="discuss">Forums</h2>     
                         <div class="siteBoxFull">
 
                     	<c:choose>
@@ -69,15 +66,7 @@
                             </c:otherwise>
                     	</c:choose>
 
-                        </div>
-                        <div style="clear: both;">&nbsp;</div>
-                    </div>
-                </div>
-
-            </div>
         </div>
-    </div>
-</div>
 
 <jsp:include page="tcFoot.jsp"/>
 
