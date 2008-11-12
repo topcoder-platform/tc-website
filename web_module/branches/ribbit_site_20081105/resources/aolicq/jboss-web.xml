@@ -5,5 +5,5 @@
         "http://www.jboss.org/j2ee/dtd/jboss-web_4_0.dtd">
 
 <jboss-web>
-    <context-root>/ribbit</context-root>
+    <context-root>/killerappchallenge</context-root>
 </jboss-web>
