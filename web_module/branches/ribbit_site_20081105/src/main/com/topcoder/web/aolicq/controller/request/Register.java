@@ -78,9 +78,7 @@ public class Register extends ShortHibernateProcessor {
 
                             AolicqDAOUtil.getFactory().getContestRegistrationDAO().saveOrUpdate(cr);
 
-                            // add user to the OpenAIM group
-                            //don't need to add them to the group because we decided to make all competitors have access
-                            //SecurityHelper.addUserToGroup(u.getId(), Constants.AOLICQ_SECURITY_GROUP_ID);
+                            SecurityHelper.addUserToGroup(u.getId(), Constants.AOLICQ_SECURITY_GROUP_ID);
 /*
                             SecurityGroup openAimSg = factory.getSecurityGroupDAO().find(new Long(Constants.OPEN_AIM_SECURITY_GROUP_ID));
                             if (!u.getSecurityGroups().contains(openAimSg)) {

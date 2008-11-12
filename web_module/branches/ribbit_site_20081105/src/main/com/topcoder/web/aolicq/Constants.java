@@ -53,6 +53,7 @@ public class Constants implements WebConstants {
     public static int VIEW_SUBMISSIONS_SCROLL_SIZE;
     public static int ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE;
     public static int ADMIN_USER_ID;
+    public static int AOLICQ_SECURITY_GROUP_ID;
 
     static {
         initialize();
