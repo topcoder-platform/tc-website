@@ -12,6 +12,7 @@ import com.topcoder.web.aolicq.dao.AolicqDAOFactory;
 import com.topcoder.web.aolicq.dao.AolicqDAOUtil;
 import com.topcoder.web.aolicq.model.Contest;
 import com.topcoder.web.aolicq.model.ContestRegistration;
+import com.topcoder.web.common.SecurityHelper;
 
 /**
  * @author dok
