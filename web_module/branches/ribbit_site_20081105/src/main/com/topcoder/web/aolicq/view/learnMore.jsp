@@ -37,7 +37,25 @@
             </ul>
             <h3>Prizes</h3>
             <p>Prizes will be awarded to the Killer Apps that best utilize the Ribbit platform to captivate, innovate, and have the best overall market potential. We can't wait to see what develops. And the best part is - everyone wins. These are your inventions, your applications. We don't own them, you do. Entries must be received by March 12, 2009.</p>
-           	<h3>Contest Details</h3>
+           	<h3>Judges</h3>
+            <div class="judges">
+                <div>
+                    <img src="/images/killerapp/judges-temp.png" />
+                    <h4>Judge Name 1</h4>
+                    <p>Some description</p>
+                </div>
+                <div>
+                    <img src="/images/killerapp/judges-temp.png" />
+                    <h4>Judge Name 2</h4>
+                    <p>Some description</p>
+                </div>
+                <div>
+                    <img src="/images/killerapp/judges-temp.png" />
+                    <h4>Judge Name 3</h4>
+                    <p>Some description</p>
+                </div>
+            </div>
+            <h3>Contest Details</h3>
             <p>For contest information and details on the Ribbit API, please visit: <a href="http://ribbit.com/killerappchallenge/">ribbit.com/killerappchallenge</a>.</p>
             <p> For full contest rules, eligibility, and to register to participate, go to: <a href="http://www.topcoder.com/killerappchallenge/">topcoder.com/killerappchallenge</a>.</p>
             <p class="footnote"><em>Contest not valid where restricted or otherwise not permitted by local law.</em></p>
