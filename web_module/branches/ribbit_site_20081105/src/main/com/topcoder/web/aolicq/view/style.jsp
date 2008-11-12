@@ -91,11 +91,13 @@
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <% } else if (key.equals("tc_aolicq")) { %>
 <link type="text/css" rel="stylesheet" href="/css/killerapp/style.css" />
+<!--[if IE]><link type="text/css" rel="stylesheet" href="/css/killerapp/ie6.css" /><![endif]-->
 <% } else if (key.equals("tc_aolicq_forums")) { %>
 <link type="text/css" rel="stylesheet" href="/css/aolicq/forums.css" />
 <link type="text/css" rel="stylesheet" href="/css/aolicq/main.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <link type="text/css" rel="stylesheet" href="/css/killerapp/style.css" />
+<!--[if IE]><link type="text/css" rel="stylesheet" href="/css/killerapp/ie6.css" /><![endif]-->
 <% } %>
 
 <script type="text/JavaScript" src="/js/killerapp/RSSProcessor.js">

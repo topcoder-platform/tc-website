@@ -55,6 +55,20 @@
     }
 %>
 
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <title>Ribbit - $100,000 Killer App Challenge - Forums  :: Powered by TopCoder</title>
+
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_aolicq_forums"/>
+    </jsp:include>
 <script type="text/javascript">
     <!--
     function toggle(obj) {
@@ -116,19 +130,6 @@
 
     -->
 </style>
-
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-      <title>Ribbit - $100,000 Killer App Challenge - Forums  :: Powered by TopCoder</title>
-
-    <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_aolicq_forums"/>
-    </jsp:include>
 </head>
 
 <body>

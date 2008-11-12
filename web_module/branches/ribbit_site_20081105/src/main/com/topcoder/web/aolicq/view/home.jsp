@@ -77,24 +77,19 @@
         	
             <div id="blog-posts-sidebar">
                 <h3>Latest Blog Posts</h3>
-               <!-- <script>
-						var rss = "/direct/blogs/?feed=rss2";
-			
-						//A sample URL to get Template
-						var template = "/js/killerapp/BlogTemplate.txt";
-			
-						var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
-						document.getElementById("news-sidebar").innerHTML = (processor.transformRSSFeed(rss));
-        		</script> -->
+          		
                 <ul>
                     <li>
                         <a href="#">Blog Post Title</a><br/>
                         <p>Lorem ipsum dolor sit amet, posueresois eiusmod temporas incididunt ut laboreto dolore magnaliqua.</p>
                     </li>
-                    <li>
+                     <li>
                         <a href="#">Blog Post Title</a><br/>
                         <p>Lorem ipsum dolor sit amet, posueresois eiusmod temporas incididunt ut laboreto dolore magnaliqua.</p>
                     </li>
+         
+                    
+                    
                     <li>
                     	 <a href="#" class="view-all" title="Learn More">Learn More</a>
                     </li>
@@ -111,7 +106,7 @@
                     </li>
                 </ul>
                <script>
-						var rss = "/killerappchallenge/forums?module=RSS&forumID=2";
+						var rss = "/forums?module=RSS&forumID=2";
 			
 						//A sample URL to get Template
 						var template = "/js/killerapp/forumTemplate.txt";
