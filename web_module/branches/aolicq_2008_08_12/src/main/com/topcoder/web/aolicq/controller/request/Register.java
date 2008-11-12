@@ -1,17 +1,18 @@
 package com.topcoder.web.aolicq.controller.request;
 
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.dao.DAOFactory;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.aolicq.Constants;
 import com.topcoder.web.aolicq.dao.AolicqDAOFactory;
 import com.topcoder.web.aolicq.dao.AolicqDAOUtil;
 import com.topcoder.web.aolicq.model.Contest;
 import com.topcoder.web.aolicq.model.ContestRegistration;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.dao.DAOFactory;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.User;
 
 /**
  * @author dok
@@ -78,9 +79,8 @@ public class Register extends ShortHibernateProcessor {
 
                             AolicqDAOUtil.getFactory().getContestRegistrationDAO().saveOrUpdate(cr);
 
-                            // add user to the OpenAIM group
-                            //don't need to add them to the group because we decided to make all competitors have access
-                            //SecurityHelper.addUserToGroup(u.getId(), Constants.AOLICQ_SECURITY_GROUP_ID);
+                            // add user to the ribbit group
+                            SecurityHelper.addUserToGroup(u.getId(), Constants.AOLICQ_SECURITY_GROUP_ID);
 /*
                             SecurityGroup openAimSg = factory.getSecurityGroupDAO().find(new Long(Constants.OPEN_AIM_SECURITY_GROUP_ID));
                             if (!u.getSecurityGroups().contains(openAimSg)) {
