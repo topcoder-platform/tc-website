@@ -4,6 +4,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.13.08<br />6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/wiki/display/tc/Contest+Details+-+Agent+Visibility+Component+Specification">Component Requirements Contest – You Write the Spec!</a></span><br /><br />
+        A TopCoder client wants to build an application, and you are going to write the Component Requirements Specification. Managers and client personnel will be available to you in the TopCoder Forums to directly answer your questions, helping you define the requirements that best match their goals for the component. Asking good questions is your key to success!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/wiki/display/tc/Contest+Details+-+Agent+Visibility+Component+Specification">details</a> | 
+        <%--
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3958">discuss this</a> | 
+        --%>
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.13.08<br />4:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -149,21 +164,5 @@
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308">details</a> | 
         <tc-webtag:forumLink forumID="524077" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />10.23.08<br />3:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm422">SRM 422 - Problem Set &amp; Analysis</a></span><br /><br />
-      American (1-st, 4-th and 6-th places) and Chinese (2-nd and 3-rd places) coders occupied most of the top spots for this SRM. <tc-webtag:handle coderId="22663117" context="algorithm"/> won the match having 5 successful challenges, <tc-webtag:handle coderId="22675094" context="algorithm"/> was second, and <tc-webtag:handle coderId="19849563" context="algorithm"/> was the third with the most impressive challenge phase of the day (+375 points).</td>
-         <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm422">details</a> | 
-        <tc-webtag:forumLink forumID="523990" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
    </td></tr>
    
