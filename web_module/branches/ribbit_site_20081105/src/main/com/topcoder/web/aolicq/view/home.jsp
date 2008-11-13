@@ -48,9 +48,9 @@
                             <th class="last">Days Remaining</th>
                         </tr>
                         <tr>
-                        	<td class="first">111</td>
-                            <td>222</td>
-                            <td class="last">333</td>
+                        	<td class="first">${homeData.map['registered_competitors']}</td>
+                            <td>${homeData.map['submissions']}</td>
+                            <td class="last">${homeData.map['days_remaining']}</td>
                         </tr>
                         <tr>
                         	<td class="table-foot" colspan="3"></td>
