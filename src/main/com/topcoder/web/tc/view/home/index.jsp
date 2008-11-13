@@ -121,7 +121,6 @@ $(document).ready(function(){
                             <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
                            </ul>
                     </li>
-                    
                 </ul>
             </div><%-- #navigation ends --%>
             
@@ -136,15 +135,14 @@ $(document).ready(function(){
                     
                                 
                     <% if ( !sessionInfo.isAnonymous() ) { %>
-            <li><a href="#">Hello,&nbsp;</a><tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" /></li><li class="right"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout">Logout</a></li>
+            <li><a href="#">Hello,&nbsp;</a><tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" /></li><li class="right"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout&nextpage=http://<%=ApplicationServer.SERVER_NAME%>">Logout</a></li>
         <% } else {%>
                 <li class="right"><a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Login">Login</a></li>
             <% } %>
                 </ul>
-
             </div><%-- #navigation ends --%>
-            
-        </div><%-- .wrapper ends --%>
+        </div>
+      <%-- .wrapper ends --%>
     </div><%-- #header ends --%>
 
 <%-- CONTENT BLOCKS --%>
