@@ -53,7 +53,7 @@
 </div>
 --%>
 
-<h2 class="register">Register</h2>
+<h2 class="register">Register/Submit</h2>
 
 <c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
     <div align="center">

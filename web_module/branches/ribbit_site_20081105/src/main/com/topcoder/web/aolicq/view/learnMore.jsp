@@ -27,7 +27,7 @@
       <%-- Front Page Body Content --%>  
         <div id="left-content">
             <div class="secondary-body" id="learn-more">
-            <h2 class="learn-more">Learn More</h2>
+            <h2 class="learn-more">How to Compete</h2>
             <h3 class="highlight">Announcing the $100,000 Ribbit Killer App Challenge!</h3>
             <p>Ribbit was created with the understanding that the next generation of great communication solutions would be created, not by us, and not by a traditional phone company&mdash;but by you, the Flash and Flex Developers. The Ribbit Voice Platform gives you, the most creative developers in the world, the ability to add rich communication features into your Flash and Flex projects by giving you direct access to the world's first global, programmable phone company. We're challenging you to help build the next generation phone company&mdash;by creating the next Ribbit Killer Application.</p>
             <h3>Everybody Wins!</h3>

@@ -55,8 +55,12 @@
                         </tr>
                     </table>
                 </div>
-            	<h2>What is a Killer App?</h2>
-                <p>Lorem ipsum dolor sit amet, sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
+            	<h2>KILLER IDEAS, KILLER APPS</h2>
+            	<p>Ribbit has teamed up with TopCoder to find out what will happen when we put the power of the Ribbit Voice Platform into the hands of the most creative Flash &amp; Flex developers in the world.</p>
+            	<p>Using the Ribbit Voice Platform, voice is now a programmable feature that is free from the traditional device. It can go anywhere... on a phone, on a webpage, inside email, and in an existing app. Voice can now live inside any environment including online communities or stores, CRM systems, call center applications, media properties - you name it.</p>
+            	<p>This competition is your chance to show your stuff. Build a great app, have it reviewed by a panel of highly respected judges from around the industry, and you can win big money in any of our five contest categories, and at three checkpoints along the way.</p>
+            	<p>Click here to learn more about how to compete and the benefits of submitting early.</p>
+            	<p>Good Luck!</p>
             </div>
             
             <div id="register-steps">
