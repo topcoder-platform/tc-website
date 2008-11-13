@@ -1,7 +1,7 @@
+<hr width="95%" size="1px" noshade="noshade" />
 <table width="95%" border="0" cellspacing="0" cellpadding="3">                     
     <tr valign="middle">
-        <td><h3>TopCoder Developments Newsletter</h3></td>
-        <td class="viewAll" width="20%"><a target="_blank" href="/html/tcDevOptIn.htm" class="bodyText"><strong>Subscribe</strong></a></td>
+        <td><h3>TopCoder Developments Newsletter&nbsp;<span style="margin-left:15px;"><a target="_blank" href="/html/tcDevOptIn.htm" class="bodyText"><strong>Subscribe</strong></a></span></h3></td>
     </tr>
 </table>
 <table width="95%" border="0" cellspacing="0" cellpadding="4">
@@ -33,8 +33,7 @@
 <hr width="95%" size="1px" noshade="noshade" />
 <table width="95%" border="0" cellspacing="0" cellpadding="3">                     
     <tr valign="middle">
-        <td><h3>Press Room Highlights</h3></td>
-        <td class="viewAll" width="20%"><a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=index" class="bodyText"><strong>View All</strong></a></td>
+        <td><h3>Press Room Highlights&nbsp;<span style="margin-left:15px;"><a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=index" class="bodyText"><strong>View All</strong></a></span></h3></td>
     </tr>
 </table>
 <table width="95%" border="0" cellspacing="0" cellpadding="4">
