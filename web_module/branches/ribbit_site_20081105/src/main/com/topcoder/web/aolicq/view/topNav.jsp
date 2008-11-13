@@ -22,7 +22,7 @@
           <ul id="nav">
               <li id="home-nav"><a <% if (active_page.equals("home")) {%>class="active"<% } %> href="http://63.118.154.179/">Home</a></li>
               <li id="learnmore-nav"><a <% if (active_page.equals("learnMore")) {%>class="active"<% } %> href="http://63.118.154.179/?module=Static&amp;d1=learnMore">Learn More</a></li>
-              <li id="register-nav"><a <% if (active_page.equals("register")) {%>class="active"<% } %> href="#">Register</a></li>
+              <li id="register-nav"><a <% if (active_page.equals("register")) {%>class="active"<% } %> href="http://63.118.154.179/?module=login">Register</a></li>
               <li id="getsdk-nav"><a <% if (active_page.equals("SDK")) {%>class="active"<% } %> href="#">Get the SDK</a></li>
               <li id="discuss-nav"><a <% if (active_page.equals("forums")) {%>class="active"<% } %> href="http://63.118.154.179/forums">Discuss</a></li>
               <li id="blog-nav"><a href="#">Blog</a></li>

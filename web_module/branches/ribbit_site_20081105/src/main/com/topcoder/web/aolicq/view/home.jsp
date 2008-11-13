@@ -53,7 +53,7 @@
                             <td class="last">333</td>
                         </tr>
                         <tr>
-                        	<td class="table-foot" colspan="3"><a href="#">View Complete Contest Statistics</a></td>
+                        	<td class="table-foot" colspan="3"></td>
                         </tr>
                     </table>
                 </div>
