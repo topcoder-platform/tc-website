@@ -121,6 +121,6 @@
         <p style="clear:both;"></p>
         </div>
         </div>
-	<div id="footer"></div>
+	<jsp:include page="tcFoot.jsp"/>
 </body>
 </html>
