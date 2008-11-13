@@ -23,11 +23,12 @@
 
 </head>
 <body>
-	 <jsp:include page="aolicqTop.jsp"/>
+	  
 	 <jsp:include page="topNav.jsp">
         <jsp:param name="active_page" value="home"/>
     </jsp:include>
 <div id="wrapper">
+<jsp:include page="aolicqTop.jsp"/>
       <%-- Front Page Body Content --%>  
         <div id="left-content">
         	
@@ -79,15 +80,16 @@
                 <h3>Latest Blog Posts</h3>
           		
                 <ul>
-                    <li>
-                        <a href="#">Blog Post Title</a><br/>
-                        <p>Lorem ipsum dolor sit amet, posueresois eiusmod temporas incididunt ut laboreto dolore magnaliqua.</p>
-                    </li>
-                     <li>
-                        <a href="#">Blog Post Title</a><br/>
-                        <p>Lorem ipsum dolor sit amet, posueresois eiusmod temporas incididunt ut laboreto dolore magnaliqua.</p>
-                    </li>
-         
+                    <li id="blogsidebar"></li>
+        		 <script>
+						var rss = "/blog/?feed=rss2";
+			
+						//A sample URL to get Template
+						var template = "/js/killerapp/blogTemplate.txt";
+			
+						var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
+						document.getElementById("blogsidebar").innerHTML = (processor.transformRSSFeed(rss));
+       			 </script>
                     
                     
                     <li>
@@ -115,10 +117,10 @@
 						document.getElementById("forumssidebar").innerHTML = (processor.transformRSSFeed(rss));
        			 </script>
             </div>
-            
         </div>
-        <a href="#" class="powered-by-topcoder">Powered by TopCoder</a>
-   	</div>
+        <p style="clear:both;"></p>
+        </div>
+        </div>
 	<div id="footer"></div>
 </body>
 </html>

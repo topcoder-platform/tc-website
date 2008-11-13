@@ -133,12 +133,13 @@
 
 <body>
 <!-- View ThreadThreaded.jsp -->
-<jsp:include page="aolicqTop.jsp"/>
+ 
 
 <jsp:include page="topNav.jsp">
 	<jsp:param name="active_page" value="forums"/>
 </jsp:include>
    <div id="wrapper">
+<jsp:include page="aolicqTop.jsp"/>
         <div class="secondary-body" id="forums">
             <h2 class="discuss">Forums</h2>     
                         <div class="siteBoxFull">

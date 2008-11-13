@@ -23,12 +23,13 @@
 
 <body>
 
-<jsp:include page="aolicqTop.jsp"/>
+ 
 
 <jsp:include page="topNav.jsp">
 	<jsp:param name="active_page" value="home"/>
 </jsp:include>
    <div id="wrapper">
+<jsp:include page="aolicqTop.jsp"/>
         <div class="secondary-body" id="forums">
    
                         <div class="siteBoxFull">

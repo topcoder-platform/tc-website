@@ -53,18 +53,12 @@
 
 <body>
 
-<jsp:include page="tcTop.jsp"/>
-
-<div align="center">
-    <div id="aimFrame">
-        <div id="aimFrameN">
-            <div id="aimFrameS">
-
-                <jsp:include page="aolicqTop.jsp"/>
-
-                <div class="content" align="right">
-                    <div class="contentTexture">
+                 
                         <jsp:include page="topNav.jsp"/>
+                <div id="wrapper">
+<jsp:include page="aolicqTop.jsp"/>
+        <div class="secondary-body" id="learn-more">        
+                        
                         <div class="siteBoxFull">
 
                 <h1>Login</h1>
@@ -130,13 +124,13 @@
                                 </script>
 
                             </div>
-                        </form>
-                    </div>
+              </form>
+               
                 </div>
 
-
+		</div>
         </div>
-
+		</div>
 <jsp:include page="tcFoot.jsp"/>
 
 </body>

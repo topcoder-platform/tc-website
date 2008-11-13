@@ -15,13 +15,14 @@
 
 <body>
 
-<jsp:include page="aolicqTop.jsp"/>
+ 
 <jsp:include page="topNav.jsp">
 	<jsp:param name="active_page" value="learnMore"/>
 </jsp:include>
 
  <!-- Body Starts Here -->	    
     <div id="wrapper">
+<jsp:include page="aolicqTop.jsp"/>
         <div class="secondary-body" id="learn-more">
             <h2 class="learn-more">Learn More</h2>
             <h3 class="highlight">Announcing the $100,000 Ribbit Killer App Challenge</h3>

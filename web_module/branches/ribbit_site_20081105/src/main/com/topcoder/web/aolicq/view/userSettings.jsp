@@ -69,13 +69,14 @@ function toggleTabs(anchor,id) {
     </jsp:include>
 </head>
 
-<jsp:include page="aolicqTop.jsp"/>
+ 
 
 <jsp:include page="topNav.jsp">
 	<jsp:param name="active_page" value="forums"/>
 </jsp:include>
 <body onLoad="toggleTabs('','gen')">
    <div id="wrapper">
+<jsp:include page="aolicqTop.jsp"/>
         <div class="secondary-body" id="forums">
             <h2 class="discuss">Forums</h2>    
 

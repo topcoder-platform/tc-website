@@ -37,7 +37,7 @@
         <div id="aimFrameN">
             <div id="aimFrameS">
 
-                <jsp:include page="aolicqTop.jsp"/>
+                 
 
                 <div class="content" align="right">
                     <div class="contentTexture">

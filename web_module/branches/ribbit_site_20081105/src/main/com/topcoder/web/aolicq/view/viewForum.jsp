@@ -99,7 +99,7 @@
 
 <body>
 
-<jsp:include page="aolicqTop.jsp"/>
+ 
 
 <jsp:include page="topNav.jsp">
 	<jsp:param name="active_page" value="forums"/>
@@ -107,6 +107,7 @@
 
 
    <div id="wrapper">
+<jsp:include page="aolicqTop.jsp"/>
         <div class="secondary-body" id="forums">
             <h2 class="discuss">Forums</h2>                        
                         

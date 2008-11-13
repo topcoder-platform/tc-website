@@ -43,7 +43,7 @@
     <div id="aimFrame">
         <div id="aimFrameN">
             <div id="aimFrameS">
-                <jsp:include page="aolicqTop.jsp"/>
+                 
                 <div class="contentWithLeft" align="right">
                     <div class="contentTexture">
                         <jsp:include page="leftBox.jsp"/>
