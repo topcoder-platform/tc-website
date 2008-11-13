@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.13.08<br />4:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm61">TCHS SRM 61 - Problem Set &amp; Analysis</a></span><br /><br />
+      This TCHS match turned out to be quite easy - out of 87 participants, 42 solved the Hard and 31 solved all three problems. Within such conditions, coding speed was the deciding factor. Young 13-year old <tc-webtag:handle coderId="22263204" context="hs_algorithm"/> showed excellent performance and took the first place. For the second HS SRM in a row he makes the fastest submission times on *all* problems!</td>
+         <td class="newsPhoto"><img src="/i/m/ivan_metelsky_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="10481120" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm61">details</a> | 
+        <tc-webtag:forumLink forumID="524439" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.07.08<br />11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_110708">TopCoder Recognized As One of Fastest Growing Connecticut Companies By Connecticut Technology Council</a></span><br /><br />
@@ -149,18 +165,5 @@
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=srm422">details</a> | 
         <tc-webtag:forumLink forumID="523990" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />10.22.08<br />1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=ProjectDetail&amp;pj=30005406">PHP Component Contest Running Now</a></span><br /><br />
-        The <a href="/tc?module=ProjectDetail&pj=30005406">AOL IDP Crypto Library</a> component design competition is ideal to get you started in PHP.  It provides a reference implementation in C that you will use to design the PHP component.  As one of our first PHP components, this is also your opportunity to contribute to the standards and guidelines for future PHP components.  <a href="/tc?module=ProjectDetail&pj=30005406">Check it out!</a></td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=ProjectDetail&pj=30005406">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3904">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
    
