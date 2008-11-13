@@ -39,10 +39,12 @@
                     </div>
                 </c:when>
                 <c:otherwise>
-                    <div id="user-links">
+                <div id="login">
+                    <p class="login-greeting">
                     <%-- User Link --%>
-                    <strong>Hello, <tc-webtag:handle coderId='${sessionInfo.userId}'/></strong>
+                    <strong>Hello <tc-webtag:handle coderId='${sessionInfo.userId}'/></strong>
                     | <strong><a class="" href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Logout">Logout</a></strong>
+                    </p>
                     <%-- End User Link --%>
                     </div>
                 </c:otherwise>

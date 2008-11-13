@@ -14,40 +14,23 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Aolicq Developer Challenge :: Powered by TopCoder</title>
+    <script type="text/javascript" src="/js/arena.js"></script>
+
+  <title>Ribbit - $100,000 Killer App Challenge - Home :: Powered by TopCoder</title>
 
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_aolicq"/>
     </jsp:include>
 
-    
-
-    <script type="text/javascript">
-        function preloadTabs() {
-            var img = new Image();
-            img.src = '/i/events/aolicq/tabs/registerOn.png';
-            img.src = '/i/events/aolicq/tabs/submitOn.png';
-            img.src = '/i/events/aolicq/tabs/apisOn.png';
-            img.src = '/i/events/aolicq/tabs/discussOn.png';
-        }
-    </script>
-    <script type="text/javascript" src="/js/arena.js"></script>
-
 </head>
-
 <body>
-
-<jsp:include page="tcTop.jsp"/>
-
-<div align="center">
-    <div id="aimFrame">
-        <div id="aimFrameN">
-            <div id="aimFrameS">
-                 
-                <div class="contentWithLeft" align="right">
-                    <div class="contentTexture">
-                        <jsp:include page="leftBox.jsp"/>
-                        <jsp:include page="topNav.jsp"/>
+	  
+	 <jsp:include page="topNav.jsp">
+        <jsp:param name="active_page" value="home"/>
+    </jsp:include>
+<div id="wrapper">
+<jsp:include page="aolicqTop.jsp"/>
+      <%-- Front Page Body Content --%>  
                         <div class="siteBoxHalf">
 
 
