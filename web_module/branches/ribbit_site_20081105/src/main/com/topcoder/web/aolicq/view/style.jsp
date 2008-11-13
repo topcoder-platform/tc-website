@@ -100,20 +100,7 @@
 <!--[if IE]><link type="text/css" rel="stylesheet" href="/css/killerapp/ie6.css" /><![endif]-->
 <% } %>
 
-<script type="text/JavaScript" src="/js/killerapp/RSSProcessor.js">
-    </script>
-    <script type='text/JavaScript' src='/js/killerapp/AJAXProcessor.js'>
-    </script>
     <script type="text/javascript" src="/js/arena.js"></script>
-    <script type="text/javascript">
-        function submitEnter(e) {
-            var keycode;
-            if (window.event) keycode = window.event.keyCode;
-            else if (e) keycode = e.which;
-            else return true;
-            if (keycode == 13) {
-                document.frmLogin.submit();
-                return false;
-            } else return true;
-        }
-    </script>
+    <script src="/js/cockpit/jquery-1.2.6.min.js" type="text/javascript"></script>
+	<script type="text/JavaScript" src="/js/killerapp/AJAXProcessor.js"></script>
+		<script type="text/JavaScript" src="/js/killerapp/RSSProcessor.js"></script>   

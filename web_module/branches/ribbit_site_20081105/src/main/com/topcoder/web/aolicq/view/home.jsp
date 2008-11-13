@@ -7,8 +7,6 @@
 <%@ taglib uri="aolicq.tld" prefix="aolicq" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -80,7 +78,7 @@
                 <h3>Latest Blog Posts</h3>
           		
                 <ul>
-                    <li id="blogsidebar"></li>
+                    <div id="replace"></div>
         		 <script>
 						var rss = "/blog/?feed=rss2";
 			
@@ -88,7 +86,7 @@
 						var template = "/js/killerapp/blogTemplate.txt";
 			
 						var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
-						document.getElementById("blogsidebar").innerHTML = (processor.transformRSSFeed(rss));
+						document.getElementById("replace").innerHTML = (processor.transformRSSFeed(rss));
        			 </script>
                     
                     
@@ -102,7 +100,7 @@
                 <h3>Latest Forum Posts</h3>
                 
                 <ul>
-                    <li id="forumssidebar"> </li>
+                    <div id="replace2"> </div>
                     <li>
                     	 <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/forums" class="view-all" title="Learn More">Learn More</a>
                     </li>
@@ -114,7 +112,7 @@
 						var template = "/js/killerapp/forumTemplate.txt";
 			
 						var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
-						document.getElementById("forumssidebar").innerHTML = (processor.transformRSSFeed(rss));
+						document.getElementById("replace2").innerHTML = (processor.transformRSSFeed(rss));
        			 </script>
             </div>
         </div>

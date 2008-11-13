@@ -7,7 +7,7 @@
 <%@ taglib uri="aolicq.tld" prefix="aolicq" %>
 <c:set var="clientPrize" value="<%=PrizeType.BONUS%>"/>
 
-<?xml version="1.0" encoding="utf-8"?>
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -16,7 +16,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <script type="text/javascript" src="/js/arena.js"></script>
 
-  <title>Ribbit - $100,000 Killer App Challenge - Home :: Powered by TopCoder</title>
+  <title>Ribbit - $100,000 Killer App Challenge  :: Powered by TopCoder</title>
 
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_aolicq"/>
@@ -30,6 +30,7 @@
     </jsp:include>
 <div id="wrapper">
 <jsp:include page="aolicqTop.jsp"/>
+<div class="secondary-body">
       <%-- Front Page Body Content --%>  
                         <div class="siteBoxHalf">
 
@@ -52,7 +53,7 @@
 </div>
 --%>
 
-<h1>Contest Details</h1>
+<h2 class="register">Register</h2>
 
 <c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
     <div align="center">
@@ -136,7 +137,7 @@
     </div>
 </c:if>
 
-<h2>Project Overview</h2>
+<h3>Project Overview</h3>
 ${contest.overview.value}
 <br /><br />
 
@@ -153,7 +154,7 @@ ${contest.overview.value}
 </c:if>
 
 
-<h2>Payment</h2>
+<h3>Payment</h3>
 ${contest.prizeDescription.value}
 <br /><br />
 
@@ -187,9 +188,9 @@ ${contest.prizeDescription.value}
 </c:choose>
 
 
-<h2>Eligibility</h2>
+<h3>Eligibility</h3>
 
-<p>You must be a TopCoder Aolicq member, at least 18 years of age, meeting all of the membership requirements.
+<p>You must be a TopCoder KillerApps member, at least 18 years of age, meeting all of the membership requirements.
     In addition, you must fit into one of the following categories.
 </p>
 
@@ -216,7 +217,7 @@ ${contest.prizeDescription.value}
 
 <br /><br />
 
-<h2>Timeline</h2>
+<h3>Timeline</h3>
 All submissions are required to be submitted by the End Date.
 <br /><br />
 
@@ -241,7 +242,7 @@ All submissions are required to be submitted by the End Date.
 </div>
 
         </div>
-
+</div>
 <jsp:include page="tcFoot.jsp"/>
 
 </body>
