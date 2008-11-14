@@ -59,7 +59,6 @@
 						<p>In addition to the prizes awarded to each checkpoint winner,  Ribbit &amp; TopCoder will provide feedback on these apps, in order for you to continue to improve and enhance your application. Taking the advice and guidance of the judging panel to further develop your submission into a Killer App, gives you a better chance to win a grand prize at the end of the competition.</p>
 					
 					<h3>How to Submit</h3>
-						<p><em><strong>Get full details from Ribbit-</strong></em></p>
 						<p>The requirements for submission may vary depending on the Killer App category, make sure you check out your specific category info page before submitting. (link)</p>
 						<p>Once your app is live, <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=<%=Constants.MINISITE_CONTEST_ID%>">submit it to the contest</a>.</p>
 						<p>You will need to submit a zip file to TopCoder which includes 2 items:</p>
