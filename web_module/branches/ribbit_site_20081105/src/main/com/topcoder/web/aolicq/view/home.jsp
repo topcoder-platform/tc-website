@@ -55,12 +55,12 @@
                         </tr>
                     </table>
                 </div>
-            	
+            
             	<h2>KILLER IDEAS, KILLER APPS</h2>
             	<p>Ribbit&rsquo;s Open Telephony Platform gives you direct access to the world&rsquo;s first global, programmable phone company. And, we&rsquo;ve teamed up with TopCoder to find out what will happen when we put that power into the hands of the most creative Flash & Flex developers in the world.</p>
             	<p>With Ribbit, voice is now a programmable feature that is free from the traditional device. It can go anywhere&hellip; on a phone, on a webpage, inside email, and in an existing app. Voice can now live inside any environment including online communities or stores, CRM systems, call center applications, media properties - you name it.</p>
             	<p>This competition is your chance to show your stuff. Build a great app, have it reviewed by a panel of highly respected judges from around the industry, and you can win big money in any of our five contest categories: <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=lfileNameHere">Media, Advertising and Entertainment</a>, <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=lfileNameHere">Social Networking and Communication</a>, <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=lfileNameHere">Business and Productivity</a>, <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=lfileNameHere">Carrier, Network, or ISP Integration</a>, and <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=lfileNameHere">Wildcard</a>.</p>
-            	<p>Submit early to be eligible for Check Point Awards. Check Point winners will gain first hand feedback for improving and enhancing submissions &mdash; increasing your chances of creating the ultimate Killer App and winning the Grand Prize.</p>
+            	<p><a href="#">Click here</a> to learn more about how to compete and the benefits of submitting early.</p>
             	<p>Good Luck!</p>
             </div>
             
@@ -85,7 +85,7 @@
                             </li>
                             <li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
                         </ol>
-                    	<p>Submit early, then tell a friend - in fact, tell a hundred friends, because a large percentage of your score will depend on how many people use your app.</p>
+                    	Submit early to be eligible for Check Point Awards. Check Point winners will gain first hand feedback for improving and enhancing submissions &mdash; increasing your chances of creating the ultimate Killer App and winning the Grand Prize.
                     </li>
                 </ol>
           </div>
