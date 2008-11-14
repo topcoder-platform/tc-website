@@ -129,16 +129,11 @@
             <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" onsubmit="showProcessing()">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
                 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+                <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_RANK%>" value="1"/>
                 <p><strong>My submission:</strong></p>
                    <p> <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
                         <br /></tc-webtag:errorIterator></p>
                     <input type="file" name="<%=Constants.SUBMISSION%>">
-                </p>
-
-                <p>
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_RANK%>"><span class="bigRed">${err}</span>
-                        <br /></tc-webtag:errorIterator>
-                    as rank:&nbsp;<tc-webtag:textInput name="<%=Constants.SUBMISSION_RANK%>" maxlength="3" size="2"/>
                 </p>
 
                 <p id="submitButton">
