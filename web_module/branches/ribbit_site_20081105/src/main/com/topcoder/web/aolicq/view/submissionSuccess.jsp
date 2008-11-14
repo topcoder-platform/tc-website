@@ -17,7 +17,8 @@
     <script type="text/javascript" src="/js/fat.js"></script>
     
 
-    <title>Aolicq Developer Challenge :: Powered by TopCoder</title>
+    <title>Ribbit - $100,000 Killer App Challenge :: Powered by TopCoder</title>
+
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_aolicq"/>
     </jsp:include>
@@ -54,37 +55,24 @@
         </c:forEach>
             ajaxRequest.sendRequest();
         }
-
         // -->
     </script>
 
-    <script type="text/javascript">
-        function preloadTabs() {
-            var img = new Image();
-            img.src = '/i/events/aolicq/tabs/registerOn.png';
-            img.src = '/i/events/aolicq/tabs/submitOn.png';
-            img.src = '/i/events/aolicq/tabs/apisOn.png';
-            img.src = '/i/events/aolicq/tabs/discussOn.png';
-        }
-    </script>
+  
 
 </head>
 
+
 <body>
 
-<jsp:include page="tcTop.jsp"/>
-
-<div align="center">
-    <div id="aimFrame">
-        <div id="aimFrameN">
-            <div id="aimFrameS">
-
-                 
-                <div class="contentWithLeft" align="right">
-                    <div class="contentTexture">
-                        <jsp:include page="leftBox.jsp"/>
-                        <jsp:include page="topNav.jsp"/>
-                        <div class="siteBoxHalf">
+<jsp:include page="topNav.jsp">
+	<jsp:param name="active_page" value="submit"/>
+</jsp:include>
+   <div id="wrapper">
+<jsp:include page="aolicqTop.jsp"/>
+        <div class="secondary-body" id="register">
+        
+                 <div class="siteBoxHalf">
 
 
 <%--
@@ -98,7 +86,7 @@
 </div>
 --%>
 
-        <h1>Submission Successfully Uploaded</h1>
+        <h2>Submission Successfully Uploaded</h2>
 <%
     GregorianCalendar gc = new GregorianCalendar(2007, Calendar.JULY, 23);
 %>

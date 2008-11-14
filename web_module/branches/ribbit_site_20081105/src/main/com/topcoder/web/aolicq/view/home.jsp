@@ -65,14 +65,29 @@
             
             <div id="register-steps">
             	<h2>Steps to Register</h2>
-                <p>Participation in the Ribbit Killer App Challenge is completely FREE! Just follow the simple steps below and you'll be on your way to possibly claiming some of our $100,000 in prize money! Here's a quick overview:</p>
+                <p>Participation in the Ribbit Killer App Challenge is completely FREE! Just follow the simple steps below and you'll be on your way to possibly claiming some of our $100,000 in prize money! Here's a quick overview: :</p>
             	<ol>
-                	<li><strong>Register for a developer id at ribbit.com.</strong></li>
-                    <li class="two"><strong>Sign up to become a Topcoder member (select at least the &quot;Competition Registration&quot; checkbox)</strong><br />Etiam congue, sapien mollis aliquam ullamcorper, purus elit adipiscing eros, sed molestie tellus sem vel quam. Nullam et metus. Duis blandit. Vivamus sed mauris eu nisi iaculis facilisis. Phasellus lobortis, nulla sit</li>
-                    <li class="three"><strong>Register for the Ribbit Killer App Challenge now!</strong><br />Etiam congue, sapien mollis aliquam ullamcorper, purus elit adipiscing eros, sed molestie tellus sem vel quam. Nullam et metus. Duis blandit. Lorem ipsum dolor sit amet lobortis, nulla sit amet molistie vehicula, eros arcu egestas nunct, sit amet lobortis diam erat ac eros. Aliquam erat volutpat.</li>
-                    <li class="four"><strong>Submit your application</strong><br />Etiam congue, sapien mollis aliquam ullamcorper, purus elit adipiscing eros, sed molestie tellus sem vel quam. Nullam et metus. Duis blandit. Vivamus sed mauris eu nisi iaculis facilisis. Phasellus lobortis, nulla sit amet molistie vehicula, eros arcu egestas nunct, sit amet lobortis diam erat ac eros. Aliquam erat volutpat.</li>
+                	<li><strong>Register for a developer id at <a href="http://developer.ribbit.com/register/">ribbit.com.</a></strong></li>
+                    <li class="two"><strong><a href="https://www.topcoder.com/reg/?module=Main&amp;rt=2">Sign up</a> to become a Topcoder member </strong><br />
+The Killer App Challenge is run using TopCoder's patented competition engine and administered by TopCoder's professional competition staff. TopCoder members are a worldwide community of programmers who compete in algorithm and development contests for prize money. Become a member now to compete in this challenge and other TopCoder contests! If you are already a TopCoder member, go to step 3. <a href="https://www..topcoder.com/reg/?module=Main&amp;rt=2">Sign up at TopCoder &gt;&gt;</a></li>
+                  <li class="three"><strong><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=1002">Register</a> for the Ribbit Killer App Challenge now!</strong><br />Once you are a TopCoder member, all you have to do is register for the Ribbit Killer App Challenge! Register now to participate in this contest! <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&ct=1002">Contest registration >></a> </li>
+                    <li class="four"><strong><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&ct=1002">Submit</a> your application</strong><br />  Once your app is live, submit it to the contest. You will need to submit a zip file to TopCoder which includes 2 items: 
+                    	<ol class="sublist">
+                        	<li>A text document containing: 
+                            	<ul class="sublist2">
+                                	<li>Your Ribbit Developer ID </li>
+                                    <li>Your TopCoder handle name </li>
+                                    <li>A title and brief overview of the application or concept to be used as an online description </li>
+                                    <li>The prize category you are submitting to (List categories here)</li>
+                                    <li>Most importantly, a link to the URL where the application can be viewed/downloaded </li>
+                                </ul>
+                            </li>
+                            <li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
+                        </ol>
+                    	<p>Submit early, then tell a friend - in fact, tell a hundred friends, because a large percentage of your score will depend on how many people use your app.</p>
+                    </li>
                 </ol>
-            </div>
+          </div>
         
         </div>
         
@@ -95,7 +110,7 @@
                     
                     
                     <li>
-                    	 <a href="#" class="view-all" title="Learn More">Learn More</a>
+                    	 <a href="http://developer.ribbit.com/blog/?cat=10" class="view-all" title="Learn More">Learn More</a>
                     </li>
                 </ul>
             </div>

@@ -15,7 +15,8 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Aolicq Developer Challenge :: Powered by TopCoder</title>
+    <title>Ribbit - $100,000 Killer App Challenge :: Powered by TopCoder</title>
+
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_aolicq"/>
     </jsp:include>
@@ -23,16 +24,12 @@
 </head>
 
 <body>
-    <!-- wrapper -->
-    <div id="wrapper">
+<jsp:include page="topNav.jsp">
+	<jsp:param name="active_page" value="register"/>
+</jsp:include>
+   <div id="wrapper">
 <jsp:include page="aolicqTop.jsp"/>
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="tcTop.jsp"/>
-            <jsp:include page="topNav.jsp">
-                <jsp:param name="node" value="contests"/>
-            </jsp:include>
-        </div>
+        <div class="secondary-body" id="register">
         <!-- container -->
         <div id="container">
             <!-- content -->
@@ -40,11 +37,11 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-                <h1>Contest Registration</h1>
+                <h2>Contest Registration</h2>
                 
                 <div align="center">
 
-
+					<p>
                     <strong>Are you sure you want to register for this contest?</strong>
                     <br /><br />
                     Please be aware that you are NOT REGISTERED for the tournament that this contest is part of.
@@ -52,7 +49,7 @@
                     If you don't register for the tournament prior to registering for this contest,
                     it will not count in the tournament standings even if you sign up at a later date.
                     <br /><br />
-
+					</p>
                     <form name="terms" method="POST" action="${sessionInfo.servletPath}">
                         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Register"/>
                         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>

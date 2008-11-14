@@ -16,7 +16,8 @@
     <script type="text/javascript" src="/js/taconite-parser.js"></script>
     <script type="text/javascript" src="/js/fat.js"></script>
 
-    <title>Aolicq Developer Challenge :: Powered by TopCoder</title>
+    <title>Ribbit - $100,000 Killer App Challenge :: Powered by TopCoder</title>
+
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_aolicq"/>
     </jsp:include>
@@ -62,32 +63,19 @@
         // -->
     </script>
 
-    <script type="text/javascript">
-        function preloadTabs() {
-            var img = new Image();
-            img.src = '/i/events/aolicq/tabs/registerOn.png';
-            img.src = '/i/events/aolicq/tabs/submitOn.png';
-            img.src = '/i/events/aolicq/tabs/apisOn.png';
-            img.src = '/i/events/aolicq/tabs/discussOn.png';
-        }
-    </script>
 
 </head>
 
+
 <body>
 
-<jsp:include page="tcTop.jsp"/>
+<jsp:include page="topNav.jsp">
+	<jsp:param name="active_page" value="register"/>
+</jsp:include>
+   <div id="wrapper">
+<jsp:include page="aolicqTop.jsp"/>
+        <div class="secondary-body" id="register">
 
-<div align="center">
-    <div id="aimFrame">
-        <div id="aimFrameN">
-            <div id="aimFrameS">
-
-                 
-                <div class="contentWithLeft" align="right">
-                    <div class="contentTexture">
-                        <jsp:include page="leftBox.jsp"/>
-                        <jsp:include page="topNav.jsp"/>
                         <div class="siteBoxHalf">
 
 <%--
@@ -101,7 +89,7 @@
 </div>
 --%>
 
-<h1>Submit Your Design</h1>
+<h2>Submit Your Design</h2>
 
 <div align="center">
     <div align="left" style="width:500px; margin-top: 20px;">
@@ -136,15 +124,14 @@
             </li>
             <li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels).</li>
         </ol>
-
+		<p></p>
         <div align="center">
             <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" onsubmit="showProcessing()">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
                 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-                <p>
-                    <b>My submission:</b><br/>
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
-                        <br /></tc-webtag:errorIterator>
+                <p><strong>My submission:</strong></p>
+                   <p> <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
+                        <br /></tc-webtag:errorIterator></p>
                     <input type="file" name="<%=Constants.SUBMISSION%>">
                 </p>
 

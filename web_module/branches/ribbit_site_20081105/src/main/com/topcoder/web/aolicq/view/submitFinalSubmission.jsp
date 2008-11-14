@@ -14,7 +14,8 @@
     <script type="text/javascript" src="/js/taconite-parser.js"></script>
     <script type="text/javascript" src="/js/fat.js"></script>
 
-    <title>Aolicq Developer Challenge :: Powered by TopCoder</title>
+    <title>Ribbit - $100,000 Killer App Challenge :: Powered by TopCoder</title>
+
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_aolicq"/>
     </jsp:include>
@@ -27,19 +28,13 @@
 </head>
 
 <body>
-    <!-- wrapper -->
-    <div id="wrapper">
+
+<jsp:include page="topNav.jsp">
+	<jsp:param name="active_page" value="submit"/>
+</jsp:include>
+   <div id="wrapper">
 <jsp:include page="aolicqTop.jsp"/>
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="tcTop.jsp"/>
-            <jsp:include page="topNav.jsp">
-                <jsp:param name="node" value="contests"/>
-            </jsp:include>
-        </div>
-        <!-- container -->
-        <div id="container">
-            <!-- content -->
+        <div class="secondary-body" id="register">
             <div id="content">
                 <div class="contentTop">
                     <div class="contentMiddle">

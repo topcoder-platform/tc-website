@@ -14,35 +14,17 @@
         <jsp:param name="key" value="tc_aolicq"/>
     </jsp:include>
 
-    
-
-    <script type="text/javascript">
-        function preloadTabs() {
-            var img = new Image();
-            img.src = '/i/events/aolicq/tabs/registerOn.png';
-            img.src = '/i/events/aolicq/tabs/submitOn.png';
-            img.src = '/i/events/aolicq/tabs/apisOn.png';
-            img.src = '/i/events/aolicq/tabs/discussOn.png';
-        }
-    </script>
 
 </head>
 
 <body>
 
-<jsp:include page="tcTop.jsp"/>
-
-<div align="center">
-    <div id="aimFrame">
-        <div id="aimFrameN">
-            <div id="aimFrameS">
-
-                 
-
-                <div class="content" align="right">
-                    <div class="contentTexture">
-                        <jsp:include page="topNav.jsp"/>
-                        <div class="siteBoxFull">
+<jsp:include page="topNav.jsp">
+	<jsp:param name="active_page" value="register"/>
+</jsp:include>
+   <div id="wrapper">
+<jsp:include page="aolicqTop.jsp"/>
+        <div class="secondary-body" id="register">
 
 <%--
                 <div class="linkBox"><aolicq:forumLink forumID="${contest.forumId}"/></div>
@@ -53,12 +35,11 @@
                 </div>
 --%>
 
-                <h1>Contest Registration</h1>
+                <h2>Contest Registration</h2>
 
                 <div align="center">
-                    Please read through the following terms, check off <strong>"I agree"</strong>, and click Submit when you're done.
-                    <br /><br />
-
+                   <p> Please read through the following terms, check off <strong>"I agree"</strong>, and click Submit when you're done.</p>
+                    
                     <form name="terms" method="POST" action="${sessionInfo.servletPath}">
                         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Register"/>
                         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
