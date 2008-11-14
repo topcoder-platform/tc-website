@@ -104,3 +104,5 @@
     <script src="/js/cockpit/jquery-1.2.6.min.js" type="text/javascript"></script>
 	<script type="text/JavaScript" src="/js/killerapp/AJAXProcessor.js"></script>
 		<script type="text/JavaScript" src="/js/killerapp/RSSProcessor.js"></script>   
+
+    <script type="text/javascript" src="/js/popup.js"></script>

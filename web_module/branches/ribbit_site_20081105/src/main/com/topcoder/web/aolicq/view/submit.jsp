@@ -63,7 +63,8 @@
         // -->
     </script>
 
-
+    
+    <script type="text/javascript" src="/js/popup.js"></script>
 </head>
 
 
@@ -201,8 +202,6 @@
 
         <br /><br />
 <div class="statHolder">
-    <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
-    <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
     <div class="container">
         <table class="stat" cellpadding="0" cellspacing="0">
             <thead>
@@ -249,8 +248,6 @@
             </tbody>
         </table>
     </div>
-    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
-    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
 </div>
 
     </form>
