@@ -94,20 +94,20 @@
 						
 						<ul class="judges">
 							<li>
-								<img src="/images/killerapp/judges-temp.png" />
-								<h4>Judge Name 1</h4>
-								<p>Some description</p>
-							</li>
-							<li>
-								<img src="/images/killerapp/judges-temp.png" />
-								<h4>Judge Name 2</h4>
-								<p>Some description</p>
-							</li>
-							<li>
-								<img src="/images/killerapp/judges-temp.png" />
-								<h4>Judge Name 3</h4>
-								<p>Some description</p>
-							</li>
+                                <img src="/images/killerapp/judges-temp.png" />
+                                <h4>Lee Brimelow</h4>
+                                <p class="title">Flash Platform Evangelist, Adobe<br /><a href="http://theflashblog.com/">Lee's Blog</a></p>
+                            </li>
+                            <li>
+                                <img src="/images/killerapp/judges-temp.png" />
+                                <h4>Daniel Dura</h4>
+                                <p class="title">AIR Evangelist, Adobe<br  /><a href="http://www.danieldura.com/">Daniel's Blog</a></p>
+                            </li>
+                            <li>
+                                <img src="/images/killerapp/judges-temp.png" />
+                                <h4>Matt Chotin</h4>
+                                <p class="title">Sr. Product Manager, Adobe<br /><a href="http://flex.org/">Matt's Blog</a></p>
+                            </li>
 						</ul>
 					</div>
 				</div>
