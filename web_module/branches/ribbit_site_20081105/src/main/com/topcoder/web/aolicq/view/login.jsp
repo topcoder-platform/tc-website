@@ -107,11 +107,6 @@
                                 </table>
 
                                 <br /><br />
-
-                                <script type="text/javascript">
-                                    document.frmLogin.<%=Login.USER_NAME%>.focus();
-                                </script>
-
                             </div>
               </form>
                

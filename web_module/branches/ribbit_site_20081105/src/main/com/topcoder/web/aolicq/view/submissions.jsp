@@ -54,6 +54,7 @@
         myForm.submit();
     }
     //--></script>
+    <script type="text/javascript" src="/js/popup.js"></script>
 </head>
 
 <body>
@@ -213,7 +214,7 @@
                         <c:otherwise>
                             <div align="center">
                                 <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                    <img src="/i/events/aolicq/interface/magnify.png" alt="" onmouseover="popUp(this,'popView')" onmouseout="popHide()" />
+                                    <img src="/i/events/aolicq/interface/magnify.png" alt="" onMouseOver="popUp(this,'popView')" onMouseOut="popHide()" />
                                 </a>
                             </div>
                         </c:otherwise>
@@ -221,11 +222,11 @@
                 </td>
             </c:when>
             <c:otherwise>
-                <td class="valueR">
-                    &nbsp;
+                <td class="valueR">&nbsp;
+                    
                 </td>
                 <td class="valueC">
-                    <img src="/i/layout/fail.png" alt="failed" onmouseover="popUp(this,'popFail')" onmouseout="popHide()" />
+                    <img src="/i/layout/fail.png" alt="failed" onMouseOver="popUp(this,'popFail')" onMouseOut="popHide()" />
                 </td>
 
             </c:otherwise>
