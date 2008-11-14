@@ -55,11 +55,12 @@
                         </tr>
                     </table>
                 </div>
+            	
             	<h2>KILLER IDEAS, KILLER APPS</h2>
-            	<p>Ribbit has teamed up with TopCoder to find out what will happen when we put the power of the Ribbit Voice Platform into the hands of the most creative Flash &amp; Flex developers in the world.</p>
-            	<p>Using the Ribbit Voice Platform, voice is now a programmable feature that is free from the traditional device. It can go anywhere... on a phone, on a webpage, inside email, and in an existing app. Voice can now live inside any environment including online communities or stores, CRM systems, call center applications, media properties - you name it.</p>
+            	<p>Ribbit&rsquo;s Open Telephony Platform gives you direct access to the world&rsquo;s first global, programmable phone company. And, we&rsquo;ve teamed up with TopCoder to find out what will happen when we put that power into the hands of the most creative Flash & Flex developers in the world.</p>
+            	<p>With Ribbit, voice is now a programmable feature that is free from the traditional device. It can go anywhere&hellip; on a phone, on a webpage, inside email, and in an existing app. Voice can now live inside any environment including online communities or stores, CRM systems, call center applications, media properties - you name it.</p>
             	<p>This competition is your chance to show your stuff. Build a great app, have it reviewed by a panel of highly respected judges from around the industry, and you can win big money in any of our five contest categories, and at three checkpoints along the way.</p>
-            	<p>Click here to learn more about how to compete and the benefits of submitting early.</p>
+            	<p>Submit early to be eligible for Check Point Awards. Check Point winners will gain first hand feedback for improving and enhancing submissions &mdash; increasing your chances of creating the ultimate Killer App and winning the Grand Prize.</p>
             	<p>Good Luck!</p>
             </div>
             
@@ -69,7 +70,7 @@
             	<ol>
                 	<li><strong>Register for a developer id at <a href="http://developer.ribbit.com/register/">ribbit.com.</a></strong></li>
                     <li class="two"><strong><a href="https://www.topcoder.com/reg/?module=Main&amp;rt=2">Sign up</a> to become a Topcoder member </strong><br />
-The Killer App Challenge is run using TopCoder's patented competition engine and administered by TopCoder's professional competition staff. TopCoder members are a worldwide community of programmers who compete in algorithm and development contests for prize money. Become a member now to compete in this challenge and other TopCoder contests! If you are already a TopCoder member, go to step 3. <a href="https://www..topcoder.com/reg/?module=Main&amp;rt=2">Sign up at TopCoder &gt;&gt;</a></li>
+                    The Killer App Challenge is run using TopCoder's patented competition engine and administered by TopCoder's professional competition staff. TopCoder members are a worldwide community of programmers who compete in algorithm and development contests for prize money. Become a member now to compete in this challenge and other TopCoder contests! If you are already a TopCoder member, go to step 3. <a href="https://www..topcoder.com/reg/?module=Main&amp;rt=2">Sign up at TopCoder &gt;&gt;</a></li>
                   <li class="three"><strong><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=1002">Register</a> for the Ribbit Killer App Challenge now!</strong><br />Once you are a TopCoder member, all you have to do is register for the Ribbit Killer App Challenge! Register now to participate in this contest! <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&ct=1002">Contest registration >></a> </li>
                     <li class="four"><strong><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&ct=1002">Submit</a> your application</strong><br />  Once your app is live, submit it to the contest. You will need to submit a zip file to TopCoder which includes 2 items: 
                     	<ol class="sublist">
