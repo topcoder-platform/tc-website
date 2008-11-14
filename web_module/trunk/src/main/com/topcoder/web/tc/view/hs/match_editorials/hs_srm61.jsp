@@ -75,7 +75,7 @@ The Problems
 <strong><a href="/stat?c=problem_statement&amp;pm=10176&amp;rd=13530" name="10176">MagicSpell</a></strong> 
 </font> 
 <a href="Javascript:openProblemRating(10176)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></a> 
-<a href="http://forums.topcoder.com/?module=ThreadList&amp;forumID=524439" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></a>
+<a href="http://forums.topcoder.com/?module=ThreadList&amp;forumID=524439" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></a>
 <br /> 
 Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
@@ -159,7 +159,7 @@ public class MagicSpell {
 <strong><a href="/stat?c=problem_statement&amp;pm=10177&amp;rd=13530" name="10177">ProductOfDigits</a></strong> 
 </font> 
 <a href="Javascript:openProblemRating(10177)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></a> 
-<a href="http://forums.topcoder.com/?module=ThreadList&amp;forumID=524439" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></a>
+<a href="http://forums.topcoder.com/?module=ThreadList&amp;forumID=524439" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></a>
 <br /> 
 Used as: Division One - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
@@ -356,7 +356,7 @@ its digits in decimal notation is exactly <strong>N</strong>.</p>
 <strong><a href="/stat?c=problem_statement&amp;pm=10173&amp;rd=13530" name="10173">ProgrammingRobots</a></strong> 
 </font> 
 <a href="Javascript:openProblemRating(10173)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></a> 
-<a href="http://forums.topcoder.com/?module=ThreadList&amp;forumID=524439" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></a>
+<a href="http://forums.topcoder.com/?module=ThreadList&amp;forumID=524439" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></a>
 <br /> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
