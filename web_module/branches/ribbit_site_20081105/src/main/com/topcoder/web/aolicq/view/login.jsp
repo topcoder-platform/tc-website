@@ -17,18 +17,6 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_aolicq"/>
     </jsp:include>
-
-    
-
-    <script type="text/javascript">
-        function preloadTabs() {
-            var img = new Image();
-            img.src = '/i/events/aolicq/tabs/registerOn.png';
-            img.src = '/i/events/aolicq/tabs/submitOn.png';
-            img.src = '/i/events/aolicq/tabs/apisOn.png';
-            img.src = '/i/events/aolicq/tabs/discussOn.png';
-        }
-    </script>
     <script type="text/javascript" src="/js/arena.js"></script>
     <script type="text/javascript">
         function submitEnter(e) {
@@ -73,7 +61,7 @@
                             and we can help you restore your account.</p>
 
                         <br /><br />
-                        <strong>New to TopCoder Aolicq?</strong><br />
+                        <strong>New to TopCoder?</strong><br />
                         <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/?module=Main&amp;rt=9">Register now</a>. After you complete
                         the
                         registration process,
