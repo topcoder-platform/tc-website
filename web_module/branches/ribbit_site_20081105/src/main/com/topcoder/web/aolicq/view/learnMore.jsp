@@ -41,24 +41,11 @@
 					
 					<p>Anything you want! We will be awarding grand prizes in the following categories:</p>
 						<ul>
-<<<<<<< .mine
-							<li><span class="category">Business and Productivity</span> - Push business apps even further by bringing voice and rich communication features into the application workflow. <a 
-href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=business">(Category Details)</a></li>
-							<li><span class="category">Carrier and Network Integration</span> - Show us the most innovative integration to an existing cable, carrier or mobile network. <a 
-href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=carrier">(Category Details)</a></li>
-							<li><span class="category">Media, Advertising and Entertainment</span> - To win this category you need to captivate an audience and add unprecedented interactive value. <a 
-href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=media">(Category Details)</a></li>
-							<li><span class="category">Social Networking and Communication</span> - Give us a Web 3.0 preview with the best example of connecting people via open telephony. <a 
-href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=socialNetworking">(Category Details)</a></li>
-							<li><span class="category">Wildcard</span> - Blow us away by improving the usability of any device or interface (from vending machines to ticket kiosks). <a 
-href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=wildcard">(Category Details)</a></li>
-=======
-							<li><span class="category">Business and Productivity</span> - Push business apps even further by bringing voice and rich communication features into the application workflow. <a href="#">(Category Details)</a></li>
-							<li><span class="category">Carrier and Network Integration</span> - Show us the most innovative integration to an existing cable, carrier or mobile network. <a href="#">(Category Details)</a></li>
-							<li><span class="category">Media, Advertising and Entertainment</span> - To win this category you need to captivate an audience and add unprecedented interactive value. <a href="#">(Category Details)</a></li>
-							<li><span class="category">Social Networking and Communication</span> - Give us a Web 3.0 preview with the best example of connecting people via open telephony. <a href="#">(Category Details)</a></li>
-							<li><span class="category">Wildcard</span> - Blow us away by improving the usability of any device or interface (from vending machines to ticket kiosks). <a href="#">(Category Details)</a></li>
->>>>>>> .r73662
+							<li><span class="category">Media, Advertising and Entertainment</span> - To win this category you need to captivate an audience and add unprecedented interactive value. <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=media">(Category Details)</a></li>
+							<li><span class="category">Social Networking and Communication</span> - Give us a Web 3.0 preview with the best example of connecting people via open telephony. <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=socialNetworking">(Category Details)</a></li>
+							<li><span class="category">Business and Productivity</span> - Push business apps even further by bringing voice and rich communication features into the application workflow. <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=business">(Category Details)</a></li>
+							<li><span class="category">Carrier and Network Integration</span> - Show us the most innovative integration to an existing cable, carrier or mobile network. <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=carrier">(Category Details)</a></li>
+							<li><span class="category">Wildcard</span> - Blow us away by improving the usability of any device or interface (from vending machines to ticket kiosks). <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=wildcard">(Category Details)</a></li>
 						</ul>
 					
 					<h3>How to Compete</h3>
