@@ -109,7 +109,7 @@
    <div id="wrapper">
 <jsp:include page="aolicqTop.jsp"/>
         <div class="secondary-body" id="forums">            <h2 class="discuss">Forums</h2>                        
-               <h4 class="direction">For questions and discussions pertaining specifically to the API's and the Ribbit Voice Platform,<br/> please visit the <a href="http://developer.ribbit.com/forums/">Ribbit Developer forums.</a></h4><div class="siteBoxFull">
+               <h4 class="direction">For questions and discussions pertaining specifically to the API's and the Ribbit Voice Platform, please visit the <a href="http://developer.ribbit.com/forums/">Ribbit Developer forums.</a></h4><div class="siteBoxFull">
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>

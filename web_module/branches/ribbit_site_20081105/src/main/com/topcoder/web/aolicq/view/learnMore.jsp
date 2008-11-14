@@ -49,8 +49,6 @@
               Five, $15,000 Grand Prizes will be awarded to the Killer Apps that best utilize the Ribbit platform to captivate, innovate, and have the best overall market potential in each category. From the five category winners, one will be selected as overall winner and receive an additional $15,000 for a total of $30,000. Plus, we'll be awarding $10,000 in prizes to early submitters at three checkpoints along the way. We can't wait to see what develops!</p>
             <h3>Benefits of Submitting Early - Prizes, Feedback and Your Own Studio Competition!</h3>
             <p>In addition to the prizes awarded to each checkpoint winner,  Ribbit &amp; TopCoder will provide feedback on these apps, in order for you to continue to improve and enhance your application. Taking the advice and guidance of the judging panel to further develop your submission into a Killer App, gives you a better chance to win a grand prize at the end of the competition.</p>
-            <p>TopCoder will also award each checkpoint winner a $500 credit that can be used to run your own design competition (link to studio) on TopCoder Studio. Using this credit is entirely optional, but with it you can take advantage of the global design community of Studio to give your app a Killer UI!</p>
-            <p>To be eligible for a checkpoint prize the application must have been submitted during the applicable phase of the contest. An application submitted in one phase can be eligible for prizes at additional checkpoints only if it has been resubmitted with notable changes, upgrades, improvements or enhancements as determined by the contest judges.</p>
             <h3>How to Submit</h3>
             <p><em><strong>Get full details from Ribbit-</strong></em></p>
             <p>The requirements for submission may vary depending on the Killer App category, make sure you check out your specific category info page before submitting. (link)</p>
@@ -77,11 +75,6 @@
               A panel of judges including <em><strong>XXX</strong></em> and &quot;celebrity judges&quot; will score each app according to specific criteria in each contest category.</p>
             <p><em><strong>Little bit on the &quot;celeb judges&quot;</strong></em></p>
             <p>For more information on specific judging criteria, be sure to read the info page for the category to which you are submitting.</p>
-            <h3>Contest Details</h3>
-            <p>For contest information and details on the Ribbit API, please visit: ribbit.com/killerappchallenge.</p>
-            <p>For full contest rules, eligibility, and to register to participate, go to:topcoder.com/killerappchallenge.</p>
-            <h3>One Planet. One Phone Company</h3>
-            <p>Ribbit is a phone company without borders, and since we are now part of the BT family of companies, we'll be quickly expanding our global reach and capabilities. Already, well over 50% of our 7,000 developers are global and yes, this contest is open to everyone, (as long as it doesn't conflict with local or area restrictions) – and we can't wait to see what to see the innovative solutions you come up with.</p>
           </div>
         </div>
         
