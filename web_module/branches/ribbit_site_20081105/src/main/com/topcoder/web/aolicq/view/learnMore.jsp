@@ -108,13 +108,13 @@
                             </li>
                             <li>
                                 <img src="/images/killerapp/judge-bt.png" />
-                                <h4>BT Judge</h4>
-                                <p class="title">BT Judge Title<br  /><a href="#" target="_blank">Link</a></p>
+                                <h4>JP Rangaswami</h4>
+                                <p class="title">Managing Director, BT Design</p>
                             </li>
                             <li>
                                 <img src="/images/killerapp/judge-ribbit.png" />
-                                <h4>Ribbit Judge</h4>
-                                <p class="title">Ribbit judge title<br  /><a href="#" target="_blank">Link</a></p>
+                                <h4>Chuck Freedman</h4>
+                                <p class="title">Director of Developer Platform, Ribbit</p>
                             </li>
 						</ul>
 					</div>
