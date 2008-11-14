@@ -55,13 +55,13 @@
 						<strong>copy/paste the steps to registering</strong></em><strong><br /></strong><br />
 						Five, $15,000 Grand Prizes will be awarded to the Killer Apps that best utilize the Ribbit platform to captivate, innovate, and have the best overall market potential in each category. From the five category winners, one will be selected as overall winner and receive an additional $15,000 for a total of $30,000. Plus, we'll be awarding $10,000 in prizes to early submitters at three checkpoints along the way. We can't wait to see what develops!</p>
 					
-					<h3>Benefits of Submitting Early - Prizes, Feedback and Your Own Studio Competition!</h3>
-						<p>In addition to the prizes awarded to each checkpoint winner,  Ribbit &amp; TopCoder will provide feedback on these apps, in order for you to continue to improve and enhance your application. Taking the advice and guidance of the judging panel to further develop your submission into a Killer App, gives you a better chance to win a grand prize at the end of the competition.</p>
+						<h3>Benefits of Submitting Early - Prizes, Feedback and Your Own Studio Competition!</h3>
+							<p>In addition to the prizes awarded to each checkpoint winner,  Ribbit &amp; TopCoder will provide feedback on these apps, in order for you to continue to improve and enhance your application. Taking the advice and guidance of the judging panel to further develop your submission into a Killer App, gives you a better chance to win a grand prize at the end of the competition.</p>
 					
-					<h3>How to Submit</h3>
-						<p>The requirements for submission may vary depending on the Killer App category, so please be sure you check out your specific Category Detail page before submitting.</p>
-						<p>Once your app is live, <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=<%=Constants.MINISITE_CONTEST_ID%>">submit it to the contest</a>.</p>
-						<p>You will need to submit a zip file to TopCoder which includes 2 items:</p>
+						<h3>How to Submit</h3>
+							<p>The requirements for submission may vary depending on the Killer App category, so please be sure you check out your specific Category Detail page before submitting.</p>
+							<p>Once your app is live, <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=<%=Constants.MINISITE_CONTEST_ID%>">submit it to the contest</a>.</p>
+							<p>You will need to submit a zip file to TopCoder which includes 2 items:</p>
 						
 						<ul>
 							<li>A text document containing:
@@ -74,18 +74,15 @@
 									<li>Most importantly, a link to the URL where the application can be viewed/downloaded<br /></li>
 								</ul>
 							</li>
-							<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels).</li>
+							<li>An image file (jpg, or png) containing a screen grab or graphic representation of your application (no larger than 300x300 pixels).</li>
 							<li>(Note: Please review the Category Detail page(s) for full submission guidelines.)</li>
 						</ul>
 					
 					<h3>How Your App will be Judged</h3>
-						<p>Submissions will be judged by the Ribbit Killer App Challenge judging team.<br />
-						<br />
-						<em><strong>Need Ribbit to flesh this out.</strong></em><br />
-						<br />
-						A panel of judges including <em><strong>XXX</strong></em> and &quot;celebrity judges&quot; will score each app according to specific criteria in each contest category.</p>
+						<p>All submissions will be judged by the Ribbit Killer App Challenge judging team consisting of key representatives from Adobe, Ribbit, British Telecom, and other industry experts.</p>
+						<p>A panel of judges including <em><strong>XXX</strong></em> and &quot;celebrity judges&quot; will score each app according to specific criteria in each contest category.</p>
 						<p><em><strong>Little bit on the &quot;celeb judges&quot;</strong></em></p>
-						<p>For more information on specific judging criteria, be sure to read the info page for the category to which you are submitting.</p>
+						<p>For more information on specific judging criteria, be sure to read the detail page for the category to which you are submitting. </p>
 					</div>
 				</div>
         
