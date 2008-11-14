@@ -49,9 +49,9 @@
 						  <h4 class="red">Application Architecture</h4>
 						  <p>An application architect typically joins a project full time during the architecture phase of application production. However, an architect may be involved as early as the proposal stage. Often, a senior architect and/or the architect expected to support the project will be present at proposal meetings to help scope the project and provide technical insight to the requirements involved.</p>
 						  <h4 class="red">Information Architecture</h4>
-						  <p>An information architect works with the project manager and client in ensuring a successful project. The IA gathers project information, evaluates the IA and/or TopCoder Studio needs for a project. The IA in involved in every step of the project from information gathering, wireframe development, design and prototyping. When the project moves into assembly, the IA continues to help with any issues that may arise.</p>
+						  <p>An information architect works with the project manager and client in ensuring a successful project. The IA gathers project information, evaluates the IA and/or TopCoder Studio needs for a project. The IA is involved in every step of the project from information gathering, wireframe development, design and prototyping. When the project moves into assembly, the IA continues to help with any issues that may arise.</p>
 						  <h4 class="red">Deployment Engineering</h4>
-						  <p>The deployment engineer works with the delivery team and client to gather deployment related requirements for the project. The DE will create and manage the development and test environments on which the delivery team will debug, test, and certify the project. Also, the DE creates documentation to ensure that another resources at TopCoder or the client's site can replication a deployment and its development environment.</p>
+						  <p>The deployment engineer works with the delivery team and client to gather deployment related requirements for the project. The DE will create and manage the development and test environments on which the delivery team will debug, test, and certify the project. Also, the DE creates documentation to ensure that other resources at TopCoder or the client’s site can replicate a deployment and its development environment.</p>
 
 						</div><%-- .content_columns --%>
 						
