@@ -214,6 +214,11 @@ ding="utf-8"?>
         <!-- JSP END -->
         <div></div>
     </div>
+    
+    <!-- prizes paid box -->
+    <div id="prizesPaidBox">
+    	<p>$<%=totalPrizePaid%></p>
+    </div>
 
     <!-- news box -->
     <div id="newsBox" class="newsBox">
