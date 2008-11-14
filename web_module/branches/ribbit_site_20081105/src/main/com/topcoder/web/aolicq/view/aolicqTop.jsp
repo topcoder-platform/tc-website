@@ -16,7 +16,7 @@
             else if (e) keycode = e.which;
             else return true;
             if (keycode == 13) {
-                document.frmLogin.submit();
+                document.frmLogin2.submit();
                 return false;
             } else return true;
         }
@@ -27,12 +27,12 @@
                 <c:when test="${sessionInfo.anonymous}">
                     <div id="login">
                     <%-- Login --%>
-                        <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}" >
+                        <form method="post" name="frmLogin2" action="${sessionInfo.secureAbsoluteServletPath}" >
                             <input type="hidden" name="module" id="module" value="Login" />
-    <%--                        <a href="javascript:document.frmLogin.submit()" class="topButton" title="Log In"><span>Log In</span></a> --%>
+    <%--                        <a href="javascript:document.frmLogin2.submit()" class="topButton" title="Log In"><span>Log In</span></a> --%>
                             <input name="<%=Login.USER_NAME%>" maxlength="15" type="text" id="username" value="TopCoder Handle" onkeypress="submitEnter(event)" />
                             <input name="<%=Login.PASSWORD%>" maxlength="30" type="password" id="password" value="Password" onkeypress="submitEnter(event)" />
-                            <input type="button" class="login-button" name="login" onclick="javascript:document.frmLogin.submit()"/>
+                            <input type="button" class="login-button" name="login" onclick="javascript:document.frmLogin2.submit()"/>
                             <p class="login-links"><a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/?module=Main&rt=2">Register</a><br /><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword ">Forgot Password</a></p>
                         </form>
                     <%-- End Login --%>
