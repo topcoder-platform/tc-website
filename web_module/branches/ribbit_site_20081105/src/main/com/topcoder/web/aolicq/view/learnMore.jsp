@@ -87,7 +87,6 @@
 				</div>
         
 				<div id="right-sidebar">
-					
 					<div id="blog-posts-sidebar">
 						<h3>Judges</h3>
 						
@@ -98,14 +97,24 @@
                                 <p class="title">Flash Platform Evangelist, Adobe<br /><a href="http://theflashblog.com/" target="_blank">Lee's Blog</a></p>
                             </li>
                             <li>
+                                <img src="/images/killerapp/judge-matt.png" />
+                                <h4>Matt Chotin</h4>
+                                <p class="title">Sr. Product Manager, Adobe<br /><a href="http://flex.org/" target="_blank">Matt's Blog</a></p>
+                            </li>
+                            <li>
                                 <img src="/images/killerapp/judge-daniel.png" />
                                 <h4>Daniel Dura</h4>
                                 <p class="title">AIR Evangelist, Adobe<br  /><a href="http://www.danieldura.com/" target="_blank">Daniel's Blog</a></p>
                             </li>
                             <li>
-                                <img src="/images/killerapp/judge-matt.png" />
-                                <h4>Matt Chotin</h4>
-                                <p class="title">Sr. Product Manager, Adobe<br /><a href="http://flex.org/" target="_blank">Matt's Blog</a></p>
+                                <img src="/images/killerapp/judge-bt.png" />
+                                <h4>BT Judge</h4>
+                                <p class="title">BT Judge Title<br  /><a href="#" target="_blank">Link</a></p>
+                            </li>
+                            <li>
+                                <img src="/images/killerapp/judge-ribbit.png" />
+                                <h4>Ribbit Judge</h4>
+                                <p class="title">Ribbit judge title<br  /><a href="#" target="_blank">Link</a></p>
                             </li>
 						</ul>
 					</div>
