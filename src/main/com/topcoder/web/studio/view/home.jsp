@@ -12,7 +12,7 @@
 <% 
 NumberFormat formatter = NumberFormat.getInstance();
 formatter.setParseIntegerOnly(true);
-String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0));%>
+String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+134598);%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
