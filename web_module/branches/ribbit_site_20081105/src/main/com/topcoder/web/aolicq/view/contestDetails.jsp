@@ -162,43 +162,47 @@ ${contest.overview.value}
             	<ol>
                 	<li><strong>Register for a developer id at <a href="http://developer.ribbit.com/register/">ribbit.com.</a></strong></li>
                     <li class="two"><strong><a href="https://www.topcoder.com/reg/?module=Main&amp;rt=2">Sign up</a> to become a Topcoder member </strong><br />
-The Killer App Challenge is run using TopCoder's patented competition engine and administered by TopCoder's professional competition staff. TopCoder members are a worldwide community of programmers who compete in algorithm and development contests for prize money. Become a member now to compete in this challenge and other TopCoder contests! If you are already a TopCoder member, go to step 3. <a href="https://www..topcoder.com/reg/?module=Main&amp;rt=2">Sign up at TopCoder &gt;&gt;</a></li>
+                    The Killer App Challenge is run using TopCoder's patented competition engine and administered by TopCoder's professional competition staff. TopCoder members are a worldwide community of programmers who compete in algorithm and development contests for prize money. Become a member now to compete in this challenge and other TopCoder contests! If you are already a TopCoder member, go to step 3. <a href="https://www..topcoder.com/reg/?module=Main&amp;rt=2">Sign up at TopCoder &gt;&gt;</a></li>
                   <li class="three"><strong><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=1002">Register</a> for the Ribbit Killer App Challenge now!</strong><br />Once you are a TopCoder member, all you have to do is register for the Ribbit Killer App Challenge! Register now to participate in this contest! <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&ct=1002">Contest registration >></a> </li>
                     <li class="four"><strong><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&ct=1002">Submit</a> your application</strong><br />  Once your app is live, submit it to the contest. You will need to submit a zip file to TopCoder which includes 2 items: 
                     	<ol class="sublist">
-                        	<li>A text document containing: 
+                        	<li>A text document containing:
                             	<ul class="sublist2">
-                                	<li>Your Ribbit Developer ID </li>
-                                    <li>Your TopCoder handle name </li>
-                                    <li>A title and brief overview of the application or concept to be used as an online description </li>
-                                    <li>The prize category you are submitting to (List categories here)</li>
-                                    <li>Most importantly, a link to the URL where the application can be viewed/downloaded </li>
+                                	<li>Your TopCoder handle name</li>
+									<li>Your unique Ribbit Developer ID</li>
+									<li>The Ribbit AppID</li>
+									<li>A title and brief overview of the application to be used as an online description</li>
+									<li>The Killer App Category to which you are submitting</li>
+									<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
                                 </ul>
                             </li>
                             <li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
                         </ol>
-                    	<p>Submit early, then tell a friend - in fact, tell a hundred friends, because a large percentage of your score will depend on how many people use your app.</p>
+                    	Submit early to be eligible for Check Point Awards. Check Point winners will gain first hand feedback for improving and enhancing submissions &mdash; increasing your chances of creating the ultimate Killer App and winning the Grand Prize.
                     </li>
                 </ol>
           </div>
 
- <h3>How to Submit</h3>
+		 <h3>How to Submit</h3>
             <p>The requirements for submission may vary depending on the Killer App category, make sure you check out your specific category info page before submitting. (link)</p>
             <p>Once your app is live, <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=<%=Constants.MINISITE_CONTEST_ID%>">submit it to the contest</a>.</p>
             <p>You will need to submit a zip file to TopCoder which includes 2 items:</p>
-            <ul>
-              <li>A text document containing:
-                <ul>
-                  <li>Your TopCoder handle name</li>
-                  <li>Your unique Ribbit Developer ID</li>
-                  <li>A title and brief overview of the application to be used as an online description</li>
-                  <li>The Killer App Category to which you are submitting</li>
-                  <li>Most importantly, a link to the URL where the application can be viewed/downloaded<br />
-                    </li>
-                </ul>
-              </li>
-              <li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels).</li>
-              </ul>
+           	
+           	<ol class="sublist">
+				<li>A text document containing:
+					<ul class="sublist2">
+						<li>Your TopCoder handle name</li>
+						<li>Your unique Ribbit Developer ID</li>
+						<li>The Ribbit AppID</li>
+						<li>A title and brief overview of the application to be used as an online description</li>
+						<li>The Killer App Category to which you are submitting</li>
+						<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
+					</ul>
+				</li>
+				
+				<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
+			</ol>
+	
               
 <h3>Payment</h3>
 ${contest.prizeDescription.value}

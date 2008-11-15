@@ -63,26 +63,37 @@
 							<p>Once your app is live, <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=<%=Constants.MINISITE_CONTEST_ID%>">submit it to the contest</a>.</p>
 							<p>You will need to submit a zip file to TopCoder which includes 2 items:</p>
 						
-						<ul>
-							<li>A text document containing:
-								<ul>
-									<li>Your TopCoder handle name</li>
-									<li>Your unique Ribbit Developer ID</li>
-									<li>The Ribbit AppID</li>
-									<li>A title and brief overview of the application to be used as an online description</li>
-									<li>The Killer App Category to which you are submitting</li>
-									<li>Most importantly, a link to the URL where the application can be viewed/downloaded<br /></li>
-								</ul>
-							</li>
-							<li>An image file (jpg, or png) containing a screen grab or graphic representation of your application (no larger than 300x300 pixels).</li>
-							<li>(Note: Please review the Category Detail page(s) for full submission guidelines.)</li>
-						</ul>
+						
+						<div id="register">
+							<ol class="sublist">
+								<li>A text document containing:
+									<ul class="sublist2">
+										<li>Your TopCoder handle name</li>
+										<li>Your unique Ribbit Developer ID</li>
+										<li>The Ribbit AppID</li>
+										<li>A title and brief overview of the application to be used as an online description</li>
+										<li>The Killer App Category to which you are submitting</li>
+										<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
+									</ul>
+								</li>
+								
+								<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
+							</ol>
+							<p>(Note: Please review the Category Detail page(s) for full submission guidelines.)</p>
+						</div>
 					
 					<h3>How Your App will be Judged</h3>
 						<p>All submissions will be judged by the Ribbit Killer App Challenge judging team consisting of key representatives from Adobe, Ribbit, British Telecom, and other industry experts.</p>
-						<p>A panel of judges including <em><strong>XXX</strong></em> and &quot;celebrity judges&quot; will score each app according to specific criteria in each contest category.</p>
-						<p><em><strong>Little bit on the &quot;celeb judges&quot;</strong></em></p>
-						<p>For more information on specific judging criteria, be sure to read the detail page for the category to which you are submitting. </p>
+						
+					<h3>Overall Weighted Judging Criteria</h3>
+						<ul>
+							<li>Innovation - 40%</li>
+							<li>Usage of the Ribbit API/Rich Application Deployment - 20%</li>
+							<li>Overall User Value/Usability - 20% </li>
+							<li>Potential Audience Reached and Impacted - 20%</li>
+						</ul>
+					
+						<p>For more information on specific judging criteria, be sure to read the Category Detail page for the category to which you are submitting.</p>
 					</div>
 				</div>
         

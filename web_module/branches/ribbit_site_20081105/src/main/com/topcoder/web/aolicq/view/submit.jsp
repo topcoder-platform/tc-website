@@ -113,19 +113,25 @@
             You will need to submit a zip file to TopCoder which includes 2 items:
         </p>
         
-        <ol>
-            <li>A text document containing: 
-                <ul>
-                    <li>Your TopCoder handle name</li>
-                    <li>Your unique Aolicq API key</li>
-                    <li>Your AIM Screenname you used to acquire your API Key</li>
-                    <li>A title and brief overview of the application to be used as an online description</li>
-                    <li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
-                </ul>
-            </li>
-            <li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels).</li>
-        </ol>
-		<p></p>
+        <div id="register">
+			<ol class="sublist">
+				<li>A text document containing:
+					<ul class="sublist2">
+						<li>Your TopCoder handle name</li>
+						<li>Your unique Ribbit Developer ID</li>
+						<li>The Ribbit AppID</li>
+						<li>A title and brief overview of the application to be used as an online description</li>
+						<li>The Killer App Category to which you are submitting</li>
+						<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
+					</ul>
+				</li>
+				
+				<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
+			</ol>
+			<p>(Note: Please review the Category Detail page(s) for full submission guidelines.)</p>
+		</div>
+		
+		
         <div align="center">
             <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" onsubmit="showProcessing()">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>

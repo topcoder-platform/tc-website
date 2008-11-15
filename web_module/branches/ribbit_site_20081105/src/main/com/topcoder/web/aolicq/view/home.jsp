@@ -79,11 +79,12 @@
                     	<ol class="sublist">
                         	<li>A text document containing:
                             	<ul class="sublist2">
-                                	<li>Your Ribbit Developer ID </li>
-                                    <li>Your TopCoder handle name </li>
-                                    <li>A title and brief overview of the application or concept to be used as an online description </li>
-                                    <li>The prize category you are submitting to (List categories here)</li>
-                                    <li>Most importantly, a link to the URL where the application can be viewed/downloaded </li>
+                                	<li>Your TopCoder handle name</li>
+									<li>Your unique Ribbit Developer ID</li>
+									<li>The Ribbit AppID</li>
+									<li>A title and brief overview of the application to be used as an online description</li>
+									<li>The Killer App Category to which you are submitting</li>
+									<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
                                 </ul>
                             </li>
                             

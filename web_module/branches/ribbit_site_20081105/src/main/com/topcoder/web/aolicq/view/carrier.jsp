@@ -73,7 +73,7 @@
 					<li>A title and brief overview of the application to be used as an online description</li>
 					<li>The Killer App Category to which you are submitting</li>
 					<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels).</li>
-					<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
+					<li>Most importantly, a link to the URL where the application or prototype can be viewed/downloaded, or wireframes/drawings/video simulations <b>(nsert file size restriction)</b> that fully illustrate the core functionality and UI.</li>
 				</ul>
 			</div>
 		</div>

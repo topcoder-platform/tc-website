@@ -104,19 +104,23 @@
     You will need to submit a zip file to TopCoder which includes:
 </p>
 
-<ul>
-<li>A text document containing:
-    <ul>
-    <li>Your TopCoder handle name</li>
-    <li>Your AIM screename</li>
-    <li>Your unique AIM API key</li>
-    <li>A title and brief overview of the application to be used as an online description</li>
-    <li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
-    </ul>
-</li>
-<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels).</li>
-</ul>
-
+<div id="register">
+	<ol class="sublist">
+		<li>A text document containing:
+			<ul class="sublist2">
+				<li>Your TopCoder handle name</li>
+				<li>Your unique Ribbit Developer ID</li>
+				<li>The Ribbit AppID</li>
+				<li>A title and brief overview of the application to be used as an online description</li>
+				<li>The Killer App Category to which you are submitting</li>
+				<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
+			</ul>
+		</li>
+		
+		<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
+	</ol>
+	<p>(Note: Please review the Category Detail page(s) for full submission guidelines.)</p>
+</div>
 <p>
     Submit early, then tell a friend - in fact, tell a hundred friends, because a large percentage of your score will depend on how many people use your app.
 </p>
