@@ -27,7 +27,7 @@
 <body>
 	  
 	 <jsp:include page="topNav.jsp">
-        <jsp:param name="active_page" value="submit"/>
+        <jsp:param name="active_page" value="register"/>
     </jsp:include>
 <div id="wrapper">
 <jsp:include page="aolicqTop.jsp"/>
@@ -56,12 +56,12 @@
 
 <c:choose>
 <c:when test="${registered}">
-<%--PUT CONTENT HERE FOR WHEN THE USER HAS NOT REGISTERED FOR CONTEST YET --%>
-	<h2 class="register">Register</h2>
-</c:when>
-<c:otherwise>
 <%-- PUT CONTENT HERE FOR WHEN THE USER IS ALREADY REGISTERED. --%>
 	<h2 class="submit">Submit</h2>
+</c:when>
+<c:otherwise>
+<%--PUT CONTENT HERE FOR WHEN THE USER HAS NOT REGISTERED FOR CONTEST YET --%>
+	<h2 class="register">Register</h2>
 </c:otherwise>
 </c:choose>
 
