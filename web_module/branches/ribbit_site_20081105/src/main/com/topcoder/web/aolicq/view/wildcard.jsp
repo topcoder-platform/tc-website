@@ -45,7 +45,7 @@
 						<li>Usage of the Ribbit API/Rich Application Deployment - 20%</li>
 						<li>Overall User Value/Usability - 20% </li>
 						<li>Potential Audience Reached and Impacted - 20%</li>
-				</ul>		
+					</ul>		
 			</div>
 			</div>    
 				<div id="right-sidebar">
@@ -54,15 +54,13 @@
 						<h3 id="sub-requirements">Submission Requirements</h3>
 						
 						<ul id="requirements">
-							<li>
-                            Your TopCoder handle name</li>
+							<li>Your TopCoder handle name</li>
                             <li></li>  
                             <li>Your unique Ribbit Developer ID</li>
 							<li>The Ribbit AppID</li>
 							<li>A title and brief overview of the application to be used as an online description</li>
 							<li>The Killer App Category to which you are submitting</li>
-							<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 
-                            	pixels).</li>
+							<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels).</li>
                            <li>Most importantly, a link to the URL where the application or prototype can be viewed/downloaded, or wireframes/drawings/video simulations <b>(file size restriction)</b> that fully illustrate the core functionality and UI.</li>
 						</ul>
 					</div>
