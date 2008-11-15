@@ -30,6 +30,7 @@
         	<div class="siteBoxHalf">
         		<div style="text-align: justify;">
         			<h2>Ribbit Killer App Challenge Competition</h2>
+        			
         			<h3>Official Rules &amp; Regulations</h3>
         			
         			<p class="emphasis">NO PURCHASE NECESSARY TO ENTER OR WIN, A PURCHASE WILL NOT INCREASE YOUR CHANCE OF WINNING.  VOID WHERE PROHIBITED.</p>
@@ -66,7 +67,6 @@
 						<p>(Note: Please review the Category Detail page(s) for full submission guidelines.)</p>
 					</div>
         			
-        			
         			<p>TopCoder reserves the right to limit the participation of any person in the Competition, amend or interpret these Rules and Regulations or official communications governing the Competition or cancel the Competition for any reason with prior notice. Notices for any such amendment, interpretation or cancellation will be deemed to have been given by posting on the TopCoder website and by virtue of a Competitor&rsquo;s continued participation in the Competition. A Competitor may terminate participation in the Competition upon written notice to TopCoder.</p>
         			<p>TopCoder reserves the right at any time to disqualify Applications from the Competition where, acting in good faith, it believes there are reasonable grounds to warrant disqualification, for example, if TopCoder considers that the Application does not provide the functionality described or required or the Application appears to be purposely designed to circumvent the Ribbit APIs, Ribbit&rsquo;s Developer Terms of Service, or the spirit of the Competition.</p>
         			
@@ -82,8 +82,8 @@
 					<h3>Conditions of Participation</h3>
         			<p>By participating in the Competition, you agree to be bound by these Rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  As a condition of participating in this Competition and by submitting a Submission, each Competitor agrees to permit TopCoder and the Competition sponsor to describe, publicize, and link to your entry as described further below. </p>
         			<p>Competitors must not cheat; all ideas for any code submitted must be solely the Competitor's.  Competitors must use their own independently developed code, and shall not copy or include code from any other party, including publicly available "open source" code that is or may be subject to licensing restrictions.  Competitors may use the TopCoder component catalog when developing their Submissions for the purposes of this Competition.</p>
-        			
         			<p class="emphasis">IN ORDER TO BE ELIGIBLE, YOU WARRANT THAT YOUR SUBMITTED IDEA ENTRY:</p>
+					
 					<ul>
 						<li>Does not include or anticipate the inclusion of any unsuitable or offensive content, including nudity, sexually explicit, disparaging, libelous or other inappropriate content.</li>
 						<li>Does not contain or anticipate the inclusion of any content that is in violation of or infringes third party intellectual property rights including, but not limited to copyrights, including music copyrights, trademarks, and rights of publicity.</li>
@@ -95,15 +95,12 @@
 					</ul>
 
         			<p>Sponsor reserves the right to reject any Idea Entry that it deems, in its sole discretion, to violate any of these content related requirements.  Idea Entries must also comply with all other representations and warranties indicated in these Official Rules.  No Idea Entries will be returned.</p>
-        			
         			<p>At any time during the Competition, TopCoder may require a Competitor to submit a brief (less than 500 words) description of a Submission, including, but not limited to, a summary of the function and architecture of the Submission (&ldquo;Description&rdquo;).  If a Competitor cannot, will not or fails to provide the Description within 10 days of the request, then the Submission will be disqualified.</p>
         			<p>[Explain staged scoring and tournament-style here.]  All decisions relating to the viability of Submissions, the ranking of Submissions and all other matters pertaining to the Competition are within the sole discretion of TopCoder or its designee and shall be final and binding in all respects. </p>
         			<p>By participating in this Competition, a Competitor who wins a prize releases and agrees to hold harmless TopCoder, its affiliates, subsidiaries, sponsors, advertising and promotion agencies, and prize suppliers, and all of their respective directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in this Competition, or participation in any Competition-related activity, or the receipt, use or misuse of a prize. </p>
         			<p>TopCoder, in its sole discretion, reserves the right to disqualify any Competitor tampering with the entry process, the operation of the Web site, the Competition process, or is otherwise in violation of these Rules. TopCoder reserves the right to cancel, terminate or modify the Competition if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort. </p>
         			
         			<h3>Eligibility</h3>
-        			
-        			
         			<p>The Competition is open to all members of the TopCoder website who are at least 18 years of age.  Competitors must be (i) a U.S. citizen, (ii) a lawful permanent resident of the U.S., (iii) a temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S., or (iv) a non-U.S. resident authorized to perform services as an independent contractor.</p>
         			<p>A Competitor is not eligible for this Competition if he/she is a resident of the Quebec province of Canada, Iran, Cuba, North Korea, Sudan or Syria.  In addition, a Competitor is not eligible for this Competition if the Competitor is on the Specially Designated National list promulgated and amended, from time to time, by the United States Department of the Treasury.</p>
         			<p>All Competitors must be registered members of TopCoder, and must have agreed to these Rules prior to and as a condition for registering for this Competition. </p>
@@ -111,9 +108,6 @@
         			<p>Current employees of TopCoder and the Competition sponsor and those involved in the development, production (including prize suppliers and sponsors), implementation and distribution of this Competition and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the competition and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the Competition. </p>
         			
         			<h3>Competition Schedule</h3>
-        			
-        			
-        			
         			<p>The Competition consists of a series of 3 checkpoints and a final submission deadline. [add info about tournament]</p>
         			<p>The Schedule of the Competition is as follows:</p>
         			
