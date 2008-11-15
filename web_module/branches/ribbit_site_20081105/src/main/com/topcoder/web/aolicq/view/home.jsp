@@ -37,7 +37,19 @@
             </div>
             
             <div id="about-text">
-            	<div id="contest-stats">
+            	<div id="fiveways">
+                	<h2>5 Ways to Win</h2>
+                    <ul>
+                    	<li><a href="#">Media, Advertising &amp; Entertainment</a></li>
+                        <li><a href="#">Social Networking &amp; Communication</a></li>
+                        <li><a href="#">Business &amp; Productivity</a></li>
+                        <li><a href="#">Carrier, Network, or ISP Integration</a></li>
+                        <li><a href="#">Wildcard</a></li>
+                    </ul>
+                    <p>Submit an app in any of these <strong>5 categories</strong> for a chance to win a <strong class="prize">$15,000 1st prize</strong> or our <strong class="prize">$30,000 &quot;Best in Show&quot;</strong></p>
+                    <p><a href="#">Learn More ></a></p>
+                </div>
+                <div id="contest-stats">
                 	<h2>Latest Contest Statistics</h2>
                     <table cellpadding="0" cellspacing="0">
                         <tr>
