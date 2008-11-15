@@ -49,7 +49,7 @@
 						</ul>
 					
 					<h3>How to Compete</h3>
-						<p>Be sure to read the <b><a href="#">full contest rules</a></b>.</p>
+						<p>Be sure to read the <b><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=rules">full contest rules</a></b>.</p>
 					
 					<h3>How to Register</h3>
 						<div id="register-steps">
@@ -104,11 +104,11 @@
 								
 								<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
 							</ol>
-							<p><em>Note:</em> Please review the Category Detail page(s) for full submission guidelines.)</p>
+							<p><em>Note:</em> Please review the Category Detail page(s) for full submission guidelines.</p>
 						</div>
 					
 					<h3>How Your App will be Judged</h3>
-						<p>All submissions will be judged by the Ribbit Killer App Challenge judging team consisting of key representatives from Adobe, British Telecom, Ribbit, and other industry experts. </p>
+						<p>All submissions will be judged by the Ribbit Killer App Challenge judging team consisting of key representatives from Adobe, British Telecom, Ribbit, and other industry experts.</p>
 						
 					<h3>Overall Weighted Judging Criteria</h3>
 						<ul>
