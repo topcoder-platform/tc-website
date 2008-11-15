@@ -31,57 +31,55 @@
 				<h3 class="highlight">Winning Entry will receive $15,000.00</h3>
 					<h3>Overview</h3>
 
-            <p>Ribbit has brought together the new world of the internet with the legacy worlds of telephony and carriers by building "carrier grade" technology and infrastructure and opening it up to web developers. As a result, traditional communication companies around the world are turning to the Ribbit Platform to create the next generation of applications that their customers are looking for.</p> 
+            		<p>Ribbit has brought together the new world of the internet with the legacy worlds of telephony and carriers by building "carrier grade" technology and infrastructure and opening it up to web developers. As a result, traditional communication companies around the world are turning to the Ribbit Platform to create the next generation of applications that their customers are looking for.</p> 
 
-        <p>Some examples of applications in this category might be:</p>
-        <ul>
-            <li>Visual Voicemail (Mobile and Landline) applications built into various user portals</li>
-            <li>Integration of Flash-based phones with inbound and outbound calling features into different Web Pages</li>
-            <li>A mash-up of a soft-phone into a commercial web site</li>
-            <li>Innovative use of VTT (Voice-to-Text) and notification services within a UC application</li>
-        </ul>
+        			<p>Some examples of applications in this category might be:</p>
+					<ul>
+						<li>Visual Voicemail (Mobile and Landline) applications built into various user portals</li>
+						<li>Integration of Flash-based phones with inbound and outbound calling features into different Web Pages</li>
+						<li>A mash-up of a soft-phone into a commercial web site</li>
+						<li>Innovative use of VTT (Voice-to-Text) and notification services within a UC application</li>
+					</ul>
 	
-    	<h3>Category Judging Criteria</h3>
-        
-        <p>Show us the most innovative integration to an existing cable, carrier, mobile network, or ISP. </p>
-       
-            <p>In addition to the overall judging criteria below, judges will assign points for:<br/> 
-            <ul>
-                   <li>Utility of the application/service to the end user</li>
-                    <li>Improvement in User Productivity</li>
-                    <li>True integration of Web and Voice technology</li>
-        	</ul>
-                <h3>Overall Weighted Judging Criteria </h3>
-			<ul>
-            	<li>Innovation - 40%</li>
-                <li>Usage of the Ribbit API/Rich Application Deployment - 20%</li>
-				<li>Overall User Value/Usability - 20% </li>
-				<li>Potential Audience Reached and Impacted - 20%</li>
-		</ul>		
+				<h3>Category Judging Criteria</h3>
+				
+				<p>Show us the most innovative integration to an existing cable, carrier, mobile network, or ISP. </p>
+				
+				<p>In addition to the overall judging criteria below, judges will assign points for:</p>
+					<ul>
+						<li>Utility of the application/service to the end user</li>
+						<li>Improvement in User Productivity</li>
+						<li>True integration of Web and Voice technology</li>
+					</ul>
+				
+				<h3>Overall Weighted Judging Criteria </h3>
+					<ul>
+						<li>Innovation - 40%</li>
+						<li>Usage of the Ribbit API/Rich Application Deployment - 20%</li>
+						<li>Overall User Value/Usability - 20% </li>
+					<li>Potential Audience Reached and Impacted - 20%</li>
+				</ul>		
+			</div>
+			</div>    
+			<div id="right-sidebar">
+			<div id="blog-posts-sidebar">
+				<h3 id="sub-requirements">Submission Requirements</h3>
+				
+				<ul id="requirements">
+					<li>Your TopCoder handle name</li>
+					<li></li>  
+					<li>Your unique Ribbit Developer ID</li>
+					<li>The Ribbit AppID</li>
+					<li>A title and brief overview of the application to be used as an online description</li>
+					<li>The Killer App Category to which you are submitting</li>
+					<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels).</li>
+					<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
+				</ul>
+			</div>
+		</div>
+		<p style="clear:both;"></p>
 	</div>
-    </div>    
-				<div id="right-sidebar">
-					
-					<div id="blog-posts-sidebar">
-						<h3 id="sub-requirements">Submission Requirements</h3>
-						
-						<ul id="requirements">
-							<li>
-                            Your TopCoder handle name</li>
-                            <li></li>  
-                            <li>Your unique Ribbit Developer ID</li>
-							<li>The Ribbit AppID</li>
-							<li>A title and brief overview of the application to be used as an online description</li>
-							<li>The Killer App Category to which you are submitting
-							<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 
-                            	pixels).</li>
-                           <li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
-						</ul>
-					</div>
-				</div>
-        	<p style="clear:both;"></p>
-        </div>
-       </div>
+</div>
 <jsp:include page="tcFoot.jsp"/>
 
 </body>
