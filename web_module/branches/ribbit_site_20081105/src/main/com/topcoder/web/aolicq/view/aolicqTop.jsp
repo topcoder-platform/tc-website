@@ -30,8 +30,8 @@
                         <form method="post" name="frmLogin2" action="${sessionInfo.secureAbsoluteServletPath}" >
                             <input type="hidden" name="module" id="module" value="Login" />
     <%--                        <a href="javascript:document.frmLogin2.submit()" class="topButton" title="Log In"><span>Log In</span></a> --%>
-                            <input name="<%=Login.USER_NAME%>" maxlength="15" type="text" id="username" value="TopCoder Handle" onkeypress="submitEnter2(event)" />
-                            <input name="<%=Login.PASSWORD%>" maxlength="30" type="password" id="password" value="Password" onkeypress="submitEnter2(event)" />
+                            <input name="<%=Login.USER_NAME%>" maxlength="15" type="text" id="username" value="TopCoder Handle" onkeypress="submitEnter2(event)" class="textfield" />
+                            <input name="<%=Login.PASSWORD%>" maxlength="30" type="password" id="password" value="Password" onkeypress="submitEnter2(event)" class="textfield" />
                             <input type="button" class="login-button" name="login" onclick="javascript:document.frmLogin2.submit()"/>
                             <p class="login-links"><a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/?module=Main&rt=2">Register</a><br /><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword ">Forgot Password</a></p>
                         </form>
