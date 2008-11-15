@@ -49,14 +49,39 @@
 						</ul>
 					
 					<h3>How to Compete</h3>
-						<p>Be sure to read the <b><a href="#">full contest rules</a></b>.<br />
-						<br />
-						
-						<strong>copy/paste the steps to registering</strong><br /><br />
-						Five, $15,000 Grand Prizes will be awarded to the Killer Apps that best utilize the Ribbit platform to captivate, innovate, and have the best overall market potential in each category. From the five category winners, one will be selected as overall winner and receive an additional $15,000 for a total of $30,000. Plus, we'll be awarding $10,000 in prizes to early submitters at three checkpoints along the way. We can't wait to see what develops!</p>
+						<p>Be sure to read the <b><a href="#">full contest rules</a></b>.</p>
+					
+					<h3>How to Register</h3>
+						<div id="register-steps">
+							<p>Participation in the Ribbit Killer App Challenge is completely FREE! Just follow the simple steps below and you'll be on your way to possibly claiming some of our $100,000 in prize money! Here's a quick overview:</p>
+							<ol>
+								<li><strong>Register for a developer id at <a href="http://developer.ribbit.com/register/">ribbit.com.</a></strong></li>
+								<li class="two"><strong><a href="https://www.topcoder.com/reg/?module=Main&amp;rt=2">Sign up</a> to become a Topcoder member </strong><br />
+								The Killer App Challenge is run using TopCoder's patented competition engine and administered by TopCoder's professional competition staff. TopCoder members are a worldwide community of programmers who compete in algorithm and development contests for prize money. Become a member now to compete in this challenge and other TopCoder contests! If you are already a TopCoder member, go to step 3. <a href="https://www..topcoder.com/reg/?module=Main&amp;rt=2">Sign up at TopCoder &gt;&gt;</a></li>
+								<li class="three"><strong><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=1002">Register</a> for the Ribbit Killer App Challenge now!</strong><br />Once you are a TopCoder member, all you have to do is register for the Ribbit Killer App Challenge! Register now to participate in this contest! <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&ct=1002">Contest registration >></a> </li>
+								<li class="four"><strong><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&ct=1002">Submit</a> your application</strong><br />  Once your app is live, submit it to the contest. You will need to submit a zip file to TopCoder which includes 2 items: 
+									
+									<ol class="sublist">
+										<li>A text document containing:
+											<ul class="sublist2">
+												<li>Your TopCoder handle name</li>
+												<li>Your unique Ribbit Developer ID</li>
+												<li>The Ribbit AppID (assigned when you create a project for the contest) </li>
+												<li>A title and brief overview of the application to be used as an online description</li>
+												<li>The Killer App Category to which you are submitting</li>
+												<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
+											</ul>
+										</li>
+										<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
+									</ol>
+								</li>
+							</ol>
+					  	</div>
+					  
+						<p>Five, $15,000 Grand Prizes will be awarded to the Killer Apps that best utilize the Ribbit platform to captivate, innovate, and have the best overall market potential in each category. From the five category winners, one will be selected as overall winner and receive an additional $15,000 for a total of $30,000. Plus, we'll be awarding $10,000 in prizes to early submitters at three checkpoints along the way. We can't wait to see what develops!</p>
 					
 						<h3>Benefits of Submitting Early - Prizes, Feedback and Your Own Studio Competition!</h3>
-							<p>In addition to the prizes awarded to each checkpoint winner,  Ribbit &amp; TopCoder will provide feedback on these apps, in order for you to continue to improve and enhance your application. Taking the advice and guidance of the judging panel to further develop your submission into a Killer App, gives you a better chance to win a grand prize at the end of the competition.</p>
+							<p>In addition to the prizes awarded to each checkpoint winner, Ribbit &amp; TopCoder will provide feedback on these apps, in order for you to continue to improve and enhance your application. Taking the advice and guidance of the judging panel to further develop your submission into a Killer App, gives you a better chance to win a grand prize at the end of the competition.</p>
 					
 						<h3>How to Submit</h3>
 							<p>The requirements for submission may vary depending on the Killer App category, so please be sure you check out your specific Category Detail page before submitting.</p>
@@ -70,7 +95,7 @@
 									<ul class="sublist2">
 										<li>Your TopCoder handle name</li>
 										<li>Your unique Ribbit Developer ID</li>
-										<li>The Ribbit AppID</li>
+										<li>The Ribbit AppID (assigned when you create a project for the contest) </li>
 										<li>A title and brief overview of the application to be used as an online description</li>
 										<li>The Killer App Category to which you are submitting</li>
 										<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
@@ -79,11 +104,11 @@
 								
 								<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
 							</ol>
-							<p>(Note: Please review the Category Detail page(s) for full submission guidelines.)</p>
+							<p><em>Note:</em> Please review the Category Detail page(s) for full submission guidelines.)</p>
 						</div>
 					
 					<h3>How Your App will be Judged</h3>
-						<p>All submissions will be judged by the Ribbit Killer App Challenge judging team consisting of key representatives from Adobe, Ribbit, British Telecom, and other industry experts.</p>
+						<p>All submissions will be judged by the Ribbit Killer App Challenge judging team consisting of key representatives from Adobe, British Telecom, Ribbit, and other industry experts. </p>
 						
 					<h3>Overall Weighted Judging Criteria</h3>
 						<ul>

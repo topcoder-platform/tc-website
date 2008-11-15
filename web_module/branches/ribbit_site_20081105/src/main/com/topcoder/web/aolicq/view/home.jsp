@@ -61,14 +61,14 @@
             	<p>With Ribbit, voice is now a programmable feature that is free from the traditional device. It can go anywhere&hellip; on a phone, on a webpage, inside email, and in an existing app. Voice can now live inside any environment including online communities or stores, CRM systems, call center applications, media properties - you name it.</p>
 
             	<p>This competition is your chance to show your stuff. Build a great app, have it reviewed by a panel of highly respected judges from around the industry, and you can win big money in any of our five contest categories: <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=media">Media, Advertising and Entertainment</a>, <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=socialNetworking">Social Networking and Communication</a>, <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=business">Business and Productivity</a>, <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=carrier">Carrier, Network, or ISP Integration</a>, and <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=wildcard">Wildcard</a>.</p>
-            	<p><a href="#">Click here</a> to learn more about how to compete and the benefits of submitting early.</p>
+            	<p><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=learnMore"">Click here</a> to learn more about how to compete and the benefits of submitting early.</p>
 
 				<p>Good Luck!</p>
             </div>
             
             <div id="register-steps">
             	<h2>Steps to Register</h2>
-                <p>Participation in the Ribbit Killer App Challenge is completely FREE! Just follow the simple steps below and you'll be on your way to possibly claiming some of our $100,000 in prize money! Here's a quick overview: :</p>
+                <p>Participation in the Ribbit Killer App Challenge is completely FREE! Just follow the simple steps below and you'll be on your way to possibly claiming some of our $100,000 in prize money! Here's a quick overview:</p>
             	<ol>
                 	<li><strong>Register for a developer id at <a href="http://developer.ribbit.com/register/">ribbit.com.</a></strong></li>
                     <li class="two"><strong><a href="https://www.topcoder.com/reg/?module=Main&amp;rt=2">Sign up</a> to become a Topcoder member </strong><br />
@@ -81,13 +81,12 @@
                             	<ul class="sublist2">
                                 	<li>Your TopCoder handle name</li>
 									<li>Your unique Ribbit Developer ID</li>
-									<li>The Ribbit AppID</li>
+									<li>The Ribbit AppID (assigned when you create a project for the contest) </li>
 									<li>A title and brief overview of the application to be used as an online description</li>
 									<li>The Killer App Category to which you are submitting</li>
 									<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
                                 </ul>
                             </li>
-                            
                             <li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
                         </ol>
                     	Submit early to be eligible for Check Point Awards. Check Point winners will gain first hand feedback for improving and enhancing submissions &mdash; increasing your chances of creating the ultimate Killer App and winning the Grand Prize.

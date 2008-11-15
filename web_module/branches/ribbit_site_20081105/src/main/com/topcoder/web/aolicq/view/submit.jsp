@@ -119,16 +119,15 @@
 					<ul class="sublist2">
 						<li>Your TopCoder handle name</li>
 						<li>Your unique Ribbit Developer ID</li>
-						<li>The Ribbit AppID</li>
+						<li>The Ribbit AppID (assigned when you create a project for the contest) </li>
 						<li>A title and brief overview of the application to be used as an online description</li>
 						<li>The Killer App Category to which you are submitting</li>
 						<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
 					</ul>
 				</li>
-				
 				<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
 			</ol>
-			<p>(Note: Please review the Category Detail page(s) for full submission guidelines.)</p>
+			<p><em>Note:</em> Please review the Category Detail page(s) for full submission guidelines.</p>
 		</div>
 		
 		

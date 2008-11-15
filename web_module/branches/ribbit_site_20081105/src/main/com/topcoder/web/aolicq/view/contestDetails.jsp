@@ -163,21 +163,22 @@ ${contest.overview.value}
     </c:if>
 </c:if>
 
-<div id="register-steps">
-            	<h2>How to Register</h2>
-                <p>Participation in the Ribbit Killer App Challenge is completely FREE! Just follow the simple steps below and you'll be on your way to possibly claiming some of our $100,000 in prize money! Here's a quick overview: :</p>
+		<div id="register-steps">
+            <h2>How to Register</h2>
+                <p>Participation in the Ribbit Killer App Challenge is completely FREE! Just follow the simple steps below and you'll be on your way to possibly claiming some of our $100,000 in prize money! Here's a quick overview:</p>
             	<ol>
                 	<li><strong>Register for a developer id at <a href="http://developer.ribbit.com/register/">ribbit.com.</a></strong></li>
                     <li class="two"><strong><a href="https://www.topcoder.com/reg/?module=Main&amp;rt=2">Sign up</a> to become a Topcoder member </strong><br />
                     The Killer App Challenge is run using TopCoder's patented competition engine and administered by TopCoder's professional competition staff. TopCoder members are a worldwide community of programmers who compete in algorithm and development contests for prize money. Become a member now to compete in this challenge and other TopCoder contests! If you are already a TopCoder member, go to step 3. <a href="https://www..topcoder.com/reg/?module=Main&amp;rt=2">Sign up at TopCoder &gt;&gt;</a></li>
-                  <li class="three"><strong><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=1002">Register</a> for the Ribbit Killer App Challenge now!</strong><br />Once you are a TopCoder member, all you have to do is register for the Ribbit Killer App Challenge! Register now to participate in this contest! <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&ct=1002">Contest registration >></a> </li>
+                  	<li class="three"><strong><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=1002">Register</a> for the Ribbit Killer App Challenge now!</strong><br />Once you are a TopCoder member, all you have to do is register for the Ribbit Killer App Challenge! Register now to participate in this contest! <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&ct=1002">Contest registration >></a> </li>
                     <li class="four"><strong><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&ct=1002">Submit</a> your application</strong><br />  Once your app is live, submit it to the contest. You will need to submit a zip file to TopCoder which includes 2 items: 
+                    	
                     	<ol class="sublist">
                         	<li>A text document containing:
                             	<ul class="sublist2">
                                 	<li>Your TopCoder handle name</li>
 									<li>Your unique Ribbit Developer ID</li>
-									<li>The Ribbit AppID</li>
+									<li>The Ribbit AppID (assigned when you create a project for the contest) </li>
 									<li>A title and brief overview of the application to be used as an online description</li>
 									<li>The Killer App Category to which you are submitting</li>
 									<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
@@ -191,24 +192,56 @@ ${contest.overview.value}
           </div>
 
 		 <h3>How to Submit</h3>
-            <p>The requirements for submission may vary depending on the Killer App category, make sure you check out your specific category info page before submitting. (link)</p>
+            <p>The requirements for submission may vary depending on the Killer App category, so please be sure you check out your specific category info page before submitting.</p>
             <p>Once your app is live, <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=<%=Constants.MINISITE_CONTEST_ID%>">submit it to the contest</a>.</p>
             <p>You will need to submit a zip file to TopCoder which includes 2 items:</p>
            	
-           	<ol class="sublist">
-				<li>A text document containing:
-					<ul class="sublist2">
-						<li>Your TopCoder handle name</li>
-						<li>Your unique Ribbit Developer ID</li>
-						<li>The Ribbit AppID</li>
-						<li>A title and brief overview of the application to be used as an online description</li>
-						<li>The Killer App Category to which you are submitting</li>
-						<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
-					</ul>
-				</li>
-				
-				<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
-			</ol>
+           	<div id="register">
+				<ol class="sublist">
+					<li>A text document containing:
+						<ul class="sublist2">
+							<li>Your TopCoder handle name</li>
+							<li>Your unique Ribbit Developer ID</li>
+							<li>The Ribbit AppID (assigned when you create a project for the contest) </li>
+							<li>A title and brief overview of the application to be used as an online description</li>
+							<li>The Killer App Category to which you are submitting</li>
+							<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
+						</ul>
+					</li>
+					
+					<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
+				</ol>
+				<p><em>Note:</em> Please review the Category Detail page(s) for full submission guidelines.)</p>
+			</div>
+			
+			<div align="center" id="schedule">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<th>Event</th>
+						<th>Date/Time</th>
+					</tr>
+					<tr>
+						<td>Competition Start</td>
+						<td>November 17, 2008 at 12:01AM EDT</td>
+					</tr>
+					<tr>
+						<td>Checkpoint 1</td>
+						<td>January 5, 2009 at 11:59 PM EDT</td>
+					</tr>
+					<tr>
+						<td>Checkpoint 2</td>
+						<td>February 2, 2009 at 11:59 PM EDT</td>
+					</tr>
+					<tr>
+						<td>Checkpoint 3</td>
+						<td>February 23, 2009 at 11:59 PM EDT</td>
+					</tr>
+					<tr>
+						<td>Contest End</td>
+						<td>March 12, 2009 at 11:59 PM EDT</td>
+					</tr>
+				</table>
+			</div>
 	
               
 <h3>Payment</h3>
