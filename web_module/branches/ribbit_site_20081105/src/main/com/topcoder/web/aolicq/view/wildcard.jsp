@@ -35,19 +35,19 @@
                     <p>Some examples of applications in this category might be: [NEED TO CHNGE THIS HEADER]<br/>
                     For the first time, you have at your disposal a fully programmable phone company. Think of all the devices you use on a daily basis. If those were hooked into the phone network, what could you do? Could you call your spouse on his/her way home from work from the fridge if you're low on milk? Could you check your voicemail from the airplane? Could you call your friends before buying tickets at a kiosk?</p>
 	
-    	<h3>Category Judging Criteria</h3>
+    				<h3>Category Judging Criteria</h3>
         
-        <p>We're looking for the most cutting edge use of Ribbit in an advanced device. Although we're not expecting a full app here, you can really blow us away by seriously developing your concept with industrial wireframes, drawings, and video simulations. Show us how you imagine Ribbit will change the way we communicate, beyond the computer and phone, and we'll show you $15,000! </p>
+        			<p>We're looking for the most cutting edge use of Ribbit in an advanced device. Although we're not expecting a full app here, you can really blow us away by seriously developing your concept with industrial wireframes, drawings, and video simulations. Show us how you imagine Ribbit will change the way we communicate, beyond the computer and phone, and we'll show you $15,000! </p>
       
                 <h3>Overall Weighted Judging Criteria </h3>
-			<ul>
-            	<li>Innovation - 40%</li>
-                <li>Usage of the Ribbit API/Rich Application Deployment - 20%</li>
-				<li>Overall User Value/Usability - 20% </li>
-				<li>Potential Audience Reached and Impacted - 20%</li>
-		</ul>		
-	</div>
-    </div>    
+					<ul>
+						<li>Innovation - 40%</li>
+						<li>Usage of the Ribbit API/Rich Application Deployment - 20%</li>
+						<li>Overall User Value/Usability - 20% </li>
+						<li>Potential Audience Reached and Impacted - 20%</li>
+				</ul>		
+			</div>
+			</div>    
 				<div id="right-sidebar">
 					
 					<div id="blog-posts-sidebar">
@@ -60,7 +60,7 @@
                             <li>Your unique Ribbit Developer ID</li>
 							<li>The Ribbit AppID</li>
 							<li>A title and brief overview of the application to be used as an online description</li>
-							<li>The Killer App Category to which you are submitting
+							<li>The Killer App Category to which you are submitting</li>
 							<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 
                             	pixels).</li>
                            <li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
