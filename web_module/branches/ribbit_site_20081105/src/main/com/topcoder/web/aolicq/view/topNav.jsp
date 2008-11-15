@@ -26,9 +26,9 @@
               <li id="register-nav"><a <% if (active_page.equals("register")) {%>class="active"<% } %> href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=<%=Constants.MINISITE_CONTEST_ID%>">Register</a></li>
               <li id="getsdk-nav"><a <% if (active_page.equals("SDK")) {%>class="active"<% } %> href="http://developer.ribbit.com/" target="_blank">Get the SDK</a></li>
               <li id="discuss-nav"><a <% if (active_page.equals("forums")) {%>class="active"<% } %> href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/forums">Discuss</a></li>
-              <li id="blog-nav"><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/news/">Blog</a></li>
-              <li id="submit-nav"><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=<%=Constants.MINISITE_CONTEST_ID%>">Submit</a></li>
-          </ul>
+              <li id="blog-nav"><a <% if (active_page.equals("blog")) {%>class="active"<% } %> href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/news/">Blog</a></li>
+              <li id="submit-nav"><a <% if (active_page.equals("submit")) {%>class="active"<% } %> href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=<%=Constants.MINISITE_CONTEST_ID%>">Submit</a></li>
+           </ul>
           <a href="#" class="powered-by-topcoder">Powered by TopCoder</a>
 			<ul id="secondary-nav">
                 <li class="first"><a href="http://www.topcoder.com/">TopCoder</a></li>

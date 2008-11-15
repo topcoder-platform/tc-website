@@ -71,7 +71,7 @@
 <body>
 
 <jsp:include page="topNav.jsp">
-	<jsp:param name="active_page" value="register"/>
+	<jsp:param name="active_page" value="submit"/>
 </jsp:include>
    <div id="wrapper">
 <jsp:include page="aolicqTop.jsp"/>

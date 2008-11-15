@@ -22,7 +22,7 @@
 </head>
 
 <jsp:include page="topNav.jsp">
-	<jsp:param name="active_page" value="submit"/>
+	<jsp:param name="active_page" value="learnMore"/>
 </jsp:include>
    <div id="wrapper">
 <jsp:include page="aolicqTop.jsp"/>
