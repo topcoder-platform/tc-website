@@ -115,19 +115,17 @@
           		
                 <ul>
                     <div id="replace"></div>
-        		 <script>
-						var rss = "/blog/?cat=10&feed=rss2";
-			
-						//A sample URL to get Template
-						var template = "/js/killerapp/blogTemplate.txt";
-			
-						var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
-						document.getElementById("replace").innerHTML = (processor.transformRSSFeed(rss));
-       			 </script>
-                    
-                    
+					 <script>
+							var rss = "/blog/?cat=10&feed=rss2";
+				
+							//A sample URL to get Template
+							var template = "/js/killerapp/blogTemplate.txt";
+				
+							var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
+							document.getElementById("replace").innerHTML = (processor.transformRSSFeed(rss));
+					 </script>
                     <li>
-                    	 <a href="http://developer.ribbit.com/blog/?cat=10" class="view-all" title="Learn More">Learn More</a>
+                    	<span class="rss-button"><a href="http://feeds.feedburner.com/ribbitdeveloper?format=xml"><img src="/images/killerapp/rss.gif" /></a></span><a href="http://developer.ribbit.com/blog/?cat=10" class="view-all" title="Learn More">Learn More</a>
                     </li>
                 </ul>
             </div>

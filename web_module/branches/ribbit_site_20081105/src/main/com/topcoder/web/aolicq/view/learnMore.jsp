@@ -43,7 +43,7 @@
 						<ul>
 							<li><span class="category">Media, Advertising and Entertainment</span> - To win this category you need to captivate an audience and add unprecedented interactive value. <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=media">(Category Details)</a></li>
 							<li><span class="category">Social Networking and Communication</span> - Give us a Web 3.0 preview with the best example of connecting people via open telephony. <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=socialNetworking">(Category Details)</a></li>
-							<li><span class="category">Business and Productivity</span> - Push business apps even further by bringing voice and rich communication features into the application workflow. <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=business">(Category Details)</a></li>
+							<li><span class="category">Business and Productivity</span> - Push business applications even further by bringing voice and rich communication features into the application workflow. <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=business">(Category Details)</a></li>
 							<li><span class="category">Carrier and Network Integration</span> - Show us the most innovative integration to an existing cable, carrier or mobile network. <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=carrier">(Category Details)</a></li>
 							<li><span class="category">Wildcard</span> - Blow us away by improving the usability of any device or interface (from vending machines to ticket kiosks). <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=wildcard">(Category Details)</a></li>
 						</ul>
@@ -81,8 +81,8 @@
 					  <h3>Prizes / Prize Amounts</h3>
 						<p>Five, $15,000 Grand Prizes will be awarded to the Killer Apps that best utilize the Ribbit platform to captivate, innovate, and have the best overall market potential in each category. From the five category winners, one will be selected as overall winner and receive an additional $15,000 for a total of $30,000. Plus, we'll be awarding $10,000 in prizes to early submitters at three checkpoints along the way. We can't wait to see what develops!</p>
 					
-						<h3>Benefits of Submitting Early - Prizes, Feedback and Your Own Studio Competition!</h3>
-							<p>In addition to the prizes awarded to each checkpoint winner, Ribbit &amp; TopCoder will provide feedback on these apps, in order for you to continue to improve and enhance your application. Taking the advice and guidance of the judging panel to further develop your submission into a Killer App, gives you a better chance to win a grand prize at the end of the competition.</p>
+						<h3>Benefits of Submitting Early - Prizes! Feedback!</h3>
+							<p>In addition to the prizes awarded to each checkpoint winner, Ribbit &amp; TopCoder will provide feedback on these apps, in order for you to continue to improve and enhance your application. Taking the advice and guidance of the judging panel to further develop your submission into a Killer Application, gives you a better chance to win a grand prize at the end of the competition.</p>
 					
 						<h3>How to Submit</h3>
 							<p>The requirements for submission may vary depending on the Killer App category, so please be sure you check out your specific Category Detail page before submitting.</p>
