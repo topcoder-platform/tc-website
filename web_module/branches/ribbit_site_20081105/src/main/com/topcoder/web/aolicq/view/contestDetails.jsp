@@ -66,12 +66,12 @@
 </c:choose>
 
 <c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
-    <div align="center">
-        <table style="margin-top: 20px; margin-bottom: 20px; width: 320px;" cellpadding="0" cellspacing="0">
+    <div align="center" id="date-box">
+        <table cellpadding="0" cellspacing="0">
             <tbody>
                 <tr>
                     <td width="100%">
-                        <div class="bigRed" style="border-top: 1px solid #999999; border-bottom: 1px solid #999999;">
+                        <div class="date-box">
                             <c:choose>
                                 <c:when test="${fn:length(contest.prizes)==1}">
                                     <c:forEach items="${contest.prizes}" var="prize">
@@ -82,7 +82,7 @@
                                         </div>
                                         <strong>
                                             Winner:<br />
-                                            Due date:
+                                            Due Date:
                                         </strong>
                                     </c:forEach>
                                 </c:when>
@@ -105,38 +105,33 @@
                                             </c:otherwise>
                                         </c:choose>
                                     </c:forEach>
-                                    <div style="float: right; clear: right; text-align: right;">
+                                    
+                                    <div class="due-date">
                                         <tc-webtag:format object="${contest.endTime}" format="MM.dd.yyyy" timeZone="${sessionInfo.timezone}"/>
                                     </div>
-                                    <strong>Due date:</strong>
+                                    <strong>Due Date:</strong>
                                 </c:otherwise>
                             </c:choose>
                         </div>
                     </td>
                     <c:choose>
                     <c:when test="${registered}">
-                    <td style="padding: 10px 5px 10px 20px;" align="right">
-                        <img src="/i/events/aolicq/interface/btnRegisterNA.png" alt="Register" />
-                    </td>
-                    <td style="padding: 10px 0px 10px 5px;" align="right">
-                        <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/events/aolicq/interface/btnSubmit.png" alt="Submit" /></a>
-                    </td>
+                    <td align="right" class="reg-buttons"><img src="/i/events/aolicq/interface/btnRegisterNA.png" alt="Register" /></td>
+                    <td align="right" class="reg-buttons"><a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/events/aolicq/interface/btnSubmit.png" alt="Submit" /></a></td>
                 </tr>
                 <tr>
-                    <td colspan="3" style="padding-top: 10px;" align="center">
-                        You are registered for this project.<br />
-                    </td>
+                    <td class="proj-reg" colspan="3">You are registered for this project.</td>
                     </c:when>
                     <c:otherwise>
-                    <td style="padding: 10px 5px 10px 20px;" align="right">
+                    <td class="reg-buttons">
                         <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/events/aolicq/interface/btnRegister.png" alt="Register" /></a>
                     </td>
-                    <td style="padding: 10px 0px 10px 5px;" align="right">
+                    <td class="reg-buttons">
                         <img src="/i/events/aolicq/interface/btnSubmitNA.png" alt="Submit" />
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3" style="padding-top: 10px;" align="center">
+                    <td class="proj-reg" colspan="3">
                         <br />
                     </td>
                     </c:otherwise>
@@ -211,7 +206,7 @@ ${contest.overview.value}
 					
 					<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
 				</ol>
-				<p><em>Note:</em> Please review the Category Detail page(s) for full submission guidelines.)</p>
+				<p><em>Note:</em> Please review the Category Detail page(s) for full submission guidelines.</p>
 			</div>
 			
 			<div align="center" id="schedule">
@@ -310,26 +305,22 @@ ${contest.prizeDescription.value}
 All submissions are required to be submitted by the End Date.
 <br /><br />
 
-
-<div align="center">
-    <table cellpadding="4" cellspacing="0" width="250">
+<%--
+<div align="center" id="schedule">
+    <table cellpadding="0" cellspacing="0" width="250">
         <tbody>
             <tr>
                 <td valign="top" nowrap="nowrap"><strong>Start Date:</strong></td>
-                <td>
-                    <tc-webtag:format object="${contest.startTime}" format="EEEE, MMMM d, yyyy 'at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
-                </td>
+                <td><tc-webtag:format object="${contest.startTime}" format="EEEE, MMMM d, yyyy 'at' HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
             </tr>
             <tr>
                 <td valign="top" nowrap="nowrap"><strong>End Date:</strong></td>
-                <td>
-                    <tc-webtag:format object="${contest.endTime}" format="EEEE, MMMM d, yyyy 'at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
-                </td>
+                <td><tc-webtag:format object="${contest.endTime}" format="EEEE, MMMM d, yyyy 'at' HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
             </tr>
         </tbody>
     </table>
 </div>
-
+--%>
 </div>
 </div>
 <jsp:include page="tcFoot.jsp"/>

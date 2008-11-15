@@ -31,8 +31,8 @@
         <div id="left-content">
         	
             <div id="about-banner">
-            	<h2>Show Us What You've Got!</h2>
-                <p>We want to challenge the top developers out there. Give us your best submissions and you might be a big winner.</p>
+            	<h2>CREATE. INNOVATE. WIN.</h2>
+                <p>We&rsquo;re challenging you to develop the next killer voice ware application</p>
                 <h3>Up to $100,000.00 in Prizes</h3>
             </div>
             

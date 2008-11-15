@@ -77,7 +77,8 @@
 								</li>
 							</ol>
 					  	</div>
-					  
+					  	
+					  <h3>Prizes / Prize Amounts</h3>
 						<p>Five, $15,000 Grand Prizes will be awarded to the Killer Apps that best utilize the Ribbit platform to captivate, innovate, and have the best overall market potential in each category. From the five category winners, one will be selected as overall winner and receive an additional $15,000 for a total of $30,000. Plus, we'll be awarding $10,000 in prizes to early submitters at three checkpoints along the way. We can't wait to see what develops!</p>
 					
 						<h3>Benefits of Submitting Early - Prizes, Feedback and Your Own Studio Competition!</h3>

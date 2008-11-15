@@ -155,7 +155,16 @@
         			
         			<h3>Submission Requirements</h3>
         			<p>All Submissions chosen as winners will be reviewed and required to pass judging prior to being declared a winning Submission.</p>
-        			<p><b>[This is the place where we should describe the minimum requirements.]</b></p>
+        			
+        			<h3>Overall Weighted Judging Criteria</h3>
+						<ul>
+							<li>Innovation - 40%</li>
+							<li>Usage of the Ribbit API/Rich Application Deployment - 20%</li>
+							<li>Overall User Value/Usability - 20% </li>
+							<li>Potential Audience Reached and Impacted - 20%</li>
+						</ul>
+					<p><strong>For more information on specific judging criteria, be sure to read the Category Detail page for the category to which you are submitting.</strong></p>
+					
         			<p>In the event a Submission does not meet these requirements, such Submission will not be accepted. </p>
         			
         			<h3>Prizes</h3>
@@ -195,7 +204,7 @@
         			
         			<h3>Privacy</h3>
         			<p>All information is collected in the United States, and the use of any personally identifiable information is subject to the terms of the TopCoder Privacy Statement located at: <a href=" http://www.topcoder.com/tc?module=Static&d1=about&d2=privacy">http://www.topcoder.com/tc?module=Static&d1=about&d2=privacy</a> </p>
-        			<p>By entering the Competition, the Competitor acknowledges that TopCoder and the Competition sponsor will collect, process and use the personal data provided by the Competitor in connection with and for the purpose of administering of the Competition. Data about usage of the Ribbit APIs and services also will be collected. Ribbit may use third party providers for processing purposes and Ribbit will ensure that appropriate arrangements are in place with such third parties to ensure that the security of the Competitor&rsquo;s personal data is adequately safeguarded. Competitors&rsquo; personal data will be transferred to Ribbit, located in the US. </p>
+        			<p>By entering the Competition, the Competitor acknowledges that TopCoder and the Competition Sponsor will collect, process and use the personal data provided by the Competitor in connection with and for the purpose of administering of the Competition. Data about usage of the Ribbit APIs and services will also be collected. Ribbit may use third party providers for processing purposes and Ribbit will ensure that appropriate arrangements are in place with such third parties to ensure that the security of the Competitor&rsquo;s personal data is adequately safeguarded. Competitors&rsquo; personal data will be transferred to Ribbit, located in the US. </p>
         			
         			<h3>Termination/Exclusion</h3>
         			<p>TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with the Competition, and to take any other action it deems appropriate including but not limited to disqualification of a Submission or terminating or suspending a Competitor&rsquo;s use of <a href="www.topcoder.com">www.topcoder.com</a> and/or <a href="www.topcodersoftware.com"> www.topcodersoftware.com</a> for no reason or any reason whatsoever, including improper use of its website(s) or failure to comply with these Rules or the Terms of Use of TopCoder's websites, which are incorporated herein by reference. </p>
@@ -208,7 +217,7 @@
         			<p>TopCoder may assign, novate or subcontract any or all of its rights and obligations under these Rules and Regulations at any time.</p>
         			
         			<p>This Competition is brought to you by TopCoder, Inc., 95 Glastonbury Boulevard, Glastonbury, CT 06033  Telephone: (860) 633-5540</p>
-        			<p>If you have any questions regarding these Rules, contact us at <a href="mailto:service@topcoder.com">service@topcoder.com</a> .</p>
+        			<p>If you have any questions regarding these Rules, contact us at <a href="mailto:service@topcoder.com">service@topcoder.com</a>.</p>
 
 					<p>All trademarks, tradenames, and/or tradestyles used in this Competition are the sole property of the respective owners of such trademarks, tradenames, and/or tradestyles and are used herein solely for identification purposes.</p>
 				</div>
