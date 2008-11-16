@@ -37,37 +37,40 @@
             </div>
             
             <div id="about-text">
-            	<div id="fiveways">
-                	<h2>5 Ways to Win</h2>
-                    <ul>
-                    	<li><a href="#">Media, Advertising &amp; Entertainment</a></li>
-                        <li><a href="#">Social Networking &amp; Communication</a></li>
-                        <li><a href="#">Business &amp; Productivity</a></li>
-                        <li><a href="#">Carrier, Network, or ISP Integration</a></li>
-                        <li><a href="#">Wildcard</a></li>
-                    </ul>
-                    <p>Submit an app in any of these <strong>5 categories</strong> for a chance to win a <strong class="prize">$15,000 1st prize</strong> or our <strong class="prize">$30,000 &quot;Best in Show&quot;</strong></p>
-                    <p><a href="#">Learn More ></a></p>
-                </div>
-                <div id="contest-stats">
-                	<h2>Latest Contest Statistics</h2>
-                    <table cellpadding="0" cellspacing="0">
-                        <tr>
-                            <th class="first">Registered Competitors</th>
-                            <th>Number of Submitted Apps</th>
-                            <th class="last">Days Remaining</th>
-                        </tr>
-                        <tr>
-                        	<td class="first">${homeData.map['registered_competitors']}</td>
-                            <td>${homeData.map['submissions']}</td>
-                            <td class="last">${homeData.map['days_remaining']}</td>
-                        </tr>
-                        <tr>
-                        	<td class="table-foot" colspan="3"></td>
-                        </tr>
-                    </table>
-                </div>
-            
+            	<div id="home-side">
+                    <div id="fiveways">
+                        <div id="fivecontainer">
+                            <h2><div>5</div> Ways to Win</h2>
+                            <ul>
+                                <li><a href="#">Media, Advertising &amp; Entertainment</a></li>
+                                <li><a href="#">Social Networking &amp; Communication</a></li>
+                                <li><a href="#">Business &amp; Productivity</a></li>
+                                <li><a href="#">Carrier, Network, or ISP Integration</a></li>
+                                <li><a href="#">Wildcard</a></li>
+                            </ul>
+                        </div>
+                        <p>Submit an app in any of these <strong>5 categories</strong> for a chance to win a <strong class="prize">$15,000 1st prize</strong> or our <strong class="prize">$30,000 &quot;Best in Show&quot;</strong></p>
+                        <p class="five-learnmore"><a href="#">Learn More ></a></p>
+                    </div>
+                    <div id="contest-stats">
+                        <h2>Latest Contest Statistics</h2>
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <th class="first">Registered Competitors</th>
+                                <th>Number of Submitted Apps</th>
+                                <th class="last">Days Remaining</th>
+                            </tr>
+                            <tr>
+                                <td class="first">${homeData.map['registered_competitors']}</td>
+                                <td>${homeData.map['submissions']}</td>
+                                <td class="last">${homeData.map['days_remaining']}</td>
+                            </tr>
+                            <tr>
+                                <td class="table-foot" colspan="3"></td>
+                            </tr>
+                        </table>
+                    </div>
+            	</div>
             	<h2>KILLER IDEAS, KILLER APPS</h2>
             	<p>Ribbit&rsquo;s Open Telephony Platform gives you direct access to the world&rsquo;s first global, programmable phone company. And, we&rsquo;ve teamed up with TopCoder to find out what will happen when we put that power into the hands of the most creative Flash & Flex developers in the world.</p>
             	<p>With Ribbit, voice is now a programmable feature that is free from the traditional device. It can go anywhere&hellip; on a phone, on a webpage, inside email, and in an existing app. Voice can now live inside any environment including online communities or stores, CRM systems, call center applications, media properties - you name it.</p>
