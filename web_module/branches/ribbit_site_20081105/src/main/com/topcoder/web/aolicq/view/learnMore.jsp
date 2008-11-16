@@ -20,7 +20,7 @@
 	<jsp:param name="active_page" value="learnMore"/>
 </jsp:include>
 
- <!-- Body Starts Here -->	    
+ <%--  Body Starts Here --%>  	    
 
 <div id="wrapper">
 <jsp:include page="aolicqTop.jsp"/>
@@ -83,7 +83,9 @@
 					
 						<h3>Benefits of Submitting Early - Prizes! Feedback!</h3>
 							<p>Checkpoint winners, will also receive direct feedback from the judging panel for ways to improve or enhance your submission &mdash; giving you a better chance of winning the Grand Prize and creating the ultimate Killer Application.</p>
-					
+						
+						<div id="timeline"><img src="/images/killerapp/killerapp_timeline.png"></div>
+						
 						<h3>How to Submit</h3>
 							<p>The requirements for submission may vary depending on the Killer App category, so please be sure you check out your specific Category Detail page before submitting.</p>
 							<p>Once your app is live, <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=<%=Constants.MINISITE_CONTEST_ID%>">submit it to the contest</a>.</p>

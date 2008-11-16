@@ -111,6 +111,7 @@
         			<p>The Competition consists of a series of 3 checkpoints and a final submission deadline.</p>
         			<p>The Schedule of the Competition is as follows:</p>
         			
+        			<%-- HTML Timeline
         			<div align="center" id="schedule">
         				<table border="0" cellpadding="0" cellspacing="0">
         					<tr>
@@ -139,6 +140,9 @@
         					</tr>
         				</table>
         			</div>
+        			 --%>
+        			 
+        			<div id="timeline" align="center"><img src="/images/killerapp/killerapp_timeline.png"></div>
         			
         			<h3>Scoring</h3>
         			<p>All Submissions will be judged by the Ribbit Killer App Challenge judging team consisting of key representatives from Adobe, British Telecom, Ribbit and other industry judges.</p>

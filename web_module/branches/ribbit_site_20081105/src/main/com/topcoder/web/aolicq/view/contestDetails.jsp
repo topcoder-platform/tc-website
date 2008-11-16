@@ -303,7 +303,9 @@ ${contest.prizeDescription.value}
 
 <h3>Timeline</h3>
 All submissions are required to be submitted by the End Date.
-<br /><br />
+<br />
+<br />
+<div id="timeline"><img src="/images/killerapp/killerapp_timeline.png"></div>
 
 <%--
 <div align="center" id="schedule">
