@@ -61,22 +61,33 @@
 					</div>
 				</div>    
 				<div id="right-sidebar">
-							
-				<div id="blog-posts-sidebar">
-					<h3 id="sub-requirements">Submission Requirements</h3>
+					<div id="blog-posts-sidebar">
+						<h3 id="sub-requirements">Contest Categories</h3>
+						
+						<ul id="requirements">
+							<li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=media" class="active">Media, Advertising &amp; Entertainment</a></li>
+							<li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=socialNetworking">Social Networking &amp; Communication</a></li>
+							<li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=business">Business &amp; Productivity</a></li>
+							<li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=carrier">Carrier, Network, or ISP Integration</a></li>
+							<li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=wildcard">Wildcard</a></li>
+						</ul>
+					</div>
 					
-					<ul id="requirements">
-						<li>Your TopCoder handle name</li>
-						<li></li>  
-						<li>Your unique Ribbit Developer ID</li>
-						<li>The Ribbit AppID (assigned when you create a project for the contest) </li>
-						<li>A title and brief overview of the application to be used as an online description</li>
-						<li>The Killer App Category to which you are submitting</li>
-						<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels).</li>
-						<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
-					</ul>
+					<div id="blog-posts-sidebar">
+						<h3 id="sub-requirements">Submission Requirements</h3>
+						
+						<ul id="requirements">
+							<li>Your TopCoder handle name</li>
+							<li></li>  
+							<li>Your unique Ribbit Developer ID</li>
+							<li>The Ribbit AppID (assigned when you create a project for the contest) </li>
+							<li>A title and brief overview of the application to be used as an online description</li>
+							<li>The Killer App Category to which you are submitting</li>
+							<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels).</li>
+							<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
+						</ul>
+					</div>
 				</div>
-			</div>
 		<p style="clear:both;"></p>
 	</div>
 </div>

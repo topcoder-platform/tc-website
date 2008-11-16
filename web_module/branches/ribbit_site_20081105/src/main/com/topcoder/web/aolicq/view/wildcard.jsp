@@ -49,6 +49,17 @@
 			</div>
 			</div>    
 				<div id="right-sidebar">
+					<div id="blog-posts-sidebar">
+						<h3 id="sub-requirements">Contest Categories</h3>
+						
+						<ul id="requirements">
+							<li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=media">Media, Advertising &amp; Entertainment</a></li>
+							<li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=socialNetworking">Social Networking &amp; Communication</a></li>
+							<li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=business">Business &amp; Productivity</a></li>
+							<li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=carrier">Carrier, Network, or ISP Integration</a></li>
+							<li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=wildcard" class="active">Wildcard</a></li>
+						</ul>
+					</div>
 					
 					<div id="blog-posts-sidebar">
 						<h3 id="sub-requirements">Submission Requirements</h3>
