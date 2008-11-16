@@ -42,11 +42,11 @@
                         <div id="fivecontainer">
                             <h2><div>5</div> Ways to Win</h2>
                             <ul>
-                                <li><a href="#">Media, Advertising &amp; Entertainment</a></li>
-                                <li><a href="#">Social Networking &amp; Communication</a></li>
-                                <li><a href="#">Business &amp; Productivity</a></li>
-                                <li><a href="#">Carrier, Network, or ISP Integration</a></li>
-                                <li><a href="#">Wildcard</a></li>
+                                <li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=media">Media, Advertising &amp; Entertainment</a></li>
+                                <li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=socialNetworking">Social Networking &amp; Communication</a></li>
+                                <li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=business">Business &amp; Productivity</a></li>
+                                <li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=carrier">Carrier, Network, or ISP Integration</a></li>
+                                <li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=wildcard">Wildcard</a></li>
                             </ul>
                         </div>
                         <p>Submit an app in any of these <strong>5 categories</strong> for a chance to win a <strong class="prize">$15,000 1st prize</strong> or our <strong class="prize">$30,000 &quot;Best in Show&quot;</strong></p>
