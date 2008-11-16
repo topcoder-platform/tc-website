@@ -50,7 +50,7 @@
                         
                         <div class="siteBoxFull">
 
-                <h1>Login</h1>
+                <h2 class="login">Login</h2>
 
                 <div align="center">
                     <div align="left" style="width:500px;">
