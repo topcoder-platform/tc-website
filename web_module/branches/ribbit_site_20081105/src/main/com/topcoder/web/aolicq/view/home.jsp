@@ -127,7 +127,7 @@
 							var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
 							document.getElementById("replace").innerHTML = (processor.transformRSSFeed(rss));
 					 </script>
-                    <li>
+                    <li class="buttons">
                     	<span class="rss-button"><a href="http://feeds.feedburner.com/ribbitdeveloper?format=xml"><img src="/images/killerapp/rss.gif" /></a></span><a href="http://developer.ribbit.com/blog/?cat=10" class="view-all" title="Learn More">Learn More</a>
                     </li>
                 </ul>
@@ -138,7 +138,7 @@
                 
                 <ul>
                     <div id="replace2"> </div>
-                    <li>
+                    <li class="buttons">
                     	 <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/forums" class="view-all" title="Learn More">Learn More</a>
                     </li>
                 </ul>
