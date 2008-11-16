@@ -68,7 +68,7 @@ public class SubmissionValidator implements Validator {
         } else if (mt == null) {
             return new BasicResult(false, "Unknown file type submitted: " + submission.getContentType());
         } else if (!contest.getFileTypes().contains(mt.getFileType())) {
-            return new BasicResult(false, "Invalid file type submitted: " + submission.getContentType());
+            return new BasicResult(false, "You must first zip any and all docs before uploading");
         } else {
             //at this point we have an actual submission file that's not empty and it's a file type we know
 
