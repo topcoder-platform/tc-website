@@ -41,80 +41,53 @@
 
 
 <body>
-
-                 
-                        <jsp:include page="topNav.jsp"/>
-                <div id="wrapper">
-<jsp:include page="aolicqTop.jsp"/>
+<jsp:include page="topNav.jsp"/>
+	<div id="wrapper">
+	<jsp:include page="aolicqTop.jsp"/>
+        
         <div class="secondary-body" id="learn-more">        
-                        
-                        <div class="siteBoxFull">
+        	<div class="siteBoxFull">
 
-                <h2 class="login">Login</h2>
+			<h2 class="login">Login</h2>
 
                 <div align="center">
-                    <div align="left" style="width:500px;">
-                        <p><b>Forgot your password?</b><br/>
-                            If you cannot remember your password
-                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click
-                                here</a>
-                            and we can help you restore your account.</p>
+					<div align="left" id="tc-login">
+					<p><strong>Forgot your password?</strong><br/>
+                    If you cannot remember your password <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click here</a> and we can help you restore your account.</p>
 
-                        <br /><br />
-                        <strong>New to TopCoder?</strong><br />
-                        <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/?module=Main&amp;rt=9">Register now</a>. After you complete
-                        the
-                        registration process,
-                        we
-                        will send your account activation code via email.
-                        <br /><br />
+                    <p><strong>New to TopCoder?</strong><br />
+                    <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/?module=Main&amp;rt=9">Register now</a>. After you complete the registration process, we will send your account activation code via email.</p>
 
-                        <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}">
-                            <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>" />
-                            <input type="hidden" name="module" value="Login" />
+                    <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}">
+                    <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>" />
+                    <input type="hidden" name="module" value="Login" />
 
-                            <div align="center">
-                                <span class="bigRed"><%= message %></span>
-                                <table cellpadding="2" cellspacing="0" border="0">
-                                    <tr>
-                                        <td class="name" align="right">
-                                            Handle:
-                                        </td>
-                                        <td class="value">
-                                            <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name" align="right">
-                                            Password:
-                                        </td>
-                                        <td class="value">
-                                            <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="30" size="12" onkeypress="submitEnter(event)" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" align="center">
-                                            <input type="checkbox" name="<%=Login.REMEMBER_USER%>" />
-                                            Remember
-                                            Me</td>
-                                    </tr>
+					<div align="center">
+						<span class="tc-alert"><%= message %></span>
+						<table cellpadding="2" cellspacing="0" border="0">
+							<tr>
+								<td class="name">Handle:</td>
+								<td class="value"><input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="30" onkeypress="submitEnter(event)" class="textfield" tabindex="1" /></td>
+							</tr>
+							<tr>
+								<td class="name">Password:</td>
+								<td class="value"><input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="30" size="30" onkeypress="submitEnter(event)" class="textfield" tabindex="2" /></td>
+							</tr>
+							<tr>
+								<td colspan="2"><input type="checkbox" name="<%=Login.REMEMBER_USER%>" />Remember Me</td>
+							</tr>
+							<tr>
+								<td colspan="2" class="tc-login"><input type="image" src="/i/events/aolicq/interface/btnLogin.png"/></td>
+							</tr>
+						</table>
 
-                                    <tr>
-                                        <td colspan="2" align="center">
-                                            <input type="image" src="/i/events/aolicq/interface/btnLogin.png"/>
-                                        </td>
-                                    </tr>
-                                </table>
-
-                                <br /><br />
-                            </div>
-              </form>
-               
-                </div>
-
+					<br /><br />
+					</div>
+				</form>
+				</div>
+			</div>
 		</div>
-        </div>
-		</div>
+	</div>
 <jsp:include page="tcFoot.jsp"/>
 
 </body>
