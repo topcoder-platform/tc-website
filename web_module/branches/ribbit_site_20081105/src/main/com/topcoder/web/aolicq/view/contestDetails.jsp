@@ -206,7 +206,7 @@ ${contest.overview.value}
 					
 					<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
 				</ol>
-				<p><em>Note:</em> Please review the Category Detail page(s) for full submission guidelines.</p>
+				<p><em>Note:</em> for <span class="categories">Carrier, Network, or ISP Integration and Wildcard Category Submissions</span>, please include a URL where the application or prototype can be viewed/downloaded, or wireframes/drawings/video simulations (25MB limit) that fully illustrate the core functionality and UI.</p>
 			</div>
 			
 			<div align="center" id="schedule">
