@@ -32,8 +32,7 @@
 					<h3>Overview</h3>
                     <p>Ribbit adds functionality to the web that many never thought possible. The computer is not the only device out there. We see Ribbit changing the way devices and interfaces allow us to communicate with each other, with key services and other systems. We&rsquo;re looking for a prototype or well developed concept that shows how Ribbit&rsquo;s service will improve the usability of any device or interface.</p> 
 
-                    <p>Some examples of applications in this category might be: [NEED TO CHNGE THIS HEADER]<br/>
-                    For the first time, you have at your disposal a fully programmable phone company. Think of all the devices you use on a daily basis. If those were hooked into the phone network, what could you do? Could you call your spouse on his/her way home from work from the fridge if you're low on milk? Could you check your voicemail from the airplane? Could you call your friends before buying tickets at a kiosk?</p>
+                    <p>For the first time, you have at your disposal a fully programmable phone company. Think of all the devices you use on a daily basis. If those were hooked into the phone network, what could you do? Could you call your spouse on his/her way home from work from the fridge if you're low on milk? Could you check your voicemail from the airplane? Could you call your friends before buying tickets at a kiosk?</p>
 	
     				<h3>Category Judging Criteria</h3>
         
@@ -66,13 +65,12 @@
 						
 						<ul id="requirements">
 							<li>Your TopCoder handle name</li>
-                            <li></li>  
                             <li>Your unique Ribbit Developer ID</li>
 							<li>The Ribbit AppID (assigned when you create a project for the contest) </li>
 							<li>A title and brief overview of the application to be used as an online description</li>
 							<li>The Killer App Category to which you are submitting</li>
 							<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels).</li>
-                           <li>Most importantly, a link to the URL where the application or prototype can be viewed/downloaded, or wireframes/drawings/video simulations <b>(file size restriction)</b> that fully illustrate the core functionality and UI.</li>
+                           <li>Most importantly, a link to the URL where the application or prototype can be viewed/downloaded, or wireframes/drawings/video simulations (25MB limit) that fully illustrate the core functionality and UI.</li>
 						</ul>
 					</div>
 				</div>

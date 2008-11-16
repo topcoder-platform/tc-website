@@ -81,7 +81,6 @@
 						
 						<ul id="requirements">
 							<li>Your TopCoder handle name</li>
-                            <li></li>  
                             <li>Your unique Ribbit Developer ID</li>
 							<li>The Ribbit AppID (assigned when you create a project for the contest) </li>
 							<li>A title and brief overview of the application to be used as an online description</li>
