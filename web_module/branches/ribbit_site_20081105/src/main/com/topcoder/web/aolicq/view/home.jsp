@@ -145,7 +145,7 @@
                     </li>
                 </ul>
                <script>
-						var rss = "/forums?module=RSS&forumID=2";
+						var rss = "/forums?module=RSS&categoryID=1";
 			
 						//A sample URL to get Template
 						var template = "/js/killerapp/forumTemplate.txt";
