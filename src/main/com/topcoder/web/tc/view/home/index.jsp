@@ -196,7 +196,7 @@ $(document).ready(function(){
                     </div>
                     <div id="client-box-bottom"></div>
                     <div class="wide-ad-banner">
-                        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://winningformula.espn.com/&amp;refer=homepage"><img src="/images/home/espn-banner.png" alt="Are you ready for some football" /></a>
+                        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://killerappchallenge.ribbit.com/&amp;refer=homepage"><img src="/images/home/ribbit-banner.png" alt="Ribbit $100,000 Killer App Challenge" /></a>
                     </div>
                 </div>
                 <div id="member-content">
