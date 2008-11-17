@@ -168,19 +168,8 @@ ${contest.overview.value}
                   	<li class="three"><strong><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=1002">Register</a> for the Ribbit Killer App Challenge now!</strong><br />Once you are a TopCoder member, all you have to do is register for the Ribbit Killer App Challenge! Register now to participate in this contest! <a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&ct=1002">Contest registration >></a> </li>
                     <li class="four"><strong><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&ct=1002">Submit</a> your application</strong><br />  Once your app is live, submit it to the contest. You will need to submit a zip file to TopCoder which includes 2 items: 
                     	
-                    	<ol class="sublist">
-                        	<li>A text document containing:
-                            	<ul class="sublist2">
-                                	<li>Your TopCoder handle name</li>
-									<li>Your unique Ribbit Developer ID</li>
-									<li>The Ribbit AppID (assigned when you create a project for the contest) </li>
-									<li>A title and brief overview of the application to be used as an online description</li>
-									<li>The Killer App Category to which you are submitting</li>
-									<li>Most importantly, a link to the URL where the application can be viewed/downloaded</li>
-                                </ul>
-                            </li>
-                            <li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
-                        </ol>
+                    	<br />
+                    	<br />
                     	Submit early to be eligible for Check Point Awards. Check Point winners will gain first hand feedback for improving and enhancing submissions &mdash; increasing your chances of creating the ultimate Killer App and winning the Grand Prize.
                     </li>
                 </ol>
@@ -299,8 +288,8 @@ ${contest.prizeDescription.value}
 
 <br /><br />
 
-<h3>Timeline</h3>
-Submissions must be received by 11:59PM EDT on March 12, 2009.
+	<h3>Timeline</h3>
+	Submissions must be received by 11:59PM EDT on March 12, 2009.
 <br />
 <br />
 <div id="timeline"><img src="/images/killerapp/killerapp_timeline.png"></div>
