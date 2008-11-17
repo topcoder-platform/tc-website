@@ -121,7 +121,7 @@
                 <ul>
                     <div id="replace"></div>
 					 <script>
-							var rss = "/blog/?cat=10&feed=rss2";
+							var rss = "/news/?feed=rss2";
 				
 							//A sample URL to get Template
 							var template = "/js/killerapp/blogTemplate.txt";
@@ -130,7 +130,7 @@
 							document.getElementById("replace").innerHTML = (processor.transformRSSFeed(rss));
 					 </script>
                     <li class="buttons">
-                    	<span class="rss-button"><a href="http://feeds.feedburner.com/ribbitdeveloper?format=xml"><img src="/images/killerapp/rss.gif" /></a></span><a href="http://developer.ribbit.com/blog/?cat=10" class="view-all" title="Learn More">Learn More</a>
+                    	<span class="rss-button"><a href="http://killerappchallenge.ribbit.com/news/?feed=rss2"><img src="/images/killerapp/rss.gif" /></a></span><a href="http://killerappchallenge.ribbit.com/news/" class="view-all" title="Learn More">Learn More</a>
                     </li>
                 </ul>
             </div>
