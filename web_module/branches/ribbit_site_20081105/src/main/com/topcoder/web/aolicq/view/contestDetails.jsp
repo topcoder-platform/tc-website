@@ -300,7 +300,7 @@ ${contest.prizeDescription.value}
 <br /><br />
 
 <h3>Timeline</h3>
-All submissions are required to be submitted by the End Date.
+Submissions must be received by 11:59PM EDT on March 12, 2009.
 <br />
 <br />
 <div id="timeline"><img src="/images/killerapp/killerapp_timeline.png"></div>
