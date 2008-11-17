@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.17.08<br />2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><a href="/wiki/display/tc/Contest+Details+-+Diana+Mira+2.0+Req.+Specification">Write an Application Specification!</a></span><br /><br />
+      Compete on a Specification contest – the next step in the TopCoder Conceptualization Phase Contests.  In this event, you are provided with a Business Requirements Document and a complete set of Wireframes.  Your job is to interpret them and produce a full TopCoder Requirements Specification.  This includes Use Cases, Activities, and a QA Plan inventory.  The winning specification will be implemented and deployed at the client.</td>
+         </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/wiki/display/tc/Contest+Details+-+Diana+Mira+2.0+Req.+Specification">details</a> | 
+        <tc-webtag:forumLink forumID="523949" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.14.08<br />9:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
