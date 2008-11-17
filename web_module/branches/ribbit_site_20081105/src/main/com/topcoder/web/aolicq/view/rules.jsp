@@ -103,7 +103,7 @@
         			<h3>Eligibility</h3>
         			<p>The Competition is open to all members of the TopCoder website, who have subscribed to the free Ribbit developer services and agreed to the terms thereof, and who are at least 18 years of age.  Competitors must be (i) a U.S. citizen, (ii) a lawful permanent resident of the U.S., (iii) a temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S., or (iv) a non-U.S. resident authorized to perform services as an independent contractor.</p>
         			<p>A Competitor is not eligible for this Competition if he/she is a resident of the Quebec province of Canada, Iran, Cuba, North Korea, Sudan or Syria.  In addition, a Competitor is not eligible for this Competition if the Competitor is on the Specially Designated National list promulgated and amended, from time to time, by the United States Department of the Treasury.</p>
-        			<p>All Competitors must be registered members of TopCoder, and must have agreed to these Rules prior to and as a condition for registering for this Competition.  All Competitors must be registered members of TopCoder, and must have agreed to these Rules prior to and as a condition for registering for this Competition.</p>
+        			<p>All Competitors must be registered members of TopCoder, and must have agreed to these Rules prior to and as a condition for registering for this Competition.</p>
         			<p>Competitors must abide by the Terms of Use of TopCoder's website at <a href="http://www.topcoder.com/">www.topcoder.com</a>.  Violation of the Terms of Use may result in disqualification from this Competition, and/or further consequences as determined in TopCoder&rsquo;s sole discretion.</p>
         			<p>Current employees of TopCoder and the Competition Sponsor and those involved in the development, production (including prize suppliers and sponsors), implementation and distribution of this Competition and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the Competition and members of their immediate families and/or persons living in the same household as such persons, are ineligible to enter the Competition. </p>
         			
@@ -155,7 +155,7 @@
         					<li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=carrier">Carrier, Network, or ISP Integration</a></li>
         					<li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=wildcard">Wildcard</a></li>
         				</ul>
-        			<p>After each checkpoint, Ribbit will announce and display the checkpoint winners by handle.</p>
+        			<p>After each checkpoint, Ribbit will announce and display the checkpoint winners by handle. If there are no submissions or no submissions that meet the minimum criteria in a category, the prizes may be awarded to placewinners in another category, or may not be awarded at all, at TopCoder&rsquo;s and the judges discretion.</p>
         			
         			<h3>Submission Requirements</h3>
         			<p>All Submissions chosen as winners will be reviewed and required to pass judging prior to being declared a winning Submission.</p>

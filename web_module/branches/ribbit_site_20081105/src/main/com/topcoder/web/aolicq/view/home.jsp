@@ -81,6 +81,8 @@
 				<p>Good Luck!</p>
             </div>
             
+            <div id="timeline"><img src="/images/killerapp/killerapp_timeline.png"></div>
+            
             <div id="register-steps">
             	<h2>Steps to Register</h2>
                 <p>Participation in the Ribbit Killer App Challenge is completely FREE! Just follow the simple steps below and you'll be on your way to possibly claiming some of our $100,000 in prize money! Here's a quick overview:</p>
