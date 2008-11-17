@@ -20,7 +20,8 @@ public class ActiveContests extends ActiveContestsBase {
 
         if (Constants.ASSEMBLY_PROJECT_TYPE==projectTypeId ||
                 Constants.ARCHITECTURE_PROJECT_TYPE==projectTypeId ||
-                Constants.APPLICATION_TESTING_PROJECT_TYPE==projectTypeId) {
+                Constants.APPLICATION_TESTING_PROJECT_TYPE==projectTypeId ||
+                Constants.SPECIFICATION_PROJECT_TYPE==projectTypeId) {
             setProjectType(projectTypeId);
         } else {
             throw new TCWebException("Invalid project type specified " + projectTypeId);

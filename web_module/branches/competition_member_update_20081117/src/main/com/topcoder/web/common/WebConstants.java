@@ -180,6 +180,7 @@ public interface WebConstants {
     public static final int ARCHITECTURE_PROJECT_TYPE = 7;
     public static final int APPLICATION_TESTING_PROJECT_TYPE = 13;
     public static final int ASSEMBLY_PROJECT_TYPE = 14;
+    public static final int SPECIFICATION_PROJECT_TYPE = 22;
 
 
 }
