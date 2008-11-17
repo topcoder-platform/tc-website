@@ -6,8 +6,6 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %> 
 <%
     String nextpage = (String) request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
-    String message = (String) request.getAttribute("message");
-    if (message == null) message = "";
 %>
     <script type="text/javascript">
         function submitEnter2(e) {
