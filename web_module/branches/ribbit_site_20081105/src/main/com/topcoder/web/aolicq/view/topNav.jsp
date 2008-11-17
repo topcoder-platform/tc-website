@@ -30,7 +30,7 @@
               <li id="submit-nav"><a <% if (active_page.equals("submit")) {%>class="active"<% } %> href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=<%=Constants.MINISITE_CONTEST_ID%>">Submit</a></li>
            </ul>
            
-          <a href="#" class="powered-by-topcoder">Powered by TopCoder</a>
+          <a href="http://www.topcoder.com/" class="powered-by-topcoder">Powered by TopCoder</a>
 			<ul id="secondary-nav">
                 <li class="first"><a href="http://www.topcoder.com/">TopCoder</a></li>
                 <li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=rules">Rules</a></li>
