@@ -208,7 +208,7 @@ ${contest.overview.value}
 				</ol>
 				<p><em>Note:</em> for <span class="categories">Carrier, Network, or ISP Integration and Wildcard Category Submissions</span>, please include a URL where the application or prototype can be viewed/downloaded, or wireframes/drawings/video simulations (25MB limit) that fully illustrate the core functionality and UI.</p>
 			</div>
-			
+			<%-- HTML Timeline
 			<div align="center" id="schedule">
 				<table border="0" cellpadding="0" cellspacing="0">
 					<tr>
@@ -237,8 +237,8 @@ ${contest.overview.value}
 					</tr>
 				</table>
 			</div>
-	
-              
+			--%>
+			
 <h3>Payment</h3>
 ${contest.prizeDescription.value}
 
@@ -282,9 +282,7 @@ ${contest.prizeDescription.value}
 <ul>
     <li>A US Citizen</li>
     <li>A Lawful Permanent Resident of the US</li>
-    <li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card
-        permitting unrestricted employment in the U.S.
-    </li>
+    <li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S.</li>
 </ul>
 <c:choose>
 <c:when test="${contest.id==2048}"></c:when>

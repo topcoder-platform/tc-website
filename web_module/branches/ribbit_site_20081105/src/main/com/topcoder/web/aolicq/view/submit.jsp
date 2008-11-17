@@ -94,8 +94,7 @@
 
 <div align="center">
     <div align="left" style="width:500px; margin-top: 20px;">
-        <p>Thank you for accepting the terms of the contest. Please use the form below to upload your
-            submission:</p>
+        <p>Thank you for accepting the terms of the contest. Please use the form below to upload your submission:</p>
 
 <%--
         <p>The maximum file size per submission is 2MB.</p>
@@ -127,7 +126,7 @@
 				</li>
 				<li>An image file (jpg, or png) containing a screengrab or graphic representation of your application (no larger than 300x300 pixels)</li>
 			</ol>
-			<p><em>Note:</em> Please review the Category Detail page(s) for full submission guidelines.</p>
+			<p><em>Note:</em> for <span class="categories">Carrier, Network, or ISP Integration and Wildcard Category Submissions</span>, please include a URL where the application or prototype can be viewed/downloaded, or wireframes/drawings/video simulations (25MB limit) that fully illustrate the core functionality and UI.</p>
 		</div>
 		
 		
