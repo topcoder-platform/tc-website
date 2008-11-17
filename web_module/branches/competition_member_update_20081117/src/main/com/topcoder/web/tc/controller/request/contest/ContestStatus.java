@@ -22,7 +22,7 @@ public class ContestStatus extends Base {
 
             if (Constants.DESIGN_PROJECT_TYPE==projectTypeId || Constants.DEVELOPMENT_PROJECT_TYPE==projectTypeId ||
                     Constants.ASSEMBLY_PROJECT_TYPE==projectTypeId || Constants.ARCHITECTURE_PROJECT_TYPE==projectTypeId ||
-                    Constants.APPLICATION_TESTING_PROJECT_TYPE==projectTypeId) {
+                    Constants.APPLICATION_TESTING_PROJECT_TYPE==projectTypeId || Constants.SPECIFICATION_PROJECT_TYPE==projectTypeId) {
                 Request r = new Request();
                 String commandName = "contest_project_status";
                 if (Constants.ARCHITECTURE_PROJECT_TYPE==projectTypeId) {
