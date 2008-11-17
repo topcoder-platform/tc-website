@@ -121,7 +121,7 @@
                 <ul>
                     <div id="replace"></div>
 					 <script>
-							var rss = "/blog/?cat=10&feed=rss2";
+							var rss = "/news/?feed=rss2";
 				
 							//A sample URL to get Template
 							var template = "/js/killerapp/blogTemplate.txt";
