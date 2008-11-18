@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.18.08<br />11:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_111708">Ribbit's Killer App Challenge Launches at Adobe Max</a></span><br /><br />
+        Flash and Flex Developers Invited by World's First Global, Programmable Phone Company to Create the Next Killer Voice Applications.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_111708">details</a> | 
+        <tc-webtag:forumLink forumID="524546" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.17.08<br />2:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -155,31 +168,5 @@
         <a href="<tc-webtag:linkTracking link='/tc?module=ViewSurvey&sid=28404' refer='/tc' />">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=626855&amp;start=0&amp;mc=1#1036599">discuss this</a> | 
         <a href="/tc?&amp;module=SurveyList">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />10.30.08<br />12:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008">TopCoder Direct Platform Opens Access to 170,000 Member Community of Software Designers, Developers &amp; Creative Artists</a></span><br /><br />
-        Any size business can now use same level of talent as Fortune 500 to build Web Applications, Infrastructure and more.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008">details</a> | 
-        <tc-webtag:forumLink forumID="524347" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />10.28.08<br />1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">Spotlight Sessions with John Dethridge</a></span><br /><br />
-        The next Spotlight Session is about to happen!  Don't miss <tc-webtag:handle coderId="270505" context="algorithm" /> in the chat room one hour prior to <a href="/tc?module=MatchDetails&amp;rd=13529">TCHS SRM 60</a> Tuesday, October 28, 2008 at 8:00 p.m. EDT (GMT-4).  All members are welcome to join in the chat session and learn some valuable tips from a great coder.  Learn more about <tc-webtag:handle coderId="270505" context="algorithm" /> and Spotlight Sessions <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">here</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=626538">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
    
