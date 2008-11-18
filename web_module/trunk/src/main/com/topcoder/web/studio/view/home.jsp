@@ -35,7 +35,6 @@ ding="utf-8"?>
     <script type="text/javascript" src="/js/thickbox-3.1/thickbox-compressed-3.1.js"></script>
     <script type="text/JavaScript" src="/js/RSSProcessor.js"> </script>
     <script type='text/JavaScript' src='/js/AJAXProcessor.js'> </script>
-    <!--script type='text/javascript' src='http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js'></script-->
     <link rel="stylesheet" href="/js/thickbox-3.1/thickbox-3.1.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="/css/v2/home.css" media="all" type="text/css"/>
     
@@ -60,13 +59,13 @@ ding="utf-8"?>
         </jsp:include>
     </div>
 
-<!-- main content -->
+<%--  main content --%>
 <div id="content">
 
-<!-- begin left container -->
+<%--  begin left container  --%>
 <div class="content_l">
 
-    <!-- welcome box -->
+    <%--  welcome box  --%>
     <div class="welcome">
         <div id="welcome_head">
             <h1>Welcome to TopCoder Studio!</h1>
@@ -84,13 +83,13 @@ ding="utf-8"?>
             <a href="http://tcstudioblogs.com/?p=39"><img alt="Studio Celebrates Two Years of Design Contests!" src="/i/v3/banner_birthday_536x121.png" width="536" height="121" border="0"/></a> --%>
         </div>
     </div>
-     
+    
     
     <%-- old banners --%>
-    <!-- tournament banner
+    <%-- banner
     	<div>
             <a href="/?module=ViewContestDetails&ct=2405"><img alt="$1500 Mini-Tournament" src="/i/tournament_flash_banner.png" width="535" height="60" border="0"/></a> 
-		</div> -->
+		</div> --%>
     <%-- tournament banner
     	<div>
             <a href="/?module=ViewContestDetails&ct=2379"><img alt="$1500 Mini-Tournament" src="/i/tournament_banner.png" width="535" height="60" border="0"/></a> 
@@ -105,7 +104,7 @@ ding="utf-8"?>
        <a href="/?module=ViewContestDetails&ct=2343"><img alt="Flex your muscles in Studio" src="/i/v3/flexbanner.png" width="535" height="60" border="0"/></a>
     </div>   --%>
     
-    <!-- winners box -->
+     <%-- winners box --%>
     <div class="winners">
 	<div id="winners">
 	</div>
@@ -124,7 +123,7 @@ ding="utf-8"?>
       }
     </script>
 
-    <!-- contest box -->
+    <%-- contest box --%>
     <c:if test="${not empty contests}">
     <div class="contests">
         <div>
@@ -163,15 +162,15 @@ ding="utf-8"?>
     
     
 </div>
-<!-- end left container -->
+ <%-- end left container --%>
 
-<!-- begin right container -->
+ <%-- begin right container --%>
 <div class="content_r">
 
-    <!-- login box -->
+    <%-- login box --%>
     <div id="loginBox">
         <h2>LOGIN</h2>
-        <!-- JSP START --><c:choose>
+        <%-- JSP START --%><c:choose>
         <c:when test="${sessionInfo.anonymous}">
             <%--have to use the constant because this page can be used with multiple servlets --%>
             <form method="post" name="frmLogin" action="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
@@ -219,16 +218,16 @@ ding="utf-8"?>
             </p>
         </c:otherwise>
         </c:choose>
-        <!-- JSP END -->
+        <%-- JSP END --%>
         <div></div>
     </div>
     
-    <!-- prizes paid box -->
+     <%-- prizes paid box --%>
     <div id="prizesPaidBox">
     	<p>$<%=totalPrizePaid%></p>
     </div>
 
-    <!-- news box -->
+     <%-- news box --%>
     <div id="newsBox" class="newsBox">
     <script>
        function loadNews() {
@@ -268,7 +267,7 @@ ding="utf-8"?>
     </div>
     --%>
 
-    <!-- designer box -->
+    <%-- designer box --%>
     <div class="designerBox">
         <h2>DESIGNER OF THE MONTH</h2>
 
@@ -282,7 +281,7 @@ ding="utf-8"?>
         <div></div>
     </div>
 
-    <!-- assignement box -->
+    <%-- assignement box --%>
     <div class="assignmentBox">
         <p class="simpleArrow">
             Have you signed your assignment document?<br />
@@ -293,7 +292,7 @@ ding="utf-8"?>
 </div>
 <br class="clear"/>
 
-<!-- footer -->
+ <%-- footer --%>
 <div id="footer">
     <a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img alt="TopCoder" class="TClogo" src="/i/v3/tc_logo.jpg"/></a>
 
@@ -303,9 +302,20 @@ ding="utf-8"?>
 </div>
 
 </div>
-<!-- end content -->
+ <%-- end content  --%>
 </div>
-<!-- end wrapper -->
+ <%--  end wrapper --%>
 </div>
+
+ <%--  Analytics --%>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6340959-3");
+pageTracker._trackPageview();
+</script>
+
 </body>
 </html>
