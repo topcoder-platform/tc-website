@@ -74,17 +74,20 @@ ding="utf-8"?>
             <p>Show off your creative skills in a competitive environment and get paid for being the best!</p>
         </div>
         <div id="welcome_banner">
-            <%-- default banner --%>
-            <a href="/?module=ViewActiveContests"><img alt="Get Started Now!" src="/i/v3/welcome_banner.png" width="536" height="121" border="0"/></a>
+            <%-- default banner 
+            <a href="/?module=ViewActiveContests"><img alt="Get Started Now!" src="/i/v3/welcome_banner.png" width="536" height="121" border="0"/></a>--%>
+            
+            <%-- ribbit banner --%>
+            <a href="http://killerappchallenge.ribbit.com/"><img alt="Ribbit $100,000 Killer App Challenge" src="/i/ribbit-banner.png" width="536" height="121" border="0"/></a>
             
              <%-- birthday banner
             <a href="http://tcstudioblogs.com/?p=39"><img alt="Studio Celebrates Two Years of Design Contests!" src="/i/v3/banner_birthday_536x121.png" width="536" height="121" border="0"/></a> --%>
         </div>
     </div>
-    
+     
     
     <%-- old banners --%>
-    <!-- banner
+    <!-- tournament banner
     	<div>
             <a href="/?module=ViewContestDetails&ct=2405"><img alt="$1500 Mini-Tournament" src="/i/tournament_flash_banner.png" width="535" height="60" border="0"/></a> 
 		</div> -->
