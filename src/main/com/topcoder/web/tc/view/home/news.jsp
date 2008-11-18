@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.18.08<br />12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/wiki/display/tc/Contest+Details+-+Auto+Tree+Conceptualization">$1500 Conceptualization Contest – You write the Business Requirements</a></span><br /><br />
+        TopCoder Client wants YOU to develop their concept for their new application! They have completed a questionnaire and are manning the forums - the rest is up to you. Unlock their ideas, ask them questions to clarify their needs, and write up a Business Requirements Doc to define what their new system should do. If you win, your document will be used to build a prototype, the Requirements Specification, and the application itself.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/wiki/display/tc/Contest+Details+-+Auto+Tree+Conceptualization ">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3985">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br />11.18.08<br />11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_111708">Ribbit's Killer App Challenge Launches at Adobe Max</a></span><br /><br />
@@ -155,18 +168,5 @@
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081028' refer='/tc' />">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=627051">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Surveys" border="0" /><br />10.31.08<br />5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/tc?module=ViewSurvey&sid=28404' refer='/tc' />">TopCoder Survey with Five Prizes!</a></span><br /><br />
-        In order to try and measure member interest localization competitions, we have set up a short <a href="<tc-webtag:linkTracking link='/tc?module=ViewSurvey&sid=28404' refer='/tc' />">survey</a>.  Please fill out the survey by November 7, 2008 for a chance to win a TopCoder hat.  Five members who complete the survey will randomly be drawn.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/tc?module=ViewSurvey&sid=28404' refer='/tc' />">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=626855&amp;start=0&amp;mc=1#1036599">discuss this</a> | 
-        <a href="/tc?&amp;module=SurveyList">archive</a>
    </td></tr>
    
