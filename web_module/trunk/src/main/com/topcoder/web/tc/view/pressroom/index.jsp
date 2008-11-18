@@ -118,6 +118,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- Ribbit's Killer App Challenge Launches at Adobe Max begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_111708"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_111708">Ribbit's Killer App Challenge Launches at Adobe Max</a></h3>
+                        <p>Flash and Flex Developers Invited by World's First Global, Programmable Phone Company to Create the Next Killer Voice Applications  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_111708">[November 17]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder Recognized As One of Fastest Growing Connecticut Companies By Connecticut Technology Council end --%>
+                
                 <%-- TopCoder Recognized As One of Fastest Growing Connecticut Companies By Connecticut Technology Council begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
