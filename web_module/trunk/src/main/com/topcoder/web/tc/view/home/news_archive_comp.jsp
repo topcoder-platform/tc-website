@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">11.18.08 12:00 PM - </td><td width="100%"><a href="/wiki/display/tc/Contest+Details+-+Auto+Tree+Conceptualization">$1500 Conceptualization Contest – You write the Business Requirements</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.17.08 2:00 PM - </td><td width="100%"><a href="/wiki/display/tc/Contest+Details+-+Diana+Mira+2.0+Req.+Specification">Write an Application Specification!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.13.08 6:00 PM - </td><td width="100%"><a href="/wiki/display/tc/Contest+Details+-+Agent+Visibility+Component+Specification">Component Requirements Contest – You Write the Spec!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.04.08 9:00 AM - </td><td width="100%"><a href="/wiki/pages/viewpage.action?spaceKey=tc&amp;title=Contest+Details+-+Aether+OCS">$900 Conceptualization Contest - You Write The Business Requirements</a><br /></td></tr>
