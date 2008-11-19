@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />11.19.08<br />6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=111808">Meet the October Coder and Designers of the Month!</a></span><br /><br />
+        Congratulations to our Coders and Designers for the month of October!  TopCoder got to learn more about these members, read the article <a href="/tc?module=Static&amp;d1=features&amp;d2=111808">here</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=111808">details</a> | 
+        <tc-webtag:forumLink forumID="524555" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=features&amp;d2=archive">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />11.19.08<br />12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=MatchDetails&amp;rd=13569">Marathon Match 44 has begun with $5,000 in prizes!</a></span><br /><br />
@@ -152,21 +165,5 @@
         <a href="/wiki/pages/viewpage.action?spaceKey=tc&amp;title=Contest+Details+-+Aether+OCS">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=3958">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br />11.04.08<br />9:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm60">TCHS SRM 60 - Problem Set &amp; Analysis</a></span><br /><br />
-      The match atracted 66 competitors. Coders were faced with standard Easy problem, a little bit easier Medium and a little bit harder Hard problem. Success rate for Easy problem was low - only 56.52%. Only 5 coders managed to solve Hard problem correctly.</td>
-         <td class="newsPhoto"><img src="/i/m/boba5551_big.jpg" alt="Author" width="55" height="61"/><br />by <tc-webtag:handle coderId="20394568" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm60">details</a> | 
-        <tc-webtag:forumLink forumID="524127" message="discuss this" /> | 
-        <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
    </td></tr>
    
