@@ -30,9 +30,7 @@
 
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyColumn">
-<div class="fixedWidthBody">
-
-     <%--   <jsp:include page="../../page_title.jsp">
+<div class="fixedWidthBody" style="padding-top:10px;"><%--   <jsp:include page="../../page_title.jsp">
             <jsp:param name="image" value="college_tour"/>
             <jsp:param name="title" value="Instructions"/>
         </jsp:include> --%>
