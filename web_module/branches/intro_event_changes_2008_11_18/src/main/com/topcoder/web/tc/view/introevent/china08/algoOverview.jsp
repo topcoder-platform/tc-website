@@ -19,34 +19,38 @@
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
+
 <tr valign="top">
-<!-- Left Column Begins-->
+<%-- Left Column Begins--%>
 <td width="180">
     <jsp:include page="/includes/global_left.jsp">
         <jsp:param name="node" value="m_competitions"/>
     </jsp:include>
 </td>
-<!-- Left Column Ends -->
+<%-- Left Column Ends --%>
 
-<!-- Center Column Begins -->
+<%-- Center Column Begins --%>
 <td width="100%" align="center" class="bodyColumn">
-<div class="fixedWidthBody">
 
+<div class="fixedWidthBody" style="padding-top:10px;">
+
+ <%--
 <jsp:include page="../../page_title.jsp">
     <jsp:param name="image" value="college_tour"/>
     <jsp:param name="title" value="Overview"/>
 </jsp:include>
-
+--%>
+ 
 <div align="center">
     <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
 </div>
 
-<!-- college tour site subnav -->
+<%-- college tour site subnav --%>
 <jsp:include page="topMenu.jsp">
     <jsp:param name="active" value="algo_overview"/>
 </jsp:include>
 
-<!-- ends -->
+<%-- ends --%>
 
 <p>
     <h2>TopCoder Event Overview</h2>
@@ -131,19 +135,19 @@
 </div>
 
 </td>
-<!-- Center Column Ends -->
+<%-- Center Column Ends --%>
 
-<!-- Right Column Begins -->
+<%-- Right Column Begins --%>
 <td width="170">
     <jsp:include page="../../public_right.jsp">
         <jsp:param name="level1" value="privatelabel"/>
     </jsp:include>
 </td>
-<!-- Right Column Ends -->
+<%-- Right Column Ends --%>
 
-<!-- Gutter -->
+<%-- Gutter --%>
 <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<!-- Gutter Ends -->
+<%-- Gutter Ends --%>
 </tr>
 </table>
 
