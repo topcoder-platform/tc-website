@@ -72,8 +72,8 @@ import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
  * A request processor to be used for servicing the requests for uploading the
  * submissions to server. The main purpose of this processor is to validate the
  * submission and store it in local file system. Also generates the alternate
- * presentations for the submission and generates the passing review for those
- * submissions which come from <code>TopCoder Direct</code> contests.
+ * presentations for the submission <del>and generates the passing review for those
+ * submissions which come from <code>TopCoder Direct</code> contests</del> <ins>BUGR-633 Change</ins>.
  * </p>
  *
  * @author dok, isv
@@ -325,6 +325,9 @@ public class Submit extends BaseSubmissionDataProcessor {
 						Integer one = 1;
 						getRequest().setAttribute("maxRank", maxRank);
 
+						// BUGR-633 Change: remove the automatic screening of
+						// Submissions for TopCoder Cockpit contests
+						/*
 						// Since TopCoder Studio Modifications Assembly - if
 						// contest is from TopCoder Direct then create
 						// the passing review immediately. Req# 5.12
@@ -347,6 +350,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 								s.setReview(review);
 							}
 						}
+						*/
 
 						if (maxRank == null) {
 							s.setRank(one);
@@ -378,13 +382,15 @@ public class Submit extends BaseSubmissionDataProcessor {
 						u = DAOUtil.getFactory().getUserDAO().find(
 								getUser().getId());
 
+						ContestChannel contestChannel = c.getChannel();
 						if (contestChannel != null
 								&& u.getPrimaryEmailAddress().getStatusId()
 										.equals(Email.STATUS_ID_ACTIVE)) {
 							if (ContestChannel.TOPCODER_DIRECT
 									.equals(contestChannel.getId())) {
 
-								String response = "Your submission has been automatically screened and passed for this Cockpit contest.";
+								// BUGR-633 Change: mail text has been changed
+								String response = "Your submission has been accepted and shown to the client. It still needs to be screened and you will receive another email alerting you to whether your submission has passed or failed screening.";
 
 
 								ReviewStatus rs = StudioDAOUtil.getFactory()
