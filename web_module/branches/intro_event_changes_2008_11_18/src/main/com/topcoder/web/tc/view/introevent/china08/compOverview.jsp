@@ -43,7 +43,7 @@
 --%>
 
 <div align="center">
-    <img src="http://www.topcoder.com/images/logo_china_tournament.jpg" />
+    <img src="http://www.topcoder.com/images/collegetour/logo_china_tournament.jpg" />
 </div>
 
 <jsp:include page="topMenu.jsp">
