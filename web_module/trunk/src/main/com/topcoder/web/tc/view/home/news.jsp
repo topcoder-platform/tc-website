@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />11.19.08<br />12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=MatchDetails&amp;rd=13569">Marathon Match 44 has begun with $5,000 in prizes!</a></span><br /><br />
+        Marathon 44 is here and will be a one-week competition that highlights encryption technology with a $5,000 cash purse! Participate in the next encryption match today… Unir sha naq tbbq yhpx!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=MatchDetails&amp;rd=13569">details</a> | 
+        <tc-webtag:forumLink forumID="524553" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.18.08<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/wiki/display/tc/Contest+Details+-+Auto+Tree+Conceptualization">$1500 Conceptualization Contest – You write the Business Requirements</a></span><br /><br />
@@ -155,18 +168,5 @@
         <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=hs_srm60">details</a> | 
         <tc-webtag:forumLink forumID="524127" message="discuss this" /> | 
         <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.02.08<br />12:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081028' refer='/tc' />">Spotlight Sessions with John Dethridge Chat Transcript</a></span><br /><br />
-        Before <a href="/tc?module=MatchDetails&amp;rd=13529">TCHS SRM 60</a>, <tc-webtag:handle coderId="270505" context="algorithm" /> had a chat session with members.  Check out this chat transcript <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081028' refer='/tc' />">here</a>.  If you missed the Spotlight Session with <tc-webtag:handle coderId="270505" context="algorithm" />, this week we've got the 2008 TCO Marathon Champion, <tc-webtag:handle coderId="10597114" context="algorithm" /> in the Arena before <a href="/tc?module=MatchDetails&amp;rd=13530">TCHS SRM 61</a>.  Mark  your calendars!  Read more about the Spotlight Sessions <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotlightSessions' refer='/tc' />">here</a>.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=hs&d2=spotSessChat20081028' refer='/tc' />">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=627051">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
    </td></tr>
    
