@@ -78,46 +78,15 @@
     and compete in the competion.
    </p>
 
-    <h3>Prizes</h3>
-
-    <ul>
-        <c:if test="${not empty mainEvent.firstPlacePrize }">
-            <li>1st place prize - ${mainEvent.firstPlacePrize}
-            </li>
-        </c:if>
-        <c:if test="${not empty mainEvent.secondPlacePrize }">
-            <li>1st place prize - ${mainEvent.secondPlacePrize}
-            </li>
-        </c:if>
-        <c:if test="${not empty mainEvent.thirdPlacePrize }">
-            <li>1st place prize - ${mainEvent.thirdPlacePrize}
-            </li>
-        </c:if>
-    </ul>
-
-    <p>All competitors will receive a TopCoder T-shirt. Placement in the SRM will be determined by the total number of points at the conclusion of the SRM. The competitor with the highest total positive (i.e., greater than zero) points will finish in 1st place. The overall winner will receive the 1st place prize, the 2nd place finisher will receive the 2nd place prize, and the 3rd place finisher will receive the 3rd place prize.</p>
-
-    <br><br>
-
-    <h3>Event Schedule</h3>
-
-    The timeline for the day of the event:
-    <ul>
-        <li>
-            <tc-webtag:format object="${eventStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
-            - Computer lab opens & competitors set up
-        </li>
-        <li>
-            <tc-webtag:format object="${roundStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
-            - Competition starts
-        </li>
-        <li>
-            <tc-webtag:format object="${sysTestEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
-            - Competition ends
-        </li>
-    </ul>
-
-<p>
+    <h3>Advancement and Prizes</h3>
+    <p>Up to 300 competitors will advance to Round 2 on Sunday, December 14, 2008 at 2:30 p.m. CST. <br>
+          <br>
+      <strong>Prizes for Round 2 will be:</strong><br>
+      First Prize: iPod Nano<br>
+      Second Prize: iPod Shuffle<br>
+      Third Prize: MP3<br>
+        </p>
+    <p>
 </p>
 
 
