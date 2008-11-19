@@ -35,13 +35,15 @@
 <td width="100%" align="center" class="bodyColumn">
 <div class="fixedWidthBody">
 
+ <%--
 <jsp:include page="../../page_title.jsp">
     <jsp:param name="image" value="college_tour"/>
     <jsp:param name="title" value="Overview"/>
 </jsp:include>
+--%>
 
 <div align="center">
-    <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
+    <img src="http://www.topcoder.com/images/logo_china_tournament.jpg" />
 </div>
 
 <jsp:include page="topMenu.jsp">

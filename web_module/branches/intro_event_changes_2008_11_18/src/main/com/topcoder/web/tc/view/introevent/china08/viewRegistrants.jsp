@@ -39,7 +39,7 @@
 
 
         <div align=center>
-            <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
+            <img src="http://www.topcoder.com/images/logo_china_tournament.jpg" />
         </div>
 
         <!-- college tour site subnav -->

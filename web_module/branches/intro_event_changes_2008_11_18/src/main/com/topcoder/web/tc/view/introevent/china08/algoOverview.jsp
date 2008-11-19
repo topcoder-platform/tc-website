@@ -35,15 +35,17 @@
 <div class="fixedWidthBody" style="padding-top:10px;">
 
  <%--
+
 <jsp:include page="../../page_title.jsp">
     <jsp:param name="image" value="college_tour"/>
     <jsp:param name="title" value="Overview"/>
 </jsp:include>
 --%>
  
-<div align="center">
-    <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
-</div>
+
+        <div align=center>
+           <img src="http://www.topcoder.com/images/logo_china_tournament.jpg" />
+        </div>
 
 <%-- college tour site subnav --%>
 <jsp:include page="topMenu.jsp">
@@ -52,33 +54,29 @@
 
 <%-- ends --%>
 
-<p>
-    <h2>TopCoder Event Overview</h2>
+
+    <h2>2008 TopCoder China Tournament</h2>
 
     <br>
 
     <h3>The Event</h3>
-    TopCoder is sponsoring an onsite programming competition at ${mainEvent.school.name} on
-    <tc-webtag:format object="${roundStart}" format="EEEE MM.dd.yyyy" timeZone="${mainEvent.timeZone.description}"/>. <br><br>
-
+    <p>TopCoder is sponsoring Round 1A of the 2008 TopCoder China Tournament online on Sunday 11.23.2008.</p>
+	<p>
     <span class="bigRed">Registration for this event ends on <tc-webtag:format object="${event.registrationEnd}" format="EEEE MM.dd.yyyy hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>.</span><br>
-    <br>
-    
+    </p>
+    <p>
     The event is from
     <tc-webtag:format object="${eventStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
     until
     <tc-webtag:format object="${eventEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
-    in
-    the ${mainEvent.location}. This event is being run in conjunction
+	online. This event is being run in conjunction
     with
     <A href="/tc?module=MatchDetails&rd=${mainEvent.roundId}">${contestName}
     </A>.
     In addition to <A href="/reg/">registering with TopCoder</A>, all competitors must register
     <a href="/tc?module=IntroEventViewReg&eid=${eid}">here</a>
-    and be onsite for the competition.
-    After the event, food and refreshments will be served and a TopCoder representative will be on hand to discuss TopCoder competitions and employment services.
-
-    <br><br>
+    and compete in the competion.
+   </p>
 
     <h3>Prizes</h3>
 
@@ -97,7 +95,7 @@
         </c:if>
     </ul>
 
-    All competitors will receive a TopCoder T-shirt. Placement in the SRM will be determined by the total number of points at the conclusion of the SRM. The competitor with the highest total positive (i.e., greater than zero) points will finish in 1st place. The overall winner will receive the 1st place prize, the 2nd place finisher will receive the 2nd place prize, and the 3rd place finisher will receive the 3rd place prize.
+    <p>All competitors will receive a TopCoder T-shirt. Placement in the SRM will be determined by the total number of points at the conclusion of the SRM. The competitor with the highest total positive (i.e., greater than zero) points will finish in 1st place. The overall winner will receive the 1st place prize, the 2nd place finisher will receive the 2nd place prize, and the 3rd place finisher will receive the 3rd place prize.</p>
 
     <br><br>
 
@@ -117,18 +115,9 @@
             <tc-webtag:format object="${sysTestEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
             - Competition ends
         </li>
-        <li>
-            <tc-webtag:format object="${resultsTime}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
-            - Refreshments, Winner announcements & TopCoder presentation
-        </li>
     </ul>
 
-
-    <strong>${mainEvent.recruiterName }
-    </strong>, a TopCoder representative, will be present to explain the unique array of competitions hosted by TopCoder, along with other aspects of the company.
-
-    <br><br>
-    
+<p>
 </p>
 
 
