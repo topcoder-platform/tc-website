@@ -59,7 +59,6 @@ import com.topcoder.web.studio.model.FilePath;
 import com.topcoder.web.studio.model.MimeType;
 import com.topcoder.web.studio.model.ReviewStatus;
 import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.SubmissionReview;
 import com.topcoder.web.studio.model.SubmissionStatus;
 import com.topcoder.web.studio.model.SubmissionType;
 import com.topcoder.web.studio.util.FileGenerator;
@@ -548,14 +547,16 @@ public class Submit extends BaseSubmissionDataProcessor {
 			ReviewStatus status, Date submitDate, String contestName) throws Exception {
 
 		TCSEmailMessage mail = new TCSEmailMessage();
-		if (ReviewStatus.PASSED.equals(status.getId())) {
+		/* if (ReviewStatus.PASSED.equals(status.getId())) {
 			mail.setSubject("Your TopCoder(R) Studio submission passed review");
 		} else if (ReviewStatus.FAILED.equals(status.getId())) {
 			mail.setSubject("Your TopCoder(R) Studio submission failed review");
 		} else if (ReviewStatus.CHEATED.equals(status.getId())) {
 			// don't send email
 			return;
-		}
+		} */
+
+		mail.setSubject("Your TopCoder(R) Studio submission has been accepted");
 
 		StringBuffer msgText = new StringBuffer(3000);
 
