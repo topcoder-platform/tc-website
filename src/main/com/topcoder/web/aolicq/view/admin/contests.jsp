@@ -7,37 +7,41 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
 
-<?xml version="1.0" encoding="utf-8"?>
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>Aolicq Developer Challenge :: Powered by TopCoder</title>
+<title>Ribbit - $100,000 Killer App Challenge :: Powered by TopCoder</title>
+
 <jsp:include page="../style.jsp">
     <jsp:param name="key" value="tc_aolicq"/>
 </jsp:include>
 </head>
 
 <body>
-    <!-- wrapper -->
-    <div id="wrapper">
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="../tcTop.jsp"/>
-            <jsp:include page="../topNav.jsp">
-                <jsp:param name="node" value="contests"/>
-            </jsp:include>
-        </div>
+
+ 
+<jsp:include page="../topNav.jsp">
+	<jsp:param name="active_page" value="home"/>
+</jsp:include>
+
+ <!-- Body Starts Here -->	    
+
+<div id="wrapper">
+<jsp:include page="../aolicqTop.jsp"/>
+      <%-- Front Page Body Content --%>  
+        <div id="left-content">
+        <div class="secondary-body">
         <!-- container -->
-        <div id="container">
             <!-- content -->
             <div id="content">
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-                <h1>Contests</h1>
+                <h2>Contests</h2>
 
                 <div align="right" style="margin-bottom: 10px;"><a href="${sessionInfo.servletPath}?module=ViewContest"><img src="/i/v2/interface/btnAddContest.png" alt="Add contest" /></a></div>
 

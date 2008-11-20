@@ -8,17 +8,15 @@
 <%@ taglib prefix="aolicq_tags" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 
-<?xml version="1.0" encoding="utf-8"?>
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Aolicq Developer Challenge :: Powered by TopCoder</title>
-    <jsp:include page="../style.jsp">
-        <jsp:param name="key" value="tc_aolicq"/>
-    </jsp:include>
+    <title>Ribbit - $100,000 Killer App Challenge :: Powered by TopCoder</title>
+
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
     <c:set value="<%=Constants.REVIEW_STATUS_ID%>" var="reviewStatus"/>
     <c:set value="<%=Constants.SUBMISSION_REVIEW_TEXT%>" var="reviewText"/>
@@ -52,25 +50,31 @@
             }
         -->
     </script>
-
+    <jsp:include page="../style.jsp">
+        <jsp:param name="key" value="tc_aolicq"/>
+    </jsp:include>
 </head>
 
 <body>
-    <!-- wrapper -->
-    <div id="wrapper">
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="../tcTop.jsp"/>
-            <jsp:include page="../topNav.jsp">
-                <jsp:param name="node" value="contests"/>
-            </jsp:include>
-        </div>
-        <!-- container -->
-        <div id="container">
+
+ 
+<jsp:include page="../topNav.jsp">
+	<jsp:param name="active_page" value="home"/>
+</jsp:include>
+
+ <!-- Body Starts Here -->	    
+
+<div id="wrapper">
+<jsp:include page="../aolicqTop.jsp"/>
+      <%-- Front Page Body Content --%>  
+        <div id="left-content">
+        <div class="secondary-body">
+                        <div id="container">
             <!-- content -->
             <div id="content">
                 <div class="contentTop">
                     <div class="contentMiddle">
+                           <h2>Submission Detail</h2>
 
                 <div class="breadcrumb">
                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContests">Contests</a>
@@ -81,13 +85,13 @@
                     &gt; ${submission.submitter.handle} - ${submission.originalFileName}
                 </div>
 
-                <h1>Submission Detail</h1>
-
+         
+				<p></p>
                 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="reviewForm">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitReview"/>
                     <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
 
-
+<p>
                     <c:choose>
                         <c:when test="${submission.mimeType.fileType.imageFile}">
                             <aolicq_tags:submissionDisplay submissionId="${submission.id}" width="${submission.width}" height="${submission.height}" isAdminSite="true" includeLink="false"/>
@@ -97,9 +101,8 @@
                                 Submission</a>
                         </c:otherwise>
                     </c:choose>
-                    <br/>
-
-
+<p>
+<p>
                     <c:if test="${submissionReview.reviewer!=null}">
                         Reviewer: ${submissionReview.reviewer.handle}<br />
                     </c:if>
@@ -108,7 +111,7 @@
                     </c:if>
                     Status:
                     <tc-webtag:objectSelect name="<%=Constants.REVIEW_STATUS_ID%>" list="${reviewStatuses}" valueField="id" textField="description" onChange="choose()"/>
-                    <br /><br />
+                    </p><p>
                     Dear ${submission.submitter.handle},<br /><br />
                     This email is in regards to your submission ${submission.originalFileName} at &lt;time&gt;
                     <br /><br />
@@ -116,8 +119,9 @@
                     <br /><br />
                     Sincerely,<br />
                     ${currentUser.firstName} ${currentUser.lastName}<br />
-                    TopCoder Aolicq<br />
+                    TopCoder Aolicq<br /><br/>
                     <button name="submit" value="submit" type="submit">Submit</button>
+                    </p>
                 </form>
 
                 <br/> <br/>

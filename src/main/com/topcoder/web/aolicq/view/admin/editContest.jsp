@@ -9,14 +9,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<?xml version="1.0" encoding="utf-8"?>
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Aolicq Developer Challenge :: Powered by TopCoder</title>
+    <title>Ribbit - $100,000 Killer App Challenge :: Powered by TopCoder</title>
+
     <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
@@ -25,19 +26,22 @@
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_aolicq"/>
     </jsp:include>
-
 </head>
 
 <body>
-    <!-- wrapper -->
-    <div id="wrapper">
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="../tcTop.jsp"/>
-            <jsp:include page="../topNav.jsp">
-                <jsp:param name="node" value="contests"/>
-            </jsp:include>
-        </div>
+
+ 
+<jsp:include page="../topNav.jsp">
+	<jsp:param name="active_page" value="home"/>
+</jsp:include>
+
+ <!-- Body Starts Here -->	    
+
+<div id="wrapper">
+<jsp:include page="../aolicqTop.jsp"/>
+      <%-- Front Page Body Content --%>  
+        <div id="left-content">
+        <div class="secondary-body">
         <!-- container -->
         <div id="container">
             <!-- content -->
@@ -45,8 +49,11 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
+<h2>Edit Contest Details</h2>
+
 <div class="linkBox"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContests">back to
     Contests</a></div>
+
 
 
 <c:if test="${contest.id>0}">
@@ -62,7 +69,7 @@
 </c:if>
 
 
-<h1>Edit Contest Details</h1>
+
 
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
