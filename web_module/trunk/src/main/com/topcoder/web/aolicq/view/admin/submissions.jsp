@@ -13,17 +13,15 @@
 
 <% ResultSetContainer submissions = (ResultSetContainer) request.getAttribute("submissions");%>
 
-<?xml version="1.0" encoding="utf-8"?>
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Aolicq Developer Challenge :: Powered by TopCoder</title>
-    <jsp:include page="../style.jsp">
-        <jsp:param name="key" value="tc_aolicq"/>
-    </jsp:include>
+    <title>Ribbit - $100,000 Killer App Challenge :: Powered by TopCoder</title>
+
     <script type="text/javascript"><!--
     function next() {
         document.subForm.<%=DataAccessConstants.START_RANK%>.value =<%=submissions.getStartRow()+Constants.ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE%>;
@@ -52,24 +50,32 @@
     }
     //--></script>
 
+    <jsp:include page="../style.jsp">
+        <jsp:param name="key" value="tc_aolicq"/>
+    </jsp:include>
 </head>
 
 <body>
-    <!-- wrapper -->
-    <div id="wrapper">
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="../tcTop.jsp"/>
-            <jsp:include page="../topNav.jsp">
-                <jsp:param name="node" value="contests"/>
-            </jsp:include>
-        </div>
-        <!-- container -->
-        <div id="container">
+
+ 
+<jsp:include page="../topNav.jsp">
+	<jsp:param name="active_page" value="home"/>
+</jsp:include>
+
+ <!-- Body Starts Here -->	    
+
+<div id="wrapper">
+<jsp:include page="../aolicqTop.jsp"/>
+      <%-- Front Page Body Content --%>  
+        <div id="left-content">
+        		<div class="secondary-body">
+                <div id="container">
             <!-- content -->
             <div id="content">
                 <div class="contentTop">
                     <div class="contentMiddle">
+
+<h2>Submissions</h2>
 
 <div class="linkBox"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContests">back to
     Contests</a></div>
@@ -81,10 +87,9 @@
     &gt; Submissions
 </div>
 
-<h1>Submissions</h1>
 
 <%-- without this div, the table inside stretches way outside the window, only in IE of course --%>
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="get" name="subForm">
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="get" name="subForm" style="padding-top:10px;">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewSubmissions"/>
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>"/>
@@ -94,12 +99,14 @@
 <input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
 <input type="hidden" name="<%=Constants.REVIEW_STATUS_ID%>" value=""/>
 
-
+<p>
 Showing <strong>${count}</strong> Submissions for <strong>${contest.name}</strong>
-<br /><br />
+</p>
+<p>
 Show submissions by (Enter Handle):
 <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>  <button name="handleSubmit" value="handleSubmit" type="submit">Submit</button>
-<br /><br />
+</p>
+<p>
 <c:forEach items="${reviewStatuses}" var="reviewStatus">
     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=${reviewStatus.id}&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Only
         show submissions that ${reviewStatus.description}</a><br />
@@ -112,6 +119,7 @@ Show submissions by (Enter Handle):
     deleted submissions only</a><br />
 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}&amp;<%=Constants.SUBMISSION_TYPE_ID%>=<%=SubmissionType.FINAL_SUBMISSION_TYPE%>">Show
     final submissions only</a>
+</p>
 
 <div class="pagingBox">
     <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
@@ -342,7 +350,7 @@ Show submissions by (Enter Handle):
                 </div>
             </div>
         </div>
-
+<p style="clear:both;">
         <jsp:include page="../tcFoot.jsp"/>
 
     </div>
