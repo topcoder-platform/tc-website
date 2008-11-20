@@ -120,9 +120,9 @@ public class SubmitReview extends Base {
 
         TCSEmailMessage mail = new TCSEmailMessage();
         if (ReviewStatus.PASSED.equals(status.getId())) {
-            mail.setSubject("Your TopCoder(R) Aolicq submission passed review");
+            mail.setSubject("Your Killer App challenge submission passed review");
         } else if (ReviewStatus.FAILED.equals(status.getId())) {
-            mail.setSubject("Your TopCoder(R) Aolicq submission failed review");
+            mail.setSubject("Your Killer App challenge submission failed review");
         } else if (ReviewStatus.CHEATED.equals(status.getId())) {
             //don't send email 
             return;
@@ -158,12 +158,12 @@ public class SubmitReview extends Base {
         msgText.append(" ");
         msgText.append(reviewer.getLastName());
         msgText.append("\n");
-        msgText.append("Aolicq Developer Challenge");
+        msgText.append("Killer App Challenge");
 
         mail.setBody(msgText.toString());
         mail.addToAddress(submitter.getPrimaryEmailAddress().getAddress(), TCSEmailMessage.TO);
 
-        mail.setFromAddress("service@topcoder.com", "TopCoder Aolicq Admin");
+        mail.setFromAddress("service@topcoder.com", "Killer App Challenge Admin");
         EmailEngine.send(mail);
     }
 
