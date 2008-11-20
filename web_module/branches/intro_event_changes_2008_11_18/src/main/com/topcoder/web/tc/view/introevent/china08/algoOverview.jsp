@@ -1,6 +1,5 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="eventID" value="${algoEventId}"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -62,7 +61,17 @@
     <br>
 
     <h3>The Event</h3>
-    <p>TopCoder is sponsoring Round 1A of the 2008 TopCoder China Tournament online on <tc-webtag:format object="${roundStart}" format="EEEE MM.dd.yyyy" timeZone="${mainEvent.timeZone.description}"/>.</p>
+    
+    <p>TopCoder is sponsoring Round 
+     		<c:choose>
+                 <c:when test="${eid ==3413}">1B</c:when>
+                 <c:when test="${eid ==3415}">1C</c:when>
+                 <c:when test="${eid ==3417}">1D</c:when>
+                 <c:when test="${eid ==3419}">1E</c:when>
+                 <c:otherwise>1A</c:otherwise>
+			</c:choose>
+    
+     of the 2008 TopCoder China Tournament online on <tc-webtag:format object="${roundStart}" format="EEEE MM.dd.yyyy" timeZone="${mainEvent.timeZone.description}"/>.</p>
 	<p>
     <span class="bigRed">Registration for this event ends on <tc-webtag:format object="${event.registrationEnd}" format="EEEE MM.dd.yyyy hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>.</span><br>
     </p>
