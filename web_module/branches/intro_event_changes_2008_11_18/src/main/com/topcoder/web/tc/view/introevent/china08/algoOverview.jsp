@@ -44,8 +44,7 @@
  
 
         <div align=center>
-           <img src="http://www.topcoder.com/images/collegetour/logo_china_tournament.jpg" />
-        </div>
+           <img src="http://www.topcoder.com/images/collegetour/logo_china_tournament.jpg" />        </div>
 
 <%-- college tour site subnav --%>
 <jsp:include page="topMenu.jsp">
@@ -82,12 +81,10 @@
     <tc-webtag:format object="${eventEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
 	online. This event is being run in conjunction
     with
-    <A href="/tc?module=MatchDetails&rd=${mainEvent.roundId}">${contestName}
-    </A>.
+    <A href="/tc?module=MatchDetails&rd=${mainEvent.roundId}">${contestName}    </A>.
     In addition to <A href="/reg/">registering with TopCoder</A>, all competitors must register
     <a href="/tc?module=IntroEventViewReg&eid=${eid}">here</a>
-    and compete in the competion.
-   </p>
+    and compete in the competion.   </p>
 
     <h3>Advancement and Prizes</h3>
     <p>Up to 300 competitors will advance to Round 2 on Sunday, December 14, 2008 at 2:30 p.m. CST. <br>
@@ -97,13 +94,8 @@
       Second Prize: iPod Shuffle<br>
       Third Prize: MP3<br>
         </p>
-    <p>
-</p>
-
-
-</div>
-
-</td>
+    <p></p>
+</div></td>
 <%-- Center Column Ends --%>
 
 <%-- Right Column Begins --%>
