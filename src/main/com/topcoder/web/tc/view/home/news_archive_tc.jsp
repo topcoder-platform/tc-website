@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">11.20.08 4:00 PM - </td><td width="100%"><a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Sessions with Yarin</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.06.08 4:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081106">Spotlight Sessions with Psyho Chat Transcript</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.04.08 4:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2405">$1,500 Studio Mini-Tournament to develop a Flash Arcade-style Game</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.03.08 12:30 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081028">Spotlight Sessions with John Dethridge Chat Transcript</a></td></tr>

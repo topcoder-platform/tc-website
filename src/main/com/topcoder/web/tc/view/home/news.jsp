@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.20.08<br />4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Sessions with Yarin</a></span><br /><br />
+        The next Spotlight Session is about to happen!  Don't miss Yarin in the chat room one hour prior to TCHS SRM 62 on Saturday, November 22, 2008 at 11:00 a.m. EST (GMT-5).  All members are welcome to join in the chat session and learn some valuable tips from a great coder.  Learn more about Yarin and Spotlight Sessions <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">here</a>. There is one session left after this; hope you can join us!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=628082&mc=1#1042006">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br />11.19.08<br />6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&amp;d1=features&amp;d2=111808">Meet the October Coder and Designers of the Month!</a></span><br /><br />
