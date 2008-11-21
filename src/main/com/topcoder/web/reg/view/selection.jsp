@@ -91,21 +91,20 @@
             <div class="block">
             
                 <div class="sidebar">
-                    <p>Check all that apply.</p>
                     <p>
                         <c:if test="${!sessionInfo.loggedIn}">
-                            Before registering, please read our <a href="Javascript:openWin('/reg/message.jsp','',1200,600);">Message
+                            Before registering, we encourage you to read our <a href="Javascript:openWin('/reg/message.jsp','',1200,600);">Message
                             from the TopCoder Founder</a>.
                             <br/>
                         </c:if>                    
                     </p>
-                    <p>Please read the <a href="Javascript:openWin('/reg/privacy_policy.jsp','',1200,600);">Privacy Policy</a> </p>
                     <p>All registered TopCoder members have the ability to read and post in our forums, as well as browse sections of the site that require login, such as detailed competition statistics. </p>
                     <p>You can always add to your registered capabilities later by clicking &quot;Update My Profile&quot;.</p>
+                    <p>Please read the <a href="Javascript:openWin('/reg/privacy_policy.jsp','',1200,600);">Privacy Policy</a> </p>
                 </div>
                 
                 <div class="content">
-                <h4><span>What would you like to do as a registered TopCoder member?</span><span class="end">&nbsp;</span></h4>
+                <h4><span>What would you like to do as a registered TopCoder member?</span><span class="hint">(check all that apply)</span><span class="end">&nbsp;</span></h4>
                 <div class="content-body">
                 <ul>
             
@@ -123,7 +122,7 @@
                     <c:set value="<%=RegistrationType.HIGH_SCHOOL_ID%>" var="highSchool"/>
                     
 
-                    <h4>Run My Own Contests</h4>
+                    <h5>Run My Own Contests</h5>
                     <li class="form-row">
                         <c:choose>
                             <c:when test="${requestScope[defaults]['rt2']==null}">
@@ -136,7 +135,7 @@
                         </c:choose>
                         I want to start using TopCoder Direct | <a href="javascript:void(0)" onmouseover="popUp(this,'popUp0');" onmouseout="popHide()">tell me more</a>
                     </li>
-                    <h4 class="title2">I Want to Compete</h4>
+                    <h5 class="title2">I Want to Compete</h5>
                     <li class="form-row">
                         <c:choose>
                             <c:when test="${requestScope[defaults]['rt1']==null}">
