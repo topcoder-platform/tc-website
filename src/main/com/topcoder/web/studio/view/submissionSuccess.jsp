@@ -106,7 +106,7 @@
             <c:when test="${contest.startTime > bigStart}">
 				<c:choose>
 					<c:when test="${contest.channel.id eq TOPCODER_DIRECT_ID}">
-					Your submission has been automatically screened and passed for this Cockpit contest.	
+					Your submission has been accepted and shown to the client. It still needs to be screened and you will receive another email alerting you to whether your submission has passed or failed screening.	
 	                </c:when>
 	                <c:otherwise>
 					Your submission will be screened after the Submission Phase has ended. If your submission does not pass
