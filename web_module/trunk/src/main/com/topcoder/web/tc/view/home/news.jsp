@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.21.08<br />6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/wiki/display/tc/Contest+Details+-+Hera+Status+Portal+1.0+Req.+Specification">Compete in a Specification contest to for a Status Portal Application!</a></span><br /><br />
+        The business requirements have been defined to build an application for customers to monitor their home loan applications.  Now, TopCoder wants YOU to interpret these requirements and produce a full TopCoder Requirements Specification. This includes Use Cases, Activities, and a QA Plan inventory. The winning specification will be implemented and deployed at the client.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/wiki/display/tc/Contest+Details+-+Hera+Status+Portal+1.0+Req.+Specification">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=628130&start=0">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.20.08<br />4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Sessions with Yarin</a></span><br /><br />
