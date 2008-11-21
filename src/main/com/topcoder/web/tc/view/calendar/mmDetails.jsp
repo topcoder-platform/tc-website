@@ -102,6 +102,12 @@
 </p>
 <%}%>
 
+<%if(rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681 ) {%>
+<p align="justify">
+    This Marathon Match is an encryption match. Use a known encryption method like DES, Substitution cipher, or Cryptography, to decipher the problem, and you can be a part of the $5,000 prize purse. The top five highest scorers will receive prizes with the first place winner receiving $2,500!
+</p>
+<%}%>
+
 <p align="justify">
     Unlike traditional algorithm competitions, the system is not necessarily testing for correctness. 
     In Marathon Matches, the scoring mechanism may be different for each problem. 
