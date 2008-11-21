@@ -193,6 +193,12 @@
       <td class="value">30
       </td>
       <td class="value">31
+         <div class="long">
+         <strong><a href="/tc?module=MatchDetails&amp;rd=13679">Marathon Match 47</a></strong><br />
+         12:00 NOON<br />
+         $5,000<br />
+         1 week
+         </div>
       </td>
       <td class="empty">&#160;<br /><br /><br /><br /><br />
       </td>
