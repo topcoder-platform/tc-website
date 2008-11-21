@@ -93,7 +93,12 @@
 <a href="<tc-webtag:linkTracking link='/openaim/' refer='/tc' />"><img src="/i/home/openAIMslimBannerVote.png" alt="Open AIM Developer Challenge Powered by TopCoder" /></a>
 --%>
 
+<%-- ESPN Winning Formula Challenge --%>
+<br />
+<a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />"><img src="/i/home/winformula_preview510x54.png" alt="ESPN Winning Formula Challenge Powered by TopCoder" /></a>
+
 <%-- Ribbit Killer App Challenge --%>
+<br />
 <br />
 <a href="<tc-webtag:linkTracking link='http://killerappchallenge.ribbit.com' refer='/tc' />"><img src="/images/home/ribbit-banner510x65.png" alt="Ribbit $100,000 Killer App Challenge" /></a>
 
