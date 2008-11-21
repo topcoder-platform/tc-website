@@ -205,28 +205,28 @@
                 <tr>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=639">Texas Tech</a></td>
                     <td class="alignRight dottedRight">35</td>
-                    <td><strong><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=640">Michigan St</a></strong></td>
-                    <td class="alignRight dottedRight"><strong>15</strong></td>
-                    <td><strong><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=638">Michigan</a></strong></td>
-                    <td class="alignRight dottedRight"><strong>11</strong></td>
+                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=640">Michigan St</a></td>
+                    <td class="alignRight dottedRight">15</td>
+                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=638">Michigan</a></td>
+                    <td class="alignRight dottedRight">11</td>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=621">Pittsburgh</a></td>
                     <td class="alignRight dottedRight">21</td>
-                    <td><strong><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=651">BYU</a></strong></td>
-                    <td class="alignRight dottedRight"><strong>22</strong></td>
+                    <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=651">BYU</a></td>
+                    <td class="alignRight dottedRight">22</td>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=614">Miami (FL)</a></td>
                     <td class="alignRight">18</td>
                 </tr>
                 <tr>
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=639">Oklahoma</a></strong></td>
                     <td class="alignRight dottedRight"><strong>41</strong></td>
-                    <td><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=640">Penn St</a></td>
-                    <td class="alignRight dottedRight">32</td>
-                    <td><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=638">Ohio St</a></td>
-                    <td class="alignRight dottedRight">30</td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=640">Penn St</a></strong></td>
+                    <td class="alignRight dottedRight"><strong>32</strong></td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=638">Ohio St</a></strong></td>
+                    <td class="alignRight dottedRight"><strong>30</strong></td>
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=621">Cincinnati</a></strong></td>
                     <td class="alignRight dottedRight"><strong>27</strong></td>
-                    <td><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=651">Utah</a></td>
-                    <td class="alignRight dottedRight">32</td>
+                    <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=651">Utah</a></strong></td>
+                    <td class="alignRight dottedRight"><strong>32</strong></td>
                     <td><strong><a class="red" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=614">Georgia Tech</a></strong></td>
                     <td class="alignRight"><strong>22</strong></td>
                 </tr>
