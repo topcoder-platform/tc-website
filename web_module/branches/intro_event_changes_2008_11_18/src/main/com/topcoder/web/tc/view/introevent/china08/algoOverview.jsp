@@ -81,13 +81,13 @@
     <tc-webtag:format object="${eventEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
 	online. This event is being run in conjunction
     with
-    <A href="http://www.topcoder.com/2008chinatournament2">${contestName}    </A>.
+    <A href="http://www.topcoder.com/tc?module=Static&d1=introevent&d2=china08&d3=firstround">${contestName}    </A>.
     In addition to <A href="/reg/">registering with TopCoder</A>, all competitors must register
     <a href="/tc?module=IntroEventViewRegister&eid=${eid}">here</a>
-    and compete in the competion.   </p>
+    and compete in the competition.   </p>
 
     <h3>Advancement and Prizes</h3>
-    <p>Up to 200 competitors will advance to Round 2 on Sunday, December 14, 2008 at 2:30 p.m. CST. <br>
+    <p>Up to 300 competitors will advance to Round 2 on Sunday, December 14, 2008 at 2:30 p.m. CST. <br>
           <br>
       <strong>Prizes for Round 2 will be:</strong><br>
       First Prize: iPod Nano<br>
