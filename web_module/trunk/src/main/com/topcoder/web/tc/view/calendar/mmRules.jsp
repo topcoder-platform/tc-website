@@ -129,7 +129,7 @@
         prohibited by applicable law.
         </p>
         <%}%>        
-    <%if(rsr.getIntItem("round_id") == 12202  || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681 ) {%>
+    <%if(rsr.getIntItem("round_id") == 12202  || rsr.getIntItem("round_id") == 13669 || rsr.getIntItem("round_id") == 13670 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681 ) {%>
     <div class="sectionHeader">Prizes</div>
     <p align="justify">There will be $5000 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
 
