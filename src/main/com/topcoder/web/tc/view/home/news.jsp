@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.21.08<br />9:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/wiki/display/tc/Contest+Details+-+Hypnos+Carrier+Call+Detail+Conceptualization">More New Contests, More Prize Money!</a></span><br /><br />
+        There is now $3,375 in prize money up for grabs in <a href="/wiki/display/tc/Software+Specification+Active+Contests">Specification and Conceptualization</a> contests alone! The latest is the Hypnos Carrier Call Detail Conceptualization. The client has completed a questionnaire and is manning the forums - the rest is up to you. Unlock their ideas, ask them questions to clarify their needs, and write up a Business Requirements Doc to define what their new system should do. Be the first to work on this project and use your abstract thinking to shape the application!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/wiki/display/tc/Contest+Details+-+Hypnos+Carrier+Call+Detail+Conceptualization">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=3993">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.21.08<br />6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/wiki/display/tc/Contest+Details+-+Hera+Status+Portal+1.0+Req.+Specification">Compete in a Specification contest to for a Status Portal Application!</a></span><br /><br />
