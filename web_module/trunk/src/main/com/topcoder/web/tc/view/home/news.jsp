@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />11.24.08<br />5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&d1=calendar&amp;d2=dec_08">Encryption Marathon Matches added to the Calendar with Prize Money!</a></span><br /><br />
+        Check out the <a href="/tc?module=Static&d1=calendar&amp;d2=dec_08">December calendar</a> to see the extra Encryption Marathon Matches we've added each with a $5,000 prize purse!  Unir sha naq tbbq yhpx!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=calendar&amp;d2=dec_08">details</a> | 
+        <tc-webtag:forumLink forumID="524630" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.21.08<br />9:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/wiki/display/tc/Contest+Details+-+Hypnos+Carrier+Call+Detail+Conceptualization">More New Contests, More Prize Money!</a></span><br /><br />
