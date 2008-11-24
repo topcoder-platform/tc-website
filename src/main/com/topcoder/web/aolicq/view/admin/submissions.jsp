@@ -77,17 +77,6 @@
 
 <h2>Submissions</h2>
 
-<div class="linkBox"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContests">back to
-    Contests</a></div>
-
-<div class="breadcrumb">
-    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContests">Contests</a>
-    &gt;
-    <a href="${sessionInfo.servletPath}?module=ViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">${contest.name}</a>
-    &gt; Submissions
-</div>
-
-
 <%-- without this div, the table inside stretches way outside the window, only in IE of course --%>
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="get" name="subForm" style="padding-top:10px;">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewSubmissions"/>
@@ -106,6 +95,8 @@ Showing <strong>${count}</strong> Submissions for <strong>${contest.name}</stron
 Show submissions by (Enter Handle):
 <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>  <button name="handleSubmit" value="handleSubmit" type="submit">Submit</button>
 </p>
+
+<%--
 <p>
 <c:forEach items="${reviewStatuses}" var="reviewStatus">
     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=${reviewStatus.id}&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Only
@@ -119,7 +110,7 @@ Show submissions by (Enter Handle):
     deleted submissions only</a><br />
 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}&amp;<%=Constants.SUBMISSION_TYPE_ID%>=<%=SubmissionType.FINAL_SUBMISSION_TYPE%>">Show
     final submissions only</a>
-</p>
+</p>--%>
 
 <div class="pagingBox">
     <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
@@ -127,8 +118,6 @@ Show submissions by (Enter Handle):
 </div>
 
 <div class="statHolder">
-    <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
-    <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
     <div class="container">
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
 <tbody>
@@ -333,8 +322,6 @@ Show submissions by (Enter Handle):
         </tbody>
         </table>
     </div>
-    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
-    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
 </div>
 
 <div class="pagingBox">
