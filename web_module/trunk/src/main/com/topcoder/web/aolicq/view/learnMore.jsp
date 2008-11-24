@@ -138,7 +138,7 @@
                             <li>
                                 <img src="/images/killerapp/judge-matt.png" />
                                 <h4>Matt Chotin</h4>
-                                <p class="title">Sr. Product Manager, Adobe<br /><a href="http://flex.org/" target="_blank">Matt's Blog</a></p>
+                                <p class="title">Sr. Product Manager, Adobe<br /><a href="http://weblogs.macromedia.com/mchotin" target="_blank">Matt's Blog</a></p>
                             </li>
                             <li>
                                 <img src="/images/killerapp/judge-daniel.png" />
