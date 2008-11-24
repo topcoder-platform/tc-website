@@ -30,8 +30,8 @@
 				<h2>Wildcard</h2>
 				<h3 class="highlight">Winning Entry will receive $15,000.00</h3>
 					<h3>Overview</h3>
-                    <p>Ribbit adds functionality to the web that many never thought possible. The computer is not the only device out there. We see Ribbit changing the way devices and interfaces allow us to communicate with each other, with key services and other systems. We&rsquo;re looking for a prototype or well developed concept that shows how Ribbit&rsquo;s service will improve the usability of any device or interface. Forget what you know about telephony, or even the current capabilities of our platform and don't apply constraints&mdash;go way outside the box.</p> 
-
+                    <p>Ribbit adds functionality to the web that many never thought possible. The computer is not the only device out there. We see Ribbit changing the way devices and interfaces allow us to communicate with each other, with key services and other systems. We&rsquo;re looking for a prototype or well developed concept that shows how Ribbit&rsquo;s service will improve the usability of any device or interface. </p>
+                    <p>Forget what you know about telephony, or even the current capabilities of our platform and don't apply constraints&mdash;go way outside the box.</p>
               <p>For the first time, you have at your disposal a fully programmable phone company. Think of all the devices you use on a daily basis. If those were hooked into the phone network, what could you do? Could you call your spouse on his/her way home from work from the fridge if you're low on milk? Could you check your voicemail from the airplane? Could you call your friends before buying tickets at a kiosk?</p>
 	
     				<h3>Category Judging Criteria</h3>
