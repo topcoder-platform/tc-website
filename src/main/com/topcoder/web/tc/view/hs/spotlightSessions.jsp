@@ -107,7 +107,7 @@
                 
                 <p class="grayedOut" style="font:12px lucida sans;"><span class="subtitle">Saturday, November 22 at 11:00 a.m. EST (GMT -5)<br />
                 Spotlight Session with <tc-webtag:handle coderId="269554" context="algorithm" /></span></p>
-                <p class ="grayedOut" style="font:12px lucida sans;"><tc-webtag:handle coderId="269554" context="algorithm" />
+                <p class ="grayedOut" style="font:12px lucida sans;">
                   View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081124">here.</a>
                 </p>
                 
