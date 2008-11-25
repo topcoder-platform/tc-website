@@ -105,9 +105,11 @@
                 Spotlight Session with <tc-webtag:handle coderId="10597114" context="algorithm" /></span></p>
                 <p class="grayedOut" style="font:12px lucida sans;">View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081106">here</a>.</p>
                 
-                <p style="font:12px lucida sans;"><span class="subtitle">Saturday, November 22 at 11:00 a.m. EST (GMT -5)<br />
+                <p class="grayedOut" style="font:12px lucida sans;"><span class="subtitle">Saturday, November 22 at 11:00 a.m. EST (GMT -5)<br />
                 Spotlight Session with <tc-webtag:handle coderId="269554" context="algorithm" /></span></p>
-                <p style="font:12px lucida sans;"><tc-webtag:handle coderId="269554" context="algorithm" />, from Sweden, has been a TopCoder member since 2002.  He was the first-ever Code Jam winner in 2003 and has successfully made it to six onsite TopCoder finals.  <tc-webtag:handle coderId="269554" context="algorithm" /> has been around for a while but is still at the top of the rankings and second in his country.  He is a Judge and Writer for multiple ACM contests, including the World Finals.  <tc-webtag:handle coderId="269554" context="algorithm" /> is also an incredibly fast typist.  At a speeding contest, he clocked a 700+ characters per minute record!  <tc-webtag:handle coderId="269554" context="algorithm" /> has heaps of experience and a load of skill so we're hoping you join in and hear his good tips in this chat session!</p>
+                <p class ="grayedOut" style="font:12px lucida sans;"><tc-webtag:handle coderId="269554" context="algorithm" />
+                  View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081124">here.</a>
+                </p>
                 
                 <p style="font:12px lucida sans;"><span class="subtitle">Thursday, December 11 at 10:00 a.m. EST (GMT -5)<br />
                 Spotlight Session with <tc-webtag:handle coderId="144400" context="algorithm" /></span></p>
