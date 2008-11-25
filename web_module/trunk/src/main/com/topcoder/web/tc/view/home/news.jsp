@@ -32,7 +32,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.21.08<br />6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a href="/wiki/display/tc/Contest+Details+-+Hera+Status+Portal+1.0+Req.+Specification">Compete in a Specification contest to for a Status Portal Application!</a></span><br /><br />
+        <a href="/wiki/display/tc/Contest+Details+-+Hera+Status+Portal+1.0+Req.+Specification">Compete in a Specification contest for a Status Portal Application!</a></span><br /><br />
         The business requirements have been defined to build an application for customers to monitor their home loan applications.  Now, TopCoder wants YOU to interpret these requirements and produce a full TopCoder Requirements Specification. This includes Use Cases, Activities, and a QA Plan inventory. The winning specification will be implemented and deployed at the client.</td>
    </tr>
    <tr><td class="newsLinksCell">
