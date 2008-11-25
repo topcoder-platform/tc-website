@@ -97,8 +97,8 @@
                 </tr>
                 <tr class="dark">
                     <td class="value">Competition 4</td>
-                    <td class="value C">November 26, 2008<br />12:00 Noon EST</td>
-                    <td class="value R">December 10, 2008<br />12:00 Noon EST</td>
+                    <td class="value C">TBD</td>
+                    <td class="value R">TBD</td>
                 </tr>
                 <tr class="light">
                     <td class="value" colspan="3">*Please note the change in Daylight Saving Time in November for deadlines.</td>
