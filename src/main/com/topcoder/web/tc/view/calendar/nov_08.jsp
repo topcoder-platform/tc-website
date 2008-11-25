@@ -137,7 +137,7 @@
       </td>
       <td class="value">19
          <div class="long">
-         <strong><a href="/tc?module=MatchDetails&amp;rd=13569">Marathon Match 44</a></strong><br />
+         <strong><img src="/images/calendar/encrypt.gif" /> <a href="/tc?module=MatchDetails&amp;rd=13569">Marathon Match 44</a></strong><br />
          12:00 NOON<br />
          $5,000<br />
          1 week
