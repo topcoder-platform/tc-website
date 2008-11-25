@@ -42,6 +42,7 @@
                 </div>
                 <div style="float: right;">
                 <h3 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h3>
+                	<strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081124">TCHS SRM 62: Spotlight Session with</a> <tc-webtag:handle coderId="269554" context="algorithm" /></strong><br />
                     <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081106">TCHS SRM 61: Spotlight Session with</a> <tc-webtag:handle coderId="10597114" context="algorithm" /></strong><br />
                     <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081028">TCHS SRM 60: Spotlight Session with</a> <tc-webtag:handle coderId="270505" context="algorithm" /></strong><br />
                     <strong><a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081008">TCHS SRM 59: Spotlight Session with</a> <tc-webtag:handle coderId="19849563" context="algorithm" /></strong><br />
