@@ -74,7 +74,7 @@
       </td>
       <td class="value">3
          <div class="long">
-         <strong><a href="/tc?module=MatchDetails&amp;rd=13570">Marathon Match 45</a></strong><br />
+         <strong><img src="/images/calendar/encrypt.gif" /> <a href="/tc?module=MatchDetails&amp;rd=13570">Marathon Match 45</a></strong>
          12:00 NOON<br />
          $5,000<br />
          1 week
@@ -101,7 +101,7 @@
       </td>
       <td class="value">10
          <div class="long">
-         <strong><a href="/tc?module=MatchDetails&amp;rd=13679">Marathon Match 46</a></strong><br />
+         <strong><img src="/images/calendar/encrypt.gif" /> <a href="/tc?module=MatchDetails&amp;rd=13679">Marathon Match 46</a></strong><br />
          12:00 NOON<br />
          $5,000<br />
          1 week
@@ -194,7 +194,7 @@
       </td>
       <td class="value">31
          <div class="long">
-         <strong><a href="/tc?module=MatchDetails&amp;rd=13680">Marathon Match 47</a></strong><br />
+         <strong><img src="/images/calendar/encrypt.gif" /> <a href="/tc?module=MatchDetails&amp;rd=13680">Marathon Match 47</a></strong><br />
          12:00 NOON<br />
          $5,000<br />
          1 week
