@@ -51,6 +51,20 @@
 </div>
 
 <div style="float:right;">
+	<!-- ADDTHIS BUTTON BEGIN -->
+	<script type="text/javascript">
+	addthis_pub             = 'topcoderstudio'; 
+	addthis_brand           = 'TopCoder Studio';
+	addthis_options         = 'facebook, twitter, myspace, delicious, reddit, favorites, email, google, more';
+	</script>
+	<a href="http://www.addthis.com/bookmark.php" onMouseOver="return addthis_open(this, '', '[URL]', '[TITLE]')" onMouseOut="addthis_close()" onClick="return addthis_sendto()">
+	<img src="/i/v2/interface/btnShare.png" width="122" height="35" border="0" alt="Share" /></a>
+	<script type="text/javascript" src="http://s7.addthis.com/js/152/addthis_widget.js"></script>
+	<!-- ADDTHIS BUTTON END -->
+</div>
+
+<div style="float:right;">
+	<!-- Visit Contest Forum Button -->
     <studio:forumLink forumID="${contest.forumId}" message="<img src='/i/v2/interface/btnContestForum.png' alt='Visit Contest Forum' />"/>
 </div>
 
