@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">11.26.08 5:30 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>?module=ViewContestDetails&ct=1000338">Redesign This Page</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.21.08 9:00 PM - </td><td width="100%"><a href="/wiki/display/tc/Contest+Details+-+Hypnos+Carrier+Call+Detail+Conceptualization">More New Contests, More Prize Money!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.21.08 6:00 PM - </td><td width="100%"><a href="/wiki/display/tc/Contest+Details+-+Hera+Status+Portal+1.0+Req.+Specification">Compete in a Specification contest for a Status Portal Application!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.18.08 12:00 PM - </td><td width="100%"><a href="/wiki/display/tc/Contest+Details+-+Auto+Tree+Conceptualization">$1500 Conceptualization Contest – You write the Business Requirements</a><br /></td></tr>
