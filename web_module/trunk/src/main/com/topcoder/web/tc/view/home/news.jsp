@@ -4,10 +4,10 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.25.08<br />4:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.25.08<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Session with Yarin Chat Transcript</a></span><br /><br />
-        Missed the Spotlight Session with Yarin? The chat transcript from the Spotlight Session on Saturday, November 22 is now available. <a href="/tc?module=Static&d1=hs&d2=spotSessChat20081124">Click here</a> to read the transcript. Also, don’t forget to log in to the Arena to join our final <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Session</a> chat of the season with <a href="/tc?module=MemberProfile&cr=144400">tomek</a>. The next Spotlight Session will be one hour before TCHS SRM 64 on Thursday, December 11 at 10:00 a.m. EST (UTC/GMT -5).</td>
+        Missed the Spotlight Session with Yarin? The chat transcript from the Spotlight Session on Saturday, November 22 is now available. <a href="/tc?module=Static&d1=hs&d2=spotSessChat20081124">Click here</a> to read the transcript. Also, don’t forget to log in to the Arena to join our final <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Session</a> chat of the season with <tc-webtag:handle coderId="144400" context="algorithm"/>. The next Spotlight Session will be one hour before TCHS SRM 64 on Thursday, December 11 at 10:00 a.m. EST (UTC/GMT -5).</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">details</a> | 
