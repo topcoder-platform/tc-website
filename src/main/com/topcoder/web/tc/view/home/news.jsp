@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.26.08<br />5:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>?module=ViewContestDetails&ct=1000338">Redesign This Page</a></span><br /><br />
+        Around the TopCoder offices, we refer to this page as &quot;Slash TC&quot;. In terms of traffic it is the most heavily used page on TopCoder.com, and is the main hub of the TopCoder Community.  But as we add more and more new contests and content, we are finding ourselves more and more restrained by the “real estate” available. We have just launched a contest on TopCoder Studio for you to give us a new layout of this page. The winner will not necessarily be chosen based on the best graphic design, but on who can give us the best ideas for a more effective layout or wireframe of this page. $500 in prizes!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>?module=ViewContestDetails&ct=1000338">details</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=534">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.25.08<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Session with Yarin Chat Transcript</a></span><br /><br />
