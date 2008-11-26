@@ -159,20 +159,26 @@ tchs08 is over, don't need to do this anymore
     }
 
     private ActiveContestsSummary getStudioSummary() throws Exception {
-        ActiveContestsSummary ret = new ActiveContestsSummary();
-        CachedDataAccess dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.STUDIO_DATASOURCE_NAME);
-        Request dataRequest = new Request();
-        dataRequest.setContentHandle("active_contests_summary");
-
-        ResultSetContainer rsc = dai.getData(dataRequest).get("active_contests_summary");
-        if (!rsc.isEmpty()) {
-            ret.setContestCount(rsc.get(0).getIntItem("total_contests"));
-            ret.setName("Studio");
-            if (rsc.get(0).getItem("total_prizes").getResultData()!=null) {
-                ret.setPrizeTotal(rsc.get(0).getFloatItem("total_prizes"));
+        try {
+            ActiveContestsSummary ret = new ActiveContestsSummary();
+            CachedDataAccess dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.STUDIO_DATASOURCE_NAME);
+            Request dataRequest = new Request();
+            dataRequest.setContentHandle("active_contests_summary");
+    
+            ResultSetContainer rsc = dai.getData(dataRequest).get("active_contests_summary");
+            if (!rsc.isEmpty()) {
+                ret.setContestCount(rsc.get(0).getIntItem("total_contests"));
+                ret.setName("Studio");
+                if (rsc.get(0).getItem("total_prizes").getResultData()!=null) {
+                    ret.setPrizeTotal(rsc.get(0).getFloatItem("total_prizes"));
+                }
             }
+            return ret;
+        } catch (Exception e) {
+            ActiveContestsSummary ret = new ActiveContestsSummary();
+            ret.setContestCount(0);
+            return ret;
         }
-        return ret;
     }
 
     private Map<String, ActiveContestsSummary> getOnlineReviewSummary() throws Exception {
@@ -264,20 +270,26 @@ tchs08 is over, don't need to do this anymore
     }
 
     private ActiveContestsSummary getBugRaceSummary() throws Exception {
-        ActiveContestsSummary ret = new ActiveContestsSummary();
-        CachedDataAccess dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.JIRA_DATASOURCE_NAME);
-        Request dataRequest = new Request();
-        dataRequest.setContentHandle("bug_race_active_contests_summary");
-
-        ResultSetContainer rsc = dai.getData(dataRequest).get("bug_race_active_contests_summary");
-        if (!rsc.isEmpty()) {
-            ret.setContestCount(rsc.get(0).getIntItem("total_contests"));
-            ret.setName("Bug Races");
-            if (rsc.get(0).getItem("total_prizes").getResultData()!=null) {
-                ret.setPrizeTotal(rsc.get(0).getFloatItem("total_prizes"));
+        try {
+            ActiveContestsSummary ret = new ActiveContestsSummary();
+            CachedDataAccess dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.JIRA_DATASOURCE_NAME);
+            Request dataRequest = new Request();
+            dataRequest.setContentHandle("bug_race_active_contests_summary");
+    
+            ResultSetContainer rsc = dai.getData(dataRequest).get("bug_race_active_contests_summary");
+            if (!rsc.isEmpty()) {
+                ret.setContestCount(rsc.get(0).getIntItem("total_contests"));
+                ret.setName("Bug Races");
+                if (rsc.get(0).getItem("total_prizes").getResultData()!=null) {
+                    ret.setPrizeTotal(rsc.get(0).getFloatItem("total_prizes"));
+                }
             }
+            return ret;
+        } catch (Exception e) {
+            ActiveContestsSummary ret = new ActiveContestsSummary();
+            ret.setContestCount(0);
+            return ret;
         }
-        return ret;
     }
 
 
