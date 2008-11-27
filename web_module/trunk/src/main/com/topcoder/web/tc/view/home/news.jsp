@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.27.08<br />8:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=ProjectDetail&pj=30005592">New System Architecture Contests Announced - $1,125 in prizes!</a></span><br /><br />
+        TopCoder just launched a new type of contest - System Architecture Contests.  And better yet, this first one is to design a Service Oriented Architecture that will service TopCoder's primary business functions.  Your designs will result in subsequent contests that will further detail and implement your designs. Check it out! $1,125 is prizes up for grabs!</tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=ProjectDetail&pj=30005592">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=4010">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.26.08<br />5:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>?module=ViewContestDetails&ct=1000338">Redesign This Page</a></span><br /><br />
