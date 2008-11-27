@@ -13,7 +13,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Ribbit - $100,000 Killer App Challenge :: Powered by TopCoder</title>
+    <title>Ribbit - $100,000 Killer App Challenge - Rules :: Powered by TopCoder</title>
 
 
     <jsp:include page="style.jsp">

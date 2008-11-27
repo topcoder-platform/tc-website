@@ -34,6 +34,7 @@
 			<ul id="secondary-nav">
                 <li class="first"><a href="http://www.topcoder.com/">TopCoder</a></li>
                 <li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=rules">Rules</a></li>
+                <li><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=faq">FAQ</a></li>
             </ul>
         </div>
     </div>
