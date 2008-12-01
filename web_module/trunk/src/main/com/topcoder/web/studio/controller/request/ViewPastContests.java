@@ -52,7 +52,7 @@ public class ViewPastContests extends BaseProcessor {
 
         if (!month.equals("All")) {
         	r.setProperty("startdate" ,year + "-" + month + "-01 00:00:00");
-        	int endMonth = (Integer.parseInt(month) + 1) % 12;
+        	int endMonth = (Integer.parseInt(month) %12) + 1;
         	String endYear=new String(year);
         	if (endMonth==1) { // The period's end is next year.
         		endYear=String.valueOf(Integer.parseInt(year)+1);
