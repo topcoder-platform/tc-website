@@ -42,8 +42,12 @@
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+To+Compete+in+Algorithm+Competitions", "How to Compete", "algo_how_to_compete"));
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Algorithm+Competition+FAQs", "FAQs", "algo_faqs"));
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Algorithm+Competition+Rating+System", "Rating System", "algo_rating_system"));
-            nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Write+Problems+for+TopCoder", "Write Problems", "algo_write"));
-      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_architecture_competitions')", "Software Architecture", "m_architecture_competitions"));
+            nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Write+Problems+for+TopCoder", "Write Problems", "algo_write")); 		 
+	nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_concept_competitions')", "	Specification", "m_concept_competitions"));
+	nav.search("m_concept_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/TopCoder+Conceptualization+Contests", "Overview", "concept_overview")); 
+    nav.search("m_concept_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc/Software+Specification+Active+Contests", "Active Contests", "concept_compete"));
+    nav.search("m_concept_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=7", "Contest Status", "concept_contest_status"));	 
+	  nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_architecture_competitions')", "Software Architecture", "m_architecture_competitions"));
          nav.search("m_architecture_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Architecture+Overview", "Overview", "architecture_overview"));
          nav.search("m_architecture_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewArchitectureActiveContests", "Active Contests", "architecture_compete"));
        nav.search("m_architecture_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=7", "Contest Status", "architecture_contest_status"));
