@@ -200,7 +200,7 @@
             </div>
             
             
-            <h2 class="titlePredicted"> <span class="hide"> Predicted Results For This Week's Top Games </span></h2>
+            <%--  <h2 class="titlePredicted"> <span class="hide"> Predicted Results For This Week's Top Games </span></h2>
             <table border="0" align="center" cellpadding="0" width="100%" class="predict-table">
                 <tr>
                     <td><a class="black" href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewGameDetails&amp;game=639">Texas Tech</a></td>
@@ -232,7 +232,7 @@
                 </tr>
             </table>
             <p class="info">*Based on <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&cr=<%=Constants.WISDOM_BEST%>">WisdomOfTheBest's picks</a>. See also <a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=ViewProfile&cr=<%=Constants.WISDOM_ALL%>">WisdomOfAll's picks</a>.</p>
-            <br /><br /><br />
+            <br /><br /><br />  --%>
         </div>
         
         <div><a href="http://<%=ApplicationServer.WINFORMULA_SERVER_NAME%>/?module=Static&amp;d1=howToCompete"><img src="/i/events/winformula/timeline_sm.png" alt="Winning Formula Timeline" /></a></div>
