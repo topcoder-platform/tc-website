@@ -53,9 +53,9 @@
 <div style="float:right;">
 	<!-- ADDTHIS BUTTON BEGIN -->
 	<script type="text/javascript">
-	addthis_pub             = 'topcoderstudio'; 
-	addthis_brand           = 'TopCoder Studio';
-	addthis_options         = 'facebook, twitter, myspace, delicious, reddit, favorites, email, google, more';
+	addthis_pub             = 'topcoderstudio'; 
+	addthis_brand           = 'TopCoder Studio';
+	addthis_options         = 'facebook, twitter, google, del.icio.us, stumbleupon, reddit, myspace, favorites, email';
 	</script>
 	<a href="http://www.addthis.com/bookmark.php" onMouseOver="return addthis_open(this, '', '[URL]', '[TITLE]')" onMouseOut="addthis_close()" onClick="return addthis_sendto()">
 	<img src="/i/v2/interface/btnShare.png" width="122" height="35" border="0" alt="Share" /></a>
