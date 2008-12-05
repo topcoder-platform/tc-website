@@ -408,6 +408,14 @@ public class Constants implements WebConstants {
      */
     public static String ERROR_MSG_NO_DIRECTORY;
 
+    /**
+     * <p>A <code>String</code> providing the name of default request attribute which refers to
+     * <code>MemberProfile</code> instance representing the profile for current user.</p>
+     *
+     * @since TopCoder Studio Member Profile Assembly
+     */
+    public static final String MEMBER_PROFILE = "member_profile";
+
     // Flag to turn on/off the global AD feature
     public static String GLOBAL_AD_FLAG;
 

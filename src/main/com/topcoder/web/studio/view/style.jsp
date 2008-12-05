@@ -43,6 +43,9 @@
 <link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
 <% } else if (key.equals("tc_studio")) { %>
 <link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
+<% } else if (key.equals("tc_studio_profile")) { %>
+<link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
+<link type="text/css" rel="stylesheet" href="/css/studioMemberProfile.css" />
 <% } else if (key.equals("tc_studio_forums")) { %>
 <link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
 <link type="text/css" rel="stylesheet" href="/css/forums.css" />
