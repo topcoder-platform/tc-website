@@ -70,7 +70,7 @@ $(document).ready(function(){
 	$(document).ready(function(){
 			$active = "#drawer-content1"
 		 $("#about-nav-container a").not("#community").not("#about-contact-button").fadeTo("slow", 0.3);
-		 $("#about-nav-container a").click(function(){
+		 $("#about-nav-container a").not("#about-contact-button").click(function(){
 		 	return false;
 		 });
 		 $("#community").hoverIntent(function(){
