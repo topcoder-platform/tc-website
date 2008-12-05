@@ -4,10 +4,37 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.04.08<br />8:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://www.topcoder.com/wiki/display/tc/TopCoder+Conceptualization+Contests">What's the "Game Plan"?</a></span><br /><br />
+        We've posted another <a href="http://www.topcoder.com/wiki/display/tc/TopCoder+Conceptualization+Contests">Conceptualization</a> contest. We're hoping for some good participation in this one since it will directly impact the way contests are coordinated and monitored at TopCoder.  Tell us how you think it should work.  We're looking for something really slick.  This is the first in a series of contest that will be run to get this widget into production.  You will see subsequent Studio, Specification and Architecture to name a few.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://www.topcoder.com/wiki/display/tc/TopCoder+Conceptualization+Contests">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=4022">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />12.03.08<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=MatchDetails&rd=13570">Marathon Match 45 has begun with $5,000 in prizes!</a></span><br /><br />
+Marathon 45 is here and will be a one-week competition that highlights encryption technology with a $5,000 cash purse! Participate in the next encryption match today… Unir sha naq tbbq yhpx!   
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=MatchDetails&rd=13570">details</a> | 
+        <tc-webtag:forumLink forumID="524760" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.27.08<br />8:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=ProjectDetail&pj=30005592">New System Architecture Contests Announced - $1,125 in prizes!</a></span><br /><br />
-        TopCoder just launched a new type of contest - System Architecture Contests.  And better yet, this first one is to design a Service Oriented Architecture that will service TopCoder's primary business functions.  Your designs will result in subsequent contests that will further detail and implement your designs. Check it out! $1,125 is prizes up for grabs!</tr>
+        TopCoder just launched a new type of contest - System Architecture Contests.  And better yet, this first one is to design a Service Oriented Architecture that will service TopCoder's primary business functions.  Your designs will result in subsequent contests that will further detail and implement your designs. Check it out! $1,125 is prizes up for grabs!</td>
+   </tr>
    <tr><td class="newsLinksCell">
         <a href="/tc?module=ProjectDetail&pj=30005592">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=4010">discuss this</a> | 
