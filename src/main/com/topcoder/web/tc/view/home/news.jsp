@@ -4,13 +4,26 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.05.08<br />11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://www.topcoder.com/wiki/pages/viewpage.action?pageId=33457768">Compete in a Specification contest for a Calendar Scheduling &amp; Workflow Application! </a></span><br /><br />
+        The business requirements have been defined to build an application for an investment house to request, schedule, track, and report on their broker-sponsored meetings with companies they research and follow.  Now, TopCoder wants YOU to interpret these requirements and produce a full TopCoder Requirements Specification. This includes Use Cases, Activities, and a QA Plan inventory. The winning specification will be implemented and deployed at the client.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://www.topcoder.com/wiki/pages/viewpage.action?pageId=33457768">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=4016">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.04.08<br />8:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a href="http://www.topcoder.com/wiki/display/tc/TopCoder+Conceptualization+Contests">What's the "Game Plan"?</a></span><br /><br />
+        <a href="http://www.topcoder.com/wiki/display/tc/Contest+Details+-+Game+Plan+Widget+Conceptualization">What's the "Game Plan"?</a></span><br /><br />
         We've posted another <a href="http://www.topcoder.com/wiki/display/tc/TopCoder+Conceptualization+Contests">Conceptualization</a> contest. We're hoping for some good participation in this one since it will directly impact the way contests are coordinated and monitored at TopCoder.  Tell us how you think it should work.  We're looking for something really slick.  This is the first in a series of contest that will be run to get this widget into production.  You will see subsequent Studio, Specification and Architecture to name a few.</td>
    </tr>
    <tr><td class="newsLinksCell">
-        <a href="http://www.topcoder.com/wiki/display/tc/TopCoder+Conceptualization+Contests">details</a> | 
+        <a href="http://www.topcoder.com/wiki/display/tc/Contest+Details+-+Game+Plan+Widget+Conceptualization">details</a> | 
         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=4022">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
