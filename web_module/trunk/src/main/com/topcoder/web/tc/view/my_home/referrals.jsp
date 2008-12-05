@@ -41,10 +41,11 @@
         </jsp:include>
 
         <p>
-        The following is a list of members who have listed you as a reference when they registered to become a TopCoder member. Should they earn any money as a competitor, the referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration!
+        The following is a list of members who have named you as a reference when they registered to become a TopCoder member. Should they earn any money as a competitor on TopCoder Studio, the referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration!</p>
+ 
+<p>As of December 5, 2008, the referral program will award commission based on the winnings of new members of TopCoder Studio only. TopCoder will honor all commission payments due based on non-Studio referrals made before 12/5/08.</p>
          <br><br>
-         <A href="/tc?module=Static&d1=my_home&d2=referralsDescription">Referring TopCoder Competitors</a><br>
-         <A href="/tc?module=Static&d1=my_home&d2=empReferrals">Referring TopCoder Employees</a>
+         <A href="http://tcstudioblogs.com/?page_id=70">Referring TopCoder Studio Competitors</a><br>
         </p>
 
         <br/>
