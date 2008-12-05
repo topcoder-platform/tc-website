@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">12.04.08 8:00 PM - </td><td width="100%"><a href="http://www.topcoder.com/wiki/display/tc/Contest+Details+-+Game+Plan+Widget+Conceptualization">What's the "Game Plan"?</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.27.08 8:00 AM - </td><td width="100%"><a href="/tc?module=ProjectDetail&pj=30005592">New System Architecture Contests Announced - $1,125 in prizes!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.26.08 5:30 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>?module=ViewContestDetails&ct=1000338">Redesign This Page</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.21.08 9:00 PM - </td><td width="100%"><a href="/wiki/display/tc/Contest+Details+-+Hypnos+Carrier+Call+Detail+Conceptualization">More New Contests, More Prize Money!</a><br /></td></tr>
