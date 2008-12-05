@@ -78,17 +78,17 @@ public class ViewMemberProfile extends BaseProcessor {
               "FROM contest_registration r " +
               "INNER JOIN contest c ON r.contest_id = c.contest_id " +
               "INNER JOIN contest_type_lu t ON c.contest_type_id = t.contest_type_id " +
-              "LEFT JOIN (SELECT DISTINCT contest_id FROM submission s " +
-              "WHERE s.submission_status_id = 1 AND s.submitter_id = ?) c2 ON c2.contest_id = c.contest_id " +
-              "LEFT JOIN (SELECT DISTINCT s.contest_id FROM prize p, submission_prize_xref spx, submission s " +
+              "LEFT JOIN TABLE (MULTISET (SELECT DISTINCT contest_id FROM submission s " +
+              "WHERE s.submission_status_id = 1 AND s.submitter_id = ?)) c2 ON c2.contest_id = c.contest_id " +
+              "LEFT JOIN TABLE (MULTISET (SELECT DISTINCT s.contest_id FROM prize p, submission_prize_xref spx, submission s " +
               "WHERE p.place = 1 AND p.prize_id = spx.prize_id AND spx.submission_id = s.submission_id " +
-              "AND s.submitter_id = ?) c3 ON c3.contest_id = c.contest_id " +
-              "LEFT JOIN (SELECT contest_id, COUNT(*) AS submissions FROM submission s " +
+              "AND s.submitter_id = ?)) c3 ON c3.contest_id = c.contest_id " +
+              "LEFT JOIN TABLE (MULTISET (SELECT contest_id, COUNT(*) AS submissions FROM submission s " +
               "WHERE s.submission_status_id = 1 AND s.submitter_id = ? " +
-              "GROUP BY contest_id) c4 ON c4.contest_id = c.contest_id " +
-              "LEFT JOIN (SELECT contest_id, COUNT(*) AS submissions FROM submission s, submission_review v " +
+              "GROUP BY contest_id)) c4 ON c4.contest_id = c.contest_id " +
+              "LEFT JOIN TABLE (MULTISET (SELECT contest_id, COUNT(*) AS submissions FROM submission s, submission_review v " +
               "WHERE s.submission_status_id = 1 AND s.submitter_id = ? AND s.submission_id = v.submission_id " +
-              "AND v.review_status_id = 1 GROUP BY contest_id) c5 ON c5.contest_id = c.contest_id " +
+              "AND v.review_status_id = 1 GROUP BY contest_id)) c5 ON c5.contest_id = c.contest_id " +
               "WHERE r.user_id = ? " +
               "GROUP BY c.contest_type_id, t.contest_type_desc, t.include_gallery, t.require_preview_image, " +
               "t.require_preview_file ";
