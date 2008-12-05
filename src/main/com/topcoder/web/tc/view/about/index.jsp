@@ -235,9 +235,9 @@ $(document).ready(function(){
                     our members, TopCoder is the place your talents can be truly rewarded. For our customers, TopCoder can deliver solutions developed through 
                     competition, in time frames and quality levels that are simply impossible using a traditional approach.</p>
                     <ul class="links">
-                    	<li><a href="http://software.topcoder.com/TCD/methodology.jsp">Learn More</a></li>
+                    	<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/methodology.jsp">Learn More</a></li>
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Slash TC, The Community Home Page</a></li>
-                        <li><a href="http://www.topcoder.com/tc?module=AlgoRank">TopCoder's Top Tens</a></li>
+                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=AlgoRank">TopCoder's Top Tens</a></li>
                         <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">The Forums</a></li>
                     </ul>
                 </div>
