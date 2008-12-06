@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.06.08<br />12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://www.topcoder.com/wiki/display/docs/Contest+Details+-+Specification+Diana+EHR+3.1+ADS+Requirements+Contest">Write the Diana EHR 3.1 ADS Requirements Specification!</a></span><br /><br />
+        The Diana EHR 3.1 project continues with its new contests! We're building a medical application to allow providers to review, edit, and sign transcribed medical notes. The business requirements have been defined; wireframes and a prototype have also been built by our member community. Now TopCoder wants you to further the project by creating a full TopCoder Requirements Specification. Compete to build a Requirements document including Use Cases, Activities, and a QA Plan inventory. The winning submission will be used to implement the application at our client.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://www.topcoder.com/wiki/display/docs/Contest+Details+-+Specification+Diana+EHR+3.1+ADS+Requirements+Contest">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=4002">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.05.08<br />11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://www.topcoder.com/wiki/pages/viewpage.action?pageId=33457768">Compete in a Specification contest for a Calendar Scheduling &amp; Workflow Application! </a></span><br /><br />
