@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.06.08<br />12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://www.topcoder.com/tc?module=ProjectDetail&pj=30005625">iPhone App Assembly Contest!</a></span><br /><br />
+        TopCoder and AOL are proud to introduce the first competition to build an iPhone Application.  It is also the first competition to require Objective C as the development language.  Given the VERY simple requirements of the application, it's a great opportunity for those who are new to iPhone development to get started.  Check out the details of the assembly competition <a href="http://www.topcoder.com/tc?module=ProjectDetail&pj=30005625">here</a>.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://www.topcoder.com/tc?module=ProjectDetail&pj=30005625">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=4036">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.06.08<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://www.topcoder.com/wiki/display/docs/Contest+Details+-+Specification+Diana+EHR+3.1+ADS+Requirements+Contest">Write the Diana EHR 3.1 ADS Requirements Specification!</a></span><br /><br />
