@@ -81,7 +81,7 @@
         				
 					<h3>Conditions of Participation</h3>
         			<p>By participating in the Competition, you agree to be bound by these Rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  As a condition of participating in this Competition and by submitting a Submission, each Competitor agrees to permit TopCoder and the Competition Sponsor to describe, publicize, and link to your entry as described further below. </p>
-        			<p>Competitors must not cheat; all ideas for any code submitted must be solely the Competitor's. Competitors must use their own independently developed code, and shall not copy or include code from any other party, including publicly available "open source" code that is or may be subject to licensing restrictions. Competitors may use the Ribbit APIs/Technology and/or components from TopCoder's proprietary component catalog when developing their Submissions for the purposes of this Competition.</p>
+        			<p>Competitors must not cheat; all ideas for any apps submitted must be solely the Competitor's. Competitors may use commercially available and publicly available "open source" code, modules and frameworks in their applications if authorized to do so by the owners of such code, modules and frameworks, including full compliance with all license terms. Competitors also may use the Ribbit APIs/Technology and TopCoder's proprietary component catalog when developing their Submissions for the purposes of this Competition subject to the applicable terms. Competitors may not redistribute TopCoder&rsquo;s components in any form.</p>
         			<p class="emphasis">IN ORDER TO BE ELIGIBLE, YOU WARRANT THAT YOUR SUBMISSION:</p>
 					
 					<ul>
