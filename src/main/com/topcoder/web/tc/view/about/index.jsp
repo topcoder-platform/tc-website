@@ -243,7 +243,7 @@ $(document).ready(function(){
                 </div>
                 <div class="right-column">
                 	<div id="member-map">
-                        <h3><span class="red">175,135</span> members and counting!</h3>
+                        <h3><span class="red"><tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/>	</span> members and counting!</h3>
                         <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" class="join-today button">Join Today!</a>
                     </div>  
                 </div>

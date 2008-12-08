@@ -3,7 +3,6 @@
 <html>
 <head>
 <title>TopCoder Referrals</title>
-<meta http-equiv="refresh" content="0;http://tcstudioblogs.com/?page_id=70"
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_main"/>
