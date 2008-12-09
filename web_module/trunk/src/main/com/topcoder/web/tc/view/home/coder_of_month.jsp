@@ -19,12 +19,13 @@
       <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/XiaoXiaoqing_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</a></strong><br />
-         <tc-webtag:handle coderId="22651925" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br />
+         <tc-webtag:handle coderId="22697339" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br />
          <span class="small">
-         SRM 423: 2460<br />
-         SRM 422: 2378<br />
-         SRM 421: 2293<br />
-         SRM 420: 2176
+         SRM 424: 1555<br />
+         SRM 425: 1682<br />
+         SRM 426: 1684<br />
+         SRM 427: 1776<br />
+         SRM 428: 1804
          </span><br /><br />
       </td>
    </tr>
@@ -32,11 +33,11 @@
       <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/MiG-29_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</a></strong><br />
-         <tc-webtag:handle coderId="20437508" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br /> 
+         <tc-webtag:handle coderId="287614" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br /> 
          <span class="small">
-         Seven wins<br />
-         One 2nd place<br />
-         One 3rd place
+         Five wins<br />
+         Two second places<br />
+        
          </span><br /><br />
       </td>
    </tr>
@@ -44,11 +45,11 @@
       <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</a></strong><br />
-         <tc-webtag:handle coderId="22652995" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br />
+         <tc-webtag:handle coderId="22678937" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br />
          <span class="small">
-         Two wins<br />
-         One 2nd place<br />
-         One 3rd place
+         Three wins<br />
+         Two second places<br />
+         
          </span><br /><br />
       </td>
    </tr>
