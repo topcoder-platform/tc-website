@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">12.10.08 1:00 PM - </td><td width="100%"><a href="/longcontest/?module=ViewProblemStatement&compid=9081&rd=13679">$5,000 TopCoder Marathon Match 46 has begun!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.03.08 1:00 PM - </td><td width="100%"><a href="/tc?module=MatchDetails&rd=13570">Marathon Match 45 has begun with $5,000 in prizes!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.24.08 5:00 PM - </td><td width="100%"><a href="/tc?module=Static&d1=calendar&d2=dec_08">Encryption Marathon Matches added to the Calendar with Prize Money!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.19.08 12:30 PM - </td><td width="100%"><a href="/tc?module=MatchDetails&amp;rd=13569">Marathon Match 44 has begun with $5,000 in prizes!</a></td></tr>
