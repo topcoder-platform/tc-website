@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">12.10.08 9:30 AM - </td><td width="100%"><a href="/wiki/display/tc/Broker+Site+Conceptualization+Contest">Broker Site Conceptualization Contest Launched!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.06.08 12:30 PM - </td><td width="100%"><a href="/tc?module=ProjectDetail&pj=30005625">iPhone App Assembly Contest!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.06.08 12:00 PM - </td><td width="100%"><a href="/wiki/display/docs/Contest+Details+-+Specification+Diana+EHR+3.1+ADS+Requirements+Contest">Write the Diana EHR 3.1 ADS Requirements Specification!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.05.08 11:00 AM - </td><td width="100%"><a href="/wiki/pages/viewpage.action?pageId=33457768">Compete in a Specification contest for a Calendar Scheduling &amp; Workflow Application! </a></td></tr>
