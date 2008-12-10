@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.10.08<br />9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://www.topcoder.com/wiki/display/tc/Broker+Site+Conceptualization+Contest">Broker Site Conceptualization Contest Launched!</a></span><br /><br />
+        TopCoder has launched a new Conceptualization contest!  One of TopCoder&rsquo;s clients wants to provide a service to allow its customers to create real estate broker web sites quickly and easily based on templates.  We need YOU to tell us how it should be done! Click <a href="http://www.topcoder.com/wiki/display/tc/Broker+Site+Conceptualization+Contest">here</a> to learn more about this contest!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://www.topcoder.com/wiki/display/tc/Broker+Site+Conceptualization+Contest">details</a> | 
+        <a href="http://forums.topcoder.com/?module=Thread&threadID=625903&start=0">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.06.08<br />12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://www.topcoder.com/tc?module=ProjectDetail&pj=30005625">iPhone App Assembly Contest!</a></span><br /><br />
