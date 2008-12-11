@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">11.25.08 5:00 PM - </td><td width="100%"><a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Session with tomek</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.25.08 5:00 PM - </td><td width="100%"><a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Session with Yarin Chat Transcript</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.20.08 4:00 PM - </td><td width="100%"><a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Sessions with Yarin</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.06.08 4:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081106">Spotlight Sessions with Psyho Chat Transcript</a></td></tr>
