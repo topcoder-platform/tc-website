@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">11.11.08 1:45 PM - </td><td width="100%"><a href="/tc?module=Static&d1=features&d2=120908">Meet the November Coders and Designers of the Month!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.25.08 5:00 PM - </td><td width="100%"><a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Session with tomek</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.25.08 5:00 PM - </td><td width="100%"><a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Session with Yarin Chat Transcript</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.20.08 4:00 PM - </td><td width="100%"><a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Sessions with Yarin</a></td></tr>
