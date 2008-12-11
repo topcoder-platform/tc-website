@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.11.08<br />1:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&d1=features&d2=120908">Meet the November Coders and Designers of the Month!</a></span><br /><br />
+        Congratulations to our November coders and designers of the month.  TopCoder caught up with them so read their interviews and see their great photos <a href="/tc?module=Static&d1=features&d2=120908">here.</a></td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=features&d2=120908">details</a> | 
+        <a href="http://forums.topcoder.com/?module=Thread&threadID=524929&start=0">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.10.08<br />9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://www.topcoder.com/wiki/display/tc/Agent+Directory+Application">Agent Directory Conceptualization Launched</a></span><br /><br />
