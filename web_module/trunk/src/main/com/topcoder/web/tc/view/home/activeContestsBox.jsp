@@ -12,8 +12,6 @@
 <c:set var="assembly" value="<%=Home.ASSEMBLY%>"/>
 <c:set var="bugs" value="<%=Home.BUGS%>"/>
 <c:set var="arch" value="<%=Home.ARCHITECTURE%>"/>
-<c:set var="concept" value="<%=Home.CONCEPTUALIZATION%>"/>
-<c:set var="spec" value="<%=Home.SPECIFICATION%>"/>
 <c:set var="appTesting" value="<%=Home.APPLICATION_TESTING%>"/>
 <c:set var="studio" value="<%=Home.STUDIO%>"/>
 <c:set var="mm" value="<%=Home.MM%>"/>
@@ -83,28 +81,8 @@
                         <tr>
                             <td class="value">
                                 <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[arch].prizeTotal}" pattern="$###,###"/></div>
-                                <a href="/tc?module=ActiveContests&pt=7" class="gMetal">Architecture</a>
+                                <a href="/tc?module=ViewArchitectureActiveContests" class="gMetal">Architecture</a>
                                 (${activeContestsSummary[arch].contestCount})
-                            </td>
-                        </tr>
-                    </c:if>
-                    <c:if test="${activeContestsSummary[concept].contestCount>0}">
-
-                        <tr>
-                            <td class="value">
-                                <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[concept].prizeTotal}" pattern="$###,###"/></div>
-                                <a href="/tc?module=ActiveContests&pt=23" class="gMetal">Conceptualization</a>
-                                (${activeContestsSummary[concept].contestCount})
-                            </td>
-                        </tr>
-                    </c:if>
-                    <c:if test="${activeContestsSummary[spec].contestCount>0}">
-
-                        <tr>
-                            <td class="value">
-                                <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[spec].prizeTotal}" pattern="$###,###"/></div>
-                                <a href="/tc?module=ActiveContests&pt=6" class="gMetal">Specification</a>
-                                (${activeContestsSummary[spec].contestCount})
                             </td>
                         </tr>
                     </c:if>

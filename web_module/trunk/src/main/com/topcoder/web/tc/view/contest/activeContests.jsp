@@ -10,11 +10,8 @@
 <% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
 
 <c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_TYPE_ID"/>
-<c:set value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>" var="CONCEPTUALIZATION_TYPE_ID"/>
-<c:set value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>" var="SPECIFICATION_TYPE_ID"/>
 <c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_TYPE_ID"/>
 <c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_TYPE_ID"/>
-
 
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -49,16 +46,6 @@
                     <jsp:param name="node" value="app_testing_compete"/>
                 </jsp:include>
             </c:when>
-            <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
-                <jsp:include page="/includes/global_left.jsp">
-                    <jsp:param name="node" value="conceptualization_compete"/>
-                </jsp:include>
-            </c:when>
-            <c:when test="${pt == SPECIFICATION_TYPE_ID}">
-                <jsp:include page="/includes/global_left.jsp">
-                    <jsp:param name="node" value="specification_compete"/>
-                </jsp:include>
-            </c:when>
             <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
                 <jsp:include page="/includes/global_left.jsp">
                     <jsp:param name="node" value="architecture_compete"/>
@@ -75,7 +62,7 @@
 
 <%-- Center Column Begins --%>
         <td width="100%" align="left" class="bodyColumn">
-
+           
       <c:choose>
         <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
@@ -109,7 +96,7 @@
             <td width="100%" height="23px">&nbsp;</td>
         </c:otherwise>
         </c:choose>
-
+        
         <td align="right">
           <c:choose>
             <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
@@ -130,18 +117,18 @@
       <c:choose>
     <%--
         <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
-            Competition opportunities via RSS -
+            Competition opportunities via RSS - 
             <a href="">Subscribe Now</a>
             <a href=""><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
     --%>
         <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
-            Competition opportunities via RSS -
+            Competition opportunities via RSS - 
             <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28">Subscribe Now</a>
             <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
         <c:when test="${pt == ASSEMBLY_TYPE_ID}">
-            Competition opportunities via RSS -
+            Competition opportunities via RSS - 
             <a href="/tc?module=BasicRSS&amp;c=rss_Assembly_Registration_Open&amp;dsid=28">Subscribe Now</a>
             <a href="/tc?module=BasicRSS&amp;c=rss_Assembly_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
@@ -159,7 +146,7 @@
                 <td class="title" colspan="7">
             </c:otherwise>
           </c:choose>
-
+          
           <c:choose>
             <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
                 Active Application Testing Contests</td>
@@ -198,7 +185,7 @@
 
     <% boolean even = false; %>
     <rsc:iterator list="<%=contests %>" id="resultRow">
-        <tr class="<%=even?"dark":"light"%>">
+        <tr class="<%=even?"dark":"light"%>"> 
             <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
                     <rsc:item name="contest_name" row="<%=resultRow%>"/>
@@ -206,7 +193,7 @@
             </td>
             <td class="value">
             </td>
-
+            
             <td class="valueC" nowrap="nowrap">
                 <% if (resultRow.getBooleanItem("is_reg_closed")) { %>
                 <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy'<br />'HH:mm z"/>
@@ -246,7 +233,7 @@
 
         </td>
 <%-- Center Column Ends --%>
-
+       
 <%-- Right Column Begins --%>
         <td width="170">
             <jsp:include page="../public_right.jsp">
@@ -254,7 +241,7 @@
     </jsp:include>
         </td>
 <%-- Right Column Ends --%>
-
+       
     </tr>
 </tbody>
 </table>
