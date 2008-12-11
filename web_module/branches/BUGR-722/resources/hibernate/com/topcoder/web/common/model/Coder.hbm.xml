@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="Coder" table="coder">
+        <id name="id" column="coder_id" access="field">
+            <generator class="foreign">
+                <param name="property">user</param>
+            </generator>
+        </id>
+        <one-to-one name="user" class="User" constrained="true"/>
+        <property name="memberSince" type="timestamp" column="member_since" access="field" update="false"
+                  insert="false"/>
+        <property name="quote" access="field"/>
+        <many-to-one name="coderType" column="coder_type_id" class="CoderType" access="field" cascade="none"/>
+        <many-to-one name="compCountry" column="comp_country_code" class="Country" access="field"/>
+        <one-to-one name="currentSchool" class="CurrentSchool" cascade="save-update" access="field" fetch="select"/>
+        <one-to-one name="coderReferral" class="CoderReferral" cascade="save-update" access="field" fetch="select"/>
+        <set name="resumes" cascade="save-update" inverse="true" access="field">
+            <key column="coder_id" not-null="true"/>
+            <one-to-many class="Resume"/>
+        </set>
+        <set name="teams" table="team_coder_xref" cascade="save-update" access="field">
+            <key column="coder_id" not-null="true"/>
+            <many-to-many column="team_id" class="Team"/>
+        </set>
+        <set name="images" table="coder_image_xref" cascade="none" inverse="true" access="field">
+            <key column="coder_id" not-null="true"/>
+            <one-to-many class="CoderImage"/>
+        </set>
+        <set name="ratings" cascade="save-update" inverse="true" access="field">
+            <key column="coder_id" not-null="true"/>
+            <one-to-many class="AlgoRating"/>
+        </set>
+    </class>
+</hibernate-mapping>

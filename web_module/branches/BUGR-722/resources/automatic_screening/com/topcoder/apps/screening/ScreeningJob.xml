@@ -1,0 +1,16 @@
+<CMConfig>
+  <Config name="com.topcoder.apps.screening.ScreeningJob">
+    <Property name="thread_number">
+        <Value>1</Value>
+    </Property>
+    <Property name="run_interval">
+        <Value>20</Value>
+    </Property>
+    <Property name="screener_id">
+        <Value>1</Value>
+    </Property>
+    <Property name="max_screening_attempts">
+        <Value>5</Value>
+    </Property>
+  </Config>
+</CMConfig>

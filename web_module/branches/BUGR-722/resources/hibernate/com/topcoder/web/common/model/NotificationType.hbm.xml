@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="NotificationType" table="notify_type_lu" mutable="false">
+        <id name="id" column="notify_type_id" access="field"/>
+        <property name="description" column="notify_type_desc" access="field"/>
+        <property name="sort" column="notify_type_sort_order" access="field"/>
+        <set name="notifications" inverse="true" access="field" sort="natural">
+            <key column="notification_type_id" not-null="true"/>
+            <one-to-many class="Notification"/>
+        </set>
+    </class>
+</hibernate-mapping>
