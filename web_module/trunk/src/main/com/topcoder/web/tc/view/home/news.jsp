@@ -4,10 +4,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.10.08<br />9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://www.topcoder.com/wiki/display/tc/Agent+Directory+Application">Agent Directory Conceptualization Launched</a></span><br /><br />
+        TopCoder has launched a new Conceptualization contest! One of TopCoder&rsquo;s clients wants to create an online directory of agents where customers/consumers can search for an agent relative to a specific need.   We need YOU to tell us how it should be done! Click <a href="http://www.topcoder.com/wiki/display/tc/Agent+Directory+Application">here</a> to learn more about this contest!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://www.topcoder.com/wiki/display/tc/Agent+Directory+Application">details</a> | 
+        <a href="http://forums.topcoder.com/?module=Thread&threadID=625903&start=0">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.10.08<br />8:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Sessions with tomek</a></span><br /><br />
-The final Spotlight Session is here and it’s with non other than tomek!  Don’t miss this exciting chat session in the Competition Arena on Thursday, December 11 at 10:00 a.m. before TCHS 64.  We hope you have been able to benefit from these Spotlight Sessions and learned some great things to help you in your future coding endeavors.  TopCoder would like to thank all the chat hosts who participated and shared their knowledge.  Don't miss tomorrow's chat.  We'll see you in the Arena!
+        The final Spotlight Session is here and it’s with non other than tomek!  Don’t miss this exciting chat session in the Competition Arena on Thursday, December 11 at 10:00 a.m. before TCHS 64.  We hope you have been able to benefit from these Spotlight Sessions and learned some great things to help you in your future coding endeavors.  TopCoder would like to thank all the chat hosts who participated and shared their knowledge.  Don't miss tomorrow's chat.  We'll see you in the Arena!</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">details</a> | 
@@ -21,9 +35,9 @@ The final Spotlight Session is here and it’s with non other than tomek!  Don’t m
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />12.10.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/longcontest/?module=ViewProblemStatement&compid=9081&rd=13679">$5,000 TopCoder Marathon Match 46 has begun!</a></span><br /><br />
-There is $5,000 up for grabs in TopCoder's latest Marathon Match, <a href="http://www.topcoder.com/longcontest/?module=ViewProblemStatement&compid=9081&rd=13679">KnightsMoveCipher</a>. You have until December 17, 2008 to come up with a winning submission. Register to participate in this competition in the Active Contests list <a href="http://www.topcoder.com/longcontest/?module=ViewActiveContests">here.</a>
- 
-New to TopCoder Marathon Matches?  There is a practice area available to help you refine your Marathon Match skills.  Practice now <a href="http://www.topcoder.com/longcontest/?module=ViewPractice">here.</a>
+        There is $5,000 up for grabs in TopCoder's latest Marathon Match, <a href="http://www.topcoder.com/longcontest/?module=ViewProblemStatement&compid=9081&rd=13679">KnightsMoveCipher</a>. You have until December 17, 2008 to come up with a winning submission. Register to participate in this competition in the Active Contests list <a href="http://www.topcoder.com/longcontest/?module=ViewActiveContests">here.</a>
+        New to TopCoder Marathon Matches?  There is a practice area available to help you refine your Marathon Match skills.  Practice now <a href="http://www.topcoder.com/longcontest/?module=ViewPractice">here.</a></td>
+    </tr>
 	<tr>
     	<td class="newsLinksCell">
             <a href="/longcontest/?module=ViewProblemStatement&compid=9081&rd=13679">details</a> | 
