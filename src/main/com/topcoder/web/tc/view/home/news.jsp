@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.10.08<br />8:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Sessions with tomek</a></span><br /><br />
+The final Spotlight Session is here and it’s with non other than tomek!  Don’t miss this exciting chat session in the Competition Arena on Thursday, December 11 at 10:00 a.m. before TCHS 64.  We hope you have been able to benefit from these Spotlight Sessions and learned some great things to help you in your future coding endeavors.  TopCoder would like to thank all the chat hosts who participated and shared their knowledge.  Don't miss tomorrow's chat.  We'll see you in the Arena!
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=629178&mc=1#1046712">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />12.10.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/longcontest/?module=ViewProblemStatement&compid=9081&rd=13679">$5,000 TopCoder Marathon Match 46 has begun!</a></span><br /><br />
