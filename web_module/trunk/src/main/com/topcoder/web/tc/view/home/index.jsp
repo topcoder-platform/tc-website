@@ -32,24 +32,24 @@ $(document).ready(function(){
     }, function() {
         $(this).children("ul").slideUp("fast");
     });
-    
+
     $("#nav ul ul li").hover(function() {
         $(this).parents("#nav ul li").children('a').addClass("active-item");
     }, function() {
         $(this).parents("#nav ul li").children('a').removeClass("active-item");
     });
-    
-    
+
+
     jQuery(document).ready(function() {
         jQuery('#news-carousel').jcarousel({
             scroll: 1,
             easing: 'swing',
-            wrap: 'both'  
+            wrap: 'both'
         });
     });
-    
-    
-    
+
+
+
     window.alert = function() {
     return;
 };
@@ -72,11 +72,11 @@ $(document).ready(function(){
 
     <div id="header">
         <div class="wrapper">
-            
+
 <%-- MASTHEAD AND LOGO --%>
             <h1><a href="http://www.topcoder.com" title="TopCoder"><span>TopCoder Direct</span></a><%--<sup><small>BETA</small></sup>--%></h1>
             <h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
-            
+
 <%-- MAIN NAVIGATION --%>
             <div id="nav">
                 <h3 class="hide">Main Navigation</h3>
@@ -95,8 +95,11 @@ $(document).ready(function(){
                     </li>
                     <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Compete</a>
                         <ul>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=23">Conceptualization</a></li>
+                    	    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=6">Specification</a></li>
+                    	    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=7">Architecure</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=112">Component Design</a></li>
-                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=113">Component Development</a></li> 
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=113">Component Development</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewAssemblyActiveContests">Assembly</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests">Marathon Matches</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Bug+Races">Bug Races</a></li>
@@ -110,7 +113,7 @@ $(document).ready(function(){
                             <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
                             <li><a href="http://www.tcstudioblogs.com/">Studio Blog</a></li>
                             <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=MyStudioHome">My Studio</a></li>
-                            <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=contactUs">Contact Studio</a></li>    
+                            <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=contactUs">Contact Studio</a></li>
                         </ul>
                     </li>
                     <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Community</a>
@@ -123,17 +126,17 @@ $(document).ready(function(){
                     </li>
                 </ul>
             </div><%-- #navigation ends --%>
-            
+
             <%-- SUB NAVIGATION --%>
             <div id="nav_support">
                 <h3 class="hide">SUB Navigation</h3>
                 <ul>
                     <li class="left"><a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder.com</a></li>
-                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=index">About TopCoder</a></li>
+                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/about.jsp">About TopCoder</a></li>
                     <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=index">News</a></li>
-                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a></li>    
-                    
-                                
+                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a></li>
+
+
                     <% if ( !sessionInfo.isAnonymous() ) { %>
             <li><a href="#">Hello,&nbsp;</a><tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" /></li><li class="right"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout&nextpage=http://<%=ApplicationServer.SERVER_NAME%>">Logout</a></li>
         <% } else {%>
@@ -148,7 +151,7 @@ $(document).ready(function(){
 <%-- CONTENT BLOCKS --%>
     <div id="content">
         <div class="wrapper">
-        
+
 <%-- TOPCODER DIRECT BANNER --%>
             <div id="welcome-banner">
                 <h2><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/"><strong>Engage!</strong> Plug into the <em>world's largest community</em> of competitive <em>software developers</em></a></h2>
@@ -202,7 +205,7 @@ $(document).ready(function(){
                 <div id="member-content">
                     <div id="member-box">
                         <div id="member-area">
-                            <div id="member-count">        
+                            <div id="member-count">
                                 <h4><span><tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/></span> members and growing!</h4>
                              </div>
                              <div id="member-buttons">
@@ -233,10 +236,10 @@ $(document).ready(function(){
                     <div id="member-box-bottom"></div>
                 </div>
             </div><%-- #content_main --%>
-            
+
         </div><%-- .wrapper ends --%>
     </div><%-- #content ends --%>
-    
+
 <%-- NEWS --%>
     <div id="news">
         <div class="wrapper">
@@ -244,7 +247,7 @@ $(document).ready(function(){
             <ul id="news-carousel" class="tc-news">
         <li>
             <div class="news-image">
-                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008"><img src="/images/home/news-carousel/tcdirect.png" alt="TopCoder Direct" /></a>     
+                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008"><img src="/images/home/news-carousel/tcdirect.png" alt="TopCoder Direct" /></a>
             </div>
              <div class="news-text">
                 <p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008">TopCoder Direct Platform Opens Access to 170,000 Member Community of Software Designers, Developers &amp; Creative Artists</a></p>
@@ -252,7 +255,7 @@ $(document).ready(function(){
         </li>
         <li>
             <div class="news-image">
-                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308"><img src="/images/home/news-carousel/fast50.png" alt="Deloitte Technology Fast 50" /></a>     
+                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308"><img src="/images/home/news-carousel/fast50.png" alt="Deloitte Technology Fast 50" /></a>
             </div>
              <div class="news-text">
                 <p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308">TopCoder Ranked Number 11 in Deloitte's Technology Fast 50 Program for New York, New Jersey and Connecticut</a></p>
@@ -260,7 +263,7 @@ $(document).ready(function(){
         </li>
         <li>
             <div class="news-image">
-                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100608"><img src="/images/home/news-carousel/sd-bestpractices.png" alt="Software Development Best Practices TopCoder Challenge" /></a>     
+                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100608"><img src="/images/home/news-carousel/sd-bestpractices.png" alt="Software Development Best Practices TopCoder Challenge" /></a>
             </div>
              <div class="news-text">
                 <p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100608">TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31</a></p>
@@ -304,9 +307,9 @@ $(document).ready(function(){
     </ul>
         </div><%-- .wrapper ends --%>
     </div><%-- #news ends --%>
-    
-    
-        
+
+
+
 <%-- LINKS BLOCK --%>
     <div id="links">
         <div class="wrapper">
@@ -318,7 +321,7 @@ $(document).ready(function(){
                     <li><a href="http://topcoderblogs.com/direct/?page_id=24">Terms &amp; Conditions</a></li>
                 </ul>
             </div>
-            
+
             <div class="col">
                 <h4>About TopCoder</h4>
                 <ul>
@@ -331,7 +334,7 @@ $(document).ready(function(){
                 </ul>
 
             </div>
-            
+
             <div class="col">
                 <h4>Platform Tools</h4>
                 <ul><li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Upcoming+Contests">Pipeline</a></li>
@@ -341,7 +344,7 @@ $(document).ready(function(){
                     <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/">TopCoder Wiki</a></li>
                 </ul>
           </div>
-            
+
             <div class="col">
                 <h4>TopCoder Community</h4>
                 <ul>
@@ -349,14 +352,14 @@ $(document).ready(function(){
                     <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">TopCoder Forums</a></li>
                     <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
                 </ul>
-            
+
                 <h4>TopCoder Blogs</h4>
                 <ul>
                     <li><a href="http://topcoderblogs.com/direct/">TopCoder Direct</a></li>
                     <li><a href="http://tcstudioblogs.com/">Studio TopCoder</a></li>
                 </ul>
             </div>
-            
+
             <div class="col">
                 <h4>My Account</h4>
                 <ul>
@@ -366,7 +369,7 @@ $(document).ready(function(){
                     <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=home">Studio Cup</a></li>
                 </ul>
             </div>
-            
+
             <div class="col">
                 <h4>Powered by TopCoder</h4>
                 <ul>
@@ -387,7 +390,7 @@ $(document).ready(function(){
             <p>Copyright &copy;2001-2008, TopCoder, Inc. All rights reserved.</p>
         </div><%-- .wrapper ends --%>
     </div><%-- #footer ends --%>
-    
+
 <%-- Google Analytics --%>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
