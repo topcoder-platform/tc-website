@@ -68,7 +68,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
     @Deprecated
     public DefaultPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId) {
         log.debug("level: " + levelId + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
-                submissionsPassedScreening + " phaseId: " + phaseId + " prize: " + prize + " drPoints: " + drPoints);
+                  submissionsPassedScreening + " phaseId: " + phaseId + " prize: " + prize + " drPoints: " + drPoints);
 
         this.phaseId = phaseId;
 
@@ -91,12 +91,13 @@ public class DefaultPriceComponent implements SoftwareComponent {
             this.drPoints = DEV_DR_LOOKUP[level];
         }
 
-        this.compensationRatio = 1f;
+        this.compensationRatio = 1.0f;
     }
 
-    public DefaultPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId, float prize, float drPoints) {
+    public DefaultPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId,
+                                 float prize, float drPoints) {
         log.debug("level: " + levelId + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
-                submissionsPassedScreening + " phaseId: " + phaseId + " prize: " + prize + " drPoints: " + drPoints);
+                  submissionsPassedScreening + " phaseId: " + phaseId + " prize: " + prize + " drPoints: " + drPoints);
 
         this.phaseId = phaseId;
 
@@ -141,6 +142,19 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     public float getDR() {
         return this.drPoints;
+    }
+
+    // Returns the total prize purse counting the first and second place prizes.
+    public float getPrizePurse() {
+        return this.prize * 1.5f;
+    }
+
+    public float getInitialPurse() {
+        return 0.40f * getPrizePurse();
+    }
+
+    public float getIncrementPurse() {
+        return 0.15f * getPrizePurse();
     }
 
     public float getCompetitorCompensation() {
@@ -201,19 +215,19 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     private float getScreeningPrimaryDevReviewCost() {
-        float screeningSetupCost = 1.0f * getDevReviewRate(); // 60 minutes to set up
-        float screeningCost = (1f / 2f) * (float) submissionCount * getDevReviewRate();  //30 minutes per submission
-        return screeningSetupCost + screeningCost;
+        //float screeningSetupCost = 1.0f * getDevReviewRate(); // 60 minutes to set up
+        //float screeningCost = (1f / 2f) * (float) submissionCount * getDevReviewRate();  //30 minutes per submission
+        return (0.86f * getInitialPurse() + getIncrementPurse() * (submissionCount - 1)) * 0.10f;
     }
 
     private float getDevAggregationCost() {
-        float aggregationCost = (1f / 2f) * getDevReviewRate();  //30 minutes to aggregate
-        return aggregationCost;
+        //float aggregationCost = (1f / 2f) * getDevReviewRate();  //30 minutes to aggregate
+        return 0.04f * getInitialPurse();
     }
 
     private float getDevFinalReviewCost() {
-        float finalReviewCost = 2f * getDevReviewRate();  //120 minutes to do final review
-        return finalReviewCost;
+        //float finalReviewCost = 2f * getDevReviewRate();  //120 minutes to do final review
+        return 0.10f * getInitialPurse();
     }
 
     /**
@@ -222,13 +236,15 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @return
      */
     private float getDevCoreReviewCost() {
-        float reviewCost = (float) (level + 1) * (float) submissionsPassedScreening * getDevReviewRate();
-        float startupCost = getDevReviewRate() * 2; //120 minutes to "start up"
-        float testCaseCost = getDevReviewRate() * 5; // 5 hours to write test cases
-        debug("reviewCost " + reviewCost);
-        debug("startupCost " + startupCost);
-        debug("testCaseCost " + testCaseCost);
-        return reviewCost + startupCost + testCaseCost;
+        //float reviewCost = (float) (level + 1) * (float) submissionsPassedScreening * getDevReviewRate();
+        //float startupCost = getDevReviewRate() * 2; //120 minutes to "start up"
+        //float testCaseCost = getDevReviewRate() * 5; // 5 hours to write test cases
+        //debug("reviewCost " + reviewCost);
+        //debug("startupCost " + startupCost);
+        //debug("testCaseCost " + testCaseCost);
+        //return reviewCost + startupCost + testCaseCost;
+
+        return (0.86f * getInitialPurse() + getIncrementPurse() * (submissionsPassedScreening - 1)) * 0.9f / 3.0f;
     }
 
     /**
@@ -237,9 +253,10 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @return
      */
     private float getDevReviewCost() {
-        float aggregationReviewCost = (1f / 2f) * getDevReviewRate(); //30 minutes for aggregation review
-        debug("aggregationCost " + aggregationReviewCost);
-        return aggregationReviewCost + getDevCoreReviewCost();
+        //float aggregationReviewCost = (1f / 2f) * getDevReviewRate(); //30 minutes for aggregation review
+        //debug("aggregationCost " + aggregationReviewCost);
+        //return aggregationReviewCost + getDevCoreReviewCost();
+        return getDevCoreReviewCost();
     }
 
     private float getPrimaryTestingReviewCost() {
@@ -294,9 +311,10 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @return
      */
     private float getDesignReviewCost() {
-        float aggregationReviewCost = (1f / 2f) * getDesignReviewRate(); //30 minutes for aggregation review
-        debug("aggregationReviewCost " + aggregationReviewCost);
-        return aggregationReviewCost + getCoreDesignReviewCost();
+        //float aggregationReviewCost = (1f / 2f) * getDesignReviewRate(); //30 minutes for aggregation review
+        //debug("aggregationReviewCost " + aggregationReviewCost);
+        //return aggregationReviewCost + getCoreDesignReviewCost();
+        return getCoreDesignReviewCost();
     }
 
     /**
@@ -313,18 +331,21 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     private float getDesignScreeningCost() {
-        float screeningCost = 0.75f * (float) submissionCount * getDesignReviewRate();  //45 minutes per submission
-        return screeningCost;
+        //float screeningCost = 0.75f * (float) submissionCount * getDesignReviewRate();  //45 minutes per submission
+        //return screeningCost;
+        return (0.86f * getInitialPurse() + getIncrementPurse() * (submissionCount - 1)) * 0.10f;
     }
 
     private float getDesignAggregationCost() {
-        float aggregationCost = (1f / 2f) * getDesignReviewRate();  //30 minutes to aggregate
-        return aggregationCost;
+        //float aggregationCost = (1f / 2f) * getDesignReviewRate();  //30 minutes to aggregate
+        //return aggregationCost;
+        return 0.04f * getInitialPurse();
     }
 
     private float getDesignFinalReviewCost() {
-        float finalReviewCost = getDesignReviewRate();  //60 minutes to do final review
-        return finalReviewCost;
+        //float finalReviewCost = getDesignReviewRate();  //60 minutes to do final review
+        //return finalReviewCost;
+        return 0.10f * getInitialPurse();
     }
 
     /**
@@ -334,11 +355,12 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @return
      */
     private float getCoreDesignReviewCost() {
-        float reviewCost = (float) (level + 2) * (float) submissionsPassedScreening * getDesignReviewRate();
-        float startupCost = 2.0f * getDesignReviewRate(); //120 minutes to "start up"
-        debug("reviewCost " + reviewCost);
-        debug("startupCost " + startupCost);
-        return reviewCost + startupCost;
+        //float reviewCost = (float) (level + 2) * (float) submissionsPassedScreening * getDesignReviewRate();
+        //float startupCost = 2.0f * getDesignReviewRate(); //120 minutes to "start up"
+        //debug("reviewCost " + reviewCost);
+        //debug("startupCost " + startupCost);
+        //return reviewCost + startupCost;
+        return (0.86f * getInitialPurse() + getIncrementPurse() * (submissionsPassedScreening - 1)) * 0.9f / 3.0f;
     }
 
     /**
