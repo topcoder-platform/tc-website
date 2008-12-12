@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.12.08<br />11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://www.topcoder.com/wiki/display/tc/Contest+Details+-+ChumBonus+Community+Site+Conceptualization">ChumBonus Community Site Conceptualization Launched</a></span><br /><br />
+        TopCoder has launched a new Conceptualization contest! ChumBonus is building a community job posting that allows members to earn bonuses by recommending their friends.  We need YOU to tell us how it should be done! Click <a href="http://www.topcoder.com/wiki/display/tc/Contest+Details+-+ChumBonus+Community+Site+Conceptualization">here</a> to learn more about this contest!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://www.topcoder.com/wiki/display/tc/Contest+Details+-+ChumBonus+Community+Site+Conceptualization">details</a> | 
+        <a href="http://forums.topcoder.com/?module=Category&categoryID=4050">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.11.08<br />1:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/tc?module=Static&d1=features&d2=120908">Meet the November Coders and Designers of the Month!</a></span><br /><br />
