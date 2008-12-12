@@ -11,7 +11,7 @@
    </tr>
    <tr><td class="newsLinksCell">
         <a href="http://www.topcoder.com/tc?module=ProjectDetail&pj=30005645">details</a> | 
-    <%--    <a href="http://forums.topcoder.com/?module=Category&categoryID=4050">discuss this</a> | ---%>
+        <a href="http://forums.topcoder.com/?module=Category&categoryID=4051">discuss this</a> | 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
 
