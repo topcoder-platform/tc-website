@@ -7,7 +7,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Architecture Contest" border="0" /><br />12.12.08<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://www.topcoder.com/tc?module=ProjectDetail&pj=30005645">XBMC Competitions!</a></span><br /><br />
-        TopCoder will be soon launching a series of XBMC competitions. XBMC is a multi-platform, internationalized, localized, free and open-sourced media player hub!  Here is your oportunity to work on improving and building a new skin for XBMC.  TopCoder has already run a Studio competitions and now we are running an <a href="http://www.topcoder.com/tc?module=ProjectDetail&pj=30005645">Architecture Contest</a>.  The goal of this contest is to identify the best way to implement this new skin for XBMC.</td>
+        TopCoder will be soon launching a series of XBMC competitions. XBMC is a multi-platform, internationalized, localized, free and open-sourced media player hub!  Here is your oportunity to work on improving and building a new skin for XBMC.  TopCoder has already run a <a href="http://studio.topcoder.com/?module=ViewContestDetails&ct=2438">Studio competitions</a> and now we are running an <a href="http://www.topcoder.com/tc?module=ProjectDetail&pj=30005645">Architecture Contest</a>.  The goal of this contest is to identify the best way to implement this new skin for XBMC.</td>
    </tr>
    <tr><td class="newsLinksCell">
         <a href="http://www.topcoder.com/tc?module=ProjectDetail&pj=30005645">details</a> | 
