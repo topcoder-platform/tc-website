@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />12.15.08<br />10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&d1=tchs09&d2=index">Announcing the TCHS09!</a></span><br /><br />
+In its third year, the TCHS is bound to bring new, young names and faces to the tournament. It is time to compete against your comrades and reveal the new champion! Here is your chance to be a part of the $10,000 prize purse! In order to compete, all you have to do is be registered for Season 3.  Be sure to read the eligibility requirements and rules.  For more information, check out the <a href="/tc?module=Static&d1=tchs09&d2=index">website.</a>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=tchs09&d2=index">details</a> | 
+        <tc-webtag:forumLink forumID="524990" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Architecture Contest" border="0" /><br />12.12.08<br />12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://www.topcoder.com/tc?module=ProjectDetail&pj=30005645">XBMC Competitions!</a></span><br /><br />
