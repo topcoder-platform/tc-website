@@ -114,7 +114,7 @@
 									<p>2 Banner Ad Contests</p>
 									<p><a href="${sessionInfo.servletPath}?module=Static&amp;d1=portfolio&amp;d2=ltclient">View more details...</a></p>
 								</div>
-                       			<div class="floatRight_2"><a href="${sessionInfo.servletPath}?module=Static&amp;d1=portfolio&amp;d2=ltclient"><img src="/i/portfolio/projects/lendingtree/thumbs/1.png" width="150" height="150" /></a></div>
+                       			<div class="floatRight_2"><a href="${sessionInfo.servletPath}?module=Static&amp;d1=portfolio&amp;d2=ltclient"><img src="/i/portfolio/projects/ltclient/thumbs/1.png" width="150" height="150" /></a></div>
                        
                        			<div class="clear hr"></div>
                        			
