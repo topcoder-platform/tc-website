@@ -135,6 +135,12 @@
       <td class="value">16
       </td>
       <td class="value">17
+               <div class="amd">
+         <strong><a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdOverview">AMD Multicore Threadfest Competition 4</a></strong><br />
+         12:00 NOON<br />
+         2 weeks
+         </div>
+
       </td>
       <td class="value">18
          <div class="des_dev">
