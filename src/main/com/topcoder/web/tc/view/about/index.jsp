@@ -233,7 +233,7 @@ $(document).ready(function(){
                     <ul class="links">
                     	<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/methodology.jsp">Learn More</a></li>
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Slash TC, The Community Home Page</a></li>
-                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=AlgoRank">TopCoder's Top Tens</a></li>
+                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=top_designers">TopCoder's Top Tens</a></li>
                         <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">The Forums</a></li>
                     </ul>
                 </div>
@@ -312,7 +312,7 @@ $(document).ready(function(){
  			</div>
            	<div class="right-column">
             <div id="components-graphic">
-            <a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Practicing+Component+Design" class="button" id="learn-more">Learn More</a>
+            <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/methodology.jsp " class="button" id="learn-more">Learn More</a>
             </div>
             </div>
             
