@@ -224,7 +224,7 @@ tchs08 is over, don't need to do this anymore
         }
 
         ResultSetContainer concept = dataMap.get("conceptualization_active_contests_summary");
-        if (!arch.isEmpty()) {
+        if (!concept.isEmpty()) {
             ResultSetContainer.ResultSetRow row = concept.get(0);
             summary = new ActiveContestsSummary();
             summary.setContestCount(row.getIntItem("total_contests"));
@@ -236,7 +236,7 @@ tchs08 is over, don't need to do this anymore
         }
 
         ResultSetContainer spec = dataMap.get("specification_active_contests_summary");
-        if (!arch.isEmpty()) {
+        if (!spec.isEmpty()) {
             ResultSetContainer.ResultSetRow row = spec.get(0);
             summary = new ActiveContestsSummary();
             summary.setContestCount(row.getIntItem("total_contests"));
