@@ -113,6 +113,7 @@
          <div class="long">
          <strong><img src="/images/calendar/encrypt.gif" /> <a href="/tc?module=MatchDetails&amp;rd=13681">Marathon Match 48</a></strong><br />
          12:00 NOON<br />
+         $5,000 in prizes<br/>
          2 weeks
          </div>
       </td>
