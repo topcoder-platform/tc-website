@@ -2,6 +2,20 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.17.08<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Session with tomek Chat Transcript</a></span><br /><br />
+        Missed the Spotlight Session with tomek? The chat transcript from the Spotlight Session on  Thursday, December 11 is now available. <a href="/tc?module=Static&d1=hs&d2=spotSessChat20081211">Click here</a> to read the transcript.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=629178&mc=1#1046712">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />12.15.08<br />10:00 AM</td>
@@ -243,30 +257,5 @@ Marathon 45 is here and will be a one-week competition that highlights encryptio
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />11.21.08<br />6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/wiki/display/tc/Contest+Details+-+Hera+Status+Portal+1.0+Req.+Specification">Compete in a Specification contest for a Status Portal Application!</a></span><br /><br />
-        The business requirements have been defined to build an application for customers to monitor their home loan applications.  Now, TopCoder wants YOU to interpret these requirements and produce a full TopCoder Requirements Specification. This includes Use Cases, Activities, and a QA Plan inventory. The winning specification will be implemented and deployed at the client.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/wiki/display/tc/Contest+Details+-+Hera+Status+Portal+1.0+Req.+Specification">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=628130&start=0">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />11.20.08<br />4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Sessions with Yarin</a></span><br /><br />
-        The next Spotlight Session is about to happen!  Don't miss Yarin in the chat room one hour prior to TCHS SRM 62 on Saturday, November 22, 2008 at 11:00 a.m. EST (GMT-5).  All members are welcome to join in the chat session and learn some valuable tips from a great coder.  Learn more about Yarin and Spotlight Sessions <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">here</a>. There is one session left after this; hope you can join us!</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">details</a> | 
-        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=628082&mc=1#1042006">discuss this</a> | 
-        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
-   </td></tr>
-   
+ 
 
