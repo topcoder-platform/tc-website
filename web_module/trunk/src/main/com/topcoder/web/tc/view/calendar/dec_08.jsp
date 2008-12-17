@@ -141,6 +141,11 @@
          <strong><a href="/tc?module=ViewActiveContests&amp;ph=112">Des</a> &amp; <a href="/tc?module=ViewActiveContests&amp;ph=113">Dev</a> contests posted</strong><br />
          9:00 AM
          </div>
+         <div class="amd">
+         <strong><a href="/tc?module=Static&d1=sponsors&d2=amdOverview">AMD Multicore Threadfest Competition 4</a></strong><br />
+         12:00 NOON<br />
+         2 weeks
+         </div>
       </td>
       <td class="value">19
       </td>
