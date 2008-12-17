@@ -273,9 +273,9 @@ ding="utf-8"?>
 
         <p>
             <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/nophoto.jpg"/>
-            <b>October 2008</b><br />
-            <b>JGeeks</b><br />
-            Won $2250 in 9 contests!
+            <b>November 2008</b><br />
+            <b>Veonax</b><br />
+            Won $2,400 in his second month at Studio!
         </p>
 
         <div></div>
