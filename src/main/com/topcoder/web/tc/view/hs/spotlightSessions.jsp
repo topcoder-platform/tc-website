@@ -112,7 +112,7 @@
                   View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081124">here.</a>
                 </p>
                 
-                <p style="font:12px lucida sans;"><span class="subtitle">Thursday, December 11 at 10:00 a.m. EST (GMT -5)<br />
+                <p class="grayedOut" style="font:12px lucida sans;"><span class="subtitle">Thursday, December 11 at 10:00 a.m. EST (GMT -5)<br />
                 Spotlight Session with <tc-webtag:handle coderId="144400" context="algorithm" /></span></p>
                 <p class ="grayedOut" style="font:12px lucida sans;">
                   View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081211">here.</a>
