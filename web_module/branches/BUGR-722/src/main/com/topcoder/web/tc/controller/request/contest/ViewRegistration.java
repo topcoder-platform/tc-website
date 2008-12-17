@@ -70,7 +70,7 @@ public class ViewRegistration extends Base {
         }
 
         projectTypeId = getProjectTypeId(projectId);
-//Pulky: TEMPORARY
+
         if (!String.valueOf(projectTypeId).equals(String.valueOf(Constants.ASSEMBLY_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.ARCHITECTURE_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.COMPONENT_TESTING_PROJECT_TYPE)) &&

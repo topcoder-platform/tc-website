@@ -31,7 +31,6 @@ public abstract class Base extends ShortHibernateProcessor {
         ProjectLocal pl = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
         return pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
-  //Pulky: TEMPORARY
 
     public static String getProjectDetailPage(int projectTypeId) {
         if (projectTypeId==Constants.DESIGN_PROJECT_TYPE) {
