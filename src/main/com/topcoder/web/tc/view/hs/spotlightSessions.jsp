@@ -114,8 +114,9 @@
                 
                 <p style="font:12px lucida sans;"><span class="subtitle">Thursday, December 11 at 10:00 a.m. EST (GMT -5)<br />
                 Spotlight Session with <tc-webtag:handle coderId="144400" context="algorithm" /></span></p>
-                <p style="font:12px lucida sans;">Don't miss the spotlight session with four-time TopCoder Tournament Champion, <tc-webtag:handle coderId="144400" context="algorithm" />. Not only does he rule TopCoder tournaments, he also has won the IOI, ACM, CodeCup, IPSC and Google Code Jam. Today, instead of competing in the Code Jam, he's running it. Originally from Poland, <tc-webtag:handle coderId="144400" context="algorithm" /> has moved to California and working his dream job at Google. During his downtime, you can find <tc-webtag:handle coderId="144400" context="algorithm" /> hanging out at the beach volleyball court on the Google campus or watching the victories of the ACM programming team he helped coached at Purdue. As one of the most well-known names at TopCoder, you will get to hear his tricks of the trade and what <tc-webtag:handle coderId="144400" context="algorithm" /> did to become the skilled programmer he is today. Don't miss this chat!</p>
-                <p style="font:18px lucida sans;">Keep coming back for updates as to which of your favorite members will be chatting next!</p>
+                <p class ="grayedOut" style="font:12px lucida sans;">
+                  View the chat transcript <a style="text-decoration:none;" href="/tc?module=Static&amp;d1=hs&amp;d2=spotSessChat20081211">here.</a>
+                </p>
                 <br /><br />
             </div>
         </td>
