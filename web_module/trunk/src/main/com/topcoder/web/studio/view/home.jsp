@@ -285,7 +285,7 @@ ding="utf-8"?>
     <div class="assignmentBox">
         <p class="simpleArrow">
             Have you signed your assignment document?<br />
-            <img alt="More Info" src="/i/v3/right_arrow.png"/><a class="img_c" href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/The+Assignment+Document" target="_blank">
+            <img alt="More Info" src="/i/v3/right_arrow.png"/><a class="img_c" href="http://studio.topcoder.com/?module=Static&d1=support&d2=assignmentDocFaq">
             Click here for more info!</a>
         </p>
     </div>
