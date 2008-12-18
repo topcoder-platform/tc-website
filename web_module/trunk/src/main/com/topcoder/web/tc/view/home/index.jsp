@@ -180,6 +180,12 @@ $(document).ready(function(){
                                 <a class="button" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/methodology.jsp">Learn More</a>
                             </div>
                         </div>
+                        <div id="featured-client">
+                            	<a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/blogs/?p=98"><h3>Featured Client: Local Motors</h3>
+                            	
+                                	<img src="http://<%=ApplicationServer.SERVER_NAME%>/i/home/Imfeatured.png" alt="Local Motors"/>
+                                </a>
+                            </div>
                         <div id="tc-direct">
                             <h3><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/cockpit/cockpit.jsp">TopCoder Direct</a></h3>
                             <h4>Launch your own design competition!</h4>
@@ -193,12 +199,7 @@ $(document).ready(function(){
                                 <a class="button" href="http://<%=ApplicationServer.SERVER_NAME%>/direct/cockpit/cockpit.jsp">Launch Direct</a>
                             </div>
                         </div>
-                        <div id="featured-client">
-                            	<a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/blogs/?p=98"><h3>Featured Client: Local Motors</h3>
-                            	
-                                	<img src="http://<%=ApplicationServer.SERVER_NAME%>/i/home/Imfeatured.png" alt="Local Motors"/>
-                                </a>
-                            </div>
+                        
                     </div>
                     <div id="client-box-bottom"></div>
                     <div class="wide-ad-banner">
