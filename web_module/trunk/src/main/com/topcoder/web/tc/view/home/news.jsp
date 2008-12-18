@@ -5,6 +5,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.18.08<br />12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://www.topcoder.com/tc?module=Static&d1=sponsors&d2=amdOverview">AMD Multicore Threadfest Competition 4 is Underway</a></span><br /><br />
+        The final installment of the AMD Multicore Threadfest is now underway. Don't miss your final chance at part of the $5,000 prize purse! </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://www.topcoder.com/tc?module=Static&d1=sponsors&d2=amdOverview">details</a> | 
+        <tc-webtag:forumLink forumID="525029" message="discuss this" /> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.17.08<br />5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://winningformula.espn.com">ESPN Winning Formula Challenge Results are in!</a></span><br /><br />
