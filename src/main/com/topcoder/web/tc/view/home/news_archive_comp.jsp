@@ -39,6 +39,10 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText">
+  <td nowrap="nowrap">12.18.08 12:30 PM -</td>
+  <td><a href="http://www.topcoder.com/tc?module=Static&d1=sponsors&d2=amdOverview">AMD Multicore Threadfest Competition 4 is Underway</a></td>
+</tr>
 <tr class="bodyText"><td nowrap="nowrap">12.12.08 12:00 PM - </td><td width="100%"><a href="/tc?module=ProjectDetail&pj=30005645">XBMC Competitions!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.12.08 11:00 AM - </td><td width="100%"><a href="/wiki/display/tc/Contest+Details+-+ChumBonus+Community+Site+Conceptualization">ChumBonus Community Site Conceptualization Launched</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.11.08 12:00 AM - </td><td width="100%"><a href="/wiki/display/tc/Agent+Directory+Application">Agent Directory Conceptualization Launched</a></td></tr>
