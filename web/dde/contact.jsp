@@ -44,7 +44,7 @@
 						<div class="content_columns">
 					 <div>
            
-							<p align="center"><strong><span style="font:12px arial;">However big or small your company, however big or small your problem,</span><br />
+							<p align="center">
 							<img style="margin:10px;" src="/images//bnr_tc_solution.png" alt="TopCoder can help you find the solution." /><br />
 							<span style="font:12px arial;">Every day we work with Fortune 500 companies, small businesses and individuals alike, <br />
 							helping them tap into the resources of our Global Community to tackle issues just like yours.</span><br /><br />

@@ -1,15 +1,13 @@
 <%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="description" content="Overview of how to start competing in graphic and web design competitions at TopCoder Studio" />
-    <meta name="keywords" content="topcoder, studio, graphic competitions, graphic design contests, graphic design, web design, logo, contests, compete, prizes, cash, clients" />
-    <title>TopCoder Studio | How it Works</title>
+    <title>TopCoder Studio</title>
 
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_studio"/>
@@ -33,46 +31,114 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-                        
-                        <div style="padding: 10px 0;">
-					      <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted">Overview</a>
-					    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=whyJoin">Why Join</a>
-					    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=memberRefferalProgram">Member Referral Program</a>
-						| <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=newMemberFaqs">New Member FAQs</a>
-						| <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=startingACompetition">Starting a Competition</a>
-					    </div>
-        
-                        <h1>Overview</h1>
-                        
-                        <h3>The TopCoder Studio Methodology</h3>
-						<p>
-						Studio challenges top creative talent from around the world to present their best concepts to clients searching for new design solutions.
-						</p>
-						<p>
-						<strong>Clients have multiple designs to choose from. Designers have multiple ways to win.</strong>
-						</p>
-						<p>
-						Our clients hold competitions where designers compete for cash prizes, along with placement points that accumulate for the opportunity to win larger cash awards in our monthly and annual tournaments. 
-						</p>
-						<p>
-						By tapping into a pool of creative people with multiple specialties, our clients benefit from new approaches and innovative concepts from a global community. Our competitors are here not just to win prizes, but to learn new skills, consult with peers, and earn the chance to be called one of the best designers in the world.
-                        </p>
-                        
-                        <h3>The Process</h3>
-                        <p>
-                        Studio helps clients specify the goals, requirements and scope of the design project. The competition is posted and Studio members submit their designs. The client then evaluates the submissions and chooses a winner (or multiple winners). The design is transferred to the client and the winners receive prizes and placement points for ongoing tournaments.
-						</p>
-						
-						<h3>The Designs</h3>
-                        <p>
-                        Clients engage the Studio community for design work ranging from icon creation to full application user interface design. In addition to logos, banners, print, apparel and other more traditional design work, members compete in Flash, widget design, Flex 3, HTML/CSS, Javascript and other development competitions. This allows Studio to take your project from the drawing board to production.
-                        </p>
-                        
-						<h3>The Approach</h3>
-                        <p>
-                        The Studio model allows work to be completed quickly and efficiently in many different ways. A large project can be completed by running several design competitions in parallel with each other. Mini-tournaments give clients the chance to hold "rounds" with a small group of finalists to produce a refined design. "Rapid Design Contests" and "Bug Races" can get small projects done with lightning speed.
-						</p>
-                        
+                    <div style="padding: 10px 0;">
+                    <strong>Help Pages:</strong> Getting Started
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Assignment FAQ</a>
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=competitionFaq">Competition FAQs</a>
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=formatSubmission">Formatting Your Submission</a>
+                    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=generalFaq">General FAQs</a>
+                    </div>
+                    
+                    <h1>Getting Started</h1>
+            
+                    <h3>Creative and exciting projects that pay off big.</h3>
+                    TopCoder Studio is the meeting place for clients who need creative work done and creative
+                    people looking to compete for that work. Here's how it happens:
+                    <br /><br />
+                    
+                    <div style="float:left; margin: 0px 6px 4px 0px;">
+                    <img src="/i/layout/step1.gif" alt="Step 1"/>
+                    </div>
+                    
+                    <strong>Client contacts TopCoder Studio with project:</strong>
+                    Companies who are in need of creative work for their website or product line contact
+                    TopCoder Studio with their project requirements and timelines. TopCoder Studio works with them to
+                    gather the necessary information and documentation, as well as to ensure that the project fits
+                    our competition model.
+                    <br /><br />
+                    
+                    <div style="float:left; margin: 0px 6px 4px 0px;">
+                    <img src="/i/layout/step2.gif" alt="Step 2"/>
+                    </div>
+                    <strong>TopCoder Studio posts project as a new contest:</strong>
+                    Once the project documentation has been completed by the client and formatted appropriately by
+                    TopCoder Studio, it is posted on the <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Contests page</a>.
+                   
+                    <br /><br />
+                    
+                    <div style="float:left; margin: 0px 6px 4px 0px;">
+                    <img src="/i/layout/step3.gif" alt="Step 3"/>
+                    </div>
+                    <strong>Browse through the posted contests:</strong>
+                    Anyone interested in participating in TopCoder Studio can read through the Contests page - no
+                    prior registration is necessary. If there is a contest that you think a friend, co-worker or
+                    fellow creative type might be interested in, send them a link to the
+                    <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Contests page</a>.
+                    <br /><br />
+                    
+                    <div style="float:left; margin: 0px 6px 4px 0px;">
+                    <img src="/i/layout/step4.gif" alt="Step 4"/>
+                    
+                    </div>
+                    <strong>
+                    In order to participate in Studio contests, you must be a registered TopCoder Studio member.</strong> <a href="https://www.topcoder.com/reg/">Registration is free and easy.</a> Registered Studio members can then register for individual contests on the corresponding Contest Details pages. 
+                    
+                    <br /><br />
+                    
+                    <div style="float:left; margin: 0px 6px 4px 0px;">
+                    <img src="/i/layout/step5.gif" alt="Step 5"/>
+                    
+                    </div>
+                    <strong>Registered TopCoder Studio members submit a one-time assignment document:</strong>
+                    In order to submit to any Studio contest, members must have signed and returned an assignment document. This only needs to be completed once. <a href="/?module=Static&d1=support&d2=assignmentDocFaq">Read more about the assignment document.</a>
+                    <br /><br />
+                    
+                    <div style="float:left; margin: 0px 6px 4px 0px;">
+                    <img src="/i/layout/step6.gif" alt="Step 6"/>
+                    </div>
+                    
+                    <strong>Registered TopCoder Studio members can submit their work:</strong>
+                    Once you've read through a contest's details, it's time to work on your submission. Designs can be submitted from the Contest Details page and must conform to the requirements. Members can submit more than one concept for each competition, but can only submit one concept at a time. Most contests limit how many submissions will be considered from each member. That submission limit is shown on the Contest Details page.
+                    <br /><br />
+                    
+                    <div style="float:left; margin: 0px 6px 4px 0px;">
+                    <img src="/i/layout/step7.gif" alt="Step 7"/>
+                    </div>
+                    <strong>Submissions are screened:</strong>
+                    At the end of a contest's submission phase, the Contest Administrator will screen each submission to ensure that the project's specifications are met. Participants will be notified via email if their submission passes or fails. 
+                    <br /><br />
+                    
+                    <div style="float:left; margin: 0px 6px 4px 0px;">
+                    <img src="/i/layout/step8.gif" alt="Step 8"/>
+                    </div>
+                    <strong>Submissions that pass screening are sent to Client:</strong>
+                    All submissions that pass screening (i.e., conform to the project specifications) will be sent to the client for review.
+                    <br /><br />
+                    
+                    <div style="float:left; margin: 0px 6px 4px 0px;">
+                    <img src="/i/layout/step9.gif" alt="Step 9"/>
+                    </div>
+                    
+                    <strong>Client selection prizes are awarded:</strong>
+                    The client reviews all passing submissions and chooses a winner (or winners) solely at their discretion.  Source files from the winning submissions are delivered to the client. The Client may require the winner to enter into a Final Fixes Phase after the contest has ended. This phase will require the winner to make final changes (if the winner has not met all of the requirements listed in the contest details page) to the final deliverables before payment can be released.
+                    <br /><br />
+                    
+                    
+                    <div style="float:left; margin: 0px 6px 4px 0px;">
+                    <img src="/i/layout/step10.gif" alt="Step 10"/>
+                    </div>
+                    <strong>Winner is compensated for their work:</strong>
+                    Winners of the contest are notified via email. In order for winners to be compensated for their work, their source files must match the requirements detailed on the Contest Details. They must also sign the appropriate tax form. The payment will be distributed in one full installment, once the final version of the winning submission has been downloaded by the client. Payment is released according to the payment schedule table. <br />
+                    <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=competitionFaq">More information on payment can be found here</a>.
+                    <br /><br />
+                    
+                    Get started now by checking out the current <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Contests</a>!
+                    
+                    <br /><br />
+                    Questions about the process can be directed to <a href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</a>.
+                    <br />Questions about the payments and document processing can be directed to <a href="mailto:payments@topcoder.com">payments@topcoder.com</a>.
+
+
                         <br clear="all"/>
                     </div>                
                     <div class="contentBottom"></div>

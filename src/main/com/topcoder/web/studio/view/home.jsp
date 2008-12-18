@@ -273,9 +273,9 @@ ding="utf-8"?>
 
         <p>
             <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/nophoto.jpg"/>
-            <b>November 2008</b><br />
-            <b>Veonax</b><br />
-            Won $2,400 in his second month at Studio!
+            <b>October 2008</b><br />
+            <b>JGeeks</b><br />
+            Won $2250 in 9 contests!
         </p>
 
         <div></div>
@@ -285,7 +285,7 @@ ding="utf-8"?>
     <div class="assignmentBox">
         <p class="simpleArrow">
             Have you signed your assignment document?<br />
-            <img alt="More Info" src="/i/v3/right_arrow.png"/><a class="img_c" href="http://studio.topcoder.com/?module=Static&d1=support&d2=assignmentDocFaq">
+            <img alt="More Info" src="/i/v3/right_arrow.png"/><a class="img_c" href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/The+Assignment+Document" target="_blank">
             Click here for more info!</a>
         </p>
     </div>

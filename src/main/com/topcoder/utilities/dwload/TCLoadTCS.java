@@ -1670,7 +1670,7 @@ public class TCLoadTCS extends TCLoad {
 
         try {
             //get data from source DB
-            final String SELECT = "select max(dr_points_id) as max_id from dr_points";
+            final String SELECT = "select max(dr_points_id) as max_id from dr_points where dr_points_id < 100000";
 
             select = prepareStatement(SELECT, SOURCE_DB);
 

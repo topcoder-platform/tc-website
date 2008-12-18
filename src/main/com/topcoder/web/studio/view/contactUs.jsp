@@ -31,7 +31,7 @@
     
                         <h1>Contact Us</h1>
 
-                        <div align="left" style="margin-bottom:20px;">
+                        <div align="center" style="margin-bottom:20px;">
                             <table cellpadding="10" cellspacing="0">
                                 <tbody>
                                     <tr>
@@ -44,16 +44,22 @@
                                             fax: 860.657.4276
                                         </td>
                                     </tr>
-                                    
                                     <tr>
                                         <td align="left">
-                                            <strong>Member Support </strong><br />
-                                            Email:
-                                            <a href="mailto:studioadmin@topcoder.com?subject=TopCoder%20Studio%20General%20Questions">studioadmin@topcoder.com</a>
+                                            <strong>Membership</strong><br />
+                                            Email: <a href="mailto:service@topcoder.com?subject=TopCoder%20Studio%20Membership">service@topcoder.com</a>
                                         </td>
-                                        </tr>
-                                    
+                                        <td align="left">
+                                            <strong>Competition Support</strong><br />
+                                            Email: <a href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</a>
+                                        </td>
+                                    </tr>
                                     <tr>
+                                        <td align="left">
+                                            <strong>General questions</strong><br />
+                                            Email:
+                                            <a href="mailto:service@topcoder.com?subject=TopCoder%20Studio%20General%20Questions">service@topcoder.com</a>
+                                        </td>
                                         <td align="left">
                                             <strong>Sales</strong><br />
                                             Email: <a href="mailto:studiosales@topcoder.com">studiosales@topcoder.com</a>

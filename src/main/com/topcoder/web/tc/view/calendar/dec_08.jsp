@@ -42,7 +42,7 @@
     <a href="/tc?module=BasicRSS&amp;c=rss_Upcoming_Contests&amp;dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
 
-<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=nov_08" class="prevNext">&lt; prev</a> <a href="/tc?module=Static&amp;d1=calendar&amp;d2=jan_09" class="prevNext">next &gt;</a></strong>
+<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=nov_08" class="prevNext">&lt; prev</a> <%--| <a href="/tc?module=Static&amp;d1=calendar&amp;d2=jan_09" class="prevNext">next &gt;</a></strong>--%>
 <jsp:include page="dropdown.jsp" >
 <jsp:param name="currMonth" value="dec_08"/>
 </jsp:include>
@@ -74,7 +74,7 @@
       </td>
       <td class="value">3
          <div class="long">
-         <strong><img src="/images/calendar/encrypt.gif" /><a href="/tc?module=MatchDetails&amp;rd=13570">Marathon Match 45</a></strong><br />
+         <strong><img src="/images/calendar/encrypt.gif" /> <a href="/tc?module=MatchDetails&amp;rd=13570">Marathon Match 45</a></strong>
          12:00 NOON<br />
          $5,000<br />
          1 week
@@ -101,7 +101,7 @@
       </td>
       <td class="value">10
          <div class="long">
-         <strong><img src="/images/calendar/encrypt.gif" /><a href="/tc?module=MatchDetails&amp;rd=13679">Marathon Match 46</a></strong><br />
+         <strong><img src="/images/calendar/encrypt.gif" /> <a href="/tc?module=MatchDetails&amp;rd=13679">Marathon Match 46</a></strong><br />
          12:00 NOON<br />
          $5,000<br />
          1 week
@@ -135,16 +135,17 @@
       <td class="value">16
       </td>
       <td class="value">17
+               <div class="amd">
+         <strong><a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdOverview">AMD Multicore Threadfest Competition 4</a></strong><br />
+         12:00 NOON<br />
+         2 weeks
+         </div>
+
       </td>
       <td class="value">18
          <div class="des_dev">
          <strong><a href="/tc?module=ViewActiveContests&amp;ph=112">Des</a> &amp; <a href="/tc?module=ViewActiveContests&amp;ph=113">Dev</a> contests posted</strong><br />
          9:00 AM
-         </div>
-         <div class="amd">
-         <strong><a href="/tc?module=Static&d1=sponsors&d2=amdOverview">AMD Multicore Threadfest Competition 4</a></strong><br />
-         12:00 NOON<br />
-         2 weeks
          </div>
       </td>
       <td class="value">19
@@ -199,7 +200,7 @@
       </td>
       <td class="value">31
          <div class="long">
-         <strong><img src="/images/calendar/encrypt.gif" /><a href="/tc?module=MatchDetails&amp;rd=13680">Marathon Match 47</a></strong><br />
+         <strong><img src="/images/calendar/encrypt.gif" /> <a href="/tc?module=MatchDetails&amp;rd=13680">Marathon Match 47</a></strong><br />
          12:00 NOON<br />
          $5,000<br />
          1 week

@@ -6,7 +6,7 @@
 %>
 
 <div align="center">
-    <img src="/i/digital_run/studioCupBanner-new2.jpg" alt="" />
+    <img src="/i/digital_run/studioCupBanner.gif" alt="" />
 </div>
 
 <p align="right">

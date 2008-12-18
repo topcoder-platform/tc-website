@@ -11,11 +11,10 @@ import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionType;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
-import java.util.TreeSet;
-
 
 /**
  * @author dok
@@ -37,8 +36,8 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
         Date now = new Date();
         List userSubmissions = dao.getSubmissions(contestId, getUser().getId(), submissionTypeId);
         Integer maxRank = null;
-        // BUGR-429 Change: replace two ArrayLists by one TreeSet
-        TreeSet<ComparableRank> changedSubmissions = new TreeSet<ComparableRank>();
+        ArrayList<Integer> newRanks = new ArrayList<Integer>(userSubmissions.size());
+        ArrayList changedSubmissions = new ArrayList(userSubmissions.size());
         for (Enumeration paramNames = getRequest().getParameterNames(); paramNames.hasMoreElements();) {
             paramName = (String) paramNames.nextElement();
             if (paramName.startsWith(Constants.SUBMISSION_ID)) {
@@ -63,28 +62,22 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
                         } else if (newRankInt > maxRank) {
                             newRankInt = maxRank;
                         }
-
-                        // BUGR-429 Change: unconditional accumulate ComparableRank objects instead conditional newRank and submissions accumulation
-                        changedSubmissions.add(new ComparableRank(newRankInt, currSubmission));
+                        if (!newRankInt.equals(currSubmission.getRank())) {
+                            newRanks.add(newRankInt);
+                            changedSubmissions.add(currSubmission);
+                        }
                     }
                 }
             }
         }
 
-        // BUGR-429: this todo is implemeted
 //todo make it smarter, since the transaction isn't yet commited, it seems to be confused since we're updated the same rows
         //todo multiple times.  perhaps we have to do it all here in the processor instead or something.
         Submission s = (Submission) userSubmissions.get(0);
         if (!hasErrors()) {
 
-            // BUGR-429 Change: remove altering rank by dao.changeRank(), the right order of submissions is supported by TreeSet
-            int i = 0;
-            for (ComparableRank comparableRank : changedSubmissions) {
-                Submission submission = comparableRank.getSubmission();
-                if (++i != submission.getRank()) {
-                    submission.setRank(i);
-                    dao.saveOrUpdate(submission);
-                }
+            for (int i = 0; i < newRanks.size(); i++) {
+                dao.changeRank((Integer) newRanks.get(i), (Submission) changedSubmissions.get(i));
             }
 
             closeConversation();
@@ -122,47 +115,4 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
         }
         return null;
     }
-
-    /**
-     * BUGR-429
-     * This class implements value object for support certain order of submissions in the
-     * TreeSet. This order number is used as rank of submissions. The order is defined by
-     * <ul>
-     * <li>new rank</li>
-     * <li>offset, which is length between new rank and submission rank</li>
-     * <li>and submission Id if previous criteria are unexpectedly same</li>
-     * </ul>
-     * @author goorov
-     */
-    private static final class ComparableRank implements Comparable {
-        private final Integer newRank;
-        private final Submission submission;
-        private final Integer offset;
-
-        public ComparableRank(Integer newRank, Submission submission) {
-            this.newRank = newRank;
-            this.submission = submission;
-            offset = newRank - submission.getRank();
-        }
-
-        public Submission getSubmission() { return submission; }
-
-        public int compareTo(Object o) {
-            if (o instanceof ComparableRank) {
-                ComparableRank u = (ComparableRank) o;
-                int result = newRank.compareTo(u.newRank);
-                if (result == 0) {
-                    result = offset.compareTo(u.offset);
-                    if (result == 0) {
-                        result = submission.getId().compareTo(u.submission.getId());
-                    }
-                }
-                return result;
-            } else {
-                log.error("BatchUpdateRank.ComparableRank has been improperly comparing.");
-                return 0;
-            }
-        }
-    }
-
 }
