@@ -54,11 +54,15 @@
                                      "Stock art, clip art, templates and other design elements from other sources are " +
                                      " prohibited unless specifically permitted here in the Contest Details.</b></p>"
         defaults['${prizeDesc}'] ="The payment will be distributed in one full installment once the final version of the " +
-                    "winning submission has been downloaded by the client. Any and all applicable taxes on prizes are the " +
-                                  " sole responsibility of the prizewinner(s).";
+                    "winning submission has been downloaded by the client. If final fixes were required and not completed" + 
+					" on time, the member's payment may be reduced. " + 
+					"Any and all applicable taxes on prizes are the sole responsibility of the prizewinner(s)." ;
         defaults['${winnerSelection}'] = "Submissions go through an initial screening process during the submission phase. " +
                                          "Passing submissions are then presented to the client. Winners are selected by the " +
-                                         "client and are chosen solely at the Client's discretion."
+                                         "client and are chosen solely at the Client's discretion." +
+										 " If a winning member has not met all of the requirements listed on the Contest Details page," +
+										 " the winner may be contacted with a clear list of final fixes. If the member does" +
+										 " not complete the final fixes within 72 hours, their payment may be reduced." ;
         defaults['${eligibility}'] = "You must be a TopCoder Studio member, at least 18 years of age, meeting all of the " +
                                      " membership requirements. In addition, you must fit into one of the following categories. " +
                                    " If you reside in the United States, you must be either: " +
@@ -730,10 +734,10 @@
                             Description: <tc-webtag:textInput name="${docDesc}_${document.id}" maxlength="<%=Constants.MAX_DOCUMENT_DESC_VALUE_LENGTH%>"/>
                         </div>
                         <div>
-                        <button onclick="updateDocument(${document.id})">
+                        <button onClick="updateDocument(${document.id})">
                             Save changes
                         </button>
-                        <button onclick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
+                        <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
                             Remove
                         </button>
                         </div>
@@ -799,7 +803,7 @@
             </c:if>
             Prize Amount:
             <fmt:formatNumber value="${prize.amount}" type="currency"/>
-            <button onclick="document.removePrizeForm.<%=Constants.PRIZE_ID%>.value ='${prize.id}'">
+            <button onClick="document.removePrizeForm.<%=Constants.PRIZE_ID%>.value ='${prize.id}'">
                 Remove
             </button>
             <br />
