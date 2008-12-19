@@ -4,7 +4,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.18.08<br />12:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br />12.18.08<br />12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://killerappchallenge.ribbit.com/">SRM 430 Sponsored by Ribbit with Chat Session and Prizes! </a></span><br /><br />
         Join Ribbit in the Competition Arena at 11:00 a.m. EST (GMT -5) on Saturday, December 20 to chat about the new and exciting <a href="http://killerappchallenge.ribbit.com/">$100,000 Ribbit Killer App Challenge!</a> Ribbit will have some great prizes to give away as well. Don't miss it! </td>
