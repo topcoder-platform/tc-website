@@ -2,6 +2,19 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.18.08<br />12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://killerappchallenge.ribbit.com/">SRM 430 Sponsored by Ribbit with Chat Session and Prizes! </a></span><br /><br />
+        Join Ribbit in the Competition Arena at 11:00 a.m. EST (GMT -5) on Saturday, December 20 to chat about the new and exciting <a href="http://killerappchallenge.ribbit.com/">$100,000 Ribbit Killer App Challenge!</a> Ribbit will have some great prizes to give away as well. Don't miss it! </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://killerappchallenge.ribbit.com/">details</a> | 
+        <a href="http://killerappchallenge.ribbit.com/forums?module=Thread&threadID=1666&start=0&mc=1#6782">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_alg">archive</a>
+   </td></tr>
+
 
 <%--------------------------------------------------------%>
    <tr>

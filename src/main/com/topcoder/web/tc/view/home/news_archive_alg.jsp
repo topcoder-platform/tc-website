@@ -40,6 +40,10 @@
                 </jsp:include>
 
                 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+                  <tr class="bodyText">
+                    <td nowrap="nowrap">12.19.08 1:00 PM&#160;-&#160;</td>
+                    <td><a href="http://killerappchallenge.ribbit.com/">SRM 430 Sponsored by Ribbit with Chat Session and Prizes! </a><br /></td>
+                  </tr>
 <tr class="bodyText"><td nowrap="nowrap">07.29.08 1:30 PM&#160;-&#160;</td><td width="100%"><a href="http://winningformula.espn.com/">Announcing the $100,000 ESPN Winning Formula Challenge</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.27.08 5:00 PM&#160;-&#160</td><td width="100%"><a href="/tc?module=Static&amp;d1=hs&amp;d2=home">Announcing the 2009 TCHS Season and Referral Program</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.11.08 12:30 PM&#160;-&#160</td><td width="100%"><a href="/tc?module=MatchDetails&amp;rd=12169">SRM 397 is sponsored by BT with $5,000 in Prizes!</a></td></tr>
@@ -137,7 +141,7 @@ calendar updated for <a href="/tc?module=Static&amp;d1=calendar&amp;d2=may_05">M
 </td></tr>
                 </table>
 
-            </div>
+          </div>
 
             <p><br/></p>
         </td>
