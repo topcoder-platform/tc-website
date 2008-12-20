@@ -24,7 +24,7 @@
               <li id="home-nav"><a <% if (active_page.equals("home")) {%>class="active"<% } %> href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/">Home</a></li>
               <li id="learnmore-nav"><a <% if (active_page.equals("learnMore")) {%>class="active"<% } %> href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=learnMore">Learn More</a></li>
               <li id="register-nav"><a <% if (active_page.equals("register")) {%>class="active"<% } %> href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=<%=Constants.MINISITE_CONTEST_ID%>">Register</a></li>
-              <li id="getsdk-nav"><a <% if (active_page.equals("SDK")) {%>class="active"<% } %> href="http://developer.ribbit.com/" target="_blank">Get the SDK</a></li>
+              <li id="getsdk-nav"><a <% if (active_page.equals("SDK")) {%>class="active"<% } %> href="http://developer.ribbit.com/register" target="_blank">Get the SDK</a></li>
               <li id="discuss-nav"><a <% if (active_page.equals("forums")) {%>class="active"<% } %> href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/forums">Discuss</a></li>
               <li id="blog-nav"><a <% if (active_page.equals("blog")) {%>class="active"<% } %> href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/news/">Blog</a></li>
               <li id="submit-nav"><a <% if (active_page.equals("submit")) {%>class="active"<% } %> href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=<%=Constants.MINISITE_CONTEST_ID%>">Submit</a></li>
