@@ -29,6 +29,8 @@
 <c:set value="<%=Constants.DESIGN_PROJECT_TYPE%>" var="DESIGN_TYPE_ID"/>
 <c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_TYPE_ID"/>
 <c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_TYPE_ID"/>
+<c:set value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>" var="CONCEPTUALIZATION_TYPE_ID"/>
+<c:set value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>" var="SPECIFICATION_TYPE_ID"/>
 <c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_TYPE_ID"/>
 <c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_TYPE_ID"/>
 
@@ -55,6 +57,16 @@
         <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="architecture_contest_status"/>
+           </jsp:include>
+        </c:when>
+        <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
+           <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="conceptualization_contest_status"/>
+           </jsp:include>
+        </c:when>
+        <c:when test="${pt == SPECIFICATION_TYPE_ID}">
+           <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="specification_contest_status"/>
            </jsp:include>
         </c:when>
         <c:when test="${pt == ASSEMBLY_TYPE_ID}">
@@ -171,7 +183,7 @@
             </c:if>
             <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != APPLICATION_TESTING_TYPE_ID}">
             <td class="valueC">
-                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/> 
+                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/>
             </td>
             </c:if>
             <td class="value">

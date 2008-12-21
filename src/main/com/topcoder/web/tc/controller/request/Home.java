@@ -20,6 +20,8 @@ public class Home extends Base {
     public static final String DEVELOPMENT = "dev";
     public static final String APPLICATION_TESTING = "apptesting";
     public static final String ARCHITECTURE= "arch";
+    public static final String CONCEPTUALIZATION = "concept";
+    public static final String SPECIFICATION = "spec";
     public static final String STUDIO = "studio";
     public static final String BUGS = "bugs";
     public static final String DR = "dr";
@@ -50,9 +52,9 @@ public class Home extends Base {
             dataRequest.setContentHandle("public_home_data");
             dataRequest.setProperty("sr", "1");
             dataRequest.setProperty("er", "10");   // just get the top 10
-            
+
             Map<String, ResultSetContainer> map = dwDai.getData(dataRequest);
-            
+
             getRequest().setAttribute("top_coders", map.get("Coder_Ratings"));
             getRequest().setAttribute("top_mm_coders",map.get("marathon_coder_rank"));
             getRequest().setAttribute("School_Avg_Rating",map.get("School_Avg_Rating"));
@@ -116,7 +118,7 @@ tchs08 is over, don't need to do this anymore
             DataAccess tchs08Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Request tchs08Request = new Request();
             tchs08Request.setProperty("cr", String.valueOf(getUser().getId()));
-            
+
             tchs08Request.setContentHandle("tchs08_eligibility");
             getRequest().setAttribute("tchs08_info",
                     tchs08Dai.getData(tchs08Request).get("tchs08_eligibility"));
@@ -125,7 +127,7 @@ tchs08 is over, don't need to do this anymore
 /*            DataAccess tco07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Request tco07Request = new Request();
             tco07Request.setProperty("cr", String.valueOf(getUser().getId()));
-            
+
             tco07Request.setContentHandle("tco07_info");
             getRequest().setAttribute("tco07_info",
                     tco07Dai.getData(tco07Request).get("tco07_info"));*/
@@ -134,7 +136,7 @@ tchs08 is over, don't need to do this anymore
             DataAccess tco08Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Request tco08Request = new Request();
             tco08Request.setProperty("cr", String.valueOf(getUser().getId()));
-            
+
             tco08Request.setContentHandle("tco08_info");
             getRequest().setAttribute("tco08_info",
                     tco08Dai.getData(tco08Request).get("tco08_info"));
@@ -164,7 +166,7 @@ tchs08 is over, don't need to do this anymore
             CachedDataAccess dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.STUDIO_DATASOURCE_NAME);
             Request dataRequest = new Request();
             dataRequest.setContentHandle("active_contests_summary");
-    
+
             ResultSetContainer rsc = dai.getData(dataRequest).get("active_contests_summary");
             if (!rsc.isEmpty()) {
                 ret.setContestCount(rsc.get(0).getIntItem("total_contests"));
@@ -221,6 +223,30 @@ tchs08 is over, don't need to do this anymore
             ret.put(ARCHITECTURE, summary);
         }
 
+        ResultSetContainer concept = dataMap.get("conceptualization_active_contests_summary");
+        if (!concept.isEmpty()) {
+            ResultSetContainer.ResultSetRow row = concept.get(0);
+            summary = new ActiveContestsSummary();
+            summary.setContestCount(row.getIntItem("total_contests"));
+            summary.setName(row.getStringItem("category_name"));
+            if (row.getItem("total_prizes").getResultData()!=null) {
+                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
+            }
+            ret.put(CONCEPTUALIZATION, summary);
+        }
+
+        ResultSetContainer spec = dataMap.get("specification_active_contests_summary");
+        if (!spec.isEmpty()) {
+            ResultSetContainer.ResultSetRow row = spec.get(0);
+            summary = new ActiveContestsSummary();
+            summary.setContestCount(row.getIntItem("total_contests"));
+            summary.setName(row.getStringItem("category_name"));
+            if (row.getItem("total_prizes").getResultData()!=null) {
+                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
+            }
+            ret.put(SPECIFICATION, summary);
+        }
+
 
         for (ResultSetContainer.ResultSetRow row : dataMap.get("homepage_active_contest_summary")) {
             summary = new ActiveContestsSummary();
@@ -249,7 +275,7 @@ tchs08 is over, don't need to do this anymore
                     break;
                 }
             }
-            
+
         }
 
         return ret;
@@ -275,7 +301,7 @@ tchs08 is over, don't need to do this anymore
             CachedDataAccess dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.JIRA_DATASOURCE_NAME);
             Request dataRequest = new Request();
             dataRequest.setContentHandle("bug_race_active_contests_summary");
-    
+
             ResultSetContainer rsc = dai.getData(dataRequest).get("bug_race_active_contests_summary");
             if (!rsc.isEmpty()) {
                 ret.setContestCount(rsc.get(0).getIntItem("total_contests"));
