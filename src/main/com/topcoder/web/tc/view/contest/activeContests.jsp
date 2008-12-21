@@ -95,6 +95,18 @@
                 <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
         </c:when>
+        <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="conceptualization"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == SPECIFICATION_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="specification"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
+        </c:when>
       </c:choose>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:10px;">
@@ -121,6 +133,12 @@
             <c:when test="${pt == ASSEMBLY_TYPE_ID}">
                 <a href="http://<%=ApplicationServer.WIKI_SERVER_NAME%>/display/tc/How+to+Compete+in+Assembly+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
             </c:when>
+            <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
+                <a href="/wiki/display/tc/How+to+Compete+in+Conceptualization+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
+            </c:when>
+            <c:when test="${pt == SPECIFICATION_TYPE_ID}">
+                <a href="/wiki/display/tc/How+to+Compete+in+Specification+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
+            </c:when>
           </c:choose>
         </td>
     </tr>
@@ -144,6 +162,16 @@
             Competition opportunities via RSS -
             <a href="/tc?module=BasicRSS&amp;c=rss_Assembly_Registration_Open&amp;dsid=28">Subscribe Now</a>
             <a href="/tc?module=BasicRSS&amp;c=rss_Assembly_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+        </c:when>
+        <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
+            Competition opportunities via RSS -
+            <a href="/tc?module=BasicRSS&amp;c=rss_Conceptualization_Registration_Open&amp;dsid=28">Subscribe Now</a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Conceptualization_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+        </c:when>
+        <c:when test="${pt == SPECIFICATION_TYPE_ID}">
+            Competition opportunities via RSS -
+            <a href="/tc?module=BasicRSS&amp;c=rss_Specification_Registration_Open&amp;dsid=28">Subscribe Now</a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Specification_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
       </c:choose>
     <br /><br />
@@ -169,6 +197,12 @@
             </c:when>
             <c:when test="${pt == ASSEMBLY_TYPE_ID}">
                 Active Software Assembly Contests</td>
+            </c:when>
+            <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
+                Active Software Conceptualization Contests</td>
+            </c:when>
+            <c:when test="${pt == SPECIFICATION_TYPE_ID}">
+                Active Software Specification Contests</td>
             </c:when>
           </c:choose>
     </tr>

@@ -211,8 +211,6 @@ Second Milestone: Marked by the completion of the Deployment phase of the projec
         <li>You must be authorized to perform services as an independent contractor. (Note: In most cases you will not
             need to do anything to become authorized)</li>
     </ul>
-
-<span class="bigRed">Your ability to participate in this competition is contingent on the agreement to the Specification Terms of Work. Once you have registered this information will be emailed to you and should be returned within 24 hours. If you have previously completed this document, no further action is needed.</span>
 </p>
 
 </td>
