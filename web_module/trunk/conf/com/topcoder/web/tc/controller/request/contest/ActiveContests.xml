@@ -5,7 +5,7 @@
 			<!--Value>2</Value--> <!-- DEVELOPMENT_PROJECT_TYPE -->
 			<!--Value>5</Value--> <!-- COMPONENT_TESTING_PROJECT_TYPE -->
 			<Value>7</Value> <!-- ARCHITECTURE_PROJECT_TYPE -->
-			<Value>22</Value> <!-- CONCEPTUALIZATION_PROJECT_TYPE -->
+			<Value>23</Value> <!-- CONCEPTUALIZATION_PROJECT_TYPE -->
 			<Value>6</Value> <!-- SPECIFICATION_PROJECT_TYPE -->
 			<Value>13</Value> <!-- APPLICATION_TESTING_PROJECT_TYPE -->
 			<Value>14</Value> <!-- ASSEMBLY_PROJECT_TYPE -->

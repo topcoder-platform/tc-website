@@ -67,10 +67,8 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
     private static final String EMAILENGINE_PROPERTIES_FORMAT = ConfigManager.CONFIG_XML_FORMAT;
     private static final Logger logger = Logger.getLogger(UserManagerBean.class);
 
-    public static final int ASSEMBLY_PROJECT_TYPE = 14;
-    public static final int ARCHITECTURE_PROJECT_TYPE = 7;
-    public static final int COMPONENT_TESTING_PROJECT_TYPE = 5;
-    public static final int APPLICATION_TESTING_PROJECT_TYPE = 13;
+    public static final int DESIGN_PROJECT_TYPE = 1;
+    public static final int DEVELOPMENT_PROJECT_TYPE = 2;
     
     /*
      * This group (which all new users are put into) is assumed to be in the
@@ -1043,10 +1041,8 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
 
             registerInquiry(userId, componentId, rating, userId, comments, true, 
-                (projectCategory == ASSEMBLY_PROJECT_TYPE || 
-                        projectCategory == ARCHITECTURE_PROJECT_TYPE  || 
-                        projectCategory == COMPONENT_TESTING_PROJECT_TYPE  || 
-                        projectCategory == APPLICATION_TESTING_PROJECT_TYPE) ? null : new Long(phase), 
+                (projectCategory == DESIGN_PROJECT_TYPE || 
+                        projectCategory == DEVELOPMENT_PROJECT_TYPE) ? new Long(phase) : null, 
                 version, projectId);
 
             Object objTechTypes = ctx.lookup(ComponentManagerHome.EJB_REF_NAME);
