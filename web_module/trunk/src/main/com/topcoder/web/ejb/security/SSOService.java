@@ -12,9 +12,9 @@ package com.topcoder.web.ejb.security;
  */
 public interface SSOService {
 
-    SSOInfo authenticateFromToken(String ssoToken) throws SSOServiceException;
+    SSOInfo authenticateFromSSOToken(String ssoToken) throws SSOServiceException;
 
-    SSOInfo authenticateFromRememberMe(String token) throws SSOServiceException;
+    SSOInfo authenticateFromRememberMeToken(String token) throws SSOServiceException;
 
     SSOInfo authenticate(String userName, String password) throws SSOServiceException;
 

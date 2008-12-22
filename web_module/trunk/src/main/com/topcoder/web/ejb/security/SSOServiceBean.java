@@ -32,7 +32,7 @@ public class SSOServiceBean implements SSOServiceRemote, SSOServiceLocal {
         }
     }
 
-    public SSOInfo authenticateFromRememberMe(String token) throws SSOServiceException {
+    public SSOInfo authenticateFromRememberMeToken(String token) throws SSOServiceException {
         try {
             long userId = generator.extractUserFromRememberMeToken(token);
             return generateSSOInfo(userId);
@@ -43,7 +43,7 @@ public class SSOServiceBean implements SSOServiceRemote, SSOServiceLocal {
     }
 
 
-    public SSOInfo authenticateFromToken(String ssoToken) throws SSOServiceException {
+    public SSOInfo authenticateFromSSOToken(String ssoToken) throws SSOServiceException {
         try {
             long userId = generator.extractUserFromSSOToken(ssoToken);
             return generateSSOInfo(userId);
