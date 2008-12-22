@@ -111,7 +111,7 @@ $(document).ready(function(){
                             <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active Contests</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">Launch a Contest</a></li>
                             <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
-                            <li><a href="http://www.tcstudioblogs.com/">Studio Blog</a></li>
+                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/blog/">Studio Blog</a></li>
                             <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=MyStudioHome">My Studio</a></li>
                             <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=contactUs">Contact Studio</a></li>
                         </ul>
@@ -132,7 +132,7 @@ $(document).ready(function(){
                 <h3 class="hide">SUB Navigation</h3>
                 <ul>
                     <li class="left"><a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder.com</a></li>
-                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/about.jsp">About TopCoder</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=index">About TopCoder</a></li>
                     <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=index">News</a></li>
                     <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a></li>
 
@@ -183,6 +183,12 @@ $(document).ready(function(){
                                 <a class="button" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/methodology.jsp">Learn More</a>
                             </div>
                         </div>
+                        <div id="featured-client">
+                            	<a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/blogs/?p=98"><h3>Featured Client: Local Motors</h3>
+                            	
+                                	<img src="http://<%=ApplicationServer.SERVER_NAME%>/i/home/Imfeatured.png" alt="Local Motors"/>
+                                </a>
+                            </div>
                         <div id="tc-direct">
                             <h3><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/cockpit/cockpit.jsp">TopCoder Direct</a></h3>
                             <h4>Launch your own design competition!</h4>
@@ -199,7 +205,7 @@ $(document).ready(function(){
                     </div>
                     <div id="client-box-bottom"></div>
                     <div class="wide-ad-banner">
-                        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://killerappchallenge.ribbit.com/&amp;refer=homepage"><img src="/images/home/ribbit-banner.png" alt="Ribbit $100,000 Killer App Challenge" /></a>
+                       
                     </div>
                 </div>
                 <div id="member-content">
@@ -226,11 +232,12 @@ $(document).ready(function(){
                                 <h3><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">TopCoder Studio</a></h3>
                                 <p>The creative side of TopCoder. Logos, posters, storyboards, prototypes&hellip;</p>
                             </div>
-                            <div id="compete-digitalrun">
-                                <a href="http://<%=ApplicationServer.SERVER_NAME%>/dr"><img src="/images/home/competition-digitalrun-thumbnail.png" alt="Digital Run" /></a>
-                                <h3><a href="http://<%=ApplicationServer.SERVER_NAME%>/dr">Digital Run</a></h3>
-                                <p>More Tracks, More Money, More Often!</p>
+                            <div id="ribbit">
+                            <a href="http://www.topcoder.com/tc?module=LinkTracking&link=http://killerappchallenge.ribbit.com/&refer=homepage">
+                           		<img src="/images/home/ribbit-banner-small.png" alt="Ribbit Killer App Challenge"/>
+                            </a>
                             </div>
+                            
                         </div>
                     </div>
                     <div id="member-box-bottom"></div>
