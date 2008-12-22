@@ -122,12 +122,24 @@
                 <jsp:param name="title" value="Contest Status"/>
             </jsp:include>
         </c:when>
+        <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="conceptualization"/>
+                <jsp:param name="title" value="Contest Status"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == SPECIFICATION_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="specification"/>
+                <jsp:param name="title" value="Contest Status"/>
+            </jsp:include>
+        </c:when>
       </c:choose>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <c:choose>
-        <c:when test="${pt == ARCHITECTURE_TYPE_ID || pt == ASSEMBLY_TYPE_ID || pt == APPLICATION_TESTING_TYPE_ID}">
+        <c:when test="${pt == ARCHITECTURE_TYPE_ID || pt == ASSEMBLY_TYPE_ID || pt == APPLICATION_TESTING_TYPE_ID || pt == CONCEPTUALIZATION_TYPE_ID || pt == SPECIFICATION_TYPE_ID}">
             <td class="title" colspan="8">Contest Status</td>
         </c:when>
         <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
