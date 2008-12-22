@@ -6,7 +6,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%
-   /* m_name indicates the name of an expandable menu */
+   /* m_name indicates the name of an expandable menu below */
 
    NavTree nav = new NavTree();
    nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_competitions')", "Competitions", "m_competitions"));
