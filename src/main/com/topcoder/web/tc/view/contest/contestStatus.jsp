@@ -110,6 +110,18 @@
                 <jsp:param name="title" value="Contest Status"/>
             </jsp:include>
         </c:when>
+         <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="conceptualization"/>
+                <jsp:param name="title" value="Contest Status"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == SPECIFICATION_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="specification"/>
+                <jsp:param name="title" value="Contest Status"/>
+            </jsp:include>
+        </c:when>
         <c:when test="${pt == ASSEMBLY_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="assembly"/>
