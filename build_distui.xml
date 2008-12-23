@@ -22,7 +22,7 @@
     <property name="shared.jar" value="${bin}/shared.jar"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
     <property name="web" value="src/main/com/topcoder/web"/>
-    <property name="jboss_home" value="../jboss-4.2.0.GA"/>
+    <property name="jboss_home" value="/home/distui/jboss-4.2.0.GA"/>
     <property name="jboss_deploy" value="${jboss_home}/server/distui/deploy"/>
     <property name="jboss_lib" value="${jboss_home}/server/distui/lib"/>
     <property name="jboss_conf" value="${jboss_home}/server/distui/conf"/>
