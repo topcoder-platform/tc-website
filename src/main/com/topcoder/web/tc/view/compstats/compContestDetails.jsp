@@ -212,7 +212,7 @@
     <TD CLASS="headerC">unknown*</TD>
     <TD CLASS="headerC" colspan="2">unknown*</TD>
     <% } else {
-        for (int k = 0; k < 3; k++) {
+        for (int k = 0; k < 3 && k < reviewers.size(); k++) {
              if (reviewers.getLongItem(k, "reviewer_id") == userId) {
                  isReviewer = true;
              }
