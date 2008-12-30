@@ -2,10 +2,24 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.30.08<br />4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://forums.topcoder.com/?module=Thread&threadID=630704">New Ektron Projects Need Your Experience</a></span><br /><br />
+        We're looking to gauge interest in doing prototypes and development work within the Ektron CMS400.NET platform and want to know if you have experience with Ektron and if you would like to engage in this type of work. We want to hear from you, so follow the link to the forums to let us know! If you&rsquo;d like to learn more about Ektron, visit <a href="http://www.ektron.com/">http://www.ektron.com/</a>        
+         </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://forums.topcoder.com/?module=Thread&threadID=630704">details</a> | 
+        <a href="http://forums.topcoder.com/?module=Thread&threadID=630704">discuss this</a> | 
+        <a href="/tc?module=Static&d1=match_editorials&d2=archive">archive</a>
+   </td></tr>
+
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Sets and Analysis" border="0" /><br />12.18.08<br />12:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Sets and Analysis" border="0" /><br />12.30.08<br />3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://killerappchallenge.ribbit.com/">SRM 431 Problem Set &amp; Analysis Posted </a></span><br /><br />
         The problem set and analysis for SRM 431 has been posted.         
