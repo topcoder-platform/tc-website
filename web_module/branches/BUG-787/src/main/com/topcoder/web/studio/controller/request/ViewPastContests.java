@@ -11,71 +11,113 @@ import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.studio.Constants;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Calendar;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 /**
  * @author dok
- * @version $Revision: 69932 $ Date: 2005/01/01 00:00:00
- *          Create Date: Aug 7, 2006
+ * @version $Revision$ Date: 2005/01/01 00:00:00 Create Date: Aug 7,
+ *          2006
  */
 public class ViewPastContests extends BaseProcessor {
     protected void businessProcessing() throws Exception {
-        //load up the contests
+        // load up the contests
         DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("past_contests");
 
-        String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-        String dir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-	 String date = StringUtils.checkNull(getRequest().getParameter("filterDate"));
+        String col = StringUtils.checkNull(getRequest().getParameter(
+                DataAccessConstants.SORT_COLUMN));
+        String dir = StringUtils.checkNull(getRequest().getParameter(
+                DataAccessConstants.SORT_DIRECTION));
 
         if (!"".equals(col) && !"".equals(dir)) {
-            r.setProperty(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-            r.setProperty(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+            r.setProperty(DataAccessConstants.SORT_COLUMN, getRequest()
+                    .getParameter(DataAccessConstants.SORT_COLUMN));
+            r.setProperty(DataAccessConstants.SORT_DIRECTION, getRequest()
+                    .getParameter(DataAccessConstants.SORT_DIRECTION));
             r.setProperty(DataAccessConstants.SORT_QUERY, "past_contests");
         }
 
-	if(date == null || date.equals("")) date="2592000000";	
+        String month = StringUtils.checkNull(getRequest().getParameter(
+                "filterMonth"));
+        String year = StringUtils.checkNull(getRequest().getParameter(
+                "filterYear"));
+        month = (month == null || month.trim().length() == 0) ? String
+                .valueOf(Calendar.getInstance().get(Calendar.MONTH) + 1)
+                : month;
+        year = (year == null || year.trim().length() == 0) ? String
+                .valueOf(Calendar.getInstance().get(Calendar.YEAR)) : year;
 
-        ResultSetContainer rsc = da.getData(r).get("past_contests");
-	rsc.sortByColumn("start_time",false);
-
-	if(!date.equals("-1")){
-		long now = System.currentTimeMillis();
-		int i=0;
-		for(;i<rsc.size();i++){
-                String myDate = rsc.getRow(i).getStringItem("start_time");
-			DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S");
-			long myTime = (df.parse(myDate)).getTime();
-			if(now-myTime>Long.parseLong(date)) {
-				if (i!=0) {
-                    break;
-				} else {
-					date = String.valueOf(Long.parseLong(date) + now-myTime);
-				}
-                }
-            }
-		rsc = (ResultSetContainer) rsc.subList(0, i);
+        if (!month.equals("All")) {
+        	r.setProperty("startdate" ,year + "-" + month + "-01 00:00:00");
+        	int endMonth = (Integer.parseInt(month) %12) + 1;
+        	String endYear=new String(year);
+        	if (endMonth==1) { // The period's end is next year.
+        		endYear=String.valueOf(Integer.parseInt(year)+1);
+        	}
+        	r.setProperty("enddate" ,endYear + "-" + endMonth + "-01 00:00:00");
+	} else {
+        	if (!year.equals("All")) {
+        		r.setProperty("startdate" ,year + "-01-01 00:00:00");
+			int endYear = Integer.parseInt(year) + 1;
+        		r.setProperty("enddate" ,endYear + "-01-01 00:00:00");
+		} else {
+        		r.setProperty("startdate" , "1990-01-01 00:00:00");
+        		r.setProperty("enddate" , "2099-01-01 00:00:00");
+		}
 	}
 
-       String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
-	if(start.equals("")){
-		start="0";
-                }
+        ResultSetContainer rsc = da.getData(r).get("past_contests");
+        getRequest().setAttribute("contests", rsc);
+/*
+        int startIdx = 0, endIdx = 0;
+        if (year.equals("All")) {
+            startIdx = 0;
+            endIdx = rsc.size() - 1;
+        } else {
+            DateFormat yearMonthDF = new SimpleDateFormat("yyyy-MM");
+            Calendar startDate = Calendar.getInstance();
+            Calendar endDate = Calendar.getInstance();
 
-       String end = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
-	if(end.equals("")){
-		end = String.valueOf(Constants.VIEW_SUBMISSIONS_SCROLL_SIZE);
+            if (!month.equals("All")) {
+                startDate.setTime(yearMonthDF.parse(year + "-" + month));
+                endDate.setTime(yearMonthDF.parse(year + "-" + month));
+                endDate.add(Calendar.MONTH, 1);
+            } else {
+                startDate = Calendar.getInstance();
+                startDate.setTime(yearMonthDF.parse(year + "-1"));
+
+                endDate = Calendar.getInstance();
+                endDate.setTime(yearMonthDF.parse(year + "-1"));
+                endDate.add(Calendar.YEAR, 1);
             }
 
-	if(Integer.parseInt(end)-Integer.parseInt(start)>Constants.VIEW_SUBMISSIONS_SCROLL_SIZE){
-		end = String.valueOf(Integer.parseInt(start)+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE);
-		throw new NullPointerException(end);
-        }
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S");
+            for (int i = 0; i < rsc.size(); i++) {
+                String myDate = rsc.getRow(i).getStringItem("start_time");
+                Date contestTime = df.parse(myDate);
+                if (contestTime.before(startDate.getTime())) {
+                    endIdx = i;
+                    break;
+                }
+            }
 
-       getRequest().setAttribute("contests", rsc.subList(Integer.parseInt(start),Integer.parseInt(end)));
-	getRequest().setAttribute("filterDate", date);
+            for (int i = 0; i < rsc.size(); i++) {
+                String myDate = rsc.getRow(i).getStringItem("start_time");
+                Date contestTime = df.parse(myDate);
+                if (contestTime.before(endDate.getTime())) {
+                    startIdx = i;
+                    break;
+                }
+            }
+        }
+        rsc = (ResultSetContainer) rsc.subList(startIdx, endIdx);
+*/
+        getRequest().setAttribute("contests", rsc);
+        getRequest().setAttribute("filterMonth", month);
+        getRequest().setAttribute("filterYear", year);
 
         SortInfo s = new SortInfo();
         s.addDefault(rsc.getColumnIndex("name"), "asc");
