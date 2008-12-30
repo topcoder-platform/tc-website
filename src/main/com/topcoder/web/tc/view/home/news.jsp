@@ -2,6 +2,21 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Sets and Analysis" border="0" /><br />12.18.08<br />12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://killerappchallenge.ribbit.com/">SRM 431 Problem Set &amp; Analysis Posted </a></span><br /><br />
+        The problem set and analysis for SRM 431 has been posted.         
+         </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=match_editorials&d2=srm431">details</a> | 
+        <a href="http://forums.topcoder.com/?module=ThreadList&forumID=525187">discuss this</a> | 
+        <a href="/tc?module=Static&d1=match_editorials&d2=archive">archive</a>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br />12.18.08<br />12:30 PM</td>
