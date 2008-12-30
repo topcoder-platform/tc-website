@@ -4576,39 +4576,39 @@ public class TCLoadTCS extends TCLoad {
            delQuery.setCharAt(delQuery.length() - 1, ')');
            selectPointsQuery.setCharAt(selectPointsQuery.length() - 1, ')');
            
-           log.debug("clean up: "+ delQuery.toString());
            if (tracksFound) {
+               log.debug("clean up: "+ delQuery.toString());
                delete = prepareStatement(delQuery.toString(), TARGET_DB);
                delete.executeUpdate();
-           }
-           
-           selectPoints = prepareStatement(selectPointsQuery.toString(), SOURCE_DB);
-
-           rsPoints = selectPoints.executeQuery();
-           while (rsPoints.next()) {
-               int j = 1;
-               insert.setInt(j++, rsPoints.getInt("dr_points_id"));
-               insert.setInt(j++, rsPoints.getInt("track_id"));
-               insert.setInt(j++, rsPoints.getInt("dr_points_reference_type_id"));
-               insert.setString(j++, rsPoints.getString("dr_points_reference_type_desc"));
-               insert.setInt(j++, rsPoints.getInt("dr_points_operation_id"));
-               insert.setString(j++, rsPoints.getString("dr_points_operation_desc"));
-               insert.setInt(j++, rsPoints.getInt("dr_points_type_id"));
-               insert.setString(j++, rsPoints.getString("dr_points_type_desc"));
-               insert.setInt(j++, rsPoints.getInt("dr_points_status_id"));
-               insert.setString(j++, rsPoints.getString("dr_points_status_desc"));
-               insert.setString(j++, rsPoints.getString("dr_points_desc"));
-               insert.setLong(j++, rsPoints.getLong("user_id"));
-               insert.setDouble(j++, calculatePointsAmount(rsPoints.getInt("dr_points_operation_id"), 
-                       rsPoints.getDouble("amount"), 
-                       rsPoints.getDouble("parent_amount")));
-               insert.setDate(j++, rsPoints.getDate("application_date"));
-               insert.setDate(j++, rsPoints.getDate("award_date"));
-               insert.setInt(j++, rsPoints.getInt("reference_id"));
-               insert.setBoolean(j++, rsPoints.getBoolean("is_potential"));
-
-               insert.executeUpdate();
-               count++;
+               
+               selectPoints = prepareStatement(selectPointsQuery.toString(), SOURCE_DB);
+    
+               rsPoints = selectPoints.executeQuery();
+               while (rsPoints.next()) {
+                   int j = 1;
+                   insert.setInt(j++, rsPoints.getInt("dr_points_id"));
+                   insert.setInt(j++, rsPoints.getInt("track_id"));
+                   insert.setInt(j++, rsPoints.getInt("dr_points_reference_type_id"));
+                   insert.setString(j++, rsPoints.getString("dr_points_reference_type_desc"));
+                   insert.setInt(j++, rsPoints.getInt("dr_points_operation_id"));
+                   insert.setString(j++, rsPoints.getString("dr_points_operation_desc"));
+                   insert.setInt(j++, rsPoints.getInt("dr_points_type_id"));
+                   insert.setString(j++, rsPoints.getString("dr_points_type_desc"));
+                   insert.setInt(j++, rsPoints.getInt("dr_points_status_id"));
+                   insert.setString(j++, rsPoints.getString("dr_points_status_desc"));
+                   insert.setString(j++, rsPoints.getString("dr_points_desc"));
+                   insert.setLong(j++, rsPoints.getLong("user_id"));
+                   insert.setDouble(j++, calculatePointsAmount(rsPoints.getInt("dr_points_operation_id"), 
+                           rsPoints.getDouble("amount"), 
+                           rsPoints.getDouble("parent_amount")));
+                   insert.setDate(j++, rsPoints.getDate("application_date"));
+                   insert.setDate(j++, rsPoints.getDate("award_date"));
+                   insert.setInt(j++, rsPoints.getInt("reference_id"));
+                   insert.setBoolean(j++, rsPoints.getBoolean("is_potential"));
+    
+                   insert.executeUpdate();
+                   count++;
+               }
            }
            log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
 
