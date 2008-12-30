@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <loadDefinition>
-    <sourcedb>jdbc:informix-sqli://63.118.154.190:1526/tcs_catalog:INFORMIXSERVER=devinformix10_shm;user=coder;password=2xjVJhm5</sourcedb>
-    <targetdb>jdbc:informix-sqli://63.118.154.190:1526/tcs_dw:INFORMIXSERVER=devinformix10_shm;user=coder;password=2xjVJhm5</targetdb>
+    <sourcedb>jdbc:informix-sqli://env.topcoder.com:2021/tcs_catalog:INFORMIXSERVER=informixoltp_tcp;user=coder;password=c0d3r4T</sourcedb>
+    <targetdb>jdbc:informix-sqli://env.topcoder.com:2021/tcs_dw:INFORMIXSERVER=informixoltp_tcp;user=coder;password=c0d3r4T</targetdb>
     <load>
         <classname>com.topcoder.utilities.dwload.TCLoadTCS</classname>
         <parameterList>
