@@ -8,16 +8,13 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SortInfo;
-import com.topcoder.web.studio.Constants;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.Calendar;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 /**
  * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00 Create Date: Aug 7,
+ * @version $Revision: 73923 $ Date: 2005/01/01 00:00:00 Create Date: Aug 7,
  *          2006
  */
 public class ViewPastContests extends BaseProcessor {
@@ -70,7 +67,22 @@ public class ViewPastContests extends BaseProcessor {
 	}
 
         ResultSetContainer rsc = da.getData(r).get("past_contests");
-        getRequest().setAttribute("contests", rsc);
+
+        if (rsc.size() == 0 && month.equals(String
+                .valueOf(Calendar.getInstance().get(Calendar.MONTH) + 1)) && year.equals(String
+                .valueOf(Calendar.getInstance().get(Calendar.YEAR)))) {
+            // query past 30 days contents
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
+            Calendar now = Calendar.getInstance();
+            Calendar thirtyDaysBefore = Calendar.getInstance();
+            thirtyDaysBefore.roll(Calendar.DAY_OF_MONTH, -30);
+
+            r.setProperty("startdate" , df.format(thirtyDaysBefore));
+            r.setProperty("enddate" , df.format(now));
+
+            rsc = da.getData(r).get("past_contests");
+        }
 /*
         int startIdx = 0, endIdx = 0;
         if (year.equals("All")) {
