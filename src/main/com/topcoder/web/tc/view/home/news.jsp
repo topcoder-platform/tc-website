@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />12.31.08<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/longcontest/?module=ViewProblemStatement&compid=9112&rd=13680">$5,000 TopCoder Marathon Match 47 has begun!</a></span><br /><br />
+        There is $5,000 up for grabs in TopCoder's latest Marathon Match, <a href="http://www.topcoder.com/longcontest/?module=ViewProblemStatement&compid=9081&rd=13679">GrilleReconstruction</a>. You have until January 7, 2009 to come up with a winning submission. Register to participate in this competition in the Active Contests list <a href="http://www.topcoder.com/longcontest/?module=ViewActiveContests">here.</a>
+        New to TopCoder Marathon Matches?  There is a practice area available to help you refine your Marathon Match skills.  Practice now <a href="http://www.topcoder.com/longcontest/?module=ViewPractice">here.</a></td>
+    </tr>
+	<tr>
+    	<td class="newsLinksCell">
+            <a href="/longcontest/?module=ViewProblemStatement&compid=9081&rd=13679">details</a> | 
+            <tc-webtag:forumLink forumID="525260" message="discuss this" /> | 
+            <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
+       </td>
+    </tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.30.08<br />4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://forums.topcoder.com/?module=Thread&threadID=630704">New Ektron Projects Need Your Experience</a></span><br /><br />
