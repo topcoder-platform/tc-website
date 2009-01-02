@@ -39,6 +39,10 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+  <tr class="bodyText">
+    <td nowrap="nowrap">01.02.09 1:00 PM - </td>
+    <td><a href="http://www.topcoder.com/tc?module=Static&d1=tchs09&d2=pages&d3=rules">Round 1 of the TCHS09 </a></td>
+  </tr>
 <tr class="bodyText"><td nowrap="nowrap">12.15.08 1:00 PM - </td><td width="100%"><a href="/tc?module=Static&d1=tchs09&d2=index">Announcing the TCHS09!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.23.08 11:00 AM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=sponsorpatrons&amp;d4=betfairChat20080719">Betfair SRM 410 Chat Transcript Available</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.18.08 12:00 PM - </td><td width="100%"><a href="/tc?module=MatchDetails&amp;rd=12182">Betfair Chat prior to SRM 410</a></td></tr>

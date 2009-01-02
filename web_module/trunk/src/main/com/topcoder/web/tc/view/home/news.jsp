@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />1.2.09<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"> Round 1 of the TCHS09</a></span><br /><br />
+        Attention High School coders! Round 1 of the 2009 TopCoder High School tournament starts Saturday, January 3 at 1:00 p.m. EST (GMT/UTC -5). You must be registered for Season three of High School in order to compete. Be sure to check out the complete list of eligibility requirements <a href="http://www.topcoder.com/tc?module=Static&d1=tchs09&d2=pages&d3=rules">here.</a> Best of luck to you! 
+    </tr>
+	<tr>
+    	<td class="newsLinksCell">
+            <a href="/tc?module=Static&d1=tchs09&d2=pages&d3=rules">details</a> | 
+            <tc-webtag:forumLink forumID="524990" message="discuss this" /> | 
+            <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+       </td>
+    </tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />12.31.08<br />1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="/longcontest/?module=ViewProblemStatement&compid=9112&rd=13680">$5,000 TopCoder Marathon Match 47 has begun!</a></span><br /><br />
@@ -38,7 +52,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Sets and Analysis" border="0" /><br />12.30.08<br />3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <a href="http://killerappchallenge.ribbit.com/">SRM 431 Problem Set &amp; Analysis Posted </a></span><br /><br />
+        <a href="/tc?module=Static&d1=match_editorials&d2=srm431">SRM 431 Problem Set &amp; Analysis Posted </a></span><br /><br />
         The problem set and analysis for SRM 431 has been posted.         
          </td>
    </tr>
