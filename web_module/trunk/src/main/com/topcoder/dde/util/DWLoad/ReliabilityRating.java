@@ -42,7 +42,7 @@ public class ReliabilityRating {
     /**
      * the pivot date when hen the 'change in order calculation' takes place.
      */
-    public static final Date PIVOT_DATE = getDate(2009, Calendar.JANUARY, 5, 9, 0);
+    public static final Date PIVOT_DATE = getDate(2009, Calendar.JANUARY, 7, 0, 0);
 
 
     public static void main(String[] args) {
@@ -280,7 +280,7 @@ public class ReliabilityRating {
                     "	OR (p.project_status_id = 1 and pi2.phase_status_id = 3))" +
                     " and pr.reliability_ind = 1" +
                     " and pr.reliable_submission_ind is not null" +
-                    " add pi.scheduled_start_time <= ?" + // BUGR-852 modification: scheduled_start_time should be not greater than pivot date 
+                    " and pi.scheduled_start_time <= ?" + // BUGR-852 modification: scheduled_start_time should be not greater than pivot date 
                     " order by ci.create_time asc";
 
     private static final String reliabilityDataAfterPivot =
@@ -306,7 +306,7 @@ public class ReliabilityRating {
 	                "	OR (p.project_status_id = 1 and pi2.phase_status_id = 3))" +
 	                " and pr.reliability_ind = 1" +
 	                " and pr.reliable_submission_ind is not null" +
-	                " add pi.scheduled_start_time > ?" + // BUGR-852 modification: scheduled_start_time should be greater than pivot date
+	                " and pi.scheduled_start_time > ?" + // BUGR-852 modification: scheduled_start_time should be greater than pivot date
 	                " order by pr.modify_date asc"; // BUGR-852 modification: sort by pr.modify_date
 
     private class ReliabilityHistory {
