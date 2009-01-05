@@ -17,6 +17,7 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -36,6 +37,12 @@ public class ReliabilityRating {
      */
     public static final Date START_DATE = getDate(2005, Calendar.OCTOBER, 5, 9, 0);
     //public static final Date START_DATE = getDate(2004, Calendar.JULY, 1, 9, 0);
+
+    /* BUGR-852 modification */
+    /**
+     * the pivot date when hen the 'change in order calculation' takes place.
+     */
+    public static final Date PIVOT_DATE = getDate(2009, Calendar.JANUARY, 5, 9, 0);
 
 
     public static void main(String[] args) {
@@ -249,7 +256,8 @@ public class ReliabilityRating {
         return ret;
     }
 
-    private static final String reliabilityData =
+    /* BUGR-852 modification: change 'reliabilityDate' to 'reliabilityDataBeforePivot', and add 'reliabilityDataAfterPivot' */
+    private static final String reliabilityDataBeforePivot =
             " select pr.reliable_submission_ind" +
                     " , ci.create_time" +
                     " , pr.project_id" +
@@ -272,25 +280,67 @@ public class ReliabilityRating {
                     "	OR (p.project_status_id = 1 and pi2.phase_status_id = 3))" +
                     " and pr.reliability_ind = 1" +
                     " and pr.reliable_submission_ind is not null" +
+                    " add pi.scheduled_start_time <= ?" + // BUGR-852 modification: scheduled_start_time should be not greater than pivot date 
                     " order by ci.create_time asc";
+
+    private static final String reliabilityDataAfterPivot =
+	        " select pr.reliable_submission_ind" +
+	                " , ci.create_time" +
+	                " , pr.project_id" +
+	                " , case when pi.scheduled_start_time >= ? then 1 else 0 end as after_start_flag" +
+	                " from project_result pr" +
+	                " , component_inquiry ci" +
+	                " , project_phase pi" +
+	                " , project_phase pi2" +
+	                " , project p" +
+	                " where ci.project_id = pr.project_id" +
+	                " and pr.user_id = ci.user_id" +
+	                " and pr.project_id = p.project_id" +
+	                " and pr.user_id = ?" +
+	                " and p.project_category_id+111 = ?" +
+	                " and pr.project_id = pi.project_id" +
+	                " and pi.phase_type_id = 2" + // phase type 2 is submission
+	                " and pr.project_id = pi2.project_id" +
+	                " and pi2.phase_type_id = 4" + // phase type 4 is review
+	                " and (p.project_status_id IN (4,5,6,7) " +
+	                "	OR (p.project_status_id = 1 and pi2.phase_status_id = 3))" +
+	                " and pr.reliability_ind = 1" +
+	                " and pr.reliable_submission_ind is not null" +
+	                " add pi.scheduled_start_time > ?" + // BUGR-852 modification: scheduled_start_time should be greater than pivot date
+	                " order by pr.modify_date asc"; // BUGR-852 modification: sort by pr.modify_date
 
     private class ReliabilityHistory {
         private List<ReliabilityInstance> history = new ArrayList<ReliabilityInstance>(10000);
 
         private ReliabilityHistory(Connection conn, long userId, long phaseId, int historyLength) throws SQLException {
 
-            PreparedStatement ps = null;
-            ResultSet rs = null;
+            PreparedStatement psBeforePivot = null;
+            PreparedStatement psAfterPivot = null;
+            ResultSet rsBeforePivot = null;
+            ResultSet rsAfterPivot = null;
 
             try {
-                ps = conn.prepareStatement(reliabilityData);
-                ps.setDate(1, START_DATE);
-                ps.setLong(2, userId);
-                ps.setLong(3, phaseId);
-                rs = ps.executeQuery();
-                while (rs.next()) {
-                    history.add(new ReliabilityInstance(rs.getLong("project_id"),
-                            userId, rs.getInt("reliable_submission_ind") == 1, rs.getInt("after_start_flag") == 1));
+            	/* BUGR-852 modification: select two parts and combine them */
+            	psBeforePivot = conn.prepareStatement(reliabilityDataBeforePivot);
+            	psBeforePivot.setDate(1, START_DATE);
+            	psBeforePivot.setLong(2, userId);
+            	psBeforePivot.setLong(3, phaseId);
+            	psBeforePivot.setDate(4, PIVOT_DATE);
+            	rsBeforePivot = psBeforePivot.executeQuery();
+                while (rsBeforePivot.next()) {
+                    history.add(new ReliabilityInstance(rsBeforePivot.getLong("project_id"),
+                            userId, rsBeforePivot.getInt("reliable_submission_ind") == 1, rsBeforePivot.getInt("after_start_flag") == 1));
+                }
+                
+                psAfterPivot = conn.prepareStatement(reliabilityDataAfterPivot);
+                psAfterPivot.setDate(1, START_DATE);
+                psAfterPivot.setLong(2, userId);
+                psAfterPivot.setLong(3, phaseId);
+                psAfterPivot.setDate(4, PIVOT_DATE);
+                rsAfterPivot = psAfterPivot.executeQuery();
+                while (rsAfterPivot.next()) {
+                    history.add(new ReliabilityInstance(rsAfterPivot.getLong("project_id"),
+                            userId, rsAfterPivot.getInt("reliable_submission_ind") == 1, rsAfterPivot.getInt("after_start_flag") == 1));
                 }
 
                 if (!history.isEmpty()) {
@@ -342,8 +392,10 @@ public class ReliabilityRating {
                 }
 
             } finally {
-                close(rs);
-                close(ps);
+                close(rsBeforePivot);
+                close(psBeforePivot);
+                close(rsAfterPivot);
+                close(psAfterPivot);
             }
 
         }
@@ -833,9 +885,20 @@ public class ReliabilityRating {
                     //if all prior projects are not included in reliability, this one shouldn't either
                     ps3.setInt(1, 0);
                     ret += ps3.executeUpdate();
+                } else if (info[BEFORE_PIVOT_PROJECT_COUNT_IDX] == info[BEFORE_PIVOT_MARKED_COUNT_IDX]) {
+                	
+                	/* BUGR-852 modification: add this 'else if' clause */
+                	// if all prior projects which created before the pivot date are not included in reliability,
+                	// and some prior projects created after the pivot date are still incomplete,
+                	// this one should be marked with 0 (not included in reliability) immediately.
+                	ps3.setInt(1, 0);
+                	ret += ps3.executeUpdate();
                 } else {
-                    //we don't know enough yet to mark them as either included or excluded.  basically, they have at least
-                    //one project prior to this one that isn't complete, so we can't decide on this one yet.
+                	
+                	/* BUGR-852 modification: modify the comments below */
+                    // we don't know enough yet to mark them as either included or excluded.  basically, they have at least
+                    // one project prior to this one and created before pivot date that isn't complete, so we can't decide
+                	// on this one yet. (we should decide after all the projects created before pivot date are complete.)
                     log.info("got " + info[RELIABLE_COUNT_IDX] + " " + info[PROJECT_COUNT_IDX] + " " + info[MARKED_COUNT_IDX] + " " + unmarked.getLong("user_id") + " " + unmarked.getLong("project_id"));
                 }
             }
@@ -850,11 +913,13 @@ public class ReliabilityRating {
 
     }
 
+    /* BUGR-852 modification: add one item 'pi.scheduled_start_time' in the select clause */
     private static final String priorProjects =
-            "select pr.reliability_ind, pr.project_id, pr.user_id " +
+            "select pr.reliability_ind, pr.project_id, pr.user_id, pi.scheduled_start_time " +
                     "from component_inquiry ci " +
                     ", project_result pr " +
                     ", project p " +
+                    ", project_phase pi " + 	// BUGR-852 modification: add this line
                     "where ci.user_id = ? " +
                     "and p.project_id = pr.project_id " +
                     "and pr.user_id = ci.user_id " +
@@ -869,10 +934,17 @@ public class ReliabilityRating {
     private static final int PROJECT_COUNT_IDX = 1;
     private static final int MARKED_COUNT_IDX = 2;
 
+	/* BUGR-852 modification */
+    private static final int BEFORE_PIVOT_PROJECT_COUNT_IDX = 3;
+    private static final int BEFORE_PIVOT_MARKED_COUNT_IDX = 4;
+
     private int[] getPriorProjects(Connection conn, long userId, long projectId, int projectTypeId) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
-        int[] ret = new int[3];
+
+    	/* BUGR-852 modification: change int[3] to int[5] */
+        int[] ret = new int[5];
+        
         Arrays.fill(ret, 0);
         try {
 
@@ -882,10 +954,26 @@ public class ReliabilityRating {
             ps.setLong(3, projectId);
             rs = ps.executeQuery();
             while (rs.next()) {
+            	
+            	/* BUGR-852 modification */
+            	boolean isBeforePivot = rs.getDate("scheduled_start_time").before(PIVOT_DATE);
+            	
                 ret[PROJECT_COUNT_IDX]++;
+                
+            	/* BUGR-852 modification */
+                if(isBeforePivot) {
+                	ret[BEFORE_PIVOT_PROJECT_COUNT_IDX]++;
+                }
+                
                 ret[RELIABLE_COUNT_IDX] += rs.getInt("reliability_ind");
                 if (rs.getString("reliability_ind") != null) {
                     ret[MARKED_COUNT_IDX]++;
+                    
+                    /* BUGR-852 modification */
+                    if(isBeforePivot) {
+                    	ret[BEFORE_PIVOT_MARKED_COUNT_IDX]++;
+                    }
+                    
                 }
             }
         } finally {
@@ -904,7 +992,6 @@ public class ReliabilityRating {
         cal.set(Calendar.MINUTE, minute);
         return new Date(cal.getTime().getTime());
     }
-
 
     protected void close(ResultSet rs) {
         if (rs != null) {
