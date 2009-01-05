@@ -150,7 +150,7 @@
 				<a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=index">Press Room</a> |  
 				<a href="http://software.topcoder.com/contact.jsp">Contact Us</a> |
 				<a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=privacy">Privacy</a> | 
-				<a href="http://topcoderblogs.com/direct/?page_id=24">Terms</a>
+				<a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=terms">Terms</a>
 			</p>
 			<p>
 				<a href="http://www.topcoder.com/tc">Competitions</a> |
