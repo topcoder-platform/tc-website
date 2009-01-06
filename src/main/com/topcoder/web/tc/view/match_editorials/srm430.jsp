@@ -828,11 +828,11 @@ Now lets estimate the time needed to solve one subproblem.
 
 <ol>
 
-<li>If <i>f'<sub>i</sub></i>=1, it takes <i>O(n)</i> time, since we have up to <i>n</i> choices for <i>a</i>.</li>
+<li>If <i>f<sub>i</sub></i>=1, it takes <i>O(n)</i> time, since we have up to <i>n</i> choices for <i>a</i>.</li>
 
-<li>If <i>f'<sub>i</sub></i>=2, it takes <i>O(n<sup>2</sup>)</i>, since we have up to <i>n<sup>2</sup></i> choices for <i>a</i> and <i>b</i>.</li>
+<li>If <i>f<sub>i</sub></i>=2, it takes <i>O(n<sup>2</sup>)</i>, since we have up to <i>n<sup>2</sup></i> choices for <i>a</i> and <i>b</i>.</li>
 
-<li>If <i>f'<sub>i</sub></i>=3, it takes <i>O(n<sup>3</sup>)</i>, since we have up to <i>n<sup>3</sup></i> choices for <i>a</i>, <i>b</i> and <i>c</i>.</li>
+<li>If <i>f<sub>i</sub></i>=3, it takes <i>O(n<sup>3</sup>)</i>, since we have up to <i>n<sup>3</sup></i> choices for <i>a</i>, <i>b</i> and <i>c</i>.</li>
 
 </ol>
 
