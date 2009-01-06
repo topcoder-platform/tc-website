@@ -39,7 +39,7 @@
 				
 					<div id="header">
 						<a href="#" class="tco09" title="2009 TopCoder Open"><img src="/i/tco09/tco-09-new-logo.png" alt="TCO 09" /></a>
-						<a href="#" class="topCoderLogo"></a>
+						<a href="http://www.topcoder.com/" class="topCoderLogo"></a>
 					</div><!-- End #header -->
 					
 					<div id="mainNav">
@@ -59,7 +59,7 @@
 									
 										<div class="description">
 											<h2><img src="/i/tco09/what_is_tco.png" alt="What is TCO?" /></h2>
-											<p>The 2009 TopCoder Open (TCO) is a world-wide programming tournament that is open to all TopCoder members 18 and older, who are in good standing, and meet all other eligibility criteria. There are eight different tracks of competition as part of the TCO:  Algorithm, Architecture, Assembly, Component Design &amp; Development, Marathon, Mod Dash, Specification, and Studio Design. Taking part in the TCO09 gives you the opportunity to showcase your programming and/or design skills up against some of the best in the world. We're also dishing out cash and prizes!  Becoming a TopCoder member is easy and free. <a href="http://www.topcoder.com/reg/">Register here.</a> Have a question? Just email <a href="mailto: service@topcoder.com">service@topcoder.com.</a> Stay tuned for more details as we finalize the preparations for this awesome event!<br/>
+											<p>The 2009 TopCoder Open (TCO) is a world-wide programming tournament that is open to all TopCoder members 18 and older, who are in good standing, and meet all other eligibility criteria. There are nine different tracks of competition as part of the TCO:  Algorithm, Architecture, Assembly, Component Design &amp; Development, Marathon, Mod Dash, Specification, and Studio Design. Taking part in the TCO09 gives you the opportunity to showcase your programming and/or design skills up against some of the best in the world. We're also dishing out cash and prizes!  Becoming a TopCoder member is easy and free. <a href="http://www.topcoder.com/reg/">Register here.</a> Have a question? Just email <a href="mailto: service@topcoder.com">service@topcoder.com.</a> Stay tuned for more details as we finalize the preparations for this awesome event!<br/>
                                             <script type="text/javascript" src="http://w.sharethis.com/button/sharethis.js#tabs=web%2Cpost%2Cemail&amp;charset=utf-8&amp;style=default&amp;publisher=c23f6191-097b-4ce7-ab90-e4bb52847508&amp;inactivebg=%23006894&amp;inactivefg=%23ffffff&amp;linkfg=%2326bcd6&amp;embed=true"></script>
 											</p>
 
@@ -88,8 +88,8 @@
 															<div class="pageContent">
 																<h2 class="title">Save-the-Date for the NEW 2009 TopCoder Open!</h2>
                                                                     <p>The online event will begin in February and the onsite finals will take place June 1-4, 2009 at The Mirage, Las Vegas, Nevada.</p>
-                                                                    <p>The NEW 2009 TopCoder Open will feature EIGHT competitions including ALGORITHM, ARCHITECTURE, ASSEMBLY, COMPONENT DESIGN &amp; DEVELOPMENT, MARATHON, MOD DASH, SPECIFICATION, and STUDIO DESIGN.</p> 
-                                                                    <p>You had better start sharpening your skills now because your chance at a trip to Las Vegas has just gotten eight times better.</p>
+                                                                    <p>The NEW 2009 TopCoder Open will feature NINE competitions including ALGORITHM, ARCHITECTURE, ASSEMBLY, COMPONENT DESIGN &amp; DEVELOPMENT, MARATHON, MOD DASH, SPECIFICATION, and STUDIO DESIGN.</p> 
+                                                                    <p>You had better start sharpening your skills now because there are more ways win a trip than ever before!</p>
 																
 															</div><!-- End .pageContent -->
                                                             
