@@ -4,8 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />1.5.09<br />4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><a href="/tc?module=Static&d1=tco09&d2=teaser"> Save-the-Date for the All-New TCO09!</a></span><br /><br />
+      TopCoder is proud to announce the return of the TopCoder Open in 2009. Save the date because the Tournament will begin in February and the onsite finals will be in Las Vegas in June! We are also excited about our TCO09 Call for Videos! Learn all about our all new tournament and the <a href="/tc?module=Static&d1=tco09&d2=teaser">video details here.</a> 
+    </tr>
+	<tr>
+    	<td class="newsLinksCell">
+            <a href="/tc?module=Static&d1=tco09&d2=teaser">details</a> | 
+            <tc-webtag:forumLink forumID="525286" message="discuss this" /> | 
+            <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
+       </td>
+    </tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />1.2.09<br />1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"> Round 1 of the TCHS09</a></span><br /><br />
+      <td class="newsTextCell"><span class="newsTitle"><a href="/tc?module=Static&d1=tchs09&d2=pages&d3=rules"> Round 1 of the TCHS09</a></span><br /><br />
         Attention High School coders! Round 1 of the 2009 TopCoder High School tournament starts Saturday, January 3 at 1:00 p.m. EST (GMT/UTC -5). You must be registered for Season three of High School in order to compete. Be sure to check out the complete list of eligibility requirements <a href="http://www.topcoder.com/tc?module=Static&d1=tchs09&d2=pages&d3=rules">here.</a> Best of luck to you! 
     </tr>
 	<tr>

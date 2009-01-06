@@ -40,6 +40,10 @@
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
   <tr class="bodyText">
+    <td nowrap="nowrap">01.05.09 4:30 PM - </td>
+    <td><a href="/tc?module=Static&d1=tco09&d2=teaser">Save-the-Date for the All-New TCO09!</a></td>
+  </tr>
+  <tr class="bodyText">
     <td nowrap="nowrap">01.02.09 1:00 PM - </td>
     <td><a href="http://www.topcoder.com/tc?module=Static&d1=tchs09&d2=pages&d3=rules">Round 1 of the TCHS09 </a></td>
   </tr>
