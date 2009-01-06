@@ -104,7 +104,7 @@
                                                                             <h3 class="subtitle">What you have to do:</h3>
                                                                                 <ol>
                                                                                     <li class="ol">Make a video stating your handle, your name, and where you are from. You can say it in your native language, in English, or both!  The video should only be about thirty seconds long.</li>
-                                                                                    <li class="ol">Join our group <a href="http://www.youtube.com/group/TCO09" target="_blank">here</a> and upload your video. Once we have approved your videos, we will add them to the <a href="http://www.youtube.com/user/TopCoderOpen2009" target="_blank">TCO09 Channel.</a></li>
+                                                                                    <li class="ol">Join our group <a href="http://www.youtube.com/groups_members?name=TCO09" target="_blank">here</a> and upload your video. Once we have approved your videos, we will add them to the <a href="http://www.youtube.com/user/TopCoderOpen2009" target="_blank">TCO09 Channel.</a></li>
                                                                                     <li class="ol">Be sure to do this fast since only 100 t-shirts will be sent!</li>
                                                                                 </ol>
                                                                         </div>
