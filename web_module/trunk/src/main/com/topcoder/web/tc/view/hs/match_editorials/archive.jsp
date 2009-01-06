@@ -38,6 +38,20 @@
 <jsp:param name="title" value="Match Editorials"/>
 </jsp:include>
 
+<div class="sectionHeader">Match Editorial Archive - 2009</div>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="3">
+
+    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+    <tr>
+      <td valign="middle" class="bodyText" colspan="2"><strong>January</strong></td>
+    </tr>
+    <tr>
+      <td width="5%" class="bodyText">1.03.09</td>
+      <td width="95%" nowrap="0" class="bodyText">TCHS09 Online Round 1- <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs09Rd1">Problem Set &amp; Analysis</a></td>
+    </tr>
+   </table>
+<br /><br />
 <div class="sectionHeader">Match Editorial Archive - 2008</div>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="3">
@@ -48,7 +62,7 @@
     </tr>
     <tr>
       <td class="bodyText">12.11.08</td>
-      <td class="bodyText" nowrap="0">TCHS SRM 64 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm64">Problem Set &amp; Analysis</a></td>
+      <td class="bodyText" nowrap="0">TCHS SRM 64 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs09Rd1">Problem Set &amp; Analysis</a></td>
     </tr>
     <tr>
       <td class="bodyText">12.02.08</td>
