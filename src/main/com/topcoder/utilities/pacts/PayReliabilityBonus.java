@@ -1,21 +1,9 @@
 package com.topcoder.utilities.pacts;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.File;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TreeMap;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -32,20 +20,22 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  * Checks the component payments that don't have reliability bonus payment and create their payments.
  * 
  * 
- * @author Cucu, DixonD
+ * @author Cucu
  * @version 1.0
  */
 public class PayReliabilityBonus extends DBUtility {
 
     /**
+     * Date when the reliability schema changes.  
+     * Remember that month it's 0 based.
+     */
+    private static final Date SCHEMA_CHANGE_DATE = new GregorianCalendar(2007,4,24).getTime();
+    
+    /**
      * This variable tells if only an analysis is wanted.
      */
     private String onlyAnalyze = null;
 
-    /**
-     * This variable saves information about bonuses.
-     */
-    private TreeMap < Date, TreeMap < Double, Double > > bonusTable;
 
 	protected void runUtility() throws Exception {
 		PactsClientServices  ejb = (PactsClientServices) createEJB();
@@ -100,7 +90,12 @@ public class PayReliabilityBonus extends DBUtility {
         	// use parent's client for the reliability payment
         	String client = rs.getString("client");
 
-            double bonusAmount = getReliabilityPercent(reliability, postingDate) * amount;
+        	double bonusAmount;
+            if (postingDate.before(SCHEMA_CHANGE_DATE)) {
+                bonusAmount = getReliabilityPercent(reliability) * amount;
+            } else {
+                bonusAmount = getReliabilityPercent2(reliability) * amount;               
+            }
 
             if (onlyAnalyze.equalsIgnoreCase("false")) {
             	ReliabilityBonusPayment bp = new ReliabilityBonusPayment(userId, bonusAmount, paymentId);
@@ -110,74 +105,45 @@ public class PayReliabilityBonus extends DBUtility {
             	ejb.addPayment(bp);
             }
 
-            log.info("" + userId + ", " + projectId + ", " + postingDate + ", " + bonusAmount + ", " + reliability + ", "
-                    + amount + ",  " + paymentId);
+    		log.info("" + userId + ", " + projectId + ", " + postingDate + ", "+ bonusAmount + ", " + reliability + ", " + amount + ",  " + paymentId);
 			count++;			
         }
         log.info("Done. Bonus rows inserted: " + count);
 	}
 
-    private double getReliabilityPercent(double reliability, Date reliabilityDate) {
-        Date startDate = new Date();
-        for (Date date : bonusTable.keySet()) {
-            if (date.compareTo(reliabilityDate) > 0) break;
-            startDate = date;
+    private double getReliabilityPercent(double reliability) {
+        double bonus = 0;
+        if (reliability >= .95) {
+            bonus = .2;
+        } else if (reliability >= .9) {
+            bonus = .15;
+        } else if (reliability >= .8) {
+            bonus = .1;
+        }
+        return bonus;
     }
     
-        TreeMap < Double, Double > bonus = bonusTable.get(startDate);
-        double reliabilityValue = .0;
-        for (double rel : bonus.keySet()) {
-            if (rel > reliability) break;
-            reliabilityValue = rel;
+    private double getReliabilityPercent2(double reliability) {
+        double bonus = 0;
+        if (reliability >= .95) {
+            bonus = .5;
+        } else if (reliability >= .9) {
+            bonus = .2;
+        } else if (reliability >= .8) {
+            bonus = .1;
         }
-        return bonus.get(new Double(reliabilityValue));
+        return bonus;
     }
 
 
-
-    public static Object createEJB() throws Exception {
+    public static Object createEJB() throws NamingException, Exception {
         InitialContext initial = TCContext.getInitial();
 
         Object objref = initial.lookup(PactsClientServicesHome.class.getName());
         PactsClientServicesHome home = (PactsClientServicesHome) 
             PortableRemoteObject.narrow(objref, PactsClientServicesHome.class);
 
-        return (home.create());
-    }
-
-    private void parseReliabilityDetails(String reliabilityFilename) throws Exception {
-        bonusTable = new TreeMap < Date, TreeMap < Double, Double > >();
-        DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-        Document doc = docBuilder.parse(new File(reliabilityFilename));
-        doc.getDocumentElement().normalize();
-
-        NodeList paymentRangesList = doc.getElementsByTagName("paymentRange");
-
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
-
-        for (int i = 0; i < paymentRangesList.getLength(); ++i) {
-            Element paymentRange = (Element) paymentRangesList.item(i);
-            Node startDateAttr =  paymentRange.getAttributes().getNamedItem("startDate");
-            Date startDate;
-            if (startDateAttr != null) {
-                startDate = df.parse(startDateAttr.getNodeValue());
-            } else {
-                startDate = df.parse("1900-01-01 01:00 AM");
-            }
-
-            NodeList reliabilities = paymentRange.getElementsByTagName("reliabilityAbove");
-            TreeMap < Double, Double > reliabilitiesMap = new TreeMap < Double, Double >();
-            reliabilitiesMap.put(0.0, 0.0);
-            for (int j = 0; j < reliabilities.getLength(); ++j) {
-                NamedNodeMap attr = reliabilities.item(j).getAttributes();
-                double reliabilityValue = Double.parseDouble(attr.getNamedItem("reliability").getNodeValue());
-                double paymentPercentage = Double.parseDouble(attr.getNamedItem("paymentPercentage").getNodeValue());
-                reliabilitiesMap.put(reliabilityValue, paymentPercentage);
-            }
-            bonusTable.put(startDate,  reliabilitiesMap);
-
-        }
+        return(home.create());
     }
     
     /**
@@ -191,22 +157,6 @@ public class PayReliabilityBonus extends DBUtility {
         	onlyAnalyze = "false";
         }
         params.remove("onlyAnalyze");
-
-        // "reliabilityFilename" is more usefull than "CONF_FILENAME"
-        String reliabilityFilename = (String) params.get("reliabilityFilename");
-        try {
-            if (reliabilityFilename == null || reliabilityFilename.trim().length() == 0) {
-                throw new Exception("Invalid or non-existent parameter [reliabilityFilename].");
-            }
-            parseReliabilityDetails(reliabilityFilename);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            sErrorMsg.setLength(0);
-            sErrorMsg.append("Load of reliability XML file failed:\n");
-            sErrorMsg.append(ex.getMessage());
-            fatal_error(ex);
-        }
-        params.remove("reliabilityFilename");
 
         log.debug("onlyAnalyze : " + onlyAnalyze);
     }

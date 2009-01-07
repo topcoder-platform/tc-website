@@ -44,7 +44,7 @@
                     <br><br>
           <span class="bigRed">No purchase necessary to enter or win.  Void where prohibited.</span>
           <h3>Overview of the Tournament</h3>
-          The 2009 TopCoder High School Season (TCHS09) will take place between June 9, 2008 and March 15, 2009. The prize purse for this competition will be scholarships and other prizes. The finals will be held on March 15, 2009.
+          The 2009 TopCoder High School Season (TCHS09) will take place between June 9, 2008 and March 15, 2009. The prize purse for this competition will be scholarships and other prizes. The finals will be held on March 15, 2009 at Purdue University.
           <br><br>
           <h3>Eligibility</h3>
           TopCoder members meeting the following criteria are eligible to compete in TCHS09:

@@ -4,98 +4,6 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Sets and Analysis" border="0" /><br />1.5.09<br />4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs09Rd1"> TCHS09 Online Round 1 Problem Set &amp; Analysis Posted</a></span><br /><br />
-			  <div class="authorPhoto">
-    <img src="/i/m/Nickolas_big.jpg" alt="Author" />
-</div>
-The problem set and analysis for TCHS09 Online Round 1 has been posted.  This match editorial was written by member <tc-webtag:handle coderId="15635590" context="algorithm" />.
- 
-    </tr>
-	<tr>
-    	<td class="newsLinksCell">
-            <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs09Rd1">details</a> | 
-            <tc-webtag:forumLink forumID="525285" message="discuss this" /> | 
-            <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
-       </td>
-    </tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />1.5.09<br />4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><a href="/tc?module=Static&d1=tco09&d2=teaser"> Save-the-Date for the All-New TCO09!</a></span><br /><br />
-      TopCoder is proud to announce the return of the TopCoder Open in 2009. Save the date because the Tournament will begin in February and the onsite finals will be in Las Vegas in June! We are also excited about our TCO09 Call for Videos! Learn all about our all new tournament and the <a href="/tc?module=Static&d1=tco09&d2=teaser">video details here.</a> 
-    </tr>
-	<tr>
-    	<td class="newsLinksCell">
-            <a href="/tc?module=Static&d1=tco09&d2=teaser">details</a> | 
-            <tc-webtag:forumLink forumID="525286" message="discuss this" /> | 
-            <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-       </td>
-    </tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br />1.2.09<br />1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><a href="/tc?module=Static&d1=tchs09&d2=pages&d3=rules"> Round 1 of the TCHS09</a></span><br /><br />
-        Attention High School coders! Round 1 of the 2009 TopCoder High School tournament starts Saturday, January 3 at 1:00 p.m. EST (GMT/UTC -5). You must be registered for Season three of High School in order to compete. Be sure to check out the complete list of eligibility requirements <a href="http://www.topcoder.com/tc?module=Static&d1=tchs09&d2=pages&d3=rules">here.</a> Best of luck to you! 
-    </tr>
-	<tr>
-    	<td class="newsLinksCell">
-            <a href="/tc?module=Static&d1=tchs09&d2=pages&d3=rules">details</a> | 
-            <tc-webtag:forumLink forumID="524990" message="discuss this" /> | 
-            <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tournie">archive</a>
-       </td>
-    </tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />12.31.08<br />1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/longcontest/?module=ViewProblemStatement&compid=9112&rd=13680">$5,000 TopCoder Marathon Match 47 has begun!</a></span><br /><br />
-        There is $5,000 up for grabs in TopCoder's latest Marathon Match, <a href="/longcontest/?module=ViewProblemStatement&compid=9112&rd=13680">GrilleReconstruction</a>. You have until January 7, 2009 to come up with a winning submission. Register to participate in this competition in the Active Contests list <a href="http://www.topcoder.com/longcontest/?module=ViewActiveContests">here.</a>
-        New to TopCoder Marathon Matches?  There is a practice area available to help you refine your Marathon Match skills.  Practice now <a href="http://www.topcoder.com/longcontest/?module=ViewPractice">here.</a></td>
-    </tr>
-	<tr>
-    	<td class="newsLinksCell">
-            <a href="/longcontest/?module=ViewProblemStatement&compid=9112&rd=13680">details</a> | 
-            <tc-webtag:forumLink forumID="525260" message="discuss this" /> | 
-            <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
-       </td>
-    </tr>
-
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.30.08<br />4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="http://forums.topcoder.com/?module=Thread&threadID=630704">New Ektron Projects Need Your Experience</a></span><br /><br />
-        We're looking to gauge interest in doing prototypes and development work within the Ektron CMS400.NET platform and want to know if you have experience with Ektron and if you would like to engage in this type of work. We want to hear from you, so follow the link to the forums to let us know! If you&rsquo;d like to learn more about Ektron, visit <a href="http://www.ektron.com/">http://www.ektron.com/</a>        
-         </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="http://forums.topcoder.com/?module=Thread&threadID=630704">details</a> | 
-        <a href="http://forums.topcoder.com/?module=Thread&threadID=630704">discuss this</a> | 
-        <a href="/tc?module=Static&d1=match_editorials&d2=archive">archive</a>
-   </td></tr>
-
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Sets and Analysis" border="0" /><br />12.30.08<br />3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <a href="/tc?module=Static&d1=match_editorials&d2=srm431">SRM 431 Problem Set &amp; Analysis Posted </a></span><br /><br />
-        The problem set and analysis for SRM 431 has been posted.         
-         </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=match_editorials&d2=srm431">details</a> | 
-        <a href="http://forums.topcoder.com/?module=ThreadList&forumID=525187">discuss this</a> | 
-        <a href="/tc?module=Static&d1=match_editorials&d2=archive">archive</a>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br />12.18.08<br />12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <a href="http://killerappchallenge.ribbit.com/">SRM 430 Sponsored by Ribbit with Chat Session and Prizes! </a></span><br /><br />
@@ -187,6 +95,63 @@ In its third year, the TCHS is bound to bring new, young names and faces to the 
         <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
    </td></tr>
 
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.11.08<br />1:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&d1=features&d2=120908">Meet the November Coders and Designers of the Month!</a></span><br /><br />
+        Congratulations to our November coders and designers of the month.  TopCoder caught up with them so read their interviews and see their great photos <a href="/tc?module=Static&d1=features&d2=120908">here.</a></td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=features&d2=120908">details</a> | 
+        <a href="http://forums.topcoder.com/?module=Thread&threadID=524929&start=0">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br />12.10.08<br />9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="http://www.topcoder.com/wiki/display/tc/Agent+Directory+Application">Agent Directory Conceptualization Launched</a></span><br /><br />
+        TopCoder has launched a new Conceptualization contest! One of TopCoder&rsquo;s clients wants to create an online directory of agents where customers/consumers can search for an agent relative to a specific need.   We need YOU to tell us how it should be done! Click <a href="http://www.topcoder.com/wiki/display/tc/Agent+Directory+Application">here</a> to learn more about this contest!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://www.topcoder.com/wiki/display/tc/Agent+Directory+Application">details</a> | 
+        <a href="http://forums.topcoder.com/?module=Thread&threadID=625903&start=0">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_comp">archive</a>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br />12.10.08<br />8:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">Spotlight Sessions with tomek</a></span><br /><br />
+        The final Spotlight Session is here and it’s with non other than tomek!  Don’t miss this exciting chat session in the Competition Arena on Thursday, December 11 at 10:00 a.m. before TCHS 64.  We hope you have been able to benefit from these Spotlight Sessions and learned some great things to help you in your future coding endeavors.  TopCoder would like to thank all the chat hosts who participated and shared their knowledge.  Don't miss tomorrow's chat.  We'll see you in the Arena!</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="/tc?module=Static&d1=hs&d2=spotlightSessions">details</a> | 
+        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=629178&mc=1#1046712">discuss this</a> | 
+        <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">archive</a>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br />12.10.08<br />1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <a href="/longcontest/?module=ViewProblemStatement&compid=9081&rd=13679">$5,000 TopCoder Marathon Match 46 has begun!</a></span><br /><br />
+        There is $5,000 up for grabs in TopCoder's latest Marathon Match, <a href="http://www.topcoder.com/longcontest/?module=ViewProblemStatement&compid=9081&rd=13679">KnightsMoveCipher</a>. You have until December 17, 2008 to come up with a winning submission. Register to participate in this competition in the Active Contests list <a href="http://www.topcoder.com/longcontest/?module=ViewActiveContests">here.</a>
+        New to TopCoder Marathon Matches?  There is a practice area available to help you refine your Marathon Match skills.  Practice now <a href="http://www.topcoder.com/longcontest/?module=ViewPractice">here.</a></td>
+    </tr>
+	<tr>
+    	<td class="newsLinksCell">
+            <a href="/longcontest/?module=ViewProblemStatement&compid=9081&rd=13679">details</a> | 
+            <tc-webtag:forumLink forumID="524908" message="discuss this" /> | 
+            <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_long">archive</a>
+       </td>
+    </tr>
 
 
  

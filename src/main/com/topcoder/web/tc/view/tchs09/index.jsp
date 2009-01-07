@@ -19,9 +19,9 @@
 									<strong>Online Elimination Rounds: </strong>January 3, 10, and 17, 2009<br />
 									<strong>Online Championship Round:  </strong>January 24, 2009</p>
                                 <h2>Who Can Compete?</h2>
-                                <p>Any registered TopCoder High School member between the ages of 13 and 20 (inclusive) can compete, as long as they are pursuing a secondary education during the season. Please read the <a href="/tc?module=Static&d1=tchs09&d2=pages&d3=rules" title="Rules" class="blueLink">rules</a> for the full eligibility criteria.</p>
+                                <p>Any registered TopCoder High School member between the ages of 13 and 20 (inclusive) can compete, as long as they are pursuing a secondary education during the season. Please read the <a href="/tc?<% out.println(rules); %>" title="Rules" class="blueLink">rules</a> for the full eligibility criteria.</p>
                             	<h2>TCHS Prize Purse</h2>
-                            	<p>A prize purse of at least $10,000 in scholarships and prizes will be awarded. See the official <a href="/tc?module=Static&d1=tchs09&d2=pages&d3=rules" title="Rules" class="blueLink">rules</a> and regulations for full details.</p>
+                            	<p>A prize purse of at least $10,000 in scholarships and prizes will be awarded. See the official <a href="/tc?<% out.println(rules); %>" title="Rules" class="blueLink">rules</a> and regulations for full details.</p>
                              </div>
                   <div id="gradientBottom">
                   <!-- #shadowBottom -->

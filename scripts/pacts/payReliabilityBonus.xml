@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
   <payReliabilityBonus>
     <sourcesList>
-        <source name = "informixoltp" value = "jdbc:informix-sqli://env.topcoder.com:2021/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=c0d3r4T"/>
+        <source name = "informixoltp" value = "jdbc:informix-sqli://63.118.154.190:1526/informixoltp:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec"/>
     </sourcesList>
     <parameterList>
-        <parameter name="reliabilityFilename" value="paymentRanges.xml" />
     </parameterList>
   </payReliabilityBonus>
