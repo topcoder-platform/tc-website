@@ -76,6 +76,28 @@
                                 <td colspan="2"><input id="email" maxlength="80" name="email" type="text" style="width:260px;" /><br /></td>
                             </tr>
                             <tr>
+                                <td colspan="2" style="font-size:11px;"><label for="company">Company</label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input  id="company" maxlength="40" name="company" size="20" type="text" style="width:260px;" /><br /></td>
+                            </tr>
+                            <tr>
+                            <tr>
+                                <td colspan="2" style="font-size:11px;"><label for="state">State/Province</label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input  id="state" maxlength="20" name="state" size="20" type="text" style="width:260px;" /><br /></td>
+                            </tr>
+                            <tr>
+                            <tr>
+                                <td colspan="2" style="font-size:11px;"><label for="country">Country</label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input  id="country" maxlength="40" name="country" size="20" type="text" style="width:260px;" /><br /></td>
+                            </tr>
+                            <tr>
+                            
+                            
                                 <td colspan="2" style="font-size:11px;">How Can We Help You?</td>
                             </tr>
                             <tr>
