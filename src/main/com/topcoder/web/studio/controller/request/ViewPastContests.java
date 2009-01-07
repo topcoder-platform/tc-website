@@ -8,9 +8,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SortInfo;
-import com.topcoder.web.studio.Constants;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.Calendar;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -70,51 +67,22 @@ public class ViewPastContests extends BaseProcessor {
 	}
 
         ResultSetContainer rsc = da.getData(r).get("past_contests");
-        getRequest().setAttribute("contests", rsc);
-/*
-        int startIdx = 0, endIdx = 0;
-        if (year.equals("All")) {
-            startIdx = 0;
-            endIdx = rsc.size() - 1;
-        } else {
-            DateFormat yearMonthDF = new SimpleDateFormat("yyyy-MM");
-            Calendar startDate = Calendar.getInstance();
-            Calendar endDate = Calendar.getInstance();
 
-            if (!month.equals("All")) {
-                startDate.setTime(yearMonthDF.parse(year + "-" + month));
-                endDate.setTime(yearMonthDF.parse(year + "-" + month));
-                endDate.add(Calendar.MONTH, 1);
-            } else {
-                startDate = Calendar.getInstance();
-                startDate.setTime(yearMonthDF.parse(year + "-1"));
+        if (rsc.size() == 0 && month.equals(String
+                .valueOf(Calendar.getInstance().get(Calendar.MONTH) + 1)) && year.equals(String
+                .valueOf(Calendar.getInstance().get(Calendar.YEAR)))) {
+            // query past 30 days contents
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
-                endDate = Calendar.getInstance();
-                endDate.setTime(yearMonthDF.parse(year + "-1"));
-                endDate.add(Calendar.YEAR, 1);
-            }
+            Calendar now = Calendar.getInstance();
+            Calendar thirtyDaysBefore = Calendar.getInstance();
+            thirtyDaysBefore.add(Calendar.DAY_OF_MONTH, -30);
 
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S");
-            for (int i = 0; i < rsc.size(); i++) {
-                String myDate = rsc.getRow(i).getStringItem("start_time");
-                Date contestTime = df.parse(myDate);
-                if (contestTime.before(startDate.getTime())) {
-                    endIdx = i;
-                    break;
-                }
-            }
+            r.setProperty("startdate" , df.format(thirtyDaysBefore.getTime()));
+            r.setProperty("enddate" , df.format(now.getTime()));
 
-            for (int i = 0; i < rsc.size(); i++) {
-                String myDate = rsc.getRow(i).getStringItem("start_time");
-                Date contestTime = df.parse(myDate);
-                if (contestTime.before(endDate.getTime())) {
-                    startIdx = i;
-                    break;
-                }
-            }
+            rsc = da.getData(r).get("past_contests");
         }
-        rsc = (ResultSetContainer) rsc.subList(startIdx, endIdx);
-*/
         getRequest().setAttribute("contests", rsc);
         getRequest().setAttribute("filterMonth", month);
         getRequest().setAttribute("filterYear", year);
