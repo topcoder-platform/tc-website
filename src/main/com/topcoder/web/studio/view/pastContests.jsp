@@ -112,7 +112,6 @@ String val = request.getAttribute("filterMonth") == null ? null : request.getAtt
 val = request.getAttribute("filterYear") == null ? null : request.getAttribute("filterYear").toString();
 %>
 <select name="filterYear" onChange="filterYearChange(submissionsForm.filterYear.options[submissionsForm.filterYear.selectedIndex].value,submissionsForm.filterMonth)">
-<option value="2009" <%= val.equals("2009") ? "selected" : "" %>>2009</option>
 <option value="2008" <%= val.equals("2008") ? "selected" : "" %>>2008</option>
 <option value="2007" <%= val.equals("2007") ? "selected" : "" %>>2007</option>
 <option value="2006" <%= val.equals("2006") ? "selected" : "" %>>2006</option>

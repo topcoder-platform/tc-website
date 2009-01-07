@@ -111,7 +111,7 @@ ding="utf-8"?>
    </div>
     <script>
        function loadWinners() {
-			  var rss = "/blog/?feed=rss2&cat=6";
+			  var rss = "rss/?feed=rss2&cat=9";
               var template = "js/RecentWinnersTemplate.txt";
           try {
               var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
@@ -231,7 +231,7 @@ ding="utf-8"?>
     <div id="newsBox" class="newsBox">
     <script>
        function loadNews() {
-              var rss = "/blog/?feed=rss2";
+              var rss = "rss/?feed=rss2";
               var template = "js/WhatsNewTemplate.txt";
           try {
               var processor = new js.topcoder.rss.template.RSSProcessor(false, template);

@@ -45,14 +45,6 @@
    <strong>December</strong>
    </td></tr>
    <tr>
-     <td class="bodyText">12.23.08</td>
-     <td class="bodyText" nowrap="0">SRM 431 - <a href="/tc?module=Static&d1=match_editorials&d2=srm431">Problem Set &amp; Analysis</a></td>
-   </tr>
-   <tr>
-     <td class="bodyText">12.20.08</td>
-     <td class="bodyText" nowrap="0">SRM 430 - <a href="/tc?module=Static&d1=match_editorials&d2=srm430">Problem Set &amp; Analysis</a></td>
-   </tr>
-   <tr>
      <td class="bodyText">12.02.08</td>
    <td class="bodyText" nowrap="0" width="100%">SRM 428 - <a href="/tc?module=Static&d1=match_editorials&d2=srm428">Problem Set &amp; Analysis</a></td>
    </tr>
@@ -929,7 +921,8 @@
          <td width="170">
             <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
-            </jsp:include>         </td>
+            </jsp:include>
+         </td>
 <!-- Right Column Ends -->
 
 <!-- Gutter -->

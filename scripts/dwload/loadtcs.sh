@@ -1,8 +1,6 @@
-CP=$CP:/home/tc/web/resources
-CP=$CP:/home/tc/web/lib/jars/log4j-1.2.7.jar
-CP=$CP:/home/tc/web/lib/jars/ifxjdbc.jar
-CP=$CP:/home/tc/web/build/classes
-CP=$CP:/home/tc/jboss-4.0.4.GA/client/jbossall-client.jar
-CP=$CP:/home/tc/jboss-4.0.4.GA/server/all/conf/cache.properties
+CP=$CP:/home/web/web/resources
+CP=$CP:/home/web/web/lib/jars/log4j-1.2.7.jar
+CP=$CP:/home/web/web/lib/jars/ifxjdbc.jar
+CP=$CP:/home/web/web/build/classes
 
-nohup sh /home/tc/web/scripts/dwload/loadtcsscript.sh >> /home/tc/web/scripts/dwload/tcs_load.log 2>&1 &
+nohup sh /home/web/web/scripts/dwload/loadtcsscript.sh >> /home/web/web/scripts/dwload/tcs_load.log 2>&1 &
