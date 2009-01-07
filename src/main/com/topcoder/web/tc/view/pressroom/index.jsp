@@ -39,7 +39,7 @@
 
     <%-- pr_header begin --%>
     <div id="pr_header">
-        <h1><a onfocus="this.blur();" href="/tc?module=Static&amp;d1=pressroom&amp;d2=index" name="pr_top">Press Room</a></h1>
+        <h1><a onFocus="this.blur();" href="/tc?module=Static&amp;d1=pressroom&amp;d2=index" name="pr_top">Press Room</a></h1>
     </div>
     <%-- pr_header end --%>
     
@@ -112,11 +112,24 @@
             
             <%-- Yearly Sub Content Container --%>
             <div class="pr_subheader">
-                <h2><span>2008</span></h2>
+                <h2><span>2009</span></h2>
             </div>
             
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                <%-- TopCoder MLab Keynote begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_010709"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_010709">TopCoder to Keynote MLab Conference on Innovation in the Workplace at London Business School</a></h3>
+                        <p>Jack Hughes, TopCoder Founder, Shares Management Insights, Joining Exploration of How the Internet Revolution is Changing the Way Work is Done
+  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_010709">[January 7th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder MLab Keynote end --%>
                 
                 <%-- Ribbit's Killer App Challenge Launches at Adobe Max begin --%>
                 <div class="pr_newsitem">
@@ -129,7 +142,7 @@
                     </div>
                     <div class="pr_clear"></div>
                 </div>
-                <%-- TopCoder Recognized As One of Fastest Growing Connecticut Companies By Connecticut Technology Council end --%>
+                <%-- Ribbit's Killer App Challenge Launches at Adobe Max end --%>
                 
                 <%-- TopCoder Recognized As One of Fastest Growing Connecticut Companies By Connecticut Technology Council begin --%>
                 <div class="pr_newsitem">
