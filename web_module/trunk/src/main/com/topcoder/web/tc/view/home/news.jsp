@@ -4,6 +4,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Sets and Analysis" border="0" /><br />1.5.09<br />4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs09Rd1"> TCHS09 Online Round 1 Problem Set &amp; Analysis Posted</a></span><br /><br />
+			<div class="authorPhoto">
+    <img src="/i/m/nika_big.jpg" alt="Author" />
+</div>
+The problem set and analysis for SRM 432 has been posted.  This match editorial was written by member <tc-webtag:handle coderId="20315020" context="algorithm" />.
+ 
+    </tr>
+	<tr>
+    	<td class="newsLinksCell">
+            <a href="/tc?module=Static&d1=match_editorials&d2=srm432">details</a> | 
+        <a href="http://forums.topcoder.com/?module=ThreadList&forumID=525289">discuss this</a> | 
+        <a href="/tc?module=Static&d1=match_editorials&d2=archive">archive</a>
+       </td>
+    </tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Release" border="0" /><br />1.7.09<br />10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_010709">TopCoder to Keynote MLab Conference on Innovation in the Workplace at London Business School</a></span><br /><br />
 			  <p><strong>Glastonbury, Conn. and London – January 7, 2009 –</strong>TopCoder, Inc., today announced that Chairman and Founder Jack Hughes will present the keynote address for the prestigious London Business School's Management Lab (MLab) conference on Innovation in the Workplace. Bringing together an international lineup of C-level execs with highly-innovative management models, the conference will explore the impact of Web 2.0 and Generation Y employees on the changing global workplace, and takes place on January 28, 2009 at the London Business School.<br/>  <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_010709">Read More...</a></p>
