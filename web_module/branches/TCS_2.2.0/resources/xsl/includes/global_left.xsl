@@ -761,7 +761,12 @@
 </xsl:template>
 
 <xsl:template name="reviewboard_row">
+    <!-- TCS Release 2.2.0 (TCS-55) : The request passes project type ID instead of component phase type ID when
+        referrring to review board type -->
+<!--
                 <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left" href="/tc?module=ReviewBoard&amp;ph=112">Review Boards</A></td></tr>
+-->
+                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left" href="/tc?module=ReviewBoard&amp;pt=1">Review Boards</A></td></tr>
 </xsl:template>
 
 <xsl:template name="press_row">

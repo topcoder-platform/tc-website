@@ -13,6 +13,7 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
@@ -21,7 +22,7 @@ import com.topcoder.web.tc.Constants;
 /**
  * Added some code to make project related controllers more generic.
  *
- * @author dok, pulky
+ * @author dok, pulky, TCSDEVELOPER
  *         Date: Feb 10, 2004
  */
 public abstract class Base extends ShortHibernateProcessor {
@@ -132,4 +133,18 @@ public abstract class Base extends ShortHibernateProcessor {
 
     }
 
+    /**
+     * <p>Checks whether the specified project type requested by client is currently supported by this controller
+     * or not. As of current version <code>Design</code>, <code>Development</code> and <code>Assembly</code> project
+     * types are supported only.</p>
+     *
+     * @param projectType a <code>String</code> referencing the project type requested by client.
+     * @return <code>true</code> if specified project type is requested; <code>false</code> otherwise.
+     * @since TCS Release 2.2.0 (TCS-54)
+     */
+    protected boolean isProjectTypeSupported(String projectType) {
+        return projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))
+            || projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))
+            || projectType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE));
+    }
 }

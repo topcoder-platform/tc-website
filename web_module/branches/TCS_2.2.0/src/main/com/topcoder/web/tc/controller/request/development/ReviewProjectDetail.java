@@ -5,7 +5,6 @@ package com.topcoder.web.tc.controller.request.development;
 
 import com.topcoder.apps.review.rboard.RBoardApplication;
 import com.topcoder.apps.review.rboard.RBoardApplicationHome;
-import com.topcoder.common.web.util.DateTime;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.TCTimestampResult;
@@ -15,6 +14,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.ReviewBoardApplication;
@@ -28,30 +28,73 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * Shows project review details.
- * <p/>
- * <p/>
- * Version  .0.1 Change notes:
- * <ol>
- * <li>
- * RBoard related tasks were moved to a tcs bean.
- * </li>
- * </ol>
+ * <p>A controller to handle the requests for displaying the details for the requested review projectof specified type.
+ * The desired project type is expected to be provided as {@link Constants#PROJECT_TYPE_ID} request parameter.
+ * As of current version only <code>Design</code>, <code>Development</code> and <code>Assembly</code> project types are
+ * supported.</p>
+ *
+ * <p>
+ *   Version  1.0.1 Change notes:
+ *   <ol>
+ *     <li>RBoard related tasks were moved to a tcs bean.</li>
+ *   </ol>
+ *
+ *   Version 1.0.2 Change notes:
+ *   <ol>
+ *     <li>Added public non-argument constructor to follow the current TC standards for code development.</li>
+ *     <li>Fully documented the class to follow current TC standards for code documentation.</li>
+ *     <li>Refactored the logic for referencing the project types by client requests. Now the clients will
+ *         pass project type/category ID instead of component project phase type ID to refer to project type.</li>
+ *     <li>Refactored the logic for handling the requests to split the logic for checking the supported project
+ *         types and mapping them to appropriate view into separate private methods.</li>
+ *     <li>The project type requested by client is provided as parameter to <code>review_project_detail</code> query to
+ *         filter the retrieved projects based on provided type.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.0.1
+ * @author dok, pulky, TCSDEVELOPER
+ * @version 1.0.2
+ * @since 1.0
  */
 public class ReviewProjectDetail extends Base {
+
+    /**
+     * <p>Constructs new <code>ReviewProjectDetail</code> instance. This implementation does nothing.</p>
+     */
+    public ReviewProjectDetail() {
+    }
+
+    /**
+     * <p>Handles the request for displaying the details for review project of requested type provided as
+     * {@link Constants#PROJECT_TYPE_ID} request parameter. The ID of requested project is expected to be provided as
+     * {@link Constants#PROJECT_ID} request parameter.</p>
+     *
+     * <p>Looks up for the details of requested review project and binds it to request and forwards request to one of
+     * <code>/dev/reviewProjectDetail.jsp</code>, <code>/dev/assembly/reviewProjectDetail.jsp</code> views depending on
+     * requested project type. As of current version only <code>Design</code>, <code>Development</code> and
+     * <code>Assembly</code> project types are supported; otherwise an exception is raised.</p>
+     *
+     * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
+     * @see Constants#DESIGN_PROJECT_TYPE
+     * @see Constants#DEVELOPMENT_PROJECT_TYPE
+     * @see Constants#ASSEMBLY_PROJECT_TYPE
+     */
     protected void developmentProcessing() throws TCWebException {
+        String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
+        if (!isProjectTypeSupported(projectTypeId)) {
+            throw new TCWebException("Invalid project type specified " + projectTypeId);
+        }
+        
         try {
+            int phase_id = (Integer.parseInt(projectTypeId) + 111);
+
             Request r = new Request();
             r.setContentHandle("review_project_detail");
             r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
-            int phase_id = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
+            r.setProperty(Constants.PHASE_ID, String.valueOf(phase_id));
+            r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
             getRequest().setAttribute("phase_id", new Integer(phase_id));
 
-            r.setProperty(Constants.PHASE_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
             Map results = getDataAccess().getData(r);
             ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
             getRequest().setAttribute("projectDetail", detail);
@@ -112,7 +155,8 @@ public class ReviewProjectDetail extends Base {
                     hasPrimary |= app.isPrimary();
                 }
                 if (!hasPrimary) {
-                    if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE || detail.getLongItem(0, "phase_id") == 116) {
+                    if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE
+                        || detail.getLongItem(0, "phase_id") == 116) {
 
                         for (Iterator it = reviewerList.iterator(); it.hasNext();) {
                             app = (ReviewBoardApplication) it.next();
@@ -150,8 +194,10 @@ public class ReviewProjectDetail extends Base {
                     getRequest().setAttribute("waitingUntil", new Timestamp(0));
                 }
 
-                getRequest().setAttribute("applicationDelayHours", new Integer((int) (applicationDelay / (1000 * 60 * 60))));
-                getRequest().setAttribute("applicationDelayMinutes", new Integer((int) ((applicationDelay % (1000 * 60 * 60)) / (1000 * 60))));
+                getRequest().setAttribute("applicationDelayHours",
+                                          new Integer((int) (applicationDelay / (1000 * 60 * 60))));
+                getRequest().setAttribute("applicationDelayMinutes",
+                                          new Integer((int) ((applicationDelay % (1000 * 60 * 60)) / (1000 * 60))));
             }
 
         } catch (TCWebException e) {
@@ -159,11 +205,18 @@ public class ReviewProjectDetail extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-        setNextPage(Constants.REVIEW_PROJECT_DETAIL);
+        setNextPage(getReviewProjectDetailView(projectTypeId));
         setIsNextPageInContext(true);
 
     }
 
+    /**
+     * <p>Creates new <code>RBoardApplication</code> EJB instance. Looks up for home interface in <code>JNDI</code>
+     * context and creates new EJB instance.</p>
+     *
+     * @return a <code>RBoardApplication</code> EJB instance.
+     * @throws CreateException if an unexpected error occurs.
+     */
     protected RBoardApplication createRBoardApplication() throws CreateException {
         InitialContext ctx = null;
         RBoardApplication rBoardApplication = null;
@@ -193,31 +246,83 @@ public class ReviewProjectDetail extends Base {
         return rBoardApplication;
     }
 
+    /**
+     * <p>Creates new review board application for specified project.</p>
+     *
+     * @param reviewerType a <code>String</code> referencing the reviewer type.
+     * @param numSubmissions a <code>int</code> providing the total number of submissions for project.
+     * @param numSubmissionsPassed a <code>int</code> providing the number of submissions passed review.
+     * @param phaseId a <code>int</code> providing the phase ID.
+     * @param levelId a <code>int</code> referencing the project difficulty level.
+     * @param userId a <code>long</code> providing the ID of a user.
+     * @param handle a <code>long</code> providing the handler for the user.
+     * @param primary <code>true</code> if reviewer type corresponds to primary reviewer; <code>false</code> otherwise.
+     * @param projectId a <code>long</code> providing the ID of a project.
+     * @param reviewerTypeId a <code>int</code> referencing the reviewer type.
+     * @return a <code>ReviewBoardApplication</code> providing the reviewer payments for the specified project.
+     * @throws Exception if an unexpected error occurs.
+     */
     @Deprecated
-    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed, int phaseId,
-                                             int levelId, long userId, String handle, boolean primary,
+    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed,
+                                             int phaseId, int levelId, long userId, String handle, boolean primary,
                                              long projectId, int reviewerTypeId) throws Exception {
-        ReviewBoardApplication ret = makeApp(reviewerType, numSubmissions, numSubmissionsPassed, phaseId, levelId, projectId, reviewerTypeId);
+        ReviewBoardApplication ret = makeApp(reviewerType, numSubmissions, numSubmissionsPassed, phaseId, levelId,
+                                             projectId, reviewerTypeId);
         ret.setHandle(handle);
         ret.setPrimary(primary);
         ret.setUserId(userId);
         return ret;
     }
 
-    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed, int phaseId,
-                                             int levelId, long userId, String handle, boolean primary,
-                                             long projectId, int reviewerTypeId, float prize, float drPoints) throws Exception {
-        ReviewBoardApplication ret = makeApp(reviewerType, numSubmissions, numSubmissionsPassed, phaseId, levelId, projectId,
-                                             reviewerTypeId, prize, drPoints);
+    /**
+     * <p>Creates new review board application for specified project.</p>
+     *
+     * @param reviewerType a <code>String</code> referencing the reviewer type.
+     * @param numSubmissions a <code>int</code> providing the total number of submissions for project.
+     * @param numSubmissionsPassed a <code>int</code> providing the number of submissions passed review.
+     * @param phaseId a <code>int</code> providing the phase ID.
+     * @param levelId a <code>int</code> referencing the project difficulty level.
+     * @param userId a <code>long</code> providing the ID of a user.
+     * @param handle a <code>long</code> providing the handler for the user.
+     * @param primary <code>true</code> if reviewer type corresponds to primary reviewer; <code>false</code> otherwise.
+     * @param projectId a <code>long</code> providing the ID of a project.
+     * @param reviewerTypeId a <code>int</code> referencing the reviewer type.
+     * @param prize a <code>float</code> providing the prize amount for contest.
+     * @param drPoints a <code>float</code> providing the DR points amount.
+     * @return a <code>ReviewBoardApplication</code> providing the reviewer payments for the specified project.
+     * @throws Exception if an unexpected error occurs.
+     */
+    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed,
+                                             int phaseId, int levelId, long userId, String handle, boolean primary,
+                                             long projectId, int reviewerTypeId, float prize, float drPoints)
+        throws Exception {
+        
+        ReviewBoardApplication ret = makeApp(reviewerType, numSubmissions, numSubmissionsPassed, phaseId, levelId,
+                                             projectId, reviewerTypeId, prize, drPoints);
         ret.setHandle(handle);
         ret.setPrimary(primary);
         ret.setUserId(userId);
         return ret;
     }
 
+    /**
+     * <p>Creates new review board application for specified project.</p>
+     *
+     * @param reviewerType a <code>String</code> referencing the reviewer type.
+     * @param numSubmissions a <code>int</code> providing the total number of submissions for project.
+     * @param numSubmissionsPassed a <code>int</code> providing the number of submissions passed review.
+     * @param phaseId a <code>int</code> providing the phase ID.
+     * @param levelId a <code>int</code> referencing the project difficulty level.
+     * @param projectId a <code>long</code> providing the ID of a project.
+     * @param reviewerTypeId a <code>int</code> referencing the reviewer type.
+     * @return a <code>ReviewBoardApplication</code> providing the reviewer payments for the specified project.
+     * @throws Exception if an unexpected error occurs.
+     */
     @Deprecated
-    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed, int phaseId,
-                                             int levelId, long projectId, int reviewerTypeId) throws Exception {
+    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed,
+                                             int phaseId, int levelId, long projectId, int reviewerTypeId)
+        throws Exception {
+        
         //figure out if we have default money values for the reviewers
         Request r = new Request();
         r.setContentHandle("review_board_payments");
@@ -236,7 +341,8 @@ public class ReviewProjectDetail extends Base {
             //we'll always assume all submission gets through screening
             ret = new ReviewBoardApplication(phaseId, levelId, numSubmissions, numSubmissionsPassed);
         } else {
-            ret = new ReviewBoardApplication(phaseId, detail.getFloatItem(0, "primary_amount"), detail.getFloatItem(0, "amount"));
+            ret = new ReviewBoardApplication(phaseId, detail.getFloatItem(0, "primary_amount"),
+                                             detail.getFloatItem(0, "amount"));
         }
 
         ret.setProjectId(projectId);
@@ -245,8 +351,24 @@ public class ReviewProjectDetail extends Base {
         return ret;
     }
 
-    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed, int phaseId,
-                                             int levelId, long projectId, int reviewerTypeId, float prize, float drPoints) throws Exception {
+    /**
+     * <p>Creates new review board application for specified project.</p>
+     *
+     * @param reviewerType a <code>String</code> referencing the reviewer type.
+     * @param numSubmissions a <code>int</code> providing the total number of submissions for project.
+     * @param numSubmissionsPassed a <code>int</code> providing the number of submissions passed review.
+     * @param phaseId a <code>int</code> providing the phase ID.
+     * @param levelId a <code>int</code> referencing the project difficulty level.
+     * @param projectId a <code>long</code> providing the ID of a project.
+     * @param reviewerTypeId a <code>int</code> referencing the reviewer type.
+     * @param prize a <code>float</code> providing the prize amount for contest.
+     * @param drPoints a <code>float</code> providing the DR points amount.
+     * @return a <code>ReviewBoardApplication</code> providing the reviewer payments for the specified project. 
+     * @throws Exception if an unexpected error occurs.
+     */
+    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed,
+                                             int phaseId, int levelId, long projectId, int reviewerTypeId, float prize,
+                                             float drPoints) throws Exception {
         Request r = new Request();
 
         r.setContentHandle("review_board_payments");
@@ -259,7 +381,8 @@ public class ReviewProjectDetail extends Base {
         if (detail.isEmpty()) {
             ret = new ReviewBoardApplication(phaseId, levelId, numSubmissions, numSubmissionsPassed, prize, drPoints);
         } else {
-            ret = new ReviewBoardApplication(phaseId, detail.getFloatItem(0, "primary_amount"), detail.getFloatItem(0, "amount"));
+            ret = new ReviewBoardApplication(phaseId, detail.getFloatItem(0, "primary_amount"),
+                                             detail.getFloatItem(0, "amount"));
         }
 
         ret.setProjectId(projectId);
@@ -269,4 +392,23 @@ public class ReviewProjectDetail extends Base {
         return ret;
     }
 
+    /**
+     * <p>Gets the logical name for the view which is to be used for displaying the list of review opportunities of
+     * specified type requested by client. As of current version <code>Design</code>, <code>Development</code> and
+     * <code>Assembly</code> project types are supported only.</p>
+     *
+     * @param projectType a <code>String</code> referencing the project type requested by client.
+     * @return a <code>String</code> referencing the view to be used for displaying the review details for projects of
+     *         specified type.
+     * @since TCS Release 2.2.0 (TCS-54)
+     */
+    private String getReviewProjectDetailView(String projectType) {
+        if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
+            return Constants.REVIEW_PROJECT_DETAIL;
+        } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
+            return Constants.REVIEW_PROJECT_DETAIL;
+        } else {
+            return "/dev/assembly/reviewProjectDetail.jsp";
+        }
+    }
 }
