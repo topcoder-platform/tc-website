@@ -18,6 +18,8 @@ import java.text.SimpleDateFormat;
  *          2006
  */
 public class ViewPastContests extends BaseProcessor {
+
+
     protected void businessProcessing() throws Exception {
         // load up the contests
         DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
@@ -41,30 +43,39 @@ public class ViewPastContests extends BaseProcessor {
                 "filterMonth"));
         String year = StringUtils.checkNull(getRequest().getParameter(
                 "filterYear"));
-        month = (month == null || month.trim().length() == 0) ? String
-                .valueOf(Calendar.getInstance().get(Calendar.MONTH) + 1)
-                : month;
-        year = (year == null || year.trim().length() == 0) ? String
-                .valueOf(Calendar.getInstance().get(Calendar.YEAR)) : year;
+        //Basically force to null if empty string.
+        month = (month == null || month.trim().length() == 0) ? null : month;
+        year = (year == null || year.trim().length() == 0) ? null : year;
 
-        if (!month.equals("All")) {
-        	r.setProperty("startdate" ,year + "-" + month + "-01 00:00:00");
-        	int endMonth = (Integer.parseInt(month) %12) + 1;
-        	String endYear=new String(year);
-        	if (endMonth==1) { // The period's end is next year.
-        		endYear=String.valueOf(Integer.parseInt(year)+1);
-        	}
-        	r.setProperty("enddate" ,endYear + "-" + endMonth + "-01 00:00:00");
-	} else {
-        	if (!year.equals("All")) {
-        		r.setProperty("startdate" ,year + "-01-01 00:00:00");
-			int endYear = Integer.parseInt(year) + 1;
-        		r.setProperty("enddate" ,endYear + "-01-01 00:00:00");
-		} else {
-        		r.setProperty("startdate" , "1990-01-01 00:00:00");
-        		r.setProperty("enddate" , "2099-01-01 00:00:00");
-		}
-	}
+        if( month == null && year == null ) {//If both are null, assume last 30 days.
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
+            Calendar now = Calendar.getInstance();
+            Calendar thirtyDaysBefore = Calendar.getInstance();
+            thirtyDaysBefore.add(Calendar.DAY_OF_MONTH, -30);
+
+            r.setProperty("startdate" , df.format(thirtyDaysBefore.getTime()));
+            r.setProperty("enddate" , df.format(now.getTime()));
+            //Finally, set month and year to be " " so that jsp does not choke.
+            month = year = " ";
+    } else if (!month.equals("All")) {
+            r.setProperty("startdate" ,year + "-" + month + "-01 00:00:00");
+            int endMonth = (Integer.parseInt(month) %12) + 1;
+            String endYear=new String(year);
+            if (endMonth==1) { // The period's end is next year.
+                endYear=String.valueOf(Integer.parseInt(year)+1);
+            }
+            r.setProperty("enddate" ,endYear + "-" + endMonth + "-01 00:00:00");
+    } else {
+            if (!year.equals("All") ) {
+                r.setProperty("startdate" ,year + "-01-01 00:00:00");
+            int endYear = Integer.parseInt(year) + 1;
+                r.setProperty("enddate" ,endYear + "-01-01 00:00:00");
+        } else {
+                r.setProperty("startdate" , "1990-01-01 00:00:00");
+                r.setProperty("enddate" , "2099-01-01 00:00:00");
+        }
+    }
 
         ResultSetContainer rsc = da.getData(r).get("past_contests");
 
