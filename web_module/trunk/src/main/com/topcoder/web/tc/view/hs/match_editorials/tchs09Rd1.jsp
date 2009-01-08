@@ -68,8 +68,8 @@ and
 <tc-webtag:handle coderId="11972352" context="hs_algorithm"/>
 closely following. 
 The challenge phase brought 
-<tc-webtag:handle coderId="11972352" context="hs_algorithm"/>
-+25 points and one more win. 
+<tc-webtag:handle coderId="22663117" context="hs_algorithm"/>
++25 points and the win. 
 <tc-webtag:handle coderId="22712322" context="hs_algorithm"/>
 and 
 <tc-webtag:handle coderId="22263204" context="hs_algorithm"/>
