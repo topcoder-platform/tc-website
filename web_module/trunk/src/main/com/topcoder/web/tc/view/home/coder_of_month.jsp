@@ -13,49 +13,42 @@
 
 <div class="leftColContent">
    <div style="padding-left:3px;">
-   <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br />- November</div>
+   <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br />- December</div>
    <table cellpadding="0" cellspacing="0" border="0" width="165">
    <tr>
       <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</a></strong><br />
-         <tc-webtag:handle coderId="22697339" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br />
+         <tc-webtag:handle coderId="22716939" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br />
          <span class="small">
-         SRM 424: 1555<br />
-         SRM 425: 1682<br />
-         SRM 426: 1684<br />
-         SRM 427: 1776<br />
-         SRM 428: 1804
+         <!-- SRMs Go here -->
          </span><br /><br />
       </td>
    </tr>
    <tr>
-      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/argolite_big.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/AleaActaEst_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</a></strong><br />
-         <tc-webtag:handle coderId="287614" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br /> 
+         <tc-webtag:handle coderId="252022" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br /> 
          <span class="small">
-         Five wins<br />
-         Two second places<br />
+         three architecture competitions in December 
         
          </span><br /><br />
       </td>
    </tr>
    <tr>
-      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/akinwale_big.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</a></strong><br />
-         <tc-webtag:handle coderId="22678937" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br />
+         <tc-webtag:handle coderId="22748068" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br />
          <span class="small">
-         Three wins<br />
-         Two second places<br />
-         
+         4 first place finishes <br />
          </span><br /><br />
       </td>
    </tr>
    </table>
    <%-- On/Off --%>
-   <div><a class="cotmFeature" href="/tc?module=Static&amp;d1=features&amp;d2=120908">Read Their Interviews</a></div>
+   <div><!--<a class="cotmFeature" href="/tc?module=Static&amp;d1=features&amp;d2=120908">Read Their Interviews</a>--></div>
    
    </div>
 </div>
