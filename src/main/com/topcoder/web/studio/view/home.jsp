@@ -272,10 +272,10 @@ ding="utf-8"?>
         <h2>DESIGNER OF THE MONTH</h2>
 
         <p>
-            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/nophoto.jpg"/>
-            <b>November 2008</b><br />
-            <b>Veonax</b><br />
-            Won $2,400 in his second month at Studio!
+            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/lunarkid_big.jpg"/>
+            <b>December 2008</b><br />
+            <b>kunarkid</b> 
+            won $3150 in five contests! 
         </p>
 
         <div></div>
