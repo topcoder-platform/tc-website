@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="IntroEventPropertyType" table="intro_event_property_lu" mutable="false">
+        <id name="id" column="property_id" access="field"/>
+        <property name="description" column="property_desc" access="field"/>
+        <property name="type" column="property_type_id" access="field"/>
+        <property name="mandatory" column="mandatory_ind" access="field"/>
+        <property name="explanation" column="explanation" access="field"/>
+        <property name="defaultValue" column="default_value" access="field"/>
+        <property name="viewable" column="viewable_ind" access="field"/>
+    </class>
+</hibernate-mapping>
