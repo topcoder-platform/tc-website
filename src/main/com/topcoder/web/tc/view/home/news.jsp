@@ -2,10 +2,27 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Release" border="0" /><br />1.9.09<br />4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><a href="http://www.linuxinsider.com/story/How-the-Virtual-Workforce-Is-Changing-Everything-65744.html">How The Virtual Workforce is Changing Everything</a></span><br /><br />
+			  <p>Crowdsourcing and telecommuting are conspiring to reinvent the traditional notion of a job. No longer is the one-employer model the only game in town. Some companies have found that work done by freelancers may be of better quality than what they were used to getting from their in-house employees. </p>
+ 
+    </tr>
+	<tr>
+    	<td class="newsLinksCell">
+            <a href="http://www.linuxinsider.com/story/How-the-Virtual-Workforce-Is-Changing-Everything-65744.html">details</a> | 
+            <a href="http://forums.topcoder.com/?module=ThreadList&forumID=525316">discuss this</a> | 
+            <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_archive">archive</a>
+       </td>
+    </tr>
+    
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Sets and Analysis" border="0" /><br />1.5.09<br />4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs09Rd1"> TCHS09 Online Round 1 Problem Set &amp; Analysis Posted</a></span><br /><br />
+      <td class="newsTextCell"><span class="newsTitle"><a href="/tc?module=Static&d1=match_editorials&d2=srm432"> SRM 432 Problem Set &amp; Analysis Posted</a></span><br /><br />
 			<div class="authorPhoto">
     <img src="/i/m/nika_big.jpg" alt="Author" />
 </div>
