@@ -117,6 +117,20 @@
             
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                
+                <%-- TopCoder MLab Keynote begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/pdfs/press_room/virtual_workforce.pdf"><img src="http://www.linuxinsider.com/images/2008/lni-logo.png" alt="TopCoder logo" width="159" height="72" border="0" /></a>                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="http://www.linuxinsider.com/story/How-the-Virtual-Workforce-Is-Changing-Everything-65744.html">How The Virtual Workforce is Changing Everything</a></h3>
+                       <p>Crowdsourcing and telecommuting are conspiring to reinvent the traditional notion of a job. No longer is the one-employer model the only game in town. Some companies have found that work done by freelancers may be of better quality than what they were used to getting from their in-house employees.
+  <small><a href="http://www.linuxinsider.com/story/How-the-Virtual-Workforce-Is-Changing-Everything-65744.html">[January 9th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                
+                
                 <%-- TopCoder MLab Keynote begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
