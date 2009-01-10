@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model.algo">
+
+    <class name="RoundSegment" table="round_segment">
+        <composite-id name="id" class="RoundSegment$Identifier">
+            <key-many-to-one name="round" class="Round" column="round_id"/>
+            <key-property name="segmentId" column="segment_id" access="field"/>
+        </composite-id>
+    
+        <property name="startTime" column="start_time" access="field"/>
+        <property name="endTime" column="end_time" access="field"/>
+        <property name="status" column="status" access="field"/>        
+    </class>
+</hibernate-mapping>
