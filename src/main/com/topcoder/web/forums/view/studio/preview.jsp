@@ -75,18 +75,61 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio_forums"/>
     </jsp:include>
+	
+	<script src="js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
+	<script src="js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+	<script src="js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+	<script type="text/javascript" language="javascript">
+
+	$(document).ready(function(){
+	
+	
+		$("#nav ul li").hoverIntent(function(){
+			$(this).children("ul").slideDown("fast");
+		}, function() {
+			$(this).children("ul").slideUp("fast");
+		});
+		
+		$("#nav ul ul li").hover(function() {
+			$(this).parents("#nav ul li").children('a').addClass("active-item");
+		}, function() {
+			$(this).parents("#nav ul li").children('a').removeClass("active-item");
+		});
+		
+		
+		jQuery(document).ready(function() {
+			jQuery('#news-carousel').jcarousel({
+				scroll: 1,
+				easing: 'swing',
+				wrap: 'both'  
+			});
+		});
+		
+		
+		
+		window.alert = function() {
+		return;
+	};
+	
+	
+	});
+	
+		function openWin(url, name) {
+			win = window.open(url, name, "menubar=no,status=no,scrollbars=yes,resizable=no,toolbar=no,width=650,height=650");
+			win.location.href = url;
+			win.focus();
+		}
+		window.name="main"; // required for whatistopcoder popup targeting
+		//-->
+	
+	</script>
 </head>
 
 <body>
-    <!-- wrapper -->
-    <div id="wrapper">
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="top.jsp"/>
-            <jsp:include page="topNav.jsp">
-                <jsp:param name="node" value="forums"/>
-            </jsp:include>
-        </div>
+	<div id="page-wrap">
+    	<div align="center">
+			<jsp:include page="top.jsp"/>
+        <br/>
         <!-- container -->
         <div id="container">
             <!-- content -->
