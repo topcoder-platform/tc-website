@@ -274,7 +274,7 @@ ding="utf-8"?>
         <p>
             <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/lunarkid_big.jpg"/>
             <b>December 2008</b><br />
-            <b>kunarkid</b> 
+            <b>lunarkid</b> 
             won $3150 in five contests! 
         </p>
 
