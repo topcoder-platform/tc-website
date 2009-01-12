@@ -2,6 +2,23 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Sets and Analysis" border="0" /><br />1.12.09<br />4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs09Rd2"> TCHS09 Online Round 2 Problem Set &amp; Analysis Posted</a></span><br /><br />
+			  <div class="authorPhoto">
+    <img src="/i/m/Nickolas_big.jpg" alt="Author" />
+</div>
+The problem set and analysis for TCHS09 Online Round 2 has been posted.  This match editorial was written by member <tc-webtag:handle coderId="15635590" context="algorithm" />.
+ 
+    </tr>
+	<tr>
+    	<td class="newsLinksCell">
+            <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs09Rd2">details</a> | 
+            <tc-webtag:forumLink forumID="525315" message="discuss this" /> | 
+            <a href="/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">archive</a>
+       </td>
+    </tr>
 
 <%--------------------------------------------------------%>
    <tr>
