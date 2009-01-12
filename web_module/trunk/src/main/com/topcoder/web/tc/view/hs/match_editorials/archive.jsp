@@ -47,6 +47,10 @@
       <td valign="middle" class="bodyText" colspan="2"><strong>January</strong></td>
     </tr>
     <tr>
+      <td class="bodyText">1.10.09</td>
+      <td nowrap="0" class="bodyText">TCHS09 Online Round 2- <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs09Rd2">Problem Set &amp; Analysis</a></td>
+    </tr>
+    <tr>
       <td width="5%" class="bodyText">1.03.09</td>
       <td width="95%" nowrap="0" class="bodyText">TCHS09 Online Round 1- <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs09Rd1">Problem Set &amp; Analysis</a></td>
     </tr>
