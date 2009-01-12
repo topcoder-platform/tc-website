@@ -32,7 +32,7 @@
          <div class="myTCBody">
 
 <DIV ALIGN="CENTER"><IMG SRC="/i/referral_header.gif" WIDTH="510" HEIGHT="40" BORDER="0"/></DIV>
-<P>Referral program information has moved to <a href="http://tcstudioblogs.com/?page_id=70">this page</a>.<br>
+<P>Referral program information has moved to <a href="http://studio.topcoder.com/blog/?page_id=70">this page</a>.<br>
 </P>
 
 </div>
