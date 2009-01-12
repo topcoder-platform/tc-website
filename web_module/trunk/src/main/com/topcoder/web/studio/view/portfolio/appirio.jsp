@@ -48,38 +48,31 @@
     	<div align="center">
 			<jsp:include page="../top.jsp"/>
         <br/>
+        
         <!-- container -->
         <div id="container">
-        	<div id="wrapper">
-    
             <!-- content -->
 
             <div id="content">
                 <div class="contentTop">
                     <div class="contentMiddle">
                     
+                    
                     <!-- Back to Portfolio page -->
                     <div style="padding: 10px 0;"><a href="/?module=Static&amp;d1=portfolio&amp;d2=portfolio">Portfolio</a></div>
                     
                     <!-- Begin Main Content -->
                     
-					<h1>AOL News: Predict The President</h1>
-						
-						<p>2 Contests beginning in June 2008 and ending in July 2008</p>
-						<p>1 Flash Contest, 1 yourminis Widget Build</p>
-						
-						<p>You control the electoral map for the 2008 elections. Click on a state to make your prediction or start with from one of the many views.</p>
-						<p>The flash uses csv and xml data and also allows the user to save their settings.</p>
-						<p><strong>Client Quote:</strong> "Thanks very much to the TopCoder Studio for getting the project completed in 5 weeks, the elections team has wanted to implement this for 5 years."</p>
+					<h1>Appirio</h1>
+						<p>1 Contest in October 2008</p>
+						<p>1 Application Front End Design Contest</p>
 						<div class="clear"></div>
 						
 						<div id="thumbs">
 							<ul>
-								<li><a href="/i/portfolio/projects/aol-news/flash/1/AOL08PreGame.html" title="Predict The President Flash Contest" target="_blank"><img src="/i/portfolio/projects/aol-news/thumbs/1.png" width="150" height="150" /></a><br />
-								<div align="center">Flash Contest</div></li>
+								<li><a href="/i/portfolio/projects/appirio/index.html"  target="_blank" rel="thumbs" title="Appirio Quick Project - Convert Design to HTML/CSS"><img src="/i/portfolio/projects/appirio/thumbs/1.png" width="150" height="150" /></a><br />
+								<div align="center">Prototype Contest</div></li>
 								
-								<li><a href="/i/portfolio/projects/aol-news/screenshot/1.png" class="thickbox" title="Predict The President yourminis Widget"><img src="/i/portfolio/projects/aol-news/thumbs/2.png" width="150" height="150" /></a><br />
-								<div align="center">yourminis Contest</div></li>
 							</ul>
 						</div>
 						
@@ -95,33 +88,22 @@
 												<th>Client Selection</th>
 											</tr>
 											<tr>
-												<td>Flash Contest</td>
-												<td><a href="/i/portfolio/projects/aol-news/flash/1/AOL08PreGame.html" title="Predict The President Flash Contest" target="_blank">Predict The President Flash Contest</a></td>
-												<td>7 Days</td>
-												<td align="center">4</td>
+												<td>Application Front End Design Contest</td>
+												<td><a href="/i/portfolio/projects/appirio/index.html"   target="_blank" title="Appirio Quick Project - Convert Design to HTML/CSS">Appirio Quick Project - Convert Design to HTML/CSS</a></td>
+												<td>2 Days</td>
+												<td align="center">6</td>
 												<td>
-												<a href="/i/portfolio/projects/aol-news/flash/1/AOL08PreGame.html" title="Predict The President Flash Contest" target="_blank">Link</a>
-												</td>
-											</tr>
-											
-											<tr>
-												<td>yourminis Widget Contest</td>
-												<td><a href="http://www.yourminis.com/minis/yourminis/AOL/mini:PredictthePresident" title="Predict The President Flash Contest" target="_blank">Predict The President Widget Build</a></td>
-												<td>7 Days</td>
-												<td align="center">5</td>
-												<td>
-												<a href="http://www.yourminis.com/minis/yourminis/AOL/mini:PredictthePresident" title="Predict The President Flash Contest" target="_blank">yourminis site link</a>
-
+												<a href="/i/portfolio/projects/appirio/index.html"   target="_blank" rel="design1" title="Appirio Quick Project - Convert Design to HTML/CSS">1</a>
 												</td>
 											</tr>
 											<tr>
-												<td colspan="5" align="center">
-													<script type='text/javascript' src='http://ct.yourminis.com/scripts/ymswfobject.js'></script><div id='sandboxdiv'>loading...</div><script type='text/javascript'>var so = new ymSWFObject('http://www.yourminis.com/Dir/GetContainer.api?uri=yourminis/AOL/mini:PredictthePresident', 'sandbox', '400', '474','statshostname=stats.yourminis.com&width=400&hostname=www.yourminis.com&uri=yourminis/AOL/mini%3APredictthePresident&height=474&swfhost=ct.yourminis.com&','9.0.17');so.addParam('wmode', 'transparent');so.addParam('allowScriptAccess','always');so.useExpressInstall('http://ct.yourminis.com/swfs/expressinstall.swf');so.write('sandboxdiv');</script></td>
+												<td colspan="5"><a href="http://studio.topcoder.com/?module=ViewSubmissions&ct=1000250" target="_blank">View All Submissions</a></td>
 											</tr>
-										
 										</table>
 								</div>
                      		 </div>
+                     		 <div class="hidden">
+                     		 	<!-- <a href="/i/portfolio/projects/appirio/2.jpg" class="thickbox" rel="thumbs" title="Appirio Quick Project - Convert Design to HTML/CSS"></a> -->
 						 <div class="clear"></div>
 
             <!-- End Main Content -->
@@ -130,7 +112,7 @@
 					</div>
 				</div>
 			</div>
-
+			</div>
         <jsp:include page="../foot.jsp"/>
 
     </div>
