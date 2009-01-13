@@ -53,7 +53,9 @@
 <body>
 	<div id="page-wrap">
     	<div align="center">
-			<jsp:include page="top.jsp"/>
+		<jsp:include page="top.jsp">
+            <jsp:param name="section" value="contest"/>
+        </jsp:include>
         <br/>
         <!-- container -->
         <div id="container">    
