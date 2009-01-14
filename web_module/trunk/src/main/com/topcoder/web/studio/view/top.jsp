@@ -47,7 +47,7 @@
        <h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
           <div id="studio_menu">
 				<ul>
-					<li class="left"><a href="/" <% if (section.equals("home")) {%> class="active"<% } %>>{ }</a></li>
+					<li class="left"><a href="/" <% if (section.equals("home")) {%> active <% } %>">{ }</a></li>
 					<li><a href="/?module=ViewActiveContests" <% if (section.equals("contest")) {%> class="active"<% } %>>Contests</a></li>
 					<li><a href="/forums" <% if (section.equals("forums")) {%> class="active"<% } %>>Forums</a></li>
 					<li><a href="/?module=Static&amp;d1=support&amp;d2=getStarted" <% if (section.equals("howitworks")) {%> class="active"<% } %>>How It Works</a></li>
