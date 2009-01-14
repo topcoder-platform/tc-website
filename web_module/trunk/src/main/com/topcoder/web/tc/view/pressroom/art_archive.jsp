@@ -39,7 +39,7 @@
 
     <%-- pr_header begin --%>
     <div id="pr_header">
-        <h1><a onfocus="this.blur();" href="/tc?module=Static&amp;d1=pressroom&amp;d2=index" name="pr_top">Press Room</a></h1>
+        <h1><a onFocus="this.blur();" href="/tc?module=Static&amp;d1=pressroom&amp;d2=index" name="pr_top">Press Room</a></h1>
     </div>
     <%-- pr_header end --%>
 
@@ -61,6 +61,23 @@
     <div id="pr_frame"><div id="pr_frame2"><div id="pr_frame3">
 
         <div id="pr_content" align="left">
+        <div class="pr_subheader">
+                <h2><span>2009</span></h2>
+            </div>
+        
+        
+        
+            <%-- pr_border creation --%>
+            <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+            
+                <div class="pr_newsarchive">
+                    <dl>
+                    <dd><a href="/pdfs/press_room/virtual_workforce.pdf">How The Virtual Workforce is Changing Everything<br /><small style="margin-left:10px;">[January 9th]</small></a></dd>
+                  
+                    </dl>
+                </div>
+            </div></div></div>
+        
         
             <%-- Yearly Sub Content Container --%>
             <div class="pr_subheader">

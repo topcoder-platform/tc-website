@@ -72,8 +72,6 @@
             
                 <div class="pr_newsarchive">
                     <dl>
-                    <dd><a href="/pdfs/press_room/virtual_workforce.pdf">How The Virtual Workforce is Changing Everything<br /><small style="margin-left:10px;">[January 9th]</small></a></dd>
-                    <dt>&nbsp;</dt>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_010709">TopCoder to Keynote MLab Conference on Innovation in the Workplace at London Business School<br /><small style="margin-left:10px;">[January 7th]</small></a></dd>
                     </dl>
                 </div>
