@@ -47,15 +47,15 @@
        <h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
           <div id="studio_menu">
 				<ul>
-					<li class="left <% if (section.equals("home")) {%> active <% } %>"><a href="/">{ }</a></li>
-					<li <% if (section.equals("contest")) {%> class="active"<% } %>><a href="/?module=ViewActiveContests">Contests</a></li>
-					<li <% if (section.equals("forums")) {%> class="active"<% } %> ><a href="/forums">Forums</a></li>
-					<li <% if (section.equals("howitworks")) {%> class="active"<% } %>><a href="/?module=Static&amp;d1=support&amp;d2=getStarted">How It Works</a></li>
-					<li <% if (section.equals("cup")) {%> class="active"<% } %>><a href="/?module=Static&d1=digitalrun&d2=2008v2&d3=home">Studio Cup</a></li>
-					<li <% if (section.equals("my_studio")) {%> class="active"<% } %>><a href="/?module=MyStudioHome">My Studio</a></li>
-					<li <% if (section.equals("blog")) {%> class="active"<% } %>><a href="http://studio.topcoder.com/blog/">Blog</a></li>
-					<li <% if (section.equals("portfolio")) {%> class="active"<% } %>><a href="/?module=Static&amp;d1=portfolio&amp;d2=portfolio">Portfolio</a></li>
-					<li class="right <% if (section.equals("contact")) {%> active<% } %>"><a href="/?module=Static&amp;d1=contactUs">Contact Us</a></li>
+					<li class="left"><a href="/">{ }</a></li>
+					<li><a href="/?module=ViewActiveContests">Contests</a></li>
+					<li><a href="/forums">Forums</a></li>
+					<li><a href="/?module=Static&amp;d1=support&amp;d2=getStarted">How It Works</a></li>
+					<li><a href="/?module=Static&d1=digitalrun&d2=2008v2&d3=home">Studio Cup</a></li>
+					<li><a href="/?module=MyStudioHome">My Studio</a></li>
+					<li><a href="http://tcstudioblogs.com/">Blog</a></li>
+					<li><a href="/?module=Static&amp;d1=portfolio&amp;d2=portfolio">Portfolio</a></li>
+					<li class="right"><a href="/?module=Static&amp;d1=contactUs">Contact Us</a></li>
 				</ul>
 			</div>
 		  
