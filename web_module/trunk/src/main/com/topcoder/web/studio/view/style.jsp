@@ -41,34 +41,21 @@
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <link type="text/css" rel="stylesheet" href="/css/stats.css" />
 <link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
-<% } else if (key.equals("tc_studio_home")) { %>
-<link type="text/css" rel="stylesheet" href="/css/v2/home.css" />
-<link type="text/css" rel="stylesheet" href="/css/v2/NewStyleHeaderFooter/main-navigation.css" />
-<link type="text/css" rel="stylesheet" href="/css/v2/NewStyleHeaderFooter/NewStyles.css" />
 <% } else if (key.equals("tc_studio")) { %>
 <link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
-<link type="text/css" rel="stylesheet" href="/css/v2/NewStyleHeaderFooter/main-navigation.css" />
-<link type="text/css" rel="stylesheet" href="/css/v2/NewStyleHeaderFooter/NewStyles.css" />
 <% } else if (key.equals("tc_studio_profile")) { %>
 <link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
 <link type="text/css" rel="stylesheet" href="/css/studioMemberProfile.css" />
-<link type="text/css" rel="stylesheet" href="/css/v2/NewStyleHeaderFooter/main-navigation.css" />
-<link type="text/css" rel="stylesheet" href="/css/v2/NewStyleHeaderFooter/NewStyles.css" />
 <% } else if (key.equals("tc_studio_forums")) { %>
 <link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
 <link type="text/css" rel="stylesheet" href="/css/forums.css" />
-<link type="text/css" rel="stylesheet" href="/css/v2/NewStyleHeaderFooter/main-navigation.css" />
-<link type="text/css" rel="stylesheet" href="/css/v2/NewStyleHeaderFooter/NewStyles.css" />
 <% } else if (key.equals("studio_digitalrun")) { %>
 <link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
 <link type="text/css" rel="stylesheet" href="/css/digitalrun/main.css" />
-<link type="text/css" rel="stylesheet" href="/css/v2/NewStyleHeaderFooter/main-navigation.css" />
-<link type="text/css" rel="stylesheet" href="/css/v2/NewStyleHeaderFooter/NewStyles.css" />
 <% } else if (key.equals("studio_portfolio")) { %>
 <link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
 <link type="text/css" rel="stylesheet" href="/css/portfolio/portfolio_style.css" />
-<link type="text/css" rel="stylesheet" href="/css/v2/NewStyleHeaderFooter/main-navigation.css" />
-<link type="text/css" rel="stylesheet" href="/css/v2/NewStyleHeaderFooter/NewStyles.css" />
+<link type="text/css" rel="stylesheet" href="/css/portfolio/thickbox.css" />
 <% } else if (key.equals("csf")) { %>
 <link type="text/css" rel="stylesheet" href="/css/main.css" />
 <% } else if (key.equals("csfforums")) { %>
