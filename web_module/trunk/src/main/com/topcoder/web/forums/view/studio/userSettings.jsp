@@ -22,47 +22,17 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>TopCoder Studio</title>
+	<title>TopCoder Studio</title>
 
-<jsp:include page="style.jsp">
-    <jsp:param name="key" value="tc_studio_forums"/>
-</jsp:include>
-<script type="text/javascript">
-<!--
-var section;
-function toggleTabs(anchor,id) {
-   var genStyle = (id=="gen")?'':'none';
-   var watchStyle = (id=="watch")?'':'none';
-   var rateStyle = (id=="rate")?'':'none';
-   if(anchor.blur)anchor.blur();
-   if(id=='gen'){
-      document.getElementById('tabGen').className = 'tableTabOn';
-      document.getElementById('tabWatch').className = 'tableTabOff';
-      document.getElementById('tabRate').className = 'tableTabOff';
-   }else if(id=='watch'){
-      document.getElementById('tabGen').className = 'tableTabOff';
-      document.getElementById('tabWatch').className = 'tableTabOn';
-      document.getElementById('tabRate').className = 'tableTabOff';
-   }else if(id=='rate'){
-      document.getElementById('tabGen').className = 'tableTabOff';
-      document.getElementById('tabWatch').className = 'tableTabOff';
-      document.getElementById('tabRate').className = 'tableTabOn';
-   }
-   for (i=1; i<=11; i++) {
-      document.getElementById('bodyGen'+i).style.display = genStyle;
-   }
-   for (i=1; i<=5; i++) {
-      document.getElementById('bodyWatch'+i).style.display = watchStyle;
-   }
-   for (i=1; i<=4; i++) {
-      document.getElementById('bodyRate'+i).style.display = rateStyle;
-   }
-   document.getElementById('infoRate').style.display = rateStyle;
-}
-//-->
-</script>
+	<jsp:include page="style.jsp">
+    	<jsp:param name="key" value="tc_studio_forums"/>
+	</jsp:include>
+	
+	<script src="js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
+	<script src="js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+	<script src="js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+	<script type="text/javascript" language="javascript">
 
-<<<<<<< .mine
 	$(document).ready(function(){
 	
 	
@@ -117,8 +87,6 @@ function toggleTabs(anchor,id) {
 	//-->
 	</script>
 
-=======
->>>>>>> .r74202
 <style type="text/css">
 <!--
 .rtDesc { font-size: 11px; }
@@ -126,27 +94,14 @@ function toggleTabs(anchor,id) {
 </style>
 
 <body onLoad="toggleTabs('','gen')">
-<<<<<<< .mine
 	<div id="page-wrap">
     	<div align="center">
 			<jsp:include page="top.jsp">
             <jsp:param name="section" value="forums" />
         </jsp:include>
         <br />
-=======
-
-    <!-- wrapper -->
-    <div id="wrapper">
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="top.jsp"/>
-            <jsp:include page="topNav.jsp">
-                <jsp:param name="node" value="forums"/>
-            </jsp:include>
-        </div>
->>>>>>> .r74202
         <!-- container -->
-        <div id="container">
+    	<div id="container">
             <!-- content -->
             <div id="content">
                 <div class="contentTop">
