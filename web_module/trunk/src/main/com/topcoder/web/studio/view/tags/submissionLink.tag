@@ -52,7 +52,7 @@
         <div align="center">
             <strong>ID:</strong>
             ${submissionId}
-            <br/>
+            <br />
            <studio_tags:viewSubmissionLink submissionId="${submissionId}"
                                            galleryImageCount="${galleryImageCount}" targetPresentationType="medium"
                                            previewPresentationType="small" showFullVersionLink="true" showDownloadPreviewLink="${row.map['require_preview_file']}"

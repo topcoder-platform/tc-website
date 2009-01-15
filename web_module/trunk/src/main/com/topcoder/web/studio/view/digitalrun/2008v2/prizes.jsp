@@ -11,6 +11,14 @@
 </head>
 
 <body>
+<<<<<<< .mine
+	<div id="page-wrap">
+    	<div align="center">
+			<jsp:include page="../../top.jsp">
+            	<jsp:param name="section" value="cup" />
+        	</jsp:include>
+        <br />
+=======
     <!-- wrapper -->
     <div id="wrapper">
         <!-- header -->
@@ -20,6 +28,7 @@
                 <jsp:param name="node" value="digitalrun"/>
             </jsp:include>
         </div>
+>>>>>>> .r74200
         <!-- container -->
         <div id="container">
             <!-- content -->
@@ -72,6 +81,6 @@ Digital Run prize money will be paid at the end of each month within 60 days of 
 
         <jsp:include page="../../foot.jsp"/>
 
-    </div>
+
 </body>
 </html>

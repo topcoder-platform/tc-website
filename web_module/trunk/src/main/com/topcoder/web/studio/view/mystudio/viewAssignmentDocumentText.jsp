@@ -7,7 +7,7 @@
     <jsp:include page="../script.jsp"/>
 
     <title>Assignment Document Text</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <STYLE TYPE="text/css">
         html.termsHTML, body.termsBody {
             color: #333333;

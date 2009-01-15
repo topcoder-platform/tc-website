@@ -11,6 +11,14 @@
 </head>
 
 <body>
+<<<<<<< .mine
+	<div id="page-wrap">
+    	<div align="center">
+			<jsp:include page="../../top.jsp">
+            	<jsp:param name="section" value="cup" />
+        	</jsp:include>
+        <br />
+=======
     <!-- wrapper -->
     <div id="wrapper">
         <!-- header -->
@@ -20,6 +28,7 @@
                 <jsp:param name="node" value="digitalrun"/>
             </jsp:include>
         </div>
+>>>>>>> .r74200
         <!-- container -->
         <div id="container">
             <!-- content -->
@@ -117,6 +126,6 @@ Up to 100% of placement points may be deducted for bugs or late final fixes. 20%
 
         <jsp:include page="../../foot.jsp"/>
 
-    </div>
+
 </body>
 </html>

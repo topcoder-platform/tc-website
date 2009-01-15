@@ -13,20 +13,19 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    
-        <script type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
-        <script type="text/javascript" src="/js/jcarousel/jquery.jcarousel.pack.js"></script>
-    
-        <link type="text/css" rel="stylesheet" href="/js/jcarousel/jquery.jcarousel.css" />
-    
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>TopCoder Studio</title>
+        <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    	 <title>TopCoder Studio : Studio Profile</title>
         <jsp:include page="style.jsp">
             <jsp:param name="key" value="tc_studio_profile"/>
         </jsp:include>
-
-        <script type="text/javascript">
+        
+        <script src="js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
+		<script src="js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+		<script src="js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+		<script type="text/javascript" src="/js/jcarousel/jquery.jcarousel.pack.js"></script>
+		
+		<script type="text/javascript">
             // carousel
             jQuery(document).ready(function() {
                     jQuery('#mycarousel').jcarousel({
@@ -110,20 +109,35 @@
                 }
             }
         </script>
-
-    </head>
-    <body onload="selectType(0)">
-    <!-- wrapper -->
-    <div id="wrapper">
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="top.jsp"/>
-            <jsp:include page="topNav.jsp">
-                <jsp:param name="node" value="profile"/>
-            </jsp:include>
-        </div>
-            
-
+		
+		<script type="text/javascript" language="javascript">
+	
+		$(document).ready(function(){
+		
+		
+			$("#nav ul li").hoverIntent(function(){
+				$(this).children("ul").slideDown("fast");
+			}, function() {
+				$(this).children("ul").slideUp("fast");
+			});
+			
+			$("#nav ul ul li").hover(function() {
+				$(this).parents("#nav ul li").children('a').addClass("active-item");
+			}, function() {
+				$(this).parents("#nav ul li").children('a').removeClass("active-item");
+			});
+		
+		
+		});
+		</script>
+   </head>
+<body onload="selectType(0)">
+	<div id="page-wrap">
+    	<div align="center">
+		<jsp:include page="top.jsp">
+            <jsp:param name="section" value="profile" />
+        </jsp:include>
+        <br />
         <!-- container -->
         <div id="container">
             <!-- content -->
@@ -131,16 +145,11 @@
                 <!-- member search input -->
                 <div class="box">
                     <div class="member_search">
-                        <form action="/" method="get"
-                                name="SearchProfileForm" id="SearchProfileForm">
-                            <input type="hidden" name="module" value="ViewMemberProfile"/>
+                        <form action="/" method="get" name="SearchProfileForm" id="SearchProfileForm">
+						<input type="hidden" name="module" value="ViewMemberProfile"/>
                             <span>Member Handle:</span>
-                            <input type="text" name="<%=Constants.HANDLE%>" value="Handle:"
-                                    onblur="if(this.value=='')this.value='Handle:';"
-                                    onfocus="if(this.value=='Handle:')this.value='';"/>
-                            <a href="#" onclick="document.SearchProfileForm.submit();return false;">
-                                <img src="/i/profile/btnSearch.png" alt="Search" />
-                            </a>
+                            <input type="text" name="<%=Constants.HANDLE%>" value="Handle:" onblur="if(this.value=='')this.value='Handle:';" onfocus="if(this.value=='Handle:')this.value='';"/>
+                            <a href="#" onclick="document.SearchProfileForm.submit();return false;"><img src="/i/profile/btnSearch.png" alt="Search" /></a>
                         </form>
                     </div> <!-- member_search -->
                 </div> <!-- box -->
@@ -170,6 +179,7 @@
                                     </span>
                                 </div>
                                 <div>
+
                                   <c:if test="${not empty profile.quote}">
                                     <span class="member_content special">Quote:</span>
                                     <span class="member_content">&quot;${profile.quote}&quot;</span>
@@ -204,6 +214,7 @@
                         <div class="box_title_separator"></div>
 
                         <div class="box_content_container">
+
                           <c:if test="${empty stats}">
                             <div class="notCompeted"><span class="notCompeted">Member has not competed in TopCoder Studio.</span></div>
                           </c:if>
@@ -273,16 +284,14 @@
               </c:if>
                 </div><!-- container -->
                 </div><!-- content middle -->
-                <div class="contentBottom"/>
-                <strong/>
-
-
-                </div><!-- content top -->
+                
+               </div><!-- content top -->
             </div> <!-- content -->
-        </div> <!-- container -->
+       
 
         <jsp:include page="foot.jsp"/>
-    </div> <!-- wrapper -->
-    </body>
+   
+    
+</body>
 </html>
 
