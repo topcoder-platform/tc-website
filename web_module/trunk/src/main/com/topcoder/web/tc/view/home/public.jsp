@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
-
+<link rel="stylesheet" href="/news/wp-content/themes/tc2/style.css" type="text/css" media="screen" />
 <jsp:include page="../script.jsp" />
 <jsp:include page="../style.jsp">
   <jsp:param name="key" value="tc_home"/>
@@ -11,6 +11,7 @@
 <script type="text/javascript" src="/js/main.js"  ></script>
 <script type="text/javascript" src="/js/cookie.js"  ></script>
 <script type="text/javascript" src="/js/slashtc20080411.js"  ></script>
+<script src="/js/home/jquery-1.2.6.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
 function swapTopTen(topTenID){
@@ -41,7 +42,7 @@ function init() {
 </script>
 </head>
 
-<body onload="init();MM_preloadImages('/i/home/catcDigitalRunV2.png','/i/home/catcDesignV2.png','/i/home/catcDevelopmentV2.png','/i/home/catcAssemblyV2.png','/i/home/catcBugracesV2.png','/i/home/catcMarathonV2.png','/i/home/catcAlgorithmV2.png','/i/home/catcStudioV2.png')">
+<body onLoad="init();MM_preloadImages('/i/home/catcDigitalRunV2.png','/i/home/catcDesignV2.png','/i/home/catcDevelopmentV2.png','/i/home/catcAssemblyV2.png','/i/home/catcBugracesV2.png','/i/home/catcMarathonV2.png','/i/home/catcAlgorithmV2.png','/i/home/catcStudioV2.png')">
 
 <%--
 <div style="position:absolute; left:200px; top:190px;">
@@ -76,7 +77,18 @@ function init() {
     <tr>
         <td class="newsTitle" align="right" colspan="2"><em>TopCoder News</em></td>
     </tr>
-    <jsp:include page="news.jsp" />
+<tr>
+    <td align="left">
+            <div id="replaced">
+    </div>
+    <script type="text/javascript" language="javascript">
+	
+	$("#replaced").load("/news/index.php #replacercode");
+	
+    </script>
+</td>
+</tr>
+
     </table>
       <br /><br />
      <jsp:include page="news_archives.jsp" />
@@ -108,7 +120,7 @@ function init() {
 
                 <div style="padding-bottom: 10px;" align="center">
                 <form name="f" action="#">
-                    <select name="topTen" onchange="swapTopTen(this.value)">
+                    <select name="topTen" onChange="swapTopTen(this.value)">
                     <option value="topTenAlgo" selected="selected">Algorithm</option>
                     <option value="topTenAlgoSchools">Algorithm Schools</option>
                     <option value="topTenAlgoCountries">Algorithm Countries</option>
