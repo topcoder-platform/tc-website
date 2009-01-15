@@ -26,9 +26,21 @@ ding="utf-8"?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>Welcome to TopCoder Studio</title>
+<<<<<<< .mine
+    
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_studio_home"/>
+    </jsp:include>
+   
+    <script src="js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
+	<script src="js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+	<script src="js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+	<script type="text/javascript" language="javascript">
+=======
+>>>>>>> .r74200
 
     <script type="text/javascript" src="/js/v2/popup.js"></script>
     <script type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
@@ -54,10 +66,17 @@ ding="utf-8"?>
         <jsp:include page="top.jsp">
             <jsp:param name="section" value="home"/>
         </jsp:include>
+<<<<<<< .mine
+        
+    	<br />
+<%--  main content --%>
+<div id="wrapper">
+=======
     	<jsp:include page="topNav.jsp">
             <jsp:param name="node" value="home"/>
         </jsp:include>
     </div>
+>>>>>>> .r74200
 
 <%--  main content --%>
 <div id="content">
@@ -128,8 +147,7 @@ ding="utf-8"?>
     <div class="contests">
         <div>
             <h2><span>ACTIVE CONTESTS</span></h2>
-            <span class="more"><a href="/?module=ViewActiveContests">View All <%=activeContests.size()%> Active Contests
-</a></span>
+            <span class="more"><a href="/?module=ViewActiveContests">View All <%=activeContests.size()%> Active Contests</a></span>
             <table>
                 <thead>
                     <tr>
@@ -140,15 +158,15 @@ ding="utf-8"?>
                     </tr>
                 </thead>
                 <tbody>
-    <rsc:iterator list="<%=activeContests%>" id="resultRow" end="6">
-                        <tr>
-                            <td class="first">
-                                    <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">
-                                    <rsc:item name="name" row="<%=resultRow%>"/></a></td>
-                            <td class="second"><rsc:item name="prize_total" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/></td>
-                            <td class="second"><rsc:item name="dr_points" row="<%=resultRow%>" format="######" ifNull="&nbsp;"/></td>
-                            <td class="last"><rsc:item name="end_time" row="<%=resultRow%>" format="MM.dd.yyyy'<br />'HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
-                        </tr>
+                <rsc:iterator list="<%=activeContests%>" id="resultRow" end="6">
+				<tr>
+					<td class="first">
+							<a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">
+							<rsc:item name="name" row="<%=resultRow%>"/></a></td>
+					<td class="second"><rsc:item name="prize_total" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/></td>
+					<td class="second"><rsc:item name="dr_points" row="<%=resultRow%>" format="######" ifNull="&nbsp;"/></td>
+					<td class="last"><rsc:item name="end_time" row="<%=resultRow%>" format="MM.dd.yyyy'<br />'HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
+				</tr>
                     </rsc:iterator>
                 </tbody>
             </table>
@@ -158,9 +176,6 @@ ding="utf-8"?>
         </div>
     </div>
     </c:if>
-
-    
-    
 </div>
  <%-- end left container --%>
 
@@ -292,8 +307,101 @@ ding="utf-8"?>
 </div>
 <br class="clear"/>
 
+<<<<<<< .mine
+</div>
+ <%-- end content main --%>
+</div>
+ <%--  end wrapper --%>
+</div>
+
+<!-- LINKS BLOCK -->
+    <div id="links">
+        <div class="wrapper2">
+            <div class="col">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="http://software.topcoder.com/contact.jsp">Contact Support</a></li>
+                    <li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=privacy">Privacy Policy</a></li>
+                    <li><a href="http://topcoderblogs.com/direct/?page_id=24">Terms &amp; Conditions</a></li>
+                </ul>
+            </div>
+            
+            <div class="col">
+                <h4>About TopCoder</h4>
+                <ul>
+                    <li><a href="http://software.topcoder.com/contact.jsp">Contact Us</a></li>
+                    <li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=mediaRequestForm">Public Relations</a></li>
+                    <li><a href="http://software.topcoder.com/TCD/rss.jsp">RSS Feeds</a></li>
+                    <li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=index">Press Room</a></li>
+                    <li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=jobs">Working at TopCoder</a></li>
+                    <li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=terms">Legal Information</a></li>
+                </ul>
+
+            </div>
+            
+            <div class="col">
+                <h4>Platform Tools</h4>
+                <ul><li><a href="http://www.topcoder.com/wiki/display/tc/Upcoming+Contests">Pipeline</a></li>
+                    <li><a href="http://www.topcoder.com/wiki/display/tc/TopCoder+UML+Tool">UML Tool</a></li>
+                    <li><a href="http://forums.topcoder.com/?module=Category&amp;categoryID=22">TopCoder Forums</a></li>
+                    <li><a href="http://software.topcoder.com/catalog/index.jsp">Component Catalog</a></li>
+                    <li><a href="http://www.topcoder.com/wiki/">TopCoder Wiki</a></li>
+                </ul>
+          </div>
+            
+            <div class="col">
+                <h4>TopCoder Community</h4>
+                <ul>
+                       <li><a href="http://www.topcoder.com/tc">TopCoder Community Home</a></li>
+                    <li><a href="http://forums.topcoder.com/">TopCoder Forums</a></li>
+                    <li><a href="http://studio.topcoder.com/forums">Studio Forums</a></li>
+                </ul>
+            
+                <h4>TopCoder Blogs</h4>
+                <ul>
+                    <li><a href="http://topcoderblogs.com/direct/">TopCoder Direct</a></li>
+                    <li><a href="http://tcstudioblogs.com/">Studio TopCoder</a></li>
+                </ul>
+            </div>
+            
+            <div class="col">
+                <h4>My Account</h4>
+                <ul>
+                    <li><a href="http://www.topcoder.com/reg/">TopCoder Registration</a></li>
+                    <li><a href="http://www.topcoder.com/tc?module=MyHome">Manage Profile</a></li>
+                    <li><a href="http://www.topcoder.com/dr">TopCoder Digital Run</a></li>
+                    <li><a href="http://studio.topcoder.com/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=home">Studio Cup</a></li>
+                </ul>
+            </div>
+            
+            <div class="col">
+                <h4>Powered by TopCoder</h4>
+                <ul>
+                    <li><a href="http://software.topcoder.com/">TopCoder Direct</a></li>
+                    <li><a href="http://www.topcoder.com/">TopCoder.com</a></li>
+                    <li><a href="http://studio.topcoder.com/">Studio TopCoder</a></li>
+                </ul>
+            </div>
+
+        </div><!-- .wrapper ends -->
+    </div><!-- #links block ends -->
+  </div><!-- #page-wrap ends -->
+    
+    <!-- FOOTER BLOCK -->
+    <div id="footer">
+        <div class="wrapper2">
+            <p id="footer_1800"><strong>1-866-TOPCODER or Service@TopCoder.com</strong></p> <!--chjanged from id-->
+            <p>TopCoder is the world's largest competitive software development community with developers representing over 200 countries.</p>
+            <p>Copyright &copy;2001-2008, TopCoder, Inc. All rights reserved.</p>
+        </div><!-- .wrapper ends -->
+    </div><!-- #footer ends -->
+    
+<!--OLD FOOTER-->
+<!--<div id="footer"> 
+=======
  <%-- footer --%>
 <div id="footer">
+>>>>>>> .r74200
     <a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img alt="TopCoder" class="TClogo" src="/i/v3/tc_logo.jpg"/></a>
 
     <p><a href="/">Home</a> &nbsp;|&nbsp; <a href="/?module=Static&amp;d1=contactUs">Contact Us</a> &nbsp;|&nbsp;
@@ -313,9 +421,10 @@ var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "htt
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
+try {
 var pageTracker = _gat._getTracker("UA-6340959-3");
 pageTracker._trackPageview();
-</script>
+} catch(err) {}</script>
 
 </body>
 </html>

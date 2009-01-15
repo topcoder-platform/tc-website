@@ -7,8 +7,8 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>TopCoder Studio</title>
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
@@ -16,6 +16,14 @@
 </head>
 
 <body>
+<<<<<<< .mine
+	<div id="page-wrap">
+    	<div align="center">
+			<jsp:include page="top.jsp">
+            	<jsp:param name="section" value="contest" />
+        	</jsp:include>
+        <br />
+=======
     <!-- wrapper -->
     <div id="wrapper">
         <!-- header -->
@@ -25,6 +33,7 @@
                 <jsp:param name="node" value="contests"/>
             </jsp:include>
         </div>
+>>>>>>> .r74200
         <!-- container -->
         <div id="container">
             <!-- content -->
@@ -56,11 +65,11 @@
                         <!-- could also use <input>'s button <button> gives you more display freedom and is documented on w3c -->
                         <!-- resulting page from click has value at the end of the URL, which is pointless.  Feel free to use any html/js element/method but i want the nice looking button -->
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
-                    <br/></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
                         <c:if test="${not empty has_global_ad and not has_global_ad}">
                             <span class="bigRed">
                                  You have not yet signed the Assignment Document that is required in order to submit for this contest.  Please go <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">here</a> to read more about Assignment Documents and what you need to do.  You will not be able to submit for this contest without first sending in the signed Assignment Document.
-                            <br/></span>
+                            <br /></span>
                         </c:if>
                         <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_AGREE%>"/>I agree
                         <br /><br />
@@ -80,6 +89,6 @@
 
         <jsp:include page="foot.jsp"/>
 
-    </div>
+
 </body>
 </html>

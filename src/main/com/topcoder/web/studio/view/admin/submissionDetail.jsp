@@ -19,8 +19,8 @@
 -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>TopCoder Studio</title>
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_studio"/>
@@ -76,6 +76,12 @@
 </head>
 
 <body>
+<<<<<<< .mine
+	<div id="page-wrap">
+    	<div align="center">
+			<jsp:include page="../top.jsp"/>
+        <br />
+=======
     <!-- wrapper -->
     <div id="wrapper">
         <!-- header -->
@@ -85,6 +91,7 @@
                 <jsp:param name="node" value="contests"/>
             </jsp:include>
         </div>
+>>>>>>> .r74200
         <!-- container -->
         <div id="container">
             <!-- content -->
@@ -124,16 +131,16 @@
                         </c:otherwise>
                     </c:choose>
 
-                    <br/>
+                    <br />
                     <c:if test="${submission.contest.channel.id != adminV1}">
                         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=original">
                             Download Original Submission</a>
-                        <br/>
+                        <br />
                     </c:if>
                     <a style="display: block;" onfocus="this.blur();" onclick="remove(${submission.id});return false;" href="#">
                         Delete Submission
                     </a>
-                    <br/>
+                    <br />
 
 
                     <c:if test="${submissionReview.reviewer!=null}">
@@ -156,7 +163,7 @@
                     <button name="submit" value="submit" type="submit">Submit</button>
                 </form>
 
-                <br/> <br/>
+                <br /> <br />
 
                 <c:set value="<%=ReviewStatus.PASSED%>" var="passedStatus"/>
                 <c:set var="clientPrize" value="<%=PrizeType.BONUS%>"/>
@@ -222,6 +229,6 @@
 
         <jsp:include page="../foot.jsp"/>
 
-    </div>
+
 </body>
 </html>

@@ -5,8 +5,8 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>TopCoder Studio</title>
     
     <!-- add js/css files for portfolio section styles and modal windows -->
@@ -21,6 +21,14 @@
 </head>
 
 <body>
+<<<<<<< .mine
+	<div id="page-wrap">
+    	<div align="center">
+			<jsp:include page="../top.jsp">
+            	<jsp:param name="section" value="portfolio" />
+        	</jsp:include>
+        <br />
+=======
     <!-- wrapper -->
     <div id="wrapper">
         <!-- header -->
@@ -31,6 +39,7 @@
             </jsp:include>
         </div>
         
+>>>>>>> .r74200
         <!-- container -->
         <div id="container">
             <!-- content -->
@@ -144,6 +153,6 @@
 
         <jsp:include page="../foot.jsp"/>
 
-    </div>
+
 </body>
 </html>

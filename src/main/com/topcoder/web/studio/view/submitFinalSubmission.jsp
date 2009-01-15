@@ -12,8 +12,8 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script type="text/javascript" src="/js/taconite-client.js"></script>
     <script type="text/javascript" src="/js/taconite-parser.js"></script>
     <script type="text/javascript" src="/js/fat.js"></script>
@@ -31,6 +31,12 @@
 </head>
 
 <body>
+<<<<<<< .mine
+	<div id="page-wrap">
+    	<div align="center">
+			<jsp:include page="top.jsp"/>
+        <br />
+=======
     <!-- wrapper -->
     <div id="wrapper">
         <!-- header -->
@@ -40,6 +46,7 @@
                 <jsp:param name="node" value="contests"/>
             </jsp:include>
         </div>
+>>>>>>> .r74200
         <!-- container -->
         <div id="container">
             <!-- content -->
@@ -93,7 +100,7 @@
                         </c:choose>
                     </c:if>
             </div>
-            <br/>
+            <br />
             <p>Please use the form below to upload your submission:</p>
     
 <%--
@@ -128,6 +135,6 @@
 
         <jsp:include page="foot.jsp"/>
 
-    </div>
+
 </body>
 </html>
