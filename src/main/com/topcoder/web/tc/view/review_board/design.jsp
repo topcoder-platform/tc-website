@@ -50,7 +50,13 @@
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
                     <td class="bodyText"><img src="/i/clear.gif" width="240" height="1" border="0"><br>
+                        <%-- TCS Release 2.2.0 (TCS-55) : The request passes project type ID instead of component
+                             phase type ID when referrring to review board type --%>
+<%--
                         <p align="right" ><a href="/tc?module=ReviewBoard&ph=113" class="bodyText"><strong>Go to Development Review Board</strong></a></p>
+--%>
+                        <p align="right" ><a href="/tc?module=ReviewBoard&pt=2" class="bodyText"><strong>Go to Development Review Board</strong></a></p>
+
                         <p>Highly rated and experienced TopCoder members fill the ranks of the Architecture Review Board.  These members screen and review all design
                         submissions to ensure the components meet the functional requirements, are documented properly and contain the appropriate sequence, use case
                         and class diagrams.  Additionally, the Architecture Review Board recommends design enhancements and verifies the design is flexible

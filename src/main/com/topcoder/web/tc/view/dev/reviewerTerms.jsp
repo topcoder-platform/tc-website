@@ -36,7 +36,7 @@
 <%-- Left Column Ends --%>
 
 <%-- Gutter Begins --%>
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0" alt=""/></td>
 <%-- Gutter Ends --%>
 
 <%-- Center Column Begins --%>
@@ -49,7 +49,13 @@
 
             <form action="<%=sessionInfo.getServletPath()%>" method="POST" name="frmTerms">
               <input type="hidden" name="<%=Constants.PROJECT_ID%>" value="<%=request.getParameter(Constants.PROJECT_ID)%>"/>
+                <%-- TCS Release 2.2.0 (TCS-54) : The request passes project type ID instead of component
+                     phase type ID when referrring to review project type--%>
+<%--
               <input type="hidden" name="<%=Constants.PHASE_ID%>" value="<%=request.getParameter(Constants.PHASE_ID)%>"/>
+--%>
+                <input type="hidden" name="<%=Constants.PROJECT_TYPE_ID%>"
+                       value="<%=request.getParameter(Constants.PROJECT_TYPE_ID)%>"/>
               <input type="hidden" name="<%=Constants.REVIEWER_TYPE_ID%>" value="<%=request.getParameter(Constants.REVIEWER_TYPE_ID)%>"/>
               <input type="hidden" name="<%=Constants.PRIMARY_FLAG%>" value="<%=request.getParameter(Constants.PRIMARY_FLAG)%>"/>
               <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectReviewTermsAgree"/>
@@ -115,7 +121,7 @@
 <%-- Center Column Ends --%>
 
 <%-- Gutter --%>
-         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
+         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0" alt=""></td>
 <%-- Gutter Ends --%>
 
 <%-- Right Column Begins --%>
@@ -128,7 +134,7 @@
 <%-- Right Column Ends --%>
 
 <%-- Gutter --%>
-         <td width="2"><img src="/i/clear.gif" width="2" height="1" border="0"></td>
+         <td width="2"><img src="/i/clear.gif" width="2" height="1" border="0" alt=""></td>
 <%-- Gutter Ends --%>
 
     </tr>

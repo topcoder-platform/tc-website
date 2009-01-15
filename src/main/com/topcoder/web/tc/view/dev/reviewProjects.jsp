@@ -128,7 +128,12 @@
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
+       <%-- TCS Release 2.2.0 (TCS-54) : The request passes project type ID instead of component phase type ID when
+            referrring to review project type --%>
+<%--
       <td class="statDk" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<%=(design ? "112" : "113")%>">details</a>
+--%>
+      <td class="statDk" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PROJECT_TYPE_ID%>=<%=(design ? "1" : "2")%>">details</a>
       <% if (resultRow.getIntItem("price_changes")>0) { %> <img src="/i/development/up_arrow_gr.gif" border="0"/> <% } %></td>
    </tr>
    <% } %>
@@ -205,7 +210,12 @@
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
+       <%-- TCS Release 2.2.0 (TCS-54) : The request passes project type ID instead of component phase type ID when
+            referrring to review project type --%>
+<%--
       <td class="statDk" align="left" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<%=(design ? "112" : "113")%>">details</a>
+--%>
+      <td class="statDk" align="left" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<%=(design ? "1" : "2")%>">details</a>
       <% if (resultRow.getIntItem("price_changes")>0) { %> <img src="/i/development/up_arrow_gr.gif" border="0"/> <% } %></td>
    </tr>
    <% } %>

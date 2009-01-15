@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2008 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -5,41 +8,118 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.SoftwareComponent;
+import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
 
 /**
- * User: dok
- * Date: Aug 20, 2004
+ * <p>A controller to handle the requests for displaying the list of active reviewers for the requested review board
+ * type. The desired review board type is expected to be provided as {@link Constants#PROJECT_TYPE_ID} request
+ * parameter. As of current version only <code>Design</code>, <code>Development</code> and <code>Assembly</code> review
+ * boards are supported.</p>
+ *
+ * <p><b>Change Log:</b></p>
+ *
+ * <p>
+ *   <table>
+ *     <tr>
+ *         <td>TCS Release 2.2.0</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added public non-argument constructor to follow the current TC standards for code development.</li>
+ *             <li>Fully documented the class to follow current TC standards for code documentation.</li>
+ *             <li>Refactored the logic for referencing the review board types by client requests. Now the clients will
+ *             pass project type ID instead of component project phase type ID to refer to review board type.</li>
+ *             <li>Refactored the logic for handling the requests to split the logic for checking the supported review
+ *             board types and mapping them to appropriate view into separate private methods.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *   </table>
+ * </p>
+ *
+ * @author dok, TCSDEVELOPER
+ * @version 1.1
+ * @since 1.0
  */
 public class ReviewBoard extends Base {
 
+    /**
+     * <p>Constructs new <code>ReviewBoard</code> instance. This implementation does nothing.</p>
+     */
+    public ReviewBoard() {
+    }
+
+    /**
+     * <p>Handles the request for displaying the list of reviewers for the review board type provided as
+     * {@link Constants#PROJECT_TYPE_ID} request parameter.</p>
+     *
+     * <p>Looks up for the list of reviewers for the requested review board type and binds it to request and forwards
+     * request to one of <code>/review_board/design.jsp</code>, <code>/review_board/development.jsp</code>,
+     * <code>/review_board/assembly.jsp</code> views depending on requested review board type. As of current version
+     * only <code>Design</code>, <code>Development</code> and <code>Assembly</code> review boards are supported;
+     * otherwise an exception is raised.</p>
+     *
+     * @throws TCWebException if an unexpected error occurs.
+     * @throws NavigationException if requested review board type is not supported.
+     * @see Constants#DESIGN_PROJECT_TYPE
+     * @see Constants#DEVELOPMENT_PROJECT_TYPE
+     * @see Constants#ASSEMBLY_PROJECT_TYPE
+     */
     protected void businessProcessing() throws TCWebException {
-        String phaseId = getRequest().getParameter(Constants.PHASE_ID);
-        if (phaseId.equals(String.valueOf(SoftwareComponent.DESIGN_PHASE)) || phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) {
+        String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
+        if (isReviewBoardTypeSupported(projectTypeId)) {
             Request r = new Request();
             r.setContentHandle("review_board_members");
-            r.setProperty(Constants.PHASE_ID, phaseId);
+            r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
             try {
                 DataAccessInt dai = getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, true);
                 getRequest().setAttribute("memberList", dai.getData(r).get("review_board_members"));
-                if (phaseId.equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
-                    setNextPage("/review_board/design.jsp");
-                } else {
-                    setNextPage("/review_board/development.jsp");
-                }
+                String reviewBoardView = getReviewBoardView(projectTypeId);
+                setNextPage(reviewBoardView);
                 setIsNextPageInContext(true);
-
             } catch (TCWebException e) {
                 throw e;
             } catch (Exception e) {
                 throw new TCWebException(e);
             }
-
         } else {
-            throw new NavigationException("Invalid phase specified " + phaseId);
+            throw new NavigationException("Invalid project type specified " + projectTypeId);
         }
-
     }
 
+    /**
+     * <p>Checks whether the specified review board type requested by client is currently supported by this controller
+     * or not. As of current version <code>Design</code>, <code>Development</code> and <code>Assembly</code> review
+     * boards are supported only.</p>
+     *
+     * @param reviewBoardType a <code>String</code> referencing the review board type requested by client.
+     * @return <code>true</code> if specified review board type is requested; <code>false</code> otherwise.
+     * @since TCS Release 2.2.0 (TCS-55)
+     */
+    private boolean isReviewBoardTypeSupported(String reviewBoardType) {
+        return reviewBoardType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE));
+    }
+
+    /**
+     * <p>Gets the logical name for the view which is to be used for displaying the list of members of review board of
+     * specified type requested by client. As of current version <code>Design</code>, <code>Development</code> and
+     * <code>Assembly</code> review boards are supported only.</p>
+     *
+     * @param reviewBoardType a <code>String</code> referencing the review board type requested by client.
+     * @return a <code>String</code> referencing the view to be used for displaying the list of reviewers for specified
+     *         review board.
+     * @since TCS Release 2.2.0 (TCS-55)
+     */
+    private String getReviewBoardView(String reviewBoardType) {
+        if (reviewBoardType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
+            return "/review_board/design.jsp";
+        } else if (reviewBoardType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
+            return "/review_board/development.jsp";
+        } else {
+            return "/review_board/assembly.jsp";
+        }
+    }
 }

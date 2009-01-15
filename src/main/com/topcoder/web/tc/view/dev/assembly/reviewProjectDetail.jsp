@@ -1,6 +1,13 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Date: 07 Jan 2009
+  - Version: 1.0
+  - Copyright (C) 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This is the page for displaying the review details for Assembly projects. It displays the list
+  - of project phases along with the list of taken and available review positions.
+--%>
 <%@  page language="java"  %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.dataAccess.resultSet.TCTimestampResult,
                  com.topcoder.common.web.util.DateTime,
@@ -18,8 +25,11 @@
 <% Timestamp waitingUntil = (Timestamp) request.getAttribute("waitingUntil"); %>
 <% int applicationDelayHours = ((Integer) request.getAttribute("applicationDelayHours")).intValue(); %>
 <% int applicationDelayMinutes = ((Integer) request.getAttribute("applicationDelayMinutes")).intValue(); %>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
 <head>
-<title>Open Component Projects Available for Review</title>
+<title>Open Assembly Projects Available for Review</title>
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
@@ -30,7 +40,7 @@
 
 <body>
 
-<jsp:include page="../top.jsp" >
+<jsp:include page="/top.jsp" >
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
@@ -41,19 +51,19 @@
 <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="<%= phase_id == 112 ? "des_review" : "dev_review"%>"/>
+            <jsp:param name="node" value="assembly_review"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0" alt=""/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
 <jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="<%= phase_id == 112 ? "comp_design" : "comp_development"%>"/>
+    <jsp:param name="image" value="software_assembly"/>
     <jsp:param name="title" value="Review Opportunities"/>
 </jsp:include>
             <table cellspacing="0" cellpadding="0" width="530">
@@ -74,7 +84,7 @@
                     <td class="projectHeaders" align="right" width="50%">Difficulty</td>
                 </tr>
                 <tr>
-                    <td class="projectCells" align="left"><rsc:item set="<%=projectDetail%>" name="catalog"/></td>
+                    <td class="projectCells" align="left">Assembly</td>
                     <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="phase_desc"/></td>
                     <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="level"/></td>
                 </tr>
@@ -159,11 +169,6 @@
                             <% } else if (isWaiting) { %>
                                 <i>Waiting until <%= DateTime.timeStampToArbitraryString(waitingUntil, "MM.dd.yyyy hh:mm a") %> ****</i>
                             <% } else { %>
-                            <%-- TCS Release 2.2.0 (TCS-54) : The request passes project type ID instead of component
-                                 phase type ID when referrring to review project type--%>
-<%--
-                                <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PROJECT_ID%>=<tc:beanWrite name="reviewer" property="projectId"/>&<%=Constants.PHASE_ID%>=<%=phase_id%>&<%=Constants.PRIMARY_FLAG%>=<%=((ReviewBoardApplication)reviewer).isPrimary()%>&<%=Constants.REVIEWER_TYPE_ID%>=<tc:beanWrite name="reviewer" property="reviewerTypeId"/>">Apply Now</a> **
---%>
                                 <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PROJECT_ID%>=<tc:beanWrite name="reviewer" property="projectId"/>&<%=Constants.PROJECT_TYPE_ID%>=<%=projectDetail.getIntItem(0, "project_category_id")%>&<%=Constants.PRIMARY_FLAG%>=<%=((ReviewBoardApplication)reviewer).isPrimary()%>&<%=Constants.REVIEWER_TYPE_ID%>=<tc:beanWrite name="reviewer" property="reviewerTypeId"/>">Apply Now</a> **
                             <% } %>
                         </td>
@@ -209,7 +214,7 @@
 <%--
                         <p align="left"><a href="/tc?module=ViewReviewProjects&amp;<%=Constants.PHASE_ID%>=<%=phase_id%>">View all projects</a></p>
 --%>
-                        <p align="left"><a href="/tc?module=ViewReviewProjects&amp;<%=Constants.PROJECT_TYPE_ID%>=<%=phase_id == 112 ? 1 : 2%>">View all projects</a></p>
+                        <p align="left"><a href="/tc?module=ViewReviewProjects&amp;<%=Constants.PROJECT_TYPE_ID%>=14">View all projects</a></p>
                     </td>
                 </tr>
             </table>
@@ -223,7 +228,7 @@
 
 <!-- Right Column Begins -->
          <td width="180">
-            <jsp:include page="../public_right.jsp">
+            <jsp:include page="/public_right.jsp">
         <jsp:param name="level1" value="default"/>
     </jsp:include>
 
@@ -231,13 +236,13 @@
 <!-- Right Column Ends -->
 
 <!-- Gutter -->
-         <td width="2"><img src="/i/clear.gif" width="2" height="1" border="0"></td>
+         <td width="2"><img src="/i/clear.gif" width="2" height="1" border="0" alt=""></td>
 <!-- Gutter Ends -->
 
     </tr>
 </table>
 
-<jsp:include page="../foot.jsp" />
+<jsp:include page="/foot.jsp" />
 
 </body>
 
