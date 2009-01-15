@@ -37,7 +37,6 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio_forums"/>
     </jsp:include>
-<<<<<<< .mine
 	
 	<script src="js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
 	<script src="js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
@@ -62,29 +61,15 @@
 	
 	});
 	</script>
-=======
->>>>>>> .r74202
 </head>
 
 <body>
-<<<<<<< .mine
 	<div id="page-wrap">
     	<div align="center">
 			<jsp:include page="top.jsp">
             <jsp:param name="section" value="forums" />
         </jsp:include>
         <br />
-=======
-    <!-- wrapper -->
-    <div id="wrapper">
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="top.jsp"/>
-            <jsp:include page="topNav.jsp">
-                <jsp:param name="node" value="forums"/>
-            </jsp:include>
-        </div>
->>>>>>> .r74202
         <!-- container -->
         <div id="container">
             <!-- content -->
@@ -92,7 +77,7 @@
                 <div class="contentTop">
                     <div class="contentMiddle forums">
 
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
+				<table cellpadding="0" cellspacing="0" class="rtbcTable">
                     <tr>
                         <td class="categoriesBox" style="padding-right: 20px;">
                             <jsp:include page="categoriesHeader.jsp"/>

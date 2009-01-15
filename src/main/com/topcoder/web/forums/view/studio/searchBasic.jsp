@@ -34,9 +34,8 @@ function noenter(e)
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>TopCoder Studio</title>
+	<title>TopCoder Studio</title>
 
-<<<<<<< .mine
 	<jsp:include page="style.jsp">
    	 <jsp:param name="key" value="tc_studio_forums"/>
 	</jsp:include>
@@ -65,11 +64,6 @@ function noenter(e)
 	});
 	</script>
 	
-=======
-<jsp:include page="style.jsp">
-    <jsp:param name="key" value="tc_studio_forums"/>
-</jsp:include>
->>>>>>> .r74202
     <script type="text/javascript">
         function openWin(url, name, w, h) {
             win = window.open(url, name, "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width=" + w + ",height=" + h);
@@ -80,24 +74,12 @@ function noenter(e)
 </head>
 
 <body>
-<<<<<<< .mine
 	<div id="page-wrap">
     	<div align="center">
 			<jsp:include page="top.jsp">
             <jsp:param name="section" value="forums" />
         </jsp:include>
         <br />
-=======
-    <!-- wrapper -->
-    <div id="wrapper">
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="top.jsp"/>
-            <jsp:include page="topNav.jsp">
-                <jsp:param name="node" value="forums"/>
-            </jsp:include>
-        </div>
->>>>>>> .r74202
         <!-- container -->
         <div id="container">
             <!-- content -->
@@ -105,26 +87,26 @@ function noenter(e)
                 <div class="contentTop">
                     <div class="contentMiddle forums">
 
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr>
-	<td class="categoriesBox" style="padding-right: 20px;">
-      <jsp:include page="categoriesHeader.jsp" />
-	</td>
-    <td nowrap="nowrap" valign="top" width="100%">
-       <jsp:include page="searchHeader.jsp" >
-            <jsp:param name="queryTerms" value="<%=query.getQueryString()%>"/>
-       </jsp:include>
-	</td>
-	<td align="right" nowrap="nowrap" valign="top">   
-       <a href="?module=History" class="rtbcLink">My Post History</a> | <a href="?module=Watches" class="rtbcLink">My Watches</a> | <a href="?module=Settings" class="rtbcLink">User Settings</a><br />
-	</td>
-</tr>
-</table>
-<b><a href="?module=Main" class="rtbcLink">Forums</a> > Search</b><br /><br />
-
-<% if ("search".equals(status)) { %>
-    <jsp:include page="searchResults.jsp"/>
-<% } %>
+					<table cellpadding="0" cellspacing="0" class="rtbcTable">
+					<tr>
+						<td class="categoriesBox" style="padding-right: 20px;">
+						  <jsp:include page="categoriesHeader.jsp" />
+						</td>
+						<td nowrap="nowrap" valign="top" width="100%">
+						   <jsp:include page="searchHeader.jsp" >
+								<jsp:param name="queryTerms" value="<%=query.getQueryString()%>"/>
+						   </jsp:include>
+						</td>
+						<td align="right" nowrap="nowrap" valign="top">   
+						   <a href="?module=History" class="rtbcLink">My Post History</a> | <a href="?module=Watches" class="rtbcLink">My Watches</a> | <a href="?module=Settings" class="rtbcLink">User Settings</a><br />
+						</td>
+					</tr>
+					</table>
+					<b><a href="?module=Main" class="rtbcLink">Forums</a> > Search</b><br /><br />
+					
+					<% if ("search".equals(status)) { %>
+						<jsp:include page="searchResults.jsp"/>
+					<% } %>
 
 
                         <br clear="all"/>

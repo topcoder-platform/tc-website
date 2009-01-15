@@ -42,9 +42,8 @@ function noenter(e)
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>TopCoder Studio</title>
+	<title>TopCoder Studio</title>
 
-<<<<<<< .mine
 	<jsp:include page="style.jsp">
    	 <jsp:param name="key" value="tc_studio_forums"/>
 	</jsp:include>
@@ -74,12 +73,6 @@ function noenter(e)
 	</script>
 	
 	<script type="text/javascript">
-=======
-<jsp:include page="style.jsp">
-    <jsp:param name="key" value="tc_studio_forums"/>
-</jsp:include>
-    <script type="text/javascript">
->>>>>>> .r74202
         function openWin(url, name, w, h) {
             win = window.open(url, name, "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width=" + w + ",height=" + h);
             win.location.href = url;
@@ -89,26 +82,14 @@ function noenter(e)
 </head>
 
 <body>
-<<<<<<< .mine
 	<div id="page-wrap">
     	<div align="center">
 			<jsp:include page="top.jsp">
             <jsp:param name="section" value="forums" />
         </jsp:include>
         <br />
-=======
-    <!-- wrapper -->
-    <div id="wrapper">
-        <!-- header -->
-        <div id="header">
-            <jsp:include page="top.jsp"/>
-            <jsp:include page="topNav.jsp">
-                <jsp:param name="node" value="forums"/>
-            </jsp:include>
-        </div>
->>>>>>> .r74202
         <!-- container -->
-        <div id="container">
+    	<div id="container">
             <!-- content -->
             <div id="content">
                 <div class="contentTop">
