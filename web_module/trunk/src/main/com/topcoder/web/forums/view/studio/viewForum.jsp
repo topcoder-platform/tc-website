@@ -88,16 +88,51 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>TopCoder Studio</title>
 
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio_forums"/>
     </jsp:include>
+<<<<<<< .mine
+	
+	<script src="js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
+	<script src="js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+	<script src="js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+	<script type="text/javascript" language="javascript">
+
+	$(document).ready(function(){
+	
+	
+		$("#nav ul li").hoverIntent(function(){
+			$(this).children("ul").slideDown("fast");
+		}, function() {
+			$(this).children("ul").slideUp("fast");
+		});
+		
+		$("#nav ul ul li").hover(function() {
+			$(this).parents("#nav ul li").children('a').addClass("active-item");
+		}, function() {
+			$(this).parents("#nav ul li").children('a').removeClass("active-item");
+		});
+	
+	
+	});
+	</script>
+=======
+>>>>>>> .r74202
 </head>
 
 <body>
+<<<<<<< .mine
+	<div id="page-wrap">
+    	<div align="center">
+			<jsp:include page="top.jsp">
+            <jsp:param name="section" value="forums" />
+        </jsp:include>
+        <br />
+=======
     <!-- wrapper -->
     <div id="wrapper">
         <!-- header -->
@@ -107,12 +142,13 @@
                 <jsp:param name="node" value="forums"/>
             </jsp:include>
         </div>
+>>>>>>> .r74202
         <!-- container -->
         <div id="container">
             <!-- content -->
             <div id="content">
                 <div class="contentTop">
-                    <div class="contentMiddle">
+                    <div class="contentMiddle forums">
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
