@@ -68,8 +68,7 @@
 					<h1>Active Contests</h1>
 					
 					<div align="right"><strong>Need help? Learn how to
-						<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get
-							started</a></strong>.<br />
+						<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get started</a></strong>.<br />
 					</div>
 					
 					<div class="tableTabOn" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a></div>
@@ -85,16 +84,13 @@
 							<table class="stat" cellpadding="0" cellspacing="0" width="100%">
 							<tbody>
 								<tr>
-									
 									<td class="header" colspan="2" width="100%">
 										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Project</a>
 									</td>
 									<td class="headerC">
-										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("start_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Start
-											Date</a></td>
+										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("start_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Start Date</a></td>
 									<td class="headerC">
-										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End
-											Date</a></td>
+										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End Date</a></td>
 									<td class="headerR" nowrap="nowrap">
 										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("prize_total")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Prize Purse</a>
 									</td>
@@ -108,19 +104,16 @@
 										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submissions</a>
 									</td>
 									<td class="header">&nbsp;</td>
-									
 								</tr>
 								<c:choose>
 									<c:when test="${fn:length(contests)==0}">
 										<tr><td class="space" colspan="9">&nbsp;</td></tr>
 										<tr class="light">
-											
 											<td class="valueC" colspan="9">
 												<div align="center" style="margin: 40px 0px 40px 0px;">
 													There are currently no active contests, but check back soon.
 												</div>
 											</td>
-											
 										</tr>
 									</c:when>
 									<c:otherwise>
@@ -129,7 +122,6 @@
 									<rsc:iterator list="${contests}" id="resultRow">
 										<tr><td class="space" colspan="9">&nbsp;</td></tr>
 										<tr class="<%=even?"light":"dark"%>">
-											
 											<td class="valueE">
 												<%-- Since TopCoder Studio Modifications assembly Req# 5.2 --%>
 												<div class="contestEmblem"><studio_tags:contestIcon row="${resultRow}"/></div>
@@ -165,7 +157,6 @@
 											<td class="valueC">
 												<rsc:item name="submission_count" row="<%=resultRow%>"/>
 											</td>
-						
 											<td class="valueW" nowrap="nowrap">
 												<% if (resultRow.getIntItem("is_user_registered") == 1) { %>
 												<a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/v2/interface/btnSubmitOrganize.png" alt="Submit &amp; Organize" style="margin: 6px 0px 6px 0px;"/></a>
@@ -173,8 +164,6 @@
 												<a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/v2/interface/btnRegister.png" alt="Register" style="margin: 6px 0px 6px 0px;"/></a>
 												<% } %>
 											</td>
-						
-											
 										</tr>
 										<% even = !even;%>
 									</rsc:iterator>
