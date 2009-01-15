@@ -41,7 +41,6 @@
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <link type="text/css" rel="stylesheet" href="/css/stats.css" />
 <link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
-<<<<<<< .mine
 <% } else if (key.equals("tc_studio_home")) { %>
 <link type="text/css" rel="stylesheet" href="/css/v4/home.css" />
 <link type="text/css" rel="stylesheet" href="/css/v4/studio-navigation.css" />
@@ -52,10 +51,7 @@
 <!--[if IE 6]>
 	<link rel="stylesheet" type="text/css" href="/css/v4/studio-ie6.css" />
 <![endif]-->
-=======
->>>>>>> .r74200
 <% } else if (key.equals("tc_studio")) { %>
-<<<<<<< .mine
 <link type="text/css" rel="stylesheet" href="/css/v4/main.css" />
 <link type="text/css" rel="stylesheet" href="/css/v4/studio-navigation.css" />
 <link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css" />
@@ -65,11 +61,7 @@
 <!--[if IE 6]>
 	<link rel="stylesheet" type="text/css" href="/css/v4/studio-ie6.css" />
 <![endif]-->
-=======
-<link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
->>>>>>> .r74200
 <% } else if (key.equals("tc_studio_profile")) { %>
-<<<<<<< .mine
 <link type="text/css" rel="stylesheet" href="/css/v4/main.css" />
 <link type="text/css" rel="stylesheet" href="/css/v4/profile.css" />
 <link type="text/css" rel="stylesheet" href="/css/v4/studio-navigation.css" />
@@ -81,18 +73,9 @@
 <!--[if IE 6]>
 	<link rel="stylesheet" type="text/css" href="/css/v4/studio-ie6.css" />
 <![endif]-->
-=======
-<link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
-<link type="text/css" rel="stylesheet" href="/css/studioMemberProfile.css" />
->>>>>>> .r74200
 <% } else if (key.equals("tc_studio_forums")) { %>
-<<<<<<< .mine
 <link type="text/css" rel="stylesheet" href="/css/v4/main.css" />
-=======
-<link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
->>>>>>> .r74200
 <link type="text/css" rel="stylesheet" href="/css/forums.css" />
-<<<<<<< .mine
 <link type="text/css" rel="stylesheet" href="/css/v4/studio-navigation.css" />
 <link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css" />
 <!--[if IE 7]>
@@ -101,16 +84,9 @@
 <!--[if IE 6]>
 	<link rel="stylesheet" type="text/css" href="/css/v4/studio-ie6.css" />
 <![endif]-->
-=======
->>>>>>> .r74200
 <% } else if (key.equals("studio_digitalrun")) { %>
-<<<<<<< .mine
 <link type="text/css" rel="stylesheet" href="/css/v4/main.css" />
-=======
-<link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
->>>>>>> .r74200
 <link type="text/css" rel="stylesheet" href="/css/digitalrun/main.css" />
-<<<<<<< .mine
 <link type="text/css" rel="stylesheet" href="/css/v4/studio-navigation.css" />
 <link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css" />
 <!--[if IE 7]>
@@ -119,16 +95,9 @@
 <!--[if IE 6]>
 	<link rel="stylesheet" type="text/css" href="/css/v4/studio-ie6.css" />
 <![endif]-->
-=======
->>>>>>> .r74200
 <% } else if (key.equals("studio_portfolio")) { %>
-<<<<<<< .mine
 <link type="text/css" rel="stylesheet" href="/css/v4/main.css" />
-=======
-<link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
->>>>>>> .r74200
 <link type="text/css" rel="stylesheet" href="/css/portfolio/portfolio_style.css" />
-<<<<<<< .mine
 <link type="text/css" rel="stylesheet" href="/css/v4/studio-navigation.css" />
 <link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css" />
 <!--[if IE 7]>
@@ -137,9 +106,6 @@
 <!--[if IE 6]>
 	<link rel="stylesheet" type="text/css" href="/css/v4/studio-ie6.css" />
 <![endif]-->
-=======
-<link type="text/css" rel="stylesheet" href="/css/portfolio/thickbox.css" />
->>>>>>> .r74200
 <% } else if (key.equals("csf")) { %>
 <link type="text/css" rel="stylesheet" href="/css/main.css" />
 <% } else if (key.equals("csfforums")) { %>

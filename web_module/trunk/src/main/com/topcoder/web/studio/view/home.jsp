@@ -29,7 +29,6 @@ ding="utf-8"?>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>Welcome to TopCoder Studio</title>
-<<<<<<< .mine
     
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio_home"/>
@@ -39,17 +38,29 @@ ding="utf-8"?>
 	<script src="js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
 	<script src="js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
 	<script type="text/javascript" language="javascript">
-=======
->>>>>>> .r74200
 
+	$(document).ready(function(){
+	
+	
+		$("#nav ul li").hoverIntent(function(){
+			$(this).children("ul").slideDown("fast");
+		}, function() {
+			$(this).children("ul").slideUp("fast");
+		});
+		
+		$("#nav ul ul li").hover(function() {
+			$(this).parents("#nav ul li").children('a').addClass("active-item");
+		}, function() {
+			$(this).parents("#nav ul li").children('a').removeClass("active-item");
+		});
+	
+	
+	});
+	</script>
+	
     <script type="text/javascript" src="/js/v2/popup.js"></script>
-    <script type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
-    <script type="text/javascript" src="/js/thickbox-3.1/thickbox-compressed-3.1.js"></script>
     <script type="text/JavaScript" src="/js/RSSProcessor.js"> </script>
     <script type='text/JavaScript' src='/js/AJAXProcessor.js'> </script>
-    <link rel="stylesheet" href="/js/thickbox-3.1/thickbox-3.1.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="/css/v2/home.css" media="all" type="text/css"/>
-    
 </head>
 
 <c:set var="contests" value="<%=activeContests%>"/>
@@ -58,29 +69,19 @@ ding="utf-8"?>
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 
 <body onLoad="loadWinners();loadNews()">
+	<div id="page-wrap">
+		<div align="center">
 
-<div align="center">
-<div id="wrapper">
-
-    <div id="header">
         <jsp:include page="top.jsp">
             <jsp:param name="section" value="home"/>
         </jsp:include>
-<<<<<<< .mine
         
     	<br />
 <%--  main content --%>
 <div id="wrapper">
-=======
-    	<jsp:include page="topNav.jsp">
-            <jsp:param name="node" value="home"/>
-        </jsp:include>
-    </div>
->>>>>>> .r74200
 
-<%--  main content --%>
 <div id="content">
-
+	
 <%--  begin left container  --%>
 <div class="content_l">
 
@@ -303,11 +304,12 @@ ding="utf-8"?>
             <img alt="More Info" src="/i/v3/right_arrow.png"/><a class="img_c" href="http://studio.topcoder.com/?module=Static&d1=support&d2=assignmentDocFaq">
             Click here for more info!</a>
         </p>
-    </div>
-</div>
+    </div><!--assignement box-->
+
+</div> <!--content_r-->
+
 <br class="clear"/>
 
-<<<<<<< .mine
 </div>
  <%-- end content main --%>
 </div>
@@ -398,22 +400,18 @@ ding="utf-8"?>
     
 <!--OLD FOOTER-->
 <!--<div id="footer"> 
-=======
- <%-- footer --%>
-<div id="footer">
->>>>>>> .r74200
     <a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img alt="TopCoder" class="TClogo" src="/i/v3/tc_logo.jpg"/></a>
 
     <p><a href="/">Home</a> &nbsp;|&nbsp; <a href="/?module=Static&amp;d1=contactUs">Contact Us</a> &nbsp;|&nbsp;
         <a href="/?module=Static&amp;d1=about&amp;d2=privacy">Privacy</a> &nbsp;|&nbsp;
         <a href="/?module=Static&amp;d1=about&amp;d2=terms">Terms</a></p>
-</div>
+</div>-->
 
-</div>
+<!--</div>
  <%-- end content  --%>
 </div>
  <%--  end wrapper --%>
-</div>
+</div>-->
 
  <%--  Analytics --%>
 <script type="text/javascript">
