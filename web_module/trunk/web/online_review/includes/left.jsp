@@ -52,8 +52,14 @@ function arena() {
 <%--
                 <tr><td id="<%=level3.equals("components")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=components" class="leftOn">Recent Project Winners</a></td></tr>
 --%>
+                <%-- TCS Release 2.2.0 (TCS-54) : The request passes project type ID instead of component phase
+                     type ID when referrring to review project type --%>
+<%--
                 <tr><td id="<%=level3.equals("des_reviews")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ViewReviewProjects&ph=112" class="leftOn">Design Review Opportunities</a></td></tr>
                 <tr><td id="<%=level3.equals("dev_reviews")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ViewReviewProjects&ph=113" class="leftOn">Development Review Opportunities</a></td></tr>
+--%>
+                <tr><td id="<%=level3.equals("des_reviews")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ViewReviewProjects&pt=1" class="leftOn">Design Review Opportunities</a></td></tr>
+                <tr><td id="<%=level3.equals("dev_reviews")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ViewReviewProjects&pt=2" class="leftOn">Development Review Opportunities</a></td></tr>
                 <tr><td id="<%=level3.equals("des_contests")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://www.topcoder.com/tc?module=CompList&ph=112">Design Contests</a></td></tr>
                 <tr><td id="<%=level3.equals("dev_contests")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://www.topcoder.com/tc?module=CompList&ph=113">Development Contests</a></td></tr>
                 <tr><td id="<%=level3.equals("project_review")?"leftSubnavOn":"leftSubnav"%>"><a href="/review" class="leftOn">Project Submit & Review</a></td></tr>

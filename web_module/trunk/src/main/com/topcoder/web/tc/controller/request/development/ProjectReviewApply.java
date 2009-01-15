@@ -16,6 +16,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.error.RequestRateExceededException;
 import com.topcoder.web.common.throttle.Throttle;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
@@ -35,41 +36,59 @@ import java.io.IOException;
 import java.io.FileOutputStream;
 
 /**
- * Process the user request to review a component.
- * <p/>
- * <p/>
- * Version 1.0.1 Change notes:
- * <ol>
- * <li>
- * RBoard related tasks were moved to a tcs bean.
- * </li>
- * </ol>
- * </p>
- * <p/>
- * Version 1.0.2 Change notes:
- * <ol>
- * <li>
- * Transaction management moved into RBoardApplication EJB.
- * </li>
- * </ol>
+ * <p>Processor for the user requests to review the components.</p>
+ *
+ * <p>
+ *   Version 1.0.1 Change notes:
+ *   <ol>
+ *     <li>RBoard related tasks were moved to a tcs bean.</li>
+ *   </ol>
+ *
+ *   Version 1.0.2 Change notes:
+ *   <ol>
+ *     <li>Transaction management moved into RBoardApplication EJB.</li>
+ *   </ol>
+ *
+ *   Version 1.0.3 Change notes:
+ *   <ol>
+ *     <li>Added public non-argument constructor to follow the current TC standards for code development.</li>
+ *     <li>Refactored the logic for referencing the project types by client requests. Now the clients will
+ *         pass project type/category ID instead of component project phase type ID to refer to project type.</li>
+ *     <li>Refactored the logic for handling the requests to split the logic for checking the supported project
+ *         types and mapping them to appropriate view into separate private methods.</li>
+ *     <li>The project type requested by client is provided as parameter to <code>review_project_detail</code> query to
+ *         filter the retrieved projects based on provided type.</li> 
+ *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version $Id$
+ * @author dok, pulky, TCSDEVELOPER
+ * @version 1.0.3
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
     protected int phaseId = 0;
+    protected String projectTypeId = null;
     RBoardApplication rBoardApplication = null;
     private static final Throttle throttle = new Throttle(2, 2000);
 
+    /**
+     * <p>Constructs new <code>ProjectReviewApply</code> instance. This implementation does nothing.</p>
+     */
+    public ProjectReviewApply() {
+    }
+
     protected void developmentProcessing() throws TCWebException {
+        projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
+        if (!isProjectTypeSupported(projectTypeId)) {
+            throw new TCWebException("Invalid project type specified " + projectTypeId);
+        }
+        
         try {
             if (throttle.throttle(getRequest().getSession().getId())) {
                 throw new RequestRateExceededException(getRequest().getSession().getId(), getUser().getUserName());
             }
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
-            phaseId = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID));
+            phaseId = (Integer.parseInt(projectTypeId) + 111);
             int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
 
             if (userIdentified()) {
@@ -78,7 +97,8 @@ public class ProjectReviewApply extends Base {
                 Request r = new Request();
                 r.setContentHandle("review_project_detail");
                 r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
-                r.setProperty(Constants.PHASE_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
+                r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
+                r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
                 Map results = getDataAccess().getData(r);
                 ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
                 int catalog = detail.getIntItem(0, "category_id");
@@ -130,7 +150,8 @@ public class ProjectReviewApply extends Base {
 
     protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws Exception {
         boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
-        rBoardApplication.validateUserTrans(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId, getUser().getId(), opensOn, reviewTypeId, primary);
+        rBoardApplication.validateUserTrans(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId, getUser().getId(),
+                                            opensOn, reviewTypeId, primary);
 
         UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
 
@@ -140,12 +161,20 @@ public class ProjectReviewApply extends Base {
         setDefault(Constants.TERMS_AGREE, String.valueOf(agreed));
 
         loadCaptcha();
-        setNextPage(Constants.REVIEWER_TERMS);
+        setNextPage(getReviewTermsView(this.projectTypeId));
         setIsNextPageInContext(true);
     }
 
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
-        rBoardApplication.validateUser(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, catalog, reviewTypeId, getUser().getId(), phaseId);
+        int type = Integer.parseInt(this.projectTypeId);
+        // Assembly competition reviews do not take into consideration the catalogs as for now
+        if (type == WebConstants.ASSEMBLY_PROJECT_TYPE) {
+            rBoardApplication.validateUserWithoutCatalog(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, reviewTypeId,
+                                                         getUser().getId(), type);
+        } else {
+            rBoardApplication.validateUser(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, catalog, reviewTypeId, getUser().getId(),
+                                           this.phaseId);
+        }
     }
 
     protected void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException, ConfigException {
@@ -163,4 +192,23 @@ public class ProjectReviewApply extends Base {
         getRequest().setAttribute(Constants.CAPTCHA_FILE_NAME, fileName);
     }
 
+    /**
+     * <p>Gets the logical name for the view which is to be used for displaying the terms of use for the reviews of
+     * specified type requested by client. As of current version <code>Design</code>, <code>Development</code> and
+     * <code>Assembly</code> project types are supported only.</p>
+     *
+     * @param projectType a <code>String</code> referencing the project type requested by client.
+     * @return a <code>String</code> referencing the view to be used for displaying the terms of use for projects of
+     *         specified type.
+     * @since TCS Release 2.2.0 (TCS-54)
+     */
+    private String getReviewTermsView(String projectType) {
+        if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
+            return Constants.REVIEWER_TERMS;
+        } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
+            return Constants.REVIEWER_TERMS;
+        } else {
+            return "/dev/assembly/reviewerTerms.jsp";
+        }
+    }
 }
