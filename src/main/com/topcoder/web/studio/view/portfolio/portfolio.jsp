@@ -5,56 +5,34 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Studio</title>
     
     <!-- add js/css files for portfolio section styles and modal windows -->
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="studio_portfolio"/>
     </jsp:include>
-	
-	<script src="js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
-	<script src="js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-	<script src="js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
-	<script type="text/javascript" language="javascript">
 
-	$(document).ready(function(){
-	
-	
-		$("#nav ul li").hoverIntent(function(){
-			$(this).children("ul").slideDown("fast");
-		}, function() {
-			$(this).children("ul").slideUp("fast");
-		});
-		
-		$("#nav ul ul li").hover(function() {
-			$(this).parents("#nav ul li").children('a').addClass("active-item");
-		}, function() {
-			$(this).parents("#nav ul li").children('a').removeClass("active-item");
-		});
-	
-	
-	});
-	</script>
-	
     <!-- add js scripts for portfolio section modal windows -->
+    <script type="text/javascript" src="/js/portfolio/jquery-1.2.6.min.js"></script>
     <script type="text/javascript" src="/js/portfolio/thickbox.js"></script>
     <!-------------------------------------------------------->
 </head>
 
 <body>
-	<div id="page-wrap">
-    	<div align="center">
-			<jsp:include page="../top.jsp">
-            	<jsp:param name="section" value="portfolio" />
-        	</jsp:include>
-        <br />
-       
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="../top.jsp"/>
+            <jsp:include page="../topNav.jsp">
+                <jsp:param name="node" value="portfolio"/>
+            </jsp:include>
+        </div>
+        
         <!-- container -->
         <div id="container">
-        	<div id="wrapper">
-    
             <!-- content -->
 
             <div id="content">
@@ -190,6 +168,6 @@
 
         <jsp:include page="../foot.jsp"/>
 
-
+    </div>
 </body>
 </html>

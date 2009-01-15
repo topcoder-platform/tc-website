@@ -19,37 +19,12 @@
 -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Studio</title>
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    
-    <script src="js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
-	<script src="js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-	<script src="js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
-	<script type="text/javascript" language="javascript">
-
-	$(document).ready(function(){
-	
-	
-		$("#nav ul li").hoverIntent(function(){
-			$(this).children("ul").slideDown("fast");
-		}, function() {
-			$(this).children("ul").slideUp("fast");
-		});
-		
-		$("#nav ul ul li").hover(function() {
-			$(this).parents("#nav ul li").children('a').addClass("active-item");
-		}, function() {
-			$(this).parents("#nav ul li").children('a').removeClass("active-item");
-		});
-	
-	
-	});
-	</script>
-	
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
     <script type="text/javascript" src="/js/jquery-1.2.3.pack.js"></script>
     <script type="text/javascript" src="/js/thickbox-3.1/thickbox-compressed-3.1.js"></script>
@@ -101,14 +76,17 @@
 </head>
 
 <body>
-	<div id="page-wrap">
-    	<div align="center">
-			<jsp:include page="../top.jsp"/>
-        <br />
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="../top.jsp"/>
+            <jsp:include page="../topNav.jsp">
+                <jsp:param name="node" value="contests"/>
+            </jsp:include>
+        </div>
         <!-- container -->
         <div id="container">
-        	<div id="wrapper">
-    
             <!-- content -->
             <div id="content">
                 <div class="contentTop">
@@ -146,16 +124,16 @@
                         </c:otherwise>
                     </c:choose>
 
-                    <br />
+                    <br/>
                     <c:if test="${submission.contest.channel.id != adminV1}">
                         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=original">
                             Download Original Submission</a>
-                        <br />
+                        <br/>
                     </c:if>
                     <a style="display: block;" onfocus="this.blur();" onclick="remove(${submission.id});return false;" href="#">
                         Delete Submission
                     </a>
-                    <br />
+                    <br/>
 
 
                     <c:if test="${submissionReview.reviewer!=null}">
@@ -178,7 +156,7 @@
                     <button name="submit" value="submit" type="submit">Submit</button>
                 </form>
 
-                <br /> <br />
+                <br/> <br/>
 
                 <c:set value="<%=ReviewStatus.PASSED%>" var="passedStatus"/>
                 <c:set var="clientPrize" value="<%=PrizeType.BONUS%>"/>
@@ -244,6 +222,6 @@
 
         <jsp:include page="../foot.jsp"/>
 
-
+    </div>
 </body>
 </html>

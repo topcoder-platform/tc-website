@@ -9,35 +9,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Studio</title>
-     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_studio"/>
-    </jsp:include>
-    <script src="js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
-	<script src="js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-	<script src="js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
-	<script type="text/javascript" language="javascript">
-
-	$(document).ready(function(){
-	
-	
-		$("#nav ul li").hoverIntent(function(){
-			$(this).children("ul").slideDown("fast");
-		}, function() {
-			$(this).children("ul").slideUp("fast");
-		});
-		
-		$("#nav ul ul li").hover(function() {
-			$(this).parents("#nav ul li").children('a').addClass("active-item");
-		}, function() {
-			$(this).parents("#nav ul li").children('a').removeClass("active-item");
-		});
-	
-	
-	});
-	</script>
     <script type="text/javascript">
         function submitEnter(e) {
             var keycode;
@@ -50,6 +24,9 @@
             } else return true;
         }
     </script>
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_studio"/>
+    </jsp:include>
 </head>
 
 <%
@@ -60,14 +37,17 @@
 
 
 <body>
-	<div id="page-wrap">
-    	<div align="center">
-			<jsp:include page="top.jsp"/>
-        <br />
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <jsp:include page="top.jsp"/>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value=""/>
+            </jsp:include>
+        </div>
         <!-- container -->
         <div id="container">
-        	<div id="wrapper">
-    
             <!-- content -->
             <div id="content">
                 <div class="contentTop">
@@ -76,13 +56,20 @@
                 <h1>Login</h1>
 
                 <div align="center">
-                    <div align="left" id="tc-login">
-                        <p><strong>Forgot your password?</strong><br/>
+                    <div align="left" style="width:500px;">
+                        <p><b>Forgot your password?</b><br/>
                             If you cannot remember your password
-                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click here</a> and we can help you restore your account.</p>
-                        <br />
+                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click
+                                here</a>
+                            and we can help you restore your account.</p>
+
+                        <br /><br />
                         <strong>New to TopCoder Studio?</strong><br />
-                        <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register now</a>. After you complete the registration process, we will send your account activation code via email.
+                        <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register now</a>. After you complete
+                        the
+                        registration process,
+                        we
+                        will send your account activation code via email.
                         <br /><br />
 
                         <form method="post" name="frmLogin" action="${sessionInfo.servletPath}">
@@ -90,21 +77,35 @@
                             <input type="hidden" name="module" value="Login">
 
                             <div align="center">
-                                <span class="tc-alert"><%= message %></span>
+                                <span class="bigRed"><%= message %></span>
                                 <table cellpadding="2" cellspacing="0" border="0">
                                     <tr>
-                                        <td class="name" align="right">Handle:</td>
-                                        <td class="value"><input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="30" onkeypress="submitEnter(event)" class="textfield"></td>
+                                        <td class="name" align="right">
+                                            Handle:
+                                        </td>
+                                        <td class="value">
+                                            <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td class="name" align="right">Password:</td>
-                                        <td class="value"><input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="30" size="30" onkeypress="submitEnter(event)" class="textfield"></td>
+                                        <td class="name" align="right">
+                                            Password:
+                                        </td>
+                                        <td class="value">
+                                            <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="30" size="12" onkeypress="submitEnter(event)">
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" align="left"><input type="checkbox" name="<%=Login.REMEMBER_USER%>"> Remember Me</td>
+                                        <td colspan="2" align="center">
+                                            <input type="checkbox" name="<%=Login.REMEMBER_USER%>">
+                                            Remember
+                                            Me</td>
                                     </tr>
+
                                     <tr>
-                                        <td colspan="2" align="center"><input type="image" src="/i/v2/interface/btnLogin.png"/></td>
+                                        <td colspan="2" align="center">
+                                            <input type="image" src="/i/v2/interface/btnLogin.png"/>
+                                        </td>
                                     </tr>
                                 </table>
 
@@ -129,6 +130,6 @@
 
         <jsp:include page="foot.jsp"/>
 
-
+    </div>
 </body>
 </html>

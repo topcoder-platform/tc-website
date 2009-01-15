@@ -159,12 +159,7 @@
                             <% } else if (isWaiting) { %>
                                 <i>Waiting until <%= DateTime.timeStampToArbitraryString(waitingUntil, "MM.dd.yyyy hh:mm a") %> ****</i>
                             <% } else { %>
-                            <%-- TCS Release 2.2.0 (TCS-54) : The request passes project type ID instead of component
-                                 phase type ID when referrring to review project type--%>
-<%--
                                 <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PROJECT_ID%>=<tc:beanWrite name="reviewer" property="projectId"/>&<%=Constants.PHASE_ID%>=<%=phase_id%>&<%=Constants.PRIMARY_FLAG%>=<%=((ReviewBoardApplication)reviewer).isPrimary()%>&<%=Constants.REVIEWER_TYPE_ID%>=<tc:beanWrite name="reviewer" property="reviewerTypeId"/>">Apply Now</a> **
---%>
-                                <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PROJECT_ID%>=<tc:beanWrite name="reviewer" property="projectId"/>&<%=Constants.PROJECT_TYPE_ID%>=<%=projectDetail.getIntItem(0, "project_category_id")%>&<%=Constants.PRIMARY_FLAG%>=<%=((ReviewBoardApplication)reviewer).isPrimary()%>&<%=Constants.REVIEWER_TYPE_ID%>=<tc:beanWrite name="reviewer" property="reviewerTypeId"/>">Apply Now</a> **
                             <% } %>
                         </td>
                         <td class="projectCells" align="right">
@@ -204,12 +199,7 @@
 <% } %>
                 <tr>
                     <td class="bodyText">
-                        <%-- TCS Release 2.2.0 (TCS-54) : The request passes project type ID instead of component phase
-                             type ID when referrring to review project type --%>
-<%--
                         <p align="left"><a href="/tc?module=ViewReviewProjects&amp;<%=Constants.PHASE_ID%>=<%=phase_id%>">View all projects</a></p>
---%>
-                        <p align="left"><a href="/tc?module=ViewReviewProjects&amp;<%=Constants.PROJECT_TYPE_ID%>=<%=phase_id == 112 ? 1 : 2%>">View all projects</a></p>
                     </td>
                 </tr>
             </table>

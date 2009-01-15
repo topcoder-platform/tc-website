@@ -19,38 +19,23 @@ import java.sql.Timestamp;
 import java.util.Map;
 
 /**
- * <p>Processor the user requests to review the components after accepting terms of use.</p>
- *
- * <p>
- *   Version 1.0.1 Change notes:
- *   <ol>
- *     <li>RBoard related tasks were moved to a tcs bean.</li>
- *   </ol>
- *
- *   Version 1.0.2 Change notes:
- *   <ol>
- *     <li>Added public non-argument constructor to follow the current TC standards for code development.</li>
- *     <li>Refactored the logic for referencing the project types by client requests. Now the clients will
- *         pass project type/category ID instead of component project phase type ID to refer to project type.</li>
- *     <li>Refactored the logic for handling the requests to split the logic for checking the supported project
- *         types and mapping them to appropriate view into separate private methods.</li>
- *     <li>The project type requested by client is provided as parameter to <code>review_project_detail</code> query to
- *         filter the retrieved projects based on provided type.</li>
- *   </ol>
+ * Process the user request to review a component when agreed.
+ * <p/>
+ * <p/>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * RBoard related tasks were moved to a tcs bean.
+ * </li>
+ * </ol>
  * </p>
  *
- * @author dok, pulky, TCSDEVELOPER
- * @version 1.0.2
+ * @author dok, pulky
+ * @version 1.0.1
  */
 public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
     private static Logger log = Logger.getLogger(ProjectReviewTermsAgree.class);
-
-    /**
-     * <p>Constructs new <code>ProjectReviewTermsAgree</code> instance. This implementation does nothing.</p>
-     */
-    public ProjectReviewTermsAgree() {
-    }
 
     protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws Exception {
         if ("POST".equals(getRequest().getMethod())) {
@@ -77,8 +62,8 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                                 Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
                     }
                     apply(opensOn, reviewTypeId);
-                    setNextPage("/tc?" + Constants.MODULE_KEY + "=ReviewProjectDetail&" + Constants.PROJECT_ID + "="
-                                + projectId + "&" + Constants.PROJECT_TYPE_ID + "=" + this.projectTypeId);
+                    setNextPage("/tc?" + Constants.MODULE_KEY + "=ReviewProjectDetail&" +
+                            Constants.PROJECT_ID + "=" + projectId + "&" + Constants.PHASE_ID + "=" + phaseId);
                     setIsNextPageInContext(false);
             }
         } else {
@@ -108,11 +93,10 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         //send email
         Request r = new Request();
         r.setContentHandle("review_project_detail");
-        String projectId = String.valueOf(this.projectId);
-        String phaseId = String.valueOf(this.phaseId);
+        String projectId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID));
+        String phaseId = StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID));
         r.setProperty(Constants.PROJECT_ID, projectId);
         r.setProperty(Constants.PHASE_ID, phaseId);
-        r.setProperty(Constants.PROJECT_TYPE_ID, this.projectTypeId);
         Map results = getDataAccess(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, false).getData(r);
         ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
 
@@ -150,9 +134,9 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         sb.append("=");
         sb.append(projectId);
         sb.append("&");
-        sb.append(Constants.PROJECT_TYPE_ID);
+        sb.append(Constants.PHASE_ID);
         sb.append("=");
-        sb.append(this.projectTypeId);
+        sb.append(phaseId);
         sb.append("\n");
 
         mail.setBody(sb.toString());

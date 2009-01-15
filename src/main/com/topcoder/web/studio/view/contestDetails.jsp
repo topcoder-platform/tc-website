@@ -12,50 +12,28 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>TopCoder Studio : Contest Details</title>
-        <jsp:include page="style.jsp">
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>TopCoder Studio</title>
+    <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    
-    <script src="js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
-	<script src="js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-	<script src="js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
-	<script type="text/javascript" language="javascript">
-
-	$(document).ready(function(){
-	
-	
-		$("#nav ul li").hoverIntent(function(){
-			$(this).children("ul").slideDown("fast");
-		}, function() {
-			$(this).children("ul").slideUp("fast");
-		});
-		
-		$("#nav ul ul li").hover(function() {
-			$(this).parents("#nav ul li").children('a').addClass("active-item");
-		}, function() {
-			$(this).parents("#nav ul li").children('a').removeClass("active-item");
-		});
-	
-	
-	});
-	</script>
+    <script type="text/javascript" src="/js/arena.js"></script>
 </head>
 
 <body>
-	<div id="page-wrap">
-    	<div align="center">
-			<jsp:include page="top.jsp">
-            	<jsp:param name="section" value="contest" />
-        	</jsp:include>
-        <br />
-<%-- container --%>
+<!-- wrapper -->
+<div id="wrapper">
+<!-- header -->
+<div id="header">
+    <jsp:include page="top.jsp"/>
+    <jsp:include page="topNav.jsp">
+        <jsp:param name="node" value="contests"/>
+    </jsp:include>
+</div>
+<!-- container -->
 <div id="container">
-	<div id="wrapper">
-		
-<%-- content --%>
+<!-- content -->
 <div id="content">
 <div class="contentTop">
 <div class="contentMiddle">
@@ -73,7 +51,7 @@
 </div>
 
 <div style="float: right;">
-	<%-- ADDTHIS BUTTON BEGIN --%>
+	<!-- ADDTHIS BUTTON BEGIN -->
 	<script type="text/javascript">
 	addthis_pub             = 'topcoderstudio'; 
 	addthis_brand           = 'TopCoder Studio';
@@ -82,17 +60,17 @@
 	<a href="http://www.addthis.com/bookmark.php" onMouseOver="return addthis_open(this, '', '[URL]', '[TITLE]')" onMouseOut="addthis_close()" onClick="return addthis_sendto()">
 	<img src="/i/v2/interface/btnShare.png" width="122" height="35" border="0" alt="Share" /></a>
 	<script type="text/javascript" src="http://s7.addthis.com/js/152/addthis_widget.js"></script>
-	<%-- ADDTHIS BUTTON END --%>
+	<!-- ADDTHIS BUTTON END -->
 </div>
 
 <div style="float: right;">
-	<%-- Visit Contest Forum Button --%>
+	<!-- Visit Contest Forum Button -->
     <studio:forumLink forumID="${contest.forumId}" message="<img src='/i/v2/interface/btnContestForum.png' alt='Visit Contest Forum' />"/>
 </div>
 
 <h1>Contest Details</h1>
 
-<%-- RIGHT BOX --%>
+<!-- RIGHT BOX -->
 
 <div class="conDetRightBox">
 <div class="section">Dates:</div>
@@ -458,6 +436,6 @@ ${contest.prizeDescription.value}
 
 <jsp:include page="foot.jsp"/>
 
-
+</div>
 </body>
 </html>
