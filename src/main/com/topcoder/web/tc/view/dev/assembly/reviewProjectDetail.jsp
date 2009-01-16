@@ -1,5 +1,5 @@
 <%--
-  - Author: TCSDEVELOPER
+  - Author: isv
   - Date: 07 Jan 2009
   - Version: 1.0
   - Copyright (C) 2009 TopCoder Inc., All Rights Reserved.
@@ -165,7 +165,7 @@
                             <% if (((TCTimestampResult) projectDetail.getItem(0, "opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
                                 <i>Not open yet ***</i>
                             <% } else if (((ReviewBoardApplication) reviewer).isSpotFilled()) { %>
-                                <tc-webtag:handle coderId="<%=((ReviewBoardApplication)reviewer).getUserId()%>" context='<%=((ReviewBoardApplication)reviewer).getPhaseId()==112?"design":"development"%>'/>
+                                <tc-webtag:handle coderId="<%=((ReviewBoardApplication)reviewer).getUserId()%>" context='assembly'/>
                             <% } else if (isWaiting) { %>
                                 <i>Waiting until <%= DateTime.timeStampToArbitraryString(waitingUntil, "MM.dd.yyyy hh:mm a") %> ****</i>
                             <% } else { %>

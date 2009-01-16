@@ -30,7 +30,7 @@ import java.sql.Timestamp;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, ivern, TCSDEVELOPER
+ * @author dok, pulky, ivern, isv
  * @version 1.0.3
  */
 public interface RBoardApplication extends EJBObject {

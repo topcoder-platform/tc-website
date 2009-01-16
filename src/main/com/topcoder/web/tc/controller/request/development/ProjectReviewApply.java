@@ -61,7 +61,7 @@ import java.io.FileOutputStream;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, TCSDEVELOPER
+ * @author dok, pulky, isv
  * @version 1.0.3
  */
 public class ProjectReviewApply extends Base {
@@ -208,7 +208,7 @@ public class ProjectReviewApply extends Base {
         } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
             return Constants.REVIEWER_TERMS;
         } else {
-            return "/dev/assembly/reviewerTerms.jsp";
+            return Constants.ASSEMBLY_REVIEWER_TERMS;
         }
     }
 }

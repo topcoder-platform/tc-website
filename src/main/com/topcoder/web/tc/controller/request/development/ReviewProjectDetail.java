@@ -52,7 +52,7 @@ import java.util.Map;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, TCSDEVELOPER
+ * @author dok, pulky, isv
  * @version 1.0.2
  * @since 1.0
  */
@@ -408,7 +408,7 @@ public class ReviewProjectDetail extends Base {
         } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
             return Constants.REVIEW_PROJECT_DETAIL;
         } else {
-            return "/dev/assembly/reviewProjectDetail.jsp";
+            return Constants.ASSEMBLY_REVIEW_PROJECT_DETAIL;
         }
     }
 }
