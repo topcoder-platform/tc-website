@@ -38,7 +38,7 @@ import com.topcoder.web.tc.Constants;
  *   </table>
  * </p>
  *
- * @author dok, TCSDEVELOPER
+ * @author dok, isv
  * @version 1.1
  * @since 1.0
  */
