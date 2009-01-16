@@ -190,10 +190,36 @@ public class Constants implements WebConstants {
 
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * <code>Assembly Review Project Details</code> page.</p>
+     *
+     * @since TCS Release 2.2.0 (TCS-54)
+     */
+    public static final String ASSEMBLY_REVIEW_PROJECT_DETAIL = "/dev/assembly/reviewProjectDetail.jsp";
+
     public static String REVIEW_PROJECTS;
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * <code>Assembly Review Projects</code> page.</p>
+     *
+     * @since TCS Release 2.2.0 (TCS-54)
+     */
+    public static final String ASSEMBLY_REVIEW_PROJECTS = "/dev/assembly/reviewProjects.jsp";
+
     public static String DESIGN_DETAIL;
     public static String DEVELOPMENT_DETAIL;
     public static String REVIEWER_TERMS;
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * <code>Assembly Review Terms</code> page.</p>
+     *
+     * @since TCS Release 2.2.0 (TCS-54)
+     */
+    public static final String ASSEMBLY_REVIEWER_TERMS = "/dev/assembly/reviewerTerms.jsp";
 
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;

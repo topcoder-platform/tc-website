@@ -103,10 +103,12 @@ select distinct
      , comp_versions cv
      , comp_catalog c
      , categories cat
+     , project_phase regpp
+     , project_phase submpp
+     , project_phase screenpp
      , project_phase reviewpp
      , project_phase aggreviewpp
      , project_info pi
-     , project_phase pp
      , comp_version_dates cvd
      , project_info pi_prize
      , project_info pi_is_dr
@@ -116,18 +118,24 @@ select distinct
    and projinfo.project_id = p.project_id
    and projinfo.value = cv.component_id
    and cv.phase_id in (112,113)
-   and p.project_id = pp.project_id
-   and pp.phase_type_id in (1,2,3,4)
-   and pp.phase_status_id = 2
+   AND regpp.project_id = p.project_id
+   AND regpp.phase_type_id = 1
+   AND submpp.project_id = p.project_id
+   AND submpp.phase_type_id = 2
+   AND screenpp.project_id = p.project_id
+   AND screenpp.phase_type_id = 3
+   and reviewpp.phase_type_id = 4
+   and reviewpp.project_id =  p.project_id
+   and aggreviewpp.project_id =  p.project_id
+   and aggreviewpp.phase_type_id = 8
+   AND (submpp.phase_status_id = 2 or regpp.phase_status_id = 2 or screenpp.phase_status_id = 2 or reviewpp.phase_status_id = 2)
+   and regpp.scheduled_start_time <= CURRENT
+   AND reviewpp.scheduled_end_time > CURRENT
    and cvd.comp_vers_id = cv.comp_vers_id
    and cvd.phase_id = cv.phase_id
    and cvd.status_id <> 303
    and c.component_id = cv.component_id
    and c.root_category_id = cat.category_id
-   and reviewpp.phase_type_id = 4
-   and reviewpp.project_id =  p.project_id
-   and aggreviewpp.project_id =  p.project_id
-   and aggreviewpp.phase_type_id = 8
    and extend((select scheduled_start_time
           from project_phase
          where project_id = p.project_id
@@ -152,6 +160,9 @@ select distinct
  AND p.project_id = pi_dr_points.project_id
  AND pi_dr_points.project_info_type_id = 30
  and p.project_category_id = @pt@
+ and (select 3-round(count(*))
+      from rboard_application
+      where project_id = p.project_id) > 0
 order by component_name desc, category_id, price_changes desc
 
 
@@ -275,3 +286,128 @@ select c.component_name
 INSERT INTO review_resp (review_resp_id, review_resp_name, phase_id) VALUES (7, 'Assembly Reviewer 1', 125);
 INSERT INTO review_resp (review_resp_id, review_resp_name, phase_id) VALUES (8, 'Assembly Reviewer 2', 125);
 INSERT INTO review_resp (review_resp_id, review_resp_name, phase_id) VALUES (9, 'Assembly Reviewer 3', 125);
+
+
+select distinct
+  (select count(distinct u.resource_id)
+   from upload u, submission s
+   where u.project_id = p.project_id
+   and s.submission_status_id in (1,2,3,4)
+   and u.upload_id = s.upload_id
+   and u.upload_type_id = 1)
+   as submission_count
+   ,
+   (select count(distinct u.resource_id)
+    from submission s, upload u
+    where u.project_id = p.project_id
+    and s.upload_id = u.upload_id
+    and u.upload_type_id = 1
+    and s.submission_status_id in (1,3,4))
+   as submission_passed_screening_count
+   , c.component_name
+   , cat.category_name as catalog
+   , cat.category_id
+   ,
+   (select name
+    from project_category_lu
+    where project_category_id = p.project_category_id)
+   as phase_desc
+   , p.project_category_id + 111 as phase_id
+   , p.project_id
+   , reviewpp.scheduled_start_time as review_start
+   , reviewpp.scheduled_end_time as review_end
+   , aggreviewpp.scheduled_start_time as agg_review_start
+   , aggreviewpp.scheduled_end_time as agg_review_end
+   ,
+   (select 3-round(count(*))
+    from rboard_application
+    where project_id = p.project_id)
+   as available_spots
+   , cvd.status_id
+   ,
+   (select count(*)
+    from rboard_payment
+    where project_id = p.project_id)
+   as price_changes
+   , cvd.level_id
+   , cv.version_text as version
+   ,
+     case
+       when
+         exists (select * from project_phase where project_id = p.project_id and phase_type_id = 1)
+        then
+            (select (scheduled_start_time + 12 units hour)
+             from project_phase
+             where project_id = p.project_id
+             and phase_type_id = 1)
+        else
+            (select (scheduled_start_time + 12 units hour)
+             from project_phase
+             where project_id = p.project_id
+             and phase_type_id = 2)
+      end
+   as opens_on
+   ,
+   (select category_id
+    from comp_categories
+    where component_id = c.component_id
+    and category_id = 22774808)
+   as aol_brand
+   , pi_prize.value::FLOAT AS prize
+   , (CASE WHEN pi_is_dr.value = 'On' THEN NVL(pi_dr_points.value, pi_prize.value) ELSE '0' END)::FLOAT AS dr_points
+  from project p
+     , project_info projinfo
+     , comp_versions cv
+     , comp_catalog c
+     , categories cat
+     , project_phase reviewpp
+     , project_phase aggreviewpp
+     , project_info pi
+     , project_phase pp
+     , comp_version_dates cvd
+     , project_info pi_prize
+     , project_info pi_is_dr
+     , outer project_info pi_dr_points
+ where 1=1
+   and projinfo.project_info_type_id = 2
+   and projinfo.project_id = p.project_id
+   and projinfo.value = cv.component_id
+   and cv.phase_id in (112,113)
+   and p.project_id = pp.project_id
+   and pp.phase_type_id in (1,2,3,4)
+   and pp.phase_status_id = 2
+   and pp.
+   and cvd.comp_vers_id = cv.comp_vers_id
+   and cvd.phase_id = cv.phase_id
+   and cvd.status_id <> 303
+   and c.component_id = cv.component_id
+   and c.root_category_id = cat.category_id
+   and reviewpp.phase_type_id = 4
+   and reviewpp.project_id =  p.project_id
+   and aggreviewpp.project_id =  p.project_id
+   and aggreviewpp.phase_type_id = 8
+   and extend((select scheduled_start_time
+          from project_phase
+         where project_id = p.project_id
+           and phase_type_id = 2), year to hour) <= extend(current, year to hour)
+   and c.root_category_id in (select distinct category_id from category_catalog where catalog_id != 4)
+   and (((select count(*)
+          from rboard_application
+         where project_id = p.project_id
+           and phase_id = cv.phase_id) < 3)
+    or not exists (select '1'
+                    from rboard_application
+                   where project_id = p.project_id
+                     and phase_id = cv.phase_id))
+   and pi.project_id = p.project_id
+ AND pi.project_info_type_id = 14
+ AND pi.value = 'Open'
+ AND p.project_status_id = 1
+ AND p.project_id = pi_prize.project_id
+ AND pi_prize.project_info_type_id = 16
+ AND p.project_id = pi_is_dr.project_id
+ AND pi_is_dr.project_info_type_id = 26
+ AND p.project_id = pi_dr_points.project_id
+ AND pi_dr_points.project_info_type_id = 30
+ and p.project_category_id = @pt@
+order by component_name desc, category_id, price_changes desc

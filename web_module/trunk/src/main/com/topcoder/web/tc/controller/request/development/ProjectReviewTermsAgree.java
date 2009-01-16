@@ -39,7 +39,7 @@ import java.util.Map;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, TCSDEVELOPER
+ * @author dok, pulky, isv
  * @version 1.0.2
  */
 public class ProjectReviewTermsAgree extends ProjectReviewApply {

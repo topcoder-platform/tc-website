@@ -46,7 +46,7 @@ import java.util.Iterator;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, ivern, TCSDEVELOPER
+ * @author dok, pulky, ivern, isv
  * @version 1.0.3
  * @since 1.0
  */
@@ -161,7 +161,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
         } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
             return Constants.REVIEW_PROJECTS;
         } else {
-            return "/dev/assembly/reviewProjects.jsp";
+            return Constants.ASSEMBLY_REVIEW_PROJECTS;
         }
     }
 }

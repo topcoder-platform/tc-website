@@ -30,13 +30,16 @@ import com.topcoder.shared.util.logging.Logger;
  *     <li>Added methods for calculating the review payments for <code>Assembly</code> competitions.</li>
  *   </ol>
  *
- * @author dok, pulky, ivern, TCSDEVELOPER
+ * @author dok, pulky, ivern, isv
  * @version 1.0.4
  */
 public class DefaultPriceComponent implements SoftwareComponent {
 
     // This is a hack to add component testing review registration
     // all this should change to project categories ids
+    /**
+     * <p>A <code>int</code> referencing the fictive phase type corresponding to <code>Testing</code> competitions.</p>
+     */
     private static final int COMPONENT_TESTING = 116;
 
     /**
@@ -46,9 +49,21 @@ public class DefaultPriceComponent implements SoftwareComponent {
      */
     private static final int ASSEMBLY_COMPETITIONS = 125;
 
+    /**
+     * <p>A <code>Log</code> to be used for logging the events encountered while calculating the prices.</p>
+     */
     private static Logger log = Logger.getLogger(DefaultPriceComponent.class);
 
+    /**
+     * <p>A <code>float</code> array listing the prices for <code>Design</code> competitions per competition level.
+     * </p>
+     */
     private final static float[] DESIGN_PRICE_LOOKUP = {0f, 540f, 540f};
+
+    /**
+     * <p>A <code>float</code> array listing the prices for <code>Development</code> competitions per competition level.
+     * </p>
+     */
     private final static float[] DEV_PRICE_LOOKUP = {0f, 450f, 450f};
 
     /**
@@ -59,10 +74,22 @@ public class DefaultPriceComponent implements SoftwareComponent {
      */
     private final static float[] ASSEMBLY_PRICE_LOOKUP = DEV_PRICE_LOOKUP;
     
+    /**
+     * <p>A <code>float</code> array listing the prices for <code>Testing</code> competitions per competition level.
+     * </p>
+     */
     private final static float[] TESTING_PRICE_LOOKUP = {0f, 200f, 200f};
 
+    /**
+     * <p>A <code>float</code> array listing the DR points for <code>Design</code> competitions per competition level.
+     * </p>
+     */
     private final static float[] DESIGN_DR_LOOKUP = {0f, 540f, 540f};
 
+    /**
+     * <p>A <code>float</code> array listing the DR points for <code>Development</code> competitions per competition
+     * level.</p>
+     */
     private final static float[] DEV_DR_LOOKUP = {0f, 450f, 450f};
 
     /**
@@ -73,6 +100,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
      */
     private final static float[] ASSEMBLY_DR_LOOKUP = DEV_DR_LOOKUP;
 
+    /**
+     * <p>A <code>float</code> providing the review rate for <code>Development</code> competitions (in hours).</p> 
+     */
     private final static float DEV_REVIEW_RATE = 24f;
 
     /**
@@ -82,23 +112,68 @@ public class DefaultPriceComponent implements SoftwareComponent {
      */
     private final static float ASSEMBLY_REVIEW_RATE = DEV_REVIEW_RATE;
 
+    /**
+     * <p>A <code>float</code> providing the review rate for <code>Design</code> competitions (in hours).</p>
+     */
     private final static float DESIGN_REVIEW_RATE = 23f;
+
+    /**
+     * <p>A <code>float</code> providing the review rate for <code>Testing</code> competitions (in hours).</p> 
+     */
     private final static float TESTING_REVIEW_RATE = 22f;
 
+    /**
+     * <p>An <code>int</code> referencing the current phase for the project.</p>
+     */
     protected int phaseId;
+
+    /**
+     * <p>An <code>int</code> referencing the difficulty level for the project.</p>
+     */
     protected int level;
 
+    /**
+     * <p>An <code>int</code> providing the number of submissions for the project.</p>
+     */
     private int submissionCount;
+
+    /**
+     * <p>An <code>int</code> providing the number of submissions for the project which passed the screening.</p>
+     */
     private int submissionsPassedScreening;
 
+    /**
+     * <p>A <code>float</code> providing the prize for the competition.</p>
+     */
     private float prize;
+
+    /**
+     * <p>A <code>float</code> providing the amount of <code>DR</code> points for the competition.</p>
+     */
     private float drPoints;
+
+    /**
+     * <p>A <code>float</code> providing the compensation ratio for the competition.</p>
+     */
     private float compensationRatio;
 
+    /**
+     * <p>Constructs new <code>DefaultPriceComponent</code> instance. This implementation does nothing.</p>
+     */
     @Deprecated
     public DefaultPriceComponent() {
     }
 
+    /**
+     * <p>Constructs new <code>DefaultPriceComponent</code> instance to be used for calculating the prices for project
+     * with specified parameters.</p>
+     *
+     * @param levelId an <code>int</code> referencing the difficulty level for the project.
+     * @param submissionCount an <code>int</code> providing the number of submissions for the project.
+     * @param submissionsPassedScreening an <code>int</code> providing the number of submissions for the project which
+     *        passed screening.
+     * @param phaseId an <code>int</code> referencing the current phase for the project.
+     */
     @Deprecated
     public DefaultPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId) {
         log.debug("level: " + levelId + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
@@ -131,6 +206,18 @@ public class DefaultPriceComponent implements SoftwareComponent {
         this.compensationRatio = 1.0f;
     }
 
+    /**
+     * <p>Constructs new <code>DefaultPriceComponent</code> instance to be used for calculating the prices for project
+     * with specified parameters.</p>
+     * 
+     * @param levelId an <code>int</code> referencing the difficulty level for the project.
+     * @param submissionCount an <code>int</code> providing the number of submissions for the project.
+     * @param submissionsPassedScreening an <code>int</code> providing the number of submissions for the project which
+     *        passed screening.
+     * @param phaseId an <code>int</code> referencing the current phase for the project.
+     * @param prize a <code>float</code> providing the prized for the project.
+     * @param drPoints a <code>float</code> providing the amount of <code>DR</code> points for project.
+     */
     public DefaultPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId,
                                  float prize, float drPoints) {
         log.debug("level: " + levelId + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
@@ -164,6 +251,12 @@ public class DefaultPriceComponent implements SoftwareComponent {
         }
     }
 
+    /**
+     * <p>Creates a clone copy of this price component.</p>
+     * 
+     * @return a clone copy of this price component.
+     * @throws OutOfMemoryError if memory heap is exhausted.
+     */
     public Object clone() throws OutOfMemoryError {
         DefaultPriceComponent ret = new DefaultPriceComponent();
         ret.phaseId = this.phaseId;
@@ -176,23 +269,47 @@ public class DefaultPriceComponent implements SoftwareComponent {
         return ret;
     }
 
+    /**
+     * <p>Gets the price for the project.</p>
+     *
+     * @return a <code>float</code> providing the price for the project.
+     */
     public float getPrice() {
         return this.prize;
     }
 
+    /**
+     * <p>Gets the amount of <code>Digital Run</code> points for the project.</p>
+     *
+     * @return a <code>float</code> providing the amount of <code>DR</code>  for the project.
+     */
     public float getDR() {
         return this.drPoints;
     }
 
-    // Returns the total prize purse counting the first and second place prizes.
+    /**
+     * <p>Gets the prize purse for the project combining the prizes for first and second place.</p>
+     *
+     * @return a <code>float</code> providing the prize purse for the project.
+     */
     public float getPrizePurse() {
         return this.prize * 1.5f;
     }
 
+    /**
+     * <p>Gets the initial prize purse for the project.</p>
+     *
+     * @return a <code>float</code> providing the initial prize purse for the project.
+     */
     public float getInitialPurse() {
         return 0.40f * getPrizePurse();
     }
 
+    /**
+     * <p>Gets the increment for prize purse for the project.</p>
+     *
+     * @return a <code>float</code> providing the increment for prize purse for the project.
+     */
     public float getIncrementPurse() {
         return 0.15f * getPrizePurse();
     }
@@ -201,14 +318,29 @@ public class DefaultPriceComponent implements SoftwareComponent {
         return calculateCompensation(this.prize, this.drPoints);
     }
 
+    /**
+     * <p>Gets the review rate for <code>Design</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the review rate for <code>Design</code> competitions.
+     */
     public float getDesignReviewRate() {
         return DESIGN_REVIEW_RATE * this.compensationRatio;
     }
 
+    /**
+     * <p>Gets the review rate for <code>Development</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the review rate for <code>Development</code> competitions.
+     */
     public float getDevReviewRate() {
         return DEV_REVIEW_RATE * this.compensationRatio;
     }
 
+    /**
+     * <p>Gets the review rate for <code>Testing</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the review rate for <code>Testing</code> competitions.  
+     */
     public float getTestingReviewRate() {
         return TESTING_REVIEW_RATE * this.compensationRatio;
     }
@@ -223,6 +355,12 @@ public class DefaultPriceComponent implements SoftwareComponent {
         return ASSEMBLY_REVIEW_RATE * this.compensationRatio;
     }
 
+    /**
+     * <p>Gets the cost for primary review.</p>
+     *
+     * @return a <code>float</code> providing the cost for primary review.
+     * @since 1.0.1
+     */
     public float getPrimaryReviewPrice() {
         float ret = 0.0f;
         if (phaseId == DEV_PHASE) {
@@ -239,6 +377,12 @@ public class DefaultPriceComponent implements SoftwareComponent {
         return Math.round(ret);
     }
 
+    /**
+     * <p>Gets the cost for review.</p>
+     *
+     * @return a <code>float</code> providing the cost for review.
+     * @since 1.0.1
+     */
     public float getReviewPrice() {
         float ret = 0.0f;
         if (phaseId == DEV_PHASE) {
@@ -256,9 +400,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
-     * Return the total payment for the primary development reviewer
+     * <p>Gets the cost for primary review for <code>Development</code> competitions.</p>
      *
-     * @return
+     * @return a <code>float</code> providing the cost for primary review for <code>Development</code> competition.
      */
     private float getPrimaryDevReviewCost() {
         debug("screeningCost " + getScreeningPrimaryDevReviewCost());
@@ -268,26 +412,41 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 getDevFinalReviewCost() + getDevCoreReviewCost();
     }
 
+    /**
+     * <p>Gets the cost for screening review for <code>Development</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for screening review for <code>Development</code> competition.
+     */
     private float getScreeningPrimaryDevReviewCost() {
         //float screeningSetupCost = 1.0f * getDevReviewRate(); // 60 minutes to set up
         //float screeningCost = (1f / 2f) * (float) submissionCount * getDevReviewRate();  //30 minutes per submission
         return (0.86f * getInitialPurse() + getIncrementPurse() * (submissionCount - 1)) * 0.10f;
     }
 
+    /**
+     * <p>Gets the cost for review aggregation for <code>Development</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for review aggregation for <code>Development</code> competition.
+     */
     private float getDevAggregationCost() {
         //float aggregationCost = (1f / 2f) * getDevReviewRate();  //30 minutes to aggregate
         return 0.04f * getInitialPurse();
     }
 
+    /**
+     * <p>Gets the cost for final review for <code>Development</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for final review for <code>Development</code> competition.
+     */
     private float getDevFinalReviewCost() {
         //float finalReviewCost = 2f * getDevReviewRate();  //120 minutes to do final review
         return 0.10f * getInitialPurse();
     }
 
     /**
-     * Return the review cost for a primary reviewer.
+     * <p>Gets the cost for core review for <code>Development</code> competitions.</p>
      *
-     * @return
+     * @return a <code>float</code> providing the cost for core review for <code>Development</code> competition.
      */
     private float getDevCoreReviewCost() {
         //float reviewCost = (float) (level + 1) * (float) submissionsPassedScreening * getDevReviewRate();
@@ -302,9 +461,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
-     * Return the total payment for a development reviewer
+     * <p>Gets the cost for review for <code>Development</code> competitions.</p>
      *
-     * @return
+     * @return a <code>float</code> providing the cost for review for <code>Development</code> competition.
      */
     private float getDevReviewCost() {
         //float aggregationReviewCost = (1f / 2f) * getDevReviewRate(); //30 minutes for aggregation review
@@ -313,6 +472,11 @@ public class DefaultPriceComponent implements SoftwareComponent {
         return getDevCoreReviewCost();
     }
 
+    /**
+     * <p>Gets the cost for primary review for <code>Testing</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for primary review for <code>Testing</code> competition.
+     */
     private float getPrimaryTestingReviewCost() {
         debug("screeningCost " + getScreeningPrimaryTestingReviewCost());
         debug("aggregationCost " + getTestingAggregationCost());
@@ -321,25 +485,40 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 getTestingFinalReviewCost() + getTestingCoreReviewCost();
     }
 
+    /**
+     * <p>Gets the cost for screening review for <code>Testing</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for screening review for <code>Testing</code> competition.
+     */
     private float getScreeningPrimaryTestingReviewCost() {
         float screeningCost = 0.2f * (float) submissionCount * getTestingReviewRate();  //12 minutes per submission
         return screeningCost;
     }
 
+    /**
+     * <p>Gets the cost for review aggregation for <code>Testing</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for review aggregation for <code>Testing</code> competition.
+     */
     private float getTestingAggregationCost() {
         float aggregationCost = 0.2f * getTestingReviewRate();  //12 minutes to aggregate
         return aggregationCost;
     }
 
+    /**
+     * <p>Gets the cost for final review for <code>Testing</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for final review for <code>Testing</code> competition.
+     */
     private float getTestingFinalReviewCost() {
         float finalReviewCost = 0.4f * getTestingReviewRate();  //24 minutes to do final review
         return finalReviewCost;
     }
 
     /**
-     * Return the cost for core review.
+     * <p>Gets the cost for core review for <code>Testing</code> competitions.</p>
      *
-     * @return
+     * @return a <code>float</code> providing the cost for core review for <code>Testing</code> competition.
      */
     private float getTestingCoreReviewCost() {
         float reviewCost = 0.4f * (float) submissionsPassedScreening * getTestingReviewRate(); //24 minutes per review
@@ -350,9 +529,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
-     * Return the total payment for a testing reviewer
+     * <p>Gets the cost for review for <code>Testing</code> competitions.</p>
      *
-     * @return
+     * @return a <code>float</code> providing the cost for review for <code>Testing</code> competition.
      */
     private float getTestingReviewCost() {
         debug("getTestingCoreReviewCost " + getTestingCoreReviewCost());
@@ -360,9 +539,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
-     * Return the total payment for a design reviewer
+     * <p>Gets the cost for review for <code>Design</code> competitions.</p>
      *
-     * @return
+     * @return a <code>float</code> providing the cost for review for <code>Design</code> competition.
      */
     private float getDesignReviewCost() {
         //float aggregationReviewCost = (1f / 2f) * getDesignReviewRate(); //30 minutes for aggregation review
@@ -372,9 +551,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
-     * Return the total payment for the primary design reviewer
+     * <p>Gets the cost for primary review for <code>Desgin</code> competitions.</p>
      *
-     * @return
+     * @return a <code>float</code> providing the cost for primary review for <code>Design</code> competition.
      */
     private float getPrimaryDesignReviewCost() {
         debug("screeningCost " + getDesignScreeningCost());
@@ -384,18 +563,33 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 getDesignFinalReviewCost() + getCoreDesignReviewCost();
     }
 
+    /**
+     * <p>Gets the cost for screening review for <code>Design</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for screening review for <code>Design</code> competition.
+     */
     private float getDesignScreeningCost() {
         //float screeningCost = 0.75f * (float) submissionCount * getDesignReviewRate();  //45 minutes per submission
         //return screeningCost;
         return (0.86f * getInitialPurse() + getIncrementPurse() * (submissionCount - 1)) * 0.10f;
     }
 
+    /**
+     * <p>Gets the cost for review aggregation for <code>Design</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for review aggregation for <code>Design</code> competition.
+     */
     private float getDesignAggregationCost() {
         //float aggregationCost = (1f / 2f) * getDesignReviewRate();  //30 minutes to aggregate
         //return aggregationCost;
         return 0.04f * getInitialPurse();
     }
 
+    /**
+     * <p>Gets the cost for final review for <code>Design</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for final review for <code>Design</code> competition.
+     */
     private float getDesignFinalReviewCost() {
         //float finalReviewCost = getDesignReviewRate();  //60 minutes to do final review
         //return finalReviewCost;
@@ -403,10 +597,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
-     * Return the base design review cost, this is a number that both
-     * primary and regular reviewers start with.
+     * <p>Gets the cost for base review for <code>Design</code> competitions.</p>
      *
-     * @return
+     * @return a <code>float</code> providing the cost for base review for <code>Design</code> competition.
      */
     private float getCoreDesignReviewCost() {
         //float reviewCost = (float) (level + 2) * (float) submissionsPassedScreening * getDesignReviewRate();
@@ -418,9 +611,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
-     * Return aggregation task's cost
+     * <p>Gets the cost for review aggregation.</p>
      *
-     * @return The cost of the aggregation task
+     * @return a <code>float</code> providing the cost for review aggregation.
      * @since 1.0.1
      */
     public float getAggregationCost() {
@@ -440,9 +633,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
-     * Return screening task's cost
+     * <p>Gets the cost for screening review.</p>
      *
-     * @return The cost of the screening task
+     * @return a <code>float</code> providing the cost for screening review.
      * @since 1.0.1
      */
     public float getScreeningCost() {
@@ -462,9 +655,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
-     * Return final review task's cost
+     * <p>Gets the cost for final review.</p>
      *
-     * @return The cost of the final review task
+     * @return a <code>float</code> providing the cost for final review.
      * @since 1.0.1
      */
     public float getFinalReviewCost() {
@@ -484,9 +677,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
-     * Return core review cost
+     * <p>Gets the cost for core review.</p>
      *
-     * @return The cost of the core review
+     * @return a <code>float</code> providing the cost for core review.
      * @since 1.0.1
      */
     public float getCoreReviewCost() {
@@ -505,10 +698,23 @@ public class DefaultPriceComponent implements SoftwareComponent {
         return Math.round(ret);
     }
 
+    /**
+     * <p>Calculates the total compensation for the project which includes prize purse, reliability bonuses, DR points.
+     * </p>
+     *
+     * @param prize a <code>float</code> providing the prize for the project.
+     * @param dr a <code>float</code> providing the amount of <code>Digital Run</code> points for the project.  
+     * @return a <code>float</code> providing the total compensation for the project. 
+     */
     private float calculateCompensation(float prize, float dr) {
         return prize * 1.5f * 1.5f + dr; // Winner + second place + reliability bonuses + DR
     }
 
+    /**
+     * <p>Gets the project phase.</p>
+     *
+     * @return an <code>int</code> referencing the current project phase.
+     */
     public int getPhaseId() {
         return phaseId;
     }
@@ -519,6 +725,12 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 */
 
+    /**
+     * <p>A command line interface to be used for calculating the prices for the projects with parameters passed as
+     * command line arguments.</p>
+     *
+     * @param args a <code>String</code> array providing the command line arguments.
+     */
     public static void main(String[] args) {
         if (args.length != 6) {
             System.out.println("usage: java " + SoftwareComponent.class.toString() + " " +
@@ -615,6 +827,11 @@ public class DefaultPriceComponent implements SoftwareComponent {
         }
     }
 
+    /**
+     * <p>Logs the specified message.</p>
+     *
+     * @param s a <code>String</code> providing the debug message.
+     */
     private void debug(String s) {
         //System.out.println(s);
     }

@@ -22,7 +22,7 @@ import com.topcoder.web.tc.Constants;
 /**
  * Added some code to make project related controllers more generic.
  *
- * @author dok, pulky, TCSDEVELOPER
+ * @author dok, pulky, isv
  *         Date: Feb 10, 2004
  */
 public abstract class Base extends ShortHibernateProcessor {
