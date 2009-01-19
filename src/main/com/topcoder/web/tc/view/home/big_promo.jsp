@@ -100,7 +100,7 @@
 
 <br />
 <br />
-<a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='/tc' />"><img src="/i/home/winformula_preview510x54.png" alt="ESPN Winning Formula Challenge Powered by TopCoder" /></a>
+<a href="<tc-webtag:linkTracking link='http://www.topcoder.com/tc?module=Static&d1=tco09&d2=teaser' refer='/tc' />"><img src="/i/tco09/510x54_banner.jpg" alt="TopCoder Open 2009" /></a>
 
 <%-- NORM Assembly Run 
 <br />
