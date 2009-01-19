@@ -48,8 +48,13 @@ $(document).ready(function(){
         });
     });
 
-
-
+	$("#tco09").hide();
+	$("#ribbit").hide();
+	function() {
+		
+	}
+	
+	
     window.alert = function() {
     return;
 };
@@ -235,6 +240,11 @@ $(document).ready(function(){
                             <div id="ribbit">
                             <a href="http://www.topcoder.com/tc?module=LinkTracking&link=http://killerappchallenge.ribbit.com/&refer=homepage">
                            		<img src="/images/home/ribbit-banner-small.png" alt="Ribbit Killer App Challenge"/>
+                            </a>
+                            </div>
+                            <div id="tco09">
+                            <a href="http://www.topcoder.com/tc?module=Static&d1=tco09&d2=teaser">
+                           		<img src="/i/tco09/340x76_banner.jpg" alt="TopCoder Open 2009"/>
                             </a>
                             </div>
                             
