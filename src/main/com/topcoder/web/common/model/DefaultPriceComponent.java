@@ -73,7 +73,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @since TCS Release 2.2.0 (TCS-54)
      */
     private final static float[] ASSEMBLY_PRICE_LOOKUP = DEV_PRICE_LOOKUP;
-    
+
     /**
      * <p>A <code>float</code> array listing the prices for <code>Testing</code> competitions per competition level.
      * </p>
@@ -101,7 +101,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
     private final static float[] ASSEMBLY_DR_LOOKUP = DEV_DR_LOOKUP;
 
     /**
-     * <p>A <code>float</code> providing the review rate for <code>Development</code> competitions (in hours).</p> 
+     * <p>A <code>float</code> providing the review rate for <code>Development</code> competitions (in hours).</p>
      */
     private final static float DEV_REVIEW_RATE = 24f;
 
@@ -118,7 +118,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
     private final static float DESIGN_REVIEW_RATE = 23f;
 
     /**
-     * <p>A <code>float</code> providing the review rate for <code>Testing</code> competitions (in hours).</p> 
+     * <p>A <code>float</code> providing the review rate for <code>Testing</code> competitions (in hours).</p>
      */
     private final static float TESTING_REVIEW_RATE = 22f;
 
@@ -209,7 +209,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
     /**
      * <p>Constructs new <code>DefaultPriceComponent</code> instance to be used for calculating the prices for project
      * with specified parameters.</p>
-     * 
+     *
      * @param levelId an <code>int</code> referencing the difficulty level for the project.
      * @param submissionCount an <code>int</code> providing the number of submissions for the project.
      * @param submissionsPassedScreening an <code>int</code> providing the number of submissions for the project which
@@ -253,7 +253,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     /**
      * <p>Creates a clone copy of this price component.</p>
-     * 
+     *
      * @return a clone copy of this price component.
      * @throws OutOfMemoryError if memory heap is exhausted.
      */
@@ -339,7 +339,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
     /**
      * <p>Gets the review rate for <code>Testing</code> competitions.</p>
      *
-     * @return a <code>float</code> providing the review rate for <code>Testing</code> competitions.  
+     * @return a <code>float</code> providing the review rate for <code>Testing</code> competitions.
      */
     public float getTestingReviewRate() {
         return TESTING_REVIEW_RATE * this.compensationRatio;
@@ -703,8 +703,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * </p>
      *
      * @param prize a <code>float</code> providing the prize for the project.
-     * @param dr a <code>float</code> providing the amount of <code>Digital Run</code> points for the project.  
-     * @return a <code>float</code> providing the total compensation for the project. 
+     * @param dr a <code>float</code> providing the amount of <code>Digital Run</code> points for the project.
+     * @return a <code>float</code> providing the total compensation for the project.
      */
     private float calculateCompensation(float prize, float dr) {
         return prize * 1.5f * 1.5f + dr; // Winner + second place + reliability bonuses + DR
@@ -852,7 +852,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
         debug("Assembly aggregationCost = " + aggregationCost);
         debug("Assembly finalReviewCost = " + finalReviewCost);
         debug("Assembly coreReviewCost = " + coreReviewCost);
-        
+
         return screeningCost + aggregationCost + finalReviewCost + coreReviewCost;
     }
 
@@ -881,9 +881,10 @@ public class DefaultPriceComponent implements SoftwareComponent {
      *
      * @return a <code>float</code> providing the cost for screening review for <code>Assembly</code> competition.
      * @since TCS Release 2.2.0 (TCS-54)
+     * [scamp] changed .86 modifier to 0.70
      */
     private float getAssemblyScreeningCost() {
-        return (0.86f * getInitialPurse() + getIncrementPurse() * (this.submissionCount - 1)) * 0.10f;
+        return (0.70f * getInitialPurse() + getIncrementPurse() * (this.submissionCount - 1)) * 0.10f;
     }
 
     /**
@@ -901,8 +902,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
      *
      * @return a <code>float</code> providing the cost for core review for <code>Assembly</code> competition.
      * @since TCS Release 2.2.0 (TCS-54)
+     * [scamp] changed .86 modifier to 0.70
      */
     private float getAssemblyCoreReviewCost() {
-        return (0.86f * getInitialPurse() + getIncrementPurse() * (this.submissionsPassedScreening - 1)) * 0.9f / 3.0f;
+        return (0.70f * getInitialPurse() + getIncrementPurse() * (this.submissionsPassedScreening - 1)) * 0.9f / 3.0f;
     }
 }
