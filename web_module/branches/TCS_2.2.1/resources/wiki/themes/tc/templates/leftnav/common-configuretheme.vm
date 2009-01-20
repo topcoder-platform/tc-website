@@ -1,0 +1,37 @@
+#parse ( "/template/includes/actionerrors.vm" )
+
+<form method="POST" action="doconfiguretheme.action" name="configurethemeform">
+    <div class="steptitle" style="width: 100%; margin-top: 10px">
+        <div class="stepfield">
+Add/Edit: (to remove a mapping, set it to be empty)
+            <br />
+            <br />
+
+
+            Space:
+        <select name="spacekey">
+        #foreach ($space in $spaces)
+            <option value="$space.key">$webwork.htmlEncode($space.name)</option>
+        #end
+        </select>
+
+            <br />
+            Page: <input type="text" name="pageTitle" value="" size="40"/>
+<br />
+            Nav Node: <input type="text" name="navKey" value="" size="40"/>
+
+        </div>
+
+        <div class="stepdesc" style="width: 90%;">
+            #tag (Submit "value='Save'" "name='submit'" "theme='simple'" )
+        </div>
+        <div class="stepfield">
+            #foreach ($space in $navKeys)
+                #foreach ($page in $space.getValue())
+                    $page.getValue() ==> $space.getKey()/$page.getKey()
+                    <br />
+                #end
+            #end
+        </div>
+    </div>
+</form>
