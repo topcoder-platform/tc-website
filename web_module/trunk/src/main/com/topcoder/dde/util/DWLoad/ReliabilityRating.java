@@ -925,6 +925,8 @@ public class ReliabilityRating {
                     "and pr.user_id = ci.user_id " +
                     "and p.project_category_id = ? " +
                     "and pr.project_id = ci.project_id " +
+                    "and pi.project_id = p.project_id " +
+                    "and pi.phase_type_id = 1 " +
                     "and ci.create_time < (select create_time " +
                     "from component_inquiry " +
                     "where user_id = ci.user_id " +
