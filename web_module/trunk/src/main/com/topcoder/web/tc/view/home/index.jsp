@@ -48,7 +48,6 @@ $(document).ready(function(){
         });
     });
 
-<<<<<<< .mine
 	/* Banner Rotation  */
 	$("#tco09").hide();
 	$("#ribbit").hide();
@@ -60,8 +59,7 @@ $(document).ready(function(){
 			$("#ribbit").show();
 		}
 	/*  End Banner Rotation */
-=======
->>>>>>> .r74230
+
 	
     window.alert = function() {
     return;
