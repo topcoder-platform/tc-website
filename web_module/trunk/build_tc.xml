@@ -524,7 +524,22 @@
         <antcall target="move-conf"/>
         <antcall target="deploy-security"/>
         <antcall target="build-sars"/>
+        <antcall target="deploy-rboard"/>
+    </target>
 
+    <!-- TCS Release 2.2.0 - Copy the Review Board Application EJB -->
+    <target name="deploy-rboard">
+        <echo message="Copying RBoard Application EJB..."/>
+        <copy todir="${jboss_deploy}">
+            <fileset dir="${ejb_jars}">
+                <include name="RBoard.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss_lib}">
+            <fileset dir="${ejb_jars}">
+                <include name="RBoard.jar"/>
+            </fileset>
+        </copy>
     </target>
 
     <target name="expand">
