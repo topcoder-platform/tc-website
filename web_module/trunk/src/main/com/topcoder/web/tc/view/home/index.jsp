@@ -48,17 +48,15 @@ $(document).ready(function(){
         });
     });
 
-	/* Banner Rotation  */
 	$("#tco09").hide();
 	$("#ribbit").hide();
-	 
+	
 		var randomnumber=Math.floor(Math.random()*2)
 		if (randomnumber==0) {
 			$("#tco09").show();
 		} else {
 			$("#ribbit").show();
 		}
-	/*  End Banner Rotation */
 
 	
     window.alert = function() {
@@ -248,7 +246,11 @@ $(document).ready(function(){
                            		<img src="/images/home/ribbit-banner-small.png" alt="Ribbit Killer App Challenge"/>
                             </a>
                             </div>
-                            
+                            <div id="tco09">
+                            <a href="http://www.topcoder.com/tc?module=Static&d1=tco09&d2=teaser">
+                           		<img src="/i/tco09/340x76_banner.jpg" alt="TopCoder Open 2009"/>
+                            </a>
+                            </div>
                             
                         </div>
                     </div>
