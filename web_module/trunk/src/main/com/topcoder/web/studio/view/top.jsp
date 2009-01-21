@@ -25,21 +25,35 @@
 		<div id="login_left"></div>
 		<div id="login_right"></div>
 		
+<<<<<<< .mine
+		<form method="post" action="">
+		<input type="hidden" name="module" value="Login"/>
+=======
 		<form method="post" action="">
         <input type="hidden" name="module" value="Login"/>
+>>>>>>> .r74233
 		<div id="left">
 			<div>Handle</div>
+<<<<<<< .mine
+				<div><input type="text" name="<%=Login.USER_NAME%>" tabindex="1"/></div>
+				<div><input type="checkbox" name="remember" value="Remember me" tabindex="3" /> Remember me</div>
+=======
 				<div><input type="text" name="<%=Login.USER_NAME%>" /></div>
 				<div><input type="checkbox" name="remember" value="Remember me" /> Remember me</div>
+>>>>>>> .r74233
 			</div>
 			<div id="right">
-				<a href="#" class="button">Login</a>
+				<a href="#" class="button" tabindex="4">Login</a>
 			<div class="register"><a href="#">Register today!</a></div>
 		</div>
 		
 		<div id="middle">
 			<div>Password</div>
+<<<<<<< .mine
+			<div><input type="password" name="<%=Login.PASSWORD%>" tabindex="2" /></div>
+=======
 			<div><input type="password" name="<%Login.PASSWORD%>" /></div>
+>>>>>>> .r74233
 			<div><a href="#" >Forgot your password?</a></div>
 		</div>
 		</form>
@@ -114,6 +128,15 @@
                     <li class="left"><a href="#">FAQ</a></li>
                     <li><a href="#">News</a></li>
                     <li><a href="#">Contact Us</a></li>  
+<<<<<<< .mine
+        	<c:choose><c:when test="${sessionInfo.anonymous}">
+                    <li><a class="gMetal" id="login_link" href="#">Login</a></li>
+		</c:when>
+		<c:otherwise>
+					<li class="logout gMetal"><a  href="?module=Logout" id="logout_link">Logout</a></li>
+		</c:otherwise>
+		</c:choose>
+=======
                     <c:choose>
                         <c:when test="${sessionInfo.anonymous}">
                             <li><a class="gMetal" id="login_link" href="#">Login</a></li>
@@ -123,6 +146,7 @@
                         </c:otherwise>
                     </c:choose>     
 
+>>>>>>> .r74233
 				</ul>
             </div><%-- #navigation ends --%>
         </div>
