@@ -25,10 +25,11 @@
 		<div id="login_left"></div>
 		<div id="login_right"></div>
 		
-		<form action="">
+		<form method="post" action="">
+        <input type="hidden" name="module" value="Login"/>
 		<div id="left">
 			<div>Handle</div>
-				<div><input type="text" /></div>
+				<div><input type="text" name="<%=Login.USER_NAME%>" /></div>
 				<div><input type="checkbox" name="remember" value="Remember me" /> Remember me</div>
 			</div>
 			<div id="right">
@@ -38,7 +39,7 @@
 		
 		<div id="middle">
 			<div>Password</div>
-			<div><input type="text" /></div>
+			<div><input type="password" name="<%Login.PASSWORD%>" /></div>
 			<div><a href="#" >Forgot your password?</a></div>
 		</div>
 		</form>
