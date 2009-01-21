@@ -48,7 +48,20 @@ $(document).ready(function(){
         });
     });
 
-	
+<<<<<<< .mine
+	/* Banner Rotation  */
+	$("#tco09").hide();
+	$("#ribbit").hide();
+	 
+		var randomnumber=Math.floor(Math.random()*2)
+		if (randomnumber==0) {
+			$("#tco09").show();
+		} else {
+			$("#ribbit").show();
+		}
+	/*  End Banner Rotation */
+=======
+>>>>>>> .r74230
 	
     window.alert = function() {
     return;
