@@ -114,8 +114,15 @@
                     <li class="left"><a href="#">FAQ</a></li>
                     <li><a href="#">News</a></li>
                     <li><a href="#">Contact Us</a></li>  
-                    <li><a class="gMetal" id="login_link" href="#">Login</a></li>
-					<li class="logout gMetal"><a  href="#" id="logout_link">Logout</a></li>
+                    <c:choose>
+                        <c:when test="${sessionInfo.anonymous}">
+                            <li><a class="gMetal" id="login_link" href="#">Login</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="logout gMetal"><a  href="?module=Logout" id="logout_link">Logout</a></li>
+                        </c:otherwise>
+                    </c:choose>     
+
 				</ul>
             </div><%-- #navigation ends --%>
         </div>
