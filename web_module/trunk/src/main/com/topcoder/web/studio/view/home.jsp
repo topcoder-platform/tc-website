@@ -184,59 +184,7 @@ ding="utf-8"?>
 <div class="content_r">
 
     <%-- login box --%>
-    <div id="loginBox">
-        <h2>LOGIN</h2>
-        <%-- JSP START --%><c:choose>
-        <c:when test="${sessionInfo.anonymous}">
-            <%--have to use the constant because this page can be used with multiple servlets --%>
-            <form method="post" name="frmLogin" action="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
-                <input type="hidden" name="module" value="Login"/>
-                        <span>
-                        <table cellspacing="0" cellpadding="0">
-                            <tbody>
-                                <tr class="pd">
-                                    <td width="50%" align="right" valign="bottom">Handle:</td>
-                                    <td valign="bottom">
-                                        <input class="txt" name="<%=Login.USER_NAME%>" size="8" maxlength="15" type="text" value=""/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="right">Password:</td>
-                                    <td>
-                                        <input class="txt" name="<%=Login.PASSWORD%>" size="8" maxlength="30" type="password" value=""/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="right">
-                                        <input class="checkbox" type="checkbox" id="remember" name="<%=Login.REMEMBER_USER%>"/>
-                                    </td>
-                                    <td>Remember me</td>
-                                </tr>
-                                <tr class="pd">
-                                    <td align="right">
-                                        <input type="image" src="/i/v2/interface/btnGo.png"/>
-                                    </td>
-                                    <td>
-                                        <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/" title="Register"><img src="/i/v2/interface/btnRegister.png" alt="Register" /></a>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                        </span>
-            </form>
-        </c:when>
-        <c:otherwise>
-            <p id="login_data">
-                Hello <studio:handle coderId="${sessionInfo.userId}"/>
-                <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Log out</a> |
-                <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">Update my profile</a>
-            </p>
-        </c:otherwise>
-        </c:choose>
-        <%-- JSP END --%>
-        <div></div>
-    </div>
+  
     
      <%-- prizes paid box --%>
     <div id="prizesPaidBox">
