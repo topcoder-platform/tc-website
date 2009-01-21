@@ -97,7 +97,7 @@ ding="utf-8"?>
             <a href="/?module=ViewActiveContests"><img alt="Get Started Now!" src="/i/v3/welcome_banner.png" width="536" height="121" border="0"/></a>--%>
             
             <%-- ribbit banner --%>
-            <a href="http://killerappchallenge.ribbit.com/"><img alt="Ribbit $100,000 Killer App Challenge" src="/i/ribbit-banner.png" width="536" height="121" border="0"/></a>
+            <a href="http://www.topcoder.com/tc?module=Static&d1=tco09&d2=teaser"><img alt="TopCoder Open 2009" src="http://www.topcoder.com/i/tco09/536x121_banner.jpg" width="536" height="121" border="0" style="margin-top:4px;"/></a>
             
              <%-- birthday banner
             <a href="http://tcstudioblogs.com/?p=39"><img alt="Studio Celebrates Two Years of Design Contests!" src="/i/v3/banner_birthday_536x121.png" width="536" height="121" border="0"/></a> --%>
