@@ -50,12 +50,15 @@ $(document).ready(function(){
 
 	$("#tco09").hide();
 	$("#ribbit").hide();
+	$("#sensations").hide();
 	
-		var randomnumber=Math.floor(Math.random()*2)
+		var randomnumber=Math.floor(Math.random()*3)
 		if (randomnumber==0) {
 			$("#tco09").show();
-		} else {
+		} else if (randomnumber==1) {
 			$("#ribbit").show();
+		} else {
+			$("#sensations").show();
 		}
 
 	
@@ -251,7 +254,11 @@ $(document).ready(function(){
                            		<img src="/i/tco09/340x76_banner.jpg" alt="TopCoder Open 2009"/>
                             </a>
                             </div>
-                            
+                            <div id="sensations">
+                            <a href="http://sensations.aol.com">
+                           		<img src="/i/aol/340x76.png" alt="AOL/TopCoder Sensations Developer Challenge"/>
+                            </a>
+                            </div>
                         </div>
                     </div>
                     <div id="member-box-bottom"></div>
