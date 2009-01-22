@@ -96,8 +96,8 @@ ding="utf-8"?>
             <%-- default banner 
             <a href="/?module=ViewActiveContests"><img alt="Get Started Now!" src="/i/v3/welcome_banner.png" width="536" height="121" border="0"/></a>--%>
             
-            <%-- ribbit banner --%>
-            <a href="http://www.topcoder.com/tc?module=Static&d1=tco09&d2=teaser"><img alt="TopCoder Open 2009" src="http://www.topcoder.com/i/tco09/536x121_banner.jpg" width="536" height="121" border="0" style="margin-top:4px;"/></a>
+            <%-- sensations banner --%>
+            <a href="http://sensations.aol.com/"><img alt="AOL/TopCoder Sensations Developer Challenge" style="margin:0 1px;"src="/i/aol/536x121.png" width="534" height="121" border="0"/></a>
             
              <%-- birthday banner
             <a href="http://tcstudioblogs.com/?p=39"><img alt="Studio Celebrates Two Years of Design Contests!" src="/i/v3/banner_birthday_536x121.png" width="536" height="121" border="0"/></a> --%>
