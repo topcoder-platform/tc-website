@@ -78,8 +78,8 @@
                         <%-- Truveo 
                         <a href="<tc-webtag:linkTracking link='/truveo/' refer='pr_index' />"><img src="/i/home/truveo_vote.png" alt="Truveo Developer Challenge Powered by TopCoder" /></a>
                         --%>
-                        <%-- ESPN Winning Formula Challange --%>
-                        <a href="<tc-webtag:linkTracking link='http://winningformula.espn.com/' refer='pr_index' />"><img src="/i/home/winformula_preview510x100.png" alt="ESPN Winning Formula Challange Powered by TopCoder" /></a>
+                        <%-- AOL Sensations Banner --%>
+                        <a href="<tc-webtag:linkTracking link='http://sensations.aol.com/' refer='pr_index' />"><img src="/i/aol/510x100.png" alt="AOL/TopCoder Sensations Developer Challenge" /></a>
                         
                         <%-- TCO08 
                         <map name="tco08">

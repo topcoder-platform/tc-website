@@ -80,7 +80,7 @@
 											<div class="bottomAreaContent">
 												
 												<div class="mainContent">
-												
+												<div id="bannergraphic" style="text-align:center;margin-bottom:10px;"><a href="http://sensations.aol.com" title="AOL/TopCoder Sensations Developer Challenge"><img src="/i/aol/510x54.png" width="510" height="54" alt="AOL/TopCoder Sensations Developer Challenge" /></a></div>
 													
 													
 													<div id="mainContentInner">
