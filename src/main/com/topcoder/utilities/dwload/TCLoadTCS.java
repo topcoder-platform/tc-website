@@ -227,9 +227,9 @@ public class TCLoadTCS extends TCLoad {
             doLoadDRTrackContests();
 
             doLoadDRTrackPoints();
-            
+
             doLoadDRTrackResults();
-            
+
             doClearCache();
 
             setLastUpdateTime();
@@ -1415,11 +1415,11 @@ public class TCLoadTCS extends TCLoad {
                 // delete dr points for these projects.
                 deleteDrPoints = prepareStatement(delDrPointsQuery.toString(), SOURCE_DB);
                 deleteDrPoints.executeUpdate();
-                
-                
+
+
                 // get max dr points id
                 long drPointsId = getMaxDrPointsId();
-                
+
                 int count = 0;
                 //log.debug("PROCESSING PROJECT RESULTS " + project_id);
 
@@ -1493,7 +1493,7 @@ public class TCLoadTCS extends TCLoad {
                         }
                     } else if ((projectResults.getInt("project_stat_id") == 7 ||       // completed
                         projectResults.getInt("project_stat_id") == 1) &&       // active
-                        "On".equals(projectResults.getString("dr_ind")) &&      // counts towards DR 
+                        "On".equals(projectResults.getString("dr_ind")) &&      // counts towards DR
                         projectResults.getObject("posting_date") != null &&     // has a posting date
                         projectResults.getObject("submission_date") != null) {  // has a submission
 
@@ -1501,7 +1501,7 @@ public class TCLoadTCS extends TCLoad {
 
                         // search for tracks where it belongs:
                         List<Track> tracks = getTracksForProject(activeTracks, projectResults.getInt("project_category_id"), projectResults.getTimestamp("posting_date"));
-                        
+
                         // calculate points for each track:
                         for (Track t : tracks) {
                             if (projectResults.getDouble("amount") < 0.01) {
@@ -1514,38 +1514,42 @@ public class TCLoadTCS extends TCLoad {
                             drInsert.clearParameters();
                             if (projectResults.getInt("project_stat_id") == 7) {
                                 pointsAwarded = t.getPointsCalculator().calculatePointsAwarded(pr);
-                                if (pointsAwarded > 0) {
+                                if (pointsAwarded + projectResults.getInt("point_adjustment") > 0) {
                                     drInsert.setLong(1, ++drPointsId);
                                     drInsert.setLong(2, t.getTrackId());
                                     drInsert.setString(3, "Digital Run Points won for " + projectResults.getString("project_desc"));
                                     drInsert.setLong(4, pr.getUserId());
-                                    drInsert.setDouble(5, pointsAwarded);
+                                    drInsert.setDouble(5, pointsAwarded + projectResults.getInt("point_adjustment"));
                                     drInsert.setTimestamp(6, projectResults.getTimestamp("posting_date"));
                                     drInsert.setTimestamp(7, projectResults.getTimestamp("winner_announced"));
                                     drInsert.setLong(8, pr.getProjectId());
                                     drInsert.setBoolean(9, false);
-                                    log.debug("Inserting DR points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + pointsAwarded);
+                                    log.debug("Inserting DR points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + pointsAwarded + " ("
+                                              + projectResults.getInt("point_adjustment") + ")");
                                     drInsert.executeUpdate();
                                 } else {
-                                    log.debug("Awarded 0 points: " + t.getTrackId() + " - " + pr.getUserId());
+                                    log.debug("Awarded 0 points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + pointsAwarded + " ("
+                                              + projectResults.getInt("point_adjustment") + ")");
                                 }
                             } else if (projectResults.getInt("valid_submission_ind") == 1) {
                                 potentialPoints = t.getPointsCalculator().calculatePotentialPoints(pr);
 
-                                if (potentialPoints > 0) {
+                                if (potentialPoints + projectResults.getInt("point_adjustment") > 0) {
                                     drInsert.setLong(1, ++drPointsId);
                                     drInsert.setLong(2, t.getTrackId());
                                     drInsert.setString(3, "Potential Digital Run Points for " + projectResults.getString("project_desc"));
                                     drInsert.setLong(4, pr.getUserId());
-                                    drInsert.setDouble(5, potentialPoints);
+                                    drInsert.setDouble(5, potentialPoints + projectResults.getInt("point_adjustment"));
                                     drInsert.setTimestamp(6, projectResults.getTimestamp("posting_date"));
                                     drInsert.setTimestamp(7, projectResults.getTimestamp("submission_date"));
                                     drInsert.setLong(8, pr.getProjectId());
                                     drInsert.setBoolean(9, true);
-                                    log.debug("Inserting DR points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + potentialPoints);
+                                    log.debug("Inserting DR points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + potentialPoints + " ("
+                                              + projectResults.getInt("point_adjustment") + ")");
                                     drInsert.executeUpdate();
                                 } else {
-                                    log.debug("Potential 0 points: " + t.getTrackId() + " - " + pr.getUserId());
+                                    log.debug("Potential 0 points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + potentialPoints + " ("
+                                              + projectResults.getInt("point_adjustment") + ")");
                                 }
                             }
                         }
@@ -1701,7 +1705,7 @@ public class TCLoadTCS extends TCLoad {
         List<Track> activeTracks = new ArrayList<Track>();
         try {
             //get data from source DB
-            final String SELECT = "select t.track_id, tpcx.project_category_id, t.track_start_date, t.track_end_date, pcl.class_name" + 
+            final String SELECT = "select t.track_id, tpcx.project_category_id, t.track_start_date, t.track_end_date, pcl.class_name" +
                 " from track t, track_project_category_xref tpcx, points_calculator_lu pcl" +
                 " where t.track_id = tpcx.track_id" +
                 " and t.points_calculator_id = pcl.points_calculator_id" +
@@ -1733,7 +1737,7 @@ public class TCLoadTCS extends TCLoad {
     // private helper method to get active tracks for a particular project type.
     private List<Track> getTracksForProject(List<Track> activeTracks, int projectCategoryId,
             Timestamp applicationDate) {
-        
+
 //        log.debug("getTracksForProject: " + projectCategoryId);
 //        log.debug("applicationDate: " + applicationDate);
 
@@ -4412,7 +4416,7 @@ public class TCLoadTCS extends TCLoad {
            " select t.track_id, ttl.track_type_id, ttl.track_type_desc, tsl.track_status_id, tsl.track_status_desc, " +
            " t.track_desc, t.track_start_date, t.track_end_date " +
            " from track t, track_status_lu tsl, track_type_lu ttl " +
-           " where t.track_status_id = tsl.track_status_id " + 
+           " where t.track_status_id = tsl.track_status_id " +
            " and t.track_type_id = ttl.track_type_id " +
            " and t.create_date > ?";
 
@@ -4460,8 +4464,8 @@ public class TCLoadTCS extends TCLoad {
 
    }
 
-    
-    
+
+
    /**
    *
    * @throws Exception
@@ -4515,8 +4519,8 @@ public class TCLoadTCS extends TCLoad {
 
   }
 
-   
-   
+
+
     /**
     *
     * @throws Exception
@@ -4575,14 +4579,14 @@ public class TCLoadTCS extends TCLoad {
            }
            delQuery.setCharAt(delQuery.length() - 1, ')');
            selectPointsQuery.setCharAt(selectPointsQuery.length() - 1, ')');
-           
+
            if (tracksFound) {
                log.debug("clean up: "+ delQuery.toString());
                delete = prepareStatement(delQuery.toString(), TARGET_DB);
                delete.executeUpdate();
-               
+
                selectPoints = prepareStatement(selectPointsQuery.toString(), SOURCE_DB);
-    
+
                rsPoints = selectPoints.executeQuery();
                while (rsPoints.next()) {
                    int j = 1;
@@ -4598,14 +4602,14 @@ public class TCLoadTCS extends TCLoad {
                    insert.setString(j++, rsPoints.getString("dr_points_status_desc"));
                    insert.setString(j++, rsPoints.getString("dr_points_desc"));
                    insert.setLong(j++, rsPoints.getLong("user_id"));
-                   insert.setDouble(j++, calculatePointsAmount(rsPoints.getInt("dr_points_operation_id"), 
-                           rsPoints.getDouble("amount"), 
+                   insert.setDouble(j++, calculatePointsAmount(rsPoints.getInt("dr_points_operation_id"),
+                           rsPoints.getDouble("amount"),
                            rsPoints.getDouble("parent_amount")));
                    insert.setDate(j++, rsPoints.getDate("application_date"));
                    insert.setDate(j++, rsPoints.getDate("award_date"));
                    insert.setInt(j++, rsPoints.getInt("reference_id"));
                    insert.setBoolean(j++, rsPoints.getBoolean("is_potential"));
-    
+
                    insert.executeUpdate();
                    count++;
                }
@@ -4680,7 +4684,7 @@ public class TCLoadTCS extends TCLoad {
 
               while (rsContests.next()) {
                   loadTrackContestResults(trackId,
-                          rsContests.getInt("track_contest_id"), 
+                          rsContests.getInt("track_contest_id"),
                           rsContests.getInt("track_contest_type_id"),
                           rsContests.getString("class_name"));
               }
@@ -4701,16 +4705,16 @@ public class TCLoadTCS extends TCLoad {
   }
 
 
-  
+
     private void loadTrackContestResults(int trackId, int trackContestId, int trackContestTypeId,
             String calculatorClassName) throws Exception {
         log.debug("loading track results for track =" + trackId + ", contest=" + trackContestId + ", trackContestTypeId=" + trackContestTypeId);
-        
+
         final String SELECT_POINTS =
-                " select dp.user_id, dp.amount, dp.is_potential, " + 
+                " select dp.user_id, dp.amount, dp.is_potential, " +
                 " (case when dp.dr_points_reference_type_id = 1 then (select pr.placed from project_result pr where pr.user_id = dp.user_id and pr.project_id = dp.reference_id) else 0 end) as placed, " +
                 " (case when dp.dr_points_reference_type_id = 1 then (select pr.final_score from project_result pr where pr.user_id = dp.user_id and pr.project_id = dp.reference_id) else 0 end) as final_score " +
-                " from dr_points dp where dp.track_id = ? "; 
+                " from dr_points dp where dp.track_id = ? ";
 
         final String INSERT =
             "insert into track_contest_results (track_contest_id, user_id, track_contest_placement, track_contest_prize) " +
@@ -4737,24 +4741,24 @@ public class TCLoadTCS extends TCLoad {
             Map<Long, ContestResult> results = new HashMap<Long, ContestResult>();
             while (rs.next()) {
                 ContestResult cr = results.get(rs.getLong("user_id"));
-                
+
                 if (cr == null)  {
                     cr = new ContestResult(rs.getLong("user_id"));
                     results.put(rs.getLong("user_id"), cr);
                 }
 
                 if (rs.getBoolean("is_potential")) {
-                    cr.addPotentialPoints(rs.getDouble("amount"));                    
-                } else {            
+                    cr.addPotentialPoints(rs.getDouble("amount"));
+                } else {
                     cr.addPoints(rs.getDouble("amount"));
                 }
-                
+
                 if (rs.getInt("placed") > 0) {
                     cr.addResult(new ProjectResult(rs.getDouble("final_score"), rs.getInt("placed")));
                 }
             }
             close(rs);
-            
+
             List<ContestResult> finalResults = calc.calculateResults(new ArrayList<ContestResult>(results.values()));
 
             simpleDelete("track_contest_results", "track_contest_id", trackContestId);
@@ -4769,7 +4773,7 @@ public class TCLoadTCS extends TCLoad {
                 if (result.getPrize() == null) {
                     insert.setNull(4, Types.DOUBLE);
                 } else {
-                    insert.setDouble(4, result.getPrize());                    
+                    insert.setDouble(4, result.getPrize());
                 }
                 insert.executeUpdate();
                 count++;
@@ -5068,7 +5072,7 @@ public class TCLoadTCS extends TCLoad {
                         "    ,case when exists(select '1' from submission s,upload u,resource r, resource_info ri " +
                         "           where r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and u.resource_id = r.resource_id " +
                         "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and ri.value = pr.user_id and submission_status_id in (1,2,3,4)) then pr.valid_submission_ind  " +
-                        "    else 0 end as valid_submission_ind " +                        
+                        "    else 0 end as valid_submission_ind " +
                         " from project p " +
                         "    ,project_result pr " +
                         "    ,project_info pi_el " +
@@ -5078,7 +5082,7 @@ public class TCLoadTCS extends TCLoad {
                         " and pi_dr.value = 'On' " +
                         " and p.project_id = pr.project_id " +
                         // component testing doesn't need to check for rating
-                        " and (pr.rating_ind=1 or p.project_category_id = 5)" + 
+                        " and (pr.rating_ind=1 or p.project_category_id = 5)" +
                         // for development board, load development and component testing
                         " and p.project_category_id in (" + ((projectCategoryId == 2) ? "2, 5" : String.valueOf(projectCategoryId)) + ") " +
                         " and pi_el.project_info_type_id = 14 " +
@@ -5124,7 +5128,7 @@ public class TCLoadTCS extends TCLoad {
                 if (rs.getDouble("amount") < 0.01) {
                     log.warn("Project: " + rs.getLong("project_id") + " has zero amount!");
                 }
-                
+
                 if (rs.getInt("valid_submission_ind") == 1 || rs.getInt("project_status_id") == 7) {
                     ProjectResult res = new ProjectResult(rs.getLong("project_id"), rs.getInt("project_status_id"), rs.getLong("user_id"),
                         rs.getDouble("final_score"), rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"),
