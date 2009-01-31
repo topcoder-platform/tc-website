@@ -128,7 +128,7 @@
             <td class="value">
                 <% if (resultRow.getIntItem("tourny_project") > 0) { %>
                 <div align="center">
-                    <a href='/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=description'><img class="emblem" src="/i/tournament/tco08/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TCO08 CDDC'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+                    <a href='/tc?module=Static&amp;d1=tco09&amp;d2=teaser'><img class="emblem" src="/i/tournament/tco09/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the 2009 TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
                 </div>
                 <% } else { %>
                 &nbsp;
@@ -254,7 +254,7 @@
             <td class="value">
                 <% if (resultRow.getIntItem("tourny_project") > 0) { %>
                 <div align="center">
-                    <a href='/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=component&amp;d4=description'><img class="emblem" src="/i/tournament/tco08/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TCO08 CDDC'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+                    <a href='/tc?module=Static&amp;d1=tco09&amp;d2=teaser'><img class="emblem" src="/i/tournament/tco09/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the 2009 TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
                 </div>
                 <% } %>
             </td>

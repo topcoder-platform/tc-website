@@ -239,8 +239,14 @@
                 </a>
             </td>
             <td class="value">
+	      <% if (resultRow.getIntItem("tourny_project") > 0) { %>
+                <div align="center">
+                  <a href='/tc?module=Static&amp;d1=tco09&amp;d2=teaser'><img class="emblem" src="/i/tournament/tco09/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the 2009 TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+                </div>
+              <% } else { %>
+                &nbsp;
+              <% } %>
             </td>
-
             <td class="valueC" nowrap="nowrap">
                 <% if (resultRow.getBooleanItem("is_reg_closed")) { %>
                 <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy'<br />'HH:mm z"/>
