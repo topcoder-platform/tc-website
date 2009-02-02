@@ -249,7 +249,7 @@
               <% } %>
             </td>
             <td class="value">
-                <% if (resultRow.getIntItem("tourny_project") > 0) { %> <!-- Replace this with a different check -->
+                <% if (resultRow.getIntItem("sensations_project") > 0) { %>
                 <div align="center">
                     <a href='http://sensations.aol.com'><img class="emblem" src="/i/tournament/tco09/tc-sdc-icon.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Part of the AOL/TopCoder Sensations Challenge'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
                 </div>
