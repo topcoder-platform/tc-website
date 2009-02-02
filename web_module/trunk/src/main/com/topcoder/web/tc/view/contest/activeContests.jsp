@@ -209,6 +209,7 @@
     <tr>
       <td class="header" width="30%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Contest</a></td>
       <td class="header" width="10%">&#160;</td>
+      <td class="header" width="10%">&#160;</td>
       <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Register by</a></td>
       <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a></td>
       <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Payment</a></td>
@@ -246,6 +247,15 @@
               <% } else { %>
                 &nbsp;
               <% } %>
+            </td>
+            <td class="value">
+                <% if (resultRow.getIntItem("tourny_project") > 0) { %> <!-- Replace this with a different check -->
+                <div align="center">
+                    <a href='http://sensations.aol.com'><img class="emblem" src="/i/tournament/tco09/tc-sdc-icon.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Part of the AOL/TopCoder Sensations Challenge'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+                </div>
+                <% } else { %>
+                &nbsp;
+                <% } %>
             </td>
             <td class="valueC" nowrap="nowrap">
                 <% if (resultRow.getBooleanItem("is_reg_closed")) { %>
