@@ -136,13 +136,13 @@
                 <% } %>
             </td>
             <td class="value">
-                <% if (resultRow.getIntItem("sensations_project") > 0) { %>
+              <% if (resultRow.getIntItem("sensations_project") > 0) { %>
                 <div align="center">
                     <a href='http://sensations.aol.com'><img class="emblem" src="/i/tournament/tco09/tc-sdc-icon.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Part of the AOL/TopCoder Sensations Challenge'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
                 </div>
-                <% } else { %>
+              <% } else { %>
                 &nbsp;
-                <% } %>
+              <% } %>
             </td>
             <td class="valueC" nowrap="nowrap">
                 <% if (resultRow.getBooleanItem("is_reg_closed")) { %>
@@ -270,13 +270,13 @@
                 <% } %>
             </td>
             <td class="value">
-                <% if (resultRow.getIntItem("sensations_project") > 0) { %>
+              <% if (resultRow.getIntItem("sensations_project") > 0) { %>
                 <div align="center">
                     <a href='http://sensations.aol.com'><img class="emblem" src="/i/tournament/tco09/tc-sdc-icon.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Part of the AOL/TopCoder Sensations Challenge'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
                 </div>
-                <% } else { %>
+              <% } else { %>
                 &nbsp;
-                <% } %>
+              <% } %>
             </td>
             <td class="valueC" nowrap="nowrap">
                 <% if (resultRow.getBooleanItem("is_reg_closed")) { %>
