@@ -181,10 +181,10 @@
     <tr>
           <c:choose>
             <c:when test="${hasDR}">
-                <td class="title" colspan="8">
+                <td class="title" colspan="9">
             </c:when>
             <c:otherwise>
-                <td class="title" colspan="7">
+                <td class="title" colspan="8">
             </c:otherwise>
           </c:choose>
 
