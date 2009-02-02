@@ -85,6 +85,7 @@
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Component</a>
         </td>
         <td class="header">&#160;</td>
+        <td class="header">&#160;</td>
         <td class="headerC" width="10%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Register
                 by</a></td>
@@ -129,6 +130,15 @@
                 <% if (resultRow.getIntItem("tourny_project") > 0) { %>
                 <div align="center">
                     <a href='/tc?module=Static&amp;d1=tco09&amp;d2=teaser'><img class="emblem" src="/i/tournament/tco09/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the 2009 TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+                </div>
+                <% } else { %>
+                &nbsp;
+                <% } %>
+            </td>
+            <td class="value">
+                <% if (resultRow.getIntItem("tourny_project") > 0) { %> <!-- Replace this with a different check -->
+                <div align="center">
+                    <a href='http://sensations.aol.com'><img class="emblem" src="/i/tournament/tco09/tc-sdc-icon.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Part of the AOL/TopCoder Sensations Challenge'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
                 </div>
                 <% } else { %>
                 &nbsp;
@@ -208,6 +218,7 @@
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Component</a>
         </td>
         <td class="header">&#160;</td>
+        <td class="header">&#160;</td>
         <td class="headerC" width="10%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Register
                 by</a></td>
@@ -256,6 +267,15 @@
                 <div align="center">
                     <a href='/tc?module=Static&amp;d1=tco09&amp;d2=teaser'><img class="emblem" src="/i/tournament/tco09/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the 2009 TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
                 </div>
+                <% } %>
+            </td>
+            <td class="value">
+                <% if (resultRow.getIntItem("tourny_project") > 0) { %> <!-- Replace this with a different check -->
+                <div align="center">
+                    <a href='http://sensations.aol.com'><img class="emblem" src="/i/tournament/tco09/tc-sdc-icon.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Part of the AOL/TopCoder Sensations Challenge'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+                </div>
+                <% } else { %>
+                &nbsp;
                 <% } %>
             </td>
             <td class="valueC" nowrap="nowrap">
