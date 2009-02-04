@@ -41,6 +41,7 @@
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <link type="text/css" rel="stylesheet" href="/css/stats.css" />
 <link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
+
 <% } else if (key.equals("tc_studio_home")) { %>
 <link type="text/css" rel="stylesheet" href="/css/v4/home.css" />
 <link type="text/css" rel="stylesheet" href="/css/v4/studio-navigation.css" />
