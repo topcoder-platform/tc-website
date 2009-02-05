@@ -8,42 +8,42 @@
     String section = request.getParameter("section") == null ? "" : request.getParameter("section");
 %>
 
-
-<%-- ##########################################
- 						CHANGES START HERE
- 		 #######################################	 --%>
-
     <div id="header2">
         <div class="wrapper2">
             
 <%-- MASTHEAD AND LOGO --%>
-            <h1><a href="http://www.studio.topcoder.com" title="TopCoder"><span>TopCoder Direct</span></a></h1>
+            <h1><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>" title="TopCoder"><span>TopCoder Direct</span></a></h1>
 			
 			
 	<%-- LOGIN FORM (NEW) --%>
-	<div id="loginform">
-		<div id="login_left"></div>
-		<div id="login_right"></div>
-		
-		<form action="">
-		<div id="left">
-			<div>Handle</div>
-				<div><input type="text" /></div>
-				<div><input type="checkbox" name="remember" value="Remember me" /> Remember me</div>
-			</div>
-			<div id="right">
-				<a href="#" class="button">Login</a>
-			<div class="register"><a href="#">Register today!</a></div>
-		</div>
-		
-		<div id="middle">
-			<div>Password</div>
-			<div><input type="text" /></div>
-			<div><a href="#" >Forgot your password?</a></div>
-		</div>
-		</form>
-		
-	</div>
+			<c:choose>
+				<c:when test="${sessionInfo.anonymous}">	
+					<div id="loginform">
+						<div id="login_left"></div>
+						<div id="login_right"></div>
+			
+						<form method="post" name="frmLogin" action="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
+						<input type="hidden" name="module" value="Login" />
+						<div id="left">
+							<div>Handle</div>
+							<div><input type="text" name="<%=Login.USER_NAME%>"  maxlength="15" type="text" value="" /></div>
+							<div><input type="checkbox" name="<%=Login.REMEMBER_USER%>" value="Remember me" /> Remember me</div>
+						</div>
+						<div id="right"><a href="#" class="button">Login</a>
+							<div class="register"><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" title="Register">Register today!</a></div>
+						</div>
+			
+						<div id="middle">
+							<div>Password</div>
+							<div><input type="password" name="<%=Login.PASSWORD%>"  maxlength="30" value="" /></div>
+							<div><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" title="Forgot your password?" >Forgot your password?</a></div>
+						</div>
+						</form>
+					</div>
+				</c:when>
+			</c:choose>
+	<%-- END LOGIN FORM --%>
+	
        <h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
           <div id="studio_menu">
 				<ul>
@@ -112,9 +112,17 @@
                 <ul>
                     <li class="left"><a href="#">FAQ</a></li>
                     <li><a href="#">News</a></li>
-                    <li><a href="#">Contact Us</a></li>  
-                    <li><a class="gMetal" id="login_link" href="#">Login</a></li>
-					<li class="logout gMetal"><a  href="#" id="logout_link">Logout</a></li>
+                    <li><a href="/?module=Static&amp;d1=contactUs">Contact Us</a></li>  
+					
+					<c:choose>
+						<c:when test="${sessionInfo.anonymous}">     
+							<li><a class="gMetal" id="login_link" href="#">Login</a></li>
+						</c:when>
+						<c:otherwise> 
+							<li> Hello, <studio:handle coderId="${sessionInfo.userId}"/> </li>
+							<li class="logout gMetal"><a  href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout" id="logout_link">Logout</a></li>
+						</c:otherwise>
+					</c:choose>	    
 				</ul>
             </div><%-- #navigation ends --%>
         </div>
