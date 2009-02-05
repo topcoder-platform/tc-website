@@ -14,13 +14,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
+
 <link rel="stylesheet" type="text/css" media="screen" href="/css/home/screen.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="/css/home/jquery.jcarousel.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="/css/home/main-navigation.css" />
+
 <!--[if IE]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie.css" /><![endif]-->
 <!--[if IE 7]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie7.css" /><![endif]-->
 <!--[if IE 6]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie6.css" /><![endif]-->
-<title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
+
 <script src="/js/home/jquery-1.2.6.min.js" type="text/javascript"></script>
 <script src="/js/home/jquery.hoverIntent.minified.js" type="text/javascript"></script>
 <script src="/js/home/jquery.jcarousel.pack.js" type="text/javascript"></script>
@@ -172,17 +175,10 @@ $(document).ready(function(){
             	<h2><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Let's Talk about how TopCoder can work for you! Contact us</a></h2>
             </div>
 <%-- MAIN CONTENT --%>
-            <div id="content_main">
+            <div id="content-main">
                 <div id="client-content">
                     <div id="client-box">
-                        <%--<div id="contact-tc">
-                            <h3>Contact TopCoder</h3>
-                            <h4>Find out more about how TopCoder can work for you!</h4>
-                            <div class="button-container">
-                                <a class="button" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a>
-                            </div>
-                        </div>--%>
-                        <div id="enterprise-solutions">
+                         <div id="enterprise-solutions">
                             <h3><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/methodology.jsp">Enterprise Solutions</a></h3>
                             <h4>TopCoder Global Platform</h4>
                             <ul class="link-list">
@@ -244,21 +240,9 @@ $(document).ready(function(){
                                 <h3><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">TopCoder Studio</a></h3>
                                 <p>The creative side of TopCoder. Logos, posters, storyboards, prototypes&hellip;</p>
                             </div>
-                            <div id="ribbit">
-                            <a href="http://www.topcoder.com/tc?module=LinkTracking&link=http://killerappchallenge.ribbit.com/&refer=homepage">
-                           		<img src="/images/home/ribbit-banner-small.png" alt="Ribbit Killer App Challenge"/>
-                            </a>
-                            </div>
-                            <div id="tco09">
-                            <a href="http://www.topcoder.com/tc?module=Static&d1=tco09&d2=teaser">
-                           		<img src="/i/tco09/340x76_banner.jpg" alt="TopCoder Open 2009"/>
-                            </a>
-                            </div>
-                            <div id="sensations">
-                            <a href="http://sensations.aol.com">
-                           		<img src="/i/aol/340x76.png" alt="AOL/TopCoder Sensations Developer Challenge"/>
-                            </a>
-                            </div>
+                            <div id="ribbit"><a href="http://www.topcoder.com/tc?module=LinkTracking&link=http://killerappchallenge.ribbit.com/&refer=homepage"><img src="/images/home/ribbit-banner-small.png" alt="Ribbit Killer App Challenge" /></a></div>
+                            <div id="tco09"><a href="http://www.topcoder.com/tc?module=Static&d1=tco09&d2=teaser"><img src="/i/tco09/340x76_banner.jpg" alt="TopCoder Open 2009" /></a></div>
+                            <div id="sensations"><a href="http://sensations.aol.com"><img src="/i/aol/340x76.png" alt="AOL/TopCoder Sensations Developer Challenge"/></a></div>
                         </div>
                     </div>
                     <div id="member-box-bottom"></div>
@@ -273,66 +257,58 @@ $(document).ready(function(){
         <div class="wrapper">
             <h2>News and Announcements</h2>
             <ul id="news-carousel" class="tc-news">
-        <li>
-            <div class="news-image">
-                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008"><img src="/images/home/news-carousel/tcdirect.png" alt="TopCoder Direct" /></a>
-            </div>
-             <div class="news-text">
-                <p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008">TopCoder Direct Platform Opens Access to 170,000 Member Community of Software Designers, Developers &amp; Creative Artists</a></p>
-            </div>
-        </li>
-        <li>
-            <div class="news-image">
-                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308"><img src="/images/home/news-carousel/fast50.png" alt="Deloitte Technology Fast 50" /></a>
-            </div>
-             <div class="news-text">
-                <p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308">TopCoder Ranked Number 11 in Deloitte's Technology Fast 50 Program for New York, New Jersey and Connecticut</a></p>
-            </div>
-        </li>
-        <li>
-            <div class="news-image">
-                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100608"><img src="/images/home/news-carousel/sd-bestpractices.png" alt="Software Development Best Practices TopCoder Challenge" /></a>
-            </div>
-             <div class="news-text">
-                <p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100608">TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31</a></p>
-            </div>
-        </li>
-        <li>
-            <div class="news-image">
-                <a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://industry.bnet.com/technology/1000470/aol-finds-topcoder-tops/&amp;refer=homepage"><img src="/images/home/news-carousel/bnet.png" alt="BNET" /></a>
-            </div>
-            <div class="news-text">
-                <p><a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://industry.bnet.com/technology/1000470/aol-finds-topcoder-tops/&amp;refer=homepage">AOL Finds TopCoder Tops</a></p>
-                   <p class="news-description">AOL technical director Nic Perez talks about his experience as a TopCoder client for a number of major projects over the last three years.</p>
-            </div>
-        </li>
-        <li>
-            <div class="news-image">
-                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://www.pcworld.com/businesscenter/article/152324/topcoder_eyeing_smb_market.html&amp;refer=homepage"><img src="/images/home/news-carousel/pcworld.png" alt="PCWorld" /></a>
-            </div>
-            <div class="news-text">
-                <p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://www.pcworld.com/businesscenter/article/152324/topcoder_eyeing_smb_market.html&amp;refer=homepage">TopCoder Eyeing SMB Market</a></p>
-                <p class="news-description">TopCoder is turning its sights on the SMB market with a new portal called TopCoder Direct that will come out of beta at the end of October.</p>
-            </div>
-        </li>
-        <li>
-            <div class="news-image">
-                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://www.cio.com/article/449523/Cool_Programmer_Challenge_Football_Algorithm_&amp;refer=homepage"><img src="/images/home/news-carousel/cio.png" alt="CIO" /></a>
-            </div>
-            <div class="news-text">
-                <p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://www.cio.com/article/449523/Cool_Programmer_Challenge_Football_Algorithm_&amp;refer=homepage">Cool Programmer Challenge: Football Algorithm = $50,000</a></p>
-                <p class="news-description">ESPN plans to use the algorithm for prognostication, on-air prediction and pregame previews.</p>
-            </div>
-        </li>
-        <%--<li>
-            <div class="news-image">
-                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082108"><img src="/images/home/news-carousel/inc500.png" alt="Inc 500" /></a>
-            </div>
-            <div class="news-text">
-                <p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082108">TopCoder One of Inc. Magazine's 500 Fastest-Growing Private Companies in America for Second Consecutive Year</a></p>
-            </div>
-        </li>--%>
-    </ul>
+				<li>
+					<div class="news-image">
+						<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008"><img src="/images/home/news-carousel/tcdirect.png" alt="TopCoder Direct" /></a>
+					</div>
+					<div class="news-text">
+						<p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008">TopCoder Direct Platform Opens Access to 170,000 Member Community of Software Designers, Developers &amp; Creative Artists</a></p>
+					</div>
+				</li>
+				<li>
+					<div class="news-image">
+						<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308"><img src="/images/home/news-carousel/fast50.png" alt="Deloitte Technology Fast 50" /></a>
+					</div>
+					<div class="news-text">
+						<p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308">TopCoder Ranked Number 11 in Deloitte's Technology Fast 50 Program for New York, New Jersey and Connecticut</a></p>
+					</div>
+				</li>
+				<li>
+					<div class="news-image">
+						<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100608"><img src="/images/home/news-carousel/sd-bestpractices.png" alt="Software Development Best Practices TopCoder Challenge" /></a>
+					</div>
+					<div class="news-text">
+						<p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100608">TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31</a></p>
+					</div>
+				</li>
+				<li>
+					<div class="news-image">
+						<a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://industry.bnet.com/technology/1000470/aol-finds-topcoder-tops/&amp;refer=homepage"><img src="/images/home/news-carousel/bnet.png" alt="BNET" /></a>
+					</div>
+					<div class="news-text">
+						<p><a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://industry.bnet.com/technology/1000470/aol-finds-topcoder-tops/&amp;refer=homepage">AOL Finds TopCoder Tops</a></p>
+						<p class="news-description">AOL technical director Nic Perez talks about his experience as a TopCoder client for a number of major projects over the last three years.</p>
+					</div>
+				</li>
+				<li>
+					<div class="news-image">
+						<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://www.pcworld.com/businesscenter/article/152324/topcoder_eyeing_smb_market.html&amp;refer=homepage"><img src="/images/home/news-carousel/pcworld.png" alt="PCWorld" /></a>
+					</div>
+					<div class="news-text">
+						<p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://www.pcworld.com/businesscenter/article/152324/topcoder_eyeing_smb_market.html&amp;refer=homepage">TopCoder Eyeing SMB Market</a></p>
+						<p class="news-description">TopCoder is turning its sights on the SMB market with a new portal called TopCoder Direct that will come out of beta at the end of October.</p>
+					</div>
+				</li>
+				<li>
+					<div class="news-image">
+						<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://www.cio.com/article/449523/Cool_Programmer_Challenge_Football_Algorithm_&amp;refer=homepage"><img src="/images/home/news-carousel/cio.png" alt="CIO" /></a>
+					</div>
+					<div class="news-text">
+						<p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://www.cio.com/article/449523/Cool_Programmer_Challenge_Football_Algorithm_&amp;refer=homepage">Cool Programmer Challenge: Football Algorithm = $50,000</a></p>
+						<p class="news-description">ESPN plans to use the algorithm for prognostication, on-air prediction and pregame previews.</p>
+					</div>
+				</li>
+			</ul>
         </div><%-- .wrapper ends --%>
     </div><%-- #news ends --%>
 
