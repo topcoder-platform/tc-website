@@ -23,8 +23,8 @@
 			<div id="nav">
 				<h3 class="hide">Main Navigation</h3>
 				<ul>
-					<li class="left"><a href="https://<%=ApplicationServer.SERVER_NAME%>/">TopCoder Home</a></li>
-					<li class="on"><a href="https://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">Engage</a>
+					<li class="left"><a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder Home</a></li>
+					<li class="on"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">Engage</a>
                     	<ul>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">TopCoder Direct</a></li>
                             <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/">Components</a></li>
