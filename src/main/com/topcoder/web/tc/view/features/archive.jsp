@@ -45,6 +45,11 @@
             </tr>
             <tr valign="top">
               <td class="bodyText">&nbsp;</td>
+              <td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=features&d2=011309">Meet the December 2008 Coders of the Month</a></td>
+              <td class="bodyText" nowrap=nowrap>Jan 9, 2009</td>
+            </tr>
+            <tr valign="top">
+              <td class="bodyText">&nbsp;</td>
               <td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=features&d2=120908">Meet the November 2008 Coders of the Month</a></td>
               <td class="bodyText" nowrap=nowrap>Dec 9, 2008</td>
             </tr>
