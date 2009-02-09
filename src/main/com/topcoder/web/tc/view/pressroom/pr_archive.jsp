@@ -72,6 +72,7 @@
             
                 <div class="pr_newsarchive">
                     <dl>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_020209">China, Belarus &amp; Croatia Win Top Honors in the 2009 TopCoder High School Tournament<br /><small style="margin-left:10px;">[February 2nd]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_010709">TopCoder to Keynote MLab Conference on Innovation in the Workplace at London Business School<br /><small style="margin-left:10px;">[January 7th]</small></a></dd>
                     </dl>
                 </div>
