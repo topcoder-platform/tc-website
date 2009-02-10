@@ -90,10 +90,10 @@
                                                                             <th class="last">&nbsp;</th>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td class="first" width="5%">&nbsp;</td>
+                                                                            <td class="first" width="1%">&nbsp;</td>
                                                                             <td class="first last alignText" width="40%">8:00 p.m. - 9:30 p.m.</td>
-                                                                            <td class="first last alignText" width="50%">Welcome Reception</td>
-                                                                            <td class="last" width="5%">&nbsp;</td>
+                                                                            <td class="first last alignText" width="58%">Welcome Reception</td>
+                                                                            <td class="last" width="1%">&nbsp;</td>
                                                                         </tr>
                                                                     </table>
                                                                     <br /><br />
@@ -104,10 +104,10 @@
                                                                             <th class="last">&nbsp;</th>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td class="first" width="5%">&nbsp;</td>
+                                                                            <td class="first" width="1%">&nbsp;</td>
                                                                             <td class="first last alignText" width="40%">8:00 a.m. - 5:00 p.m.</td>
-                                                                            <td class="first last alignText" width="50%">Marathon Finals</td>
-                                                                            <td class="last" width="5%">&nbsp;</td>
+                                                                            <td class="first last alignText" width="58%">Marathon Finals</td>
+                                                                            <td class="last" width="1%">&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
@@ -142,10 +142,10 @@
                                                                             <th class="last">&nbsp;</th>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td class="first" width="5%">&nbsp;</td>
+                                                                            <td class="first" width="1%">&nbsp;</td>
                                                                             <td class="first last alignText" width="40%">8:30 a.m. - 1:00 p.m.</td>
-                                                                            <td class="first last alignText" width="50%">Studio Finals 2</td>
-                                                                            <td class="last" width="5%">&nbsp;</td>
+                                                                            <td class="first last alignText" width="58%">Studio Finals 2</td>
+                                                                            <td class="last" width="1%">&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
@@ -180,10 +180,10 @@
                                                                             <th class="last">&nbsp;</th>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td class="first" width="5%">&nbsp;</td>
+                                                                            <td class="first" width="1%">&nbsp;</td>
                                                                             <td class="first last alignText" width="40%">9:30 a.m. - 11:00 a.m.</td>
-                                                                          <td class="first last alignText" width="50%">Mod Dash Round 3</td>
-                                                                          <td class="last" width="5%">&nbsp;</td>
+                                                                          <td class="first last alignText" width="58%">Mod Dash Round 3</td>
+                                                                          <td class="last" width="1%">&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
