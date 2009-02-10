@@ -55,9 +55,7 @@ public abstract class Base extends ShortHibernateProcessor {
         getRequest().setAttribute("fileTypes", StudioDAOUtil.getFactory().getFileTypeDAO().getFileTypes());
 
         getRequest().setAttribute("forums", getForumList());
-		// Changed the following line on 2/10/2009 to get all events instead of only studio events.  Doing this to handle the new TCO reg which only 
-		// uses a single reg for all contest types.
-        getRequest().setAttribute("events", DAOUtil.getFactory().getEventDAO().getEvents());
+        getRequest().setAttribute("events", DAOUtil.getFactory().getEventDAO().getEvents(EventType.STUDIO_TOURNAMENT_ID));
 
         ArrayList<ListSelectTag.Option> viewSubmissionAnswers = new ArrayList<ListSelectTag.Option>();
         viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
