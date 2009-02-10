@@ -25,9 +25,9 @@
 <![endif]-->
 
 <!-- External JavaScripts -->
-<script type="text/javascript" src="/js/tournaments/jquery-1.2.6.js"></script>
-<script type="text/javascript" src="/js/tournaments/jquery.backgroundPosition.js"></script>
-<script type="text/javascript" src="/js/tournaments/scripts.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
 <script type="text/javascript" src="/js/arena.js"></script> 
 <style type="text/css">
 <!--
@@ -91,7 +91,7 @@
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Competition Round Structure</h3>
                                                                                 <p>Each Online and Onsite Round of the Marathon Competition consists of two phases: the Coding Phase and the System Testing Phase. (Note: The format for rounds of the Marathon Competition is similar to the format of TopCoder Marathon Matches. The rules in place for Marathon Matches as of February 2, 2009, as may be amended by these Rules, will apply to the Online and Onsite rounds of the Marathon Competition.)</p>
-                                                                                <p>The Coding Phase is a timed event where all Competitors are presented with the same problem statement. The criteria for scoring a Competitor’s submission will be provided with the problem statement and may change from round to round. During each round of the Marathon Competition, each Competitor may submit one of two types of submissions: an Example Submission or a Full Submission. Each Example Submission is run against the example test cases listed in the problem statement and detailed feedback is provided to the Competitor. Each Full Submission is run against a more complete set of test cases which are not disclosed to the Competitor and the Competitor only receives a provisional score. For Online Rounds 1 and 2, the duration of the Coding Phase is one week. For Online Round 3, the duration of the Coding Phase is two weeks.</p>
+                                                                                <p>The Coding Phase is a timed event where all Competitors are presented with the same problem statement. The criteria for scoring a CompetitorÂ’s submission will be provided with the problem statement and may change from round to round. During each round of the Marathon Competition, each Competitor may submit one of two types of submissions: an Example Submission or a Full Submission. Each Example Submission is run against the example test cases listed in the problem statement and detailed feedback is provided to the Competitor. Each Full Submission is run against a more complete set of test cases which are not disclosed to the Competitor and the Competitor only receives a provisional score. For Online Rounds 1 and 2, the duration of the Coding Phase is one week. For Online Round 3, the duration of the Coding Phase is two weeks.</p>
                                                                                 <p>The System Testing Phase is applied to the most recent Full Submission for each Competitor. During system testing, each Full Submission is run against a large number of sample cases which are not disclosed to the Competitors, and is scored according to the criteria specified in the problem statement. Once the system tests are completed, Competitors are ranked according to their score on the system test cases. The score a Competitor's Full Submission receives is determined solely by the system testing.<strong></strong></p>
                                                                         </div>
                                                                         <div class="subtitle">
@@ -155,7 +155,7 @@
                                                                                 <p>After each Online Round, the specified number of highest scoring competitors will advance to the next Online Round. To advance, a Competitor must submit a Full Submission and achieve a score greater than zero. The structure of each Online Round is as follows:</p>
                                                                                 <p><strong>Online Round 1</strong><br />All Competitors who have registered for the Marathon Competition may compete, and up to 300 of the highest scoring Competitors will advance to Online Round 2.</p>
                                                                                 <p><strong>Online Round 2</strong><br />Up to 300 Competitors from Online Round 1 will compete and up to 100 of the highest scoring Competitors will advance to Online Round 3.</p>
-                                                                                <p><strong>Online Round 3</strong><br />Up to 100 Competitors from Online Round 2 will compete and up to 10 of the highest scoring competitors will advance to the onsite Championship Round (“Onsite Marathon Competitor”).</p>
+                                                                                <p><strong>Online Round 3</strong><br />Up to 100 Competitors from Online Round 2 will compete and up to 10 of the highest scoring competitors will advance to the onsite Championship Round (Â“Onsite Marathon CompetitorÂ”).</p>
                                                                                 <p>NOTE: In the event of a tie for any advancing position during the Online Rounds, the tie will be resolved in the following manner:</p>
                                                                                     <ol>
                                                                                         <li>The Competitor with the highest number of total points from the immediately preceding Online Round of the Marathon Competition will advance. </li>

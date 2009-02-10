@@ -30,9 +30,9 @@
 <![endif]-->
 
 <!-- External JavaScripts -->
-<script type="text/javascript" src="/js/tournaments/jquery-1.2.6.js"></script>
-<script type="text/javascript" src="/js/tournaments/jquery.backgroundPosition.js"></script>
-<script type="text/javascript" src="/js/tournaments/scripts.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
 <script type="text/javascript" src="/js/arena.js"></script> 
 </head>
 

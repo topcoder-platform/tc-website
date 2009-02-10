@@ -25,9 +25,9 @@
 <![endif]-->
 
 <!-- External JavaScripts -->
-<script type="text/javascript" src="/js/tournaments/jquery-1.2.6.js"></script>
-<script type="text/javascript" src="/js/tournaments/jquery.backgroundPosition.js"></script>
-<script type="text/javascript" src="/js/tournaments/scripts.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
 <script type="text/javascript" src="/js/arena.js"></script> 
 <style type="text/css">
 <!--
@@ -114,14 +114,14 @@
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 1</td>
-                                                                            <td class="first last alignText">Tuesday, June 2, 2009<br />1:00 PM – 5:00 PM***</td>
+                                                                            <td class="first last alignText">Tuesday, June 2, 2009<br />1:00 PM Â– 5:00 PM***</td>
                                                                             <td class="first last alignText">10</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 2</td>
-                                                                            <td class="first last alignText">Wednesday, June 3, 2009<br />8:30 AM – 1:00 PM***</td>
+                                                                            <td class="first last alignText">Wednesday, June 3, 2009<br />8:30 AM Â– 1:00 PM***</td>
                                                                             <td class="first last alignText">10</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>

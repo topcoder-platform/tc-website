@@ -25,9 +25,9 @@
 <![endif]-->
 
 <!-- External JavaScripts -->
-<script type="text/javascript" src="/js/tournaments/jquery-1.2.6.js"></script>
-<script type="text/javascript" src="/js/tournaments/jquery.backgroundPosition.js"></script>
-<script type="text/javascript" src="/js/tournaments/scripts.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
 <script type="text/javascript" src="/js/arena.js"></script> 
 <style type="text/css">
 <!--
@@ -82,16 +82,16 @@
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title">Assembly Competition Official Rules and Regulations</h2>
-                                                                    <p>The 2009 TopCoder Open Assembly Competition will take place between February 2 and June 4, 2009 (“Assembly Competition”). The Assembly Competition will consist of eight (8) weeks of online qualifying competitions, with up to six (6) of the highest scoring competitors winning a trip to the Tournament.</p>
+                                                                    <p>The 2009 TopCoder Open Assembly Competition will take place between February 2 and June 4, 2009 (Â“Assembly CompetitionÂ”). The Assembly Competition will consist of eight (8) weeks of online qualifying competitions, with up to six (6) of the highest scoring competitors winning a trip to the Tournament.</p>
                                                                     <p>The Assembly Competition is part of the Tournament, and by participating in this Assembly Competition, you agree to these Rules.</p>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Schedule</h3>
-                                                                                <p>Competitors can register for the Tournament and be eligible to participate in the Assembly Competition between 9:00 a.m. EST on February 2, 2009 and 9:00 a.m. EST on March 19, 2009.&nbsp; Competitors do not need to register separately for the Assembly Competition. The Assembly Competition will take place between February 2, 2009 and April 17, 2009 (“Assembly Competition Period”).&nbsp; </p>
-                                                                                <p>During the Assembly Competition Period, Competitors who have registered for the Tournament and who participate in Tournament-eligible assembly competitions on the TopCoder website, will receive points as outlined in these Rules.&nbsp; A Competitor’s submission will not be scored separately for the Assembly Competition.&nbsp; Only Tournament-eligible assembly competitions in which registration has closed during the Assembly Competition Period shall be included in determining points for the Assembly Competition.</p>
+                                                                                <p>Competitors can register for the Tournament and be eligible to participate in the Assembly Competition between 9:00 a.m. EST on February 2, 2009 and 9:00 a.m. EST on March 19, 2009.&nbsp; Competitors do not need to register separately for the Assembly Competition. The Assembly Competition will take place between February 2, 2009 and April 17, 2009 (Â“Assembly Competition PeriodÂ”).&nbsp; </p>
+                                                                                <p>During the Assembly Competition Period, Competitors who have registered for the Tournament and who participate in Tournament-eligible assembly competitions on the TopCoder website, will receive points as outlined in these Rules.&nbsp; A CompetitorÂ’s submission will not be scored separately for the Assembly Competition.&nbsp; Only Tournament-eligible assembly competitions in which registration has closed during the Assembly Competition Period shall be included in determining points for the Assembly Competition.</p>
                                                                         </div>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Competition Scoring</h3>
-                                                                                <p>Scoring in the Assembly Competition is determined based on the final placement for a Competitor’s submission in a Tournament-eligible assembly competition in accordance with the rules of such competition.&nbsp; An assembly competition is Tournament-eligible if the competition is identified as being included as part of the Tournament.&nbsp; Only competitors who are registered for the Tournament will be considered in determining place and placement points. Placement scoring is as follows:</p>
+                                                                                <p>Scoring in the Assembly Competition is determined based on the final placement for a CompetitorÂ’s submission in a Tournament-eligible assembly competition in accordance with the rules of such competition.&nbsp; An assembly competition is Tournament-eligible if the competition is identified as being included as part of the Tournament.&nbsp; Only competitors who are registered for the Tournament will be considered in determining place and placement points. Placement scoring is as follows:</p>
                                                                                     <ul>
                                                                                         <li>Highest Scoring Registered Competitor - 10 Points </li>
                                                                                         <li>Second Highest Scoring Registered Competitor - 7 Points </li>

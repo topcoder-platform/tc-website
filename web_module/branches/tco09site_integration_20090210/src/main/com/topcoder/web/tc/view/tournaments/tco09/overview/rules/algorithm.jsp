@@ -25,9 +25,9 @@
 <![endif]-->
 
 <!-- External JavaScripts -->
-<script type="text/javascript" src="/js/tournaments/jquery-1.2.6.js"></script>
-<script type="text/javascript" src="/js/tournaments/jquery.backgroundPosition.js"></script>
-<script type="text/javascript" src="/js/tournaments/scripts.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
 <script type="text/javascript" src="/js/arena.js"></script> 
 <style type="text/css">
 <!--
@@ -92,7 +92,7 @@
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Algorithm Competition Round Structure</h3>
                                                                                 <p>Each Online and Onsite Round of the Algorithm Competition (including the Qualification Rounds) consists of three phases: Coding Phase, Challenge Phase, and System Testing Phase. (Note: The format of these competition rounds is similar to the format of TopCoder Single Round Matches. The rules in place for Single Round Matches as of February 2, 2009 will also apply to the online and onsite rounds of the Algorithm Competition, with the exception of the Unused Code Rule during the onsite rounds.)</p>
-                                                                                <p>The Coding Phase is a timed phase in which all Competitors are presented with the same three questions representing three levels of complexity and three levels of potential points. Points are awarded for each problem upon submission of a solution that successfully compiles. Points are calculated on the total time elapsed from the time the Competitor opened the problem until the time the Competitor’s successfully compiling submission was submitted. During the Online Rounds, the Coding Phase will last 75 minutes. During the Onsite Rounds, the Coding Phase will last 85 minutes.</p>                                                     
+                                                                                <p>The Coding Phase is a timed phase in which all Competitors are presented with the same three questions representing three levels of complexity and three levels of potential points. Points are awarded for each problem upon submission of a solution that successfully compiles. Points are calculated on the total time elapsed from the time the Competitor opened the problem until the time the CompetitorÂ’s successfully compiling submission was submitted. During the Online Rounds, the Coding Phase will last 75 minutes. During the Onsite Rounds, the Coding Phase will last 85 minutes.</p>                                                     
                                                                                 <p>The Challenge Phase is a timed phase wherein each Competitor has the opportunity to challenge the functionality of any other Competitors' submission. If successful, the challenge will result in (i) the challenged Competitor losing any points awarded for the challenged submission, and (ii) a 50-point bonus for the challenging Competitor. If unsuccessful, the challenging competitor's point total in that round of the Competition will be reduced by 25 points. During the Online Rounds, the Challenge Phase will last 15 minutes. During the Onsite Rounds, the Challenge Phase will last 10 minutes.</p>
                                                                                 <p>The System Testing Phase applies to all submissions that have not already been successfully challenged. If the TopCoder System Test finds a flawed submission, the Competitor who submitted that submission will lose all of the points that were originally awarded for that submission. The System Testing Phase consists of applying a set of inputs to a submission. If the output from a Competitor's submission is not correct, the submission is considered flawed and loses all points awarded. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.</p>                                                     
                                                                             <h3 class="subtitle">Qualification Rounds</h3>
@@ -236,7 +236,7 @@
                                                                                         **Times listed in Eastern Daylight Time (UTC/GMT -4).<br /></em></p>
                                                                                     <p>In the event that a round must be cancelled for any reason, the round will start the following day at the same time.</p>
                                                                             <h3 class="subtitle">Scoring and Advancing during Online Rounds</h3>
-                                                                                <p>After each Online Round, as set forth below, a number of the highest scoring competitors from all rooms will advance to the next online round. To determine a Competitor’s score during the Online Rounds, the total point values from all three phases of the round are added for each Competitor. The Competitors are then ranked in order of score, with the highest scoring Competitors advancing to the next round.  To be eligible to advance to the next round of the Algorithm Competition, the Competitor must finish each round of the Algorithm Competition with a point total greater than zero. </p>
+                                                                                <p>After each Online Round, as set forth below, a number of the highest scoring competitors from all rooms will advance to the next online round. To determine a CompetitorÂ’s score during the Online Rounds, the total point values from all three phases of the round are added for each Competitor. The Competitors are then ranked in order of score, with the highest scoring Competitors advancing to the next round.  To be eligible to advance to the next round of the Algorithm Competition, the Competitor must finish each round of the Algorithm Competition with a point total greater than zero. </p>
                                                                                 <p>The structure of the online rounds is as follows:</p>
                                                                                 <p><strong>Online Round 1</strong><br />Up to 1,800 Competitors will compete, with up to 720 of the highest scoring Competitors across all rooms advancing to Online Round 2.</p>
                                                                                 <p><strong>Online Round 2</strong><br />Up to 720 Competitors will compete, with up to 300 of the highest scoring Competitors across all rooms advancing to Online Round 3.</p>
@@ -322,13 +322,13 @@
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td class="first">&nbsp;</td>
-                                                                                        <td class="first last alignText">6th – 8th place finishers* in the Championship Round</td>
+                                                                                        <td class="first last alignText">6th Â– 8th place finishers* in the Championship Round</td>
                                                                                         <td class="first last alignText">$200 each</td>
                                                                                         <td class="last">&nbsp;</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td class="first">&nbsp;</td>
-                                                                                        <td class="first last alignText">9th – 18th place finishers* in the Semifinal Round</td>
+                                                                                        <td class="first last alignText">9th Â– 18th place finishers* in the Semifinal Round</td>
                                                                                         <td class="first last alignText">$100 each</td>
                                                                                         <td class="last">&nbsp;</td>
                                                                                     </tr>

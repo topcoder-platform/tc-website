@@ -25,9 +25,9 @@
 <![endif]-->
 
 <!-- External JavaScripts -->
-<script type="text/javascript" src="/js/tournaments/jquery-1.2.6.js"></script>
-<script type="text/javascript" src="/js/tournaments/jquery.backgroundPosition.js"></script>
-<script type="text/javascript" src="/js/tournaments/scripts.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
 <script type="text/javascript" src="/js/arena.js"></script> 
 <style type="text/css">
 <!--
@@ -87,11 +87,11 @@
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Schedule</h3>
                                                                                 <p>Competitors can register for the Tournament and be eligible to participate in the Architecture Competition between 9:00 a.m. EST on February 2, 2009 and 9:00 a.m. EST on March 19, 2009.  Competitors do not need to register separately for the Architecture Competition. The Architecture Competition will take place between February 2 and April 17, 2009 ("Architecture Competition Period").  </p>
-                                                                                <p>During the Architecture Competition Period, Competitors who have registered for the Architecture Competition and who participate in Tournament-eligible architecture competitions on the TopCoder website, will receive points as outlined in these Rules.  A Competitor’s submission will not be scored separately for the Architecture Competition.  Only Tournament-eligible architecture competitions in which registration has closed during the Architecture Competition Period shall be included in determining points for the Architecture Competition.</p>
+                                                                                <p>During the Architecture Competition Period, Competitors who have registered for the Architecture Competition and who participate in Tournament-eligible architecture competitions on the TopCoder website, will receive points as outlined in these Rules.  A CompetitorÂ’s submission will not be scored separately for the Architecture Competition.  Only Tournament-eligible architecture competitions in which registration has closed during the Architecture Competition Period shall be included in determining points for the Architecture Competition.</p>
                                                                         </div>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Competition Scoring</h3>
-                                                                                <p>Scoring in the Architecture Competition is determined based on the final placement for a Competitor’s submission in a Tournament-eligible architecture competition in accordance with the rules of such competition.  An architecture competition is Tournament-eligible if the competition is identified as being included as part of the Tournament.  Only competitors who are registered for the Tournament will be considered in determining place and placement points. Placement scoring is as follows:</p>
+                                                                                <p>Scoring in the Architecture Competition is determined based on the final placement for a CompetitorÂ’s submission in a Tournament-eligible architecture competition in accordance with the rules of such competition.  An architecture competition is Tournament-eligible if the competition is identified as being included as part of the Tournament.  Only competitors who are registered for the Tournament will be considered in determining place and placement points. Placement scoring is as follows:</p>
                                                                                     <ul>
                                                                                         <li>Highest Scoring Registered Competitor - 10 Points </li>
                                                                                         <li>Second Highest Scoring Registered Competitor - 7 Points </li>

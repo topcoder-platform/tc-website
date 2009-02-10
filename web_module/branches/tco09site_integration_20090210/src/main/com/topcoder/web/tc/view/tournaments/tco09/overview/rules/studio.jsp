@@ -25,9 +25,9 @@
 <![endif]-->
 
 <!-- External JavaScripts -->
-<script type="text/javascript" src="/js/tournaments/jquery-1.2.6.js"></script>
-<script type="text/javascript" src="/js/tournaments/jquery.backgroundPosition.js"></script>
-<script type="text/javascript" src="/js/tournaments/scripts.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
 <script type="text/javascript" src="/js/arena.js"></script> 
 <style type="text/css">
 <!--
@@ -82,12 +82,12 @@
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title">Studio Design Competition Official Rules and Regulations</h2>
-                                                                    <p>The 2009 TopCoder Open Studio Design Competition will take place between February 2 and June 4, 2009 (“Studio Competition”). The Studio Competition will consist of eight (8) weeks of online qualifying competitions, with up to ten (10) of the highest scoring Competitors winning a trip to the Tournament to compete in the Onsite Championship.</p>
+                                                                    <p>The 2009 TopCoder Open Studio Design Competition will take place between February 2 and June 4, 2009 (Â“Studio CompetitionÂ”). The Studio Competition will consist of eight (8) weeks of online qualifying competitions, with up to ten (10) of the highest scoring Competitors winning a trip to the Tournament to compete in the Onsite Championship.</p>
                                                                     <p>The Studio Competition is part of the Tournament, and by participating in this Studio Competition, you agree to these Rules.</p>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Schedule</h3>
-                                                                                <p>Competitors can register for the Tournament and be eligible to participate in the Studio Competition between 9:00 AM EST on February 2, 2009 and 9:00 AM EST on March 27, 2009.  Competitors do not need to register separately for the Studio Competition. The Online Competitions will take place between February 2, 2009 and March 27, 2009 (“Studio Competition Period”).  </p>
-                                                                                <p>During the Studio Competition Period, Competitors who have registered for the Tournament and who participate in Tournament-eligible Studio competitions on the TopCoder Studio website, will receive points as outlined in these Rules.  A Competitor’s submission will not be scored separately for the Studio Competition.  Only Tournament-eligible Studio contests in which registration has closed during the Studio Competition Period shall be included in determining points for the Studio Competition.</p>
+                                                                                <p>Competitors can register for the Tournament and be eligible to participate in the Studio Competition between 9:00 AM EST on February 2, 2009 and 9:00 AM EST on March 27, 2009.  Competitors do not need to register separately for the Studio Competition. The Online Competitions will take place between February 2, 2009 and March 27, 2009 (Â“Studio Competition PeriodÂ”).  </p>
+                                                                                <p>During the Studio Competition Period, Competitors who have registered for the Tournament and who participate in Tournament-eligible Studio competitions on the TopCoder Studio website, will receive points as outlined in these Rules.  A CompetitorÂ’s submission will not be scored separately for the Studio Competition.  Only Tournament-eligible Studio contests in which registration has closed during the Studio Competition Period shall be included in determining points for the Studio Competition.</p>
                                                                                     <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                                         <tr>
                                                                                             <th class="first">&nbsp;</th>
@@ -135,7 +135,7 @@
                                                                         </div>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Competition Scoring</h3>
-                                                                                <p>Scoring in the Studio Competition is determined based on the final placement for a Competitor’s submission in a Tournament-eligible Studio competition in accordance with the rules of such competition.  A Studio competition is Tournament-eligible if the competition is identified as being included as part of the Tournament.  All submissions will proceed through Studio screening policies. Submissions that fail screening will not be eligible for placement points in the Studio Competition.  Only Competitors who are registered for the Tournament will be considered in determining place and placement points. Placement scoring is as follows:</p>
+                                                                                <p>Scoring in the Studio Competition is determined based on the final placement for a CompetitorÂ’s submission in a Tournament-eligible Studio competition in accordance with the rules of such competition.  A Studio competition is Tournament-eligible if the competition is identified as being included as part of the Tournament.  All submissions will proceed through Studio screening policies. Submissions that fail screening will not be eligible for placement points in the Studio Competition.  Only Competitors who are registered for the Tournament will be considered in determining place and placement points. Placement scoring is as follows:</p>
                                                                                     <ul>
                                                                                         <li>Highest Scoring Registered Competitor - 10 Points </li>
                                                                                         <li>Second Highest Scoring Registered Competitor - 7 Points </li>
@@ -145,7 +145,7 @@
                                                                         </div>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Advancement</h3>
-                                                                                <p>Upon the completion of all Tournament-eligible Studio contests, all of the individual placement scores that a Competitor receives during the Studio Competition Period will be added for a cumulative placement score.  Up to ten (10) Competitors with the highest cumulative placement score during the Online Period will advance to the Onsite Championship (“Onsite Studio Competitors”).</p>
+                                                                                <p>Upon the completion of all Tournament-eligible Studio contests, all of the individual placement scores that a Competitor receives during the Studio Competition Period will be added for a cumulative placement score.  Up to ten (10) Competitors with the highest cumulative placement score during the Online Period will advance to the Onsite Championship (Â“Onsite Studio CompetitorsÂ”).</p>
                                                                                 <p>In the event of a tie, the tie will be resolved in the following manner:</p>
                                                                                     <ol>
                                                                                         <li>The Competitor who has the most higher-placed submissions in Tournament-eligible Studio contests. </li>
@@ -177,11 +177,11 @@
                                                                         </div>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">RAPID DESIGN TIEBREAKER (if necessary)</h3>
-                                                                                <p>The Rapid Design Competition will consist of designing a mock (graphical representation) of a fictitious web site's main page. The tied Competitors will be allowed to submit only one design for the Rapid Design Competition. The Competitor’s submission must pass the standard Studio screening process. All submissions that pass screening will be presented to the TopCoder Studio members for an online vote to determine the winner of the Rapid Design Contest. The winner of the Rapid Design Contest will advance to the Onsite Championship. THE RESULTS OF THE VOTE AND CHOICE OF THE WINNER ARE FINAL.</p>
+                                                                                <p>The Rapid Design Competition will consist of designing a mock (graphical representation) of a fictitious web site's main page. The tied Competitors will be allowed to submit only one design for the Rapid Design Competition. The CompetitorÂ’s submission must pass the standard Studio screening process. All submissions that pass screening will be presented to the TopCoder Studio members for an online vote to determine the winner of the Rapid Design Contest. The winner of the Rapid Design Contest will advance to the Onsite Championship. THE RESULTS OF THE VOTE AND CHOICE OF THE WINNER ARE FINAL.</p>
                                                                                 <p>The schedule for the Rapid Design Contest is as follows:<br />
                                                                                     Rapid Design Contest Spec Doc posted and Submission Phase begins: Noon EDT (UTC/GMT -4) April 2, 2009<br />
                                                                                     Submission Phase ends: Noon EDT (UTC/GMT -4), April 3, 2009<br />
-                                                                                    Voting Phase: April 3 – April 6, 2009<br />
+                                                                                    Voting Phase: April 3 Â– April 6, 2009<br />
                                                                                     Winner Announced: April 7, 2009</p>
                                                                         </div>
                                                                         <div class="subtitle">
@@ -194,7 +194,7 @@
                                                                                         <li>The open-source graphic programs GIMP and InkScape</li>
                                                                                         <li>7-Zip</li>
                                                                                         <li>A sketchpad, pencils and pencil sharpener </li>
-                                                                                        <li>Limited Internet access to TopCoder Studio, colorblender.com and a stock art website (at TopCoder’s discretion).</li>
+                                                                                        <li>Limited Internet access to TopCoder Studio, colorblender.com and a stock art website (at TopCoderÂ’s discretion).</li>
                                                                                     </ul>
                                                                                 <p>Onsite Studio Competitors may bring the following:</p>
                                                                                     <ul>
@@ -204,7 +204,7 @@
                                                                                         <li>Music player and headphones </li>
                                                                                     </ul>
                                                                                 <p>Onsite Studio Competitors may access their workstations thirty (30) minutes before the beginning of each Onsite Round, during which time they may configure the workspace and programs.  Design work of any kind (including sketching) is prohibited prior to the start of each Onsite Round.</p>
-                                                                                <p>Onsite Studio Competitors may not bring or use any other materials (including flash disks, magazines, or sketches). Keyboards and reference materials must be given to TopCoder for review and evaluation at least one (1) hour before each Onsite Round begins. The keyboards and books may be disqualified from use for any reason or no reason at TopCoder’s sole discretion.</p>
+                                                                                <p>Onsite Studio Competitors may not bring or use any other materials (including flash disks, magazines, or sketches). Keyboards and reference materials must be given to TopCoder for review and evaluation at least one (1) hour before each Onsite Round begins. The keyboards and books may be disqualified from use for any reason or no reason at TopCoderÂ’s sole discretion.</p>
                                                                                 <p>TopCoder reserves the right, at any point in the Onsite Rounds, to confiscate any materials an Onsite Studio Competitor has at their workstation that TopCoder deems inappropriate for any reason or no reason. TopCoder reserves the right to allow or refuse an Onsite Studio Competitor a limited extension of time (no more than 10 minutes) to upload their submission due to technical difficulties during an Onsite Round.</p>
                                                                                 <p>The winner of the Studio Competition will be the Onsite Studio Competitor with the highest weighted aggregate placement score from both Onsite Rounds (rounding down to three (3) decimal places). Placement scores and the weights for each Onsite Round are:</p>
                                                                                     <ul>

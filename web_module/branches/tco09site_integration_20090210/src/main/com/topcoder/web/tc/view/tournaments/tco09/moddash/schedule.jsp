@@ -25,9 +25,9 @@
 <![endif]-->
 
 <!-- External JavaScripts -->
-<script type="text/javascript" src="/js/tournaments/jquery-1.2.6.js"></script>
-<script type="text/javascript" src="/js/tournaments/jquery.backgroundPosition.js"></script>
-<script type="text/javascript" src="/js/tournaments/scripts.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
 <script type="text/javascript" src="/js/arena.js"></script> 
 <style type="text/css">
 <!--
@@ -115,7 +115,7 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 1</td>
                                                                             <td class="first last alignText">Tuesday, June 2, 2009<br />
-                                                                            10:30 AM – 12:00 PM***</td>
+                                                                            10:30 AM Â– 12:00 PM***</td>
                                                                             <td class="first last alignText">12</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
@@ -123,7 +123,7 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 2</td>
                                                                             <td class="first last alignText">Wednesday, June 3, 2009<br />
-                                                                            10:30 AM – 12:00 PM***</td>
+                                                                            10:30 AM Â– 12:00 PM***</td>
                                                                             <td class="first last alignText">12</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
@@ -131,7 +131,7 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 3</td>
                                                                             <td class="first last alignText">Thursday, June 4, 2009<br />
-                                                                              9:30 AM – 11:00 AM***</td>
+                                                                              9:30 AM Â– 11:00 AM***</td>
                                                                             <td class="first last alignText">12</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
