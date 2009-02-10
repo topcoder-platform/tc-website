@@ -397,6 +397,69 @@ public class Constants implements WebConstants {
     
     public static String DR_POINTS_LAST_N_DAYS = "7";
 
+    /**
+     * <p>
+     * A <code>String</code> referencing event parameter name.
+     * </p>
+     * 
+     * @since 2009 TopCoder Open Site Integration
+     */    
+    public static final String EVENT = "event";
+
+    /**
+     * <p>
+     * A <code>String</code> referencing TCO09 short description
+     * </p>
+     * 
+     * @since 2009 TopCoder Open Site Integration
+     */    
+    public static String TCO09_SHORT_DESC = "tco09";
+
+    /**
+     * <p>
+     * A <code>String</code> referencing TCO09 terms success page.
+     * </p>
+     * 
+     * @since 2009 TopCoder Open Site Integration
+     */    
+    public static String TCO09_TERMS_SUCCESS_PAGE = "/tournaments/tco09/termsSuccess.jsp";
+
+    /**
+     * <p>
+     * A <code>String</code> referencing TCO09 terms page.
+     * </p>
+     * 
+     * @since 2009 TopCoder Open Site Integration
+     */    
+    public static String TCO09_TERMS_PAGE = "/tournaments/tco09/terms.jsp";
+
+    /**
+     * <p>
+     * A <code>String</code> referencing TCO09 view registration request.
+     * </p>
+     * 
+     * @since 2009 TopCoder Open Site Integration
+     */    
+    public static String TCO09_VIEW_REGISTRATION_REQUEST = "/tco09?module=ViewUnifiedRegistration";
+
+    /**
+     * <p>
+     * A <code>String</code> referencing TCO09 registrants command.
+     * </p>
+     * 
+     * @since 2009 TopCoder Open Site Integration
+     */    
+    public static String TCO09_REGISTRANTS_COMMAND = "tco09_registrants";
+
+    /**
+     * <p>
+     * A <code>String</code> referencing TCO09 overview page.
+     * </p>
+     * 
+     * @since 2009 TopCoder Open Site Integration
+     */    
+    public static String TCO09_OVERVIEW_PAGE = "/tournaments/tco09/overview/overview.jsp";
+    
     static {
         initialize();
     }
