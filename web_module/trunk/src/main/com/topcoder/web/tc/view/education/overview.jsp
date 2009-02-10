@@ -39,10 +39,12 @@
 <br /><br />
 <span class="bodySubtitle">Most recent articles:</span><br />
 <ul>
-<li><a href="/tc?module=Static&amp;d1=features&amp;d2=071708"><strong>Generating random numbers with C++ TR1</strong></a>, by <tc-webtag:handle coderId="251074" context="algorithm" /><br />
-In previous articles, I have looked at how to generate various <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=randomNumbers">random distributions of one variable</a>, and <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=randomNumbers2">random collections of variables</a>. Those articles assumed only a random number generator that produced random numbers in some fixed range, such as the C <code>rand()</code> function. In this article, I'll look at a specific random number library, and how it can simplify random number generation.</li>
+<li><a href="tc?module=Static&d1=features&d2=020909">How to Compete Well in Conceptualization and Specification Contests</a>, by <tc-webtag:handle coderId="20437508" context="algorithm" /><br />
+A TopCoder member's point of view, writing to members, of the Conceptualization and Specification contests. It includes tips and secrets for what to do and how to compete well.</li>
 <li><a href="/tc?module=Static&d1=features&d2=011309"><strong>Meet the December 2008 Coders of the Month</strong></a>&nbsp;<br />
 This month we caught up with December Coders of the Month to learn a little bit more about them, their proudest TopCoder moments, and anything else they wish to share with the community.</li>
+<li><a href="/tc?module=Static&amp;d1=features&amp;d2=071708"><strong>Generating random numbers with C++ TR1</strong></a>, by <tc-webtag:handle coderId="251074" context="algorithm" /><br />
+In previous articles, I have looked at how to generate various <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=randomNumbers">random distributions of one variable</a>, and <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=randomNumbers2">random collections of variables</a>. Those articles assumed only a random number generator that produced random numbers in some fixed range, such as the C <code>rand()</code> function. In this article, I'll look at a specific random number library, and how it can simplify random number generation.</li>
 <li><a href="/tc?module=Static&amp;d1=tutorials&amp;d2=hungarianAlgorithm"><strong>Assignment Problem and Hungarian Algorithm</strong></a>, by <tc-webtag:handle coderId="22654859" context="algorithm" /><br />
 Are you familiar with the following situation? You open the Div I Medium and don't know how to approach it, while a lot of people in your room submitted it in less than 10 minutes. Then, after the contest, you find out in the editorial that this problem can be simply reduced to a classical one. If yes, then this tutorial will surely be useful for you.</li>
 </ul>
