@@ -133,8 +133,8 @@
 											</td>
 											<td class="value">
 												<%-- todo no scriptlet code!, fix this--%>
-												<% if ("3008".equals(resultRow.getStringItem("event_id"))) { %>
-												<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=studio&amp;d4=description"><img src="/i/tournament/tco08/emblem.png" alt="" /><span>Eligible for the TCO08 SDC</span></a>
+												<% if ("3009".equals(resultRow.getStringItem("event_id"))) { %>
+												<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=description"><img src="/i/tournament/tco08/emblem.png" alt="" /><span>Eligible for the TCO09 SDC</span></a>
 												<% } else { %>
 												&nbsp;
 												<% } %>
