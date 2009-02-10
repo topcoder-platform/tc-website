@@ -55,7 +55,8 @@ public abstract class Base extends ShortHibernateProcessor {
         getRequest().setAttribute("fileTypes", StudioDAOUtil.getFactory().getFileTypeDAO().getFileTypes());
 
         getRequest().setAttribute("forums", getForumList());
-        getRequest().setAttribute("events", DAOUtil.getFactory().getEventDAO().getEvents(EventType.STUDIO_TOURNAMENT_ID));
+		// 2/10/2009 - changed event type from studio to generic tournament id
+        getRequest().setAttribute("events", DAOUtil.getFactory().getEventDAO().getEvents(EventType.TOURNAMENT_ID));
 
         ArrayList<ListSelectTag.Option> viewSubmissionAnswers = new ArrayList<ListSelectTag.Option>();
         viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
