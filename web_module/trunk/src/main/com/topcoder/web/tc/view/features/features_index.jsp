@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+              <td class="bodyText"><tc-webtag:handle coderId="20437508" context="algorithm" /></td>
+              <td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=features&d2=020909">How to Compete Well in Conceptualization and Specification Contests</a></td>
+              <td class="bodyText" nowrap=nowrap>Feb 9, 2009</td>
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="16096823" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=061906"><strong>How to prepare for an Assembly Competition</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Jun 19, 2006</td>
