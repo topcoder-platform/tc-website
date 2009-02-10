@@ -14,27 +14,6 @@
     <br /><br />
     <h2 class="title">Event Sponsor</h2>
     <div class="logo">
-        <a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/sponsor_logo.png" alt="Sponsor Logo" /></a>
+        <a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/logo-snia.png" alt="SNIA XAM Initiative" /></a>
     </div>
-    <!--<div class="logo">
-        <img src="/i/tournament/tco09/sponsor_logo.png" alt="Sponsor Logo" />
-    </div>
-    <div class="logo">
-        <img src="/i/tournament/tco09/sponsor_logo.png" alt="Sponsor Logo" />
-    </div>
-    <div class="logo">
-        <img src="/i/tournament/tco09/sponsor_logo.png" alt="Sponsor Logo" />
-    </div>
-    <div class="logo">
-        <img src="/i/tournament/tco09/sponsor_logo.png" alt="Sponsor Logo" />
-    </div>
-    <div class="logo">
-        <img src="/i/tournament/tco09/sponsors_logo2.png" alt="Sponsor Logo" /><img class="logo2" src="/i/tournament/tco09/sponsors_logo2.png" alt="Sponsor Logo" />
-    </div>
-    <div class="logo">
-        <img src="/i/tournament/tco09/sponsors_logo2.png" alt="Sponsor Logo" /><img class="logo2" src="/i/tournament/tco09/sponsors_logo2.png" alt="Sponsor Logo" />
-    </div>
-    <div class="logo">
-        <img src="/i/tournament/tco09/sponsors_logo2.png" alt="Sponsor Logo" /><img class="logo2" src="/i/tournament/tco09/sponsors_logo2.png" alt="Sponsor Logo" />
-    </div>-->
 </div><!-- End .sponsors -->

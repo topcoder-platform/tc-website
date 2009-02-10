@@ -80,7 +80,7 @@
                                                         <div>   
                                                             <div class="pageContent">
                                                                 <h2 class="title">Component Design Competition Schedule</h2>
-                                                              <p>Registration will take place between Monday, February 2 at 9:00 AM and Thursday, March 19, 2009 at 9:00 AM The competition will have six (6) weeks of online competition.  Each competitor participating in an online round must submit by the submission deadline. All start times will be communicated as Eastern Standard Time (UTC/GMT -5) or Eastern Daylight Time (UTC/GMT -4).</p>
+                                                              <p>Registration will take place between Wednesday, February 11 at 9:00 a.m. and Thursday, March 19, 2009 at 9:00 a.m. The competition will have six (6) weeks of online competition.  Each competitor participating in an online round must submit by the submission deadline. All start times will be communicated as Eastern Standard Time (UTC/GMT -5) or Eastern Daylight Time (UTC/GMT -4).</p>
                                                                     <p>Please be sure to read the complete <a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=rules&d5=tco09">rules and regulations</a> for more details. <span class="style1"></span></p>  
                                                             </div>                                              
                                                         </div>

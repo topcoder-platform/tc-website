@@ -85,7 +85,7 @@
 <h2 class="title">Mod Dash Competition Schedule</h2>
                                                                 <div>
                                                                     <p><strong>Registration</strong></p>
-                                                                    <p>Registration for the 2009 TopCoder Open Mod Dash Competition will open at 9:00 AM EST on Monday, February 2, 2009 and will close at 5:00 PM EDT on Monday, April 3, 2009.</p>
+                                                                    <p>Registration for the 2009 TopCoder Open Mod Dash Competition will open at 9:00 a.m. EST on Wednesday, February 11, 2009 and will close at 5:00 p.m. EDT on Monday, April 3, 2009.</p>
                                                                     <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                         <tr>
                                                                             <th class="first">&nbsp;</th>
@@ -97,8 +97,9 @@
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Online Competition</td>
-                                                                            <td class="first last alignText">Monday, February 2, 2009<br />9:00 AM*</td>
-                                                                            <td class="first last alignText">Monday, April 6, 2009<br />9:00 AM**</td>
+                                                                            <td class="first last alignText">Wednesday, February 11, 2009<br />
+                                                                          9:00 a.m.*</td>
+                                                                          <td class="first last alignText">Monday, April 6, 2009<br />9:00 a.m.**</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                     </table>
@@ -115,7 +116,7 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 1</td>
                                                                             <td class="first last alignText">Tuesday, June 2, 2009<br />
-                                                                            10:30 AM  12:00 PM***</td>
+                                                                            10:30 a.m.  12:00 p.m.***</td>
                                                                             <td class="first last alignText">12</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
@@ -123,7 +124,7 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 2</td>
                                                                             <td class="first last alignText">Wednesday, June 3, 2009<br />
-                                                                            10:30 AM  12:00 PM***</td>
+                                                                            10:30 a.m.  12:00 p.m.***</td>
                                                                             <td class="first last alignText">12</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
@@ -131,7 +132,7 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 3</td>
                                                                             <td class="first last alignText">Thursday, June 4, 2009<br />
-                                                                              9:30 AM  11:00 AM***</td>
+                                                                              9:30 a.m.  11:00 a.m.***</td>
                                                                             <td class="first last alignText">12</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
@@ -146,13 +147,13 @@
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Last day to request a visa letter</td>
-                                                                            <td class="first last alignText">April 15, 2009 at 5:00 PM**</td>
+                                                                            <td class="first last alignText">April 15, 2009 at 5:00 p.m.**</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Finalists documents due</td>
-                                                                            <td class="first last alignText">April 27, 2009 at 5:00 PM**</td>
+                                                                            <td class="first last alignText">April 27, 2009 at 5:00 p.m.**</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                     </table></p>

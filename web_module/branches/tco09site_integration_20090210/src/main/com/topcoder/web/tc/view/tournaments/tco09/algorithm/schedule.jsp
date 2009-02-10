@@ -85,7 +85,7 @@
                                                                 <h2 class="title">Algorithm Competition Schedule</h2>
                                                                 <div>
                                                                     <p><strong>Registration</strong></p>
-                                                                    <p>Registration for the 2009 TopCoder Open Algorithm Competition will open at 9:00 AM EST on Monday, February 2, 2009 and will close at 9:00 AM EDT on Monday, February 23, 2009.</p>
+                                                                    <p>Registration for the 2009 TopCoder Open Algorithm Competition will open at 9:00 a.m. EST on Wednesday, February 11, 2009 and will close at 11:00 a.m. EDT on Wednesday, March 4, 2009.</p>
                                                                     <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                         <tr>
                                                                             <th class="first">&nbsp;</th>
@@ -99,8 +99,8 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 1</td>
                                                                             <td class="first last alignText">Tuesday, February 24, 2009<br />
-                                                                               <strong>Register:</strong> 4:00 AM - 6:55 AM<br />
-                                                                               <strong>START:</strong> 7:00 AM*</td>
+                                                                               <strong>Register:</strong> 4:00 a.m. - 6:55 a.m.<br />
+                                                                               <strong>START:</strong> 7:00 a.m.*</td>
                                                                             <td class="first last alignText">1,650</td>
                                                                             <td class="first last alignText">550</td>
                                                                             <td class="last">&nbsp;</td>
@@ -109,8 +109,8 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 2</td>
                                                                             <td class="first last alignText">Saturday, February 28, 2009<br />
-                                                                               <strong>Register:</strong> 10:00 AM - 11:55 AM<br />
-                                                                               <strong>START:</strong> 12:00 PM*</td>
+                                                                               <strong>Register:</strong> 10:00 a.m. - 11:55 a.m.<br />
+                                                                               <strong>START:</strong> 12:00 p.m.*</td>
                                                                             <td class="first last alignText">1,650</td>
                                                                             <td class="first last alignText">550</td>
                                                                             <td class="last">&nbsp;</td>
@@ -119,8 +119,8 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 3</td>
                                                                             <td class="first last alignText">Wednesday, March 4, 2009<br />
-                                                                               <strong>Register:</strong> 6:00 PM - 8:55 PM<br />
-                                                                               <strong>START:</strong> 9:00 PM*</td>
+                                                                               <strong>Register:</strong> 6:00 p.m. - 8:55 p.m.<br />
+                                                                               <strong>START:</strong> 9:00 p.m.*</td>
                                                                             <td class="first last alignText">1,650</td>
                                                                             <td class="first last alignText">550</td>
                                                                             <td class="last">&nbsp;</td>
@@ -140,8 +140,8 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 1</td>
                                                                             <td class="first last alignText">Saturday, March 7, 2009<br />
-                                                                               <strong>Register:</strong> 9:00 AM - 11:55 AM<br />
-                                                                               <strong>START:</strong> 12:00 PM**</td>
+                                                                               <strong>Register:</strong> 9:00 a.m. - 11:55 a.m.<br />
+                                                                               <strong>START:</strong> 12:00 p.m.**</td>
                                                                             <td class="first last alignText">Up to 1,800</td>
                                                                             <td class="first last alignText">720</td>
                                                                             <td class="last">&nbsp;</td>
@@ -150,8 +150,8 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 2</td>
                                                                             <td class="first last alignText">Saturday, March 14, 2009<br />
-                                                                               <strong>Register:</strong> 9:00 AM - 11:55 AM<br />
-                                                                               <strong>START:</strong> 12:00 PM**</td>
+                                                                               <strong>Register:</strong> 9:00 a.m. - 11:55 a.m.<br />
+                                                                               <strong>START:</strong> 12:00 p.m.**</td>
                                                                             <td class="first last alignText">720</td>
                                                                             <td class="first last alignText">300</td>
                                                                             <td class="last">&nbsp;</td>
@@ -160,8 +160,8 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 3</td>
                                                                         <td class="first last alignText">Saturday, March 21, 2009<br />
-                                                                               <strong>Register:</strong> 9:00 AM - 11:55 AM<br />
-                                                                           <strong>START:</strong> 12:00 PM**</td>
+                                                                               <strong>Register:</strong> 9:00 a.m. - 11:55 a.m.<br />
+                                                                           <strong>START:</strong> 12:00 p.m.**</td>
                                                                             <td class="first last alignText">300</td>
                                                                             <td class="first last alignText">120</td>
                                                                             <td class="last">&nbsp;</td>
@@ -170,8 +170,8 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 4</td>
                                                                         <td class="first last alignText">Saturday, March 28, 2009<br />
-                                                                               <strong>Register: </strong>9:00 AM - 11:55 AM<br />
-                                                                           <strong>START:</strong> 12:00 PM**</td>
+                                                                               <strong>Register: </strong>9:00 a.m. - 11:55 a.m.<br />
+                                                                           <strong>START:</strong> 12:00 p.m.**</td>
                                                                             <td class="first last alignText">120</td>
                                                                             <td class="first last alignText">45</td>
                                                                             <td class="last">&nbsp;</td>
@@ -180,8 +180,8 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 5</td>
                                                                         <td class="first last alignText">Saturday, April 4, 2009<br />
-                                                                               <strong>Register:</strong> 9:00 AM - 11:55 AM<br />
-                                                                           <strong>START:</strong> 12:00 PM**</td>
+                                                                               <strong>Register:</strong> 9:00 a.m. - 11:55 a.m.<br />
+                                                                           <strong>START:</strong> 12:00 p.m.**</td>
                                                                             <td class="first last alignText">45</td>
                                                                             <td class="first last alignText">18</td>
                                                                             <td class="last">&nbsp;</td>
@@ -201,7 +201,7 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Semifinals</td>
                                                                             <td class="first last alignText">Wednesday, June 3, 2009<br />
-                                                                            3:00 PM***</td>
+                                                                            3:00 p.m.***</td>
                                                                             <td class="first last alignText">18</td>
                                                                             <td class="first last alignText">8</td>
                                                                             <td class="last">&nbsp;</td>
@@ -210,7 +210,7 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Championship Round</td>
                                                                             <td class="first last alignText">Thursday, June 4, 2009<br />
-                                                                            12:30 PM***</td>
+                                                                            12:30 p.m.***</td>
                                                                             <td class="first last alignText">8</td>
                                                                             <td class="first last alignText">&nbsp;</td>
                                                                             <td class="last">&nbsp;</td>
@@ -226,13 +226,13 @@
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Last day to request a visa letter</td>
-                                                                            <td class="first last alignText">April 15, 2009 at 5:00 PM**</td>
+                                                                            <td class="first last alignText">April 15, 2009 at 5:00 p.m.**</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Finalists documents due</td>
-                                                                            <td class="first last alignText">April 27, 2009 at 5:00 PM**</td>
+                                                                            <td class="first last alignText">April 27, 2009 at 5:00 p.m.**</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                     </table></p>

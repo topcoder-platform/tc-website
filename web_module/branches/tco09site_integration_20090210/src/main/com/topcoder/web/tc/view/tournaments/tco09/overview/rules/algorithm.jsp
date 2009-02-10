@@ -82,21 +82,21 @@
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title">Algorithm Competition Official Rules and Regulations</h2>
-                                                                    <p>The 2009 TopCoder Open Algorithm Competition ("Algorithm Competition") will take place between February 2 and June 4, 2009. The Algorithm Competition will consist of three (3) online qualification rounds, five (5) online elimination rounds, with up to eighteen (18) of the highest scoring competitors winning a trip to the Tournament to compete in the onsite Semifinal Round and/or Championship Rounds of the Algorithm Competition.</p>                                                     
+                                                                    <p>The 2009 TopCoder Open Algorithm Competition ("Algorithm Competition") will take place between February 11 and June 4, 2009. The Algorithm Competition will consist of three (3) online qualification rounds, five (5) online elimination rounds, with up to eighteen (18) of the highest scoring competitors winning a trip to the Tournament to compete in the onsite Semifinal Round and/or Championship Rounds of the Algorithm Competition.</p>                                                     
                                                                     <p>The Algorithm Competition is part of the Tournament, and by participating in this Algorithm Competition, you agree to these Rules.</p>
                                                                     <p>Residents of Iran are eligible to compete and advance to the onsite rounds of the Algorithm Competition. However, residents of Iran are not eligible to receive any prizes except for those awarded to competitors participating in the Onsite Semifinal and/or Championship Rounds of the Algorithm Competition.</p>                                                     
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Registration</h3>
-                                                                                <p>Competitors can register for the Tournament and be eligible to participate in the Algorithm Competition between 9:00 a.m. EST on Monday, February 2, 2009 and 9:00 a.m. EST on Monday, February 23, 2009. Competitors do not need to register separately for the Algorithm Competition. The Algorithm Competition will take place between February 24, 2009 and June 4, 2009.   There is no limit to the number of Competitors who can participate in the Algorithm Competition; however each Competitor may only participate using one handle.</p>
+                                                                                <p>Competitors can register for the Tournament and be eligible to participate in the Algorithm Competition between 9:00 a.m. EST on Wednesday, February 11, 2009 and 11:00 a.m. EST on Wednesday, March 4, 2009. Competitors do not need to register separately for the Algorithm Competition. The Algorithm Competition will take place between February 24, 2009 and June 4, 2009.   There is no limit to the number of Competitors who can participate in the Algorithm Competition; however each Competitor may only participate using one handle.</p>
                                                                         </div>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Algorithm Competition Round Structure</h3>
-                                                                                <p>Each Online and Onsite Round of the Algorithm Competition (including the Qualification Rounds) consists of three phases: Coding Phase, Challenge Phase, and System Testing Phase. (Note: The format of these competition rounds is similar to the format of TopCoder Single Round Matches. The rules in place for Single Round Matches as of February 2, 2009 will also apply to the online and onsite rounds of the Algorithm Competition, with the exception of the Unused Code Rule during the onsite rounds.)</p>
+                                                                                <p>Each Online and Onsite Round of the Algorithm Competition (including the Qualification Rounds) consists of three phases: Coding Phase, Challenge Phase, and System Testing Phase. (Note: The format of these competition rounds is similar to the format of TopCoder Single Round Matches. The rules in place for Single Round Matches as of February 11, 2009 will also apply to the online and onsite rounds of the Algorithm Competition, with the exception of the Unused Code Rule during the onsite rounds.)</p>
                                                                                 <p>The Coding Phase is a timed phase in which all Competitors are presented with the same three questions representing three levels of complexity and three levels of potential points. Points are awarded for each problem upon submission of a solution that successfully compiles. Points are calculated on the total time elapsed from the time the Competitor opened the problem until the time the Competitors successfully compiling submission was submitted. During the Online Rounds, the Coding Phase will last 75 minutes. During the Onsite Rounds, the Coding Phase will last 85 minutes.</p>                                                     
                                                                                 <p>The Challenge Phase is a timed phase wherein each Competitor has the opportunity to challenge the functionality of any other Competitors' submission. If successful, the challenge will result in (i) the challenged Competitor losing any points awarded for the challenged submission, and (ii) a 50-point bonus for the challenging Competitor. If unsuccessful, the challenging competitor's point total in that round of the Competition will be reduced by 25 points. During the Online Rounds, the Challenge Phase will last 15 minutes. During the Onsite Rounds, the Challenge Phase will last 10 minutes.</p>
                                                                                 <p>The System Testing Phase applies to all submissions that have not already been successfully challenged. If the TopCoder System Test finds a flawed submission, the Competitor who submitted that submission will lose all of the points that were originally awarded for that submission. The System Testing Phase consists of applying a set of inputs to a submission. If the output from a Competitor's submission is not correct, the submission is considered flawed and loses all points awarded. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.</p>                                                     
                                                                             <h3 class="subtitle">Qualification Rounds</h3>
-                                                                                <p><strong>Automatic Berths -</strong> The 150 members who register for the Tournament who have the highest algorithm competition rating as of Monday, February 23, 2009 and who meet all of the following criteria will receive an automatic berth into Online Round 1:</p>
+                                                                                <p><strong>Automatic Berths -</strong> The 150 members who register for the Tournament who have the highest algorithm competition rating as of 9:00 a.m. EST on Monday, February 23, 2009 and who meet all of the following criteria will receive an automatic berth into Online Round 1:</p>
                                                                                     <ul>
                                                                                         <li>Competed in a TopCoder algorithm competition between December 1, 2008 and February 24, 2009 </li>
                                                                                         <li>Competed in a total of at least three (3) TopCoder rated events as a member at any time</li>
@@ -121,8 +121,8 @@
                                                                                         <td class="first last alignText">Tuesday, <br />
                                                                                           February 24, 2009<br />
                                                                                            <strong>Register:</strong> <br />
-                                                                                          4:00 AM - 6:55 AM<br />
-                                                                                      <strong>START:</strong> 7:00 AM*</td>
+                                                                                          4:00 a.m. - 6:55 a.m.<br />
+                                                                                      <strong>START:</strong> 7:00 a.m.*</td>
                                                                                       <td class="first last alignText">All members who have not <br />
                                                                                         automatically qualified - <br />
                                                                                         limited to the first 1,650 <br />
@@ -136,8 +136,8 @@
                                                                                         <td class="first last alignText">Saturday, <br />
                                                                                           February 28, 2009<br />
                                                                                            <strong>Register:</strong> <br />
-                                                                                          10:00 AM - 11:55 AM<br />
-                                                                                      <strong>START:</strong> 12:00 PM*</td>
+                                                                                          10:00 a.m. - 11:55 a.m.<br />
+                                                                                      <strong>START:</strong> 12:00 p.m.*</td>
                                                                                         <td class="first last alignText">All members who have not <br />
                                                                                           previously qualified - <br />
                                                                                           limited to the first 1,650 <br />
@@ -151,8 +151,8 @@
                                                                                         <td class="first last alignText">Wednesday, <br />
                                                                                           March 4, 2009<br />
                                                                                            <strong>Register:</strong> <br />
-                                                                                          6:00 PM - 8:55 PM<br />
-                                                                                      <strong>START:</strong> 9:00 PM*</td>
+                                                                                          6:00 p.m. - 8:55 p.m.<br />
+                                                                                      <strong>START:</strong> 9:00 p.m.*</td>
                                                                                         <td class="first last alignText">All members who have not <br />
                                                                                           previously qualified -<br /> 
                                                                                           limited to the first 1,650<br />
@@ -185,8 +185,8 @@
                                                                                             <td class="first">&nbsp;</td>
                                                                                             <td class="first last alignText">Round 1</td>
                                                                                             <td class="first last alignText">Saturday, March 7, 2009<br />
-                                                                                               <strong>Register:</strong> 9:00 AM - 11:55 AM<br />
-                                                                                               <strong>START:</strong> 12:00 PM**</td>
+                                                                                               <strong>Register:</strong> 9:00 a.m. - 11:55 a.m.<br />
+                                                                                               <strong>START:</strong> 12:00 p.m.**</td>
                                                                                             <td class="first last alignText">Up to 1,800</td>
                                                                                             <td class="first last alignText">720</td>
                                                                                             <td class="last">&nbsp;</td>
@@ -195,8 +195,8 @@
                                                                                             <td class="first">&nbsp;</td>
                                                                                             <td class="first last alignText">Round 2</td>
                                                                                             <td class="first last alignText">Saturday, March 14, 2009<br />
-                                                                                               <strong>Register:</strong> 9:00 AM - 11:55 AM<br />
-                                                                                               <strong>START:</strong> 12:00 PM**</td>
+                                                                                               <strong>Register:</strong> 9:00 a.m. - 11:55 a.m.<br />
+                                                                                               <strong>START:</strong> 12:00 p.m.**</td>
                                                                                             <td class="first last alignText">720</td>
                                                                                             <td class="first last alignText">300</td>
                                                                                             <td class="last">&nbsp;</td>
@@ -205,8 +205,8 @@
                                                                                             <td class="first">&nbsp;</td>
                                                                                             <td class="first last alignText">Round 3</td>
                                                                                         <td class="first last alignText">Saturday, March 21, 2009<br />
-                                                                                               <strong>Register:</strong> 9:00 AM - 11:55 AM<br />
-                                                                                           <strong>START:</strong> 12:00 PM**</td>
+                                                                                               <strong>Register:</strong> 9:00 a.m. - 11:55 a.m.<br />
+                                                                                           <strong>START:</strong> 12:00 p.m.**</td>
                                                                                             <td class="first last alignText">300</td>
                                                                                             <td class="first last alignText">120</td>
                                                                                             <td class="last">&nbsp;</td>
@@ -215,8 +215,8 @@
                                                                                             <td class="first">&nbsp;</td>
                                                                                             <td class="first last alignText">Round 4</td>
                                                                                         <td class="first last alignText">Saturday, March 28, 2009<br />
-                                                                                               <strong>Register: </strong>9:00 AM - 11:55 AM<br />
-                                                                                           <strong>START:</strong> 12:00 PM**</td>
+                                                                                               <strong>Register: </strong>9:00 a.m. - 11:55 a.m.<br />
+                                                                                           <strong>START:</strong> 12:00 p.m.**</td>
                                                                                             <td class="first last alignText">120</td>
                                                                                             <td class="first last alignText">45</td>
                                                                                             <td class="last">&nbsp;</td>
@@ -225,8 +225,8 @@
                                                                                             <td class="first">&nbsp;</td>
                                                                                             <td class="first last alignText">Round 5</td>
                                                                                         <td class="first last alignText">Saturday, April 4, 2009<br />
-                                                                                               <strong>Register:</strong> 9:00 AM - 11:55 AM<br />
-                                                                                           <strong>START:</strong> 12:00 PM**</td>
+                                                                                               <strong>Register:</strong> 9:00 a.m. - 11:55 a.m.<br />
+                                                                                           <strong>START:</strong> 12:00 p.m.**</td>
                                                                                             <td class="first last alignText">45</td>
                                                                                             <td class="first last alignText">18</td>
                                                                                             <td class="last">&nbsp;</td>
@@ -260,13 +260,13 @@
                                                                                     <tr>
                                                                                         <td class="first">&nbsp;</td>
                                                                                         <td class="first last alignText">Semifinal</td>
-                                                                                        <td class="first last alignText">Wednesday, June 3 at 2:30 PM&nbsp; at The Mirage, Las Vegas</td>
+                                                                                        <td class="first last alignText">Wednesday, June 3 at 2:30 p.m.&nbsp; at The Mirage, Las Vegas</td>
                                                                                         <td class="last">&nbsp;</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td class="first">&nbsp;</td>
                                                                                         <td class="first last alignText">Championship</td>
-                                                                                        <td class="first last alignText">Thursday, June 4, 12:30 PM&nbsp; at The Mirage, Las Vegas</td>
+                                                                                        <td class="first last alignText">Thursday, June 4, 12:30 p.m.&nbsp; at The Mirage, Las Vegas</td>
                                                                                         <td class="last">&nbsp;</td>
                                                                                     </tr>
                                                                                 </table>

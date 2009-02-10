@@ -82,17 +82,17 @@
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title">Mod Dash Competition Official Rules and Regulations</h2>
-                                                                    <p>The 2009 TopCoder Open Mod Dash will take place between February 2 and June 4, 2009 (Mod Competition). The Mod Competition will consist of eight (8) weeks of online qualifying competitions, with up to eight (8) of the highest scoring Competitors after the online rounds winning a trip to the Tournament to compete in the Onsite Championship Rounds. </p>
+                                                                    <p>The 2009 TopCoder Open Mod Dash will take place between February 11 and June 4, 2009 (&quot;Mod Competition&quot;). The Mod Competition will consist of eight (8) weeks of online qualifying competitions, with up to eight (8) of the highest scoring Competitors after the online rounds winning a trip to the Tournament to compete in the Onsite Championship Rounds. </p>
                                                                     <p>The Mod Competition is part of the Tournament, and by participating in this Mod Competition, you agree to these Rules.<strong></strong></p>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Schedule</h3>
-                                                                                <p>Competitors can register for the Tournament and be eligible to participate in the Mod Competition between 9:00 a.m. EST on February 2, 2009 and 9:00 a.m. EST on March 19, 2009.&nbsp; Competitors do not need to register separately for the Mod Competition. The Mod Competition will take place between February 2, 2009 and April 17, 2009 (Mod Competition Period).&nbsp; </p>
+                                                                                <p>Competitors can register for the Tournament and be eligible to participate in the Mod Competition between 9:00 a.m. EST on February 11, 2009 and 9:00 a.m. EST on March 19, 2009.&nbsp; Competitors do not need to register separately for the Mod Competition. The Mod Competition will take place between February 11, 2009 and April 17, 2009 (&quot;Mod Competition Period&quot;).&nbsp; </p>
                                                                                 <p>During the Mod Competition Period, Competitors who have registered for the Tournament and who participate in Tournament-eligible Mod Dash competitions on the TopCoder website, will receive points as outlined in the rules for each competition.&nbsp; A Competitors submission will not be scored separately for the Mod Competition.&nbsp; Only Tournament-eligible Mod Dash competitions in which registration has closed during the Mod Competition Period shall be included in determining points for the Mod Competition.</p>
                                                                         </div>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Competition Scoring</h3>
                                                                                 <p>Scoring in the Mod Competition is determined based on the amount of points earned in a Tournament-eligible Mod Dash competition in accordance with the rules of such competition.&nbsp; A Mod Dash competition is Tournament-eligible if the competition is identified as being included as part of the Tournament.&nbsp; Only Competitors who are registered for the Tournament will earn points towards the Mod Competition.</p>
-                                                                                <p>Upon the completion of all Tournament-eligible Mod Dash competitions during the Mod Competition Period, the individual scores that a Competitor receives during the Mod Competition Period will be added for a cumulative score.&nbsp; Up to eight (8) Competitors with the highest cumulative score greater than zero will advance to the Onsite Championship Round (Onsite Mod Competitors).</p>
+                                                                                <p>Upon the completion of all Tournament-eligible Mod Dash competitions during the Mod Competition Period, the individual scores that a Competitor receives during the Mod Competition Period will be added for a cumulative score.&nbsp; Up to eight (8) Competitors with the highest cumulative score greater than zero will advance to the Onsite Championship Round (&quot;Onsite Mod Competitors&quot;).</p>
                                                                                 <p>In the event of a tie to determine which Competitor(s) advances to the Onsite Championship Rounds, the tie will be resolved in the following manner:</p>
                                                                                     <ol>
                                                                                         <li>The Competitor who competed in the highest number of Tournament-eligible Mod Dash competitions will advance.</li>
@@ -114,21 +114,21 @@
                                                                                       <td class="first">&nbsp;</td>
                                                                                       <td class="first last alignText">Championship Round 1</td>
                                                                                        <td class="first last alignText">Tuesday, June 2, 2009</td>
-                                                                                       <td class="first last alignText">10:30 AM  12:00 PM</td>
+                                                                                       <td class="first last alignText">10:30 a.m.  12:00 p.m.</td>
                                                                                       <td class="last">&nbsp;</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td class="first">&nbsp;</td>
                                                                                         <td class="first last alignText">Championship Round 2</td>
                                                                                          <td class="first last alignText">Wednesday, June 3, 2009</td>
-                                                                                        <td class="first last alignText">10:30 AM  12:00 PM</td>
+                                                                                        <td class="first last alignText">10:30 a.m.  12:00 p.m.</td>
                                                                                         <td class="last">&nbsp;</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td class="first">&nbsp;</td>
                                                                                         <td class="first last alignText">Championship Round 3</td>
                                                                                         <td class="first last alignText">Thursday, June 4, 2009</td>
-                                                                                        <td class="first last alignText">9:30 AM  11:00 AM</td>
+                                                                                        <td class="first last alignText">9:30 a.m.  11:00 a.m.</td>
                                                                                         <td class="last">&nbsp;</td>
                                                                                     </tr>
                                                                                 </table>

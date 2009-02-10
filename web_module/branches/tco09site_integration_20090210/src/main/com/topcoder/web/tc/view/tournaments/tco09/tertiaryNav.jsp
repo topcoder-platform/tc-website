@@ -37,7 +37,7 @@
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=rules&d5=studio" class="${tertiaryTab == 'studio' ? 'on' : ''}">Studio</a></li>
                     </c:when>
                     <c:when test="${mainTab == 'overview' && secondaryTab == 'sponsors'}">
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1" class="${tertiaryTab == 'sponsor1' ? 'on' : ''}">Sponsor1</a></li>
+                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1" class="${tertiaryTab == 'sponsor1' ? 'on' : ''}">SNIA XAM Initiative</a></li>
                     </c:when>
                     <c:when test="${mainTab == 'online' && secondaryTab == 'architecture'}">
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=architecture&d5=description" class="${tertiaryTab == 'description' ? 'on' : ''}">Description</a></li>
@@ -106,5 +106,5 @@
                     </c:otherwise>
                 </c:choose>
             </ul>
-        </div>
-    </div><!-- End #tertiaryNav -->
+      </div>
+</div><!-- End #tertiaryNav -->

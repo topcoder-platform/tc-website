@@ -82,22 +82,29 @@
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title">Marathon Competition Official Rules and Regulations</h2>
-                                                                    <p>The 2009 TopCoder Open Marathon Competition (&quot;Marathon Competition&quot;) will take place between February 2, 2009 and June 4, 2009.&nbsp; The Marathon Competition will consist of three (3) Online Rounds, with up to ten (10) of the highest scoring competitors winning a trip to the Tournament to compete in the onsite Championship Round. </p>
+                                                                    <p>The 2009 TopCoder Open Marathon Competition (&quot;Marathon Competition&quot;) will take place between February 11, 2009 and June 4, 2009.&nbsp; The Marathon Competition will consist of three (3) Online Rounds, with up to ten (10) of the highest scoring competitors winning a trip to the Tournament to compete in the onsite Championship Round. </p>
                                                                     <p>The Marathon Competition is part of the Tournament, and by participating in this Marathon Competition, you agree to these Rules.</p>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Registration</h3>
-                                                                                <p>Competitors can register for the Tournament and be eligible to participate in the Marathon Competition between 9:00 a.m. EST on Monday, February 2, 2009, and 9:00 a.m. EST on Wednesday, February 25, 2009. Competitors do not need to register separately for the Marathon Competition. The Marathon Competition will take place between February 25, 2009 and June 4, 2009.&nbsp; There is no limit to the number of Competitors who can participate for the Marathon Competition; however each Competitor may only participate using one handle.</p>
+                                                                                <p>Competitors can register for the Tournament and be eligible to participate in the Marathon Competition between 9:00 a.m. EST on Wednesday, February 11, 2009, and 9:00 a.m. EST on Wednesday, February 25, 2009. Competitors do not need to register separately for the Marathon Competition. The Marathon Competition will take place between February 25, 2009 and June 4, 2009.&nbsp; There is no limit to the number of Competitors who can participate for the Marathon Competition; however each Competitor may only participate using one handle.</p>
                                                                         </div>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Competition Round Structure</h3>
-                                                                                <p>Each Online and Onsite Round of the Marathon Competition consists of two phases: the Coding Phase and the System Testing Phase. (Note: The format for rounds of the Marathon Competition is similar to the format of TopCoder Marathon Matches. The rules in place for Marathon Matches as of February 2, 2009, as may be amended by these Rules, will apply to the Online and Onsite rounds of the Marathon Competition.)</p>
+                                                                                <p>Each Online and Onsite Round of the Marathon Competition consists of two phases: the Coding Phase and the System Testing Phase. (Note: The format for rounds of the Marathon Competition is similar to the format of TopCoder Marathon Matches. The rules in place for Marathon Matches as of February 11, 2009, as may be amended by these Rules, will apply to the Online and Onsite rounds of the Marathon Competition.)</p>
                                                                                 <p>The Coding Phase is a timed event where all Competitors are presented with the same problem statement. The criteria for scoring a Competitors submission will be provided with the problem statement and may change from round to round. During each round of the Marathon Competition, each Competitor may submit one of two types of submissions: an Example Submission or a Full Submission. Each Example Submission is run against the example test cases listed in the problem statement and detailed feedback is provided to the Competitor. Each Full Submission is run against a more complete set of test cases which are not disclosed to the Competitor and the Competitor only receives a provisional score. For Online Rounds 1 and 2, the duration of the Coding Phase is one week. For Online Round 3, the duration of the Coding Phase is two weeks.</p>
                                                                                 <p>The System Testing Phase is applied to the most recent Full Submission for each Competitor. During system testing, each Full Submission is run against a large number of sample cases which are not disclosed to the Competitors, and is scored according to the criteria specified in the problem statement. Once the system tests are completed, Competitors are ranked according to their score on the system test cases. The score a Competitor's Full Submission receives is determined solely by the system testing.<strong></strong></p>
                                                                         </div>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Online Rounds</h3>
+                                                                                <p><strong>Automatic Berths</strong> - The 50 members who register for the Tournament who have the highest marathon competition rating as of Tuesday, February 24, 2009 and who meet all of the following criteria will receive an automatic berth into Online Round 2:</p>
+                                                                                <ul>
+                                                                                  <li>Competed in a TopCoder marathon competition between December 1, 2008 and February 24, 2009 </li>
+                                                                                  <li>Competed in a total of at least three (3) TopCoder rated events as a member at any time</li>
+                                                                                  <li>Register for the Tournament </li>
+                                                                                  <li>Meet all other Marathon Competition and Tournament eligibility criteria </li>
+                                                                                </ul>
                                                                                 <p>If a Competitor does not participate in an Online Round to which the Competitor has advanced, the Competitor will be disqualified from advancing further in the Marathon Competition.</p>
-                                                                                <p>Competitors will be assigned a seed for Online Round 1 based on their Marathon rating prior to Online Round 1.</p>
+                                                                          <p>Competitors will be assigned a seed for Online Round 1 based on their Marathon rating prior to Online Round 1.</p>
                                                                                 <p>The schedule for the Online Rounds of the Marathon Competition is as follows:</p>
                                                                                 <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                                     <tr>
@@ -112,11 +119,11 @@
                                                                                     <tr>
                                                                                         <td class="first">&nbsp;</td>
                                                                                         <td class="first last alignText">Round 1</td>
-                                                                                        <td class="first last alignText">Wednesday,<br /> February 25, 2009<br />12:00 PM*</td>
+                                                                                        <td class="first last alignText">Wednesday,<br /> February 25, 2009<br />12:00 p.m.*</td>
                                                                                         <td class="first last alignText">Wednesday,<br /> March 4, 2009<br />
-                                                                                          12:00 PM*</td>
+                                                                                          12:00 p.m.*</td>
                                                                                         <td class="first last alignText">Unlimited</td>
-                                                                                        <td class="first last alignText">300</td>
+                                                                                        <td class="first last alignText">250</td>
                                                                                         <td class="last">&nbsp;</td>
                                                                                   </tr>
                                                                                     <tr>
@@ -124,10 +131,10 @@
                                                                                         <td class="first last alignText">Round 2</td>
                                                                                         <td class="first last alignText">Wednesday,<br />                                                                             
                                                                                          March 11, 2009<br />
-                                                                                           12:00 PM**</td>
+                                                                                           12:00 p.m.**</td>
                                                                                         <td class="first last alignText">Wednesday,<br /> 
                                                                                         March18, 2009<br />
-                                                                                          12:00 PM**</td>
+                                                                                          12:00 p.m.**</td>
                                                                                         <td class="first last alignText">300</td>
                                                                                         <td class="first last alignText">100</td>
                                                                                         <td class="last">&nbsp;</td>
@@ -137,10 +144,10 @@
                                                                                         <td class="first last alignText">Round 3</td>
                                                                                         <td class="first last alignText">Wednesday,<br /> 
                                                                                         March 25, 2009<br />
-                                                                                        12:00 PM**</td>
+                                                                                        12:00 p.m.**</td>
                                                                                         <td class="first last alignText">Wednesday,<br /> 
                                                                                         April 8, 2009<br />
-                                                                                          12:00 PM**</td>
+                                                                                          12:00 p.m.**</td>
                                                                                         <td class="first last alignText">100</td>
                                                                                         <td class="first last alignText">10</td>
                                                                                         <td class="last">&nbsp;</td>
@@ -152,8 +159,9 @@
                                                                                 </div>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Advancing during Online Rounds</h3>
-                                                                                <p>After each Online Round, the specified number of highest scoring competitors will advance to the next Online Round. To advance, a Competitor must submit a Full Submission and achieve a score greater than zero. The structure of each Online Round is as follows:</p>
-                                                                                <p><strong>Online Round 1</strong><br />All Competitors who have registered for the Marathon Competition may compete, and up to 300 of the highest scoring Competitors will advance to Online Round 2.</p>
+                                                                                <p>After each Online Round, the specified number of highest scoring competitors who are registered for the TCO will advance to the next Online Round. To advance, a Competitor must submit a Full Submission and achieve a score greater than zero. The structure of each Online Round is as follows:</p>
+                                                                      <p><strong>Online Round 1</strong><br />
+                                                                                All Competitors who have registered for the Marathon Competition may compete, and up to 250 of the highest scoring Competitors and the 50 automatic berth winners will advance to Online Round 2.</p>
                                                                                 <p><strong>Online Round 2</strong><br />Up to 300 Competitors from Online Round 1 will compete and up to 100 of the highest scoring Competitors will advance to Online Round 3.</p>
                                                                                 <p><strong>Online Round 3</strong><br />Up to 100 Competitors from Online Round 2 will compete and up to 10 of the highest scoring competitors will advance to the onsite Championship Round (Onsite Marathon Competitor).</p>
                                                                                 <p>NOTE: In the event of a tie for any advancing position during the Online Rounds, the tie will be resolved in the following manner:</p>
