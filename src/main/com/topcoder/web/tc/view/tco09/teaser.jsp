@@ -9,19 +9,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <!-- External CSS -->
-<link rel="stylesheet" href="/css/tco09/tco09.css" media="all" type="text/css" />
+<link rel="stylesheet" href="/css/tournaments/tco09.css" media="all" type="text/css" />
 <!--[if IE 6]>
 <link rel="stylesheet" type="text/css" media="screen" href="/css/tc09/screen-ie6.css" />
 <![endif]-->
 
 <!-- External JavaScripts -->
 
-<script type="text/javascript" src="/js/tco09/jquery-1.2.6.js"></script>
-<script type="text/javascript" src="/js/tco09/jquery.backgroundPosition.js"></script>
-<script type="text/javascript" src="/js/tco09/scripts.js"></script>
-<script type="text/javascript" src="/js/tco09/popup.js"></script>
-<script src="/js/tco09/AC_ActiveX.js" type="text/javascript"></script>
-<script src="/js/tco09/AC_RunActiveContent.js" type="text/javascript"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/popup.js"></script>
+<script src="/js/tournaments/tco09/AC_ActiveX.js" type="text/javascript"></script>
+<script src="/js/tournaments/tco09/AC_RunActiveContent.js" type="text/javascript"></script>
 <!--[if lt IE 7.]>
 <script defer type="text/javascript" src="/js/tco09/pngfix.js"></script>
 <![endif]-->
