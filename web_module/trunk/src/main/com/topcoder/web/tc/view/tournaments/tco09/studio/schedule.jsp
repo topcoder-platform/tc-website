@@ -98,8 +98,8 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Online Competition</td>
                                                                             <td class="first last alignText">Wednesday, February 11, 2009*</td>
-                                                                            <td class="first last alignText">Monday, April 20, 2009**</td>
-                                                                            <td class="last">&nbsp;</td>
+                                                                            <td class="first last alignText">Wednesday, April 8, 2009**</td>
+                                                                          <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                     </table>
                                                                     <br /><br />
