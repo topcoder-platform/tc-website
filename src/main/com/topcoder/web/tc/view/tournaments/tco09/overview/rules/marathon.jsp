@@ -185,8 +185,8 @@
                                                                         </div>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">About the Prizes</h3>
-                                                                                <p>The Marathon Competition will award T-shirts to up to 100 Marathon Competitors who participated in Online Round 3. The Marathon Competition will award cash prizes up to $15,000 to the Onsite Marathon Competitors in accordance with the following table:</p>
-                                                                                <table class="data" width="100%" cellpadding="0" cellspacing="0">
+                                                                                <p>The Marathon Competition will award T-shirts to the 50 highest scoring competitors from Round 3. The Marathon Competition will award cash prizes up to $15,000 to the Onsite Marathon Competitors in accordance with the following table:</p>
+                                                                  <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                                     <tr>
                                                                                         <th valign="top" class="first">&nbsp;</th>
                                                                                         <th>Competitor(s)</th>
