@@ -45,6 +45,7 @@
 	</script>
 	<script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
 	<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+	<%-- Turn off in Admin  
 	<script type="text/javascript" language="javascript">
 
 	$(document).ready(function(){
@@ -65,6 +66,7 @@
 	
 	});
 	</script>
+	--%>
     <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css" />
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
