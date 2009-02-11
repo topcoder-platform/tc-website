@@ -109,8 +109,8 @@
                                                                                 <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                                     <tr>
                                                                                         <th class="first">&nbsp;</th>
-                                                                                        <th>Online Qual. Rounds</th>
-                                                                                        <th>Time</th>
+                                                                                        <th>Online Rounds</th>
+                                                                                      <th>Time</th>
                                                                                         <th nowrap="nowrap">Max # of Competitors</th>
                                                                                       <th nowrap="nowrap">Max # of Advancers</th>
                                                                                       <th class="last">&nbsp;</th>
