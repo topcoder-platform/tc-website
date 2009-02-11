@@ -39,7 +39,7 @@
     <% if (tabLev2.equals("leaderboard")) {%>
         | Leaderboard
     <% } else { %>
-         | <a class="bcLink" href="/dr?module=ViewLeaderBoard">Leaderboard</a>
+         | <a class="bcLink" href="/dr?module=ViewLeaderBoard&sc=&sd=&tid=2020">Leaderboard</a>
     <% } %>
 
 </p>
