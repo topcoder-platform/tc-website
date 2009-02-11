@@ -26,16 +26,16 @@
 						<input type="hidden" name="module" value="Login" />
 						<div id="left">
 							<div>Handle</div>
-							<div><input type="text" name="<%=Login.USER_NAME%>"  maxlength="15" type="text" value="" /></div>
+							<div><input type="text" name="<%=Login.USER_NAME%>"  maxlength="15" type="text" tabindex="1" /></div>
 							<div><input type="checkbox" name="<%=Login.REMEMBER_USER%>" value="Remember me" /> Remember me</div>
 						</div>
-						<div id="right"><a href="#" class="button">Login</a>
+						<div id="right"><a href="#" class="button" tabindex="3">Login</a>
 							<div class="register"><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" title="Register">Register today!</a></div>
 						</div>
 			
 						<div id="middle">
 							<div>Password</div>
-							<div><input type="password" name="<%=Login.PASSWORD%>"  maxlength="30" value="" /></div>
+							<div><input type="password" name="<%=Login.PASSWORD%>"  maxlength="30" tabindex="2" /></div>
 							<div><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" title="Forgot your password?" >Forgot your password?</a></div>
 						</div>
 						</form>
@@ -113,16 +113,16 @@
             <div id="nav_support">
                 <h3 class="hide">SUB Navigation</h3>
                 <ul>
-                    <li class="left"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?module=Static&d1=support&d2=getStarted">FAQ</a></li>
-                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=index">News</a></li>
-                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/?module=Static&amp;d1=contactUs">Contact Us</a></li>  
+                    <li class="left"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=support&d2=getStarted">FAQ</a></li>
+                    <li><a href="http://www.topcoder.com/tc">News</a></li>
+                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=contactUs">Contact Us</a></li>  
 					
 					<c:choose>
 						<c:when test="${sessionInfo.anonymous}">     
 							<li><a class="gMetal" id="login_link" href="#">Login</a></li>
 						</c:when>
 						<c:otherwise> 
-							<li class="handle"><span class="welcome">Hello,&nbsp;</span><studio:handle coderId="${sessionInfo.userId}"/></li>
+							<li><span class="welcome">Hello,&nbsp;</span><studio:handle coderId="${sessionInfo.userId}"/></li>
 							<li class="logout gMetal"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout" id="logout_link">Logout</a></li>
 						</c:otherwise>
 					</c:choose>	    
