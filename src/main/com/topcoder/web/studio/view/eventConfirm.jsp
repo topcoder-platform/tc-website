@@ -73,17 +73,9 @@
                 <h1>Contest Registration</h1>
                 
                 <div align="center">
-
-
-
-
-
-                    <strong>Are you sure you want to register for this contest?</strong>
+					<strong>Are you sure you want to register for this contest?</strong>
                     <br /><br />
-                    Please be aware that you are NOT REGISTERED for the tournament that this contest is part of.
-                    Registering for this contest will not register you for the tournament.
-                    If you don't register for the tournament prior to registering for this contest,
-                    it will not count in the tournament standings even if you sign up at a later date.
+                    Please be aware that you are NOT REGISTERED for the TCO09 tournament that this contest is part of. Registering for this contest will not register you for the TCO09 tournament. If you don't register for the tournament prior to registering for this contest, you will not receive points for this contest even if you sign up for TCO09 at a later date.
                     <br /><br />
 
                     <form name="terms" method="POST" action="${sessionInfo.servletPath}">
@@ -94,16 +86,18 @@
 
 
                         <br /><br />
-                        <a href="#" onclick="document.terms.submit()">Yes, register for this contest anyway</a>
+                        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tco09?module=ViewUnifiedRegistration" target="_blank">Take me to register for the TCO09</a><br />
+                        <br />
+                        <a href="#" onclick="document.terms.submit()">I don't want to register for TCO09. Just register for this contest.</a>
 
                     </form>
                 </div>
 
-                        <br clear="all"/>
-                    </div>                
-                    <div class="contentBottom"></div>
-                </div>
-            </div>
+                <br clear="all"/>
+             </div>                
+             <div class="contentBottom"></div>
+          </div>
+        </div>
         </div>
 
         <jsp:include page="foot.jsp"/>
