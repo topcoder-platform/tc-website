@@ -33,9 +33,16 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
         <jsp:param name="key" value="tc_studio_home"/>
     </jsp:include>
    
-    <script src="js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
-	<script src="js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-	<script src="js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+    <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
+    <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
+    <script type="text/javascript">
+			$(document).ready(function(){
+				//Run the script to preload images from CSS
+				$.preloadCssImages(); 
+			});
+	</script>
+	<script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+	<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
 	<script type="text/javascript" language="javascript">
 
 	$(document).ready(function(){
@@ -59,7 +66,7 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
 	
     <script type="text/javascript" src="/js/v2/popup.js"></script>
     <script type="text/JavaScript" src="/js/RSSProcessor.js"> </script>
-    <script type='text/JavaScript' src='/js/AJAXProcessor.js'> </script>
+    <script type="text/JavaScript" src="/js/AJAXProcessor.js"> </script>
 </head>
 
 <c:set var="contests" value="<%=activeContests%>"/>
