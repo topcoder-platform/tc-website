@@ -119,10 +119,10 @@
 					
 					<c:choose>
 						<c:when test="${sessionInfo.anonymous}">     
-							<li><a class="gMetal" id="login_link" href="#">Login</a></li>
+							<li class="login"><a class="gMetal" id="login_link" href="#">Login</a></li>
 						</c:when>
 						<c:otherwise> 
-							<li><span class="welcome">Hello,&nbsp;</span><studio:handle coderId="${sessionInfo.userId}"/></li>
+							<li class="logged-in"><span class="welcome">Hello,&nbsp;</span><studio:handle coderId="${sessionInfo.userId}"/></li>
 							<li class="logout gMetal"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout" id="logout_link">Logout</a></li>
 						</c:otherwise>
 					</c:choose>	    
