@@ -393,7 +393,7 @@
         <c:if test="${not empty contest.contentRequirements.value}">
         <tr>
             <td nowrap="nowrap" valign="top">
-                <strong>Content:</strong>            </td>
+                <strong>Content:</strong></td>
             <td>
                 <studio:formatField text="${contest.contentRequirements.value}"/>
             </td>
