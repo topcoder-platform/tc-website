@@ -20,7 +20,7 @@
 			});
 	</script>
 	<script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-	<script src="j/s/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+	<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
 	<script type="text/javascript" language="javascript">
 
 	$(document).ready(function(){
