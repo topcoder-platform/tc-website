@@ -232,8 +232,8 @@
                                                                                     
                                                                                     <tr>
                                                                                         <td class="first">&nbsp;</td>
-                                                                                        <td class="first last alignText">Up to the first 50 Competitors with the highest amount of points (minimum of 15 placement points)</td>
-                                                                                        <td class="first last alignText">Limited edition 2009 TopCoder Open t-shirt</td>
+                                                                                        <td class="first last alignText">50 highest scoring competitors from Round 3</td>
+                                                                                      <td class="first last alignText">Limited edition 2009 TopCoder Open t-shirt</td>
                                                                                         <td class="last">&nbsp;</td>
                                                                                     </tr>
                                                                                 </table></div>
