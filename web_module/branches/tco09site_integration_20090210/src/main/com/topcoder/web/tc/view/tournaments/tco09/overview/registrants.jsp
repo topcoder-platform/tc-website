@@ -131,8 +131,8 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="subfirst">&nbsp;</th>
-                                                                    <td class="sub"><a href="/tco09?module=Registrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a></th>
-                                                                    <td class="sub" align="right">Search: <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/></th>
+                                                                    <td class="subfirst"><a href="/tco09?module=Registrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a></th>
+                                                                    <td class="subfirst" align="right">Search: <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/></th>
                                                                     <td class="sublast">&nbsp;</th>
                                                                 </tr>
                                                                 <rsc:iterator list='<%=rsc%>' id="resultRow">
