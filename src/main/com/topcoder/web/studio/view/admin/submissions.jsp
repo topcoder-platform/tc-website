@@ -154,176 +154,168 @@ Show submissions by (Enter Handle):
     <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
     <div class="container">
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-<tbody>
-<tr><td class="title" colspan="8">Submissions</td></tr><tr>
-    <td class="headerW">
-        <div>&nbsp;</div>
-    </td>
-    <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
-    <%-- need to add 1 for all the sorts because the resultsetcontainer is 0 based, and sql is 1 based--%>
-    <td class="headerC">
-        <c:choose>
-            <c:when test="${unMarkedOnly}">
-                Placed
-            </c:when>
-            <c:otherwise>
-                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("placed")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Place</a>
-            </c:otherwise>
-        </c:choose>
-    </td>
-    <td class="header">
-        Submission
-        <br /><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_handle")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Sort by handle</a> |
-        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submission_id")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Sort by submission ID</a>
-    </td>
-    <td class="headerC">
-        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_rank")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter<br />Rank</a>
-    </td>
-    <td class="headerC">
-        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submit_date")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submit<br />Date</a>
-    </td>
-    <td class="headerC">
-        <c:choose>
-            <c:when test="${unMarkedOnly}">
-                Screening<br />Date
-            </c:when>
-            <c:otherwise>
-                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("review_date")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Screening<br />Date</a>
-            </c:otherwise>
-        </c:choose>
-    </td>
-    <td class="headerC">
-        <c:choose>
-            <c:when test="${unMarkedOnly}">
-                Screener
-            </c:when>
-            <c:otherwise>
-                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("reviewer_handle")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Screener</a>
-            </c:otherwise>
-        </c:choose>
-    </td>
-    <td class="headerC">
-        <c:choose>
-            <c:when test="${unMarkedOnly}">
-                Score
-            </c:when>
-            <c:otherwise>
-                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("final_score")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Score</a>
-            </c:otherwise>
-        </c:choose>
-    </td>
-    <td class="headerC">
-    	Payment Id
-    </td>
-    <td class="headerE">
-        <div>&nbsp;</div>
-    </td>
-</tr>
-<% boolean even = true;%>
-<rsc:iterator list="<%=submissions%>" id="resultRow">
-    <tr><td class="space" colspan="8">&nbsp;</td></tr>
-    <tr class="<%=even?"light":"dark"%>">
-        <td class="valueW">
-            <div>&nbsp;</div>
-        </td>
-        <td class="valueC">
-        <c:choose>
-            <c:when test="${unMarkedOnly}">
-                &#160;
-            </c:when>
-            <c:otherwise>
-                <rsc:item name="placed" row="<%=resultRow%>" ifNull="-"/>
-            </c:otherwise>
-        </c:choose>
-        </td>
-        <td class="value">
-            <span class="coderText"><studio:handle coderId="${resultRow.map['submitter_id']}"/></span>
-            <br /><strong><rsc:item name="submission_id" row="<%=resultRow%>"/></strong>
-            <br /><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=original"><rsc:item name="original_file_name" row="<%=resultRow%>"/></a>
-            <%if (resultRow.getIntItem("submission_type_id") != SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
-            <br /><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissionDetail&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
-            <% } %>
-            <c:if test="${currentTime>contest.endTime && not empty contest.project}">
-                    <c:choose>
-                        <c:when test="${resultRow.map['review_status_id']==passed}">
-                                <button name="submit${resultRow.map['submission_id']}" value="submit" type="submit" onclick="sendToReview(${resultRow.map['submission_id']})">
-                                    <c:choose>
-                                        <c:when test="${empty resultRow.map['or_submission_id']}">
-                                            Send To OR
-                                        </c:when>
-                                        <c:otherwise>
-                                            Resend To OR
-                                        </c:otherwise>
-                                    </c:choose>
-    
-                                </button>
-                        </c:when>
-                        <c:otherwise>
-                            &nbsp;
-                        </c:otherwise>
-                    </c:choose>
-            </c:if>
-        </td>
-        <td class="valueC">
-            <%if (resultRow.getIntItem("submission_type_id") == SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
-            Final
-            <% } else { %>
-            <rsc:item name="submitter_rank" row="<%=resultRow%>" ifNull="-" />
-            <% } %>
-        </td>
-        <td class="valueC">
-            <rsc:item name="submit_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
-        </td>
-        <td class="valueC">
-            <c:choose>
-                <c:when test="${unMarkedOnly}">
-                    &#160;
-                </c:when>
-                <c:otherwise>
-                    <rsc:item name="review_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}" ifNull="-"/>
-                </c:otherwise>
-            </c:choose>
-        </td>
-        <td class="valueC">
-            <c:choose>
-                <c:when test="${unMarkedOnly}">
-                    &#160;
-                </c:when>
-                <c:otherwise>
-                    <span class="coderText"><rsc:item name="reviewer_handle" row="<%=resultRow%>" ifNull="-"/></span>
-                </c:otherwise>
-            </c:choose>
-        </td>
-        <td class="valueC">
-            <c:choose>
-                <c:when test="${unMarkedOnly}">
-                    &#160;
-                </c:when>
-                <c:when test="${resultRow.map['review_status_id']==passed}">
-                    <div><span class="bigGreen"><rsc:item name="review_status_desc" row="<%=resultRow%>" ifNull="-"/></span></div>
-                </c:when>
-                <c:otherwise>
-                    <div><span class="bigRed"><rsc:item name="review_status_desc" row="<%=resultRow%>" ifNull="-"/></span></div>
-                </c:otherwise>
-            </c:choose>
-            <c:choose>
-                <c:when test="${unMarkedOnly}">
-                    &#160;
-                </c:when>
-                <c:otherwise>
-                    <rsc:item name="final_score" row="<%=resultRow%>" format="0.00" ifNull=""/>
-                </c:otherwise>
-            </c:choose>
-        </td>
-        <td class="valueC">
-			<rsc:item name="payment_id" row="<%=resultRow%>" format="0" ifNull="-"/>
-        </td>
-        <td class="valueE">
-            <div>&nbsp;</div>
-        </td>
-    </tr>
-    <% even = !even;%>
-</rsc:iterator>
+			<tbody>
+				<tr>
+				<td class="title" colspan="8">Submissions</td></tr><tr>
+					
+					<% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
+					<%-- need to add 1 for all the sorts because the resultsetcontainer is 0 based, and sql is 1 based--%>
+					<td class="headerC">
+						<c:choose>
+							<c:when test="${unMarkedOnly}">
+								Placed
+							</c:when>
+							<c:otherwise>
+								<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("placed")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Place</a>
+							</c:otherwise>
+						</c:choose>
+					</td>
+					<td class="header">
+						Submission
+						<br /><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_handle")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Sort by handle</a> |
+						<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submission_id")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Sort by submission ID</a>
+					</td>
+					<td class="headerC">
+						<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_rank")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter<br />Rank</a>
+					</td>
+					<td class="headerC">
+						<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submit_date")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submit<br />Date</a>
+					</td>
+					<td class="headerC">
+						<c:choose>
+							<c:when test="${unMarkedOnly}">
+								Screening<br />Date
+							</c:when>
+							<c:otherwise>
+								<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("review_date")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Screening<br />Date</a>
+							</c:otherwise>
+						</c:choose>
+					</td>
+					<td class="headerC">
+					<c:choose>
+						<c:when test="${unMarkedOnly}">
+							Screener
+						</c:when>
+						<c:otherwise>
+							<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("reviewer_handle")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Screener</a>
+						</c:otherwise>
+					</c:choose>
+				</td>
+   				 <td class="headerC">
+				<c:choose>
+					<c:when test="${unMarkedOnly}">
+						Score
+					</c:when>
+					<c:otherwise>
+						<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("final_score")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Score</a>
+					</c:otherwise>
+				</c:choose>
+			</td>
+			<td class="headerC">
+				Payment Id
+			</td>
+		</tr>
+		<% boolean even = true;%>
+		<rsc:iterator list="<%=submissions%>" id="resultRow">
+			<tr>
+				<td class="space" colspan="6">&nbsp;</td>
+			</tr>
+			<tr class="<%=even?"light":"dark"%>">
+				<td class="valueE">
+				<c:choose>
+					<c:when test="${unMarkedOnly}">
+						&#160;
+					</c:when>
+					<c:otherwise>
+						<rsc:item name="placed" row="<%=resultRow%>" ifNull="-"/>
+					</c:otherwise>
+				</c:choose>
+				</td>
+				<td class="value">
+					<span class="coderText"><studio:handle coderId="${resultRow.map['submitter_id']}"/></span>
+					<br /><strong><rsc:item name="submission_id" row="<%=resultRow%>"/></strong>
+					<br /><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=original"><rsc:item name="original_file_name" row="<%=resultRow%>"/></a>
+					<%if (resultRow.getIntItem("submission_type_id") != SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
+					<br /><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissionDetail&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
+					<% } %>
+					<c:if test="${currentTime>contest.endTime && not empty contest.project}">
+							<c:choose>
+								<c:when test="${resultRow.map['review_status_id']==passed}">
+										<button name="submit${resultRow.map['submission_id']}" value="submit" type="submit" onclick="sendToReview(${resultRow.map['submission_id']})">
+											<c:choose>
+												<c:when test="${empty resultRow.map['or_submission_id']}">
+													Send To OR
+												</c:when>
+												<c:otherwise>
+													Resend To OR
+												</c:otherwise>
+											</c:choose>
+			
+										</button>
+								</c:when>
+								<c:otherwise>
+									&nbsp;
+								</c:otherwise>
+							</c:choose>
+					</c:if>
+				</td>
+				<td class="valueC">
+					<%if (resultRow.getIntItem("submission_type_id") == SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
+					Final
+					<% } else { %>
+					<rsc:item name="submitter_rank" row="<%=resultRow%>" ifNull="-" />
+					<% } %>
+				</td>
+				<td class="valueC">
+					<rsc:item name="submit_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+				</td>
+				<td class="valueC">
+					<c:choose>
+						<c:when test="${unMarkedOnly}">
+							&#160;
+						</c:when>
+						<c:otherwise>
+							<rsc:item name="review_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}" ifNull="-"/>
+						</c:otherwise>
+					</c:choose>
+				</td>
+				<td class="valueC">
+					<c:choose>
+						<c:when test="${unMarkedOnly}">
+							&#160;
+						</c:when>
+						<c:otherwise>
+							<span class="coderText"><rsc:item name="reviewer_handle" row="<%=resultRow%>" ifNull="-"/></span>
+						</c:otherwise>
+					</c:choose>
+				</td>
+				<td class="valueC">
+					<c:choose>
+						<c:when test="${unMarkedOnly}">
+							&#160;
+						</c:when>
+						<c:when test="${resultRow.map['review_status_id']==passed}">
+							<div><span class="bigGreen"><rsc:item name="review_status_desc" row="<%=resultRow%>" ifNull="-"/></span></div>
+						</c:when>
+						<c:otherwise>
+							<div><span class="bigRed"><rsc:item name="review_status_desc" row="<%=resultRow%>" ifNull="-"/></span></div>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${unMarkedOnly}">
+							&#160;
+						</c:when>
+						<c:otherwise>
+							<rsc:item name="final_score" row="<%=resultRow%>" format="0.00" ifNull=""/>
+						</c:otherwise>
+					</c:choose>
+				</td>
+				<td class="valueW">
+					<rsc:item name="payment_id" row="<%=resultRow%>" format="0" ifNull="-"/>
+				</td>
+			</tr>
+			<% even = !even;%>
+			</rsc:iterator>
         </tbody>
         </table>
     </div>
