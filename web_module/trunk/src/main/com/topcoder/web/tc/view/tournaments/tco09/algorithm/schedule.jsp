@@ -141,7 +141,7 @@
                                                                             <td class="first last alignText">Round 1</td>
                                                                             <td class="first last alignText">Saturday, March 7, 2009<br />
                                                                                <strong>Register:</strong> 9:00 a.m. - 11:55 a.m.<br />
-                                                                               <strong>START:</strong> 12:00 p.m.**</td>
+                                                                               <strong>START:</strong> 12:00 p.m.*</td>
                                                                             <td class="first last alignText">Up to 1,800</td>
                                                                             <td class="first last alignText">720</td>
                                                                             <td class="last">&nbsp;</td>
