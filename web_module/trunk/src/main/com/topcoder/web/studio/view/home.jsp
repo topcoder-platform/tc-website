@@ -103,32 +103,10 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
             <a href="/?module=ViewActiveContests"><img alt="Get Started Now!" src="/i/v3/welcome_banner.png" width="536" height="121" border="0"/></a>--%>
             
             <%-- sensations banner --%>
-            <a href="http://sensations.aol.com/"><img alt="AOL/TopCoder Sensations Developer Challenge" style="margin:0 1px;"src="/i/aol/536x121.png" width="534" height="121" border="0"/></a>
+            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tco09"><img alt="TopCoder Open 2009, Register Now!" style="margin:0 1px;"src="/i/536x121_banner.png" width="534" height="121" border="0"/></a>
             
-             <%-- birthday banner
-            <a href="http://tcstudioblogs.com/?p=39"><img alt="Studio Celebrates Two Years of Design Contests!" src="/i/v3/banner_birthday_536x121.png" width="536" height="121" border="0"/></a> --%>
-        </div>
+         </div>
     </div>
-    
-    
-    <%-- old banners --%>
-    <%-- banner
-    	<div>
-            <a href="/?module=ViewContestDetails&ct=2405"><img alt="$1500 Mini-Tournament" src="/i/tournament_flash_banner.png" width="535" height="60" border="0"/></a> 
-		</div> --%>
-    <%-- tournament banner
-    	<div>
-            <a href="/?module=ViewContestDetails&ct=2379"><img alt="$1500 Mini-Tournament" src="/i/tournament_banner.png" width="535" height="60" border="0"/></a> 
-		</div> --%>
-    
-    
-    <%--
-       <a href="/?module=ViewContestDetails&amp;ct=2239"><img alt="Register Now!" src="/i/v3/lending_tree_banner.png" width="536" height="88" border="0"/></a>
-    </div>
-    --%>
-    <%--
-       <a href="/?module=ViewContestDetails&ct=2343"><img alt="Flex your muscles in Studio" src="/i/v3/flexbanner.png" width="535" height="60" border="0"/></a>
-    </div>   --%>
     
      <%-- winners box --%>
     <div class="winners">
@@ -242,7 +220,6 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
     <%-- designer box --%>
     <div class="designerBox">
         <h2>DESIGNER OF THE MONTH</h2>
-
         <p>
             <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/lunarkid_big.jpg"/>
             <b>December 2008</b><br />
