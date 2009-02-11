@@ -86,7 +86,7 @@
                                                                     <p>The Studio Competition is part of the Tournament, and by participating in this Studio Competition, you agree to these Rules.</p>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Schedule</h3>
-                                                                                <p>Competitors can register for the Tournament and be eligible to participate in the Studio Competition between 9:00 a.m. EST on February 11, 2009 and 9:00 a.m. EST on March 27, 2009.  Competitors do not need to register separately for the Studio Competition. The Online Competitions will take place between February 11, 2009 and March 27, 2009 ("Studio Competition Period").  </p>
+                                                                                <p>Competitors can register for the Tournament and be eligible to participate in the Studio Competition between 9:00 a.m. EST on February 11, 2009 and 9:00 a.m. EST on March 19, 2009.  Competitors do not need to register separately for the Studio Competition. The Online Competitions will take place between February 11, 2009 and April 8, 2009 ("Studio Competition Period").  </p>
                                                                                 <p>During the Studio Competition Period, Competitors who have registered for the Tournament and who participate in Tournament-eligible Studio competitions on the TopCoder Studio website, will receive points as outlined in these Rules.  A Competitors submission will not be scored separately for the Studio Competition.  Only Tournament-eligible Studio contests in which registration has closed during the Studio Competition Period shall be included in determining points for the Studio Competition.</p>
                                                                                     <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                                         <tr>
@@ -101,8 +101,9 @@
                                                                                             <td class="first last alignText">Online Competition</td>
                                                                                             <td class="first last alignText">Wednesday, February 11, 2009<br />
                                                                                           9:00 a.m.*</td>
-                                                                                          <td class="first last alignText">Friday, March 27, 2009<br />11:59 p.m.</td>
-                                                                                            <td class="last">&nbsp;</td>
+                                                                                          <td class="first last alignText">Wednesday, April 8, 2009<br />
+                                                                                          11:59 p.m.</td>
+                                                                                          <td class="last">&nbsp;</td>
                                                                                         </tr>
                                                                                     </table>
                                                                                     <br /><br />
@@ -180,10 +181,10 @@
                                                                             <h3 class="subtitle">RAPID DESIGN TIEBREAKER (if necessary)</h3>
                                                                                 <p>The Rapid Design Competition will consist of designing a mock (graphical representation) of a fictitious web site's main page. The tied Competitors will be allowed to submit only one design for the Rapid Design Competition. The Competitors submission must pass the standard Studio screening process. All submissions that pass screening will be presented to the TopCoder Studio members for an online vote to determine the winner of the Rapid Design Contest. The winner of the Rapid Design Contest will advance to the Onsite Championship. THE RESULTS OF THE VOTE AND CHOICE OF THE WINNER ARE FINAL.</p>
                                                                                 <p>The schedule for the Rapid Design Contest is as follows:<br />
-                                                                                    Rapid Design Contest Spec Doc posted and Submission Phase begins: Noon EDT (UTC/GMT -4) April 2, 2009<br />
-                                                                                    Submission Phase ends: Noon EDT (UTC/GMT -4), April 3, 2009<br />
-                                                                                    Voting Phase: April 3 - April 6, 2009<br />
-                                                                                    Winner Announced: April 7, 2009</p>
+                                                                                    Rapid Design Contest Spec Doc posted and Submission Phase begins: 12:00 p.m. EDT (UTC/GMT -4) April 17, 2009<br />
+                                                                                    Submission Phase ends: 12:00 p.m. EDT (UTC/GMT -4), April 20, 2009<br />
+                                                                                    Voting Phase: April 20 - April 22, 2009<br />
+                                                                                    Winner Announced: April 22, 2009</p>
                                                                         </div>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Onsite Championship Rounds</h3>
