@@ -133,8 +133,7 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
      <%-- winners box --%>
     <div class="winners">
 	<div id="winners">
-	</div>
-   </div>
+
     <script>
        function loadWinners() {
 			  var rss = "/blog/?feed=rss2&cat=6";
@@ -148,6 +147,9 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
           }
       }
     </script>
+    
+    	</div>
+   </div>
 
     <%-- contest box --%>
     <c:if test="${not empty contests}">
