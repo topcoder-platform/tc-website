@@ -85,7 +85,7 @@
 <h2 class="title">Studio Design Competition Schedule</h2>
                                                                 <div>
                                                                     <p><strong>Registration</strong></p>
-                                                                    <p>Registration for the 2009 TopCoder Open Studio Design Competition will open at 9:00 a.m. EST on Wednesday, February 11, 2009 and will close at 5:00 p.m. EDT on Monday, April 20, 2009.</p>
+                                                                    <p>Registration for the 2009 TopCoder Open Studio Design Competition will open at 9:00 a.m. EST on Wednesday, February 11, 2009 and will close at 5:00 p.m. EDT on Thursday, March 19, 2009.</p>
                                                                     <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                         <tr>
                                                                             <th class="first">&nbsp;</th>
