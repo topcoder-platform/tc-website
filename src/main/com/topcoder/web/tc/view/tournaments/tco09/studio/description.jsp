@@ -82,8 +82,8 @@
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title">Welcome to the Studio Design Competition!</h2>
-                                                                    <p>The Studio Design Competition (SDC) is a place for competitors to put their design talent to the test. Designers will have seven weeks and four days (7 ½ weeks) to compete and accumulate points leading up to the Finals, being held at the Mirage Hotel in Las Vegas, Nevada, USA. Ten of the most creative competitors will win a trip to Las Vegas where they will compete in the Championship Round for the chance to win cash prizes.</p>
-                                                                        <div class="subtitle">
+                                                                    <p>The Studio Design Competition (SDC) is a place for competitors to put their design talent to the test. Designers will have 8 weeks to compete and accumulate points leading up to the Finals, being held at the Mirage Hotel in Las Vegas, Nevada, USA. Ten of the most creative competitors will win a trip to Las Vegas where they will compete in the Championship Round for the chance to win cash prizes.</p>
+                                                  <div class="subtitle">
                                                                             <h3 class="subtitle">What is TopCoder Studio?</h3>
                                                                                 <p>Studio challenges top creative talent from around the world to present their best concepts to clients searching for new design solutions. </p>
                                                                             <h3 class="subtitle">Clients have multiple designs to choose from. Designers have multiple ways to win. </h3>
