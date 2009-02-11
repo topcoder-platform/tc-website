@@ -82,11 +82,11 @@
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title">Studio Design Competition Official Rules and Regulations</h2>
-                                                                    <p>The 2009 TopCoder Open Studio Design Competition will take place between February 11 and June 4, 2009 (Studio Competition). The Studio Competition will consist of eight (8) weeks of online qualifying competitions, with up to ten (10) of the highest scoring Competitors winning a trip to the Tournament to compete in the Onsite Championship.</p>
+                                                                    <p>The 2009 TopCoder Open Studio Design Competition will take place between February 11 and June 4, 2009 ("Studio Competition"). The Studio Competition will consist of eight (8) weeks of online qualifying competitions, with up to ten (10) of the highest scoring Competitors winning a trip to the Tournament to compete in the Onsite Championship.</p>
                                                                     <p>The Studio Competition is part of the Tournament, and by participating in this Studio Competition, you agree to these Rules.</p>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Schedule</h3>
-                                                                                <p>Competitors can register for the Tournament and be eligible to participate in the Studio Competition between 9:00 a.m. EST on February 11, 2009 and 9:00 a.m. EST on March 27, 2009.  Competitors do not need to register separately for the Studio Competition. The Online Competitions will take place between February 11, 2009 and March 27, 2009 (Studio Competition Period).  </p>
+                                                                                <p>Competitors can register for the Tournament and be eligible to participate in the Studio Competition between 9:00 a.m. EST on February 11, 2009 and 9:00 a.m. EST on March 27, 2009.  Competitors do not need to register separately for the Studio Competition. The Online Competitions will take place between February 11, 2009 and March 27, 2009 ("Studio Competition Period").  </p>
                                                                                 <p>During the Studio Competition Period, Competitors who have registered for the Tournament and who participate in Tournament-eligible Studio competitions on the TopCoder Studio website, will receive points as outlined in these Rules.  A Competitors submission will not be scored separately for the Studio Competition.  Only Tournament-eligible Studio contests in which registration has closed during the Studio Competition Period shall be included in determining points for the Studio Competition.</p>
                                                                                     <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                                         <tr>
@@ -146,7 +146,7 @@
                                                                         </div>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Advancement</h3>
-                                                                                <p>Upon the completion of all Tournament-eligible Studio contests, all of the individual placement scores that a Competitor receives during the Studio Competition Period will be added for a cumulative placement score.  Up to ten (10) Competitors with the highest cumulative placement score during the Online Period will advance to the Onsite Championship (Onsite Studio Competitors).</p>
+                                                                                <p>Upon the completion of all Tournament-eligible Studio contests, all of the individual placement scores that a Competitor receives during the Studio Competition Period will be added for a cumulative placement score.  Up to ten (10) Competitors with the highest cumulative placement score during the Online Period will advance to the Onsite Championship ("Onsite Studio Competitors").</p>
                                                                                 <p>In the event of a tie, the tie will be resolved in the following manner:</p>
                                                                                     <ol>
                                                                                         <li>The Competitor who has the most higher-placed submissions in Tournament-eligible Studio contests. </li>
@@ -182,7 +182,7 @@
                                                                                 <p>The schedule for the Rapid Design Contest is as follows:<br />
                                                                                     Rapid Design Contest Spec Doc posted and Submission Phase begins: Noon EDT (UTC/GMT -4) April 2, 2009<br />
                                                                                     Submission Phase ends: Noon EDT (UTC/GMT -4), April 3, 2009<br />
-                                                                                    Voting Phase: April 3  April 6, 2009<br />
+                                                                                    Voting Phase: April 3 - April 6, 2009<br />
                                                                                     Winner Announced: April 7, 2009</p>
                                                                         </div>
                                                                         <div class="subtitle">

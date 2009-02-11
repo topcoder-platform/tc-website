@@ -80,8 +80,8 @@
                                                         <div>   
                                                             <div class="pageContent">
                                                                 <h2 class="title">Welcome to the ALL NEW TCO09 Specification Competition!</h2>
-                                                                    <p>The 2009 TopCoder Open Specification Design &amp; Development Competition will begin on February 11, 2009 and will commence on April 20, 2009.  Two lucky competitors after online competitions will win a trip to the 2009 TopCoder Open in Las Vegas, Nevada to enjoy the event!</p>
-                                                                        <div class="subtitle">
+                                                                    <p>The 2009 TopCoder Open Specification Competition will begin on February 11, 2009 and will commence on April 20, 2009.  Two lucky competitors after online competitions will win a trip to the 2009 TopCoder Open in Las Vegas, Nevada to enjoy the event!</p>
+                                                  <div class="subtitle">
                                                                             <h3 class="subtitle">How to compete:  Specification Competition</h3>
                                                                                 <p>The competition is free and in order to compete, you must meet all the eligibility criteria listed below and you must read the <a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=rules&d5=specification">rules</a>.<span class="style1"></span></p>
                                                                                 <p>You also must also be a registered TopCoder member and <a href="/tco09?module=ViewUnifiedRegistration">register</a> for the 2009 TopCoder Open.</p>

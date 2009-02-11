@@ -114,14 +114,14 @@
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 1</td>
-                                                                            <td class="first last alignText">Tuesday, June 2, 2009<br />1:00 p.m.  5:00 p.m.***</td>
+                                                                            <td class="first last alignText">Tuesday, June 2, 2009<br />1:00 p.m. - 5:00 p.m.***</td>
                                                                             <td class="first last alignText">10</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 2</td>
-                                                                            <td class="first last alignText">Wednesday, June 3, 2009<br />8:30 a.m.  1:00 p.m.***</td>
+                                                                            <td class="first last alignText">Wednesday, June 3, 2009<br />8:30 a.m. - 1:00 p.m.***</td>
                                                                             <td class="first last alignText">10</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>

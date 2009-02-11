@@ -87,7 +87,7 @@
                                                                     <p>Residents of Iran are eligible to compete and advance to the onsite rounds of the Algorithm Competition. However, residents of Iran are not eligible to receive any prizes except for those awarded to competitors participating in the Onsite Semifinal and/or Championship Rounds of the Algorithm Competition.</p>                                                     
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Registration</h3>
-                                                                                <p>Competitors can register for the Tournament and be eligible to participate in the Algorithm Competition between 9:00 a.m. EST on Wednesday, February 11, 2009 and 11:00 a.m. EST on Wednesday, March 4, 2009. Competitors do not need to register separately for the Algorithm Competition. The Algorithm Competition will take place between February 24, 2009 and June 4, 2009.   There is no limit to the number of Competitors who can participate in the Algorithm Competition; however each Competitor may only participate using one handle.</p>
+                                                                                <p>Competitors can register for the Tournament by February 23, 2009 at 9:00 a.m. and be eligible to participate in the Algorithm Competition between 9:00 a.m. EST on Wednesday, February 11, 2009 and 11:00 a.m. EST on Wednesday, March 4, 2009. Competitors do not need to register separately for the Algorithm Competition. The Algorithm Competition will take place between February 24, 2009 and June 4, 2009.   There is no limit to the number of Competitors who can participate in the Algorithm Competition; however each Competitor may only participate using one handle.</p>
                                                                         </div>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Algorithm Competition Round Structure</h3>
@@ -100,7 +100,7 @@
                                                                                     <ul>
                                                                                         <li>Competed in a TopCoder algorithm competition between December 1, 2008 and February 24, 2009 </li>
                                                                                         <li>Competed in a total of at least three (3) TopCoder rated events as a member at any time</li>
-                                                                                        <li>Register for the Tournament </li>
+                                                                                        <li>Register for the Tournament by February 23, 2009 at 9:00 a.m.</li>
                                                                                         <li>Meet all other Algorithm Competition and Tournament eligibility criteria</li>
                                                                                     </ul>
                                                                                 <p>Competitors receiving an Automatic Berth in Online Round 1 are not permitted to compete in any Qualification Round.</p>                                                     
@@ -111,9 +111,9 @@
                                                                                         <th class="first">&nbsp;</th>
                                                                                         <th>Online Qual. Rounds</th>
                                                                                         <th>Time</th>
-                                                                                        <th>Max # of Competitors</th>
-                                                                                        <th>Max # of Advancers</th>
-                                                                                        <th class="last">&nbsp;</th>
+                                                                                        <th nowrap="nowrap">Max # of Competitors</th>
+                                                                                      <th nowrap="nowrap">Max # of Advancers</th>
+                                                                                      <th class="last">&nbsp;</th>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td class="first">&nbsp;</td>
@@ -322,13 +322,13 @@
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td class="first">&nbsp;</td>
-                                                                                        <td class="first last alignText">6th  8th place finishers* in the Championship Round</td>
+                                                                                        <td class="first last alignText">6th - 8th place finishers* in the Championship Round</td>
                                                                                         <td class="first last alignText">$200 each</td>
                                                                                         <td class="last">&nbsp;</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td class="first">&nbsp;</td>
-                                                                                        <td class="first last alignText">9th  18th place finishers* in the Semifinal Round</td>
+                                                                                        <td class="first last alignText">9th - 18th place finishers* in the Semifinal Round</td>
                                                                                         <td class="first last alignText">$100 each</td>
                                                                                         <td class="last">&nbsp;</td>
                                                                                     </tr>
