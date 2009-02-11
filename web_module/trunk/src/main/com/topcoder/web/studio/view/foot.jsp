@@ -1,3 +1,5 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.studio.Constants" %>
 <%
     String section = request.getParameter("section") == null ? "" : request.getParameter("section");
 %>
@@ -10,66 +12,66 @@
             <div class="col">
                 <h4>Customer Service</h4>
                 <ul>
-                    <li><a href="http://software.topcoder.com/contact.jsp">Contact Support</a></li>
-                    <li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=privacy">Privacy Policy</a></li>
-                    <li><a href="http://topcoderblogs.com/direct/?page_id=24">Terms &amp; Conditions</a></li>
+                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Support</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=privacy">Privacy Policy</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=terms">Terms &amp; Conditions</a></li>
                 </ul>
             </div>
             
             <div class="col">
                 <h4>About TopCoder</h4>
                 <ul>
-                    <li><a href="http://software.topcoder.com/contact.jsp">Contact Us</a></li>
-                    <li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=mediaRequestForm">Public Relations</a></li>
-                    <li><a href="http://software.topcoder.com/TCD/rss.jsp">RSS Feeds</a></li>
-                    <li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=index">Press Room</a></li>
-                    <li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=jobs">Working at TopCoder</a></li>
-                    <li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=terms">Legal Information</a></li>
+                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=mediaRequestForm">Public Relations</a></li>
+                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/rss.jsp">RSS Feeds</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=index">Press Room</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=jobs">Working at TopCoder</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=terms">Legal Information</a></li>
                 </ul>
 
             </div>
             
             <div class="col">
                 <h4>Platform Tools</h4>
-                <ul><li><a href="http://www.topcoder.com/wiki/display/tc/Upcoming+Contests">Pipeline</a></li>
-                    <li><a href="http://www.topcoder.com/wiki/display/tc/TopCoder+UML+Tool">UML Tool</a></li>
-                    <li><a href="http://forums.topcoder.com/?module=Category&amp;categoryID=22">TopCoder Forums</a></li>
-                    <li><a href="http://software.topcoder.com/catalog/index.jsp">Component Catalog</a></li>
-                    <li><a href="http://www.topcoder.com/wiki/">TopCoder Wiki</a></li>
+               	<ul><li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Upcoming+Contests">Pipeline</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/TopCoder+UML+Tool">UML Tool</a></li>
+                    <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=22">TopCoder Forums</a></li>
+                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/index.jsp">Component Catalog</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/">TopCoder Wiki</a></li>
                 </ul>
           </div>
             
             <div class="col">
                 <h4>TopCoder Community</h4>
                 <ul>
-                       <li><a href="http://www.topcoder.com/tc">TopCoder Community Home</a></li>
-                    <li><a href="http://forums.topcoder.com/">TopCoder Forums</a></li>
-                    <li><a href="http://studio.topcoder.com/forums">Studio Forums</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">TopCoder Community Home</a></li>
+                    <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">TopCoder Forums</a></li>
+                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
                 </ul>
             
                 <h4>TopCoder Blogs</h4>
                 <ul>
                     <li><a href="http://topcoderblogs.com/direct/">TopCoder Direct</a></li>
-                    <li><a href="http://tcstudioblogs.com/">Studio TopCoder</a></li>
+                    <li><a href="http://studio.topcoder.com/blog/">Studio TopCoder</a></li>
                 </ul>
             </div>
             
             <div class="col">
                 <h4>My Account</h4>
                 <ul>
-                    <li><a href="http://www.topcoder.com/reg/">TopCoder Registration</a></li>
-                    <li><a href="http://www.topcoder.com/tc?module=MyHome">Manage Profile</a></li>
-                    <li><a href="http://www.topcoder.com/dr">TopCoder Digital Run</a></li>
-                    <li><a href="http://studio.topcoder.com/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=home">Studio Cup</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">TopCoder Registration</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome">Manage Profile</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/dr">TopCoder Digital Run</a></li>
+                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=home">Studio Cup</a></li>
                 </ul>
             </div>
             
             <div class="col">
                 <h4>Powered by TopCoder</h4>
                 <ul>
-                    <li><a href="http://software.topcoder.com/">TopCoder Direct</a></li>
-                    <li><a href="http://www.topcoder.com/">TopCoder.com</a></li>
-                    <li><a href="http://studio.topcoder.com/">Studio TopCoder</a></li>
+                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">TopCoder Direct</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder.com</a></li>
+                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">Studio TopCoder</a></li>
                 </ul>
             </div>
 
@@ -81,7 +83,7 @@
     <div id="footer">
         <div class="wrapper2">
             <p id="footer_1800"><strong>1-866-TOPCODER or Service@TopCoder.com</strong></p> <%--chjanged from id--%>
-            <p>TopCoder is the world's largest competitive software development community with developers representing over 200 countries.</p>
+            <p>TopCoder is the world's largest competitive software development community with over 185,000 developers representing over 200 countries.</p>
             <p>Copyright &copy;2001-2008, TopCoder, Inc. All rights reserved.</p>
         </div><%-- .wrapper ends --%>
     </div><%-- #footer ends --%>
