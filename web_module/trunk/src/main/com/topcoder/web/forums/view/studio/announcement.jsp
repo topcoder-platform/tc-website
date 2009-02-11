@@ -77,9 +77,11 @@
         <!-- container -->
         <div id="container">
             <!-- content -->
-            <div id="content">
-                <div class="contentTop">
-                    <div class="contentMiddle forums">
+           <div id="wrapper">
+            	<div id="content">
+                	<div class="contentTop">
+                	<h1>Forums</h1>
+                	<div class="contentMiddle forums">
 
 				<table cellpadding="0" cellspacing="0" class="rtbcTable">
                     <tr>
@@ -164,7 +166,7 @@
     <jsp:include page="foot.jsp"/>
     <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
 </div>
-</div>
+
 
 </body>
 </html>

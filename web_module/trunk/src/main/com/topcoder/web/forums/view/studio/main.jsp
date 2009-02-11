@@ -74,23 +74,24 @@
         <!-- container -->
         <div id="container">
             <!-- content -->
-            <div id="content">
-                <div class="contentTop">
-                    <div class="contentMiddle forums">
-					
-					<table cellpadding="0" cellspacing="0" class="rtbcTable">
-						<tr>
-							<td class="categoriesBox" style="padding-right: 20px;">
-								<jsp:include page="categoriesHeader.jsp"/>
-							</td>
-							<td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-								<jsp:include page="searchHeader.jsp"/>
-							</td>
-							<td align="right" nowrap="nowrap" valign="top">
-								<a href="?module=History" class="rtbcLink">My Post History</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Watches" class="rtbcLink">My Watches</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Settings" class="rtbcLink">User Settings</a><br />
-							</td>
-						</tr>
-					</table>
+           <div id="wrapper">
+            	<div id="content">
+                	<div class="contentTop">
+                	<h1>Forums</h1>
+                	<div class="contentMiddle forums">
+						<table cellpadding="0" cellspacing="0" class="rtbcTable">
+							<tr>
+								<td class="categoriesBox" style="padding-right: 20px;">
+									<jsp:include page="categoriesHeader.jsp"/>
+								</td>
+								<td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+									<jsp:include page="searchHeader.jsp"/>
+								</td>
+								<td align="right" nowrap="nowrap" valign="top">
+									<a href="?module=History" class="rtbcLink">My Post History</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Watches" class="rtbcLink">My Watches</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Settings" class="rtbcLink">User Settings</a><br />
+								</td>
+							</tr>
+						</table>
 
 					<% if (categories.size() > 0) {
 						Calendar calendar = Calendar.getInstance();
@@ -178,7 +179,7 @@
 					<% } %>
 					
 					<div style="float:right;">
-						<a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img alt="RSS" border="none" src="/i/v2/interface/btnRSS.png"/></a>
+						<a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img alt="RSS" border="0" src="/i/v2/interface/btnRSS.png"/></a>
 					</div>
 					<span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.<br />
 					The five most recent forums are displayed for each category other than Round Tables. Click a category's name to view its complete forum list.</span>
@@ -190,9 +191,8 @@
                 </div>
             </div>
         </div>
-
+		
         <jsp:include page="foot.jsp"/>
 
-    </div>
-</body>
+	</body>
 </html>
