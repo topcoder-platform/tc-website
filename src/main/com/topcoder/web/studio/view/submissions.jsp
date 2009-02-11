@@ -119,6 +119,7 @@
     </c:choose>
     ${contest.name}
 </div>
+<br />
 
 <h1>Submissions</h1>
 
@@ -147,14 +148,14 @@
     <div class="container">
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
 <tbody>
-    <c:choose>
+<!---    <c:choose>
         <c:when test="${contest.configMap[viewSubmitters]}">
             <tr><td class="title" colspan="7">Submissions</td></tr>
         </c:when>
         <c:otherwise>
             <tr><td class="title" colspan="6">Submissions</td></tr>
         </c:otherwise>
-    </c:choose>
+    </c:choose>  -->
 <tr>
     <td class="headerW">
         <div>&nbsp;</div>
