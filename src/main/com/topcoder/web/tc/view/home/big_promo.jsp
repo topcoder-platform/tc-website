@@ -100,7 +100,7 @@
 
 <br />
 <br />
-<a href="<tc-webtag:linkTracking link='http://sensations.aol.com/' refer='/tc' />"><img src="/i/aol/510x54.png" alt="TopCoder Open 2009" /></a>
+<a href="<tc-webtag:linkTracking link='http://www.topcoder.com/tco09' refer='/tc' />"><img src="/images/home/tco09_510x54_banner.jpg" alt="2009 TopCoder Open" /></a>
 
 <%-- NORM Assembly Run 
 <br />
