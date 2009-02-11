@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model.comp" auto-import="false">
+
+    <class name="Project" table="tcs_catalog:project" mutable="false">
+        <id name="id" column="project_id" />
+
+   
+        <property name="statusId" column="project_status_id" access="field"/>
+        <property name="categoryId" column="project_category_id" access="field"/>
+        
+        <map name="info" inverse="true" fetch="subselect">
+            <key column="project_id" not-null="true" />
+            <map-key column="project_info_type_id" type="integer"/>
+            <one-to-many class="ProjectInfo"/>
+        </map>
+
+        <map name="phases"  inverse="true" fetch="subselect">
+            <key column="project_id" not-null="true" />
+            <map-key column="phase_type_id" type="integer"/>
+            <one-to-many class="ProjectPhase"/>
+        </map>
+        
+        <set name="contests" table="tcs_catalog:contest_project_xref"  access="field">
+            <key column="project_id" not-null="true"/>
+            <many-to-many column="contest_id" class="Contest"/>
+        </set>
+
+
+    </class>
+</hibernate-mapping>
