@@ -24,7 +24,7 @@
                     <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=rules&d5=tco09" class="${secondaryTab == 'rules' ? 'on' : ''}"><span>Competition Rules</span></a></li>
                     <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron" class="${secondaryTab == 'eventPatron' ? 'on' : ''}"><span>Event Patron</span></a></li>
                     <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1" class="${secondaryTab == 'sponsors' ? 'on' : ''}"><span>Sponsors</span></a></li>
-                    <li class="last"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=registrants" class="${secondaryTab == 'registrants' ? 'on' : ''}"><span>Registrants</span></a></li>
+                    <li class="last"><a href="/tco09?module=Registrants" class="${secondaryTab == 'registrants' ? 'on' : ''}"><span>Registrants</span></a></li>
               </c:when>
               <c:when test="${mainTab == 'online'}">
                     <li class="first"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=architecture&d5=description" class="${secondaryTab == 'architecture' ? 'on' : ''}"><span>Architecture</span></a></li>

@@ -460,6 +460,15 @@ public class Constants implements WebConstants {
      */    
     public static String TCO09_OVERVIEW_PAGE = "/tournaments/tco09/overview/overview.jsp";
     
+    /**
+     * <p>
+     * A <code>String</code> referencing TCO09 registrants page.
+     * </p>
+     * 
+     * @since 2009 TopCoder Open Site Integration
+     */    
+    public static String TCO09_REGISTRANTS_PAGE = "/tournaments/tco09/overview/registrants.jsp";
+
     static {
         initialize();
     }
