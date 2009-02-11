@@ -78,6 +78,7 @@
     </c:choose>
     ${contest.name}
 </div>
+<br />
 
 <div style="float: right;">
 	<%-- ADDTHIS BUTTON BEGIN --%>
@@ -215,7 +216,7 @@
 <table cellspacing="0" cellpadding="0" class="conDetIntro">
     <tbody>
         <tr>
-            <td class="field">Contest:</td>
+            <td class="field">Contest Title:</td>
             <td class="value">${contest.name}</td>
         </tr>
         <c:if test="${not empty contest.clientName.value}">
@@ -270,7 +271,7 @@
         </c:choose>
         <c:if test="${fn:length(contest.digitalRunPoints.value)>0 and contest.digitalRunPoints.value != '0'}">
             <tr>
-                <td class="field">Studio Cup Pts</td>
+                <td class="field">Studio Cup Points:</td>
                 <td class="value">${contest.digitalRunPoints.value}</td>
             </tr>
         </c:if>
@@ -348,20 +349,18 @@
     </div>
 </c:if>
 
-<div class="header">Contest Summary</div>
+<div class="header"><span>Contest Summary</span></div>
 <studio:formatField text="${contest.overview.value}"/>
-<br /><br />
 
 <c:if test="${not empty contest.fullDescription.value}">
-    <div class="header">Full Description &amp; Project Guide</div>
+    <div class="header"><span>Full Description &amp; Project Guide</span></div>
     <studio:formatField text="${contest.fullDescription.value}"/>
-    <br /><br />
 </c:if>
 
 <c:if test="${not empty contest.sizeRequirements.value or not empty contest.fontRequirements.value 
              or not empty contest.colorRequirements.value or not empty contest.contentRequirements.value
              or not empty contest.otherRequirements.value}">
-    <div class="header">Specific Contest Details</div>
+    <div class="header"><span>Specific Contest Details</span></div>
     <table cellpadding="3" cellspacing="0" border="0">
     <tbody>
         <c:if test="${not empty contest.sizeRequirements.value}">
@@ -413,7 +412,7 @@
     </table>
 </c:if>
 
-<div class="header">How to Submit</div>
+<div class="header"><span>How to Submit</span></div>
 <ul>
     <li>You must upload your submission as a single file (see the file requirements) and it should be finalized, not a
         work in progress.
@@ -430,16 +429,14 @@
 </ul>
 
 <c:if test="${not empty contest.winnerSelection.value}">
-    <div class="header">Winner Selection</div>
+    <div class="header"><span>Winner Selection</span></div>
     <studio:formatField text="${contest.winnerSelection.value}"/>
-    <br /><br />
 </c:if>
 
-<div class="header">Prize Payment</div>
+<div class="header"><span>Prize Payment</span></div>
 ${contest.prizeDescription.value}
-<br /><br />
 
-<div class="header">Eligibility</div>
+<div class="header"><span>Eligibility</span></div>
 <studio:formatField text="${contest.eligibility.value}"/>
 
 <%--
