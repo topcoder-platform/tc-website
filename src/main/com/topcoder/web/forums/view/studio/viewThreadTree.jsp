@@ -178,7 +178,7 @@
                 <div class="contentTop">
                     <div class="contentMiddle forums">
 
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
+	<table cellpadding="0" cellspacing="0" class="rtbcTable">
         <tr>
             <td class="categoriesBox" style="padding-right: 20px;">
                 <jsp:include page="categoriesHeader.jsp"/>
@@ -356,7 +356,9 @@
 <%-------------POSTS END---------------%>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-    <tr><td><b>
+    <tr>
+    	<td>
+    	<b>
         <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
             <a href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&mc=<%=category.getMessageCount()%>" class="rtbcLink">
                 <%=category.getName()%>
@@ -390,7 +392,7 @@
         <% } %>
         <% } %>
     </td>
-        <td width=1% align="right" valign="top">
+        <td width="1%" align="right" valign="top">
             <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/v2/interface/btnRSS.png"/></a>
         </td>
 </table>

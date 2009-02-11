@@ -362,9 +362,9 @@
 </tc-webtag:iterator>
 <%-------------POSTS END---------------%>
 
-<div><b>
+<div class="rtbc"><b>
     <% if (paginator.getNumPages() > 1) { %>
-    <div style="float:right; text-align:right; class=" rtbc">< b>
+    <div style="float:right; text-align:right;" class="rtbc"><b>
         <%  if (paginator.getPreviousPage()) { %>
         <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&<%=ForumConstants.START_IDX%>=<%=paginator.getPreviousPageStart()%>&mc=<%=thread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">
             &lt;&lt;PREV</a>&#160;&#160;&#160;
@@ -392,7 +392,7 @@
     <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/v2/interface/btnRSS.png"/></a>
 </div>
 <% } else { %>
-<div style="float:right; text-align:right;">
+<div style="float:right; text-align:right;" >
     <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/v2/interface/btnRSS.png"/></a>
 </div>
 <% } %>
