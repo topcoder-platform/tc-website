@@ -158,7 +158,7 @@
     </c:choose>  -->
 <tr>
     <td class="headerW">
-        <div>&nbsp;</div>
+        <div></div>
     </td>
     <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
     <c:if test="${contest.configMap[viewSubmitters]}">
@@ -182,7 +182,7 @@
         Submission
     </td>
     <td class="headerE">
-        <div>&nbsp;</div>
+        <div></div>
     </td>
 </tr>
 <c:set value="<%=ReviewStatus.PASSED%>" var="passed"/>
@@ -199,7 +199,7 @@
 			
 <c:choose>
 	<c:when test="${contest.status.id==11}">
-            <tr><td class="space" colspan="<%=colspan%>">&nbsp;</td></tr>
+   <!--         <tr><td class="space" colspan="<%=colspan%>">&nbsp;</td></tr>  -->
 			 <tr class="light" colspan="<%=colspan%>">
        			<td class="valueW">
            			<div>&nbsp;</div>
@@ -219,7 +219,7 @@ and their standing within the community and our company.</p>
 			</tr>
 	</c:when>
 	<c:when test="${contest.status.id==10}">
-            <tr><td class="space" colspan="<%=colspan%>">&nbsp;</td></tr>
+  <!--          <tr><td class="space" colspan="<%=colspan%>">&nbsp;</td></tr> -->
 			 <tr class="light" colspan="<%=colspan%>">
        			<td class="valueW">
            			<div>&nbsp;</div>
@@ -243,10 +243,10 @@ Thank you for participating in this and all Studio contests.</p>
 <rsc:iterator list="<%=submissions%>" id="resultRow">
     <c:choose>
         <c:when test="${contest.configMap[viewSubmitters]}">
-            <tr><td class="space" colspan="7">&nbsp;</td></tr>
+ <!--           <tr><td class="space" colspan="7">&nbsp;</td></tr>  -->
         </c:when>
         <c:otherwise>
-            <tr><td class="space" colspan="6">&nbsp;</td></tr>
+<!--            <tr><td class="space" colspan="6">&nbsp;</td></tr>  -->
         </c:otherwise>
     </c:choose>
     <tr class="<%=even?"light":"dark"%>">
