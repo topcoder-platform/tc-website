@@ -137,7 +137,7 @@ $(document).ready(function(){
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome">My TopCoder</a></li>
                             <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">TopCoder Forums</a></li>
                             <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
-                           </ul>
+                        </ul>
                     </li>
                 </ul>
             </div><%-- #navigation ends --%>
@@ -153,7 +153,8 @@ $(document).ready(function(){
 
 
                     <% if ( !sessionInfo.isAnonymous() ) { %>
-            <li><a href="#">Hello,&nbsp;</a><tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" /></li><li class="right"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout&nextpage=http://<%=ApplicationServer.SERVER_NAME%>">Logout</a></li>
+            <li><a href="#">Hello,&nbsp;</a><tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" /></li>
+            <li class="right"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout&nextpage=http://<%=ApplicationServer.SERVER_NAME%>">Logout</a></li>
         <% } else {%>
                 <li class="right"><a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Login">Login</a></li>
             <% } %>
@@ -352,7 +353,7 @@ $(document).ready(function(){
             <div class="col">
                 <h4>TopCoder Community</h4>
                 <ul>
-                       <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">TopCoder Community Home</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">TopCoder Community Home</a></li>
                     <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">TopCoder Forums</a></li>
                     <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
                 </ul>
@@ -391,7 +392,7 @@ $(document).ready(function(){
         <div class="wrapper">
             <p id="footer_1800"><strong>1-866-TOPCODER or Service@TopCoder.com</strong></p>
             <p>TopCoder is the world's largest competitive software development community with <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> developers representing over 200 countries.</p>
-            <p>Copyright &copy;2001-2008, TopCoder, Inc. All rights reserved.</p>
+            <p>Copyright &copy;2001-2009, TopCoder, Inc. All rights reserved.</p>
         </div><%-- .wrapper ends --%>
     </div><%-- #footer ends --%>
 
