@@ -115,11 +115,13 @@
         <!-- container -->
         <div id="container">
             <!-- content -->
-            <div id="content">
-                <div class="contentTop">
-                    <div class="contentMiddle forums">
+            <div id="wrapper">
+            	<div id="content">
+                	<div class="contentTop">
+                	<h1>Forums</h1>
+                	<div class="contentMiddle forums">
 
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
+					<table cellpadding="0" cellspacing="0" class="rtbcTable">
             <tr>
                 <td class="categoriesBox" style="padding-right: 20px;">
                     <jsp:include page="categoriesHeader.jsp"/>
@@ -211,10 +213,10 @@
                     <div class="contentBottom"></div>
                 </div>
             </div>
-        </div>
+
 
         <jsp:include page="foot.jsp"/>
 
-    </div>
+
 </body>
 </html>
