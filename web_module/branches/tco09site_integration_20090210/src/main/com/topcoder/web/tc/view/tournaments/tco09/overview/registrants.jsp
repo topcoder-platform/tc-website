@@ -126,19 +126,19 @@
                                                             <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                 <tr>
                                                                     <th class="first">&nbsp;</th>
-                                                                    <th>Registrants: ${numRegistrants}</th>
+                                                                    <th colspan="2">Registrants: ${numRegistrants}</th>
                                                                     <th class="last">&nbsp;</th>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th class="first">&nbsp;</th>
-                                                                    <th><a href="/tco09?module=Registrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
-<tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/></th>
-                                                                    <th class="last">&nbsp;</th>
+                                                                    <td class="first sub">&nbsp;</th>
+                                                                    <td class="sub"><a href="/tco09?module=Registrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a></th>
+                                                                    <td class="sub" align="right">Search: <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/></th>
+                                                                    <td class="last sub">&nbsp;</th>
                                                                 </tr>
                                                                 <rsc:iterator list='<%=rsc%>' id="resultRow">
                                                                     <tr>
                                                                         <td class="first">&nbsp;</td>
-                                                                        <td class="first last alignText"><tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>'/></td>
+                                                                        <td class="first last alignText" colspan="2"><tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>'/></td>
                                                                         <td class="last">&nbsp;</td>
                                                                     </tr>
                                                                 </rsc:iterator>
