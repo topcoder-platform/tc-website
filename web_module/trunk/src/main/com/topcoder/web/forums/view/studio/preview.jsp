@@ -172,7 +172,7 @@
                     <tr>
                         <td class="rtHeader" colspan="2">
                             <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
-                                <a name=<%=message.getID()%>><tc-webtag:format object="${message.creationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a>
+                                <a style="text-decoration: none;" name=<%=message.getID()%>><tc-webtag:format object="${message.creationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a>
                             </div>
                             <%=message.getSubject()%>
                             <% if (parentMessage != null) { %>

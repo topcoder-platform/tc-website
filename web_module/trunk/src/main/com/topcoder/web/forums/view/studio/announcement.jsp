@@ -132,7 +132,7 @@
                     <tr>
                         <td class="rtHeader" colspan="2">
                             <div style="float: right; padding-left: 5px; white-space: nowrap;">
-                                <a name=<%=announcement.getID()%>><tc-webtag:format object="${announcement.startDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>
+                                <a style="text-decoration: none;" name=<%=announcement.getID()%>><tc-webtag:format object="${announcement.startDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>
                             </div>
                             <%=announcement.getSubject()%>
                         </a>
