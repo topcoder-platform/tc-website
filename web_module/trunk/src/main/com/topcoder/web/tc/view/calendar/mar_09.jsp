@@ -75,12 +75,27 @@
          12:00 NOON<br />
          2 weeks
          </div>
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=schedule">Algo Registration Closes</A></strong><br />
+         11:00 AM
+         </div>
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=schedule">Algo Qual Round 3</A></strong><br />
+         9:00 PM
+         </div>
       </td>
       <td class="value">5
       </td>
       <td class="value">6
       </td>
       <td class="value">7
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=schedule">Algo Round 1</A></strong><br />
+         12:00 PM
+         </div>
       </td>
    </tr>
    
@@ -92,12 +107,22 @@
       <td class="value">10
       </td>
       <td class="value">11
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=marathon&d4=schedule">Marathon Round 2</A></strong><br />
+         12:00 PM
+         </div>
       </td>
       <td class="value">12
       </td>
       <td class="value">13
       </td>
       <td class="value">14
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=schedule">Algo Round 2</A></strong><br />
+         12:00 PM
+         </div>
       </td>
    </tr>
    
@@ -111,10 +136,20 @@
       <td class="value">18
       </td>
       <td class="value">19
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=rules&d5=tco09">Registration for All Tracks Closes</A></strong><br />
+         9:00 AM
+         </div>
       </td>
       <td class="value">20
       </td>
       <td class="value">21
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=schedule">Algo Round 3</A></strong><br />
+         12:00 PM
+         </div>
       </td>      
    </tr>
    
@@ -130,12 +165,22 @@
          </div>
       </td>
       <td class="value">25
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=marathon&d4=schedule">Marathon Round 3</A></strong><br />
+         12:00 PM
+         </div>
       </td>
       <td class="value">26
       </td>
       <td class="value">27
       </td>
       <td class="value">28
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=schedule">Algo Round 4</A></strong><br />
+         12:00 PM
+         </div>
       </td>      
    </tr>
    
