@@ -54,7 +54,7 @@ public class ViewRegistration extends Base {
 
 
             if (getRequest().getAttribute(Constants.MESSAGE) == null) {
-                
+
                 if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
                     getRequest().setAttribute("has_global_ad", (new DataInterfaceBean()).hasGlobalAD(getUser().getId()));
                 }
@@ -165,14 +165,14 @@ public class ViewRegistration extends Base {
                     log.debug("yes, they're a student");
                 }
 */
-        
-        boolean bother = true; 
-        
+
+        boolean bother = true;
+
         // only bother if the user is not a professional (tccc)
         // comment this line if not needed
-//        bother = !CoderType.PROFESSIONAL.equals(DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId())).getCoderType().getId()); 
+//        bother = !CoderType.PROFESSIONAL.equals(DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId())).getCoderType().getId());
         log.debug("Bother: " + bother);
-        
+
         if (bother && isTournamentProject(projectId) && !isRegisteredForTournament()) {
             getRequest().setAttribute("notRegistered", "true");
         }
@@ -216,7 +216,7 @@ public class ViewRegistration extends Base {
 
     protected boolean isRegisteredForTournament() throws Exception {
         return DAOUtil.getFactory().getEventRegistrationDAO().find(new Long(getUser().getId()),
-                Event.TCO08_COMPONENT_ID) != null;
+                Event.TCO09_EVENT_ID) != null;
     }
 
     protected ComponentRegistrationServicesLocal getRegEJB() throws Exception {
