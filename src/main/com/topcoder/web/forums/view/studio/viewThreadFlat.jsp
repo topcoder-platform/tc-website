@@ -55,6 +55,12 @@
     }
 %>
 
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
 <script type="text/javascript">
     <!--
     function toggle(obj) {
@@ -117,11 +123,7 @@
     -->
 </style>
 
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
+
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>TopCoder Studio</title>
@@ -296,8 +298,15 @@
                         <%=message.getSubject()%>
                         <%  } %>
                         <%  if (message.getParentMessage() != null) { %>
+<<<<<<< .mine
+                    (response to
+                    <a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink"> post</a><%if (message.getParentMessage().getUser() != null) {%>
+                    by
+                        <studio:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>
+=======
                     (response to<a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink"> post</a><%if (message.getParentMessage().getUser() != null) {%>
                     by <studio:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>
+>>>>>>> .r74393
                         <%}%>)
                         <%  } %>
                         <%
@@ -437,6 +446,7 @@ Next Thread
                     <div class="contentBottom"></div>
                 </div>
             </div>
+         </div>
 
 
         <jsp:include page="foot.jsp"/>
