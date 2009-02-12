@@ -128,14 +128,34 @@
       <td class="value">23
       </td>
       <td class="value">24
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=schedule">Algo Qual Round 1</A></strong><br />
+         7:00 AM
+         </div>
       </td>
       <td class="value">25
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=marathon&d4=schedule">Marathon Registration Closes</A></strong><br />
+         9:00 AM
+         </div>
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=marathon&d4=schedule">Marathon Round 1</A></strong><br />
+         12:00 PM
+         </div>
       </td>
       <td class="value">26
       </td>
       <td class="value">27
       </td>
       <td class="value">28
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=schedule">Algo Qual Round 2</A></strong><br />
+         12:00 PM
+         </div>
       </td>      
    </tr>
 

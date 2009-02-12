@@ -63,10 +63,50 @@
       <td class="value">1
       </td>
       <td class="value">2
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=marathon&d4=schedule">Marathon Finals</A></strong><br />
+         8:30 AM
+         </div>
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=moddash&d4=schedule">Mod Dash Round 1</A></strong><br />
+         10:30 AM
+         </div>
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=schedule">Studio Finals 1</A></strong><br />
+         1:00 PM
+         </div>
       </td>
       <td class="value">3
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=schedule">Studio Finals 2</A></strong><br />
+         8:30 AM
+         </div>
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=moddash&d4=schedule">Mod Dash Round 2</A></strong><br />
+         10:30 AM
+         </div>
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=schedule">Algo Semifinals</A></strong><br />
+         3:00 PM
+         </div>
       </td>
       <td class="value">4
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=moddash&d4=schedule">Mod Dash Round 3</A></strong><br />
+         9:30 AM
+         </div>
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=schedule">Algo Finals</A></strong><br />
+         12:30 PM
+         </div>
       </td>
       <td class="value">5
       </td>
@@ -88,6 +128,10 @@
       <td class="value">12
       </td>
       <td class="value">13
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=13750">SRM 442</A></strong><br />
+         12:00 PM
+         </div>
       </td>
    </tr>
    
@@ -114,6 +158,10 @@
       <td class="value">22
       </td>
       <td class="value">23
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=13751">SRM 443</A></strong><br />
+         9:00 PM
+         </div>
       </td>
       <td class="value">24
       </td>

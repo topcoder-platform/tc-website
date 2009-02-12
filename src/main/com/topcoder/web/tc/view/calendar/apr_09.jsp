@@ -69,6 +69,11 @@
       <td class="value">3
       </td>
       <td class="value">4
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=schedule">Algo Round 5</A></strong><br />
+         12:00 PM
+         </div>
       </td>
    </tr>
    
@@ -97,12 +102,20 @@
       <td class="value">14
       </td>
       <td class="value">15
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=rules&d5=tco09">Last Day to Request a Visa Letter</A></strong>
+         </div>
       </td>
       <td class="value">16
       </td>
       <td class="value">17
       </td>
       <td class="value">18
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=13746">SRM 438</A></strong><br />
+         12:00 PM
+         </div>
       </td>
    </tr>
    
@@ -127,12 +140,20 @@
       <td class="value">26
       </td>
       <td class="value">27
+         <div class="tco09">
+         <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=rules&d5=tco09">All Finalist and Contest Winners Documents Due Date</A></strong>
+         </div>
       </td>
       <td class="value">28
       </td>
       <td class="value">29
       </td>
       <td class="value">30
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=13747">SRM 439</A></strong><br />
+         9:00 PM
+         </div>
       </td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>      
