@@ -139,10 +139,11 @@
                                                                             <h3 class="subtitle">Competition Scoring</h3>
                                                                                 <p>Scoring in the Studio Competition is determined based on the final placement for a Competitor's submission in a Tournament-eligible Studio competition in accordance with the rules of such competition.  A Studio competition is Tournament-eligible if the competition is identified as being included as part of the Tournament.  All submissions will proceed through Studio screening policies. Submissions that fail screening will not be eligible for placement points in the Studio Competition.  Only Competitors who are registered for the Tournament will be considered in determining place and placement points. Placement scoring is as follows:</p>
                                                                                     <ul>
-                                                                                        <li>Highest Scoring Registered Competitor - 10 Points </li>
-                                                                                        <li>Second Highest Scoring Registered Competitor - 7 Points </li>
-                                                                                        <li>Third Highest Scoring Registered Competitor - 5 points </li>
-                                                                                        <li>Fourth Highest Scoring Registered Competitor - 4 Points </li>
+                                                                                    	<li>Highest Scoring Registered Competitor - 17 Points </li>
+                                                                                    	<li>Second Highest Scoring Registered Competitor - 15 Points </li>
+                                                                                    	<li>Third Highest Scoring Registered Competitor - 13 points </li>
+                                                                                    	<li>Fourth Highest Scoring Registered Competitor - 10 Points </li>
+                                                                                    	<li>Fifth Highest Scoring Registered Competitor - 7 Points </li>
                                                                                     </ul>
                                                                         </div>
                                                                         <div class="subtitle">
