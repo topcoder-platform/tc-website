@@ -136,7 +136,7 @@
                                                                                         <td class="first last alignText">Saturday, <br />
                                                                                           February 28, 2009<br />
                                                                                            <strong>Register:</strong> <br />
-                                                                                          10:00 a.m. - 11:55 a.m.<br />
+                                                                                          9:00 a.m. - 11:55 a.m.<br />
                                                                                       <strong>START:</strong> 12:00 p.m.*</td>
                                                                                         <td class="first last alignText">All members who have not <br />
                                                                                           previously qualified - <br />
