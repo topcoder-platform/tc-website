@@ -61,8 +61,8 @@
             
                 <h4>TopCoder Blogs</h4>
                 <ul>
-                    <li><a href="http://topcoderblogs.com/direct/">TopCoder Direct</a></li>
-                    <li><a href="http://tcstudioblogs.com/">Studio TopCoder</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/blogs/">TopCoder Direct</a></li>
+                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/blog/">Studio TopCoder</a></li>
                 </ul>
             </div><%-- .col ends --%>
             
