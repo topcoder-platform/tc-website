@@ -79,7 +79,7 @@
                         <a href="<tc-webtag:linkTracking link='/truveo/' refer='pr_index' />"><img src="/i/home/truveo_vote.png" alt="Truveo Developer Challenge Powered by TopCoder" /></a>
                         --%>
                         <%-- AOL Sensations Banner --%>
-                        <a href="<tc-webtag:linkTracking link='http://sensations.aol.com/' refer='pr_index' />"><img src="/i/aol/510x100.png" alt="AOL/TopCoder Sensations Developer Challenge" /></a>
+                        <a href="<tc-webtag:linkTracking link='http://www.topcoder.com/tco09' refer='pr_index' />"><img src="/i/tco09/536x121_banner.jpg" alt="2009 TopCoder Open" /></a>
                         
                         <%-- TCO08 
                         <map name="tco08">
