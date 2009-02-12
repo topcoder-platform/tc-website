@@ -17,8 +17,11 @@
         </link>
         <language>en-us</language>
         <pubDate>
-            <fmt:formatDate value="<%=new Date()%>" pattern="E, d MMM yyyy HH:mm:ss"/>
+            <fmt:formatDate value="<%=new Date()%>" pattern="E, d MMM yyyy HH:mm:ss"/> EST
         </pubDate>
+		<description>
+			TopCoder Active contest RSS
+		</description>
         <rsc:iterator list="${results[param.c]}" id="resultRow">
             <item>
                 <title>
@@ -30,7 +33,10 @@
                 <description>
                     <c:out value="${fn:trim(resultRow.map['description'])}" escapeXml="true"/>
                 </description>
-            </item>
+                <GUID>
+                    <c:out value="${fn:trim(resultRow.map['guid'])}" escapeXml="true"/>
+                </GUID>
+			</item>
         </rsc:iterator>
 
     </channel>
