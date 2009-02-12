@@ -360,7 +360,7 @@ $(document).ready(function(){
 
                 <h4>TopCoder Blogs</h4>
                 <ul>
-                    <li><a href="http://topcoderblogs.com/direct/">TopCoder Direct</a></li>
+                    <li><a href="http://www.topcoder.com/direct/blogs/">TopCoder Direct</a></li>
                     <li><a href="http://studio.topcoder.com/blog/">Studio TopCoder</a></li>
                 </ul>
             </div>
