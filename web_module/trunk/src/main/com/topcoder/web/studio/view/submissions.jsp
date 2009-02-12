@@ -237,6 +237,7 @@
 					<!--            <tr><td class="space" colspan="6">&nbsp;</td></tr>  -->
 							</c:otherwise>
 						</c:choose>
+						<tr><td class="space" colspan="4">&nbsp;</td></tr>
 						<tr class="<%=even?"light":"dark"%>">
 							
 							<c:if test="${contest.configMap[viewSubmitters]}">

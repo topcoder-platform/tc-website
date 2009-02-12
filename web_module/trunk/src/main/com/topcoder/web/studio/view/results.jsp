@@ -70,126 +70,105 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-<div class="linkBox">
-    <studio:forumLink forumID="${contest.forumId}"/>
-</div>
-
-<div class="breadcrumb">
-    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests">Past Contests</a> &gt;
-    ${contest.name}
-</div>
-
-<h1>Winners</h1>
-
-<div class="statHolder">
-    <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
-    <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
-    <div class="container">
-        <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-<tbody>
-<tr><td class="title" colspan="9">Winners</td></tr><tr>
-    <td class="headerW">
-        <div>&nbsp;</div>
-    </td>
-    <td class="headerC" width="1%">
-        Place
-    </td>
-    <td class="header">
-        Handle
-    </td>
-    <td class="headerC">
-        Registered
-    </td>
-    <td class="headerC">
-        Submitted
-    </td>
-    <td class="headerR">
-        Prize
-    </td>
-    <td class="headerR">
-        Score
-    </td>
-    <td class="headerC">
-        Submission
-    </td>
-    <td class="headerE">
-        <div>&nbsp;</div>
-    </td>
-</tr>
+					<div class="linkBox">
+						<studio:forumLink forumID="${contest.forumId}"/>
+					</div>
+					
+					<div class="breadcrumb">
+						<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests">Past Contests</a> &gt;
+						${contest.name}
+					</div>
+					<br />
+					<h1>Winners</h1>
+					<br />
+					<div class="statHolder">
+						<div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+						<div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
+						<div class="container">
+							<table class="stat" cellpadding="0" cellspacing="0" width="100%">
+								<tbody>
+								<tr>
+									<td class="title" colspan="7">Winners</td>
+								</tr>
+								<tr>
+									<td class="headerC" width="1%">Place</td>
+									<td class="header">Handle</td>
+									<td class="headerC">Registered</td>
+									<td class="headerC">Submitted</td>
+									<td class="headerR">Prize</td>
+									<td class="headerR">Score</td>
+									<td class="headerC">Submission</td>
+								</tr>
 
 
-<% boolean even = true;
-    int i = 0; %>
-
-
-<c:set var="bonusPrize" value="<%=PrizeType.BONUS%>"/>
-<rsc:iterator list="<%=results%>" id="resultRow">
-    <tr><td class="space" colspan="9">&nbsp;</td></tr>
-    <tr class="<%=even?"light":"dark"%>">
-        <td class="valueW">
-            <div>&nbsp;</div>
-        </td>
-        <td class="valueC">
-            <c:choose>
-                <c:when test="${bonusPrize==resultRow.map['prize_type_id']}">
-                    Client <br /> Selection
-                </c:when>
-                <c:otherwise>
-                    <rsc:item name="placed" row="<%=resultRow%>"/>
-                </c:otherwise>
-            </c:choose>
-        </td>
-        <td class="value">
-            <studio:handle coderId="<%=resultRow.getLongItem("submitter_id")%>"/>
-        </td>
-        <td class="valueC">
-            <rsc:item name="reg_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
-        </td>
-        <td class="valueC">
-            <rsc:item name="submit_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
-        </td>
-        <td class="valueR">
-            <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
-        </td>
-        <td class="valueR">
-            <c:choose>
-                <c:when test="${hasScores}">
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissionResults&amp;<%=Constants.SUBMISSION_ID%>=${resultRow.map['submission_id']}">
-                        <rsc:item name="final_score" row="<%=resultRow%>" format="0.00"/>
-                    </a>
-                </c:when>
-                <c:otherwise>
-                    n/a
-                </c:otherwise>
-            </c:choose>
-        </td>
-        <td class="valueC">
-            <c:choose>
-                <c:when test="${resultRow.map['show_submissions']}">
-                    <studio_tags:submissionLink row="${resultRow}"/>
-                </c:when>
-                <c:otherwise>
-                    <img src="/i/v2/interface/magnifyFade.png" alt="" />
-                </c:otherwise>
-            </c:choose>
-        </td>
-        <td class="valueE">
-            <div>&nbsp;</div>
-        </td>
-    </tr>
-    <% even = !even;
-        i++; %>
-</rsc:iterator>
-<tr>
-    <td class="btnRight" colspan="9"><div><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="small">...view all submissions</a></div></td>
-</tr>
-
-</tbody>
-</table>
-    </div>
-    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
-    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
-</div>
+								<% boolean even = true;
+									int i = 0; %>
+				
+				
+									<c:set var="bonusPrize" value="<%=PrizeType.BONUS%>"/>
+									<rsc:iterator list="<%=results%>" id="resultRow">
+										<tr><td class="space" colspan="7">&nbsp;</td></tr>
+										<tr class="<%=even?"light":"dark"%>">
+											<td class="valueE">
+												<c:choose>
+													<c:when test="${bonusPrize==resultRow.map['prize_type_id']}">
+														Client <br /> Selection
+													</c:when>
+													<c:otherwise>
+														<rsc:item name="placed" row="<%=resultRow%>"/>
+													</c:otherwise>
+												</c:choose>
+											</td>
+											<td class="value">
+												<studio:handle coderId="<%=resultRow.getLongItem("submitter_id")%>"/>
+											</td>
+											<td class="valueC">
+												<rsc:item name="reg_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+											</td>
+											<td class="valueC">
+												<rsc:item name="submit_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+											</td>
+											<td class="valueR">
+												<rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
+											</td>
+											<td class="valueR">
+												<c:choose>
+													<c:when test="${hasScores}">
+														<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissionResults&amp;<%=Constants.SUBMISSION_ID%>=${resultRow.map['submission_id']}">
+															<rsc:item name="final_score" row="<%=resultRow%>" format="0.00"/>
+														</a>
+													</c:when>
+													<c:otherwise>
+														n/a
+													</c:otherwise>
+												</c:choose>
+											</td>
+											<td class="valueC valueW">
+												<c:choose>
+													<c:when test="${resultRow.map['show_submissions']}">
+														<studio_tags:submissionLink row="${resultRow}"/>
+													</c:when>
+													<c:otherwise>
+														<img src="/i/v2/interface/magnifyFade.png" alt="" />
+													</c:otherwise>
+												</c:choose>
+											</td>
+										</tr>
+										<% even = !even;
+											i++; %>
+									</rsc:iterator>
+										<tr>
+											<td class="btnRight" colspan="7">
+												<div><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="small">...view all submissions</a></div>
+											</td>
+										</tr>
+										
+									</tbody>
+								</table>
+							</div>
+							<div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+							<div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+						</div>
 
 
                         <br clear="all"/>
