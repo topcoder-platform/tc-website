@@ -109,7 +109,7 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Round 2</td>
                                                                             <td class="first last alignText">Saturday, February 28, 2009<br />
-                                                                               <strong>Register:</strong> 10:00 a.m. - 11:55 a.m.<br />
+                                                                               <strong>Register:</strong> 9:00 a.m. - 11:55 a.m.<br />
                                                                                <strong>START:</strong> 12:00 p.m.*</td>
                                                                             <td class="first last alignText">1,650</td>
                                                                             <td class="first last alignText">550</td>
