@@ -10,56 +10,70 @@
 <jsp:param name="key" value="tc_main"/>
 </jsp:include>
   </HEAD>
-  <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-    <jsp:include page="../top.jsp" />
+<body>
 
-    <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
-      <TR>
-       <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-         <jsp:include page="../includes/global_left.jsp" />
-       </TD>
-        <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
-        <TD CLASS="statTextBig" width="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-          <jsp:include page="../body_top.jsp" >
-             <jsp:param name="image" value="tces"/>
-             <jsp:param name="image1" value="steelblue"/>
-             <jsp:param name="title" value="Confirmation"/>
-          </jsp:include>
-          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-            <TR>
-              <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-              <TD CLASS="statTextBig" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-                <IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
+<div id="onTop">
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value=""/>
+</jsp:include>
+</div>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr valign="top">
+<%-- Left Column Begins--%>
+        <td width="180">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value=""/>
+            </jsp:include>
+        </td>
+<%-- Left Column Ends --%>
+
+<!-- Center Column Begins -->
+<td width="100%" align="left" class="bodyColumn">
+<br />
+<br />
+
+<br clear="all">
+
+<div>
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<thead>
+    <tr>
+        <td>
                 <!-- begin body -->
                   <jsp:include page="profile_center.jsp"/>
                 <!-- end body -->
-              </TD>
-              <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-            </TR>
-            <TR>
-              <TD COLSPAN="4" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-            </TR>
-            <TR>
-              <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-              <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left_blue_home.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-              <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-              <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-            </TR>
-            <TR>
-              <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-              <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-              <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-              <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-            </TR>
-          </TABLE>
-        </TD>
-        <TD WIDTH="4" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
-        <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"><BR>
-          <jsp:include page="../public_right.jsp"/>
-        </TD>
-        <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
-      </TR>
-    </TABLE>
-    <jsp:include page="../foot.jsp" />
-  </BODY>
-</HTML>
+
+        </td>
+    </tr>
+
+</table>
+<br /><br />
+            </div>
+
+
+<p>&nbsp;</p>
+     </td>
+<!-- Center Column Ends -->
+
+<!-- Right Column Begins -->
+         <td width="170" id="onRight">
+            <jsp:include page="../public_right.jsp">
+               <jsp:param name="level1" value="defaults"/>
+            </jsp:include>
+         </td>
+<!-- Right Column Ends -->
+
+<!-- Gutter -->
+         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+<!-- Gutter Ends -->
+    </tr>
+</table>
+
+<div id="onBottom">
+<jsp:include page="../foot.jsp" />
+</div>
+
+</body>
+
+</html>
