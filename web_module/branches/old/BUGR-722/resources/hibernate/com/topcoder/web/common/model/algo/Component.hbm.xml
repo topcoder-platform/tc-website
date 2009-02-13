@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model.algo">
+
+    <class name="Component" table="component" mutable="false">
+        <id name="id" column="component_id" access="field"/>
+        
+        <many-to-one name="problem" column="problem_id" class="com.topcoder.web.common.model.algo.Problem" access="field" fetch="select"/>
+        
+        <property name="componentTypeId" column="component_type_id" access="field"/>
+        <property name="componentText" column="component_text" access="field"/>
+        <property name="statusId" column="status_id" access="field"/>
+
+        <set name="roundComponents" cascade="all-delete-orphan" inverse="true" access="field">
+            <key column="component_id" not-null="true"/>
+            <one-to-many class="com.topcoder.web.common.model.algo.RoundComponent"/>
+        </set>        
+    </class>
+</hibernate-mapping>

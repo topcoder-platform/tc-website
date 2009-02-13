@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="Preference" table="preference_lu" mutable="false">
+        <id name="id" column="preference_id" access="field"/>
+
+        <property name="name" column="preference_name" access="field" />
+        <property name="desc" column="preference_desc" access="field" />
+        <property name="preferenceTypeId" column="preference_type_id" access="field" />
+        
+
+    </class>
+</hibernate-mapping>

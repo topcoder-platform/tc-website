@@ -1,0 +1,182 @@
+<%----------------MARATHON MATCH-------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>07.05.06<br>5:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/longcontest/?module=ViewOverview&rd=10083">Intel&#174; Multi-Threading Competition 6 Results</A>
+      </span><br><br>
+      Congratulations to <tc-webtag:handle coderId="283329" /> for winning the Intel&#174; Multi-Threading Competition 6.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/longcontest/?module=ViewOverview&rd=10083">results</A> | 
+         <tc-webtag:forumLink forumID="506055" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+
+<%----------------FEATURE----------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>11.28.06<br>4:10 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=112806">Digital Run Stage 2: Going for the win</A></span><br><br>
+       Over the course of just ten weeks of the stage, <tc-webtag:handle coderId="287614" context="design"/> competed on 35 components, winning 28 and taking second place on 7. Here, he tells us how he did it.</td>
+         <td class="newsPhoto"><img src="/i/m/argolite_big.jpg"  alt="" width="55" height="61"/><br>by 
+         <tc-webtag:handle coderId="287614" context="design"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=112806">full story</A> | 
+         <tc-webtag:forumLink forumID="506190" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%----------------EDUCATIONAL CONTENT-------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.21.05<br>11:15 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=probabilities">Understanding Probabilities</A></span><br><br>
+       While it's easy to recognize a problem that deals with probability computations, the solution may not be obvious at all.</td>
+      <td class="newsPhoto"><img src="/i/m/supernova_mug.gif" /><br>by <tc-webtag:handle coderId="7371063" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=probabilities">full story</A> | 
+         <tc-webtag:forumLink forumID="505831" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+
+
+<%------------------PROBLEM ANALYSIS--------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>01.20.06<br>9:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm283">SRM 283 - Problem Set & Analysis</A></span><br><br>
+      In Division 1, the problemset turned out to be really hard, with nobody being able to solve all 3 problems.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/gevak_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7340263" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm283">full story</A> | 
+         <tc-webtag:forumLink forumID="505797" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+ 
+<%-------------------SURVEY-------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>04.04.05<br>9:15 AM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=6535">Multimedia data compression survey</A></span><br><br>
+      Which best describes your experience/interest in working with multimedia data compression technology?
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?&module=ViewSurvey&sid=6535">view survey</A> | 
+         <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
+
+<%------------------PRESSROOM--------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.01.06<br>11:15 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/success200612.pdf">Maverick Rules for Success</A> [PDF]</span><br><br>
+      "Our panelists hail from a wide range of industries, but they agree on a critical element of success in the 21st century: You can't do big things with your company or career if you're content with doing things a little better than everyone else."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/pdfs/press_room/success200612.pdf">full story</A> | 
+       <tc-webtag:forumLink forumID="506198" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
+   </td></tr>
+
+OR
+
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.01.06<br>11:15 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/success200612.pdf">Maverick Rules for Success</A> [PDF]</span><br><br>
+        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/success_logo.png" width="67" height="21" alt="Success Magazine" border="0" /></div>
+      "Our panelists hail from a wide range of industries, but they agree on a critical element of success in the 21st century: You can't do big things with your company or career if you're content with doing things a little better than everyone else."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/pdfs/press_room/success200612.pdf">full story</A> | 
+       <tc-webtag:forumLink forumID="506198" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%------------------EMPLOYMENT OPPS--------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>09.26.05<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign">VeriSign chat session scheduled for SRM 265</A></span><br><br>
+      VeriSign will in the Arena Applet at 8:00 AM just before the start of SRM 265 to discuss working at VeriSign.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign">see all available jobs</A> | 
+         <tc-webtag:forumLink forumID="505771" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%------------------COMPONENT COMPETITIONS--------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Component Competition News" border="0" /><br>11.29.06<br>6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">New Listings in the Component Record Book</A></span><br><br>
+      There are new records for 
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">details</A> | 
+         <tc-webtag:forumLink forumID="506192" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%-----------------TOURNY NEWS---------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.04.05<br>5:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">Sun chat session scheduled for SRM 267</A></span><br><br>
+      One hour prior to SRM 267 on October 5th, Joe Nuxoll from Sun Microsystems&#174; will be in arena to chat about JSF components and Java Studio Creator. The chat starts at 8:00PM EDT.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">details</A> | 
+         <tc-webtag:forumLink forumID="505806" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%------------------MOVIE--------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>06.01.05<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tccc05/onsite_movies/reviewBoard.mov">The TopCoder Review Board</A></span><br><br>
+      See the TopCoder Review Board at work.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/i/tournament/tccc05/onsite_movies/reviewBoard.mov">watch movie</A> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
+
+<%------------------ALGORITHM COMPETITION--------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>03.18.05<br>3:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=7167&thread=488979&mc=1">Small change to Unused Code Rule, new problem timeout limit, and more...</A></span><br><br>
+      For the first SRM in April (April 2) we're going to be making a few changes and adding some new features.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/rtables/viewThread.jsp?forum=7167&thread=488979&mc=1">full story</A> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%-------------------GENERAL TC NEWS-------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.22.06<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/longcontest/?module=ViewActiveContests&rt=15">Intel Multi-Threading Competition 3 is underway</A>
+      </span><br><br>
+      The third competition in the Intel Multi-Threading Competition Series is now open for registration.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/longcontest/?module=ViewActiveContests&rt=15">view</A> | 
+         <tc-webtag:forumLink forumID="505951" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>

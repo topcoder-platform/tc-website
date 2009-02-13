@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : DocumentGenerator.xml
+    Created on : June 20, 2005, 4:02 PM
+    Author     : ivern
+    Description:
+        Configuration file for Document Generator.
+-->
+
+<CMConfig>
+    <Config name="com.topcoder.util.file.DocumentGenerator">
+        <Property name="sources">
+            <Value>file</Value>
+        </Property>
+
+        <Property name="default_source">
+            <Value>file</Value>
+        </Property>
+
+        <Property name="file_class">
+            <Value>com.topcoder.util.file.templatesource.FileTemplateSource</Value>
+        </Property>
+    </Config>
+</CMConfig>

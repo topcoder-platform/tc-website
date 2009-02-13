@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <!--  setting the discriminator value on the superclass seems pretty supid since it doesn't exist,
+          but seems to be necessary -->
+    <class name="AlgoRating" table="algo_rating" discriminator-value="0">
+        <composite-id name="id" class="AlgoRating$Identifier">
+            <key-many-to-one name="coder" class="Coder" column="coder_id"/>
+            <key-many-to-one name="type" class="AlgoRatingType" column="algo_rating_type_id"/>
+        </composite-id>
+
+        <property name="rating" access="field"/>
+        <property name="volatility" column="vol" access="field"/>
+        <property name="roundId" column="round_id" access="field"/>
+        <property name="numRatings" column="num_ratings" access="field"/>
+
+        <many-to-one name="type" column="algo_rating_type_id" class="AlgoRatingType" access="field" insert="false"
+                     update="false"/>
+        <many-to-one name="coder" column="coder_id" class="Coder" access="field" cascade="none" insert="false"
+                     update="false"/>
+    </class>
+
+
+</hibernate-mapping>

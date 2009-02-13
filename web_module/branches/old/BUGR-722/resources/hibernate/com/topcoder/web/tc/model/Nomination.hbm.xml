@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.tc.model">
+
+    <class name="Nomination" table="nomination">
+        <id name="id" column="nomination_id" access="field">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">NOMINATION_SEQ</param>
+                <param name="return_class">java.lang.Integer</param>
+            </generator>
+        </id>
+        <many-to-one name="nominator" column="nominator_id" class="com.topcoder.web.common.model.User"/>
+        <many-to-one name="event" column="event_id" class="com.topcoder.web.common.model.Event"/>
+
+        <property name="name"/>
+        <property name="emailAddress" column="email_address"/>
+        <property name="schoolName" column="school_name"/>
+        <property name="fieldOfInstruction" column="field_of_instruction"/>
+        <property name="schoolURL" column="school_url"/>
+        <property name="text"/>
+    </class>
+</hibernate-mapping>

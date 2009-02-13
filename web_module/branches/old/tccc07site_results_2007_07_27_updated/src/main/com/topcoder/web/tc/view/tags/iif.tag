@@ -1,0 +1,1 @@
+<%@ tag body-content="empty" %><%@ attribute name="test" required="true" %><%@ attribute name="trueValue" required="true" %><%@ attribute name="falseValue" required="true" %><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><c:choose><c:when test="${test}">${trueValue}</c:when><c:otherwise>${falseValue}</c:otherwise></c:choose>

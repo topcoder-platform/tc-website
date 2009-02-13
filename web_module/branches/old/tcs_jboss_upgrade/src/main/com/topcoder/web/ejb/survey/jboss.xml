@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss>
+  <enterprise-beans>
+    <session>
+      <ejb-name>Response</ejb-name>
+      <jndi-name>com.topcoder.web.ejb.survey.ResponseHome</jndi-name>
+        <resource-ref>
+            <res-ref-name>jts_datasource_name</res-ref-name>
+            <resource-name>jts_datasource_name</resource-name>
+        </resource-ref>
+        <resource-ref>
+            <res-ref-name>datasource_name</res-ref-name>
+            <resource-name>datasource_name</resource-name>
+        </resource-ref>
+
+    </session>
+  </enterprise-beans>
+</jboss>

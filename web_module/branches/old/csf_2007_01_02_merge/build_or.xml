@@ -1,0 +1,1047 @@
+<?xml version="1.0"?>
+
+<project name="Online Review Application" default="dist" basedir=".">
+
+    <property file="localbuild.properties" />
+
+    <property name="ddedir" value="../dde"/>
+    <property name="submissiondir" value="/export/home/tcssite/submissions"/>
+
+    <!-- Jboss and Cactus directories -->
+    <!-- 65.112.118.206 external ip -->
+    <!-- 172.16.20.222 internal ip -->
+    <property name="jbossip" value="172.16.20.222"/>
+    <property name="jbossport" value="9000"/>
+
+    <property environment="env"/>
+    <property name="jbossdir" value="${env.JBOSS_HOME}"/>
+<!--    <property name="jbossdir" value="/export/home/tcsintegration/jboss-3.0.4_tomcat-4.0.6"/> -->
+
+    <property name="jbossdeploydir" value="${jbossdir}/server/default/deploy"/>
+    <property name="jbossconfdir" value="${jbossdir}/server/default/conf"/>
+    <property name="jbosslibdir" value="${jbossdir}/server/default/lib"/>
+
+    <property name="mailtemplates" value="${jbossconfdir}/mail_templates"/>
+
+    <property name="cactusdir" value="../../jakarta-cactus-13-1.4.1"/>
+
+    <!-- Database Parameters -->
+    <!-- 65.112.118.208 external IP -->
+    <!-- 172.16.20.25 internal IP -->
+    <property name="dbip" value="172.16.20.25" />
+    <property name="dbname" value="tcsintegration"/>
+    <property name="dbuser" value="tcsintegration"/>
+    <property name="dbpassword" value="tcsintegration"/>
+
+    <property name="dburl" value="jdbc:informix-sqli://${dbip}:1526/${dbname}:INFORMIXSERVER=tc_memeber_dev_tcp"/>
+    <property name="dbdriver" value="com.informix.jdbc.IfxDriver"/>
+
+
+
+    <!-- COMPONENT PARAMETERS  //-->
+    <property name="application" value="Online Review Application" />
+    <property name="package" value="com.topcoder.apps.review" />
+    <property name="packagedir" value="com/topcoder/apps/review" />
+    <property name="distfilename" value="Online_Review" />
+    <property name="application_version" value="1.0" />
+
+    <!-- PARAMETERS FOR JAVAC //-->
+    <property name="srcdir" value="src" />
+    <property name="libdir" value="tcs/lib" />
+    <property name="jarsdir" value="lib/jars" />
+    <property name="ext_libdir" value="lib" />
+    <property name="struts_jar_dir" value="${ext_libdir}/jars/struts"/>
+    <property name="struts_tld_dir" value="${ext_libdir}/struts"/>
+
+    <property name="docsdir" value="docs" />
+    <property name="configdir" value="conf" />
+    <property name="testlogdir" value="log" />
+    <property name="testfiles" value="test_files" />
+    <property name="javadocdir" value="${docsdir}/javadoc" />
+
+    <property name="builddir" value="build" />
+    <property name="builddir_war" value="${builddir}/war" />
+    <property name="builddir_ear" value="${builddir}/ear" />
+    <property name="build_classdir" value="${builddir}/classes" />
+    <property name="build_classdir_war" value="${builddir_war}/WEB-INF/classes" />
+    <property name="build_classdir_ear" value="${builddir_ear}/" />
+    <property name="build_libdir_war" value="${builddir_war}/WEB-INF/lib" />
+    <property name="build_libdir_ear" value="${builddir_ear}/lib" />
+
+    <property name="build_confdir" value="${build_classdir_war}/conf" />
+
+    <property name="build_testclassdir" value="${builddir_war}/WEB-INF/testClasses" />
+    <property name="build_distdir" value="${builddir}/dist" />
+    <property name="build_tcsdistdir" value="${build_distdir}/${distfilename}-${application_version}" />
+    <property name="build_docsdir" value="${builddir}/docs" />
+    <property name="build_javadocsdir" value="${build_docsdir}/javadoc" />
+
+
+    <property name="javasrc" value="${srcdir}" />
+    <property name="javamain" value="${javasrc}/main" />
+
+    <property name="javamain_converter" value="${javasrc}/main" />
+    <property name="build_classdir_converter" value="${builddir}/classes_converter" />
+
+    <property name="javatests_pl" value="${javasrc}/tests_persistence_layer" />
+    <property name="javatests_fe" value="${javasrc}/tests_front_end" />
+    <property name="javatests_bl" value="${javasrc}/tests_business_logic" />
+
+    <property name="build_classdir_pl" value="${builddir}/persistence/classes" />
+
+    <property name="webdir" value="web" />
+    <property name="examplesdir" value="${webdir}/examples" />
+
+    <property name="debug" value="on" />
+    <property name="verbose" value="no" />
+
+    <!-- Component distribution structure -->
+    <property name="dist_conf" value="${build_tcsdistdir}/conf" />
+    <property name="dist_lib" value="${build_tcsdistdir}/lib" />
+    <property name="dist_examples" value="${build_tcsdistdir}/examples" />
+    <property name="dist_src" value="${build_tcsdistdir}/src" />
+    <property name="dist_docs" value="${build_tcsdistdir}/docs" />
+
+    <!-- Dev distribution structure -->
+    <property name="dev_dist_libdir" value="lib" />
+
+    <!-- Name for .jar and .war files -->
+    <property name="application.jar" value="${dist_lib}/${distfilename}.jar"/>
+    <property name="application.tests.jar" value="${dist_lib}/${distfilename}_Tests.jar"/>
+    <property name="application.war" value="${dist_examples}/${distfilename}.war"/>
+    <property name="application.dist.jar" value="${build_distdir}/${distfilename}-${application_version}.jar"/>
+    <property name="application.dist.source.jar" value="${dist_src}/${distfilename}-${application_version}_source.jar"/>
+    <property name="application.dist.docs.jar" value="${dist_docs}/${distfilename}-${application_version}_docs.jar"/>
+    <property name="dev_submission.jar" value="${application}_${application_version}_dev_submission.jar"/>
+    <property name="design_submission.jar" value="${application}_${application_version}_design_submission.jar"/>
+    <property name="dev_dist.jar" value="${application}_${application_version}_dev_dist.jar"/>
+    <property name="design_dist.jar" value="${application}_${application_version}_design_dist.jar"/>
+
+    <!-- Dependencies  -->
+    <property name="baseexception.jar.name" value="base_exception.jar"/>
+    <property name="baseexception.jar" value="${jarsdir}/tcs/${baseexception.jar.name}"/>
+    <property name="configmanager.version" value="2.1.3"/>
+    <property name="configmanager.jar.name" value="configuration_manager.jar"/>
+    <property name="configmanager.path" value="configuration_manager/${configmanager.version}"/>
+    <property name="configmanager.jar" value="${jarsdir}/tcs/${configmanager.path}/${configmanager.jar.name}"/>
+    <property name="securitymanager.jar.name" value="security_manager.jar"/>
+    <property name="securitymanager.jar" value="${jarsdir}/tcs/${securitymanager.jar.name}"/>
+    <property name="loggingwrapper.jar.name" value="logging_wrapper.jar"/>
+    <property name="loggingwrapper.jar" value="${jarsdir}/tcs/${loggingwrapper.jar.name}"/>
+    <property name="idgenerator.jar.name" value="idgenerator.jar"/>
+    <property name="idgenerator.jar" value="${jarsdir}/${idgenerator.jar.name}"/>
+    <property name="simplecache.jar.name" value="simple_cache.jar"/>
+    <property name="simplecache.jar" value="${jarsdir}/tcs/${simplecache.jar.name}"/>
+    <property name="refreshablecache.jar.name" value="refreshable_cache.jar"/>
+    <property name="refreshablecache.jar" value="${jarsdir}/tcs/${refreshablecache.jar.name}"/>
+    <property name="fileupload.jar.name" value="file_upload.jar"/>
+    <property name="fileupload.jar" value="${jarsdir}/tcs/${fileupload.jar.name}"/>
+    <property name="mathmatrix.jar.name" value="math_matrix.jar"/>
+    <property name="mathmatrix.jar" value="${jarsdir}/tcs/${mathmatrix.jar.name}"/>
+    <property name="emailengine.jar.name" value="email_engine.jar"/>
+    <property name="emailengine.jar" value="${jarsdir}/tcs/${emailengine.jar.name}"/>
+    <property name="objectformatter.jar.name" value="object_formatter.jar"/>
+    <property name="objectformatter.jar" value="${jarsdir}/tcs/${objectformatter.jar.name}"/>
+    <property name="tcsutil.jar.name" value="tcsUtil.jar"/>
+    <property name="tcsutil.jar" value="${jarsdir}/tcs/${tcsutil.jar.name}"/>
+    <property name="documentgeneration.jar.name" value="document_generation.jar"/>
+    <property name="documentgeneration.jar" value="${jarsdir}/tcs/${documentgeneration.jar.name}"/>
+    <property name="executablewrapper.jar.name" value="executable_wrapper.jar"/>
+    <property name="executablewrapper.jar" value="${jarsdir}/tcs/${executablewrapper.jar.name}"/>
+    <property name="jobscheduling.jar.name" value="job_scheduling.jar"/>
+    <property name="jobscheduling.jar" value="${jarsdir}/tcs/${jobscheduling.jar.name}"/>
+    <property name="typesafeenum.version" value="1.0"/>
+    <property name="typesafeenum.jar.name" value="typesafe_enum.jar"/>
+    <property name="typesafeenum.path" value="typesafe_enum/${typesafeenum.version}"/>
+    <property name="typesafeenum.jar" value="${jarsdir}/tcs/${typesafeenum.path}/${typesafeenum.jar.name}"/>
+    <property name="workdays.version" value="1.0"/>
+    <property name="workdays.jar.name" value="workdays.jar"/>
+    <property name="workdays.path" value="workdays/${workdays.version}"/>
+    <property name="workdays.jar" value="${jarsdir}/tcs/${workdays.path}/${workdays.jar.name}"/>
+    <property name="projectphases.version" value="1.0"/>
+    <property name="projectphases.jar.name" value="project_phases.jar"/>
+    <property name="projectphases.path" value="project_phases/${projectphases.version}"/>
+    <property name="projectphases.jar" value="${jarsdir}/tcs/${projectphases.path}/${projectphases.jar.name}"/>
+
+    <!-- Xerces -->
+    <!-- <property name="cvs_xerces.jar" value="${libdir}/xerces.jar"/> -->
+    <property name="xerces.jar" value="${jarsdir}/xerces.jar"/>
+
+    <!-- ifxjdbc.jar, the informix jdbc-driver -->
+    <!-- <property name="cvs_ifxjdbc.jar" value="${libdir}/ifxjdbc.jar"/> -->
+    <property name="ifxjdbc.jar" value="${jarsdir}/ifxjdbc.jar"/>
+
+	<!-- junit -->
+    <!-- <property name="cvs_junit.jar" value="${libdir}/junit.jar"/> -->
+    <property name="junit.jar" value="${jarsdir}/junit.jar"/>
+
+
+<!--    <property name="jbossclient.jar" value="${jbossdir}/client/jbossall-client.jar"/>
+    <property name="jbossjmx.jar" value="${jbossdir}/lib/jboss-jmx.jar"/>
+    <property name="jbosssystem.jar" value="${jbossdir}/lib/jboss-system.jar"/>
+    <property name="log4j.jar" value="${jbossdir}/server/default/lib/log4j.jar"/> -->
+    <property name="jbossclient.jar" value="${jarsdir}/jboss/jbossall-client.jar"/>
+    <property name="jbossjmx.jar" value="${jarsdir}/jboss/jboss-jmx.jar"/>
+    <property name="jbosssystem.jar" value="${jarsdir}/jboss/jboss-system.jar"/>
+    <property name="log4j.jar" value="${jarsdir}/jboss/log4j.jar"/>
+
+    <property name="strutstest.jar" value="${jarsdir}/struts/strutstest-2.0.0.jar"/>
+    <property name="commons-collections.jar" value="${jarsdir}/struts/commons-collections.jar"/>
+    <property name="commons-digester.jar" value="${jarsdir}/struts/commons-digester.jar"/>
+    <property name="commons-logging.jar" value="${jarsdir}/struts/commons-logging.jar"/>
+    <property name="commons-beanutils.jar" value="${jarsdir}/struts/commons-beanutils.jar"/>
+    <property name="servlet.jar" value="${jarsdir}/servletapi-2.3.jar"/>
+    <property name="mailapi.jar.name" value="mailapi.jar"/>
+    <property name="mailapi.jar" value="${jarsdir}/${mailapi.jar.name}"/>
+    <property name="jaxp.jar" value="${jarsdir}/jaxp.jar"/>
+
+	<!-- Files needed for Cactus -->
+<!--    <property name="cactus.jar" value="${cactusdir}/lib/cactus-1.4.1.jar"/>
+    <property name="commonslogging.jar" value="${cactusdir}/lib/commons-logging-1.0.jar"/>
+    <property name="aspectjrt.jar" value="${cactusdir}/lib/aspectjrt-1.0.5.jar"/>
+    <property name="commonshttpclient.jar" value="${cactusdir}/lib/commons-httpclient-2.0alpha1-20020606.jar"/>
+ -->
+    <!-- JUnitEE -->
+    <property name="junitee.jar.name" value="junitee.jar"/>
+    <property name="junitee.jar" value="${jarsdir}/${junitee.jar.name}"/>
+    <taskdef name="junitee" classname="org.junitee.anttask.JUnitEETask">
+        <classpath>
+            <pathelement location="${jarsdir}/junitee-anttask.jar"/>
+        </classpath>
+    </taskdef>
+    <taskdef name="juniteewar" classname="org.junitee.anttask.JUnitEEWarTask">
+        <classpath>
+            <pathelement location="${jarsdir}/junitee-anttask.jar"/>
+        </classpath>
+    </taskdef>
+
+    <path id="buildlibs">
+    	<pathelement location="${baseexception.jar}" />
+        <pathelement location="${configmanager.jar}" />
+        <pathelement location="${securitymanager.jar}" />
+        <pathelement location="${loggingwrapper.jar}" />
+        <pathelement location="${idgenerator.jar}" />
+        <pathelement location="${simplecache.jar}" />
+        <pathelement location="${refreshablecache.jar}" />
+        <pathelement location="${fileupload.jar}" />
+        <pathelement location="${mathmatrix.jar}" />
+        <pathelement location="${emailengine.jar}" />
+        <pathelement location="${objectformatter.jar}" />
+        <pathelement location="${documentgeneration.jar}" />
+        <pathelement location="${executablewrapper.jar}" />
+        <pathelement location="${workdays.jar}" />
+        <pathelement location="${typesafeenum.jar}" />
+        <pathelement location="${projectphases.jar}" />
+
+        <pathelement location="${jbossclient.jar}" />
+        <pathelement location="${junit.jar}" />
+        <pathelement location="${ifxjdbc.jar}" />
+
+        <pathelement location="${struts_jar_dir}/struts.jar" />
+        <pathelement location="${servlet.jar}" />
+        <pathelement location="${mailapi.jar}" />
+        <pathelement location="${tcsutil.jar}" />
+        <pathelement location="${configdir}" />
+
+		<pathelement location="${ddedir}/build/classes" />
+
+        <!-- [adic] temporary, till the component is uploaded in CVS -->
+        <pathelement location="${jobscheduling.jar}"/>
+        <!-- [adic] end -->
+
+        <pathelement location="${jbossjmx.jar}" />
+        <pathelement location="${jbosssystem.jar}" />
+        <pathelement location="${log4j.jar}" />
+        <!-- for development -->
+        <pathelement location="${dev_dist_libdir}/${configmanager.jar.name}" />
+    </path>
+
+    <path id="test.build.classpath">
+        <!-- for test -->
+        <pathelement location="${servlet.jar}" />
+        <pathelement location="${jaxp.jar}" />
+
+        <pathelement location="${strutstest.jar}" />
+        <pathelement location="${commons-collections.jar}" />
+        <pathelement location="${commons-digester.jar}" />
+        <pathelement location="${commons-logging.jar}" />
+        <pathelement location="${commons-beanutils.jar}" />
+
+        <pathelement location="${build_testclassdir}"/>
+        <pathelement location="${build_classdir}"/>
+        <path refid="buildlibs"/>
+    </path>
+
+    <path id="runtime.classpath">
+        <pathelement location="${ifxjdbc.jar}"/>
+        <pathelement location="${configdir}" />
+
+        <pathelement location="${jbossclient.jar}" />
+
+        <pathelement location="${build_classdir}"/>
+        <path refid="buildlibs"/>
+    </path>
+    <path id="runtime.classpath.converter">
+        <pathelement location="${ifxjdbc.jar}"/>
+        <pathelement location="${build_classdir}"/>
+        <pathelement location="${build_classdir_converter}"/>
+    </path>
+
+
+
+
+
+    <!-- Configure jboss -->
+    <target name="jbossconf" >
+<!--
+        <copy file="${ifxjdbc.jar}" todir="${jbosslibdir}" />
+        <copy file="${junit.jar}" todir="${jbosslibdir}" />
+        <copy file="${cactus.jar}" todir="${jbosslibdir}" />
+        <copy file="${commonslogging.jar}" todir="${jbosslibdir}" />
+        <copy file="${aspectjrt.jar}" todir="${jbosslibdir}" />
+-->
+        <!-- setup the submission-directory and the mail-templates -->
+<!--
+        <copy file="${configdir}/business_logic_config/business_logic_config.properties" todir="${configdir}/com/topcoder/apps/review" overwrite="true">
+            <filterset>
+                <filter token="SUBMISSIONDIR" value="${submissiondir}"/>
+                <filter token="MAILTEMPLATES" value="${mailtemplates}"/>
+            </filterset>
+        </copy>
+-->
+        <mkdir dir="${submissiondir}"/>
+<!--
+        <mkdir dir="${submissiondir}/WEB-INF"/>
+        <copy file="${configdir}/xml/submissions/jboss-web.xml" todir="${submissiondir}/WEB-INF"/>
+-->
+
+        <mkdir dir="${mailtemplates}"/>
+        <copy todir="${mailtemplates}" overwrite="true">
+            <fileset dir="docs/mail_templates"/>
+        </copy>
+
+        <copy todir="${jbossconfdir}" overwrite="true">
+            <fileset dir="${configdir}" >
+                <include name="jdk14logging.properties"/>
+                <include name="log4j.properties"/>
+                <include name="com/topcoder/apps/review/business_logic_config.properties"/>
+                <include name="com/topcoder/apps/review/ReviewResources.properties"/>
+                <include name="com/topcoder/dde/util/ApplicationServer.properties"/>
+                <include name="com/topcoder/message/email/EmailEngine.xml"/>
+                <include name="com/topcoder/security/Util.properties"/>
+                <include name="com/topcoder/util/config/ConfigManager.properties"/>
+                <include name="com/topcoder/servlet/request/FileUpload.xml"/>
+                <include name="com/topcoder/util/cache/refreshable/RefreshableCache.xml"/>
+                <include name="com/topcoder/util/log/Logging.xml"/>
+                <include name="com/topcoder/util/log/Logging.xml.basic"/>
+                <include name="com/topcoder/util/log/Logging.xml.jdk14"/>
+                <include name="com/topcoder/util/log/Logging.xml.log4j"/>
+            </fileset>
+        </copy>
+
+
+<!--
+		<copy file="${configdir}/security.keystore" todir="${jbossdir}/bin" overwrite="true"/>
+        <copy file="${configdir}/informix-service.xml" todir="${jbossdeploydir}">
+            <filterset>
+                <filter token="DBURL" value="${dburl}"/>
+                <filter token="DBUSER" value="${dbuser}"/>
+                <filter token="DBPASSWORD" value="${dbpassword}"/>
+            </filterset>
+        </copy>
+-->
+    </target>
+
+	<!-- Fetch and prepare Topcoder Components from cvs -->
+<!--
+    <target name="cvslibs">
+        <mkdir dir="${build_cvslib}"/>
+        <cvs cvsRoot="${cvsroot}" package="${cvs_baseexception.jar}" dest="${build_cvslib}"/>
+        <cvs cvsRoot="${cvsroot}" package="${cvs_configmanager.jar}" dest="${build_cvslib}"/>
+        <cvs cvsRoot="${cvsroot}" package="${cvs_securitymanager.jar}" dest="${build_cvslib}"/>
+        <cvs cvsRoot="${cvsroot}" package="${cvs_loggingwrapper.jar}" dest="${build_cvslib}"/>
+        <cvs cvsRoot="${cvsroot}" package="${cvs_idgenerator.jar}" dest="${build_cvslib}"/>
+        <cvs cvsRoot="${cvsroot}" package="${cvs_simplecache.jar}" dest="${build_cvslib}"/>
+        <cvs cvsRoot="${cvsroot}" package="${cvs_refreshablecache.jar}" dest="${build_cvslib}"/>
+        <cvs cvsRoot="${cvsroot}" package="${cvs_fileupload.jar}" dest="${build_cvslib}"/>
+        <cvs cvsRoot="${cvsroot}" package="${cvs_mathmatrix.jar}" dest="${build_cvslib}"/>
+        <cvs cvsRoot="${cvsroot}" package="${cvs_emailengine.jar}" dest="${build_cvslib}"/>
+        <cvs cvsRoot="${cvsroot}" package="${cvs_objectformatter.jar}" dest="${build_cvslib}"/>
+        <cvs cvsRoot="${cvsroot}" package="${cvs_tcsutil.jar}" dest="${build_cvslib}"/>
+        <cvs cvsRoot="${cvsroot}" package="${cvs_documentgeneration.jar}" dest="${build_cvslib}"/>
+        <cvs cvsRoot="${cvsroot}" package="${cvs_executablewrapper.jar}" dest="${build_cvslib}"/>
+-->
+		<!-- Add deployment descriptors -->
+<!--
+        <jar destfile="${idgenerator.jar}"
+            basedir="${configdir}/xml/idgenerator"
+            update="true"
+        />
+        <jar destfile="${securitymanager.jar}"
+            basedir="${configdir}/xml/securitymanager"
+            update="true"
+        />
+-->
+		<!-- Fetch other libraries from cvs -->
+<!--
+        <cvs cvsRoot="${cvsroot}" package="${cvs_ifxjdbc.jar}" dest="${build_cvslib}"/>
+        <cvs cvsRoot="${cvsroot}" package="${cvs_junit.jar}" dest="${build_cvslib}"/>
+        <cvs cvsRoot="${cvsroot}" package="${cvs_xerces.jar}" dest="${build_cvslib}"/>
+        <delete>
+            <fileset dir="${build_cvslib}" includes="**/*Entries*,**/*Repository*,**/*Root*"/>
+        </delete>
+    </target>
+-->
+
+
+    <target name="compile" >
+        <mkdir dir="${build_classdir}"/>
+        <javac srcdir="${javamain}"
+               destdir="${build_classdir}"
+               verbose="${verbose}"
+               debug="${debug}"
+               classpathref="buildlibs">
+            <include name="${packagedir}/**" />
+            <include name="com/topcoder/dde/util/ApplicationServer.java" />
+            <include name="com/topcoder/dde/util/Cookies.java" />
+        </javac>
+    </target>
+
+
+    <!-- Finally create the WAR file -->
+    <target name="war" depends="compile">
+        <war warfile="${builddir}/review.war" webxml="${configdir}/web.xml">
+            <fileset dir="${webdir}/online_review"/>
+
+            <lib dir="${jarsdir}/tcs">
+                <include name="${fileupload.jar.name}"/>
+                <include name="${mathmatrix.jar.name}"/>
+                <include name="${emailengine.jar.name}"/>
+                <include name="${documentgeneration.jar.name}"/>
+                <include name="${executablewrapper.jar.name}"/>
+                <include name="${jobscheduling.jar.name}"/>
+            </lib>
+            <lib dir="${jarsdir}">
+                <include name="${mailapi.jar.name}"/>
+            </lib>
+            <lib dir="${struts_jar_dir}">
+                <include name="struts.jar"/>
+            </lib>
+
+<!-- this stuff should probably only be in the default/conf directory for jboss, but
+   configmanager doesn't seem to pick it up, maybe it's not part of the application's classpath
+     -->
+            <classes dir="${configdir}">
+                <include name="jdk14logging.properties"/>
+                <include name="log4j.properties"/>
+                <include name="com/topcoder/apps/review/business_logic_config.properties"/>
+                <include name="com/topcoder/dde/util/ApplicationServer.properties"/>
+                <include name="com/topcoder/message/email/EmailEngine.xml"/>
+                <include name="com/topcoder/security/Util.properties"/>
+                <include name="com/topcoder/util/config/ConfigManager.properties"/>
+                <include name="com/topcoder/servlet/request/FileUpload.xml"/>
+                <include name="com/topcoder/util/cache/refreshable/RefreshableCache.xml"/>
+                <include name="com/topcoder/util/log/Logging.xml"/>
+                <include name="com/topcoder/util/log/Logging.xml.basic"/>
+                <include name="com/topcoder/util/log/Logging.xml.jdk14"/>
+                <include name="com/topcoder/util/log/Logging.xml.log4j"/>
+            </classes>
+
+            <classes dir="${configdir}">
+                <include name="com/topcoder/apps/review/ReviewResources.properties"/>
+            </classes>
+
+            <classes dir="${build_classdir}">
+                <include name="com/topcoder/apps/review/cacherefresher/**/*"/>
+                <include name="com/topcoder/apps/review/autopilottimer/**/*"/>
+                <include name="com/topcoder/apps/review/security/**/*"/>
+                <include name="com/topcoder/apps/review/*"/>
+        	<include name="com/topcoder/dde/util/ApplicationServer.class"/>
+                <include name="com/topcoder/dde/util/Cookies.class"/>
+            </classes>
+
+
+            <webinf dir="${struts_tld_dir}">
+                <include name="struts.tld"/>
+                <include name="struts-bean.tld"/>
+                <include name="struts-html.tld"/>
+                <include name="struts-logic.tld"/>
+                <include name="struts-template.tld"/>
+            </webinf>
+            <webinf dir="${configdir}">
+                <include name="struts-config.xml"/>
+                <include name="jboss-web.xml"/>
+                <include name="jboss-web.xml"/>
+                <include name="review.tld"/>
+            </webinf>
+
+        </war>
+
+    </target>
+
+    <target name="jar" depends="compile">
+        <jar jarfile="${builddir}/persistence.jar" basedir="${build_classdir}" includes="com/topcoder/apps/review/projecttracker/**,
+        		com/topcoder/apps/review/document/**,
+        		com/topcoder/apps/review/ConcurrentModificationException.class,
+        		com/topcoder/apps/review/GeneralSecurityException.class,
+        		com/topcoder/apps/review/IncorrectProjectStateException.class,
+        		com/topcoder/apps/review/persistence/**,
+        		com/topcoder/apps/review/security/*Permission.class">
+            <metainf dir="${javasrc}/main/com/topcoder/apps/review/projecttracker" includes="*.xml"/>
+            <manifest>
+                <attribute name="Class-Path" value="base_exception.jar configuration_manager.jar xerces.jar logging_wrapper.jar simple_cache.jar refreshable_cache.jar tcsUtil.jar object_formatter.jar security.jar idgenerator.jar"/>
+            </manifest>
+
+        </jar>
+    </target>
+
+    <target name="cache_refresher" depends="compile">
+        <jar jarfile="${builddir}/cache_refresher.sar" basedir="${build_classdir}" includes="com/topcoder/apps/review/cacherefresher/**">
+            <metainf dir="${javasrc}/main/com/topcoder/apps/review/cacherefresher" includes="*.xml"/>
+        </jar>
+    </target>
+
+    <target name="auto_pilot_timer" depends="compile">
+        <jar jarfile="${builddir}/auto_pilot_timer.sar" basedir="${build_classdir}" includes="com/topcoder/apps/review/autopilottimer/**,
+                        com/topcoder/apps/review/document/**,
+                        com/topcoder/apps/review/*,
+                        com/topcoder/apps/review/projecttracker/**">
+            <metainf dir="${javasrc}/main/com/topcoder/apps/review/autopilottimer" includes="*.xml"/>
+            <fileset dir="${struts_jar_dir}" includes="struts.jar" />
+        </jar>
+    </target>
+
+    <target name="testwar_pl" depends="compile_tests_pl">
+        <delete file="${builddir}/test.war"/>
+        <!-- Create the war file -->
+        <juniteewar warfile="${builddir}/test.war"
+         webxml="${javasrc}/tests_persistence_layer/${packagedir}/web.xml">
+            <webinf dir="${javasrc}/tests_persistence_layer/${packagedir}">
+                <include name="jboss-web.xml"/>
+            </webinf>
+	    <lib dir="${jarsdir}" includes="${junitee.jar.name}"/>
+            <classes dir="${build_testclassdir}"/>
+            <classes dir="${build_classdir}"/>
+            <testcases dir="${build_testclassdir}">
+                <include name="${packagedir}/accuracytests/AccuracyTests.class"/>
+            </testcases>
+        </juniteewar>
+    </target>
+
+    <target name="ear_libs" depends="cache_refresher,auto_pilot_timer">
+    	<mkdir dir="${builddir_ear}"/>
+    	<mkdir dir="${build_libdir_ear}"/>
+
+        <copy file="${builddir}/persistence.jar" todir="${builddir_ear}" />
+        <copy file="${builddir}/review.war" todir="${builddir_ear}" />
+        <copy file="${builddir}/cache_refresher.sar" todir="${builddir_ear}" />
+        <copy file="${builddir}/auto_pilot_timer.sar" todir="${builddir_ear}" />
+
+        <copy file="${idgenerator.jar}" todir="${build_libdir_ear}" />
+        <copy file="${securitymanager.jar}" todir="${build_libdir_ear}" />
+        <copy file="${baseexception.jar}" todir="${build_libdir_ear}" />
+        <copy file="${configmanager.jar}" todir="${build_libdir_ear}" />
+        <copy file="${loggingwrapper.jar}" todir="${build_libdir_ear}" />
+        <copy file="${simplecache.jar}" todir="${build_libdir_ear}" />
+        <copy file="${refreshablecache.jar}" todir="${build_libdir_ear}" />
+        <copy file="${tcsutil.jar}" todir="${build_libdir_ear}" />
+        <copy file="${objectformatter.jar}" todir="${build_libdir_ear}" />
+
+	<copy file="${typesafeenum.jar}" todir="${build_libdir_ear}" />
+	<copy file="${workdays.jar}" todir="${build_libdir_ear}" />
+	<copy file="${projectphases.jar}" todir="${build_libdir_ear}" />
+
+        <copy file="${xerces.jar}" todir="${build_libdir_ear}" />
+    </target>
+
+    <target name="ear" depends="war,jar,ear_libs">
+        <ear earfile="${builddir}/OnlineReview.ear" appxml="${configdir}/application.xml" >
+<!--
+            <metainf dir="${configdir}" includes="jboss-app.xml"/>
+-->
+        	<fileset dir="${builddir}/ear" includes="**/*"/>
+        </ear>
+    </target>
+
+    <target name="ear_tests" depends="war,jar,ear_libs,testwar_pl">
+        <copy file="${builddir}/test.war" todir="${builddir_ear}"/>
+        <ear earfile="${builddir}/OnlineReviewTests.ear" appxml="${configdir}/application_tests.xml">
+        	<fileset dir="${builddir}/ear" includes="**/*"/>
+        </ear>
+        <delete file="${builddir_ear}/test.war"/>
+    </target>
+
+    <target name="clientjar" depends="compile">
+        <jar jarfile="${builddir}/OnlineReviewClient.jar" basedir="${build_classdir}"
+             includes="com/topcoder/apps/review/**/*Exception.class,
+                       com/topcoder/apps/review/projecttracker/ProjectTracker.class,
+                       com/topcoder/apps/review/projecttracker/ProjectTrackerHome.class">
+        </jar>
+    </target>
+
+    <target name="compile_tests_pl" depends="compile">
+        <mkdir dir="${build_testclassdir}"/>
+        <javac srcdir="${javatests_pl}" destdir="${build_testclassdir}" includes="${packagedir}/**" verbose="${verbose}" debug="${debug}">
+            <classpath refid="test.build.classpath" />
+        </javac>
+    </target>
+
+    <target name="compile_tests_bl" depends="compile">
+        <mkdir dir="${build_testclassdir}"/>
+        <javac srcdir="${javatests_bl}" destdir="${build_testclassdir}" includes="${packagedir}/**" verbose="${verbose}" debug="${debug}">
+            <classpath refid="test.build.classpath" />
+        </javac>
+    </target>
+    <target name="compile_tests_fe" depends="compile">
+        <mkdir dir="${build_testclassdir}"/>
+        <javac srcdir="${javatests_fe}" destdir="${build_testclassdir}" includes="${packagedir}/**" verbose="${verbose}" debug="${debug}">
+            <classpath refid="test.build.classpath" />
+        </javac>
+    </target>
+
+
+    <target name="test" depends="compile_tests_pl">
+        <mkdir dir="${testlogdir}"/>
+        <junit fork="true" haltonerror="false">
+            <classpath refid="test.build.classpath"/>
+            <test name="${package}.AllFETests" todir="${testlogdir}">
+                <formatter type="plain" usefile="true"/>
+                <formatter type="xml" usefile="true"/>
+            </test>
+            <test name="${package}.AllBLTests" todir="${testlogdir}">
+                <formatter type="plain" usefile="true"/>
+                <formatter type="xml" usefile="true"/>
+            </test>
+            <test name="${package}.AllPLTests" todir="${testlogdir}">
+                <formatter type="plain" usefile="true"/>
+                <formatter type="xml" usefile="true"/>
+            </test>
+        </junit>
+        <junitee url="http://${jbossip}:${jbossport}/test/TestServlet"
+                haltonfailure="false"
+                haltonerror="false"
+                printsummary="true"
+                filtertrace="true">
+            <formatter type="plain" usefile="true"/>
+            <formatter type="xml" usefile="true"/>
+            <test runall="true" todir="${testlogdir}"/>
+        </junitee>
+    </target>
+
+
+    <target name="test_fe" depends="compile_tests_fe">
+        <mkdir dir="${testlogdir}"/>
+        <junit fork="true" haltonerror="false">
+            <classpath refid="test.build.classpath"/>
+            <test name="${package}.AllFETests" todir="${testlogdir}">
+                <formatter type="plain" usefile="true"/>
+                <formatter type="xml" usefile="true"/>
+            </test>
+        </junit>
+    </target>
+
+    <target name="test_bl" depends="compile_tests_bl">
+        <mkdir dir="${testlogdir}"/>
+        <junit fork="true" haltonerror="false">
+            <classpath refid="test.build.classpath"/>
+            <test name="${package}.AllBLTests" todir="${testlogdir}">
+                <formatter type="plain" usefile="true"/>
+                <formatter type="xml" usefile="true"/>
+            </test>
+        </junit>
+    </target>
+
+    <target name="test_pl" depends="deploy_tests">
+        <mkdir dir="${testlogdir}"/>
+        <copy file="${configdir}/cactus/cactus.properties" todir="${configdir}">
+            <filterset>
+                <filter token="JBOSSIP" value="${jbossip}"/>
+                <filter token="JBOSSPORT" value="${jbossport}"/>
+            </filterset>
+        </copy>
+        <junit haltonerror="false" fork="yes" >
+            <classpath>
+                <!-- Cactus.propertie and log_client.properties need to be in
+                     the classpath -->
+                <path refid="test.build.classpath"/>
+                <path refid="buildlibs"/>
+                <path refid="runtime.classpath"/>
+                <pathelement location="${build_testclassdir}"/>
+                <pathelement location="classfolder"/>
+            </classpath>
+            <formatter type="plain" usefile="false"/>
+            <test name="com.topcoder.apps.review.projecttracker.ProjectTrackerTest" todir="${testlogdir}"/>
+<!--
+            <test name="com.topcoder.apps.review.document.DocumentManagerTest" todir="${testlogdir}"/>
+-->
+        </junit>
+    </target>
+
+    <target name="test_pl_all" depends="deploy_tests">
+        <mkdir dir="${testlogdir}"/>
+        <copy file="${configdir}/cactus/cactus.properties" todir="${configdir}">
+            <filterset>
+                <filter token="JBOSSIP" value="${jbossip}"/>
+                <filter token="JBOSSPORT" value="${jbossport}"/>
+            </filterset>
+        </copy>
+        <junit haltonerror="false" fork="yes" >
+            <classpath>
+                <!-- Cactus.propertie and log_client.properties need to be in
+                     the classpath -->
+                <path refid="test.build.classpath"/>
+                <path refid="buildlibs"/>
+                <path refid="runtime.classpath"/>
+                <pathelement location="${build_testclassdir}"/>
+                <pathelement location="classfolder"/>
+            </classpath>
+            <formatter type="plain" usefile="false"/>
+            <test name="com.topcoder.apps.review.AllPLTests" todir="${testlogdir}"/>
+        </junit>
+        <junitee url="http://${jbossip}:${jbossport}/accuracytests/TestServlet"
+                haltonfailure="false"
+                haltonerror="false"
+                printsummary="true"
+                filtertrace="true">
+            <formatter type="plain" usefile="true"/>
+            <formatter type="xml" usefile="true"/>
+            <test runall="true" todir="${testlogdir}"/>
+        </junitee>
+    </target>
+
+
+
+    <target name="dbddl" >
+        <sql
+         driver="${dbdriver}"
+         url="${dburl}"
+         userid="${dbuser}"
+         password="${dbpassword}"
+         src="${docsdir}/db_ddl.sql"
+         onerror="continue">
+            <classpath>
+                <pathelement location="${ifxjdbc.jar}"/>
+            </classpath>
+        </sql>
+    </target>
+    <target name="dbclean_security" >
+        <sql
+         driver="${dbdriver}"
+         url="${dburl}"
+         userid="${dbuser}"
+         password="${dbpassword}"
+         src="${docsdir}/db_clean_security.sql"
+         onerror="continue">
+            <classpath>
+                <pathelement location="${ifxjdbc.jar}"/>
+            </classpath>
+        </sql>
+    </target>
+    <target name="dbclean" depends="dbddl,dbclean_security"/>
+
+    <target name="dbtest_dev" >
+        <sql
+         driver="${dbdriver}"
+         url="${dburl}"
+         userid="${dbuser}"
+         password="${dbpassword}"
+         src="${docsdir}/db_test.sql"
+         onerror="continue">
+            <classpath>
+                <pathelement location="${ifxjdbc.jar}"/>
+            </classpath>
+        </sql>
+        <sql
+         driver="${dbdriver}"
+         url="${dburl}"
+         userid="${dbuser}"
+         password="${dbpassword}"
+         src="${docsdir}/scorecard_templates/design_screening_scorecard_test.sql"
+         onerror="continue">
+            <classpath>
+                <pathelement location="${ifxjdbc.jar}"/>
+            </classpath>
+        </sql>
+        <sql
+         driver="${dbdriver}"
+         url="${dburl}"
+         userid="${dbuser}"
+         password="${dbpassword}"
+         src="${docsdir}/scorecard_templates/design_review_scorecard_test.sql"
+         onerror="continue">
+            <classpath>
+                <pathelement location="${ifxjdbc.jar}"/>
+            </classpath>
+        </sql>
+    </target>
+
+
+    <target name="dbtest" >
+        <sql
+         driver="${dbdriver}"
+         url="${dburl}"
+         userid="${dbuser}"
+         password="${dbpassword}"
+         src="${docsdir}/db_test.sql"
+         onerror="continue">
+            <classpath>
+                <pathelement location="${ifxjdbc.jar}"/>
+            </classpath>
+        </sql>
+        <sql
+         driver="${dbdriver}"
+         url="${dburl}"
+         userid="${dbuser}"
+         password="${dbpassword}"
+         src="${docsdir}/scorecard_templates/design_screening_scorecard.sql"
+         onerror="continue">
+            <classpath>
+                <pathelement location="${ifxjdbc.jar}"/>
+            </classpath>
+        </sql>
+        <sql
+         driver="${dbdriver}"
+         url="${dburl}"
+         userid="${dbuser}"
+         password="${dbpassword}"
+         src="${docsdir}/scorecard_templates/design_review_scorecard.sql"
+         onerror="continue">
+            <classpath>
+                <pathelement location="${ifxjdbc.jar}"/>
+            </classpath>
+        </sql>
+        <sql
+         driver="${dbdriver}"
+         url="${dburl}"
+         userid="${dbuser}"
+         password="${dbpassword}"
+         src="${docsdir}/scorecard_templates/dev_screening_scorecard.sql"
+         onerror="continue">
+            <classpath>
+                <pathelement location="${ifxjdbc.jar}"/>
+            </classpath>
+        </sql>
+        <sql
+         driver="${dbdriver}"
+         url="${dburl}"
+         userid="${dbuser}"
+         password="${dbpassword}"
+         src="${docsdir}/scorecard_templates/dev_review_scorecard.sql"
+         onerror="continue">
+            <classpath>
+                <pathelement location="${ifxjdbc.jar}"/>
+            </classpath>
+        </sql>
+    </target>
+
+    <target name="dbscorecards" >
+        <sql
+         driver="${dbdriver}"
+         url="${dburl}"
+         userid="${dbuser}"
+         password="${dbpassword}"
+         src="${docsdir}/scorecard_templates/drop_templates.sql"
+         onerror="continue">
+            <classpath>
+                <pathelement location="${ifxjdbc.jar}"/>
+            </classpath>
+        </sql>
+        <sql
+         driver="${dbdriver}"
+         url="${dburl}"
+         userid="${dbuser}"
+         password="${dbpassword}"
+         src="${docsdir}/scorecard_templates/design_screening_scorecard.sql"
+         onerror="continue">
+            <classpath>
+                <pathelement location="${ifxjdbc.jar}"/>
+            </classpath>
+        </sql>
+        <sql
+         driver="${dbdriver}"
+         url="${dburl}"
+         userid="${dbuser}"
+         password="${dbpassword}"
+         src="${docsdir}/scorecard_templates/design_review_scorecard.sql"
+         onerror="continue">
+            <classpath>
+                <pathelement location="${ifxjdbc.jar}"/>
+            </classpath>
+        </sql>
+        <sql
+         driver="${dbdriver}"
+         url="${dburl}"
+         userid="${dbuser}"
+         password="${dbpassword}"
+         src="${docsdir}/scorecard_templates/dev_screening_scorecard.sql"
+         onerror="continue">
+            <classpath>
+                <pathelement location="${ifxjdbc.jar}"/>
+            </classpath>
+        </sql>
+        <sql
+         driver="${dbdriver}"
+         url="${dburl}"
+         userid="${dbuser}"
+         password="${dbpassword}"
+         src="${docsdir}/scorecard_templates/dev_review_scorecard.sql"
+         onerror="continue">
+            <classpath>
+                <pathelement location="${ifxjdbc.jar}"/>
+            </classpath>
+        </sql>
+    </target>
+
+    <target name="db_convert_remove" >
+        <sql
+         driver="${dbdriver}"
+         url="jdbc:informix-sqli://172.16.20.25:1526/tcs_catalog2:INFORMIXSERVER=tc_memeber_dev_tcp;user=coder;password=catalyst"
+         userid="${dbuser}"
+         password="${dbpassword}"
+         src="convert_remove.sql"
+         onerror="continue">
+            <classpath>
+                <pathelement location="${ifxjdbc.jar}"/>
+            </classpath>
+        </sql>
+    </target>
+
+    <target name="javadoc" depends="compile">
+        <mkdir dir="${build_javadocsdir}" />
+        <javadoc packagenames="${package}.*"
+            sourcepath="${javamain}"
+            classpath="${build_classdir}"
+            classpathref="buildlibs"
+            destdir="${build_javadocsdir}"
+            windowtitle="Topcoder Software"
+            header="&lt;table border=0 cellpadding=0 cellspacing=2&gt;&lt;tr&gt;&lt;td&gt;&lt;font class=tcoder2&gt;&#091; &lt;/font&gt;&lt;font class=tcoder1&gt;TOP&lt;/font&gt;&lt;font class=tcoder2&gt;CODER &lt;/font&gt;&lt;font class=tcoder2&gt;&#093;&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;font class=tcoder4&gt;&#153;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=tcoder3 align=center&gt;&lt;font class=tcoder3&gt;SOFTWARE&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+            footer="&lt;table border=0 cellpadding=0 cellspacing=2&gt;&lt;tr&gt;&lt;td&gt;&lt;font class=tcoder2&gt;&#091; &lt;/font&gt;&lt;font class=tcoder1&gt;TOP&lt;/font&gt;&lt;font class=tcoder2&gt;CODER &lt;/font&gt;&lt;font class=tcoder2&gt;&#093;&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;font class=tcoder4&gt;&#153;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=tcoder3 align=center&gt;&lt;font class=tcoder3&gt;SOFTWARE&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+            bottom="&lt;font class=tcoder5&gt;Contact TopCoder Software at &lt;a href='http://www.topcodersoftware.com'&gt;www.topcodersoftware.com&lt;/a&gt;&lt;/font&gt;"
+            stylesheetfile="${javadocdir}/stylesheet.css"
+            verbose="${verbose}"/>
+    </target>
+
+
+
+
+    <target name="dist" depends="war,jar,cache_refresher,auto_pilot_timer">
+    </target>
+
+    <target name="dist_tests" depends="compile_tests_pl">
+        <mkdir dir="${dist_lib}"/>
+        <jar jarfile="${application.tests.jar}" basedir="${build_testclassdir}" />
+    </target>
+
+    <target name="dist_doc" depends="javadoc">
+        <mkdir dir="${build_docsdir}"/>
+
+        <copy file="${docsdir}/${application}_Class_Diagram.gif" todir="${build_docsdir}" />
+        <copy file="${docsdir}/${application}_Use_Case_Diagram.gif" todir="${build_docsdir}" />
+        <copy file="${docsdir}/${application}_Sequence_Diagram_1.gif" todir="${build_docsdir}" />
+        <copy file="${docsdir}/${application}_Requirements_Specification.pdf" todir="${build_docsdir}" />
+        <copy file="${docsdir}/${application}_Component_Specification.pdf" todir="${build_docsdir}" />
+        <copy file="${docsdir}/${application}.zargo" todir="${build_docsdir}" />
+
+        <mkdir dir="${dist_docs}"/>
+        <jar jarfile="${application.dist.docs.jar}" basedir="${builddir}" includes="${docsdir}/**" />
+    </target>
+
+    <target name="dist_src">
+        <mkdir dir="${dist_src}"/>
+        <jar jarfile="${application.dist.source.jar}" basedir="${basedir}" includes="${srcdir}/**" />
+    </target>
+
+    <target name="dist_web" depends="dist">
+        <mkdir dir="${builddir_war}"/>
+        <!-- copy other jars to be included in this distribution -->
+        <copy file="${configmanager.jar}" todir="${builddir_war}" />
+        <copy file="${application.jar}" todir="${builddir_war}" />
+
+        <mkdir dir="${dist_examples}" />
+        <war warfile="${application.war}" webxml="web.xml">
+            <lib dir="${builddir_war}">
+                <include name="*.jar" />
+            </lib>
+            <fileset dir="${webdir}">
+              <exclude name="dde/**/*"/>
+            </fileset>
+        </war>
+    </target>
+
+    <target name="dist_tcs" depends="clean,dist_doc,dist_src,dist">
+        <!-- define tcs distribution format -->
+        <mkdir dir="${dist_conf}"/>
+        <copy todir="${dist_conf}">
+            <fileset dir="${configdir}" />
+        </copy>
+
+        <copy file="build.xml" todir="${build_tcsdistdir}" />
+        <jar jarfile="${application.dist.jar}" basedir="${build_distdir}" excludes="*.jar"/>
+    </target>
+
+    <target name="compile_converter" >
+        <mkdir dir="${build_classdir_converter}"/>
+        <javac srcdir="${javamain_converter}" destdir="${build_classdir_converter}" includes="${packagedir}/**" verbose="${verbose}" debug="${debug}">
+            <classpath refid="buildlibs" />
+        </javac>
+    </target>
+    <target name="run_converter" depends="compile">
+       <java classname="com.topcoder.apps.review.ProjectConverter" fork="true" failonerror="true" classpathref="runtime.classpath">
+       </java>
+    </target>
+
+
+    <target name="clean">
+        <delete dir="${builddir}"/>
+        <delete dir="tcs"/>
+        <delete verbose="${verbose}" quiet="true">
+            <fileset dir="." includes="**/*~" defaultexcludes="no" />
+        </delete>
+    </target>
+
+    <target name="deploy_security_id">
+        <copy file="${ext_libdir}/security.ear" todir="${jbossdeploydir}" overwrite="false"/>
+	</target>
+
+    <target name="deploy_ear" depends="ear">
+        <delete file="${jbossdeploydir}/OnlineReview.ear"/>
+        <delete file="${jbossdeploydir}/OnlineReviewTests.ear"/>
+        <waitfor maxwait="15" maxwaitunit="second" checkevery="5" checkeveryunit="second">
+            <not>
+                <http url="http://${jbossip}:${jbossport}/review"/>
+            </not>
+        </waitfor>
+        <copy file="${builddir}/OnlineReview.ear" todir="${jbossdeploydir}" overwrite="true"/>
+        <waitfor maxwait="2" maxwaitunit="minute" checkevery="5" checkeveryunit="second">
+            <http url="http://${jbossip}:${jbossport}/review"/>
+        </waitfor>
+    </target>
+
+    <target name="deploy" depends="deploy_security_id,deploy_ear">
+    </target>
+
+    <target name="deploy_with_dde" depends="deploy_ear">
+    </target>
+
+    <target name="deploy_tests" depends="ear_tests">
+        <delete file="${jbossdeploydir}/OnlineReview.ear"/>
+        <delete file="${jbossdeploydir}/OnlineReviewTests.ear"/>
+        <waitfor maxwait="2" maxwaitunit="minute" checkevery="5" checkeveryunit="second">
+            <not>
+                <http url="http://${jbossip}:${jbossport}/review"/>
+            </not>
+        </waitfor>
+        <copy file="${builddir}/OnlineReviewTests.ear" todir="${jbossdeploydir}" overwrite="true"/>
+        <waitfor maxwait="2" maxwaitunit="minute" checkevery="5" checkeveryunit="second">
+            <http url="http://${jbossip}:${jbossport}/review"/>
+        </waitfor>
+    </target>
+    <target name="undeploy">
+        <delete file="${jbossdeploydir}/OnlineReview.ear"/>
+        <delete file="${jbossdeploydir}/OnlineReviewTests.ear"/>
+    </target>
+
+    <target name="main" depends="deploy,test">
+    </target>
+
+</project>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="Country" table="country" mutable="false">
+        <id name="code" column="country_code" access="field"/>
+        <property name="name" column="country_name" access="field"/>
+
+        <set name="regions" table="country_region_xref" inverse="true" access="field">
+            <key column="country_code"/>
+            <many-to-many column="region_id" class="Region"/>
+        </set>
+
+    </class>
+
+</hibernate-mapping>

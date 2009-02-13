@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="UserPreference" table="user_preference" >
+
+        <composite-id name="id" class="UserPreference$Identifier">
+            <key-many-to-one name="user" class="User" column="user_id"/>
+            <key-many-to-one name="preference" class="Preference" column="preference_id"/>            
+        </composite-id>
+
+        <property name="value" column="value" access="field"/>
+        <many-to-one name="preferenceValue" column="preference_value_id" class="PreferenceValue" />
+    </class>
+</hibernate-mapping>

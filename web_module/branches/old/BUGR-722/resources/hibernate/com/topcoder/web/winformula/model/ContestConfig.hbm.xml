@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.winformula.model">
+
+    <class name="ContestConfig" table="contest_config">
+        <composite-id name="id" class="ContestConfig$Identifier">
+            <key-many-to-one name="property" class="ContestProperty" column="property_id"/>
+            <key-many-to-one name="contest" class="Contest" column="contest_id"/>
+        </composite-id>
+
+        <property name="value" column="property_value"/>
+
+    </class>
+
+</hibernate-mapping>

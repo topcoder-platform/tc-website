@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : ReviewBoardTask.xml
+    Created on : June 3, 2005, 5:26 PM
+    Author     : ivern
+    Description:
+        Configuration file for Review Board Task.
+        
+    IF YOU MODIFY THIS FILE, MAKE SURE YOU UPDATE TC.properties ACCORDINGLY!
+-->
+
+<CMConfig>
+    <Config name="com.topcoder.utilities.rboardtask.ReviewBoardTask">
+        <!-- Number of months since the last qualifying submission before a reviewer
+             is temporarily suspended from the review board. -->
+        <Property name="temporary_deactivation_threshold">
+            <Value>3</Value>
+        </Property>
+        
+        <!-- Number of months since the last qualifying submission before a reviewer
+             is permanently suspended from the review board. -->
+        <Property name="permanent_deactivation_threshold">
+            <Value>6</Value>
+        </Property>
+        
+        <!-- Minimum score required for a submission to qualify. -->
+        <Property name="minimum_qualifying_score">
+            <Value>80.0</Value>
+        </Property>
+        
+        <Property name="email_from_address">
+            <Value>service@topcodersoftware.com</Value>
+        </Property>
+        
+        <Property name="email_from_name">
+            <Value>TopCoder Software Service</Value>
+        </Property>
+        
+        <Property name="email_subject">
+            <Value>TCS Review Board Deactivation Notice</Value>
+        </Property>
+        
+        <Property name="temporary_deactivation_template">
+            <Value>/export/home/apps/temporary_deactivation.txt</Value>
+        </Property>
+        
+        <Property name="permanent_deactivation_template">
+            <Value>/export/home/apps/permanent_deactivation.txt</Value>
+        </Property>
+        
+        <Property name="reactivation_template">
+            <Value>/export/home/apps/reactivation.txt</Value>
+        </Property>
+    </Config>
+</CMConfig>

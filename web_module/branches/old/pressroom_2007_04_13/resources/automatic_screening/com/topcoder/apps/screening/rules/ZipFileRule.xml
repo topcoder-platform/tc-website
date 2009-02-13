@@ -1,0 +1,7 @@
+<CMConfig>  
+  <Config name="com.topcoder.apps.screening.rules.ZipFileRule">
+    <Property name="unzip_command">
+        <Value>/usr/bin/unzip -uo -qq</Value>
+    </Property>
+  </Config>
+</CMConfig>
