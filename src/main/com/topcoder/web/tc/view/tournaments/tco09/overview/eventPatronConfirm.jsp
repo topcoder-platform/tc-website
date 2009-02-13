@@ -84,7 +84,9 @@
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title">NSA - Where Intelligence Goes to Work</h2>
-                                                                    <p><strong>By applying, you will be releasing your TopCoder contact and statistical information to NSA and you will be giving NSA permission to contact you about their current job opportunities.</strong><br/><a href="/tc?module=JobHit&jid=460&jt=1">Submit</a>.</p>
+                                                                    <p><strong>By applying, you will be releasing your TopCoder contact and statistical information to NSA and you will be giving NSA permission to contact you about their current job opportunities.</strong>
+                                                                    
+                                                                    <h3 class="subtitle"><a href="/tc?module=JobHit&jid=460&jt=1">Submit your information to NSA</a></h3>
                                                             </div>
                                                         </div>
                                                         
