@@ -44,9 +44,24 @@
                <td class="bodyText"><strong>Date</strong></td>
             </tr>
             <tr valign="top">
+              <td class="bodyText"><tc-webtag:handle coderId="287614" context="algorithm" /> and <tc-webtag:handle coderId="252022" context="algorithm" /></td>
+              <td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=features&d2=021109">Spotlight Sessions: Component Chat Transcript</a></td>
+              <td class="bodyText" nowrap=nowrap>Feb 11, 2009</td>
+            </tr>
+            <tr valign="top">
               <td class="bodyText"><tc-webtag:handle coderId="20437508" context="algorithm" /></td>
               <td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=features&d2=020909">How to Compete Well in Conceptualization and Specification Contests</a></td>
               <td class="bodyText" nowrap=nowrap>Feb 9, 2009</td>
+            </tr>
+            <tr valign="top">
+              <td class="bodyText"><tc-webtag:handle coderId="151743" context="algorithm" /></td>
+              <td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=features&d2=020509">Spotlight Sessions: Architecture Chat Transcript</a></td>
+              <td class="bodyText" nowrap=nowrap>Feb 5, 2009</td>
+            </tr>
+            <tr valign="top">
+              <td class="bodyText"><tc-webtag:handle coderId="7442703" context="algorithm" /></td>
+              <td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=features&d2=012909">Spotlight Sessions: Specification Chat Transcript</a></td>
+              <td class="bodyText" nowrap=nowrap>Jan 29, 2009</td>
             </tr>
             <tr valign="top">
               <td class="bodyText">&nbsp;</td>
