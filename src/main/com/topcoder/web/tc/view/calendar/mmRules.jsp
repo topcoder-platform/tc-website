@@ -129,7 +129,7 @@
         prohibited by applicable law.
         </p>
         <%}%>        
-    <%if(rsr.getIntItem("round_id") == 12202  || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681 ) {%>
+    <%if(rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681 ) {%>
     <div class="sectionHeader">Prizes</div>
     <p align="justify">There will be $5000 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
 
@@ -174,7 +174,7 @@
         </p>
         <%}%>
     
-    <%if(rsr.getIntItem("round_id") == 12202  || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
+    <%if(rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
     <p align="justify">
     Competitors must not cheat; all ideas for any code submitted must be the contestant's alone. Competitors must use their own independently developed code, and shall not copy or include code from any other party, including publicly available "open source" code that is or may be subject to licensing restrictions.
     </p>
@@ -215,7 +215,7 @@
 
         <div class="sectionHeader">Eligibility</div>
 
-    <%if(rsr.getIntItem("round_id") == 12202  || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
+    <%if(rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
     <p align="justify">
     The competition is open to all members who are at least 18 years of age. Competitors must be either (i) a U.S. citizen, (ii) a lawful permanent resident of the U.S., (iii) a temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S., or (iv) a non-U.S. resident authorized to perform services as an independent contractor.
     </p>
@@ -234,7 +234,7 @@
         competition submission deadline.
         </p>
 
-    <%if(rsr.getIntItem("round_id") == 12202  || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
+    <%if(rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
     <p align="justify">
     Competitors must abide by the Terms of Use of TopCoder's website at www.topcoder.com.
     </p>
@@ -250,7 +250,7 @@
         enter the competition. 
         </p>
 
-    <%if(rsr.getIntItem("round_id") == 12202  || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
+    <%if(rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
     <div class="sectionHeader">Ownership and Rights</div>
     <p align="justify">
     You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property rights, in and to the information posted on TopCoder's website(s). If TopCoder compensates you for your submission, then you agree to irrevocably and unconditionally transfer and assign to TopCoder all right, title and interest you have, may have or acquire in, such submission, and you agree to execute and deliver such documents, certificates, assignments and other writings, and take such other actions as may be necessary or desirable to vest in TopCoder the ownership rights granted to TopCoder hereunder. If TopCoder does not compensate you for your submission, then you retain any and all rights to ownership of such material submitted to TopCoder. TopCoder will not gain ownership of this material. However, by submitting any submission or any other material to TopCoder, you hereby grant a perpetual, royalty-free, irrevocable, non-exclusive right and license to TopCoder to use, reproduce and publish such documents, materials or source code for commercial and/or non-commercial use. 
@@ -311,7 +311,7 @@
         displayed for at least 3 months after the end of the competition.
         </p>
 
-    <%if(rsr.getIntItem("round_id") == 12202  || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
+    <%if(rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
     <p align="justify">TopCoder may assign, novate or subcontract any or all of its rights and obligations under these rules and regulations at any time.
     </p>
     <%}%>
