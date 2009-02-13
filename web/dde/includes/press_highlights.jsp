@@ -5,9 +5,20 @@
     </tr>
 </table>
 <table width="95%" border="0" cellspacing="0" cellpadding="4">
-   <tr><td class="prHead">
+   <tr>
+   <td class="prHead">
+         <a class="linkage" target="_blank" href="http://archives.subscribermail.com/msg/8d2bfa1d899a4aa58b20e5ce4695fe78.htm">COMING SOON: THE GAME PLAN</a> [January 2009]
+   </td>
+   </tr>
+   <tr>
+   <td class="prHead">
+         <a class="linkage" target="_blank" href="http://archives.subscribermail.com/msg/301fcea230d244fcb5d4e5ce4695fe78.htm">TopCoder Collects Four Awards in Fall 2008</a> [December 2008]   </td>
+  </tr>
+   <tr>
+   <td class="prHead">
          <a class="linkage" target="_blank" href="http://archives.subscribermail.com/msg/8c505d75001c414b9e2fe5ce4695fe78.htm">Introducing TopCoder Direct!</a> | <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/tc_developments_200811.pdf">PDF</a> [November 2008]
-   </td></tr>
+   </td>
+   </tr>
    <tr><td class="prHead">
          <a class="linkage" target="_blank" href="http://archives.subscribermail.com/msg/349a8c0529c941a1b0d7f53c33025f7a.htm">TopCoder Features in New Business Book</a> | <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/tc_developments_200810.pdf">PDF</a> [October 2008]
    </td></tr>
