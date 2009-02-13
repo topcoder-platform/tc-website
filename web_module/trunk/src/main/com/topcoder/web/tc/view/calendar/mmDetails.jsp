@@ -93,18 +93,24 @@
     you are agreeing to license it under the GNU Public License, Version 2.0.
 </p>
 <%}%>
-<%if(rsr.getIntItem("round_id") == 10862 ) {%>
+<%if(rsr.getIntItem("round_id") == 10862 || rsr.getIntItem("round_id") == 13754 ) {%>
 <p align="justify">
-    This Marathon Match has some new rules and terms.  Please make sure to read
-    the rules carefully before competing.  You must be eligible to compete in the match 
+    This Marathon Match has some different rules and terms.  Please make sure to read
+    the rules carefully before competing.  <b>You must be eligible to compete in the match 
     as defined in the rules and by winning a prize you agree to transfer ownership of
-    your submission to TopCoder.
+    your submission to TopCoder.</b>
 </p>
 <%}%>
 
 <%if(rsr.getIntItem("round_id") == 13569 ||  rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 || rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681 ) {%>
 <p align="justify">
-    This Marathon Match is an encryption match. Use a known encryption method like DES, Substitution cipher, or Cryptography, to decipher the problem, and you can be a part of the $5,000 prize purse. The top five highest scorers will receive prizes with the first place winner receiving $2,500!
+    This Marathon Match is an encryption match. Use a known encryption method like DES, Substitution cipher, or Cryptography, to decipher the problem, and you can be a part of the $5,000 prize purse. The top five highest scorers will receive prizes with the first place winner receiving $2,500.
+</p>
+<%}%>
+
+<%if(rsr.getIntItem("round_id") == 13754 ) {%>
+<p align="justify">
+    This Marathon Match is a money match that has a <b>$5,000 prize purse</b>! The top five highest scorers will receive prizes with the first place winner receiving $2,500!
 </p>
 <%}%>
 
