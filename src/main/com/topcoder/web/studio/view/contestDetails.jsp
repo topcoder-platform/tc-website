@@ -80,7 +80,16 @@
 </div>
 <br />
 
-<div style="float: right;">
+
+
+<h1>Contest Details</h1>
+
+<%-- RIGHT BOX --%>
+
+<div class="conDetRightBox">
+<br />
+
+<div style="float: right; width: 135px;">
 	<%-- ADDTHIS BUTTON BEGIN --%>
 	<script type="text/javascript">
 	addthis_pub             = 'topcoderstudio'; 
@@ -93,16 +102,11 @@
 	<%-- ADDTHIS BUTTON END --%>
 </div>
 
-<div style="float: right;">
 	<%-- Visit Contest Forum Button --%>
     <studio:forumLink forumID="${contest.forumId}" message="<img src='/i/v2/interface/btnContestForum.png' alt='Visit Contest Forum' />"/>
-</div>
+	
+	<br /><br />
 
-<h1>Contest Details</h1>
-
-<%-- RIGHT BOX --%>
-
-<div class="conDetRightBox">
 <div class="section">Dates:</div>
 <div class="padder">
     <table cellpadding="0" cellspacing="0" class="conDetDates">
@@ -213,6 +217,7 @@
 </div>
 </div>
 
+<div class="contentDetails">
 <table cellspacing="0" cellpadding="0" class="conDetIntro">
     <tbody>
         <tr>
@@ -271,7 +276,7 @@
         </c:choose>
         <c:if test="${fn:length(contest.digitalRunPoints.value)>0 and contest.digitalRunPoints.value != '0'}">
             <tr>
-                <td class="field">Studio Cup Points:</td>
+                <td class="field">Studio Cup Points:<br /><br /></td>
                 <td class="value">${contest.digitalRunPoints.value}</td>
             </tr>
         </c:if>
@@ -455,6 +460,9 @@ ${contest.prizeDescription.value}
 
 <br clear="all"/>
 </div>
+
+</div>
+
 <div class="contentBottom"></div>
 </div>
 </div>
