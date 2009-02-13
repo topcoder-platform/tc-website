@@ -1,0 +1,143 @@
+<!--[if gte IE 5.5000]>
+<script language="JavaScript">
+function correctPNG() // correctly handle PNG transparency in Win IE 5.5 or higher.
+   {
+   for(var i=0; i<document.images.length; i++)
+      {
+	  var img = document.images[i]
+	  var imgName = img.src.toUpperCase()
+	  if (imgName.substring(imgName.length-3, imgName.length) == "PNG")
+	     {
+		 var imgID = (img.id) ? "id='" + img.id + "' " : ""
+		 var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+		 var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+		 var imgStyle = "display:inline-block;" + img.style.cssText
+		 if (img.align == "left") imgStyle = "float:left;" + imgStyle
+		 if (img.align == "right") imgStyle = "float:right;" + imgStyle
+		 if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
+		 var strNewHTML = "<span " + imgID + imgClass + imgTitle
+		 + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+	     + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+		 + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>"
+		 img.outerHTML = strNewHTML
+		 i = i-1
+	     }
+      }
+   }
+window.attachEvent("onload", correctPNG);
+</script>
+<![endif]-->
+
+
+## PAGE SPECIFIC DECORATOR
+## Here the context is the page. Modes are 'view', 'edit', 'edit-preview', 'view-information', and 'view-attachments'.
+
+
+#set ($helper = $params.get("helper"))
+#set ($mode = $params.get("mode"))
+#set ($confPage = $helper.page)
+#set ($infoPanelWidth = $params.get("infopanel-width"))
+
+#infoPanelInitFromParams()
+## GENERAL PAGE DECORATING BEGINS
+
+<content tag="pageops">
+<h1>Page Operations</h1>
+   <ul>
+      <li><img src="$req.contextPath/images/icons/docs_16.gif" width=16 height=16 border=0 style="vertical-align: bottom;">#viewPageLinkWithConfirm()</li>
+      #if ($page.isLatestVersion() == true)<li><img src="$req.contextPath/images/icons/edit_16.gif" width=16 height=16 border=0 style="vertical-align: bottom;">#editPageLink()</li>#end
+      #if ($page.isLatestVersion() == true)<li><img src="$req.contextPath/images/icons/document_attachment.png" width=16 height=16 border=0 style="vertical-align: bottom;">#viewPageAttachmentsLinkWithConfirm()</li>#end
+      <li><img src="$req.contextPath/images/icons/about_16.png" width=16 height=16 border=0 style="vertical-align: bottom;">#viewPageInfoLinkWithConfirm()</li>
+   </ul>
+<br />
+</content>
+
+<content tag="navops">
+<h1>Navigation</h1>
+<ul>
+     <li>#browseSpaceLinkAndImage()</li>
+     <li>#addPageLinkAndImage()</li>
+     <li>#addNewsLinkAndImage()</li>
+</ul>
+<br />
+</content>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td valign="top" class="pagebody">
+
+            ## MODE SPECIFIC DECORATING BEGINS
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="clear: both">
+                <tr>
+                    <td class="pagecontent" valign="top">
+
+                    #parse ("/template/includes/actionerrors.vm")
+
+                    #*
+                        Display page based on mode: currently 'view', 'edit', 'preview-edit', 'info' and 'attachments.
+                        See the individual page templates (viewpage.vm, editpage.vm, etc.) for the setting of the mode parameter.
+                    *#
+                    ## VIEW
+                    #if ($mode == "view")
+                            #permitSearchEngines()
+                            <table width="100%" style="margin-bottom: 5px">
+                                <tr>
+                                    <td align="left">
+                                        <span class="smalltext">
+                                            #editReport()
+                                        </span>
+                                    </td>
+                                    <td align="right" class="greyLinks" style="padding: 0px">
+                                        #watchLink()
+                                        &nbsp
+                                    </td>
+                                </tr>
+                            </table>
+
+                            #if ($helper.isHistoricalVersion())
+                                #versionInfo()
+                            #end
+
+                            <div class="wiki-content">
+                               $body
+                            </div>
+
+                            #trackbackRdf ($trackbackUtils.getContentIdentifier($page) $page.title $trackbackUtils.getPingUrl($page))
+
+                            #renderChildren()
+
+                            #renderComments()
+
+                    ## EDIT || PREVIEW-EDIT
+                    #elseif ($mode == "edit" || $mode == "edit-preview")
+                        $body
+
+                    ## INFO
+                    #elseif ($mode == "view-information" || $mode == "view-source")
+                        $body
+
+                    ## ATTACHMENTS
+                    #elseif ($mode == "view-attachments" || $mode == "move-attachments")
+                        $body
+                    #end
+                    </td>
+
+
+                    ## INFO PANEL FOR ANY PAGE
+                    #if ($infoPanelRequired == true)
+                        <td width="$infoPanelWidth" valign="top">
+                            #infoPanel(true true true true)
+                        </td>
+                    #end
+            </tr>
+        </table>
+
+        ## MODE SPECIFIC DECORATING ENDS
+
+        </td>
+    </tr>
+</table>
+## GENERAL PAGE DECORATING ENDS
+
+#set ($viewingPageInfo = $params.get('viewingPageInfo'))
+#parse ("/pages/page-breadcrumbs.vm")

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE ejb-jar PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+        "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+
+<ejb-jar>
+    <description>Project Jar</description>
+    <display-name>Project Jar</display-name>
+    <enterprise-beans>
+        <session>
+            <description>Project EJB</description>
+            <display-name>Project EJB</display-name>
+            <ejb-name>Project</ejb-name>
+            <home>com.topcoder.web.ejb.project.ProjectHome</home>
+            <remote>com.topcoder.web.ejb.project.Project</remote>
+            <local-home>com.topcoder.web.ejb.project.ProjectLocalHome</local-home>
+            <local>com.topcoder.web.ejb.project.ProjectLocal</local>
+            <ejb-class>com.topcoder.web.ejb.project.ProjectBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+        <session>
+            <description>Project Wager EJB</description>
+            <display-name>Project Wager EJB</display-name>
+            <ejb-name>ProjectWager</ejb-name>
+            <home>com.topcoder.web.ejb.project.ProjectWagerHome</home>
+            <remote>com.topcoder.web.ejb.project.ProjectWager</remote>
+            <local-home>com.topcoder.web.ejb.project.ProjectWagerLocalHome</local-home>
+            <local>com.topcoder.web.ejb.project.ProjectWagerLocal</local>
+            <ejb-class>com.topcoder.web.ejb.project.ProjectWagerBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+    </enterprise-beans>
+    <assembly-descriptor>
+        <container-transaction>
+            <method>
+                <ejb-name>Project</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <method>
+                <ejb-name>ProjectWager</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+    </assembly-descriptor>
+</ejb-jar>
+
+
+

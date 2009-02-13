@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="SymposiumReg" table="symposium_reg">
+        <id name="id" column="symposium_reg_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">SYMPOSIUM_REG_SEQ</param>
+            </generator>
+        </id>
+
+        <property name="firstName" column="first_name"/>
+        <property name="lastName" column="last_name"/>
+        <many-to-one name="user" column="user_id" class="User"/>
+        <property name="professional" column="professional_ind"/>
+        <property name="collegeName" column="college_name"/>
+        <property name="companyName" column="company_name"/>
+        <property name="phoneNumber" column="phone_number"/>
+        <property name="emailAddress" column="email_address"/>
+        <property name="address1" column="address1"/>
+        <property name="address2" column="address2"/>
+        <property name="city" column="city"/>
+        <property name="zip" column="zip"/>
+        <many-to-one name="country" column="country_code" class="Country"/>
+        <property name="registrationType" column="registration_type"/>
+    </class>
+
+
+</hibernate-mapping>

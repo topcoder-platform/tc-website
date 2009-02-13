@@ -1,0 +1,153 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+  
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+<body class="body" marginheight="0" marginwidth="0">
+<form action="#" method="#">
+
+<!--Header begins -->
+
+<!--#include virtual="includes/headerLogged.shtml" -->
+<!--#include virtual="includes/navCatalog.shtml" -->
+
+<!--Header ends -->
+
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#001B35" border="0">
+	<tr>
+		<td valign="middle" width="1%"><img src="images/clear.gif" alt="" width="10" height="20" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><a href="Index.shtml" class="breadcrumb">Home</a> > <a href="catalogIndex.shtml" class="breadcrumb">Catalog</a> > <a href="catalogMarket.shtml" class="breadcrumb">Infrastructure</a> > <a href="catalogCategory.shtml" class="breadcrumb">Work Flow Management</a> > <strong>Event Engine</strong></td>
+		<td valign="middle"><img src="images/clear.gif" alt="" width="10" height="20" border="0"/></td>
+	</tr>
+	<tr><td colspan="3" bgcolor="#000000"><img src="images/clear.gif" alt="" height="1" border="0"/></td></tr>
+</table>
+<!-- breadcrumb ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+	<tr valign="top">
+<!-- Left Column begins -->
+		<td width="140" height="96" valign="top" bgcolor="#b2b2b2" background="images/lColGraphic.gif">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr><td align="left" class="leftColTitle"><strong>Technical Documentation</strong></td></tr>	
+				<tr><td align="left" class="leftColText" valign="middle">
+					<a href="#" class="leftColText">Document_1.doc</a><br />
+					<a href="#" class="leftColText">Document_2.doc</a><br />
+					<a href="#" class="leftColText">Document_3.doc</a><br />
+					<a href="#" class="leftColText">Document_4.doc</a></td></tr>
+
+				<tr><td align="left" class="leftColTitle"><strong>Diagrams</strong></td></tr>	
+				<tr><td align="left" class="leftColText" valign="middle">
+					<a href="#" class="leftColText">Diagram_1.pdf</a><br />
+					<a href="#" class="leftColText">Diagram_2.pdf</a></td></tr>
+
+				<tr><td align="left" class="leftColTitle"><strong>Screen Shots</strong></td></tr>	
+				<tr><td align="left" class="leftColText" valign="middle">
+					<a href="#" class="leftColText">ScreenShot_1.pdf</a><br />
+					<a href="#" class="leftColText">ScreenShot_2.pdf</a><br />
+					<a href="#" class="leftColText">ScreenShot_3.pdf</a></td></tr>
+
+				<tr><td align="left" class="leftColTitle"><strong>Use Cases</strong></td></tr>	
+				<tr><td align="left" class="leftColText" valign="middle">
+					<a href="#" class="leftColText">UseCase_1.pdf</a><br />
+					<a href="#" class="leftColText">UseCase_2.pdf</a><br />
+					<a href="#" class="leftColText">UseCase_3.pdf</a><br />
+					<a href="#" class="leftColText">UseCase_4.pdf</a></td></tr>
+				<tr><td><img src="images/clear.gif" alt="" width="140" height="1" border="0"/></td></tr>
+			</table>
+		</td>
+<!-- Left Column ends -->
+
+<!--Vertical Line begins -->
+		<td width="1" valign="top" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" height="1" border="0"/></td>
+<!--Vertical Line ends -->
+
+<!--Middle Column begins -->
+		<td valign="top" bgcolor="#FFFFFF">
+			<img src="images/clear.gif" alt="" width="1" height="1" border="0"/><br/>
+			<table width="100%" border="0" cellpadding="0" cellspacing="12" align="center">
+				<tr valign="top">
+					<td align="left" class="bodyText"><h3 class="catTitle">Event Engine</h3></td>
+				</tr>
+				
+				<tr valign="top">
+					<td align="right">
+						<table border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td class="priceText">
+									<p><strong>Availability:</strong> Completed<br/>
+									<strong>Starting Price:</strong> $1,500<br />
+									<strong><a class="priceText" href="#">Purchase now</a></strong></p></td>
+								<td class="priceText">&nbsp;</td>
+							</tr>
+						</table></td>
+				</tr>
+
+				<tr>
+					<td align="left" class="bodyText" colspan="2">
+						<p>The Event Engine is an event driven service that manages delivery of notifications (hereafter known as 
+						events).  The EventEngine works with three plugable components: registry handler, alert handler and event 
+						handler.  The registry handler is used by the EventEngine to retrieve information related to the registered 
+						alert and event handlers.  An alert handler is responsible for polling and creating event to be delivered by the 
+						EventEngine.  An event handler is responsible for delivery of the events.</p>
+						<p>The Event Engine comes bundled with three handlers: a configuration file registry handler, a Microsoft SQL 
+						Server alert handler and a TCS document generation and email component event handler.</p>
+						<p>As an example, the default handlers can be used to create a message to be sent via email.  The message would be 
+						stored in the SQL Server database for some delivery time.  The alert handler would poll the database for the 
+						message and create an event to be delivered by the EventEngine.  The EventEngine would then hand this event off 
+						to the event handler for formatting and sending the document via email.</p></td>
+				</tr>
+
+				<tr valign="top">
+					<td align="right">
+						<table border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td class="priceText">
+									<p><strong>Availability:</strong> Completed<br/>
+									<strong>Starting Price:</strong> $1,500<br />
+									<strong><a class="priceText" href="#">Purchase now</a></strong></p></td>
+								<td class="priceText">&nbsp;</td>
+							</tr>
+						</table></td>
+				</tr>
+
+				<tr><td><img src="images/clear.gif" alt="" width="1" height="200" border="0"/></td></tr>
+			</table>
+		</td>
+<!--Middle Column ends -->
+
+<!--Right Column begins -->
+		<td width="150" bgcolor="#547584">
+			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+				<tr valign="middle"><td align="center"><a href="collabIndex.shtml"><img src="images/promoCollaborate.gif" alt="Collaborate!" width="150" height="129" border="0" /></a></td></tr>
+			</table>
+
+			<table width="150" border="0" cellpadding="0" cellspacing="0">
+				<tr><td align="center"><img src="images/headViewpoint.gif" alt="ViewPoint" width="150" height="36" border="0" /></td></tr>
+			</table>
+			
+			<table width="150" border="0" cellpadding="0" cellspacing="6">
+				<tr><td align="left" class="rightColText">
+						<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore 
+						et dolore aliquyam erat sed diam volupta.</p>
+						<p><strong>&mdash;Ed McCallum</strong></p></td>
+				</tr>
+			</table>
+		</td>
+<!--Right Column ends -->
+	</tr>
+</table>
+	
+<!--Footer begins -->
+
+<!--#include virtual="includes/footer.shtml" -->
+
+<!--Footer ends -->
+
+</form>
+</body>
+</html>

@@ -1,0 +1,10 @@
+Hello %REVIEWER_HANDLE{Reviewer's handle}%,
+
+I am sorry to inform you that your %PROJECT_PHASE{Project phase}% reviewer status has
+been temporarily deactivated due to your failure to earn a score of %MINIMUM_SCORE{Minimum qualifying score}%
+or above in a project in the last %TEMP_THRESHOLD{Temporary deactivation threshold}% months.  In order to be able to
+perform %PROJECT_PHASE{Project phase}% reviews again, you will need to participate in a %PROJECT_PHASE{Project phase}%
+project and earn a score of %MINIMUM_SCORE{Minimum qualifying score}% or above.
+
+Thanks,
+%SENDER_NAME{Sender's name}%

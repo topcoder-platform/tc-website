@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="State" table="state" mutable="false">
+        <id name="code" column="state_code" access="field"/>
+        <property name="name" column="state_name" access="field"/>
+        <property name="optionalDemographics" column="demographic_decline" access="field"/>
+    </class>
+
+</hibernate-mapping>

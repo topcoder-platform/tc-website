@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model.comp" auto-import="false">
+
+    <class name="ContestPrize" table="tcs_catalog:contest_prize">
+        <id name="id" column="contest_prize_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">COMP_CONTEST_PRIZE_SEQ</param>
+            </generator>
+        </id>
+
+        <many-to-one name="contest" column="contest_id" class="com.topcoder.web.common.model.comp.Contest" access="field"/>
+        <property name="prizeTypeId" column="prize_type_id" access="field"/>        
+        <property name="place" column="place" access="field"/>        
+        <property name="amount" column="prize_amount" access="field"/>           
+        <property name="description" column="prize_desc" access="field"/>
+    </class>
+</hibernate-mapping>

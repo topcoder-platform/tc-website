@@ -1,0 +1,166 @@
+#*
+  NEWS SPECIFIC DECORATOR
+Here the context is a blogpost item (news).
+Modes are 'view', 'edit', 'edit-preview', and 'remove'.
+*#
+
+#set ($helper = $params.get("helper"))
+#set ($mode = $params.get("mode"))
+#set ($blog = $helper.page)
+#set ($infoPanelWidth = $params.get("infopanel-width"))
+#set ($calendarWidth = $params.get("calendar-width"))
+
+#infoPanelInitFromParams()
+## GENERAL PAGE DECORATING BEGINS
+<content tag="pageops">
+<h1>News Operations</h1>
+    <ul>
+        <li>#viewPageLink()</li>
+        #if ($page.isLatestVersion() == true)<li>#editBlogPostLink()</li>#end
+        #if ($page.isLatestVersion() == true)<li>#viewBlogPostAttachmentsLink()</li>#end
+        <!--<li>#viewBlogPostInfoLink()</li>-->
+    </ul>
+</content>
+<content tag="navops">
+<h1>Navigation</h1>
+<ul>
+    <li>#browseSpaceLinkAndImage()</li>
+    <li>#addPageLinkAndImage()</li>
+    <li>#addNewsLinkAndImage()</li>
+</ul>
+</content>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td valign="top" class="pagebody">
+            ## output errors
+            #parse ( "/template/includes/actionerrors.vm" )
+
+            ## MODE SPECIFIC DECORATING BEGINS
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="clear: both">
+                <tr>
+                    <td class="pagecontent" valign="top">
+
+                #*
+                    Display page based on mode: currently 'view', 'edit', 'preview-edit', 'info' and 'attachments.
+                    See the individual page templates (viewpage.vm, editpage.vm, etc.) for the setting of the mode parameter.
+                *#
+
+                ## VIEW
+                #if ($mode == "view")
+                            <table width="100%" style="margin-bottom: 5px">
+                                <tr>
+                                    <td align="left">
+                                        <span class="smalltext">
+                                            #editReport()
+                                        </span>
+                                    </td>
+                                    <td align="right" class="greyLinks" style="padding: 0px">
+                                        #watchLink()
+                                        &nbsp
+                                    </td>
+                                </tr>
+                            </table>
+
+                            #if ($helper.isHistoricalVersion())
+                                <p style="clear: both">
+                                <div class="errorbox">
+                                    <div class="smallfont">
+                                        <b><font color="#FF0000">Note:</font></b>
+                                            #versionInfo()
+                                    </div>
+                                </div>
+                            #end
+
+                            $body
+
+                            #if ($helper.isHistoricalVersion())
+                                <p style="clear: both">
+                                <div class="errorbox">
+                                    <div class="smallfont">
+                                        <b><font color="#FF0000">Note:</font></b>
+                                            #versionInfo()
+                                    </div>
+                                </div>
+                            #end
+
+                            #applyDecorator("sharedcomments")
+                                #decoratorParam("sitemeshPage" $sitemeshPage)
+                                #decoratorParam("page" $blog)
+                            #end
+
+                            #trackbackRdf ($trackbackUtils.getContentIdentifier($page) $page.title $trackbackUtils.getPingUrl($page))
+                        <content tag="surtitle">
+                            <div class=greybox style="background: #f0f0f0">
+                                <img src="$req.contextPath/images/icons/blogentry_16.gif" height="16" width="16" border="0" align="absmiddle">&nbsp;
+                                <b>$helper.action.getDateString($blog.creationDate)</b> at $generalUtil.formatTime($blog.creationDate) by #usernameLink($blog.creatorName)
+                            </div>
+                        </content>
+
+
+                    #if ($calendarWidth)
+                        <td width="$calendarWidth" valign="top">
+                            <div class="operations">
+                             #if ($helper.action.calendarForThisMonth)
+                                #blogPostsCalendar($helper.action.calendarForThisMonth)
+                             #end
+
+                             <br/>
+
+                             #if ($helper.action.nextPost || $helper.action.previousPost)
+                                 #if ($helper.action.nextPost && $permissionCheckDispatcher.isPermitted("/pages/viewpage.action?pageId=$helper.action.nextPost.id") )
+                                     <a href="$req.contextPath$generalUtil.getPageUrl($helper.action.nextPost)"><img src="$req.contextPath/images/icons/forwd_16.gif" height=16 width=16 border=0 align=absmiddle title="Next Post"></a>
+                                     <a href="$req.contextPath$generalUtil.getPageUrl($helper.action.nextPost)">$helper.action.nextPost.title</a><br/>
+                                 #end
+
+                                 #if ($helper.action.previousPost && $permissionCheckDispatcher.isPermitted("/pages/viewpage.action?pageId=$helper.action.previousPost.id") )
+                                     <a href="$req.contextPath$generalUtil.getPageUrl($helper.action.previousPost)"><img src="$req.contextPath/images/icons/back_16.gif" height=16 width=16 border=0 align=absmiddle title="Previous Post"></a>
+                                     <a href="$req.contextPath$generalUtil.getPageUrl($helper.action.previousPost)">$helper.action.previousPost.title</a><br/>
+                                 #end
+
+                                 <br />
+                             #end
+
+                            </div>
+                        </td>
+                    #end
+
+                ## EDIT || PREVIEW-EDIT
+                #elseif ($mode == "edit" || $mode == "edit-preview")
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            ## MAIN EDIT/PREVIEW VIEW
+                            <td>
+                                ## we render the actual body of the page below
+                                $body
+                            </td>
+                        </tr>
+                    </table>
+                ## INFO
+                #elseif ($mode == "view-information")
+                    $body
+
+                ## ATTACHMENTS
+                #elseif ($mode == "view-attachments" || $mode == "move-attachments")
+                    $body
+                #end
+
+                ## INFO PANEL FOR ANY PAGE
+                #if ($infoPanelRequired == true)
+                    <td width="$infoPanelWidth" valign="top">
+                        #infoPanel(true true true true)
+                    </td>
+                #end
+
+           </td>
+        </tr>
+    </table>
+
+            ## MODE SPECIFIC DECORATING ENDS
+
+        </td>
+    </tr>
+</table>
+## GENERAL PAGE DECORATING ENDS
+
+#parse ("/pages/page-breadcrumbs.vm")

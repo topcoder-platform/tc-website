@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+    <class name="Question" table="question">
+        <id name="id" column="question_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">SURVEY_SEQ</param>
+            </generator>
+        </id>
+
+        <property name="text" column="question_text" access="field"/>
+        <property name="statusId" column="status_id" access="field"/>
+        <property name="keyword" access="field"/>
+        <many-to-one name="type" column="question_type_id" access="field" class="QuestionType" fetch="select"/>
+        <many-to-one name="style" column="question_style_id" access="field" class="QuestionStyle" fetch="select"/>
+        <property name="required" column="is_required" type="boolean" access="field"/>
+
+        <set name="answers" cascade="save-update" inverse="true" access="field" order-by="sort_order" fetch="select">
+            <key column="question_id" not-null="true"/>
+            <one-to-many class="Answer"/>
+        </set>
+
+        <set name="surveys" table="survey_question" inverse="true" access="field">
+            <key column="question_id"/>
+            <many-to-many column="survey_id" class="Survey"/>
+        </set>
+
+
+    </class>
+
+
+</hibernate-mapping>
+

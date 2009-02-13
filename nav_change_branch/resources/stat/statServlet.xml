@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE statServlet [
+  <!ELEMENT StatServlet	(RankList?, QuickStatList?, ContentList*)>
+  
+  <!ELEMENT RankList (RankItem+) >
+  <!ELEMENT RankItem (CDATA)>
+  <!ATTLIST RankItem minVal CDATA #REQUIRED>
+  <!ATTLIST RankItem maxVal CDATA #IMPLIED>
+
+  <!ELEMENT QuickStatList (QuickStatItem+)>
+  
+  <!ELEMENT QuickStatItem (PCDATA)>
+  <!ATTLIST QuickStatItem url CDATA #REQUIRED>
+
+  <!ELEMENT ContentList (ContentItem+)>
+  <!ELEMENT ContentItem (CDATA)>
+  <!ATTLIST ContentItem contentHandle CDATA #REQUIRED>
+  <!ATTLIST ContentItem nextPage CDATA #REQUIRED>
+  <!ATTLIST ContentItem access CDATA #REQUIRED>
+
+  <!ELEMENT GlobalError (CDATA)>
+  <!ATTLIST GlobalError nextPage CDATA #REQUIRED>
+]>
+<StatServlet>
+<RankList>
+<RankItem minVal="0" maxVal="899">coderTextGray</RankItem>
+<RankItem minVal="900" maxVal="1199">coderTextGreen</RankItem>
+<RankItem minVal="1200" maxVal="1499">coderTextBlue</RankItem>
+<RankItem minVal="1500" maxVal="2199">coderTextYellow</RankItem>
+<RankItem minVal="2200">coderTextRed</RankItem>
+</RankList>
+<QuickStatList>
+<QuickStatItem url="/stat?c=all_time_wins">All-Time Wins</QuickStatItem>
+<QuickStatItem url="/stat?c=winning_debuts">Winning Debuts</QuickStatItem>
+<QuickStatItem url="/stat?c=impressive_debuts">Impressive Debuts</QuickStatItem>
+<QuickStatItem url="/stat?c=highest_totals">Highest Total</QuickStatItem>
+<QuickStatItem url="/stat?c=biggest_rating_gains">Rating Point Gain</QuickStatItem>
+<QuickStatItem url="/stat?c=most_consecutive_wins">Consecutive Wins</QuickStatItem>
+<QuickStatItem url="/stat?c=highest_accuracy">Submission Accuracy</QuickStatItem>
+<QuickStatItem url="/stat?c=best_challengers">Challenge Success</QuickStatItem>
+</QuickStatList>
+<ContentList>
+<ContentItem contentHandle="all_time_wins" nextPage="/stat_jsp/allTimeWins.jsp" access="0" />
+<ContentItem contentHandle="all_time_wins_by_div" nextPage="/stat_jsp/allTimeWinsByDiv.jsp" access="0"/>
+<ContentItem contentHandle="winning_debuts" nextPage="/stat_jsp/winDebuts.jsp" access="0"/>
+<ContentItem contentHandle="impressive_debuts" nextPage="/stat_jsp/impressiveDebut.jsp" access="0"/>
+<ContentItem contentHandle="highest_totals" nextPage="/stat_jsp/highTotals.jsp" access="0"/>
+<ContentItem contentHandle="biggest_rating_gains" nextPage="/stat_jsp/ratingGain.jsp" access="0"/>
+<ContentItem contentHandle="most_consecutive_wins" nextPage="/stat_jsp/consecutiveWins.jsp" access="0"/>
+<ContentItem contentHandle="highest_accuracy" nextPage="/stat_jsp/submitAccuracy.jsp" access="0"/>
+<ContentItem contentHandle="best_challengers" nextPage="/stat_jsp/challengeAccuracy.jsp" access="0"/>
+<ContentItem contentHandle="round_stats" nextPage="/stat_jsp/roundStats.jsp" access="0"/>
+<ContentItem contentHandle="round_stats_sorted" nextPage="/stat_jsp/roundStats.jsp" access="0"/>
+<ContentItem contentHandle="last_match" nextPage="/stat_jsp/roundStats.jsp" access="0"/>
+<ContentItem contentHandle="last_match_sorted" nextPage="/stat_jsp/roundStats.jsp" access="0"/>
+<ContentItem contentHandle="room_stats" nextPage="/stat_jsp/roomStats.jsp" access="1"/>
+<ContentItem contentHandle="problem_statement" nextPage="/stat_jsp/problemStatement.jsp" access="1"/>
+<ContentItem contentHandle="problem_solution" nextPage="/stat_jsp/problemSolution.jsp" access="1"/>
+<ContentItem contentHandle="earnings_history" nextPage="/stat_jsp/earningHistory.jsp" access="1"/>
+<ContentItem contentHandle="ratings_history" nextPage="/stat_jsp/ratingHistory.jsp" access="1"/>
+<ContentItem contentHandle="coder_room_stats" nextPage="/stat_jsp/roomStats.jsp" access="1"/>
+<ContentItem contentHandle="coder_ratings" nextPage="/stat_jsp/rankList.jsp" access="0"/>
+<ContentItem contentHandle="member_profile" nextPage="/stat_jsp/memberProfile.jsp" access="0"/>
+<ContentItem contentHandle="round_overview" nextPage="/stat_jsp/roundOverview.jsp" access="0"/>
+<ContentItem contentHandle="school_avg_rating" nextPage="/stat_jsp/topRankedSchools.jsp" access="0"/>
+</ContentList>
+<GlobalError nextPage="/errorPage.jsp"/>
+</StatServlet>

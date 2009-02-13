@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="DemographicResponse" table="demographic_response">
+        <!--
+                <composite-id name="id" class="DemographicResponse$Identifier">
+                    <key-property name="userId" type="long" column="user_id"/>
+                    <key-property name="demographicQuestionId" type="long" column="demographic_question_id"/>
+                    <key-property name="demographicAnswerId" type="long" column="demographic_answer_id"/>
+                </composite-id>
+        -->
+        <composite-id name="id" class="DemographicResponse$Identifier">
+            <key-many-to-one name="user" class="User" column="user_id"/>
+            <key-many-to-one name="question" class="DemographicQuestion" column="demographic_question_id"/>
+            <key-many-to-one name="answer" class="DemographicAnswer" column="demographic_answer_id"/>
+        </composite-id>
+
+        <property name="response" column="demographic_response" access="field"/>
+
+
+        <many-to-one name="question" column="demographic_question_id" class="DemographicQuestion" access="field"
+                     cascade="none" insert="false" update="false"/>
+        <many-to-one name="answer" column="demographic_answer_id" class="DemographicAnswer" access="field"
+                     cascade="none" insert="false" update="false"/>
+        <many-to-one name="user" column="user_id" class="User" access="field" cascade="none" insert="false"
+                     update="false"/>
+        <!--
+                <many-to-one name="question" column="demographic_question_id" class="DemographicQuestion" access="field" insert="false" update="false" />
+                <many-to-one name="answer" column="demographic_answer_id" class="DemographicAnswer" access="field" insert="false" update="false"/>
+                <many-to-one name="user" column="user_id" class="User" access="field" insert="false" update="false"/>
+        -->
+
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<server>
+	<mbean code="com.topcoder.utilities.pacts.ExpireOldAffidavitsAndPayments"
+		name="topcoder.startup:name=ExpireOldAffidavitsAndPayments">
+		<attribute name="InitStatus"/>
+		<attribute name="RunningTime">00:01 am</attribute>
+	</mbean>
+	
+	
+    <!-- HASingletonController to run the above MBean as a HASingleton -->
+    <mbean code="org.jboss.ha.singleton.HASingletonController"
+           name="jboss.hasingleton:service=ExpireOldAffidavitsHASingleton">
+        <depends>jboss:service=${jboss.partition.name:DefaultPartition}</depends>
+        <depends>topcoder.startup:name=ExpireOldAffidavitsAndPayments</depends>
+        <attribute name="TargetName">topcoder.startup:name=ExpireOldAffidavitsAndPayments</attribute>
+        <attribute name="TargetStartMethod">startSingleton</attribute>
+        <attribute name="TargetStopMethod">stopSingleton</attribute>
+    </mbean>
+    	
+</server>

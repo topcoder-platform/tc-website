@@ -1,0 +1,230 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+ 
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+
+<body class="body" marginheight="0" marginwidth="0">
+
+<form action="#" method="#">
+
+<!--#include virtual="includes/headerNotLogged.shtml" -->
+<!--#include virtual="includes/navCatalog.shtml" -->
+
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td valign="middle" width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><a href="catalogIndex.shtml" class="breadcrumbLinks">Component Catalog</a> > <strong>Advanced Component Search</strong></td>
+		<td valign="middle" width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+</table>
+<!-- breadcrumb ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+	<tr valign="top">
+
+<!-- Left Column begins -->
+		<td width="165" class="leftColumn">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Infrastructure Catagories -->
+				<tr valign="top">
+					<td class="leftNav">
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="5" class="leftHead"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+								<td width="155" class="leftHead" colspan="2">Infrastructure</td>
+								<td width="10" class="leftHead" valign="top"><img src="images/leftNavHead.gif" alt="" width="10" height="22" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td width="5"><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="catalogWorkflow.shtml">Application Management</a></td>
+								<td width="10"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td width="5"><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="catalogWorkflow.shtml">Communication</a></td>
+								<td width="10"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td width="5"><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="catalogWorkflow.shtml">Data Management</a></td>
+								<td width="10"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td width="5"><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="catalogWorkflow.shtml">Date/Time Management</a></td>
+								<td width="10"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td width="5"><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="catalogWorkflow.shtml">Developer Tools</a></td>
+								<td width="10"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td width="5"><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="catalogWorkflow.shtml">Document Management</a></td>
+								<td width="10"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td width="5"><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="catalogWorkflow.shtml">Work Flow Management</a></td>
+								<td width="10"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr><td colspan="4"><img src="images/leftNavFooter.gif" alt="" width="165" height="11" border="0" /></td></tr>
+						</table>
+					</td>
+				</tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Subscription promo -->
+				<tr valign="top"><td><a href="subscription.shtml"><img src="images/promoSubscription.gif" alt="Buy a Subscription" width="165" height="90" border="0" /></a></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Collaboration promo -->
+				<tr valign="top"><td><a href="collabEventEngine.shtml"><img src="images/promoCollaborate.gif" alt="Collaborate!" width="165" height="120" border="0"></a></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Viewpoint -->
+				<tr valign="top"><td><img src="images/promoViewPlattner.gif" alt="Viewpoint" width="165" height="157" border="0" /></td></tr>
+				<tr><td height="20"><img src="images/clear.gif" alt="" width="10" height="20" border="0" /></td></tr>
+			</table>
+		</td>
+		<td width="5" class="leftColumn"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+<!-- Left Column ends -->
+
+<!-- Gutter 1 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0"></td>
+<!-- Gutter 1 ends -->
+
+<!-- Middle Column begins -->
+		<td width="100%">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+				<tr><td class="normal"><img src="images/headCompCatalog.gif" alt="Component Catalog" width="545" height="32" border="0" /></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0"/></td></tr>
+			</table>
+				
+			<table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
+				<tr valign="top">
+					<td align="center">
+						<table cellpadding="0" cellspacing="0" border="0">
+							<tr><td width="400" height="29" colspan="2"><img src="images/advSearchHead.gif" alt="Advanced Component Search" width="400" height="29" border="0" /></td></tr>
+						</table>
+						
+						<table width="400" cellpadding="0" cellspacing="5" border="0" class="compSearch">
+<!-- Column Setting Row -->
+							<tr valign="middle">
+								<td class="registerText" width="5" rowspan="6"><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="registerText" width="130"><img src="images/clear.gif" width="120" height="1" border="0"/></td>
+								<td class="registerText" width="250" ><img src="images/clear.gif" width="240" height="1" border="0" /></td>
+								<td class="registerText" width="5" rowspan="6"><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+
+							<tr>
+								<td class="compSearchTitle">Keywords</td>
+								<td class="compSearch"><input class="compSearchForm" type="text" size="35" name="compSearch" value="Component Search" maxlength="40"></td>
+							</tr>
+							
+							<tr>
+								<td class="compSearchTitle">Vertical Market</td>
+								<td class="compSearch">
+									<select class="compSearchForm" name="compSearchMarket">
+									<option value="All Components">All Vertical Markets
+									<option value="All Components">Infrastructure
+									<option value="All Components">Consumer Products
+									<option value="All Components">Financial Services
+									<option value="All Components">Life Sciences
+									<option value="All Components">Retail
+									</select></td>
+							</tr>
+							
+							<tr>
+								<td class="compSearchTitle">Technology</td>
+								<td class="compSearch">
+									<select class="compSearchForm" name="compSearchTech">
+									<option value="All Components">All Technologies
+									<option value="All Components">JavaBeans
+									<option value="All Components">LDAP
+									<option value="All Components">ODBC/JDBC
+									</select></td>
+							</tr>
+							
+							<tr valign="middle">
+								<td class="compSearchTitle">Status</td>
+								<td class="compSearch">
+									<select class="compSearchForm" name="compSearch3">
+									<option value="All Components">All
+									<option value="All Components">Final Component
+									<option value="All Components">Specification
+									<option value="All Components">Collaboration
+									</select></td>
+							</tr>
+						</table>
+						
+						<table width="400" cellpadding="0" cellspacing="10" border="0" class="compSearch">
+							<tr><td class="compSearch" colspan="2" align="center"><input class="compSearchButton" type="submit" name="go" value="&nbsp;Continue&nbsp;"></input></td></tr>
+						</table>
+
+						<table cellpadding="0" cellspacing="0" border="0">
+							<tr><td class="compSearch" colspan="2"><img src="images/messageReplyFoot.gif" alt="" width="400" height="11" border="0" /></td></tr>
+						</table></td>
+				</tr>
+			</table></td>
+<!-- Middle Column ends -->
+
+<!-- Gutter 2 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+<!-- Gutter 2 ends -->
+
+<!-- Right Column begins -->
+		<td width="245">
+<!-- Component Search -->
+<!--#include virtual="includes/compSearch.shtml" -->
+
+<!-- New Component Request -->
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr><td height="29"><a href="requestNewComp.shtml"><img src="images/promoNewCompRequest.gif" alt="Request a New Component" width="245" height="29" border="0" /></a></td></tr>
+				<tr><td height="10"><img src="images/clear.gif" alt="" width="10" height="10" border="0" /></td></tr>
+			</table>
+
+<!-- Vertical Markets -->
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td class="rightColText">
+						<img src="images/headVerticalMarkets.gif" alt="Vertical Markets" width="245" height="18" border="0" /><br />
+						<hr width="245" size="1" noshade />
+						<strong>Consumer Products</strong><br />
+						<strong>Financial Services</strong><br />
+						<strong>Life Sciences</strong><br />
+						<strong>Retail</strong><br />
+						<hr width="245" size="1" noshade />
+					</td>
+				</tr>
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
+			</table>
+		</td>
+<!--Right Column ends -->
+
+<!-- Gutter 3 begins -->
+		<td width="10"><img src="images/clear.gif" alt="" width="10" height="10" border="0"></td></form>
+<!-- Gutter 3 ends -->
+	</tr>
+</table>
+	
+<!-- Footer begins -->
+<!--#include virtual="includes/footer.shtml" -->
+<!-- Footer ends -->
+
+</body>
+</html>

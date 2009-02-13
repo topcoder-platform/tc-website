@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="Resume" table="resume">
+        <id name="id" column="resume_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">RESUME_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="coder" column="coder_id" access="field"/>
+        <many-to-one name="fileType" column="file_type_id" class="FileType" access="field" cascade="none"/>
+        <property name="fileName" column="file_name" access="field"/>
+        <property name="file" access="field"/>
+    </class>
+</hibernate-mapping>

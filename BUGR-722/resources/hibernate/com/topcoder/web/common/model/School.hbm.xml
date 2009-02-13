@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="School" table="school">
+        <id name="id" column="school_id" access="field">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">SCHOOL_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="address" column="address_id" class="Address" cascade="save-update" access="field"/>
+        <many-to-one name="user" class="User" column="user_id"/>
+        <property name="name" access="field"/>
+        <property name="shortName" column="short_name" access="field"/>
+        <many-to-one name="type" column="school_type_id" class="SchoolType" access="field"/>
+        <property name="viewable" type="boolean" access="field"/>
+
+        <!-- This field is just read and never written, since insert and update are set to false -->
+        <property name="modifyDate" column="modify_date" access="field" update="false" insert="false"/>
+
+        <set name="userSchools" cascade="none" inverse="true">
+            <key column="school_id" not-null="true"/>
+            <one-to-many class="UserSchool"/>
+        </set>
+
+    </class>
+</hibernate-mapping>

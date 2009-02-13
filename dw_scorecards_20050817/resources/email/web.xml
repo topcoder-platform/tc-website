@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app PUBLIC 
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+ "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+
+<web-app>
+
+ 
+<servlet>
+  <servlet-name>emailServlet</servlet-name>
+  <servlet-class>com.topcoder.web.email.servlet.Controller</servlet-class>
+
+  <init-param>
+    <param-name>servlet_alias</param-name>
+    <param-value>/email/emailServlet</param-value>
+    <description>
+      Alias to the servlet
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>jsp_root</param-name>
+    <param-value>/</param-value>
+    <description>
+      root path for jsp's
+    </description>
+  </init-param>
+
+
+  <init-param>
+    <param-name>task_package</param-name>
+    <param-value>com.topcoder.web.email.bean</param-value>
+    <description>
+      Package for task beans
+    </description>
+  </init-param>
+
+
+
+  <init-param>
+    <param-name>addresslist_num_fields</param-name>
+    <param-value>10</param-value>
+    <description>
+       The number of fields to allow for an address list
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>field_prefix</param-name>
+    <param-value>field-</param-value>
+    <description>
+      Prefix for naming fields in a member data form
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>member_tag</param-name>
+    <param-value>member</param-value>
+    <description>
+      XML tag for member data
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>email_address_tag</param-name>
+    <param-value>email_address</param-value>
+    <description>
+      XML tag for email address
+    </description>
+  </init-param>
+
+
+
+  <init-param>
+    <param-name>deleted_group_id</param-name>
+    <param-value>99999</param-value>
+    <description>
+      group id for deleted groups
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>no_list_id</param-name>
+    <param-value>0</param-value>
+    <description>
+      list id for a job without a static list
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>no_command_id</param-name>
+    <param-value>0</param-value>
+    <description>
+      command id for a job without a predefined query
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>test_list_group_id</param-name>
+    <param-value>99998</param-value>
+    <description>
+      group id for test address list group
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>recent_job_days</param-name>
+    <param-value>7</param-value>
+    <description>
+      #days to look back on job list screen.
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>default_num_log_entries_per_screen</param-name>
+    <param-value>50</param-value>
+    <description>
+      default #log entries/screen
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>data_source</param-name>
+    <param-value>TC_EMAIL</param-value>
+    <description>
+       The name of the data source for the db
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>recent_jobs_command</param-name>
+    <param-value>recent_jobs</param-value>
+    <description>
+       Name of query to retrieve recent job id's
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>recent_jobs_result</param-name>
+    <param-value>Recent_Jobs</param-value>
+    <description>
+      Name of result set for recent jobs
+    </description>
+  </init-param>
+
+
+  <init-param>
+    <param-name>jobs_by_date_command</param-name>
+    <param-value>jobs_by_date</param-value>
+    <description>
+       Name of query to retrieve job id's by date
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>jobs_by_date_result</param-name>
+    <param-value>Jobs_By_Date</param-value>
+    <description>
+      Name of result set for jobs by date
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>jobs_by_sender_command</param-name>
+    <param-value>jobs_by_sender</param-value>
+    <description>
+       Name of query to retrieve job id's by sender email
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>jobs_by_sender_result</param-name>
+    <param-value>Jobs_By_Sender</param-value>
+    <description>
+      Name of result set for jobs by sender email
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>jobs_by_subject_command</param-name>
+    <param-value>jobs_by_subject</param-value>
+    <description>
+       Name of query to retrieve job id's by subject
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>jobs_by_subject_result</param-name>
+    <param-value>Jobs_By_Subject</param-value>
+    <description>
+      Name of result set for jobs by subject
+    </description>
+  </init-param>
+
+
+  <init-param>
+    <param-name>query_description_command</param-name>
+    <param-value>query_description</param-value>
+    <description>
+       Name of query to retrieve query descriptions
+    </description>
+  </init-param>
+
+
+  <init-param>
+    <param-name>query_description_result</param-name>
+    <param-value>Query_Description</param-value>
+    <description>
+      Name of result set for query descriptions
+    </description>
+  </init-param>
+
+
+  <init-param>
+    <param-name>query_metadata_command</param-name>
+    <param-value>query_metadata</param-value>
+    <description>
+       Name of query to retrieve command query metadata
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>query_metadata_result</param-name>
+    <param-value>Query_Metadata</param-value>
+    <description>
+      Name of result set for command query metadata
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>email_queries_command</param-name>
+    <param-value>email_queries</param-value>
+    <description>
+      Name of query to retrieve available command queries
+    </description>
+  </init-param>
+
+
+  <init-param>
+    <param-name>email_queries_result</param-name>
+    <param-value>Email_Queries</param-value>
+    <description>
+      Name of result set for available command queries
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>job_log_result</param-name>
+    <param-value>Job_Log</param-value>
+    <description>
+      Name of result set for job log entries
+    </description>
+  </init-param>
+
+
+  <init-param>
+    <param-name>job_log_command</param-name>
+    <param-value>job_log</param-value>
+    <description>
+      Name of query to retrieve job log entries
+    </description>
+  </init-param>
+
+
+  <init-param>
+    <param-name>email_ejb_package</param-name>
+    <param-value>com.topcoder.shared.ejb.EmailServices</param-value>
+    <description>
+      Package of e-mail ejb's
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>authentication_services_ejb_package</param-name>
+    <param-value>com.topcoder.ejb</param-value>
+    <description>
+      Package of authentication services ejb
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>statistics_ejb_package</param-name>
+    <param-value>com.topcoder.web.tc.controller.legacy.stat.ejb.Statistics</param-value>
+    <description>
+      Package of statistics ejb
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>email_template_ejb</param-name>
+    <param-value>EmailTemplate</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>email_template_group_ejb</param-name>
+    <param-value>EmailTemplateGroup</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>address_list_ejb</param-name>
+    <param-value>EmailList</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>address_list_group_ejb</param-name>
+    <param-value>EmailListGroup</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_ejb</param-name>
+    <param-value>EmailJob</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>authentication_services_ejb</param-name>
+    <param-value>AuthenticationServicesHome</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>statistics_ejb</param-name>
+    <param-value>StatisticsHome</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+
+  <init-param>
+    <param-name>job_status_creating</param-name>
+    <param-value>0</param-value>
+    <description>
+      job status id for 'creating'
+    </description>
+  </init-param>
+
+
+
+  <init-param>
+    <param-name>job_status_ready</param-name>
+    <param-value>1</param-value>
+    <description>
+      job status id for 'ready'
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>job_status_active</param-name>
+    <param-value>2</param-value>
+    <description>
+      job status id for 'active'
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>job_status_complete</param-name>
+    <param-value>3</param-value>
+    <description>
+      job status id for 'completing'
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>job_status_incomplete</param-name>
+    <param-value>4</param-value>
+    <description>
+      job status id for 'incomplete'
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>job_status_cancelled</param-name>
+    <param-value>5</param-value>
+    <description>
+      job status id for 'cancelled'
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>job_type_predetail</param-name>
+    <param-value>1</param-value>
+    <description>
+      job type id for 'pre detail build'
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>job_type_postdetail</param-name>
+    <param-value>2</param-value>
+    <description>
+      job type id for 'post detail build'
+    </description>
+  </init-param>
+
+
+
+  <init-param>
+    <param-name>home_task</param-name>
+    <param-value>Home</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>email_template_task</param-name>
+    <param-value>TemplateTask</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+
+  <init-param>
+    <param-name>address_list_task</param-name>
+    <param-value>AddressListTask</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_task</param-name>
+    <param-value>ScheduledJobTask</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+
+
+  <init-param>
+    <param-name>home_page</param-name>
+    <param-value>index.jsp</param-value>
+    <description>
+      Home page
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>error_page</param-name>
+    <param-value>error.jsp</param-value>
+    <description>
+      Navigation error page
+    </description>
+  </init-param>
+
+
+  <init-param>
+    <param-name>email_template_list_page</param-name>
+    <param-value>templates/templates.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>email_template_edit_page</param-name>
+    <param-value>templates/edit.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>email_template_create_page</param-name>
+    <param-value>templates/create.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+
+  <init-param>
+    <param-name>address_list_list_page</param-name>
+    <param-value>addresslists/addresslists.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>address_list_edit_page</param-name>
+    <param-value>addresslists/edit.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>address_list_create_page</param-name>
+    <param-value>addresslists/create.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>address_list_edit_member_page</param-name>
+    <param-value>addresslists/edit-member.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>address_list_add_member_page</param-name>
+    <param-value>addresslists/add-member.jsp</param-value>
+    <description>
+
+
+
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>address_list_bulk_add_page</param-name>
+    <param-value>addresslists/bulk-add.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+
+  <init-param>
+    <param-name>scheduled_job_list_page</param-name>
+    <param-value>scheduledjobs/jobs.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_edit_page</param-name>
+    <param-value>scheduledjobs/edit.jsp</param-value>
+    <description>
+
+    </description>
+
+  </init-param>
+
+
+  <init-param>
+    <param-name>scheduled_job_view_page</param-name>
+    <param-value>scheduledjobs/view.jsp</param-value>
+    <description>
+
+    </description>
+
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_create_page</param-name>
+    <param-value>scheduledjobs/create.jsp</param-value>
+    <description>
+
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_choose_template_add_page</param-name>
+    <param-value>scheduledjobs/choose-template-add.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_choose_report_template_page</param-name>
+    <param-value>scheduledjobs/choose-report-template.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_choose_command_add_page</param-name>
+    <param-value>scheduledjobs/choose-command-add.jsp</param-value>
+    <description>
+
+    </description>
+
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_choose_command_inputs_add_page</param-name>
+    
+<param-value>scheduledjobs/choose-command-inputs-add.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+
+  <init-param>
+    <param-name>scheduled_job_choose_list_add_page</param-name>
+    <param-value>scheduledjobs/choose-list-add.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_choose_test_list_page</param-name>
+    <param-value>scheduledjobs/choose-test-list.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_ask_send_test_page</param-name>
+    <param-value>scheduledjobs/send-test.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_choose_template_edit_page</param-name>
+    <param-value>scheduledjobs/choose-template-edit.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_choose_command_edit_page</param-name>
+    <param-value>scheduledjobs/choose-command-edit.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_choose_command_inputs_edit_page</param-name>
+    
+<param-value>scheduledjobs/choose-command-inputs-edit.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+
+  <init-param>
+    <param-name>scheduled_job_choose_list_edit_page</param-name>
+    <param-value>scheduledjobs/choose-list-edit.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_log_page</param-name>
+    <param-value>scheduledjobs/log.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_log_data_page</param-name>
+    <param-value>scheduledjobs/log-data.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_search_page</param-name>
+    <param-value>scheduledjobs/search.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_search_results_page</param-name>
+    <param-value>scheduledjobs/search-results.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>emailServlet</servlet-name>
+  <url-pattern>emailServlet</url-pattern>
+</servlet-mapping>
+
+<security-constraint>
+  <web-resource-collection>
+    <web-resource-name>email</web-resource-name>
+    <description>all email utility resources</description>
+    <url-pattern>emailServlet</url-pattern>
+    <url-pattern>*.jsp</url-pattern>
+  </web-resource-collection>
+</security-constraint>
+</web-app>

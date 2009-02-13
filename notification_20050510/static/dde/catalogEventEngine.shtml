@@ -1,0 +1,311 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+ 
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+
+<body class="body" marginheight="0" marginwidth="0">
+
+<form action="#" method="#">
+
+<!--#include virtual="includes/headerNotLogged.shtml" -->
+<!--#include virtual="includes/navCatalog.shtml" -->
+
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td valign="middle" width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><a href="catalogIndex.shtml" class="breadcrumbLinks">Component Catalog</a> > <a href="catalogIndex.shtml" class="breadcrumbLinks">Infrastructure</a> > <a href="catalogWorkflow.shtml" class="breadcrumbLinks">Work Flow Management</a> > <strong>Event Engine</strong></td>
+		<td valign="middle" width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+</table>
+<!-- breadcrumb ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+	<tr valign="top">
+
+<!-- Left Column begins -->
+		<td width="165" class="leftColumn">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Current Forums -->
+				<tr valign="top">
+					<td class="leftNav">
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="5" class="leftHead"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+								<td width="155" class="leftHead" colspan="2">Current Forums</td>
+								<td width="10" class="leftHead" valign="top"><img src="images/leftNavHead.gif" alt="" width="10" height="22" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td width="5"><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="collabIndex.shtml">Collaboration version 3</a></td>
+								<td width="10"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td width="5"><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="specIndex.shtml">Specification version 2</a></td>
+								<td width="10"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td width="5"><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavSmall" colspan="2">Participation in current forums requires user login and may require authorization</td>
+								<td width="10"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr><td colspan="4"><img src="images/leftNavFooter.gif" alt="" width="165" height="11" border="0" /></td></tr>
+						</table>
+					</td>
+				</tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Previous Forums -->
+				<tr valign="top">
+					<td class="leftNav">
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="5" class="leftHead"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+								<td width="155" class="leftHead" colspan="2">Previous Forums</td>
+								<td width="10" class="leftHead" valign="top"><img src="images/leftNavHead.gif" alt="" width="10" height="22" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td width="5"><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="collabIndex.shtml">Collaboration version 2</a></td>
+								<td width="10"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td width="5"><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="collabIndex.shtml">Collaboration version 1</a></td>
+								<td width="10"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td width="5"><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="specIndex.shtml">Specification version 1</a></td>
+								<td width="10"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td width="5"><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavSmall" colspan="2">Previous forums are read only</td>
+								<td width="10"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr><td colspan="4"><img src="images/leftNavFooter.gif" alt="" width="165" height="11" border="0" /></td></tr>
+						</table>
+					</td>
+				</tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Subscription promo -->
+				<tr valign="top"><td><a href="subscription.shtml"><img src="images/promoSubscription.gif" alt="Buy a Subscription" width="165" height="90" border="0" /></a></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Download Now -->
+				<tr valign="top"><td><a href="download.shtml"><img src="images/promoDownloadNow.gif" alt="Download Now" width="165" height="77" border="0" /></a></td></tr>
+				<tr><td height="20"><img src="images/clear.gif" alt="" width="10" height="20" border="0" /></td></tr>
+			</table>
+		</td>
+		<td width="5" class="leftColumn"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+<!-- Left Column ends -->
+
+<!-- Gutter 1 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0"></td>
+<!-- Gutter 1 ends -->
+
+<!-- Middle Column begins -->
+		<td width="100%">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+				<tr><td class="normal"><img src="images/headCompCatalog.gif" alt="Component Catalog" width="545" height="32" border="0" /></td></tr>
+			</table>
+			
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr valign="middle">
+					<td width="2%"><img src="images/iconStatusComplete.gif" alt="*" width="51" height="41" border="0" /></td>
+					<td width="98%" class="subhead">Event Engine <span class="version">version 2</span></td>
+				</tr>
+				<tr><td height="5" colspan="2"><img src="images/clear.gif" alt="" width="10" height="5" border="0"/></td></tr>
+			</table>
+			
+			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center">
+				<tr valign="top">
+					<td width="49%" class="display">
+						<p><strong>Overview</strong><br />
+						The Event Engine component is an event driven service that manages the triggering of 
+						events based on the receiving of alerts. The Event Engine works with three plugable 
+						services: the registry handler, the alert handler and the event handler. The registry 
+						handler is used by the Event Engine to map alert handlers to event handlers. When a 
+						specific alert is received a specific event will be triggered. An alert handler is responsible 
+						for notifying the Event Engine when a specific event takes place. An event handler performs 
+						a specific function when its corresponding alert is received. The event engine manages 
+						the entire process.</p>
+
+						<p><strong>Functionality</strong><br />
+						<ul>
+							<li>Alert Handlers can set polling times for the Event Engine</li>
+							<li>Alert and Event handlers are created by implementing a Java Interface</li>
+							<li>The Event Engine dynamically deploys classes so that alerts and events can be implemented on the fly</li>
+						</ul></p>
+						
+						<p><img src="images/clear.gif" alt="" width="264" height="5" border="0"/></p></td>
+						
+					<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+					
+					<td width="49%" class="display">
+						<p><span class="small"><a href="SS1_eventEngine.gif"><img src="images/SS1_eventEngineSm.gif" alt="Screen Shot" width="265" height="155" border="0" /><br />
+						:: Click to download full-size screen shot</a></span></p>
+						
+						<p><strong>Technologies</strong><br />
+						J2EE, EJB, JSP, Java 1.4</p>
+
+						<p><strong>Authors</strong><br />
+						jimmyk74, lololo255, LowDude</p>
+
+						<p><strong>Availability</strong><br />
+						<strong><a href="download.shtml">Download Now</a></strong></p>
+
+						<p><strong>Cost</strong><br />
+						<table width="100%" border="0" cellpadding="0" cellspacing="1">
+							<tr>
+								<td width="30%" class="forumTitle">1-5 users</td>
+								<td width="30%" class="forumTitle">6-20 users</td>
+								<td width="40%" class="forumTitle">over 20 users</td>
+							</tr>
+							<tr>
+								<td width="30%" class="forumUnits">4 units</td>
+								<td width="30%" class="forumUnits">5 units</td>
+								<td width="40%" class="forumUnits">7 units</td>
+							</tr>
+							<tr><td colspan="3" height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0"/></td></tr>
+							<tr>
+								<td colspan="3" class="small">Users are defined as machines on which the component is installed. Based on your 
+									<a href="subscription.shtml">Subscription</a> the overall cost of this component will be lower if you have 
+									previously purchased any of the required base components.</td>
+							</tr>
+						</table>
+						
+						<p><img src="images/clear.gif" alt="" width="264" height="5" border="0"/></p></td>
+						
+				</tr>
+			</table>
+		</td>
+<!-- Middle Column ends -->
+
+<!-- Gutter 2 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+<!-- Gutter 2 ends -->
+
+<!-- Right Column begins -->
+		<td width="245">
+<!-- Component Search -->
+<!--#include virtual="includes/compSearch.shtml" -->
+
+<!-- New Component Request -->
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr><td height="29"><a href="requestNewComp.shtml"><img src="images/promoNewCompRequest.gif" alt="Request a New Component" width="245" height="29" border="0" /></a></td></tr>
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
+			</table>
+
+<!-- Base Components Included -->
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr><td><img src="images/headBaseCompIncl.gif" alt="Base Components Included" width="245" height="18" border="0" /></td></tr>
+				<tr><td><hr width="245" size="1" noshade /></td></tr>
+				<tr>
+					<td>
+						<table border="0" cellpadding="0" cellspacing="0">
+							<tr valign="top">
+								<td class="rightColDisplay">::&nbsp;</td>
+								<td class="rightColDisplay"><a href="#">Configuration Manager</a></td>
+							</tr>
+						</table></td>
+				</tr>
+				<tr><td><hr width="245" size="1" noshade /></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
+			</table>
+<!-- Documentation-->
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr><td><img src="images/headDocumentation.gif" alt="Documentation" width="245" height="18" border="0" /></td></tr>
+				<tr><td><hr width="245" size="1" noshade /></td></tr>
+				<tr>
+					<td>
+						<table border="0" cellpadding="0" cellspacing="0">
+							<tr valign="top">
+								<td class="rightColDisplay">::&nbsp;</td>
+								<td class="rightColDisplay"><a href="#">Requirements Specifications</a></td>
+							</tr>
+							<tr valign="top">
+								<td class="rightColDisplay">::&nbsp;</td>
+								<td class="rightColDisplay"><a href="#">Class Diagram</a></td>
+							</tr>
+							<tr valign="top">
+								<td class="rightColDisplay">::&nbsp;</td>
+								<td class="rightColDisplay"><a href="#">Use Case Diagram</a></td>
+							</tr>
+							<tr valign="top">
+								<td class="rightColDisplay">::&nbsp;</td>
+								<td class="rightColDisplay"><a href="#">Process Flow Diagram</a></td>
+							</tr>
+							<tr valign="top">
+								<td class="rightColDisplay">::&nbsp;</td>
+								<td class="rightColDisplay"><a href="#">QA Test Plan</a></td>
+							</tr>
+							<tr valign="top">
+								<td class="rightColDisplay">::&nbsp;</td>
+								<td class="rightColDisplay"><a href="#">Event Handler Deployment</a></td>
+							</tr>
+							<tr valign="top">
+								<td class="rightColDisplay">::&nbsp;</td>
+								<td class="rightColDisplay"><a href="#">Alert Handler Deployment</a></td>
+							</tr>
+							<tr valign="top">
+								<td class="rightColDisplay">::&nbsp;</td>
+								<td class="rightColDisplay"><a href="#">Registry Handler Deployment</a></td>
+							</tr>
+						</table></td>
+				</tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+				<tr><td class="small">All TopCoder Software documentation is distributed in <a href="http://www.adobe.com/products/acrobat/readstep.html" target="_new">Adobe Acrobat PDF</a> format, except where noted.</td></tr>
+				<tr><td><hr width="245" size="1" noshade /></td></tr>
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
+			</table>
+<!-- Test Drive -->
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr><td><img src="images/headTestDrive.gif" alt="Test Drive" width="245" height="18" border="0" /></td></tr>
+				<tr><td><hr width="245" size="1" noshade /></td></tr>
+				<tr>
+					<td>
+						<table border="0" cellpadding="0" cellspacing="0">
+							<tr valign="top">
+								<td class="rightColDisplay">::&nbsp;</td>
+								<td class="rightColDisplay"><a href="#">When there is one event</a></td>
+							</tr>
+							<tr valign="top">
+								<td class="rightColDisplay">::&nbsp;</td>
+								<td class="rightColDisplay"><a href="#">When there are muliple events</a></td>
+							</tr>
+						</table></td>
+				</tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+				<tr><td class="small">All TopCoder Software Test Drives are for evaluation purposes only. <a href="contactIndex.shtml">Contact us</a> for more information.</td></tr>
+				<tr><td><hr width="245" size="1" noshade /></td></tr>
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
+			</table>
+		</td>
+<!--Right Column ends -->
+
+<!-- Gutter 3 begins -->
+		<td width="10"><img src="images/clear.gif" alt="" width="10" height="10" border="0"></td></form>
+<!-- Gutter 3 ends -->
+	</tr>
+</table>
+	
+<!-- Footer begins -->
+<!--#include virtual="includes/footer.shtml" -->
+<!-- Footer ends -->
+
+</body>
+</html>

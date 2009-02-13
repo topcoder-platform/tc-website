@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE ejb-jar PUBLIC
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+
+<ejb-jar>
+    <description>RoundRegistration Jar</description>
+    <display-name>RoundRegistration Jar</display-name>
+    <enterprise-beans>
+        <session>
+            <description>RoundRegistration EJB</description>
+            <display-name>RoundRegistration EJB</display-name>
+            <ejb-name>RoundRegistration</ejb-name>
+            <home>com.topcoder.web.ejb.roundregistration.RoundRegistrationHome</home>
+            <remote>com.topcoder.web.ejb.roundregistration.RoundRegistration</remote>
+            <local-home>com.topcoder.web.ejb.roundregistration.RoundRegistrationLocalHome</local-home>
+            <local>com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal</local>
+            <ejb-class>com.topcoder.web.ejb.roundregistration.RoundRegistrationBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+        </session>
+    </enterprise-beans>
+    <assembly-descriptor>
+        <container-transaction>
+            <method>
+                <ejb-name>RoundRegistration</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+    </assembly-descriptor>
+</ejb-jar>
+
+
+

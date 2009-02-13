@@ -1,0 +1,12 @@
+<project name="TCES EJBs" default="CvtTCES2.jar" basedir=".">
+	<target name="CvtTCES2.jar" depends="TCES2.jar">
+		<java classname="weblogic.ejbc" args="TCES.jar ../../../../../../../build/ejb_jars/CvtTCES2.jar"/>
+	</target>
+	<target name="TCES2.jar" depends="classes">
+		<exec command="mkXML.sh" dir="." output="/dev/null"/>
+		<jar jarfile="TCES2.jar" basedir="." includes="META-INF/,com/"/>
+	</target>
+	<target name="classes">
+		<javac srcdir="." destdir="."/>
+	</target>
+</project>
