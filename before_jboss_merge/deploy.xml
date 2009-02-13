@@ -1,0 +1,35 @@
+<project name="topcoder" default="main" basedir=".">
+
+    <property name="jboss_home" value="../jboss-4.0.1"/>
+    <property name="tempDeployDir" value="deploy"/>
+
+    <target name="deploy-techassess" depends="">
+        <!-- create backup -->
+        <tstamp/>
+        <property name="backupDirectory" value="backup/techassess/${DSTAMP}-${TSTAMP}"/>
+        <echo message="Backing up to: ${backupDirectory}"/>
+        <mkdir dir="${backupDirectory}"/>
+
+        <copy todir="${backupDirectory}" file="build/wars/techassess.war"/>
+        <copy todir="${backupDirectory}" file="lib/bin/shared.jar"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/reconnect.jar"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ProblemServices.jar"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ScreeningServices.jar"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ScreeningTesterCompilerServices.jar"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ScreeningAdminServices.jar"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/lib/Screening.jar"/>
+
+        <mkdir dir="${tempDeployDir}"/>
+        <unjar src="techassess.jar" dest="${tempDeployDir}"/>
+        <copy overwrite="true" todir="build/wars" file="${tempDeployDir}/techassess.war"/>
+        <copy overwrite="true" todir="lib/bin" file="${tempDeployDir}/shared.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/reconnect.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/ProblemServices.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/ScreeningServices.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/ScreeningTesterCompilerServices.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/ScreeningAdminServices.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/lib" file="${tempDeployDir}/Screening.jar"/>
+        <delete dir="${tempDeployDir}"/>
+    </target>
+
+</project>

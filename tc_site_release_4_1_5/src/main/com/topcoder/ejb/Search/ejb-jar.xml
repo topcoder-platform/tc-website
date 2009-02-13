@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE ejb-jar PUBLIC
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+
+<ejb-jar>
+    <description>Search Jar</description>
+    <display-name>Search Jar</display-name>
+    <enterprise-beans>
+        <session>
+            <description>Search EJB</description>
+            <display-name>Search EJB</display-name>
+            <ejb-name>Search</ejb-name>
+            <home>com.topcoder.ejb.Search.SearchHome</home>
+            <remote>com.topcoder.ejb.Search.Search</remote>
+<!--
+            <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+            <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+-->
+            <ejb-class>com.topcoder.ejb.Search.SearchBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
+            <session-type>Stateless</session-type>
+        </session>
+    </enterprise-beans>
+    <assembly-descriptor>
+        <container-transaction>
+            <method>
+                <ejb-name>Search</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+    </assembly-descriptor>
+</ejb-jar>
+

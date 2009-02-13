@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+    <tlibversion>1.0</tlibversion>
+    <jspversion>1.1</jspversion>
+    <shortname>TopCoder Coding Interface Tags</shortname>
+    <info>
+    </info>
+
+    <tag>
+        <name>argumentIterator</name>
+        <tagclass>com.topcoder.web.codinginterface.view.tag.ArgumentIterator</tagclass>
+        <teiclass>com.topcoder.web.codinginterface.view.tag.ArgumentIteratorTEI</teiclass>
+        <bodycontent>JSP</bodycontent>
+        <info></info>
+        <attribute>
+            <name>problem</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>language</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>sponsorImage</name>
+        <tagclass>com.topcoder.web.codinginterface.view.tag.SponsorImage</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info></info>
+        <attribute>
+            <name>image</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>alt</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>vspace</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>border</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+</taglib>

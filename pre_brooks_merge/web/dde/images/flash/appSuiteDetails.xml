@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<appSuite>
+	<name>E-commerce Application Suite</name>
+	<overview>This application suite is built from the ground up as an online business tool, encompassing every aspect needed to make your website a fully functional commerce center.&lt;br&gt;&lt;br&gt;TopCoder's member base is a distributed resource that spans over 150 countries. Unlike strictly off-shore development firms, it doesn't matter what country our members call home, as long as they've proven that they can deliver a better solution than their peers. Since our members work for TopCoder as contractors, not employees, our fixed costs are much lower than our competition.&lt;br&gt;&lt;br&gt;We've spent a year developing substantial catalogs of re-usable Java and .NET components. Re-using these bits of software over and over on client projects allows us to substantially shorten timelines and decrease costs. We then pass these savings onto our clients.&lt;br&gt;&lt;br&gt;Differentiating our members by talent through competition insures that only quality developers are working on our code. Each week, hundreds of TopCoder members compete in programming competitions, where they are rated based on the results. Only members with acceptable ratings are allowed to develop software for TopCoder Software. Our Component Catalogs are made up of the extremely high quality components developed by our members. These components are of such high quality due to the fact that they have been used and re-used in multiple applications. TopCoder strives to develop as many applications with re-usable components as possible.</overview>
+	<functionality>&lt;li&gt;Security&lt;/li&gt;&lt;li&gt;Credit Card Validation&lt;/li&gt;&lt;li&gt;Shopping Cart System&lt;/li&gt;&lt;li&gt;Inventory Database&lt;/li&gt;</functionality>
+	<sampleApp>
+		<doc file='http://software.topcoder.com/catalog/document?id=5905706'>Requirement Specification</doc>
+		<doc file='http://software.topcoder.com/catalog/document?id=7308708'>Component Specification</doc>
+		<doc file='http://172.16.20.20/i/development/Spreadsheet_Engine_Use_Case_Diagram.jpg'>Use Case Diagram</doc>
+		<doc file='http://172.16.20.20/i/development/Spreadsheet_Engine_Class_Diagram.jpg'>Class Diagram</doc>
+		<doc file='http://172.16.20.20/i/development/Spreadsheet_Engine_Sequence_Diagram_1.jpg'>Sequence Diagram 01</doc>
+		<doc file='http://172.16.20.20/i/development/Spreadsheet_Engine_Sequence_Diagram_2.jpg'>Sequence Diagram 02</doc>
+		<doc file='http://172.16.20.20/i/development/Spreadsheet_Engine_Sequence_Diagram_3.jpg'>Sequence Diagram 03</doc>
+		<doc file='http://172.16.20.20/i/development/Spreadsheet_Engine_Sequence_Diagram_4.jpg'>Sequence Diagram 04</doc>
+		<doc file='http://172.16.20.20/i/development/Spreadsheet_Engine_Sequence_Diagram_5.jpg'>Sequence Diagram 05</doc>
+		<doc file='http://172.16.20.20/i/development/Spreadsheet_Engine_Sequence_Diagram_6.jpg'>Sequence Diagram 06</doc>
+		<doc file='http://172.16.20.20/i/development/Spreadsheet_Engine_Sequence_Diagram_7.jpg'>Sequence Diagram 07</doc>
+		<doc file='http://172.16.20.20/i/development/Spreadsheet_Engine_Sequence_Diagram_8.jpg'>Sequence Diagram 08</doc>
+		<doc file='http://172.16.20.20/i/development/Spreadsheet_Engine_Sequence_Diagram_9.jpg'>Sequence Diagram 09</doc>
+		<doc file='http://software.topcoder.com/catalog/document?id=7570555'>Aggregated Design Scorecard</doc>
+		<doc file='http://software.topcoder.com/catalog/document?id=7570507'>Aggregated Development Scorecard</doc>
+		<doc file='http://software.topcoder.com/catalog/javadoc/5904397/5904399/index.html'>Javadocs</doc>
+	</sampleApp>
+	<caseStudy file=''/>
+	<componentList>
+		<component name='Authorization' ID='9932070' status='Development'/>
+		<component name='Bar Code Generator' ID='' status=''/>
+		<component name='Currency' ID='3102757' status='Ready'/>
+		<component name='Database Abstraction' ID='2809552' status='Ready'/>
+		<component name='Date Validation' ID='7220290' status='Ready'/>
+		<component name='Shopping Cart' ID='7410707' status='Ready'/>
+		<component name='Unit Converter' ID='4228038' status='Ready'/>
+	</componentList>
+	<compDiagram>
+		<appFunction name='Security'>
+			<component name='Authorization' ID='9932070' status='Development'/>
+			<component name='Authentication Factory' ID='6403441' status='Ready'/>
+			<component name='Encryption' ID='2810520' status='Ready'/>
+			<component name='Authorization' ID='9932070' status='Development'/>
+			<component name='Authentication Factory' ID='6403441' status='Ready'/>
+			<component name='Encryption' ID='2810520' status='Ready'/>
+		</appFunction>
+		<appFunction name='Credit Card Processing'>
+			<component name='Credit Card Validation' ID='10028532' status='Design'/>
+			<component name='FTP Utility' ID='6401313' status='Ready'/>
+			<component name='Credit Card Validation' ID='10028532' status='Design'/>
+		</appFunction>
+		<appFunction name='Administration'>
+			<component name='Credit Card Validation' ID='10028532' status='Design'/>
+		</appFunction>
+		<appFunction name='Credit Card Processing'>
+			<component name='Credit Card Validation' ID='10028532' status='Design'/>
+			<component name='FTP Utility' ID='6401313' status='Ready'/>
+			<component name='Credit Card Validation' ID='10028532' status='Design'/>
+		</appFunction>
+	</compDiagram>
+</appSuite>

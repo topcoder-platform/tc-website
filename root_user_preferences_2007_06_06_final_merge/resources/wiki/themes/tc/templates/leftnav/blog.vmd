@@ -1,0 +1,158 @@
+#*
+NEWS SPECIFIC DECORATOR
+Here the context is a blogpost item (news).
+Modes are 'view', 'edit', 'edit-preview', and 'remove'.
+*#
+
+
+#parse ( "/templates/leftnav/includes/navlinks.vm")
+
+#set ($helper = $params.get("helper"))
+#set ($mode = $params.get("mode"))
+#set ($blog = $helper.page)
+#set ($infoPanelWidth = $params.get("infopanel-width"))
+#set ($calendarWidth = $params.get("calendar-width"))
+
+#infoPanelInitFromParams()
+## GENERAL PAGE DECORATING BEGINS
+<content tag="pageops">
+    <h5>
+        <a href="#" onCLick="toggleMenu('pagenav'); return false;"><img src="$req.contextPath/images/icons/blogentry_16.gif" width=16 height=16 border=0 align=absmiddle>
+            News Operations</a></h5>
+
+    <div id="pagenav" class="subnav" style="display:none;">
+        <ul>
+            #foreach ($item in $action.webInterfaceManager.getDisplayableItems("system.news", $action.remoteUser,
+            $helper))
+            <li><a #if ($item.link.id) id="$item.link.id" #end href="$item.link.getDisplayableUrl($req, $helper)" #if
+                ($mode == $item.key) class="current" #end #if ($mode == "edit")
+                onClick="javascript:saveDraftOnPageChange(this); return false;" #end #if ($item.link.hasAccessKey())
+                accessKey="$item.link.getAccessKey($helper)"#end>$item.label.getDisplayableLabel($req, $helper)
+            </a>
+        </li>
+        #end
+    </ul>
+</div>
+</content>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top" class="pagebody">
+    ## output errors
+    #parse ( "/template/includes/actionerrors.vm" )
+
+    ## MODE SPECIFIC DECORATING BEGINS
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="clear: both">
+        <tr>
+            <td style="padding-right:5px;" valign="top">
+
+                #*
+                Display page based on mode: currently 'view', 'edit', 'preview-edit', 'info' and 'attachments.
+                See the individual page templates (viewpage.vm, editpage.vm, etc.) for the setting of the mode
+                parameter.
+                *#
+
+                ## VIEW
+                #if ($mode == "view")
+                <table width="100%" style="margin-bottom: 5px">
+                    <tr>
+                        <td align="left">
+                                        <span class="smalltext">
+                                            #editReport()
+                                            #parse ("/labels/labels-include.vm")
+                                        </span>
+                        </td>
+                        <td align="right" class="greyLinks" style="padding: 0px">
+                            #foreach ($item in $action.webInterfaceManager.getDisplayableItems("system.page.actions",
+                            $action.remoteUser, $helper))
+                            #set ($icon = $item.icon)
+                            #set ($itemLabel = $item.label.getDisplayableLabel($req, $helper))
+                            <a #if ($item.link.id) id="$item.link.id" #end href="$item.link.getDisplayableUrl($req,
+                            $helper)"><img src="$icon.url.getDisplayableUrl($req, $helper)" height="$icon.height" width="$icon.width" border="0" align="absmiddle" title="$itemLabel" alt="$itemLabel">
+                        </a>
+                        #end
+                        &nbsp
+            </td>
+        </tr>
+    </table>
+
+    #if ($helper.isHistoricalVersion())
+    <p style="clear: both">
+
+    <div class="errorbox">
+        <div class="smallfont">
+            <b><font color="#FF0000">Note:</font></b>
+            #versionInfo()
+        </div>
+    </div>
+    #end
+
+    $body
+
+    #if ($helper.isHistoricalVersion())
+    <p style="clear: both">
+
+    <div class="errorbox">
+        <div class="smallfont">
+            <b><font color="#FF0000">Note:</font></b>
+            #versionInfo()
+        </div>
+    </div>
+    #end
+
+    #applyDecorator("sharedcomments")
+    #decoratorParam("sitemeshPage" $sitemeshPage)
+    #decoratorParam("page" $blog)
+    #end
+
+    #trackbackRdf ($trackbackUtils.getContentIdentifier($page) $page.title $trackbackUtils.getPingUrl($page))
+    <content tag="surtitle">
+        <div class="blogSurtitle">
+            <img src="$req.contextPath/images/icons/blogentry_16.gif" height="16" width="16" border="0" align="absmiddle">&nbsp;
+            <span class="blogDate">$helper.action.getDateString($blog.creationDate)</span> at
+            $helper.action.dateFormatter.formatTime($blog.creationDate) by #usernameLink($blog.creatorName)
+        </div>
+    </content>
+
+
+    #if ($calendarWidth)
+    <td width="$calendarWidth" valign="top">
+        <div class="operations">
+            #if ($helper.action.calendarForThisMonth)
+            #blogPostsCalendarWithDateLinks($helper.action false)
+            #end
+        </div>
+    </td>
+    #end
+
+    ## EDIT || PREVIEW-EDIT
+    #elseif ($mode == "edit" || $mode == "edit-preview")
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            ## MAIN EDIT/PREVIEW VIEW
+            <td>
+                ## we render the actual body of the page below
+                $body
+            </td>
+        </tr>
+    </table>
+    ## INFO
+    #elseif ($mode == "view-information")
+    $body
+
+    ## ATTACHMENTS
+    #elseif ($mode == "view-attachments" || $mode == "move-attachments")
+    $body
+    #end
+</td>
+</tr>
+</table>
+
+## MODE SPECIFIC DECORATING ENDS
+
+</td>
+</tr>
+</table>
+## GENERAL PAGE DECORATING ENDS
+<content tag=suppressPdfLink>true</content>
+#parse ("/pages/page-breadcrumbs.vm")

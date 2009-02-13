@@ -1,0 +1,69 @@
+*********** BUGS *************
+- sucessful should be successful
+
+- it doesn't appear that test all runs checkData if the status of the problem is proposal approved, but has not yet been submitted.
+
+- no problem preview pane
+ 
+- main problem room, method name = class name
+
+*********** ADDITIONAL FUNCTIONALITY ***************
+
+- separate proposal and submission, add statement preview
+
+- allow me to select multiple rows from the different tables and hit <ctrl>+c so that i can copy the info
+
+- add a flag for writers and testers who have signed the respective contract
+
+- the ability to filter out stuff in problem lists.  i think checkboxes at the top or something would do it.. one check box for each status of a problem, the checked ones are the ones you see, default, everything except used.
+
+- Make it so users can request when they would like to test / write
+
+- I think it would be nice if writers could see the list of problems with the status used...that way they could check if there ideas are to close to something that has been used.  Also, it would allow them to say "hey, that's my problem" so they all wouldn't have your name on them :)
+
+
+
+- Problem Statement search tool, put class name, method name, problem statement contents.
+
+- In addition to upcoming contests, i would like a past contests menu.  it should show me who wrote and tested, and then i can double click to get more info.
+
+- on the contest information screen, it's lists the writers and testers.  since they're each associated with individual problems, i think this should be clear here...which problems they worked on.
+
+- mass email.  i would like to be able to send an email to a group of mpsqas users.  we can discuss if mpsqas is the right place for this.  now, i have to solicit testers for upcoming contests via regular email...
+
+- delete a problem...doesn't really delete anything, just sets a display flag.
+
+- notes.  could be associated with a problem or a user.
+
+- compose message for a particular person associated with problem. i don't need to spam the tester all the time...
+
+- sys tests to check checkData - ask for further info
+
+
+***************** BUGS THAT APPEAR FIXED - CAN'T REPRODUCE ******************************
+
+- If I reject a problem proposal and they resubmit, It should still be a problem proposal, not a submission proposal.
+
+- It seems to update too many problems to used after a contest.
+
+***************** FIXED BUGS **************************
+
+- Chat bug, if you type a really long line, it screws up the window
+
+- We've got to kill that redundancy, the submitted_by column in the problem table.  That info should just be in the problem user table.  
+
+- need a message of what's going on if someone tries to propose a problem and i have not accepted their request to be a writer. 
+
+- can't seem to change the arguments or return of a problem
+
+- not really a bug, but could we make the user name NOT case sensitive on log in
+
+- doesn't seem to update problem_user.amount when one changes the difficulty of the problem
+
+***************** ADDED FUNCTIONALITY **************************
+
+- Iron man proposing and scheduling
+
+- A central area for what has happened recently.  It would get me to recent correspondence quickly...the "Foyer"
+
+- I would like to be able to set the primary solution in the admin part of a contest... in case the writer's solution is bad.  The admin should always get the primary solution as "theirs". 

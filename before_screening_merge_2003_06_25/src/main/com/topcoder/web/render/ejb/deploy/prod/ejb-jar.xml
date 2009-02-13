@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ejb-jar PUBLIC "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN" "http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd">
+<ejb-jar id="ejb-jar_ID">
+   <enterprise-beans>
+      <session id="Session_1">
+         <ejb-name>Sector</ejb-name>
+         <home>com.topcoder.web.render.ejb.SectorHome</home>
+         <remote>com.topcoder.web.render.ejb.Sector</remote>
+         <ejb-class>com.topcoder.web.render.ejb.SectorBean</ejb-class>
+         <session-type>Stateless</session-type>
+         <transaction-type>Container</transaction-type>
+         <env-entry>
+            <env-entry-name>MaxCacheSize</env-entry-name>
+            <env-entry-type>java.lang.Integer</env-entry-type>
+            <env-entry-value>25</env-entry-value>
+         </env-entry>
+      </session>
+      <session id="Session_2">
+         <ejb-name>SectorFile</ejb-name>
+         <home>com.topcoder.web.render.ejb.SectorFileHome</home>
+         <remote>com.topcoder.web.render.ejb.SectorFile</remote>
+         <ejb-class>com.topcoder.web.render.ejb.SectorFileBean</ejb-class>
+         <session-type>Stateless</session-type>
+         <transaction-type>Container</transaction-type>
+         <env-entry>
+            <env-entry-name>MaxCacheSize</env-entry-name>
+            <env-entry-type>java.lang.Integer</env-entry-type>
+            <env-entry-value>25</env-entry-value>
+         </env-entry>
+      </session>
+      <session id="Session_3">
+         <ejb-name>WebContent</ejb-name>
+         <home>com.topcoder.web.render.ejb.WebContentHome</home>
+         <remote>com.topcoder.web.render.ejb.WebContent</remote>
+         <ejb-class>com.topcoder.web.render.ejb.WebContentBean</ejb-class>
+         <session-type>Stateless</session-type>
+         <transaction-type>Container</transaction-type>
+         <env-entry>
+            <env-entry-name>MaxCacheSize</env-entry-name>
+            <env-entry-type>java.lang.Integer</env-entry-type>
+            <env-entry-value>25</env-entry-value>
+         </env-entry>
+      </session>
+      <session id="Session_4">
+         <ejb-name>WebFile</ejb-name>
+         <home>com.topcoder.web.render.ejb.WebFileHome</home>
+         <remote>com.topcoder.web.render.ejb.WebFile</remote>
+         <ejb-class>com.topcoder.web.render.ejb.WebFileBean</ejb-class>
+         <session-type>Stateless</session-type>
+         <transaction-type>Container</transaction-type>
+         <env-entry>
+            <env-entry-name>MaxCacheSize</env-entry-name>
+            <env-entry-type>java.lang.Integer</env-entry-type>
+            <env-entry-value>25</env-entry-value>
+         </env-entry>
+      </session>
+   </enterprise-beans>
+   <assembly-descriptor>
+   </assembly-descriptor>
+</ejb-jar>
+

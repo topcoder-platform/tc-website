@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<!-- a tag library descriptor -->
+
+<taglib>
+    <tlibversion>1.0</tlibversion>
+    <jspversion>1.1</jspversion>
+    <shortname>tac</shortname>
+    <uri>http://taconite.sf.net/tags</uri>
+    <info>Convert XHTML to DOM JavaScript</info>
+
+    <tag>
+        <name>taconiteRoot</name>
+        <tagclass>net.sf.taconite.taglib.TaconiteRootTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>render the taconite-root tag</info>
+    </tag>         
+
+    <tag>
+        <name>appendAsChildren</name>
+        <tagclass>net.sf.taconite.taglib.dom.AppendAsChildrenTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>append as children to context node</info>
+        <attribute>
+            <name>contextNodeID</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>parseOnServer</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>         
+
+    <tag>
+        <name>replace</name>
+        <tagclass>net.sf.taconite.taglib.dom.ReplaceTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>replace the context node with the specified content</info>
+        <attribute>
+            <name>contextNodeID</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>parseOnServer</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>         
+
+    <tag>
+        <name>replaceChildren</name>
+        <tagclass>net.sf.taconite.taglib.dom.ReplaceChildrenTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>replace the children of the context node with the specified content</info>
+        <attribute>
+            <name>contextNodeID</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>parseOnServer</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>         
+
+    <tag>
+        <name>insertBefore</name>
+        <tagclass>net.sf.taconite.taglib.dom.InsertBeforeTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>insert the specified content before the context node</info>
+        <attribute>
+            <name>contextNodeID</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>parseOnServer</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>         
+
+    <tag>
+        <name>insertAfter</name>
+        <tagclass>net.sf.taconite.taglib.dom.InsertAfterTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>insert the specified content after the context node, making the specified content the next sibling of he context node</info>
+        <attribute>
+            <name>contextNodeID</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>parseOnServer</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>         
+  
+    <tag>
+        <name>delete</name>
+        <tagclass>net.sf.taconite.taglib.dom.DeleteTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>delete the specified context node</info>
+        <attribute>
+            <name>contextNodeID</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>parseOnServer</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>         
+  
+    <tag>
+        <name>appendAsFirstChild</name>
+        <tagclass>net.sf.taconite.taglib.dom.AppendAsFirstChildTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>append the specified content as the first child of the context node</info>
+        <attribute>
+            <name>contextNodeID</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>parseOnServer</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>  
+</taglib>
