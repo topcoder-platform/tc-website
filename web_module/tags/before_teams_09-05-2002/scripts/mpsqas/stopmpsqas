@@ -1,7 +1,0 @@
-#!/bin/ksh
-processes=$(ps -augxww | grep "mpsqas.appletmanager.MainAppletProcessor" | cut -c9-14)
-
-echo $processes
-
-
-kill $processes

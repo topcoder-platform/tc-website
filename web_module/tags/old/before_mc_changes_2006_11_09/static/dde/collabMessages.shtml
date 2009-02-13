@@ -1,0 +1,201 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+  
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+<body class="body" marginheight="0" marginwidth="0">
+<form action="#" method="#">
+
+<!--Header begins -->
+
+<!--#include virtual="includes/headerLogged.shtml" -->
+<!--#include virtual="includes/navCatalog.shtml" -->
+
+<!--Header ends -->
+
+<!-- breadcrumb 1 begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr valign="middle">
+		<td width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td width="1%" class="breadcrumb" nowrap><a href="catalogEventEngine.shtml" class="breadcrumbLinks">Event Engine</a> > <a href="collabIndex.shtml" class="breadcrumbLinks">Topics</a> > <a href="collabSubtopics.shtml" class="breadcrumbLinks">Business Logic Requirements</a> > <a href="collabThreads.shtml" class="breadcrumbLinks">Bullet list of required business logic</a> > <strong>Why have to download the applet every time?</strong></td>
+		<td width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+<table>
+<!-- breadcrumb 1 ends -->
+
+<!--Middle Column begins -->
+
+<!-- Forum Head begins -->
+<!--#include virtual="includes/collabHead.shtml" -->
+<!-- Forum Head ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" class="middle">
+<!-- Column Titles -->
+	<tr valign="top">
+		<td width="1%" class="forumTitleCenter">New</td>
+		<td width="62%" class="forumTitle">Messages</td>
+		<td width="36%" class="forumTitle">Last Message</td>
+		<td width="1%" class="forumTitleCenter">Reply</td>
+	</tr>
+
+<!-- Thread -->
+	<tr>
+		<td class="forumSubjectCenter"><img src="images/iconStatusCollabSm.gif" alt="*" width="17" height="12" border="0" /></td>
+		<td class="forumSubject"><strong>Why have to download the applet every time?</strong></td>
+		<td class="forumSubject">&nbsp;</td>
+		<td class="forumSubjectCenter"><strong><a href="collabPostReply.shtml">::&nbsp;Reply</a></strong></td>
+	</tr>
+	<tr valign="top">
+		<td class="forumSubjectMessage">&nbsp;</td>
+		<td class="forumSubjectMessage" colspan="2">
+			<p>I'm just trying to put some sound to my own emulator, but I'm experiencing some really weird problems with 
+			javax.sound. I have now 2 soundchip emulators in my emulator, an AY-3-8910 and an SN76496, and they build the same way:</p>
+			<p>The soundchip emu is a class that feeds an audiostream, runs in a separate thread, and runs in a tight loop. Another 
+			class in the emulator feeds commands to the soundchip class. I was wondering how these delays can be prevented, or what 
+			should be a good way to emulate sound.</td>
+		<td class="forumSubjectMessage">&nbsp;</td>
+	</tr>
+
+<!-- Thread responses -->
+	<tr>
+		<td class="forumTextCenter"><img src="images/iconStatusCollabSm.gif" alt="*" width="17" height="12" border="0" /></td>
+		<td class="forumSubtopic"><strong>Re: Why have to download the applet every time?</strong></td>
+		<td class="forumText">06-21-2002 04:40 PM by <strong>kyled227</strong></td>
+		<td class="forumTextCenter"><strong><a href="collabPostReply.shtml">:: Reply</a></strong></td>
+	</tr>
+	<tr valign="top">
+		<td class="forumMessage">&nbsp;</td>
+		<td class="forumMessage" colspan="2">
+			<p>You also need Pops' codeprocessor.</p>
+			<p>1. remove the Ron Proc classifiles from the correspondence.jar</br />
+			2. add a new editor to your contest applet<br />
+			3. call it anything<br />
+			4. add codeprocessor.jar to your classpath<br />
+			5. add popsedit.jar/filedit.jar to your classpath</p></td>
+		<td class="forumMessage">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="forumTextCenter"><img src="images/iconStatusCollabSm.gif" alt="*" width="17" height="12" border="0" /></td>
+		<td class="forumSubtopic"><strong>Re: Why have to download the applet every time?</strong></td>
+		<td class="forumText">07-15-2002 04:55 PM by <strong>Pops</strong></td>
+		<td class="forumTextCenter"><strong><a href="collabPostReply.shtml">::&nbsp;Reply</a></strong></td>
+	</tr>
+	<tr valign="top">
+		<td class="forumMessage">&nbsp;</td>
+		<td class="forumMessage" colspan="2">
+			<p>Hm..JMF had to address these issues. Have you looked at writing your own emulator so it uses JMF for actual sound reproduction?</p>
+			<p>Just a thought.</p></td>
+		<td class="forumMessage">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="forumTextCenter">&nbsp;</td>
+		<td class="forumSubtopic"><strong>Re: Why have to download the applet every time?</strong></td>
+		<td class="forumText">07-15-2002 03:45 PM by <strong>Pops</strong></td>
+		<td class="forumTextCenter"><strong><a href="collabPostReply.shtml">::&nbsp;Reply</a></strong></td>
+	</tr>
+	<tr valign="top">
+		<td class="forumMessage">&nbsp;</td>
+		<td class="forumMessage" colspan="2">
+			<p>I've messageed a new version of RonProc. It is available here:</p>
+			<p><a href="#">http://home.earthlink.net/~ronaldyang/topcoder/</a></p>
+			<p>This version includes a fix for SRM 96 Div 2 Level 1. Case of "returns" was mixed across different examples making
+			RonProc suck in the return value fromthe wroong example for case "28."</p></td>
+		<td class="forumMessage">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="forumTextCenter">&nbsp;</td>
+		<td class="forumSubtopic"><strong>Re: Why have to download the applet every time?</strong></td>
+		<td class="forumText">07-15-2002 03:45 PM by <strong>Pops</strong></td>
+		<td class="forumTextCenter"><strong><a href="collabPostReply.shtml">::&nbsp;Reply</a></strong></td>
+	</tr>
+	<tr valign="top">
+		<td class="forumMessage">&nbsp;</td>
+		<td class="forumMessage" colspan="2">
+			<p>What I'm trying to say is that you need to download this file...</p></td>
+		<td class="forumMessage">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="forumTextCenter">&nbsp;</td>
+		<td class="forumSubtopic"><strong>Re: Why have to download the applet every time?</strong></td>
+		<td class="forumText">07-15-2002 03:27 PM by <strong>Alice237</strong></td>
+		<td class="forumTextCenter"><strong><a href="collabPostReply.shtml">::&nbsp;Reply</a></strong></td>
+	</tr>
+	<tr valign="top">
+		<td class="forumMessage">&nbsp;</td>
+		<td class="forumMessage" colspan="2">
+			<p>I don't get this. What are you trying to say?</p></td>
+		<td class="forumMessage">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="forumTextCenter">&nbsp;</td>
+		<td class="forumSubtopic"><strong>Re: Why have to download the applet every time?</strong></td>
+		<td class="forumText">07-15-2002 03:21 PM by <strong>Pops</strong></td>
+		<td class="forumTextCenter"><strong><a href="collabPostReply.shtml">::&nbsp;Reply</a></strong></td>
+	</tr>
+	<tr valign="top">
+		<td class="forumMessage">&nbsp;</td>
+		<td class="forumMessage" colspan="2">
+			<p>I'm just trying to put some sound to my own emulator, but I'm experiencing some really weird problems with 
+			javax.sound. I have now 2 soundchip emulators in my emulator, an AY-3-8910 and an SN76496, and they build the same way:</p>
+			<p>The soundchip emu is a class that feeds an audiostream, runs in a separate thread, and runs in a tight loop. Another 
+			class in the emulator feeds commands to the soundchip class. I was wondering how these delays can be prevented, or what 
+			should be a good way to emulate sound.</td>
+		<td class="forumMessage">&nbsp;</td>
+	</tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+	<tr valign="top"><td class="forumTitle"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+	<tr valign="top"><td colspan="5" class="forumSearch" align="left"><img src="images/iconStatusCollabSm.gif" alt="*" width="17" height="12" border="0" /> New messages since your last visit</td></tr>
+</table>
+
+<!-- Post a reply -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="middle">
+	<tr>
+		<td align="center">
+			<table width="400" cellpadding="0" cellspacing="0" border="0">
+				<tr><td width="400"><img src="images/forumControlsHead.gif" alt="Collaboration Controls" width="400" height="29" border="0" /></td></tr>
+			</table>
+			
+			<table width="400" cellpadding="0" cellspacing="10" border="0" class="compSearch">
+				<tr><td class="loginCenter">You must be a registered user.&nbsp;&nbsp;&nbsp;<a class="loginLinks" href="loginIndex.shtml">:: Login</a>&nbsp;&nbsp;&nbsp;<a class="loginLinks" href="registerIndex.shtml">:: Register</a></td></tr>
+				<tr><td class="adminControl"><input class="adminControlButton" type="submit" name="reply" value="&nbsp;Post a Reply&nbsp;"></input></td></tr>
+			</table>
+			
+			<table width="400" cellpadding="0" cellspacing="0" border="0">
+				<tr><td width="400"><img src="images/forumControlsFoot.gif" alt="" width="400" height="11" border="0" /></td></tr>
+			</table></td>
+	</tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="middle">
+	<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+</table>
+
+<!--Middle Column ends -->
+	
+<!-- breadcrumb 2 begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr valign="middle">
+		<td width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td width="1%" class="breadcrumb" nowrap><a href="catalogEventEngine.shtml" class="breadcrumbLinks">Event Engine</a> > <a href="collabIndex.shtml" class="breadcrumbLinks">Topics</a> > <a href="collabSubtopics.shtml" class="breadcrumbLinks">Business Logic Requirements</a> > <a href="collabThreads.shtml" class="breadcrumbLinks">Bullet list of required business logic</a> > <strong>Why have to download the applet every time?</strong></td>
+		<td width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+<table>
+<!-- breadcrumb 2 ends -->
+
+<!--Footer begins -->
+<!--#include virtual="includes/footer.shtml" -->
+<!--Footer ends --></form>
+
+</body>
+</html>

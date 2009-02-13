@@ -1,0 +1,893 @@
+<project name="topcoder" default="main" basedir=".">
+    <property name="Name" value="TopCoder"/>
+    <property name="build" value="build"/>
+    <property name="war.dir" value="${build}/wars"/>
+    <property name="ear.dir" value="${build}/ears"/>
+    <property name="ejb_jars" value="${build}/ejb_jars"/>
+    <property name="classes" value="${build}/classes"/>
+    <property name="testclasses" value="${build}/testcases"/>
+    <property name="build.javadocs" value="${build}/javadocs"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="jars.dir" value="${lib.dir}/jars"/>
+    <property name="struts.dir" value="${lib.dir}/jakarta-struts-build-unknown/lib"/>
+    <property name="bin" value="lib/bin"/>
+    <property name="src.dir" value="src"/>
+    <property name="java" value="${src.dir}/main"/>
+    <property name="testjava" value="${src.dir}/testcases"/>
+    <property name="resources" value="resources"/>
+    <property name="taglib" value="${resources}/taglib"/>
+    <property name="images" value="images"/>
+    <property name="Jive.jar" value="${bin}/Jive.jar"/>
+    <property name="servlets" value="${build}/servlets"/>
+    <property name="web" value="src/main/com/topcoder/web"/>
+    <property name="tc_cluster" value="../weblogic_apps/tc_cluster"/>
+    <property name="public_html" value="../weblogic_apps/tc_cluster/public_html"/>
+    <property environment="env"/>
+
+    <property name="deprecation" value="true"/>
+    <property name="debug" value="true"/>
+    <property name="junitsummary" value="on"/>
+
+    <target name="main" depends="compile">
+    </target>
+
+    <path id="class.path">
+        <pathelement location="${classes}"/>
+        <pathelement location="${testclasses}"/>
+        <pathelement location="${resources}"/>
+        <pathelement location="${images}"/>
+        <fileset dir="${jars.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+        <pathelement path="${env.CLASSPATH}"/>
+    </path>
+
+    <target name="init">
+        <mkdir dir="${classes}"/>
+        <mkdir dir="${testclasses}"/>
+        <mkdir dir="${bin}"/>
+        <mkdir dir="${ejb_jars}"/>
+        <mkdir dir="${war.dir}"/>
+        <mkdir dir="${ear.dir}"/>
+    </target>
+
+    <target name="move_file_upload_xml">
+        <property name="toDir" value="${resources}/com/topcoder/servlet/request"/>
+        <mkdir dir="${toDir}"/>
+        <copy todir="${toDir}">
+            <fileset dir="${resources}">
+                <include name="FileUpload.xml"/>
+            </fileset>
+        </copy>
+    </target>
+
+
+    <target name="create_public_html">
+        <mkdir dir="${public_html}/WEB-INF/lib"/>
+    </target>
+
+    <target name="compile" depends="init">
+        <available property="jdk1.4+" classname="java.nio.ByteBuffer" />
+        <javac
+            srcdir="${java}"
+            destdir="${classes}"
+            classpathref="class.path"
+            deprecation="${deprecation}"
+            debug="${debug}"
+            >
+            <exclude
+                name="com/topcoder/security/**"
+                unless="jdk1.4+"
+                />
+        </javac>
+        <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
+        <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
+    </target>
+
+    <target name="full_deploy" depends="build_ejbs,deploy">
+    </target>
+
+    <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats">
+    </target>
+
+    <target name="servlets" depends="compile,move_file_upload_xml">
+        <property name="statservlets" value="com/topcoder/web/stat/servlet"/>
+        <property name="webservlets" value="com/topcoder/web/servlet"/>
+        <property name="pactsservlets" value="com/topcoder/web/pacts/servlet"/>
+        <property name="regservlets" value="com/topcoder/web/reg/servlet"/>
+        <property name="resumeservlets" value="com/topcoder/web/resume/servlet"/>
+        <property name="jobpostingservlets" value="com/topcoder/web/jobposting/servlet"/>
+        <mkdir dir="${servlets}/${statservlets}"/>
+        <mkdir dir="${servlets}/${webservlets}"/>
+        <mkdir dir="${servlets}/${pactsservlets}"/>
+        <mkdir dir="${servlets}/${regservlets}"/>
+        <mkdir dir="${servlets}/${resumeservlets}"/>
+        <mkdir dir="${servlets}/${jobpostingservlets}"/>
+
+        <move todir="${servlets}/${statservlets}">
+            <fileset dir="${classes}/${statservlets}">
+                <include name="**/*.class"/>
+            </fileset>
+        </move>
+        <move todir="${servlets}/${webservlets}">
+            <fileset dir="${classes}/${webservlets}">
+                <include name="**/*.class"/>
+            </fileset>
+        </move>
+        <move todir="${servlets}/${pactsservlets}">
+            <fileset dir="${classes}/${pactsservlets}">
+                <include name="**/*.class"/>
+            </fileset>
+        </move>
+        <move todir="${servlets}/${regservlets}">
+            <fileset dir="${classes}/${regservlets}">
+                <include name="*.class"/>
+            </fileset>
+        </move>
+        <move todir="${servlets}/${regservlets}">
+            <fileset dir="${classes}/${regservlets}">
+                <include name="*.class"/>
+            </fileset>
+        </move>
+        <move todir="${servlets}/${resumeservlets}">
+            <fileset dir="${classes}/${resumeservlets}">
+                <include name="*.class"/>
+            </fileset>
+        </move>
+        <move todir="${servlets}/${jobpostingservlets}">
+            <fileset dir="${classes}/${jobpostingservlets}">
+                <include name="*.class"/>
+            </fileset>
+        </move>
+    </target>
+
+    <target name="moveStruts" depends="create_public_html">
+        <copy todir="${public_html}/WEB-INF/lib">
+            <fileset dir="${struts.dir}">
+                <include name="*.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${public_html}/WEB-INF">
+            <fileset dir="${struts.dir}">
+                <include name="*.tld"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <!--
+       <target name="moveStruts" depends="check_java_version,create_public_html">
+          <copy todir="${public_html}/WEB-INF/lib">
+             <fileset dir="${jars.dir}" >
+                     <include name="common*.jar" />
+             </fileset>
+             <fileset dir="${jars.dir}" >
+                     <include name="struts.jar" />
+             </fileset>
+          </copy>
+          <copy todir="${public_html}/WEB-INF">
+             <fileset dir="${struts.dir}" >
+                     <include name="*.tld" />
+             </fileset>
+          </copy>
+       </target>
+    -->
+
+    <target name="moveStats" depends="create_public_html">
+        <copy todir="${public_html}/WEB-INF">
+            <fileset dir="resources/stat">
+                <include name="*.tld"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="moveReg" depends="create_public_html">
+        <copy todir="${public_html}/WEB-INF">
+            <fileset dir="resources/reg">
+                <include name="**/*.tld"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="jsp" depends="">
+        <property name="stat.trgt" value="${public_html}/stat_jsp"/>
+        <property name="stat.src" value="${web}/stat/servlet/jsp"/>
+        <property name="root.trgt" value="${public_html}"/>
+        <property name="root.src" value="${web}/jsp"/>
+        <property name="pacts.trgt" value="${public_html}/pacts"/>
+        <property name="pacts.src" value="${web}/pacts/servlet/jsp"/>
+        <!--
+              <property name="project.trgt"  value="${public_html}/project" />
+              <property name="project.src"   value="${web}/project/servlet/jsp" />
+        -->
+        <property name="reg.trgt" value="${public_html}/reg"/>
+        <property name="reg.src" value="${web}/reg/servlet/jsp"/>
+        <!--
+              <property name="render.trgt"   value="${public_html}/cm" />
+              <property name="render.src"    value="${web}/render/servlet/jsp" />
+        -->
+        <property name="resume.trgt" value="${public_html}/resume"/>
+        <property name="resume.src" value="${web}/resume/servlet/jsp"/>
+        <property name="jobposting.trgt" value="${public_html}/jobposting_jsp"/>
+        <property name="jobposting.src" value="${web}/jobposting/servlet/jsp"/>
+
+        <mkdir dir="${stat.trgt}"/>
+        <mkdir dir="${root.trgt}"/>
+        <mkdir dir="${pacts.trgt}"/>
+        <!--
+              <mkdir dir="${project.trgt}" />
+        -->
+        <mkdir dir="${reg.trgt}"/>
+        <!--
+              <mkdir dir="${render.trgt}" />
+        -->
+        <mkdir dir="${resume.trgt}"/>
+        <mkdir dir="${jobposting.trgt}"/>
+
+        <copy todir="${stat.trgt}">
+            <fileset dir="${stat.src}">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
+        <copy todir="${root.trgt}">
+            <fileset dir="${root.src}">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
+        <copy todir="${pacts.trgt}">
+            <fileset dir="${pacts.src}">
+                <include name="**/*.jsp"/>
+            </fileset>
+        </copy>
+        <!--
+              <copy todir="${project.trgt}">
+                 <fileset dir="${project.src}" >
+                         <include name="**/*.jsp" />
+                 </fileset>
+              </copy>
+        -->
+        <copy todir="${reg.trgt}">
+            <fileset dir="${reg.src}">
+                <include name="**/*.jsp"/>
+            </fileset>
+        </copy>
+        <!--
+              <copy todir="${render.trgt}">
+                 <fileset dir="${render.src}" >
+                         <include name="**/*.jsp" />
+                 </fileset>
+              </copy>
+        -->
+        <copy todir="${resume.trgt}">
+            <fileset dir="${resume.src}">
+                <include name="**/*.jsp"/>
+            </fileset>
+        </copy>
+        <copy todir="${jobposting.trgt}">
+            <fileset dir="${jobposting.src}">
+                <include name="**/*.jsp"/>
+            </fileset>
+        </copy>
+        <copy todir="${public_html}/WEB-INF">
+            <fileset dir="${taglib}">
+                <include name="*.tld"/>
+            </fileset>
+        </copy>
+    </target>
+
+
+    <target name="javadocs">
+        <mkdir dir="${build.javadocs}"/>
+        <javadoc
+            packagenames="com.*"
+            sourcepath="${java}"
+            destdir="${build.javadocs}"
+            windowtitle="${Name} API"
+            doctitle="${Name} API"
+            >
+        </javadoc>
+    </target>
+
+    <target name="clean">
+        <!-- kill the entire build dir -->
+        <delete dir="${build}"/>
+        <delete dir="${bin}"/>
+    </target>
+
+    <target name="package-Jive" depends="compile">
+        <jar jarfile="${Jive.jar}">
+            <fileset dir="${classes}/"
+                includes="com/coolservlets/**"
+                />
+        </jar>
+    </target>
+
+
+    <target name="build_ejbs" depends="compile">
+        <antcall target="package-EJB-PactsServicesBean"/>
+        <antcall target="package-EJB-JavaDocServicesBean"/>
+        <antcall target="package-EJB-UserServicesBean"/>
+        <antcall target="package-EJB-DataCacheBean"/>
+        <antcall target="package-EJB-UtilBean"/>
+        <antcall target="package-EJB-AuthenticationServicesBean"/>
+        <antcall target="package-EJB-EmailServicesBean"/>
+        <antcall target="package-EJB-SearchBean"/>
+        <antcall target="package-EJB-ReportingBean"/>
+        <antcall target="package-EJB-JobPostingServicesBean"/>
+        <antcall target="package-EJB-ResumeServicesBean"/>
+        <antcall target="package-EJB-QueryServicesBean"/>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="MainEmail"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/email/main"/>
+        </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="MainUser"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/main"/>
+        </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Address"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/address"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/address/main"/>
+        </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Phone"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/phone"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/phone/main"/>
+        </antcall>
+    </target>
+
+    <target name="package-EJB-QueryServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="QueryServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/query/ejb/QueryServices"/>
+        </antcall>
+    </target>
+
+    <target name="package-EJB-JobPostingServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="JobPostingServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/jobposting/ejb/JobPostingServices"/>
+        </antcall>
+    </target>
+
+    <target name="package-EJB-ResumeServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ResumeServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/resume/ejb/ResumeServices"/>
+        </antcall>
+    </target>
+
+    <target name="package-EJB-ReportingBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Reporting"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/Reporting"/>
+        </antcall>
+    </target>
+
+    <target name="package-EJB-ProjectServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ProjectServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/project/ejb/ProjectServices"/>
+        </antcall>
+    </target>
+
+    <target name="package-EJB-SearchBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Search"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/Search"/>
+        </antcall>
+    </target>
+
+    <target name="package-EJB-PactsServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="PactsServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/pacts/ejb/PactsServices"/>
+        </antcall>
+    </target>
+
+    <target name="package-EJB-JavaDocServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="JavaDocServices"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/JavaDocServices"/>
+        </antcall>
+    </target>
+
+    <target name="package-EJB-AuthenticationServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="AuthenticationServices"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/AuthenticationServices"/>
+        </antcall>
+    </target>
+
+    <target name="package-EJB-EmailServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="EmailServices"/>
+            <param name="unit-class-path" value="com/topcoder/shared/ejb/EmailServices"/>
+        </antcall>
+    </target>
+
+    <target name="package-EJB-DataCacheBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="DataCache"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/DataCache"/>
+        </antcall>
+    </target>
+
+    <target name="package-EJB-UtilBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Util"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/Util"/>
+        </antcall>
+    </target>
+
+    <target name="package-EJB-UserServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="UserServices"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/UserServices"/>
+        </antcall>
+    </target>
+
+    <target name="package-EJB-PasswordBean" depends="compile">
+        <jar
+            jarfile="${ejb_jars}/password.jar"
+            basedir="${classes}"
+            includes="com/topcoder/web/ejb/password/**">
+            <metainf dir="${java}/com/topcoder/web/ejb/password" includes="*.xml"/>
+        </jar>
+    </target>
+
+    <target name="build_wars" depends="compile">
+        <delete dir="${war.dir}"/>
+        <mkdir dir="${war.dir}"/>
+        <antcall target="war_email"/>
+        <antcall target="war_query"/>
+        <antcall target="deploy-admin"/>
+    </target>
+
+    <target name="dev_wars" depends="compile">
+        <antcall target="dev_war_query"/>
+        <antcall target="dev_war_email"/>
+    </target>
+
+    <target name="dev_war_query" depends="war_query">
+        <copy todir="${public_html}" file="${war.dir}/query.war"/>
+        <unwar src="${public_html}/query.war" dest="${public_html}/query/" overwrite="yes"/>
+        <delete file="${public_html}/query.war"/>
+        <delete dir="${public_html}/query/META-INF"/>
+    </target>
+
+    <target name="dev_war_email" depends="war_email">
+        <copy todir="${public_html}" file="${war.dir}/email.war"/>
+        <unwar src="${public_html}/query.war" dest="${public_html}/email/" overwrite="yes"/>
+        <delete file="${public_html}/email.war"/>
+        <delete dir="${public_html}/email/META-INF"/>
+    </target>
+
+    <target name="war_email" depends="compile">
+        <war warfile="${war.dir}/email.war" webxml="${resources}/email/web.xml">
+            <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/email/**"/>
+            </classes>
+            <webinf dir="${resources}/email">
+                <include name="email-taglib.tld"/>
+            </webinf>
+            <zipfileset dir="${java}/com/topcoder/web/email/servlet/jsp">
+                <include name="**/*.jpg"/>
+            </zipfileset>
+        </war>
+    </target>
+
+    <target name="war_query" depends="compile">
+        <war warfile="${war.dir}/query.war" webxml="${resources}/query/web.xml">
+            <fileset dir="${java}/com/topcoder/web/query/servlet/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/query/**"/>
+            </classes>
+            <webinf dir="${resources}/query">
+                <include name="query-taglib.tld"/>
+            </webinf>
+        </war>
+    </target>
+
+    <!-- hs -->
+    <target name="deploy_hs" depends="war_hs,build_hs_ejbs">
+        <antcall target="dev_war_hs"/>
+    </target>
+
+    <target name="build_hs_ejbs" depends="compile">
+        <antcall target="package-EJB-QueryServicesBean"/>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="HSUser"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/hs"/>
+        </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="HSTermsOfUse"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/termsofuse/hs"/>
+        </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="HSEmail"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/email/hs"/>
+        </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="School"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/school"/>
+        </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="HSRating"/>
+            <param name="unit-class-path" value="com/topcoder/web/hs/ejb/rating"/>
+        </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="HSCoder"/>
+            <param name="unit-class-path" value="com/topcoder/web/hs/ejb/coder"/>
+        </antcall>
+    </target>
+
+    <target name="dev_war_hs" depends="war_hs">
+        <copy todir="${public_html}" file="${war.dir}/hs.war"/>
+        <unwar src="${public_html}/hs.war" dest="${public_html}/hs/" overwrite="yes"/>
+        <delete file="${public_html}/hs.war"/>
+        <delete dir="${public_html}/hs/META-INF"/>
+    </target>
+
+
+
+    <target name="war_hs" depends="compile">
+        <war warfile="${war.dir}/hs.war" webxml="${resources}/hs/web.xml">
+            <fileset dir="${java}/com/topcoder/web/hs/view">
+                <include name="**/*.jsp"/>
+                <include name="**/*.inc"/>
+                <include name="**/*.html"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/hs/**"/>
+            </classes>
+            <webinf dir="${resources}/hs">
+                <include name="*.tld"/>
+            </webinf>
+            <webinf dir="${struts.dir}">
+                <include name="*.tld"/>
+            </webinf>
+            <lib dir="${struts.dir}">
+                <include name="*.jar"/>
+            </lib>
+        </war>
+    </target>
+
+
+    <!-- begin corp targets -->
+
+    <target name="war_corp" depends="compile,corp-ejb-all">
+        <war warfile="${war.dir}/corp.war" webxml="${resources}/corp/web.xml">
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/corp/**"/>
+                <include name="com/topcoder/web/tces/**"/>
+                <include name="com/topcoder/web/screening/**"/>
+                <include name="com/topcoder/web/common/**"/>
+                <include name="com/topcoder/web/ejb/**"/>
+                <include name="com/topcoder/shared/**"/>
+                <exclude name="**/*Bean.class"/>
+                <exclude name="**/*Impl.class"/>
+            </classes>
+
+            <webinf dir="${resources}/taglib">
+                <include name="tc-webtags.tld"/>
+                <include name="screening.tld"/>
+                <include name="tces-taglib.tld"/>
+            </webinf>
+
+            <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="*, **/*" prefix="corp"/>
+            <zipfileset dir="${java}/com/topcoder/web/screening/view/" includes="*.jsp, **/*.jsp" prefix="testing"/>
+            <zipfileset dir="${java}/com/topcoder/web/tces/servlet/jsp/" includes="*.jsp, **/*.jsp" prefix="tces"/>
+            <zipfileset dir="${ejb_jars}" includes="*.jar" prefix="WEB-INF/ejb"/>
+        </war>
+    </target>
+
+    <target name="deploy-corp" depends="war_corp,war_query">
+        <unwar src="${war.dir}/corp.war" dest="${public_html}/corp/" overwrite="yes"/>
+        <delete dir="${public_html}/corp/META-INF"/>
+
+        <unwar src="${war.dir}/query.war" dest="${public_html}/query/" overwrite="yes"/>
+        <delete dir="${public_html}/query/META-INF"/>
+    </target>
+
+    <target name="corp-ejb-all" depends="compile">
+        <!-- QueryServices ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="QueryServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/query/ejb/QueryServices"/>
+        </antcall>
+
+        <!-- Resume ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="DataCache"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/DataCache"/>
+        </antcall>
+
+        <!-- Resume ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ResumeServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/resume/ejb/ResumeServices"/>
+        </antcall>
+
+        <!-- Address ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Address"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/address"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/address/corp"/>
+        </antcall>
+
+        <!-- Company ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Company"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/company"/>
+        </antcall>
+
+        <!-- Email ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="CorpEmail"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/email/corp"/>
+        </antcall>
+
+        <!-- Phone ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Phone"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/phone"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/phone/corp"/>
+        </antcall>
+
+        <!-- Product ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Product"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/product"/>
+        </antcall>
+
+        <!-- TermsOfUse ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="CorpTermsOfUse"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/termsofuse/corp"/>
+        </antcall>
+
+        <!-- User ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="CorpUser"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/corp"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ScreeningCoder"/>
+            <param name="unit-class-path" value="com/topcoder/web/screening/ejb/coder"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ScreeningEmail"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/email/screening"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Note"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/note"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Session"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/session"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="SessionProfile"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/sessionprofile"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ScreeningUser"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/screening"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="QueryServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/query/ejb/QueryServices"/>
+        </antcall>
+    </target>
+
+    <target name="build-ejb-unit" depends="compile">
+        <property name="deploy-desc-path" value="${unit-class-path}"/>
+        <!-- check if rebuild required -->
+        <uptodate property="remake-ejb-unit" targetfile="${ejb_jars}/${unit-jar-name}.jar">
+            <srcfiles dir="${classes}" includes="${unit-class-path}/**/*.class"/>
+            <srcfiles dir="${java}/${deploy-desc-path}" includes="*.xml"/>
+        </uptodate>
+        <antcall target="conditional-build-ejb-unit"/>
+    </target>
+
+    <target name="conditional-build-ejb-unit" unless="remake-ejb-unit">
+        <!-- recreate -->
+        <property name="tmp-dir" value="${classes}/ejb-stuff"/>
+        <delete dir="${tmp-dir}"/>
+        <mkdir dir="${tmp-dir}"/>
+        <!-- zip 'sources' -->
+        <echo message="getting deployment descriptors from ${deploy-desc-path}"/>
+        <jar jarfile="${tmp-dir}/${unit-jar-name}.jar">
+            <zipfileset dir="${classes}" includes="${unit-class-path}/**/*.class"/>
+            <zipfileset dir="${java}/${deploy-desc-path}" includes="*.xml" prefix="META-INF"/>
+        </jar>
+        <!-- rmi-iiop for weblogic -->
+        <java classname="weblogic.ejbc" fork="yes" classpathref="class.path" failonerror="true">
+            <sysproperty value="-compiler" key="javac"/>
+            <sysproperty value="-classpath" key="${class.path}"/>
+            <arg line="${tmp-dir}/${unit-jar-name}.jar ${ejb_jars}/${unit-jar-name}.jar"/>
+        </java>
+        <echo message="${unit-jar-name}.jar done"/>
+    </target>
+
+    <!-- end corp targets -->
+
+
+    <target name="compile_tests" depends="compile">
+        <javac srcdir="${testjava}" destdir="${testclasses}"
+            classpathref="class.path"
+            deprecation="${deprecation}"
+            debug="${debug}">
+        </javac>
+    </target>
+
+    <target name="run_tests" depends="compile_tests" description="run junit tests">
+        <junit printsummary="${junitsummary}" fork="yes">
+            <classpath refid="class.path"/>
+            <formatter type="xml"/>
+            <batchtest todir="${testclasses}">
+                <fileset dir="${testclasses}">
+                    <include name="**/*TestCase.class"/>
+                </fileset>
+            </batchtest>
+        </junit>
+
+        <junitreport todir="${testclasses}">
+            <fileset dir="${testclasses}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${testclasses}/html"/>
+        </junitreport>
+    </target>
+
+    <target name="deploy-admin" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ContestAdminServices"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/ContestAdminServices"/>
+        </antcall>
+        <war warfile="${war.dir}/admin.war" webxml="${resources}/admin/web.xml">
+            <fileset dir="${java}/com/topcoder/web/admin/view">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/shared/util/"/>
+                <include name="com/topcoder/shared/docGen/"/>
+                <include name="com/topcoder/shared/dataAccess/"/>
+                <include name="com/topcoder/web/servlet/admin/" />
+                <include name="com/topcoder/common/web/" />
+                <include name="com/topcoder/web/common/" />
+                <include name="com/topcoder/web/admin/**" />
+            </classes>
+
+        </war>
+        <unwar src="${war.dir}/admin.war" dest="${public_html}/admin/" overwrite="yes"/>
+        <delete dir="${public_html}/admin/META-INF"/>
+    </target>
+
+    <target name="build-security    " depends="compile">
+        <jar
+            jarfile="${ejb_jars}/security.jar"
+            basedir="${classes}"
+            includes="com/topcoder/security/**">
+	        <metainf dir="${resources}/security/conf" includes="*.xml" excludes="application.xml"/>
+	    </jar>
+
+        <ear earfile="${ear.dir}/security.ear" appxml="${resources}/security/conf/application.xml">
+            <fileset dir="${jars.dir}">
+                <include name="idgenerator.jar"/>
+                <include name="configmanager2.jar"/>
+                <include name="tcsUtil.jar"/>
+            </fileset>
+            <fileset dir="${ejb_jars}">
+                <include name="security.jar"/>
+            </fileset>
+        </ear>
+    </target>
+
+    <target name="moveQueries" depends="compile">
+        <java classname="com.topcoder.utilities.querymover.QueryMover" fork="true">
+            <arg value="11024"/>
+            <arg value="11023"/>
+            <arg value="11029"/>
+            <arg value="13"/>
+            <arg value="262"/>
+            <arg value="280"/>
+            <arg value="11021"/>
+            <arg value="11014"/>
+            <arg value="12157"/>
+            <arg value="12158"/>
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+    </target>
+
+
+    <target name="contestFraud" depends="compile">
+        <java classname="com.topcoder.utilities.cheaterChecker.Contest" fork="true">
+            <arg value="HS_OLTP"/>
+            <arg value="2008"/>
+            <arg value="1505"/>
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="userMover" depends="compile">
+        <java classname="com.topcoder.utilities.UserMover" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="password" depends="compile">
+        <java classname="com.topcoder.utilities.PasswordGetter" fork="true">
+            <arg value="${handle}"/>
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="whitespace" depends="compile">
+        <java classname="com.topcoder.utilities.RemoveWhiteSpace" fork="true">
+            <arg value="${file}"/>
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+    </target>
+
+</project>
+

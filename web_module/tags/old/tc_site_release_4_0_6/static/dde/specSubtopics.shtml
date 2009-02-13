@@ -1,0 +1,99 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+  
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+<body class="body" marginheight="0" marginwidth="0">
+<form action="#" method="#">
+
+<!--Header begins -->
+
+<!--#include virtual="includes/headerLogged.shtml" -->
+<!--#include virtual="includes/navCatalog.shtml" -->
+
+<!--Header ends -->
+
+<!-- breadcrumb 1 begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr valign="middle">
+		<td width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td width="1%" class="breadcrumb" nowrap><a href="catalogEventEngine.shtml" class="breadcrumbLinks">Event Engine</a> > <a href="specIndex.shtml" class="breadcrumbLinks">Topics</a> > <strong>Business Logic Requirements</strong></td>
+		<td width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+<table>
+<!-- breadcrumb 1 ends -->
+
+<!--Middle Column begins -->
+<!-- Forum Head begins -->
+<!--#include virtual="includes/specHead.shtml" -->
+<!-- Forum Head ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
+	<tr valign="top">
+		<td width="1%" class="forumTitleCenter">New</td>
+		<td width="60%" class="forumTitle">Subtopics</td>
+		<td width="2%" class="forumTitleCenter">Threads</td>
+		<td width="2%" class="forumTitleCenter">Messages</td>
+		<td width="35%" class="forumTitle">Last Message</td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumSubjectCenter"><img src="images/iconStatusSpecSm.gif" alt="*" width="17" height="12" border="0" /></td>
+		<td class="forumSubject"><strong>Business Logic Requirements</strong><br />These are the pieces needed to create and market components.</td>
+		<td class="forumSubjectCenter">20</td>
+		<td class="forumSubjectCenter">46</td>
+		<td class="forumSubject">06-21-2002 04:37 PM by <strong>kyled227</strong></td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumTextCenter"><img src="images/iconStatusSpecSm.gif" alt="*" width="17" height="12" border="0" /></td>
+		<td class="forumSubtopic"><a href="specThreads.shtml">Bullet list of required business logic</a></td>
+		<td class="forumTextCenter">5</td>
+		<td class="forumTextCenter">18</td>
+		<td class="forumText">06-20-2002 02:40 PM by <strong>StephCor</strong></td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumTextCenter"><img src="images/iconStatusSpecSm.gif" alt="*" width="17" height="12" border="0" /></td>
+		<td class="forumSubtopic"><a href="specThreads.shtml">An example of the software usage</a></td>
+		<td class="forumTextCenter">12</td>
+		<td class="forumTextCenter">23</td>
+		<td class="forumText">06-21-2002 04:37 PM by <strong>kyled227</strong></td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumTextCenter">&nbsp;</td>
+		<td class="forumSubtopic"><a href="specThreads.shtml">A list of competing tools or products</a></td>
+		<td class="forumTextCenter">3</td>
+		<td class="forumTextCenter">5</td>
+		<td class="forumText">07-15-2002 03:24 PM by <strong>Pops</strong></td>
+	</tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+	<tr valign="top"><td class="forumTitle"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+	<tr valign="top"><td colspan="5" class="forumSearch" align="left"><img src="images/iconStatusSpecSm.gif" alt="*" width="17" height="12" border="0" /> New messages since your last visit</td></tr>
+</table>
+<!--Middle Column ends -->
+	
+<!-- breadcrumb 2 begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="middle">
+	<tr valign="middle">
+		<td width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td width="1%" class="breadcrumb" nowrap><a href="catalogEventEngine.shtml" class="breadcrumbLinks">Event Engine</a> > <a href="specIndex.shtml" class="breadcrumbLinks">Topics</a> > <strong>Business Logic Requirements</strong></td>
+		<td width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+<table>
+<!-- breadcrumb 2 ends -->
+
+<!--Footer begins -->
+<!--#include virtual="includes/footer.shtml" -->
+<!--Footer ends -->
+
+</form>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<CMConfig>  
+  <Config name="com.topcoder.apps.screening.rules.JavaCheckStyleRule">
+    <Property name="checkstyle_command">
+        <Value>/home/apps/web/lib/checkstyle/bin/tc_checks.sh</Value>
+    </Property>
+    <Property name="checkstyle_test_command">
+        <Value>/home/apps/web/lib/checkstyle/bin/tc_test_checks.sh</Value>
+    </Property>
+  </Config>
+</CMConfig>

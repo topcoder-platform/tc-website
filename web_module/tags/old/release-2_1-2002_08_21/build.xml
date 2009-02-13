@@ -1,0 +1,539 @@
+<project name="topcoder" default="main" basedir=".">
+
+   <property name="Name"          value="TopCoder" />
+   <property name="version"       value="0.0.1" />
+   <property name="build"         value="build" />
+   <property name="war.dir"       value="${build}/wars" />
+   <property name="email.war.name"      value="email.war"/>
+   <property name="tces.war.name" value="tces.war"/>
+   <property name="stat.war.name" value="stat.war"/>
+   <property name="ejb_jars"      value="${build}/ejb_jars" />
+   <property name="classes"       value="${build}/classes" />
+   <property name="testclasses"   value="${build}/testcases" />
+   <property name="build.javadocs" value="${build}/javadocs" />
+   <property name="lib.dir"       value="lib" />
+   <property name="jars.dir"      value="${lib.dir}/jars" />
+   <property name="struts.dir"    value="${lib.dir}/jakarta-struts-build-unknown/lib" />
+<!--   <property name="struts.dir"    value="${lib.dir}/jakarta-struts-1.1-b1/lib" /> -->
+<!--   <property name="struts.dir"    value="${lib.dir}/jakarta-struts-build-20020730/lib" /> -->
+   <property name="bin"           value="lib/bin" />
+   <property name="src.dir"       value="src"/>
+   <property name="java"          value="${src.dir}/main" />
+   <property name="testjava"      value="${src.dir}/testcases" />
+   <property name="resources"     value="resources" />
+   <property name="images"        value="images" />
+   <property name="Jive.jar"      value="${bin}/Jive.jar"/>
+   <property name="servlets"      value="${build}/servlets" />
+   <property name="web"           value="src/main/com/topcoder/web" />
+   <property name="public_html"   value="/opt/home/weblog5/weblogic1/tc_cluster/public_html" />
+   <property environment="env"/>
+
+   <property name="deprecation"   value="false" />
+   <property name="debug"   value="true" />
+
+
+
+   <path id="class.path">
+      <pathelement location="${classes}" />
+      <pathelement location="${testclasses}" />
+      <pathelement location="${resources}" />
+      <pathelement location="${images}" />
+      <fileset dir="${jars.dir}">
+         <include name="**/*.jar" />
+      </fileset>
+      <pathelement path="${env.CLASSPATH}"/>
+   </path>
+
+   <target name="init">
+      <property name="statservlets"  value="com/topcoder/web/stat/servlet" />
+      <property name="webservlets"   value="com/topcoder/web/servlet" />
+      <property name="pactsservlets" value="com/topcoder/web/pacts/servlet" />
+      <property name="regservlets" value="com/topcoder/web/reg/servlet" />
+      <mkdir dir="${classes}" />
+      <mkdir dir="${testclasses}" />
+      <mkdir dir="${bin}" />
+      <mkdir dir="${ejb_jars}" />
+      <mkdir dir="${war.dir}" />
+      <mkdir dir="${servlets}/${statservlets}" />
+      <mkdir dir="${servlets}/${webservlets}" />
+      <mkdir dir="${servlets}/${pactsservlets}" />
+      <mkdir dir="${servlets}/${regservlets}" />
+     
+      <mkdir dir="${public_html}/WEB-INF/lib" />
+   </target>
+
+    <target name="check_java_version">
+        <available property="jdk1.4+" classname="java.nio.ByteBuffer" />
+    </target>
+
+   <target name="compile" depends="init,check_java_version">
+      <javac
+            srcdir="${java}"
+            destdir="${classes}"
+            classpathref="class.path"
+            deprecation="${deprecation}"
+            debug="${debug}"
+            >
+            <exclude
+                name="com/topcoder/server/listener/nio/channels/spi/java14/*"
+                unless="jdk1.4+"
+            />
+      </javac>
+      <rmic classname="com.topcoder.shared.distCache.CacheClientImpl"     base="${classes}"/>
+      <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
+   </target>
+
+   <target name="full_deploy" depends="build_ejbs,deploy">
+   </target>
+
+   <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats">
+   </target>
+
+   <target name="servlets" depends="compile">
+      <move todir="${servlets}/${statservlets}">
+         <fileset dir="${classes}/${statservlets}" >
+                 <include name="**/*.class" />
+         </fileset>
+      </move>
+      <move todir="${servlets}/${webservlets}">
+         <fileset dir="${classes}/${webservlets}" >
+                 <include name="**/*.class" />
+         </fileset>
+      </move>
+      <move todir="${servlets}/${pactsservlets}">
+         <fileset dir="${classes}/${pactsservlets}" >
+                 <include name="**/*.class" />
+         </fileset>
+      </move>
+      <move todir="${servlets}/${regservlets}">
+        <fileset dir="${classes}/${regservlets}">
+          <include name="*.class"/>
+        </fileset>
+      </move>
+   </target>
+
+   <target name="moveStruts" depends="check_java_version">
+      <copy todir="${public_html}/WEB-INF/lib">
+         <fileset dir="${struts.dir}" >
+                 <include name="*.jar" />
+         </fileset>
+      </copy>
+      <copy todir="${public_html}/WEB-INF">
+         <fileset dir="${struts.dir}" >
+                 <include name="*.tld" />
+         </fileset>
+      </copy>
+   </target>
+
+<!--
+   <target name="moveStruts" depends="check_java_version">
+      <copy todir="${public_html}/WEB-INF/lib">
+         <fileset dir="${jars.dir}" >
+                 <include name="common*.jar" />
+         </fileset>
+         <fileset dir="${jars.dir}" >
+                 <include name="struts.jar" />
+         </fileset>
+      </copy>
+      <copy todir="${public_html}/WEB-INF">
+         <fileset dir="${struts.dir}" >
+                 <include name="*.tld" />
+         </fileset>
+      </copy>
+   </target>
+-->
+
+   <target name="moveStats" depends="check_java_version">
+      <copy todir="${public_html}/WEB-INF">
+         <fileset dir="resources/stat" >
+                 <include name="*.tld" />
+         </fileset>
+      </copy>
+   </target>
+
+   <target name="moveReg" depends="check_java_version">
+      <copy todir="${public_html}/WEB-INF">
+         <fileset dir="resources/reg" >
+                 <include name="**/*.tld" />
+         </fileset>
+      </copy>
+   </target>
+
+   <target name="jsp" depends="check_java_version">
+      <property name="stat.trgt"     value="${public_html}/stat_jsp" />
+      <property name="stat.src"      value="${web}/stat/servlet/jsp" />
+      <property name="root.trgt"     value="${public_html}" />
+      <property name="root.src"      value="${web}/jsp" />
+      <property name="pacts.trgt"    value="${public_html}/pacts" />
+      <property name="pacts.src"     value="${web}/pacts/servlet/jsp" />
+      <property name="project.trgt"  value="${public_html}/project" />
+      <property name="project.src"   value="${web}/project/servlet/jsp" />
+      <property name="reg.trgt"      value="${public_html}/reg" />
+      <property name="reg.src"       value="${web}/reg/servlet/jsp" />
+      <property name="render.trgt"   value="${public_html}/cm" />
+      <property name="render.src"    value="${web}/render/servlet/jsp" />
+
+      <mkdir dir="${stat.trgt}" /> 
+      <mkdir dir="${root.trgt}" />
+      <mkdir dir="${pacts.trgt}" />
+      <mkdir dir="${project.trgt}" />
+      <mkdir dir="${reg.trgt}" />
+      <mkdir dir="${render.trgt}" />
+
+      <copy todir="${stat.trgt}">
+         <fileset dir="${stat.src}" >
+                 <include name="**/*.*" />
+         </fileset>
+      </copy>
+      <copy todir="${root.trgt}">
+         <fileset dir="${root.src}" >
+                 <include name="**/*.*" />
+         </fileset>
+      </copy>
+      <copy todir="${pacts.trgt}">
+         <fileset dir="${pacts.src}" >
+                 <include name="**/*.jsp" />
+         </fileset>
+      </copy>
+      <copy todir="${project.trgt}">
+         <fileset dir="${project.src}" >
+                 <include name="**/*.jsp" />
+         </fileset>
+      </copy>
+      <copy todir="${reg.trgt}">
+         <fileset dir="${reg.src}" >
+                 <include name="**/*.jsp" />
+         </fileset>
+      </copy>
+      <copy todir="${render.trgt}">
+         <fileset dir="${render.src}" >
+                 <include name="**/*.jsp" />
+         </fileset>
+      </copy>
+   </target>
+
+
+   <target name="run" depends="package">
+   </target>
+
+   <target name="package" depends="jars">
+   </target>
+
+   <target name="jars" depends="package-Jive">
+   </target>
+
+
+   <target name="javadocs">
+        <mkdir dir="${build.javadocs}"/>
+        <javadoc
+            packagenames="com.*"
+            sourcepath="${java}"
+            destdir="${build.javadocs}"
+            windowtitle="${Name} API"
+            doctitle="${Name} API"
+            >
+        </javadoc>
+    </target>
+
+   <target name="clean">
+      <!-- kill the entire build dir -->
+      <delete dir="${build}" />
+      <delete dir="${bin}" />
+   </target>
+
+      <target name="main">
+        <antcall target="run"/>
+    </target>
+
+   <target name="package-Jive" depends="compile">
+       <jar jarfile="${Jive.jar}" >
+         <fileset dir="${classes}/"
+                includes="com/coolservlets/**"
+           />
+       </jar>
+   </target>
+
+
+
+   <target name="build_ejbs" depends="compile">
+        <antcall target="package-EJB-PactsServicesBean"/>
+        <antcall target="package-EJB-UserServicesBean"/>
+        <antcall target="package-EJB-DataCacheBean"/>
+        <antcall target="package-EJB-UtilBean"/>
+        <antcall target="package-EJB-AuthenticationServicesBean"/>
+        <antcall target="package-EJB-CoderStatisticsBean"/>
+        <antcall target="package-EJB-EmailServicesBean"/>
+        <antcall target="package-EJB-ContestAdminServicesBean"/>
+        <antcall target="package-EJB-SearchBean"/>
+        <antcall target="package-EJB-ReportingBean"/>
+        <antcall target="package-EJB-ProjectServicesBean"/>
+        <antcall target="package-EJB-MPSQASServicesBean"/>
+        <antcall target="package-EJB-TCESServicesBean"/>
+   </target>
+
+<target name="package-EJB-TCESServicesBean" depends="compile,init-TCESServicesBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-TCESServicesBean-properties" >
+       <property name="bean.dir"          value="TCESServices" />
+        <property name="bean.jar.name"     value="TCESServices.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/tces/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+<target name="package-EJB-ReportingBean" depends="compile,init-ReportingBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-ReportingBean-properties" >
+       <property name="bean.dir"          value="Reporting" />
+        <property name="bean.jar.name"     value="Reporting.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+
+<target name="package-EJB-MPSQASServicesBean" depends="compile,init-MPSQASServicesBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-MPSQASServicesBean-properties" >
+       <property name="bean.dir"          value="MPSQASServices" />
+        <property name="bean.jar.name"     value="MPSQASServices.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+
+<target name="package-EJB-ProjectServicesBean" depends="compile,init-ProjectServicesBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-ProjectServicesBean-properties" >
+       <property name="bean.dir"          value="ProjectServices" />
+        <property name="bean.jar.name"     value="ProjectServices.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/project/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+<target name="package-EJB-SearchBean" depends="compile,init-SearchBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-SearchBean-properties" >
+       <property name="bean.dir"          value="Search" />
+        <property name="bean.jar.name"     value="Search.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+<target name="package-EJB-PactsServicesBean" depends="compile,init-PactsServicesBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-PactsServicesBean-properties" >
+       <property name="bean.dir"          value="PactsServices" />
+        <property name="bean.jar.name"     value="PactsServicesBean.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/pacts/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+<target name="package-EJB-CoderStatisticsBean" depends="compile,init-CoderStatisticsBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-CoderStatisticsBean-properties" >
+       <property name="bean.dir"          value="CoderStatistics" />
+        <property name="bean.jar.name"     value="CoderStatistics.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+<target name="package-EJB-AuthenticationServicesBean" depends="compile,init-AuthenticationServicesBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-AuthenticationServicesBean-properties" >
+       <property name="bean.dir"          value="AuthenticationServices" />
+        <property name="bean.jar.name"     value="AuthenticationServices.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+
+<target name="package-EJB-ContestAdminServicesBean" depends="compile,init-ContestAdminServicesBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-ContestAdminServicesBean-properties" >
+       <property name="bean.dir"          value="ContestAdminServices" />
+        <property name="bean.jar.name"     value="ContestAdminServices.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+
+    <target name="package-EJB-EmailServicesBean" depends="compile,init-EmailServicesBean-properties,package-EJB-GenericBean"/>
+
+    <target name="init-EmailServicesBean-properties" >
+        <property name="bean.dir"          value="EmailServices" />
+        <property name="bean.jar.name"     value="EmailServices.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/shared/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+
+   <target name="package-EJB-DataCacheBean" depends="compile,init-DataCacheBean-properties,package-EJB-GenericBean"/>
+
+   <target name="init-DataCacheBean-properties" >
+       <property name="bean.dir"          value="DataCache" />
+        <property name="bean.jar.name"     value="DataCache.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+
+
+   <target name="package-EJB-UtilBean" depends="compile,init-UtilBean-properties,package-EJB-GenericBean"/>
+
+   <target name="init-UtilBean-properties" >
+       <property name="bean.dir"          value="Util" />
+        <property name="bean.jar.name"     value="Util.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+
+
+
+   <target name="package-EJB-UserServicesBean" depends="compile,init-UserServicesBean-properties,package-EJB-GenericBean"/>
+
+   <target name="init-UserServicesBean-properties" >
+       <property name="bean.dir"          value="UserServices" />
+        <property name="bean.jar.name"     value="UserServices.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+
+
+   <target name="initGenericBean" >
+      <delete dir="${bean.build.dir}"/>
+      <delete dir="${bean.class.dir}/*.class" />
+      <mkdir  dir="${bean.build.dir}"/>
+      <mkdir  dir="${bean.meta-inf.dir}"/>
+   </target>
+
+
+
+
+
+   <target name="package-EJB-GenericBean" depends="initGenericBean">
+
+      <echo message="bean.src.dir ${bean.src.dir} "/>
+      <echo message="bean.build.dir ${bean.build.dir} "/>
+      <echo message="bean.meta-inf.dir ${bean.meta-inf.dir} "/>
+      <echo message="Ant build of ${bean.jar.name} ."/>
+      <copy todir="${bean.meta-inf.dir}">
+         <fileset dir="${bean.src.dir}" >
+                 <include name="*.xml" />
+         </fileset>
+      </copy>
+
+      <javac
+             srcdir="${bean.src.dir}"
+             destdir="${bean.build.dir}"
+             classpathref="class.path"
+             deprecation="${deprecation}"
+             debug="${debug}"
+            >
+      </javac>
+
+      <jar jarfile="${bean.build.dir}/${bean.jar.name}"
+             basedir="${bean.build.dir}"
+             compress="true"
+             excludes="*.jar"
+      />
+
+      <java classname="weblogic.ejbc" fork="yes" classpathref="class.path">
+          <sysproperty value="-compiler" key="javac" />
+          <sysproperty value="-classpath" key="${class.path}" />
+          <arg line="${bean.build.dir}/${bean.jar.name} ${ejb_jars}/${bean.jar.name}" />
+      </java>
+      <echo message="Ant build of ${bean.jar.name} EJB completed successfully."/>
+
+   </target>
+
+    <target name="build_wars" depends="compile">
+        <delete dir="${war.dir}"/>
+        <mkdir  dir="${war.dir}"/>
+        <antcall target="war_email"/>
+        <antcall target="war_tces"/>
+<!--        <antcall target="war_stat"/> -->
+    </target>
+    
+<!-- 
+    <target name="war_stat" depends="compile">
+        <war warfile="${war.dir}/${stat.war.name}" webxml="${resources}/stat/web.xml">
+            <fileset dir="${java}/com/topcoder/web/stat/servlet/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <fileset dir="${java}/com/topcoder/web/jsp">
+                <include name="top.jsp"/>
+                <include name="foot.jsp"/>
+                <include name="script.jsp"/>
+                <include name="errorPage.jsp"/>
+                <include name="my_features.jsp"/>
+                <include name="public_right.jsp"/>
+                <include name="menu.jsp"/>
+                <include name="date_time.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/stat/**"/>
+            </classes>
+            <webinf dir="${struts.dir}">
+                <include name="*.tld"/>
+            </webinf>
+            <lib dir="${struts.dir}">
+                <include name="*.jar"/>
+            </lib>
+        </war>
+    </target>
+-->
+    <target name="war_email" depends="compile">
+        <war warfile="${war.dir}/${email.war.name}" webxml="${resources}/email/web.xml">
+            <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/email/**"/>
+            </classes>
+            <webinf dir="${resources}/email">
+                <include name="email-taglib.tld"/>
+            </webinf>
+            <zipfileset dir="${java}/com/topcoder/web/email/servlet/jsp">
+                <include name="**/*.jpg"/>
+            </zipfileset>
+        </war>
+    </target>
+    <target name="war_tces" depends="compile">
+        <war warfile="${war.dir}/${tces.war.name}" webxml="${resources}/tces/web.xml">
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/tces/common/*"/>
+                <include name="com/topcoder/web/tces/servlet/*"/>
+            </classes>
+        </war>
+    </target>
+
+
+</project>
+

@@ -1,0 +1,1357 @@
+/* Body Styles ----------  */
+html, body
+{
+	background-color: #FFF;
+	padding: 0px;
+	margin: 0px;
+}
+
+/* Major Tag Styles ----------  */
+A:link
+{
+	color: #00F;
+	text-decoration: none;
+}
+
+A:visited
+{
+	color: #9D11B3;
+	text-decoration: none;
+}
+
+A:hover
+{
+	color: #F00;
+	text-decoration: underline;
+}
+
+A:active
+{
+	color: #F00;
+	text-decoration: underline;
+}
+
+td, th
+{
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	font-size: 11px;
+	color: #000;
+	text-decoration: none;
+}
+
+/* Subclass Styles ----------  */
+.bodySubhead
+{
+	color: #666666;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.bodyTextTitle
+{
+	color: #333333;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.bodyTextItal
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+	font-style: italic;
+}
+
+.bodyTextBold
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: bold;
+	font-style: normal;
+}
+
+.bodyText
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+	font-style: normal;
+}
+
+A.bodyText:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.bodyText:visited
+{
+	color: #990000;
+	text-decoration: none;
+}
+
+A.bodyText:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.bodyText:active
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+.bolddate
+{
+	font-size: 10px;
+	font-weight: bold;
+	color: #CC0000;
+}
+
+A.bolddate:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.bolddate:visited
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.bolddate:hover
+{
+	color: #666666;
+	text-decoration: none;
+}
+
+A.bolddate:active
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+.bolddateoff
+{
+	font-size: 10px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.brackets
+{
+	color: #000000;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+#calendar
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+	text-align: left;
+	vertical-align: top;
+	background-color: #EEE;
+	background-image: url(/i/calendar_bg.gif);
+}
+
+#calendarMini
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #EEE;
+}
+
+#calendarBlank
+{
+	font-size: 11px;
+	font-weight: normal;
+	background-color: #CCC;
+}
+
+#calendarBlankMini
+{
+	font-size: 11px;
+	font-weight: normal;
+	background-color: #CCC;
+}
+
+#calendarFrame
+{
+	border: 1px solid #43515E;
+	background-color: #43515E;
+}
+
+#calendarDays
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #D84000;
+	background-image: url(/i/s_calendar_bg.gif);
+}
+
+#calendarSRM
+{
+	color: #000;
+	font-size: 11px;
+	font-weight: normal;
+	text-align: left;
+	vertical-align: top;
+	background-color: #FFF;
+}
+
+#calendarSRMMini
+{
+	color: #000;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: top;
+	background-color: #FFF;
+}
+
+a.calendarSRMMini:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+a.calendarSRMMini:visited
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+a.calendarSRMMini:hover
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+a.calendarSRMMini:active
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+#calendarSRMDate
+{
+	color: #F00;
+	font-weight: bold;
+}
+
+#calendarTourney
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: normal;
+	text-align: left;
+	vertical-align: top;
+	background-image: url(/i/tournament/tccc03/tccc03_bkgd.gif);
+	background-color: #444;
+}
+
+#calendarTourneyMini
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #444;
+}
+
+.coderBrackets
+{
+	color: #FFCC33;
+	font-size: 11px;
+}
+
+.coderTextBlack { color: #000000; }
+
+A.coderTextBlack:link
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.coderTextBlack:visited
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.coderTextBlack:hover
+{
+	color: #333333;
+	text-decoration: underline;
+}
+
+A.coderTextBlack:active
+{
+	color: #333333;
+	text-decoration: underline;
+}
+
+.coderTextBlue { color: #66CCCC; }
+
+A.coderTextBlue:link
+{
+	color: #66CCCC;
+	text-decoration: none;
+}
+
+A.coderTextBlue:visited
+{
+	color: #66CCCC;
+	text-decoration: none;
+}
+
+A.coderTextBlue:hover
+{
+	color: #66CCCC;
+	text-decoration: underline;
+}
+
+A.coderTextBlue:active
+{
+	color: #66CCCC;
+	text-decoration: underline;
+}
+
+.coderTextGray { color: #CCCCCC; }
+
+A.coderTextGray:link
+{
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+A.coderTextGray:visited
+{
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+A.coderTextGray:hover
+{
+	color: #CCCCCC;
+	text-decoration: underline;
+}
+
+A.coderTextGray:active
+{
+	color: #CCCCCC;
+	text-decoration: underline;
+}
+
+.coderTextGreen { color: #99FF33; }
+
+A.coderTextGreen:link
+{
+	color: #99FF33;
+	text-decoration: none;
+}
+
+A.coderTextGreen:visited
+{
+	color: #99FF33;
+	text-decoration: none;
+}
+
+A.coderTextGreen:hover
+{
+	color: #99FF33;
+	text-decoration: underline;
+}
+
+A.coderTextGreen:active
+{
+	color: #99FF33;
+	text-decoration: underline;
+}
+
+.coderTextOrange { color: #FF9900; }
+
+A.coderTextOrange:link
+{
+	color: #FF9900;
+	text-decoration: none;
+}
+
+A.coderTextOrange:visited
+{
+	color: #FF9900;
+	text-decoration: none;
+}
+
+A.coderTextOrange:hover
+{
+	color: #CC9900;
+	text-decoration: underline;
+}
+
+A.coderTextOrange:active
+{
+	color: #CC9900;
+	text-decoration: underline;
+}
+
+.coderTextRed { color: #FF0000; }
+
+A.coderTextRed:link
+{
+	color: #FF0000;
+	text-decoration: none;
+}
+
+A.coderTextRed:visited
+{
+	color: #FF0000;
+	text-decoration: none;
+}
+
+A.coderTextRed:hover
+{
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+A.coderTextRed:active
+{
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+.coderTextYellow { color: #FFFF00; }
+
+A.coderTextYellow:link
+{
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+A.coderTextYellow:visited
+{
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+A.coderTextYellow:hover
+{
+	color: #FFFF00;
+	text-decoration: underline;
+}
+
+A.coderTextYellow:active
+{
+	color: #FFFF00;
+	text-decoration: underline;
+}
+
+.devSubhead
+{
+	color: #FFFFFF;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.dropdown
+{
+	font-size: 11px;
+	color: #666666;
+	background-color: #FFFFFF;
+}
+
+.errorText
+{
+	color: #CC0000;
+	font-size: 11px;
+	font-weight: normal;
+	font-style: italic;
+}
+
+#formFrame
+{
+	border: 1px solid #001934;
+	background-color: #FFF;
+}
+
+.formTitle
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+	background-color: #001934;
+	background-image: url(/i/blue_heading_bg.gif);
+}
+
+.globalNav
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: normal;
+	white-space: nowrap;
+}
+
+A.globalNav:link
+{
+	color: #FFFFFF;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.globalNav:visited
+{
+	color: #FFFFFF;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.globalNav:hover
+{
+	color: #000000;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.globalNav:active
+{
+	color: #FFFFFF;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+.globalNavDots
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+.globalNav_on
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+	white-space: nowrap;
+}
+
+A.globalNav_on:link
+{
+	color: #000000;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.globalNav_on:visited
+{
+	color: #000000;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.globalNav_on:hover
+{
+	color: #999999;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.globalNav_on:active
+{
+	color: #000000;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+.globalNavSmall
+{
+	color: #CCCCCC;
+	font-size: 10px;
+	font-weight: normal;
+	background-color: #001934;
+}
+
+A.globalNavSmall:link
+{
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+A.globalNavSmall:visited
+{
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+A.globalNavSmall:hover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+A.globalNavSmall:active
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.globalNavSmall_on
+{
+	color: #FFFFFF;
+	font-size: 10px;
+	font-weight: normal;
+}
+
+A.globalNavSmall_on:link
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.globalNavSmall_on:visited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.globalNavSmall_on:hover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+A.globalNavSmall_on:active
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.grayLine
+{
+	color: #CCCCCC;
+	font-size: 11px;
+}
+
+.header
+{
+	color: #000000;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.headerWhite
+{
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.memberhandle
+{
+	font-size: 11px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.messageSmall
+{
+	color: #FFFFFF;
+	font-size: 10px;
+	font-weight: normal;
+}
+
+A.messageSmall:link
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.messageSmall:visited
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.messageSmall:hover
+{
+	color: #666666;
+	text-decoration: none;
+}
+
+A.messageSmall:active
+{
+	color: #666666;
+	text-decoration: none;
+}
+
+.moduleTitle
+{
+	color: #CCCCCC;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.moduleSubhead
+{
+	color: #CC0000;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.moduleSubhead:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.moduleSubhead:visited
+{
+	color: #990000;
+	text-decoration: none;
+}
+
+A.moduleSubhead:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.moduleSubhead:active
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+.moduleText
+{
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+}
+
+A.moduleText:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.moduleText:visited
+{
+	color: #990000;
+	text-decoration: none;
+}
+
+A.moduleText:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.moduleText:active
+{
+	color: #CC0000;
+	text-decoration: underline;
+}
+
+.ongray
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.ongray:link
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.ongray:visited
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.ongray:hover
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+A.ongray:active
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+.openProjects
+{
+	color: #CC0000;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+A.openProjects:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.openProjects:visited
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.openProjects:hover
+{
+	color: #666666;
+	text-decoration: none;
+}
+
+A.openProjects:active
+{
+	color: #666666;
+	text-decoration: none;
+}
+
+.rednavBar
+{
+	background-color: #900;
+	background-image: url(/i/top_rednav_bg.gif);
+}
+
+.rednav
+{
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFF;
+	white-space: nowrap;
+}
+
+A.rednav:link
+{
+	color: #FFF;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.rednav:visited
+{
+	color: #FFF;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.rednav:hover
+{
+	color: #99C;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.rednav:active
+{
+	color: #99C;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.rednavLaunch:link
+{
+	color: #FFCC33;
+	font-style: italic;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.rednavLaunch:visited
+{
+	color: #FFCC33;
+	font-style: italic;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.rednavLaunch:hover
+{
+	color: #99C;
+	font-style: italic;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.rednavLaunch:active
+{
+	color: #99C;
+	font-style: italic;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+.rednavoff
+{
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFF;
+	white-space: nowrap;
+}
+
+.registerNav
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.registerNav:link
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.registerNav:visited
+{
+	color: #999999;
+	text-decoration: none;
+}
+
+A.registerNav:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.registerNav:active
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.registerNav_on
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.registerNav_on:link
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.registerNav_on:visited
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.registerNav_on:hover
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+A.registerNav_on:active
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+.registerToday
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.registerToday:link
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.registerToday:visited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.registerToday:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.registerToday:active
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+.resoursesnav
+{
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFDE00;
+}
+
+.resoursesnavoff
+{
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFDE00;
+}
+
+A.resoursesnav:link
+{
+	color: #FFDE00;
+	text-decoration: none;
+}
+
+A.resoursesnav:visited
+{
+	color: #FFDE00;
+	text-decoration: none;
+}
+
+A.resoursesnav:hover
+{
+	color: #001934;
+	text-decoration: underline;
+}
+
+A.resoursesnav:active
+{
+	color: #FFDE00;
+	text-decoration: underline;
+}
+
+.sectionTitle
+{
+	color: #000000;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.sectionTitleBrackets
+{
+	color: #CC0000;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.sidenav
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: bold;
+	vertical-align: top;
+	padding-left: 5px;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	border-style: solid;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-color: #1B2E5D;
+}
+
+.titlesidenav
+{
+	color: #FFF;
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #1B2E5D;
+	vertical-align: top;
+	text-align: left;
+	padding-left: 5px;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	border-style: solid;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-color: #1B2E5D;
+}
+
+/* Left Navigation */
+A.leftnav:link
+{
+	color: #FC3;
+	text-decoration: none;
+}
+
+A.leftnav:visited
+{
+	color: #FC3;
+	text-decoration: none;
+}
+
+A.leftnav:hover
+{
+	color: #999;
+	text-decoration: none;
+}
+
+A.leftnav:active
+{
+	color: #999;
+	text-decoration: none;
+}
+
+.sidenavoff
+{
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFF;
+}
+
+.smallBrackets
+{
+	color: #CC0000;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.smallFoot
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+A.smallFoot:link
+{
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+A.smallFoot:visited
+{
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+A.smallFoot:hover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+A.smallFoot:active
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.smallText
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+A.smallText:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.smallText:visited
+{
+	color: #990000;
+	text-decoration: none;
+}
+
+A.smallText:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.smallText:active
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+.statText
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	text-decoration: none;
+}
+
+A.statText:link
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.statText:visited
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.statText:hover
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+A.statText:active
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+.statTextBig
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+A.statTextBig:link
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.statTextBig:visited
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.statTextBig:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.statTextBig:active
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+.statTextLarge
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.statTextSmall
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+A.statTextSmall:link
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.statTextSmall:visited
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.statTextSmall:hover
+{
+	color: #666666;
+	text-decoration: none;
+}
+
+A.statTextSmall:active
+{
+	color: #666666;
+	text-decoration: none;
+}
+
+.subNav
+{
+	color: #FFCC33;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.subNav:link
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.subNav:visited
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.subNav:hover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+A.subNav:active
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.subNav_on
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+A.subNav_on:link
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.subNav_on:visited
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.subNav_on:hover
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+A.subNav_on:active
+{
+	color: #000000;
+	text-decoration: underline;
+}

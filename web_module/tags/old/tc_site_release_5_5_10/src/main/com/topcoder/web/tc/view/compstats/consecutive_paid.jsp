@@ -1,0 +1,50 @@
+<%@ include file = "includes.jsp"%>
+
+<div class="fixedWidthBody">
+
+<jsp:include page="../page_title.jsp">
+    <jsp:param name="image" value="statistics_w"/>
+    <jsp:param name="title" value="Component Competition Record Book"/>
+</jsp:include>
+
+<% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");
+String type = (String)request.getParameter("type");
+if (type == null) type = HandleTag.COMPONENT; %>
+
+<div style="float:right;"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">back to table of contents</A></div>
+<jsp:include page="dev_design_no_overall_links.jsp"/>
+<br><br>
+<table class="stat" cellpadding="0" cellspacing="0" width="100%" style="float: left; margin-bottom: 15px;">
+    <tr><td class="title" colspan="6">Consecutive Top 2 finishes</td></tr>
+    <tr>
+    	<td class="headerC">Rank</td>
+    	<td class="header">Coder</td>
+        <td class="headerC" width="100%" nowrap>Consecutive<br>Top 2</td>
+        <td class="headerC" colspan="3">Duration</td>    	    
+    </tr>
+    <% boolean even = false; %>
+    <rsc:iterator list="<%=rsc%>" id="row">
+        <tr class="<%=even?"dark":"light"%>">
+        <td class="valueC"><rsc:item name="rank" row="<%=row%>"/></td>
+        <td class="value"><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/></td>
+        <td class="valueR"><rsc:item name="length" row="<%=row%>" format="0"/></td>
+        <td class="valueR" nowrap>
+	        <A href="/tc?module=CompContestDetails&pj=<rsc:item name="start_project_id" row="<%=row%>"/>"><rsc:item name="start_project_name" row="<%=row%>"/></A><br>
+	        <rsc:item name="start_date" row="<%=row%>" format="MM.dd.yyyy"/>
+        </td>
+        <td class="valueC">-</td>
+        <td class="value" nowrap>
+	        <A href="/tc?module=CompContestDetails&pj=<rsc:item name="end_project_id" row="<%=row%>"/>"><rsc:item name="end_project_name" row="<%=row%>"/></A><br>
+	        <rsc:item name="end_date" row="<%=row%>" format="MM.dd.yyyy"/>
+        </td>                
+        </tr>
+    <% even = !even;%>
+    </rsc:iterator>
+</table>
+<span class="bodyText">
+<strong>Record:</strong> The longest streaks where a competitor came in first place or second place for every contest.  
+Only those contests where the competitor was rated and received at least the minimum score are included.
+</span>
+
+</div>
+</html>

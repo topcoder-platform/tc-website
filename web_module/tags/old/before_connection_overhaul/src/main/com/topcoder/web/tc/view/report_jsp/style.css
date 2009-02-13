@@ -1,0 +1,1590 @@
+/* Body Styles ----------  */
+html, body
+{
+	background-color: #FFF;
+	padding: 0px;
+	margin: 0px;
+}
+
+#tces
+{
+	background-color: #001B35;
+	padding: 0px;
+	margin: 0px;
+}
+
+/* Major Tag Styles ----------  */
+A:link
+{
+	color: #00F;
+	text-decoration: underline;
+}
+
+A:visited
+{
+	color: #006;
+	text-decoration: underline;
+}
+
+A:hover
+{
+	color: #F00;
+	text-decoration: none;
+}
+
+A:active
+{
+	color: #F00;
+	text-decoration: none;
+}
+
+TD, TH
+{
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	color: #000;
+	text-decoration: none;
+}
+
+ol
+{
+	margin-left: 11px;
+	padding-left: 12px;
+}
+
+ul
+{
+	margin-left: 11px;
+	padding-left: 11px;
+}
+
+li
+{
+	margin-left: 0px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+/* Subclass Styles ----------  */
+.bodyGeneric
+{
+	color: #0000CC;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+A.bodyGeneric:link
+{
+	color: #00F;
+	text-decoration: none;
+}
+
+A.bodyGeneric:visited
+{
+	color: #006;
+	text-decoration: none;
+}
+
+A.bodyGeneric:hover
+{
+	color: #F00;
+	text-decoration: underline;
+}
+
+A.bodyGeneric:active
+{
+	color: #F00;
+	text-decoration: underline;
+}
+
+.bodySubhead
+{
+	color: #666666;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.bodyText
+{
+	color: #000000;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+A.bodyText:link
+{
+	color: #00F;
+	text-decoration: underline;
+}
+
+A.bodyText:visited
+{
+	color: #006;
+	text-decoration: underline;
+}
+
+A.bodyText:hover
+{
+	color: #F00;
+	text-decoration: none;
+}
+
+A.bodyText:active
+{
+	color: #F00;
+	text-decoration: none;
+}
+
+.bodyTextBold
+{
+	color: #000000;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.bodyTextItal
+{
+	color: #000000;
+	font-size: 12px;
+	font-weight: normal;
+	font-style: italic;
+}
+
+.bodyTextTitle
+{
+	color: #333333;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.bolddate
+{
+	font-size: 10px;
+	font-weight: bold;
+	color: #CC0000;
+}
+
+.bolddateoff
+{
+	font-size: 10px;
+	font-weight: bold;
+	color: #000000;
+}
+
+A.bolddate:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.bolddate:visited
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.bolddate:hover
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+A.bolddate:active
+{
+	color: #CC0000;
+	text-decoration: underline;
+}
+
+.brackets
+{
+	color: #000000;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.buttonBar { padding: 11px; }
+
+#calendar
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+	text-align: left;
+	vertical-align: top;
+	background-color: #EEE;
+	background-image: url(/i/calendar_bg.gif);
+}
+
+#calendarMini
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #EEE;
+}
+
+#calendarBlank
+{
+	font-size: 11px;
+	font-weight: normal;
+	background-color: #CCC;
+}
+
+#calendarBlankMini
+{
+	font-size: 11px;
+	font-weight: normal;
+	background-color: #CCC;
+}
+
+#calendarFrame
+{
+	border: 1px solid #43515E;
+	background-color: #43515E;
+}
+
+#calendarDays
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #666;
+	background-image: url(/i/graybv_xlite_bg.gif);
+}
+
+#calendarSRM
+{
+	color: #000;
+	font-size: 11px;
+	font-weight: normal;
+	text-align: left;
+	vertical-align: top;
+	background-color: #FFF;
+}
+
+#calendarSRMMini
+{
+	color: #000;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: top;
+	background-color: #FFF;
+}
+
+#calendarSRMDate
+{
+	color: #F00;
+	font-weight: bold;
+}
+
+#calendarTourney
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: normal;
+	text-align: left;
+	vertical-align: top;
+	background-image: url(/i/tournament/tccc03/tccc03_bkgd.gif);
+	background-color: #444;
+}
+
+#calendarTourneyMini
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #444;
+}
+
+.captionText
+{
+	color: #FFF;
+	font-size: 11px;
+	line-height: 16px;
+	font-weight: normal;
+}
+
+.coderBrackets
+{
+	color: #FFCC33;
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.coderTextRedLarge
+{
+	color: #FF0000;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.devSubhead
+{
+	color: #FFFFFF;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.dropdown
+{
+	font-size: 11px;
+	color: #666666;
+	background-color: #FFFFFF;
+}
+
+.errorText
+{
+	color: #FF0000;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.errorTextEven
+{
+	color: #FF0000;
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #EEE;
+}
+
+.errorTextOdd
+{
+	color: #FF0000;
+	font-size: 11px;
+	font-weight: bold;
+	background-color: #FFF;
+}
+
+#footer
+{
+	font-size: 11px;
+	text-align: center;
+	vertical-align: middle;
+	padding-left: 11px;
+	padding-top: 11px;
+	padding-right: 11px;
+	padding-bottom: 40px;
+	border-style: solid;
+	border-left-width: 0px;
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-color: #CCC;
+}
+
+.globalNav
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+A.globalNav:link
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.globalNav:visited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.globalNav:hover
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+A.globalNav:active
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.globalNavDots
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+.globalNav_on
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+A.globalNav_on:link
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.globalNav_on:visited
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.globalNav_on:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.globalNav_on:active
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+.globalNavSmall
+{
+	color: #CCCCCC;
+	font-size: 10px;
+	font-weight: normal;
+	background-color: #333;
+}
+
+A.globalNavSmall:link
+{
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+A.globalNavSmall:visited
+{
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+A.globalNavSmall:hover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+A.globalNavSmall:active
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.globalNavSmall_on
+{
+	color: #FFFFFF;
+	font-size: 10px;
+	font-weight: normal;
+}
+
+A.globalNavSmall_on:link
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.globalNavSmall_on:visited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.globalNavSmall_on:hover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+A.globalNavSmall_on:active
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.grayLine
+{
+	color: #CCCCCC;
+	font-size: 10px;
+}
+
+.header
+{
+	color: #000000;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.headerWhite
+{
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+A.left:link
+{
+	color: #FFF;
+	text-decoration: none;
+}
+
+A.left:visited
+{
+	color: #FFF;
+	text-decoration: none;
+}
+
+A.left:hover
+{
+	color: #FC3;
+	text-decoration: none;
+}
+
+A.left:active
+{
+	color: #FC3;
+	text-decoration: none;
+}
+
+A.leftOn:link
+{
+	color: #000;
+	text-decoration: none;
+}
+
+A.leftOn:visited
+{
+	color: #000;
+	text-decoration: none;
+}
+
+A.leftOn:hover
+{
+	color: #FC3;
+	text-decoration: none;
+}
+
+A.leftOn:active
+{
+	color: #FC3;
+	text-decoration: none;
+}
+
+.leftColumn { background-color: #CCC; }
+
+#leftNav
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: bold;
+	background-color: #4B4B4B;
+	vertical-align: middle;
+	padding-left: 5px;
+	padding-top: 3px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	border-style: solid;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-color: #333;
+}
+
+#leftNavOn
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: bold;
+	background-color: #999;
+	vertical-align: middle;
+	padding-left: 5px;
+	padding-top: 3px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	border-style: solid;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-color: #7D7D7D;
+}
+
+#leftNavSelect
+{
+	color: #000;
+	font-size: 11px;
+	font-weight: bold;
+	background-color: #CDCDCD;
+	vertical-align: middle;
+	padding-left: 5px;
+	padding-top: 3px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	border-style: solid;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-color: #7D7D7D;
+}
+
+#leftSubnav
+{
+	color: #000;
+	font-size: 11px;
+	font-weight: bold;
+	background-color: #999;
+	vertical-align: middle;
+	padding-left: 18px;
+	padding-top: 3px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	border-style: solid;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-color: #7D7D7D;
+}
+
+#leftSubnavOn
+{
+	color: #000;
+	font-size: 11px;
+	font-weight: bold;
+	background-color: #CDCDCD;
+	vertical-align: middle;
+	padding-left: 18px;
+	padding-top: 3px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	border-style: solid;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-color: #7D7D7D;
+}
+
+#leftNavSubtitle
+{
+	color: #333;
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #7D7D7D;
+	vertical-align: middle;
+	padding-left: 5px;
+	padding-top: 3px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	border-style: solid;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-color: #7D7D7D;
+}
+
+#leftNavTitle
+{
+	color: #999;
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #333;
+	vertical-align: middle;
+	padding-left: 5px;
+	padding-top: 3px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	border-style: solid;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-color: #333;
+}
+
+.loginForm { background-color: #666; }
+
+.loginText
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+A.loginText:link
+{
+	color: #FC3;
+	text-decoration: none;
+}
+
+A.loginText:visited
+{
+	color: #FC3;
+	text-decoration: none;
+}
+
+A.loginText:hover
+{
+	color: #C00;
+	text-decoration: underline;
+}
+
+A.loginText:active
+{
+	color: #C00;
+	text-decoration: underline;
+}
+
+.memberhandle
+{
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+.messageSmall
+{
+	color: #FFFFFF;
+	font-size: 10px;
+	font-weight: normal;
+}
+
+A.messageSmall:link
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.messageSmall:visited
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.messageSmall:hover
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+A.messageSmall:active
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+.methNav
+{
+	color: #FC3;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+A.methNav:link
+{
+	color: #FC3;
+	text-decoration: none;
+}
+
+A.methNav:visited
+{
+	color: #FC3;
+	text-decoration: none;
+}
+
+A.methNav:hover
+{
+	color: #666;
+	text-decoration: underline;
+}
+
+A.methNav:active
+{
+	color: #666;
+	text-decoration: underline;
+}
+
+.moduleSubhead
+{
+	color: #CC0000;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.moduleSubhead:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.moduleSubhead:visited
+{
+	color: #990000;
+	text-decoration: none;
+}
+
+A.moduleSubhead:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.moduleSubhead:active
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+.moduleText
+{
+	font-size: 11px;
+	font-weight: normal;
+	color: #000000;
+}
+
+A.moduleText:link
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.moduleText:visited
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.moduleText:hover
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+A.moduleText:active
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+.moduleTitle
+{
+	color: #CCCCCC;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.multiColText
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: normal;
+	margin-left: 5px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	text-indent: -5px;
+}
+
+.newsText
+{
+	color: #666;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.ongray
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.ongray:link
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.ongray:visited
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.ongray:hover
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+A.ongray:active
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+.openProjects
+{
+	color: #CC0000;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+A.openProjects:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.openProjects:visited
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.openProjects:hover
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+A.openProjects:active
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+.photoFrameBig { border: 1px solid #000; }
+
+.photoFrameSmall
+{
+	border: 1px solid #000;
+	margin-left: 4px;
+	margin-top: 2px;
+	margin-right: 4px;
+	margin-bottom: 2px;
+}
+
+.problemText
+{
+	font-family: Courier, Arial, Verdana, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+A.problemText:link
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.problemText:visited
+{
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+A.problemText:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.problemText:active
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+.promoCallout
+{
+	color: #000000;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 20px;
+}
+
+.promoText
+{
+	color: #000000;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 18px;
+}
+
+.prText
+{
+	color: #666;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.quickstatText
+{
+	color: #FFCC33;
+	font-size: 10px;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+A.quickstatText:link
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.quickstatText:visited
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.quickstatText:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.quickstatText:active
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+.registerNav
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.registerNav:link
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.registerNav:visited
+{
+	color: #999999;
+	text-decoration: none;
+}
+
+A.registerNav:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.registerNav:active
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.registerNav_on
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.registerNav_on:link
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.registerNav_on:visited
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.registerNav_on:hover
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+A.registerNav_on:active
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+.registerToday
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.registerToday:link
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.registerToday:visited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.registerToday:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.registerToday:active
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+.sectionTitle
+{
+	color: #000000;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.sectionTitleBrackets
+{
+	color: #CC0000;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.sidebarText
+{
+	color: #333;
+	font-size: 11px;
+	font-weight: normal;
+	line-height: 14px;
+}
+
+.smallBrackets
+{
+	color: #CC0000;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.smallFoot
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+A.smallFoot:link
+{
+	color: #CCC;
+	text-decoration: none;
+}
+
+A.smallFoot:visited
+{
+	color: #CCC;
+	text-decoration: none;
+}
+
+A.smallFoot:hover
+{
+	color: #FFF;
+	text-decoration: underline;
+}
+
+A.smallFoot:active
+{
+	color: #FFF;
+	text-decoration: underline;
+}
+
+.smallText
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+A.smallText:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.smallText:visited
+{
+	color: #990000;
+	text-decoration: none;
+}
+
+A.smallText:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.smallText:active
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+#specialMessage
+{
+	color: #C00;
+	font-size: 11px;
+	font-weight: bold;
+	background-color: #CC6;
+	text-align: left;
+	vertical-align: middle;
+	padding-left: 5px;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+}
+
+.statText
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	text-decoration: none;
+}
+
+A.statText:link
+{
+	color: #FC3;
+	text-decoration: none;
+}
+
+A.statText:visited
+{
+	color: #B98B30;
+	text-decoration: none;
+}
+
+A.statText:hover
+{
+	color: #666;
+	text-decoration: underline;
+}
+
+A.statText:active
+{
+	color: #666;
+	text-decoration: underline;
+}
+
+.statTextBig
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+A.statTextBig:link
+{
+	color: #FC3;
+	text-decoration: none;
+}
+
+A.statTextBig:visited
+{
+	color: #B98B30;
+	text-decoration: none;
+}
+
+A.statTextBig:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.statTextBig:active
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+.statTextLarge
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.statTextSmall
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+A.statTextSmall:link
+{
+	color: #FC3;
+	text-decoration: none;
+}
+
+A.statTextSmall:visited
+{
+	color: #B98B30;
+	text-decoration: none;
+}
+
+A.statTextSmall:hover
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+A.statTextSmall:active
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+.subNav
+{
+	color: #FFCC33;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.subNav:link
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.subNav:visited
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.subNav:hover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+A.subNav:active
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.subNav_on
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+A.subNav_on:link
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.subNav_on:visited
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.subNav_on:hover
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+A.subNav_on:active
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+.super
+{
+	font-size: 6px;
+	vertical-align: super;
+}
+
+#tccc_banner
+{
+	background-image: url(/i/tournament/tccc03/tccc_banner_bkgd.jpg);
+	background-color: #333;
+}
+
+#tccc_bkgd
+{
+	background-image: url(/i/tournament/tccc03/tccc03_bkgd.gif);
+	background-color: #333;
+}
+
+.time
+{
+	color: #FFFFFF;
+	font-size: 10px;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.topPage { text-align: right; }
+
+.topNavBar
+{
+	background-color: #900;
+	background-image: url(/i/redbv_lite_bg.gif);
+}
+
+.topNav
+{
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFF;
+	white-space: nowrap;
+	background-color: #900;
+	background-image: url(/i/redbv_lite_bg.gif);
+	padding-left: 10px;
+	padding-top: 3px;
+	padding-right: 10px;
+	padding-bottom: 3px;
+}
+
+.topNavOn
+{
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFF;
+	white-space: nowrap;
+	background-color: #600;
+	background-image: url(/i/redbv_dark_bg.gif);
+	padding-left: 10px;
+	padding-top: 3px;
+	padding-right: 10px;
+	padding-bottom: 3px;
+}
+
+A.topLink:link
+{
+	color: #FFF;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.topLink:visited
+{
+	color: #FFF;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.topLink:hover
+{
+	color: #FC3;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.topLink:active
+{
+	color: #FC3;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+.tourney_bkgd { background-color: #2A2A2A; }
+
+.tourney_subhead1
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: bold;
+	margin: 0px;
+	padding: 3px;
+	background-image: url(/i/graybv_lite_bg.gif);
+	background-color: #6C6C6C;
+	white-space: nowrap;
+}
+
+.tourney_subhead2
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: normal;
+	margin: 0px;
+	padding: 3px;
+	background-color: #4A4A4A;
+	white-space: nowrap;
+}
+
+.tourney_subject
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: left;
+	margin: 0px;
+	padding-left: 8px;
+	padding-top: 3px;
+	padding-right: 8px;
+	padding-bottom: 3px;
+	background-color: #505050;
+}
+
+.tourney_subnav
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: normal;
+	margin: 0px;
+	padding-left: 8px;
+	padding-top: 3px;
+	padding-right: 8px;
+	padding-bottom: 3px;
+	background-color: #4A4A4A;
+	white-space: nowrap;
+}
+
+.tourney_subnav_on
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: normal;
+	text-align: center;
+	margin: 0px;
+	padding-left: 8px;
+	padding-top: 3px;
+	padding-right: 8px;
+	padding-bottom: 3px;
+	background-color: #3A3A3A;
+	white-space: nowrap;
+}

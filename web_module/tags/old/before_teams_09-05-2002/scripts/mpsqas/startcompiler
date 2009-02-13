@@ -1,0 +1,23 @@
+#!/bin/ksh
+
+if [ $# != 2 ]
+then
+  echo 'SYNTAX: starttester numCompilers withQueue'
+  exit
+fi
+
+numcompilers=$1
+withqueue=$2
+
+if [ $withqueue=true ]
+then
+  nohup java com.topcoder.mpsqas.compiler.CompilerQueue >compilerqueue.log 2>&1 &
+fi
+
+i=1
+while ((i <= $numcompilers))
+do
+  log="compiler${i}.log"
+  nohup java com.topcoder.mpsqas.compiler.Compiler >$log 2>&1 &
+  let i=$i+1
+done

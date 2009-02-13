@@ -1,0 +1,21 @@
+package com.topcoder.web.oracle.dao.hibernate;
+
+import com.topcoder.web.common.dao.hibernate.Base;
+import com.topcoder.web.oracle.dao.PredictionDAO;
+import com.topcoder.web.oracle.model.Prediction;
+
+/**
+ * @author dok
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: Mar 23, 2007
+ */
+public class PredictionDAOHibernate extends Base implements PredictionDAO {
+
+    public Prediction find(Integer id) {
+        return (Prediction) super.find(Prediction.class, id);
+    }
+
+    public void saveOrUpdate(Prediction prediction) {
+        super.saveOrUpdate(prediction);
+    }
+}

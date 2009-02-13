@@ -1,0 +1,217 @@
+#* DECORATOR FOR SPACE LEVEL INFORMATION
+This decorator handles many contexts - pages, mail, blogposts, templates, space-operations, and space-administration.
+*#
+
+#set ($helper   = $params.get("helper"))
+#set ($mode     = $params.get("mode"))
+#set ($context  = $params.get("context"))
+#set ($confPage = $helper.page)
+
+#infoPanelInitFromParams()
+## GENERAL PAGE DECORATING BEGINS
+
+<content tag="navops">
+<h1>Navigation</h1>
+<ul>
+     <li>#browseSpaceLinkAndImage()</li>
+     <li>#addPageLinkAndImage()</li>
+     <li>#addNewsLinkAndImage()</li>
+</ul>
+</content>
+
+#if ($mode == "create-page" || $mode == "create-blogpost" || $mode == "create-comment")
+    &nbsp; ##don't render space links for create-page or create-blogpost
+#else
+<content tag="spaceops">
+<ul>
+<h1>Space Content</h1>
+        <li>#browsePagesLink()</li>
+        <li>#viewAttachmentsLink()</li>
+        <li>#browseMailLink()</li>
+        <li>#browseNewsLink()</li>
+        <li>#browseTemplatesLink()</li>
+        <li>#advancedLink()</li>
+        <li>#spaceAdminLink()</li>
+</ul>
+</content>
+#end
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td valign="top" class="pagebody">
+
+            ## output errors
+            #parse ( "/template/includes/actionerrors.vm" )
+
+            ## CONTEXT * MODE SPECIFIC DECORATING BEGINS
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="clear: both">
+                <tr>
+                    <td valign="top">
+
+                        ## CONTEXT: "space-pages". MODES: "list-alphabetically", "list-recently-added", "list-content-tree"
+                        #if ($context == "space-pages")
+                            #if ($mode == "list-alphabetically" || $mode == "list-recently-updated" || $mode == "list-content-tree")
+                               #permitSearchEngines()
+                                ## Show current mode
+                                <div class="greyLinks">
+
+                                    #if ($mode == "list-recently-updated")
+                                        <span style="padding: 5px; background-color:f0f0f0;"><b>Recently Updated</b></span> |
+                                    #else
+                                        #recentlyUpdatedListLink() |
+                                    #end
+
+                                    #if ($mode == "list-alphabetically")
+                                        <span style="padding: 5px; background-color:f0f0f0;"><b>Alphabetical View</b></span> |
+                                    #else
+                                        #alphabeticalListLink() |
+                                    #end
+
+                                    #if ($mode == "list-content-tree")
+                                        <span style="padding: 5px; background-color:f0f0f0;"><b>Tree View</b></span>
+                                    #else
+                                        #contentTreeLink()
+                                    #end
+                                </div>
+
+                                $body
+
+                            #elseif ($mode == "create-page")
+                                $body
+                            #end
+
+                        ## CONTEXT: "mail". MODES: "view-mail-archive"
+                        #elseif ($context == "space-mails")
+                            #permitSearchEngines()
+                            #if ($mode == "view-mail-archive")
+                                    $body
+                            #end
+
+                        ## CONTEXT: "blogposts". MODES: "view-blogposts", "create-blogpost"
+                        #elseif ($context == "space-blogposts")
+                            #if ($mode == "view-blogposts")
+                             #permitSearchEngines()
+
+                                <table cellpadding=5 cellspacing=0 width="100%"  border=0>
+                                    <tr>
+                                    <td width="*" class="pagecontent">
+                                        #if ($blogPosts.size() == 0)
+                                            <p>$helper.getText("no.posts.found")</p>
+                                        #else
+                                            #set ($dateString = "Blah")
+                                            #foreach ($blog in $blogPosts)
+                                                #if ($dateString != $blog.datePath)
+                                                    <div class=greybox style="background: #f0f0f0; font-weight: bold">
+                                                        <img src="$req.contextPath/images/icons/blogentry_16.gif" height="16" width="16" border="0" align="absmiddle">&nbsp;
+                                                        $blog.datePath
+                                                    </div>
+                                                #end
+                                                #set ($dateString = $blog.datePath)
+
+                                                <div class="blogpost" style="margin-bottom: 30px">
+                                                    <div class="blogHeading" style="margin-top: 0px; padding-top: 0px"><a style="text-decoration: none; color: black" href="$req.contextPath$generalUtil.getPageUrl($blog)">$blog.title</a></div>
+
+                                                    <div class="pagesubheading">
+                                                        #if ($blog.creationDate != $blog.lastModificationDate)
+                                                            Last changed: $generalUtil.formatDateTime( $blog.lastModificationDate ) by #usernameLink($blog.lastModifierName)
+                                                        #end
+                                                    </div>
+                                                        <div class="wiki-content">
+                                                        $helper.action.renderBlogPost($blog)
+                                                        </div>
+                                                        #if ($param.get("contentType") == "excerpts")
+                                                            <p><a href="$req.contextPath$generalUtil.getPageUrl($post)" title="Read the rest of $generalUtil.escapeXml($post.title)">Read more...</a></p>
+                                                        #end
+                                                    <div class="endsection" align="right" style="color: #666666; margin-top: 10px">
+                                                        <b>Posted at $generalUtil.formatBlogDate($blog.creationDate)</b> by
+                                                        <img src="$req.contextPath/images/icons/user_16.gif" height="16" width="16" border="0" align="absmiddle" title="User Profile: $webwork.htmlEncode($action.getUserFullName($blog.creatorName))">
+                                                        #usernameLink($blog.creatorName)
+                                                        |
+                                                        <img src="$req.contextPath/images/icons/comment_16.gif" height="16" width="16" border="0" align="absmiddle">
+                                                        #if ($blog.comments.size() > 0)
+                                                            <a href="$req.contextPath$generalUtil.getPageUrl($blog)?showComments=true#comments">$blog.comments.size() comment#if($blog.comments.size() > 1)s#end</a>
+                                                        #else
+                                                            <a href="$req.contextPath$generalUtil.getPageUrl($blog)?showComments=true#comments">0 comments</a>
+                                                        #end
+
+                                                    </div>
+                                                </div>
+                                            #end
+                                            <p>
+                                        #end
+                                    </td>
+                                    <td valign="top" align="right">
+                                        #if ($calendarForThisMonth)
+                                           #blogPostsCalendar($calendarForThisMonth)
+                                        #end
+                                        <br/>
+                                        #if ($nextPost || $previousPost)
+                                            #if ($nextPost && $permissionCheckDispatcher.isPermitted("/pages/viewblogposts.action?pageId=$nextPost.id") )
+                                                <a href="$req.contextPath/display/$nextPost.space.key/$nextPost.datePath/"><img src="$req.contextPath/images/icons/forwd_16.gif" height=16 width=16 border=0 align=absmiddle title="Next Post"></a>
+                                                <a href="$req.contextPath/display/$nextPost.space.key/$nextPost.datePath/">$generalUtil.format($nextPost.creationDate)</a><br/>
+                                            #end
+                                            #if ($previousPost && $permissionCheckDispatcher.isPermitted("/pages/viewblogposts.action?pageId=previousPost.id") )
+                                                <a href="$req.contextPath/display/$previousPost.space.key/$previousPost.datePath/"><img src="$req.contextPath/images/icons/back_16.gif" height=16 width=16 border=0 align=absmiddle title="Previous Post"></a>
+                                                <a href="$req.contextPath/display/$previousPost.space.key/$previousPost.datePath/">$generalUtil.format($previousPost.creationDate)</a><br/>
+                                            #end
+                                            <br />
+                                        #end
+                                    </td>
+                                    </tr>
+                                </table>
+
+                            #elseif ($mode=="create-blogpost")
+                                $body
+                            #end
+
+
+                        ## CONTEXT: "templates". MODES: "view-templates"
+                        #elseif ($context == "space-templates")
+                            #if ($mode == "view-templates")
+
+                                 <div style="padding: 0px 10px 10px 10px">
+                                    $body
+                                </div>
+                            #end
+
+                        ## CONTEXT: "space-operations". MODES: "view-space-operations"
+                        #elseif ($context == "space-operations")
+                            #if ($mode == "view-space-operations")
+
+                                $body
+
+                            #end
+
+                        ## CONTEXT: "space-administration". MODES: "view-space-administration", "list-permission-pages"
+                        #elseif ($context == "space-administration")
+                            #if ($mode == "view-space-administration" || $mode == "list-permission-pages")
+                                $body
+
+                            #end
+
+                        #else
+                            $body
+                        #end
+
+                    </td>
+
+
+                    ## INFO PANEL FOR ANY PAGE
+                    #if ($infoPanelRequired == true)
+                        <td width="200px" valign="top">
+                            #infoPanel(true true true true)
+                        </td>
+                    #end
+
+                </tr>
+            </table>
+
+            ## CONTEXT * MODE SPECIFIC DECORATING ENDS
+
+        </td>
+    </tr>
+</table>
+## GENERAL PAGE DECORATING ENDS
+
+#parse ("/spaces/space-content-breadcrumbs.vm")

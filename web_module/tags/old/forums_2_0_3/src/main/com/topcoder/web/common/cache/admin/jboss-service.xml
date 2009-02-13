@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<server>
+
+    <classpath codebase="./lib" archives="cacheadmin.jar"/>
+    <mbean code="com.topcoder.web.common.cache.admin.CacheAdmin"
+           name="topcoder.admin:service=CacheAdmin">
+        <depends>jboss:service=Naming</depends>
+    </mbean>
+
+</server>

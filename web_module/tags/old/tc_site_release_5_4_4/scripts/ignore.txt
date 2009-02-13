@@ -1,0 +1,16 @@
+public final static void main
+public static void print
+public static boolean eq
+public static void main
+public void print
+public boolean eq
+vector<string> s2vs
+vector<string> Tokenize
+static bool fmain
+static void main
+template <class T> ostream &operator <<
+template <class T> void print
+template <class Ta, class Tb> bool eq
+vector<int> mkvecint
+vector<string> mkvecstring
+
