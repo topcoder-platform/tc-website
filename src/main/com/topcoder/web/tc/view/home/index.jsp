@@ -89,7 +89,7 @@ $(document).ready(function(){
         <div class="wrapper">
 
 <%-- MASTHEAD AND LOGO --%>
-            <h1><a href="http://www.topcoder.com" title="TopCoder"><span>TopCoder Direct</span></a><%--<sup><small>BETA</small></sup>--%></h1>
+            <h1><a href="http://<%=ApplicationServer.SERVER_NAME%>/" title="TopCoder"><span>TopCoder Direct</span></a><%--<sup><small>BETA</small></sup>--%></h1>
             <h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
 
 <%-- MAIN NAVIGATION --%>
@@ -153,11 +153,11 @@ $(document).ready(function(){
 
 
                     <% if ( !sessionInfo.isAnonymous() ) { %>
-            <li><a href="#">Hello,&nbsp;</a><tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" /></li>
-            <li class="right"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout&nextpage=http://<%=ApplicationServer.SERVER_NAME%>">Logout</a></li>
-        <% } else {%>
-                <li class="right"><a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Login">Login</a></li>
-            <% } %>
+            		<li><a href="#">Hello,&nbsp;</a><tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" /></li>
+            		<li class="right"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout&nextpage=http://<%=ApplicationServer.SERVER_NAME%>">Logout</a></li>
+        			<% } else {%>
+                	<li class="right"><a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Login">Login</a></li>
+            		<% } %>
                 </ul>
             </div><%-- #navigation ends --%>
         </div>
