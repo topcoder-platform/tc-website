@@ -25,6 +25,13 @@
 <!--[if IE 6]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie6.css" /><![endif]-->
 
 <script src="/js/home/jquery-1.2.6.min.js" type="text/javascript"></script>
+<script src="/js/home/preloadCssImages.jQuery_v5.js" language="javascript"></script>
+    <script type="text/javascript">
+			$(document).ready(function(){
+				//Run the script to preload images from CSS
+				$.preloadCssImages(); 
+			});
+	</script>
 <script src="/js/home/jquery.hoverIntent.minified.js" type="text/javascript"></script>
 <script src="/js/home/jquery.jcarousel.pack.js" type="text/javascript"></script>
 <script src="/js/home/direct.js" type="text/javascript"></script>
@@ -153,7 +160,7 @@ $(document).ready(function(){
 
 
                     <% if ( !sessionInfo.isAnonymous() ) { %>
-            		<li><a href="#">Hello,&nbsp;</a><tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" /></li>
+            		<li class="logged-in"><span class="welcome">Hello,&nbsp;</span> <tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" /></li>
             		<li class="right"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout&nextpage=http://<%=ApplicationServer.SERVER_NAME%>">Logout</a></li>
         			<% } else {%>
                 	<li class="right"><a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Login">Login</a></li>
@@ -193,9 +200,9 @@ $(document).ready(function(){
                             </div>
                         </div>
                         <div id="featured-client">
-                            	<a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/blogs/?p=98"><h3>Featured Client: Local Motors</h3>
+                            	<a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/blogs/?p=116"><h3>Featured Client: ESPN</h3>
                             	
-                                	<img src="http://<%=ApplicationServer.SERVER_NAME%>/i/home/Imfeatured.png" alt="Local Motors"/>
+                                	<img src="http://<%=ApplicationServer.SERVER_NAME%>/i/home/espnfeatured.png" alt="ESPN Winning Formula"/>
                                 </a>
                             </div>
                         <div id="tc-direct">
