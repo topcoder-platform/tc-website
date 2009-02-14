@@ -24,6 +24,7 @@ A { color: #d50000; text-decoration: none; }
 A:hover { text-decoration: underline; }
 A img { border: 0; }
 a { outline: none; }
+* :focus { outline: 0; }
 
 /* ------------------------------------
 LAYOUT
