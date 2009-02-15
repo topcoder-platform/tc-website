@@ -76,7 +76,7 @@
                 	<h1>Forums</h1>
                 	<div class="contentMiddle forums">
 
-				<table cellpadding="0" cellspacing="0" class="rtbcTable">
+				<table cellpadding="0" cellspacing="0" class="rtbcTable" style="padding:0 0 15px 0;">
                     <tr>
                         <td class="categoriesBox" style="padding-right: 20px;">
                             <jsp:include page="categoriesHeader.jsp"/>
@@ -92,7 +92,7 @@
                         </td>
                     </tr>
                 </table>
-
+                
                 <b><a href="?module=Main" class="rtbcLink">Forums</a> > My Watches
                     (<%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%> threads)</b>
                 <br /><span class="small">All watch updates will be emailed to your email address: <b>

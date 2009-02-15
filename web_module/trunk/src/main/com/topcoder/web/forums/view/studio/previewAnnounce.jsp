@@ -136,7 +136,7 @@ function AllowTabCharacter() {
     </td>
 </tr>
 <tr>
-   <td colspan="3" style="padding-bottom:3px;"><b>
+   <td colspan="3" style="padding:15px 0 3px 0;"><b>
 	   <%   ForumCategory crumbCategory = forumCategory;
 	        if (crumbCategory == null) {
 	            crumbCategory = forumFactory.getRootForumCategory();

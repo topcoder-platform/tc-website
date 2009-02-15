@@ -91,7 +91,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="3" style="padding-bottom:3px;">
+                        <td colspan="3" style="padding:15px 0 3px 0;">
                             <b>
                                 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
                                     <a href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">

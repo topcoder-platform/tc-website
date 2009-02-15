@@ -137,7 +137,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="padding-bottom:3px;">
+                <td colspan="2" style="padding:15px 0 3px 0;">
                     <strong><a href="?module=Main" class="rtbcLink">Forums</a> > Post History:
                         <studio:handle coderId="<%=historyUser.getID()%>"/>
                         (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>)

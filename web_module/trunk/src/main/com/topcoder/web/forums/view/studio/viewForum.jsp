@@ -164,7 +164,7 @@
             <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.FORUM%>&<%=ForumConstants.WATCH_ID%>=<%=forum.getID()%>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>" class="rtbcLink"><%=watchMessage%></A><br />
         </td>
     </tr>
-    <tr><td colspan="3" style="padding-bottom:3px;"><b>
+    <tr><td colspan="3" style="padding:15px 0 3px 0;"><b>
         <% Page[] pages; %>
         <% if (paginator.getNumPages() > 1) { %>
         <div style="float:right;" class="rtbc"><b>
