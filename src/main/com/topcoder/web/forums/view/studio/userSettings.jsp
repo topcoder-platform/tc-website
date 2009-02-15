@@ -129,7 +129,7 @@
     </td>
 </tr>
 <tr>
-	<td colspan="2" style="padding-bottom:3px;">
+	<td colspan="2" style="padding:15px 0 3px 0;">
 		<b><a href="?module=Main" class="rtbcLink">Forums</a> > User Settings</b>
 	</td>
 </tr>

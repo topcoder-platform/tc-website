@@ -186,7 +186,7 @@
                     </tr>
                 </table>
 
-                <br />
+                <br /><br />
 
                 <div id="Options"><span class="small">Allowed tags: <%=ForumsUtil.getAllowedTagsDisplay()%>. Allowed attributes: <%=ForumsUtil.getAllowedAttributesDisplay()%>. <!--Usernames within [handle][/handle] blocks are converted into color-coded links.--></span>
                 </div><br />

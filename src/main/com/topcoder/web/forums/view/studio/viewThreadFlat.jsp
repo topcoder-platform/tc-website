@@ -229,7 +229,7 @@
     </tr>
 
     <tr>
-        <td colspan="3" style="padding-bottom:3px;">
+        <td colspan="3" style="padding:15px 0 3px 0;">
             <b>
                 <% if (paginator.getNumPages() > 1) { %>
                 <div style="float:right;" class="rtbc"><b>
@@ -298,15 +298,10 @@
                         <%=message.getSubject()%>
                         <%  } %>
                         <%  if (message.getParentMessage() != null) { %>
-<<<<<<< .mine
                     (response to
                     <a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink"> post</a><%if (message.getParentMessage().getUser() != null) {%>
                     by
                         <studio:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>
-=======
-                    (response to<a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink"> post</a><%if (message.getParentMessage().getUser() != null) {%>
-                    by <studio:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>
->>>>>>> .r74393
                         <%}%>)
                         <%  } %>
                         <%
