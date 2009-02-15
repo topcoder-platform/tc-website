@@ -79,7 +79,7 @@
                 	<div class="contentTop">
                 	<h1>Forums</h1>
                 	<div class="contentMiddle forums">
-						<table cellpadding="0" cellspacing="0" class="rtbcTable">
+						<table cellpadding="0" cellspacing="0" class="rtbcTable" style="padding:0px 0 15px 0;">
 							<tr>
 								<td class="categoriesBox" style="padding-right: 20px;">
 									<jsp:include page="categoriesHeader.jsp"/>
@@ -104,7 +104,7 @@
 								Iterator itForums = (Iterator)request.getAttribute("forumsIterator_"+category.getID());
 								long numActiveForums = ((Long)request.getAttribute("numActiveForums_"+category.getID())).longValue();
 								if (numActiveForums > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
-						<br />
+						
 						
 						<table cellpadding="0" cellspacing="0" class="rtTable">
 							<tr>
