@@ -210,7 +210,12 @@
         </p>
         
         <p align="justify">
-        TopCoder does not require assignment of winning submissions in this competition.
+          <%if(rsr.getIntItem("round_id") == 13754 ) {%>
+	  As a condition of winning and redeeming a cash prize, Competitors will be required to submit, among other things, a completed TopCoder Competition Assignment Agreement, if one is not already on file with TopCoder.
+          <%} else { %>
+            TopCoder does not require assignment of winning submissions in this competition.
+          <%}%>
+
         </p>
 
         <div class="sectionHeader">Eligibility</div>
@@ -218,6 +223,9 @@
     <%if(rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
     <p align="justify">
     The competition is open to all members who are at least 18 years of age. Competitors must be either (i) a U.S. citizen, (ii) a lawful permanent resident of the U.S., (iii) a temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S., or (iv) a non-U.S. resident authorized to perform services as an independent contractor.
+    </p>
+    <p align="justify">
+    To be eligible for this competition, you must not be a resident of the Quebec province of Canada, Iran, Cuba, North Korea, Sudan or Syria. In addition, you are not eligible for this Competition if you are on the Specially Designated National list promulgated and amended, from time to time, by the United States Department of the Treasury.
     </p>
     <%} else { %>
         <p align="justify">
