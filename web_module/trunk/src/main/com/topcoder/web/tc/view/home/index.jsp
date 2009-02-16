@@ -20,7 +20,6 @@
 <link rel="stylesheet" type="text/css" media="screen" href="/css/home/jquery.jcarousel.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="/css/home/main-navigation.css" />
 
-<!--[if IE]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie.css" /><![endif]-->
 <!--[if IE 7]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie7.css" /><![endif]-->
 <!--[if IE 6]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie6.css" /><![endif]-->
 
@@ -34,7 +33,7 @@
 	</script>
 <script src="/js/home/jquery.hoverIntent.minified.js" type="text/javascript"></script>
 <script src="/js/home/jquery.jcarousel.pack.js" type="text/javascript"></script>
-<script src="/js/home/direct.js" type="text/javascript"></script>
+
 <script type="text/javascript" language="javascript">
 $(document).ready(function(){
     $("#nav ul li").hoverIntent(function(){
