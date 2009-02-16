@@ -106,7 +106,7 @@ $(document).ready(function(){
                     <li class="left on"><a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder Home</a></li>
                     <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">Engage</a>
                         <ul>
-                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/cockpit/cockpit.jsp">TopCoder Direct</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">TopCoder Direct</a></li>
                             <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/">Components</a></li>
                             <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/indexTCS.jsp">Software</a></li>
                             <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/platform-tools.jsp">Platform Tools</a></li>
