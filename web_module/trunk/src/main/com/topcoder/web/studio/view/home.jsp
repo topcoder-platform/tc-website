@@ -223,7 +223,7 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
         <p>
             <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/nophoto.jpg"/>
             <b>January 2009</b><br />
-            <b>srinivasc</b> 
+            <b><a href="http://<%=ApplicationServer.SERVER_NAME%>/news/2009/02/16/january-coders-and-designers-of-the-month/">srinivasc</a></b> 
             won $3,715 in 11 contests!! 
         </p>
 
