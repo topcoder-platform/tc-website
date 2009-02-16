@@ -169,6 +169,56 @@
     
 </p>
 <%}%>
+<%if(rsr.getIntItem("round_id") == 13754) {%>
+<div class="sectionHeader">Prizes</div>
+    <p align="justify">There will be $5000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
+
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$2500</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$1000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$750</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$500</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$250</td>
+    </tr>
+</table>
+    
+<p align="justify">
+    
+</p>
+<%}%>
+
+<%if(rsr.getIntItem("round_id") == 13754) {%>
+<div class="sectionHeader">Eligibility</div>
+  <p align="justify">
+    You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition,
+    you must fit into one of the following categories.
+    <br><br>
+    If you reside in the United States, you must be either:
+    <ul>
+
+        <li>A US Citizen</li>
+        <li>A Lawful Permanent Resident of the US</li>
+        <li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card
+            permitting unrestricted employment in the U.S.</li>
+    </ul>
+    If you do not reside in the United States:
+    <ul>
+        <li>You must be authorized to perform services as an independent contractor. (Note: In most cases you will not
+            need to do anything to become authorized)</li>
+
+    </ul>
+  </p>
+<%}%>
+
 <div class="sectionHeader">Timeline</div>
 
 <div align="center" style="margin: 20px;">
