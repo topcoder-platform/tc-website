@@ -72,8 +72,8 @@
             
                 <div class="pr_newsarchive">
                     <dl>
-                    <dd><a href="/pdfs/press_room/virtual_workforce.pdf">How The Virtual Workforce is Changing Everything<br /><small style="margin-left:10px;">[January 9th]</small></a></dd>
-                  
+                    <dd><a href="/pdfs/press_room/MITSloanMR.pdf">What is Your Management Model?<br /><small style="margin-left:10px;">[February 16th]</small></a></dd>
+                    <dd><a href="/pdfs/press_room/virtual_workforce.pdf">How The Virtual Workforce is Changing Everything<br /><small style="margin-left:10px;">[January 9th]</small></a></dd>                  
                     </dl>
                 </div>
             </div></div></div>
