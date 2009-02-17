@@ -55,7 +55,7 @@
                     <div class="contentMiddle">
 
                         
-                        <div style="padding: 10px 0;">
+                        <div style="padding: 10px 0 20px 0;">
 					      <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted">Overview</a>
 					    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=whyJoin">Why Join</a>
 					    | Member Referral Program
@@ -63,8 +63,11 @@
 						| <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=startingACompetition">Starting a Competition</a>
 					    </div>
         
-                        <h1>Member Referral Program</h1>
                         
+                        <div align="center">
+                        	<img alt="Member Referral Program" src="/i/v4/member-referral.jpg"/>
+                        </div>
+                        <h2>Member Referral Program</h2>
 						<p><strong>
 						Refer friends to Studio and you can receive a bonus every time your friend wins for the first year of their membership!
 						</strong></p>

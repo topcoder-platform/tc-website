@@ -217,6 +217,11 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
     </div>
     --%>
 
+	<%-- designer box --%>
+    <div>
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=support&d2=memberRefferalProgram"><img width="224" height="215" alt="Member Referral Program" src="/i/v4/member-referral-promo.jpg"/></a>
+    </div>
+
     <%-- designer box --%>
     <div class="designerBox">
         <h2>DESIGNER OF THE MONTH</h2>
