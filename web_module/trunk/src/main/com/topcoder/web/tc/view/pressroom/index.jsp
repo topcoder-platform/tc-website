@@ -118,7 +118,20 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
-                <%-- China, Belarux & Croatia TCHS09 begin --%>
+                <%-- China, Belarus & Croatia TCHS09 begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/pdfs/press_room/MITSloanMR.pdf"><img src="/i/pressroom/mit-sloan.gif" alt="MIT_Sloan" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/pdfs/press_room/MITSloanMR.pdf">What is Your Management Model?</a></h3>
+                        <p>Some companies and their leaders are discovering that a distinctive management model can itself be a key driver of competitiveness. (MIT Sloan Management Review, WINTER 2009)  <small><a href="/pdfs/press_room/MITSloanMR.pdf">[February 16]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- China, Belarus & Croatia TCHS09 end --%>
+                
+                <%-- China, Belarus & Croatia TCHS09 begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
                         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_020209"><img src="/i/pressroom/tchs09.png" alt="TCHS09 logo" border="0" /></a>
@@ -129,7 +142,7 @@
                     </div>
                     <div class="pr_clear"></div>
                 </div>
-                <%-- China, Belarux & Croatia TCHS09 end --%>
+                <%-- China, Belarus & Croatia TCHS09 end --%>
                 
                 <%-- TopCoder MLab Keynote begin --%>
                 <div class="pr_newsitem">
