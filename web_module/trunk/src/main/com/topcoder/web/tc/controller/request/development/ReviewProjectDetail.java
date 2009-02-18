@@ -50,10 +50,15 @@ import java.util.Map;
  *     <li>The project type requested by client is provided as parameter to <code>review_project_detail</code> query to
  *         filter the retrieved projects based on provided type.</li>
  *   </ol>
+ *
+ *   Version 1.0.3 Change notes:
+ *   <ol>
+ *     <li>Added support for <code>Architecture</code> project type/category.</li>
+ *   </ol>
  * </p>
  *
  * @author dok, pulky, isv
- * @version 1.0.2
+ * @version 1.0.3
  * @since 1.0
  */
 public class ReviewProjectDetail extends Base {
@@ -394,21 +399,26 @@ public class ReviewProjectDetail extends Base {
 
     /**
      * <p>Gets the logical name for the view which is to be used for displaying the list of review opportunities of
-     * specified type requested by client. As of current version <code>Design</code>, <code>Development</code> and
-     * <code>Assembly</code> project types are supported only.</p>
+     * specified type requested by client. As of current version <code>Design</code>, <code>Development</code>,
+     * <code>Architecture</code> and <code>Assembly</code> project types are supported only.</p>
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the review details for projects of
      *         specified type.
-     * @since TCS Release 2.2.0 (TCS-54)
+     * @throws IllegalArgumentException if specified project type is not supported.
+     * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57)
      */
     private String getReviewProjectDetailView(String projectType) {
         if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
             return Constants.REVIEW_PROJECT_DETAIL;
         } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
             return Constants.REVIEW_PROJECT_DETAIL;
-        } else {
+        } else if (projectType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))) {
             return Constants.ASSEMBLY_REVIEW_PROJECT_DETAIL;
+        } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
+            return Constants.ARCHITECTURE_REVIEW_PROJECT_DETAIL;
+        } else {
+            throw new IllegalArgumentException("Unsupported project type/category: " + projectType);
         }
     }
 }

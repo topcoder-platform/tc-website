@@ -59,10 +59,15 @@ import java.io.FileOutputStream;
  *     <li>The project type requested by client is provided as parameter to <code>review_project_detail</code> query to
  *         filter the retrieved projects based on provided type.</li> 
  *   </ol>
+ *
+ *   Version 1.0.4 Change notes:
+ *   <ol>
+ *     <li>Added support for <code>Architecture</code> project type/category.</li>
+ *   </ol>
  * </p>
  *
  * @author dok, pulky, isv
- * @version 1.0.3
+ * @version 1.0.4
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -168,7 +173,7 @@ public class ProjectReviewApply extends Base {
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
         int type = Integer.parseInt(this.projectTypeId);
         // Assembly competition reviews do not take into consideration the catalogs as for now
-        if (type == WebConstants.ASSEMBLY_PROJECT_TYPE) {
+        if (type == WebConstants.ASSEMBLY_PROJECT_TYPE || type == WebConstants.ARCHITECTURE_PROJECT_TYPE) {
             rBoardApplication.validateUserWithoutCatalog(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, reviewTypeId,
                                                          getUser().getId(), type);
         } else {
@@ -194,21 +199,26 @@ public class ProjectReviewApply extends Base {
 
     /**
      * <p>Gets the logical name for the view which is to be used for displaying the terms of use for the reviews of
-     * specified type requested by client. As of current version <code>Design</code>, <code>Development</code> and
-     * <code>Assembly</code> project types are supported only.</p>
+     * specified type requested by client. As of current version <code>Design</code>, <code>Development</code>,
+     * <code>Assembly</code> and <code>Architecture</code> project types are supported only.</p>
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the terms of use for projects of
      *         specified type.
-     * @since TCS Release 2.2.0 (TCS-54)
+     * @throws IllegalArgumentException if specified project type is not supported.
+     * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57)
      */
     private String getReviewTermsView(String projectType) {
         if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
             return Constants.REVIEWER_TERMS;
         } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
             return Constants.REVIEWER_TERMS;
-        } else {
+        } else if (projectType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))) {
             return Constants.ASSEMBLY_REVIEWER_TERMS;
+        } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
+            return Constants.ARCHITECTURE_REVIEWER_TERMS;
+        } else {
+            throw new IllegalArgumentException("Unsupported project category/type: " + projectType);
         }
     }
 }

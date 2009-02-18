@@ -44,10 +44,15 @@ import java.util.Iterator;
  *     <li>The project type requested by client is provided as parameter to <code>review_projects</code> query to filter
  *         the retrieved projects based on provided type.</li> 
  *   </ol>
+ *
+ *   Version 1.0.4 Change notes:
+ *   <ol>
+ *     <li>Added support for <code>Architecture</code> project type/category.</li>
+ *   </ol>
  * </p>
  *
  * @author dok, pulky, ivern, isv
- * @version 1.0.3
+ * @version 1.0.4
  * @since 1.0
  */
 public class ViewReviewProjects extends ReviewProjectDetail {
@@ -153,15 +158,20 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the list of review opportunities for
      *         specified project type.
-     * @since TCS Release 2.2.0 (TCS-54)
+     * @throws IllegalArgumentException if specified project type is not supported.
+     * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57)
      */
     private String getReviewOpportunitiesView(String projectType) {
         if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
             return Constants.REVIEW_PROJECTS;
         } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
             return Constants.REVIEW_PROJECTS;
-        } else {
+        } else if (projectType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))) {
             return Constants.ASSEMBLY_REVIEW_PROJECTS;
+        } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
+            return Constants.ARCHITECTURE_REVIEW_PROJECTS;
+        } else {
+            throw new IllegalArgumentException("Unsupported project type/category: " + projectType);
         }
     }
 }
