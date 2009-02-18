@@ -141,7 +141,7 @@
 											<td class="value">
 												<%-- todo no scriptlet code!, fix this--%>
 												<% if ("3009".equals(resultRow.getStringItem("event_id"))) { %>
-												<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=description"><img src="/i/tournament/tco09/09emblem.png" alt="Eligible for the TCO09 SDC" /><span>Eligible for the TCO09 SDC</span></a>
+												<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=description"><img src="/i/tournament/tco09/09emblem.png" alt="Eligible for the TCO09" /><span>Eligible for the TCO09</span></a>
 												<% } else { %>
 												&nbsp;
 												<% } %>
