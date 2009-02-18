@@ -1,7 +1,7 @@
 <%--
-  - Author: isv
-  - Date: 07 Jan 2009
-  - Version: 1.0
+  - Author: isv, TCSDEVELOPER
+  - Date: 21 Jan 2009
+  - Version: 1.1
   - Copyright (C) 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This is the page for listing the members of the review board of requested type. It displays the list of
@@ -99,7 +99,7 @@
                             </span>
                         </div>
                     </td>
-                    <c:if test="${(i % 3 eq 0) and (i > 0) || (i eq (rowsCount - 1))}">
+                    <c:if test="${(i % 3 eq 2) || (i eq (rowsCount - 1))}">
                         </tr>
                     </c:if>
                     <c:set var="i" value="${i + 1}"/>

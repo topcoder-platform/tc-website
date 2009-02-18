@@ -582,8 +582,12 @@ public class AutoPilot {
             float secondaryFixedPayment = 0;
 
             // resize payments if there is info in rboard_payment
-            ResultSetContainer rsc = rBoardPayment.getPayments(project.getId(), project.getProjectType().getId() == ProjectType.ID_DESIGN ?
-                    112 : 113, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
+            // TCS Release 2.2.1 - fixed the mapping from project type ID to phase ID so that other competition
+            // types are supported
+//            ResultSetContainer rsc = rBoardPayment.getPayments(project.getId(), project.getProjectType().getId() == ProjectType.ID_DESIGN ?
+//                    112 : 113, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
+            ResultSetContainer rsc = rBoardPayment.getPayments(project.getId(), project.getProjectType().getId() + 111,
+                                                               DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
             if (rsc != null) {
                 for (int i = 0; i < rsc.size(); i++) {
                     if (rsc.getIntItem(i, "primary_ind") == 1) {
@@ -594,9 +598,15 @@ public class AutoPilot {
                 }
             }
 
+            // TCS Release 2.2.1 - fixed the mapping from project type ID to phase ID so that other competition
+            // types are supported
+//            FixedPriceComponent fpc = new FixedPriceComponent(
+//                    levelId, count, passedCount,
+//                    project.getProjectType().getId() == ProjectType.ID_DESIGN ? 112 : 113,
+//                    primaryFixedPayment, secondaryFixedPayment);
             FixedPriceComponent fpc = new FixedPriceComponent(
                     levelId, count, passedCount,
-                    project.getProjectType().getId() == ProjectType.ID_DESIGN ? 112 : 113,
+                    (int) (project.getProjectType().getId() + 111),
                     primaryFixedPayment, secondaryFixedPayment);
 
             // check project for reviewers

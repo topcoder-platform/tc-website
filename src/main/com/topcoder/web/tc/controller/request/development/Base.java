@@ -140,11 +140,12 @@ public abstract class Base extends ShortHibernateProcessor {
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return <code>true</code> if specified project type is requested; <code>false</code> otherwise.
-     * @since TCS Release 2.2.0 (TCS-54)
+     * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57)
      */
     protected boolean isProjectTypeSupported(String projectType) {
         return projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))
             || projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))
-            || projectType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE));
+            || projectType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))
+            || projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE));
     }
 }
