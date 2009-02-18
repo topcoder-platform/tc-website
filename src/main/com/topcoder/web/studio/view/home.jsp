@@ -64,7 +64,6 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
 	});
 	</script>
 	
-    <script type="text/javascript" src="/js/v2/popup.js"></script>
     <script type="text/JavaScript" src="/js/RSSProcessor.js"> </script>
     <script type="text/JavaScript" src="/js/AJAXProcessor.js"> </script>
 </head>

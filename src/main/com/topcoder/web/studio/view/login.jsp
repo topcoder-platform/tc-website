@@ -108,7 +108,7 @@
                                         <td class="value"><input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="30" size="30" onkeypress="submitEnter(event)" class="textfield"></td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" align="left"><input type="checkbox" name="<%=Login.REMEMBER_USER%>"> Remember Me</td>
+                                        <td colspan="2" align="left"><input type="checkbox" name="<%=Login.REMEMBER_USER%>" id="rememberme"> <label for="rememberme">Remember Me</label></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" align="center"><input type="image" src="/i/v2/interface/btnLogin.png"/></td>
