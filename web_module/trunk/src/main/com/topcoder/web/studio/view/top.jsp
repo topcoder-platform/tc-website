@@ -27,7 +27,7 @@
 						<div id="left">
 							<div>Handle</div>
 							<div><input type="text" name="<%=Login.USER_NAME%>"  maxlength="15" type="text" tabindex="1" /></div>
-							<div><input type="checkbox" name="<%=Login.REMEMBER_USER%>" value="Remember me" /> Remember me</div>
+							<div><input type="checkbox" id="remember" name="<%=Login.REMEMBER_USER%>" /> <label for="remember">Remember me</label></div>
 						</div>
 						<div id="right"><a href="#" class="button" tabindex="3">Login</a>
 							<div class="register"><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" title="Register">Register today!</a></div>
