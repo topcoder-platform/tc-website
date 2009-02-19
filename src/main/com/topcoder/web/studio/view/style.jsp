@@ -101,6 +101,7 @@
 <link type="text/css" rel="stylesheet" href="/css/portfolio/portfolio_style.css" />
 <link type="text/css" rel="stylesheet" href="/css/v4/studio-navigation.css" />
 <link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css" />
+<link type="text/css" rel="stylesheet" href="/css/portfolio/thickbox.css" />
 <!--[if IE 7]>
 	<link rel="stylesheet" type="text/css" href="/css/v4/studio-ie7.css" />
 <![endif]-->
