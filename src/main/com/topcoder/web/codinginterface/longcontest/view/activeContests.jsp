@@ -61,7 +61,8 @@
             
             <%-- MM Promo On/Off--%>
             <div align="right" style="margin: 6px 0px;">
-                <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdOverview"><img src="/i/longcontest/amdMCTacPromo.png" alt="AMD Multicore Threadfest" /></a>
+                
+                
             </div>
             
 
