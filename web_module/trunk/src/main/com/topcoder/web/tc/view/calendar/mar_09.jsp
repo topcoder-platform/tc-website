@@ -70,11 +70,6 @@
          <strong><A href="/tc?module=MatchDetails&rd=13698">SRM 436</A></strong><br />
          7:00 AM
          </div>
-         <div class="long">
-         <strong><a href="/tc?module=MatchDetails&amp;rd=13710">Marathon Match 50</a></strong><br />
-         12:00 NOON<br />
-         2 weeks
-         </div>
          <div class="tco09">
          <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=schedule">Algo Registration Closes</A></strong><br />
