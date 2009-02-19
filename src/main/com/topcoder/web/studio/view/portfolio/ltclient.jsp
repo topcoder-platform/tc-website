@@ -39,7 +39,7 @@
 	</script>
 	
     <!-- add js scripts for portfolio section modal windows -->
-    <script type="text/javascript" src="/js/portfolio/thickbox.js"></script>
+    <script type="text/javascript" src="js/portfolio/thickbox.js"></script>
     <!-------------------------------------------------------->
 </head>
 
@@ -74,10 +74,10 @@
 						
 						<div id="thumbs">
 							<ul>
-								<li><a href="/i/portfolio/projects/ltclient/round1/index.htm" title="ltclient Promo Banner Ads" target="_blank"><img src="/i/portfolio/projects/ltclient/round1/i/4.png" width="150" height="150" /></a><br />
+								<li><a href="/i/portfolio/projects/ltclient/round1/index.htm" title="ltclient Promo Banner Ads"><img src="/i/portfolio/projects/ltclient/round1/i/4.png" width="150" height="150" /></a><br />
 								<div align="center">Banner Ads 1</div></li>
 								
-								<li><a href="/i/portfolio/projects/ltclient/round2/index.htm" title="ltclient Promo Banner Ads Round 2" target="_blank"><img src="/i/portfolio/projects/ltclient/round2/i/3.png" width="150" height="150" /></a><br />
+								<li><a href="/i/portfolio/projects/ltclient/round2/index.htm" title="ltclient Promo Banner Ads Round 2"><img src="/i/portfolio/projects/ltclient/round2/i/3.png" width="150" height="150" /></a><br />
 								<div align="center">Banner Ads 2</div></li>
 							</ul>
 						</div>
@@ -95,17 +95,17 @@
 											</tr>
 											<tr>
 												<td>Banner Ad Contest</td>
-												<td><a href="/i/portfolio/projects/ltclient/round1/index.htm" title="ltclient Promo Banner Ads" target="_blank">LendingTree Promo Banner Ads</a></td>
+												<td><a href="/i/portfolio/projects/ltclient/round1/index.htm" title="ltclient Promo Banner Ads">LendingTree Promo Banner Ads</a></td>
 												<td>5 Days</td>
 												<td align="center">26</td>
-												<td><a href="/i/portfolio/projects/ltclient/round1/index.htm" title="ltclient Promo Banner Ads" target="_blank">Link</a></td>
+												<td><a href="/i/portfolio/projects/ltclient/round1/index.htm" title="ltclient Promo Banner Ads">Link</a></td>
 											</tr>
 											<tr>
 												<td>Banner Ad Contest</td>
-												<td><a href="/i/portfolio/projects/ltclient/round2/index.htm" title="ltclient Promo Banner Ads Round 2" target="_blank">LendingTree Banner Ads Round 2</a></td>
+												<td><a href="/i/portfolio/projects/ltclient/round2/index.htm" title="ltclient Promo Banner Ads Round 2">LendingTree Banner Ads Round 2</a></td>
 												<td>7 Days</td>
 												<td align="center">93</td>
-												<td><a href="/i/portfolio/projects/ltclient/round2/index.htm" title="ltclient Promo Banner Ads Round 2" target="_blank">Link</a></td>
+												<td><a href="/i/portfolio/projects/ltclient/round2/index.htm" title="ltclient Promo Banner Ads Round 2">Link</a></td>
 											</tr>
 											
 										

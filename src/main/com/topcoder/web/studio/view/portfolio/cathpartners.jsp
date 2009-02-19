@@ -39,7 +39,7 @@
 	</script>
 	
     <!-- add js scripts for portfolio section modal windows -->
-    <script type="text/javascript" src="/js/portfolio/thickbox.js"></script>
+    <script type="text/javascript" src="js/portfolio/thickbox.js"></script>
     <!-------------------------------------------------------->
 </head>
 
