@@ -123,7 +123,7 @@
                                                                                         <td class="first last alignText">Wednesday,<br /> March 4, 2009<br />
                                                                                           12:00 p.m.*</td>
                                                                                         <td class="first last alignText">Unlimited</td>
-                                                                                        <td class="first last alignText">250</td>
+                                                                                        <td class="first last alignText">300</td>
                                                                                         <td class="last">&nbsp;</td>
                                                                                   </tr>
                                                                                     <tr>
@@ -161,7 +161,7 @@
                                                                             <h3 class="subtitle">Advancing during Online Rounds</h3>
                                                                                 <p>After each Online Round, the specified number of highest scoring competitors who are registered for the TCO will advance to the next Online Round. To advance, a Competitor must submit a Full Submission and achieve a score greater than zero. The structure of each Online Round is as follows:</p>
                                                                       <p><strong>Online Round 1</strong><br />
-                                                                                All Competitors who have registered for the Marathon Competition may compete, and up to 250 of the highest scoring Competitors and the 50 automatic berth winners will advance to Online Round 2.</p>
+                                                                                All Competitors who have registered for the Marathon Competition may compete, and up to 300 of the highest scoring Competitors and the 50 automatic berth winners will advance to Online Round 2.</p>
                                                                                 <p><strong>Online Round 2</strong><br />Up to 300 Competitors from Online Round 1 will compete and up to 100 of the highest scoring Competitors will advance to Online Round 3.</p>
                                                                                 <p><strong>Online Round 3</strong><br />Up to 100 Competitors from Online Round 2 will compete and up to 10 of the highest scoring competitors will advance to the onsite Championship Round ("Onsite Marathon Competitor").</p>
                                                                                 <p>NOTE: In the event of a tie for any advancing position during the Online Rounds, the tie will be resolved in the following manner:</p>
