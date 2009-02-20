@@ -91,12 +91,11 @@
 
 <div style="float: right; width: 135px;">
 	<%-- ADDTHIS BUTTON BEGIN --%>
-	<script type="text/javascript">
-	addthis_pub             = 'topcoderstudio'; 
-	addthis_brand           = 'TopCoder Studio';
-	addthis_options         = 'facebook, twitter, google, del.icio.us, stumbleupon, reddit, myspace, favorites, email';
-	</script>
-	<a href="http://www.addthis.com/bookmark.php" onMouseOver="return addthis_open(this, '', '[URL]', '[TITLE]')" onMouseOut="addthis_close()" onClick="return addthis_sendto()">
+	<script type="text/javascript"> 
+	addthis_pub='topcoderstudio';
+	addthis_brand='TopCoder Studio'; 
+	addthis_options='facebook,twitter,google,del.icio.us,stumbleupon,reddit,myspace,favorites,email';</script> 
+	<a href="http://www.addthis.com/bookmark.php" onMouseOver="return addthis_open(this, '', '[URL]', '[TITLE]')" onmouseOut="addthis_close()" onclick="return addthis_sendto()">
 	<img src="/i/v2/interface/btnShare.png" width="122" height="35" border="0" alt="Share" /></a>
 	<script type="text/javascript" src="http://s7.addthis.com/js/152/addthis_widget.js"></script>
 	<%-- ADDTHIS BUTTON END --%>
@@ -133,8 +132,7 @@
                         Winner(s)<br />Announced:
                     </td>
                     <td class="value">
-                        <tc-webtag:format object="${contest.winnerAnnouncementTime}"
-                                          format="EEEE, MMMM d, yyyy '<br />at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                        <tc-webtag:format object="${contest.winnerAnnouncementTime}" format="EEEE, MMMM d, yyyy '<br />at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
                     </td>
                 </tr>
             </c:if>
