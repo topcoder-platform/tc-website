@@ -14,16 +14,16 @@
         <jsp:param name="key" value="studio_portfolio"/>
     </jsp:include>
 	
-	<script src="js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
-	<script src="js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
+	<script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
+	<script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
     <script type="text/javascript">
 			$(document).ready(function(){
 				//Run the script to preload images from CSS
 				$.preloadCssImages(); 
 			});
 	</script>
-	<script src="js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-	<script src="js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+	<script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+	<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
 	<script type="text/javascript" language="javascript">
 
 	$(document).ready(function(){
@@ -46,7 +46,7 @@
 	</script>
 	
     <!-- add js scripts for portfolio section modal windows -->
-    <script type="text/javascript" src="js/portfolio/thickbox.js"></script>
+    <script type="text/javascript" src="/js/portfolio/thickbox.js"></script>
     <!-------------------------------------------------------->
 </head>
 
