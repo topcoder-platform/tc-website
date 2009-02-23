@@ -100,7 +100,7 @@
                                                                                 <ul>
                                                                                   <li>Competed in a TopCoder marathon competition between December 1, 2008 and February 24, 2009 </li>
                                                                                   <li>Competed in a total of at least three (3) TopCoder rated events as a member at any time</li>
-                                                                                  <li>Register for the Tournament </li>
+                                                                                  <li>Register for the Tournament by Tuesday, February 24, 2009 at 9:00 a.m. EST</li>
                                                                                   <li>Meet all other Marathon Competition and Tournament eligibility criteria </li>
                                                                                 </ul>
                                                                                 <p>If a Competitor does not participate in an Online Round to which the Competitor has advanced, the Competitor will be disqualified from advancing further in the Marathon Competition.</p>
