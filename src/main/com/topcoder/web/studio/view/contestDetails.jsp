@@ -355,6 +355,8 @@
 <div class="header"><span>Contest Summary</span></div>
 <studio:formatField text="${contest.overview.value}"/>
 
+<p><b>Entries must be your original work, and must not infringe on the copyright or licenses of others. Stock art, clip art, templates and other design elements from other sources are prohibited unless specifically permitted here in the Contest Details.</b></p>
+
 <c:if test="${not empty contest.fullDescription.value}">
     <div class="header"><span>Full Description &amp; Project Guide</span></div>
     <studio:formatField text="${contest.fullDescription.value}"/>
