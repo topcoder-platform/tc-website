@@ -81,7 +81,7 @@
             <%-- jobs_border creation --%>
             <div class="jobs_box"><div class="jobs_box2"><div class="jobs_boxcontent">
                 
-                <%-- Software Application Architect begin --%>
+                <%-- Software Application Architect begin 
                 <div class="jobs_newsitem">
                     <div class="jobs_img">
                         &nbsp;
@@ -95,7 +95,7 @@
                     </div>
                     <div class="jobs_clear"></div>
                 </div>
-                <%-- Software Application Architect end --%>
+               Software Application Architect end --%>
                 
                 <%-- Salesperson begin --%>
                 <div class="jobs_newsitem">
@@ -113,7 +113,7 @@
                 </div>
                 <%-- Salesperson end --%>
                 
-                <%-- Deployment Engineer begin --%>
+                <%-- Deployment Engineer begin 
                 <div class="jobs_newsitem">
                     <div class="jobs_img">
                         &nbsp;
@@ -127,9 +127,9 @@
                     </div>
                     <div class="jobs_clear"></div>
                 </div>
-                <%-- Deployment Engineer end --%>
+                Deployment Engineer end --%>
                 
-                <%-- Software Project Manager begin --%>
+                <%-- Software Project Manager begin 
                 <div class="jobs_newsitem">
                     <div class="jobs_img">
                         &nbsp;
@@ -143,7 +143,7 @@
                     </div>
                     <div class="jobs_clear"></div>
                 </div>
-                <%-- Software Project Manager end --%>
+                Software Project Manager end --%>
                 
                 <p class="jobs_backtop"><a href="#jobs_top">Back to Top</a></p>
                 <div class="jobs_clear"></div>
