@@ -44,7 +44,7 @@
         	<ul class="submenu">
             	<li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=<%=tcsForumsID%>">Software Forums</a></li>
                 <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">Member Forums</a></li>
-                <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums/">Studio Forums</a></li>
+                <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
             </ul>
         </li>
     </ul>
