@@ -150,9 +150,9 @@
          nav.search("m_testing_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=13", "Active Contests", "app_testing_compete"));
          nav.search("m_testing_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=13", "Contest Status", "app_testing_status"));
          /* Since TCS Release 2.2.2 (TCS-74) : Added "Review Opportunities" link for Application Testing competitions */
-         nav.search("m_application_testing_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewProjects&amp;pt=13", "Review Opportunities", "application_testing_review"));
+         nav.search("m_testing_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewProjects&amp;pt=13", "Review Opportunities", "application_testing_review"));
          /* Since TCS Release 2.2.2 (TCS-72) : Added "Meet The Review Board" link for Application Testing competitions */
-         nav.search("m_application_testing_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&amp;pt=13", "Meet the Review Board", "application_testing_review_board"));
+         nav.search("m_testing_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&amp;pt=13", "Meet the Review Board", "application_testing_review_board"));
          nav.search("m_testing_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_testing_support')", "Support / FAQs", "m_testing_support"));
             nav.search("m_testing_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Testing+Competitions", "How to Compete", "testing_how_to_compete"));
             nav.search("m_testing_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Testing+Competition+Tutorial", "Tutorial", "testing_tutorial"));
