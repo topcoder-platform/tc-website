@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc;
 
 import com.topcoder.shared.util.TCResourceBundle;
@@ -8,6 +11,19 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.MissingResourceException;
 
+/**
+ * <p>This class stores a variety of constants.</p>
+ *
+ * <p>
+ *   Version 1.1 (TCS Release 2.2.2) Change notes:
+ *   <ol>
+ *     <li>Added constants to support Conceptualization, Specification and Application Review Board pages.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER
+ * @version 1.1
+ */
 public class Constants implements WebConstants {
 
 
@@ -207,6 +223,30 @@ public class Constants implements WebConstants {
      */
     public static final String ARCHITECTURE_REVIEW_PROJECT_DETAIL = "/architecture/reviewProjectDetail.jsp";
 
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * Conceptualization Review Project Details page.</p>
+     *
+     * @since 1.1
+     */
+    public static final String CONCEPTUALIZATION_REVIEW_PROJECT_DETAIL = "/conceptualization/reviewProjectDetail.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * Specification Review Project Details page.</p>
+     *
+     * @since 1.1
+     */
+    public static final String SPECIFICATION_REVIEW_PROJECT_DETAIL = "/specification/reviewProjectDetail.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * Application Testing Review Project Details page.</p>
+     *
+     * @since 1.1
+     */
+    public static final String APPLICATION_TESTING_REVIEW_PROJECT_DETAIL = "/application_testing/reviewProjectDetail.jsp";
+
     public static String REVIEW_PROJECTS;
 
     /**
@@ -224,6 +264,30 @@ public class Constants implements WebConstants {
      * @since TCS Release 2.2.1 (TCS-57)
      */
     public static final String ARCHITECTURE_REVIEW_PROJECTS = "/architecture/reviewProjects.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * Conceptualization Review Projects page.</p>
+     *
+     * @since 1.1
+     */
+    public static final String CONCEPTUALIZATION_REVIEW_PROJECTS = "/conceptualization/reviewProjects.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * Specification Review Projects page.</p>
+     *
+     * @since 1.1
+     */
+    public static final String SPECIFICATION_REVIEW_PROJECTS = "/specification/reviewProjects.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * Application Testing Review Projects page.</p>
+     *
+     * @since 1.1
+     */
+    public static final String APPLICATION_TESTING_REVIEW_PROJECTS = "/application_testing/reviewProjects.jsp";
 
     public static String DESIGN_DETAIL;
     public static String DEVELOPMENT_DETAIL;
@@ -244,6 +308,30 @@ public class Constants implements WebConstants {
      * @since TCS Release 2.2.1 (TCS-57)
      */
     public static final String ARCHITECTURE_REVIEWER_TERMS = "/architecture/reviewerTerms.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * Conceptualization Review Terms page.</p>
+     *
+     * @since 1.1
+     */
+    public static final String CONCEPTUALIZATION_REVIEWER_TERMS = "/conceptualization/reviewerTerms.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * Specification Review Terms page.</p>
+     *
+     * @since 1.1
+     */
+    public static final String SPECIFICATION_REVIEWER_TERMS = "/specification/reviewerTerms.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * Application Testing Review Terms page.</p>
+     *
+     * @since 1.1
+     */
+    public static final String APPLICATION_TESTING_REVIEWER_TERMS = "/application_testing/reviewerTerms.jsp";
 
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;
