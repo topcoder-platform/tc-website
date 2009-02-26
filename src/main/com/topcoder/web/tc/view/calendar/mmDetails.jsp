@@ -120,6 +120,16 @@
 </p>
 <%}%>
 
+
+<%if(rsr.getItem("round_id") == 13772 ) {%>
+<p align="justify">
+    Unlike traditional algorithm competitions, the system is not necessarily testing for correctness. 
+    In Marathon Matches, the scoring mechanism may be different for each problem. 
+    A description of the scoring mechanism will be provided in the problem statement. 
+    Competitors will have to understand the scoring mechanism in order to effectively compete.  
+    <b>Participants may submit code written in the following language: C++ </b>
+</p>
+<%} else { %>
 <p align="justify">
     Unlike traditional algorithm competitions, the system is not necessarily testing for correctness. 
     In Marathon Matches, the scoring mechanism may be different for each problem. 
@@ -127,6 +137,9 @@
     Competitors will have to understand the scoring mechanism in order to effectively compete.  
     Participants may submit code written in one of the following languages: Java, C++, C#.NET, VB.NET, or Python. 
 </p>
+<% } %>
+
+
 <p align="justify">
     Once the submission phase of a Marathon Match has ended, 
     the final results will become available by clicking the Results link. 
