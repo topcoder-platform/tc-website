@@ -121,7 +121,7 @@
 <%}%>
 
 
-<%if(rsr.getItem("round_id") == 13772 ) {%>
+<%if(rsr.getIntItem("round_id") == 13772 ) {%>
 <p align="justify">
     Unlike traditional algorithm competitions, the system is not necessarily testing for correctness. 
     In Marathon Matches, the scoring mechanism may be different for each problem. 
