@@ -60,7 +60,7 @@
             </div>
             
             <div align="left" style="margin: 8px 0px;">
-                <a href="tc?module=MatchDetails&amp;rd=13772"><img src="/i/longcontest/lindenlabMM-banner.png" alt="Linden Lab OpenJPG MM" /></a></a>
+                <a href="/tc?module=MatchDetails&rd=13772"><img src="/i/longcontest/lindenlabMM-banner.png" alt="Linden Lab OpenJPG MM" /></a></a>
             </div>
             
         <%-- MM Promo On/Off--%>
