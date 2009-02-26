@@ -93,7 +93,7 @@
     you are agreeing to license it under the GNU Public License, Version 2.0.
 </p>
 <%}%>
-<%if(rsr.getIntItem("round_id") == 10862 || rsr.getIntItem("round_id") == 13754 ) {%>
+<%if(rsr.getIntItem("round_id") == 10862 || rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13772 ) {%>
 <p align="justify">
     This Marathon Match has some different rules and terms.  Please make sure to read
     the rules carefully before competing.  <b>You must be eligible to compete in the match 
@@ -111,6 +111,12 @@
 <%if(rsr.getIntItem("round_id") == 13754 ) {%>
 <p align="justify">
     This Marathon Match is a money match that has a <b>$5,000 prize purse</b>! The top five highest scorers will receive prizes with the first place winner receiving $2,500!
+</p>
+<%}%>
+
+<%if(rsr.getIntItem("round_id") == 13772 ) {%>
+<p align="justify">
+    This Marathon Match is a money match that has a <b>$10,000 prize purse</b>! The top five highest scorers will receive prizes with the first place winner receiving $5,000!
 </p>
 <%}%>
 
@@ -196,7 +202,34 @@
 </p>
 <%}%>
 
-<%if(rsr.getIntItem("round_id") == 13754) {%>
+<%if(rsr.getIntItem("round_id") == 13772) {%>
+<div class="sectionHeader">Prizes</div>
+    <p align="justify">There will be $10,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
+
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$5,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$2,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$1,500</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$1,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$500</td>
+    </tr>
+</table>
+    
+<p align="justify">
+    
+</p>
+<%}%>
+
+<%if(rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13772 ) {%>
 <div class="sectionHeader">Eligibility</div>
   <p align="justify">
     You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition,
