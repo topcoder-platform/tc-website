@@ -59,7 +59,11 @@
                 <a href="/longcontest/?module=Static&amp;d1=instructions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
             </div>
             
-            <%-- MM Promo On/Off--%>
+            <div align="left" style="margin: 8px 0px;">
+                <a href="tc?module=MatchDetails&amp;rd=13772"><img src="/i/longcontest/lindenlabMM-banner.png" alt="Linden Lab OpenJPG MM" /></a></a>
+            </div>
+            
+        <%-- MM Promo On/Off--%>
             <div align="right" style="margin: 6px 0px;">
                 
                 
