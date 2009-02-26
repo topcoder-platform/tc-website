@@ -100,7 +100,9 @@
 					
 					<div class="tableTabOff" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a></div>
 					<div class="tableTabOn"><a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a></div>
-					
+                              <%-- BUGR-1211 Added Active Bug Race Tab --%>
+                              <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewActiveBugRaces">Active Bug Races</a></div>
+
 					<br  clear="all"/>
 					
 					<div class="statHolder">
