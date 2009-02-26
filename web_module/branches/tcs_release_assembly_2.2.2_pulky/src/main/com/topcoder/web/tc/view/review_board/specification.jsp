@@ -4,7 +4,7 @@
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
-  - Description: This is the page for listing the members of the Conceptualization review board. It displays the list of
+  - Description: This is the page for listing the members of the Specification review board. It displays the list of
   - reviewers along with their handles and photos. The page also contains the links for viewing the reviewers from
   - Design and Development review boards.
 --%>
@@ -20,7 +20,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
-        <title>Conceptualization Review Board at TopCoder</title>
+        <title>Specification Review Board at TopCoder</title>
         <jsp:include page="/script.jsp"/>
         <jsp:include page="/style.jsp">
             <jsp:param name="key" value="tc_stats"/>
@@ -33,7 +33,7 @@
                 <!-- Left Column Begins -->
                 <td width="180">
                     <jsp:include page="/includes/global_left.jsp">
-                        <jsp:param name="node" value="conceptualization_review_board"/>
+                        <jsp:param name="node" value="specification_review_board"/>
                     </jsp:include>
                 </td>
                 <!-- Left Column Ends -->
@@ -45,8 +45,8 @@
                 <!-- Center Column Begins -->
                 <td class="bodyText" width="100%">
                     <jsp:include page="/page_title.jsp">
-                        <jsp:param name="image" value="conceptualization"/>
-                        <jsp:param name="title" value="Meet the Conceptualization Review Board"/>
+                        <jsp:param name="image" value="specification"/>
+                        <jsp:param name="title" value="Meet the Specification Review Board"/>
                     </jsp:include>
         
                     <table border="0" cellspacing="0" cellpadding="0" width="100%">
@@ -64,12 +64,12 @@
                                     </a>
                                 </p>
         
-                                <p>TopCoder Software utilizes past software conceptualization winners and accomplished TopCoder
-                                    competitors to staff the Conceptualization Review Board. These reviewers verify that each conceptualization
-                                    submission meets the required functionality, coding style, adheres to the conceptualization
+                                <p>TopCoder Software utilizes past software specification winners and accomplished TopCoder
+                                    competitors to staff the Specification Review Board. These reviewers verify that each specification
+                                    submission meets the required functionality, coding style, adheres to the specification
                                     requirements and contains a suitable test suite.</p>
         
-                                <p>The following members have agreed to participate on the TopCoder Conceptualization Review Board:</p>
+                                <p>The following members have agreed to participate on the TopCoder Specification Review Board:</p>
                             </td>
                         </tr>
                     </table>
@@ -89,7 +89,7 @@
                                              alt="<rsc:item row="<%=resultRow%>" name="handle"/>" width="126" height="140"
                                              border="0" class="myStatsPhoto"/></a><br/>
                                     <span class="bodyText">
-                                        <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="conceptualization"/>
+                                        <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="specification"/>
                                     </span>
                                 </div>
                             </td>
@@ -100,7 +100,7 @@
                         </rsc:iterator>
                     </table>
                     <p align="middle"><a href="mailto:service@topcodersoftware.com" class="bodyText">Have a question about the
-                        TopCoder Conceptualization Review Board?</a></p>
+                        TopCoder Specification Review Board?</a></p>
                     <p><br/></p>
                 </td>
                 <!-- Center Column Ends -->
@@ -113,7 +113,7 @@
                 <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0" alt=""><br/>
                     <jsp:include page="/public_right.jsp">
                         <jsp:param name="level1" value="review_board"/>
-                        <jsp:param name="level2" value="conceptualization"/>
+                        <jsp:param name="level2" value="specification"/>
                     </jsp:include>
                 </td>
                 <!-- Right Column Ends -->
