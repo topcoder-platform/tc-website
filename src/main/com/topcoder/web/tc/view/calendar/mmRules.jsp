@@ -198,7 +198,7 @@
         </p>
         <%}%>
     
-    <%if(rsr.getItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
+    <%if(rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
     <p align="justify">
     Competitors must not cheat; all ideas for any code submitted must be the contestant's alone. Competitors must use their own independently developed code, and shall not copy or include code from any other party, including publicly available "open source" code that is or may be subject to licensing restrictions.
     </p>
