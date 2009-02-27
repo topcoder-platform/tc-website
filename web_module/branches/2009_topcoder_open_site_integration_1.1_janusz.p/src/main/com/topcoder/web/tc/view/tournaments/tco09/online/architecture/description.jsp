@@ -79,7 +79,7 @@
                                                     <div id="mainContentInner">
                                                         <div>   
                                                             <div class="pageContent">
-                                                                <h2 class="title">Welcome to the ALL NEW TCO09 Architecture Competition!Welcome to the ALL NEW TCO09 Architecture Competition!</h2>
+                                                                <h2 class="title">Welcome to the ALL NEW TCO09 Architecture Competition!</h2>
                                                                     <p>The 2009 TopCoder Open Architecture Competition will begin on February 11, 2009 and will commence on April 20, 2009.  Six lucky competitors after online competitions will win a trip to the 2009 TopCoder Open in Las Vegas, Nevada to enjoy the event!</p>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">How to compete:  Architecture Competition</h3>
