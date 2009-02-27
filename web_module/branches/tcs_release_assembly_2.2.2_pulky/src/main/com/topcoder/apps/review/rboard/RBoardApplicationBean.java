@@ -980,8 +980,9 @@ public class RBoardApplicationBean extends BaseEJB {
     private Map getReviewRespInfo() {
         // review_resp table is removed
         Map returnMap = new HashMap();
-        int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-        int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118};
+        int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21};
+        int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134, 
+                117, 117, 117, 124, 124, 124};
 
         for (int i = 0; i < respIds.length; i++) {
             returnMap.put(new Integer(respIds[i]), new Integer(phaseIds[i]));
