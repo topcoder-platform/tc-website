@@ -27,7 +27,7 @@
 <c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
 <c:set var="SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>"/>
 <c:set var="APPLICATION_TESTING_PROJECT_TYPE" value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>"/>
-<c:set var="projectType" value="${requestScope[PROJECT_TYPE_ID]}"/>
+<c:set var="projectType" value="${param[PROJECT_TYPE_ID]}"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -89,22 +89,38 @@
                 
                 <%-- Center Column Begins --%>
                 <td width="100%" align="center">
-                    <jsp:include page="/page_title.jsp">
-                        <jsp:param name="image" value="specification"/>
-                        <jsp:param name="title" value="Review Opportunities"/>
-                    </jsp:include>
+                    <c:choose>
+                    	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
+                            <jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="conceptualization"/>
+                                <jsp:param name="title" value="Review Opportunities"/>
+                            </jsp:include>
+                        </c:when>
+                    	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
+                            <jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="specification"/>
+                                <jsp:param name="title" value="Review Opportunities"/>
+                            </jsp:include>
+                        </c:when>
+                    	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
+                            <jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="app_testing"/>
+                                <jsp:param name="title" value="Review Opportunities"/>
+                            </jsp:include>
+                        </c:when>
+                    </c:choose>
                 
                     <form action="${sessionInfo.servletPath}" method="POST" name="frmTerms">
-                        <input type="hidden" name="${PROJECT_ID}" value="${requestScope[PROJECT_ID]}"/>
-                        <input type="hidden" name="${REVIEWER_TYPE_ID}" value="${requestScope[REVIEWER_TYPE_ID]}"/>
-                        <input type="hidden" name="${PRIMARY_FLAG}" value="${requestScope[PRIMARY_FLAG]}"/>
+                        <input type="hidden" name="${PROJECT_ID}" value="${param[PROJECT_ID]}"/>
+                        <input type="hidden" name="${REVIEWER_TYPE_ID}" value="${param[REVIEWER_TYPE_ID]}"/>
+                        <input type="hidden" name="${PRIMARY_FLAG}" value="${param[PRIMARY_FLAG]}"/>
                         <input type="hidden" name="${MODULE_KEY}" value="ProjectReviewTermsAgree"/>
                         <input type="hidden" name="${PROJECT_TYPE_ID}" value="${projectType}"/>
                 
                         <table border="0" cellspacing="0" cellpadding="5">
                             <tr>
                                 <td>
-c                                    <strong>Reviewer Terms and Conditions ("Reviewer Terms")</strong>
+                                    <strong>Reviewer Terms and Conditions ("Reviewer Terms")</strong>
                                 </td>
                             </tr>
                             <tr>
