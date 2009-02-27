@@ -10,12 +10,10 @@
   - In this release, it will be used for Conceptualization, Specification and Application Testing project types.
 --%>
 <%@ page language="java" %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer, com.topcoder.web.tc.Constants" %>
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<% ResultSetContainer projectList = (ResultSetContainer) request.getAttribute("projectList");%>
 
 <%-- Variables to use JSTL --%>
 <c:set var="PROJECT_ID" value="<%=Constants.PROJECT_ID%>"/>
@@ -24,14 +22,16 @@
 <c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
 <c:set var="SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>"/>
 <c:set var="APPLICATION_TESTING_PROJECT_TYPE" value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>"/>
+<c:set var="projectType" value="${requestScope[PROJECT_TYPE_ID]}"/>
+
 <c:choose>
-	<c:when test="${requestScope[PROJECT_TYPE_ID] == CONCEPTUALIZATION_PROJECT_TYPE}">
+	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Conceptualization"/>
     </c:when>
-	<c:when test="${requestScope[PROJECT_TYPE_ID] == SPECIFICATION_PROJECT_TYPE}">
+	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification"/>
     </c:when>
-	<c:when test="${requestScope[PROJECT_TYPE_ID] == APPLICATION_TESTING_PROJECT_TYPE}">
+	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Application Testing"/>
     </c:when>
 </c:choose>
@@ -48,17 +48,17 @@
     
     <body>
         <c:choose>
-        	<c:when test="${requestScope[PROJECT_TYPE_ID] == CONCEPTUALIZATION_PROJECT_TYPE}">
+        	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
                 <jsp:include page="/top.jsp">
                     <jsp:param name="level1" value="conceptualization"/>
                 </jsp:include>
             </c:when>
-        	<c:when test="${requestScope[PROJECT_TYPE_ID] == SPECIFICATION_PROJECT_TYPE}">
+        	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
                 <jsp:include page="/top.jsp">
                     <jsp:param name="level1" value="specification"/>
                 </jsp:include>
             </c:when>
-        	<c:when test="${requestScope[PROJECT_TYPE_ID] == APPLICATION_TESTING_PROJECT_TYPE}">
+        	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
                 <jsp:include page="/top.jsp">
                     <jsp:param name="level1" value="application_testing"/>
                 </jsp:include>
@@ -70,17 +70,17 @@
                 <!-- Left Column Begins-->
                 <td width="180">
                     <c:choose>
-                    	<c:when test="${requestScope[PROJECT_TYPE_ID] == CONCEPTUALIZATION_PROJECT_TYPE}">
+                    	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="conceptualization_review"/>
                             </jsp:include>
                         </c:when>
-                    	<c:when test="${requestScope[PROJECT_TYPE_ID] == SPECIFICATION_PROJECT_TYPE}">
+                    	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="specification_review"/>
                             </jsp:include>
                         </c:when>
-                    	<c:when test="${requestScope[PROJECT_TYPE_ID] == APPLICATION_TESTING_PROJECT_TYPE}">
+                    	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="application_testing_review"/>
                             </jsp:include>
@@ -96,19 +96,19 @@
                 <!-- Center Column Begins -->
                 <td width="100%" class="bodyText">
                 <c:choose>
-                	<c:when test="${requestScope[PROJECT_TYPE_ID] == CONCEPTUALIZATION_PROJECT_TYPE}">
+                	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
                         <jsp:include page="/page_title.jsp">
                             <jsp:param name="image" value="conceptualization"/>
                             <jsp:param name="title" value="Review Opportunities"/>
                         </jsp:include>
                     </c:when>
-                	<c:when test="${requestScope[PROJECT_TYPE_ID] == SPECIFICATION_PROJECT_TYPE}">
+                	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
                         <jsp:include page="/page_title.jsp">
                             <jsp:param name="image" value="specification"/>
                             <jsp:param name="title" value="Review Opportunities"/>
                         </jsp:include>
                     </c:when>
-                	<c:when test="${requestScope[PROJECT_TYPE_ID] == APPLICATION_TESTING_PROJECT_TYPE}">
+                	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
                         <jsp:include page="/page_title.jsp">
                             <jsp:param name="image" value="app_testing"/>
                             <jsp:param name="title" value="Review Opportunities"/>
@@ -160,7 +160,7 @@
                                         </tr>
                         
                                         <c:set var="i" value="0"/>
-                                        <rsc:iterator list="<%=projectList%>" id="resultRow">
+                                        <c:forEach items="${projectList}" var="resultRow">
                                             <tr>
                                                 <td class="statDk" align="center">${projectTypeDesc}</td>
                                                 <td class="statDk" align="center">${projectTypeDesc}</td>
@@ -204,7 +204,7 @@
                                                     ${resultRow.map["available_spots"]}
                                                 </td>
                                                 <td class="statDk" align="left" nowrap="nowrap">
-                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}&${PROJECT_TYPE_ID}=${requestScope[PROJECT_TYPE_ID]}">
+                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}&${PROJECT_TYPE_ID}=${projectType}">
                                                         details
                                                     </a>
                                                     <c:if test="${resultRow.map['price_changes'] > 0}">
@@ -213,7 +213,7 @@
                                                 </td>
                                             </tr>
                                             <c:set var="i" value="${i + 1}"/>
-                                        </rsc:iterator>
+                                        </c:forEach>
                                     </table>
                                 </td>
                             </tr>

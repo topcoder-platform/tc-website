@@ -48,6 +48,7 @@ import com.topcoder.web.tc.Constants;
  *         <td>
  *           <ul>
  *             <li>Added support for Conceptualization, Specification and Application Testing project types.</li>
+ *             <li>Project Type is mirrored to be used by the underlying JSP.</li>
  *           </ul>
  *         </td>
  *     </tr>
@@ -81,6 +82,9 @@ public class ReviewBoard extends Base {
     protected void businessProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
         if (isReviewBoardTypeSupported(projectTypeId)) {
+            // Mirror PROJECT_TYPE_ID parameter to be handled by the underlying JSP.
+            getRequest().setAttribute(Constants.PROJECT_TYPE_ID, projectTypeId);
+
             Request r = new Request();
             r.setContentHandle("review_board_members");
             r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
@@ -139,12 +143,11 @@ public class ReviewBoard extends Base {
             return "/review_board/assembly.jsp";
         } else if (reviewBoardType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
             return "/review_board/architecture.jsp";
-        } else if (reviewBoardType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE))) {
-            return "/review_board/conceptualization.jsp";
-        } else if (reviewBoardType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE))) {
-            return "/review_board/specification.jsp";
-        } else if (reviewBoardType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))) {
-            return "/review_board/applicationTesting.jsp";
+        } else if (reviewBoardType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE)) ||
+                reviewBoardType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE)) ||
+                reviewBoardType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))) {
+            // ToDo: change to constant
+            return Constants.UNIFIED_MEET_REVIEW_BOARD_PAGE;
         } else {
             throw new IllegalArgumentException("Unsupported review board type: " + reviewBoardType);
         }

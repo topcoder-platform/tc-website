@@ -4,15 +4,17 @@
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
-  - Description: Displays the Terms Of Use for Specification Project Review and provides 
-  - a form for the user to accept them and continue registration.
+  - Description: This page displays the review terms of use corresponding to the specified project. 
+  - It displays the text and provides a for for the user to accept and continue registration.
+  - This is an exhaustive refactor and generalization from existing reviewTerms.jsp files.
+  - In this release, it will be used for Conceptualization, Specification and Application Testing project types.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%-- Constants setup to use JSTL --%>
+<%-- Variables to use JSTL --%>
 <c:set var="PROJECT_ID" value="<%=Constants.PROJECT_ID%>"/>
 <c:set var="REVIEWER_TYPE_ID" value="<%=Constants.REVIEWER_TYPE_ID%>"/>
 <c:set var="PRIMARY_FLAG" value="<%=Constants.PRIMARY_FLAG%>"/>
@@ -22,6 +24,10 @@
 <c:set var="TERMS_AGREE" value="<%=Constants.TERMS_AGREE%>"/>
 <c:set var="CAPTCHA_RESPONSE" value="<%=Constants.CAPTCHA_RESPONSE%>"/>
 <c:set var="CAPTCHA_FILE_NAME" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
+<c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
+<c:set var="SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>"/>
+<c:set var="APPLICATION_TESTING_PROJECT_TYPE" value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>"/>
+<c:set var="projectType" value="${requestScope[PROJECT_TYPE_ID]}"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -35,19 +41,45 @@
     </head>
 
     <body>
-        <%-- ToDo: check --%>
-        <jsp:include page="/top.jsp">
-            <jsp:param name="level1" value="development"/>
-        </jsp:include>
+        <c:choose>
+        	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
+                <jsp:include page="/top.jsp">
+                    <jsp:param name="level1" value="conceptualization"/>
+                </jsp:include>
+            </c:when>
+        	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
+                <jsp:include page="/top.jsp">
+                    <jsp:param name="level1" value="specification"/>
+                </jsp:include>
+            </c:when>
+        	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
+                <jsp:include page="/top.jsp">
+                    <jsp:param name="level1" value="application_testing"/>
+                </jsp:include>
+            </c:when>
+        </c:choose>
         
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
                 <%-- Left Column Begins--%>
                 <td width="180">
-                    <jsp:include page="/includes/global_left.jsp">
-                        <%-- ToDo: looks bad--%>
-                        <jsp:param name="node" value="specification"/>
-                    </jsp:include>
+                    <c:choose>
+                    	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="conceptualization_review"/>
+                            </jsp:include>
+                        </c:when>
+                    	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="specification_review"/>
+                            </jsp:include>
+                        </c:when>
+                    	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="application_testing_review"/>
+                            </jsp:include>
+                        </c:when>
+                    </c:choose>
                 </td>
                 <%-- Left Column Ends --%>
                 
@@ -67,7 +99,7 @@
                         <input type="hidden" name="${REVIEWER_TYPE_ID}" value="${requestScope[REVIEWER_TYPE_ID]}"/>
                         <input type="hidden" name="${PRIMARY_FLAG}" value="${requestScope[PRIMARY_FLAG]}"/>
                         <input type="hidden" name="${MODULE_KEY}" value="ProjectReviewTermsAgree"/>
-                        <input type="hidden" name="${PROJECT_TYPE_ID}" value="${requestScope[PROJECT_TYPE_ID]}"/>
+                        <input type="hidden" name="${PROJECT_TYPE_ID}" value="${projectType}"/>
                 
                         <table border="0" cellspacing="0" cellpadding="5">
                             <tr>
@@ -78,12 +110,12 @@ c                                    <strong>Reviewer Terms and Conditions ("Rev
                             <tr>
                                 <td>
                                     <tc-webtag:textArea name="${TERMS}" rows="10" cols="80" readOnly="true"
-                                                        styleClass="bodyText"/>
+                                        styleClass="bodyText"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="errorText">
-                                    <tc-webtag:errorIterator id="err" name="${TERMS_AGREE}"><%=err%>
+                                    <tc-webtag:errorIterator id="err" name="${TERMS_AGREE}">${err}
                                     </tc-webtag:errorIterator>
                                 </td>
                             </tr>

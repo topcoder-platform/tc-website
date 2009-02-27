@@ -285,6 +285,14 @@ public class Constants implements WebConstants {
      */
     public static final String UNIFIED_REVIEWER_TERMS_PAGE = "/review_board/reviewerTerms.jsp";
 
+    /**
+     * <p>A <code>String</code> providing the path to the unified meet the review board page used to 
+     * manage Conceptualization, Specification and Application Testing Review Projects.</p>
+     *
+     * @since 1.1
+     */
+    public static final String UNIFIED_MEET_REVIEW_BOARD_PAGE = "/review_board/meetReviewBoard.jsp";
+
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;
     public static int TOURNAMENT_SURVEY_QUESTION;
