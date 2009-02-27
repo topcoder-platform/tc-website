@@ -3,6 +3,10 @@
  */
 package com.topcoder.web.tc.controller.request.development;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import com.topcoder.apps.review.rboard.RBoardApplication;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -12,10 +16,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.tc.Constants;
-
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * <p>A controller to handle the requests for displaying the list of active review projects of specified type. The

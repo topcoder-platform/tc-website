@@ -6,7 +6,7 @@
   -
   - Description: This page lists the active review projects corresponding to the specified project type. 
   - It displays the list of review projects along with other project details and links for registering.
-  - This is a exhaustive refactor and generalization from existing reviewProject.jsp files.
+  - This is an exhaustive refactor and generalization from existing reviewProject.jsp files.
   - In this release, it will be used for Conceptualization, Specification and Application Testing project types.
 --%>
 <%@ page language="java" %>
@@ -17,7 +17,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <% ResultSetContainer projectList = (ResultSetContainer) request.getAttribute("projectList");%>
 
-<%-- Constants to use JSTL --%>
+<%-- Variables to use JSTL --%>
 <c:set var="PROJECT_ID" value="<%=Constants.PROJECT_ID%>"/>
 <c:set var="MODULE_KEY" value="<%=Constants.MODULE_KEY%>"/>
 <c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
@@ -48,7 +48,7 @@
     
     <body>
         <c:choose>
-        	<c:when test="${requestScope[CONCEPTUALIZATION_PROJECT_TYPE] == CONCEPTUALIZATION_PROJECT_TYPE}">
+        	<c:when test="${requestScope[PROJECT_TYPE_ID] == CONCEPTUALIZATION_PROJECT_TYPE}">
                 <jsp:include page="/top.jsp">
                     <jsp:param name="level1" value="conceptualization"/>
                 </jsp:include>
@@ -70,7 +70,7 @@
                 <!-- Left Column Begins-->
                 <td width="180">
                     <c:choose>
-                    	<c:when test="${requestScope[CONCEPTUALIZATION_PROJECT_TYPE] == CONCEPTUALIZATION_PROJECT_TYPE}">
+                    	<c:when test="${requestScope[PROJECT_TYPE_ID] == CONCEPTUALIZATION_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="conceptualization_review"/>
                             </jsp:include>
@@ -96,7 +96,7 @@
                 <!-- Center Column Begins -->
                 <td width="100%" class="bodyText">
                 <c:choose>
-                	<c:when test="${requestScope[CONCEPTUALIZATION_PROJECT_TYPE] == CONCEPTUALIZATION_PROJECT_TYPE}">
+                	<c:when test="${requestScope[PROJECT_TYPE_ID] == CONCEPTUALIZATION_PROJECT_TYPE}">
                         <jsp:include page="/page_title.jsp">
                             <jsp:param name="image" value="conceptualization"/>
                             <jsp:param name="title" value="Review Opportunities"/>
