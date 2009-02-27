@@ -88,13 +88,9 @@
 							<table class="stat" cellpadding="0" cellspacing="0" width="100%">
 							<tbody>
 								<tr id="bugRaceHeader">
-									<td class="headerR" colspan="2" width="12%">
-										Bug Race #
-									</td>
-                                                      <td class="header" width="2%">&nbsp;</td>
-									<td class="header" colspan="2">
-                                                            Bug Race Title
-                                                      </td>
+									<td class="headerR" colspan="2" width="12%">Bug Race #</td>
+                                    <td class="header" width="2%">&nbsp;</td>
+									<td class="header" colspan="2">Bug Race Title</td>
 								</tr>
 						</tbody>
 						</table>
