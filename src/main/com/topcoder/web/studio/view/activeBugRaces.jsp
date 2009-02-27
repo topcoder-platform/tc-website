@@ -29,8 +29,8 @@
 				$.preloadCssImages(); 
 			});
 	</script>
-	<script src="http://studio.topcoder.com/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-	<script src="http://studio.topcoder.com/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+	<script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+	<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
 	<script type="text/javascript" language="javascript">
 
 	$(document).ready(function(){
