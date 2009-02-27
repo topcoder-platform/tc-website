@@ -177,12 +177,10 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             return Constants.ASSEMBLY_REVIEW_PROJECTS;
         } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
             return Constants.ARCHITECTURE_REVIEW_PROJECTS;
-        } else if (projectType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE))) {
-            return Constants.CONCEPTUALIZATION_REVIEW_PROJECTS;
-        } else if (projectType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE))) {
-            return Constants.SPECIFICATION_REVIEW_PROJECTS;
-        } else if (projectType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))) {
-            return Constants.APPLICATION_TESTING_REVIEW_PROJECTS;
+        } else if (projectType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE)) ||
+                projectType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE)) ||
+                projectType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))) {
+            return Constants.UNIFIED_REVIEW_PROJECTS_PAGE;
         } else {
             throw new IllegalArgumentException("Unsupported project type/category: " + projectType);
         }
