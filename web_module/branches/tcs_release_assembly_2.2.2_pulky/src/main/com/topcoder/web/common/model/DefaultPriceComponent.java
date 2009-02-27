@@ -1108,68 +1108,86 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 System.out.println("    Architecture Core Review Cost     |      "
                                    + sc.getArchitectureCoreReviewCost());
             } else if (sc.phaseId == CONCEPTUALIZATION_COMPETITIONS) {
-                System.out.println("         Conceptualization Prize           |      " + sc.getPrice());
+                System.out.println("         Conceptualization Prize           |      " + 
+                        sc.getPrice());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("          Conceptualization DR             |      " + sc.getDR());
+                System.out.println("          Conceptualization DR             |      " + 
+                        sc.getDR());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("    Total Conceptualization Compensation   |      " + sc.getCompetitorCompensation());
+                System.out.println("    Total Conceptualization Compensation   |      " + 
+                        sc.getCompetitorCompensation());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("       Conceptualization Review Cost       |      " + sc.getReviewPrice());
+                System.out.println("       Conceptualization Review Cost       |      " + 
+                        sc.getReviewPrice());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("  Conceptualization Primary Review Cost    |      " + sc.getPrimaryReviewPrice());
+                System.out.println("  Conceptualization Primary Review Cost    |      " + 
+                        sc.getPrimaryReviewPrice());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("  Conceptualization Primary Screen Cost    |      " + sc.getConceptualizationScreeningCost());
+                System.out.println("  Conceptualization Primary Screen Cost    |      " + 
+                        sc.getConceptualizationScreeningCost());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("    Conceptualization Primary Agg Cost     |      "
-                                   + sc.getConceptualizationAggregationCost());
+                System.out.println("    Conceptualization Primary Agg Cost     |      " + 
+                        sc.getConceptualizationAggregationCost());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println(" Conceptualization Primary Final Rev Cost  |      "
-                                   + sc.getConceptualizationFinalReviewCost());
+                System.out.println(" Conceptualization Primary Final Rev Cost  |      " + 
+                        sc.getConceptualizationFinalReviewCost());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("    Conceptualization Core Review Cost     |      "
-                                   + sc.getConceptualizationCoreReviewCost());
+                System.out.println("    Conceptualization Core Review Cost     |      " + 
+                        sc.getConceptualizationCoreReviewCost());
             } else if (sc.phaseId == SPECIFICATION_COMPETITIONS) {
-                System.out.println("         Specification Prize           |      " + sc.getPrice());
+                System.out.println("         Specification Prize           |      " + 
+                        sc.getPrice());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("          Specification DR             |      " + sc.getDR());
+                System.out.println("          Specification DR             |      " + 
+                        sc.getDR());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("    Total Specification Compensation   |      " + sc.getCompetitorCompensation());
+                System.out.println("    Total Specification Compensation   |      " + 
+                        sc.getCompetitorCompensation());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("       Specification Review Cost       |      " + sc.getReviewPrice());
+                System.out.println("       Specification Review Cost       |      " + 
+                        sc.getReviewPrice());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("  Specification Primary Review Cost    |      " + sc.getPrimaryReviewPrice());
+                System.out.println("  Specification Primary Review Cost    |      " + 
+                        sc.getPrimaryReviewPrice());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("  Specification Primary Screen Cost    |      " + sc.getSpecificationScreeningCost());
+                System.out.println("  Specification Primary Screen Cost    |      " + 
+                        sc.getSpecificationScreeningCost());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("    Specification Primary Agg Cost     |      "
-                                   + sc.getSpecificationAggregationCost());
+                System.out.println("    Specification Primary Agg Cost     |      " + 
+                        sc.getSpecificationAggregationCost());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println(" Specification Primary Final Rev Cost  |      "
-                                   + sc.getSpecificationFinalReviewCost());
+                System.out.println(" Specification Primary Final Rev Cost  |      " + 
+                        sc.getSpecificationFinalReviewCost());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("    Specification Core Review Cost     |      "
-                                   + sc.getSpecificationCoreReviewCost());
+                System.out.println("    Specification Core Review Cost     |      " + 
+                        sc.getSpecificationCoreReviewCost());
             } else if (sc.phaseId == APPLICATION_TESTING_COMPETITIONS) {
-                System.out.println("         Application Testing Prize           |      " + sc.getPrice());
+                System.out.println("         Application Testing Prize           |      " + 
+                        sc.getPrice());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("          Application Testing DR             |      " + sc.getDR());
+                System.out.println("          Application Testing DR             |      " + 
+                        sc.getDR());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("    Total Application Testing Compensation   |      " + sc.getCompetitorCompensation());
+                System.out.println("    Total Application Testing Compensation   |      " + 
+                        sc.getCompetitorCompensation());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("       Application Testing Review Cost       |      " + sc.getReviewPrice());
+                System.out.println("       Application Testing Review Cost       |      " + 
+                        sc.getReviewPrice());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("  Application Testing Primary Review Cost    |      " + sc.getPrimaryReviewPrice());
+                System.out.println("  Application Testing Primary Review Cost    |      " + 
+                        sc.getPrimaryReviewPrice());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("  Application Testing Primary Screen Cost    |      " + sc.getApplicationTestingScreeningCost());
+                System.out.println("  Application Testing Primary Screen Cost    |      " + 
+                        sc.getApplicationTestingScreeningCost());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("    Application Testing Primary Agg Cost     |      "
-                                   + sc.getApplicationTestingAggregationCost());
+                System.out.println("    Application Testing Primary Agg Cost     |      " + 
+                        sc.getApplicationTestingAggregationCost());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println(" Application Testing Primary Final Rev Cost  |      "
-                                   + sc.getApplicationTestingFinalReviewCost());
+                System.out.println(" Application Testing Primary Final Rev Cost  |      " + 
+                        sc.getApplicationTestingFinalReviewCost());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("    Application Testing Core Review Cost     |      "
-                                   + sc.getApplicationTestingCoreReviewCost());
+                System.out.println("    Application Testing Core Review Cost     |      " + 
+                        sc.getApplicationTestingCoreReviewCost());
             } else {
                 System.out.println("INVALID PHASE");
             }

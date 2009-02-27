@@ -17,7 +17,7 @@ import java.util.MissingResourceException;
  * <p>
  *   Version 1.1 (TCS Release 2.2.2) Change notes:
  *   <ol>
- *     <li>Added constants to support Conceptualization, Specification and Application Review Board pages.</li>
+ *     <li>Added constants to support Conceptualization, Specification and Application Testing Review Board pages.</li>
  *   </ol>
  * </p>
  *
@@ -224,8 +224,8 @@ public class Constants implements WebConstants {
     public static final String ARCHITECTURE_REVIEW_PROJECT_DETAIL = "/architecture/reviewProjectDetail.jsp";
 
     /**
-    * <p>A <code>String</code> providing the path to the unified review project detail page used to 
-    * manage Conceptualization, Specification and Application Testing Review Projects.</p>
+     * <p>A <code>String</code> providing the path to the unified review project detail page used to 
+     * manage Conceptualization, Specification and Application Testing Review Projects.</p>
      *
      * @since 1.1
      */

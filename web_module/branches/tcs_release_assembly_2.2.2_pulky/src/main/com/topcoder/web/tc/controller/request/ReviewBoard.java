@@ -81,7 +81,7 @@ public class ReviewBoard extends Base {
      */
     protected void businessProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
-        if (isReviewBoardTypeSupported(projectTypeId)) {
+        if (ReviewBoardHelper.isReviewBoardTypeSupported(projectTypeId)) {
             // Mirror PROJECT_TYPE_ID parameter to be handled by the underlying JSP.
             getRequest().setAttribute(Constants.PROJECT_TYPE_ID, projectTypeId);
 
@@ -102,25 +102,6 @@ public class ReviewBoard extends Base {
         } else {
             throw new NavigationException("Invalid project type specified " + projectTypeId);
         }
-    }
-
-    /**
-     * <p>Checks whether the specified review board type requested by client is currently supported by this controller
-     * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization, Specification
-     * and Application Testing review boards are supported.</p>
-     *
-     * @param reviewBoardType a <code>String</code> referencing the review board type requested by client.
-     * @return <code>true</code> if specified review board type is requested; <code>false</code> otherwise.
-     * @since TCS Release 2.2.0 (TCS-55), TCS Release 2.2.1 (TCS-58)
-     */
-    private boolean isReviewBoardTypeSupported(String reviewBoardType) {
-        return reviewBoardType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE));
     }
 
     /**
@@ -146,7 +127,6 @@ public class ReviewBoard extends Base {
         } else if (reviewBoardType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE)) ||
                 reviewBoardType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE)) ||
                 reviewBoardType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))) {
-            // ToDo: change to constant
             return Constants.UNIFIED_MEET_REVIEW_BOARD_PAGE;
         } else {
             throw new IllegalArgumentException("Unsupported review board type: " + reviewBoardType);

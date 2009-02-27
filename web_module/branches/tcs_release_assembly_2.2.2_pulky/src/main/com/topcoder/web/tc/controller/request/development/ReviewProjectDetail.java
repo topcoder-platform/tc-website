@@ -28,7 +28,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * <p>A controller to handle the requests for displaying the details for the requested review projectof specified type.
+ * <p>A controller to handle the requests for displaying the details for the requested review project of specified type.
  * The desired project type is expected to be provided as {@link Constants#PROJECT_TYPE_ID} request parameter.
  * As of current version only Design, Development, Assembly, Architecture, Conceptualization, Specification and 
  * Application Testing project types are supported.</p>
