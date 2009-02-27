@@ -266,28 +266,12 @@ public class Constants implements WebConstants {
     public static final String ARCHITECTURE_REVIEW_PROJECTS = "/architecture/reviewProjects.jsp";
 
     /**
-     * <p>A <code>String</code> providing the logical name for the view corresponding to
-     * Conceptualization Review Projects page.</p>
+     * <p>A <code>String</code> providing the path to the unified review project page used to 
+     * manage Conceptualization, Specification and Application Testing Review Projects.</p>
      *
      * @since 1.1
      */
-    public static final String CONCEPTUALIZATION_REVIEW_PROJECTS = "/conceptualization/reviewProjects.jsp";
-
-    /**
-     * <p>A <code>String</code> providing the logical name for the view corresponding to
-     * Specification Review Projects page.</p>
-     *
-     * @since 1.1
-     */
-    public static final String SPECIFICATION_REVIEW_PROJECTS = "/specification/reviewProjects.jsp";
-
-    /**
-     * <p>A <code>String</code> providing the logical name for the view corresponding to
-     * Application Testing Review Projects page.</p>
-     *
-     * @since 1.1
-     */
-    public static final String APPLICATION_TESTING_REVIEW_PROJECTS = "/application_testing/reviewProjects.jsp";
+    public static final String UNIFIED_REVIEW_PROJECTS_PAGE = "/review_board/reviewProjects.jsp";
 
     public static String DESIGN_DETAIL;
     public static String DEVELOPMENT_DETAIL;

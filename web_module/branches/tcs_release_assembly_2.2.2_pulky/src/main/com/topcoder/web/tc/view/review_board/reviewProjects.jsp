@@ -4,9 +4,10 @@
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
-  - ToDo: fix this paragraph, remove Constants.XXX, improve identation, change rsc to jstl
-  - Description: This is the page for listing the active review projects for Specification project type. It displays the
-  - list of review projects along with project details and links for registering for reviews for desired projects.
+  - Description: This page lists the active review projects corresponding to the specified project type. 
+  - It displays the list of review projects along with other project details and links for registering.
+  - This is a exhaustive refactor and generalization from existing reviewProject.jsp files.
+  - In this release, it will be used for Conceptualization, Specification and Application Testing project types.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer, com.topcoder.web.tc.Constants" %>
@@ -14,13 +15,26 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
 <% ResultSetContainer projectList = (ResultSetContainer) request.getAttribute("projectList");%>
 
-<%-- Constants setup to use JSTL --%>
+<%-- Constants to use JSTL --%>
 <c:set var="PROJECT_ID" value="<%=Constants.PROJECT_ID%>"/>
 <c:set var="MODULE_KEY" value="<%=Constants.MODULE_KEY%>"/>
 <c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
+<c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
+<c:set var="SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>"/>
+<c:set var="APPLICATION_TESTING_PROJECT_TYPE" value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>"/>
+<c:choose>
+	<c:when test="${requestScope[PROJECT_TYPE_ID] == CONCEPTUALIZATION_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Conceptualization"/>
+    </c:when>
+	<c:when test="${requestScope[PROJECT_TYPE_ID] == SPECIFICATION_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Specification"/>
+    </c:when>
+	<c:when test="${requestScope[PROJECT_TYPE_ID] == APPLICATION_TESTING_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Application Testing"/>
+    </c:when>
+</c:choose>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -33,18 +47,45 @@
     </head>
     
     <body>
-        <%-- ToDo: check --%>
-        <jsp:include page="/top.jsp">
-            <jsp:param name="level1" value="specification"/>
-        </jsp:include>
+        <c:choose>
+        	<c:when test="${requestScope[CONCEPTUALIZATION_PROJECT_TYPE] == CONCEPTUALIZATION_PROJECT_TYPE}">
+                <jsp:include page="/top.jsp">
+                    <jsp:param name="level1" value="conceptualization"/>
+                </jsp:include>
+            </c:when>
+        	<c:when test="${requestScope[PROJECT_TYPE_ID] == SPECIFICATION_PROJECT_TYPE}">
+                <jsp:include page="/top.jsp">
+                    <jsp:param name="level1" value="specification"/>
+                </jsp:include>
+            </c:when>
+        	<c:when test="${requestScope[PROJECT_TYPE_ID] == APPLICATION_TESTING_PROJECT_TYPE}">
+                <jsp:include page="/top.jsp">
+                    <jsp:param name="level1" value="application_testing"/>
+                </jsp:include>
+            </c:when>
+        </c:choose>
         
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
                 <!-- Left Column Begins-->
                 <td width="180">
-                    <jsp:include page="/includes/global_left.jsp">
-                        <jsp:param name="node" value="specification_review"/>
-                    </jsp:include>
+                    <c:choose>
+                    	<c:when test="${requestScope[CONCEPTUALIZATION_PROJECT_TYPE] == CONCEPTUALIZATION_PROJECT_TYPE}">
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="conceptualization_review"/>
+                            </jsp:include>
+                        </c:when>
+                    	<c:when test="${requestScope[PROJECT_TYPE_ID] == SPECIFICATION_PROJECT_TYPE}">
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="specification_review"/>
+                            </jsp:include>
+                        </c:when>
+                    	<c:when test="${requestScope[PROJECT_TYPE_ID] == APPLICATION_TESTING_PROJECT_TYPE}">
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="application_testing_review"/>
+                            </jsp:include>
+                        </c:when>
+                    </c:choose>
                 </td>
                 <!-- Left Column Ends -->
                 
@@ -54,25 +95,42 @@
                 
                 <!-- Center Column Begins -->
                 <td width="100%" class="bodyText">
-                <jsp:include page="/page_title.jsp">
-                    <jsp:param name="image" value="specification"/>
-                    <jsp:param name="title" value="Review Opportunities"/>
-                </jsp:include>
+                <c:choose>
+                	<c:when test="${requestScope[CONCEPTUALIZATION_PROJECT_TYPE] == CONCEPTUALIZATION_PROJECT_TYPE}">
+                        <jsp:include page="/page_title.jsp">
+                            <jsp:param name="image" value="conceptualization"/>
+                            <jsp:param name="title" value="Review Opportunities"/>
+                        </jsp:include>
+                    </c:when>
+                	<c:when test="${requestScope[PROJECT_TYPE_ID] == SPECIFICATION_PROJECT_TYPE}">
+                        <jsp:include page="/page_title.jsp">
+                            <jsp:param name="image" value="specification"/>
+                            <jsp:param name="title" value="Review Opportunities"/>
+                        </jsp:include>
+                    </c:when>
+                	<c:when test="${requestScope[PROJECT_TYPE_ID] == APPLICATION_TESTING_PROJECT_TYPE}">
+                        <jsp:include page="/page_title.jsp">
+                            <jsp:param name="image" value="app_testing"/>
+                            <jsp:param name="title" value="Review Opportunities"/>
+                        </jsp:include>
+                    </c:when>
+                </c:choose>
                 
                 <span class="bigTitle">Review opportunities</span>
                 
                 <p>In the table below you will be able to see which projects are available for review, the type of 
                     project, the current number of submissions on each, the review timeline for each, and the number 
-                    of review positions available for each project. If you click on an specification name you will be
-                    able to see all of the details associated with that specification review.</p>
-                <p>If you are not currently on the TopCoder Specification Review Board you may send an email to
+                    of review positions available for each project. If you click on an ${fn:toLowerCase(projectTypeDesc)} 
+                    name you will be able to see all of the details associated with that ${fn:toLowerCase(projectTypeDesc)} 
+                    review.</p>
+                <p>If you are not currently on the TopCoder ${projectTypeDesc} Review Board you may send an email to
                     <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a> requesting permission
-                    to perform reviews. Please keep in mind only members that have completed specification projects are
-                    eligible to join the TopCoder Specification Review board.</p>
-                
-                <p>In order to sign up for a review position, click on the "details" link for any specification with 
-                    positions available,and then select "Apply Now" next to the position that you would like to commit
-                    to.</p>
+                    to perform reviews. Please keep in mind only members that have completed 
+                    ${fn:toLowerCase(projectTypeDesc)} projects are eligible to join the TopCoder ${projectTypeDesc} 
+                    Review board.</p>
+                <p>In order to sign up for a review position, click on the "details" link for any 
+                    ${fn:toLowerCase(projectTypeDesc)} with positions available,and then select "Apply Now" next to the 
+                    position that you would like to commit to.</p>
                 <br/>
                 <c:choose>
                 	<c:when test="${fn:length(projectList) > 0}">
@@ -81,12 +139,12 @@
                                 <td>
                                     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                                         <tr>
-                                            <td class="tableTitle" colspan="11">Specification Review Opportunities</td>
+                                            <td class="tableTitle" colspan="11">${projectTypeDesc} Review Opportunities</td>
                                         </tr>
                                         <tr>
                                             <td class="tableHeader" align="center">Type</td>
                                             <td class="tableHeader" align="center">Catalog</td>
-                                            <td class="tableHeader" width="100%">Specification</td>
+                                            <td class="tableHeader" width="100%">${projectTypeDesc}</td>
                                             <td class="tableHeader" align="right" nowrap="nowrap">
                                                 Primary Reviewer<br>Payment
                                             </td>
@@ -102,25 +160,24 @@
                                         <c:set var="i" value="0"/>
                                         <rsc:iterator list="<%=projectList%>" id="resultRow">
                                             <tr>
-                                                <%-- ToDo: check --%>
-                                                <td class="statDk" align="center">Specification</td>
-                                                <td class="statDk" align="center">Specification</td>
+                                                <td class="statDk" align="center">${projectTypeDesc}</td>
+                                                <td class="statDk" align="center">${projectTypeDesc}</td>
                                                 <td class="statDk">
-                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectDetail&
-                                                        ${PROJECT_ID}=<rsc:item row="<%=resultRow%>" name="project_id"/>">
-                                                    <rsc:item row="<%=resultRow%>" name="component_name"/>
-                                                    <rsc:item row="<%=resultRow%>" name="version"/>
-                                                </a></td>
-                                                <td class="statDk" align="right">
-                                                    $ <fmt:formatNumber 
-                                                        value="${prices[i].primaryReviewPrice}" pattern="#,###.00"/>
+                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}">
+                                                        ${resultRow.map["component_name"]}
+                                                        ${resultRow.map["version"]}
+                                                    </a>
                                                 </td>
                                                 <td class="statDk" align="right">
-                                                    $ <fmt:formatNumber 
-                                                        value="${prices[i].reviewPrice}" pattern="#,###.00"/>
+                                                    $ <fmt:formatNumber value="${prices[i].primaryReviewPrice}" 
+                                                        pattern="#,###.00"/>
+                                                </td>
+                                                <td class="statDk" align="right">
+                                                    $ <fmt:formatNumber value="${prices[i].reviewPrice}" 
+                                                        pattern="#,###.00"/>
                                                 </td>
                                                 <td class="statDk" align="center">
-                                                    <rsc:item row="<%=resultRow%>" name="submission_count"/>
+                                                    ${resultRow.map["submission_count"]}
                                                 </td>
                                                 <c:choose>
                                                     <c:when test="${waitingToReview[i]}">
@@ -134,25 +191,23 @@
                                                     </c:otherwise>
                                                 </c:choose>
                                                 <td class="statDk" align="center">
-                                                    <rsc:item row="<%=resultRow%>" name="review_start" 
-                                                        format="MM.dd.yyyy"/>
+                                                    <fmt:formatDate value="${resultRow.map['review_start']}" 
+                                                                pattern="MM.dd.yyyy"/>
                                                 </td>
                                                 <td class="statDk" align="center">
-                                                    <rsc:item row="<%=resultRow%>" name="review_end" 
-                                                        format="MM.dd.yyyy"/>
+                                                    <fmt:formatDate value="${resultRow.map['review_end']}" 
+                                                                pattern="MM.dd.yyyy"/>
                                                 </td>
                                                 <td class="statDk" align="center">
-                                                    <rsc:item row="<%=resultRow%>" name="available_spots"/>
+                                                    ${resultRow.map["available_spots"]}
                                                 </td>
                                                 <td class="statDk" align="left" nowrap="nowrap">
-                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&
-                                                        ${PROJECT_ID}=<rsc:item row="<%=resultRow%>" name="project_id"/>&
-                                                            ${PROJECT_TYPE_ID}=${requestScope[PROJECT_TYPE_ID]}">
+                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}&${PROJECT_TYPE_ID}=${requestScope[PROJECT_TYPE_ID]}">
                                                         details
                                                     </a>
-                                                    <% if (resultRow.getIntItem("price_changes") > 0) { %> <img
-                                                        src="/i/development/up_arrow_gr.gif" border="0" alt=""/> 
-                                                    <% } %>
+                                                    <c:if test="${resultRow.map['price_changes'] > 0}">
+                                                        <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/> 
+                                                    </c:if>
                                                 </td>
                                             </tr>
                                             <c:set var="i" value="${i + 1}"/>
