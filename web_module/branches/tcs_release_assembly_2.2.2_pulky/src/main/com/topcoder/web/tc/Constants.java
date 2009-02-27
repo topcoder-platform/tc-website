@@ -231,7 +231,6 @@ public class Constants implements WebConstants {
      */
     public static final String UNIFIED_REVIEW_PROJECT_DETAIL_PAGE = "/review_board/reviewProjectDetail.jsp";
 
-
     public static String REVIEW_PROJECTS;
 
     /**
@@ -279,28 +278,12 @@ public class Constants implements WebConstants {
     public static final String ARCHITECTURE_REVIEWER_TERMS = "/architecture/reviewerTerms.jsp";
 
     /**
-     * <p>A <code>String</code> providing the logical name for the view corresponding to
-     * Conceptualization Review Terms page.</p>
+     * <p>A <code>String</code> providing the path to the unified review terms page used to 
+     * manage Conceptualization, Specification and Application Testing Review Projects.</p>
      *
      * @since 1.1
      */
-    public static final String CONCEPTUALIZATION_REVIEWER_TERMS = "/conceptualization/reviewerTerms.jsp";
-
-    /**
-     * <p>A <code>String</code> providing the logical name for the view corresponding to
-     * Specification Review Terms page.</p>
-     *
-     * @since 1.1
-     */
-    public static final String SPECIFICATION_REVIEWER_TERMS = "/specification/reviewerTerms.jsp";
-
-    /**
-     * <p>A <code>String</code> providing the logical name for the view corresponding to
-     * Application Testing Review Terms page.</p>
-     *
-     * @since 1.1
-     */
-    public static final String APPLICATION_TESTING_REVIEWER_TERMS = "/application_testing/reviewerTerms.jsp";
+    public static final String UNIFIED_REVIEWER_TERMS_PAGE = "/review_board/reviewerTerms.jsp";
 
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;

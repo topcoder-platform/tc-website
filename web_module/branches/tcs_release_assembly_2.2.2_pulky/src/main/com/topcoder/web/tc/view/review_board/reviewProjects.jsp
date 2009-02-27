@@ -120,9 +120,9 @@
                 
                 <p>In the table below you will be able to see which projects are available for review, the type of 
                     project, the current number of submissions on each, the review timeline for each, and the number 
-                    of review positions available for each project. If you click on an ${fn:toLowerCase(projectTypeDesc)} 
-                    name you will be able to see all of the details associated with that ${fn:toLowerCase(projectTypeDesc)} 
-                    review.</p>
+                    of review positions available for each project. If you click on an 
+                    ${fn:toLowerCase(projectTypeDesc)} name you will be able to see all of the details associated with 
+                    that ${fn:toLowerCase(projectTypeDesc)} review.</p>
                 <p>If you are not currently on the TopCoder ${projectTypeDesc} Review Board you may send an email to
                     <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a> requesting permission
                     to perform reviews. Please keep in mind only members that have completed 
@@ -139,7 +139,9 @@
                                 <td>
                                     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                                         <tr>
-                                            <td class="tableTitle" colspan="11">${projectTypeDesc} Review Opportunities</td>
+                                            <td class="tableTitle" colspan="11">
+                                                ${projectTypeDesc} Review Opportunities
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="tableHeader" align="center">Type</td>
