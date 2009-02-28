@@ -56,6 +56,7 @@
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=design&d5=schedule" class="${tertiaryTab == 'schedule' ? 'on' : ''}">Schedule</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=design&d5=leaderboard" class="${tertiaryTab == 'leaderboard' ? 'on' : ''}">Leaderboard</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=design&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Bracket</a></li>
+                        <li><a href="/tco09?module=ContestDetails&ct=470&eid=3009" class="${tertiaryTab == 'test' ? 'on' : ''}">test</a></li>
                     </c:when>
                     <c:when test="${mainTab == 'online' && secondaryTab == 'development'}">
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=development&d5=description" class="${tertiaryTab == 'description' ? 'on' : ''}">Description</a></li>
