@@ -48,7 +48,6 @@ import com.topcoder.web.tc.Constants;
  *         <td>
  *           <ul>
  *             <li>Added support for Conceptualization, Specification and Application Testing project types.</li>
- *             <li>Project Type is mirrored to be used by the underlying JSP.</li>
  *           </ul>
  *         </td>
  *     </tr>
@@ -82,9 +81,6 @@ public class ReviewBoard extends Base {
     protected void businessProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
         if (ReviewBoardHelper.isReviewBoardTypeSupported(projectTypeId)) {
-            // Mirror PROJECT_TYPE_ID parameter to be handled by the underlying JSP.
-            getRequest().setAttribute(Constants.PROJECT_TYPE_ID, projectTypeId);
-
             Request r = new Request();
             r.setContentHandle("review_board_members");
             r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);

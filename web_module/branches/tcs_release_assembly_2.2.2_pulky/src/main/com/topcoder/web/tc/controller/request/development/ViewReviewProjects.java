@@ -54,7 +54,6 @@ import com.topcoder.web.tc.Constants;
  *   Version 1.0.5 (TCS Release 2.2.2) Change notes:
  *   <ol>
  *     <li>Added support for Conceptualization, Specification and Application Testing project types.</li>
- *     <li>Project Type is mirrored to be used by the underlying JSP.</li>
  *   </ol>
  * </p>
  *
@@ -86,9 +85,6 @@ public class ViewReviewProjects extends ReviewProjectDetail {
         if (!isProjectTypeSupported(projectTypeId)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
-
-        // Mirror PROJECT_TYPE_ID parameter to be handled by the underlying JSP.
-        getRequest().setAttribute(Constants.PROJECT_TYPE_ID, projectTypeId);
         
         int phase_id = (Integer.parseInt(projectTypeId) + 111);
         getRequest().setAttribute("phase_id", new Integer(phase_id));

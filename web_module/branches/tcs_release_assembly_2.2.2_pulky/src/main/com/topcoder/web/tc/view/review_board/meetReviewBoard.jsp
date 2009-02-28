@@ -21,7 +21,7 @@
 <c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
 <c:set var="SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>"/>
 <c:set var="APPLICATION_TESTING_PROJECT_TYPE" value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>"/>
-<c:set var="projectType" value="${requestScope[PROJECT_TYPE_ID]}"/>
+<c:set var="projectType" value="${param[PROJECT_TYPE_ID]}"/>
 
 <c:choose>
 	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
