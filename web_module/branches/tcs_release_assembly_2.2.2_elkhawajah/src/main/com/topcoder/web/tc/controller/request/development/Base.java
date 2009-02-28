@@ -22,7 +22,7 @@ import com.topcoder.web.tc.Constants;
 /**
  * Added some code to make project related controllers more generic.
  *
- * @author dok, pulky, isv
+ * @author dok, pulky, isv, TCSDEVELOPER
  *         Date: Feb 10, 2004
  */
 public abstract class Base extends ShortHibernateProcessor {
@@ -33,6 +33,13 @@ public abstract class Base extends ShortHibernateProcessor {
         return pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
 
+    /**
+     * <p>Gets the project detail page view.</p>
+     *
+     * @param projectTypeId The project type id.
+     * @return The project detail page view of the given project type id.
+     * @since TCS Release 2.2.2 (TCS-60, TCS-63, TCS-74)
+     */
     public static String getProjectDetailPage(int projectTypeId) {
         if (projectTypeId==Constants.DESIGN_PROJECT_TYPE) {
             return Constants.DESIGN_DETAIL;
@@ -135,17 +142,21 @@ public abstract class Base extends ShortHibernateProcessor {
 
     /**
      * <p>Checks whether the specified project type requested by client is currently supported by this controller
-     * or not. As of current version <code>Design</code>, <code>Development</code> and <code>Assembly</code> project
-     * types are supported only.</p>
+     * or not. As of current version <code>Design</code>, <code>Development</code>, <code>Architecture</code>,
+     * <code>Assembly</code>, <code>Conceptualization</code>, <code>Specification</code>, and <code>Testing</code>
+     * project types are supported.</p>
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return <code>true</code> if specified project type is requested; <code>false</code> otherwise.
-     * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57)
+     * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57), TCS Release 2.2.2 (TCS-60, TCS-63, TCS-74)
      */
     protected boolean isProjectTypeSupported(String projectType) {
         return projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))
             || projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))
             || projectType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))
-            || projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE));
+            || projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))
+            || projectType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE))
+            || projectType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE))
+            || projectType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE));
     }
 }

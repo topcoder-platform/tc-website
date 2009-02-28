@@ -29,9 +29,10 @@ import java.util.Map;
 
 /**
  * <p>A controller to handle the requests for displaying the details for the requested review projectof specified type.
- * The desired project type is expected to be provided as {@link Constants#PROJECT_TYPE_ID} request parameter.
- * As of current version only <code>Design</code>, <code>Development</code> and <code>Assembly</code> project types are
- * supported.</p>
+ * The desired project type is expected to be provided as {@link Constants#PROJECT_TYPE_ID} request parameter. As of
+ * current version <code>Design</code>, <code>Development</code>, <code>Architecture</code>, <code>Assembly</code>,
+ * <code>Conceptualization</code>, <code>Specification</code>, and <code>Testing</code> project types are supported.
+ * </p>
  *
  * <p>
  *   Version  1.0.1 Change notes:
@@ -55,10 +56,16 @@ import java.util.Map;
  *   <ol>
  *     <li>Added support for <code>Architecture</code> project type/category.</li>
  *   </ol>
+ *
+ *   Version 1.0.4 Change notes:
+ *   <ol>
+ *     <li>Added support for <code>Conceptualization</code>, <code>Specification</code>,
+ *     and <code>Testing</code> project types/categories.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, isv
- * @version 1.0.3
+ * @author dok, pulky, isv, TCSDEVELOPER
+ * @version 1.0.4
  * @since 1.0
  */
 public class ReviewProjectDetail extends Base {
@@ -75,21 +82,26 @@ public class ReviewProjectDetail extends Base {
      * {@link Constants#PROJECT_ID} request parameter.</p>
      *
      * <p>Looks up for the details of requested review project and binds it to request and forwards request to one of
-     * <code>/dev/reviewProjectDetail.jsp</code>, <code>/dev/assembly/reviewProjectDetail.jsp</code> views depending on
-     * requested project type. As of current version only <code>Design</code>, <code>Development</code> and
-     * <code>Assembly</code> project types are supported; otherwise an exception is raised.</p>
+     * the views depending on requested project type. As of current version <code>Design</code>,
+     * <code>Development</code>, <code>Architecture</code>, <code>Assembly</code>, <code>Conceptualization</code>,
+     * <code>Specification</code>, and <code>Testing</code> project types are supported; otherwise an exception
+     * is raised.</p>
      *
      * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
-     * @see Constants#DESIGN_PROJECT_TYPE
-     * @see Constants#DEVELOPMENT_PROJECT_TYPE
-     * @see Constants#ASSEMBLY_PROJECT_TYPE
+     * @see WebConstants#DESIGN_PROJECT_TYPE
+     * @see WebConstants#DEVELOPMENT_PROJECT_TYPE
+     * @see WebConstants#ASSEMBLY_PROJECT_TYPE
+     * @see WebConstants#ARCHITECTURE_PROJECT_TYPE
+     * @see WebConstants#CONCEPTUALIZATION_PROJECT_TYPE
+     * @see WebConstants#SPECIFICATION_PROJECT_TYPE
+     * @see WebConstants#APPLICATION_TESTING_PROJECT_TYPE
      */
     protected void developmentProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
         if (!isProjectTypeSupported(projectTypeId)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
-        
+
         try {
             int phase_id = (Integer.parseInt(projectTypeId) + 111);
 
@@ -301,7 +313,7 @@ public class ReviewProjectDetail extends Base {
                                              int phaseId, int levelId, long userId, String handle, boolean primary,
                                              long projectId, int reviewerTypeId, float prize, float drPoints)
         throws Exception {
-        
+
         ReviewBoardApplication ret = makeApp(reviewerType, numSubmissions, numSubmissionsPassed, phaseId, levelId,
                                              projectId, reviewerTypeId, prize, drPoints);
         ret.setHandle(handle);
@@ -327,7 +339,7 @@ public class ReviewProjectDetail extends Base {
     protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed,
                                              int phaseId, int levelId, long projectId, int reviewerTypeId)
         throws Exception {
-        
+
         //figure out if we have default money values for the reviewers
         Request r = new Request();
         r.setContentHandle("review_board_payments");
@@ -368,7 +380,7 @@ public class ReviewProjectDetail extends Base {
      * @param reviewerTypeId a <code>int</code> referencing the reviewer type.
      * @param prize a <code>float</code> providing the prize amount for contest.
      * @param drPoints a <code>float</code> providing the DR points amount.
-     * @return a <code>ReviewBoardApplication</code> providing the reviewer payments for the specified project. 
+     * @return a <code>ReviewBoardApplication</code> providing the reviewer payments for the specified project.
      * @throws Exception if an unexpected error occurs.
      */
     protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed,
@@ -400,13 +412,14 @@ public class ReviewProjectDetail extends Base {
     /**
      * <p>Gets the logical name for the view which is to be used for displaying the list of review opportunities of
      * specified type requested by client. As of current version <code>Design</code>, <code>Development</code>,
-     * <code>Architecture</code> and <code>Assembly</code> project types are supported only.</p>
+     * <code>Architecture</code>, <code>Assembly</code>, <code>Conceptualization</code>, <code>Specification</code>,
+     * and <code>Testing</code> project types are supported.</p>
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the review details for projects of
      *         specified type.
      * @throws IllegalArgumentException if specified project type is not supported.
-     * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57)
+     * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57), TCS Release 2.2.2 (TCS-60, TCS-63, TCS-74)
      */
     private String getReviewProjectDetailView(String projectType) {
         if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
@@ -417,6 +430,12 @@ public class ReviewProjectDetail extends Base {
             return Constants.ASSEMBLY_REVIEW_PROJECT_DETAIL;
         } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
             return Constants.ARCHITECTURE_REVIEW_PROJECT_DETAIL;
+        } else if(projectType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE))) {
+            return Constants.CONCEPTUALIZATION_PROJECT_DETAIL;
+        } else if(projectType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE))) {
+            return Constants.SPECIFICATION_PROJECT_DETAIL;
+        } else if(projectType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))) {
+            return Constants.APPLICATION_TESTING_PROJECT_DETAIL;
         } else {
             throw new IllegalArgumentException("Unsupported project type/category: " + projectType);
         }

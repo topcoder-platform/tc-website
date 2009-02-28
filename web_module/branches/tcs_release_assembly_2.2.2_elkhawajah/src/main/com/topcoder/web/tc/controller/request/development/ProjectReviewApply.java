@@ -57,17 +57,23 @@ import java.io.FileOutputStream;
  *     <li>Refactored the logic for handling the requests to split the logic for checking the supported project
  *         types and mapping them to appropriate view into separate private methods.</li>
  *     <li>The project type requested by client is provided as parameter to <code>review_project_detail</code> query to
- *         filter the retrieved projects based on provided type.</li> 
+ *         filter the retrieved projects based on provided type.</li>
  *   </ol>
  *
  *   Version 1.0.4 Change notes:
  *   <ol>
  *     <li>Added support for <code>Architecture</code> project type/category.</li>
  *   </ol>
+ *
+ *   Version 1.0.5 Change notes:
+ *   <ol>
+ *     <li>Added support for <code>Conceptualization</code>, <code>Specification</code>,
+ *     and <code>Testing</code> project types/categories.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, isv
- * @version 1.0.4
+ * @author dok, pulky, isv, TCSDEVELOPER
+ * @version 1.0.5
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -87,7 +93,7 @@ public class ProjectReviewApply extends Base {
         if (!isProjectTypeSupported(projectTypeId)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
-        
+
         try {
             if (throttle.throttle(getRequest().getSession().getId())) {
                 throw new RequestRateExceededException(getRequest().getSession().getId(), getUser().getUserName());
@@ -101,7 +107,8 @@ public class ProjectReviewApply extends Base {
                 //talking high volume here
                 Request r = new Request();
                 r.setContentHandle("review_project_detail");
-                r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
+                r.setProperty(Constants.PROJECT_ID,
+                        StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
                 r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
                 r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
                 Map results = getDataAccess().getData(r);
@@ -112,11 +119,13 @@ public class ProjectReviewApply extends Base {
                 rBoardApplication = createRBoardApplication();
                 nonTransactionalValidation(catalog, reviewTypeId);
 
-                applicationProcessing((Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
+                applicationProcessing((Timestamp) detail.getItem(0, "opens_on").getResultData(),
+                        reviewTypeId);
 
                 // Put the terms text in the request.
                 TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
-                setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+                setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID,
+                        DBMS.COMMON_OLTP_DATASOURCE_NAME));
             } else {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
@@ -142,7 +151,8 @@ public class ProjectReviewApply extends Base {
 
             Object objRBoardApplication = ctx.lookup(RBoardApplicationHome.class.getName());
             RBoardApplicationHome rBoardApplicationHome =
-                    (RBoardApplicationHome) PortableRemoteObject.narrow(objRBoardApplication, RBoardApplicationHome.class);
+                    (RBoardApplicationHome) PortableRemoteObject.narrow(objRBoardApplication,
+                    RBoardApplicationHome.class);
 
             rBoardApplication = rBoardApplicationHome.create();
         } catch (Exception e) {
@@ -154,7 +164,8 @@ public class ProjectReviewApply extends Base {
     }
 
     protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws Exception {
-        boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
+        boolean primary =
+                new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
         rBoardApplication.validateUserTrans(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId, getUser().getId(),
                                             opensOn, reviewTypeId, primary);
 
@@ -173,7 +184,11 @@ public class ProjectReviewApply extends Base {
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
         int type = Integer.parseInt(this.projectTypeId);
         // Assembly competition reviews do not take into consideration the catalogs as for now
-        if (type == WebConstants.ASSEMBLY_PROJECT_TYPE || type == WebConstants.ARCHITECTURE_PROJECT_TYPE) {
+        if (type == WebConstants.ASSEMBLY_PROJECT_TYPE
+            || type == WebConstants.ARCHITECTURE_PROJECT_TYPE
+            || type == WebConstants.CONCEPTUALIZATION_PROJECT_TYPE
+            || type == WebConstants.SPECIFICATION_PROJECT_TYPE
+            || type == WebConstants.APPLICATION_TESTING_PROJECT_TYPE) {
             rBoardApplication.validateUserWithoutCatalog(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, reviewTypeId,
                                                          getUser().getId(), type);
         } else {
@@ -200,13 +215,14 @@ public class ProjectReviewApply extends Base {
     /**
      * <p>Gets the logical name for the view which is to be used for displaying the terms of use for the reviews of
      * specified type requested by client. As of current version <code>Design</code>, <code>Development</code>,
-     * <code>Assembly</code> and <code>Architecture</code> project types are supported only.</p>
+     * <code>Architecture</code>, <code>Assembly</code>, <code>Conceptualization</code>, <code>Specification</code>,
+     * and <code>Testing</code> project types are supported.</p>
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the terms of use for projects of
      *         specified type.
      * @throws IllegalArgumentException if specified project type is not supported.
-     * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57)
+     * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57), TCS Release 2.2.2 (TCS-60, TCS-63, TCS-74)
      */
     private String getReviewTermsView(String projectType) {
         if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
@@ -217,6 +233,12 @@ public class ProjectReviewApply extends Base {
             return Constants.ASSEMBLY_REVIEWER_TERMS;
         } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
             return Constants.ARCHITECTURE_REVIEWER_TERMS;
+        } else if (projectType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE))) {
+            return Constants.CONCEPTUALIZATION_REVIEWER_TERMS;
+        } else if (projectType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE))) {
+            return Constants.SPECIFICATION_REVIEWER_TERMS;
+        } else if (projectType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))) {
+            return Constants.APPLICATION_TESTING_REVIEWER_TERMS;
         } else {
             throw new IllegalArgumentException("Unsupported project category/type: " + projectType);
         }

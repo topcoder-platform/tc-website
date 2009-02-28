@@ -35,17 +35,16 @@ import com.topcoder.shared.util.logging.Logger;
  *     <li>Added methods for calculating the review payments for <code>Architecture</code> competitions.</li>
  *   </ol>
  *
- * @author dok, pulky, ivern, isv
- * @version 1.0.5
+ *   Version 1.0.6 Change notes:
+ *   <ol>
+ *     <li>Added methods for calculating the review payments for <code>Conceptualization</code>,
+ *     <code>Specification</code>, and <code>Testing</code> competitions.</li>
+ *   </ol>
+ *
+ * @author dok, pulky, ivern, isv, TCSDEVELOPER
+ * @version 1.0.6
  */
 public class DefaultPriceComponent implements SoftwareComponent {
-
-    // This is a hack to add component testing review registration
-    // all this should change to project categories ids
-    /**
-     * <p>A <code>int</code> referencing the fictive phase type corresponding to <code>Testing</code> competitions.</p>
-     */
-    private static final int COMPONENT_TESTING = 116;
 
     /**
      * <p>A <code>int</code> referencing the fictive phase type corresponding to <code>Assembly</code> competitions.</p>
@@ -61,6 +60,30 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @since TCS Release 2.2.1 (TCS-57)
      */
     private static final int ARCHITECTURE_COMPETITIONS = 118;
+
+    /**
+     * <p>A <code>int</code> referencing the fictive phase type corresponding to <code>Conceptualization</code>
+     * competitions.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-63)
+     */
+    private static final int CONCEPTUALIZATION_COMPETITIONS = 134;
+
+    /**
+     * <p>A <code>int</code> referencing the fictive phase type corresponding to <code>Specification</code>
+     * competitions.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-60)
+     */
+    private static final int SPECIFICATION_COMPETITIONS = 117;
+
+    /**
+     * <p>A <code>int</code> referencing the fictive phase type corresponding to <code>Testing</code> competitions.
+     * </p>
+     *
+     * @since TCS Release 2.2.2 (TCS-74)
+     */
+    private static final int TESTING_COMPETITIONS = 124;
 
     /**
      * <p>A <code>Log</code> to be used for logging the events encountered while calculating the prices.</p>
@@ -96,10 +119,28 @@ public class DefaultPriceComponent implements SoftwareComponent {
     private final static float[] ARCHITECTURE_PRICE_LOOKUP = DEV_PRICE_LOOKUP;
 
     /**
+     * <p>A <code>float</code> array listing the prices for <code>Conceptualization</code> competitions per competition
+     * level.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-63)
+     */
+    private final static float[] CONCEPTUALIZATION_PRICE_LOOKUP = ARCHITECTURE_PRICE_LOOKUP;
+
+    /**
+     * <p>A <code>float</code> array listing the prices for <code>Specification</code> competitions per competition
+     * level.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-60)
+     */
+    private final static float[] SPECIFICATION_PRICE_LOOKUP = ARCHITECTURE_PRICE_LOOKUP;
+
+    /**
      * <p>A <code>float</code> array listing the prices for <code>Testing</code> competitions per competition level.
      * </p>
+     *
+     * @since TCS Release 2.2.2 (TCS-74)
      */
-    private final static float[] TESTING_PRICE_LOOKUP = {0f, 200f, 200f};
+    private final static float[] TESTING_PRICE_LOOKUP = DEV_PRICE_LOOKUP;
 
     /**
      * <p>A <code>float</code> array listing the DR points for <code>Design</code> competitions per competition level.
@@ -130,6 +171,30 @@ public class DefaultPriceComponent implements SoftwareComponent {
     private final static float[] ARCHITECTURE_DR_LOOKUP = DEV_DR_LOOKUP;
 
     /**
+     * <p>A <code>float</code> array listing the DR points for <code>Conceptualization</code> competitions per
+     * competition level.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-63)
+     */
+    private final static float[] CONCEPTUALIZATION_DR_LOOKUP = ARCHITECTURE_DR_LOOKUP;
+
+    /**
+     * <p>A <code>float</code> array listing the DR points for <code>Specification</code> competitions per
+     * competition level.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-60)
+     */
+    private final static float[] SPECIFICATION_DR_LOOKUP = ARCHITECTURE_DR_LOOKUP;
+
+    /**
+     * <p>A <code>float</code> array listing the DR points for <code>Testing</code> competitions per
+     * competition level.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-74)
+     */
+    private final static float[] TESTING_DR_LOOKUP = DEV_DR_LOOKUP;
+
+    /**
      * <p>A <code>float</code> providing the review rate for <code>Development</code> competitions (in hours).</p>
      */
     private final static float DEV_REVIEW_RATE = 24f;
@@ -154,9 +219,25 @@ public class DefaultPriceComponent implements SoftwareComponent {
     private final static float ARCHITECTURE_REVIEW_RATE = DESIGN_REVIEW_RATE;
 
     /**
-     * <p>A <code>float</code> providing the review rate for <code>Testing</code> competitions (in hours).</p>
+     * <p>A <code>float</code> providing the review rate for <code>Conceptualization</code> competitions.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-63)
      */
-    private final static float TESTING_REVIEW_RATE = 22f;
+    private final static float CONCEPTUALIZATION_REVIEW_RATE = ARCHITECTURE_REVIEW_RATE;
+
+    /**
+     * <p>A <code>float</code> providing the review rate for <code>Conceptualization</code> competitions.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-60)
+     */
+    private final static float SPECIFICATION_REVIEW_RATE = ARCHITECTURE_REVIEW_RATE;
+
+    /**
+     * <p>A <code>float</code> providing the review rate for <code>Testing</code> competitions.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-74)
+     */
+    private final static float TESTING_REVIEW_RATE = DEV_REVIEW_RATE;
 
     /**
      * <p>An <code>int</code> referencing the current phase for the project.</p>
@@ -256,6 +337,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @param phaseId an <code>int</code> referencing the current phase for the project.
      * @param prize a <code>float</code> providing the prized for the project.
      * @param drPoints a <code>float</code> providing the amount of <code>DR</code> points for project.
+     * @since TCS Release 2.2.2 (TCS-60, TCS-63, TCS-74)
      */
     public DefaultPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId,
                                  float prize, float drPoints) {
@@ -280,17 +362,34 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
         if (phaseId == DESIGN_PHASE) {
             this.compensationRatio = (calculateCompensation(prize, drPoints)
-                                      / calculateCompensation(DESIGN_PRICE_LOOKUP[level], DESIGN_DR_LOOKUP[level]));
+                                      / calculateCompensation(DESIGN_PRICE_LOOKUP[level],
+                                                              DESIGN_DR_LOOKUP[level]));
         } else if (phaseId == ASSEMBLY_COMPETITIONS) {
             this.compensationRatio = (calculateCompensation(prize, drPoints)
-                                      / calculateCompensation(ASSEMBLY_PRICE_LOOKUP[level], ASSEMBLY_DR_LOOKUP[level]));
+                                      / calculateCompensation(ASSEMBLY_PRICE_LOOKUP[level],
+                                                              ASSEMBLY_DR_LOOKUP[level]));
         } else if (phaseId == ARCHITECTURE_COMPETITIONS) {
             this.compensationRatio = (calculateCompensation(prize, drPoints)
                                       / calculateCompensation(ARCHITECTURE_PRICE_LOOKUP[level],
                                                               ARCHITECTURE_DR_LOOKUP[level]));
-        } else {
+        } else if (phaseId == CONCEPTUALIZATION_COMPETITIONS) {
             this.compensationRatio = (calculateCompensation(prize, drPoints)
-                                      / calculateCompensation(DEV_PRICE_LOOKUP[level], DEV_DR_LOOKUP[level]));
+                                      / calculateCompensation(CONCEPTUALIZATION_PRICE_LOOKUP[level],
+                                                              CONCEPTUALIZATION_DR_LOOKUP[level]));
+        } else if (phaseId == SPECIFICATION_COMPETITIONS) {
+            this.compensationRatio = (calculateCompensation(prize, drPoints)
+                                      / calculateCompensation(SPECIFICATION_PRICE_LOOKUP[level],
+                                                              SPECIFICATION_DR_LOOKUP[level]));
+        } else if (phaseId == TESTING_COMPETITIONS) {
+            this.compensationRatio = (calculateCompensation(prize, drPoints)
+                                      / calculateCompensation(TESTING_PRICE_LOOKUP[level],
+                                                              TESTING_DR_LOOKUP[level]));
+        } else if (phaseId == DEV_PHASE) {
+            this.compensationRatio = (calculateCompensation(prize, drPoints)
+                                      / calculateCompensation(DEV_PRICE_LOOKUP[level],
+                                                              DEV_DR_LOOKUP[level]));
+        } else {
+            throw new RuntimeException("Invalid phaseId : " + phaseId);
         }
     }
 
@@ -383,6 +482,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * <p>Gets the review rate for <code>Testing</code> competitions.</p>
      *
      * @return a <code>float</code> providing the review rate for <code>Testing</code> competitions.
+     * @since TCS Release 2.2.2 (TCS-74)
      */
     public float getTestingReviewRate() {
         return TESTING_REVIEW_RATE * this.compensationRatio;
@@ -409,10 +509,30 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
+     * <p>Gets the review rate for <code>Conceptualization</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the review rate for <code>Conceptualization</code> competitions.
+     * @since TCS Release 2.2.2 (TCS-63)
+     */
+    public float getConceptualizationReviewRate() {
+        return CONCEPTUALIZATION_REVIEW_RATE * this.compensationRatio;
+    }
+
+    /**
+     * <p>Gets the review rate for <code>Specification</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the review rate for <code>Specification</code> competitions.
+     * @since TCS Release 2.2.2 (TCS-60)
+     */
+    public float getSpecificationReviewRate() {
+        return SPECIFICATION_REVIEW_RATE * this.compensationRatio;
+    }
+
+    /**
      * <p>Gets the cost for primary review.</p>
      *
      * @return a <code>float</code> providing the cost for primary review.
-     * @since 1.0.1
+     * @since TCS Release 2.2.2 (TCS-60, TCS-63, TCS-74)
      */
     public float getPrimaryReviewPrice() {
         float ret = 0.0f;
@@ -420,12 +540,16 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getPrimaryDevReviewCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getPrimaryDesignReviewCost();
-        } else if (phaseId == COMPONENT_TESTING) {
-            ret = getPrimaryTestingReviewCost();
         } else if (phaseId == ASSEMBLY_COMPETITIONS) {
             ret = getPrimaryAssemblyReviewCost();
         } else if (phaseId == ARCHITECTURE_COMPETITIONS) {
             ret = getPrimaryArchitectureReviewCost();
+        } else if (phaseId == CONCEPTUALIZATION_COMPETITIONS) {
+            ret = getPrimaryConceptualizationReviewCost();
+        } else if (phaseId == SPECIFICATION_COMPETITIONS) {
+            ret = getPrimarySpecificationReviewCost();
+        } else if (phaseId == TESTING_COMPETITIONS) {
+            ret = getPrimaryTestingReviewCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
         }
@@ -436,7 +560,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * <p>Gets the cost for review.</p>
      *
      * @return a <code>float</code> providing the cost for review.
-     * @since 1.0.1
+     * @since TCS Release 2.2.2 (TCS-60, TCS-63, TCS-74)
      */
     public float getReviewPrice() {
         float ret = 0.0f;
@@ -444,12 +568,16 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getDevReviewCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getDesignReviewCost();
-        } else if (phaseId == COMPONENT_TESTING) {
-            ret = getTestingReviewCost();
         } else if (phaseId == ASSEMBLY_COMPETITIONS) {
             ret = getAssemblyReviewCost();
         } else if (phaseId == ARCHITECTURE_COMPETITIONS) {
             ret = getArchitectureReviewCost();
+        } else if (phaseId == CONCEPTUALIZATION_COMPETITIONS) {
+            ret = getConceptualizationReviewCost();
+        } else if (phaseId == SPECIFICATION_COMPETITIONS) {
+            ret = getSpecificationReviewCost();
+        } else if (phaseId == TESTING_COMPETITIONS) {
+            ret = getTestingReviewCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
         }
@@ -546,49 +674,47 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * <p>Gets the cost for screening review for <code>Testing</code> competitions.</p>
      *
      * @return a <code>float</code> providing the cost for screening review for <code>Testing</code> competition.
+     * @since TCS Release 2.2.2 (TCS-74)
      */
     private float getScreeningPrimaryTestingReviewCost() {
-        float screeningCost = 0.2f * (float) submissionCount * getTestingReviewRate();  //12 minutes per submission
-        return screeningCost;
+        return (0.70f * getInitialPurse() + getIncrementPurse() * (this.submissionCount - 1)) * 0.10f;
     }
 
     /**
      * <p>Gets the cost for review aggregation for <code>Testing</code> competitions.</p>
      *
      * @return a <code>float</code> providing the cost for review aggregation for <code>Testing</code> competition.
+     * @since TCS Release 2.2.2 (TCS-74)
      */
     private float getTestingAggregationCost() {
-        float aggregationCost = 0.2f * getTestingReviewRate();  //12 minutes to aggregate
-        return aggregationCost;
+        return 0.04f * getInitialPurse();
     }
 
     /**
      * <p>Gets the cost for final review for <code>Testing</code> competitions.</p>
      *
      * @return a <code>float</code> providing the cost for final review for <code>Testing</code> competition.
+     * @since TCS Release 2.2.2 (TCS-74)
      */
     private float getTestingFinalReviewCost() {
-        float finalReviewCost = 0.4f * getTestingReviewRate();  //24 minutes to do final review
-        return finalReviewCost;
+        return 0.10f * getInitialPurse();
     }
 
     /**
      * <p>Gets the cost for core review for <code>Testing</code> competitions.</p>
      *
      * @return a <code>float</code> providing the cost for core review for <code>Testing</code> competition.
+     * @since TCS Release 2.2.2 (TCS-74)
      */
     private float getTestingCoreReviewCost() {
-        float reviewCost = 0.4f * (float) submissionsPassedScreening * getTestingReviewRate(); //24 minutes per review
-        float startupCost = 0.2f * getTestingReviewRate(); //12 minutes to "start up"
-        debug("reviewCost " + reviewCost);
-        debug("startupCost " + startupCost);
-        return reviewCost + startupCost;
+        return (0.70f * getInitialPurse() + getIncrementPurse() * (this.submissionsPassedScreening - 1)) * 0.9f / 3.0f;
     }
 
     /**
      * <p>Gets the cost for review for <code>Testing</code> competitions.</p>
      *
      * @return a <code>float</code> providing the cost for review for <code>Testing</code> competition.
+     * @since TCS Release 2.2.2 (TCS-74)
      */
     private float getTestingReviewCost() {
         debug("getTestingCoreReviewCost " + getTestingCoreReviewCost());
@@ -671,7 +797,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * <p>Gets the cost for review aggregation.</p>
      *
      * @return a <code>float</code> providing the cost for review aggregation.
-     * @since 1.0.1
+     * @since TCS Release 2.2.2 (TCS-60, TCS-63, TCS-74)
      */
     public float getAggregationCost() {
         float ret = 0.0f;
@@ -679,12 +805,16 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getDevAggregationCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getDesignAggregationCost();
-        } else if (phaseId == COMPONENT_TESTING) {
-            ret = getTestingAggregationCost();
         } else if (phaseId == ASSEMBLY_COMPETITIONS) {
             ret = getAssemblyAggregationCost();
         } else if (phaseId == ARCHITECTURE_COMPETITIONS) {
             ret = getArchitectureAggregationCost();
+        } else if (phaseId == CONCEPTUALIZATION_COMPETITIONS) {
+            ret = getConceptualizationAggregationCost();
+        } else if (phaseId == SPECIFICATION_COMPETITIONS) {
+            ret = getSpecificationAggregationCost();
+        } else if (phaseId == TESTING_COMPETITIONS) {
+            ret = getTestingAggregationCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
         }
@@ -695,7 +825,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * <p>Gets the cost for screening review.</p>
      *
      * @return a <code>float</code> providing the cost for screening review.
-     * @since 1.0.1
+     * @since TCS Release 2.2.2 (TCS-60, TCS-63, TCS-74)
      */
     public float getScreeningCost() {
         float ret = 0.0f;
@@ -703,12 +833,16 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getScreeningPrimaryDevReviewCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getDesignScreeningCost();
-        } else if (phaseId == COMPONENT_TESTING) {
-            ret = getScreeningPrimaryTestingReviewCost();
         } else if (phaseId == ASSEMBLY_COMPETITIONS) {
             ret = getAssemblyScreeningCost();
         } else if (phaseId == ARCHITECTURE_COMPETITIONS) {
             ret = getArchitectureScreeningCost();
+        } else if (phaseId == CONCEPTUALIZATION_COMPETITIONS) {
+            ret = getConceptualizationScreeningCost();
+        } else if (phaseId == SPECIFICATION_COMPETITIONS) {
+            ret = getSpecificationScreeningCost();
+        } else if (phaseId == TESTING_COMPETITIONS) {
+            ret = getTestingScreeningCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
         }
@@ -719,7 +853,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * <p>Gets the cost for final review.</p>
      *
      * @return a <code>float</code> providing the cost for final review.
-     * @since 1.0.1
+     * @since TCS Release 2.2.2 (TCS-60, TCS-63, TCS-74)
      */
     public float getFinalReviewCost() {
         float ret = 0.0f;
@@ -727,12 +861,16 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getDevFinalReviewCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getDesignFinalReviewCost();
-        } else if (phaseId == COMPONENT_TESTING) {
-            ret = getTestingFinalReviewCost();
         } else if (phaseId == ASSEMBLY_COMPETITIONS) {
             ret = getAssemblyFinalReviewCost();
         } else if (phaseId == ARCHITECTURE_COMPETITIONS) {
             ret = getArchitectureFinalReviewCost();
+        } else if (phaseId == CONCEPTUALIZATION_COMPETITIONS) {
+            ret = getConceptualizationFinalReviewCost();
+        } else if (phaseId == SPECIFICATION_COMPETITIONS) {
+            ret = getSpecificationFinalReviewCost();
+        } else if (phaseId == TESTING_COMPETITIONS) {
+            ret = getTestingFinalReviewCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
         }
@@ -743,7 +881,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * <p>Gets the cost for core review.</p>
      *
      * @return a <code>float</code> providing the cost for core review.
-     * @since 1.0.1
+     * @since TCS Release 2.2.2 (TCS-60, TCS-63, TCS-74)
      */
     public float getCoreReviewCost() {
         float ret = 0.0f;
@@ -751,12 +889,16 @@ public class DefaultPriceComponent implements SoftwareComponent {
             ret = getDevCoreReviewCost();
         } else if (phaseId == DESIGN_PHASE) {
             ret = getCoreDesignReviewCost();
-        } else if (phaseId == COMPONENT_TESTING) {
-            ret = getTestingCoreReviewCost();
         } else if (phaseId == ASSEMBLY_COMPETITIONS) {
             ret = getAssemblyCoreReviewCost();
         } else if (phaseId == ARCHITECTURE_COMPETITIONS) {
             ret = getArchitectureCoreReviewCost();
+        } else if (phaseId == CONCEPTUALIZATION_COMPETITIONS) {
+            ret = getConceptualizationCoreReviewCost();
+        } else if (phaseId == SPECIFICATION_COMPETITIONS) {
+            ret = getSpecificationCoreReviewCost();
+        } else if (phaseId == TESTING_COMPETITIONS) {
+            ret = getTestingCoreReviewCost();
         } else {
             throw new RuntimeException("invalid phaseId " + phaseId);
         }
@@ -795,6 +937,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * command line arguments.</p>
      *
      * @param args a <code>String</code> array providing the command line arguments.
+     * @since TCS Release 2.2.2 (TCS-60, TCS-63, TCS-74)
      */
     public static void main(String[] args) {
         if (args.length != 6) {
@@ -849,7 +992,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 System.out.println("Design Primary Final Rev Cost|      " + sc.getDesignFinalReviewCost());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("   Design Core Review Cost   |      " + sc.getCoreDesignReviewCost());
-            } else if (sc.phaseId == COMPONENT_TESTING) {
+            } else if (sc.phaseId == TESTING_COMPETITIONS) {
                 System.out.println("      Testing Cost           |      " + sc.getPrice());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("       Testing DR            |      " + sc.getDR());
@@ -896,7 +1039,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("  Architecture Primary Review Cost    |      " + sc.getPrimaryReviewPrice());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("  Architecture Primary Screen Cost    |      " + sc.getArchitectureScreeningCost());
+                System.out.println("  Architecture Primary Screen Cost    |      "
+                                   + sc.getArchitectureScreeningCost());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("    Architecture Primary Agg Cost     |      "
                                    + sc.getArchitectureAggregationCost());
@@ -906,6 +1050,51 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("    Architecture Core Review Cost     |      "
                                    + sc.getArchitectureCoreReviewCost());
+            } else if (sc.phaseId == CONCEPTUALIZATION_COMPETITIONS) {
+                System.out.println("         Conceptualization Prize           |      " + sc.getPrice());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("          Conceptualization DR             |      " + sc.getDR());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("    Total Conceptualization Compensation   |      "
+                                   + sc.getCompetitorCompensation());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("       Conceptualization Review Cost       |      " + sc.getReviewPrice());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("  Conceptualization Primary Review Cost    |      " + sc.getPrimaryReviewPrice());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("  Conceptualization Primary Screen Cost    |      "
+                                   + sc.getConceptualizationScreeningCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("    Conceptualization Primary Agg Cost     |      "
+                                   + sc.getConceptualizationAggregationCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println(" Conceptualization Primary Final Rev Cost  |      "
+                                   + sc.getConceptualizationFinalReviewCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("    Conceptualization Core Review Cost     |      "
+                                   + sc.getConceptualizationCoreReviewCost());
+            } else if (sc.phaseId == SPECIFICATION_COMPETITIONS) {
+                System.out.println("         Specification Prize           |      " + sc.getPrice());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("          Specification DR             |      " + sc.getDR());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("    Total Specification Compensation   |      " + sc.getCompetitorCompensation());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("       Specification Review Cost       |      " + sc.getReviewPrice());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("  Specification Primary Review Cost    |      " + sc.getPrimaryReviewPrice());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("  Specification Primary Screen Cost    |      "
+                                   + sc.getSpecificationScreeningCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("    Specification Primary Agg Cost     |      "
+                                   + sc.getSpecificationAggregationCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println(" Specification Primary Final Rev Cost  |      "
+                                   + sc.getSpecificationFinalReviewCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("    Specification Core Review Cost     |      "
+                                   + sc.getSpecificationCoreReviewCost());
             } else {
                 System.out.println("INVALID PHASE");
             }
@@ -963,6 +1152,48 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
+     * <p>Gets the cost for primary review for <code>Conceptualization</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for primary review for <code>Conceptualization</code>
+     *         competition.
+     * @since TCS Release 2.2.2 (TCS-63)
+     */
+    private float getPrimaryConceptualizationReviewCost() {
+        float screeningCost = getConceptualizationScreeningCost();
+        float aggregationCost = getConceptualizationAggregationCost();
+        float finalReviewCost = getConceptualizationFinalReviewCost();
+        float coreReviewCost = getConceptualizationCoreReviewCost();
+
+        debug("Conceptualization screeningCost  = " + screeningCost);
+        debug("Conceptualization aggregationCost = " + aggregationCost);
+        debug("Conceptualization finalReviewCost = " + finalReviewCost);
+        debug("Conceptualization coreReviewCost = " + coreReviewCost);
+
+        return screeningCost + aggregationCost + finalReviewCost + coreReviewCost;
+    }
+
+    /**
+     * <p>Gets the cost for primary review for <code>Specification</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for primary review for <code>Specification</code>
+     *         competition.
+     * @since TCS Release 2.2.2 (TCS-60)
+     */
+    private float getPrimarySpecificationReviewCost() {
+        float screeningCost = getSpecificationScreeningCost();
+        float aggregationCost = getSpecificationAggregationCost();
+        float finalReviewCost = getSpecificationFinalReviewCost();
+        float coreReviewCost = getSpecificationCoreReviewCost();
+
+        debug("Specification screeningCost  = " + screeningCost);
+        debug("Specification aggregationCost = " + aggregationCost);
+        debug("Specification finalReviewCost = " + finalReviewCost);
+        debug("Specification coreReviewCost = " + coreReviewCost);
+
+        return screeningCost + aggregationCost + finalReviewCost + coreReviewCost;
+    }
+
+    /**
      * <p>Gets the cost for review for <code>Assembly</code> competitions.</p>
      *
      * @return a <code>float</code> providing the cost for review for <code>Assembly</code> competition.
@@ -983,6 +1214,26 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
+     * <p>Gets the cost for review for <code>Conceptualization</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for review for <code>Conceptualization</code> competition.
+     * @since TCS Release 2.2.2 (TCS-63)
+     */
+    private float getConceptualizationReviewCost() {
+        return getConceptualizationCoreReviewCost();
+    }
+
+    /**
+     * <p>Gets the cost for review for <code>Specification</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for review for <code>Specification</code> competition.
+     * @since TCS Release 2.2.2 (TCS-60)
+     */
+    private float getSpecificationReviewCost() {
+        return getSpecificationCoreReviewCost();
+    }
+
+    /**
      * <p>Gets the cost for review aggregation for <code>Assembly</code> competitions.</p>
      *
      * @return a <code>float</code> providing the cost for review aggregation for <code>Assembly</code> competition.
@@ -999,6 +1250,28 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @since TCS Release 2.2.1 (TCS-57)
      */
     private float getArchitectureAggregationCost() {
+        return 0.04f * getInitialPurse();
+    }
+
+    /**
+     * <p>Gets the cost for review aggregation for <code>Conceptualization</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for review aggregation for <code>Conceptualization</code>
+     *         competition.
+     * @since TCS Release 2.2.2 (TCS-63)
+     */
+    private float getConceptualizationAggregationCost() {
+        return 0.04f * getInitialPurse();
+    }
+
+    /**
+     * <p>Gets the cost for review aggregation for <code>Specification</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for review aggregation for <code>Specification</code>
+     *         competition.
+     * @since TCS Release 2.2.2 (TCS-60)
+     */
+    private float getSpecificationAggregationCost() {
         return 0.04f * getInitialPurse();
     }
 
@@ -1024,6 +1297,39 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
+     * <p>Gets the cost for screening review for <code>Conceptualization</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for screening review for <code>Conceptualization</code>
+     *         competition.
+     * @since TCS Release 2.2.2 (TCS-63)
+     */
+    private float getConceptualizationScreeningCost() {
+        return (0.70f * getInitialPurse() + getIncrementPurse() * (this.submissionCount - 1)) * 0.10f;
+    }
+
+    /**
+     * <p>Gets the cost for screening review for <code>Specification</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for screening review for <code>Specification</code>
+     *         competition.
+     * @since TCS Release 2.2.2 (TCS-60)
+     */
+    private float getSpecificationScreeningCost() {
+        return (0.70f * getInitialPurse() + getIncrementPurse() * (this.submissionCount - 1)) * 0.10f;
+    }
+
+    /**
+     * <p>Gets the cost for screening review for <code>Testing</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for screening review for <code>Testing</code>
+     *         competition.
+     * @since TCS Release 2.2.2 (TCS-74)
+     */
+    private float getTestingScreeningCost() {
+        return (0.70f * getInitialPurse() + getIncrementPurse() * (this.submissionCount - 1)) * 0.10f;
+    }
+
+    /**
      * <p>Gets the cost for final review for <code>Assembly</code> competitions.</p>
      *
      * @return a <code>float</code> providing the cost for final review for <code>Assembly</code> competition.
@@ -1040,6 +1346,26 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @since TCS Release 2.2.1 (TCS-57)
      */
     private float getArchitectureFinalReviewCost() {
+        return 0.10f * getInitialPurse();
+    }
+
+    /**
+     * <p>Gets the cost for final review for <code>Conceptualization</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for final review for <code>Conceptualization</code> competition.
+     * @since TCS Release 2.2.2 (TCS-63)
+     */
+    private float getConceptualizationFinalReviewCost() {
+        return 0.10f * getInitialPurse();
+    }
+
+    /**
+     * <p>Gets the cost for final review for <code>Specification</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for final review for <code>Specification</code> competition.
+     * @since TCS Release 2.2.2 (TCS-60)
+     */
+    private float getSpecificationFinalReviewCost() {
         return 0.10f * getInitialPurse();
     }
 
@@ -1061,6 +1387,26 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @since TCS Release 2.2.1 (TCS-57)
      */
     private float getArchitectureCoreReviewCost() {
+        return (0.70f * getInitialPurse() + getIncrementPurse() * (this.submissionsPassedScreening - 1)) * 0.9f / 3.0f;
+    }
+
+    /**
+     * <p>Gets the cost for core review for <code>Conceptualization</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for core review for <code>Conceptualization</code> competition.
+     * @since TCS Release 2.2.2 (TCS-63)
+     */
+    private float getConceptualizationCoreReviewCost() {
+        return (0.70f * getInitialPurse() + getIncrementPurse() * (this.submissionsPassedScreening - 1)) * 0.9f / 3.0f;
+    }
+
+    /**
+     * <p>Gets the cost for core review for <code>Specification</code> competitions.</p>
+     *
+     * @return a <code>float</code> providing the cost for core review for <code>Specification</code> competition.
+     * @since TCS Release 2.2.2 (TCS-60)
+     */
+    private float getSpecificationCoreReviewCost() {
         return (0.70f * getInitialPurse() + getIncrementPurse() * (this.submissionsPassedScreening - 1)) * 0.9f / 3.0f;
     }
 }

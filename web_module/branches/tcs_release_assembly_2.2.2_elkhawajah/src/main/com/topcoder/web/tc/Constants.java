@@ -198,7 +198,7 @@ public class Constants implements WebConstants {
      * @since TCS Release 2.2.0 (TCS-54)
      */
     public static final String ASSEMBLY_REVIEW_PROJECT_DETAIL = "/dev/assembly/reviewProjectDetail.jsp";
-    
+
     /**
      * <p>A <code>String</code> providing the logical name for the view corresponding to
      * <code>Architecture Review Project Details</code> page.</p>
@@ -206,6 +206,30 @@ public class Constants implements WebConstants {
      * @since TCS Release 2.2.1 (TCS-57)
      */
     public static final String ARCHITECTURE_REVIEW_PROJECT_DETAIL = "/architecture/reviewProjectDetail.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * <code>Conceptualization Review Project Details</code> page.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-63)
+     */
+    public static final String CONCEPTUALIZATION_PROJECT_DETAIL = "/conceptualization/reviewProjectDetail.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * <code>Specification Review Project Details</code> page.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-60)
+     */
+    public static final String SPECIFICATION_PROJECT_DETAIL = "/specification/reviewProjectDetail.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * <code>Testing Review Project Details</code> page.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-74)
+     */
+    public static final String APPLICATION_TESTING_PROJECT_DETAIL = "/testing/reviewProjectDetail.jsp";
 
     public static String REVIEW_PROJECTS;
 
@@ -224,6 +248,30 @@ public class Constants implements WebConstants {
      * @since TCS Release 2.2.1 (TCS-57)
      */
     public static final String ARCHITECTURE_REVIEW_PROJECTS = "/architecture/reviewProjects.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * <code>Conceptualization Review Projects</code> page.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-63)
+     */
+    public static final String CONCEPTUALIZATION_REVIEW_PROJECTS = "/conceptualization/reviewProjects.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * <code>Specification Review Projects</code> page.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-60)
+     */
+    public static final String SPECIFICATION_REVIEW_PROJECTS = "/specification/reviewProjects.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * <code>Testing Review Projects</code> page.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-74)
+     */
+    public static final String APPLICATION_TESTING_REVIEW_PROJECTS = "/testing/reviewProjects.jsp";
 
     public static String DESIGN_DETAIL;
     public static String DEVELOPMENT_DETAIL;
@@ -244,6 +292,30 @@ public class Constants implements WebConstants {
      * @since TCS Release 2.2.1 (TCS-57)
      */
     public static final String ARCHITECTURE_REVIEWER_TERMS = "/architecture/reviewerTerms.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * <code>Conceptualization Review Terms</code> page.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-63)
+     */
+    public static final String CONCEPTUALIZATION_REVIEWER_TERMS = "/conceptualization/reviewerTerms.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * <code>Specification Review Terms</code> page.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-60)
+     */
+    public static final String SPECIFICATION_REVIEWER_TERMS = "/specification/reviewerTerms.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the logical name for the view corresponding to
+     * <code>Testing Review Terms</code> page.</p>
+     *
+     * @since TCS Release 2.2.2 (TCS-74)
+     */
+    public static final String APPLICATION_TESTING_REVIEWER_TERMS = "/testing/reviewerTerms.jsp";
 
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;
@@ -418,79 +490,79 @@ public class Constants implements WebConstants {
     public static final String CAPTCHA_WORD = "capword";
     public static String RANDOM_STRING_IMAGE_CONFIG;
     public static final String CAPTCHA_RESPONSE = "capresp";
-    
+
     public static String DR_POINTS_LAST_N_DAYS = "7";
 
     /**
      * <p>
      * A <code>String</code> referencing event parameter name.
      * </p>
-     * 
+     *
      * @since 2009 TopCoder Open Site Integration
-     */    
+     */
     public static final String EVENT = "event";
 
     /**
      * <p>
      * A <code>String</code> referencing TCO09 short description
      * </p>
-     * 
+     *
      * @since 2009 TopCoder Open Site Integration
-     */    
+     */
     public static String TCO09_SHORT_DESC = "tco09";
 
     /**
      * <p>
      * A <code>String</code> referencing TCO09 terms success page.
      * </p>
-     * 
+     *
      * @since 2009 TopCoder Open Site Integration
-     */    
+     */
     public static String TCO09_TERMS_SUCCESS_PAGE = "/tournaments/tco09/termsSuccess.jsp";
 
     /**
      * <p>
      * A <code>String</code> referencing TCO09 terms page.
      * </p>
-     * 
+     *
      * @since 2009 TopCoder Open Site Integration
-     */    
+     */
     public static String TCO09_TERMS_PAGE = "/tournaments/tco09/terms.jsp";
 
     /**
      * <p>
      * A <code>String</code> referencing TCO09 view registration request.
      * </p>
-     * 
+     *
      * @since 2009 TopCoder Open Site Integration
-     */    
+     */
     public static String TCO09_VIEW_REGISTRATION_REQUEST = "/tco09?module=ViewUnifiedRegistration";
 
     /**
      * <p>
      * A <code>String</code> referencing TCO09 registrants command.
      * </p>
-     * 
+     *
      * @since 2009 TopCoder Open Site Integration
-     */    
+     */
     public static String TCO09_REGISTRANTS_COMMAND = "tco09_registrants";
 
     /**
      * <p>
      * A <code>String</code> referencing TCO09 overview page.
      * </p>
-     * 
+     *
      * @since 2009 TopCoder Open Site Integration
-     */    
+     */
     public static String TCO09_OVERVIEW_PAGE = "/tournaments/tco09/overview/overview.jsp";
-    
+
     /**
      * <p>
      * A <code>String</code> referencing TCO09 registrants page.
      * </p>
-     * 
+     *
      * @since 2009 TopCoder Open Site Integration
-     */    
+     */
     public static String TCO09_REGISTRANTS_PAGE = "/tournaments/tco09/overview/registrants.jsp";
 
     static {

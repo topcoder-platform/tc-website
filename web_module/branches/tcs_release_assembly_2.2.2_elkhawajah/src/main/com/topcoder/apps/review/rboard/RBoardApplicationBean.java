@@ -47,7 +47,7 @@ import java.util.Map;
  * <p>An implementation of the <code>RBoard EJB</code>.</p>
  *
  * <p>
- *   Version 1.0.1 Change notes: 
+ *   Version 1.0.1 Change notes:
  *   <ol>
  *     <li>Bean was moved from tc to tcs site and was updated to centralize all RBoard operations.</li>
  *   </ol>
@@ -84,10 +84,16 @@ import java.util.Map;
  *     <li>Added {@link #validateUserWithoutCatalog(String, int, long, int)} method to validate the Assembly reviewer
  *     permissions without taking any catalog into consideration.</li>
  *   </ol>
+ *
+ *   Version 1.0.8 Change notes:
+ *   <ol>
+ *     <li>Added support for <code>Conceptualization</code>, <code>Specification</code>, and <code>Testing</code>
+ *     to the reviewers responsibility information, see {@link #getReviewRespInfo()}.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, ivern, isv
- * @version 1.0.7
+ * @author dok, pulky, ivern, isv, TCSDEVELOPER
+ * @version 1.0.8
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
@@ -182,7 +188,8 @@ public class RBoardApplicationBean extends BaseEJB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            ps = conn.prepareStatement("select p.project_id, pi_cn.value as component_name, pi_vt.value as version_text, "
+            ps = conn.prepareStatement("select p.project_id, pi_cn.value as component_name,"
+                                       + " pi_vt.value as version_text, "
                                        + "pt.name as project_type_name, cjcx.jive_category_id from project p "
                                        + ",project_category_lu pt "
                                        + ",project_info pi_cn "
@@ -568,14 +575,14 @@ public class RBoardApplicationBean extends BaseEJB {
                 "                              from upload u " +
                 "                             where u.resource_id = r.resource_id " +
                 "                               and u.upload_type_id = 2))) " +
-                " and ( exists (select 1  " +                              // There's at least one active submission...
+                " and ( exists (select 1  " +                              // There's at least one active submission
                 "            from submission s " +
                 "             , upload u " +
                 "             where u.project_id = p.project_id     " +
                 "             and u.upload_type_id = 1              " +
                 "             and u.upload_id = s.upload_id         " +
                 "             and s.submission_status_id = 1)    " +
-                "         or exists(                               " +  // ... or the submission phase is scheduled or open
+                "         or exists(                               " +  // or the submission phase is scheduled or open
                 "            select 1 from project_phase pp_subm where pp_subm.phase_type_id = 2 " +
                 "            and pp_subm.phase_status_id in (1,2) " +
                 "            and pp_subm.project_id = p.project_id)) " +
@@ -888,16 +895,20 @@ public class RBoardApplicationBean extends BaseEJB {
     }
 
     /**
+     * <p>
      * Gets reviewers responsibility information
+     * </p>
      *
      * @param conn the connection being used
      * @return a map with the reviewers responsibility information
+     * @since TCS Release 2.2.2 (TCS-60, TCS-63, TCS-74)
      */
     private Map getReviewRespInfo() {
         // review_resp table is removed
         Map returnMap = new HashMap();
-        int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-        int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118};
+        int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21};
+        int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134,
+            117, 117, 117, 124, 124, 124};
 
         for (int i = 0; i < respIds.length; i++) {
             returnMap.put(new Integer(respIds[i]), new Integer(phaseIds[i]));
@@ -978,7 +989,7 @@ public class RBoardApplicationBean extends BaseEJB {
     /**
      * <p>Gets the name of the specified project category.</p>
      *
-     * @param conn a <code>Connection</code> providing the connection to target database. 
+     * @param conn a <code>Connection</code> providing the connection to target database.
      * @param projectTypeId a <code>long</code> providing the ID of project category to get the name for.
      * @return a <code>String</code> providing the name of project category.
      * @throws RowNotFoundException if desired record in database table is not found.
