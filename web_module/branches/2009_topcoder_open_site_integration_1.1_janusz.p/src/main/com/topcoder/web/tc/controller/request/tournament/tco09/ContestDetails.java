@@ -3,12 +3,11 @@ package com.topcoder.web.tc.controller.request.tournament.tco09;
 import com.topcoder.web.tc.controller.request.tournament.ContestDetailsBase;
 
 /**
- * @author dok, pulky
- * @version $Revision: 68101 $ Date: 2005/01/01 00:00:00
- *          Create Date: Mar 1, 2007
+ * @author TCSDEVELOPER
+ * @version 1.0
  */
 public class ContestDetails extends ContestDetailsBase {
-    private final String CONTEST_PREFIX = "tco08";
+    private final String CONTEST_PREFIX = "tco09";
 
     private final int[] placementPoints = new int[]{10, 7, 5, 4, 0};
 
