@@ -1,37 +1,85 @@
-<%@ page language="java" %>
-<%@ page import="com.topcoder.web.common.model.EventType,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.tc.model.UserContestDetail,
-                 java.util.List,
-                 java.util.Map" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<%--
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
+ *
+ * This JSP shows design track leaderboard page.
+ *
+ * Author TCSDEVELOPER
+ * Version 1.0
+ * Since 2009 TopCoder Open Site Integration
+--%>
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>2009 TopCoder Open - Computer Programming Tournament</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
-    <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-<script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
-    <jsp:include page="../../script.jsp" />
-    <%@ taglib uri="tc.tld" prefix="tc" %>
-    <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-    <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<title>TCO 09 : Online Competitions</title>
+
+<!-- Meta Tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- External CSS -->
+<link rel="stylesheet" href="css/tournaments/tco09.css" media="all" type="text/css" />
+<!--[if IE 6]>
+<link rel="stylesheet" type="text/css" media="screen" href="css/screen-ie6.css" />
+<![endif]-->
+
+<!-- External JavaScripts -->
+<script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
+<script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
+<script type="text/javascript" src="/js/arena.js"></script> 
+<style type="text/css">
+<!--
+.style2 {color: #FF0000}
+-->
+</style>
 </head>
 
-<body id="page_sub">
+<body id="page">
 
-<div id="wrapper">
+    <div id="wrapper">
+        <div id="wrapperInner">
+            <div id="wrapperContent">
+                
+                <div id="wrapperContentInner">
+                
+                    <jsp:include page="../../header.jsp"/>
+                    
+                    <jsp:include page="../../mainNav.jsp" >
+                        <jsp:param name="mainTab" value="online"/>
+                    </jsp:include>
+                    
+                    <div id="content">
+                            <div class="contentTopLeft"><div class="contentTopRight">
+                                <div class="contentTopInner"></div>
+                            </div></div>
+                            
+                            <div id="contentInner" class="contentInner">
+                            
+                                <div id="contentInnerInner">
+
+                                    <div class="bottomArea">
+                                        <div class="bottomLeft"><div class="bottomRight">
+                                            
+                                            <jsp:include page="../../secondaryNav.jsp" >
+                                                <jsp:param name="mainTab" value="online"/>
+                                                <jsp:param name="secondaryTab" value="design"/>
+                                            </jsp:include>
+
+                                            <jsp:include page="../../tertiaryNav.jsp" >
+                                                <jsp:param name="mainTab" value="online"/>
+                                                <jsp:param name="secondaryTab" value="design"/>
+                                                <jsp:param name="tertiaryTab" value="leaderboard"/>
+                                            </jsp:include>
+                                            
+                                            <div class="bottomAreaContent">
+                                            
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_details"); %>
 <% List lst = (List) request.getAttribute("results");%>
-<%
-    boolean isComplete = true;
-%>
+<% boolean isComplete = true; %>
 
-                    <h2><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/> -
-                    <a href="/tco08?module=ContestProjects&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">View
-                    Components</a></h2>
+                    <h2><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></h2>
 
                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                 <thead>
