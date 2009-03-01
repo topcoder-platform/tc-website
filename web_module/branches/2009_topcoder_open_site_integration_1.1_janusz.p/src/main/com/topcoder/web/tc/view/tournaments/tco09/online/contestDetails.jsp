@@ -51,9 +51,9 @@
                 
                 <div id="wrapperContentInner">
                 
-                    <jsp:include page="../../header.jsp"/>
+                    <jsp:include page="../header.jsp"/>
                     
-                    <jsp:include page="../../mainNav.jsp" >
+                    <jsp:include page="../mainNav.jsp" >
                         <jsp:param name="mainTab" value="online"/>
                     </jsp:include>
                     
@@ -69,12 +69,12 @@
                                     <div class="bottomArea">
                                         <div class="bottomLeft"><div class="bottomRight">
                                             
-                                            <jsp:include page="../../secondaryNav.jsp" >
+                                            <jsp:include page="../secondaryNav.jsp" >
                                                 <jsp:param name="mainTab" value="online"/>
                                                 <jsp:param name="secondaryTab" value="design"/>
                                             </jsp:include>
 
-                                            <jsp:include page="../../tertiaryNav.jsp" >
+                                            <jsp:include page="../tertiaryNav.jsp" >
                                                 <jsp:param name="mainTab" value="online"/>
                                                 <jsp:param name="secondaryTab" value="design"/>
                                                 <jsp:param name="tertiaryTab" value="leaderboard"/>
