@@ -80,10 +80,12 @@ final int ASSEMBLY_PHASE_ID = 125;
                                         <div class="bottomLeft"><div class="bottomRight">
                                             <%
                                             String leaderboardTitle = "";
+                                            String tab = "";
 
                                             switch (rscContest.getIntItem(0, "phase_id")) {
                                                 case DESIGN_PHASE_ID:
                                                     leaderboardTitle = "Component Design Competition Leaderboard";
+                                                    tab = "design";
                                             %>
                                                 <jsp:include page="../secondaryNav.jsp" >
                                                     <jsp:param name="mainTab" value="online"/>
@@ -99,6 +101,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                     break;
                                                 case DEVELOPMENT_PHASE_ID:
                                                     leaderboardTitle = "Component Development Competition Leaderboard";
+                                                    tab = "development";
                                             %>
                                                     <jsp:include page="../secondaryNav.jsp" >
                                                         <jsp:param name="mainTab" value="online"/>
@@ -115,6 +118,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                     break;
                                                 case ARCHITECTURE_PHASE_ID:
                                                     leaderboardTitle = "Architecture Competition Leaderboard";
+                                                    tab = "architecture";
                                             %>
                                                     <jsp:include page="../secondaryNav.jsp" >
                                                         <jsp:param name="mainTab" value="online"/>
@@ -130,6 +134,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                     break;
                                                 case SPECIFICATION_PHASE_ID:
                                                     leaderboardTitle = "Specification Competition Leaderboard";
+                                                    tab = "specification";
                                             %>
                                                     <jsp:include page="../secondaryNav.jsp" >
                                                         <jsp:param name="mainTab" value="online"/>
@@ -145,6 +150,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                     break;
                                                 default:
                                                     leaderboardTitle = "Assembly Competition Leaderboard";
+                                                    tab = "assembly";
                                             %>
                                                     <jsp:include page="../secondaryNav.jsp" >
                                                         <jsp:param name="mainTab" value="online"/>
