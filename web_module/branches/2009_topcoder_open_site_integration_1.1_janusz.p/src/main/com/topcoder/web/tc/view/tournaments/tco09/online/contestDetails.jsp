@@ -85,6 +85,7 @@
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_details"); %>
 <% List lst = (List) request.getAttribute("results");%>
 <% boolean isComplete = true; %>
+<% String tab = "test"; %>
 
                     <h2><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></h2>
 
