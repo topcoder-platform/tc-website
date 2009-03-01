@@ -7,6 +7,12 @@
  * Version 1.0
  * Since 2009 TopCoder Open Site Integration
 --%>
+<%@ page language="java" %>
+<%@ page import="com.topcoder.web.common.model.EventType,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.web.tc.model.UserContestDetail,
+                 java.util.List,
+                 java.util.Map" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
         
