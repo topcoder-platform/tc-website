@@ -18,6 +18,31 @@
 <% List lst = (List) request.getAttribute("results");%>
 <% boolean isComplete = true; %>
 <%
+final int DESIGN_PHASE_ID = 112;
+final int DEVELOPMENT_PHASE_ID = 113;
+final int ARCHITECTURE_PHASE_ID = 118;
+final int SPECIFICATION_PHASE_ID = 134;
+final int ASSEMBLY_PHASE_ID = 125;
+
+String leaderboardTitle = "";
+
+switch (rscContest.getIntItem(0, "phase_id")) {
+    case DESIGN_PHASE_ID:
+        leaderboardTitle = "Component Design Competition Leaderboard";
+        break;
+    case DEVELOPMENT_PHASE_ID:
+        leaderboardTitle = "Component Development Competition Leaderboard";
+        break;
+    case ARCHITECTURE_PHASE_ID:
+        leaderboardTitle = "Architecture Competition Leaderboard";
+        break;
+    case SPECIFICATION_PHASE_ID:
+        leaderboardTitle = "Specification Competition Leaderboard";
+        break;
+    default:
+        leaderboardTitle = "Assembly Competition Leaderboard";
+        break;
+}
     String tab = "phase_id: " + rscContest.getIntItem(0, "phase_id");
 %>
 
@@ -74,24 +99,95 @@
 
                                     <div class="bottomArea">
                                         <div class="bottomLeft"><div class="bottomRight">
-                                            
-                                            <jsp:include page="../secondaryNav.jsp" >
-                                                <jsp:param name="mainTab" value="online"/>
-                                                <jsp:param name="secondaryTab" value="design"/>
-                                            </jsp:include>
+                                            <%
+                                            String leaderboardTitle = "";
 
-                                            <jsp:include page="../tertiaryNav.jsp" >
-                                                <jsp:param name="mainTab" value="online"/>
-                                                <jsp:param name="secondaryTab" value="design"/>
-                                                <jsp:param name="tertiaryTab" value="leaderboard"/>
-                                            </jsp:include>
+                                            switch (rscContest.getIntItem(0, "phase_id")) {
+                                                case DESIGN_PHASE_ID:
+                                                    leaderboardTitle = "Component Design Competition Leaderboard";
+                                            %>
+                                                <jsp:include page="../secondaryNav.jsp" >
+                                                    <jsp:param name="mainTab" value="online"/>
+                                                    <jsp:param name="secondaryTab" value="design"/>
+                                                </jsp:include>
+
+                                                <jsp:include page="../tertiaryNav.jsp" >
+                                                    <jsp:param name="mainTab" value="online"/>
+                                                    <jsp:param name="secondaryTab" value="design"/>
+                                                    <jsp:param name="tertiaryTab" value="leaderboard"/>
+                                                </jsp:include>
+                                            <%
+                                                    break;
+                                                case DEVELOPMENT_PHASE_ID:
+                                                    leaderboardTitle = "Component Development Competition Leaderboard";
+                                            %>
+                                                    <jsp:include page="../secondaryNav.jsp" >
+                                                        <jsp:param name="mainTab" value="online"/>
+                                                        <jsp:param name="secondaryTab" value="development"/>
+                                                    </jsp:include>
+
+                                                    <jsp:include page="../tertiaryNav.jsp" >
+                                                        <jsp:param name="mainTab" value="online"/>
+                                                        <jsp:param name="secondaryTab" value="development"/>
+                                                        <jsp:param name="tertiaryTab" value="leaderboard"/>
+                                                    </jsp:include>
+                                            <%
+                                                        
+                                                    break;
+                                                case ARCHITECTURE_PHASE_ID:
+                                                    leaderboardTitle = "Architecture Competition Leaderboard";
+                                            %>
+                                                    <jsp:include page="../secondaryNav.jsp" >
+                                                        <jsp:param name="mainTab" value="online"/>
+                                                        <jsp:param name="secondaryTab" value="architecture"/>
+                                                    </jsp:include>
+
+                                                    <jsp:include page="../tertiaryNav.jsp" >
+                                                        <jsp:param name="mainTab" value="online"/>
+                                                        <jsp:param name="secondaryTab" value="development"/>
+                                                        <jsp:param name="tertiaryTab" value="architecture"/>
+                                                    </jsp:include>
+                                            <%
+                                                    break;
+                                                case SPECIFICATION_PHASE_ID:
+                                                    leaderboardTitle = "Specification Competition Leaderboard";
+                                            %>
+                                                    <jsp:include page="../secondaryNav.jsp" >
+                                                        <jsp:param name="mainTab" value="online"/>
+                                                        <jsp:param name="secondaryTab" value="specification"/>
+                                                    </jsp:include>
+
+                                                    <jsp:include page="../tertiaryNav.jsp" >
+                                                        <jsp:param name="mainTab" value="online"/>
+                                                        <jsp:param name="secondaryTab" value="specification"/>
+                                                        <jsp:param name="tertiaryTab" value="leaderboard"/>
+                                                    </jsp:include>
+                                            <%
+                                                    break;
+                                                default:
+                                                    leaderboardTitle = "Assembly Competition Leaderboard";
+                                            %>
+                                                    <jsp:include page="../secondaryNav.jsp" >
+                                                        <jsp:param name="mainTab" value="online"/>
+                                                        <jsp:param name="secondaryTab" value="assembly"/>
+                                                    </jsp:include>
+
+                                                    <jsp:include page="../tertiaryNav.jsp" >
+                                                        <jsp:param name="mainTab" value="online"/>
+                                                        <jsp:param name="secondaryTab" value="assembly"/>
+                                                        <jsp:param name="tertiaryTab" value="leaderboard"/>
+                                                    </jsp:include>
+                                            <%
+                                                    break;
+                                                }
+                                            %>
                                             
                                             <div class="bottomAreaContent">
                                                 <div class="mainContent">
                                                     <div id="mainContentInner">
                                                         <div>
                                                             <div class="pageContent">
-                                                            <h2 class="title">title: <%= tab %><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></h2>
+                                                            <h2 class="title"><%= leaderboardTitle %></h2>
                                                                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                                                                     <thead>
                                                                         <tr><th colspan="6"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></th></tr>
