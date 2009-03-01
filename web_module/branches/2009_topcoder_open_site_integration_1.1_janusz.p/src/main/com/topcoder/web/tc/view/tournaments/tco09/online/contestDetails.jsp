@@ -185,9 +185,9 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                             <th class="first">&nbsp;</th>
                                                                             <th>Handle</th>
                                                                             <th>Placement Points</th>
-                                                                            <th>Complete</th>
-                                                                            <th>In Progess</th>
-                                                                            <th>Submitted</th>
+                                                                            <th>Complete Projects</th>
+                                                                            <th>Projects <br/>In Progess</th>
+                                                                            <th>Projects Submitted</th>
                                                                             <th>Results</th>
                                                                             <th class="last">&nbsp;</th>
                                                                         </tr>
