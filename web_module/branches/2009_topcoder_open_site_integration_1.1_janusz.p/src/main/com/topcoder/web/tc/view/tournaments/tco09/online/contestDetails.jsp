@@ -177,17 +177,11 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                     <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                         <tr>
                                                                             <th class="first">&nbsp;</th>
-                                                                            <th colspan="6">Leaderboard</th>
-                                                                            <th class="last">&nbsp;</th>
-                                                                        </tr>
-                                                                    
-                                                                        <tr>
-                                                                            <th class="first">&nbsp;</th>
                                                                             <th>Handle</th>
                                                                             <th>Placement Points</th>
-                                                                            <th>Complete Projects</th>
-                                                                            <th>Projects <br/>In Progess</th>
-                                                                            <th>Projects Submitted</th>
+                                                                            <th>Complete</th>
+                                                                            <th>In Progess</th>
+                                                                            <th>Submitted</th>
                                                                             <th>Results</th>
                                                                             <th class="last">&nbsp;</th>
                                                                         </tr>
