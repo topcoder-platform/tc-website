@@ -8,16 +8,16 @@
         %>
 <% if (exception == null) exception = (Throwable) request.getAttribute("exception");
     if (exception != null) {
-        //if (!(exception instanceof TCWebException) || ((TCWebException) exception).isVerbose()) {
+        if (!(exception instanceof TCWebException) || ((TCWebException) exception).isVerbose()) {
             exception.printStackTrace();
-        //}
+        }
     }
     String message = (String) request.getAttribute(BaseServlet.MESSAGE_KEY);
     String url = (String) request.getAttribute(BaseServlet.URL_KEY);
 %>
 <html>
 <head>
-    <title>TopCoder - Error - test</title>
+    <title>TopCoder - Error</title>
     <link type="text/css" rel="stylesheet" href="/css/home.css"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <STYLE TYPE="text/css">
