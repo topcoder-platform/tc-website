@@ -129,13 +129,28 @@
                 * Contains results from projects still in progress, results subject to change
                 <br /><br />
                 <% } %>
-
-
-    </div><%-- #content --%>
-
-<jsp:include page="../footer.jsp" />
-
-</div><%-- #wrapper --%>
-
+                                                                                                                <jsp:include page="../../sponsors.jsp"/>
+                                                
+                                            </div><!-- End .bottomAreaContent -->
+                                        
+                                        </div></div>
+                                    </div><!-- End .bottomArea -->
+                                    
+                                </div><!-- End #contentInnerInner -->
+                            
+                            </div><!-- End #contentInner -->
+                            
+                            <div class="contentBottomLeft"><div class="contentBottomRight">
+                                <div class="contentTopInner"></div>
+                            </div></div>
+                            
+                    </div><!-- End #content -->
+                
+                </div><!-- End #wrapperContentInner -->
+                
+            </div>
+        </div><!-- End #wrapperInner -->
+    </div><!-- End #wrapper -->    
+	<jsp:include page="../footer.jsp" />
 </body>
 </html>
