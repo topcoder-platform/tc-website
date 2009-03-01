@@ -182,27 +182,27 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                             <th>Complete</th>
                                                                             <th>In Progess</th>
                                                                             <th>Submitted</th>
-                                                                            <th>Results</th>
+                                                                            <!-- <th>Results</th>-->
                                                                             <th class="last">&nbsp;</th>
                                                                         </tr>
                                                                         <%for (int i = 0; i < lst.size(); i++) { %>
                                                                         <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                                                                             <% UserContestDetail result = (UserContestDetail) lst.get(i); %>
-                                                                            <td class="value" nowrap="nowrap">
+                                                                            <td nowrap="nowrap">
                                                                                 <tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>' darkBG='true' />
                                                                                 <% if (result.getIncomplete() > 0) {
                                                                                     isComplete = false;%>*<% } %></td>
-                                                                            <td class="valueC"><%=result.getPoints()%>
+                                                                            <td><%=result.getPoints()%>
                                                                             </td>
-                                                                            <td class="valueC"><%=result.getComplete()%>
+                                                                            <td><%=result.getComplete()%>
                                                                             </td>
-                                                                            <td class="valueC"><%=result.getIncomplete()%>
+                                                                            <td><%=result.getIncomplete()%>
                                                                             </td>
-                                                                            <td class="valueC"><%=result.getSubmissionCount()%>
+                                                                            <td><%=result.getSubmissionCount()%>
                                                                             </td>
-                                                                            <td class="valueC">
-                                                                                <a href="/tco08?module=MemberResults&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&amp;cr=<%=result.getUserID()%>">results</a>
-                                                                            </td>
+                                                                            <!-- <td>
+                                                                                <a href="/tco09?module=MemberResults&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&amp;cr=<%=result.getUserID()%>">results</a>
+                                                                            </td>-->
                                                                         </tr>
                                                                         <% }%>
                                                                     </table></p>
