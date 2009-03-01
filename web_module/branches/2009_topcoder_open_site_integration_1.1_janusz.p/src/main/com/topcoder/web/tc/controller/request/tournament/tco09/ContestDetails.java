@@ -39,7 +39,7 @@ public class ContestDetails extends ContestDetailsBase {
     
     @Override
     protected String getPageName() {
-        return "/tournaments/" + getContestPrefix() + "/contestDetails.jsp";
+        return "/tournaments/" + getContestPrefix() + "/online/contestDetails.jsp";
     }
 
 }
