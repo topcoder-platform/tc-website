@@ -23,27 +23,6 @@ final int DEVELOPMENT_PHASE_ID = 113;
 final int ARCHITECTURE_PHASE_ID = 118;
 final int SPECIFICATION_PHASE_ID = 134;
 final int ASSEMBLY_PHASE_ID = 125;
-
-String leaderboardTitle = "";
-
-switch (rscContest.getIntItem(0, "phase_id")) {
-    case DESIGN_PHASE_ID:
-        leaderboardTitle = "Component Design Competition Leaderboard";
-        break;
-    case DEVELOPMENT_PHASE_ID:
-        leaderboardTitle = "Component Development Competition Leaderboard";
-        break;
-    case ARCHITECTURE_PHASE_ID:
-        leaderboardTitle = "Architecture Competition Leaderboard";
-        break;
-    case SPECIFICATION_PHASE_ID:
-        leaderboardTitle = "Specification Competition Leaderboard";
-        break;
-    default:
-        leaderboardTitle = "Assembly Competition Leaderboard";
-        break;
-}
-    String tab = "phase_id: " + rscContest.getIntItem(0, "phase_id");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
