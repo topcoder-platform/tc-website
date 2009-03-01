@@ -7,7 +7,7 @@ import com.topcoder.web.tc.controller.request.tournament.ContestDetailsBase;
  * @version 1.0
  */
 public class ContestDetails extends ContestDetailsBase {
-    private final String CONTEST_PREFIX = "tc08";
+    private final String CONTEST_PREFIX = "tco08";
 
     private final int[] placementPoints = new int[]{10, 7, 5, 4, 0};
 
