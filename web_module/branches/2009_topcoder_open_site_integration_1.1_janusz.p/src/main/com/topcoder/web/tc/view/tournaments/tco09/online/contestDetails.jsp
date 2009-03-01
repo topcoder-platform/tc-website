@@ -172,45 +172,8 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                     <div id="mainContentInner">
                                                         <div>
                                                             <div class="pageContent">
-                                                            <h2 class="title"><%= leaderboardTitle %></h2>
-                                                                <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
-                                                                    <thead>
-                                                                        <tr><th colspan="6"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></th></tr>
-                                                                        <tr>
-                                                                            <th class="header">Handle</th>
-                                                                            <th class="headerC">Placement Points</th>
-                                                                            <th class="headerC">Complete Projects</th>
-                                                                            <th class="headerC" nowrap="nowrap">Projects<br />In Progess</th>
-                                                                            <th class="headerC">Projects Submitted</th>
-                                                                            <th class="headerC">Results</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                               
-                                                                    <%for (int i = 0; i < lst.size(); i++) { %>
-                                                                    <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                                                                        <% UserContestDetail result = (UserContestDetail) lst.get(i); %>
-                                                                        <td class="value" nowrap="nowrap">
-                                                                            <tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>' darkBG='true' />
-                                                                            <% if (result.getIncomplete() > 0) {
-                                                                                isComplete = false;%>*<% } %></td>
-                                                                        <td class="valueC"><%=result.getPoints()%>
-                                                                        </td>
-                                                                        <td class="valueC"><%=result.getComplete()%>
-                                                                        </td>
-                                                                        <td class="valueC"><%=result.getIncomplete()%>
-                                                                        </td>
-                                                                        <td class="valueC"><%=result.getSubmissionCount()%>
-                                                                        </td>
-                                                                        <td class="valueC">
-                                                                            <a href="/tco08?module=MemberResults&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&amp;cr=<%=result.getUserID()%>">results</a>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <% }%>
-                                                                </table>
-                                                                
-                                                                <!--  test -->
-                                                                
-                                                                 <div><p>
+                                                                <h2 class="title"><%= leaderboardTitle %></h2>
+                                                                <div><p>
                                                                     <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                         <tr>
                                                                             <th class="first">&nbsp;</th>
