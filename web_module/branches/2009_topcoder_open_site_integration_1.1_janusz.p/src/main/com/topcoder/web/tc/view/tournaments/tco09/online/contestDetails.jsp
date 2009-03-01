@@ -249,27 +249,17 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
-                                                                            <td class="first last alignText">Table Row</td>
+                                                                            <td class="first last alignText" colspan=6>Table Row</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
-                                                                            <td class="first last alignText">Table Row</td>
+                                                                            <td class="first last alignText" colspan=6>Table Row</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
-                                                                            <td class="first last alignText">Table Row</td>
-                                                                            <td class="last">&nbsp;</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="first">&nbsp;</td>
-                                                                            <td class="first last alignText">Table Row</td>
-                                                                            <td class="last">&nbsp;</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="first">&nbsp;</td>
-                                                                            <td class="first last alignText">Table Row</td>
+                                                                            <td class="first last alignText" colspan=6>Table Row</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                     </table></p>
