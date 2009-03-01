@@ -177,6 +177,12 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                     <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                         <tr>
                                                                             <th class="first">&nbsp;</th>
+                                                                            <th colspan="6">Leaderboard</th>
+                                                                            <th class="last">&nbsp;</th>
+                                                                        </tr>
+                                                                    
+                                                                        <tr>
+                                                                            <th class="first">&nbsp;</th>
                                                                             <th>Handle</th>
                                                                             <th>Placement Points</th>
                                                                             <th>Complete</th>
