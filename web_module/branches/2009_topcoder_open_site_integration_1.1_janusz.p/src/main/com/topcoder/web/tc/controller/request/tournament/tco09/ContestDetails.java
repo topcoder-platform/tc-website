@@ -36,5 +36,10 @@ public class ContestDetails extends ContestDetailsBase {
     protected String getContestPrefix() {
         return CONTEST_PREFIX;
     }
+    
+    @Override
+    protected String getPageName() {
+        return "/tournaments/" + getContestPrefix() + "/contestDetails.jsp";
+    }
 
 }
