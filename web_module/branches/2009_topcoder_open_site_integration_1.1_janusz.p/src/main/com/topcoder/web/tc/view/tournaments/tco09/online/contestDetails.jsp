@@ -14,6 +14,10 @@
                  java.util.List,
                  java.util.Map" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
+<% ResultSetContainer rscContest = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_details"); %>
+<% List lst = (List) request.getAttribute("results");%>
+<% boolean isComplete = true; %>
+<% String tab = "test"; %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
         
@@ -81,56 +85,55 @@
                                             </jsp:include>
                                             
                                             <div class="bottomAreaContent">
-                                            
-<% ResultSetContainer rscContest = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_details"); %>
-<% List lst = (List) request.getAttribute("results");%>
-<% boolean isComplete = true; %>
-<% String tab = "test"; %>
-
-                    <h2><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></h2>
-
-                <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
-                <thead>
-                    <tr><th colspan="6"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></th></tr>
-                    <tr>
-                        <th class="header">Handle</th>
-                        <th class="headerC">Placement Points</th>
-                        <th class="headerC">Complete Projects</th>
-                        <th class="headerC" nowrap="nowrap">Projects<br />In Progess</th>
-                        <th class="headerC">Projects Submitted</th>
-                        <th class="headerC">Results</th>
-                    </tr>
-                </thead>
-                
-                    <%for (int i = 0; i < lst.size(); i++) { %>
-                    <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                        <% UserContestDetail result = (UserContestDetail) lst.get(i); %>
-                        <td class="value" nowrap="nowrap">
-                            <tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>' darkBG='true' />
-                            <% if (result.getIncomplete() > 0) {
-                                isComplete = false;%>*<% } %></td>
-                        <td class="valueC"><%=result.getPoints()%>
-                        </td>
-                        <td class="valueC"><%=result.getComplete()%>
-                        </td>
-                        <td class="valueC"><%=result.getIncomplete()%>
-                        </td>
-                        <td class="valueC"><%=result.getSubmissionCount()%>
-                        </td>
-                        <td class="valueC">
-                            <a href="/tco08?module=MemberResults&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&amp;cr=<%=result.getUserID()%>">results</a>
-                        </td>
-                    </tr>
-                    <% }%>
-
-                </table>
-                <br /><br />
-                <%if (!isComplete) {%>
-                * Contains results from projects still in progress, results subject to change
-                <br /><br />
-                <% } %>
-                                                                                                                <jsp:include page="../../sponsors.jsp"/>
-                                                
+                                                <div class="mainContent">
+                                                    <div id="mainContentInner">
+                                                        <div>
+                                                            <div class="pageContent">
+                                                            <h2 class="title">title: <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></h2>
+                                                                <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
+                                                                    <thead>
+                                                                        <tr><th colspan="6"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></th></tr>
+                                                                        <tr>
+                                                                            <th class="header">Handle</th>
+                                                                            <th class="headerC">Placement Points</th>
+                                                                            <th class="headerC">Complete Projects</th>
+                                                                            <th class="headerC" nowrap="nowrap">Projects<br />In Progess</th>
+                                                                            <th class="headerC">Projects Submitted</th>
+                                                                            <th class="headerC">Results</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                               
+                                                                    <%for (int i = 0; i < lst.size(); i++) { %>
+                                                                    <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                                                        <% UserContestDetail result = (UserContestDetail) lst.get(i); %>
+                                                                        <td class="value" nowrap="nowrap">
+                                                                            <tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>' darkBG='true' />
+                                                                            <% if (result.getIncomplete() > 0) {
+                                                                                isComplete = false;%>*<% } %></td>
+                                                                        <td class="valueC"><%=result.getPoints()%>
+                                                                        </td>
+                                                                        <td class="valueC"><%=result.getComplete()%>
+                                                                        </td>
+                                                                        <td class="valueC"><%=result.getIncomplete()%>
+                                                                        </td>
+                                                                        <td class="valueC"><%=result.getSubmissionCount()%>
+                                                                        </td>
+                                                                        <td class="valueC">
+                                                                            <a href="/tco08?module=MemberResults&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&amp;cr=<%=result.getUserID()%>">results</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <% }%>
+                                                                </table>
+                                                                <br /><br />
+                                                                <%if (!isComplete) {%>
+                                                                * Contains results from projects still in progress, results subject to change
+                                                                <br /><br />
+                                                                <% } %>
+                                                                <jsp:include page="../sponsors.jsp"/>
+                                                            </div> <!-- End .pageContent -->
+                                                        </div>
+                                                    </div> <!-- End #mainContentInner -->
+                                                </div> <!-- End #mainContent -->                                        
                                             </div><!-- End .bottomAreaContent -->
                                         
                                         </div></div>
