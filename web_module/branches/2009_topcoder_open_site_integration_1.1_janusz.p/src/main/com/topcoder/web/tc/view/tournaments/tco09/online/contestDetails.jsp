@@ -17,7 +17,9 @@
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_details"); %>
 <% List lst = (List) request.getAttribute("results");%>
 <% boolean isComplete = true; %>
-<% String tab = "test"; %>
+<%
+    String tab = "phase_id: " + rscContest.getIntItem(0, "phase_id");
+%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
         
@@ -89,7 +91,7 @@
                                                     <div id="mainContentInner">
                                                         <div>
                                                             <div class="pageContent">
-                                                            <h2 class="title">title: <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></h2>
+                                                            <h2 class="title">title: <%= tab %><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></h2>
                                                                 <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
                                                                     <thead>
                                                                         <tr><th colspan="6"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></th></tr>
