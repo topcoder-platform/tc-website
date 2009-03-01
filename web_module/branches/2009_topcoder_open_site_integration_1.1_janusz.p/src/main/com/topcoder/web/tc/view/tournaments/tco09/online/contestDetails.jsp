@@ -216,15 +216,35 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                             <th class="first">&nbsp;</th>
                                                                             <th>Handle</th>
                                                                             <th>Placement Points</th>
-                                                                            <th>Complete Projects</th>
-                                                                            <th class="headerC" nowrap="nowrap">Projects<br />In Progess</th>
-                                                                            <th class="headerC">Projects Submitted</th>
-                                                                            <th class="headerC">Results</th>
+                                                                            <th>Complete</th>
+                                                                            <th>In Progess</th>
+                                                                            <th>Submitted</th>
+                                                                            <th>Results</th>
                                                                             <th class="last">&nbsp;</th>
                                                                         </tr>
+                                                                        <%for (int i = 0; i < lst.size(); i++) { %>
+                                                                        <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                                                            <% UserContestDetail result = (UserContestDetail) lst.get(i); %>
+                                                                            <td class="value" nowrap="nowrap">
+                                                                                <tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>' darkBG='true' />
+                                                                                <% if (result.getIncomplete() > 0) {
+                                                                                    isComplete = false;%>*<% } %></td>
+                                                                            <td class="valueC"><%=result.getPoints()%>
+                                                                            </td>
+                                                                            <td class="valueC"><%=result.getComplete()%>
+                                                                            </td>
+                                                                            <td class="valueC"><%=result.getIncomplete()%>
+                                                                            </td>
+                                                                            <td class="valueC"><%=result.getSubmissionCount()%>
+                                                                            </td>
+                                                                            <td class="valueC">
+                                                                                <a href="/tco08?module=MemberResults&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&amp;cr=<%=result.getUserID()%>">results</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <% }%>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
-                                                                            <td class="first last alignText">Table Row</td>
+                                                                            <td class="first last alignText" colspan=6>Table Row</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
