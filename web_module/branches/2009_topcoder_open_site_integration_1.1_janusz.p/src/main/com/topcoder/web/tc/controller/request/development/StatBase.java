@@ -35,7 +35,7 @@ public abstract class StatBase extends Base {
                     !me.getKey().equals(DataAccessConstants.SORT_COLUMN) &&
                     !me.getKey().equals(DataAccessConstants.SORT_DIRECTION)) {
                 filteredMap.put(me.getKey(), me.getValue());
-                System.out.println("Mam argument: " + me.getKey() + "\tvalue: " + me.getValue());
+                System.out.println("Mam argument: " + me.getKey() + "\tvalue: " + me.getValue().toString());
             }
         }
 
@@ -44,7 +44,6 @@ public abstract class StatBase extends Base {
             dataRequest.setContentHandle(getCommandName());
             DataAccessInt dai = getDataAccess(getDataSourceName(), true);
             Map result = dai.getData(dataRequest);
-            
             java.util.Set<String> tmp = result.keySet();
             java.util.Iterator iter = tmp.iterator();
             while (iter.hasNext()) {
