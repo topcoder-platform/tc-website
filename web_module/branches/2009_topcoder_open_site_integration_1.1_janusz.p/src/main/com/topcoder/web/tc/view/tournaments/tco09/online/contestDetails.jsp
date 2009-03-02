@@ -180,7 +180,6 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title"><%= leaderboardTitle %></h2>
-                                                                <div><p>Mam tyle a tyle ludzi: <%= lst.size() %>
                                                                     <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                         <tr>
                                                                             <th class="first">&nbsp;</th>
