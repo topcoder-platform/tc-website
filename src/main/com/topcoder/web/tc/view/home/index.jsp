@@ -250,7 +250,7 @@ $(document).ready(function(){
                             <!--<div id="ribbit"><a href="http://www.topcoder.com/tc?module=LinkTracking&link=http://killerappchallenge.ribbit.com/&refer=homepage"><img src="/images/home/ribbit-banner-small.png" alt="Ribbit Killer App Challenge" /></a></div>
                             <div id="tco09"><a href="http://www.topcoder.com/tco09"><img src="/i/tco09/340x76_banner.jpg" alt="2009 TopCoder Open" /></a></div>
                             <div id="sensations"><a href="http://sensations.aol.com"><img src="/i/aol/340x76.png" alt="AOL/TopCoder Sensations Developer Challenge"/></a></div>-->
-                            <div id="tco09-nsa"><a href="http://www.topcoder.com/tco09"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA Event Patron of 2009 TopCoder Open"/></a></div>
+                            <div id="tco09-nsa"><a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA Event Patron of 2009 TopCoder Open"/></a></div>
                         </div>
                     </div>
                     <div id="member-box-bottom"></div>
