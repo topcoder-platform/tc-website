@@ -54,7 +54,7 @@ public abstract class ContestDetailsBase extends StatBase {
      */
     @Override
     protected String getCommandName() {
-        return "contest_projects_tmp";
+        return "contest_projects";
     }
 
     /* (non-Javadoc)
@@ -105,7 +105,7 @@ public abstract class ContestDetailsBase extends StatBase {
             String key = (String) iter.next();
             System.out.println("Result, name: " + key + "\nvalue: " + result2.get(key).toString());
         }
-        System.out.println("rsc.size()" + rsc.size());
+        System.out.println("rsc.size(): " + rsc.size());
         log.debug("rscDetails.size(): (1) " + rsc.size());
         for (int i = 0; i < rsc.size(); i++) {
             //for each contest, get details and build array
