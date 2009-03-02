@@ -105,10 +105,6 @@ public abstract class ContestDetailsBase extends StatBase {
             String key = (String) iter.next();
             System.out.println("key: " + key + "\tvalue: " + result2.get(key).toString());
         }
-        for(ResultColumn c: rsc.getColumns()) {
-            System.out.println("Column: " + c.getName() + "\ttyp: " + c.getType());
-            
-        }
         System.out.println("Rozmiar rsc: " + rsc.size());
         System.out.println(rsc.getColumnCount());
         log.debug("rscDetails.size(): (1) " + rsc.size());
