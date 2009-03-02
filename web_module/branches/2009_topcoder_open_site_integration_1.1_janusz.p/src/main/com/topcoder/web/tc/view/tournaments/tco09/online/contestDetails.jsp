@@ -14,6 +14,11 @@
                  java.util.List,
                  java.util.Map" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_details"); %>
 <% List lst = (List) request.getAttribute("results");%>
 <% boolean isComplete = true; %>
