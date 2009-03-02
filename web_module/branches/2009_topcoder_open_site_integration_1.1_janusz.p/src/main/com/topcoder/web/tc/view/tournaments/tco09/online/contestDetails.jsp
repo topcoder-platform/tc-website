@@ -196,7 +196,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                         <tr <%=(i%2 == 1 ? "class=\"even\"" : "") %> ">
                                                                             <td class="first">&nbsp</td>
                                                                             <% UserContestDetail result = (UserContestDetail) lst.get(i); %>
-                                                                            <td nowrap="nowrap">
+                                                                            <td class="value" nowrap="nowrap">
                                                                                 <tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>' darkBG='true' />
                                                                                 <% if (result.getIncomplete() > 0) {
                                                                                     isComplete = false;%>*<% } %></td>
@@ -206,9 +206,9 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                             </td>
                                                                             <td class="valueC"><%=result.getIncomplete()%>
                                                                             </td>
-                                                                            <td><%=result.getSubmissionCount()%>
+                                                                            <td class="valueC"><%=result.getSubmissionCount()%>
                                                                             </td>
-                                                                            <td>
+                                                                            <td class="valueC">
                                                                                 <a href="/tco09?module=MemberResults&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&amp;cr=<%=result.getUserID()%>">results</a>
                                                                             </td>
                                                                             <td class="last">&nbsp;</td>
