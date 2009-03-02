@@ -10,7 +10,8 @@
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.common.model.EventType,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.tc.model.UserContestDetail,
+                 com.topcoder.shared.util.ApplicationServer,
+                 com.topcoder.web.tc.model.UserContestResult,
                  java.util.List,
                  java.util.Map" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
