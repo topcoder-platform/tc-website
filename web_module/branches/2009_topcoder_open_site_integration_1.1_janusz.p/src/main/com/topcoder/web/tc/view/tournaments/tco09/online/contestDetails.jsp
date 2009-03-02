@@ -41,8 +41,8 @@ final int ASSEMBLY_PHASE_ID = 125;
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <!-- External CSS -->
-<link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-<link rel="stylesheet" href="css/tournaments/tco09.css" media="all" type="text/css" />
+<link type="text/css" rel="stylesheet" href="/css/tournaments/tco09_coders.css"/>
+<link rel="stylesheet" href="/css/tournaments/tco09.css" media="all" type="text/css" />
 <!--[if IE 6]>
 <link rel="stylesheet" type="text/css" media="screen" href="css/screen-ie6.css" />
 <![endif]-->
@@ -196,7 +196,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                             <td class="first">&nbsp</td>
                                                                             <% UserContestDetail result = (UserContestDetail) lst.get(i); %>
                                                                             <td class="value" nowrap="nowrap">
-                                                                                <tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>' darkBG='true' />
+                                                                                <tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>' darkBG='false' />
                                                                                 <% if (result.getIncomplete() > 0) {
                                                                                     isComplete = false;%>*<% } %></td>
                                                                             <td class="valueC"><%=result.getPoints()%>
