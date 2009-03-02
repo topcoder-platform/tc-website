@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultColumn;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
@@ -90,6 +91,7 @@ public abstract class ContestDetailsBase extends StatBase {
         getRequest().setAttribute("event_id", eventId);
 
         Map result2 = (Map) getRequest().getAttribute("resultMap");
+        
 
         ResultSetContainer rsc = (ResultSetContainer) result2.get("contest_projects");
 
@@ -97,7 +99,18 @@ public abstract class ContestDetailsBase extends StatBase {
 
         int[] placementPoints = getPlacementPoints();
         
+        java.util.Set<String> tmp = result2.keySet();
+        java.util.Iterator iter = tmp.iterator();
+        while (iter.hasNext()) {
+            String key = (String) iter.next();
+            System.out.println("key: " + key + "\tvalue: " + result2.get(key).toString());
+        }
+        for(ResultColumn c: rsc.getColumns()) {
+            System.out.println("Column: " + c.getName() + "\ttyp: " + c.getType());
+            
+        }
         System.out.println("Rozmiar rsc: " + rsc.size());
+        System.out.println(rsc.getColumnCount());
         log.debug("rscDetails.size(): (1) " + rsc.size());
         for (int i = 0; i < rsc.size(); i++) {
             //for each contest, get details and build array
