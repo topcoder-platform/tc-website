@@ -137,7 +137,7 @@ public abstract class ContestDetailsBase extends StatBase {
 
                 if (rscDetails.getItem(j, "final_score").getResultData() != null) {
                     if (rscDetails.getDoubleItem(j, "final_score") >= 75) {
-                        if (j < placementPoi8nts.length) {
+                        if (j < placementPoints.length) {
                             pts = placementPoints[j];
                         }
                     }
