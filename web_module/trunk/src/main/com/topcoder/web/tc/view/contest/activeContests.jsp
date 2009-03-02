@@ -125,19 +125,24 @@
         <td align="right">
           <c:choose>
             <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
-                <a href="/tc?module=Static&amp;d1=dev&amp;d2=testing&amp;d3=instructions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
+                <a href="/tc?module=Static&amp;d1=dev&amp;d2=testing&amp;d3=instructions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+                <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA Event Patron of 2009 TopCoder Open"/></a>
             </c:when>
             <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
-                <a href="/wiki/display/tc/How+to+Compete+in+Architecture+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
+                <a href="/wiki/display/tc/How+to+Compete+in+Architecture+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+                <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA Event Patron of 2009 TopCoder Open"/></a>
             </c:when>
             <c:when test="${pt == ASSEMBLY_TYPE_ID}">
-                <a href="http://<%=ApplicationServer.WIKI_SERVER_NAME%>/display/tc/How+to+Compete+in+Assembly+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
+                <a href="http://<%=ApplicationServer.WIKI_SERVER_NAME%>/display/tc/How+to+Compete+in+Assembly+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+                <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA Event Patron of 2009 TopCoder Open"/></a>
             </c:when>
             <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
-                <a href="/wiki/display/tc/How+to+Compete+in+Conceptualization+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
+                <a href="/wiki/display/tc/How+to+Compete+in+Conceptualization+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+                <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA Event Patron of 2009 TopCoder Open"/></a>
             </c:when>
             <c:when test="${pt == SPECIFICATION_TYPE_ID}">
-                <a href="/wiki/display/tc/How+to+Compete+in+Specification+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a>
+                <a href="/wiki/display/tc/How+to+Compete+in+Specification+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+                <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA Event Patron of 2009 TopCoder Open"/></a>
             </c:when>
           </c:choose>
         </td>
@@ -216,7 +221,7 @@
       <c:if test="${hasDR}">
           <td class="headerC" width="10%">
               <div align="center">
-                  <a href="/dr"><img src="/i/interface/emblem/digitalrun.png" alt="" onmouseover="postPopUpText('globalPopupText','The Digital Run'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+                  <a href="/dr"><img src="/i/interface/emblem/digitalrun.png" alt="" onMouseOver="postPopUpText('globalPopupText','The Digital Run'); popUp(this,'globalPopup');" onMouseOut="popHide()" /></a>
               </div>
               <div align="center">
                   <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="11" includeParams="true"/>">Points</a>
@@ -242,7 +247,7 @@
             <td class="value">
 	      <% if (resultRow.getIntItem("tourny_project") > 0) { %>
                 <div align="center">
-                  <a href='/tc?module=Static&amp;d1=tco09&amp;d2=teaser'><img class="emblem" src="/i/tournament/tco09/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the 2009 TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+                  <a href='/tc?module=Static&amp;d1=tco09&amp;d2=teaser'><img class="emblem" src="/i/tournament/tco09/emblem.png" alt="" border="0" onMouseOver="postPopUpText('globalPopupText','Eligible for the 2009 TopCoder Open'); popUp(this,'globalPopup');" onMouseOut="popHide()" /></a>
                 </div>
               <% } else { %>
                 &nbsp;
@@ -251,7 +256,7 @@
             <td class="value">
               <% if (resultRow.getIntItem("sensations_project") > 0) { %>
                 <div align="center">
-                    <a href='http://sensations.aol.com'><img class="emblem" src="/i/tournament/tco09/tc-sdc-icon.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Part of the AOL/TopCoder Sensations Challenge'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+                    <a href='http://sensations.aol.com'><img class="emblem" src="/i/tournament/tco09/tc-sdc-icon.png" alt="" border="0" onMouseOver="postPopUpText('globalPopupText','Part of the AOL/TopCoder Sensations Challenge'); popUp(this,'globalPopup');" onMouseOut="popHide()" /></a>
                 </div>
               <% } else { %>
                 &nbsp;
