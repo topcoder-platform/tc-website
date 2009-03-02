@@ -54,7 +54,7 @@ public abstract class ContestDetailsBase extends StatBase {
      */
     @Override
     protected String getCommandName() {
-        return "contest_projects_tmp";
+        return "contest_projects";
     }
 
     /* (non-Javadoc)
