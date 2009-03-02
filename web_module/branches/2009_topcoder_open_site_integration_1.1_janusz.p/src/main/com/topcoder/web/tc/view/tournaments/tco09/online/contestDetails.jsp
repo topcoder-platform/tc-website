@@ -178,7 +178,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title"><%= leaderboardTitle %></h2>
-                                                                <div><p>
+                                                                <div><p>Mam tyle a tyle ludzi: <%= lst.size() %>
                                                                     <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                         <tr>
                                                                             <th class="first">&nbsp;</th>
@@ -191,7 +191,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                             <th class="last">&nbsp;</th>
                                                                         </tr>
                                                                         <%for (int i = 0; i < lst.size(); i++) { %>
-                                                                        <tr <%=(i%2 == 0 ? "class=\"even\"" : "") %> ">
+                                                                        <tr <%=(i%2 == 1 ? "class=\"even\"" : "") %> ">
                                                                             <td class="first">&nbsp</td>
                                                                             <% UserContestDetail result = (UserContestDetail) lst.get(i); %>
                                                                             <td nowrap="nowrap">
