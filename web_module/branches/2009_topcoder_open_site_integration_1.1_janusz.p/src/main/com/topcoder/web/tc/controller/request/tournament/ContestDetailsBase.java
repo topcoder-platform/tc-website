@@ -111,6 +111,7 @@ public abstract class ContestDetailsBase extends StatBase {
             //for each contest, get details and build array
             Request dataRequest = new Request();
             Map result;
+            System.out.println("parametry\tpj: " + String.valueOf(rsc.getIntItem(i, "project_id")));
             try {
                 dataRequest.setContentHandle("project_results_all");
                 dataRequest.setProperty("ct", getRequest().getParameter("ct"));
