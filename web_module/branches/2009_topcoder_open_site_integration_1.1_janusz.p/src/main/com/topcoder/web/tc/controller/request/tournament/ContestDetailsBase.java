@@ -105,7 +105,6 @@ public abstract class ContestDetailsBase extends StatBase {
             String key = (String) iter.next();
             System.out.println("key: " + key + "\tvalue: " + result2.get(key).toString());
         }
-        System.out.println("Rozmiar rsc: " + rsc.size());
         System.out.println(rsc.getColumnCount());
         log.debug("rscDetails.size(): (1) " + rsc.size());
         for (int i = 0; i < rsc.size(); i++) {
@@ -138,7 +137,7 @@ public abstract class ContestDetailsBase extends StatBase {
 
                 if (rscDetails.getItem(j, "final_score").getResultData() != null) {
                     if (rscDetails.getDoubleItem(j, "final_score") >= 75) {
-                        if (j < placementPoints.length) {
+                        if (j < placementPoi8nts.length) {
                             pts = placementPoints[j];
                         }
                     }
