@@ -89,12 +89,15 @@ final int ASSEMBLY_PHASE_ID = 125;
                                 <div id="contentInnerInner">
 
                                     <div class="bottomArea">
+                                        phase id: <%= rscContest.getIntItem(0, "phase_id") %>
                                         <div class="bottomLeft"><div class="bottomRight">
                                             <%
-                                            String tab = "";
+                                                String tab = "";
+                                                String tabTitle = "";
 
-                                            switch (rscContest.getIntItem(0, "phase_id")) {
+                                                switch (rscContest.getIntItem(0, "phase_id")) {
                                                 case DESIGN_PHASE_ID:
+                                                    tabTitle = "Component Design Competition Results";
                                                     tab = "design";
                                             %>
                                                 <jsp:include page="../secondaryNav.jsp" >
@@ -110,6 +113,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                             <%
                                                     break;
                                                 case DEVELOPMENT_PHASE_ID:
+                                                    tabTitle = "Component Development Competition Results";
                                                     tab = "development";
                                             %>
                                                     <jsp:include page="../secondaryNav.jsp" >
@@ -126,6 +130,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                         
                                                     break;
                                                 case ARCHITECTURE_PHASE_ID:
+                                                    tabTitle = "Architecture Competition Results";
                                                     tab = "architecture";
                                             %>
                                                     <jsp:include page="../secondaryNav.jsp" >
@@ -141,6 +146,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                             <%
                                                     break;
                                                 case SPECIFICATION_PHASE_ID:
+                                                    tabTitle = "Specification Competition Results";
                                                     tab = "specification";
                                             %>
                                                     <jsp:include page="../secondaryNav.jsp" >
@@ -156,6 +162,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                             <%
                                                     break;
                                                 default:
+                                                    tabTitle = "Assembly Competition Results";
                                                     tab = "assembly";
                                             %>
                                                     <jsp:include page="../secondaryNav.jsp" >
@@ -179,15 +186,12 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title">
-                                                                    <a href="/tco08?module=ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
-                                                                        <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
-                                                                    </a> -
+                                                                    <%= tabTitle %> -
                                                                     <tc-webtag:handle context='<%=tab%>' coderId='<%=rscUser.getIntItem(0, "coder_id")%>' darkBG='true' />
                                                                 </h2>
                                                                 <div><p>
                                                                     <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                         <thead>
-                                                                            <tr><th colspan="5"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></th></tr>
                                                                             <tr>
                                                                                 <th class="first">&nbsp;</th>
                                                                                 <th class="header" nowrap="nowrap">Component Name</th>
