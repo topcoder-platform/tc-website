@@ -51,6 +51,7 @@ public abstract class StatBase extends Base {
                 String key = (String) iter.next();
                 System.out.println("key: " + key + "\tvalue: " + result.get(key).toString());
             }
+            System.out.println("CommandName: " + getCommandName() + "\tdata source name: " + getDataSourceName());
 
             //probably need to change this to sort multiple datasets
             /* ResultSetContainer rsc = (ResultSetContainer)result.get(dataRequest.getContentHandle());
