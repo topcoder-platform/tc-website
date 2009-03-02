@@ -200,11 +200,11 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                                 <tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>' darkBG='true' />
                                                                                 <% if (result.getIncomplete() > 0) {
                                                                                     isComplete = false;%>*<% } %></td>
-                                                                            <td><%=result.getPoints()%>
+                                                                            <td class="valueC"><%=result.getPoints()%>
                                                                             </td>
-                                                                            <td><%=result.getComplete()%>
+                                                                            <td class="valueC"><%=result.getComplete()%>
                                                                             </td>
-                                                                            <td><%=result.getIncomplete()%>
+                                                                            <td class="valueC"><%=result.getIncomplete()%>
                                                                             </td>
                                                                             <td><%=result.getSubmissionCount()%>
                                                                             </td>
