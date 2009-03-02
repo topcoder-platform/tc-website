@@ -126,6 +126,8 @@ public abstract class ContestDetailsBase extends StatBase {
 
             ResultSetContainer rscDetails = (ResultSetContainer) result.get("project_results_all");
             ResultSetContainer rscComplete = (ResultSetContainer) result.get("project_details");
+            System.out.println("rscDetails.size(): " + rscDetails.size());
+            System.out.println("rscComplete.size(): " + rscComplete.size());
             boolean isComplete = false;
             if (!rscComplete.isEmpty() && rscComplete.getIntItem(0, "complete_status") == 1) {
                 isComplete = true;
