@@ -180,7 +180,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title"><%= leaderboardTitle %></h2>
-                                                                <p></p>
+                                                                <div><p>
                                                                     <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                         <tr>
                                                                             <th class="first">&nbsp;</th>
@@ -214,8 +214,8 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                         <% }%>
-                                                                    </table></p>
-                                                                </div>
+                                                                    </table>
+                                                                </p></div>
                                                                 
                                                                 <!-- test end -->
                                                                 
