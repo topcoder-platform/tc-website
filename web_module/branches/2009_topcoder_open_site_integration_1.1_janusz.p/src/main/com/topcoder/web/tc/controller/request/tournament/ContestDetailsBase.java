@@ -124,6 +124,11 @@ public abstract class ContestDetailsBase extends StatBase {
             } catch (Exception e) {
                 throw new TCWebException(e);
             }
+            java.util.Iterator iter2 = result.keySet().iterator();
+            while (iter2.hasNext()) {
+                String key = (String) iter2.next();
+                System.out.println("Result, name: " + key + "\nvalue: " + result.get(key).toString());
+            }
 
             ResultSetContainer rscDetails = (ResultSetContainer) result.get("project_results_all");
             ResultSetContainer rscComplete = (ResultSetContainer) result.get("project_details");
