@@ -11,7 +11,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Helper %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <c:set value="<%=request.getParameter("phase_id")%>" var="phaseId"/>
 
