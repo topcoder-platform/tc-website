@@ -39,7 +39,7 @@
         </thead>
         <% boolean even = false; %>
         <rsc:iterator list="<%=rsc%>" id="resultRow">
-            <tr class="<%=(even ? "even" : "")%>>
+            <tr class="<%=(even ? "even" : "")%>">
                 <td class="first">&nbsp;</td>
                 <td class="value alignText" nowrap="nowrap">
                     <% if (resultRow.getIntItem("viewable") == 1) { %>
