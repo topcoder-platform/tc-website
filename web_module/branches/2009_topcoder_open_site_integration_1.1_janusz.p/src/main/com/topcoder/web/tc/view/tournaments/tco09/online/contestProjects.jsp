@@ -28,15 +28,13 @@
 
 <div><p>
     <table class="data" cellpadding="0" cellspacing="0" width="100%">
-        <thead>
-            <tr class="even">
-                <th class="first">&nbsp;</th>
-                <th class="header">Component</th>
-                <th class="headerC">Start Date</th>
-                <th class="headerC">End Date</th>
-                <th class="last">&nbsp;</th>
-            </tr>
-        </thead>
+        <tr class="even">
+            <th class="first">&nbsp;</th>
+            <th class="header">Component</th>
+            <th class="headerC">Start Date</th>
+            <th class="headerC">End Date</th>
+            <th class="last">&nbsp;</th>
+        </tr>
         <% boolean even = false; %>
         <rsc:iterator list="<%=rsc%>" id="resultRow">
             <tr class="<%=(even ? "even" : "")%>">
