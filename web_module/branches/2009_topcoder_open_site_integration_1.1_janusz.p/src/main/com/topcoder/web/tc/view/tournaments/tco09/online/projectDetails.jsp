@@ -57,7 +57,7 @@
             <tr class="<%=(i%2==1 ? "even" : "")%>">
                 <% ProjectDetail result = (ProjectDetail) lst.get(i); %>
                 <td class="first">&nbsp;</td>
-                <td class="value alignText">i: <%= i %>
+                <td class="value alignText">
                     <tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=context%>' darkBG='false' />
                 </td>
                 <td class="valueC" nowrap="nowrap">
