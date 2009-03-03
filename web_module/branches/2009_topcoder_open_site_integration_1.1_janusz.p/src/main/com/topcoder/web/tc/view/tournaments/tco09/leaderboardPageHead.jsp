@@ -17,8 +17,10 @@
 <c:set value="<%=request.getParameter("phase_id")%>" var="phaseId"/>
 <c:set value="<%=request.getParameter("add_title_tag")%>" var="addTitleTag"/>
 <c:set value="<%=request.getParameter("close_title_tag")%>" var="closeTitleTag"/>
+
 <c:set var="mainTab" value="online" />
 <c:set var="tertiaryNav" value="leaderboard" />
+
 <c:choose>
   <c:when test="${phaseId == Constants.ARCHITECTURE_PHASE_ID}">
       <c:set  var="secondaryTab" value="architecture" />
@@ -99,7 +101,7 @@
                                                     <div id="mainContentInner">
                                                         <div>
                                                             <div class="pageContent">
-                                                                <c:if test="${addTitleTag1 == true}">
+                                                                <c:if test="${addTitleTag == true}">
                                                                     <h2 class="title"><c:out value="${title}"/>
                                                                     <c:if test="${closeTitleTag == true}">
                                                                         </h2>
