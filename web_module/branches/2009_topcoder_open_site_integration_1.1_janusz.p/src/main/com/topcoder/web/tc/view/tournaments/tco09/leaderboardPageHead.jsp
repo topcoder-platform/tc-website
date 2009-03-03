@@ -41,14 +41,12 @@
         </style>
     </head>
     <body id="page">
-        Mam phase_id: <c:out value="${phaseId}" />
-        Mam phase_id: <c:out value="${Constants.DESIGN_PHASE_ID}" />
         <div id="wrapper">
             <div id="wrapperInner">
                 <div id="wrapperContent">
                     <div id="wrapperContentInner">
-                        <jsp:include page="../header.jsp"/>
-                        <jsp:include page="../mainNav.jsp" >
+                        <jsp:include page="header.jsp"/>
+                        <jsp:include page="mainNav.jsp" >
                             <jsp:param name="mainTab" value="online"/>
                         </jsp:include>
                         <div id="content">
@@ -61,24 +59,25 @@
                                 <div id="contentInnerInner">
                                     <div class="bottomArea">
                                         <div class="bottomLeft"><div class="bottomRight">
+                                            <c:choose>
                                                 <c:when test="${phaseId == TCO09Helper.DESIGN_PHASE_ID}">
-                                                    <jsp:include page="../secondaryNav.jsp" >
+                                                    <jsp:include page="secondaryNav.jsp" >
                                                         <jsp:param name="mainTab" value="online"/>
                                                         <jsp:param name="secondaryTab" value="design"/>
                                                     </jsp:include>
-                                                    <jsp:include page="../tertiaryNav.jsp" >
+                                                    <jsp:include page="tertiaryNav.jsp" >
                                                         <jsp:param name="mainTab" value="online"/>
                                                         <jsp:param name="secondaryTab" value="design"/>
                                                         <jsp:param name="tertiaryTab" value="leaderboard"/>
                                                     </jsp:include>
                                                 </c:when>
                                                 <c:when test="${phaseId == TCO09Helper.DEVELOPMENT_PHASE_ID}">
-                                                    <jsp:include page="../secondaryNav.jsp" >
+                                                    <jsp:include page="secondaryNav.jsp" >
                                                         <jsp:param name="mainTab" value="online"/>
                                                         <jsp:param name="secondaryTab" value="development"/>
                                                     </jsp:include>
 
-                                                    <jsp:include page="../tertiaryNav.jsp" >
+                                                    <jsp:include page="tertiaryNav.jsp" >
                                                         <jsp:param name="mainTab" value="online"/>
                                                         <jsp:param name="secondaryTab" value="development"/>
                                                         <jsp:param name="tertiaryTab" value="leaderboard"/>
