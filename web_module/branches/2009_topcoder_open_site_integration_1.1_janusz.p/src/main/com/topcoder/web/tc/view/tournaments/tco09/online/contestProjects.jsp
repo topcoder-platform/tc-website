@@ -3,7 +3,8 @@
 <%@ page import="com.topcoder.web.common.model.EventType,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.util.ApplicationServer,
-                 java.util.Map" %>
+                 java.util.Map, 
+                 com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -14,6 +15,7 @@
     int phaseId = rscContest.getIntItem(0, "phase_id");
     boolean isComplete = true;
 %>
+<jsp:useBean id="Constants" class="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants"/>
 
 <c:choose>
   <c:when test="${phaseId == Constants.ARCHITECTURE_PHASE_ID}">
@@ -34,10 +36,10 @@
 </c:choose>
 
 <jsp:include page="../leaderboardPageHead.jsp">
-    <jsp:param name="phase_id" value="${ phaseId }"/>
+    <jsp:param name="phase_id" value="<%= phaseId %>"/>
 </jsp:include>
 
-<h2><c:out value="${ title }"/></h2>
+<h2 class="title"><c:out value="${ title }"/></h2>
 
 <table class="data" cellpadding="0" cellspacing="0" width="100%">
     <thead>
