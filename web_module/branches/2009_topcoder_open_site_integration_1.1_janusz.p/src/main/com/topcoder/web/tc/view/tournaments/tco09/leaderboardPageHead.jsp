@@ -59,7 +59,7 @@
                                     <div class="bottomArea">
                                         <div class="bottomLeft"><div class="bottomRight">
                                             <c:choose>
-                                                <c:when test="${phaseId = TCO09Helper.DESIGN_PHASE_ID}">
+                                                <c:when test="${phaseId == TCO09Helper.DESIGN_PHASE_ID}">
                                                     <jsp:include page="../secondaryNav.jsp" >
                                                         <jsp:param name="mainTab" value="online"/>
                                                         <jsp:param name="secondaryTab" value="design"/>
@@ -70,7 +70,7 @@
                                                         <jsp:param name="tertiaryTab" value="leaderboard"/>
                                                     </jsp:include>
                                                 </c:when>
-                                                <c:when test="${phaseId = TCO09Helper.DEVELOPMENT_PHASE_ID}">
+                                                <c:when test="${phaseId == TCO09Helper.DEVELOPMENT_PHASE_ID}">
                                                     <jsp:include page="../secondaryNav.jsp" >
                                                         <jsp:param name="mainTab" value="online"/>
                                                         <jsp:param name="secondaryTab" value="development"/>
