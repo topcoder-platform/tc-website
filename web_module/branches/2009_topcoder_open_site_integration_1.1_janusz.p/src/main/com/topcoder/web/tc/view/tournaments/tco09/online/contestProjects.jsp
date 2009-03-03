@@ -16,6 +16,7 @@
     boolean isComplete = true;
 %>
 <jsp:useBean id="Constants" class="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants"/>
+<c:set var="phaseId" value="<%= phaseId %>" />
 
 <c:choose>
   <c:when test="${phaseId == Constants.ARCHITECTURE_PHASE_ID}">
@@ -36,12 +37,11 @@
 </c:choose>
 
 <jsp:include page="../leaderboardPageHead.jsp">
-    <jsp:param name="phase_id" value="<%= phaseId %>"/>
+    <jsp:param name="phase_id" value="${ phaseId }"/>
+    <jsp:param name="add_title_tag" value="${true}" />
 </jsp:include>
 
 <h2 class="title"><c:out value="${ title }"/></h2>
-phaseId: <c:out value="${phaseID}" /><br />
-Constants.DEVELOPMENT_PHASE_ID: <c:out value="${Constants.DEVELOPMENT_PHASE_ID}" /><br />
 
 <table class="data" cellpadding="0" cellspacing="0" width="100%">
     <thead>
@@ -53,9 +53,9 @@ Constants.DEVELOPMENT_PHASE_ID: <c:out value="${Constants.DEVELOPMENT_PHASE_ID}"
             <th class="last">&nbsp;</th>
         </tr>
     </thead>
-    <%boolean even = true;%>
+    <%boolean even = false;%>
     <rsc:iterator list="<%=rsc%>" id="resultRow">
-        <tr class="<%=even?"even":""%>">
+        <tr class="<%=even ? "even" : "" %>">
             <td class="first">&nbsp;</td>
             <td class="value alignText" nowrap="nowrap">
                 <% if (resultRow.getIntItem("viewable") == 1) { %>

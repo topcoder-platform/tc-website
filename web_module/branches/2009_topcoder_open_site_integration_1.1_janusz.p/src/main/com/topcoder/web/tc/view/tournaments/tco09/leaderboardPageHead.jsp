@@ -15,23 +15,30 @@
 <jsp:useBean id="Constants" class="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants"/>
 
 <c:set value="<%=request.getParameter("phase_id")%>" var="phaseId"/>
+<c:set value="<%=request.getParameter("add_title_tag")%>" var="addTitleTag"/>
+<c:set value="<%=request.getParameter("close_title_tag")%>" var="closeTitleTag"/>
 <c:set var="mainTab" value="online" />
 <c:set var="tertiaryNav" value="leaderboard" />
 <c:choose>
   <c:when test="${phaseId == Constants.ARCHITECTURE_PHASE_ID}">
       <c:set  var="secondaryTab" value="architecture" />
+      <c:set  var="title" value="Architecture Competition" />
   </c:when>
   <c:when test="${phaseId == Constants.ASSEMBLY_PHASE_ID}">
       <c:set var="secondaryTab" value="assembly" />
+      <c:set var="title" value="Assembly Competition" />
   </c:when>
   <c:when test="${phaseId == Constants.DESIGN_PHASE_ID}">
       <c:set var="secondaryTab" value="design" />
+      <c:set var="title" value="Component Design Competition" />
   </c:when>
   <c:when test="${phaseId == Constants.DEVELOPMENT_PHASE_ID}">
       <c:set var="secondaryTab" value="development" />
+      <c:set var="title" value="Component Development Competition" />
   </c:when>
   <c:when test="${phaseId == Constants.SPECIFICATION_PHASE_ID}">
       <c:set var="secondaryTab" value="specification" />
+      <c:set var="title" value="Specification Competition" />
   </c:when>
 </c:choose>
 
@@ -92,4 +99,10 @@
                                                     <div id="mainContentInner">
                                                         <div>
                                                             <div class="pageContent">
+                                                                <c:if test="${addTitleTag == true}">
+                                                                    <h2 class="title"><c:out value="${title}"/>
+                                                                    <c:if test="${closeTitleTag == true}">
+                                                                        </h2>
+                                                                    </c:if>
+                                                                </c:if>
                                                             

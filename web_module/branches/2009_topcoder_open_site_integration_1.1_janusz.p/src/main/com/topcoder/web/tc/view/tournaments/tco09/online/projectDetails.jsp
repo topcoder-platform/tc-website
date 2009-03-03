@@ -12,7 +12,6 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="Constants" class="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants"/>
-
 <% 
     ResultSetContainer rscProject = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("project_details"); 
     ResultSetContainer rscContest = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_details"); 
@@ -24,6 +23,26 @@
     String tab = "design";
     int phaseId = rscContest.getIntItem(0, "phase_id");
 %>
+<c:set var="phaseId" value="<%= phaseId %>" />
+
+<c:choose>
+  <c:when test="${phaseId == Constants.ARCHITECTURE_PHASE_ID}">
+      <c:set  var="title" value="Architecture Competition Project Details" />
+  </c:when>
+  <c:when test="${phaseId == Constants.ASSEMBLY_PHASE_ID}">
+      <c:set var="title" value="Assembly Competition" />
+  </c:when>
+  <c:when test="${phaseId == Constants.DESIGN_PHASE_ID}">
+      <c:set var="title" value="Component Design Competition" />
+  </c:when>
+  <c:when test="${phaseId == Constants.DEVELOPMENT_PHASE_ID}">
+      <c:set var="title" value="Component Development Competition" />
+  </c:when>
+  <c:when test="${phaseId == Constants.SPECIFICATION_PHASE_ID}">
+      <c:set var="title" value="Specification Competition Components" />
+  </c:when>
+</c:choose>
+
 <jsp:include page="../leaderboardPageHead.jsp">
     <jsp:param name="phase_id" value="<%= phaseId %>"/>
 </jsp:include>
@@ -41,36 +60,38 @@
 <% if (isComplete) { %>
     <a href="/tc?module=CompContestDetails&amp;pj=<rsc:item name="project_id" set="<%=rscProject%>"/>">contest details</a>
 <% } %>
-<table cellpadding="0" cellspacing="0" class="data" width="100%">
-    <tr>
-        <th class="first">&nbsp;</th>
-        <th nowrap="nowrap">Competitor</th>
-        <th nowrap="nowrap">Submission Date</th>
-        <th>Place</th>
-        <th>Placement Points</th>
-        <th>Score</th>
-    </tr>
-    <%for (int i = 0; i < lst.size(); i++) { %>
-        <tr class="<%=(i%2==0 ? "even" : "")%>">
-            <% ProjectDetail result = (ProjectDetail) lst.get(i); %>
-            <td class="first">&nbsp;</td>
-            <td class="value alignText">
-                <tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=tab%>' darkBG='false' />
-            </td>
-            <td class="valueC" nowrap="nowrap">
-                <tc-webtag:format object="<%=result.getSubmitTimestamp()%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
-            </td>
-            <td class="valueC"><%=result.getPlaced()%></td>
-            <td class="valueC"><%=result.getPoints()%></td>
-            <td class="valueC"><%=result.getScore()%></td>
-            <td class="last">&nbsp;</td>
+<div><p>
+    <table cellpadding="0" cellspacing="0" class="data" width="100%">
+        <tr>
+            <th class="first">&nbsp;</th>
+            <th nowrap="nowrap">Competitor</th>
+            <th nowrap="nowrap">Submission Date</th>
+            <th>Place</th>
+            <th>Placement Points</th>
+            <th>Score</th>
+            <th class="last">&nbsp;</th>
         </tr>
-    <% }%>
-</table>
-<%if (!isComplete) {%>
-    <br /><br />
-    * This project is still in progress, results subject to change
-<% } %>
-<br /><br />
+        <%for (int i = 0; i < lst.size(); i++) { %>
+            <tr class="<%=(i%2==0 ? "even" : "")%>">
+                <% ProjectDetail result = (ProjectDetail) lst.get(i); %>
+                <td class="first">&nbsp;</td>
+                <td class="value alignText">
+                    <tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=tab%>' darkBG='false' />
+                </td>
+                <td class="valueC" nowrap="nowrap">
+                    <tc-webtag:format object="<%=result.getSubmitTimestamp()%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
+                </td>
+                <td class="valueC"><%=result.getPlaced()%></td>
+                <td class="valueC"><%=result.getPoints()%></td>
+                <td class="valueC"><%=result.getScore()%></td>
+                <td class="last">&nbsp;</td>
+            </tr>
+        <% }%>
+    </table>
+    <%if (!isComplete) {%>
+        <br /><br />
+        * This project is still in progress, results subject to change
+    <% } %>
+</p></div>
 
 <jsp:include page="../leaderboardPageBottom.jsp" />
