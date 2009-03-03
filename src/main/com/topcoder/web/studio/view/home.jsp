@@ -172,9 +172,9 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
   
     
      <%-- prizes paid box --%>
-    <div id="prizesPaidBox">
+    <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/"><div id="prizesPaidBox">
     	<p>$<%=totalPrizePaid%></p>
-    </div>
+    </div></a>
 
      <%-- news box --%>
     <div id="newsBox" class="newsBox">
