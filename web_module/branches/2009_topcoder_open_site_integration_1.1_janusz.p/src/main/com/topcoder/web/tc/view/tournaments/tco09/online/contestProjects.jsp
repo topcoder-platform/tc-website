@@ -76,13 +76,5 @@
                 * This project is still in progress, results subject to change
                 <br /><br />
                 <% } %>
-
-
-    </div><%-- #content --%>
-
-<jsp:include page="../footer.jsp" />
-
-</div><%-- #wrapper --%>
-
-</body>
-</html>
+                
+<jsp:include page="../leaderboardPageBottom.jsp" />
