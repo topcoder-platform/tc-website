@@ -13,7 +13,8 @@
 
 <% request.setAttribute("phase_id", rscContest.getIntItem(0, "phase_id")); %>
 <jsp:include page="../leaderboardPageHead.jsp"/>
-
+getParameter phaseId: :<%= request.getParameter("phase_id"); %><br />
+rscContest.getIntItem(0, "phase_id"): <%= rscContest.getIntItem(0, "phase_id"); %><br />
 <!-- Tab barlinks-->
 <%
     if (rscContest.getIntItem(0, "phase_id") == 112) {
