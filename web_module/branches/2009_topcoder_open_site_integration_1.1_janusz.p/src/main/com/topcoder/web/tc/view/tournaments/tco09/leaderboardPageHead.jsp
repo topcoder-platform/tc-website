@@ -10,11 +10,13 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Helper" %>
+<%@ page import="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean id="Constants" class="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants"/>
 
 <c:set value="<%=request.getParameter("phase_id")%>" var="phaseId"/>
 
-<%@page import="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Helper"%><html xmlns="http://www.w3.org/1999/xhtml">
+<%@page import="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants"%><html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>TCO 09 : Online Competitions</title>
         <!-- Meta Tags -->
@@ -40,6 +42,7 @@
     </head>
     <body id="page">
         Mam phase_id: <c:out value="${phaseId}" />
+        Mam phase_id: <c:out value="${Constants.DESIGN_PHASE_ID}" />
         <div id="wrapper">
             <div id="wrapperInner">
                 <div id="wrapperContent">
@@ -58,7 +61,6 @@
                                 <div id="contentInnerInner">
                                     <div class="bottomArea">
                                         <div class="bottomLeft"><div class="bottomRight">
-                                            <c:choose>
                                                 <c:when test="${phaseId == TCO09Helper.DESIGN_PHASE_ID}">
                                                     <jsp:include page="../secondaryNav.jsp" >
                                                         <jsp:param name="mainTab" value="online"/>
