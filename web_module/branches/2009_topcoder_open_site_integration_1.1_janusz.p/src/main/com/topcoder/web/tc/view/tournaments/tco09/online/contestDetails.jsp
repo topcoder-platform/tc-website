@@ -29,39 +29,32 @@ final int ARCHITECTURE_PHASE_ID = 118;
 final int SPECIFICATION_PHASE_ID = 134;
 final int ASSEMBLY_PHASE_ID = 125;
 %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-        
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+    <head>
+        <title>TCO 09 : Online Competitions</title>
+        <!-- Meta Tags -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <!-- External CSS -->
+        <link type="text/css" rel="stylesheet" href="/css/tournaments/tco09_coders.css"/>
+        <link rel="stylesheet" href="/css/tournaments/tco09.css" media="all" type="text/css" />
+        <!--[if IE 6]>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/screen-ie6.css" />
+        <![endif]-->
 
-<title>TCO 09 : Online Competitions</title>
-
-<!-- Meta Tags -->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<!-- External CSS -->
-<link type="text/css" rel="stylesheet" href="/css/tournaments/tco09_coders.css"/>
-<link rel="stylesheet" href="/css/tournaments/tco09.css" media="all" type="text/css" />
-<!--[if IE 6]>
-<link rel="stylesheet" type="text/css" media="screen" href="css/screen-ie6.css" />
-<![endif]-->
-<!-- favicon -->
-
-<!-- External JavaScripts -->
-<script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
-<script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
-<script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
-<script type="text/javascript" src="/js/arena.js"></script> 
-<style type="text/css">
-<!--
-.style2 {color: #FF0000}
--->
-</style>
-</head>
-
-<body id="page">
-
+        <!-- External JavaScripts -->
+        <script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
+        <script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
+        <script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
+        <script type="text/javascript" src="/js/arena.js"></script>
+        <style type="text/css">
+            <!--
+            .style2 {color: #FF0000}
+            -->
+        </style>
+    </head>
+    <body id="page">
     <div id="wrapper">
         <div id="wrapperInner">
             <div id="wrapperContent">

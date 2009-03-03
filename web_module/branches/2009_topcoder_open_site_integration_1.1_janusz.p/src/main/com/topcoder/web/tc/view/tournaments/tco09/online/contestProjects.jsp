@@ -4,24 +4,9 @@
                  com.topcoder.shared.util.ApplicationServer,
                  java.util.Map" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-    <title>2008 TopCoder Open - Computer Programming Tournament</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
-    <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-<script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
-    <jsp:include page="../../script.jsp" />
-    <%@ taglib uri="tc.tld" prefix="tc" %>
-    <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-    <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-</head>
-
-<body id="page_sub">
-
-<div id="wrapper">
+<jsp:include page="../leaderboardPageHead.jsp" >
+    <jsp:param name="phase_id" value="112"/>
+</jsp:include>
 
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_details"); %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_projects"); %>

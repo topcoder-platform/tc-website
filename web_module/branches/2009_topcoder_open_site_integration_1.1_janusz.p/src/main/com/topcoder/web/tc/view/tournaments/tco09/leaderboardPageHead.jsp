@@ -1,0 +1,89 @@
+<%--
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
+ *
+ * Author TCSDEVELOPER
+ * Version 1.0
+ * Since 2009 TopCoder Open Site Integration
+--%>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ page import="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Helper %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set value="<%=request.getParameter("phase_id")%>" var="phaseId"/>
+
+
+
+<%@page import="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Helper"%><html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>TCO 09 : Online Competitions</title>
+        <!-- Meta Tags -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <!-- External CSS -->
+        <link type="text/css" rel="stylesheet" href="/css/tournaments/tco09_coders.css"/>
+        <link rel="stylesheet" href="/css/tournaments/tco09.css" media="all" type="text/css" />
+        <!--[if IE 6]>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/screen-ie6.css" />
+        <![endif]-->
+
+        <!-- External JavaScripts -->
+        <script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
+        <script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
+        <script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
+        <script type="text/javascript" src="/js/arena.js"></script>
+        <style type="text/css">
+            <!--
+            .style2 {color: #FF0000}
+            -->
+        </style>
+    </head>
+    <body id="page">
+        Mam phase_id: <c:out value="${phaseId}" />
+        <div id="wrapper">
+            <div id="wrapperInner">
+                <div id="wrapperContent">
+                    <div id="wrapperContentInner">
+                        <jsp:include page="../header.jsp"/>
+                        <jsp:include page="../mainNav.jsp" >
+                            <jsp:param name="mainTab" value="online"/>
+                        </jsp:include>
+                        <div id="content">
+                            <div class="contentTopLeft">
+                                <div class="contentTopRight">
+                                    <div class="contentTopInner"></div>
+                                </div>
+                            </div>
+                            <div id="contentInner" class="contentInner">
+                                <div id="contentInnerInner">
+                                    <div class="bottomArea">
+                                        <div class="bottomLeft"><div class="bottomRight">
+                                            <c:choose>
+                                                <c:when test="${phaseId = TCO09Helper.DESIGN_PHASE_ID}">
+                                                    <jsp:include page="../secondaryNav.jsp" >
+                                                        <jsp:param name="mainTab" value="online"/>
+                                                        <jsp:param name="secondaryTab" value="design"/>
+                                                    </jsp:include>
+                                                    <jsp:include page="../tertiaryNav.jsp" >
+                                                        <jsp:param name="mainTab" value="online"/>
+                                                        <jsp:param name="secondaryTab" value="design"/>
+                                                        <jsp:param name="tertiaryTab" value="leaderboard"/>
+                                                    </jsp:include>
+                                                </c:when>
+                                                <c:when test="${phaseId = TCO09Helper.DEVELOPMENT_PHASE_ID}">
+                                                    <jsp:include page="../secondaryNav.jsp" >
+                                                        <jsp:param name="mainTab" value="online"/>
+                                                        <jsp:param name="secondaryTab" value="development"/>
+                                                    </jsp:include>
+
+                                                    <jsp:include page="../tertiaryNav.jsp" >
+                                                        <jsp:param name="mainTab" value="online"/>
+                                                        <jsp:param name="secondaryTab" value="development"/>
+                                                        <jsp:param name="tertiaryTab" value="leaderboard"/>
+                                                    </jsp:include>
+                                                </c:when>
+                                            </c:choose>
