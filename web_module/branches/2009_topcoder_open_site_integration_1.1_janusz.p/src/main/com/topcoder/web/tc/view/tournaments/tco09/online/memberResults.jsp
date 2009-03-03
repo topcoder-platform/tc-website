@@ -89,7 +89,6 @@ final int ASSEMBLY_PHASE_ID = 125;
                                 <div id="contentInnerInner">
 
                                     <div class="bottomArea">
-                                        phase id: <%= rscContest.getIntItem(0, "phase_id") %>
                                         <div class="bottomLeft"><div class="bottomRight">
                                             <%
                                                 String tab = "";
@@ -203,7 +202,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                             </tr>
                                                                         </thead>
                                                                         <%for (int i = 0; i < lst.size(); i++) { %>
-                                                                            <tr class="<%=(i%2==0 ? "light" : "dark")%>">
+                                                                            <tr <%=(i%2==1 ? "class=\"even\"" : "")%>">
                                                                                 <% UserContestResult result = (UserContestResult) lst.get(i); %>
                                                                                 <td class="first">&nbsp</td>
                                                                                 <td class="value" nowrap="nowrap">
@@ -232,9 +231,6 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                         <% } %>
                                                                     </table>
                                                                 </p></div>
-                                                                
-                                                                <!-- test end -->
-                                                                
                                                                 <br /><br />
                                                                 <%if (!isComplete) {%>
                                                                 * Contains results from projects still in progress, results subject to change
