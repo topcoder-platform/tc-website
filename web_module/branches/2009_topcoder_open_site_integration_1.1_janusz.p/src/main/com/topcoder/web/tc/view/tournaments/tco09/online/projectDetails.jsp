@@ -28,50 +28,49 @@
     <jsp:param name="phase_id" value="<%= phaseId %>"/>
 </jsp:include>
 
-                  <h2 class="title"><a href="/tco08?module=ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
-                   <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
-               </a> -
-               <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>">
-                   <rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/>
-               </a>
-               <%if (!isComplete) {%>*<%}%></h2><br />
-                <% if (isComplete) { %>
-                <a href="/tc?module=CompContestDetails&amp;pj=<rsc:item name="project_id" set="<%=rscProject%>"/>">contest details</a>
-                <% } %>
-
-
-                <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
-                
-                    <tr><th colspan="5"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></th></tr>
-                    <tr>
-                        <th class="header" nowrap="nowrap">Competitor</th>
-                        <th class="headerC" nowrap="nowrap">Submission Date</th>
-                        <th class="headerC">Place</th>
-                        <th class="headerC">Placement Points</th>
-                        <th class="headerC">Score</th>
-                    </tr>
-                    <%for (int i = 0; i < lst.size(); i++) { %>
-                    <tr class="<%=(i%2==0 ? "light" : "dark")%>">
-                        <% ProjectDetail result = (ProjectDetail) lst.get(i); %>
-                        <td class="value">
-                            <tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=tab%>' darkBG='true' />
-                        </td>
-                        <td class="valueC" nowrap="nowrap"><tc-webtag:format object="<%=result.getSubmitTimestamp()%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
-                        </td>
-                        <td class="valueC"><%=result.getPlaced()%>
-                        </td>
-                        <td class="valueC"><%=result.getPoints()%>
-                        </td>
-                        <td class="valueC"><%=result.getScore()%>
-                        </td>
-                    </tr>
-                    <% }%>
-                
-                </table>
-                <%if (!isComplete) {%>
-                <br /><br />
-                * This project is still in progress, results subject to change
-                <% } %>
-                <br /><br />
+<h2 class="title">
+    <a href="/tco08?module=ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
+        <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
+    </a> -
+    <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>">
+      <rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/>
+    </a>
+<%if (!isComplete) {%>*<%}%>
+</h2>
+<br />
+<% if (isComplete) { %>
+    <a href="/tc?module=CompContestDetails&amp;pj=<rsc:item name="project_id" set="<%=rscProject%>"/>">contest details</a>
+<% } %>
+<table cellpadding="0" cellspacing="0" class="data" width="100%">
+    <tr>
+        <th class="first">&nbsp;</th>
+        <th nowrap="nowrap">Competitor</th>
+        <th nowrap="nowrap">Submission Date</th>
+        <th>Place</th>
+        <th>Placement Points</th>
+        <th>Score</th>
+    </tr>
+    <%for (int i = 0; i < lst.size(); i++) { %>
+        <tr class="<%=(i%2==0 ? "even" : "")%>">
+            <% ProjectDetail result = (ProjectDetail) lst.get(i); %>
+            <td class="first">&nbsp;</td>
+            <td class="value alignText">
+                <tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=tab%>' darkBG='false' />
+            </td>
+            <td class="valueC" nowrap="nowrap">
+                <tc-webtag:format object="<%=result.getSubmitTimestamp()%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
+            </td>
+            <td class="valueC"><%=result.getPlaced()%></td>
+            <td class="valueC"><%=result.getPoints()%></td>
+            <td class="valueC"><%=result.getScore()%></td>
+            <td class="last">&nbsp;</td>
+        </tr>
+    <% }%>
+</table>
+<%if (!isComplete) {%>
+    <br /><br />
+    * This project is still in progress, results subject to change
+<% } %>
+<br /><br />
 
 <jsp:include page="../leaderboardPageBottom.jsp" />

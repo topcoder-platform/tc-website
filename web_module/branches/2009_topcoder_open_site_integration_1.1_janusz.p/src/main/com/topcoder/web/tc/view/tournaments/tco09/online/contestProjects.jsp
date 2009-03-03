@@ -40,6 +40,8 @@
 </jsp:include>
 
 <h2 class="title"><c:out value="${ title }"/></h2>
+phaseId: <c:out value="${phaseID}" /><br />
+Constants.DEVELOPMENT_PHASE_ID: <c:out value="${Constants.DEVELOPMENT_PHASE_ID}" /><br />
 
 <table class="data" cellpadding="0" cellspacing="0" width="100%">
     <thead>
