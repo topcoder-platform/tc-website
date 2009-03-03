@@ -99,7 +99,7 @@
                                                     <div id="mainContentInner">
                                                         <div>
                                                             <div class="pageContent">
-                                                                <c:if test="${addTitleTag == true}">
+                                                                <c:if test="${addTitleTag1 == true}">
                                                                     <h2 class="title"><c:out value="${title}"/>
                                                                     <c:if test="${closeTitleTag == true}">
                                                                         </h2>

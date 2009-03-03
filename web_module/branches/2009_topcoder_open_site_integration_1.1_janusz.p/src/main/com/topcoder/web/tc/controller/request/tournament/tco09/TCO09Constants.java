@@ -10,12 +10,18 @@ public final class TCO09Constants extends HashMap<String, Object> {
      *  
      */
     private static final long serialVersionUID = 1L;
+    
+    public final static int DESIGN_PHASE_ID = 112;
+    public final static int DEVELOPMENT_PHASE_ID = 113;
+    public final static int ARCHITECTURE_PHASE_ID = 118;
+    public final static int SPECIFICATION_PHASE_ID = 134;
+    public final static int ASSEMBLY_PHASE_ID = 125;
     public TCO09Constants() {
-       this.put("DESIGN_PHASE_ID", 112);
-       this.put("DEVELOPMENT_PHASE_ID", 113);
-       this.put("ARCHITECTURE_PHASE_ID", 118);
-       this.put("SPECIFICATION_PHASE_ID", 134);
-       this.put("ASSEMBLY_PHASE_ID", 125);
+       this.put("DESIGN_PHASE_ID", DESIGN_PHASE_ID);
+       this.put("DEVELOPMENT_PHASE_ID", DEVELOPMENT_PHASE_ID);
+       this.put("ARCHITECTURE_PHASE_ID", ARCHITECTURE_PHASE_ID);
+       this.put("SPECIFICATION_PHASE_ID", SPECIFICATION_PHASE_ID);
+       this.put("ASSEMBLY_PHASE_ID", ASSEMBLY_PHASE_ID);
        initialized = true;
     }
     public void clear() {

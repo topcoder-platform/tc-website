@@ -5,7 +5,8 @@
                  com.topcoder.web.tc.model.ProjectDetail,
                  java.util.List,
                  java.util.Map, 
-                 com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants" %>
+                 com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants, 
+                 com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Helper" %>
 
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -20,46 +21,26 @@
     if (rscProject.getIntItem(0, "complete_status") == 1) {
         isComplete = true;
     }
-    String tab = "design";
     int phaseId = rscContest.getIntItem(0, "phase_id");
+    String context = TCO09Helper.getContext(phaseId);
 %>
 <c:set var="phaseId" value="<%= phaseId %>" />
 
-<c:choose>
-  <c:when test="${phaseId == Constants.ARCHITECTURE_PHASE_ID}">
-      <c:set  var="title" value="Architecture Competition Project Details" />
-  </c:when>
-  <c:when test="${phaseId == Constants.ASSEMBLY_PHASE_ID}">
-      <c:set var="title" value="Assembly Competition" />
-  </c:when>
-  <c:when test="${phaseId == Constants.DESIGN_PHASE_ID}">
-      <c:set var="title" value="Component Design Competition" />
-  </c:when>
-  <c:when test="${phaseId == Constants.DEVELOPMENT_PHASE_ID}">
-      <c:set var="title" value="Component Development Competition" />
-  </c:when>
-  <c:when test="${phaseId == Constants.SPECIFICATION_PHASE_ID}">
-      <c:set var="title" value="Specification Competition Components" />
-  </c:when>
-</c:choose>
-
 <jsp:include page="../leaderboardPageHead.jsp">
-    <jsp:param name="phase_id" value="<%= phaseId %>"/>
+    <jsp:param name="phase_id" value="${ phaseId }"/>
+    <jsp:param name="add_title_tag" value="${true}"/>
 </jsp:include>
-
-<h2 class="title">
-    <a href="/tco08?module=ContestDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
-        <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
-    </a> -
+<%-- title suffix --%>
     <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>">
-      <rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/>
+        <rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/>
     </a>
 <%if (!isComplete) {%>*<%}%>
 </h2>
-<br />
+<div><p>
 <% if (isComplete) { %>
     <a href="/tc?module=CompContestDetails&amp;pj=<rsc:item name="project_id" set="<%=rscProject%>"/>">contest details</a>
 <% } %>
+</p></div>
 <div><p>
     <table cellpadding="0" cellspacing="0" class="data" width="100%">
         <tr>
@@ -76,7 +57,7 @@
                 <% ProjectDetail result = (ProjectDetail) lst.get(i); %>
                 <td class="first">&nbsp;</td>
                 <td class="value alignText">
-                    <tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=tab%>' darkBG='false' />
+                    <tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=context%>' darkBG='false' />
                 </td>
                 <td class="valueC" nowrap="nowrap">
                     <tc-webtag:format object="<%=result.getSubmitTimestamp()%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
