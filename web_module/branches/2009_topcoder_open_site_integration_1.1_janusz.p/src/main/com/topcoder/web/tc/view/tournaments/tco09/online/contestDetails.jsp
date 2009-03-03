@@ -1,7 +1,7 @@
 <%--
  * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
  *
- * This JSP shows design track leaderboard page.
+ * This JSP shows online track leaderboard page (development, design, architecture, assembly and specification).
  *
  * Author TCSDEVELOPER
  * Version 1.0
@@ -182,16 +182,18 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                 <h2 class="title"><%= leaderboardTitle %></h2>
                                                                 <div><p>
                                                                     <table class="data" width="100%" cellpadding="0" cellspacing="0">
-                                                                        <tr>
-                                                                            <th class="first">&nbsp;</th>
-                                                                            <th>Handle</th>
-                                                                            <th>Placement Points</th>
-                                                                            <th>Complete</th>
-                                                                            <th>In Progess</th>
-                                                                            <th>Submitted</th>
-                                                                            <th>Results</th>
-                                                                            <th class="last">&nbsp;</th>
-                                                                        </tr>
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th class="first">&nbsp;</th>
+                                                                                <th>Handle</th>
+                                                                                <th>Placement Points</th>
+                                                                                <th>Complete</th>
+                                                                                <th>In Progess</th>
+                                                                                <th>Submitted</th>
+                                                                                <th>Results</th>
+                                                                                <th class="last">&nbsp;</th>
+                                                                            </tr>
+                                                                        </thead>
                                                                         <%for (int i = 0; i < lst.size(); i++) { %>
                                                                         <tr <%=(i%2 == 1 ? "class=\"even\"" : "") %> ">
                                                                             <td class="first">&nbsp</td>
