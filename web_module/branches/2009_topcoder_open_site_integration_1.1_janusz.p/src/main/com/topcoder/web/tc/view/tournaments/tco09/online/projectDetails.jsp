@@ -31,7 +31,7 @@
     <jsp:param name="add_title_tag" value="${true}"/>
 </jsp:include>
 <%-- title suffix --%>
-    -
+    Project Details -
     <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>">
         <rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/>
     </a>
