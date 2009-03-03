@@ -15,22 +15,23 @@
 <jsp:useBean id="Constants" class="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants"/>
 
 <c:set value="<%=request.getParameter("phase_id")%>" var="phaseId"/>
-<c:set name="mainTab" value="online" />
+<c:set var="mainTab" value="online" />
+<c:set var="tertiaryNav" value="leaderboard" />
 <c:choose>
-  <c:when test="${phaseId = Constants.ARCHITECTURE_PHASE_ID}">
-      <c:set name="secondaryTab" value="architecture" />
+  <c:when test="${phaseId == Constants.ARCHITECTURE_PHASE_ID}">
+      <c:set  var="secondaryTab" value="architecture" />
   </c:when>
-  <c:when test="${phaseId = Constants.ASSEMBLY_PHASE_ID}">
-      <c:set name="secondaryTab" value="assembly" />
+  <c:when test="${phaseId == Constants.ASSEMBLY_PHASE_ID}">
+      <c:set var="secondaryTab" value="assembly" />
   </c:when>
-  <c:when test="${phaseId = Constants.DESIGN_PHASE_ID}">
-      <c:set name="secondaryTab" value="design" />
+  <c:when test="${phaseId == Constants.DESIGN_PHASE_ID}">
+      <c:set var="secondaryTab" value="design" />
   </c:when>
-  <c:when test="${phaseId = Constants.DEVELOPMENT_PHASE_ID}">
-      <c:set name="secondaryTab" value="development" />
+  <c:when test="${phaseId == Constants.DEVELOPMENT_PHASE_ID}">
+      <c:set var="secondaryTab" value="development" />
   </c:when>
-  <c:when test="${phaseId = Constants.SPECIFICATION_PHASE_ID}">
-      <c:set name="secondaryTab" value="specification" />
+  <c:when test="${phaseId == Constants.SPECIFICATION_PHASE_ID}">
+      <c:set var="secondaryTab" value="specification" />
   </c:when>
 </c:choose>
 
@@ -65,7 +66,7 @@
                     <div id="wrapperContentInner">
                         <jsp:include page="header.jsp"/>
                         <jsp:include page="mainNav.jsp" >
-                            <jsp:param name="mainTab" value="online"/>
+                            <jsp:param name="mainTab" value="${mainTab}"/>
                         </jsp:include>
                         <div id="content">
                             <div class="contentTopLeft">
@@ -77,55 +78,15 @@
                                 <div id="contentInnerInner">
                                     <div class="bottomArea">
                                         <div class="bottomLeft"><div class="bottomRight">
-                                            <c:choose>
-                                                <c:when test="${phaseId == Constants.DESIGN_PHASE_ID}">
-                                                    <jsp:include page="secondaryNav.jsp" >
-                                                        <jsp:param name="mainTab" value="${mainTab}"/>
-                                                        <jsp:param name="secondaryTab" value="${secondaryTab}"/>
-                                                    </jsp:include>
-                                                    <jsp:include page="tertiaryNav.jsp" >
-                                                        <jsp:param name="mainTab" value="${mainTab}"/>
-                                                        <jsp:param name="secondaryTab" value="${secondaryTab}"/>
-                                                        <jsp:param name="tertiaryTab" value="leaderboard"/>
-                                                    </jsp:include>
-                                                </c:when>
-                                                <c:when test="${phaseId == Constants.DEVELOPMENT_PHASE_ID}">
-                                                    <jsp:include page="secondaryNav.jsp" >
-                                                        <jsp:param name="mainTab" value="online"/>
-                                                        <jsp:param name="secondaryTab" value="development"/>
-                                                    </jsp:include>
-
-                                                    <jsp:include page="tertiaryNav.jsp" >
-                                                        <jsp:param name="mainTab" value="online"/>
-                                                        <jsp:param name="secondaryTab" value="development"/>
-                                                        <jsp:param name="tertiaryTab" value="leaderboard"/>
-                                                    </jsp:include>
-                                                </c:when>
-                                                <c:when test="${phaseId == Constants.ASSEMBLY_PHASE_ID}">
-                                                    <jsp:include page="secondaryNav.jsp" >
-                                                        <jsp:param name="mainTab" value="online"/>
-                                                        <jsp:param name="secondaryTab" value="assembly"/>
-                                                    </jsp:include>
-
-                                                    <jsp:include page="tertiaryNav.jsp" >
-                                                        <jsp:param name="mainTab" value="online"/>
-                                                        <jsp:param name="secondaryTab" value="assembly"/>
-                                                        <jsp:param name="tertiaryTab" value="leaderboard"/>
-                                                    </jsp:include>
-                                                </c:when>
-                                                <c:when test="${phaseId == Constants.ARCHITECTURE_PHASE_ID}">
-                                                    <jsp:include page="secondaryNav.jsp" >
-                                                        <jsp:param name="mainTab" value="online"/>
-                                                        <jsp:param name="secondaryTab" value="architecture"/>
-                                                    </jsp:include>
-
-                                                    <jsp:include page="tertiaryNav.jsp" >
-                                                        <jsp:param name="mainTab" value="online"/>
-                                                        <jsp:param name="secondaryTab" value="development"/>
-                                                        <jsp:param name="tertiaryTab" value="leaderboard"/>
-                                                    </jsp:include>
-                                                </c:when>
-                                            </c:choose>
+                                            <jsp:include page="secondaryNav.jsp" >
+                                                <jsp:param name="mainTab" value="${mainTab}"/>
+                                                <jsp:param name="secondaryTab" value="${secondaryTab}"/>
+                                            </jsp:include>
+                                            <jsp:include page="tertiaryNav.jsp" >
+                                                <jsp:param name="mainTab" value="${mainTab}"/>
+                                                <jsp:param name="secondaryTab" value="${secondaryTab}"/>
+                                                <jsp:param name="tertiaryTab" value="${tertiaryNav}"/>
+                                            </jsp:include>
                                             <div class="bottomAreaContent">             
                                                 <div class="mainContent">
                                                     <div id="mainContentInner">
