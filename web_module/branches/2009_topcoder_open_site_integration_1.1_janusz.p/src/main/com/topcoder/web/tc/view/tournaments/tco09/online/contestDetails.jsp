@@ -198,7 +198,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                         <tr <%=(i%2 == 1 ? "class=\"even\"" : "") %> ">
                                                                             <td class="first">&nbsp</td>
                                                                             <% UserContestDetail result = (UserContestDetail) lst.get(i); %>
-                                                                            <td class="value" nowrap="nowrap">
+                                                                            <td class="value  alignText" nowrap="nowrap">
                                                                                 <tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>' darkBG='false' />
                                                                                 <% if (result.getIncomplete() > 0) {
                                                                                     isComplete = false;%>*<% } %></td>
@@ -225,36 +225,13 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                         <tr>
                                                                             <th class="first">&nbsp;</th>
                                                                             <th>Leaderboard</th>
+                                                                            <th>Grzybek</th>
                                                                             <th class="last">&nbsp;</th>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
-                                                                            <td class="first last alignText">Table Row</td>
-                                                                            <td class="last">&nbsp;</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="first">&nbsp;</td>
-                                                                            <td class="first last alignText">Table Row</td>
-                                                                            <td class="last">&nbsp;</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="first">&nbsp;</td>
-                                                                            <td class="first last alignText">Table Row</td>
-                                                                            <td class="last">&nbsp;</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="first">&nbsp;</td>
-                                                                            <td class="first last alignText">Table Row</td>
-                                                                            <td class="last">&nbsp;</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="first">&nbsp;</td>
-                                                                            <td class="first last alignText">Table Row</td>
-                                                                            <td class="last">&nbsp;</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="first">&nbsp;</td>
-                                                                            <td class="first last alignText">Table Row</td>
+                                                                            <td class="first last alignText">prosiaczek a</td>
+                                                                            <td class="first last">prosiaczek b</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                     </table></p>
