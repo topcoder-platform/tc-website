@@ -4,6 +4,13 @@
                  com.topcoder.shared.util.ApplicationServer,
                  java.util.Map" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <jsp:include page="../leaderboardPageHead.jsp" >
     <jsp:param name="phase_id" value="112"/>
 </jsp:include>
