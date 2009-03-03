@@ -28,16 +28,15 @@
 
 <div><p>
     <table class="data" cellpadding="0" cellspacing="0" width="100%">
-        <tr class="even">
+        <tr>
             <th class="first">&nbsp;</th>
             <th class="header">Component</th>
             <th class="headerC">Start Date</th>
             <th class="headerC">End Date</th>
             <th class="last">&nbsp;</th>
         </tr>
-        <% boolean even = false; %>
         <rsc:iterator list="<%=rsc%>" id="resultRow">
-            <tr class="<%=(even ? "even" : "")%>">
+            <tr>
                 <td class="first">&nbsp;</td>
                 <td class="value alignText" nowrap="nowrap">
                     <% if (resultRow.getIntItem("viewable") == 1) { %>
@@ -70,7 +69,6 @@
                 </td>
                 <td class="last">&nbsp;</td>
             </tr>
-            <% even = !even; %>
         </rsc:iterator>
     </table>
     <br /><br />
