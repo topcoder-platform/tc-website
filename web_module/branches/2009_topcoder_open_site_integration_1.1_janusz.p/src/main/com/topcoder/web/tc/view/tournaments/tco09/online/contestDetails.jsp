@@ -86,12 +86,12 @@ final int ASSEMBLY_PHASE_ID = 125;
                                     <div class="bottomArea">
                                         <div class="bottomLeft"><div class="bottomRight">
                                             <%
-                                            String leaderboardTitle = "";
+                                            String tabTitle = "";
                                             String tab = "";
 
                                             switch (rscContest.getIntItem(0, "phase_id")) {
                                                 case DESIGN_PHASE_ID:
-                                                    leaderboardTitle = "Component Design Competition Leaderboard";
+                                                    tabTitle = "Component Design Competition Leaderboard";
                                                     tab = "design";
                                             %>
                                                 <jsp:include page="../secondaryNav.jsp" >
@@ -107,7 +107,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                             <%
                                                     break;
                                                 case DEVELOPMENT_PHASE_ID:
-                                                    leaderboardTitle = "Component Development Competition Leaderboard";
+                                                    tabTitle = "Component Development Competition Leaderboard";
                                                     tab = "development";
                                             %>
                                                     <jsp:include page="../secondaryNav.jsp" >
@@ -124,7 +124,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                         
                                                     break;
                                                 case ARCHITECTURE_PHASE_ID:
-                                                    leaderboardTitle = "Architecture Competition Leaderboard";
+                                                    tabTitle = "Architecture Competition Leaderboard";
                                                     tab = "architecture";
                                             %>
                                                     <jsp:include page="../secondaryNav.jsp" >
@@ -140,7 +140,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                             <%
                                                     break;
                                                 case SPECIFICATION_PHASE_ID:
-                                                    leaderboardTitle = "Specification Competition Leaderboard";
+                                                    tabTitle = "Specification Competition Leaderboard";
                                                     tab = "specification";
                                             %>
                                                     <jsp:include page="../secondaryNav.jsp" >
@@ -156,7 +156,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                             <%
                                                     break;
                                                 default:
-                                                    leaderboardTitle = "Assembly Competition Leaderboard";
+                                                    tabTitle = "Assembly Competition Leaderboard";
                                                     tab = "assembly";
                                             %>
                                                     <jsp:include page="../secondaryNav.jsp" >
@@ -179,7 +179,9 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                     <div id="mainContentInner">
                                                         <div>
                                                             <div class="pageContent">
-                                                                <h2 class="title"><%= leaderboardTitle %></h2>
+                                                                <h2 class="title"><%= tabTitle %> - 
+                                                                    <a href="/tco09?module=ContestProjects&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">View Components</a>
+                                                                </h2>
                                                                 <div><p>
                                                                     <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                         <thead>
@@ -198,7 +200,7 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                         <tr <%=(i%2 == 1 ? "class=\"even\"" : "") %> ">
                                                                             <td class="first">&nbsp</td>
                                                                             <% UserContestDetail result = (UserContestDetail) lst.get(i); %>
-                                                                            <td class="value  alignText" nowrap="nowrap">
+                                                                            <td class="value alignText" nowrap="nowrap">
                                                                                 <tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>' darkBG='false' />
                                                                                 <% if (result.getIncomplete() > 0) {
                                                                                     isComplete = false;%>*<% } %></td>
@@ -218,26 +220,6 @@ final int ASSEMBLY_PHASE_ID = 125;
                                                                         <% }%>
                                                                     </table>
                                                                 </p></div>
-                                                                
-                                                                <!--  test!! -->
-                                                                <div><p>
-                                                                    <table class="data" width="100%" cellpadding="0" cellspacing="0">
-                                                                        <tr>
-                                                                            <th class="first">&nbsp;</th>
-                                                                            <th>Leaderboard</th>
-                                                                            <th>Grzybek</th>
-                                                                            <th class="last">&nbsp;</th>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="first">&nbsp;</td>
-                                                                            <td class="first last alignText">prosiaczek a</td>
-                                                                            <td class="first last">prosiaczek b</td>
-                                                                            <td class="last">&nbsp;</td>
-                                                                        </tr>
-                                                                    </table></p>
-                                                                
-                                                                <!-- test end -->
-                                                                
                                                                 <br /><br />
                                                                 <%if (!isComplete) {%>
                                                                 * Contains results from projects still in progress, results subject to change
