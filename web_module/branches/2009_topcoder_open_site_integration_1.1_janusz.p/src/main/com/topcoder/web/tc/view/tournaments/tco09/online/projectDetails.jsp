@@ -31,6 +31,7 @@
     <jsp:param name="add_title_tag" value="${true}"/>
 </jsp:include>
 <%-- title suffix --%>
+    -
     <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>">
         <rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/>
     </a>
@@ -53,10 +54,10 @@
             <th class="last">&nbsp;</th>
         </tr>
         <%for (int i = 0; i < lst.size(); i++) { %>
-            <tr class="<%=(i%2==0 ? "even" : "")%>">
+            <tr class="<%=(i%2==1 ? "even" : "")%>">
                 <% ProjectDetail result = (ProjectDetail) lst.get(i); %>
                 <td class="first">&nbsp;</td>
-                <td class="value alignText">
+                <td class="value alignText">i: <%= i %>
                     <tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=context%>' darkBG='false' />
                 </td>
                 <td class="valueC" nowrap="nowrap">
