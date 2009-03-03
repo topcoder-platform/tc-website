@@ -8,10 +8,12 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% ResultSetContainer rscContest = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_details"); %>
-<% ResultSetContainer rsc = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_projects"); %>
-
-<% int phaseId = rscContest.getIntItem(0, "phase_id"); %>
+<% 
+    ResultSetContainer rscContest = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_details"); 
+    ResultSetContainer rsc = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_projects");
+    int phaseId = rscContest.getIntItem(0, "phase_id");
+    boolean isComplete = true;
+%>
 
 <c:choose>
   <c:when test="${phaseId == Constants.ARCHITECTURE_PHASE_ID}">
@@ -30,9 +32,7 @@
       <c:set var="title" value="Specification Competition Components" />
   </c:when>
 </c:choose>
-<%
-  boolean isComplete = true;
-%>
+
 <jsp:include page="../leaderboardPageHead.jsp">
     <jsp:param name="phase_id" value="${ phaseId }"/>
 </jsp:include>
@@ -52,7 +52,7 @@
     <%boolean even = true;%>
     <rsc:iterator list="<%=rsc%>" id="resultRow">
         <tr class="<%=even?"even":""%>">
-            <td class="fist">&nbsp;</td>
+            <td class="first">&nbsp;</td>
             <td class="value alignText" nowrap="nowrap">
                 <% if (resultRow.getIntItem("viewable") == 1) { %>
                     <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>">
