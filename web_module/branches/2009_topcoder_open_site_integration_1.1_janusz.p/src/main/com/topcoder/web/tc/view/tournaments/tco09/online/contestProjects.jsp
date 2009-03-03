@@ -11,30 +11,12 @@
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_details"); %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_projects"); %>
 
-<% request.setAttribute("phase_id", rscContest.getIntItem(0, "phase_id")); %>
-<jsp:include page="../leaderboardPageHead.jsp"/>
-getParameter phaseId: :<%= request.getParameter("phase_id"); %><br />
-rscContest.getIntItem(0, "phase_id"): <%= rscContest.getIntItem(0, "phase_id"); %><br />
-<!-- Tab barlinks-->
-<%
-    if (rscContest.getIntItem(0, "phase_id") == 112) {
-%>
-        <jsp:include page="../nav.jsp" >
-        <jsp:param name="tabLev1" value="<%=EventType.COMPONENT_TOURNAMENT_ID%>"/>
-        <jsp:param name="tabLev2" value="design"/>
-        <jsp:param name="tabLev3" value="results"/>
-        </jsp:include>
-<%
-} else {
-%>
-        <jsp:include page="../nav.jsp" >
-        <jsp:param name="tabLev1" value="<%=EventType.COMPONENT_TOURNAMENT_ID%>"/>
-        <jsp:param name="tabLev2" value="development"/>
-        <jsp:param name="tabLev3" value="results"/>
-        </jsp:include>
-<%
-    }
-%>
+<% int phaseId = rscContest.getIntItem(0, "phase_id"); %>
+
+<jsp:include page="../leaderboardPageHead.jsp">
+    <jsp:param name="phase_id" value="<%= phaseId %>"/>
+</jsp:include>
+
 <%
     boolean isComplete = true;
 %>

@@ -59,9 +59,6 @@
                                 <div id="contentInnerInner">
                                     <div class="bottomArea">
                                         <div class="bottomLeft"><div class="bottomRight">
-                                            Phase ID: <c:out value="${phaseId}"/><br />
-                                            Contest.DESIGN_PHASE_ID: <c:out value="${Constants.DESIGN_PHASE_ID}" /><br />
-                                            Contest.DESIGN_PHASE_ID: <c:out value="${Constants.DEVELOPMENT_PHASE_ID}" /><br />
                                             <c:choose>
                                                 <c:when test="${phaseId == Constants.DESIGN_PHASE_ID}">
                                                     <jsp:include page="secondaryNav.jsp" >
@@ -92,3 +89,4 @@
                                                     <div id="mainContentInner">
                                                         <div>
                                                             <div class="pageContent">
+                                                            
