@@ -37,11 +37,10 @@
                 <th class="last">&nbsp;</th>
             </tr>
         </thead>
-        <%boolean even = false;%>
         <rsc:iterator list="<%=rsc%>" id="resultRow">
             <tr>
                 <td class="first">&nbsp;</td>
-                <td class="value alignText" nowrap="nowrap">e: <%= even %>, warunek: <%= even ? "even" : "nie even" %>
+                <td class="value alignText" nowrap="nowrap">
                     <% if (resultRow.getIntItem("viewable") == 1) { %>
                         <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>">
                             <rsc:item name="component_name" row="<%=resultRow%>"/>
@@ -72,7 +71,6 @@
                 </td>
                 <td class="last">&nbsp;</td>
             </tr>
-            <%even=!even;%>
         </rsc:iterator>
     </table>
     <br /><br />
