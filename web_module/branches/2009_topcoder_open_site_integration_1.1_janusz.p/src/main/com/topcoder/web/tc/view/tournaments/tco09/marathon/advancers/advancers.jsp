@@ -83,7 +83,7 @@
     <table class="data" cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <th class="first">&nbsp;</th>
-            <th width="10%">
+            <th width="5%">
                 <a href="/tco09?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("seed")%>"/>">Seed</a>
             </th>
             <th>
