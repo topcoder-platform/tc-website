@@ -136,4 +136,4 @@
         </div>
     </c:if>
 </form>
-<jsp:param page="../../leaderboardPageBottom.jsp" />
+<jsp:include page="../../leaderboardPageBottom.jsp" />
