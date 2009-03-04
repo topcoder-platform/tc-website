@@ -26,7 +26,7 @@
 <c:set var="finals_id" value="13765"/>
 
 <jsp:include page="../../leaderboardPageHead.jsp">
-    <jsp:param name="page_id" value="${TCO09Constants.ALGORITHM_PHASE_ID }"/>
+    <jsp:param name="pahase_id" value="${TCO09Constants.ALGORITHM_PHASE_ID }"/>
     <jsp:param name="add_title_tag" value="${true}"/>
 </jsp:include>
 <%-- title suffix --%>
@@ -156,4 +156,4 @@
     </c:if>
 </form>
 
-<jsp:include page="../leaderboardPageBottom.jsp"/>
+<jsp:include page="../../leaderboardPageBottom.jsp"/>

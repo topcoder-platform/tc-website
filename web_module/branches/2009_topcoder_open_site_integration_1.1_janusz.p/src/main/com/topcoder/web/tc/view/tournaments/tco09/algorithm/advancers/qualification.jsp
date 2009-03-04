@@ -16,7 +16,7 @@
 <jsp:useBean id="TCO09Constants" class="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants"/>
 
 <jsp:include page="../../leaderboardPageHead.jsp">
-    <jsp:param name="page_id" value="30"/>
+    <jsp:param name="pahase_id" value="${TCO09Constants.ALGORITHM_QUALIFICATION_PHASE_ID} "/>
     <jsp:param name="add_title_tag" value="${true}"/>
 </jsp:include>
 <%-- title suffix --%>
