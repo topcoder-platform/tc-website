@@ -73,7 +73,7 @@
             <tr>
                 <th class="first">&nbsp;</th>
                 <th>
-                    <a class="table-head" href="/tco09?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
+                    <a href="/tco09?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
                     <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
                 </th>
                 <th>
@@ -88,25 +88,15 @@
                 <th class="last">&nbsp;</th>
             </tr>
             <rsc:iterator list="<%=rsc%>" id="resultRow">
-                <tr>
-                    <td class="first">&nbsp;</td>
-                    <td class="value alignText">
-                        <tc-webtag:handle coderId='${resultRow.map["coder_id"]}' context="algorithm"/>
-                    </td>
-                    <td class="valueC" nowrap="nowrap"><c:out value="${resultRow.map['round_name']}" default="Bye"/></td>
-                    <td class="valueR">${resultRow.map["rating"]}</td>
-                    <td class="valueR">
-                        <c:choose>
-                            <c:when test="${resultRow.map['points']==null}">
-                                Bye
-                            </c:when>
-                            <c:otherwise>
-                                <fmt:formatNumber value="${resultRow.map['points']}"  pattern="#.00"/>
-                            </c:otherwise>
-                        </c:choose>
-                    </td>
-                    <td class="last">&nbsp;</td>
-                </tr>
+<%-- formatting this crappy to save space in the download to the client --%>
+<tr>
+<td class="first">&nbsp;</td>
+<td class="value alignText"><tc-webtag:handle coderId='${resultRow.map["coder_id"]}' context="algorithm"/></td>
+<td class="valueC" nowrap="nowrap"><c:out value="${resultRow.map['round_name']}" default="Bye"/></td>
+<td class="valueR">${resultRow.map["rating"]}</td>
+<td class="valueR"><c:choose><c:when test="${resultRow.map['points']==null}"> Bye </c:when><c:otherwise><fmt:formatNumber value="${resultRow.map['points']}"  pattern="#.00"/></c:otherwise></c:choose></td>
+<td class="last">&nbsp;</td>
+</tr>
             </rsc:iterator>
         </table>
     </div>
