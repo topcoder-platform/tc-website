@@ -43,7 +43,8 @@
       <c:set var="title" value="Specification Competition" />
   </c:when>
   <c:when test="${phaseId == Constants.ALGORITHM_QUALIFICATION_PHASE_ID}">
-      <c:set var="secondaryTab" value="algorithm" />
+      <c:set var="mainTab" value="algorithm" />
+      <c:set var="secondaryTab" value="advancers" />
       <c:set var="tertiaryNav" value="qualification" />
       <c:set var="title" value="Algorithm Competition" />
   </c:when>
