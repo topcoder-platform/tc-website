@@ -9,50 +9,33 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<% 
+    ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result"); 
+%>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="Constants" class="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants"/>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-    <title>2008 TopCoder Open - Computer Programming Tournament</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <link type="text/css" rel="stylesheet" href="/css/tournaments/tco08.css"/>
-    <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-<script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
-    <jsp:include page="../../script.jsp" />
+<jsp:include page="../../leaderboardPageHead.jsp">
+    <jsp:param name="page_id" value="${Constants.ALGORITHM_QUALIFICATION_PHASE_ID }"/>
+    <jsp:param name="add_title_tag" value="${true}"/>
+</jsp:include>
 
-    <script type="text/javascript">
-  function next() {
-    var myForm = document.advancersForm;
-    myForm.<%=DataAccessConstants.START_RANK%>.value= parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) + parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
-    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
-    myForm.submit();
-  }
-  function previous() {
-    var myForm = document.advancersForm;
-    myForm.<%=DataAccessConstants.START_RANK%>.value-=parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
-    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
-
-    myForm.submit();
-  }
+<script type="text/javascript">
+    function next() {
+	      var myForm = document.advancersForm;
+	      myForm.<%=DataAccessConstants.START_RANK%>.value= parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) + parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+	      myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+	      myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+	      myForm.submit();
+	  }
+    function previous() {
+        var myForm = document.advancersForm;
+        myForm.<%=DataAccessConstants.START_RANK%>.value-=parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+        myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+        myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+        myForm.submit();
+    }
 </script>
-</head>
-
-<body id="page_sub">
-
-<% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result"); %>
-
-<div id="wrapper">
-
-        <jsp:include page="../nav.jsp" >
-        <jsp:param name="tabLev1" value="<%=EventType.ALGORITHM_TOURNAMENT_ID%>"/>
-        <jsp:param name="tabLev2" value="advancers"/>
-        <jsp:param name="tabLev3" value="qualification"/>
-        </jsp:include>
 
         <h2>Qualification</h2>
 
@@ -135,11 +118,5 @@
                         </div>
                     </c:if>
                 </form>
-    </div><%-- #content --%>
 
-<jsp:include page="../footer.jsp" />
-
-</div><%-- #wrapper --%>
-
-</body>
-</html>
+<jsp:include page="../../leaderboardPageBottom.jsp"/>
