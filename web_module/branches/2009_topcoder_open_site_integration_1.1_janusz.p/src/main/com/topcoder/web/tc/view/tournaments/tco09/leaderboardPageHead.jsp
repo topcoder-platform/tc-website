@@ -21,7 +21,6 @@
 <c:set var="mainTab" value="online" />
 <c:set var="tertiaryNav" value="leaderboard" />
 
-phaseId: <c:out value="${phaseId}"/>
 <c:choose>
   <c:when test="${phaseId == Constants.ARCHITECTURE_PHASE_ID}">
       <c:set  var="secondaryTab" value="architecture" />
