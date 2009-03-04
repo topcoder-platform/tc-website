@@ -26,7 +26,7 @@
     int phaseId = rscContest.getIntItem(0, "phase_id");
     String context = TCO09Helper.getContext(phaseId);
 %>
-<c:set var="phaseId" value="${phaseId}"/>
+<c:set var="phaseId" value="<%= phaseId %>"/>
 <jsp:include page="../leaderboardPageHead.jsp">
     <jsp:param name="phase_id" value="${phaseId}" />
     <jsp:param name="add_title_tag" value="${true}" />
@@ -39,20 +39,18 @@
 </h2>
 <div><p>
     <table class="data" width="100%" cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th class="first">&nbsp;</th>
-                <th>Handle</th>
-                <th>Placement Points</th>
-                <th>Complete</th>
-                <th>In Progess</th>
-                <th>Submitted</th>
-                <th>Results</th>
-                <th class="last">&nbsp;</th>
-            </tr>
-        </thead>
+        <tr>
+            <th class="first">&nbsp;</th>
+            <th>Handle</th>
+            <th>Placement Points</th>
+            <th>Complete</th>
+            <th>In Progess</th>
+            <th>Submitted</th>
+            <th>Results</th>
+            <th class="last">&nbsp;</th>
+        </tr>
         <%for (int i = 0; i < lst.size(); i++) { %>
-        <tr <%=(i%2 == 1 ? "class=\"even\"" : "") %> ">
+        <tr>
             <td class="first">&nbsp</td>
             <% UserContestDetail result = (UserContestDetail) lst.get(i); %>
             <td class="value alignText" nowrap="nowrap">
