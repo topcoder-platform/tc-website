@@ -75,7 +75,30 @@
                                             
                                             <div class="bottomAreaContent">
                                                 
-                                                <jsp:include page="../../comingSoon.jsp"/>
+                                                <div class="mainContent">
+                                                    <div id="mainContentInner">
+                                                        <div>
+                                                            <div class="pageContent">
+																<h2 class="title">Algorithm Competition Qualification</h2>
+																<div><p>
+																	<table class="data" width="100%" cellpadding="0" cellspacing="0">
+																		<tr>
+																			<th class="first">&nbsp;</th>
+																			<th>Leaderboard</th>
+																			<th class="last">&nbsp;</th>
+																		</tr>
+																		<tr>
+																			<td class="first">&nbsp;</td>
+																			<td class="first last alignText">Table Row</td>
+																			<td class="last">&nbsp;</td>
+																		</tr>
+																	</table></p>
+																</div>
+                                                            </div><!-- End .pageContent -->
+                                                        </div>
+                                                    </div><!-- End #mainContentInner -->
+                                                </div><!-- End #mainContent -->
+
                                     
                                                 <jsp:include page="../../sponsors.jsp"/>
                                                 

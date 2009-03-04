@@ -58,7 +58,7 @@ public class MarathonAdvancers extends AdvancersBase {
      */
     @Override
     protected String getPageName() {
-        return "/tournaments/" + getContestPrefix() + "/marathon/advancers.jsp";
+        return "/tournaments/" + getContestPrefix() + "/marathon/advancers/leaderboard.jsp";
     }
     
     /* (non-Javadoc)
