@@ -86,7 +86,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;<img src="/i/tournament/tco09/iconEliminated.png" alt="Eliminated" /> = Eliminated 
         &nbsp;&nbsp;&nbsp;&nbsp;- = Did not compete
     </div>
-    <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
+    <table class="data" cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <th class="first">&nbsp;</th>
             <th>
@@ -126,6 +126,7 @@
         <rsc:iterator list="<%=rsc%>" id="resultRow">
 <%-- formatting this crappy to save space in the download to the client --%>
 <tr>
+<td class="first">&nbsp;</td>
 <td class="valueC">${resultRow.map["seed"]}</td>
 <td class="value"><tc-webtag:handle coderId="${resultRow.map['coder_id']}" context="algorithm"/></td>
 <td class="valueC">${resultRow.map["rating"]}</td>
@@ -136,6 +137,7 @@
 <td class="valueC"><c:choose><c:when test="${empty round5_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round4'] or resultRow.map['round4'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['round5']}"><img src="/i/tournament/tco09/icon${fn:trim(resultRow.map['round5'])}.png" alt="${resultRow.map["round5"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
 <td class="valueC"><c:choose><c:when test="${empty semi1_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round5'] or resultRow.map['round5'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['semi']}"><img src="/i/tournament/tco09/icon${fn:trim(resultRow.map['semi'])}.png" alt="${resultRow.map["semi"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
 <td class="valueC"><c:choose><c:when test="${empty finals_id}">&nbsp;</c:when><c:when test="${not empty resultRow.map['final']}"><img src="/i/tournament/tco09/icon${fn:trim(resultRow.map['final'])}.png" alt="${resultRow.map["final"]}" /></c:when><c:otherwise>&nbsp;</c:otherwise></c:choose></td>
+<td class="last">&nbsp;</td>
 </tr>
         </rsc:iterator>
     </table>
