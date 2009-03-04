@@ -41,7 +41,7 @@
 </script>
 
 
-<form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
+<p><form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AlgorithmQualification"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
@@ -125,6 +125,6 @@
             </div>
         </div>
     </c:if>
-</form>
+</p></form>
 
 <jsp:include page="../../leaderboardPageBottom.jsp"/>
