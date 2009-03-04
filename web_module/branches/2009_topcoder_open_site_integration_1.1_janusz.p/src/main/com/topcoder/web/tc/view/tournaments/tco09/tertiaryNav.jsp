@@ -71,7 +71,7 @@
                     </c:when>
                     <c:when test="${mainTab == 'algorithm' && secondaryTab == 'advancers'}">
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=advancers&d5=qualification" class="${tertiaryTab == 'qualification' ? 'on' : ''}">Qualification</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=advancers&d5=leaderboard" class="${tertiaryTab == 'leaderboard' ? 'on' : ''}">Leaderboard</a></li>
+                        <li><a href="/tco09?module=AlgorithmAdvancers" class="${tertiaryTab == 'leaderboard' ? 'on' : ''}">Leaderboard</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=advancers&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Bracket</a></li>
                     </c:when>
                     <c:when test="${mainTab == 'algorithm' && secondaryTab == 'summary'}">
