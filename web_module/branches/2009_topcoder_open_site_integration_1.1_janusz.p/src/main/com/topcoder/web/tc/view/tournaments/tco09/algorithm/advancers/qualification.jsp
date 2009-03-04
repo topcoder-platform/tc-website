@@ -19,6 +19,9 @@
     <jsp:param name="page_id" value="${TCO09Constants.ALGORITHM_QUALIFICATION_PHASE_ID }"/>
     <jsp:param name="add_title_tag" value="${true}"/>
 </jsp:include>
+<%-- title suffix --%>
+    Qualification
+</h2>
 
 <script type="text/javascript">
     function next() {
@@ -37,7 +40,6 @@
     }
 </script>
 
-        <h2>Qualification</h2>
 
                 <form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AlgorithmQualification"/>
