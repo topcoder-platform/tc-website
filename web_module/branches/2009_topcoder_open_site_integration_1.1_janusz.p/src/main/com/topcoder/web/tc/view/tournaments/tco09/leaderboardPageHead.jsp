@@ -48,6 +48,12 @@
       <c:set var="tertiaryNav" value="qualification" />
       <c:set var="title" value="Algorithm Competition" />
   </c:when>
+  <c:when test="${phaseId == Constants.ALGORITHM_PHASE_ID}">
+      <c:set var="mainTab" value="algorithm" />
+      <c:set var="secondaryTab" value="advancers" />
+      <c:set var="tertiaryNav" value="leaderboard" />
+      <c:set var="title" value="Algorithm Competition" />
+  </c:when>
 </c:choose>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
