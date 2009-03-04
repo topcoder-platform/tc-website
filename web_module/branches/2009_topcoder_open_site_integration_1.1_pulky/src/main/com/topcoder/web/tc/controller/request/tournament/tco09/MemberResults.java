@@ -47,4 +47,16 @@ public class MemberResults extends MemberResultsBase {
     public int[] getPlacementPoints() {
         return placementPoints;
     }
+
+    /**
+     * <p>
+     * This method returns the path of the JSP to show
+     * </p>
+     * 
+     * @return <code>String</code> containing the JSP's path
+     */
+    @Override
+    protected String getPageName() {
+        return "/tournaments/" + getContestPrefix() + "/online/memberResults.jsp";
+    }
 }

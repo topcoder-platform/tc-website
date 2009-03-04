@@ -47,4 +47,15 @@ public class ProjectDetails extends ProjectDetailsBase {
     protected String getContestPrefix() {
         return Constants.TCO09_SHORT_DESC;
     }
+    /**
+     * <p>
+     * This method returns the path of the JSP to show
+     * </p>
+     * 
+     * @return <code>String</code> containing the JSP's path
+     */
+    @Override
+    protected String getPageName() {
+        return "/tournaments/" + getContestPrefix() + "/online/projectDetails.jsp";
+    }
 }

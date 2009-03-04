@@ -8,19 +8,24 @@
  * Since 2009 TopCoder Open Site Integration
 --%>
 <%@ page contentType="text/html;charset=utf-8" %> 
+<%@ page import="com.topcoder.shared.util.ApplicationServer, com.topcoder.web.tc.Constants" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
  
-<c:set var="rscContest" value="${resultMap['contest_details']}"/>
-<c:set var="rsc" value="${resultMap['contest_projects']}"/>
 <c:set var="projectType" value="${contestDetailsRow.map['project_category_id']}"/>
 <c:set var="DESIGN_PROJECT_TYPE" value="<%=Constants.DESIGN_PROJECT_TYPE%>"/>
 <c:set var="DEVELOPMENT_PROJECT_TYPE" value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>"/>
 <c:set var="ARCHITECTURE_PROJECT_TYPE" value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>"/>
 <c:set var="ASSEMBLY_PROJECT_TYPE" value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>"/>
 <c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
+
+<c:set var="contestDetails" value="${resultMap['contest_details']}"/>
+<c:set var="contestDetailsRow" value="${contestDetails[0]}"/>
+
+<c:set var="projectDetails" value="${resultMap['projectDetails']}"/>
+<c:set var="projectDetailsRow" value="${projectDetails[0]}"/>
 
 <c:choose>
     <c:when test="${projectType == DESIGN_PROJECT_TYPE}">
@@ -107,18 +112,46 @@
                                                         <div>   
                                                             <div class="pageContent">
                                                                 <h2 class="title"> ${projectDesc} Competition Leaderboard</h2>
+                                                                <h2><a href="${sessionInfo.servletPath}?module=ContestDetails&amp;eid=${event_id}&amp;ct=${contestDetailsRow.map['contest_id']}">
+                                                                       ${contestDetailsRow.map['contest_name']}
+                                                                   </a> -
+                                                                   <a href="${TCS_SITE}/catalog/c_component.jsp?comp=${projectDetailsRow.map['component_id']}">
+                                                                       ${projectDetailsRow.map['component_name']}
+                                                                   </a>
+                                                                    <c:if test="${projectDetailsRow.map['complete_status'] != 1}">
+                                                                        *
+                                                                    </c:if>
+                                                                  </h2><br />
+                                                                    <c:if test="${projectDetailsRow.map['complete_status'] == 1}">
+                                                                        <a href="/tc?module=CompContestDetails&amp;pj=${projectDetailsRow.map['project_id']}">
+                                                                            contest details
+                                                                        </a>
+                                                                    </c:if>
 																<div><p>
 																	<table class="data" width="100%" cellpadding="0" cellspacing="0">
-																		<tr>
-																			<th class="first">&nbsp;</th>
-																			<th>Leaderboard</th>
-																			<th class="last">&nbsp;</th>
-																		</tr>
-																		<tr>
-																			<td class="first">&nbsp;</td>
-																			<td class="first last alignText">Table Row</td>
-																			<td class="last">&nbsp;</td>
-																		</tr>
+                                                                        <tr><th colspan="7">${contestDetailsRow.map['contest_name']}</th></tr>
+                                                                        <tr>
+                                                                            <th class="first">&nbsp;</th>
+                                                                            <th>Competitor</th>
+                                                                            <th>Submission Date</th>
+                                                                            <th>Place</th>
+                                                                            <th>Placement Points</th>
+                                                                            <th>Score</th>
+                                                                            <th class="last">&nbsp;</th>
+                                                                        </tr>
+                                                                        <c:forEach items="${results}" var="result">
+                                                                            <tr>
+                                                                                <th class="first">
+                                                                                    <tc-webtag:handle coderId="${result.userID}" context="${tab}" />
+                                                                                </th>
+                                                                                <th><fmt:formatDate value="${result.submitTimestamp}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></th>
+                                                                                <th>${result.placed}</th>
+                                                                                <th>${result.points}</th>
+                                                                                <th class="last">
+                                                                                    ${result.score}
+                                                                                </th>
+                                                                            </tr>
+                                                                        </c:forEach>
 																	</table></p>
 																</div>
                                                             </div>
