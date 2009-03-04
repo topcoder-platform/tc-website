@@ -30,7 +30,7 @@
     String context = TCO09Helper.getContext(phaseId);
 %>
 <jsp:include page="../leaderboardPageHead.jsp">
-    <jsp:param name="phase_id" value="${phaseId}" />
+    <jsp:param name="phase_id" value="<%= phaseId %>" />
     <jsp:param name="add_title_tag" value="${true}" />
 </jsp:include>
 <%-- title suffix --%>
