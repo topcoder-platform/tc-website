@@ -41,84 +41,90 @@
 </script>
 
 
-                <form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
-                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AlgorithmQualification"/>
-                <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
-                <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
-                <tc-webtag:hiddenInput name="<%=AdvancersBase.FULL_LIST%>"/>
-                <div align="center">
-                <a href="/tco08?module=AlgorithmQualification">Reset sorting</a>
+<form name="advancersForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AlgorithmQualification"/>
+    <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+    <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+    <tc-webtag:hiddenInput name="<%=AdvancersBase.FULL_LIST%>"/>
+    <div align="center">
+        <a href="/tco09?module=AlgorithmQualification">Reset sorting</a>
 
-                <c:choose>
-                    <c:when test="${full}">
-                        | <a href="/tco08?module=AlgorithmQualification&amp;full=false">Pages</a>
-                        | Full view
-                    </c:when>
-                    <c:otherwise>
-                        | Page view
-                        | <a href="/tco08?module=AlgorithmQualification&amp;full=true">Full view</a>
-                    </c:otherwise>
-                </c:choose>
+        <c:choose>
+            <c:when test="${full}">
+                | <a href="/tco09?module=AlgorithmQualification&amp;full=false">Pages</a>
+                | Full view
+            </c:when>
+            <c:otherwise>
+                | Page view
+                | <a href="/tco09?module=AlgorithmQualification&amp;full=true">Full view</a>
+            </c:otherwise>
+        </c:choose>
 
-                <br />
-                    <c:if test="${!full}">
-                        <div class="pagingBox">
-                            <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                            | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
-                        </div>
-                    </c:if>
-                <br />
-
-                <table cellpadding="0" cellspacing="0" class="stat" style="width: 400px;">
-                <thead>
-                    <tr>
-                        <th>
-                            <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
-                            <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
-                        </th>
-                        <th>
-                            <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round_name")%>"/>">Round</a>
-                        </th>
-                        <th>
-                            <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
-                        </th>
-                        <th>
-                            <a href="/tco08?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("points")%>"/>">Points</a>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%boolean even = false;%>
-<%-- formatting this crappy to save space in the download to the client --%>
-<rsc:iterator list="<%=rsc%>" id="resultRow">
-<tr class="<%=(even ? "dark" : "light")%>">
-
-<td class="value"><tc-webtag:handle coderId='${resultRow.map["coder_id"]}' context="algorithm"/></td>
-<td class="valueC" nowrap="nowrap"><c:out value="${resultRow.map['round_name']}" default="Bye"/></td>
-<td class="valueR">${resultRow.map["rating"]}</td>
-<td class="valueR"><c:choose><c:when test="${resultRow.map['points']==null}">Bye</c:when><c:otherwise><fmt:formatNumber value="${resultRow.map['points']}"  pattern="#.00"/></c:otherwise></c:choose></td>
-</tr><%even = !even;%></rsc:iterator>
-
-                </tbody>
-                </table>
+        <br />
+            <c:if test="${!full}">
+                <div class="pagingBox">
+                    <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                    | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                 </div>
+            </c:if>
+        <br />
+
+        <table cellpadding="0" cellspacing="0" class="data" width="100%">
+            <tr>
+                <th class="first">&nbsp;</th>
+                <th>
+                    <a href="/tco09?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
+                    <br /><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
+                </th>
+                <th>
+                    <a href="/tco09?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round_name")%>"/>">Round</a>
+                </th>
+                <th>
+                    <a href="/tco09?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
+                </th>
+                <th>
+                    <a href="/tco09?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("points")%>"/>">Points</a>
+                </th>
+                <th class="last">&nbsp;</th>
+            </tr>
+            <rsc:iterator list="<%=rsc%>" id="resultRow">
+                <tr>
+                    <td class="first">&nbsp;</td>
+                    <td class="value alignText">
+                        <tc-webtag:handle coderId='${resultRow.map["coder_id"]}' context="algorithm"/>
+                    </td>
+                    <td class="valueC" nowrap="nowrap"><c:out value="${resultRow.map['round_name']}" default="Bye"/></td>
+                    <td class="valueR">${resultRow.map["rating"]}</td>
+                    <td class="valueR">
+                        <c:choose>
+                            <c:when test="${resultRow.map['points']==null}">
+                                Bye
+                            </c:when>
+                            <c:otherwise>
+                                <fmt:formatNumber value="${resultRow.map['points']}"  pattern="#.00"/>
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td class="last">&nbsp;</td>
+                </tr>
+            </rsc:iterator>
+        </table>
+    </div>
+    <br />
+    <c:if test="${!full}">
+        <div align="center">
+            <div class="pagingBox">
+                <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                 <br />
-                    <c:if test="${!full}">
-                        <div align="center">
-                            <div class="pagingBox">
-                               <%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                               | <%=(rsc.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
-                            
-                               <br />
-                            
-                               View &#160;
-                               <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
-                               &#160;at a time starting with &#160;
-                               <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4"/>
-                                <button name="nameSubmit" value="submit" type="submit">Go</button>
-                            </div>
-                        </div>
-                    </c:if>
-                </form>
+                View &#160;
+                <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
+                &#160;at a time starting with &#160;
+                <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4"/>
+                <button name="nameSubmit" value="submit" type="submit">Go</button>
+            </div>
+        </div>
+    </c:if>
+</form>
 
 <jsp:include page="../../leaderboardPageBottom.jsp"/>
