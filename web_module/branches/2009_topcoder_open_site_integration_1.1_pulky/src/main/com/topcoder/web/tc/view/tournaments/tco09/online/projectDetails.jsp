@@ -9,7 +9,42 @@
 --%>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-        
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ 
+<c:set var="rscContest" value="${resultMap['contest_details']}"/>
+<c:set var="rsc" value="${resultMap['contest_projects']}"/>
+<c:set var="projectType" value="${contestDetailsRow.map['project_category_id']}"/>
+<c:set var="DESIGN_PROJECT_TYPE" value="<%=Constants.DESIGN_PROJECT_TYPE%>"/>
+<c:set var="DEVELOPMENT_PROJECT_TYPE" value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>"/>
+<c:set var="ARCHITECTURE_PROJECT_TYPE" value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>"/>
+<c:set var="ASSEMBLY_PROJECT_TYPE" value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>"/>
+<c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
+
+<c:choose>
+    <c:when test="${projectType == DESIGN_PROJECT_TYPE}">
+        <c:set var="tab" value="design"/>
+        <c:set var="projectDesc" value="Design"/>
+    </c:when>
+    <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE}">
+        <c:set var="tab" value="development"/>
+        <c:set var="projectDesc" value="Development"/>
+    </c:when>
+    <c:when test="${projectType == ARCHITECTURE_PROJECT_TYPE}">
+        <c:set var="tab" value="architecture"/>
+        <c:set var="projectDesc" value="Architecture"/>
+    </c:when>
+    <c:when test="${projectType == ASSEMBLY_PROJECT_TYPE}">
+        <c:set var="tab" value="assembly"/>
+        <c:set var="projectDesc" value="Assembly"/>
+    </c:when>
+    <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
+        <c:set var="tab" value="specification"/>
+        <c:set var="projectDesc" value="Specification"/>
+    </c:when>
+</c:choose>
+            
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
@@ -56,12 +91,12 @@
                                             
                                             <jsp:include page="../secondaryNav.jsp" >
                                                 <jsp:param name="mainTab" value="online"/>
-                                                <jsp:param name="secondaryTab" value="architecture"/>
+                                                <jsp:param name="secondaryTab" value="${tab}"/>
                                             </jsp:include>
 
                                             <jsp:include page="../tertiaryNav.jsp" >
                                                 <jsp:param name="mainTab" value="online"/>
-                                                <jsp:param name="secondaryTab" value="architecture"/>
+                                                <jsp:param name="secondaryTab" value="${tab}"/>
                                                 <jsp:param name="tertiaryTab" value="leaderboard"/>
                                             </jsp:include>
                                             
@@ -71,7 +106,7 @@
                                                     <div id="mainContentInner">
                                                         <div>   
                                                             <div class="pageContent">
-                                                                <h2 class="title"> Architecture Competition Leaderboard</h2>
+                                                                <h2 class="title"> ${projectDesc} Competition Leaderboard</h2>
 																<div><p>
 																	<table class="data" width="100%" cellpadding="0" cellspacing="0">
 																		<tr>

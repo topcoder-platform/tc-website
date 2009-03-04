@@ -3,6 +3,7 @@ package com.topcoder.web.tc.controller.request.development;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 
@@ -42,7 +43,9 @@ public abstract class StatBase extends Base {
             dataRequest.setProperties(filteredMap);
             dataRequest.setContentHandle(getCommandName());
             DataAccessInt dai = getDataAccess(getDataSourceName(), true);
-            Map result = dai.getData(dataRequest);
+            
+            // This had to be fixed, otherwise JSTL confuses casts.
+            Map<String, ResultSetContainer> result = dai.getData(dataRequest);
 
             //probably need to change this to sort multiple datasets
             /* ResultSetContainer rsc = (ResultSetContainer)result.get(dataRequest.getContentHandle());

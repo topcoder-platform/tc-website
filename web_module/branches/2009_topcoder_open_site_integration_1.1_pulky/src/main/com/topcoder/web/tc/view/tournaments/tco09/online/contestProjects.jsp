@@ -8,8 +8,47 @@
  * Since 2009 TopCoder Open Site Integration
 --%>
 <%@ page contentType="text/html;charset=utf-8" %> 
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-        
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+ 
+<c:set var="contestDetails" value="${resultMap['contest_details']}"/>
+<c:set var="contestProjects" value="${resultMap['contest_projects']}"/>
+<c:set var="contestDetailsRow" value="${contestDetails[0]}"/>
+
+<c:set var="projectType" value="${contestDetailsRow.map['project_category_id']}"/>
+<c:set var="DESIGN_PROJECT_TYPE" value="<%=Constants.DESIGN_PROJECT_TYPE%>"/>
+<c:set var="DEVELOPMENT_PROJECT_TYPE" value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>"/>
+<c:set var="ARCHITECTURE_PROJECT_TYPE" value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>"/>
+<c:set var="ASSEMBLY_PROJECT_TYPE" value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>"/>
+<c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
+<c:set var="TCS_SITE" value="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>"/>
+<c:set var="incompleteProjects" value="false"/>
+
+<c:choose>
+    <c:when test="${projectType == DESIGN_PROJECT_TYPE}">
+        <c:set var="tab" value="design"/>
+        <c:set var="projectDesc" value="Design"/>
+    </c:when>
+    <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE}">
+        <c:set var="tab" value="development"/>
+        <c:set var="projectDesc" value="Development"/>
+    </c:when>
+    <c:when test="${projectType == ARCHITECTURE_PROJECT_TYPE}">
+        <c:set var="tab" value="architecture"/>
+        <c:set var="projectDesc" value="Architecture"/>
+    </c:when>
+    <c:when test="${projectType == ASSEMBLY_PROJECT_TYPE}">
+        <c:set var="tab" value="assembly"/>
+        <c:set var="projectDesc" value="Assembly"/>
+    </c:when>
+    <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
+        <c:set var="tab" value="specification"/>
+        <c:set var="projectDesc" value="Specification"/>
+    </c:when>
+</c:choose>
+            
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
@@ -56,12 +95,12 @@
                                             
                                             <jsp:include page="../secondaryNav.jsp" >
                                                 <jsp:param name="mainTab" value="online"/>
-                                                <jsp:param name="secondaryTab" value="architecture"/>
+                                                <jsp:param name="secondaryTab" value="${tab}"/>
                                             </jsp:include>
 
                                             <jsp:include page="../tertiaryNav.jsp" >
                                                 <jsp:param name="mainTab" value="online"/>
-                                                <jsp:param name="secondaryTab" value="architecture"/>
+                                                <jsp:param name="secondaryTab" value="${tab}"/>
                                                 <jsp:param name="tertiaryTab" value="leaderboard"/>
                                             </jsp:include>
                                             
@@ -71,20 +110,63 @@
                                                     <div id="mainContentInner">
                                                         <div>   
                                                             <div class="pageContent">
-                                                                <h2 class="title"> Architecture Competition Leaderboard</h2>
-																<div><p>
+                                                                <h2 class="title"> ${projectDesc} Competition Leaderboard</h2>
+                                                                <h2><a href="${sessionInfo.servletPath}?module=ContestDetails&amp;eid=${event_id}&amp;ct=${contestDetailsRow.map['contest_id']}">
+                                                                        ${contestDetailsRow.map['contest_name']}
+                                                                    </a> - Components
+                                                                </h2>
+															<div><p>
 																	<table class="data" width="100%" cellpadding="0" cellspacing="0">
-																		<tr>
-																			<th class="first">&nbsp;</th>
-																			<th>Leaderboard</th>
-																			<th class="last">&nbsp;</th>
-																		</tr>
-																		<tr>
-																			<td class="first">&nbsp;</td>
-																			<td class="first last alignText">Table Row</td>
-																			<td class="last">&nbsp;</td>
-																		</tr>
+                                                                            <tr><th colspan="5">${contestDetailsRow.map['contest_name']}</th></tr>
+                                                                            <tr>
+                                                                                <th class="first">&nbsp;</th>
+                                                                                <th>Component</th>
+                                                                                <th>Start Date</th>
+                                                                                <th>End Date</th>
+                                                                                <th class="last">&nbsp;</th>
+                                                                            </tr>
+                                                                            <c:forEach items="${contestProjects}" var="project">
+                                                                                <tr>
+                                                                                    <th class="first">
+                                                                                        <c:choose>
+                                                                                            <c:when test="${project.map['viewable'] == 1}">
+                                                                                                <a href="${TCS_SITE}/catalog/c_component.jsp?comp=${project.map['component_id']}">
+                                                                                                    ${project.map['component_name']}
+                                                                                                </a>
+                                                                                            </c:when>
+                                                                                            <c:otherwise>
+                                                                                                ${project.map['component_name']}
+                                                                                            </c:otherwise>
+                                                                                        </c:choose>
+                                                                                        <c:if test="${project.map['is_complete'] == 0}">
+                                                                                            *
+                                                                                            <c:set var="incompleteProjects" value="true"/>
+                                                                                        </c:if>
+                                                                                        | 
+                                                                                        <a href="${sessionInfo.servletPath}?module=ProjectDetails&amp;eid=${event_id}&amp;ct=${contestDetailsRow.map['contest_id']}&amp;pj=${project.map['project_id']}">
+                                                                                            results
+                                                                                        </a>
+                                                                                        <c:if test="${project.map['is_complete'] != 0}">
+                                                                                            |
+                                                                                            <a href="/tc?module=CompContestDetails&amp;pj=${project.map['project_id']}">
+                                                                                                contest details
+                                                                                            </a>
+                                                                                        </c:if>
+                                                                                    </th>
+                                                                                    <th>
+                                                                                        <fmt:formatDate value="${project.map['start_date']}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
+                                                                                    </th>
+                                                                                    <th class="last">
+                                                                                        <fmt:formatDate value="${project.map['end_date']}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
+                                                                                    </th>
+                                                                                </tr>
+                                                                            </c:forEach>
 																	</table></p>
+                                                                    <br /><br />
+                                                                    <c:if test="${incompleteProjects}">
+                                                                        * This project is still in progress, results subject to change
+                                                                        <br /><br />
+                                                                    </c:if>
 																</div>
                                                             </div>
                                                         </div>
