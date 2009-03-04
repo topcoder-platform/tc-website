@@ -73,7 +73,7 @@
             <tr>
                 <th class="first">&nbsp;</th>
                 <th>
-                    <a href="/tco09?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>" class="table-head"/>">Handle</a>
+                    <a class="table-head" href="/tco09?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
                     <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
                 </th>
                 <th>
