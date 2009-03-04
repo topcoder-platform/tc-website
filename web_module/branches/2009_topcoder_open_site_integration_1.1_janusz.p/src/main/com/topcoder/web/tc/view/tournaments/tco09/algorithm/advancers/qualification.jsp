@@ -94,8 +94,8 @@
                         <tc-webtag:handle coderId='${resultRow.map["coder_id"]}' context="algorithm"/>
                     </td>
                     <td class="valueC" nowrap="nowrap"><c:out value="${resultRow.map['round_name']}" default="Bye"/></td>
-                    <td class="valueR">${resultRow.map["rating"]}</td>
-                    <td class="valueR">
+                    <td class="valueC">${resultRow.map["rating"]}</td>
+                    <td class="valueC">
                         <c:choose>
                             <c:when test="${resultRow.map['points']==null}">
                                 Bye
