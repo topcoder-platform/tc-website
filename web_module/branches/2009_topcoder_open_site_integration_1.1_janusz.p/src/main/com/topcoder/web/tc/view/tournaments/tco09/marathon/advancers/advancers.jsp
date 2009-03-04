@@ -23,7 +23,7 @@
 <c:set var="finals_id" value="13769"/>
 
 <jsp:include page="../../leaderboardPageHead.jsp">
-    <jsp:param name="phase_id" value="${TCO09Constants.MARATHON_PHASE_ID}"/>
+    <jsp:param name="phase_id" value="${TCO09Constants.MARATHON_MATCH_PHASE_ID}"/>
     <jsp:param name="add_title_tag" value="${true}" />
 </jsp:include>
 <%-- title suffix --%>
