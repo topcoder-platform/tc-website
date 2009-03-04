@@ -53,7 +53,7 @@
       <c:set var="secondaryTab" value="advancers" />
       <c:set var="tertiaryNav" value="leaderboard" />
       <c:set var="title" value="Algorithm Competition" />
-  </c:when>  <c:when test="${phaseId == Constants.MARATHON_PHASE_ID}">
+  </c:when>  <c:when test="${phaseId == Constants.MARATHON_MATCH_PHASE_ID}">
       <c:set var="mainTab" value="marathon" />
       <c:set var="secondaryTab" value="advancers" />
       <c:set var="tertiaryNav" value="leaderboard" />
