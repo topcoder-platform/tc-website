@@ -39,19 +39,17 @@
 </h2>
 <div><p>
     <table class="data" width="100%" cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th class="first">&nbsp;</th>
-                <th class="header" nowrap="nowrap">Component Name</th>
-                <th class="headerC">Submit Date</th>
-                <th class="headerC">Points</th>
-                <th class="headerC">Placed</th>
-                <th class="headerC">Placement Points</th>
-                <th class="last">&nbsp;</th>
-            </tr>
-        </thead>
+        <tr>
+            <th class="first">&nbsp;</th>
+            <th class="header" nowrap="nowrap">Component Name</th>
+            <th class="headerC">Submit Date</th>
+            <th class="headerC">Points</th>
+            <th class="headerC">Placed</th>
+            <th class="headerC">Placement Points</th>
+            <th class="last">&nbsp;</th>
+        </tr>
         <%for (int i = 0; i < lst.size(); i++) { %>
-            <tr <%=(i%2==1 ? "class=\"even\"" : "")%>">
+            <tr>
                 <% UserContestResult result = (UserContestResult) lst.get(i); %>
                 <td class="first">&nbsp</td>
                 <td class="value" nowrap="nowrap">
