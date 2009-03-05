@@ -232,8 +232,8 @@
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Finalists documents due</td>
-                                                                            <td class="first last alignText">April 27, 2009 at 5:00 p.m.**</td>
-                                                                            <td class="last">&nbsp;</td>
+                                                                            <td class="first last alignText">April 27, 2009 at <a href="http://timeanddate.com/worldclock/fixedtime.html?month=4&amp;day=27&amp;year=2009&amp;hour=17&amp;min=0&amp;sec=0&amp;p1=98">5:00 p.m.</a>**</td>
+                                                                          <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                     </table></p>
                                                                     <p><em>*Times listed in Eastern Standard Time (UTC/GMT -5).<br />
