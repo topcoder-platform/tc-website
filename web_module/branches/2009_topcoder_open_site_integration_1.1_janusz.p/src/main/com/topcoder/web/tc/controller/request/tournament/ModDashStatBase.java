@@ -36,6 +36,7 @@ public abstract class ModDashStatBase extends Base {
     abstract protected void statProcessing() throws TCWebException;
     
     protected JSONArray getFeedData() throws TCWebException {
+        System.out.println("getting feed data: " + getFeedURL());
         byte[] buffer = new byte[8192];
         try {
             URL feedUrl = new URL(getFeedURL());
@@ -48,6 +49,7 @@ public abstract class ModDashStatBase extends Base {
             
             StandardJSONDecoder jsonDecoder = new StandardJSONDecoder();
             JSONObject feedData = jsonDecoder.decodeObject(jsonString.toString());
+            System.out.println("Feed data retrieved");
             return feedData.getArray(JSON_FEED_ROWS_ARRAY_KEY);
             
         } catch (MalformedURLException e) {
