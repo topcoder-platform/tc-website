@@ -92,7 +92,7 @@
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=marathon&d4=advancers&d5=summary" class="${tertiaryTab == 'summary' ? 'on' : ''}">Summary</a></li>
                     </c:when>
                     <c:when test="${mainTab == 'moddash' && secondaryTab == 'advancers'}">
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=moddash&d4=advancers&d5=leaderboard" class="${tertiaryTab == 'leaderboard' ? 'on' : ''}">Leaderboard</a></li>
+                        <li><a href="/tco09?module=ModDashLeaderboard" class="${tertiaryTab == 'leaderboard' ? 'on' : ''}">Leaderboard</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=moddash&d4=advancers&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Bracket</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=moddash&d4=advancers&d5=summary" class="${tertiaryTab == 'summary' ? 'on' : ''}">Summary</a></li>
                     </c:when>

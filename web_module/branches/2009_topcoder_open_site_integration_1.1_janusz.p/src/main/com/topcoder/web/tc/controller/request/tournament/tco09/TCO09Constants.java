@@ -19,6 +19,7 @@ public final class TCO09Constants extends HashMap<String, Object> {
     public final static int ALGORITHM_QUALIFICATION_PHASE_ID = 1001;
     public final static int ALGORITHM_PHASE_ID = 1002;
     public final static int MARATHON_MATCH_PHASE_ID = 1004;
+    public final static int MOD_DASH_PHASE_ID = 1005;
     public TCO09Constants() {
        this.put("DESIGN_PHASE_ID", DESIGN_PHASE_ID);
        this.put("DEVELOPMENT_PHASE_ID", DEVELOPMENT_PHASE_ID);
@@ -28,6 +29,7 @@ public final class TCO09Constants extends HashMap<String, Object> {
        this.put("ALGORITHM_QUALIFICATION_PHASE_ID", ALGORITHM_QUALIFICATION_PHASE_ID);
        this.put("ALGORITHM_PHASE_ID", ALGORITHM_PHASE_ID);
        this.put("MARATHON_MATCH_PHASE_ID", MARATHON_MATCH_PHASE_ID);
+       this.put("MOD_DASH_PHASE_ID", MOD_DASH_PHASE_ID);
        initialized = true;
     }
     public void clear() {
