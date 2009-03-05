@@ -22,7 +22,7 @@ import com.topcoder.web.tc.controller.request.development.Base;
 
 public abstract class ModDashStatBase extends Base {
     abstract protected String getFeedURL();
-    protected abstract String getPageName();
+    abstract protected String getPageName();
     private static String JSON_FEED_ROWS_ARRAY_KEY = "data";
     private static String USER_HANDLE_KEY = "handle";
     private static String DB_REQUEST_USER_PARAMETER_NAME = "ha";
@@ -32,6 +32,9 @@ public abstract class ModDashStatBase extends Base {
     private static String WEB_REQUEST_DATA_PARAMETER_NAME = "feedData";
     
     protected void developmentProcessing() throws TCWebException {
+        System.out.println("mam development processing");
+        System.out.println("Feed: " + getFeedURL());
+        System.out.println("Next page: " + getNextPage());
         /*
         Request dataRequest = new Request();
         byte[] buffer = new byte[8192];

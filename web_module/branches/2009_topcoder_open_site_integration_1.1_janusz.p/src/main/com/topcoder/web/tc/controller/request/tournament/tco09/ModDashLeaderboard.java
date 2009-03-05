@@ -4,7 +4,7 @@ import com.topcoder.web.tc.controller.request.tournament.ModDashStatBase;
 
 public class ModDashLeaderboard extends ModDashStatBase {
     
-    private static String CONTEST_PREFIX = "tco09";
+    //private static String CONTEST_PREFIX = "tco09";
 
     @Override
     protected String getFeedURL() {
@@ -14,7 +14,7 @@ public class ModDashLeaderboard extends ModDashStatBase {
     @Override
     protected String getPageName() {
         System.out.println("Geting next page");
-        return "/tournaments/" + CONTEST_PREFIX + "/moddash/advancers/leaderboard.jsp";
+        return "/tournaments/tco09/moddash/advancers/leaderboard.jsp";
     }
 
 }
