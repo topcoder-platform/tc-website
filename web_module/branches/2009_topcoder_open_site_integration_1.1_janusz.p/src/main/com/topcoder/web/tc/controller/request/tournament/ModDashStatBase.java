@@ -31,6 +31,8 @@ import com.topcoder.web.tc.controller.request.development.Base;
  * Also it provides method for retrieval of userId for given handle.
  *    
  * @author TCSDEVELOPER
+ * Version 1.0
+ * Since 2009 TopCoder Open Site Integration 1.1
  */
 public abstract class ModDashStatBase extends Base {
     /**
