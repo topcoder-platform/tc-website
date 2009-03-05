@@ -15,7 +15,7 @@
     <% JSONObject row = feedData.getJSONObject(i); %>
     handle: <%= row.getString("handle") %><br/>    
     &nbsp; &nbsp; &nbsp; user_id: <%= row.getInt("user_id") %><br/>
-    &nbsp; &nbsp; &nbsp; tco_points: <%= row.getInt("tco_points") %><br/>  
+    &nbsp; &nbsp; &nbsp; tco_points: <%= row.getString("tco_points") %><br/>  
 <% } %>
 
 </body>
