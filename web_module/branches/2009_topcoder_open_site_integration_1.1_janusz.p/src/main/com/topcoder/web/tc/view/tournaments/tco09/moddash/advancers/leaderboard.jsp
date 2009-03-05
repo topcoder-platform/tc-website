@@ -1,105 +1,43 @@
-<%--
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
- *
- * This JSP shows moddash track leaderboard page.
- *
- * Author TCSDEVELOPER
- * Version 1.0
- * Since 2009 TopCoder Open Site Integration
---%>
-<%@ page contentType="text/html;charset=utf-8" %> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-        
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<?xml version="1.0" encoding="UTF-8" ?>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="com.topcoder.json.object.JSONArray,
+                 com.topcoder.json.object.JSONObject" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<title>TCO 09 : Mod Dash</title>
+<% JSONArray feedData =  (JSONArray) request.getAttribute("feedData"); %>              
+<jsp:useBean id="TCO09Constants" class="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants"/>
 
-<!-- Meta Tags -->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<jsp:include page="../../leaderboardPageHead.jsp" />
+    <jsp:param name="phase_id" value="${TCO09Constants.MOD_DASH_PHASE_ID}" />
+    <jsp:param name="add_title_tag" value="${true}" />
+</jsp:include>
+<%-- title suffix --%>
+    Leaderboard
+</h2>
+<br />
+<table class="data" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <th class="first">&nbsp;</th>
+        <th>Handle</th>
+        <th>TCO Points</th>
+        <th>Results</th>
+        <th class="last">&nbsp;</th>
+    </tr>
+<% for (int i=0; i<feedData.getSize(); i++) { %>
+    <% JSONObject competitor = feedData.getJSONObject(i); %>
+<tr>
+<td class="first">&nbsp;</td>
+<td class="value textAlign"><tc-webtag:handle coderId="${competitor.getInt(coder_id)}"/></td>
+<td class="valueC"><%= competitor.getString("tco_points") %></td>
+<td class="valueC"><a href="/tco09?module=ModDashResults&amp;handle=<%= competitor.getString("handle") %>">results</a></td>
+<td class="last">&nbsp;</td>
+</tr>
+<% } %>
+</table>
+<br />
 
-<!-- External CSS -->
-<link rel="stylesheet" href="css/tournaments/tco09.css" media="all" type="text/css" />
-<!--[if IE 6]>
-<link rel="stylesheet" type="text/css" media="screen" href="css/screen-ie6.css" />
-<![endif]-->
-
-<!-- External JavaScripts -->
-<script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
-<script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
-<script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
-<script type="text/javascript" src="/js/arena.js"></script> 
-<style type="text/css">
-<!--
-.style2 {color: #FF0000}
--->
-</style>
-</head>
-
-<body id="page">
-
-    <div id="wrapper">
-        <div id="wrapperInner">
-            <div id="wrapperContent">
-                
-                <div id="wrapperContentInner">
-                
-                    <jsp:include page="../../header.jsp"/>
-                    
-                    <jsp:include page="../../mainNav.jsp" >
-                        <jsp:param name="mainTab" value="moddash"/>
-                    </jsp:include>
-                    
-                    <div id="content">
-                            <div class="contentTopLeft"><div class="contentTopRight">
-                                <div class="contentTopInner"></div>
-                            </div></div>
-                            
-                            <div id="contentInner" class="contentInner">
-                            
-                                <div id="contentInnerInner">
-                                
-                                    <div class="bottomArea">
-                                        <div class="bottomLeft"><div class="bottomRight">
-                                            
-                                            <jsp:include page="../../secondaryNav.jsp" >
-                                                <jsp:param name="mainTab" value="moddash"/>
-                                                <jsp:param name="secondaryTab" value="advancers"/>
-                                            </jsp:include>
-
-                                            <jsp:include page="../../tertiaryNav.jsp" >
-                                                <jsp:param name="mainTab" value="moddash"/>
-                                                <jsp:param name="secondaryTab" value="advancers"/>
-                                                <jsp:param name="tertiaryTab" value="leaderboard"/>
-                                            </jsp:include>
-                                            
-                                            <div class="bottomAreaContent">
-                                                
-                                                <jsp:include page="../../comingSoon.jsp"/>
-
-                                                <jsp:include page="../../sponsors.jsp"/>
-                                                
-                                            </div><!-- End .bottomAreaContent -->
-                                        
-                                        </div></div>
-                                    </div><!-- End .bottomArea -->
-                                    
-                                </div><!-- End #contentInnerInner -->
-                            
-                            </div><!-- End #contentInner -->
-                            
-                            <div class="contentBottomLeft"><div class="contentBottomRight">
-                                <div class="contentTopInner"></div>
-                            </div></div>
-                            
-                    </div><!-- End #content -->
-                
-                </div><!-- End #wrapperContentInner -->
-                
-            </div>
-        </div><!-- End #wrapperInner -->
-    </div><!-- End #wrapper -->
-
-<jsp:include page="../../footer.jsp"/>
-</body>
-</html>
+<jsp:include page="../../leaderboardPageBottom.jsp" />
