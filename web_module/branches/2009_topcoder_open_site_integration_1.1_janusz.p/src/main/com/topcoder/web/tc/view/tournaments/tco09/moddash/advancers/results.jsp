@@ -30,7 +30,7 @@
     <tr>
         <th class="first">&nbsp;</th>
         <th>Issue</th>
-        <th>Date</th>
+        <th style='text-align: center'>Date</th>
         <th style='text-align: center'>TCO Points</th>
         <th class="last">&nbsp;</th>
     </tr>
