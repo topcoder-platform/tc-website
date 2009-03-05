@@ -74,7 +74,7 @@ public abstract class ModDashStatBase extends Base {
             System.out.println("Next page: " + getPageName());
             setNextPage(getPageName());
             setIsNextPageInContext(true);
-            /*
+            
         } catch (MalformedURLException e) {
             throw new TCWebException("Feed url \"" + getFeedURL() + "\" is malformed.", e);
         } catch (IOException e) {
@@ -84,6 +84,5 @@ public abstract class ModDashStatBase extends Base {
         } catch (Exception e) {
             throw new TCWebException("An exception was thrown when processing feed data.", e);
         }
-        */
     }
 }
