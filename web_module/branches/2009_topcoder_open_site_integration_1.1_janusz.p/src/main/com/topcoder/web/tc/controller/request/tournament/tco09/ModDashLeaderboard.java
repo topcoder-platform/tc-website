@@ -8,7 +8,7 @@ public class ModDashLeaderboard extends ModDashStatBase {
 
     @Override
     protected String getFeedURL() {
-        return "http://www.topcoder.com/tc?module=BasicData&c=dd_mod_dash_tco_leaderboard&dsid=34&json=true";
+        return "http://topcoder.com/tc?module=BasicData&c=dd_mod_dash_tco_leaderboard&dsid=34&json=true";
     }
 
     @Override
