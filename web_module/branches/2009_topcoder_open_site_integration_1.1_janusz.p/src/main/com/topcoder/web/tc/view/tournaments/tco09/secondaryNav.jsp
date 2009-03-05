@@ -48,6 +48,7 @@
                     <li class="first"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=moddash&d4=description" class="${secondaryTab == 'description' ? 'on' : ''}"><span>Description</span></a></li>
                     <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=moddash&d4=schedule" class="${secondaryTab == 'schedule' ? 'on' : ''}"><span>Schedule</span></a></li>
                     <li class="last"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=moddash&d4=advancers&d5=leaderboard" class="${secondaryTab == 'advancers' ? 'on' : ''}"><span>Advancers</span></a></li>
+                    <li><a href="/tco09?module=ModDashLeaderboard" class="${secondaryTab == 'test' ? 'on' : ''}"><span>Test</span></a></li>
               </c:when>
               <c:when test="${mainTab == 'studio'}">
                     <li class="first"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=description" class="${secondaryTab == 'description' ? 'on' : ''}"><span>Description</span></a></li>
