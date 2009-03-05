@@ -13,7 +13,8 @@ public class ModDashLeaderboard extends ModDashStatBase {
 
     @Override
     protected String getPageName() {
-        return "/tournaments/" + CONTEST_PREFIX + "/moddash/advancers/test.jsp";
+        System.out.println("Geting next page");
+        return "/tournaments/" + CONTEST_PREFIX + "/moddash/advancers/leaderboard.jsp";
     }
 
 }

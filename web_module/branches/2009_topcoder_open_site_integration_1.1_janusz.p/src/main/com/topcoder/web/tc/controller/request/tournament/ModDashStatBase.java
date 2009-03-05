@@ -69,7 +69,7 @@ public abstract class ModDashStatBase extends Base {
             }
             getRequest().setAttribute(WEB_REQUEST_DATA_PARAMETER_NAME, rows); 
             */
-            
+            System.out.println("Next page: " + getNextPage());
             setNextPage(getNextPage());
             setIsNextPageInContext(true);
             /*
