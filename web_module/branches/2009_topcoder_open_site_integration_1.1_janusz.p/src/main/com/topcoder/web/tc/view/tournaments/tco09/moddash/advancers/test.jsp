@@ -11,8 +11,11 @@
 </head>
 <body>
 <% JSONArray feedData =  (JSONArray) request.getAttribute("feedData"); %>
-feedData: <%= feedData %><br />
-feedData.getSize(): <%= feedData.getSize() %><br />
-feedData.object0: <%= feedData.getJSONObject(0) %><br />
+<% for (int i=0; i<feedData.getSize(); i++) { %>
+    feedData: <%= feedData %><br />
+    feedData.getSize(): <%= feedData.getSize() %><br />
+    feedData.object0: <%= feedData.getJSONObject(0) %><br />
+<% } %>
+
 </body>
 </html>
