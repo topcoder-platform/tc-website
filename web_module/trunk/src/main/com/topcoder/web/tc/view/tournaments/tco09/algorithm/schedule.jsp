@@ -141,7 +141,7 @@
                                                                             <td class="first last alignText">Round 1</td>
                                                                             <td class="first last alignText">Saturday, March 7, 2009<br />
                                                                                <strong>Register:</strong> 9:00 a.m. - 11:55 a.m.<br />
-                                                                               <strong>START:</strong> 12:00 p.m.*</td>
+                                                                               <strong>START:</strong> <a href="http://timeanddate.com/worldclock/fixedtime.html?month=3&amp;day=7&amp;year=2009&amp;hour=12&amp;min=0&amp;sec=0&amp;p1=98">12:00 p.m.</a>*</td>
                                                                             <td class="first last alignText">Up to 1,800</td>
                                                                             <td class="first last alignText">720</td>
                                                                             <td class="last">&nbsp;</td>
@@ -151,7 +151,7 @@
                                                                             <td class="first last alignText">Round 2</td>
                                                                             <td class="first last alignText">Saturday, March 14, 2009<br />
                                                                                <strong>Register:</strong> 9:00 a.m. - 11:55 a.m.<br />
-                                                                               <strong>START:</strong> 12:00 p.m.**</td>
+                                                                               <strong>START:</strong> <a href="http://timeanddate.com/worldclock/fixedtime.html?month=3&amp;day=14&amp;year=2009&amp;hour=12&amp;min=0&amp;sec=0&amp;p1=98">12:00 p.m.</a>**</td>
                                                                             <td class="first last alignText">720</td>
                                                                             <td class="first last alignText">300</td>
                                                                             <td class="last">&nbsp;</td>
@@ -161,7 +161,7 @@
                                                                             <td class="first last alignText">Round 3</td>
                                                                         <td class="first last alignText">Saturday, March 21, 2009<br />
                                                                                <strong>Register:</strong> 9:00 a.m. - 11:55 a.m.<br />
-                                                                           <strong>START:</strong> 12:00 p.m.**</td>
+                                                                           <strong>START:</strong> <a href="http://timeanddate.com/worldclock/fixedtime.html?month=3&amp;day=21&amp;year=2009&amp;hour=12&amp;min=0&amp;sec=0&amp;p1=98">12:00 p.m.</a>**</td>
                                                                             <td class="first last alignText">300</td>
                                                                             <td class="first last alignText">120</td>
                                                                             <td class="last">&nbsp;</td>
@@ -171,7 +171,7 @@
                                                                             <td class="first last alignText">Round 4</td>
                                                                         <td class="first last alignText">Saturday, March 28, 2009<br />
                                                                                <strong>Register: </strong>9:00 a.m. - 11:55 a.m.<br />
-                                                                           <strong>START:</strong> 12:00 p.m.**</td>
+                                                                           <strong>START:</strong> <a href="http://timeanddate.com/worldclock/fixedtime.html?month=3&amp;day=28&amp;year=2009&amp;hour=12&amp;min=0&amp;sec=0&amp;p1=98">12:00 p.m.</a>**</td>
                                                                             <td class="first last alignText">120</td>
                                                                             <td class="first last alignText">45</td>
                                                                             <td class="last">&nbsp;</td>
@@ -181,7 +181,7 @@
                                                                             <td class="first last alignText">Round 5</td>
                                                                         <td class="first last alignText">Saturday, April 4, 2009<br />
                                                                                <strong>Register:</strong> 9:00 a.m. - 11:55 a.m.<br />
-                                                                           <strong>START:</strong> 12:00 p.m.**</td>
+                                                                           <strong>START:</strong> <a href="http://timeanddate.com/worldclock/fixedtime.html?month=4&amp;day=4&amp;year=2009&amp;hour=12&amp;min=0&amp;sec=0&amp;p1=98">12:00 p.m.</a>**</td>
                                                                             <td class="first last alignText">45</td>
                                                                             <td class="first last alignText">18</td>
                                                                             <td class="last">&nbsp;</td>
@@ -201,7 +201,7 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Semifinals</td>
                                                                             <td class="first last alignText">Wednesday, June 3, 2009<br />
-                                                                            3:00 p.m.***</td>
+                                                                              <a href="http://timeanddate.com/worldclock/fixedtime.html?month=6&amp;day=3&amp;year=2009&amp;hour=15&amp;min=0&amp;sec=0&amp;p1=127">3:00 p.m.</a>***</td>
                                                                             <td class="first last alignText">18</td>
                                                                             <td class="first last alignText">8</td>
                                                                             <td class="last">&nbsp;</td>
@@ -210,7 +210,7 @@
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Championship Round</td>
                                                                             <td class="first last alignText">Thursday, June 4, 2009<br />
-                                                                            12:30 p.m.***</td>
+                                                                              <a href="http://timeanddate.com/worldclock/fixedtime.html?month=6&amp;day=4&amp;year=2009&amp;hour=12&amp;min=30&amp;sec=0&amp;p1=127">12:30 p.m.</a>***</td>
                                                                             <td class="first last alignText">8</td>
                                                                             <td class="first last alignText">&nbsp;</td>
                                                                             <td class="last">&nbsp;</td>
@@ -226,8 +226,8 @@
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">Last day to request a visa letter</td>
-                                                                            <td class="first last alignText">April 15, 2009 at 5:00 p.m.**</td>
-                                                                            <td class="last">&nbsp;</td>
+                                                                            <td class="first last alignText">April 15, 2009 at <a href="http://timeanddate.com/worldclock/fixedtime.html?month=4&amp;day=15&amp;year=2009&amp;hour=17&amp;min=0&amp;sec=0&amp;p1=98">5:00 p.m.</a>**</td>
+                                                                          <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
