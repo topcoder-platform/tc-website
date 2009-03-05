@@ -59,7 +59,7 @@ public class AlgorithmQualification extends AdvancersBase {
      */
     @Override
     protected String getPageName() {
-        return "/tournaments/" + getContestPrefix() + "/algorithm/qualification.jsp";
+        return "/tournaments/" + getContestPrefix() + "/algorithm/advancers/qualification.jsp";
     }
     
     /* (non-Javadoc)
