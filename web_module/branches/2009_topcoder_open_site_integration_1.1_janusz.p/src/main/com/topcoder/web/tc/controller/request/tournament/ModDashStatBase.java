@@ -31,7 +31,6 @@ public abstract class ModDashStatBase extends Base {
     private static String USER_ID_PROPERTY_NAME = "user_id";
     private static String WEB_REQUEST_DATA_PARAMETER_NAME = "feedData";
     
-    @Override
     protected void developmentProcessing() throws TCWebException {
         /*
         Request dataRequest = new Request();
