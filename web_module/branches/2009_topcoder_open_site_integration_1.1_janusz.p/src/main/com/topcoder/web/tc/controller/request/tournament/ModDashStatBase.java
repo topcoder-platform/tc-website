@@ -18,8 +18,9 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.controller.request.development.Base;
 
-public abstract class ModDashStatBase extends BaseProcessor {
+public abstract class ModDashStatBase extends Base {
     abstract protected String getFeedURL();
     protected abstract String getPageName();
     private static String JSON_FEED_ROWS_ARRAY_KEY = "data";
@@ -31,7 +32,7 @@ public abstract class ModDashStatBase extends BaseProcessor {
     private static String WEB_REQUEST_DATA_PARAMETER_NAME = "feedData";
     
     @Override
-    protected void businessProcessing() throws TCWebException {
+    protected void developmentProcessing() throws TCWebException {
         /*
         Request dataRequest = new Request();
         byte[] buffer = new byte[8192];
