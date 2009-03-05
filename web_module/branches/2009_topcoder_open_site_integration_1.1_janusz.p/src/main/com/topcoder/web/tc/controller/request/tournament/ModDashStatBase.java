@@ -34,8 +34,8 @@ public abstract class ModDashStatBase extends Base {
     protected void developmentProcessing() throws TCWebException {
         System.out.println("mam development processing");
         System.out.println("Feed: " + getFeedURL());
-        System.out.println("Next page: " + getNextPage());
-        /*
+        System.out.println("Next page: " + getPageName());
+        
         Request dataRequest = new Request();
         byte[] buffer = new byte[8192];
         CachedDataAccess dataAccess = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
@@ -70,9 +70,9 @@ public abstract class ModDashStatBase extends Base {
                 
             }
             getRequest().setAttribute(WEB_REQUEST_DATA_PARAMETER_NAME, rows); 
-            */
-            System.out.println("Next page: " + getNextPage());
-            setNextPage(getNextPage());
+            
+            System.out.println("Next page: " + getPageName());
+            setNextPage(getPageName());
             setIsNextPageInContext(true);
             /*
         } catch (MalformedURLException e) {
