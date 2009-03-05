@@ -11,7 +11,7 @@
 <% JSONArray feedData =  (JSONArray) request.getAttribute("feedData"); %>              
 <jsp:useBean id="TCO09Constants" class="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants"/>
 
-<jsp:include page="../../leaderboardPageHead.jsp" />
+<jsp:include page="../../leaderboardPageHead.jsp">
     <jsp:param name="phase_id" value="${TCO09Constants.MOD_DASH_PHASE_ID}" />
     <jsp:param name="add_title_tag" value="${true}" />
 </jsp:include>
