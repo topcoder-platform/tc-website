@@ -14,6 +14,8 @@
 <% for (int i=0; i<feedData.getSize(); i++) { %>
     <% JSONObject row = feedData.getJSONObject(i); %>
     handle: <%= row.getString("handle") %><br/>    
+    &nbsp; &nbsp; &nbsp; handle: <%= row.getString("user_id") %><br/>
+    &nbsp; &nbsp; &nbsp; handle: <%= row.getString("tco_points") %><br/>  
 <% } %>
 
 </body>
