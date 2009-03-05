@@ -11,7 +11,7 @@ import com.topcoder.web.tc.controller.request.tournament.ModDashStatBase;
 /** 
  * Responsibility of this class is to process Mod Dash leaderboard feed data 
  * and pass them to appropriate view. Most of the work is done by super class
- * which is provided with feed URL and view file path. 
+ * which is supplied with feed URL and view file path. 
  * 
  * Main task that is done by this class is regarded to processing retrieved 
  * feed data. For each user from leaderboard its user_id is retrieved from db.
@@ -24,7 +24,7 @@ import com.topcoder.web.tc.controller.request.tournament.ModDashStatBase;
 public class ModDashLeaderboard extends ModDashStatBase {
    
     /**
-     * Returns url that should be used for feed data retrieval.
+     * Returns URL that should be used for feed data retrieval.
      * @return feed URL
      */
     @Override
@@ -44,6 +44,7 @@ public class ModDashLeaderboard extends ModDashStatBase {
     /**
      * This method is responsible for retrieval of userIDs for each user 
      * that competed in Mod Dash. 
+     * @throws TCWebException when any exception occurs
      */
     @Override
     protected void statProcessing() throws TCWebException {
