@@ -31,7 +31,7 @@
         <th class="first">&nbsp;</th>
         <th>Issue</th>
         <th>Date</th>
-        <th>TCO Points</th>
+        <th style='text-align: center'>TCO Points</th>
         <th class="last">&nbsp;</th>
     </tr>
 <% for (int i=0; i<feedData.getSize(); i++) { %>
