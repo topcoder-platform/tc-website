@@ -152,6 +152,11 @@
          </div>
       </td>
       <td class="value">26
+         <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=13772">Linden Lab OpenJPG Marathon Match</a></strong><br />
+         12:00 NOON<br />
+         Ends March 25 at 12:00 NOON
+         </div>
       </td>
       <td class="value">27
       </td>
