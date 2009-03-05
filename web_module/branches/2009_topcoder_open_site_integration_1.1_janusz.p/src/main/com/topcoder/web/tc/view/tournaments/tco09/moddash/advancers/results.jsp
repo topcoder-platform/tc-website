@@ -32,7 +32,7 @@
 <tr>
 <td class="first">&nbsp;</td>
 <td class="value textAlign"><a href="https://www.topcoder.com/bugs/browse/<%= competitor.getString("issue_key") %>"><%= competitor.getString("issue_key") %></a></td>
-<td class="valueC"><%= competitor.getString("created") %></td>
+<td class="valueC"><tc-webtag:format object="<%=competitor.getString("created") %>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/><%= competitor.getString("created") %></td>
 <td class="valueC"><%= competitor.getString("tco_points") %></td>
 <td class="last">&nbsp;</td>
 </tr>
