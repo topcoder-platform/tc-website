@@ -59,8 +59,8 @@ public class AlgorithmAdvancers extends AdvancersBase {
         s.addDefault(rsc.getColumnIndex("round2_sort"), "asc");
         s.addDefault(rsc.getColumnIndex("round3_sort"), "asc");
         s.addDefault(rsc.getColumnIndex("round4_sort"), "asc");
+        s.addDefault(rsc.getColumnIndex("round5_sort"), "asc");
         s.addDefault(rsc.getColumnIndex("semi_sort"), "asc");
-        s.addDefault(rsc.getColumnIndex("wildcard_sort"), "asc");
         s.addDefault(rsc.getColumnIndex("finals_sort"), "asc");
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }

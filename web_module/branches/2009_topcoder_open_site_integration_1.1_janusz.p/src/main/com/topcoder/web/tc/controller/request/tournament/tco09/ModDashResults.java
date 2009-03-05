@@ -1,12 +1,15 @@
 package com.topcoder.web.tc.controller.request.tournament.tco09;
 
+import java.text.SimpleDateFormat;
 import java.util.Map;
 
+import com.topcoder.json.object.JSONArray;
+import com.topcoder.json.object.JSONObject;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.request.tournament.ModDashStatBase;
 
 public class ModDashResults extends ModDashStatBase {
     
-    //private static String CONTEST_PREFIX = "tco09";
 
     private static String USER_HANDLE_ATTRIBUTE_NAME = "handle";
     @Override
@@ -19,6 +22,13 @@ public class ModDashResults extends ModDashStatBase {
     @Override
     protected String getPageName() {
         return "/tournaments/tco09/moddash/advancers/results.jsp";
+    }
+    
+    @Override
+    protected void statProcessing() throws TCWebException {
+        String handle = (String) getRequest().getParameter(USER_HANDLE_ATTRIBUTE_NAME);
+        Integer userId = getUserIdForHandle(handle);
+        getRequest().setAttribute(USER_ID_PROPERTY_NAME, userId);
     }
 
 }

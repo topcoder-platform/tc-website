@@ -2,13 +2,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.topcoder.json.object.JSONArray,
-                 com.topcoder.json.object.JSONObject" %>
+                 com.topcoder.json.object.JSONObject,
+                 java.text.SimpleDateFormat;" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <% JSONArray feedData =  (JSONArray) request.getAttribute("feedData"); %>              
+<%
+    String ISSUE_DATE_FORMAT = "YYYY-MM-dd HH:mm:ss.SSS";
+    String ISSUE_DATE_KEY = "created";
+    
+    SimpleDateFormat dateParser = new SimpleDateFormat(ISSUE_DATE_FORMAT); 
+%>
 <jsp:useBean id="TCO09Constants" class="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants"/>
 
 <jsp:include page="../../leaderboardPageHead.jsp">
@@ -32,7 +39,7 @@
 <tr>
 <td class="first">&nbsp;</td>
 <td class="value textAlign"><a href="https://www.topcoder.com/bugs/browse/<%= competitor.getString("issue_key") %>"><%= competitor.getString("issue_key") %></a></td>
-<td class="valueC"><tc-webtag:format object="<%=competitor.getString("created") %>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/><%= competitor.getString("created") %></td>
+<td class="valueC"><tc-webtag:format object="<%= dateParser.parse(competitor.getString("created")) %>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/><%= competitor.getString("created") %></td>
 <td class="valueC"><%= competitor.getString("tco_points") %></td>
 <td class="last">&nbsp;</td>
 </tr>
