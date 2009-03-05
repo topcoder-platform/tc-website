@@ -9,12 +9,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<% JSONArray feedData =  (JSONArray) request.getAttribute("feedData"); %>              
-<%
+<% 
+    JSONArray feedData =  (JSONArray) request.getAttribute("feedData");              
     String ISSUE_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss.SSS";
     String ISSUE_DATE_KEY = "created";
-    
-    SimpleDateFormat dateParser = new SimpleDateFormat(ISSUE_DATE_FORMAT); 
+    SimpleDateFormat dateParser = new SimpleDateFormat(ISSUE_DATE_FORMAT);
+    int userId = (Integer) request.getAttribute("user_id");
 %>
 <jsp:useBean id="TCO09Constants" class="com.topcoder.web.tc.controller.request.tournament.tco09.TCO09Constants"/>
 
@@ -23,7 +23,7 @@
     <jsp:param name="add_title_tag" value="${true}" />
 </jsp:include>
 <%-- title suffix --%>
-    Competitor Results - <%--<tc-webtag:handle coderId="<%= feedData.getJSONObject(0).getInt("coder_id") %>"/>--%>
+    Competitor Results - <tc-webtag:handle coderId="<%= userId %>"/>--%>
 </h2>
 <br />
 <table class="data" cellpadding="0" cellspacing="0" width="100%">
