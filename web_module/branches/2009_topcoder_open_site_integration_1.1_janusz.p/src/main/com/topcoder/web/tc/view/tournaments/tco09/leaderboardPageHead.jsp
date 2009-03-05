@@ -59,7 +59,7 @@
       <c:set var="tertiaryNav" value="leaderboard" />
       <c:set var="title" value="Marathon Competition" />
   </c:when>
-  </c:when>  <c:when test="${phaseId == Constants.MOD_DASH_PHASE_ID}">
+  <c:when test="${phaseId == Constants.MOD_DASH_PHASE_ID}">
       <c:set var="mainTab" value="moddash" />
       <c:set var="secondaryTab" value="advancers" />
       <c:set var="tertiaryNav" value="leaderboard" />
