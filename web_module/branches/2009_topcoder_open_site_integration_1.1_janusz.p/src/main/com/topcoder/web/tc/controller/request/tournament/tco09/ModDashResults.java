@@ -8,7 +8,7 @@ public class ModDashResults extends ModDashStatBase {
     
     //private static String CONTEST_PREFIX = "tco09";
 
-    private static String USER_HANDLE_ATTRIBUTE_NAME;
+    private static String USER_HANDLE_ATTRIBUTE_NAME = "handle";
     @Override
     protected String getFeedURL() {
         Map parameterMap = getRequest().getParameterMap();
