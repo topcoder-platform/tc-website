@@ -16,24 +16,24 @@
     <jsp:param name="add_title_tag" value="${true}" />
 </jsp:include>
 <%-- title suffix --%>
-    Competitor Results - <tc-webtag:handle coderId="${competitor.getInt(coder_id)}"/>
+    Competitor Results - <tc-webtag:handle coderId="<%= feedData.getJSONObject(0).getInt("coder_id") %>"/>
 </h2>
 <br />
 <table class="data" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <th class="first">&nbsp;</th>
-        <th>Handle</th>
+        <th>Issue</th>
+        <th>Date</th>
         <th>TCO Points</th>
-        <th>Results</th>
         <th class="last">&nbsp;</th>
     </tr>
 <% for (int i=0; i<feedData.getSize(); i++) { %>
     <% JSONObject competitor = feedData.getJSONObject(i); %>
 <tr>
 <td class="first">&nbsp;</td>
-<td class="value textAlign"><tc-webtag:handle coderId="${competitor.getInt(coder_id)}"/></td>
+<td class="value textAlign"><a href="https://www.topcoder.com/bugs/browse/<%= competitor.getString("issue_key") %>"><%= competitor.getString("issue_key") %></a></td>
+<td class="valueC"><%= competitor.getString("created") %></td>
 <td class="valueC"><%= competitor.getString("tco_points") %></td>
-<td class="valueC"><a href="/tco09?module=ModDashResults&amp;handle=<%= competitor.getString("handle") %>">results</a></td>
 <td class="last">&nbsp;</td>
 </tr>
 <% } %>
