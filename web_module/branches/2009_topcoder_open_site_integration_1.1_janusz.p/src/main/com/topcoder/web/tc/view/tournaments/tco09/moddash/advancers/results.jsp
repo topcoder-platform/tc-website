@@ -11,7 +11,7 @@
 
 <% JSONArray feedData =  (JSONArray) request.getAttribute("feedData"); %>              
 <%
-    String ISSUE_DATE_FORMAT = "YYYY-MM-dd HH:mm:ss.SSS";
+    String ISSUE_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss.SSS";
     String ISSUE_DATE_KEY = "created";
     
     SimpleDateFormat dateParser = new SimpleDateFormat(ISSUE_DATE_FORMAT); 
