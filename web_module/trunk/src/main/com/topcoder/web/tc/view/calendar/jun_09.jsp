@@ -129,7 +129,7 @@
       </td>
       <td class="value">13
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=13750">SRM 442</A></strong><br />
+         <strong><A href="/tc?module=MatchDetails&rd=13750">SRM 442</A></strong> - <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron">NSA</a><br />
          12:00 PM
          </div>
       </td>
@@ -159,7 +159,7 @@
       </td>
       <td class="value">23
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=13751">SRM 443</A></strong><br />
+         <strong><A href="/tc?module=MatchDetails&rd=13751">SRM 443</A></strong> - <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron">NSA</a><br />
          9:00 PM
          </div>
       </td>
