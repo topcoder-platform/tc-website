@@ -32,11 +32,13 @@ public abstract class ModDashStatBase extends BaseProcessor {
     
     @Override
     protected void businessProcessing() throws TCWebException {
+        /*
         Request dataRequest = new Request();
         byte[] buffer = new byte[8192];
         CachedDataAccess dataAccess = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
         
         try {
+            
             URL feedUrl = new URL(getFeedURL());
             BufferedInputStream feedInputStream = new BufferedInputStream(feedUrl.openStream(), 1024*1024);
             StringBuffer jsonString = new StringBuffer();
@@ -65,10 +67,11 @@ public abstract class ModDashStatBase extends BaseProcessor {
                 
             }
             getRequest().setAttribute(WEB_REQUEST_DATA_PARAMETER_NAME, rows); 
-
+            */
+            
             setNextPage(getNextPage());
             setIsNextPageInContext(true);
-            
+            /*
         } catch (MalformedURLException e) {
             throw new TCWebException("Feed url \"" + getFeedURL() + "\" is malformed.", e);
         } catch (IOException e) {
@@ -78,5 +81,6 @@ public abstract class ModDashStatBase extends BaseProcessor {
         } catch (Exception e) {
             throw new TCWebException("An exception was thrown when processing feed data.", e);
         }
+        */
     }
 }
