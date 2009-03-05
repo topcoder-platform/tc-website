@@ -66,10 +66,6 @@
       <td class="value">3
       </td>
       <td class="value">4
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=13698">SRM 436</A></strong><br />
-         7:00 AM
-         </div>
          <div class="tco09">
          <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=schedule">Algo Registration Closes</A></strong><br />
@@ -106,6 +102,10 @@
          <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=marathon&d4=schedule">Marathon Round 2</A></strong><br />
          12:00 PM
+         </div>
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=13698">SRM 436</A></strong><br />
+         7:00 AM
          </div>
       </td>
       <td class="value">12
