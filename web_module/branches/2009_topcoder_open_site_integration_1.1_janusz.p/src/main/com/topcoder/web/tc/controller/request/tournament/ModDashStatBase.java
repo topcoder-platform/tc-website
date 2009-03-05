@@ -38,7 +38,7 @@ public abstract class ModDashStatBase extends Base {
         CachedDataAccess dataAccess = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
         
         try {
-            
+            System.out.println("FeedURL: " + getFeedURL());
             URL feedUrl = new URL(getFeedURL());
             BufferedInputStream feedInputStream = new BufferedInputStream(feedUrl.openStream(), 1024*1024);
             StringBuffer jsonString = new StringBuffer();
