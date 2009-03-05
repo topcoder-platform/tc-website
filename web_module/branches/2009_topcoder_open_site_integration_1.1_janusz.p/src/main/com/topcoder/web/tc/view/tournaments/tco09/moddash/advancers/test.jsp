@@ -13,6 +13,6 @@
 <% JSONArray feedData =  (JSONArray) request.getAttribute("feedData"); %>
 feedData: <%= feedData %><br />
 feedData.getSize(): <%= feedData.getSize() %><br />
-feedData.object0: <%= feedData.getJSONObjec(0) %><br />
+feedData.object0: <%= feedData.getJSONObject(0) %><br />
 </body>
 </html>
