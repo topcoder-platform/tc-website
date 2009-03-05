@@ -23,7 +23,7 @@
     <jsp:param name="add_title_tag" value="${true}" />
 </jsp:include>
 <%-- title suffix --%>
-    Competitor Results - <tc-webtag:handle coderId="<%= userId %>"/>--%>
+    Competitor Results - <tc-webtag:handle coderId="<%= userId %>"/> <%= userId %>
 </h2>
 <br />
 <table class="data" cellpadding="0" cellspacing="0" width="100%">
