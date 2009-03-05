@@ -31,7 +31,7 @@
     <% JSONObject competitor = feedData.getJSONObject(i); %>
 <tr>
 <td class="first">&nbsp;</td>
-<td class="value textAlign"><tc-webtag:handle coderId="<%= competitor.getInt("coder_id") %>"/></td>
+<td class="value textAlign"><tc-webtag:handle coderId="<%= competitor.getInt("user_id") %>"/></td>
 <td class="valueC"><%= competitor.getString("tco_points") %></td>
 <td class="valueC"><a href="/tco09?module=ModDashResults&amp;handle=<%= competitor.getString("handle") %>">results</a></td>
 <td class="last">&nbsp;</td>
