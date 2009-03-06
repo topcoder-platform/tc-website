@@ -17,6 +17,8 @@ import com.topcoder.json.object.io.StandardJSONDecoder;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.util.config.ConfigManager;
+import com.topcoder.util.config.UnknownNamespaceException;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.request.development.Base;
@@ -72,11 +74,9 @@ public abstract class ModDashStatBase extends Base {
     protected static String WEB_REQUEST_DATA_PARAMETER_NAME = "feedData";
     
     /**
-     * Method should return feed URL that should be queried for data. 
-     * @return feed url 
-     * @throws TCWebException when any exception occurs
+     * Configuration namespace.
      */
-    abstract protected String getFeedURL() throws TCWebException;
+    private final static String DEFAULT_NAMESPACE = "com.topcoder.web.tc.controller.request.tournament.tco09.ModDash";
     
     /**
      * Method should return path to JSP file (view) which will be used 
@@ -91,6 +91,39 @@ public abstract class ModDashStatBase extends Base {
      * @throws TCWebException when any exception occurs
      */
     abstract protected void statProcessing() throws TCWebException;
+    
+    /**
+     * Method returns name of property with feed URL.
+     * @throws TCWebException when any exception occurs
+     */
+    abstract protected String getFeedUrlPropertyName() throws TCWebException;
+    
+    /**
+     * Method returns feed URL, value is read from configuration property
+     * specified by subclass. 
+     * @return feed url 
+     * @throws TCWebException when any exception occurs
+     */
+    private String getFeedURL() throws TCWebException {
+        ConfigManager configManager = ConfigManager.getInstance();
+        String propertyName = getFeedUrlPropertyName();
+        String feedUrl = null;
+        try {
+            if (! configManager.existsNamespace(DEFAULT_NAMESPACE)) {
+                throw new TCWebException("Incorrect configuration, can't find " + DEFAULT_NAMESPACE + " namespace");
+            }
+            feedUrl = (String) configManager.getProperty(DEFAULT_NAMESPACE, 
+                    propertyName);
+
+            if (feedUrl == null) {
+                throw new TCWebException("Incorrect configuration, can't find " + propertyName +  
+                        " property in " + DEFAULT_NAMESPACE + " namespace");                
+            }
+        } catch (UnknownNamespaceException e) {
+            new TCWebException(e);
+        }
+        return feedUrl;
+    }
     
     /**
      * Method responsible for retrieval of feed data from URL taken from 
