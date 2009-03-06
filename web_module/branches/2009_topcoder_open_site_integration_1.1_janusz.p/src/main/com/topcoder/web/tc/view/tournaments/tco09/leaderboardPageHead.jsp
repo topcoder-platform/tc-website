@@ -89,8 +89,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         
         <!-- External CSS -->
+        <link type="text/css" rel="stylesheet" href="/css/tournaments/tco09.css"/>
         <link type="text/css" rel="stylesheet" href="/css/tournaments/tco09_coders.css"/>
-        <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
         
         <!--[if IE 6]>
         <link rel="stylesheet" type="text/css" media="screen" href="css/screen-ie6.css" />
