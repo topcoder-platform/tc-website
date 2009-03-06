@@ -1,3 +1,12 @@
+<%--
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
+ *
+ * This JSP is responsible for rendering Mod Dash Leaderboard view
+ *
+ * Author TCSDEVELOPER
+ * Version 1.0
+ * Since 2009 TopCoder Open Site Integration
+--%>
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -27,6 +36,7 @@
         <th>Results</th>
         <th class="last">&nbsp;</th>
     </tr>
+<%-- formatting this crappy to save space in the download to the client --%>    
 <% for (int i=0; i<feedData.getSize(); i++) { %>
     <% JSONObject competitor = feedData.getJSONObject(i); %>
 <tr>

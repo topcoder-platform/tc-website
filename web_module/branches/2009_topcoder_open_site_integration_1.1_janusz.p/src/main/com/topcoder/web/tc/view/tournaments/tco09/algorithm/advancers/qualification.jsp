@@ -1,3 +1,12 @@
+<%--
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
+ *
+ * This JSP is responsible for rendering Algorithm Competition Qualification results.
+ *
+ * Author TCSDEVELOPER
+ * Version 1.0
+ * Since 2009 TopCoder Open Site Integration
+--%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.common.model.EventType, com.topcoder.shared.dataAccess.*, 
                  com.topcoder.web.tc.Constants,

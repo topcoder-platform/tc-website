@@ -1,3 +1,13 @@
+<%--
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
+ *
+ * This JSP shows online track projects list page (development, 
+ * design, architecture, assembly and specification).
+ *
+ * Author TCSDEVELOPER
+ * Version 1.0
+ * Since 2009 TopCoder Open Site Integration
+--%>
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.common.model.EventType,

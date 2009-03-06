@@ -5,7 +5,7 @@
  *
  * Author TCSDEVELOPER
  * Version 1.0
- * Since 2009 TopCoder Open Site Integration 1.1
+ * Since 2009 TopCoder Open Site Integration
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.common.model.EventType,

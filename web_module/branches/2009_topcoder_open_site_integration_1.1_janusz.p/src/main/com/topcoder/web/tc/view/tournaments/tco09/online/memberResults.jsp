@@ -1,11 +1,12 @@
 <%--
  * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
  *
- * This JSP shows online track leaderboard page (development, design, architecture, assembly and specification).
+ * This JSP shows online track member results page (development, 
+ * design, architecture, assembly and specification).
  *
  * Author TCSDEVELOPER
  * Version 1.0
- * Since 2009 TopCoder Open Site Integration 1.1
+ * Since 2009 TopCoder Open Site Integration
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.common.model.EventType,
