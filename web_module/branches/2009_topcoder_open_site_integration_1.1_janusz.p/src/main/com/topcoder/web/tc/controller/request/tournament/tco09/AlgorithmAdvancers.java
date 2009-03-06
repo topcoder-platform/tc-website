@@ -1,8 +1,6 @@
-/*
-* Advancers
-*
-* Created Aug 1, 2007
-*/
+/**
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
+ */
 package com.topcoder.web.tc.controller.request.tournament.tco09;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -10,44 +8,52 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.controller.request.tournament.AdvancersBase;
 
-/**
- * @author TCDEVELOPER
+/** 
+ * Controller class for Algorithm Competition Leaderboard view. All business
+ * logic is done by super class. This class provides concrete implementation
+ * for AdvancersBase abstract methods needed to use this controller in TCO 09
+ * context.
+ * 
+ * Author TCSDEVELOPER
+ * Version 1.0
+ * Since 2009 TopCoder Open Site Integration
  */
 public class AlgorithmAdvancers extends AdvancersBase {
 
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.AdvancersBase#getContestPrefix()
+    /**
+     * Contest prefix (dir name).
      */
     @Override
     protected String getContestPrefix() {
         return "tco09";
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.AdvancersBase#getCommandName()
+    /**
+     * Name of method from which algorithm leaderboard data should 
+     * be retrieved.
      */
     @Override
     protected String getCommandName() {
         return "tco09_alg_adv_overview";
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.AdvancersBase#getDataSourceName()
+    /**
+     * Database source.
      */
     protected String getDataSourceName() {
         return DBMS.DW_DATASOURCE_NAME;
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.AdvancersBase#getPageName()
+    /**
+     * View which should be used for data presentation.
      */
     @Override
     protected String getPageName() {
         return "/tournaments/" + getContestPrefix() + "/algorithm/advancers/advancers.jsp";
     }
     
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.AdvancersBase#setSortInfo()
+    /**
+     * Sorting details.
      */
     @Override
     protected void setSortInfo(ResultSetContainer rsc) {

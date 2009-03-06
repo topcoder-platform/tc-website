@@ -19,7 +19,7 @@ import com.topcoder.web.tc.controller.request.tournament.ModDashStatBase;
  * 
  * Author TCSDEVELOPER
  * Version 1.0
- * Since 2009 TopCoder Open Site Integration 1.1
+ * Since 2009 TopCoder Open Site Integration
  */
 public class ModDashLeaderboard extends ModDashStatBase {
    

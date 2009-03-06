@@ -1,8 +1,6 @@
-/*
-* Advancers
-*
-* Created Aug 1, 2007
-*/
+/**
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
+ */
 package com.topcoder.web.tc.controller.request.tournament.tco09;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -10,45 +8,52 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.controller.request.tournament.AdvancersBase;
 
-/**
- * @author Pablo Wolfus (pulky)
- * @version $Id: MarathonAdvancers.java 68101 2008-01-21 18:39:50Z pulky $
+/** 
+ * Controller class for Marathon Match Advancers view. All business
+ * logic is done by super class. This class provides concrete implementation
+ * for AdvancersBase abstract methods needed to use this controller in TCO 09
+ * context.
+ * 
+ * Author TCSDEVELOPER
+ * Version 1.0
+ * Since 2009 TopCoder Open Site Integration
  */
 public class MarathonAdvancers extends AdvancersBase {
 
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.AdvancersBase#getContestPrefix()
+    /**
+     * Contest prefix (dir name).
      */
     @Override
     protected String getContestPrefix() {
         return "tco09";
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.AdvancersBase#getCommandName()
+    /**
+     * Name of method from which marathon math leaderboard data should 
+     * be retrieved.
      */
     @Override
     protected String getCommandName() {
         return "tco09_mm_adv_overview";
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.AdvancersBase#getDataSourceName()
+    /**
+     * Database source.
      */
     protected String getDataSourceName() {
         return DBMS.DW_DATASOURCE_NAME;
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.AdvancersBase#getPageName()
+    /**
+     * View which should be used for data presentation.
      */
     @Override
     protected String getPageName() {
         return "/tournaments/" + getContestPrefix() + "/marathon/advancers/advancers.jsp";
     }
     
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.AdvancersBase#setSortInfo()
+    /**
+     * Sorting details.
      */
     @Override
     protected void setSortInfo(ResultSetContainer rsc) {
@@ -59,7 +64,6 @@ public class MarathonAdvancers extends AdvancersBase {
         s.addDefault(rsc.getColumnIndex("round1_sort"), "asc");
         s.addDefault(rsc.getColumnIndex("round2_sort"), "asc");
         s.addDefault(rsc.getColumnIndex("round3_sort"), "asc");
-        s.addDefault(rsc.getColumnIndex("round4_sort"), "asc");
         s.addDefault(rsc.getColumnIndex("finals_sort"), "asc");
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }

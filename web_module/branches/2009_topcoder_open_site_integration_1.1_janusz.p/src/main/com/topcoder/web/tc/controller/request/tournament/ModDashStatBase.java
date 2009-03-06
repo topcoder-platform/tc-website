@@ -32,7 +32,7 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *    
  * @author TCSDEVELOPER
  * Version 1.0
- * Since 2009 TopCoder Open Site Integration 1.1
+ * Since 2009 TopCoder Open Site Integration
  */
 public abstract class ModDashStatBase extends Base {
     /**

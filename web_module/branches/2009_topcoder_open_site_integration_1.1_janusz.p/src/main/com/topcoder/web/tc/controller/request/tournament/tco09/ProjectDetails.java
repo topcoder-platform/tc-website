@@ -1,36 +1,54 @@
+/**
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
+ */
 package com.topcoder.web.tc.controller.request.tournament.tco09;
 
 import com.topcoder.web.tc.controller.request.tournament.ProjectDetailsBase;
 
-/**
- * @author dok, pulky
- * @version $Revision: 68101 $ Date: 2005/01/01 00:00:00
- *          Create Date: Mar 1, 2007
+/** 
+ * Controller class for Online Competitions Project Details view. All business
+ * logic is done by super class. This class provides concrete implementation
+ * for ProjectDetailsBase abstract methods needed to use this controller in TCO 09
+ * context.
+ * 
+ * Author TCSDEVELOPER
+ * Version 1.0
+ * Since 2009 TopCoder Open Site Integration
  */
 public class ProjectDetails extends ProjectDetailsBase {
 
+    /**
+     * Controller context.
+     */
     private final String CONTEST_PREFIX = "tco09";
 
+    /**
+     * Placement points for places 1 to 5.
+     */
     private final int[] placementPoints = new int[]{10, 7, 5, 4, 0};
     
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.ProjectDetailsBase#getPlacementPoints()
+    /**
+     * Returns array defining how many placement point should be given.
+     * @return placement points array
      */
     @Override
     public int[] getPlacementPoints() {
         return placementPoints;
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.ProjectDetailsBase#getContestPrefix()
+    /**
+     * Returns controller context.
+     * @return string holding controller context
      */
     @Override
     protected String getContestPrefix() {
         return CONTEST_PREFIX;
     }
     
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.development.StatBase#getPageName()
+    
+    /**
+     * Returns path to JSP view page.
+     * @return path to JSP view
      */
     @Override
     protected String getPageName() {
