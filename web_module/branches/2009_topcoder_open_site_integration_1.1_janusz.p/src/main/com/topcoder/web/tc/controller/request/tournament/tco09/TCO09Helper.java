@@ -15,7 +15,7 @@ public class TCO09Helper {
             case TCO09Constants.DEVELOPMENT_PHASE_ID:
                 return "development";
             case TCO09Constants.SPECIFICATION_PHASE_ID:
-                return "specification";
+                return null;
         }
         return "";
     }

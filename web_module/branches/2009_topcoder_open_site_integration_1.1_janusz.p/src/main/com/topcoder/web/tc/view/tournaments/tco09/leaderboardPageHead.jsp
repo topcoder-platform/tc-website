@@ -33,6 +33,7 @@
 <c:set value="<%=request.getParameter("add_title_tag")%>" var="addTitleTag"/>
 <c:set value="<%=request.getParameter("close_title_tag")%>" var="closeTitleTag"/>
 
+<%-- decide which navigation tabs should be selected, also figure out tab title --%>
 <c:set var="mainTab" value="online" />
 <c:set var="tertiaryNav" value="leaderboard" />
 
@@ -88,8 +89,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         
         <!-- External CSS -->
-        <!-- <link type="text/css" rel="stylesheet" href="/css/tournaments/tco09_coders.css"/> -->
-        <link rel="stylesheet" href="/css/tournaments/tco09.css" media="all" type="text/css" />
+        <link type="text/css" rel="stylesheet" href="/css/tournaments/tco09_coders.css"/>
         <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
         
         <!--[if IE 6]>

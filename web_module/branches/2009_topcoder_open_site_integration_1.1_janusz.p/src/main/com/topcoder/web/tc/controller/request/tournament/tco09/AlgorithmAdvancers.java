@@ -49,7 +49,7 @@ public class AlgorithmAdvancers extends AdvancersBase {
      */
     @Override
     protected String getPageName() {
-        return "/tournaments/" + getContestPrefix() + "/algorithm/advancers/advancers.jsp";
+        return "/tournaments/" + getContestPrefix() + "/algorithm/advancers/leaderboard.jsp";
     }
     
     /**
