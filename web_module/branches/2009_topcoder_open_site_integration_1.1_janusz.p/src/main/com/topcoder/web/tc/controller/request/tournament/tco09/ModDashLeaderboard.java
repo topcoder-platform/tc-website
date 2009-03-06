@@ -49,6 +49,9 @@ public class ModDashLeaderboard extends ModDashStatBase {
     private static synchronized void initialize() throws TCWebException {
         ConfigManager configManager = ConfigManager.getInstance();
         try {
+            if (! configManager.existsNamespace(DEFAULT_NAMESPACE)) {
+                throw new TCWebException("Incorrect configuration, can't find " + DEFAULT_NAMESPACE + " namespace");
+            }
             feedUrl = (String) configManager.getProperty(DEFAULT_NAMESPACE, 
                     LEADERBOARD_FEED_URL_PROPERTY);
 
