@@ -99,6 +99,15 @@ public abstract class ModDashStatBase extends Base {
     abstract protected String getFeedUrlPropertyName() throws TCWebException;
     
     /**
+     * Method that can be used by subclasses to modify feed URL
+     * @return modified feed URL
+     * @throws TCWebException in case of any error
+     */
+    protected String updateFeedUrl(String feedUrl) throws TCWebException {
+        return feedUrl;
+    }
+    
+    /**
      * Method returns feed URL, value is read from configuration property
      * specified by subclass. 
      * @return feed url 
@@ -114,7 +123,6 @@ public abstract class ModDashStatBase extends Base {
             }
             feedUrl = (String) configManager.getProperty(DEFAULT_NAMESPACE, 
                     propertyName);
-
             if (feedUrl == null) {
                 throw new TCWebException("Incorrect configuration, can't find " + propertyName +  
                         " property in " + DEFAULT_NAMESPACE + " namespace");                
@@ -122,7 +130,7 @@ public abstract class ModDashStatBase extends Base {
         } catch (UnknownNamespaceException e) {
             new TCWebException(e);
         }
-        return feedUrl;
+        return updateFeedUrl(feedUrl);
     }
     
     /**

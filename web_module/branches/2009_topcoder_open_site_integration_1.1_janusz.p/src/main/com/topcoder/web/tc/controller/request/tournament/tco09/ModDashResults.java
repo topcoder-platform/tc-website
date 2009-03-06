@@ -23,17 +23,6 @@ import com.topcoder.web.tc.controller.request.tournament.ModDashStatBase;
  * Since 2009 TopCoder Open Site Integration
  */
 public class ModDashResults extends ModDashStatBase {
-    
-    /**
-     * Feed URL, this field is a placeholder for value taken from configuraiton file. 
-     */
-    private static String feedUrl;
-    
-    /**
-     * Configuration namespace.
-     */
-    private final static String DEFAULT_NAMESPACE = "com.topcoder.web.tc.controller.request.tournament.tco09.ModDash";
-    
     /**
      * Name of property from which leaderboard feed url will be read.
      */
@@ -42,32 +31,22 @@ public class ModDashResults extends ModDashStatBase {
     /**
      * Name of request attribute from which user handle has to be taken.
      */
-    private static String USER_HANDLE_ATTRIBUTE_NAME = "handle";
-    
-    /**
-     * Initializes the feedUrl field with value read from configuration.
-     * @throws TCWebException when any configuration error occurs
-     */
-    private static void initialize() throws TCWebException {
-        ConfigManager configManager = ConfigManager.getInstance();
-        try {
-            feedUrl = (String) configManager.getProperty(DEFAULT_NAMESPACE, 
-                    USER_RESULTS_FEED_URL_PROPERTY);
-            if (feedUrl == null) {
-                throw new TCWebException("Incorrect configuration, can't find " + USER_RESULTS_FEED_URL_PROPERTY + 
-                        " property in " + DEFAULT_NAMESPACE + " namespace");                
-            }
-        } catch (UnknownNamespaceException e) {
-            new TCWebException(e);
-        }
-    }
-    
+    private static String USER_HANDLE_PARAMETER_NAME = "handle";
+        
     /**
      * Method returns name of property with feed URL.
      * @throws TCWebException when any exception occurs
      */
     protected String getFeedUrlPropertyName() throws TCWebException {
         return USER_RESULTS_FEED_URL_PROPERTY;
+    }
+    
+    /**
+     * Adds user handle to feed.
+     * @throws TCWebException when any exception occurs
+     */
+    protected String updateFeedUrl(String feedUrl) throws TCWebException {
+        return feedUrl + getRequest().getParameter(USER_HANDLE_PARAMETER_NAME);
     }
     
     /**
