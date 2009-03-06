@@ -68,7 +68,7 @@ public class ModDashLeaderboard extends ModDashStatBase {
         if (feedUrl == null) {
             initialize();
         }
-        return "http://66.37.210.86/tc?module=BasicData&c=dd_mod_dash_tco_leaderboard&dsid=34&json=true";
+        return feedUrl;
     }
 
     /**
