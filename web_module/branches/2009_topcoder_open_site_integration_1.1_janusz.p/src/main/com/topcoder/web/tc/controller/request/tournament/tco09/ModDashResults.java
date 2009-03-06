@@ -63,16 +63,11 @@ public class ModDashResults extends ModDashStatBase {
     }
     
     /**
-     * Returns URL that should be used for feed data retrieval.
-     * @return feed URL
+     * Method returns name of property with feed URL.
+     * @throws TCWebException when any exception occurs
      */
-    @Override
-    protected String getFeedURL() throws TCWebException {
-        if (feedUrl == null) {
-            initialize();
-        }
-        String userHandle = (String) getRequest().getParameter(USER_HANDLE_ATTRIBUTE_NAME);
-        return feedUrl + userHandle;
+    protected String getFeedUrlPropertyName() throws TCWebException {
+        return USER_RESULTS_FEED_URL_PROPERTY;
     }
     
     /**
