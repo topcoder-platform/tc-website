@@ -1,6 +1,21 @@
 <%--
  * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
  *
+ * This JSP is responsible for rendering "head" of the leaderboard page.
+ * Head in here means everything that precedes actual tab content that includes:
+ * - header
+ * - navigation tabs 
+ * - page skeleton
+ *
+ * It takes three parameters:
+ *   - phase_id (int required) - value of this variable is used to determine 
+ *       which navigation tabs should be active
+ *   - add_title_tag (bool optional) - if set to true default tab title will 
+ *       be included in the output page (it is false by default); title is
+ *       placed in <h2 class="title"> tag which is left open by default
+ *   - close_title_tag (bool optional) - if set to true and add_title_tag is 
+ *       set to true, added title tag will be closed
+ *
  * Author TCSDEVELOPER
  * Version 1.0
  * Since 2009 TopCoder Open Site Integration
@@ -66,7 +81,6 @@
       <c:set var="title" value="Mod Dash Competition" />
   </c:when>
 </c:choose>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>TCO 09 : Online Competitions</title>
@@ -74,8 +88,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         
         <!-- External CSS -->
-        <link type="text/css" rel="stylesheet" href="/css/tournaments/tco09_coders.css"/>
+        <!-- <link type="text/css" rel="stylesheet" href="/css/tournaments/tco09_coders.css"/> -->
         <link rel="stylesheet" href="/css/tournaments/tco09.css" media="all" type="text/css" />
+        <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
+        
         <!--[if IE 6]>
         <link rel="stylesheet" type="text/css" media="screen" href="css/screen-ie6.css" />
         <![endif]-->
