@@ -73,16 +73,18 @@ public abstract class ModDashStatBase extends Base {
     
     /**
      * Method should return feed URL that should be queried for data. 
-     * @return feed url
+     * @return feed url 
+     * @throws TCWebException when any exception occurs
      */
-    abstract protected String getFeedURL();
+    abstract protected String getFeedURL() throws TCWebException;
     
     /**
      * Method should return path to JSP file (view) which will be used 
      * to present retrieved data.
-     * @return
+     * @return page name
+     * @throws TCWebException when any exception occurs
      */
-    abstract protected String getPageName();
+    abstract protected String getPageName() throws TCWebException;
     
     /**
      * Method that is responsible for processing retrieved feed data. 
