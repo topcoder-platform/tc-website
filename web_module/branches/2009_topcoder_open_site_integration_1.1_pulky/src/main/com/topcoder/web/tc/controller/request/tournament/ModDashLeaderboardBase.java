@@ -124,12 +124,12 @@ public abstract class ModDashLeaderboardBase extends Base {
         // sort
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-        sortResult(results, sortCol, "desc".equals(sortDir));
+        sortResult(results, sortCol, "asc".equals(sortDir));
         
         // crop
         results = cropResult(results);
         
-        getRequest().setAttribute("result", results);
+        getRequest().setAttribute("results", results);
     }
 
     private List<ModDashLeaderBoardRow> cropResult(List<ModDashLeaderBoardRow> results) {

@@ -8,7 +8,11 @@
  * Since 2009 TopCoder Open Site Integration
 --%>
 <%@ page contentType="text/html;charset=utf-8" %> 
+<%@ page import="com.topcoder.web.tc.Constants%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:set var="HANDLE" value="<%=Constants.HANDLE%>" />
         
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -86,7 +90,11 @@
                                                                                 <tr>
                                                                                     <td class="first">&nbsp;</td>
                                                                                     <td class="first last alignText">${result.handle}</td>
-                                                                                    <td class="first last alignText">${result.points}</td>
+                                                                                    <td class="first last alignText">
+                                                                                        <a href="${sessionInfo.servletPath}?module=ModDashLeadersDetails&amp;${HANDLE}=${esult.handle}">
+                                                                                            ${result.points}
+                                                                                         </a>
+                                                                                    </td>
                                                                                     <td class="last">&nbsp;</td>
                                                                                 </tr>
                                                                             </c:forEach>
