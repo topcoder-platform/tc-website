@@ -51,6 +51,8 @@ public class ModDashLeaderboard extends ModDashStatBase {
         try {
             feedUrl = (String) configManager.getProperty(DEFAULT_NAMESPACE, 
                     LEADERBOARD_FEED_URL_PROPERTY);
+
+            System.out.println("feedurl (static): przed sprawdzeniem" + feedUrl + " ---- " + (feedUrl == null ? "null" : "nie null"));
             if (feedUrl == null) {
                 throw new TCWebException("Incorrect configuration, can't find " + LEADERBOARD_FEED_URL_PROPERTY + 
                         " property in " + DEFAULT_NAMESPACE + " namespace");                
