@@ -91,7 +91,7 @@
                 <th style='text-align: right'>
                     <a href="/tco09?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
                 </th>
-                <th style='text-align: right'>
+                <th style='text-align: center'>
                     <a href="/tco09?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("points")%>"/>">Points</a>
                 </th>
                 <th class="last">&nbsp;</th>
