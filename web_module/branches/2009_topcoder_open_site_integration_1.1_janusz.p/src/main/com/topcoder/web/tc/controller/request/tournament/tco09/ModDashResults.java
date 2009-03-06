@@ -65,7 +65,7 @@ public class ModDashResults extends ModDashStatBase {
      */
     @Override
     protected void statProcessing() throws TCWebException {
-        String handle = (String) getRequest().getParameter(USER_HANDLE_ATTRIBUTE_NAME);
+        String handle = (String) getRequest().getParameter(USER_HANDLE_PARAMETER_NAME);
         Integer userId = getUserIdForHandle(handle);
         getRequest().setAttribute(USER_ID_PROPERTY_NAME, userId);
     }
