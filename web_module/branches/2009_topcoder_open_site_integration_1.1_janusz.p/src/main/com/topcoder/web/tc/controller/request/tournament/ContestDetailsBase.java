@@ -8,7 +8,6 @@ import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultColumn;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
@@ -91,30 +90,18 @@ public abstract class ContestDetailsBase extends StatBase {
         getRequest().setAttribute("event_id", eventId);
 
         Map result2 = (Map) getRequest().getAttribute("resultMap");
-        
 
         ResultSetContainer rsc = (ResultSetContainer) result2.get("contest_projects");
 
         DecimalFormat dfmt = new DecimalFormat("$#,##0.00");
 
         int[] placementPoints = getPlacementPoints();
-        
-        java.util.Set<String> tmp = result2.keySet();
-        java.util.Iterator iter = tmp.iterator();
-        while (iter.hasNext()) {
-            String key = (String) iter.next();
-            System.out.println("Result, name: " + key + "\nvalue: " + result2.get(key).toString());
-        }
-        System.out.println("rsc.size(): " + rsc.size());
+
         log.debug("rscDetails.size(): (1) " + rsc.size());
         for (int i = 0; i < rsc.size(); i++) {
             //for each contest, get details and build array
             Request dataRequest = new Request();
             Map result;
-            System.out.print("parametry\tpj: " + String.valueOf(rsc.getIntItem(i, "project_id")));
-            System.out.print("\tct: " + getRequest().getParameter("ct"));
-            System.out.println("\teid: " + getRequest().getParameter("eid"));
-            
             try {
                 dataRequest.setContentHandle("project_results_all");
                 dataRequest.setProperty("ct", getRequest().getParameter("ct"));
@@ -127,16 +114,9 @@ public abstract class ContestDetailsBase extends StatBase {
             } catch (Exception e) {
                 throw new TCWebException(e);
             }
-            java.util.Iterator iter2 = result.keySet().iterator();
-            while (iter2.hasNext()) {
-                String key = (String) iter2.next();
-                System.out.println("Result, name: " + key + "\nvalue: " + result.get(key).toString());
-            }
 
             ResultSetContainer rscDetails = (ResultSetContainer) result.get("project_results_all");
             ResultSetContainer rscComplete = (ResultSetContainer) result.get("project_details");
-            System.out.println("rscDetails.size(): " + rscDetails.size());
-            System.out.println("rscComplete.size(): " + rscComplete.size());
             boolean isComplete = false;
             if (!rscComplete.isEmpty() && rscComplete.getIntItem(0, "complete_status") == 1) {
                 isComplete = true;
