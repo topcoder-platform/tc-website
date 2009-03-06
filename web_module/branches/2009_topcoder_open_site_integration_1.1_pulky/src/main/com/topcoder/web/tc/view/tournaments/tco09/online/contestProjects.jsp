@@ -127,7 +127,8 @@
                                                                             </tr>
                                                                             <c:forEach items="${contestProjects}" var="project">
                                                                                 <tr>
-                                                                                    <th class="first">
+                                                                                    <td class="first">&nbsp;</td>
+                                                                                    <td class="first last alignText">
                                                                                         <c:choose>
                                                                                             <c:when test="${project.map['viewable'] == 1}">
                                                                                                 <a href="${TCS_SITE}/catalog/c_component.jsp?comp=${project.map['component_id']}">
@@ -152,13 +153,14 @@
                                                                                                 contest details
                                                                                             </a>
                                                                                         </c:if>
-                                                                                    </th>
-                                                                                    <th>
+                                                                                    </td>
+                                                                                    <td class="first last alignText">
                                                                                         <fmt:formatDate value="${project.map['start_date']}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
-                                                                                    </th>
-                                                                                    <th class="last">
+                                                                                    </td>
+                                                                                    <td class="first last alignText">
                                                                                         <fmt:formatDate value="${project.map['end_date']}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
-                                                                                    </th>
+                                                                                    </td>
+                                                                                    <td class="last">&nbsp;</td>
                                                                                 </tr>
                                                                             </c:forEach>
 																	</table></p>

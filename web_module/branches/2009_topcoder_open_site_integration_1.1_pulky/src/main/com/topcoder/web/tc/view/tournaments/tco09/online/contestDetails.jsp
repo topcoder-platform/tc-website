@@ -129,19 +129,21 @@
                                                                             </tr>
                                                                             <c:forEach items="${results}" var="result">
                                                                                 <tr>
-                                                                                    <th class="first">
+                                                                                    <td class="first">&nbsp;</td>
+                                                                                    <td class="first last alignText">
                                                                                         <tc-webtag:handle context='${tab}' coderId='${result.userID}' darkBG='true' />
                                                                                         <c:if test="${result.incomplete > 0}">
                                                                                             *
                                                                                         </c:if>
-                                                                                    </th>
-                                                                                    <th>${result.points}</th>
-                                                                                    <th>${result.complete}</th>
-                                                                                    <th>${result.incomplete}</th>
-                                                                                    <th>${result.submissionCount}</th>
-                                                                                    <th class="last">
+                                                                                    </td>
+                                                                                    <td class="first last alignText">${result.points}</td>
+                                                                                    <td class="first last alignText">${result.complete}</td>
+                                                                                    <td class="first last alignText">${result.incomplete}</td>
+                                                                                    <td class="first last alignText">${result.submissionCount}</td>
+                                                                                    <td class="first last alignText">
                                                                                         <a href="${sessionInfo.servletPath}?module=MemberResults&amp;eid=${event_id}&amp;ct=${contestDetailsRow.map['contest_id']}&amp;cr=${result.userID}">results</a>
-                                                                                    </th>
+                                                                                    </td>
+                                                                                    <td class="last">&nbsp;</td>
                                                                                 </tr>
                                                                             </c:forEach>
     																	</table></p>

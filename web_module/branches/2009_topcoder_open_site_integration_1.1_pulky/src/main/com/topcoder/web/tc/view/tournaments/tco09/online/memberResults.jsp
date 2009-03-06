@@ -14,7 +14,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
  
-<c:set var="projectType" value="${contestDetailsRow.map['project_category_id']}"/>
 <c:set var="DESIGN_PROJECT_TYPE" value="<%=Constants.DESIGN_PROJECT_TYPE%>"/>
 <c:set var="DEVELOPMENT_PROJECT_TYPE" value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>"/>
 <c:set var="ARCHITECTURE_PROJECT_TYPE" value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>"/>
@@ -24,6 +23,8 @@
     
 <c:set var="contestDetails" value="${resultMap['contest_details']}"/>
 <c:set var="contestDetailsRow" value="${contestDetails[0]}"/>
+<c:set var="projectType" value="${contestDetailsRow.map['project_category_id']}"/>
+
 <c:set var="userDetails" value="${resultMap['user_details']}"/>
 <c:set var="userDetailsRow" value="${userDetails[0]}"/>
 <c:set var="incompleteProjects" value="false"/> 
@@ -116,7 +117,7 @@
                                                                 <h2><a href="${sessionInfo.servletPath}?module=ContestDetails&amp;eid=${event_id}&amp;ct=${contestDetailsRow.map['contest_id']}">
                                                                     ${contestDetailsRow.map['contest_name']}
                                                                 </a> -
-                                                                <tc-webtag:handle context="<%=tab%>" coderId="${userDetailsRow.map['coder_id']}" darkBG="true" /></h2>
+                                                                <tc-webtag:handle context="${tab}" coderId="${userDetailsRow.map['coder_id']}" darkBG="true" /></h2>
 
 																<div><p>
 																	<table class="data" width="100%" cellpadding="0" cellspacing="0">
@@ -132,7 +133,8 @@
                                                                             </tr>
                                                                             <c:forEach items="${results}" var="result">
                                                                                 <tr>
-                                                                                    <th class="first">
+                                                                                    <td class="first">&nbsp;</td>
+                                                                                    <td class="first last alignText">
                                                                                         <c:choose>
                                                                                             <c:when test="${result.viewable}">
                                                                                                 <a href="${TCS_SITE}/catalog/c_component.jsp?comp=${result.compID}">
@@ -152,13 +154,14 @@
                                                                                                  <c:set var="incompleteProjects" value="true"/> 
                                                                                             </c:otherwise>
                                                                                         </c:choose>
-                                                                                    </th>
-                                                                                    <th><fmt:formatDate value="${result.submitTimestamp}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></th>
-                                                                                    <th>${result.score}</th>
-                                                                                    <th>${result.placed}</th>
-                                                                                    <th class="last">
+                                                                                    </td>
+                                                                                    <td class="first last alignText"><fmt:formatDate value="${result.submitTimestamp}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
+                                                                                    <td class="first last alignText">${result.score}</td>
+                                                                                    <td class="first last alignText">${result.placed}</td>
+                                                                                    <td class="first last alignText">
                                                                                         ${result.points}
-                                                                                    </th>
+                                                                                    </td>
+                                                                                    <td class="last">&nbsp;</td>
                                                                                 </tr>
                                                                             </c:forEach>
 																	</table></p>

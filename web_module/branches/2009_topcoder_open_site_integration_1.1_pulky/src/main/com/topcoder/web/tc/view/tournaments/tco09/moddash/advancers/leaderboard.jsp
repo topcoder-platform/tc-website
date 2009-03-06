@@ -20,20 +20,12 @@
 
 <!-- External CSS -->
 <link rel="stylesheet" href="css/tournaments/tco09.css" media="all" type="text/css" />
-<!--[if IE 6]>
-<link rel="stylesheet" type="text/css" media="screen" href="css/screen-ie6.css" />
-<![endif]-->
 
 <!-- External JavaScripts -->
 <script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
 <script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
 <script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
 <script type="text/javascript" src="/js/arena.js"></script> 
-<style type="text/css">
-<!--
-.style2 {color: #FF0000}
--->
-</style>
 </head>
 
 <body id="page">
@@ -75,8 +67,38 @@
                                             
                                             <div class="bottomAreaContent">
                                                 
-                                                <jsp:include page="../../comingSoon.jsp"/>
+                                            <div class="mainContent">
+                                                    <div id="mainContentInner">
+                                                        <div>   
+                                                            <div class="pageContent">
+                                                                <h2 class="title"> Mod Dash Competition Leaderboard</h2>
 
+																<div><p>
+																	<table class="data" width="100%" cellpadding="0" cellspacing="0">
+                                                                            <tr><th colspan="4">Leaderboard</th></tr>
+                                                                            <tr>
+                                                                                <th class="first">&nbsp;</th>
+                                                                                <th>Handle</th>
+                                                                                <th>Total Points</th>
+                                                                                <th class="last">&nbsp;</th>
+                                                                            </tr>
+                                                                            <c:forEach items="${results}" var="result">
+                                                                                <tr>
+                                                                                    <td class="first">&nbsp;</td>
+                                                                                    <td class="first last alignText">${result.handle}</td>
+                                                                                    <td class="first last alignText">${result.points}</td>
+                                                                                    <td class="last">&nbsp;</td>
+                                                                                </tr>
+                                                                            </c:forEach>
+																	</table></p>
+																</div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div><!-- End #mainContentInner -->
+                                                    
+                                                </div><!-- End #mainContent --> 
+                                                
                                                 <jsp:include page="../../sponsors.jsp"/>
                                                 
                                             </div><!-- End .bottomAreaContent -->

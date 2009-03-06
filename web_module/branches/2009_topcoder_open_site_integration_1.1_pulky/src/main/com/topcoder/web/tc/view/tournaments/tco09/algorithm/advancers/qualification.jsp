@@ -16,8 +16,8 @@
 
 <%@ taglib prefix="tc-webtag" uri="tc-webtags.tld" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+  
 <%-- Setting up constants to use JSTL --%>
 <c:set var="START_RANK" value="<%=DataAccessConstants.START_RANK%>" />
 <c:set var="NUMBER_RECORDS" value="<%=DataAccessConstants.NUMBER_RECORDS%>" />
@@ -33,7 +33,6 @@
 <% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result"); %>
 <c:set var="croppedDataBefore" value="<%=rsc.croppedDataBefore()%>"/>
 <c:set var="croppedDataAfter" value="<%=rsc.croppedDataAfter()%>"/>
-
 <c:set var="handleSortColumnIndex" value="<%=rsc.getColumnIndex("handle_sort")%>"/>
 <c:set var="ratingColumnIndex" value="<%=rsc.getColumnIndex("rating")%>"/>
 <c:set var="roundNameColumnIndex" value="<%=rsc.getColumnIndex("round_name")%>"/>
@@ -198,10 +197,10 @@
 <c:forEach items="${rsc}" var="resultRow">
 <tr>
 <td class="first">&nbsp;</td>
-<td><tc-webtag:handle coderId='${resultRow.map["coder_id"]}' context="algorithm"/></td>
-<td><c:out value="${resultRow.map['round_name']}" default="Bye"/></td>
-<td>${resultRow.map["rating"]}</td>
-<td><c:choose><c:when test="${resultRow.map['points']==null}">Bye</c:when><c:otherwise><fmt:formatNumber value="${resultRow.map['points']}" pattern="#.00"/></c:otherwise></c:choose></td>
+<td class="first last alignText"><tc-webtag:handle coderId='${resultRow.map["coder_id"]}' context="algorithm"/></td>
+<td class="first last alignText"><c:out value="${resultRow.map['round_name']}" default="Bye"/></td>
+<td class="first last alignText">${resultRow.map["rating"]}</td>
+<td class="first last alignText"><c:choose><c:when test="${resultRow.map['points']==null}">Bye</c:when><c:otherwise><fmt:formatNumber value="${resultRow.map['points']}" pattern="#.00"/></c:otherwise></c:choose></td>
 <td class="last">&nbsp;</td>
 </tr>
 </c:forEach> 
