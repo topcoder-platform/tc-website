@@ -32,8 +32,8 @@
     <tr>
         <th class="first">&nbsp;</th>
         <th>Handle</th>
-        <th>TCO Points</th>
-        <th>Results</th>
+        <th style='text-align: center'>TCO Points</th>
+        <th style='text-align: center'>Results</th>
         <th class="last">&nbsp;</th>
     </tr>
 <%-- formatting this crappy to save space in the download to the client --%>    
