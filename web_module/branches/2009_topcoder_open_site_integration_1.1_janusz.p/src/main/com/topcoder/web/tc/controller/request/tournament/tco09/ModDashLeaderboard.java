@@ -46,7 +46,7 @@ public class ModDashLeaderboard extends ModDashStatBase {
      * Initializes the feedUrl field with value read from configuration.
      * @throws TCWebException when any configuration error occurs
      */
-    private static void initialize() throws TCWebException {
+    private static synchronized void initialize() throws TCWebException {
         ConfigManager configManager = ConfigManager.getInstance();
         try {
             feedUrl = (String) configManager.getProperty(DEFAULT_NAMESPACE, 
@@ -55,6 +55,8 @@ public class ModDashLeaderboard extends ModDashStatBase {
                 throw new TCWebException("Incorrect configuration, can't find " + LEADERBOARD_FEED_URL_PROPERTY + 
                         " property in " + DEFAULT_NAMESPACE + " namespace");                
             }
+            System.out.println("feedurl (static): " + feedUrl);
+            
         } catch (UnknownNamespaceException e) {
             new TCWebException(e);
         }
@@ -68,6 +70,7 @@ public class ModDashLeaderboard extends ModDashStatBase {
         if (feedUrl == null) {
             initialize();
         }
+        System.out.println("FeedUrl: " + feedUrl);
         return feedUrl;
     }
 
