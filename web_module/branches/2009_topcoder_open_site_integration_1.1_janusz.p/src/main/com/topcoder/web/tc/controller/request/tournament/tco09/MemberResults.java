@@ -51,8 +51,6 @@ public class MemberResults extends MemberResultsBase {
      */
     @Override
     protected String getPageName() {
-        System.out.println("Phase_id: " + getRequest().getParameter("phase_id").toString());
-        System.out.println("CT: " + getRequest().getParameter("ct").toString());
         return "/tournaments/" + getContestPrefix() + "/online/memberResults.jsp";
     }
 }
