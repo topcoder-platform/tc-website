@@ -85,13 +85,13 @@
                     <a href="/tco09?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("handle_sort")%>"/>">Handle</a>
                     <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
                 </th>
-                <th>
+                <th style='text-align: center'>
                     <a href="/tco09?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("round_name")%>"/>">Round</a>
                 </th>
-                <th>
+                <th style='text-align: right'>
                     <a href="/tco09?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
                 </th>
-                <th>
+                <th style='text-align: right'>
                     <a href="/tco09?<tc-webtag:sort includeParams='true' column="<%=rsc.getColumnIndex("points")%>"/>">Points</a>
                 </th>
                 <th class="last">&nbsp;</th>
