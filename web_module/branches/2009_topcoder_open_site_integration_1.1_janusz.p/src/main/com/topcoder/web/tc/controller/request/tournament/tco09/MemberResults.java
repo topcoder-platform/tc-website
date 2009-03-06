@@ -51,6 +51,7 @@ public class MemberResults extends MemberResultsBase {
      */
     @Override
     protected String getPageName() {
+        getRequest().setAttribute(com.topcoder.web.tc.Constants.PHASE_ID, "22");
         return "/tournaments/" + getContestPrefix() + "/online/memberResults.jsp";
     }
 }
