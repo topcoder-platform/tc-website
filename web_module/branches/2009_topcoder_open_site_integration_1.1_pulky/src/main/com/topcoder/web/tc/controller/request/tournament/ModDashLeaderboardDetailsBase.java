@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -27,12 +25,13 @@ import com.topcoder.web.tc.controller.request.development.Base;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 1, 2007
  */
-public abstract class ModDashLeaderboardBase extends Base {
+public abstract class ModDashLeaderboardDetailsBase extends Base {
 
     public static final String FULL_LIST = "full";
 
-    public static final int HANDLE_COL = 1;
+    public static final int ISSUE_KEY_COL = 1;
     public static final int POINTS_COL = 2;
+    public static final int CREATED_COL = 3;
 
     /**
      * Gets the contest prefix. It will be used mainly for the jsp path but could be used for other purposes as well. 
@@ -48,7 +47,7 @@ public abstract class ModDashLeaderboardBase extends Base {
      * @return the command name
      */
     protected String getCommandName() {
-        return "dd_mod_dash_tco_leaderboard";
+        return "dd_mod_dash_tco_leaderboard_user_detail";
     }
 
     /**
@@ -66,7 +65,7 @@ public abstract class ModDashLeaderboardBase extends Base {
      * @return the page
      */
     protected String getPageName() {
-        return "/tournaments/" + getContestPrefix() + "/moddash/advancers/leaderboard.jsp";
+        return "/tournaments/" + getContestPrefix() + "/moddash/advancers/leaderboardDetails.jsp";
     }
 
     /* (non-Javadoc)
@@ -118,8 +117,11 @@ public abstract class ModDashLeaderboardBase extends Base {
     protected void processResult(Map result) throws com.topcoder.web.common.TCWebException {
         ResultSetContainer rsc = (ResultSetContainer) result.get(getCommandName());
 
-        // first thing we need to do remove non eligible competitors (not registered or marked non eligible)
-        List<ModDashLeaderBoardRow> results = removeNonEligibles(rsc);        
+        // There is no need to check if the user is registered to the tournament.
+        // The url won't be linked from the leaderboard and if he cames up
+        // building the url, he'll see his completed projects, but they still won't count
+        // towards the leaderboard.
+        List<ModDashLeaderBoardDetailRow> results = processResults(rsc);        
 
         // sort
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
@@ -132,7 +134,7 @@ public abstract class ModDashLeaderboardBase extends Base {
         getRequest().setAttribute("results", results);
     }
 
-    private List<ModDashLeaderBoardRow> cropResult(List<ModDashLeaderBoardRow> results) {
+    private List<ModDashLeaderBoardDetailRow> cropResult(List<ModDashLeaderBoardDetailRow> results) {
         Boolean full = "true".equals(StringUtils.checkNull(getRequest().getParameter(FULL_LIST)));
         getRequest().setAttribute(FULL_LIST, full);        
 
@@ -180,82 +182,49 @@ public abstract class ModDashLeaderboardBase extends Base {
      * - Maximum number of contests to be taken into consideration as specified in getMaxContests()
      * 
      * @param rsc The ResultSetContainer with the DB query results
-     * @return a List of ModDashLeaderBoardRow elements with all the information for the stat chart
+     * @return a List of ModDashLeaderBoardDetailRow elements with all the information for the stat chart
      * @throws TCWebException 
      */
-    private List<ModDashLeaderBoardRow> removeNonEligibles(ResultSetContainer rsc) throws TCWebException {
-        // First thing is to check if competitors are registered before adding the
-        // corresponding row to the leaderboard
-        Set<String> registrants = getRegistrants();
-        
-        List <ModDashLeaderBoardRow> leaderBoard = new ArrayList<ModDashLeaderBoardRow>(rsc.size());
+    private List<ModDashLeaderBoardDetailRow> processResults(ResultSetContainer rsc) throws TCWebException {
+        List <ModDashLeaderBoardDetailRow> leaderBoard = new ArrayList<ModDashLeaderBoardDetailRow>(rsc.size());
         for (ResultSetRow rsr: rsc) {
-            if (registrants.contains(rsr.getStringItem("handle").toLowerCase())) {
-                leaderBoard.add(new ModDashLeaderBoardRow(rsr.getStringItem("handle"),
-                        rsr.getIntItem("tco_points"), rsr.getIntItem("num_competitions"),
-                        rsr.getTimestampItem("last_competition")));
-            }
+            leaderBoard.add(new ModDashLeaderBoardDetailRow(rsr.getStringItem("issue_key"),
+                    rsr.getIntItem("tco_points"), rsr.getIntItem("project"),
+                    rsr.getTimestampItem("created")));
         }
 
         return leaderBoard;
     }
 
     /**
-     * @param registrants
-     * @throws TCWebException
-     */
-    private Set<String> getRegistrants() throws TCWebException {
-        Set<String> registrants = new HashSet<String>();
-        Request dataRequest = new Request();
-        Map<String, ResultSetContainer> result;
-        try {
-            dataRequest.setContentHandle(Constants.TCO09_REGISTRANTS_COMMAND);
-
-            DataAccessInt dai = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true);
-            result = dai.getData(dataRequest);
-
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
-
-        ResultSetContainer rscRegistrants = (ResultSetContainer) result.get(Constants.TCO09_REGISTRANTS_COMMAND);
-
-        for (ResultSetRow rsr : rscRegistrants) {
-            registrants.add(rsr.getStringItem("handle_lower"));
-        }
-        
-        return registrants;
-    }
-
-    /**
      * Private helper method to sort the results 
      * 
-     * @param result the list of ModDashLeaderBoardRow elements 
+     * @param result the list of ModDashLeaderBoardDetailRow elements 
      * @param sortCol the sort column 
      * @param invert true if an inverted list is requested
      */
-    protected void sortResult(List<ModDashLeaderBoardRow> result, String sortCol, boolean invert) {
+    protected void sortResult(List<ModDashLeaderBoardDetailRow> result, String sortCol, boolean invert) {
         if (result.size() == 0) {
             return;
         }
 
-        if (sortCol.equals(String.valueOf(HANDLE_COL))) {
-            Collections.sort(result, new Comparator<ModDashLeaderBoardRow>() {
-                public int compare(ModDashLeaderBoardRow arg0, ModDashLeaderBoardRow arg1) {
-                    return arg0.getHandle().toLowerCase().compareTo(arg1.getHandle().toLowerCase());
+        if (sortCol.equals(String.valueOf(ISSUE_KEY_COL))) {
+            Collections.sort(result, new Comparator<ModDashLeaderBoardDetailRow>() {
+                public int compare(ModDashLeaderBoardDetailRow arg0, ModDashLeaderBoardDetailRow arg1) {
+                    return arg0.getIssueKey().toLowerCase().compareTo(arg1.getIssueKey().toLowerCase());
+                }
+            });
+        } else if (sortCol.equals(String.valueOf(CREATED_COL))) {
+            Collections.sort(result, new Comparator<ModDashLeaderBoardDetailRow>() {
+                public int compare(ModDashLeaderBoardDetailRow arg0, ModDashLeaderBoardDetailRow arg1) {
+                    return arg0.getCreated().compareTo(arg1.getCreated());
                 }
             });
         } else {
-            // Default, sort by points. (take into consideration tie-breaker)
-            Collections.sort(result, new Comparator<ModDashLeaderBoardRow>() {
-                public int compare(ModDashLeaderBoardRow arg0, ModDashLeaderBoardRow arg1) {
-                    // First we check points
-                    int pointsCompare = arg0.getPoints().compareTo(arg1.getPoints());
-                    if (pointsCompare != 0) {
-                        return pointsCompare;
-                    }
-                    // Finally greater number of competitions 
-                    return arg0.getNumCompetitions().compareTo(arg1.getNumCompetitions());
+            // Default, sort by points.
+            Collections.sort(result, new Comparator<ModDashLeaderBoardDetailRow>() {
+                public int compare(ModDashLeaderBoardDetailRow arg0, ModDashLeaderBoardDetailRow arg1) {
+                    return arg0.getPoints().compareTo(arg1.getPoints());
                 }
             });
         }
@@ -265,8 +234,9 @@ public abstract class ModDashLeaderboardBase extends Base {
         }
         
         SortInfo s = new SortInfo();
-        s.addDefault(HANDLE_COL, "asc"); // handle lower
+        s.addDefault(ISSUE_KEY_COL, "asc"); // handle lower
         s.addDefault(POINTS_COL, "desc"); // points
+        s.addDefault(CREATED_COL, "asc"); // created
         
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
