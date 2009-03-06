@@ -26,6 +26,7 @@
 <c:set var="ARCHITECTURE_PROJECT_TYPE" value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>"/>
 <c:set var="ASSEMBLY_PROJECT_TYPE" value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>"/>
 <c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
+<c:set var="incompleteProjects" value="false"/>
 
 <c:choose>
     <c:when test="${projectType == DESIGN_PROJECT_TYPE}">
@@ -134,6 +135,7 @@
                                                                                         <tc-webtag:handle context='${tab}' coderId='${result.userID}' darkBG='true' />
                                                                                         <c:if test="${result.incomplete > 0}">
                                                                                             *
+                                                                                            <c:set var="incompleteProjects" value="true"/>
                                                                                         </c:if>
                                                                                     </td>
                                                                                     <td class="first last alignText">${result.points}</td>
@@ -148,7 +150,7 @@
                                                                             </c:forEach>
     																	</table></p>
 														                <br /><br />
-                                                                        <c:if test="${result.incomplete > 0}">
+                                                                        <c:if test="${incompleteProjects}">
                                                                             * Contains results from projects still in progress, results subject to change
                                                                             <br /><br />
                                                                         </c:if>

@@ -157,6 +157,11 @@
                                                                             </tr>
                                                                         </c:forEach>
 																	</table></p>
+													                <br /><br />
+                                                                    <c:if test="${projectDetailsRow.map['complete_status'] != 1}">
+                                                                        * Contains results from projects still in progress, results subject to change
+                                                                        <br /><br />
+                                                                    </c:if>
 																</div>
                                                             </div>
                                                         </div>

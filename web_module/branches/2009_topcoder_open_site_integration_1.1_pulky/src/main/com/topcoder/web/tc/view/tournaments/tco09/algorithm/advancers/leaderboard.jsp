@@ -40,8 +40,8 @@
 <c:set var="round2SortColumnIndex" value="<%=rsc.getColumnIndex("round2_sort")%>"/>
 <c:set var="round3SortColumnIndex" value="<%=rsc.getColumnIndex("round3_sort")%>"/>
 <c:set var="round4SortColumnIndex" value="<%=rsc.getColumnIndex("round4_sort")%>"/>
+<c:set var="round5SortColumnIndex" value="<%=rsc.getColumnIndex("round5_sort")%>"/>
 <c:set var="semiSortColumnIndex" value="<%=rsc.getColumnIndex("semi_sort")%>"/>
-<c:set var="wildcardSortColumnIndex" value="<%=rsc.getColumnIndex("wildcard_sort")%>"/>
 <c:set var="finalsSortColumnIndex" value="<%=rsc.getColumnIndex("finals_sort")%>"/>
 <c:set var="rsc" value="<%=rsc%>"/>
 
@@ -53,11 +53,9 @@
 <c:set var="round2_id" value="2"/>
 <c:set var="round3_id" value="3"/>
 <c:set var="round4_id" value="4"/>
-<c:set var="semi1_id" value="5"/>
-<c:set var="semi2_id" value="6"/>
-<c:set var="semi3_id" value="7"/>
-<c:set var="wildcard_id" value="8"/>
-<c:set var="finals_id" value="9"/>
+<c:set var="round5_id" value="5"/>
+<c:set var="semi_id" value="6"/>
+<c:set var="finals_id" value="7"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
         
@@ -226,10 +224,10 @@
                                                                                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="${round4SortColumnIndex}"/>">R4</a>
                                                                                     </th>
                                                                                     <th>
-                                                                                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="${semiSortColumnIndex}"/>">Semi</a>
+                                                                                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="${round5SortColumnIndex}"/>">R5</a>
                                                                                     </th>
                                                                                     <th>
-                                                                                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="${wildcardSortColumnIndex}"/>">Wild</a>
+                                                                                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="${semiSortColumnIndex}"/>">Semi</a>
                                                                                     </th>
                                                                                     <th>
                                                                                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column="${finalsSortColumnIndex}"/>">Final</a>
@@ -247,8 +245,8 @@
 <td class="first last alignText"><c:choose><c:when test="${empty round2_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round1'] or resultRow.map['round1'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['round2']}"><img src="/i/tournament/tco09/icon${fn:trim(resultRow.map['round2'])}.png" alt="${resultRow.map["round2"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
 <td class="first last alignText"><c:choose><c:when test="${empty round3_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round2'] or resultRow.map['round2'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['round3']}"><img src="/i/tournament/tco09/icon${fn:trim(resultRow.map['round3'])}.png" alt="${resultRow.map["round3"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
 <td class="first last alignText"><c:choose><c:when test="${empty round4_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round3'] or resultRow.map['round3'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['round4']}"><img src="/i/tournament/tco09/icon${fn:trim(resultRow.map['round4'])}.png" alt="${resultRow.map["round4"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
-<td class="first last alignText"><c:choose><c:when test="${empty semi1_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round4'] or resultRow.map['round4'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['semi']}"><img src="/i/tournament/tco09/icon${fn:trim(resultRow.map['semi'])}.png" alt="${resultRow.map["semi"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
-<td class="first last alignText"><c:choose><c:when test="${empty wildcard_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['semi'] or resultRow.map['semi'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['wildcard']}"><img src="/i/tournament/tco09/icon${fn:trim(resultRow.map['wildcard'])}.png" alt="${resultRow.map["wildcard"]}" /></c:when><c:otherwise>&nbsp;</c:otherwise></c:choose></td>
+<td class="first last alignText"><c:choose><c:when test="${empty round5_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round4'] or resultRow.map['round4'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['round5']}"><img src="/i/tournament/tco09/icon${fn:trim(resultRow.map['round5'])}.png" alt="${resultRow.map["round5"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
+<td class="first last alignText"><c:choose><c:when test="${empty semi_id}">&nbsp;</c:when><c:when test="${empty resultRow.map['round5'] or resultRow.map['round5'] == 'Eliminated'}">&nbsp;</c:when><c:when test="${not empty resultRow.map['semi']}"><img src="/i/tournament/tco09/icon${fn:trim(resultRow.map['semi'])}.png" alt="${resultRow.map["semi"]}" /></c:when><c:otherwise>-</c:otherwise></c:choose></td>
 <td class="first last alignText"><c:choose><c:when test="${empty finals_id}">&nbsp;</c:when><c:when test="${not empty resultRow.map['final']}"><img src="/i/tournament/tco09/icon${fn:trim(resultRow.map['final'])}.png" alt="${resultRow.map["final"]}" /></c:when><c:otherwise>&nbsp;</c:otherwise></c:choose></td>
 <td class="last">&nbsp;</td>
 </tr>
