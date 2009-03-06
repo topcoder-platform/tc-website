@@ -5,6 +5,8 @@ package com.topcoder.web.tc.controller.request.tournament.tco09;
 
 import com.topcoder.json.object.JSONArray;
 import com.topcoder.json.object.JSONObject;
+import com.topcoder.util.config.ConfigManager;
+import com.topcoder.util.config.UnknownNamespaceException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.request.tournament.ModDashStatBase;
 
@@ -17,6 +19,8 @@ import com.topcoder.web.tc.controller.request.tournament.ModDashStatBase;
  * feed data. For each user from leaderboard its user_id is retrieved from db.
  * This is done in order to allow pretty rendering of user handle.  
  * 
+ * Feed URL is taken from configuration file. 
+ * 
  * Author TCSDEVELOPER
  * Version 1.0
  * Since 2009 TopCoder Open Site Integration
@@ -24,11 +28,46 @@ import com.topcoder.web.tc.controller.request.tournament.ModDashStatBase;
 public class ModDashLeaderboard extends ModDashStatBase {
    
     /**
+     * Feed URL, this field is a placeholder for value taken from configuraiton file. 
+     */
+    private static String feedUrl;
+    
+    /**
+     * Configuration namespace.
+     */
+    private final static String DEFAULT_NAMESPACE = "com.topcoder.web.tc.controller.request.tournament.tco09.ModDash";
+    
+    /**
+     * Name of property from which leaderboard feed url will be read.
+     */
+    private final static String LEADERBOARD_FEED_URL_PROPERTY = "leaderboardFeedURL";
+    
+    /**
+     * Initializes the feedUrl field with value read from configuration.
+     * @throws TCWebException when any configuration error occurs
+     */
+    private static void initialize() throws TCWebException {
+        ConfigManager configManager = ConfigManager.getInstance();
+        try {
+            feedUrl = (String) configManager.getProperty(DEFAULT_NAMESPACE, 
+                    LEADERBOARD_FEED_URL_PROPERTY);
+            if (feedUrl == null) {
+                throw new TCWebException("Incorrect configuration, can't find " + LEADERBOARD_FEED_URL_PROPERTY + 
+                        " property in " + DEFAULT_NAMESPACE + " namespace");                
+            }
+        } catch (UnknownNamespaceException e) {
+            new TCWebException(e);
+        }
+    }
+    /**
      * Returns URL that should be used for feed data retrieval.
      * @return feed URL
      */
     @Override
-    protected String getFeedURL() {
+    protected String getFeedURL() throws TCWebException {
+        if (feedUrl == null) {
+            initialize();
+        }
         return "http://66.37.210.86/tc?module=BasicData&c=dd_mod_dash_tco_leaderboard&dsid=34&json=true";
     }
 
