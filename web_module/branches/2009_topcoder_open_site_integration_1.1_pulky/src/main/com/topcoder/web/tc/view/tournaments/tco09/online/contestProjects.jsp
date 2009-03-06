@@ -1,10 +1,14 @@
 <%--
  * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
  *
- * This JSP shows architecture track description page.
+ * This JSP shows the list of project that are part of the tournament for the corresponding track type.
+ * This same JSP is used for all project-based leaderboard pages. Project type is used to adapt
+ * content for each track.
+ *
+ * Version 1.1 (2009 TopCoder Open Site Integration 1.1) changes: page content was implemented.
  *
  * Author TCSDEVELOPER
- * Version 1.0
+ * Version 1.1
  * Since 2009 TopCoder Open Site Integration
 --%>
 <%@ page contentType="text/html;charset=utf-8" %> 
@@ -17,6 +21,7 @@
 <c:set var="contestProjects" value="${resultMap['contest_projects']}"/>
 <c:set var="contestDetailsRow" value="${contestDetails[0]}"/>
 
+<%-- Setting up constants to use JSTL --%>
 <c:set var="projectType" value="${contestDetailsRow.map['project_category_id']}"/>
 <c:set var="DESIGN_PROJECT_TYPE" value="<%=Constants.DESIGN_PROJECT_TYPE%>"/>
 <c:set var="DEVELOPMENT_PROJECT_TYPE" value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>"/>

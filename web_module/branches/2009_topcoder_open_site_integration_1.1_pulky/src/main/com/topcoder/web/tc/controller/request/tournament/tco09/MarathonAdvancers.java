@@ -1,8 +1,6 @@
 /*
-* Advancers
-*
-* Created Aug 1, 2007
-*/
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.tournament.tco09;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -12,8 +10,11 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.tournament.AdvancersBase;
 
 /**
- * @author Pablo Wolfus (pulky)
- * @version $Id$
+ * <p>This class provides specific implementation for TCO09 Marathon Advancers leaderboard.</p>
+ *
+ * @author TCSDEVELOPER
+ * @version 1.0
+ * @since 2009 TopCoder Open Site Integration 1.1
  */
 public class MarathonAdvancers extends AdvancersBase {
 
@@ -53,16 +54,24 @@ public class MarathonAdvancers extends AdvancersBase {
         return DBMS.DW_DATASOURCE_NAME;
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.AdvancersBase#getPageName()
+    /**
+     * <p>
+     * This method returns the JSP path for the TCO09 marathon advancers page 
+     * </p>
+     * 
+     * @return <code>String</code> containing the JSP path
      */
     @Override
     protected String getPageName() {
         return "/tournaments/" + getContestPrefix() + "/marathon/advancers/leaderboard.jsp";
     }
     
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.AdvancersBase#setSortInfo()
+    /**
+     * <p>
+     * This method sets the sort information for the <code>ResultSetContainer</code>
+     * </p>
+     * 
+     * @param rsc a <code>ResultSetContainer</code> with query results
      */
     @Override
     protected void setSortInfo(ResultSetContainer rsc) {
@@ -77,5 +86,4 @@ public class MarathonAdvancers extends AdvancersBase {
         s.addDefault(rsc.getColumnIndex("finals_sort"), "asc");
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
-
 }

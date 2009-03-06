@@ -7,13 +7,13 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.tournament.ProjectDetailsBase;
 
 /**
- * ToDo: revisit
  * <p>This class provides specific implementation for TCO09 project-based tracks leaderboards.</p>
- * <p>It will calculate points based on competition data and present the consolidated leaderboards.</p>
+ * <p>This processor will present the details of a particular tournament project includeding calculated
+ *    placement points.</p>
  *
  * @author TCSDEVELOPER
  * @version 1.0
- * @since 2009 TopCoder Open Site Integration
+ * @since 2009 TopCoder Open Site Integration 1.1
  */
 public class ProjectDetails extends ProjectDetailsBase {
 

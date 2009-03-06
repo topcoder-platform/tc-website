@@ -1,11 +1,14 @@
 <%--
  * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
  *
- * ToDo : revisit description
- * This JSP shows architecture track description page.
+ * This JSP shows the consolidated leaderboard for the corresponding track type.
+ * This same JSP is used for all project-based leaderboard pages. Project type is used to adapt
+ * content for each track.
+ *
+ * Version 1.1 (2009 TopCoder Open Site Integration 1.1) changes: page content was implemented.
  *
  * Author TCSDEVELOPER
- * Version 1.0
+ * Version 1.1
  * Since 2009 TopCoder Open Site Integration
 --%>
 
@@ -18,6 +21,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
+<%-- Setting up constants to use JSTL --%>
 <c:set var="contestDetails" value="${resultMap['contest_details']}"/>
 <c:set var="contestDetailsRow" value="${contestDetails[0]}"/>
 <c:set var="projectType" value="${contestDetailsRow.map['project_category_id']}"/>

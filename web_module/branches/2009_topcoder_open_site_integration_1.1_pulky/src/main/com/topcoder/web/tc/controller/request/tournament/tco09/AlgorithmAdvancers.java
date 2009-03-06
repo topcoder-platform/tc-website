@@ -14,7 +14,7 @@ import com.topcoder.web.tc.controller.request.tournament.AdvancersBase;
  *
  * @author TCSDEVELOPER
  * @version 1.0
- * @since 2009 TopCoder Open Site Integration
+ * @since 2009 TopCoder Open Site Integration 1.1
  */
 public class AlgorithmAdvancers extends AdvancersBase {
 
@@ -54,16 +54,24 @@ public class AlgorithmAdvancers extends AdvancersBase {
         return DBMS.DW_DATASOURCE_NAME;
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.AdvancersBase#getPageName()
+    /**
+     * <p>
+     * This method returns the JSP path for the TCO09 algorithm advancers page 
+     * </p>
+     * 
+     * @return <code>String</code> containing the JSP path
      */
     @Override
     protected String getPageName() {
         return "/tournaments/" + getContestPrefix() + "/algorithm/advancers/leaderboard.jsp";
     }
     
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.tournament.AdvancersBase#setSortInfo()
+    /**
+     * <p>
+     * This method sets the sort information for the <code>ResultSetContainer</code>
+     * </p>
+     * 
+     * @param rsc a <code>ResultSetContainer</code> with query results
      */
     @Override
     protected void setSortInfo(ResultSetContainer rsc) {

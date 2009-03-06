@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.tournament;
 
 import java.util.ArrayList;
@@ -21,20 +24,37 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
 
 /**
- * @author pulky
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Mar 1, 2007
+ * <p>This class calculates and presents TCO Mod Dash leaderboard details page.</p>
+ *
+ * @author TCSDEVELOPER
+ * @version 1.0
+ * @since 2009 TopCoder Open Site Integration 1.1
  */
 public abstract class ModDashLeaderboardDetailsBase extends Base {
 
+    /**
+     * <p>A <code>String</code> representing full list request parameter name.</p>
+     */
     public static final String FULL_LIST = "full";
 
+    /**
+     * <p>A <code>int</code> representing the index for issue key column.</p>
+     */
     public static final int ISSUE_KEY_COL = 1;
+
+    /**
+     * <p>A <code>int</code> representing the index for points column.</p>
+     */
     public static final int POINTS_COL = 2;
+
+    /**
+     * <p>A <code>int</code> representing the index for created column.</p>
+     */
     public static final int CREATED_COL = 3;
 
     /**
-     * Gets the contest prefix. It will be used mainly for the jsp path but could be used for other purposes as well. 
+     * Gets the contest prefix. It will be used mainly for the jsp path but could be used for 
+     * other purposes as well. 
      * Example: tco07, tccc07, etc.
      * 
      * @return the contest prefix
@@ -42,7 +62,7 @@ public abstract class ModDashLeaderboardDetailsBase extends Base {
     protected abstract String getContestPrefix();
     
     /**
-     * Gets the command name for this stat
+     * Gets the command name to be retrieved.
      * 
      * @return the command name
      */
@@ -51,7 +71,7 @@ public abstract class ModDashLeaderboardDetailsBase extends Base {
     }
 
     /**
-     * Gets the datasource for this stat
+     * Gets the datasource from where to retrieve the command
      * 
      * @return the datasource name
      */
@@ -60,7 +80,7 @@ public abstract class ModDashLeaderboardDetailsBase extends Base {
     }
 
     /**
-     * Gets the page for this stat
+     * Gets the page that will show the leaderboard
      * 
      * @return the page
      */
@@ -68,8 +88,9 @@ public abstract class ModDashLeaderboardDetailsBase extends Base {
         return "/tournaments/" + getContestPrefix() + "/moddash/advancers/leaderboardDetails.jsp";
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()
+    /**
+     * This method provides generic processing for the board. 
+     * It will execute a Query Tool command, and delegate processing to <code>processResult()</code> 
      */
     @Override
     protected void developmentProcessing() throws TCWebException {
@@ -107,14 +128,13 @@ public abstract class ModDashLeaderboardDetailsBase extends Base {
 
     /**
      * This method will process the DB results including:
-     * - Placement points calculation
-     * - Rank generation
      * - Sorting
+     * - Cropping
      * 
      * @param result the result of the command execution
-     * @throws com.topcoder.web.common.TCWebException
+     * @throws TCWebException if an error occurs
      */
-    protected void processResult(Map result) throws com.topcoder.web.common.TCWebException {
+    protected void processResult(Map result) throws TCWebException {
         ResultSetContainer rsc = (ResultSetContainer) result.get(getCommandName());
 
         // There is no need to check if the user is registered to the tournament.
@@ -134,6 +154,12 @@ public abstract class ModDashLeaderboardDetailsBase extends Base {
         getRequest().setAttribute("results", results);
     }
 
+    /**
+     * This method will crop results according to request parameters
+     * 
+     * @param results the complete list of results
+     * @return a <code>List<ModDashLeaderBoardDetailRow></code> with the cropped results
+     */
     private List<ModDashLeaderBoardDetailRow> cropResult(List<ModDashLeaderBoardDetailRow> results) {
         Boolean full = "true".equals(StringUtils.checkNull(getRequest().getParameter(FULL_LIST)));
         getRequest().setAttribute(FULL_LIST, full);        
@@ -174,23 +200,17 @@ public abstract class ModDashLeaderboardDetailsBase extends Base {
     }
 
     /**
-     * This method calculates the placement points for all users in a particular event
-     * 
-     * The calculation will take into consideration:
-     * - Relative placement within event registrants of the competition
-     * - Placements points as specified in getPlacementPoints()
-     * - Maximum number of contests to be taken into consideration as specified in getMaxContests()
+     * This method creates corresponding beans from the retrieved data
      * 
      * @param rsc The ResultSetContainer with the DB query results
-     * @return a List of ModDashLeaderBoardDetailRow elements with all the information for the stat chart
-     * @throws TCWebException 
+     * @return a <code>List<ModDashLeaderBoardDetailRow></code> with the results
      */
-    private List<ModDashLeaderBoardDetailRow> processResults(ResultSetContainer rsc) throws TCWebException {
+    private List<ModDashLeaderBoardDetailRow> processResults(ResultSetContainer rsc) {
         List <ModDashLeaderBoardDetailRow> leaderBoard = new ArrayList<ModDashLeaderBoardDetailRow>(rsc.size());
         for (ResultSetRow rsr: rsc) {
             leaderBoard.add(new ModDashLeaderBoardDetailRow(rsr.getStringItem("issue_key"),
-                    rsr.getIntItem("tco_points"), rsr.getIntItem("project"),
-                    rsr.getTimestampItem("created")));
+                rsr.getIntItem("tco_points"), rsr.getIntItem("project"),
+                rsr.getTimestampItem("created")));
         }
 
         return leaderBoard;
@@ -199,7 +219,7 @@ public abstract class ModDashLeaderboardDetailsBase extends Base {
     /**
      * Private helper method to sort the results 
      * 
-     * @param result the list of ModDashLeaderBoardDetailRow elements 
+     * @param result the list of ModDashLeaderBoardDetailRow to sort 
      * @param sortCol the sort column 
      * @param invert true if an inverted list is requested
      */
@@ -240,5 +260,4 @@ public abstract class ModDashLeaderboardDetailsBase extends Base {
         
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
-
 }

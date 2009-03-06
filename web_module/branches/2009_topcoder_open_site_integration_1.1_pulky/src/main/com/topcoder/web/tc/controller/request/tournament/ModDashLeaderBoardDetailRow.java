@@ -1,26 +1,46 @@
 /*
-* StudioLeaderBoardRow
-*
-* Created Aug 2, 2007
-*/
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.tournament;
 
 import java.sql.Timestamp;
 
-
 /**
- * @author Pablo Wolfus (pulky)
- * @version $Id$
+ * <p>This class is a simple bean representing a TCO Mod Dash leaderboard details row.</p>
+ *
+ * @author TCSDEVELOPER
+ * @version 1.0
+ * @since 2009 TopCoder Open Site Integration 1.1
  */
 public class ModDashLeaderBoardDetailRow {
+    /**
+     * <p>A <code>String</code> representing the issue key.</p>
+     */
     private String issueKey;
+
+    /**
+     * <p>A <code>Integer</code> representing the total points.</p>
+     */
     private Integer points;
+
+    /**
+     * <p>A <code>Integer</code> representing the ticket's project.</p>
+     */
     private Integer project;
+
+    /**
+     * <p>A <code>Timestamp</code> representing the ticket creation timestamp.</p>
+     */
     private Timestamp created;
     
     /**
-     * @param rank
-     * @param handle
+     * This method will construct a <code>ModDashLeaderBoardDetailRow</code> with
+     * all specified parameters
+     * 
+     * @param issueKey the issuekey to set
+     * @param points the points to set
+     * @param project the project to set
+     * @param created the created to set
      */
     public ModDashLeaderBoardDetailRow(String issueKey,
             Integer points, Integer project,
@@ -33,56 +53,72 @@ public class ModDashLeaderBoardDetailRow {
     }
 
     /**
-     * @return the issueKey
+     * Simple getter for issueKey attribute
+     * 
+     * @return the issueKey attribute
      */
     public String getIssueKey() {
         return issueKey;
     }
 
     /**
-     * @param issueKey the issueKey to set
+     * Simple setter for issueKey attribute
+     * 
+     * @param issueKey the value to set
      */
     public void setIssueKey(String issueKey) {
         this.issueKey = issueKey;
     }
 
     /**
-     * @return the points
+     * Simple getter for points attribute
+     * 
+     * @return the points attribute
      */
     public Integer getPoints() {
         return points;
     }
 
     /**
-     * @param points the points to set
+     * Simple setter for points attribute
+     * 
+     * @param points the value to set
      */
     public void setPoints(Integer points) {
         this.points = points;
     }
 
     /**
-     * @return the project
+     * Simple getter for project attribute
+     * 
+     * @return the project attribute
      */
     public Integer getProject() {
         return project;
     }
 
     /**
-     * @param project the project to set
+     * Simple setter for project attribute
+     * 
+     * @param project the value to set
      */
     public void setProject(Integer project) {
         this.project = project;
     }
 
     /**
-     * @return the created
+     * Simple getter for created attribute
+     * 
+     * @return created attribute
      */
     public Timestamp getCreated() {
         return created;
     }
 
     /**
-     * @param created the created to set
+     * Simple setter for created attribute
+     * 
+     * @param created the value to set
      */
     public void setCreated(Timestamp created) {
         this.created = created;

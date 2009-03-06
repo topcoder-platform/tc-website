@@ -6,8 +6,10 @@
  * This JSP is included by the rest of the pages in this minisite. Taking into consideration the three
  * levels of navigation menues, it renders the corresponding tertiary nav and highlights the selected option.
  *
+ * Version 1.1 (2009 TopCoder Open Site Integration 1.1) changes: Replaced links for all leaderboard pages.
+ *
  * Author TCSDEVELOPER
- * Version 1.0
+ * Version 1.1
  * Since 2009 TopCoder Open Site Integration
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

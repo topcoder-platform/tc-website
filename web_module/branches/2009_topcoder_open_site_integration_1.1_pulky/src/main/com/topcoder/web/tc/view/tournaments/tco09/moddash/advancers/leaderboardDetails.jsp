@@ -1,11 +1,11 @@
 <%--
  * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
  *
- * This JSP shows moddash track leaderboard page.
+ * This JSP shows moddash track leaderboard details page.
  *
  * Author TCSDEVELOPER
  * Version 1.0
- * Since 2009 TopCoder Open Site Integration
+ * Since 2009 TopCoder Open Site Integration 1.1
 --%>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <%@ page import="com.topcoder.web.tc.Constants,
@@ -16,6 +16,7 @@
 <%@ taglib prefix="tc-webtag" uri="tc-webtags.tld" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 
+<%-- Setting up constants to use JSTL --%>
 <c:set var="START_RANK" value="<%=DataAccessConstants.START_RANK%>" />
 <c:set var="NUMBER_RECORDS" value="<%=DataAccessConstants.NUMBER_RECORDS%>" />
 <c:set var="SORT_DIRECTION" value="<%=DataAccessConstants.SORT_DIRECTION%>" />

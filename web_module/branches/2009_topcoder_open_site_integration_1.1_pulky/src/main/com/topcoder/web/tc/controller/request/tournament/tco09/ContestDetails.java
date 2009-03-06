@@ -7,13 +7,12 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.tournament.ContestDetailsBase;
 
 /**
- * ToDo: revisit
  * <p>This class provides specific implementation for TCO09 project-based tracks leaderboards.</p>
- * <p>It will calculate points based on competition data and present the consolidated leaderboards.</p>
+ * <p>This processor will calculate points based on competition data and present the consolidated leaderboard.</p>
  *
  * @author TCSDEVELOPER
  * @version 1.0
- * @since 2009 TopCoder Open Site Integration
+ * @since 2009 TopCoder Open Site Integration 1.1
  */
 public class ContestDetails extends ContestDetailsBase {
 
@@ -24,7 +23,11 @@ public class ContestDetails extends ContestDetailsBase {
      */    
     private static final int[] placementPoints = new int[]{10, 7, 5, 4, 0};
 
-    // ToDo: take this out of here
+    /**
+     * <p>
+     * An <code>int</code> containing the maximum number of project to consider for cumulative score
+     * </p>
+     */    
     private final int MAX_NUMBER_PROJECTS = 5;
 
     /**

@@ -3,9 +3,11 @@
  *
  * This JSP shows marathon track leaderboard page.
  *
+ * Version 1.1 (2009 TopCoder Open Site Integration 1.1) changes: leaderboard was implemented
+ *
  * Author TCSDEVELOPER
- * Version 1.0
- * Since 2009 TopCoder Open Site Integration 1.1
+ * Version 1.1
+ * Since 2009 TopCoder Open Site Integration
 --%>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <%@ page language="java" %>
