@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.development;
 
 import java.util.Map;
@@ -18,12 +21,29 @@ import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.ReviewBoard;
+import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
 
 /**
- * Added some code to make project related controllers more generic.
+ * <p>Added some code to make project related controllers more generic.</p>
  *
- * @author dok, pulky, isv
- *         Date: Feb 10, 2004
+ * <p><b>Change Log:</b></p>
+ *
+ * <p>
+ *   <table>
+ *     <tr>
+ *         <td>Version 1.1 (TCS Release 2.2.2)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added support for Conceptualization, Specification and Application Testing project types.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *   </table>
+ * </p>
+ *
+ * @author dok, pulky, isv, TCSDEVELOPER
+ * @version 1.1
  */
 public abstract class Base extends ShortHibernateProcessor {
     protected Logger log = Logger.getLogger(Base.class);
@@ -135,17 +155,16 @@ public abstract class Base extends ShortHibernateProcessor {
 
     /**
      * <p>Checks whether the specified project type requested by client is currently supported by this controller
-     * or not. As of current version <code>Design</code>, <code>Development</code> and <code>Assembly</code> project
-     * types are supported only.</p>
+     * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization, 
+     * Specification and Application Testing project types are supported.</p>
+     * 
+     * This method delegates to ReviewBoardHelper.isReviewBoardTypeSupported().
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
-     * @return <code>true</code> if specified project type is requested; <code>false</code> otherwise.
+     * @return <code>true</code> if specified project type is supported; <code>false</code> otherwise.
      * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57)
      */
     protected boolean isProjectTypeSupported(String projectType) {
-        return projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))
-            || projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))
-            || projectType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))
-            || projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE));
+        return ReviewBoardHelper.isReviewBoardTypeSupported(projectType);
     }
 }
