@@ -35,8 +35,8 @@
                     <li><a class="button2" href="http://<%=ApplicationServer.SERVER_NAME%>/direct">PRINT DESIGN</a></li>
                     <li><a class="button2" href="http://<%=ApplicationServer.SERVER_NAME%>/direct">APPLICATIONS</a></li>
                 </ul>
-                <a href="http://<%=ApplicationServer.SERVER_NAME%>/direct"><img class="startNow" src="/i/start_your_project_now.png" alt="start your project now" /></a>
-                <a class="button" href="http://<%=ApplicationServer.SERVER_NAME%>/direct">LAUNCH DIRECT</a>
+                <a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/"><img class="startNow" src="/i/start_your_project_now.png" alt="start your project now" /></a>
+                <a class="button" href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">LAUNCH DIRECT</a>
             </div>
             <div class="right_content">
                 <ul>
