@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc;
 
 import com.topcoder.shared.util.TCResourceBundle;
@@ -8,6 +11,19 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.MissingResourceException;
 
+/**
+ * <p>This class stores a variety of constants.</p>
+ *
+ * <p>
+ *   Version 1.1 (TCS Release 2.2.2) Change notes:
+ *   <ol>
+ *     <li>Added constants to support Conceptualization, Specification and Application Testing Review Board pages.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER
+ * @version 1.1
+ */
 public class Constants implements WebConstants {
 
 
@@ -207,6 +223,14 @@ public class Constants implements WebConstants {
      */
     public static final String ARCHITECTURE_REVIEW_PROJECT_DETAIL = "/architecture/reviewProjectDetail.jsp";
 
+    /**
+     * <p>A <code>String</code> providing the path to the unified review project detail page used to 
+     * manage Conceptualization, Specification and Application Testing Review Projects.</p>
+     *
+     * @since 1.1
+     */
+    public static final String UNIFIED_REVIEW_PROJECT_DETAIL_PAGE = "/review_board/reviewProjectDetail.jsp";
+
     public static String REVIEW_PROJECTS;
 
     /**
@@ -224,6 +248,14 @@ public class Constants implements WebConstants {
      * @since TCS Release 2.2.1 (TCS-57)
      */
     public static final String ARCHITECTURE_REVIEW_PROJECTS = "/architecture/reviewProjects.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the path to the unified review project page used to 
+     * manage Conceptualization, Specification and Application Testing Review Projects.</p>
+     *
+     * @since 1.1
+     */
+    public static final String UNIFIED_REVIEW_PROJECTS_PAGE = "/review_board/reviewProjects.jsp";
 
     public static String DESIGN_DETAIL;
     public static String DEVELOPMENT_DETAIL;
@@ -244,6 +276,22 @@ public class Constants implements WebConstants {
      * @since TCS Release 2.2.1 (TCS-57)
      */
     public static final String ARCHITECTURE_REVIEWER_TERMS = "/architecture/reviewerTerms.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the path to the unified review terms page used to 
+     * manage Conceptualization, Specification and Application Testing Review Projects.</p>
+     *
+     * @since 1.1
+     */
+    public static final String UNIFIED_REVIEWER_TERMS_PAGE = "/review_board/reviewerTerms.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the path to the unified meet the review board page used to 
+     * manage Conceptualization, Specification and Application Testing Review Projects.</p>
+     *
+     * @since 1.1
+     */
+    public static final String UNIFIED_MEET_REVIEW_BOARD_PAGE = "/review_board/meetReviewBoard.jsp";
 
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;

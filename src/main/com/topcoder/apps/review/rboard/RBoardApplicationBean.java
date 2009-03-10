@@ -1,7 +1,6 @@
 /*
- * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
-
 package com.topcoder.apps.review.rboard;
 
 import com.topcoder.apps.review.persistence.Common;
@@ -86,8 +85,15 @@ import java.util.Map;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, ivern, isv
- * @version 1.0.7
+ *   Version 1.0.8 Change notes:
+ *   <ol>
+ *     <li>Added support for Conceptualization, Specification and Application Testing Review projects.</li>
+ *     <li>Fixed Architecture missing validation.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, ivern, isv, TCSDEVELOPER
+ * @version 1.0.8
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
@@ -119,6 +125,73 @@ public class RBoardApplicationBean extends BaseEJB {
 
     private static final String RESOURCE_ID_SEQ = "resource_id_seq";
 
+    /**
+     * <p>A <code>int</code> representing the primary review id for development projects.</p>
+     *
+     * @since 1.0.8
+     */
+    private static final int DEVELOPMENT_PRIMARY_REVIEW_ID = 2;
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for design projects.</p>
+     *
+     * @since 1.0.8
+     */
+    private static final int DESIGN_PRIMARY_REVIEW_ID = 4;
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for assembly projects.</p>
+     *
+     * @since 1.0.8
+     */
+    private static final int ASSEMBLY_PRIMARY_REVIEW_ID = 7;
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for architecture projects.</p>
+     *
+     * @since 1.0.8
+     */
+    private static final int ARCHITECTURE_PRIMARY_REVIEW_ID = 10;
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for conceptualization projects.</p>
+     *
+     * @since 1.0.8
+     */
+    private static final int CONCEPTUALIZATION_PRIMARY_REVIEW_ID = 13;
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for specification projects.</p>
+     *
+     * @since 1.0.8
+     */
+    private static final int SPECIFICATION_PRIMARY_REVIEW_ID = 16;
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for application testing projects.</p>
+     *
+     * @since 1.0.8
+     */
+    private static final int APPLICATION_TESTING_PRIMARY_REVIEW_ID = 19;
+
+    /**
+     * <p>A <code>String</code> containing the error message for inconsistent reviewers for most project types.</p>
+     *
+     * @since 1.0.8
+     */
+    private static final String INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON = 
+        "Sorry, there was an error in the application";
+
+    /**
+     * <p>A <code>String</code> containing the error message for inconsistent reviewers for development project types.</p>
+     *
+     * @since 1.0.8
+     */
+    private static final String INCONSISTENT_REVIEWERS_ERROR_MESSAGE_DEVELOPMENT = 
+        "Sorry, there was an error in the application " +
+        "(primary reviewers must be failure reviewers, and " +
+        "vice versa).";
+    
     private static Logger log = Logger.getLogger(RBoardApplicationBean.class);
 
     /**
@@ -834,43 +907,28 @@ public class RBoardApplicationBean extends BaseEJB {
         }
 
         if (phaseId == SoftwareComponent.DEV_PHASE) {
-            for (Object reviewer : reviewers) {
-                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) reviewer;
-                if (row.getIntItem("review_resp_id") == reviewTypeId) {
-                    throw new RBoardRegistrationException("Sorry, this review position is already taken.");
-                }
-            }
-            // If somebody came in by constructing the URL, make sure this is consistent too.
-            if (primary != (reviewTypeId == 2)) {
-                throw new RBoardRegistrationException("Sorry, there was an error in the application"
-                                                      + " (primary reviewers must be failure reviewers, and "
-                                                      + "vice versa).");
-            }
+            validateReviewPositions(reviewTypeId, primary, reviewers, DEVELOPMENT_PRIMARY_REVIEW_ID, 
+                    INCONSISTENT_REVIEWERS_ERROR_MESSAGE_DEVELOPMENT);
         } else if (phaseId == SoftwareComponent.DESIGN_PHASE) {
-            // Design.
-            for (Object reviewer : reviewers) {
-                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) reviewer;
-                if (row.getIntItem("review_resp_id") == reviewTypeId) {
-                    throw new RBoardRegistrationException("Sorry, this review position is already taken.");
-                }
-            }
-            // If somebody came in by constructing the URL, make sure this is consistent too.
-            if (primary != (reviewTypeId == 4)) {
-                throw new RBoardRegistrationException("Sorry, there was an error in the application");
-            }
+            validateReviewPositions(reviewTypeId, primary, reviewers, DESIGN_PRIMARY_REVIEW_ID, 
+                    INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.ASSEMBLY_PROJECT_TYPE + 111)) {
-            // Assembly.
-            for (Object reviewer : reviewers) {
-                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) reviewer;
-                if (row.getIntItem("review_resp_id") == reviewTypeId) {
-                    throw new RBoardRegistrationException("Sorry, this review position is already taken.");
-                }
-            }
-            // If somebody came in by constructing the URL, make sure this is consistent too.
-            if (primary != (reviewTypeId == 7)) {
-                throw new RBoardRegistrationException("Sorry, there was an error in the application");
-            }
+            validateReviewPositions(reviewTypeId, primary, reviewers, ASSEMBLY_PRIMARY_REVIEW_ID, 
+                    INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.ARCHITECTURE_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, ARCHITECTURE_PRIMARY_REVIEW_ID, 
+                    INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.CONCEPTUALIZATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, CONCEPTUALIZATION_PRIMARY_REVIEW_ID, 
+                    INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.SPECIFICATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, SPECIFICATION_PRIMARY_REVIEW_ID, 
+                    INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.APPLICATION_TESTING_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, APPLICATION_TESTING_PRIMARY_REVIEW_ID, 
+                    INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         }
+        
         // If somebody came in by constructing the URL, make sure that there is at least one
         // primary before we run out of spots.
         if (!primary && reviewers.size() == 2) {
@@ -888,6 +946,32 @@ public class RBoardApplicationBean extends BaseEJB {
     }
 
     /**
+     * Helper private method to validate review positions.
+     * 
+     * @param reviewTypeId the Review Type Id being validated 
+     * @param primary the Primary flag being validated
+     * @param reviewers the list of reviewers being validated
+     * @param reviewers the corresponding Primary Review Id according to the project type
+     * 
+     * @throws RBoardRegistrationException if the review position is taken of the url is not consistent
+     * @since 1.0.8
+     */
+    private void validateReviewPositions(int reviewTypeId, boolean primary,
+            ResultSetContainer reviewers, int primaryReviewId, String inconsistencyErrorMessage) throws RBoardRegistrationException {
+
+        for (Object reviewer : reviewers) {
+            ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) reviewer;
+            if (row.getIntItem("review_resp_id") == reviewTypeId) {
+                throw new RBoardRegistrationException("Sorry, this review position is already taken.");
+            }
+        }
+        // If somebody came in by constructing the URL, make sure this is consistent too.
+        if (primary != (reviewTypeId == primaryReviewId)) {
+            throw new RBoardRegistrationException(inconsistencyErrorMessage);
+        }
+    }
+
+    /**
      * Gets reviewers responsibility information
      *
      * @param conn the connection being used
@@ -896,8 +980,9 @@ public class RBoardApplicationBean extends BaseEJB {
     private Map getReviewRespInfo() {
         // review_resp table is removed
         Map returnMap = new HashMap();
-        int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-        int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118};
+        int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21};
+        int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134, 
+                117, 117, 117, 124, 124, 124};
 
         for (int i = 0; i < respIds.length; i++) {
             returnMap.put(new Integer(respIds[i]), new Integer(phaseIds[i]));

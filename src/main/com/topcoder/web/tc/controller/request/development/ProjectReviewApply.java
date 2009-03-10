@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -64,10 +64,15 @@ import java.io.FileOutputStream;
  *   <ol>
  *     <li>Added support for <code>Architecture</code> project type/category.</li>
  *   </ol>
+ *
+ *   Version 1.0.5 (TCS Release 2.2.2) Change notes:
+ *   <ol>
+ *     <li>Added support for Conceptualization, Specification and Application Testing project types.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, isv
- * @version 1.0.4
+ * @author dok, pulky, isv, TCSDEVELOPER
+ * @version 1.0.5
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -172,8 +177,11 @@ public class ProjectReviewApply extends Base {
 
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
         int type = Integer.parseInt(this.projectTypeId);
-        // Assembly competition reviews do not take into consideration the catalogs as for now
-        if (type == WebConstants.ASSEMBLY_PROJECT_TYPE || type == WebConstants.ARCHITECTURE_PROJECT_TYPE) {
+        // Assembly, Architecture, Conceptualization, Specification and Application Testing competition 
+        // reviews do not take into consideration the catalogs as for now
+        if (type == WebConstants.ASSEMBLY_PROJECT_TYPE || type == WebConstants.ARCHITECTURE_PROJECT_TYPE ||
+            type == WebConstants.CONCEPTUALIZATION_PROJECT_TYPE || type == WebConstants.SPECIFICATION_PROJECT_TYPE ||
+            type == WebConstants.APPLICATION_TESTING_PROJECT_TYPE) {
             rBoardApplication.validateUserWithoutCatalog(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, reviewTypeId,
                                                          getUser().getId(), type);
         } else {
@@ -199,8 +207,8 @@ public class ProjectReviewApply extends Base {
 
     /**
      * <p>Gets the logical name for the view which is to be used for displaying the terms of use for the reviews of
-     * specified type requested by client. As of current version <code>Design</code>, <code>Development</code>,
-     * <code>Assembly</code> and <code>Architecture</code> project types are supported only.</p>
+     * specified type requested by client. As of current version only Design, Development, Assembly, Architecture, 
+     * Conceptualization, Specification and Application Testing project types are supported.</p>
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the terms of use for projects of
@@ -217,6 +225,10 @@ public class ProjectReviewApply extends Base {
             return Constants.ASSEMBLY_REVIEWER_TERMS;
         } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
             return Constants.ARCHITECTURE_REVIEWER_TERMS;
+        } else if (projectType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE)) ||
+                projectType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE)) ||
+                projectType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))) {
+            return Constants.UNIFIED_REVIEWER_TERMS_PAGE;
         } else {
             throw new IllegalArgumentException("Unsupported project category/type: " + projectType);
         }
