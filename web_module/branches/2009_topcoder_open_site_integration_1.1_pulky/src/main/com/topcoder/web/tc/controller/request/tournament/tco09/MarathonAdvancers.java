@@ -82,7 +82,6 @@ public class MarathonAdvancers extends AdvancersBase {
         s.addDefault(rsc.getColumnIndex("round1_sort"), "asc");
         s.addDefault(rsc.getColumnIndex("round2_sort"), "asc");
         s.addDefault(rsc.getColumnIndex("round3_sort"), "asc");
-        s.addDefault(rsc.getColumnIndex("round4_sort"), "asc");
         s.addDefault(rsc.getColumnIndex("finals_sort"), "asc");
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
