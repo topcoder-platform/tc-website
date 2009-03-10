@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2008 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request;
 
@@ -15,8 +15,8 @@ import com.topcoder.web.tc.Constants;
 /**
  * <p>A controller to handle the requests for displaying the list of active reviewers for the requested review board
  * type. The desired review board type is expected to be provided as {@link Constants#PROJECT_TYPE_ID} request
- * parameter. As of current version only <code>Design</code>, <code>Development</code> and <code>Assembly</code> review
- * boards are supported.</p>
+ * parameter. As of current version Design, Development, Assembly, Architecture, Conceptualization, Specification
+ * and Application Testing review boards are supported.</p>
  *
  * <p><b>Change Log:</b></p>
  *
@@ -43,11 +43,19 @@ import com.topcoder.web.tc.Constants;
  *           </ul>
  *         </td>
  *     </tr>
+ *     <tr>
+ *         <td>Version 1.3 (TCS Release 2.2.2)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added support for Conceptualization, Specification and Application Testing project types.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
- * @author dok, isv
- * @version 1.2
+ * @author dok, isv, TCSDEVELOPER
+ * @version 1.3
  * @since 1.0
  */
 public class ReviewBoard extends Base {
@@ -62,21 +70,17 @@ public class ReviewBoard extends Base {
      * <p>Handles the request for displaying the list of reviewers for the review board type provided as
      * {@link Constants#PROJECT_TYPE_ID} request parameter.</p>
      *
-     * <p>Looks up for the list of reviewers for the requested review board type and binds it to request and forwards
-     * request to one of <code>/review_board/design.jsp</code>, <code>/review_board/development.jsp</code>,
-     * <code>/review_board/assembly.jsp</code> views depending on requested review board type. As of current version
-     * only <code>Design</code>, <code>Development</code> and <code>Assembly</code> review boards are supported;
-     * otherwise an exception is raised.</p>
+     * <p>Looks up for the list of reviewers for the requested review board type, binds it to request and forwards
+     * to the corresponding JSP depending on requested review board type. As of current version only Design, 
+     * Development, Assembly, Architecture, Conceptualization, Specification and Application Testing 
+     * review boards are supported; otherwise an exception is raised.</p>
      *
      * @throws TCWebException if an unexpected error occurs.
      * @throws NavigationException if requested review board type is not supported.
-     * @see Constants#DESIGN_PROJECT_TYPE
-     * @see Constants#DEVELOPMENT_PROJECT_TYPE
-     * @see Constants#ASSEMBLY_PROJECT_TYPE
      */
     protected void businessProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
-        if (isReviewBoardTypeSupported(projectTypeId)) {
+        if (ReviewBoardHelper.isReviewBoardTypeSupported(projectTypeId)) {
             Request r = new Request();
             r.setContentHandle("review_board_members");
             r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
@@ -97,25 +101,9 @@ public class ReviewBoard extends Base {
     }
 
     /**
-     * <p>Checks whether the specified review board type requested by client is currently supported by this controller
-     * or not. As of current version <code>Design</code>, <code>Development</code>, <code>Architecture</code> and
-     * <code>Assembly</code> review boards are supported only.</p>
-     *
-     * @param reviewBoardType a <code>String</code> referencing the review board type requested by client.
-     * @return <code>true</code> if specified review board type is requested; <code>false</code> otherwise.
-     * @since TCS Release 2.2.0 (TCS-55), TCS Release 2.2.1 (TCS-58)
-     */
-    private boolean isReviewBoardTypeSupported(String reviewBoardType) {
-        return reviewBoardType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE));
-    }
-
-    /**
      * <p>Gets the logical name for the view which is to be used for displaying the list of members of review board of
-     * specified type requested by client. As of current version <code>Design</code>, <code>Development</code>
-     * <code>Architecture</code> and <code>Assembly</code> review boards are supported only.</p>
+     * specified type requested by client. As of current version only Design, Development, Assembly, Architecture, 
+     * Conceptualization, Specification and Application Testing review boards are supported.</p>
      *
      * @param reviewBoardType a <code>String</code> referencing the review board type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the list of reviewers for specified
@@ -132,6 +120,10 @@ public class ReviewBoard extends Base {
             return "/review_board/assembly.jsp";
         } else if (reviewBoardType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
             return "/review_board/architecture.jsp";
+        } else if (reviewBoardType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE)) ||
+                reviewBoardType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE)) ||
+                reviewBoardType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))) {
+            return Constants.UNIFIED_MEET_REVIEW_BOARD_PAGE;
         } else {
             throw new IllegalArgumentException("Unsupported review board type: " + reviewBoardType);
         }
