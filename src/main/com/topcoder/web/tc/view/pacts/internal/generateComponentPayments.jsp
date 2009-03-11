@@ -109,9 +109,11 @@
                                 <tr align="left"><td>
                                     <tc-webtag:chkBox name="<%=GenerateComponentPayments.APPLY_REVIEWER_WITHHOLDING_ID %>"/>Apply Reviewer Withholding                                 
                                 </td></tr>
+				<!--
                                 <tr align="left"><td>
                                     <tc-webtag:chkBox name="<%=GenerateComponentPayments.PAY_RBOARD_BONUS_ID %>"/>Pay Review Board Bonus
                                 </td></tr>
+				-->
                             </table>                                 
                         </td>
                     </tr>
