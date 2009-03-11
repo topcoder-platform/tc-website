@@ -149,6 +149,9 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case COMPONENT_BUILD_PAYMENT: 
         case ASSEMBLY_COMPETITION_REVIEW:
         case ASSEMBLY_PAYMENT:
+        case SPECIFICATION_CONTEST_PAYMENT:
+        case CONCEPTUALIZATION_CONTEST_PAYMENT:
+        case TESTING_COMPETITION_PAYMENT:
             return REFERENCE_COMPONENT_PROJECT_ID;
 
         case PROBLEM_WRITING_PAYMENT:
@@ -225,6 +228,9 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case ASSEMBLY_PAYMENT: return new AssemblyPayment(coderId, grossAmount, referenceId, placed);
         case DIGITAL_RUN_V2_PRIZE_PAYMENT: return new DigitalRunV2PrizePayment(coderId, grossAmount, referenceId, placed);
         case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT: return new DigitalRunV2TopPerformersPayment(coderId, grossAmount, referenceId, placed);
+        case SPECIFICATION_CONTEST_PAYMENT: return new SpecificationContestPayment(coderId, grossAmount, referenceId, placed);
+        case CONCEPTUALIZATION_CONTEST_PAYMENT: return new ConceptualizationContestPayment(coderId, grossAmount, referenceId, placed);
+        case TESTING_COMPETITION_PAYMENT: return new TestingCompetitionPayment(coderId, grossAmount, referenceId, placed);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
     }
@@ -338,6 +344,9 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case COMPONENT_BUILD_PAYMENT: return "Component Build Payment";
             case DIGITAL_RUN_V2_PRIZE_PAYMENT: return "Digital Run v2 Payment";
             case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT: return "Digital Run v2 Top Performers Payment";
+            case SPECIFICATION_CONTEST_PAYMENT: return "Specification Contest Payment";
+            case CONCEPTUALIZATION_CONTEST_PAYMENT: return "Conceptualization Contest Payment";
+            case TESTING_COMPETITION_PAYMENT: return "Testing Competition Payment";
             default: return "Other Payment";
         }
     }
