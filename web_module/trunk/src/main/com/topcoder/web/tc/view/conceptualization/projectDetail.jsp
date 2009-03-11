@@ -145,7 +145,7 @@
     </tr>
 </table>
 <p>
-    All submissions are required to be submitted by the Initial Submission Due Date. The end of each phase is at 9:00 AM EST.</p>
+    All submissions are required to be submitted by the Initial Submission Due Date.</p>
 
 <p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="250">
