@@ -181,6 +181,7 @@ public class Constants {
         DB_LIST.add(new DatabaseBean(DBMS.AOLICQ_DATASOURCE_NAME, "Aolicq - Openxtraz"));
         DB_LIST.add(new DatabaseBean(DBMS.WINFORMULA_DATASOURCE_NAME, "Winning Formula"));
         DB_LIST.add(new DatabaseBean("java:/PIPELINE", "Pipeline"));
+	DB_LIST.add(new DatabaseBean("java:/BUGS", "Jira"));
 /*
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_OLTP", "Google"));
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_DW", "Google DW"));
