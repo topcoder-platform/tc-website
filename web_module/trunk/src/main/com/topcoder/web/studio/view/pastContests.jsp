@@ -188,18 +188,17 @@
 									<td class="valueE">
 										<%-- Since TopCoder Studio Modifications assembly Req# 5.2 --%>
 										<div class="contestEmblem"><studio_tags:contestIcon row="${resultRow}"/></div>
-										<div class="contestTitle"><a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
+										<div class="contestTitle"><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
 											<rsc:item name="name" row="<%=resultRow%>"/>
 										</a></div>
 					
 										<div class="contestLinks">
-											<a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">contest
-												details</a>
-											<c:if test="${resultRow.map['forum_id']!=null}">| <studio:forumLink forumID="${resultRow.map['forum_id']}" message="discuss"/></c:if>
+											<a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">submissions</a>
 											<% if (resultRow.getBooleanItem("results_available")) { %>
 											|
 											<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">winners</a>
 											<% } %>
+											<c:if test="${resultRow.map['forum_id']!=null}">| <studio:forumLink forumID="${resultRow.map['forum_id']}" message="discuss"/></c:if>
 										</div>
 									</td>
 									<td class="valueC">
