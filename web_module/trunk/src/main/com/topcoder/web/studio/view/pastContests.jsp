@@ -187,7 +187,7 @@
 								<tr class="<%=even?"light":"dark"%>">
 									<td class="valueE">
 										<%-- Since TopCoder Studio Modifications assembly Req# 5.2 --%>
-										<div class="contestEmblem"><studio_tags:contestIcon row="${resultRow}"/></div>
+										<div class="contestEmblem"><img src="/i/v4/iconStudio.png" alt="" /></div>
 										<div class="contestTitle"><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
 											<rsc:item name="name" row="<%=resultRow%>"/>
 										</a></div>
