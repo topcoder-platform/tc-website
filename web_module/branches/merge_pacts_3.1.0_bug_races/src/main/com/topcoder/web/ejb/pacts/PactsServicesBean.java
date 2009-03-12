@@ -5055,9 +5055,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         // Make sure we haven't done this before for this project.
         StringBuffer checkNew = new StringBuffer(300);
-        checkNew.append("SELECT COUNT(*) FROM payment_detail pd, payment_type_lu pt WHERE pd.component_project_id = " + projectId)
-                .append(" AND pd.payment_type_id = pt.payment_type_id ")
-                .append(" AND pt.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + ")");
+        // BUGR-1453 - Make the payment page stop blocking on payments that have been deleted in PACTs.
+        checkNew.append("SELECT COUNT(*) FROM payment p, payment_detail pd, payment_type_lu pt WHERE pd.component_project_id = " + projectId)
+            .append(" AND pd.payment_type_id = pt.payment_type_id ")
+            .append(" AND pd.payment_status_id != " + PaymentStatus.DELETED_PAYMENT_STATUS.getId())
+            .append(" AND p.most_recent_detail_id = pd.payment_detail_id")
+            .append(" AND pt.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + ")");
         ResultSetContainer rsc = runSelectQuery(checkNew.toString());
         int existingAffidavits = Integer.parseInt(rsc.getItem(0, 0).toString());
         if (existingAffidavits > 0) {
