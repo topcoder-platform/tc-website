@@ -1,0 +1,10 @@
+<CMConfig>
+	<Config name="com.topcoder.web.tc.controller.request.tournament.tco09.ModDash">
+		<Property name="leaderboardFeedURL">
+			<Value>http://66.37.210.86/tc?module=BasicData&amp;c=dd_mod_dash_tco_leaderboard&amp;dsid=34&amp;json=true</Value>
+	    </Property>
+		<Property name="userResultsFeedURL">
+			<Value>http://66.37.210.86/tc?module=BasicData&amp;c=dd_mod_dash_tco_leaderboard_user_detail&amp;dsid=34&amp;json=true&amp;handle=</Value>
+		</Property>
+	</Config>
+</CMConfig>
