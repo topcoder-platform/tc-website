@@ -106,7 +106,24 @@
     <studio:forumLink forumID="${contest.forumId}" message="<img src='/i/v2/interface/btnContestForum.png' alt='Visit Contest Forum' />"/>
 	
 	<br /><br />
-
+	
+    <c:choose>
+        <c:when test="${currentTime>contest.endTime}">
+					<div style="float: right; width: 135px;">
+					 <a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src='/i/v4/btnViewSubmissions.png' alt='View Submissions' /></a>
+					</div>
+					<a href="${sessionInfo.servletPath}?module=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src='/i/v4/btnSeeWinners.png' alt='See the Winners' /></a>
+        </c:when>
+        <c:otherwise>
+					<div style="float: right; width: 135px;">
+					 <a href="#"><img src='/i/v4/btnViewSubmissionsDisabled.png' alt='View Submissions' /></a>
+					</div>
+					<a href="#"><img src='/i/v4/btnSeeWinnersDisabled.png' alt='See the Winners' /></a>
+        </c:otherwise>
+    </c:choose>
+	
+		<br /><br />
+		
 <div class="section">Dates:</div>
 <div class="padder">
     <table cellpadding="0" cellspacing="0" class="conDetDates">
