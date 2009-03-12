@@ -6,8 +6,10 @@
  * This JSP is included by the rest of the pages in this minisite. Taking into consideration the two major
  * levels of navigation menues, it renders the corresponding secondary nav and highlights the selected option.
  *
+ * Version 1.1 (2009 TopCoder Open Site Integration 1.1) changes: Replaced links for all leaderboard pages.
+ *
  * Author TCSDEVELOPER
- * Version 1.0
+ * Version 1.1
  * Since 2009 TopCoder Open Site Integration
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -36,18 +38,18 @@
               <c:when test="${mainTab == 'algorithm'}">
                     <li class="first"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=description" class="${secondaryTab == 'description' ? 'on' : ''}"><span>Description</span></a></li>
                     <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=schedule" class="${secondaryTab == 'schedule' ? 'on' : ''}"><span>Schedule</span></a></li>
-                    <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=advancers&d5=qualification" class="${secondaryTab == 'advancers' ? 'on' : ''}"><span>Advancers</span></a></li>
+                    <li><a href="/tco09?module=AlgorithmQualification" class="${secondaryTab == 'advancers' ? 'on' : ''}"><span>Advancers</span></a></li>
                     <li class="last"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=summary&d5=onlineQualificationRound1" class="${secondaryTab == 'summary' ? 'on' : ''}"><span>Summary</span></a></li>
               </c:when>
               <c:when test="${mainTab == 'marathon'}">
                     <li class="first"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=marathon&d4=description" class="${secondaryTab == 'description' ? 'on' : ''}"><span>Description</span></a></li>
                     <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=marathon&d4=schedule" class="${secondaryTab == 'schedule' ? 'on' : ''}"><span>Schedule</span></a></li>
-                    <li class="last"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=marathon&d4=advancers&d5=leaderboard" class="${secondaryTab == 'advancers' ? 'on' : ''}"><span>Advancers</span></a></li>
+                    <li class="last"><a href="/tco09?module=MarathonAdvancers" class="${secondaryTab == 'advancers' ? 'on' : ''}"><span>Advancers</span></a></li>
               </c:when>
               <c:when test="${mainTab == 'moddash'}">
                     <li class="first"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=moddash&d4=description" class="${secondaryTab == 'description' ? 'on' : ''}"><span>Description</span></a></li>
                     <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=moddash&d4=schedule" class="${secondaryTab == 'schedule' ? 'on' : ''}"><span>Schedule</span></a></li>
-                    <li class="last"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=moddash&d4=advancers&d5=leaderboard" class="${secondaryTab == 'advancers' ? 'on' : ''}"><span>Advancers</span></a></li>
+                    <li class="last"><a href="/tco09?module=ModDashLeaders" class="${secondaryTab == 'advancers' ? 'on' : ''}"><span>Advancers</span></a></li>
               </c:when>
               <c:when test="${mainTab == 'studio'}">
                     <li class="first"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=description" class="${secondaryTab == 'description' ? 'on' : ''}"><span>Description</span></a></li>
