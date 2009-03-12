@@ -110,15 +110,15 @@
     <c:choose>
         <c:when test="${currentTime>contest.endTime}">
 					<div style="float: right; width: 135px;">
-					 <a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src='/i/v4/btnViewSubmissions.png' alt='View Submissions' /></a>
+					 <a href="${sessionInfo.servletPath}?module=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src='/i/v4/btnSeeWinners.png' alt='See the Winners' /></a>
 					</div>
-					<a href="${sessionInfo.servletPath}?module=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src='/i/v4/btnSeeWinners.png' alt='See the Winners' /></a>
+					<a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src='/i/v4/btnViewSubmissions.png' alt='View Submissions' /></a>
         </c:when>
         <c:otherwise>
 					<div style="float: right; width: 135px;">
-					 <a href="#"><img src='/i/v4/btnViewSubmissionsDisabled.png' alt='View Submissions' /></a>
+					 <img src='/i/v4/btnSeeWinnersDisabled.png' alt='See the Winners' />
 					</div>
-					<a href="#"><img src='/i/v4/btnSeeWinnersDisabled.png' alt='See the Winners' /></a>
+					<img src='/i/v4/btnViewSubmissionsDisabled.png' alt='View Submissions' />
         </c:otherwise>
     </c:choose>
 	
