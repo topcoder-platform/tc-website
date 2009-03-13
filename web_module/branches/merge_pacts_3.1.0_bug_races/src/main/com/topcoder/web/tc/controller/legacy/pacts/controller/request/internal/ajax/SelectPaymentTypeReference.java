@@ -60,11 +60,11 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                             map = dib.findProjects("%" + search + "%", ASSEMBLY_PROJECT_CATEGORY_LU);
                         } else if (type == ARCHITECTURE_PAYMENT) {
                             map = dib.findProjects("%" + search + "%", ARCHITECTURE_PROJECT_CATEGORY_LU);
-                        } else if (type == CONCEPTUALIZATION_PAYMENT) {
+                        } else if (type == CONCEPTUALIZATION_CONTEST_PAYMENT) {
                             map = dib.findProjects("%" + search + "%", CONCEPTUALIZATION_PROJECT_CATEGORY_LU);
-                        } else if (type == SPECIFICATION_PAYMENT) {
+                        } else if (type == SPECIFICATION_CONTEST_PAYMENT) {
                             map = dib.findProjects("%" + search + "%", SPECIFICATION_PROJECT_CATEGORY_LU);
-                        } else if (type == TESTING_PAYMENT) {
+                        } else if (type == TESTING_COMPETITION_PAYMENT) {
                             map = dib.findProjects("%" + search + "%", APPLICATION_TESTING_PROJECT_CATEGORY_LU);
                         } else {
                             map = dib.findProjects("%" + search + "%");
