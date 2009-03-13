@@ -6237,12 +6237,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             TestingCompetitionPayment cwp = new TestingCompetitionPayment(coderId, grossAmount, client, projectId, placed);
             l.add(cwp);
         } else if (projectType == ARCHITECTURE_PROJECT_TYPE) {
-            // ToDo - there is no Architecture payment class currently
-            // BasePayment p = new ArchitectureContestPayment(coderId, grossAmount, client, projectId, placed);
-            // if (placed == 1) {
-            //     p.setGrossAmount(grossAmount * ARCHITECTURE_PROJECT_FIRST_INSTALLMENT_PERCENT);
-            // }
-            // l.add(p);
+	    BasePayment p = new ArchitecturePayment(coderId, grossAmount, client, projectId, placed);
+	    if (placed == 1) {
+		p.setGrossAmount(grossAmount * ARCHITECTURE_PROJECT_FIRST_INSTALLMENT_PERCENT);
+	    }
+	    l.add(p);
         } else if (projectType == ASSEMBLY_PROJECT_TYPE) {
             BasePayment p = new AssemblyPayment(coderId, grossAmount, client, projectId, placed);
             if (placed == 1) {
