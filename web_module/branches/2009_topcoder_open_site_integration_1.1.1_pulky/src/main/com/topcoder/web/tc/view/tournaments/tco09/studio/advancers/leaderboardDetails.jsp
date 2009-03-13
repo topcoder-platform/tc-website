@@ -18,19 +18,27 @@
 <%@ taglib prefix="tc-webtag" uri="tc-webtags.tld" %>
 
 <%-- Setting up constants to use JSTL --%>
-<c:set var="RANK_COL" value="<%=StudioLeaderboardBase.RANK_COL%>" />
-<c:set var="HANDLE_COL" value="<%=StudioLeaderboardBase.HANDLE_COL%>" />
-<c:set var="COMPLETED_CONTESTS_COL" value="<%=StudioLeaderboardBase.COMPLETED_CONTESTS_COL%>" />
-<c:set var="COMPLETED_POINTS_COL" value="<%=StudioLeaderboardBase.COMPLETED_POINTS_COL%>" />
-<c:set var="CURRENT_CONTESTS_COL" value="<%=StudioLeaderboardBase.CURRENT_CONTESTS_COL%>" />
+<c:set var="CONTEST_NAME_COL" value="<%=StudioLeaderboardBase.CONTEST_NAME_COL%>" />
+<c:set var="START_DATE_COL" value="<%=StudioLeaderboardBase.START_DATE_COL%>" />
+<c:set var="END_DATE_COL" value="<%=StudioLeaderboardBase.END_DATE_COL%>" />
+<c:set var="REGISTRANTS_COL" value="<%=StudioLeaderboardBase.REGISTRANTS_COL%>" />
+<c:set var="SUBMISSIONS_COL" value="<%=StudioLeaderboardBase.SUBMISSIONS_COL%>" />
+<c:set var="PLACED_COL" value="<%=StudioLeaderboardBase.PLACED_COL%>" />
+<c:set var="POINTS_COL" value="<%=StudioLeaderboardBase.POINTS_COL%>" />
 <c:set var="SORT_DIRECTION" value="<%=DataAccessConstants.SORT_DIRECTION%>" />
 <c:set var="SORT_COLUMN" value="<%=DataAccessConstants.SORT_COLUMN%>" />
 <c:set var="MODULE_KEY" value="<%=Constants.MODULE_KEY%>" />
 <c:set var="EVENT_ID" value="<%=Constants.EVENT_ID%>" />
 <c:set var="USER_ID" value="<%=Constants.USER_ID%>" />
 <c:set var="eventId" value="${param[EVENT_ID]}" />
+<c:set var="userId" value="${param[USER_ID]}" />
+<c:set var="STUDIO_SERVER_URL" value="<%='http://'+ApplicationServer.STUDIO_SERVER_NAME + '/'%>" />
 
 <c:set var="TOP_WINNERS_RANK" value="10" />  <!-- ToDo: take out-->
+<c:set var="CONTEST_ID_KEY" value="ct" />  <!-- ToDo: take out-->
+<c:set var="COMPLETE" value="complete" />  <!-- ToDo: take out-->
+<c:set var="complete" value="${param[COMPLETE]}" />
+
          
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -97,116 +105,94 @@
                                                             <div class="pageContent">
                                                                 <h2 class="title">Studio Design Competition Leaderboard</h2>
                                                                     <form name="advancersForm" action='${sessionInfo.servletPath}' method="get">
-                                                                        <tc-webtag:hiddenInput name="${MODULE_KEY}" value="StudioLeaders"/>
+                                                                        <tc-webtag:hiddenInput name="${MODULE_KEY}" value="StudioContests"/>
                                                                         <tc-webtag:hiddenInput name="${EVENT_ID}" value="${eventId}"/>
+                                                                        <tc-webtag:hiddenInput name="${USER_ID}" value="${userId}"/>
+                                                                        <tc-webtag:hiddenInput name="${COMPLETE}" value="${complete}"/>
                                                                         <tc-webtag:hiddenInput name="${SORT_COLUMN}"/>
                                                                         <tc-webtag:hiddenInput name="${SORT_DIRECTION}"/>
 
     																	<table class="data" width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                    <th colspan="5">
-                        Studio Leaderboard
-                    </th>
-                </tr>
-                <tr>
-                    <th class="first">&nbsp;</th>
-                    <th rowspan="2" width="1%">
-                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${RANK_COL}'/>">Rank</a>
-                    </th>
-                    <th rowspan="2">
-                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${HANDLE_COL}'/>">Handle</a>
-                    </th>
-                    <th colspan="2" nowrap="nowrap" style="border-right: 1px solid #999999;">
-                        Completed
-                    </th>
-                    <th colspan="1" nowrap="nowrap">
-                        In Progress
-                    </th>
-                    <th class="last">&nbsp;</th>
-                </tr>
-                <tr>
-                    <th class="first">&nbsp;</th>
-                    <th>
-                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${COMPLETED_CONTESTS_COL}'/>">Contests</a>
-                    </th>
-                    <th style="border-right: 1px solid #999999;">
-                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${COMPLETED_POINTS_COL}'/>">Points</a>
-                    </th>
-                    <th>
-                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${CURRENT_CONTESTS_COL}'/>">Contests</a>
-                    </th>
-                    <th class="last">&nbsp;</th>
-                </tr>
+                                <tr>
+                                    <th colspan="${completed ? '8' : '5'}">
+                                        <span class="coderText"> ${handle}</span> &gt;
+                                        ${completed ? "Completed" : "In Progress"}
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th class="first">&nbsp;</th>
+                                    <th>
+                                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${CONTEST_NAME_COL}'/>">Contest</a>
+                                    </th>
+                                    <th>
+                                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${START_DATE_COL}'/>">Start Date</a>
+                                    </th>
+                                    <th>
+                                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${END_DATE_COL}'/>">End Date</a>
+                                    </th>
+                                    <th>
+                                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${REGISTRANTS_COL}'/>">Registrants</a>
+                                    </th>
+                                    <th>
+                                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${SUBMISSIONS_COL}'/>">Sub.</a>
+                                    </th>
+                                    <th>
+                                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${PLACED_COL}'/>">Placed</a>
+                                    </th>
+                                    <c:if test="${completed}">
+                                        <th>
+                                            <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${POINTS_COL}'/>">Points</a>
+                                        </th>
+                                        <th>
+                                            Submission
+                                        </th>
+                                    </c:if>
+                                    <th class="last">&nbsp;</th>
+                                </tr>
                                                                                 <c:forEach items="${result}" var="resultRow">
                                                                                     <tr>
 
-                        <td>
-                            <c:choose>
-                                <c:when test="${resultRow.rank <= TOP_WINNERS_RANK}">
-                                    <span class="bigGreen">${resultRow.rank}</span>
-                                </c:when>
-                                <c:otherwise>
-                                    <span class="bigRed">${resultRow.rank}</span>
-                                </c:otherwise>
-                            </c:choose>
-                        </td>
-                        <td>
-                            <strong>
-                                ${resultRow.handle}
-                            </strong>
-                        </td>
-                        <td>
-                            <a href="${sessionInfo.servletPath}?${MODULE_KEY}=StudioContests&amp;complete=1&amp;${EVENT_ID}=${eventId}&amp;${USER_ID}=${resultRow.userId}">
-                                <c:choose>
-                                    <c:when test="${resultRow.completedContests > 0}">
-                                        ${resultRow.completedContests}
-                                    </c:when>
-                                    <c:otherwise>
-                                        &nbsp;                                        
-                                    </c:otherwise>
-                                </c:choose>
-                            </a>
-                        </td>
-                        <td style="border-right: 1px solid #999999;">
-                            <c:choose>
-                                <c:when test="${resultRow.rank <= TOP_WINNERS_RANK}">
-                                    <span class="bigGreen">
-                                        <c:choose>
-                                            <c:when test="${resultRow.bestPoints > 0}">
-                                                ${resultRow.bestPoints}
-                                            </c:when>
-                                            <c:otherwise>
-                                                &nbsp;                                        
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </span>
-                                </c:when>
-                                <c:otherwise>
-                                    <span class="bigRed">
-                                        <c:choose>
-                                            <c:when test="${resultRow.bestPoints > 0}">
-                                                ${resultRow.bestPoints}
-                                            </c:when>
-                                            <c:otherwise>
-                                                &nbsp;                                        
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </span>
-                                </c:otherwise>
-                            </c:choose>
-                        </td>
-                        <td>
-                            <a href="${sessionInfo.servletPath}?${MODULE_KEY}=StudioContests&amp;complete=0&amp;${EVENT_ID}=${eventId}&amp;${USER_ID}=${resultRow.userId}">
-                                <c:choose>
-                                    <c:when test="${resultRow.currentContests > 0}">
-                                        ${resultRow.currentContests}
-                                    </c:when>
-                                    <c:otherwise>
-                                        &nbsp;                                        
-                                    </c:otherwise>
-                                </c:choose>
-                            </a>
-                        </td>
+                                        <td class="value">
+                                            <a href="${STUDIO_SERVER_URL}?${MODULE_KEY}=${completed ? 'ViewContestResults' : 'ViewContestDetails'}&amp;${CONTEST_ID_KEY}=${resultRow.contestId}">
+                                                ${resultRow.contestName}
+                                            </a>
+                                        </td>
+                                        <td class="valueC">
+                                            <fmt:formatDate value="${resultRow.startDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
+                                        </td>
+                                        <td class="valueC">
+                                            <fmt:formatDate value="${resultRow.endDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
+                                        </td>
+                                        <td class="valueC">
+                                            ${resultRow.registrants}
+                                        </td>
+                                        <td class="valueC">
+                                            ${resultRow.submissions}
+                                        </td>
+                                        <c:if test="${completed}">
+                                            <td class="valueC">
+                                                <c:choose>
+                                                    <c:when test="${resultRow.points > 0}">
+                                                        ${resultRow.placed}
+                                                    </c:when>
+                                                    <c:otherwise>-</c:otherwise>
+                                                </c:choose>
+                                            </td>
+                                            <td class="valueC">
+                                                ${resultRow.points}
+                                            </td>
+                                            <td class="valueC">
+                                                <c:choose>
+                                                    <c:when test="${(not empty resultRow.submissionId) and (resultRow.submissionId > 0)}">
+                                                        <a href="${STUDIO_SERVER_URL}?${MODULE_KEY}=DownloadSubmission&amp;sbmid=${resultRow.submissionId}">
+                                                            <img src="/i/tournament/tco09/magnify.png" alt="View submission" title="View submission" />
+                                                        </a>
+                                                    </c:when>
+                                                    <c:otherwise>&nbsp;</c:otherwise>
+                                                </c:choose>
+                                            </td>
+                                        </c:if>
+
                                                                                         <td class="last">&nbsp;</td>
                                                                                     </tr>
                                                                                 </c:forEach>
