@@ -205,7 +205,7 @@ $(document).ready(function(){
                                 </a>
                             </div>
                         <div id="tc-direct">
-                            <h3><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/cockpit/cockpit.jsp">TopCoder Direct</a></h3>
+                            <h3><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">TopCoder Direct</a></h3>
                             <h4>Launch your own design competition!</h4>
                             <ul class="link-list">
                                 <li class="first"><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct">Web Sites</a></li>
@@ -214,7 +214,7 @@ $(document).ready(function(){
                                 <li class="last"><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct">Applications</a></li>
                             </ul>
                             <div class="button-container">
-                                <a class="button" href="http://<%=ApplicationServer.SERVER_NAME%>/direct/cockpit/cockpit.jsp">Launch Direct</a>
+                                <a class="button" href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">Launch Direct</a>
                             </div>
                         </div>
                     </div>
