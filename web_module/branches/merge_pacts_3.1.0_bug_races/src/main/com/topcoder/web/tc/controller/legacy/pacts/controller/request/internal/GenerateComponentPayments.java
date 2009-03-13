@@ -85,11 +85,11 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             
             if (!projectID.equals("") && !projectTermStatus.equals("") && (devSupportDes || devSupportId > 0)) {
                 DataInterfaceBean bean = new DataInterfaceBean();
-                int[] counts = new int[4];
-                counts[0] =0;
-                counts[1] =0;
-                counts[2] =0;
-                counts[3] =0;
+                // [BUGR-1452] - add support for paying other project types
+                int[] counts = new int[9];
+                for (int i = 0; i < 9; i++) {
+                    counts[i] =0;
+                }
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
                 
                 List l;
@@ -121,7 +121,14 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 	if (p.getPaymentType() == PactsConstants.COMPONENT_PAYMENT) counts[0]++;
                     if (p.getPaymentType() == PactsConstants.REVIEW_BOARD_PAYMENT) counts[1]++;
                     if (p.getPaymentType() == PactsConstants.REVIEW_BOARD_BONUS_PAYMENT) counts[3]++;
-                	ids.add(p.getId() + "");
+
+                    // [BUGR-1452] - add support for paying other project types
+                    if (p.getPaymentType() == PactsConstants.CONCEPTUALIZATION_CONTEST_PAYMENT) counts[4]++;
+                    if (p.getPaymentType() == PactsConstants.SPECIFICATION_CONTEST_PAYMENT) counts[5]++;
+                    if (p.getPaymentType() == PactsConstants.ARCHITECTURE_PAYMENT) counts[6]++;
+                    if (p.getPaymentType() == PactsConstants.TESTING_COMPETITION_PAYMENT) counts[7]++;
+                    if (p.getPaymentType() == PactsConstants.ASSEMBLY_PAYMENT) counts[8]++;
+                    ids.add(p.getId() + "");
                 	
                 	List refer = bean.findPayments(CODER_REFERRAL_PAYMENT, p.getId());
                 	if (refer.size() > 0) {
@@ -133,9 +140,16 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 
                 getRequest().setAttribute(PAYMENT_ID, ids);
                 
+                // [BUGR-1452] - add support for paying other project types
                 addError(PROJECT_ID, "Success: " + counts[0] + " design/dev, " +
+                        counts[4] + " concept., " +
+                        counts[5] + " specif., " +
+                        counts[6] + " arch., " +
+                        counts[7] + " app. testing, " +
+                        counts[8] + " assembly, " +
                         counts[1] + " review board, " + counts[2] + " referral payments generated, " +
                         + counts[3] + " review board bonus payments generated ");
+                
             } else {
 
             	if (!devSupportDes && devSupportId == 0) {

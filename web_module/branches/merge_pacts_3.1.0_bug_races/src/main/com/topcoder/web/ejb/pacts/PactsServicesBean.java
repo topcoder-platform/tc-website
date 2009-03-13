@@ -86,8 +86,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static final int DESIGN_PROJECT = 1;
     private static final int DEVELOPMENT_PROJECT = 2;
     private static final int COMPONENT_TESTING_PROJECT = 5;
+
+    // [BUGR-1452] - add support for paying other project types
+    private static final int ARCHITECTURE_PROJECT_TYPE = 7;
+    private static final int CONCEPTUALIZATION_PROJECT_TYPE = 23;
+    private static final int SPECIFICATION_PROJECT_TYPE = 6;
+    private static final int APPLICATION_TESTING_PROJECT_TYPE = 13;
+    private static final int ASSEMBLY_PROJECT_TYPE = 14;
     
     private static final double DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
+
+    // [BUGR-1452] - add support for paying other project types
+    private static final double ASSEMBLY_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
+    private static final double ARCHITECTURE_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
     private static final double DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT = 0.75;
     private static final double DESIGN_REVIEWERS_BONUS_PERCENT = 0.15;
 
@@ -5077,7 +5088,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getWinners.append("where pr.project_id = " + projectId + " ");
             getWinners.append("and pr.project_id = p.project_id ");
             getWinners.append("and p.project_category_id = pcl.project_category_id ");
-            getWinners.append("and pr.placed IN (1,2) ");
+            // [BUGR-1452] - all placements with payment > 0 should be paid
+            // getWinners.append("and pr.placed IN (1,2) ");
             getWinners.append("and pr.payment > 0 ");
             getWinners.append("order by pr.placed");
 
@@ -5129,7 +5141,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else {
                     p.setGrossAmount(amount);
                 }
-            } else if (projectType == DEVELOPMENT_PROJECT || projectType == COMPONENT_TESTING_PROJECT) {
+            } else if (projectType == DEVELOPMENT_PROJECT || projectType == COMPONENT_TESTING_PROJECT || 
+                // [BUGR-1452] - add support for paying other project types
+                projectType == ARCHITECTURE_PROJECT_TYPE || projectType == CONCEPTUALIZATION_PROJECT_TYPE ||
+                projectType == SPECIFICATION_PROJECT_TYPE || projectType == APPLICATION_TESTING_PROJECT_TYPE || 
+                projectType == ASSEMBLY_PROJECT_TYPE) {
                 p = new ReviewBoardPayment(coderId, amount, client, projectId);
             }
 
@@ -6138,7 +6154,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         List l = new ArrayList();
 
         // If it's not first place, just add the payment to the list and return it.
-        if (placed != 1) {
+        if (placed != 1 && (projectType == DESIGN_PROJECT || projectType == DEVELOPMENT_PROJECT)) {
             ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
             l.add(cwp);
             return l;
@@ -6209,7 +6225,30 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
         } else if (projectType == COMPONENT_TESTING_PROJECT) {
             ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
-            l.add(cwp);            
+            l.add(cwp);
+        // [BUGR-1452] - add support for paying other project types
+        } else if (projectType == CONCEPTUALIZATION_PROJECT_TYPE) {
+            ConceptualizationContestPayment ccp = new ConceptualizationContestPayment(coderId, grossAmount, client, projectId, placed);
+            l.add(ccp);
+        } else if (projectType == SPECIFICATION_PROJECT_TYPE) {
+            SpecificationContestPayment scp = new SpecificationContestPayment(coderId, grossAmount, client, projectId, placed);
+            l.add(scp);
+        } else if (projectType == APPLICATION_TESTING_PROJECT_TYPE) {
+            TestingCompetitionPayment cwp = new TestingCompetitionPayment(coderId, grossAmount, client, projectId, placed);
+            l.add(cwp);
+        } else if (projectType == ARCHITECTURE_PROJECT_TYPE) {
+            // ToDo - there is no Architecture payment class currently
+            // BasePayment p = new ArchitectureContestPayment(coderId, grossAmount, client, projectId, placed);
+            // if (placed == 1) {
+            //     p.setGrossAmount(grossAmount * ARCHITECTURE_PROJECT_FIRST_INSTALLMENT_PERCENT);
+            // }
+            // l.add(p);
+        } else if (projectType == ASSEMBLY_PROJECT_TYPE) {
+            BasePayment p = new AssemblyPayment(coderId, grossAmount, client, projectId, placed);
+            if (placed == 1) {
+                p.setGrossAmount(grossAmount * ASSEMBLY_PROJECT_FIRST_INSTALLMENT_PERCENT);
+            }
+            l.add(p);
         } else throw new IllegalArgumentException("Project " + projectId + " not found or is not a dev/des component");
 
         return l;
