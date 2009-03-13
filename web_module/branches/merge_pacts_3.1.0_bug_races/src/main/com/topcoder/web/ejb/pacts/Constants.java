@@ -87,6 +87,8 @@ public interface Constants {
 
     public static final int ASSEMBLY_PROJECT_CATEGORY_LU = 14;
     public static final int ARCHITECTURE_PROJECT_CATEGORY_LU = 7;
-
+    public static final int CONCEPTUALIZATION_PROJECT_CATEGORY_LU = 23;
+    public static final int SPECIFICATION_PROJECT_CATEGORY_LU = 6;
+    public static final int APPLICATION_TESTING_PROJECT_CATEGORY_LU = 13;
 
 }
