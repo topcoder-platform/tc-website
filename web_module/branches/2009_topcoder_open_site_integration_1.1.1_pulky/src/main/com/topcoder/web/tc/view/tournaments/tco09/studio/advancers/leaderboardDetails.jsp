@@ -11,20 +11,22 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
 <%@ page import="com.topcoder.web.tc.Constants,
                  com.topcoder.shared.dataAccess.DataAccessConstants, 
-                 com.topcoder.web.tc.controller.request.tournament.StudioLeaderboardBase"%>
+                 com.topcoder.web.tc.controller.request.tournament.StudioUserContestsBase,
+                 com.topcoder.shared.util.ApplicationServer"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="tc-webtag" uri="tc-webtags.tld" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%-- Setting up constants to use JSTL --%>
-<c:set var="CONTEST_NAME_COL" value="<%=StudioLeaderboardBase.CONTEST_NAME_COL%>" />
-<c:set var="START_DATE_COL" value="<%=StudioLeaderboardBase.START_DATE_COL%>" />
-<c:set var="END_DATE_COL" value="<%=StudioLeaderboardBase.END_DATE_COL%>" />
-<c:set var="REGISTRANTS_COL" value="<%=StudioLeaderboardBase.REGISTRANTS_COL%>" />
-<c:set var="SUBMISSIONS_COL" value="<%=StudioLeaderboardBase.SUBMISSIONS_COL%>" />
-<c:set var="PLACED_COL" value="<%=StudioLeaderboardBase.PLACED_COL%>" />
-<c:set var="POINTS_COL" value="<%=StudioLeaderboardBase.POINTS_COL%>" />
+<c:set var="CONTEST_NAME_COL" value="<%=StudioUserContestsBase.CONTEST_NAME_COL%>" />
+<c:set var="START_DATE_COL" value="<%=StudioUserContestsBase.START_DATE_COL%>" />
+<c:set var="END_DATE_COL" value="<%=StudioUserContestsBase.END_DATE_COL%>" />
+<c:set var="REGISTRANTS_COL" value="<%=StudioUserContestsBase.REGISTRANTS_COL%>" />
+<c:set var="SUBMISSIONS_COL" value="<%=StudioUserContestsBase.SUBMISSIONS_COL%>" />
+<c:set var="PLACED_COL" value="<%=StudioUserContestsBase.PLACED_COL%>" />
+<c:set var="POINTS_COL" value="<%=StudioUserContestsBase.POINTS_COL%>" />
 <c:set var="SORT_DIRECTION" value="<%=DataAccessConstants.SORT_DIRECTION%>" />
 <c:set var="SORT_COLUMN" value="<%=DataAccessConstants.SORT_COLUMN%>" />
 <c:set var="MODULE_KEY" value="<%=Constants.MODULE_KEY%>" />
@@ -32,12 +34,12 @@
 <c:set var="USER_ID" value="<%=Constants.USER_ID%>" />
 <c:set var="eventId" value="${param[EVENT_ID]}" />
 <c:set var="userId" value="${param[USER_ID]}" />
-<c:set var="STUDIO_SERVER_URL" value="<%='http://'+ApplicationServer.STUDIO_SERVER_NAME + '/'%>" />
+<c:set var="STUDIO_SERVER_URL" value="<%="http://"+ApplicationServer.STUDIO_SERVER_NAME + "/"%>" />
 
 <c:set var="TOP_WINNERS_RANK" value="10" />  <!-- ToDo: take out-->
 <c:set var="CONTEST_ID_KEY" value="ct" />  <!-- ToDo: take out-->
 <c:set var="COMPLETE" value="complete" />  <!-- ToDo: take out-->
-<c:set var="complete" value="${param[COMPLETE]}" />
+<c:set var="complete" value="${param[COMPLETE] == 1}" />
 
          
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -104,6 +106,7 @@
                                                         <div>   
                                                             <div class="pageContent">
                                                                 <h2 class="title">Studio Design Competition Leaderboard</h2>
+                                                                <br/>
                                                                     <form name="advancersForm" action='${sessionInfo.servletPath}' method="get">
                                                                         <tc-webtag:hiddenInput name="${MODULE_KEY}" value="StudioContests"/>
                                                                         <tc-webtag:hiddenInput name="${EVENT_ID}" value="${eventId}"/>
@@ -114,13 +117,12 @@
 
     																	<table class="data" width="100%" cellpadding="0" cellspacing="0">
                                 <tr>
-                                    <th colspan="${completed ? '8' : '5'}">
+                                    <th colspan="${complete ? '8' : '5'}">
                                         <span class="coderText"> ${handle}</span> &gt;
-                                        ${completed ? "Completed" : "In Progress"}
+                                        ${complete ? "Completed" : "In Progress"}
                                     </th>
                                 </tr>
                                 <tr>
-                                    <th class="first">&nbsp;</th>
                                     <th>
                                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${CONTEST_NAME_COL}'/>">Contest</a>
                                     </th>
@@ -136,10 +138,10 @@
                                     <th>
                                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${SUBMISSIONS_COL}'/>">Sub.</a>
                                     </th>
-                                    <th>
-                                        <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${PLACED_COL}'/>">Placed</a>
-                                    </th>
-                                    <c:if test="${completed}">
+                                    <c:if test="${complete}">
+                                        <th>
+                                            <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${PLACED_COL}'/>">Placed</a>
+                                        </th>
                                         <th>
                                             <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${POINTS_COL}'/>">Points</a>
                                         </th>
@@ -147,30 +149,29 @@
                                             Submission
                                         </th>
                                     </c:if>
-                                    <th class="last">&nbsp;</th>
                                 </tr>
                                                                                 <c:forEach items="${result}" var="resultRow">
                                                                                     <tr>
 
-                                        <td class="value">
-                                            <a href="${STUDIO_SERVER_URL}?${MODULE_KEY}=${completed ? 'ViewContestResults' : 'ViewContestDetails'}&amp;${CONTEST_ID_KEY}=${resultRow.contestId}">
+                                        <td class="first last alignText">
+                                            <a href="${STUDIO_SERVER_URL}?${MODULE_KEY}=${complete ? 'ViewContestResults' : 'ViewContestDetails'}&amp;${CONTEST_ID_KEY}=${resultRow.contestId}">
                                                 ${resultRow.contestName}
                                             </a>
                                         </td>
-                                        <td class="valueC">
+                                        <td class="first last alignText">
                                             <fmt:formatDate value="${resultRow.startDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
                                         </td>
-                                        <td class="valueC">
+                                        <td class="first last alignText">
                                             <fmt:formatDate value="${resultRow.endDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
                                         </td>
-                                        <td class="valueC">
+                                        <td class="first last alignText">
                                             ${resultRow.registrants}
                                         </td>
-                                        <td class="valueC">
+                                        <td class="first last alignText">
                                             ${resultRow.submissions}
                                         </td>
-                                        <c:if test="${completed}">
-                                            <td class="valueC">
+                                        <c:if test="${complete}">
+                                            <td class="first last alignText">
                                                 <c:choose>
                                                     <c:when test="${resultRow.points > 0}">
                                                         ${resultRow.placed}
@@ -178,10 +179,10 @@
                                                     <c:otherwise>-</c:otherwise>
                                                 </c:choose>
                                             </td>
-                                            <td class="valueC">
+                                            <td class="first last alignText">
                                                 ${resultRow.points}
                                             </td>
-                                            <td class="valueC">
+                                            <td class="first last alignText">
                                                 <c:choose>
                                                     <c:when test="${(not empty resultRow.submissionId) and (resultRow.submissionId > 0)}">
                                                         <a href="${STUDIO_SERVER_URL}?${MODULE_KEY}=DownloadSubmission&amp;sbmid=${resultRow.submissionId}">
@@ -193,12 +194,11 @@
                                             </td>
                                         </c:if>
 
-                                                                                        <td class="last">&nbsp;</td>
                                                                                     </tr>
                                                                                 </c:forEach>
     																	   </table>
-        																</div>
-                                                                    </form>
+                                                                        </form>
+      																
                                                                 </div>
                                                             </div>
                                                         

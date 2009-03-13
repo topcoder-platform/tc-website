@@ -96,6 +96,7 @@
                                                         <div>   
                                                             <div class="pageContent">
                                                                 <h2 class="title">Studio Design Competition Leaderboard</h2>
+                                                                    <br/>
                                                                     <form name="advancersForm" action='${sessionInfo.servletPath}' method="get">
                                                                         <tc-webtag:hiddenInput name="${MODULE_KEY}" value="StudioLeaders"/>
                                                                         <tc-webtag:hiddenInput name="${EVENT_ID}" value="${eventId}"/>
@@ -109,38 +110,34 @@
                     </th>
                 </tr>
                 <tr>
-                    <th class="first">&nbsp;</th>
-                    <th rowspan="2" width="1%">
+                    <th rowspan="2">
                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${RANK_COL}'/>">Rank</a>
                     </th>
                     <th rowspan="2">
                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${HANDLE_COL}'/>">Handle</a>
                     </th>
-                    <th colspan="2" nowrap="nowrap" style="border-right: 1px solid #999999;">
+                    <th colspan="2">
                         Completed
                     </th>
-                    <th colspan="1" nowrap="nowrap">
+                    <th colspan="1">
                         In Progress
                     </th>
-                    <th class="last">&nbsp;</th>
                 </tr>
                 <tr>
-                    <th class="first">&nbsp;</th>
                     <th>
                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${COMPLETED_CONTESTS_COL}'/>">Contests</a>
                     </th>
-                    <th style="border-right: 1px solid #999999;">
+                    <th>
                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${COMPLETED_POINTS_COL}'/>">Points</a>
                     </th>
                     <th>
                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${CURRENT_CONTESTS_COL}'/>">Contests</a>
                     </th>
-                    <th class="last">&nbsp;</th>
                 </tr>
                                                                                 <c:forEach items="${result}" var="resultRow">
                                                                                     <tr>
 
-                        <td>
+                        <td class="first last alignText">
                             <c:choose>
                                 <c:when test="${resultRow.rank <= TOP_WINNERS_RANK}">
                                     <span class="bigGreen">${resultRow.rank}</span>
@@ -150,12 +147,12 @@
                                 </c:otherwise>
                             </c:choose>
                         </td>
-                        <td>
+                        <td class="first last alignText">
                             <strong>
                                 ${resultRow.handle}
                             </strong>
                         </td>
-                        <td>
+                        <td class="first last alignText">
                             <a href="${sessionInfo.servletPath}?${MODULE_KEY}=StudioContests&amp;complete=1&amp;${EVENT_ID}=${eventId}&amp;${USER_ID}=${resultRow.userId}">
                                 <c:choose>
                                     <c:when test="${resultRow.completedContests > 0}">
@@ -167,7 +164,7 @@
                                 </c:choose>
                             </a>
                         </td>
-                        <td style="border-right: 1px solid #999999;">
+                        <td class="first last alignText">
                             <c:choose>
                                 <c:when test="${resultRow.rank <= TOP_WINNERS_RANK}">
                                     <span class="bigGreen">
@@ -195,7 +192,7 @@
                                 </c:otherwise>
                             </c:choose>
                         </td>
-                        <td>
+                        <td class="first last alignText">
                             <a href="${sessionInfo.servletPath}?${MODULE_KEY}=StudioContests&amp;complete=0&amp;${EVENT_ID}=${eventId}&amp;${USER_ID}=${resultRow.userId}">
                                 <c:choose>
                                     <c:when test="${resultRow.currentContests > 0}">
@@ -207,11 +204,9 @@
                                 </c:choose>
                             </a>
                         </td>
-                                                                                        <td class="last">&nbsp;</td>
                                                                                     </tr>
                                                                                 </c:forEach>
     																	   </table>
-        																</div>
                                                                     </form>
                                                                 </div>
                                                             </div>
