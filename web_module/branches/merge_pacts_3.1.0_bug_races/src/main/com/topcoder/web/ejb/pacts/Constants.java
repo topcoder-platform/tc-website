@@ -48,7 +48,7 @@ public interface Constants {
     public static final int DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT = 41;
     public static final int SPECIFICATION_CONTEST_PAYMENT = 42;
     public static final int CONCEPTUALIZATION_CONTEST_PAYMENT = 43;
-    public static final int TESTING_COMPETITION_PAYMENT = 44;    
+    public static final int TESTING_COMPETITION_PAYMENT = 44;
 
     public static final int NO_REFERENCE = 0;
     public static final int REFERENCE_ALGORITHM_ROUND_ID = 1;
@@ -84,8 +84,9 @@ public interface Constants {
     public static final int AFFIDAVIT_DELETED_STATUS = 76;
 
     public static final int DEFAULT_PAYMENT_METHOD_ID = 1;
-    
+
     public static final int ASSEMBLY_PROJECT_CATEGORY_LU = 14;
-    
+    public static final int ARCHITECTURE_PROJECT_CATEGORY_LU = 7;
+
 
 }
