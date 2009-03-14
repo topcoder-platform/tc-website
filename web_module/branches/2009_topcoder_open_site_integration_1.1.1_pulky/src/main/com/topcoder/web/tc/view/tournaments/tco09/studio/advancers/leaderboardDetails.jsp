@@ -1,5 +1,5 @@
 <%--
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  *
  * This JSP shows studio track leaderboard details page.
  *
@@ -9,8 +9,8 @@
  * Version 1.0
  * Since 2009 TopCoder Open Site Integration 1.1.1
 --%>
-<%@ page contentType="text/html;charset=utf-8" %> 
-<%@ page import="com.topcoder.web.tc.Constants, com.topcoder.shared.dataAccess.DataAccessConstants, 
+<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page import="com.topcoder.web.tc.Constants, com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.web.tc.controller.request.tournament.StudioUserContestsBase,
                  com.topcoder.shared.util.ApplicationServer"%>
 
@@ -38,40 +38,40 @@
 <c:set var="CONTEST_ID_KEY" value="<%=Constants.CONTEST_ID%>" />
 <c:set var="COMPLETE_KEY" value="<%=Constants.COMPLETE_KEY%>" />
 <c:set var="complete" value="${param[COMPLETE_KEY] == 1}" />
-<c:set var="MORE_CONTEST_DETAILS_URL" 
+<c:set var="MORE_CONTEST_DETAILS_URL"
     value="${STUDIO_SERVER_URL}?${MODULE_KEY}=${complete ? 'ViewContestResults' : 'ViewContestDetails'}&amp;${CONTEST_ID_KEY}=" />
-<c:set var="DOWNLOAD_SUBMISSION_URL" 
+<c:set var="DOWNLOAD_SUBMISSION_URL"
     value="${STUDIO_SERVER_URL}?${MODULE_KEY}=DownloadSubmission&amp;sbmid=" />
 <c:set var="DATE_FORMAT_PATTERN" value="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" />
-         
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>    
+    <head>
         <title>TCO 09 : Studio Competition</title>
-        
+
         <!-- Meta Tags -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        
+
         <!-- External CSS -->
         <link rel="stylesheet" href="css/tournaments/tco09.css" media="all" type="text/css" />
-        
+
         <!-- External JavaScripts -->
         <script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
         <script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
         <script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
-        <script type="text/javascript" src="/js/arena.js"></script> 
+        <script type="text/javascript" src="/js/arena.js"></script>
     </head>
-    
-    <body id="page">    
+
+    <body id="page">
         <div id="wrapper">
             <div id="wrapperInner">
                 <div id="wrapperContent">
                     <div id="wrapperContentInner">
                         <jsp:include page="../../header.jsp"/>
-                        
+
                         <jsp:include page="../../mainNav.jsp" >
                             <jsp:param name="mainTab" value="studio"/>
                         </jsp:include>
-                        
+
                         <div id="content">
                             <div class="contentTopLeft">
                                 <div class="contentTopRight">
@@ -79,28 +79,28 @@
                                     </div>
                                 </div>
                             </div>
-                                
+
                             <div id="contentInner" class="contentInner">
                                 <div id="contentInnerInner">
                                     <div class="bottomArea">
                                         <div class="bottomLeft">
                                             <div class="bottomRight">
-                                                
+
                                                 <jsp:include page="../../secondaryNav.jsp" >
                                                     <jsp:param name="mainTab" value="studio"/>
                                                     <jsp:param name="secondaryTab" value="advancers"/>
                                                 </jsp:include>
-    
+
                                                 <jsp:include page="../../tertiaryNav.jsp" >
                                                     <jsp:param name="mainTab" value="studio"/>
                                                     <jsp:param name="secondaryTab" value="advancers"/>
                                                     <jsp:param name="tertiaryTab" value="leaderboard"/>
                                                 </jsp:include>
-                                                
+
                                                 <div class="bottomAreaContent">
                                                     <div class="mainContent">
                                                         <div id="mainContentInner">
-                                                            <div>   
+                                                            <div>
                                                                 <div class="pageContent">
                                                                     <h2 class="title">
                                                                         Studio Design Competition Leaderboard
@@ -114,17 +114,17 @@
                                                                         <tc-webtag:hiddenInput name="${SORT_COLUMN}"/>
                                                                         <tc-webtag:hiddenInput name="${SORT_DIRECTION}"/>
 
-    																	<table class="data" width="100%" cellpadding="0" cellspacing="0">
+                                                                        <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                             <tr>
                                                                                 <th colspan="${complete ? '10' : '7'}">
-                                                                                    <span> 
+                                                                                    <span>
                                                                                         ${handle}
                                                                                     </span> &gt;
                                                                                     ${complete ? "Completed" : "In Progress"}
                                                                                 </th>
                                                                             </tr>
                                                                             <tr>
-                                                                                <th class="first">&nbsp;</th> 
+                                                                                <th class="first">&nbsp;</th>
                                                                                 <th>
                                                                                     <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${CONTEST_NAME_COL}'/>">
                                                                                         Contest
@@ -165,22 +165,22 @@
                                                                                         Submission
                                                                                     </th>
                                                                                 </c:if>
-                                                                                <th class="last">&nbsp;</th> 
+                                                                                <th class="last">&nbsp;</th>
                                                                             </tr>
                                                                             <c:forEach items="${result}" var="resultRow">
                                                                                 <tr>
-                                                                                    <td class="first">&nbsp;</td> 
+                                                                                    <td class="first">&nbsp;</td>
                                                                                     <td class="first last alignText">
                                                                                         <a href="${MORE_CONTEST_DETAILS_URL}${resultRow.contestId}">
                                                                                             ${resultRow.contestName}
                                                                                         </a>
                                                                                     </td>
                                                                                     <td class="first last alignText">
-                                                                                        <fmt:formatDate value="${resultRow.startDate}" 
+                                                                                        <fmt:formatDate value="${resultRow.startDate}"
                                                                                             pattern="${DATE_FORMAT_PATTERN}"/>
                                                                                     </td>
                                                                                     <td class="first last alignText">
-                                                                                        <fmt:formatDate value="${resultRow.endDate}" 
+                                                                                        <fmt:formatDate value="${resultRow.endDate}"
                                                                                             pattern="${DATE_FORMAT_PATTERN}"/>
                                                                                     </td>
                                                                                     <td class="first last alignText">
@@ -216,25 +216,25 @@
                                                                                             </c:choose>
                                                                                         </td>
                                                                                     </c:if>
-                                                                                    <td class="last">&nbsp;</td> 
+                                                                                    <td class="last">&nbsp;</td>
                                                                                 </tr>
                                                                             </c:forEach>
-																	   </table>
+                                                                        </table>
                                                                     </form>
                                                                 </div>
                                                             </div>
                                                         </div><!-- End #mainContentInner -->
-                                                    </div><!-- End #mainContent --> 
+                                                    </div><!-- End #mainContent -->
 
                                                     <jsp:include page="../../sponsors.jsp"/>
-                                                    
+
                                                 </div><!-- End .bottomAreaContent -->
                                             </div>
                                         </div>
                                     </div><!-- End .bottomArea -->
                                 </div><!-- End #contentInnerInner -->
                             </div><!-- End #contentInner -->
-                            
+
                             <div class="contentBottomLeft">
                                 <div class="contentBottomRight">
                                     <div class="contentTopInner">
@@ -246,7 +246,7 @@
                 </div>
             </div><!-- End #wrapperInner -->
         </div><!-- End #wrapper -->
-    
+
         <jsp:include page="../../footer.jsp"/>
     </body>
 </html>

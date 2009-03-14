@@ -1,5 +1,5 @@
 <%--
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  *
  * This JSP handles secondary navigation bar.
  *
@@ -8,7 +8,7 @@
  *
  * Version 1.1 (2009 TopCoder Open Site Integration 1.1) changes: Replaced links for all leaderboard pages.
  *
- * Version 1.2 (2009 TopCoder Open Site Integration 1.1.1) changes: Replaced links for Studio leaderboard page.
+ * Version 1.2 (2009 TopCoder Open Site Integration 1.1.1) changes: Replaced link for Studio leaderboard page.
  *
  * Author TCSDEVELOPER
  * Version 1.2

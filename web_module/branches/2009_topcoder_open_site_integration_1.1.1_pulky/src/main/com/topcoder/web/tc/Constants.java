@@ -24,7 +24,7 @@ import java.util.MissingResourceException;
  * <p>
  *   Version 1.2 (2009 TopCoder Open Site Integration 1.1.1) Change notes:
  *   <ol>
- *     <li>Added several constants to support TCO09 Studio track.</li>
+ *     <li>Added several constants to support TCO09 Studio track leaderboard pages.</li>
  *   </ol>
  * </p>
  *
@@ -221,7 +221,7 @@ public class Constants implements WebConstants {
      * @since TCS Release 2.2.0 (TCS-54)
      */
     public static final String ASSEMBLY_REVIEW_PROJECT_DETAIL = "/dev/assembly/reviewProjectDetail.jsp";
-    
+
     /**
      * <p>A <code>String</code> providing the logical name for the view corresponding to
      * <code>Architecture Review Project Details</code> page.</p>
@@ -231,7 +231,7 @@ public class Constants implements WebConstants {
     public static final String ARCHITECTURE_REVIEW_PROJECT_DETAIL = "/architecture/reviewProjectDetail.jsp";
 
     /**
-     * <p>A <code>String</code> providing the path to the unified review project detail page used to 
+     * <p>A <code>String</code> providing the path to the unified review project detail page used to
      * manage Conceptualization, Specification and Application Testing Review Projects.</p>
      *
      * @since 1.1
@@ -257,7 +257,7 @@ public class Constants implements WebConstants {
     public static final String ARCHITECTURE_REVIEW_PROJECTS = "/architecture/reviewProjects.jsp";
 
     /**
-     * <p>A <code>String</code> providing the path to the unified review project page used to 
+     * <p>A <code>String</code> providing the path to the unified review project page used to
      * manage Conceptualization, Specification and Application Testing Review Projects.</p>
      *
      * @since 1.1
@@ -285,7 +285,7 @@ public class Constants implements WebConstants {
     public static final String ARCHITECTURE_REVIEWER_TERMS = "/architecture/reviewerTerms.jsp";
 
     /**
-     * <p>A <code>String</code> providing the path to the unified review terms page used to 
+     * <p>A <code>String</code> providing the path to the unified review terms page used to
      * manage Conceptualization, Specification and Application Testing Review Projects.</p>
      *
      * @since 1.1
@@ -293,7 +293,7 @@ public class Constants implements WebConstants {
     public static final String UNIFIED_REVIEWER_TERMS_PAGE = "/review_board/reviewerTerms.jsp";
 
     /**
-     * <p>A <code>String</code> providing the path to the unified meet the review board page used to 
+     * <p>A <code>String</code> providing the path to the unified meet the review board page used to
      * manage Conceptualization, Specification and Application Testing Review Projects.</p>
      *
      * @since 1.1
@@ -473,184 +473,185 @@ public class Constants implements WebConstants {
     public static final String CAPTCHA_WORD = "capword";
     public static String RANDOM_STRING_IMAGE_CONFIG;
     public static final String CAPTCHA_RESPONSE = "capresp";
-    
+
     public static String DR_POINTS_LAST_N_DAYS = "7";
 
     /**
      * <p>
      * A <code>String</code> referencing event parameter name.
      * </p>
-     * 
+     *
      * @since 2009 TopCoder Open Site Integration
-     */    
+     */
     public static final String EVENT = "event";
 
     /**
      * <p>
      * A <code>String</code> referencing TCO09 short description
      * </p>
-     * 
+     *
      * @since 2009 TopCoder Open Site Integration
-     */    
+     */
     public static String TCO09_SHORT_DESC = "tco09";
 
     /**
      * <p>
      * A <code>String</code> referencing TCO09 terms success page.
      * </p>
-     * 
+     *
      * @since 2009 TopCoder Open Site Integration
-     */    
+     */
     public static String TCO09_TERMS_SUCCESS_PAGE = "/tournaments/tco09/termsSuccess.jsp";
 
     /**
      * <p>
      * A <code>String</code> referencing TCO09 terms page.
      * </p>
-     * 
+     *
      * @since 2009 TopCoder Open Site Integration
-     */    
+     */
     public static String TCO09_TERMS_PAGE = "/tournaments/tco09/terms.jsp";
 
     /**
      * <p>
      * A <code>String</code> referencing TCO09 view registration request.
      * </p>
-     * 
+     *
      * @since 2009 TopCoder Open Site Integration
-     */    
+     */
     public static String TCO09_VIEW_REGISTRATION_REQUEST = "/tco09?module=ViewUnifiedRegistration";
 
     /**
      * <p>
      * A <code>String</code> referencing TCO09 registrants command.
      * </p>
-     * 
+     *
      * @since 2009 TopCoder Open Site Integration
-     */    
+     */
     public static String TCO09_REGISTRANTS_COMMAND = "tco09_registrants";
 
     /**
      * <p>
      * A <code>String</code> referencing TCO09 overview page.
      * </p>
-     * 
+     *
      * @since 2009 TopCoder Open Site Integration
-     */    
+     */
     public static String TCO09_OVERVIEW_PAGE = "/tournaments/tco09/overview/overview.jsp";
-    
+
     /**
      * <p>
      * A <code>String</code> referencing TCO09 registrants page.
      * </p>
-     * 
+     *
      * @since 2009 TopCoder Open Site Integration
-     */    
+     */
     public static String TCO09_REGISTRANTS_PAGE = "/tournaments/tco09/overview/registrants.jsp";
 
     /**
      * <p>
      * A <code>String</code> referencing complete parameter name.
      * </p>
-     * 
+     *
      * @since 1.2
-     */    
+     */
     public static final String COMPLETE_KEY = "complete";
-    
+
     /**
      * <p>
-     * An <code>int</code> referencing the maximum rank that goes onsite for TCO09 Studio track.
+     * An <code>int</code> referencing the maximum competitor rank that goes onsite for TCO09 Studio track.
      * </p>
      * <p>
      * Note: default set to 10.
      * </p>
-     * 
+     *
      * @since 1.2
-     */    
+     */
     public static int TCO09_STUDIO_TOP_ONSITE_RANK = 10;
-    
+
     /**
      * <p>
-     * An <code>int</code> referencing the amount of placement points for first place submission
+     * An <code>int</code> referencing the amount of placement points for first placed submission
      * in the TCO09 Studio track.
      * </p>
      * <p>
      * Note: default set to 17.
      * </p>
-     * 
+     *
      * @since 1.2
-     */    
+     */
     public static int TCO09_STUDIO_PLACE_SCORE_1 = 17;
-    
+
     /**
      * <p>
-     * An <code>int</code> referencing the amount of placement points for second place submission
+     * An <code>int</code> referencing the amount of placement points for second placed submission
      * in the TCO09 Studio track.
      * </p>
      * <p>
      * Note: default set to 15.
      * </p>
-     * 
+     *
      * @since 1.2
-     */    
+     */
     public static int TCO09_STUDIO_PLACE_SCORE_2 = 15;
-    
+
     /**
      * <p>
-     * An <code>int</code> referencing the amount of placement points for third place submission
+     * An <code>int</code> referencing the amount of placement points for third placed submission
      * in the TCO09 Studio track.
      * </p>
      * <p>
      * Note: default set to 13.
      * </p>
-     * 
+     *
      * @since 1.2
-     */    
+     */
     public static int TCO09_STUDIO_PLACE_SCORE_3 = 13;
-    
+
     /**
      * <p>
-     * An <code>int</code> referencing the amount of placement points for fourth place submission
+     * An <code>int</code> referencing the amount of placement points for fourth placed submission
      * in the TCO09 Studio track.
      * </p>
      * <p>
      * Note: default set to 10.
      * </p>
-     * 
+     *
      * @since 1.2
-     */    
+     */
     public static int TCO09_STUDIO_PLACE_SCORE_4 = 10;
-    
+
     /**
      * <p>
-     * An <code>int</code> referencing the amount of placement points for fifth place submission
+     * An <code>int</code> referencing the amount of placement points for fifth placed submission
      * in the TCO09 Studio track.
      * </p>
      * <p>
      * Note: default set to 7.
      * </p>
-     * 
+     *
      * @since 1.2
-     */    
+     */
     public static int TCO09_STUDIO_PLACE_SCORE_5 = 7;
 
     /**
      * <p>
      * A <code>String</code> referencing TCO09 Studio track leaderboard page.
      * </p>
-     * 
+     *
      * @since 1.2
-     */    
+     */
     public static String TCO09_STUDIO_LEADERBOARD_PAGE = "/tournaments/tco09/studio/advancers/leaderboard.jsp";
 
     /**
      * <p>
      * A <code>String</code> referencing TCO09 Studio track leaderboard details page.
      * </p>
-     * 
+     *
      * @since 1.2
-     */    
-    public static String TCO09_STUDIO_LEADERBOARD_DETAILS_PAGE = "/tournaments/tco09/studio/advancers/leaderboardDetails.jsp";
+     */
+    public static String TCO09_STUDIO_LEADERBOARD_DETAILS_PAGE = 
+        "/tournaments/tco09/studio/advancers/leaderboardDetails.jsp";
 
     static {
         initialize();
