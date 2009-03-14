@@ -16,7 +16,7 @@ import com.topcoder.web.tc.controller.request.tournament.StudioLeaderBoardRow;
  *
  * @author TCSDEVELOPER
  * @version 1.0
- * @since 2009 TopCoder Open Site Integration 1.2? (ToDo)
+ * @since 2009 TopCoder Open Site Integration 1.1.1
  */
 public class StudioLeaderBoardComparator implements Comparator<StudioLeaderBoardRow> {
 

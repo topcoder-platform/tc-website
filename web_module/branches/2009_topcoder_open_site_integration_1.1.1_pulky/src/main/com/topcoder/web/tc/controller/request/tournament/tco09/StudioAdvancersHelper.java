@@ -12,15 +12,20 @@ import com.topcoder.web.tc.Constants;
  *
  * @author TCSDEVELOPER
  * @version 1.0
- * @since 2009 TopCoder Open Site Integration 1.2? (ToDo)
+ * @since 2009 TopCoder Open Site Integration 1.1.1
  */
 public final class StudioAdvancersHelper {
 
     /**
      * <p>An <code>int[]</code> containing the placement points for TCO09 Studio Track.</p>
+     * <p>First element corresponds to first place, second element to second place and so on.</p>
      */    
-     // Todo: take this out of here
-    private static final int[] placementPoints = new int[]{17, 15, 13, 10, 7};
+    private static final int[] placementPoints = new int[]{
+        Constants.TCO09_STUDIO_PLACE_SCORE_1, 
+        Constants.TCO09_STUDIO_PLACE_SCORE_2, 
+        Constants.TCO09_STUDIO_PLACE_SCORE_3, 
+        Constants.TCO09_STUDIO_PLACE_SCORE_4, 
+        Constants.TCO09_STUDIO_PLACE_SCORE_5};
 
     /**
      * <p>This method returns TCO09 short description.</p>
@@ -39,7 +44,6 @@ public final class StudioAdvancersHelper {
      * @return <code>int</code> containing the number of contests to consider
      */
     protected static final int getMaxContests() {
-        // TODO: improve
         // Since there is no contest limit like tco08, Integer.MAX_VALUE is returned
         return Integer.MAX_VALUE;
     }

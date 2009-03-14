@@ -5,6 +5,7 @@ package com.topcoder.web.tc.controller.request.tournament.tco09;
 
 import java.util.Comparator;
 
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.tournament.StudioLeaderBoardRow;
 import com.topcoder.web.tc.controller.request.tournament.StudioLeaderboardBase;
 
@@ -17,7 +18,7 @@ import com.topcoder.web.tc.controller.request.tournament.StudioLeaderboardBase;
  *
  * @author TCSDEVELOPER
  * @version 1.0
- * @since 2009 TopCoder Open Site Integration 1.2? (ToDo)
+ * @since 2009 TopCoder Open Site Integration 1.1.1
  */
 public class StudioLeaders extends StudioLeaderboardBase {
 
@@ -59,14 +60,13 @@ public class StudioLeaders extends StudioLeaderboardBase {
     }
     
     /**
-     * Gets the path for the corresponding JSP
-     * todo:improve
+     * <p>This method gets the path to the corresponding JSP that will be shown.</p>
      * 
-     * @return <code>int</code> the complete path to the corresponding JSP
+     * @return <code>String</code> containing the complete path to the corresponding JSP
      */
     @Override
     protected String getPageName() {
-        return "/tournaments/" + getContestPrefix() + "/studio/advancers/leaderboard.jsp";
+        return Constants.TCO09_STUDIO_LEADERBOARD_PAGE;
     }
 
     /**

@@ -1,12 +1,13 @@
 <%--
  * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
  *
- * This JSP shows studio track leaderboard page.
- * Todo: fix format, add custom tags.
+ * This JSP shows studio track leaderboard details page.
+ *
+ * Note: this JSP is used for both "In Progress" and "Completed" contests.
  *
  * Author TCSDEVELOPER
  * Version 1.0
- * Since 2009 TopCoder Open Site Integration
+ * Since 2009 TopCoder Open Site Integration 1.1.1
 --%>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <%@ page import="com.topcoder.web.tc.Constants,
@@ -19,7 +20,7 @@
 <%@ taglib prefix="tc-webtag" uri="tc-webtags.tld" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%-- Setting up constants to use JSTL --%>
+<%-- Setting up some variables to use JSTL --%>
 <c:set var="CONTEST_NAME_COL" value="<%=StudioUserContestsBase.CONTEST_NAME_COL%>" />
 <c:set var="START_DATE_COL" value="<%=StudioUserContestsBase.START_DATE_COL%>" />
 <c:set var="END_DATE_COL" value="<%=StudioUserContestsBase.END_DATE_COL%>" />
@@ -35,11 +36,9 @@
 <c:set var="eventId" value="${param[EVENT_ID]}" />
 <c:set var="userId" value="${param[USER_ID]}" />
 <c:set var="STUDIO_SERVER_URL" value="<%="http://"+ApplicationServer.STUDIO_SERVER_NAME + "/"%>" />
-
-<c:set var="TOP_WINNERS_RANK" value="10" />  <!-- ToDo: take out-->
-<c:set var="CONTEST_ID_KEY" value="ct" />  <!-- ToDo: take out-->
-<c:set var="COMPLETE" value="complete" />  <!-- ToDo: take out-->
-<c:set var="complete" value="${param[COMPLETE] == 1}" />
+<c:set var="CONTEST_ID_KEY" value="<%=Constants.CONTEST_ID%>" />
+<c:set var="COMPLETE_KEY" value="<%=Constants.COMPLETE_KEY%>" />
+<c:set var="complete" value="${param[COMPLETE_KEY] == 1}" />
 
          
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -111,7 +110,7 @@
                                                                         <tc-webtag:hiddenInput name="${MODULE_KEY}" value="StudioContests"/>
                                                                         <tc-webtag:hiddenInput name="${EVENT_ID}" value="${eventId}"/>
                                                                         <tc-webtag:hiddenInput name="${USER_ID}" value="${userId}"/>
-                                                                        <tc-webtag:hiddenInput name="${COMPLETE}" value="${complete}"/>
+                                                                        <tc-webtag:hiddenInput name="${COMPLETE_KEY}" value="${complete}"/>
                                                                         <tc-webtag:hiddenInput name="${SORT_COLUMN}"/>
                                                                         <tc-webtag:hiddenInput name="${SORT_DIRECTION}"/>
 

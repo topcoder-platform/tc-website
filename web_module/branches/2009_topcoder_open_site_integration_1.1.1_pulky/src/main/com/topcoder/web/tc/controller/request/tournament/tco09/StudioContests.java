@@ -3,6 +3,7 @@
  */
 package com.topcoder.web.tc.controller.request.tournament.tco09;
 
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.tournament.StudioUserContestsBase;
 
 /**
@@ -57,13 +58,16 @@ public class StudioContests extends StudioUserContestsBase {
     }
     
     /**
-     * Gets the path for the corresponding JSP
-     * todo:improve
+     * <p>This method gets the path to the corresponding JSP that will be shown.</p>
+     * 
+     * <p>Note: complete parameter is no longer used since current and completed contest pages
+     * were unified. It is still in this method signature due to compatibility issues.</p>
+     * 
      * @param complete an <code>Integer</code> specifying if the requested contest has completed.
-     * @return <code>int</code> the complete path to the corresponding JSP
+     * @return <code>String</code> containing the complete path to the corresponding JSP
      */
     @Override
     protected String getPageName(Integer complete) {
-        return "/tournaments/" + getContestPrefix() +  "/studio/advancers/leaderboardDetails.jsp";
+        return Constants.TCO09_STUDIO_LEADERBOARD_DETAILS_PAGE;
     }
 }

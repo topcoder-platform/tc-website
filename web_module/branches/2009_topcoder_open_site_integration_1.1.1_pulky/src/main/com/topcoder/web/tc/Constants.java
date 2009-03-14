@@ -21,8 +21,15 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.2 (2009 TopCoder Open Site Integration 1.1.1) Change notes:
+ *   <ol>
+ *     <li>Added several constants to support TCO09 Studio track.</li>
+ *   </ol>
+ * </p>
+ *
  * @author TCSDEVELOPER
- * @version 1.1
+ * @version 1.2
  */
 public class Constants implements WebConstants {
 
@@ -540,6 +547,110 @@ public class Constants implements WebConstants {
      * @since 2009 TopCoder Open Site Integration
      */    
     public static String TCO09_REGISTRANTS_PAGE = "/tournaments/tco09/overview/registrants.jsp";
+
+    /**
+     * <p>
+     * A <code>String</code> referencing complete parameter name.
+     * </p>
+     * 
+     * @since 1.2
+     */    
+    public static final String COMPLETE_KEY = "complete";
+    
+    /**
+     * <p>
+     * An <code>int</code> referencing the maximum rank that goes onsite for TCO09 Studio track.
+     * </p>
+     * <p>
+     * Note: default set to 10.
+     * </p>
+     * 
+     * @since 1.2
+     */    
+    public static int TCO09_STUDIO_TOP_ONSITE_RANK = 10;
+    
+    /**
+     * <p>
+     * An <code>int</code> referencing the amount of placement points for first place submission
+     * in the TCO09 Studio track.
+     * </p>
+     * <p>
+     * Note: default set to 17.
+     * </p>
+     * 
+     * @since 1.2
+     */    
+    public static int TCO09_STUDIO_PLACE_SCORE_1 = 17;
+    
+    /**
+     * <p>
+     * An <code>int</code> referencing the amount of placement points for second place submission
+     * in the TCO09 Studio track.
+     * </p>
+     * <p>
+     * Note: default set to 15.
+     * </p>
+     * 
+     * @since 1.2
+     */    
+    public static int TCO09_STUDIO_PLACE_SCORE_2 = 15;
+    
+    /**
+     * <p>
+     * An <code>int</code> referencing the amount of placement points for third place submission
+     * in the TCO09 Studio track.
+     * </p>
+     * <p>
+     * Note: default set to 13.
+     * </p>
+     * 
+     * @since 1.2
+     */    
+    public static int TCO09_STUDIO_PLACE_SCORE_3 = 13;
+    
+    /**
+     * <p>
+     * An <code>int</code> referencing the amount of placement points for fourth place submission
+     * in the TCO09 Studio track.
+     * </p>
+     * <p>
+     * Note: default set to 10.
+     * </p>
+     * 
+     * @since 1.2
+     */    
+    public static int TCO09_STUDIO_PLACE_SCORE_4 = 10;
+    
+    /**
+     * <p>
+     * An <code>int</code> referencing the amount of placement points for fifth place submission
+     * in the TCO09 Studio track.
+     * </p>
+     * <p>
+     * Note: default set to 7.
+     * </p>
+     * 
+     * @since 1.2
+     */    
+    public static int TCO09_STUDIO_PLACE_SCORE_5 = 7;
+
+    /**
+     * <p>
+     * A <code>String</code> referencing TCO09 Studio track leaderboard page.
+     * </p>
+     * 
+     * @since 1.2
+     */    
+    public static String TCO09_STUDIO_LEADERBOARD_PAGE = "/tournaments/tco09/studio/advancers/leaderboard.jsp";
+
+    /**
+     * <p>
+     * A <code>String</code> referencing TCO09 Studio track leaderboard details page.
+     * </p>
+     * 
+     * @since 1.2
+     */    
+    public static String TCO09_STUDIO_LEADERBOARD_DETAILS_PAGE = "/tournaments/tco09/studio/advancers/leaderboardDetails.jsp";
 
     static {
         initialize();
