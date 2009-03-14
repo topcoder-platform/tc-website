@@ -33,11 +33,6 @@
     value="${sessionInfo.servletPath}?${MODULE_KEY}=StudioContests&amp;${COMPLETE_KEY}=0&amp;${EVENT_ID}=${eventId}&amp;${USER_ID}=" />
 <c:set var="COMPLETE_CONTESTS_DETAILS_URL" 
     value="${sessionInfo.servletPath}?${MODULE_KEY}=StudioContests&amp;${COMPLETE_KEY}=1&amp;${EVENT_ID}=${eventId}&amp;${USER_ID}=" />
-<c:set var="RANK_COL_URL" value="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${RANK_COL}'/>"/>
-<c:set var="HANDLE_COL_URL" value="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${HANDLE_COL}'/>"/>
-<c:set var="COMPLETED_CONTESTS_COL_URL" value="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${COMPLETED_CONTESTS_COL}'/>"/>
-<c:set var="COMPLETED_POINTS_COL_URL" value="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${COMPLETED_POINTS_COL}'/>"/>
-<c:set var="CURRENT_CONTESTS_COL_URL" value="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${CURRENT_CONTESTS_COL}'/>"/>
 
      
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -97,7 +92,9 @@
                                                         <div id="mainContentInner">
                                                             <div>   
                                                                 <div class="pageContent">
-                                                                    <h2 class="title">${HANDLE_COL_URL} - Studio Design Competition Leaderboard</h2>
+                                                                    <h2 class="title">
+                                                                        Studio Design Competition Leaderboard
+                                                                    </h2>
                                                                     <br/>
                                                                     <form name="advancersForm" action='${sessionInfo.servletPath}' method="get">
                                                                         <tc-webtag:hiddenInput name="${MODULE_KEY}" value="StudioLeaders"/>
@@ -107,11 +104,12 @@
 
     																	<table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                             <tr>
-                                                                                <th colspan="5">
+                                                                                <th colspan="7">
                                                                                     Studio Leaderboard
                                                                                 </th>
                                                                             </tr>
                                                                             <tr>
+                                                                                <th rowspan="2" class="first">&nbsp;</th> 
                                                                                 <th rowspan="2">
                                                                                     <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${RANK_COL}'/>">
                                                                                         Rank
@@ -128,6 +126,7 @@
                                                                                 <th colspan="1">
                                                                                     In Progress
                                                                                 </th>
+                                                                                <th rowspan="2" class="last">&nbsp;</th> 
                                                                             </tr>
                                                                             <tr>
                                                                                 <th>
@@ -148,6 +147,7 @@
                                                                             </tr>
                                                                             <c:forEach items="${result}" var="resultRow">
                                                                                 <tr>
+                                                                                    <td class="first">&nbsp;</td> 
                                                                                     <td class="first last alignText">
                                                                                         <c:choose>
                                                                                             <c:when test="${resultRow.rank <= TOP_ONSITE_RANK}">
@@ -219,6 +219,7 @@
                                                                                             </c:choose>
                                                                                         </a>
                                                                                     </td>
+                                                                                    <td class="last">&nbsp;</td> 
                                                                                 </tr>
                                                                             </c:forEach>
 																	   </table>
