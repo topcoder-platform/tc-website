@@ -58,16 +58,13 @@ $(document).ready(function(){
     });
 
 	$("#tco09").hide();
-	$("#ribbit").hide();
-	$("#sensations").hide();
+	$("#lindenlab").hide();
 	
-		var randomnumber=Math.floor(Math.random()*3)
+		var randomnumber=Math.floor(Math.random()*2)
 		if (randomnumber==0) {
 			$("#tco09").show();
 		} else if (randomnumber==1) {
-			$("#ribbit").show();
-		} else {
-			$("#sensations").show();
+			$("#lindenlab").show();
 		}
 
 	
@@ -247,9 +244,8 @@ $(document).ready(function(){
                                 <h3><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">TopCoder Studio</a></h3>
                                 <p>The creative side of TopCoder. Logos, posters, storyboards, prototypes&hellip;</p>
                             </div>
-                            <div id="ribbit"><a href="http://www.topcoder.com/tc?module=LinkTracking&link=http://killerappchallenge.ribbit.com/&refer=homepage"><img src="/images/home/ribbit-banner-small.png" alt="Ribbit Killer App Challenge" /></a></div>
                             <div id="tco09"><a href="http://www.topcoder.com/tco09"><img src="/i/tco09/340x76_banner.jpg" alt="2009 TopCoder Open" /></a></div>
-                            <div id="sensations"><a href="http://sensations.aol.com"><img src="/i/aol/340x76.png" alt="AOL/TopCoder Sensations Developer Challenge"/></a></div>
+                            <div id="lindenlab"><a href="/tc?module=MatchDetails&rd=13772"><img src="/i/home/lindenlabMM-banner-340x76.png" alt="Linden Lab OpenJPG MM" /></a></div>
                         </div>
                     </div>
                     <div id="member-box-bottom"></div>
