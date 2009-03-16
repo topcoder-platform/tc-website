@@ -23,7 +23,7 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
             DataInterfaceBean dib = new DataInterfaceBean();
 
             getRequest().setAttribute("requiresClient", new Boolean(dib.requiresClient(type) > 0));
-            
+
             Map map = null;
             String field = "";
             if (search != null) {
@@ -44,12 +44,12 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
 
                         }  else if (type == HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT) {
                               map = dib.findRounds("%" + search + "%", HIGH_SCHOOL_TOURNAMENT_ROUND_TYPES);
-                              
+
                         }  else if (type == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT) {
                             map = dib.findRounds("%" + search + "%", ALGORITHM_TOURNAMENT_ROUND_TYPES);
 
                         } else if (type == PROBLEM_TESTING_PAYMENT) {
-                        	map = dib.findRounds("%" + search + "%", PROBLEM_TESTING_ROUND_TYPES);                        	
+                            map = dib.findRounds("%" + search + "%", PROBLEM_TESTING_ROUND_TYPES);
                         }
                         getRequest().setAttribute(ALGORITHM_ROUND_LIST, map.get(ALGORITHM_ROUND_LIST));
                         field = "algorithm_round_id";
@@ -57,11 +57,19 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
 
                     case REFERENCE_COMPONENT_PROJECT_ID:
                         if (type == ASSEMBLY_COMPETITION_REVIEW || type == ASSEMBLY_PAYMENT) {
-                        	map = dib.findProjects("%" + search + "%", ASSEMBLY_PROJECT_CATEGORY_LU);                        	
+                            map = dib.findProjects("%" + search + "%", ASSEMBLY_PROJECT_CATEGORY_LU);
+                        } else if (type == ARCHITECTURE_PAYMENT) {
+                            map = dib.findProjects("%" + search + "%", ARCHITECTURE_PROJECT_CATEGORY_LU);
+                        } else if (type == CONCEPTUALIZATION_CONTEST_PAYMENT) {
+                            map = dib.findProjects("%" + search + "%", CONCEPTUALIZATION_PROJECT_CATEGORY_LU);
+                        } else if (type == SPECIFICATION_CONTEST_PAYMENT) {
+                            map = dib.findProjects("%" + search + "%", SPECIFICATION_PROJECT_CATEGORY_LU);
+                        } else if (type == TESTING_COMPETITION_PAYMENT) {
+                            map = dib.findProjects("%" + search + "%", APPLICATION_TESTING_PROJECT_CATEGORY_LU);
                         } else {
-                        	map = dib.findProjects("%" + search + "%");
+                            map = dib.findProjects("%" + search + "%");
                         }
-                        
+
                         getRequest().setAttribute(COMPONENT_PROJECT_LIST, map.get(COMPONENT_PROJECT_LIST));
                         field = "component_project_id";
                         break;
@@ -104,11 +112,11 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                     field = "digital_run_track_id";
                     break;
             }
-            
+
             if (type == PROBLEM_TESTING_PAYMENT) {
-            	optionalReference = true;
+                optionalReference = true;
             }
-            
+
             setDefault("client", getRequest().getParameter("client"));
             getRequest().setAttribute("type", type + "");
             getRequest().setAttribute("reference_type_id", refId + "");

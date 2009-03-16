@@ -21,7 +21,7 @@
     </head>
     <body>
         <h1>PACTS</h1>
-        <h2 align="center">Generate Component Payments</h2>
+        <h2 align="center">Generate Software Contest Payments</h2>
         <center>
             <form name="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
                 <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="GenerateComponentPayments"/>
@@ -70,7 +70,7 @@
                             <table border="0" cellpadding="3" cellspacing="0">
                             <tr>
                                 <td colspan="2" align="center">
-                                    <strong>Development Support</strong>
+                                    <strong>Development Support (Component Development Only)</strong>
                                 </td>
                            </tr>
                            <tr>
@@ -104,7 +104,7 @@
                         <td colspan="3" align="center">
                             <table border="0" cellpadding="3" cellspacing="0">
                                 <tr align="center"><td>
-                                    <strong>Review Board</strong>
+                                    <strong>Review Board (Component Design Only)</strong>
                                 </td></tr>
                                 <tr align="left"><td>
                                     <tc-webtag:chkBox name="<%=GenerateComponentPayments.APPLY_REVIEWER_WITHHOLDING_ID %>"/>Apply Reviewer Withholding                                 
@@ -119,7 +119,7 @@
                     </tr>
                     <tr>
                         <td align="center" colspan="3">
-                            <a href="JavaScript:document.paymentForm.submit();">Generate Component Payments</a><br/>
+                            <a href="JavaScript:document.paymentForm.submit();">Generate Software Contest Payments</a><br/>
                         </td>
                     </tr>
                 </table>

@@ -10,7 +10,7 @@ import java.sql.SQLException;
  * @author cucu
  *
  */
-public class AssemblyPayment extends ComponentProjectReferencePayment {
+public class ArchitecturePayment extends ComponentProjectReferencePayment {
 
     /**
      * Please change that number if you affect the fields in a way that will affect the
@@ -20,7 +20,7 @@ public class AssemblyPayment extends ComponentProjectReferencePayment {
     private static final long serialVersionUID = 2L;
 
     /**
-     * Create a payment for the winner (or another place!) of an assembly.
+     * Create a payment for the winner (or another place!) of an architecture competition.
      *
      * @param coderId coder to be paid.
      * @param grossAmount amount to be paid.
@@ -28,8 +28,8 @@ public class AssemblyPayment extends ComponentProjectReferencePayment {
      * @param projectId project that is being paid.
      * @param placed the place of the coder in the contest.
      */
-    public AssemblyPayment(long coderId, double grossAmount, String client, long projectId, int placed) {
-        super(ASSEMBLY_PAYMENT, coderId, grossAmount, client, projectId, placed);
+    public ArchitecturePayment(long coderId, double grossAmount, String client, long projectId, int placed) {
+        super(ARCHITECTURE_PAYMENT, coderId, grossAmount, client, projectId, placed);
     }
 
     /**
@@ -40,7 +40,7 @@ public class AssemblyPayment extends ComponentProjectReferencePayment {
      * @param projectId project that is being paid.
      * @param placed the place of the coder in the contest.
      */
-    public AssemblyPayment(long coderId, double grossAmount, long projectId, int placed) {
+    public ArchitecturePayment(long coderId, double grossAmount, long projectId, int placed) {
         this(coderId, grossAmount, null, projectId, placed);
     }
 
@@ -52,7 +52,7 @@ public class AssemblyPayment extends ComponentProjectReferencePayment {
      * @param client the client of the project.
      * @param projectId project that is being paid.
      */
-    public AssemblyPayment(long coderId, double grossAmount, String client, long projectId) {
+    public ArchitecturePayment(long coderId, double grossAmount, String client, long projectId) {
         this(coderId, grossAmount, client, projectId, 0);
     }
 
@@ -63,7 +63,7 @@ public class AssemblyPayment extends ComponentProjectReferencePayment {
      * @param grossAmount amount to be paid.
      * @param projectId project that is being paid.
      */
-    public AssemblyPayment(long coderId, double grossAmount, long projectId) {
+    public ArchitecturePayment(long coderId, double grossAmount, long projectId) {
         this(coderId, grossAmount, null, projectId, 0);
     }
 
@@ -78,7 +78,7 @@ public class AssemblyPayment extends ComponentProjectReferencePayment {
     }
 
     /**
-     * Processor for assembly winning payments.
+     * Processor for Architecture winning payments.
      * It just provides a method for generating a description from component and placement data.
      *
      * @author Cucu

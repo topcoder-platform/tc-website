@@ -143,12 +143,13 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case STUDIO_REVIEW_BOARD_PAYMENT:
         case COMPONENT_PAYMENT:
         case REVIEW_BOARD_PAYMENT:
-        case BUG_FIXES_PAYMENT: 
-        case COMPONENT_ENHANCEMENTS_PAYMENT: 
-        case SPECIFICATION_REVIEW_PAYMENT: 
-        case COMPONENT_BUILD_PAYMENT: 
+        case BUG_FIXES_PAYMENT:
+        case COMPONENT_ENHANCEMENTS_PAYMENT:
+        case SPECIFICATION_REVIEW_PAYMENT:
+        case COMPONENT_BUILD_PAYMENT:
         case ASSEMBLY_COMPETITION_REVIEW:
         case ASSEMBLY_PAYMENT:
+        case ARCHITECTURE_PAYMENT:
         case SPECIFICATION_CONTEST_PAYMENT:
         case CONCEPTUALIZATION_CONTEST_PAYMENT:
         case TESTING_COMPETITION_PAYMENT:
@@ -226,6 +227,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case COMPONENT_BUILD_PAYMENT: return new ComponentBuildPayment(coderId, grossAmount, referenceId);
         case ASSEMBLY_COMPETITION_REVIEW: return new AssemblyReviewPayment(coderId, grossAmount, referenceId);
         case ASSEMBLY_PAYMENT: return new AssemblyPayment(coderId, grossAmount, referenceId, placed);
+        case ARCHITECTURE_PAYMENT: return new ArchitecturePayment(coderId, grossAmount, referenceId, placed);
         case DIGITAL_RUN_V2_PRIZE_PAYMENT: return new DigitalRunV2PrizePayment(coderId, grossAmount, referenceId, placed);
         case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT: return new DigitalRunV2TopPerformersPayment(coderId, grossAmount, referenceId, placed);
         case SPECIFICATION_CONTEST_PAYMENT: return new SpecificationContestPayment(coderId, grossAmount, referenceId, placed);
@@ -771,7 +773,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             return rsc.getRowCount() > 0;
         }
 
-        
+
         /**
          * Get an ordinal string for a placement.
          * If it's 0, "winnings" is returned, if not, "1st place", "2nd place", "3rd place" and so on.
