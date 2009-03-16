@@ -99,7 +99,10 @@ public class ConceptualizationContestPayment extends ComponentProjectReferencePa
          */
         public String lookupDescription(BasePayment payment) throws SQLException {
             ComponentProjectReferencePayment p = (ComponentProjectReferencePayment) payment;
-            return getComponentName(p.getProjectId()) + " - Conceptualization Contest";
+
+            String type = getProjectType(p.getProjectId());
+
+            return getComponentName(p.getProjectId()) + " - " + type + ", " + getOrdinal(p.getPlaced());
         }
     }
 }

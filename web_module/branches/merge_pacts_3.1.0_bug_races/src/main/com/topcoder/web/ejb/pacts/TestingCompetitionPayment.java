@@ -99,7 +99,10 @@ public class TestingCompetitionPayment extends ComponentProjectReferencePayment 
          */
         public String lookupDescription(BasePayment payment) throws SQLException {
             ComponentProjectReferencePayment p = (ComponentProjectReferencePayment) payment;
-            return getComponentName(p.getProjectId()) + " - Testing Competition";
+
+            String type = getProjectType(p.getProjectId());
+
+            return getComponentName(p.getProjectId()) + " - " + type + ", " + getOrdinal(p.getPlaced());
         }
     }
 }

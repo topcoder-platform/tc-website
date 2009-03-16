@@ -94,17 +94,9 @@ public class ArchitecturePayment extends ComponentProjectReferencePayment {
         public String lookupDescription(BasePayment payment) throws SQLException {
             ComponentProjectReferencePayment p = (ComponentProjectReferencePayment) payment;
 
-            String name = getComponentName(p.getProjectId()).trim();
+            String type = getProjectType(p.getProjectId());
 
-            if (!name.toLowerCase().endsWith("architecture competition")) {
-                if (name.toLowerCase().endsWith("architecture")) {
-                    name = name + " Competition";
-                } else {
-                    name = name + " Architecture Competition";
-                }
-            }
-            return name;
-
+            return getComponentName(p.getProjectId()) + " - " + type + ", " + getOrdinal(p.getPlaced());
         }
     }
 }
