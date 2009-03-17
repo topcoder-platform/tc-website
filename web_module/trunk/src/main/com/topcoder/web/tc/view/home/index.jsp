@@ -350,7 +350,7 @@ $(document).ready(function(){
                     <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/index.jsp">Component Catalog</a></li>
                     <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/">TopCoder Wiki</a></li>
                 </ul>
-          </div>
+          	</div>
 
             <div class="col">
                 <h4>TopCoder Community</h4>
