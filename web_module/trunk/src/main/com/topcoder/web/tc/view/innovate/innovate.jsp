@@ -1,0 +1,425 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer,
+                 com.topcoder.web.common.BaseServlet, com.topcoder.web.common.SessionInfo" %>
+<%@ page language="java" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+		
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/css/innovate/screen.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/home/jquery.jcarousel.css" /> 	
+<link rel="stylesheet" type="text/css" media="screen" href="/css/innovate/innovate.css" />
+
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie7.css.css" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/css/innovate/screen-ie6.css" /><![endif]-->
+
+<script src="/js/home/jquery-1.2.6.min.js" type="text/javascript"></script>
+<script src="/js/home/preloadCssImages.jQuery_v5.js" language="javascript"></script>
+    <script type="text/javascript">
+			$(document).ready(function(){
+				//Run the script to preload images from CSS
+				$.preloadCssImages(); 
+			});
+	</script>
+<script src="/js/home/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+<script src="/js/home/jquery.jcarousel.pack.js" type="text/javascript"></script>
+<script src="/js/home/direct.js" type="text/javascript"></script>
+<script src="/js/innovate/innovate.js" type="text/javascript"></script>
+<script type="text/javascript" language="javascript">
+$(document).ready(function(){
+	$("#nav ul li").hoverIntent(function(){
+		$(this).children("ul").slideDown("fast");
+	}, function() {
+		$(this).children("ul").slideUp("fast");
+	});
+	
+	$("#nav ul ul li").hover(function() {
+		$(this).parents("#nav ul li").children('a').addClass("active-item");
+	}, function() {
+		$(this).parents("#nav lu li").children('a').removeClass("active-item");
+	});
+	
+	
+	jQuery(document).ready(function() {
+    	jQuery('#news-carousel').jcarousel({
+        	easing: 'swing'  
+    	});
+	});
+
+});
+
+
+</script>
+</head>
+<body>
+
+	<div id="header">
+		<div class="wrapper">
+			
+<!-- MASTHEAD AND LOGO -->
+			<h1 class="tc-header"><a href="http://<%=ApplicationServer.SERVER_NAME%>/" title="TopCoder"><span>TopCoder Direct</span></a></h1>
+			<h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
+			
+<!-- MAIN NAVIGATION -->
+			<div id="nav">
+				<h3 class="hide">Main Navigation</h3>
+				<ul>
+					<li class="left"><a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder Home</a></li>
+					<li class="on"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">Engage</a>
+                    	<ul>
+                        	<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder Direct</a></li>
+                            <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/indexTCS.jsp">Software</a></li>
+                            <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/platform-tools.jsp">Platform Tools</a></li>
+                            <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/training.jsp">Training &amp; Mentoring</a></li>
+                            <li class="last-li"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/support.jsp">Support &amp; Maintenance</a></li>
+                        </ul>
+                    </li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Compete</a>
+                    	<ul>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=112">Component Design</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=113">Component Development</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=hs&d2=home">High School</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests">Marathon Matches</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=7">Software Architecture</a></li>
+                            <li class="last-li"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewAssemblyActiveContests">Software Assembly</a></li>
+                    	</ul>
+                    </li>
+					<li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">Studio</a>
+                    	<ul>
+                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Contests</a></li>
+                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Forums</a></li>
+                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=support&d2=getStarted">How it Works</a></li>
+                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=digitalrun&d2=2008v2&d3=home">Studio Cup</a></li>
+                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=MyStudioHome">My Studio</a></li>
+                            <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/blog/">Blog</a></li>
+                    	</ul>
+                    </li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/">Community</a>
+                    	<ul>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Join</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome">My TopCoder</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/dr">Digital Run</a></li>
+                            <li class="last-li"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">Forums</a></li>
+                    	</ul>
+                    </li>
+					
+				</ul>
+			</div><!-- #navigation ends -->
+			
+			<!-- SUB NAVIGATION -->
+			<div id="nav_support">
+                <h3 class="hide">SUB Navigation</h3>
+                <ul>
+                    <li class="left"><a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder.com</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=index">About TopCoder</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=index">News</a></li>
+                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a></li>
+				</ul>
+            </div><%-- #navigation ends --%>
+			
+		</div><!-- .wrapper ends -->
+	</div><!-- #header ends -->
+
+<!-- CONTENT BLOCKS -->
+	<div id="content">
+		<div class="wrapper">
+		    <div id="engage">
+		        <div id="engage-header">
+		            <div class="engage-left">
+                        <div id="engage-carousel" class="jcarousel-skin-engage">
+
+                            <ul>
+                            	<li><img width="612" height="163" src="/i/innovate/img_1.png" alt="Image 1" /></li>
+                            	<li><img width="612" height="163" src="/i/innovate/img_2.png" alt="Image 2" /></li>
+                                <li><img width="612" height="163" src="/i/innovate/img_3.png" alt="Image 3" /></li>
+                                <li><img width="612" height="163" src="/i/innovate/img_4.png" alt="Image 4" /></li>
+                                <li><img width="612" height="163" src="/i/innovate/img_5.png" alt="Image 5" /></li>
+                           </ul>
+
+                            <div class="jcarousel-control">
+                                <a id="btn1" href="#" class="btn-num"><span>1</span></a>
+                                <a id="btn2" href="#" class="btn-num"><span>2</span></a>
+                                <a id="btn3" href="#" class="btn-num"><span>3</span></a>
+                                <a id="btn4" href="#" class="btn-num"><span>4</span></a>
+                                <a id="btn5" href="#" class="btn-num"><span>5</span></a>
+                            </div>
+
+                            <div class="jcarousel-scroll">
+                            	<form action="">
+                                	<a href="#" id="engage-carousel-prev"></a><a href="#" id="engage-carousel-next"></a>
+                                </form>
+                           </div>
+
+                        </div><!-- End of #engage-carousel -->
+
+		            </div>
+		            <div class="engage-right">
+		                <div id="org">
+		                    <span id="logo1" class="org_logo" ><img width="150" height="50" src="/i/innovate/logo_aol.png" alt="AOL" /></span>
+		                    <span id="logo2" class="org_logo" ><img width="150" height="50" src="/i/innovate/logo_espn.png" alt="ESPN" /></span>
+		                    <span id="logo3" class="org_logo" ><img width="150" height="50" src="/i/innovate/logo_ribbit.png" alt="RIBBIT" /></span>
+		                    <span id="logo4" class="org_logo" ><img width="150" height="50" src="/i/innovate/logo_snia.png" alt="SNIA" /></span>
+							<span id="logo5" class="org_logo" ><img width="205" height="50" src="/i/innovate/logo_lendingtree.png" alt="LENDING TREE" /></span>
+							<span id="logo6" class="org_logo" ><img width="180" height="40" src="/i/innovate/logo_lindenlab.png" alt="LINDEN LAB" /></span>
+		                </div>
+		                <p class="org_quote">See why the worlds most <br /> innovative organizations are turning <br /> to TopCoder for their Application <br /> and Creative Development.</p>
+		            </div>
+		        </div>
+		        <div id="engage-content">
+		            <div class="engage-right">
+						<p><strong>Take the Next Step &gt;&gt;</strong></p>
+		                <p><a id="btn-lets-talk" href="javascript:;"><img width="239" height="63" id="lets_talk" src="/i/innovate/btn_lets_talk.png" alt="" /><img width="239" height="63" id="lets_talk_grey" src="/i/innovate/btn_lets_talk_grey.png" alt="" style="display:none"/></a></p>		          
+						<p><strong>Seeing is Believing &gt;&gt;</strong></p>
+		                <div class="client-list">
+							<img width="255" height="65" src="/i/innovate/espnfeatured.png"/>
+		                </div>
+		            </div>
+		            <div class="engage-left">
+		                <div id="engage-info">
+		                    <p class="info-title">Why is it that there is always too much work to do? Why is it that, no matter how many resources or dollars you throw at a project, users, customers and management teams are never satisfied?</p>
+		                    <p>In the internet age, shouldn't there be a better way?</p>
+		                    <p>TopCoder is a new paradigm in meeting the needs of users. TopCoder is the first massively parallel, deliverables based  solution for the development of all things digital. No matter how big or small the project, from requirements discovery to designing, building and testing applications, TopCoder is the platform that provides instant access to a wealth of resources.</p>
+    		                
+    		                <div class="info-list-row">
+		                        <div class="info-list left-list">
+		                            <img width="54" height="54" src="/i/innovate/icon_app_dev.png" alt="" />
+		                            <p class="info-list-title">Application Development</p>
+                                    <p class="info-list-desc">Build applications quickly by leveraging the TopCoder community and the largest catalog or reusable software components.</p>
+		                        </div>
+		                        <div class="info-list">
+		                            <img width="54" height="54" src="/i/innovate/icon_creative_sol.png" alt="" />
+		                            <p class="info-list-title">Creative Marketing and Social Media Solutions</p>
+                                    <p class="info-list-desc">Have the community compete to create your next logo, website, brochure, banner ad, GUI, FLASH demo, prototype or give your message exponential growth with the TopCoder viral bundle  – the possibilities are endless</p>
+		                        </div>
+		                    </div>
+		                    <div class="info-list-row">
+		                        <div class="info-list left-list">
+		                            <img width="54" height="54" src="/i/innovate/icon_idea_gen.png" alt="" />
+		                            <p class="info-list-title">Idea Generation</p>
+                                    <p class="info-list-desc">Tap the creative minds of the worlds largest community to help you drive your next innovation</p>
+		                        </div>
+		                        <div class="info-list">
+		                            <img width="54" height="54" src="/i/innovate/icon_web_app.png" alt="" />
+		                            <p class="info-list-title">Web Applications / Online Gaming</p>
+                                    <p class="info-list-desc">Need to get your new game to market – or looking for game play ideas? Let the community concept, design and create your next game. Casual games, web apps, etc...</p>									
+		                        </div>
+		                    </div><br />		                    
+    		                <p>Through parallelization, competition and a deliverables based platform, IT drives the outcome instead of managing resources.</p>
+    		                <div class="no-hours">
+    		                    <img width="135" height="135" src="/i/innovate/icon_no_hours.png" alt="" />
+		                        <p>You will see no talk of hours and rates here. All pricing is by the deliverable. Most importantly, that pricing is set by you. Need to flesh out an idea, graphic for a web page, a new section of the web site or an entirely new web presence integrated to your supply chain and customer relationship system, the TopCoder platform can be plugged in to add scale to any problem - big or small. It's the world at your fingertips.</p>
+		                    </div>
+		                </div>
+		                
+		                <div id="engage-contact">		                
+		                
+		                    <div class="tabs_content" id="tabsContent01">
+		                        <div class="content_columns">
+		                            <div>
+										<p class="contact-title">		                                    
+	                                        <span>However big or small your company, however big or small your problem,</span><br />
+	                                        <img alt="TopCoder can help you find the solution." src="/i/innovate/bnr_tc_solution.png" /><br />
+	                                        <span>Every day we work with Fortune 500 companies, small businesses and individuals alike, <br />helping them tap into the resources of our Global Community to tackle issues just like yours.</span><br /><br />
+	                                        <span class="title-info">Send us an email, and let's talk about how TopCoder can work for you!</span>
+		                                </p><br />
+		                                <div class="contact-left">
+                                            
+
+                                            <form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=utf-8" method="post">
+
+                                                <input type="hidden" value="00D300000001UY4" name="oid" />
+
+                                                <input type="hidden" value="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=contactusSuccess" name="retURL" />
+                                                <input id="lead_source" type="hidden" value="Web" name="lead_source" />
+                                            
+                                                <table id="contact-email-table" cellpadding="0" cellspacing="0">
+
+                                                    <tbody>
+
+                                                                                                                <tr>
+
+                                                            <td><label for="first_name">First Name</label></td>
+
+                                                             <td  colspan="2"><input id="first_name" class="large" maxlength="80" name="first_name" /></td>
+
+                                                        </tr>
+
+													   <tr>
+
+															<td ><label for="last_name">Last Name</label></td>
+
+															<td ><input id="last_name" class="large" maxlength="80" name="last_name" /></td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td ><label for="email">Your Email Address</label></td>
+
+                                                            <td colspan="2"><input id="email" class="large" maxlength="80" name="email" /></td>
+
+                                                        </tr>
+
+                                                        
+
+                                                        <tr>
+
+                                                            <td ><label for="company">Company</label></td>
+
+                                                            <td colspan="2"><input id="company" class="large" maxlength="40" name="company" /></td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td ><label for="state">State/Province</label></td>
+
+                                                            <td colspan="2"><input id="state" class="large" maxlength="20" name="state" /></td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td ><label for="country">Country</label></td>
+
+                                                            <td colspan="2"><input id="country" class="large" maxlength="40" name="country" /></td>
+
+                                                        </tr>
+
+
+
+                                                        <tr>
+
+                                                            <td >How Can We Help You?</td>
+
+                                                            <td colspan="2"><textarea id="help" class="textarea" rows="3" cols="4" name="help"></textarea></td>
+
+                                                        </tr>
+
+
+
+                                                        <tr>
+
+                                                            <td ><label for="phone"><span class="optional">(optional)</span> Leave a phone number <br /> and we'll call you</label></td>
+
+                                                            <td colspan="2"><input id="phone" class="large" maxlength="40" name="phone" /></td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <br />
+                                            
+                                                <p class="contact-submit"><input type="image" alt="Submit" src="/i/innovate/btn_submit.png" name="submit" /></p>
+                                            </form>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		
+		</div><!-- .wrapper ends -->
+	</div><!-- #content ends -->
+	
+    
+    	
+<!-- LINKS BLOCK -->
+	<div id="links">
+		<div class="wrapper">
+			<div class="col">
+				<h4>Customer Service</h4>
+				<ul>
+					<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Support</a></li>
+					<li><a href="#">Online Support &amp; Service</a></li>
+					<li><a href="#">TopCoder Direct Discussions</a></li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=privacy">Privacy Policy</a></li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=terms">Terms &amp; Conditions</a></li>
+					
+				</ul>
+			</div><!-- .col ends -->
+			
+			<div class="col">
+				<h4>About TopCoder</h4>
+				<ul>
+					<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a></li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=mediaRequestForm">Public Relations</a></li>
+					<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/rss.jsp">RSS Feeds</a></li>
+					<li><a href="#">FAQ</a></li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=index">Press Room</a></li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=jobs">Working at TopCoder</a></li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=terms">Legal Information</a></li>
+				</ul>
+			</div><!-- .col ends -->
+			
+			<div class="col">
+				<h4>Platform Tools</h4>
+				<ul>
+					<li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">TopCoder Cockpit</a></li>
+					<li><a href="#">Contest Administration</a></li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Upcoming+Contests">Pipeline</a></li>
+					<li><a href="#">Control Panel</a></li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/TopCoder+UML+Tool">UML Tool</a></li>
+					<li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=22">TopCoder Forums</a></li>
+					<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/index.jsp">Component Catalog</a></li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/">TopCoder Wiki</a></li>
+				</ul>
+			</div><!-- .col ends -->
+			
+			<div class="col">
+				<h4>TopCoder Community</h4>
+				<ul>
+					<li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">TopCoder Forums</a></li>
+					<li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
+				</ul>
+			
+				<h4>TopCoder Blogs</h4>
+				<ul>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/blogs/">TopCoder Direct</a></li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/blogs/">TopCoder Cockpit</a></li>
+					<li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/blog/">Studio TopCoder</a></li>
+				</ul>
+			</div><!-- .col ends -->
+			
+			<div class="col">
+				<h4>My Account</h4>
+				<ul>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome">Manage Profile</a></li>
+				</ul>
+			</div><!-- .col ends -->
+			
+			<div class="col">
+				<h4>Powered by TopCoder</h4>
+				<ul>
+					<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">TopCoder Direct</a></li>
+					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder.com</a></li>
+					<li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">Studio TopCoder</a></li>
+				</ul>
+			</div><!-- .col ends -->
+		</div><!-- .wrapper ends -->
+	</div><!-- #links block ends -->
+
+<!-- FOOTER BLOCK -->
+	<div id="footer">
+		<div class="wrapper">
+			<p id="footer_safe_secure"><em>TopCoder Direct is 100% Safe &amp; Secure</em></p>
+			
+			<p id="footer_1800"><strong>1-866-TOPCODER or Service@TopCoder.com</strong></p>
+			
+			<p>TopCoder is the world's largest competitive software development community with more than 167,000 developers representing over 200 countries.</p>
+			
+			<p>Copyright &copy;2001-2008, TopCoder, Inc. All rights reserved.</p>
+		</div><!-- .wrapper ends -->
+	</div><!-- #footer ends -->
+	
+
+	
+</body>
+</html>
