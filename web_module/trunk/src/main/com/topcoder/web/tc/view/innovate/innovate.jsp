@@ -199,7 +199,7 @@ $(document).ready(function(){
 		                        <div class="info-list">
 		                            <img width="54" height="54" src="/i/innovate/icon_creative_sol.png" alt="" />
 		                            <p class="info-list-title">Creative Marketing and Social Media Solutions</p>
-                                    <p class="info-list-desc">Have the community compete to create your next logo, website, brochure, banner ad, GUI, FLASH demo, prototype or give your message exponential growth with the TopCoder viral bundle  – the possibilities are endless</p>
+                                    <p class="info-list-desc">Have the community compete to create your next logo, website, brochure, banner ad, GUI, FLASH demo, prototype or give your message exponential growth with the TopCoder viral bundle the possibilities are endless</p>
 		                        </div>
 		                    </div>
 		                    <div class="info-list-row">
@@ -211,7 +211,7 @@ $(document).ready(function(){
 		                        <div class="info-list">
 		                            <img width="54" height="54" src="/i/innovate/icon_web_app.png" alt="" />
 		                            <p class="info-list-title">Web Applications / Online Gaming</p>
-                                    <p class="info-list-desc">Need to get your new game to market – or looking for game play ideas? Let the community concept, design and create your next game. Casual games, web apps, etc...</p>									
+                                    <p class="info-list-desc">Need to get your new game to market or looking for game play ideas? Let the community concept, design and create your next game. Casual games, web apps, etc...</p>									
 		                        </div>
 		                    </div><br />		                    
     		                <p>Through parallelization, competition and a deliverables based platform, IT drives the outcome instead of managing resources.</p>
