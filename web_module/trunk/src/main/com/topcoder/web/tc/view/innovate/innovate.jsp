@@ -3,8 +3,8 @@
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 		
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -71,41 +71,46 @@ $(document).ready(function(){
 				<ul>
 					<li class="left"><a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder Home</a></li>
 					<li class="on"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">Engage</a>
-                    	<ul>
-                        	<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder Direct</a></li>
+                    	 <ul>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">TopCoder Direct</a></li>
+                            <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/">Components</a></li>
                             <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/indexTCS.jsp">Software</a></li>
                             <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/platform-tools.jsp">Platform Tools</a></li>
                             <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/training.jsp">Training &amp; Mentoring</a></li>
-                            <li class="last-li"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/support.jsp">Support &amp; Maintenance</a></li>
+                            <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/support.jsp">Support &amp; Maintenance</a></li>
+                            <li class="last-li"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a></li>
                         </ul>
                     </li>
 					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Compete</a>
-                    	<ul>
+                         <ul>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=23">Conceptualization</a></li>
+                    	    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=6">Specification</a></li>
+                    	    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=7">Architecture</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=112">Component Design</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=113">Component Development</a></li>
-                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=hs&d2=home">High School</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewAssemblyActiveContests">Assembly</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests">Marathon Matches</a></li>
-                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=7">Software Architecture</a></li>
-                            <li class="last-li"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewAssemblyActiveContests">Software Assembly</a></li>
-                    	</ul>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Bug+Races">Bug Races</a></li>
+                            <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Studio Competitions</a></li>
+                        </ul>
                     </li>
-					<li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">Studio</a>
-                    	<ul>
-                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Contests</a></li>
-                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Forums</a></li>
-                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=support&d2=getStarted">How it Works</a></li>
-                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=digitalrun&d2=2008v2&d3=home">Studio Cup</a></li>
+					 <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">Studio</a>
+                        <ul>
+                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active Contests</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">Launch a Contest</a></li>
+                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
+                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/blog/">Studio Blog</a></li>
                             <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=MyStudioHome">My Studio</a></li>
-                            <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/blog/">Blog</a></li>
-                    	</ul>
+                            <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=contactUs">Contact Studio</a></li>
+                        </ul>
                     </li>
-					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/">Community</a>
-                    	<ul>
-                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Join</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Community</a>
+                         <ul>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Join TopCoder</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome">My TopCoder</a></li>
-                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/dr">Digital Run</a></li>
-                            <li class="last-li"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">Forums</a></li>
-                    	</ul>
+                            <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">TopCoder Forums</a></li>
+                            <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
+                        </ul>
                     </li>
 					
 				</ul>
@@ -334,92 +339,92 @@ $(document).ready(function(){
 <!-- LINKS BLOCK -->
 	<div id="links">
 		<div class="wrapper">
-			<div class="col">
-				<h4>Customer Service</h4>
-				<ul>
-					<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Support</a></li>
-					<li><a href="#">Online Support &amp; Service</a></li>
-					<li><a href="#">TopCoder Direct Discussions</a></li>
-					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=privacy">Privacy Policy</a></li>
-					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=terms">Terms &amp; Conditions</a></li>
-					
-				</ul>
-			</div><!-- .col ends -->
+			 <div class="col">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Support</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=privacy">Privacy Policy</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=terms">Terms &amp; Conditions</a></li>
+                </ul>
+            </div>
 			
 			<div class="col">
-				<h4>About TopCoder</h4>
-				<ul>
-					<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a></li>
-					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=mediaRequestForm">Public Relations</a></li>
-					<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/rss.jsp">RSS Feeds</a></li>
-					<li><a href="#">FAQ</a></li>
-					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=index">Press Room</a></li>
-					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=jobs">Working at TopCoder</a></li>
-					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=terms">Legal Information</a></li>
-				</ul>
-			</div><!-- .col ends -->
+                <h4>About TopCoder</h4>
+                <ul>
+                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=mediaRequestForm">Public Relations</a></li>
+                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/rss.jsp">RSS Feeds</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=index">Press Room</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=jobs">Working at TopCoder</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=terms">Legal Information</a></li>
+                </ul>
+            </div>
+
 			
 			<div class="col">
-				<h4>Platform Tools</h4>
-				<ul>
-					<li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">TopCoder Cockpit</a></li>
-					<li><a href="#">Contest Administration</a></li>
-					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Upcoming+Contests">Pipeline</a></li>
-					<li><a href="#">Control Panel</a></li>
-					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/TopCoder+UML+Tool">UML Tool</a></li>
-					<li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=22">TopCoder Forums</a></li>
-					<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/index.jsp">Component Catalog</a></li>
-					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/">TopCoder Wiki</a></li>
-				</ul>
-			</div><!-- .col ends -->
+                <h4>Platform Tools</h4>
+                <ul><li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Upcoming+Contests">Pipeline</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/TopCoder+UML+Tool">UML Tool</a></li>
+                    <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&amp;categoryID=22">TopCoder Forums</a></li>
+                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/index.jsp">Component Catalog</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/">TopCoder Wiki</a></li>
+                </ul>
+          	</div>
 			
 			<div class="col">
-				<h4>TopCoder Community</h4>
-				<ul>
-					<li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">TopCoder Forums</a></li>
-					<li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
-				</ul>
-			
-				<h4>TopCoder Blogs</h4>
-				<ul>
-					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/blogs/">TopCoder Direct</a></li>
-					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/blogs/">TopCoder Cockpit</a></li>
-					<li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/blog/">Studio TopCoder</a></li>
-				</ul>
-			</div><!-- .col ends -->
-			
-			<div class="col">
-				<h4>My Account</h4>
-				<ul>
-					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome">Manage Profile</a></li>
-				</ul>
-			</div><!-- .col ends -->
+                <h4>TopCoder Community</h4>
+                <ul>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">TopCoder Community Home</a></li>
+                    <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">TopCoder Forums</a></li>
+                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
+                </ul>
+
+                <h4>TopCoder Blogs</h4>
+                <ul>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/blogs/">TopCoder Direct</a></li>
+                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/blog/">Studio TopCoder</a></li>
+                </ul>
+            </div>
 			
 			<div class="col">
-				<h4>Powered by TopCoder</h4>
-				<ul>
-					<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">TopCoder Direct</a></li>
-					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder.com</a></li>
-					<li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">Studio TopCoder</a></li>
-				</ul>
-			</div><!-- .col ends -->
+                <h4>My Account</h4>
+                <ul>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">TopCoder Registration</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome">Manage Profile</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/dr">TopCoder Digital Run</a></li>
+                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=home">Studio Cup</a></li>
+                </ul>
+            </div>
+			
+			<div class="col">
+                <h4>Powered by TopCoder</h4>
+                <ul>
+                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">TopCoder Direct</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder.com</a></li>
+                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">Studio TopCoder</a></li>
+                </ul>
+            </div>
 		</div><!-- .wrapper ends -->
 	</div><!-- #links block ends -->
 
-<!-- FOOTER BLOCK -->
-	<div id="footer">
-		<div class="wrapper">
-			<p id="footer_safe_secure"><em>TopCoder Direct is 100% Safe &amp; Secure</em></p>
-			
-			<p id="footer_1800"><strong>1-866-TOPCODER or Service@TopCoder.com</strong></p>
-			
-			<p>TopCoder is the world's largest competitive software development community with more than 167,000 developers representing over 200 countries.</p>
-			
-			<p>Copyright &copy;2001-2008, TopCoder, Inc. All rights reserved.</p>
-		</div><!-- .wrapper ends -->
-	</div><!-- #footer ends -->
-	
+<%-- FOOTER BLOCK --%>
+    <div id="footer">
+        <div class="wrapper">
+            <p id="footer_1800"><strong>1-866-TOPCODER or Service@TopCoder.com</strong></p>
+            <p>TopCoder is the world's largest competitive software development community with <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> developers representing over 200 countries.</p>
+            <p>Copyright &copy;2001-2009, TopCoder, Inc. All rights reserved.</p>
+        </div><%-- .wrapper ends --%>
+    </div><%-- #footer ends --%>
 
-	
+<%-- Google Analytics --%>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6340959-1");
+pageTracker._trackPageview();
+</script>
+
 </body>
 </html>
