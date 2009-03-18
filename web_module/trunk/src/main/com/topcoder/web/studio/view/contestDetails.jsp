@@ -187,12 +187,17 @@
         </c:otherwise>
     </c:choose>
 </div>
-<c:if test="${not empty contest.submissionFileFormat.value}">
-    <div class="section">How to Format Your Submission:</div>
+<div class="section">How to Format Your Submission:</div>
     <div class="padder">
-        <studio:formatField text="${contest.submissionFileFormat.value}"/>
+        <ol>
+    		<li>Look for instructions in this contest regarding what files to provide. Questions? <studio:forumLink forumID="${contest.forumId}" message="Ask in the forum"/> for this contest.</li>
+			<li>Place your submission files into a "Submission.zip" file.</li>
+			<li>Place all of your source files into a "Source.zip" file.</li>
+			<li>Create a JPG preview file.</li>
+			<li>Click "Submit" and upload your files.</li>
+		</ol>
+<p>Trouble formating your submission or want to learn more? <A href="http://studio.topcoder.com/?module=Static&d1=support&d2=newMemberFaqs#QA_5-1">Read this FAQs</a>.</p>
     </div>
-</c:if>
 
 <c:if test="${not empty contest.otherFileTypes.value}">
     <div class="section">Submission File Formats:</div>
@@ -200,7 +205,7 @@
 </c:if>
 
 <c:if test="${fn:length(contest.fileTypes)>0}">
-    <div class="section">Source Files:</div>
+    <div class="section">Acceptable Source File Formats:</div>
     <div class="padder">
         <p>
             <c:forEach items="${contest.fileTypes}" var="fileType" varStatus="status">
@@ -209,7 +214,8 @@
         </p>
 
         <p align="left">
-            You must include all source files with your submission.
+            You must include all source files with your submission.<br /><br />
+            <B>Note:</b> All fonts (with the exception of Windows standard fonts) used in your design must be included in your source zip file. If you do not have permission to release the fonts, you must provide a text file including the name of the font and a link to where the font can be purchased.
         </p>
     </div>
 </c:if>
