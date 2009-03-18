@@ -92,13 +92,13 @@
 <div style="float: right; width: 135px;">
 	<%-- ADDTHIS BUTTON BEGIN --%>
 	<script type="text/javascript">
-	addthis_pub = 'topcoderstudio';
-	addthis_brand = 'TopCoder Studio';
-	addthis_options = 'facebook, twitter, google, del.icio.us, stumbleupon, reddit, myspace, favorites, email';
+	addthis_pub             = 'topcoderstudio'; 
+	addthis_brand           = 'TopCoder Studio';
+	addthis_options         = 'facebook, twitter, google, del.icio.us, stumbleupon, reddit, myspace, favorites, email';
 	</script>
 	<a href="http://www.addthis.com/bookmark.php" onMouseOver="return addthis_open(this, '', '[URL]', '[TITLE]')" onMouseOut="addthis_close()" onClick="return addthis_sendto()">
 	<img src="/i/v2/interface/btnShare.png" width="122" height="35" border="0" alt="Share" /></a>
-  <script src="/js/NewStyleHeaderFooter/addthis_widget.js" type="text/javascript"></script>
+	<script type="text/javascript" src="http://s7.addthis.com/js/152/addthis_widget.js"></script>
 	<%-- ADDTHIS BUTTON END --%>
 </div>
 
@@ -107,22 +107,27 @@
 	
 	<br /><br />
 	
+	<div style="float: right; width: 135px;">
+			<c:choose>
+				<c:when test="${not empty contest.results}">
+	        <a href="${sessionInfo.servletPath}?module=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src='/i/v4/btnSeeWinners.png' alt='See the Winners' /></a>
+				</c:when>
+			  <c:otherwise>
+		    <img src='/i/v4/btnSeeWinnersDisabled.png' alt='See the Winners' />
+				</c:otherwise>
+			</c:choose>
+    </div>
+    
     <c:choose>
         <c:when test="${currentTime>contest.endTime}">
-					<div style="float: right; width: 135px;">
-					 <a href="${sessionInfo.servletPath}?module=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src='/i/v4/btnSeeWinners.png' alt='See the Winners' /></a>
-					</div>
-					<a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src='/i/v4/btnViewSubmissions.png' alt='View Submissions' /></a>
+		    <a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src='/i/v4/btnViewSubmissions.png' alt='View Submissions' /></a>
         </c:when>
         <c:otherwise>
-					<div style="float: right; width: 135px;">
-					 <img src='/i/v4/btnSeeWinnersDisabled.png' alt='See the Winners' />
-					</div>
-					<img src='/i/v4/btnViewSubmissionsDisabled.png' alt='View Submissions' />
+		    <img src='/i/v4/btnViewSubmissionsDisabled.png' alt='View Submissions' />
         </c:otherwise>
     </c:choose>
 	
-		<br /><br />
+	<br /><br />
 		
 <div class="section">Dates:</div>
 <div class="padder">
@@ -150,7 +155,8 @@
                         Winner(s)<br />Announced:
                     </td>
                     <td class="value">
-                        <tc-webtag:format object="${contest.winnerAnnouncementTime}" format="EEEE, MMMM d, yyyy '<br />at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                        <tc-webtag:format object="${contest.winnerAnnouncementTime}"
+                                          format="EEEE, MMMM d, yyyy '<br />at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
                     </td>
                 </tr>
             </c:if>
@@ -187,17 +193,12 @@
         </c:otherwise>
     </c:choose>
 </div>
-<div class="section">How to Format Your Submission:</div>
+<c:if test="${not empty contest.submissionFileFormat.value}">
+    <div class="section">How to Format Your Submission:</div>
     <div class="padder">
-        <ol>
-    		<li>Look for instructions in this contest regarding what files to provide. Questions? <studio:forumLink forumID="${contest.forumId}" message="Ask in the forum"/> for this contest.</li>
-			<li>Place your submission files into a "Submission.zip" file.</li>
-			<li>Place all of your source files into a "Source.zip" file.</li>
-			<li>Create a JPG preview file.</li>
-			<li>Click "Submit" and upload your files.</li>
-		</ol>
-<p>Trouble formating your submission or want to learn more? <A href="http://studio.topcoder.com/?module=Static&d1=support&d2=newMemberFaqs#QA_5-1">Read this FAQs</a>.</p>
+        <studio:formatField text="${contest.submissionFileFormat.value}"/>
     </div>
+</c:if>
 
 <c:if test="${not empty contest.otherFileTypes.value}">
     <div class="section">Submission File Formats:</div>
@@ -205,7 +206,7 @@
 </c:if>
 
 <c:if test="${fn:length(contest.fileTypes)>0}">
-    <div class="section">Acceptable Source File Formats:</div>
+    <div class="section">Source Files:</div>
     <div class="padder">
         <p>
             <c:forEach items="${contest.fileTypes}" var="fileType" varStatus="status">
@@ -214,8 +215,7 @@
         </p>
 
         <p align="left">
-            You must include all source files with your submission.<br /><br />
-            <B>Note:</b> All fonts (with the exception of Windows standard fonts) used in your design must be included in your source zip file. If you do not have permission to release the fonts, you must provide a text file including the name of the font and a link to where the font can be purchased.
+            You must include all source files with your submission.
         </p>
     </div>
 </c:if>
@@ -378,8 +378,6 @@
 
 <div class="header"><span>Contest Summary</span></div>
 <studio:formatField text="${contest.overview.value}"/>
-
-<p><b>Entries must be your original work, and must not infringe on the copyright or licenses of others. Stock art, clip art, templates and other design elements from other sources are prohibited unless specifically permitted here in the Contest Details.</b></p>
 
 <c:if test="${not empty contest.fullDescription.value}">
     <div class="header"><span>Full Description &amp; Project Guide</span></div>
