@@ -52,8 +52,12 @@ public final class StudioAdvancersHelper {
      *
      * @param contestPlace an <code>int</code> containing placement within contest for tournament registrants.
      * @return <code>int</code> containing placement points.
+     * @throws <code>IllegalArgumentException</code> if contest place is less than 1.
      */
     protected static final int getPlacementPoints(int contestPlace) {
+        if (contestPlace < 1) {
+            throw new IllegalArgumentException("contestPlace should be greater than zero");
+        }
         if (contestPlace <= placementPoints.length) {
             return placementPoints[contestPlace - 1];
         }
