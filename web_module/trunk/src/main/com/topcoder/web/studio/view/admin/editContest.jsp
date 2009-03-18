@@ -540,15 +540,14 @@
 </fieldset>
 
 <fieldset>
-<%-- <legend>Submission File Format</legend> --%>
-<legend>Previews</legend>
+<legend>Submission File Format</legend>
 
-<%-- <table>
+<table>
 <tbody>
 <studio_tags:editContestProperty name="${otherFileTypes}" title="Submission file formats (Studio contests never use this field)"/>
 <studio_tags:editContestProperty name="${submissionFileFormat}" title="* Notes on Submission File(s)"/>
 </tbody>
-</table> --%>
+</table>
 
 <table cellpadding="0" cellspacing="0" class="input">
 <tbody>
