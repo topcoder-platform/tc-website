@@ -3,8 +3,10 @@
  *
  * This JSP shows moddash track leaderboard page.
  *
+ * Version 1.1 (2009 TopCoder Open Site Integration 1.1.1) changes: removed table header.
+ *
  * Author TCSDEVELOPER
- * Version 1.0
+ * Version 1.1
  * Since 2009 TopCoder Open Site Integration 1.1
 --%>
 <%@ page contentType="text/html;charset=utf-8" %> 
@@ -164,7 +166,6 @@
                                                                         </div>
     																<div><p>
     																	<table class="data" width="100%" cellpadding="0" cellspacing="0">
-                                                                                <tr><th colspan="4">Leaderboard</th></tr>
                                                                                 <tr>
                                                                                     <th class="first">&nbsp;</th>
                                                                                     <th>
