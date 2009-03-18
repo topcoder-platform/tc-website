@@ -11,7 +11,8 @@
 --%>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.tc.Constants, com.topcoder.shared.dataAccess.DataAccessConstants,
-                 com.topcoder.web.tc.controller.request.tournament.StudioLeaderboardBase"%>
+                 com.topcoder.web.tc.controller.request.tournament.StudioLeaderboardBase,
+                 com.topcoder.shared.util.ApplicationServer"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -35,7 +36,8 @@
     value="${sessionInfo.servletPath}?${MODULE_KEY}=StudioContests&amp;${COMPLETE_KEY}=0&amp;${EVENT_ID}=${eventId}&amp;${USER_ID}=" />
 <c:set var="COMPLETE_CONTESTS_DETAILS_URL"
     value="${sessionInfo.servletPath}?${MODULE_KEY}=StudioContests&amp;${COMPLETE_KEY}=1&amp;${EVENT_ID}=${eventId}&amp;${USER_ID}=" />
-
+<c:set var="STUDIO_SERVER_URL" value="<%="http://"+ApplicationServer.STUDIO_SERVER_NAME + "/"%>" />
+<c:set var="STUDIO_PROFILE_URL" value="${STUDIO_SERVER_URL}?module=ViewMemberProfile&ha=" />
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -106,11 +108,6 @@
 
                                                                         <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                             <tr>
-                                                                                <th colspan="7">
-                                                                                    Studio Leaderboard
-                                                                                </th>
-                                                                            </tr>
-                                                                            <tr>
                                                                                 <th rowspan="2" class="first">&nbsp;</th>
                                                                                 <th rowspan="2">
                                                                                     <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${RANK_COL}'/>">
@@ -166,7 +163,9 @@
                                                                                     </td>
                                                                                     <td class="first last alignText">
                                                                                         <strong>
-                                                                                            ${resultRow.handle}
+                                                                                            <a href="${STUDIO_PROFILE_URL}${resultRow.handle}">
+                                                                                                ${resultRow.handle}
+                                                                                            </a>
                                                                                         </strong>
                                                                                     </td>
                                                                                     <td class="first last alignText">

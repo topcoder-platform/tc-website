@@ -43,6 +43,7 @@
 <c:set var="DOWNLOAD_SUBMISSION_URL"
     value="${STUDIO_SERVER_URL}?${MODULE_KEY}=DownloadSubmission&amp;sbmid=" />
 <c:set var="DATE_FORMAT_PATTERN" value="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" />
+<c:set var="STUDIO_PROFILE_URL" value="${STUDIO_SERVER_URL}?module=ViewMemberProfile&ha=" />
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -118,7 +119,9 @@
                                                                             <tr>
                                                                                 <th colspan="${complete ? '10' : '7'}">
                                                                                     <span>
-                                                                                        ${handle}
+                                                                                        <a href="${STUDIO_PROFILE_URL}${handle}">
+                                                                                            ${handle}
+                                                                                        </a>
                                                                                     </span> &gt;
                                                                                     ${complete ? "Completed" : "In Progress"}
                                                                                 </th>
