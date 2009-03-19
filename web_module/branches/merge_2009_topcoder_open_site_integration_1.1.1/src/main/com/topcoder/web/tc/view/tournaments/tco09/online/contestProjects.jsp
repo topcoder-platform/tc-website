@@ -7,8 +7,10 @@
  *
  * Version 1.1 (2009 TopCoder Open Site Integration 1.1) changes: page content was implemented.
  *
+ * Version 1.2 (2009 TopCoder Open Site Integration 1.1.1) changes: removed table header.
+ *
  * Author TCSDEVELOPER
- * Version 1.1
+ * Version 1.2
  * Since 2009 TopCoder Open Site Integration
 --%>
 <%@ page contentType="text/html;charset=utf-8" %> 
@@ -122,7 +124,6 @@
                                                                 </h2>
 															<div><p>
 																	<table class="data" width="100%" cellpadding="0" cellspacing="0">
-                                                                            <tr><th colspan="5">${contestDetailsRow.map['contest_name']}</th></tr>
                                                                             <tr>
                                                                                 <th class="first">&nbsp;</th>
                                                                                 <th>Component</th>
