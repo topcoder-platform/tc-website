@@ -145,32 +145,30 @@ $(document).ready(function(){
                                 <li><img width="612" height="163" src="/i/innovate/img_4.png" alt="Image 4" /></li>
                                 <li><img width="612" height="163" src="/i/innovate/img_5.png" alt="Image 5" /></li>
                            </ul>
-
-                            <div class="jcarousel-control">
+                           
+                           <div class="jcarousel-control">
                                 <a id="btn1" href="#" class="btn-num"><span>1</span></a>
                                 <a id="btn2" href="#" class="btn-num"><span>2</span></a>
                                 <a id="btn3" href="#" class="btn-num"><span>3</span></a>
                                 <a id="btn4" href="#" class="btn-num"><span>4</span></a>
                                 <a id="btn5" href="#" class="btn-num"><span>5</span></a>
                             </div>
-
                             <div class="jcarousel-scroll">
                             	<form action="">
                                 	<a href="#" id="engage-carousel-prev"></a><a href="#" id="engage-carousel-next"></a>
                                 </form>
                            </div>
-
-                        </div><!-- End of #engage-carousel -->
+                     	</div><!-- End of #engage-carousel -->
 
 		            </div>
 		            <div class="engage-right">
 		                <div id="org">
-		                    <span id="logo1" class="org_logo" ><img width="150" height="50" src="/i/innovate/logo_aol.png" alt="AOL" /></span>
-		                    <span id="logo2" class="org_logo" ><img width="150" height="50" src="/i/innovate/logo_espn.png" alt="ESPN" /></span>
-		                    <span id="logo3" class="org_logo" ><img width="150" height="50" src="/i/innovate/logo_ribbit.png" alt="RIBBIT" /></span>
-		                    <span id="logo4" class="org_logo" ><img width="150" height="50" src="/i/innovate/logo_snia.png" alt="SNIA" /></span>
-							<span id="logo5" class="org_logo" ><img width="205" height="50" src="/i/innovate/logo_lendingtree.png" alt="LENDING TREE" /></span>
-							<span id="logo6" class="org_logo" ><img width="180" height="40" src="/i/innovate/logo_lindenlab.png" alt="LINDEN LAB" /></span>
+		                    <span id="logo1" class="org_logo"><img width="150" height="50" src="/i/innovate/logo_aol.png" alt="AOL" /></span>
+		                    <span id="logo2" class="org_logo"><img width="150" height="50" src="/i/innovate/logo_espn.png" alt="ESPN" /></span>
+		                    <span id="logo3" class="org_logo"><img width="150" height="50" src="/i/innovate/logo_ribbit.png" alt="RIBBIT" /></span>
+		                    <span id="logo4" class="org_logo"><img width="150" height="50" src="/i/innovate/logo_snia.png" alt="SNIA" /></span>
+							<span id="logo5" class="org_logo"><img width="205" height="50" src="/i/innovate/logo_lendingtree.png" alt="LENDING TREE" /></span>
+							<span id="logo6" class="org_logo"><img width="180" height="40" src="/i/innovate/logo_lindenlab.png" alt="LINDEN LAB" /></span>
 		                </div>
 		                <p class="org_quote">See why the worlds most <br /> innovative organizations are turning <br /> to TopCoder for their Application <br /> and Creative Development.</p>
 		            </div>
@@ -185,11 +183,11 @@ $(document).ready(function(){
 		            </div>
 		            <div class="engage-left">
 		                <div id="engage-info">
-		                    <p class="info-title">Why is it that no matter how much money and how many people you throw at a problem, the results never seem to meet your expectations?   You understand that as the world gets increasingly competitive, great opportunities arise, but so do the challenges to respond to the marketplace.  New customers have to be reached in an expanding number of ways – Internet, mobile and all things digital; existing customers have to be wooed with ever more valuable product and higher levels of service.</p>
-                            <p>In the Internet age, shouldn’t there be a better way?  Shouldn’t there be a way to access an on-demand, economical, structured, secure resource base that can multiply your ability to get things done without breaking the bank.</p>
+		                    <p class="info-title">Why is it that no matter how much money and how many people you throw at a problem, the results never seem to meet your expectations?   You understand that as the world gets increasingly competitive, great opportunities arise, but so do the challenges to respond to the marketplace.  New customers have to be reached in an expanding number of ways &ndash; Internet, mobile and all things digital; existing customers have to be wooed with ever more valuable product and higher levels of service.</p>
+                            <p>In the Internet age, shouldn&rsquo;t there be a better way?  Shouldn&rsquo;t there be a way to access an on-demand, economical, structured, secure resource base that can multiply your ability to get things done without breaking the bank.</p>
                             <p>TopCoder, Inc.</p>
-		                    <p>TopCoder is a new paradigm in meeting the needs of companies – large and small. TopCoder is the first massively parallel, deliverables based solution for the development of all things digital. With hundreds of thousands of community members across the globe, every skill set from web design to development to operational system design and development are covered. TopCoder is the Platform that provides instant access to a wealth of resources.</p>
-                            <p>TopCoder has the resources to directly ‘plug-in’ to your organization, vastly accelerating your ability to get things done.  Because of TopCoder’s unique approach, all of this can be done at a cost unmatched by others.  No longer do you have to choose between initiatives; now you can get far more done within the same budget limitations,  </p>
+		                    <p>TopCoder is a new paradigm in meeting the needs of companies &ndash; large and small. TopCoder is the first massively parallel, deliverables based solution for the development of all things digital. With hundreds of thousands of community members across the globe, every skill set from web design to development to operational system design and development are covered. TopCoder is the Platform that provides instant access to a wealth of resources.</p>
+                            <p>TopCoder has the resources to directly &lsquo;plug-in&rsquo; to your organization, vastly accelerating your ability to get things done.  Because of TopCoder&rsquo;s unique approach, all of this can be done at a cost unmatched by others.  No longer do you have to choose between initiatives; now you can get far more done within the same budget limitations,  </p>
     		                
     		                <div class="info-list-row">
 		                        <div class="info-list left-list">
@@ -200,7 +198,7 @@ $(document).ready(function(){
 		                        <div class="info-list">
 		                            <img width="54" height="54" src="/i/innovate/icon_creative_sol.png" alt="Creative Marketing and Social Media Solutions" />
 		                            <p class="info-list-title">Creative Marketing and Social Media Solutions</p>
-                                    <p class="info-list-desc">Have the community compete to create your next logo, website, brochure, banner ad, GUI, FLASH demo, prototype or give your message exponential growth with the TopCoder viral bundle  – the possibilities are endless</p>
+                                    <p class="info-list-desc">Have the community compete to create your next logo, website, brochure, banner ad, GUI, FLASH demo, prototype or give your message exponential growth with the TopCoder viral bundle  &ndash; the possibilities are endless</p>
 		                        </div>
 		                    </div>
 		                    <div class="info-list-row">
@@ -212,7 +210,7 @@ $(document).ready(function(){
 	                          <div class="info-list">
 		                            <img width="54" height="54" src="/i/innovate/icon_web_app.png" alt="Web Applications / Online Gaming" />
 	                            <p class="info-list-title">Research and Development </p>
-                                  <p class="info-list-desc">Looking to implement new ways to reach your  customers – or looking for ideas? Tap into an online community to concept, design and create your next product</p>									
+                                  <p class="info-list-desc">Looking to implement new ways to reach your  customers &ndash; or looking for ideas? Tap into an online community to concept, design and create your next product</p>									
 		                        </div>
 		                    </div>
     		               
