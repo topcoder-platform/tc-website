@@ -84,10 +84,33 @@
                                                                 	<p>&nbsp;</p>
                                                                         <div class="subtitle">
                                                                             <h3 class="subtitle">Please read all instructions carefully before proceeding.</h3>
-                                                                                <p>Registration is open for the Algorithm Competition until Wednesday, March 4, 2009 at 11:00 a.m. EST.  In order to compete in Qualification Rounds 1 or 2, individuals must be registered for the tournament at least 24 hours prior to the start of that Qualification Round.  There is no limit to the number of Competitors who can participate in the Algorithm Competition; however each Competitor may only participate using one handle.</p>
-                                                                </div>
-                                                            </div>                                              
-                                                        </div>
+                                                                          <p>Congratulations on your performance in the 2009 TopCoder Open.</p>
+                                                                                <p><strong>To be completed by 5:00PM EDT (GMT/UTC -4) Monday, April 27, 2009:</strong></p>
+                                                                                    <ol>
+                                                                                      <li><strong>UPDATE YOUR MEMBER PROFILE - </strong>your member profile <strong><em>must be accurate and complete.</em></strong> You will not receive any cash or prizes unless your profile is complete.</li>
+                                                                                        <li><strong>CONFIRMATION OF ATTENDANCE/PROOF OF TRAVEL DOCUMENTS - </strong>Please <a href="mailto:jford@topcoder.com">email Jessie D'Amato Ford</a> to confirm your attendance onsite. If you have advanced as a finalist in more than one competition, please note in your confirmation if you will compete in both and please choose which competition you will compete in if the two competitions overlap onsite. If you require a passport and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the necessary documents. This proof can be emailed.</li>
+                                                                                        <li><strong>QUESTIONNAIRE - </strong>View the <a href="https://www.topcoder.com/tc?module=ViewSurvey&amp;sid=22020">2009 TopCoder Open Questionnaire.</a> NOTE: All questions are mandatory and may be included in the 2009 TCO Program or used in onsite introductions, at TopCoder's sole discretion.</li>
+                                                                                        <li><strong>VIDEO – Please upload a video to the <a href="http://www.youtube.com/user/TopCoderOpen2009">TCO09 channel</a> if you have not done so already.  Note the rules for the video stated <a href="http://www.topcoder.com/tc?module=Static&amp;d1=tco09&amp;d2=teaser">here.</a> Please send the link of your video to <a href="mailto:jford@topcoder.com">Jessie D'Amato Ford.</a></strong></li>
+                                                                                        <li><strong>AFFIDAVIT - </strong>must be affirmed online or notarized and postmarked on or before Monday, April 27 Documents that are sent must arrive at TopCoder by May 22, 2009. See Affidavits page for status of affidavits due.</li>
+                                                                                        <li><strong>TAX FORM - </strong>must be mailed to TopCoder Payments and postmarked on or before Monday, April 27 They can be mailed to: TopCoder, Inc., Attn: Payments, 95 Glastonbury Blvd, Glastonbury, CT 06033, USA.<br /><br />
+                                                                                        	You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN). If you don't know which form applies to you, please refer to the instructions below:
+                                                                                            <br /><br />
+                                                                                            <strong>Instructions</strong><br />
+                                                                                            Form W-9 Instructions: <a href="https://www.topcoder.com/contest/iw9.pdf">here</a> (W9)<br />
+                                                                                            Form W-8BEN Instructions: <a href="https://www.topcoder.com/contest/iw8ben.pdf">here</a> (W8)<br />
+                                                                                            <br />
+                                                                                            <strong>Tax Forms</strong><br />
+                                                                                            Form W-9 <a href="https://www.topcoder.com/contest/fw9.pdf">here</a> (W9)<br />
+                                                                                            Form W-8BEN <a href="https://www.topcoder.com/contest/fw8ben.pdf">here</a> (W8)
+                                                                                      </li>
+                                                                                        <li><strong>TRAVEL FORM - </strong>Once you confirm your attendance, Jessie will send you the travel form to fill out.  Please note that once you submit the travel form, you flight will be booked.</li>
+                                                                                        <li><strong>MEMBER PHOTO - </strong>We have a head shot on file. If you'd like to change it click <a href="https://www.topcoder.com/tc?module=UserStatic&amp;d1=my_home&amp;d2=submitPhoto">here.</a></li>
+                                                                                    </ol>
+                                                                                <p><strong>Reminder, you will not be able to attend the onsite event unless all above items are completed by 5:00 PM EDT on April 27, 2009.</strong></p>
+                                                                                <p>If you have questions, please contact <a href="mailto:jford@topcoder.com">Jessie D'Amato Ford.</a></p>
+                                                            </div>
+                                                        </div>                                              
+                                                    </div>
                                                         
                                                     </div><!-- End #mainContentInner -->
                                                     
