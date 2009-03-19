@@ -85,7 +85,7 @@
 <h2 class="title">Mod Dash Competition Schedule</h2>
                                                                 <div>
                                                                     <p><strong>Registration</strong></p>
-                                                                    <p>Registration for the 2009 TopCoder Open Mod Dash Competition will open at 9:00 a.m. EST on Wednesday, February 11, 2009 and will close at 5:00 p.m. EDT on Monday, April 3, 2009.</p>
+                                                                    <p>Registration for the 2009 TopCoder Open Mod Dash Competition will open at 9:00 a.m. EST on Wednesday, February 11, 2009 and will close at 5:00 p.m. EDT on Friday, April 17, 2009.</p>
                                                                     <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                         <tr>
                                                                             <th class="first">&nbsp;</th>
@@ -99,7 +99,7 @@
                                                                             <td class="first last alignText">Online Competition</td>
                                                                             <td class="first last alignText">Wednesday, February 11, 2009<br />
                                                                           9:00 a.m.*</td>
-                                                                          <td class="first last alignText">Monday, April 6, 2009<br />9:00 a.m.**</td>
+                                                                          <td class="first last alignText">Friday, April 17, 2009<br />9:00 a.m.**</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                     </table>

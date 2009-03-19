@@ -115,17 +115,19 @@
                                                                         <tc-webtag:hiddenInput name="${SORT_COLUMN}"/>
                                                                         <tc-webtag:hiddenInput name="${SORT_DIRECTION}"/>
 
-                                                                        <table class="data" width="100%" cellpadding="0" cellspacing="0">
+                                                                        <table width="100%" cellpadding="0" cellspacing="0">
                                                                             <tr>
-                                                                                <th colspan="${complete ? '10' : '7'}">
+                                                                                <td colspan="${complete ? '10' : '7'}"><h3>
                                                                                     <span>
                                                                                         <a href="${STUDIO_PROFILE_URL}${handle}">
                                                                                             ${handle}
                                                                                         </a>
                                                                                     </span> &gt;
-                                                                                    ${complete ? "Completed" : "In Progress"}
-                                                                                </th>
+                                                                                    ${complete ? "Completed" : "In Progress"}</h3>
+                                                                                </td>
                                                                             </tr>
+                                                                        </table>
+                                                                        <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                                                             <tr>
                                                                                 <th class="first">&nbsp;</th>
                                                                                 <th>
