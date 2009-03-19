@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model.algo">
+
+    <class name="RoundRegistration" table="round_registration">
+        <composite-id name="id" class="RoundRegistration$Identifier">
+            <key-many-to-one name="round" class="Round" column="round_id"/>
+            <key-many-to-one name="coder" class="com.topcoder.web.common.model.Coder" column="coder_id"/>
+        </composite-id>
+    
+        <property name="timestamp" column="timestamp" access="field"/>        
+        <property name="eligible" column="eligible" access="field"/>        
+        <property name="teamId" column="team_id" access="field"/>        
+    </class>
+</hibernate-mapping>
