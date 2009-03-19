@@ -26,7 +26,7 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *          Create Date: Mar 1, 2007
  */
 public abstract class StudioUserContestsBase extends Base {
-    
+
     public static final int CONTEST_NAME_COL = 1;
     public static final int START_DATE_COL = 2;
     public static final int END_DATE_COL = 3;
@@ -36,18 +36,18 @@ public abstract class StudioUserContestsBase extends Base {
     public static final int POINTS_COL = 7;
 
     /**
-     * Gets the contest prefix. It will be used mainly for the jsp path but could be used for other purposes as well. 
+     * Gets the contest prefix. It will be used mainly for the jsp path but could be used for other purposes as well.
      * Example: tco07, tccc07, etc.
-     * 
+     *
      * @return the contest prefix
      */
     protected abstract String getContestPrefix();
-    
+
     /**
      * Gets the placement points for the points calculation.
      * Each i position of the element corresponds to amount of points for the i+1 placement.
-     * If the placement is greater than the placement points specified, this method will return 0 points. 
-     * 
+     * If the placement is greater than the placement points specified, this method will return 0 points.
+     *
      * @param contestPlace the placement to calculate
      * @return an array with the placement points
      */
@@ -56,14 +56,14 @@ public abstract class StudioUserContestsBase extends Base {
     /**
      * Gets the maximum amount of projects that will be taken into consideration for the total points amount.
      * The points calculation will be based on the best getMax() projects placement points.
-     * 
+     *
      * @return the maximum amount of projects taken into consideration
      */
     protected abstract int getMaxContests();
 
     /**
      * Gets the command name for this stat
-     * 
+     *
      * @return the command name
      */
     protected String getCommandName() {
@@ -72,7 +72,7 @@ public abstract class StudioUserContestsBase extends Base {
 
     /**
      * Gets the datasource for this stat
-     * 
+     *
      * @return the datasource name
      */
     protected String getDataSourceName() {
@@ -81,7 +81,7 @@ public abstract class StudioUserContestsBase extends Base {
 
     /**
      * Gets the page for this stat
-     * 
+     *
      * @param complete wether to show completed or incomplete projectgs
      * @return the page
      */
@@ -112,17 +112,17 @@ public abstract class StudioUserContestsBase extends Base {
         try {
             complete = Integer.parseInt(completeParam);
         } catch (NumberFormatException nfe) {
-            throw new TCWebException("invalid complete parameter.");                
+            throw new TCWebException("invalid complete parameter.");
         }
 
         if (complete != 0 && complete != 1) {
             throw new TCWebException("invalid complete_proyects parameter.");
         }
-        
+
         try {
             dataRequest.setProperties(filteredMap);
             dataRequest.setContentHandle(getCommandName());
-            DataAccessInt dai = getDataAccess(getDataSourceName(), false);
+            DataAccessInt dai = getDataAccess(getDataSourceName(), true);
             Map result = dai.getData(dataRequest);
 
             processResult(result, complete);
@@ -142,9 +142,9 @@ public abstract class StudioUserContestsBase extends Base {
      * This method will process the DB results including:
      * - Placement points calculation
      * - Sorting
-     * 
+     *
      * @param result the result of the command execution
-     * @param complete wether to show completed or incomplete projects 
+     * @param complete wether to show completed or incomplete projects
      * @throws com.topcoder.web.common.TCWebException
      */
     protected void processResult(Map result, Integer complete) throws com.topcoder.web.common.TCWebException {
@@ -155,28 +155,28 @@ public abstract class StudioUserContestsBase extends Base {
         try {
             userId = Long.parseLong(user);
         } catch (NumberFormatException nfe) {
-            throw new TCWebException("invalid user id parameter.");                
+            throw new TCWebException("invalid user id parameter.");
         }
 
         // first thing we need to do is calculate placement points for each contest
-        List<StudioUserContestsRow> results = calculatePlacementPoints(rsc, userId, complete);        
-                
+        List<StudioUserContestsRow> results = calculatePlacementPoints(rsc, userId, complete);
+
         // sort
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         sortResult(results, sortCol, "desc".equals(sortDir));
-        
+
         getRequest().setAttribute("handle", results.get(0).getHandle());
         getRequest().setAttribute("result", results);
     }
 
     /**
      * This method calculates the placement points for the specified user in each of his competitions
-     * 
+     *
      * The calculation will take into consideration:
      * - Relative placement within event registrants of the competition
      * - Placements points as specified in getPlacementPoints()
-     * 
+     *
      * @param rsc The ResultSetContainer with the DB query results
      * @param userId The userId being requested
      * @param complete whether to show complete or incomplete projects
@@ -191,7 +191,7 @@ public abstract class StudioUserContestsBase extends Base {
             if (rsr.getLongItem("contest_id") != prevContestId) {
                 contestPlace = 1;
             }
-            
+
             // keep only rows with the requested userId
             if (userId.equals(rsr.getLongItem("user_id")) && complete.equals(rsr.getIntItem("completed"))) {
                 StudioUserContestsRow row = new StudioUserContestsRow(
@@ -199,13 +199,13 @@ public abstract class StudioUserContestsBase extends Base {
                         rsr.getStringItem("name"),
                         rsr.getTimestampItem("start_time"),
                         rsr.getTimestampItem("end_time"),
-                        rsr.getStringItem("handle"), 
-                        rsr.getIntItem("registrants"), 
-                        rsr.getIntItem("submissions"), 
-                        contestPlace, 
+                        rsr.getStringItem("handle"),
+                        rsr.getIntItem("registrants"),
+                        rsr.getIntItem("submissions"),
+                        contestPlace,
                         getPlacementPoints(contestPlace),
                         rsr.getLongItem("submission_id"));
-                
+
                 results.add(row);
             }
 
@@ -217,10 +217,10 @@ public abstract class StudioUserContestsBase extends Base {
     }
 
     /**
-     * Private helper method to sort the results 
-     * 
-     * @param result the list of StudioLeaderBoardRow elements 
-     * @param sortCol the sort column 
+     * Private helper method to sort the results
+     *
+     * @param result the list of StudioLeaderBoardRow elements
+     * @param sortCol the sort column
      * @param invert true if an inverted list is requested
      */
     protected void sortResult(List<StudioUserContestsRow> result, String sortCol, boolean invert) {
@@ -279,14 +279,14 @@ public abstract class StudioUserContestsBase extends Base {
         }
 
         SortInfo s = new SortInfo();
-        s.addDefault(CONTEST_NAME_COL, "asc"); 
-        s.addDefault(START_DATE_COL, "desc"); 
-        s.addDefault(END_DATE_COL, "desc"); 
-        s.addDefault(REGISTRANTS_COL, "desc"); 
-        s.addDefault(SUBMISSIONS_COL, "desc"); 
-        s.addDefault(PLACED_COL, "asc"); 
-        s.addDefault(POINTS_COL, "desc"); 
-        
+        s.addDefault(CONTEST_NAME_COL, "asc");
+        s.addDefault(START_DATE_COL, "desc");
+        s.addDefault(END_DATE_COL, "desc");
+        s.addDefault(REGISTRANTS_COL, "desc");
+        s.addDefault(SUBMISSIONS_COL, "desc");
+        s.addDefault(PLACED_COL, "asc");
+        s.addDefault(POINTS_COL, "desc");
+
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
 
