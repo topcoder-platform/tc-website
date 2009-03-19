@@ -26,7 +26,7 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *          Create Date: Mar 1, 2007
  */
 public abstract class StudioLeaderboardBase extends Base {
-    
+
     public static final int RANK_COL = 1;
     public static final int HANDLE_COL = 2;
     public static final int COMPLETED_CONTESTS_COL = 3;
@@ -34,18 +34,18 @@ public abstract class StudioLeaderboardBase extends Base {
     public static final int CURRENT_CONTESTS_COL = 5;
 
     /**
-     * Gets the contest prefix. It will be used mainly for the jsp path but could be used for other purposes as well. 
+     * Gets the contest prefix. It will be used mainly for the jsp path but could be used for other purposes as well.
      * Example: tco07, tccc07, etc.
-     * 
+     *
      * @return the contest prefix
      */
     protected abstract String getContestPrefix();
-    
+
     /**
      * Gets the placement points for the points calculation.
      * Each i position of the element corresponds to amount of points for the i+1 placement.
-     * If the placement is greater than the placement points specified, this method will return 0 points. 
-     * 
+     * If the placement is greater than the placement points specified, this method will return 0 points.
+     *
      * @param contestPlace the placement to calculate
      * @return an array with the placement points
      */
@@ -54,14 +54,14 @@ public abstract class StudioLeaderboardBase extends Base {
     /**
      * Gets the maximum amount of projects that will be taken into consideration for the total points amount.
      * The points calculation will be based on the best getMax() projects placement points.
-     * 
+     *
      * @return the maximum amount of projects taken into consideration
      */
     protected abstract int getMaxContests();
 
     /**
      * Gets the command name for this stat
-     * 
+     *
      * @return the command name
      */
     protected String getCommandName() {
@@ -70,7 +70,7 @@ public abstract class StudioLeaderboardBase extends Base {
 
     /**
      * Gets the datasource for this stat
-     * 
+     *
      * @return the datasource name
      */
     protected String getDataSourceName() {
@@ -79,7 +79,7 @@ public abstract class StudioLeaderboardBase extends Base {
 
     /**
      * Gets the page for this stat
-     * 
+     *
      * @return the page
      */
     protected String getPageName() {
@@ -107,7 +107,7 @@ public abstract class StudioLeaderboardBase extends Base {
         try {
             dataRequest.setProperties(filteredMap);
             dataRequest.setContentHandle(getCommandName());
-            DataAccessInt dai = getDataAccess(getDataSourceName(), false);
+            DataAccessInt dai = getDataAccess(getDataSourceName(), true);
             Map result = dai.getData(dataRequest);
 
             processResult(result);
@@ -128,7 +128,7 @@ public abstract class StudioLeaderboardBase extends Base {
      * - Placement points calculation
      * - Rank generation
      * - Sorting
-     * 
+     *
      * @param result the result of the command execution
      * @throws com.topcoder.web.common.TCWebException
      */
@@ -136,27 +136,27 @@ public abstract class StudioLeaderboardBase extends Base {
         ResultSetContainer rsc = (ResultSetContainer) result.get(getCommandName());
 
         // first thing we need to do is calculate placement points for each contest
-        List<StudioLeaderBoardRow> results = calculatePlacementPoints(rsc);        
-        
+        List<StudioLeaderBoardRow> results = calculatePlacementPoints(rsc);
+
         // generate rank
         generateRank(results);
-        
+
         // sort
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         sortResult(results, sortCol, "desc".equals(sortDir));
-        
+
         getRequest().setAttribute("result", results);
     }
 
     /**
      * This method calculates the placement points for all users in a particular event
-     * 
+     *
      * The calculation will take into consideration:
      * - Relative placement within event registrants of the competition
      * - Placements points as specified in getPlacementPoints()
      * - Maximum number of contests to be taken into consideration as specified in getMaxContests()
-     * 
+     *
      * @param rsc The ResultSetContainer with the DB query results
      * @return a List of StudioLeaderBoardRow elements with all the information for the stat chart
      */
@@ -168,20 +168,20 @@ public abstract class StudioLeaderboardBase extends Base {
             if (rsr.getLongItem("contest_id") != prevContestId) {
                 contestPlace = 1;
             }
-            StudioLeaderBoardRow row = new StudioLeaderBoardRow(rsr.getLongItem("user_id"), rsr.getStringItem("handle"), rsr.getStringItem("handle_lower")); 
+            StudioLeaderBoardRow row = new StudioLeaderBoardRow(rsr.getLongItem("user_id"), rsr.getStringItem("handle"), rsr.getStringItem("handle_lower"));
             if (leaderBoard.containsKey(rsr.getLongItem("user_id"))) {
                 row = leaderBoard.get(rsr.getLongItem("user_id"));
                 leaderBoard.remove(row);
             }
-            
+
             if (rsr.getIntItem("completed") == 1) {
                 row.setCompletedContests(row.getCompletedContests() + 1);
-                
-                int placementPoints = getPlacementPoints(contestPlace); 
+
+                int placementPoints = getPlacementPoints(contestPlace);
                 List<Integer> tmp = row.getCompletedPoints();
                 tmp.add(placementPoints);
                 row.setCompletedPoints(tmp);
-                
+
                 if (placementPoints > 0) {
                     List<Integer> tmpPlacements = row.getPlacements();
                     tmpPlacements.add(contestPlace);
@@ -201,17 +201,17 @@ public abstract class StudioLeaderboardBase extends Base {
         for (StudioLeaderBoardRow row : results) {
             row.calculateBestPoints(getMaxContests());
         }
-        
+
         return results;
     }
 
     /**
      * Private method to generate ranks based on the placement points each user got
-     * 
+     *
      * @param results the list of StudioLeaderBoardRow elements
      */
     private void generateRank(List<StudioLeaderBoardRow> results) {
-        Comparator<StudioLeaderBoardRow> comparator = getComparator(); 
+        Comparator<StudioLeaderBoardRow> comparator = getComparator();
         Collections.sort(results, comparator);
 
         boolean first = true;
@@ -232,11 +232,11 @@ public abstract class StudioLeaderboardBase extends Base {
             first = false;
         }
     }
-    
+
 
     /**
-     * Protected method to define the comparision between competitors results before ranking 
-     * 
+     * Protected method to define the comparision between competitors results before ranking
+     *
      * @return a StudioLeaderBoardRow comparator
      */
     protected Comparator<StudioLeaderBoardRow> getComparator() {
@@ -244,14 +244,14 @@ public abstract class StudioLeaderboardBase extends Base {
             public int compare(StudioLeaderBoardRow arg0, StudioLeaderBoardRow arg1) {
                 return arg1.getBestPoints().compareTo(arg0.getBestPoints());
             }
-        };  
+        };
     }
 
     /**
-     * Private helper method to sort the results 
-     * 
-     * @param result the list of StudioLeaderBoardRow elements 
-     * @param sortCol the sort column 
+     * Private helper method to sort the results
+     *
+     * @param result the list of StudioLeaderBoardRow elements
+     * @param sortCol the sort column
      * @param invert true if an inverted list is requested
      */
     protected void sortResult(List<StudioLeaderBoardRow> result, String sortCol, boolean invert) {
@@ -296,14 +296,14 @@ public abstract class StudioLeaderboardBase extends Base {
         if (invert) {
             Collections.reverse(result);
         }
-        
+
         SortInfo s = new SortInfo();
         s.addDefault(RANK_COL, "desc"); // rank
         s.addDefault(HANDLE_COL, "asc"); // handle lower
         s.addDefault(COMPLETED_CONTESTS_COL, "desc"); // completed contests
         s.addDefault(COMPLETED_POINTS_COL, "desc"); // completed points
         s.addDefault(CURRENT_CONTESTS_COL, "desc"); // current contests
-        
+
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
 
