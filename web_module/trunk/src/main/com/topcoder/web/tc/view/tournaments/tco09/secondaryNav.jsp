@@ -1,5 +1,5 @@
 <%--
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  *
  * This JSP handles secondary navigation bar.
  *
@@ -8,8 +8,10 @@
  *
  * Version 1.1 (2009 TopCoder Open Site Integration 1.1) changes: Replaced links for all leaderboard pages.
  *
+ * Version 1.2 (2009 TopCoder Open Site Integration 1.1.1) changes: Replaced link for Studio leaderboard page.
+ *
  * Author TCSDEVELOPER
- * Version 1.1
+ * Version 1.2
  * Since 2009 TopCoder Open Site Integration
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -54,7 +56,7 @@
               <c:when test="${mainTab == 'studio'}">
                     <li class="first"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=description" class="${secondaryTab == 'description' ? 'on' : ''}"><span>Description</span></a></li>
                     <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=schedule" class="${secondaryTab == 'schedule' ? 'on' : ''}"><span>Schedule</span></a></li>
-                    <li class="last"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=advancers&d5=leaderboard" class="${secondaryTab == 'advancers' ? 'on' : ''}"><span>Advancers</span></a></li>
+                    <li class="last"><a href="/tco09?module=StudioLeaders&eid=3009" class="${secondaryTab == 'advancers' ? 'on' : ''}"><span>Advancers</span></a></li>
               </c:when>
             </c:choose>
         </ul>

@@ -1,5 +1,5 @@
 <%--
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  *
  * This JSP handles tertiary navigation bar.
  *
@@ -8,8 +8,10 @@
  *
  * Version 1.1 (2009 TopCoder Open Site Integration 1.1) changes: Replaced links for all leaderboard pages.
  *
+ * Version 1.2 (2009 TopCoder Open Site Integration 1.1.1) changes: Replaced link for Studio leaderboard page.
+ *
  * Author TCSDEVELOPER
- * Version 1.1
+ * Version 1.2
  * Since 2009 TopCoder Open Site Integration
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -100,7 +102,7 @@
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=moddash&d4=advancers&d5=summary" class="${tertiaryTab == 'summary' ? 'on' : ''}">Summary</a></li>
                     </c:when>
                     <c:when test="${mainTab == 'studio' && secondaryTab == 'advancers'}">
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=advancers&d5=leaderboard" class="${tertiaryTab == 'leaderboard' ? 'on' : ''}">Leaderboard</a></li>
+                        <li><a href="/tco09?module=StudioLeaders&eid=3009" class="${tertiaryTab == 'leaderboard' ? 'on' : ''}">Leaderboard</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=advancers&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Bracket</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=advancers&d5=summary" class="${tertiaryTab == 'summary' ? 'on' : ''}">Summary</a></li>
                     </c:when>
