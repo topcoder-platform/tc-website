@@ -105,7 +105,7 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
-                                                                            <td class="first last alignText" width="40%">8:00 a.m. - 5:00 p.m.</td>
+                                                                            <td class="first last alignText" width="40%">8:30 a.m. - 5:00 p.m.</td>
                                                                             <td class="first last alignText" width="60%">Marathon Finals</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
@@ -123,15 +123,33 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
-                                                                            <td class="first last alignText">1:00 p.m. - 5:00 p.m.</td>
+                                                                            <td class="first last alignText">12:30 p.m. - 5:00 p.m.</td>
                                                                             <td class="first last alignText">Studio Finals 1</td>
                                                                             <td class="last">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                          <td class="first">&nbsp;</td>
+                                                                          <td class="first last alignText">2:00 p.m. - 2:45 p.m.</td>
+                                                                          <td class="first last alignText">Specification and Conceptualization Round Table</td>
+                                                                          <td class="last">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                          <td class="first">&nbsp;</td>
+                                                                          <td class="first last alignText">3:00 p.m. - 3:45 p.m.</td>
+                                                                          <td class="first last alignText">Architecture and Assembly Round Table</td>
+                                                                          <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">5:00 p.m. - 6:00 p.m.</td>
                                                                             <td class="first last alignText">Dinner</td>
                                                                             <td class="last">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                          <td class="first">&nbsp;</td>
+                                                                          <td class="first last alignText">6:00 p.m. - 10:00 p.m.</td>
+                                                                          <td class="first last alignText">Competitor Game Room and Poker Tournament</td>
+                                                                          <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                     </table>
                                                                     <br /><br />
@@ -158,6 +176,18 @@
                                                                             <td class="first last alignText">12:00 p.m. - 1:30 p.m.</td>
                                                                             <td class="first last alignText">Lunch</td>
                                                                             <td class="last">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                          <td class="first">&nbsp;</td>
+                                                                          <td class="first last alignText">2:00 p.m. - 2:45 p.m.</td>
+                                                                          <td class="first last alignText">Components Round Table</td>
+                                                                          <td class="last">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                          <td class="first">&nbsp;</td>
+                                                                          <td class="first last alignText">3:00 p.m. - 3:45 p.m.</td>
+                                                                          <td class="first last alignText">AOL/TopCoder Sensations Developer Challenge Forum</td>
+                                                                          <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="first">&nbsp;</td>

@@ -248,17 +248,19 @@ public class TCLoadTCS extends TCLoad {
 
 
     public void doClearCache() throws Exception {
-        String[] keys = new String[]{"member_projects", "project_results_all", "contest_prizes", "contest_projects", "project_details",
-                "tccc05_", "tccc06_", "tco07_", "usdc_", "component_history", "tcs_ratings_history",
-                "member_profile", "Coder_Dev_Data", "Coder_Des_Data", "Component_",
-                "public_home_data", "top_designers", "top_developers", "tco04",
-                "coder_all_ratings", "tco05", "coder_dev", "coder_des", "coder_algo",
-                "dd_design", "dd_development", "dd_component", "comp_list", "find_projects", "get_review_scorecard",
-                "get_screening_scorecard", "project_info", "reviewers_for_project", "scorecard_details", "submissions",
-                "comp_contest_details", "dr_leader_board", "competition_history", "algo_competition_history",
-                "dr_current_period", "dr_stages", "dr_seasons", "component_color_change", "stage_outstanding_projects",
-                "season_outstanding_projects", "dr_results", "dr_stages", "dr_contests_for_stage",
-                "outstanding_projects", "dr_points_detail", "drv2_results", "dr_track_details", "dr_track_list", "dr_concurrent_track"
+        String[] keys = new String[]{
+            "member_projects", "project_results_all", "contest_prizes", "contest_projects", "project_details",
+            "tccc05_", "tccc06_", "tco07_", "usdc_", "component_history", "tcs_ratings_history",
+            "member_profile", "Coder_Dev_Data", "Coder_Des_Data", "Component_",
+            "public_home_data", "top_designers", "top_developers", "tco04",
+            "coder_all_ratings", "tco05", "coder_dev", "coder_des", "coder_algo",
+            "dd_design", "dd_development", "dd_component", "comp_list", "find_projects", "get_review_scorecard",
+            "get_screening_scorecard", "project_info", "reviewers_for_project", "scorecard_details", "submissions",
+            "comp_contest_details", "dr_leader_board", "competition_history", "algo_competition_history",
+            "dr_current_period", "dr_stages", "dr_seasons", "component_color_change", "stage_outstanding_projects",
+            "season_outstanding_projects", "dr_results", "dr_stages", "dr_contests_for_stage",
+            "outstanding_projects", "dr_points_detail", "drv2_results", "dr_track_details", "dr_track_list",
+            "dr_concurrent_track", "event_", "software_"
         };
 
         HashSet<String> s = new HashSet<String>();
