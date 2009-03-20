@@ -147,6 +147,16 @@ public abstract class Base extends ShortHibernateProcessor {
                 projectTypeId = Constants.DESIGN_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.DEV_PHASE).equals(phaseId)) {
                 projectTypeId = Constants.DEVELOPMENT_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.CONCEPTUALIZATION_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.CONCEPTUALIZATION_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.SPECIFICATION_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.SPECIFICATION_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.ARCHITECTURE_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.ARCHITECTURE_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.ASSEMBLY_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.ASSEMBLY_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.APPLICATION_TESTING_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.APPLICATION_TESTING_PROJECT_TYPE;
             }
         }
         return projectTypeId;
@@ -155,9 +165,9 @@ public abstract class Base extends ShortHibernateProcessor {
 
     /**
      * <p>Checks whether the specified project type requested by client is currently supported by this controller
-     * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization, 
+     * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization,
      * Specification and Application Testing project types are supported.</p>
-     * 
+     *
      * This method delegates to ReviewBoardHelper.isReviewBoardTypeSupported().
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
