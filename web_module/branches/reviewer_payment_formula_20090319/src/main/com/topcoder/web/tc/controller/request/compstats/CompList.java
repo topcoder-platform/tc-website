@@ -44,11 +44,11 @@ public class CompList extends Base {
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
             if (!(Constants.DESIGN_PROJECT_TYPE == projectTypeId
-                  || Constants.DEVELOPMENT_PROJECT_TYPE == projectTypeId)
-                  || Constants.CONCEPTUALIZATION_PROJECT_TYPE == projectTypeId)
-                  || Constants.SPECIFICATION_PROJECT_TYPE == projectTypeId)
-                  || Constants.ARCHITECTURE_PROJECT_TYPE == projectTypeId)
-                  || Constants.ASSEMBLY_PROJECT_TYPE == projectTypeId)
+                  || Constants.DEVELOPMENT_PROJECT_TYPE == projectTypeId
+                  || Constants.CONCEPTUALIZATION_PROJECT_TYPE == projectTypeId
+                  || Constants.SPECIFICATION_PROJECT_TYPE == projectTypeId
+                  || Constants.ARCHITECTURE_PROJECT_TYPE == projectTypeId
+                  || Constants.ASSEMBLY_PROJECT_TYPE == projectTypeId
                   || Constants.APPLICATION_TESTING_PROJECT_TYPE == projectTypeId)) {
                 throw new TCWebException("Invalid project_type_id (" + projectTypeId + ") parameter");
             }
