@@ -8,18 +8,6 @@ public class ComponentReviewerPaymentCalculator extends BaseReviewerPaymentCalcu
         super(firstPlacePrize, submissionCount, passedScreeningCount);
     }
 
-    protected float getPrizePurse() {
-        return 1.5f * getFirstPlacePrize();
-    }
-
-    protected float getInitialPurse() {
-        return 0.40f * getPrizePurse();
-    }
-
-    protected float getIncrementPurse() {
-        return 0.15f * getPrizePurse();
-    }
-
     public float getScreeningCost() {
         return (0.86f * getInitialPurse() + getIncrementPurse() * (getSubmissionCount() - 1)) * 0.10f;
     }
@@ -34,5 +22,17 @@ public class ComponentReviewerPaymentCalculator extends BaseReviewerPaymentCalcu
 
     public float getFinalReviewCost() {
         return 0.10f * getInitialPurse();
+    }
+    
+    protected float getPrizePurse() {
+        return 1.5f * getFirstPlacePrize();
+    }
+
+    protected float getInitialPurse() {
+        return 0.40f * getPrizePurse();
+    }
+
+    protected float getIncrementPurse() {
+        return 0.15f * getPrizePurse();
     }
 }
