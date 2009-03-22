@@ -80,16 +80,45 @@ public class DefaultPriceComponent implements SoftwareComponent {
     private ReviewerPaymentCalculator calculator;
 
     /**
+     * <p>Constructs new <code>DefaultPriceComponent</code> instance. This implementation does nothing.</p>
+     */
+    @Deprecated
+    public DefaultPriceComponent() {
+    }
+
+    /**
      * <p>Constructs new <code>DefaultPriceComponent</code> instance to be used for calculating the prices for project
      * with specified parameters.</p>
      *
-     * @param levelId an <code>int</code> referencing the difficulty level for the project (currently ignored)
+     * @param levelId an <code>int</code> referencing the difficulty level for the project (currently ignored).
+     * @param submissionCount an <code>int</code> providing the number of submissions for the project.
+     * @param submissionsPassedScreening an <code>int</code> providing the number of submissions for the project which
+     *        passed screening.
+     * @param phaseId an <code>int</code> referencing the current phase for the project.
+     */
+    @Deprecated
+    public DefaultPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId) {
+        log.debug("level: " + levelId + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
+                  submissionsPassedScreening + " phaseId: " + phaseId);
+
+        this.phaseId = phaseId;
+        this.submissionCount = submissionCount;
+        this.submissionsPassedScreening = submissionsPassedScreening;
+        // TODO: Eliminate this hardcoded "default" prize.
+        this.calculator = getReviewerPaymentCalculator(750, submissionCount, submissionsPassedScreening);
+    }
+
+    /**
+     * <p>Constructs new <code>DefaultPriceComponent</code> instance to be used for calculating the prices for project
+     * with specified parameters.</p>
+     *
+     * @param levelId an <code>int</code> referencing the difficulty level for the project (currently ignored).
      * @param submissionCount an <code>int</code> providing the number of submissions for the project.
      * @param submissionsPassedScreening an <code>int</code> providing the number of submissions for the project which
      *        passed screening.
      * @param phaseId an <code>int</code> referencing the current phase for the project.
      * @param prize a <code>float</code> providing the prized for the project.
-     * @param drPoints a <code>float</code> providing the amount of <code>DR</code> points for project (currently ignored)
+     * @param drPoints a <code>float</code> providing the amount of <code>DR</code> points for project (currently ignored).
      */
     public DefaultPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId,
                                  float prize, float drPoints) {
@@ -100,18 +129,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
         this.prize = prize;
         this.submissionCount = submissionCount;
         this.submissionsPassedScreening = submissionsPassedScreening;
-
-        if (phaseId == DESIGN_PHASE || phaseId == DEV_PHASE) {
-            this.calculator = new ComponentReviewerPaymentCalculator(prize, submissionCount,
-                                                                     submissionsPassedScreening);
-        } else if (phaseId == CONCEPTUALIZATION_PHASE || phaseId == SPECIFICATION_PHASE
-                   || phaseId == ARCHITECTURE_PHASE || phaseId == ASSEMBLY_PHASE
-                   || phaseId == APPLICATION_TESTING_PHASE) {
-            this.calculator = new ApplicationReviewerPaymentCalculator(prize, submissionCount,
-                                                                       submissionsPassedScreening);
-        } else {
-            throw new IllegalArgumentException("Invalid phaseId (" + phaseId + ")");
-        }
+        this.calculator = getReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
     }
 
     /**
@@ -122,7 +140,20 @@ public class DefaultPriceComponent implements SoftwareComponent {
      */
     public Object clone() throws OutOfMemoryError {
         return new DefaultPriceComponent(1, this.submissionCount, this.submissionsPassedScreening,
-                                                              this.phaseId, this.prize, 0);
+                                         this.phaseId, this.prize, 0);
+    }
+
+    private ReviewerPaymentCalculator getReviewerPaymentCalculator(float prize, int submissionCount,
+                                                                   int submissionsPassedScreening) {
+        if (phaseId == DESIGN_PHASE || phaseId == DEV_PHASE) {
+            return new ComponentReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
+        } else if (phaseId == CONCEPTUALIZATION_PHASE || phaseId == SPECIFICATION_PHASE
+                   || phaseId == ARCHITECTURE_PHASE || phaseId == ASSEMBLY_PHASE
+                   || phaseId == APPLICATION_TESTING_PHASE) {
+            return new ApplicationReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
+        } else {
+            throw new IllegalArgumentException("Invalid phaseId (" + phaseId + ")");
+        }
     }
 
     /**
@@ -234,7 +265,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("-------------------------+-------------------------------");
             System.out.println("   Primary Review Cost   |      " + sc.getPrimaryReviewPrice());
             System.out.println("-------------------------+-------------------------------");
-            System.out.println("   Primary Screen Cost   |      " + sc.getScreeningPrimaryDevReviewCost());
+            System.out.println("   Primary Screen Cost   |      " + sc.getScreeningCost());
             System.out.println("-------------------------+-------------------------------");
             System.out.println("    Primary Agg Cost     |      " + sc.getAggregationCost());
             System.out.println("-------------------------+-------------------------------");
