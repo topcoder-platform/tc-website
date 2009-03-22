@@ -42,11 +42,19 @@ import com.topcoder.shared.util.logging.Logger;
  *          Application Testing competitions.
  *     </li>
  *   </ol>
+ *   
+ *   Version 1.1.0 Change notes:
+ *   <ol>
+ *     <li>
+ *          Refactored the review payments system to better support all competition types.  Changed application
+ *          review payment formulas.
+ *     </li>
+ *   </ol>
  *
- * @author dok, pulky, ivern, isv, TCSDEVELOPER
- * @version 1.0.6
+ * @author dok, pulky, ivern, isv
+ * @version 1.1.0
  */
-// TODO: document version 2.0.0
+
 public class DefaultPriceComponent implements SoftwareComponent {
     /**
      * <p>A <code>Log</code> to be used for logging the events encountered while calculating the prices.</p>
@@ -143,6 +151,16 @@ public class DefaultPriceComponent implements SoftwareComponent {
                                          this.phaseId, this.prize, 0);
     }
 
+    /**
+     * <p>Factory method that returns the correct instance of ReviewerPaymentCalculator for a given phase.</p>
+     * 
+     * @param prize first place prize for the competition.
+     * @param submissionCount number of submissions.
+     * @param submissionsPassedScreening number of submissions that passed screening.
+     * @return the correct <code>ReviewerPaymentCalculator</code> instance for the competition phase, initialized
+     *         with the prize, submission count, and submissions that passed screening count.
+     * @since 1.1.0
+     */
     private ReviewerPaymentCalculator getReviewerPaymentCalculator(float prize, int submissionCount,
                                                                    int submissionsPassedScreening) {
         if (phaseId == DESIGN_PHASE || phaseId == DEV_PHASE) {
@@ -182,7 +200,6 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @return a <code>float</code> providing the cost for review.
      * @since 1.0.1
      */
-    // TODO: Separate this from core review.
     public float getReviewPrice() {
         return Math.round(this.calculator.getReviewCost());
     }
