@@ -17,7 +17,8 @@ public abstract class BaseReviewerPaymentCalculator implements ReviewerPaymentCa
             throw new IllegalArgumentException("submissionCount (" + submissionCount + ") must be non-negative");
         }
         if (passedScreeningCount < 0 || passedScreeningCount > submissionCount) {
-            throw new IllegalArgumentException("passedScreeningCount (" + passedScreeningCount + ") must be non-negative and no greater than submissionCount (" + submissionCount + ")");
+            throw new IllegalArgumentException("passedScreeningCount (" + passedScreeningCount
+            		+ ") must be non-negative and no greater than submissionCount (" + submissionCount + ")");
         }
 
         this.firstPlacePrize = firstPlacePrize;
