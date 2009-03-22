@@ -101,7 +101,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
         this.submissionCount = submissionCount;
         this.submissionsPassedScreening = submissionsPassedScreening;
 
-        if (phaseId == DESIGN_PHASE || phaseId == DEVELOPMENT_PHASE) {
+        if (phaseId == DESIGN_PHASE || phaseId == DEV_PHASE) {
             this.calculator = new ComponentReviewerPaymentCalculator(prize, submissionCount,
                                                                      submissionsPassedScreening);
         } else if (phaseId == CONCEPTUALIZATION_PHASE || phaseId == SPECIFICATION_PHASE
@@ -121,15 +121,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @throws OutOfMemoryError if memory heap is exhausted.
      */
     public Object clone() throws OutOfMemoryError {
-        DefaultPriceComponent ret = new DefaultPriceComponent();
-
-        ret.phaseId = this.phaseId;
-        ret.level = this.level;
-        ret.submissionCount = this.submissionCount;
-        ret.submissionsPassedScreening = this.submissionsPassedScreening;
-        ret.prize = this.prize;
-        ret.drPoints = this.drPoints;
-        ret.compensationRatio = this.compensationRatio;
+        DefaultPriceComponent ret = new DefaultPriceComponent(1, this.submissionCount, this.submissionsPassedScreening,
+                                                              this.phaseId, this.prize, 0);
         ret.calculator = this.calculator;
 
         return ret;
