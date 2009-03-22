@@ -243,9 +243,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @param args a <code>String</code> array providing the command line arguments.
      */
     public static void main(String[] args) {
-        if (args.length != 5) {
+        if (args.length != 4) {
             System.out.println("usage: java " + SoftwareComponent.class.toString() + " " +
-                    "<numSubmissions> <numSubmissionPassScreening> <phaseId> <prize> <drPoints>");
+                    "<numSubmissions> <numSubmissionPassScreening> <phaseId> <prize>");
             System.out.println("Component Design phaseId      : " + DEV_PHASE);
             System.out.println("Component Development phaseId : " + DESIGN_PHASE);
             System.out.println("Conceptualization phaseId     : " + CONCEPTUALIZATION_PHASE);
@@ -256,7 +256,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
         } else {
             DefaultPriceComponent sc = new DefaultPriceComponent(1, Integer.parseInt(args[0]),
                                                                  Integer.parseInt(args[1]), Integer.parseInt(args[2]),
-                                                                 Float.parseFloat(args[3]), Float.parseFloat(args[4]));
+                                                                 Float.parseFloat(args[3]), 0);
 
             System.out.println("---------------------------------------------------------");
             System.out.println("         Prize           |      " + sc.getPrice());
