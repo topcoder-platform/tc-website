@@ -11,11 +11,11 @@ public class ApplicationReviewerPaymentCalculator extends BaseReviewerPaymentCal
     // TODO: Switch everything to BigDecimal.
     // TODO: Get rid of magic numbers.
     private float getCalculatedBaseRate() {
-        return 15 + (getFirstPlacePrize() - 750) * 0.01;
+        return 15f + (getFirstPlacePrize() - 750) * 0.01f;
     }
 
     private float getCalculatedReviewCost() {
-        return 26 * getCalculatedBaseRate();
+        return 26f * getCalculatedBaseRate();
     }
 
     private float getActualBaseRate() {
@@ -23,7 +23,7 @@ public class ApplicationReviewerPaymentCalculator extends BaseReviewerPaymentCal
     }
 
     private float getPrimaryExtraCost() {
-        return 2 * getActualBaseRate() + getActualBaseRate() * 0.5 * getSubmissionCount();
+        return 2f * getActualBaseRate() + getActualBaseRate() * 0.5f * getSubmissionCount();
     }
 
     public float getScreeningCost() {
@@ -31,14 +31,14 @@ public class ApplicationReviewerPaymentCalculator extends BaseReviewerPaymentCal
     }
 
     public float getReviewCost() {
-        return (Math.max(0, 4 - getPassedScreeningCount()) * 1.5 + 2 * getPassedScreeningCount()) * getActualBaseRate();
+        return (Math.max(0f, 4f - getPassedScreeningCount()) * 1.5f + 2f * getPassedScreeningCount()) * getActualBaseRate();
     }
 
     public float getAggregationCost() {
-        return 10;
+        return 10f;
     }
 
     public float getFinalReviewCost() {
-        return 30;
+        return 30f;
     }
 }

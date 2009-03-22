@@ -121,11 +121,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @throws OutOfMemoryError if memory heap is exhausted.
      */
     public Object clone() throws OutOfMemoryError {
-        DefaultPriceComponent ret = new DefaultPriceComponent(1, this.submissionCount, this.submissionsPassedScreening,
+        return new DefaultPriceComponent(1, this.submissionCount, this.submissionsPassedScreening,
                                                               this.phaseId, this.prize, 0);
-        ret.calculator = this.calculator;
-
-        return ret;
     }
 
     /**
@@ -167,6 +164,26 @@ public class DefaultPriceComponent implements SoftwareComponent {
      */
     public float getFinalReviewCost() {
         return Math.round(this.calculator.getFinalReviewCost());
+    }
+
+    /**
+     * <p>Gets the cost for aggregation.</p>
+     *
+     * @return a <code>float</code> providing the cost for aggregation.
+     * @since 1.0.1
+     */
+    public float getAggregationCost() {
+        return Math.round(this.calculator.getAggregationCost());
+    }
+
+    /**
+     * <p>Gets the cost for screening.</p>
+     *
+     * @return a <code>float</code> providing the cost for screening.
+     * @since 1.0.1
+     */
+    public float getScreeningCost() {
+        return Math.round(this.calculator.getScreeningCost());
     }
 
     /**
@@ -212,8 +229,6 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
             System.out.println("---------------------------------------------------------");
             System.out.println("         Prize           |      " + sc.getPrice());
-            System.out.println("-------------------------+-------------------------------");
-            System.out.println("   Total Compensation    |      " + sc.getCompetitorCompensation());
             System.out.println("-------------------------+-------------------------------");
             System.out.println("      Review Cost        |      " + sc.getReviewPrice());
             System.out.println("-------------------------+-------------------------------");
