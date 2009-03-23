@@ -235,11 +235,13 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
-     * <p>Gets the cost for core review.</p>
+     * <p>Gets the cost for core review.  This is the review without a "ramp-up" cost, and used to represent
+     * the payment the primary reviewer got for the Review phase.  Currently, this is unused.</p>
      *
      * @return a <code>float</code> providing the cost for core review.
      * @since 1.0.1
      */
+    @Deprecated
     public float getCoreReviewCost() {
         return Math.round(this.calculator.getReviewCost());
     }
