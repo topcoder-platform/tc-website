@@ -267,9 +267,6 @@ public class ProjectUtil {
         ps.setLong(3, projectTypeId);
         rs = ps.executeQuery();
 
-
-        
-
         if (rs.next()) {
             throw new BaseException("Online Review: A project already exists! Terminate it before changing phase!");
         }
@@ -320,7 +317,8 @@ public class ProjectUtil {
         }
         com.topcoder.project.phases.Project project = template.applyTemplate(templateName);
         if (project == null) {
-            throw new BaseException("Online Review: project template does not exist, templateName: " + templateName + " Please make sure Project_Phase_Template_Config.xml is configured well!");
+            throw new BaseException("Online Review: project template does not exist, templateName: " + templateName
+            		+ " Please make sure Project_Phase_Template_Config.xml is configured well!");
         }
         com.topcoder.project.phases.Phase[] phases = project.getAllPhases();
         for (int i = 0; i < phases.length; i++) {
@@ -599,8 +597,8 @@ public class ProjectUtil {
         // Prepare project_version
         createProjectInfo(ps, projectId, 7, versionText, modUserId);
 
-        // Prepare auto_pilot_ind
-        createProjectInfo(ps, projectId, 9, "On", modUserId);
+        // Auto Pilot
+        createProjectInfo(ps, projectId, 9, "Off", modUserId);
 
         // Status Notification
         createProjectInfo(ps, projectId, 10, "On", modUserId);
@@ -620,10 +618,19 @@ public class ProjectUtil {
         // Payments
         createProjectInfo(ps, projectId, 16, String.valueOf(price), modUserId);
 
-        //digital run
-        if (projectTypeId==1 || projectTypeId ==2 || projectTypeId ==14) {
+        // Digital Run
+        if (projectTypeId == 1            // Component Design
+        		|| projectTypeId == 2     // Component Development
+        		|| projectTypeId == 6     // Specification
+        		|| projectTypeId == 7     // Architecture
+        		|| projectTypeId == 13    // Application Testing
+        		|| projectTypeId == 14    // Assembly
+        		|| projectTypeId == 23) { // Conceptualization
             createProjectInfo(ps, projectId, 26, "On", modUserId);
         }
+        
+        // Contest Indicator
+        createProjectInfo(ps, projectId, 29, "On", modUserId);
 
         close(ps);
     }
