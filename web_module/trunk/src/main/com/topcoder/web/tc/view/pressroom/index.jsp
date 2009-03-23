@@ -199,6 +199,21 @@
                 </div>
                 <%-- TopCoder MLab Keynote end --%>
                 
+                
+                <%-- Blake Tolbert Article begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_010109"><img src="/i/pressroom/sticky-minds-logo.png" alt="Sticky Rinds logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_010109">Lowering the Test Automation Barrier to Entry</a></h3>
+                        <p><small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_010109">[January 1st]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Blake Tolbert Article end --%>
+                
+                
                 <%-- Ribbit's Killer App Challenge Launches at Adobe Max begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
