@@ -118,6 +118,34 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- Julian Birkinshaw Interview begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031709"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031709">Julian Birkinshaw of London Business School Interview with TopCoder</a></h3>
+                        <p>Exploring the Impact of Web 2.0 upon Management <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031709">[March 17th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Julian Birkinshaw Interview end --%>
+                
+                
+                <%-- Jeff Howe Interview begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031309"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031309">Crowdsourcing Guru Jeff Howe Interview with TopCoder</a></h3>
+                        <p>Crowdsourcing and Which Business Models Will Succeed <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031309">[March 13th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Jeff Howe Interview end --%>
+                
+                
                 <%-- China, Belarus & Croatia TCHS09 begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
