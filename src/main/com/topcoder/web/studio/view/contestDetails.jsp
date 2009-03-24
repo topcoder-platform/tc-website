@@ -181,7 +181,8 @@
                 </c:when>
                 <c:otherwise>
                     <p align="center" class="bigRed">
-                        You must register for the contest<br />to download any attached files.
+                        You must register for the contest<br />to download any attached files.<br /><br />
+                        <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onfocus="this.blur();"><img src="/i/v2/interface/btnRegister.png" alt="Register" style="margin: 6px 0px 6px 0px;"/></a> 
                     </p>
                 </c:otherwise>
             </c:choose>
