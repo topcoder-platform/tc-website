@@ -16,12 +16,10 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.ReviewBoard;
 import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
 
 /**
@@ -94,7 +92,7 @@ public abstract class Base extends ShortHibernateProcessor {
 
     public static ResultSetContainer getOpenProjects() throws Exception {
         Request dataRequest = null;
-        Map resultMap = null;
+        Map<String, ResultSetContainer> resultMap = null;
         dataRequest = new Request();
         dataRequest.setContentHandle("open_projects");
 
