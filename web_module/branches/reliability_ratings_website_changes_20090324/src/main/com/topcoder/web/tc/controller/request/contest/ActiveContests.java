@@ -23,6 +23,7 @@ public class ActiveContests extends ActiveContestsBase {
 
     public static final String DEFAULT_NAMESPACE = "com.topcoder.web.tc.controller.request.contest.ActiveContests";
 
+    @Override
     protected void developmentProcessing() throws TCWebException {
         int projectTypeId =  com.topcoder.web.tc.controller.request.development.Base.getProjectTypeId(getRequest());
 
@@ -35,6 +36,7 @@ public class ActiveContests extends ActiveContestsBase {
         super.developmentProcessing();
     }
 
+    @Override
     protected String getCommandName() {
         if (getProjectType()==Constants.ARCHITECTURE_PROJECT_TYPE) {
             return "active_architecture_contests";
