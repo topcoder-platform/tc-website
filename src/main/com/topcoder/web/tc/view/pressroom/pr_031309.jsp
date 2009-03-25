@@ -40,7 +40,7 @@
                         <jsp:param name="title" value="Press Release"/>
                     </jsp:include>
                     
-<div align="right"><tc-webtag:forumLink forumID="525296" message="Discuss this press release" /></div>
+<div align="right"><tc-webtag:forumLink forumID="526937" message="Discuss this press release" /></div>
                         
 <div align="center">
 <p><span class="bodyTitle">Crowdsourcing Guru Jeff Howe Interview with TopCoder</span><br />

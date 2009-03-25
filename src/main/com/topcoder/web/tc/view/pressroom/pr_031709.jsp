@@ -40,7 +40,7 @@
                         <jsp:param name="title" value="Press Release"/>
                     </jsp:include>
                     
-<div align="right"><tc-webtag:forumLink forumID="525296" message="Discuss this press release" /></div>
+<div align="right"><tc-webtag:forumLink forumID="526936" message="Discuss this press release" /></div>
                         
 <div align="center">
 <p><span class="bodyTitle">Julian Birkinshaw of London Business School Interview with TopCoder</span><br />
