@@ -23,80 +23,80 @@ import javax.naming.Context;
 public class ReliabilityCalculator implements IReliabilityCalculator {
     protected static final Logger log = Logger.getLogger(ReliabilityRating.class);
 
-	public static final int MIN_PASSING_SCORE = 75;
+    public static final int MIN_PASSING_SCORE = 75;
     public static final int MIN_RELIABLE_SCORE = 75;
 
     private static final int RELIABLE_COUNT_IDX = 0;
     private static final int PROJECT_COUNT_IDX = 1;
     private static final int MARKED_COUNT_IDX = 2;
 
-	/* BUGR-852 modification */
+    /* BUGR-852 modification */
     private static final int BEFORE_PIVOT_PROJECT_COUNT_IDX = 3;
     private static final int BEFORE_PIVOT_MARKED_COUNT_IDX = 4;
 
 
     private static final String updateProjectResult =
         "UPDATE project_result SET old_reliability = ?, new_reliability = ?, current_reliability_ind = ? " +
-                " WHERE project_id = ? and user_id = ? ";
+        " WHERE project_id = ? and user_id = ? ";
 
-	private static final String updateCurrentReliability = "update project_result set current_reliability_ind = ? " +
-	        " WHERE project_id = ? and user_id = ? ";
-	
-	private static final String updateUserReliability =
-	        "update user_reliability set rating = ? where user_id = ? and phase_id = ?";
-	
-	private static final String insertUserReliability =
-	        "insert into user_reliability (rating, user_id, phase_id) values (?,?,?)";
-	
-	private static final String clearCurrentReliability = "update project_result set current_reliability_ind = 0 where project_id in " +
-	        "(select project_id from project where project_category_id+111 = ?)";
+    private static final String updateCurrentReliability = "update project_result set current_reliability_ind = ? " +
+        " WHERE project_id = ? and user_id = ? ";
+
+    private static final String updateUserReliability =
+        "update user_reliability set rating = ? where user_id = ? and phase_id = ?";
+
+    private static final String insertUserReliability =
+        "insert into user_reliability (rating, user_id, phase_id) values (?,?,?)";
+
+    private static final String clearCurrentReliability = "update project_result set current_reliability_ind = 0 where project_id in " +
+        "(select project_id from project where project_category_id+111 = ?)";
 
     private final static String markIncluded =
         "update project_result " +
-                "set reliability_ind = 1 " +
-                "where reliability_ind is null " +
-                "and final_score >= ? "+
-                " and project_id in (select project_id from project where project_category_id = ?) ";
+        "set reliability_ind = 1 " +
+        "where reliability_ind is null " +
+        "and final_score >= ? "+
+        " and project_id in (select project_id from project where project_category_id = ?) ";
 
     private final static String getUnmarked =
         "select pr.user_id, pr.project_id, p.project_category_id, ci.create_time " +
-                " from project_result pr " +
-                " , project p " +
-                " , component_inquiry ci " +
-                "where ((pr.final_score is not null " +
-                "and pr.final_score < ?) " +
-                "or (pr.final_score is null and p.project_status_id in (4,5,6,7))) " +
-                "and pr.reliability_ind is null  " +
-                "and pr.project_id = p.project_id " +
-                "and ci.project_id = pr.project_id " +
-                "and ci.user_id = pr.user_id " +
-                " and p.project_category_id = ? " +
-                " order by ci.create_time";
+        " from project_result pr " +
+        " , project p " +
+        " , component_inquiry ci " +
+        "where ((pr.final_score is not null " +
+        "and pr.final_score < ?) " +
+        "or (pr.final_score is null and p.project_status_id in (4,5,6,7))) " +
+        "and pr.reliability_ind is null  " +
+        "and pr.project_id = p.project_id " +
+        "and ci.project_id = pr.project_id " +
+        "and ci.user_id = pr.user_id " +
+        " and p.project_category_id = ? " +
+        " order by ci.create_time";
 
     private final static String setReliability =
         "update project_result set reliability_ind = ? where project_id = ? and user_id = ?";
 
     /* BUGR-852 modification: add one item 'pi.scheduled_start_time' in the select clause */
     private static final String priorProjects =
-            "select pr.reliability_ind, pr.project_id, pr.user_id, pi.scheduled_start_time " +
-                    "from component_inquiry ci " +
-                    ", project_result pr " +
-                    ", project p " +
-                    ", project_phase pi " + 	// BUGR-852 modification: add this line
-                    "where ci.user_id = ? " +
-                    "and p.project_id = pr.project_id " +
-                    "and pr.user_id = ci.user_id " +
-                    "and p.project_category_id = ? " +
-                    "and pr.project_id = ci.project_id " +
-                    "and pi.project_id = p.project_id " +
-                    "and pi.phase_type_id = 1 " +
-                    "and ci.create_time < (select create_time " +
-                    "from component_inquiry " +
-                    "where user_id = ci.user_id " +
-                    "and project_id = ?)";
+        "select pr.reliability_ind, pr.project_id, pr.user_id, pi.scheduled_start_time " +
+        "from component_inquiry ci " +
+        ", project_result pr " +
+        ", project p " +
+        ", project_phase pi " +         // BUGR-852 modification: add this line
+        "where ci.user_id = ? " +
+        "and p.project_id = pr.project_id " +
+        "and pr.user_id = ci.user_id " +
+        "and p.project_category_id = ? " +
+        "and pr.project_id = ci.project_id " +
+        "and pi.project_id = p.project_id " +
+        "and pi.phase_type_id = 1 " +
+        "and ci.create_time < (select create_time " +
+        "from component_inquiry " +
+        "where user_id = ci.user_id " +
+        "and project_id = ?)";
 
     public void calculateReliability(Connection conn, int historyLength, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
-    	log.info("Calculating reliability for competition type " + competitionTypeId);
+        log.info("Calculating reliability for competition type " + competitionTypeId);
 
         int incExMarked = markForInclusionAndExclusion(conn, competitionTypeId, startDate, pivotDate);
         log.info(incExMarked + " records marked for inclusion/exclusion");
@@ -114,30 +114,30 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
         log.info(oldUpdated + " old records updated");
 
         int updated = updateReliability(conn, users, historyLength, competitionTypeId, startDate, pivotDate);
-        log.info(updated + " new project result competitor records updated");    	
+        log.info(updated + " new project result competitor records updated");
 
-    	log.info("Finished calculating reliability for competition type " + competitionTypeId);
+        log.info("Finished calculating reliability for competition type " + competitionTypeId);
     }
 
 
-	/**
-	 * mark all the records that should be included in the reliability calculations
-	 * <p/>
-	 * NOTE:  nothing will be marked if it is not currently unmarked, meaning
-	 * it is unmarked if reliability_ind = null
-	 * <p/>
-	 * the simple case is when they score at least the min passing score.  in this
-	 * case, they get marked for inclusion.
-	 * <p/>
-	 * it gets trickier for those that have not reached the min passing score.  in
-	 * that case, if they have a prior project that is included, then this project
-	 * will also be included.  however, if all prior projects (based on register date)
-	 * have not been included this this one should not be included either.
-	 *
-	 * @param conn
-	 * @return how many records we marked
-	 * @throws SQLException
-	 */
+    /**
+     * mark all the records that should be included in the reliability calculations
+     * <p/>
+     * NOTE:  nothing will be marked if it is not currently unmarked, meaning
+     * it is unmarked if reliability_ind = null
+     * <p/>
+     * the simple case is when they score at least the min passing score.  in this
+     * case, they get marked for inclusion.
+     * <p/>
+     * it gets trickier for those that have not reached the min passing score.  in
+     * that case, if they have a prior project that is included, then this project
+     * will also be included.  however, if all prior projects (based on register date)
+     * have not been included this this one should not be included either.
+     *
+     * @param conn
+     * @return how many records we marked
+     * @throws SQLException
+     */
     protected int markForInclusionAndExclusion(Connection conn, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
@@ -162,8 +162,8 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
                 ps3.clearParameters();
                 ps3.setLong(2, unmarked.getLong("project_id"));
                 ps3.setLong(3, unmarked.getLong("user_id"));
-                int[] info = getPriorProjects(conn, unmarked.getLong("user_id"), 
-                		unmarked.getLong("project_id"), unmarked.getInt("project_category_id"), pivotDate);
+                int[] info = getPriorProjects(conn, unmarked.getLong("user_id"),
+                                              unmarked.getLong("project_id"), unmarked.getInt("project_category_id"), pivotDate);
 
                 if (info[RELIABLE_COUNT_IDX] > 0) {
                     //if they have previously had projects that were reliable, then this one counts
@@ -174,17 +174,17 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
                     ps3.setInt(1, 0);
                     ret += ps3.executeUpdate();
                 } else if (info[BEFORE_PIVOT_PROJECT_COUNT_IDX] == info[BEFORE_PIVOT_MARKED_COUNT_IDX]) {
-                	/* BUGR-852 modification: add this 'else if' clause */
-                	// if all prior projects which created before the pivot date are not included in reliability,
-                	// and some prior projects created after the pivot date are still incomplete,
-                	// this one should be marked with 0 (not included in reliability) immediately.
-                	ps3.setInt(1, 0);
-                	ret += ps3.executeUpdate();
+                    /* BUGR-852 modification: add this 'else if' clause */
+                    // if all prior projects which created before the pivot date are not included in reliability,
+                    // and some prior projects created after the pivot date are still incomplete,
+                    // this one should be marked with 0 (not included in reliability) immediately.
+                    ps3.setInt(1, 0);
+                    ret += ps3.executeUpdate();
                 } else {
-                	/* BUGR-852 modification: modify the comments below */
+                    /* BUGR-852 modification: modify the comments below */
                     // we don't know enough yet to mark them as either included or excluded.  basically, they have at least
                     // one project prior to this one and created before pivot date that isn't complete, so we can't decide
-                	// on this one yet. (we should decide after all the projects created before pivot date are complete.)
+                    // on this one yet. (we should decide after all the projects created before pivot date are complete.)
                     log.info("got " + info[RELIABLE_COUNT_IDX] + " " + info[PROJECT_COUNT_IDX] + " " + info[MARKED_COUNT_IDX] + " " + unmarked.getLong("user_id") + " " + unmarked.getLong("project_id"));
                 }
             }
@@ -197,8 +197,8 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
         return ret;
     }
 
-    
-    
+
+
     /**
      * this first query is for projects before our reliability rule change.
      * in this case, anyone that has made a submission where reliabilty was in effect
@@ -212,28 +212,28 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
      * submissions will count against them the next time they submit.
      */
     private static final String includedUsers =
-            " select distinct pr.user_id" +
-                    " from project_result pr" +
-                    " , project_phase pi" +
-                    " , project p" +
-                    " where pr.project_id = pi.project_id" +
-                    " and pi.phase_type_id = 2" +
-                    " and pi.scheduled_start_time < ?" +
-                    " and pr.reliability_ind = 1" +
-                    " and pr.project_id = p.project_id" +
-                    " and p.project_category_id+111=?" +
-                    " union" +
-                    " select distinct pr.user_id" +
-                    " from project_result pr" +
-                    " , project_phase pi" +
-                    " , project p" +
-                    " where pr.project_id = pi.project_id" +
-                    " and pi.phase_type_id = 2" +
-                    " and pi.scheduled_start_time >= ?" +
-                    " and pr.reliability_ind = 1" +
-                    " and pr.final_score >= ?" +
-                    " and pr.project_id = p.project_id" +
-                    " and p.project_category_id+111=?";
+        " select distinct pr.user_id" +
+        " from project_result pr" +
+        " , project_phase pi" +
+        " , project p" +
+        " where pr.project_id = pi.project_id" +
+        " and pi.phase_type_id = 2" +
+        " and pi.scheduled_start_time < ?" +
+        " and pr.reliability_ind = 1" +
+        " and pr.project_id = p.project_id" +
+        " and p.project_category_id+111=?" +
+        " union" +
+        " select distinct pr.user_id" +
+        " from project_result pr" +
+        " , project_phase pi" +
+        " , project p" +
+        " where pr.project_id = pi.project_id" +
+        " and pi.phase_type_id = 2" +
+        " and pi.scheduled_start_time >= ?" +
+        " and pr.reliability_ind = 1" +
+        " and pr.final_score >= ?" +
+        " and pr.project_id = p.project_id" +
+        " and p.project_category_id+111=?";
 
     protected Set<Long> getIncludedUsers(Connection conn, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
         PreparedStatement ps = null;
@@ -262,40 +262,40 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
 
     private static final String getNewRecordsToMark =
         " select pr.user_id" +
-                " , pr.project_id" +
-                " , pr.final_score" +
-                " from project_result pr" +
-                " , project_phase pi" +
-                " , project p" +
-                " where pr.project_id = pi.project_id" +
-                " and pi.phase_type_id = 2" +
-                " and p.project_id = pr.project_id " +
-                " and p.project_category_id = ? " +
-                " and pi.scheduled_start_time >= ?" +
-                " and pr.reliability_ind = 1" +
-                " and pr.reliable_submission_ind is null";
+        " , pr.project_id" +
+        " , pr.final_score" +
+        " from project_result pr" +
+        " , project_phase pi" +
+        " , project p" +
+        " where pr.project_id = pi.project_id" +
+        " and pi.phase_type_id = 2" +
+        " and p.project_id = pr.project_id " +
+        " and p.project_category_id = ? " +
+        " and pi.scheduled_start_time >= ?" +
+        " and pr.reliability_ind = 1" +
+        " and pr.reliable_submission_ind is null";
 
-	private static final String updateReliableSubmission =
-	        "update project_result set reliable_submission_ind = ?" +
-	                "where user_id = ? and project_id = ?";
-	
-	/**
-	 * mark all the project result records after the change date
-	 * as reliable or not reliable as appropriate.
-	 * <p/>
-	 * that means mark everyone that did a project that started
-	 * after the change date, (1) that has a final score populated
-	 * that is greater than or equal to the min reliability score,
-	 * (2)that should be included inthe calc (reliability_ind)
-	 * and (3) has reliable_submission_ind flag that is null set the
-	 * reliable_submission_ind flag to 1.  if the record
-	 * meets three of those criteria but scores less than the min
-	 * reliable score, then set to 0.
-	 *
-	 * @param conn
-	 * @return the number of records marked
-	 * @throws SQLException
-	 */
+    private static final String updateReliableSubmission =
+        "update project_result set reliable_submission_ind = ?" +
+        "where user_id = ? and project_id = ?";
+
+    /**
+     * mark all the project result records after the change date
+     * as reliable or not reliable as appropriate.
+     * <p/>
+     * that means mark everyone that did a project that started
+     * after the change date, (1) that has a final score populated
+     * that is greater than or equal to the min reliability score,
+     * (2)that should be included inthe calc (reliability_ind)
+     * and (3) has reliable_submission_ind flag that is null set the
+     * reliable_submission_ind flag to 1.  if the record
+     * meets three of those criteria but scores less than the min
+     * reliable score, then set to 0.
+     *
+     * @param conn
+     * @return the number of records marked
+     * @throws SQLException
+     */
     protected int markNewReliableResults(Connection conn, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
@@ -333,31 +333,31 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
 
     private static final String getOldRecordsToMark =
         " select pr.user_id" +
-                " , pr.project_id" +
-                " , pr.valid_submission_ind" +
-                " from project_result pr" +
-                " , project_phase pi" +
-                " , project p" +
-                " where pr.project_id = pi.project_id" +
-                " and pr.project_id = p.project_id " +
-                " and pi.phase_type_id = 2" +
-                " and pi.scheduled_start_time < ?" +
-                " and p.project_category_id = ? "+
-                " and pr.reliability_ind = 1" +
-                " and pr.reliable_submission_ind is null";
+        " , pr.project_id" +
+        " , pr.valid_submission_ind" +
+        " from project_result pr" +
+        " , project_phase pi" +
+        " , project p" +
+        " where pr.project_id = pi.project_id" +
+        " and pr.project_id = p.project_id " +
+        " and pi.phase_type_id = 2" +
+        " and pi.scheduled_start_time < ?" +
+        " and p.project_category_id = ? "+
+        " and pr.reliability_ind = 1" +
+        " and pr.reliable_submission_ind is null";
 
-	/**
-	 * mark all the project result records before the change date
-	 * as reliable or not reliable as appropriate.
-	 * <p/>
-	 * that means mark everyone that did a project that started
-	 * before the change date that should be included in the calculation
-	 * to 1 if it's a valid submission and 0 if not.
-	 *
-	 * @param conn
-	 * @return the number of records marks
-	 * @throws SQLException
-	 */
+    /**
+     * mark all the project result records before the change date
+     * as reliable or not reliable as appropriate.
+     * <p/>
+     * that means mark everyone that did a project that started
+     * before the change date that should be included in the calculation
+     * to 1 if it's a valid submission and 0 if not.
+     *
+     * @param conn
+     * @return the number of records marks
+     * @throws SQLException
+     */
     protected int markOldReliableResults(Connection conn, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
@@ -387,38 +387,38 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
 
     private static final String oldReliabilityData =
         " select pr.reliable_submission_ind" +
-                " , ci.create_time" +
-                " , pr.project_id" +
-                " from project_result pr" +
-                " , component_inquiry ci" +
-                " , project_phase pi" +
-                " , project p" +
-                " where ci.project_id = pr.project_id" +
-                " and pr.user_id = ci.user_id" +
-                " and p.project_id = pr.project_id " +
-                " and pr.user_id = ?" +
-                " and pi.phase_type_id = 2" +
-                " and pi.scheduled_start_time < ?" +
-                " and pi.project_id = pr.project_id" +
-                " and pr.reliability_ind = 1" +
-                " and pr.reliable_submission_ind is not null" +
-                " and p.project_category_id = ? " +
-                " order by ci.create_time asc";
+        " , ci.create_time" +
+        " , pr.project_id" +
+        " from project_result pr" +
+        " , component_inquiry ci" +
+        " , project_phase pi" +
+        " , project p" +
+        " where ci.project_id = pr.project_id" +
+        " and pr.user_id = ci.user_id" +
+        " and p.project_id = pr.project_id " +
+        " and pr.user_id = ?" +
+        " and pi.phase_type_id = 2" +
+        " and pi.scheduled_start_time < ?" +
+        " and pi.project_id = pr.project_id" +
+        " and pr.reliability_ind = 1" +
+        " and pr.reliable_submission_ind is not null" +
+        " and p.project_category_id = ? " +
+        " order by ci.create_time asc";
 
-	//all the people that became part of the reliability process prior to the change date
-	private static final String oldReliabilityUsers =
-	        " select distinct pr.user_id" +
-	                " from project_result pr" +
-	                " , project_phase pi" +
-	                " , project p" +
-	                " where pi.phase_type_id = 2" +
-	                " and p.project_id = pr.project_id " +
-	                " and pi.scheduled_start_time < ?" +
-	                " and pi.project_id = pr.project_id" +
-	                " and pr.reliable_submission_ind is not null" +
-	                " and p.project_category_id = ? " +
-	                " and pr.reliability_ind = 1";
-	
+    //all the people that became part of the reliability process prior to the change date
+    private static final String oldReliabilityUsers =
+        " select distinct pr.user_id" +
+        " from project_result pr" +
+        " , project_phase pi" +
+        " , project p" +
+        " where pi.phase_type_id = 2" +
+        " and p.project_id = pr.project_id " +
+        " and pi.scheduled_start_time < ?" +
+        " and pi.project_id = pr.project_id" +
+        " and pr.reliable_submission_ind is not null" +
+        " and p.project_category_id = ? " +
+        " and pr.reliability_ind = 1";
+
     protected int updateOldProjectResult(Connection conn, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
         int ret = 0;
         PreparedStatement ps = null;
@@ -494,7 +494,7 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
      */
     protected int updateReliability(Connection conn, Set<Long> users, int historyLength, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
         log.info("updateReliability(conn, users, " + historyLength + ", " + competitionTypeId + ") called");
-    	int phaseId = competitionTypeId + 111;
+        int phaseId = competitionTypeId + 111;
         int ret = 0;
         PreparedStatement ps2 = null;
         PreparedStatement insert = null;
@@ -516,9 +516,9 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
 
             for (long userId : users) {
                 try {
-                	List<ReliabilityInstance> history = retrieveReliabilityHistory(conn, userId, historyLength, competitionTypeId, startDate, pivotDate);
-                	history = computeReliabilityHistory(history, historyLength);
-                    
+                    List<ReliabilityInstance> history = retrieveReliabilityHistory(conn, userId, historyLength, competitionTypeId, startDate, pivotDate);
+                    history = computeReliabilityHistory(history, historyLength);
+
                     ReliabilityInstance instance = null;
                     for (Iterator<ReliabilityInstance> records = history.iterator(); records.hasNext();) {
                         instance = records.next();
@@ -576,59 +576,59 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
         return ret;
     }
 
-    
+
     /* BUGR-852 modification: change 'reliabilityDate' to 'reliabilityDataBeforePivot', and add 'reliabilityDataAfterPivot' */
     private static final String reliabilityDataBeforePivot =
-            " select pr.reliable_submission_ind" +
-                    " , ci.create_time" +
-                    " , pr.project_id" +
-                    " , case when pi.scheduled_start_time >= ? then 1 else 0 end as after_start_flag" +
-                    " from project_result pr" +
-                    " , component_inquiry ci" +
-                    " , project_phase pi" +
-                    " , project_phase pi2" +
-                    " , project p" +
-                    " where ci.project_id = pr.project_id" +
-                    " and pr.user_id = ci.user_id" +
-                    " and pr.project_id = p.project_id" +
-                    " and pr.user_id = ?" +
-                    " and p.project_category_id+111 = ?" +
-                    " and pr.project_id = pi.project_id" +
-                    " and pi.phase_type_id = 2" + // phase type 2 is submission
-                    " and pr.project_id = pi2.project_id" +
-                    " and pi2.phase_type_id = 4" + // phase type 4 is review
-                    " and (p.project_status_id IN (4,5,6,7) " +
-                    "	OR (p.project_status_id = 1 and pi2.phase_status_id = 3))" +
-                    " and pr.reliability_ind = 1" +
-                    " and pr.reliable_submission_ind is not null" +
-                    " and pi.scheduled_start_time <= ?" + // BUGR-852 modification: scheduled_start_time should be not greater than pivot date 
-                    " order by ci.create_time asc";
+        " select pr.reliable_submission_ind" +
+        " , ci.create_time" +
+        " , pr.project_id" +
+        " , case when pi.scheduled_start_time >= ? then 1 else 0 end as after_start_flag" +
+        " from project_result pr" +
+        " , component_inquiry ci" +
+        " , project_phase pi" +
+        " , project_phase pi2" +
+        " , project p" +
+        " where ci.project_id = pr.project_id" +
+        " and pr.user_id = ci.user_id" +
+        " and pr.project_id = p.project_id" +
+        " and pr.user_id = ?" +
+        " and p.project_category_id+111 = ?" +
+        " and pr.project_id = pi.project_id" +
+        " and pi.phase_type_id = 2" + // phase type 2 is submission
+        " and pr.project_id = pi2.project_id" +
+        " and pi2.phase_type_id = 4" + // phase type 4 is review
+        " and (p.project_status_id IN (4,5,6,7) " +
+        "       OR (p.project_status_id = 1 and pi2.phase_status_id = 3))" +
+        " and pr.reliability_ind = 1" +
+        " and pr.reliable_submission_ind is not null" +
+        " and pi.scheduled_start_time <= ?" + // BUGR-852 modification: scheduled_start_time should be not greater than pivot date
+        " order by ci.create_time asc";
 
     private static final String reliabilityDataAfterPivot =
-	        " select pr.reliable_submission_ind" +
-	                " , ci.create_time" +
-	                " , pr.project_id" +
-	                " , case when pi.scheduled_start_time >= ? then 1 else 0 end as after_start_flag" +
-	                " from project_result pr" +
-	                " , component_inquiry ci" +
-	                " , project_phase pi" +
-	                " , project_phase pi2" +
-	                " , project p" +
-	                " where ci.project_id = pr.project_id" +
-	                " and pr.user_id = ci.user_id" +
-	                " and pr.project_id = p.project_id" +
-	                " and pr.user_id = ?" +
-	                " and p.project_category_id+111 = ?" +
-	                " and pr.project_id = pi.project_id" +
-	                " and pi.phase_type_id = 2" + // phase type 2 is submission
-	                " and pr.project_id = pi2.project_id" +
-	                " and pi2.phase_type_id = 4" + // phase type 4 is review
-	                " and (p.project_status_id IN (4,5,6,7) " +
-	                "	OR (p.project_status_id = 1 and pi2.phase_status_id = 3))" +
-	                " and pr.reliability_ind = 1" +
-	                " and pr.reliable_submission_ind is not null" +
-	                " and pi.scheduled_start_time > ?" + // BUGR-852 modification: scheduled_start_time should be greater than pivot date
-	                " order by pr.modify_date asc"; // BUGR-852 modification: sort by pr.modify_date
+        " select pr.reliable_submission_ind" +
+        " , ci.create_time" +
+        " , pr.project_id" +
+        " , case when pi.scheduled_start_time >= ? then 1 else 0 end as after_start_flag" +
+        " from project_result pr" +
+        " , component_inquiry ci" +
+        " , project_phase pi" +
+        " , project_phase pi2" +
+        " , project p" +
+        " where ci.project_id = pr.project_id" +
+        " and pr.user_id = ci.user_id" +
+        " and pr.project_id = p.project_id" +
+        " and pr.user_id = ?" +
+        " and p.project_category_id+111 = ?" +
+        " and pr.project_id = pi.project_id" +
+        " and pi.phase_type_id = 2" + // phase type 2 is submission
+        " and pr.project_id = pi2.project_id" +
+        " and pi2.phase_type_id = 4" + // phase type 4 is review
+        " and (p.project_status_id IN (4,5,6,7) " +
+        "       OR (p.project_status_id = 1 and pi2.phase_status_id = 3))" +
+        " and pr.reliability_ind = 1" +
+        " and pr.reliable_submission_ind is not null" +
+        " and pi.scheduled_start_time > ?" + // BUGR-852 modification: scheduled_start_time should be greater than pivot date
+        " order by pr.modify_date asc"; // BUGR-852 modification: sort by pr.modify_date
 
     protected List<ReliabilityInstance> retrieveReliabilityHistory(Connection conn, long userId, int historyLength, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
         PreparedStatement psBeforePivot = null;
@@ -636,22 +636,22 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
         ResultSet rsBeforePivot = null;
         ResultSet rsAfterPivot = null;
         List<ReliabilityInstance> history = new ArrayList<ReliabilityInstance>(10000);
-    	int phaseId = competitionTypeId + 111;
+        int phaseId = competitionTypeId + 111;
 
-    	
+
         try {
-        	/* BUGR-852 modification: select two parts and combine them */
-        	psBeforePivot = conn.prepareStatement(reliabilityDataBeforePivot);
-        	psBeforePivot.setDate(1, new java.sql.Date(startDate.getTime()));
-        	psBeforePivot.setLong(2, userId);
-        	psBeforePivot.setLong(3, phaseId);
-        	psBeforePivot.setDate(4, new java.sql.Date(pivotDate.getTime()));
-        	rsBeforePivot = psBeforePivot.executeQuery();
+            /* BUGR-852 modification: select two parts and combine them */
+            psBeforePivot = conn.prepareStatement(reliabilityDataBeforePivot);
+            psBeforePivot.setDate(1, new java.sql.Date(startDate.getTime()));
+            psBeforePivot.setLong(2, userId);
+            psBeforePivot.setLong(3, phaseId);
+            psBeforePivot.setDate(4, new java.sql.Date(pivotDate.getTime()));
+            rsBeforePivot = psBeforePivot.executeQuery();
             while (rsBeforePivot.next()) {
                 history.add(new ReliabilityInstance(rsBeforePivot.getLong("project_id"),
-                        userId, rsBeforePivot.getInt("reliable_submission_ind") == 1, rsBeforePivot.getInt("after_start_flag") == 1));
+                                                    userId, rsBeforePivot.getInt("reliable_submission_ind") == 1, rsBeforePivot.getInt("after_start_flag") == 1));
             }
-            
+
             psAfterPivot = conn.prepareStatement(reliabilityDataAfterPivot);
             psAfterPivot.setDate(1, new java.sql.Date(startDate.getTime()));
             psAfterPivot.setLong(2, userId);
@@ -660,7 +660,7 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
             rsAfterPivot = psAfterPivot.executeQuery();
             while (rsAfterPivot.next()) {
                 history.add(new ReliabilityInstance(rsAfterPivot.getLong("project_id"),
-                        userId, rsAfterPivot.getInt("reliable_submission_ind") == 1, rsAfterPivot.getInt("after_start_flag") == 1));
+                                                    userId, rsAfterPivot.getInt("reliable_submission_ind") == 1, rsAfterPivot.getInt("after_start_flag") == 1));
             }
 
         } finally {
@@ -669,7 +669,7 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
             close(rsAfterPivot);
             close(psAfterPivot);
         }
-        
+
         return history;
     }
 
@@ -714,14 +714,14 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
 
             if (i > 0) {
                 history.get(i).setRecentOldReliability(
-                        history.get(i - 1).getRecentNewReliability());
+                                                       history.get(i - 1).getRecentNewReliability());
                 history.get(i).setOldReliability(
-                        history.get(i - 1).getNewReliability());
+                                                 history.get(i - 1).getNewReliability());
             }
             history.get(i).setRecentNewReliability(newRel);
             history.get(i).setNewReliability(fullNewRel);
         }
-        
+
         return history;
     }
 
@@ -731,9 +731,9 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-    	/* BUGR-852 modification: change int[3] to int[5] */
+        /* BUGR-852 modification: change int[3] to int[5] */
         int[] ret = new int[5];
-        
+
         Arrays.fill(ret, 0);
         try {
 
@@ -743,26 +743,26 @@ public class ReliabilityCalculator implements IReliabilityCalculator {
             ps.setLong(3, projectId);
             rs = ps.executeQuery();
             while (rs.next()) {
-            	
-            	/* BUGR-852 modification */
-            	boolean isBeforePivot = rs.getDate("scheduled_start_time").before(pivotDate);
-            	
+
+                /* BUGR-852 modification */
+                boolean isBeforePivot = rs.getDate("scheduled_start_time").before(pivotDate);
+
                 ret[PROJECT_COUNT_IDX]++;
-                
-            	/* BUGR-852 modification */
+
+                /* BUGR-852 modification */
                 if(isBeforePivot) {
-                	ret[BEFORE_PIVOT_PROJECT_COUNT_IDX]++;
+                    ret[BEFORE_PIVOT_PROJECT_COUNT_IDX]++;
                 }
-                
+
                 ret[RELIABLE_COUNT_IDX] += rs.getInt("reliability_ind");
                 if (rs.getString("reliability_ind") != null) {
                     ret[MARKED_COUNT_IDX]++;
-                    
+
                     /* BUGR-852 modification */
                     if(isBeforePivot) {
-                    	ret[BEFORE_PIVOT_MARKED_COUNT_IDX]++;
+                        ret[BEFORE_PIVOT_MARKED_COUNT_IDX]++;
                     }
-                    
+
                 }
             }
         } finally {
