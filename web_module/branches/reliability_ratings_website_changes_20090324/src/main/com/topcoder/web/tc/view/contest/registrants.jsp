@@ -149,9 +149,7 @@
             <td class="cat" nowrap="nowrap">Contest:</td>
             <td class="stat" align="right" nowrap="nowrap">
                 <rsc:item name="component_name" set="<%=registrants%>"/>
-                <c:if test="${pt == DESIGN_PROJECT_TYPE or pt == DEVELOPMENT_PROJECT_TYPE}">
-                	<rsc:item name="version_text" set="<%=registrants%>"/>
-                </c:if>
+               	<rsc:item name="version_text" set="<%=registrants%>"/>
             </td>
         </tr>
         <c:if test="${pt == DESIGN_PROJECT_TYPE or pt == DEVELOPMENT_PROJECT_TYPE}">
@@ -181,10 +179,8 @@
         <tr><td class="tableTitle" colspan="10">Registrants</td></tr>
         <tr>
             <td CLASS="tableHeader">Handle</td>
-            <c:if test="${pt == DESIGN_PROJECT_TYPE or pt == DEVELOPMENT_PROJECT_TYPE}">
-                <td CLASS="tableHeader" align="right">Rating</td>
-                <td CLASS="tableHeader" align="right">Reliability</td>
-            </c:if>
+            <td CLASS="tableHeader" align="right">Rating</td>
+            <td CLASS="tableHeader" align="right">Reliability</td>
             <td CLASS="tableHeader" align="center">Registration Date</td>
             <td CLASS="tableHeader" align="center">Submission Date</td>
          </tr>
@@ -198,19 +194,32 @@
                 <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE || pt == COMPONENT_TESTING_PROJECT_TYPE}">
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Development'/>
                 </c:when>
+                <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Conceptualization'/>
+                </c:when>
+                <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Specification'/>
+                </c:when>
+                <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Architecture'/>
+                </c:when>
+                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Assembly'/>
+                </c:when>
+                <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Application_Testing'/>
+                </c:when>
                 <c:otherwise>
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=(resultRow.getIntItem("dev_rating") > resultRow.getIntItem("des_rating") ? "Development" : "Design")%>'/>
                 </c:otherwise>        
             </c:choose>
               </td>
-             <c:if test="${pt == DESIGN_PROJECT_TYPE or pt == DEVELOPMENT_PROJECT_TYPE}">
-                  <td class="statDk" align="right" nowrap="0">
-                      <rsc:item name="rating" row="<%=resultRow%>" format="####" ifNull="not rated"/>
-                  </td>
-                  <td class="statDk" align="right" nowrap="0">
-                      <rsc:item name="reliability" row="<%=resultRow%>" format="#.##%" ifNull="n/a"/>
-                  </td>
-              </c:if>
+              <td class="statDk" align="right" nowrap="0">
+                  <rsc:item name="rating" row="<%=resultRow%>" format="####" ifNull="not rated"/>
+              </td>
+              <td class="statDk" align="right" nowrap="0">
+                  <rsc:item name="reliability" row="<%=resultRow%>" format="#.##%" ifNull="n/a"/>
+              </td>
               <td class="statDk" align="center" nowrap="0">
                   <rsc:item name="inquiry_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
               </td>
