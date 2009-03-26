@@ -36,7 +36,6 @@ public class ReliabilityRating {
      */
     public static final Date NEW_PHASE_DATE = getDate(2009, Calendar.MARCH, 23, 0, 0);
 
-
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
 
@@ -85,35 +84,33 @@ public class ReliabilityRating {
         try {
             Class.forName(jdbcDriver);
             c = DriverManager.getConnection(connectionURL);
-            
+
             IReliabilityCalculator rc = new ReliabilityCalculator();
 
             // Design
-        	rc.calculateReliability(c, historyLength, 1, START_DATE, PIVOT_DATE);
-        	
-        	// Development
-        	rc.calculateReliability(c, historyLength, 2, START_DATE, PIVOT_DATE);
+            rc.calculateReliability(c, historyLength, 1, START_DATE, PIVOT_DATE);
+
+            // Development
+            rc.calculateReliability(c, historyLength, 2, START_DATE, PIVOT_DATE);
 
             rc = new PostPivotReliabilityCalculator();
-        	
-        	// Conceptualization
-        	rc.calculateReliability(c, historyLength, 23, NEW_PHASE_DATE, NEW_PHASE_DATE);
-        	
-        	// Specification
-        	rc.calculateReliability(c, historyLength, 6, NEW_PHASE_DATE, NEW_PHASE_DATE);
-        	
-        	// Architecture
-        	rc.calculateReliability(c, historyLength, 7, NEW_PHASE_DATE, NEW_PHASE_DATE);
-        	
-        	// Assembly
-        	rc.calculateReliability(c, historyLength, 14, NEW_PHASE_DATE, NEW_PHASE_DATE);
-        	
-        	// Application Testing
-        	rc.calculateReliability(c, historyLength, 13, NEW_PHASE_DATE, NEW_PHASE_DATE);
 
-            
+            // Conceptualization
+            rc.calculateReliability(c, historyLength, 23, NEW_PHASE_DATE, NEW_PHASE_DATE);
+
+            // Specification
+            rc.calculateReliability(c, historyLength, 6, NEW_PHASE_DATE, NEW_PHASE_DATE);
+
+            // Architecture
+            rc.calculateReliability(c, historyLength, 7, NEW_PHASE_DATE, NEW_PHASE_DATE);
+
+            // Assembly
+            rc.calculateReliability(c, historyLength, 14, NEW_PHASE_DATE, NEW_PHASE_DATE);
+
+            // Application Testing
+            rc.calculateReliability(c, historyLength, 13, NEW_PHASE_DATE, NEW_PHASE_DATE);
         } catch (SQLException e) {
-        	DBMS.printException(e);
+                DBMS.printException(e);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -125,9 +122,6 @@ public class ReliabilityRating {
         }
        log.info("ran in " + (float) (System.currentTimeMillis() - start) / (float) 1000 + " seconds");
     }
-
-
-
 
     private static Date getDate(int year, int month, int day, int hour, int minute) {
         Calendar cal = Calendar.getInstance();
