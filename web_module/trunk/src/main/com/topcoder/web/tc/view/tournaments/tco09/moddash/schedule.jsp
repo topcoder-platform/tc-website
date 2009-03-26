@@ -117,7 +117,7 @@
                                                                             <td class="first last alignText">Round 1</td>
                                                                             <td class="first last alignText">Tuesday, June 2, 2009<br />
                                                                             10:30 a.m. - 12:00 p.m.***</td>
-                                                                            <td class="first last alignText">10</td>
+                                                                            <td class="first last alignText">8</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
@@ -125,7 +125,7 @@
                                                                             <td class="first last alignText">Round 2</td>
                                                                             <td class="first last alignText">Wednesday, June 3, 2009<br />
                                                                             10:30 a.m. - 12:00 p.m.***</td>
-                                                                            <td class="first last alignText">10</td>
+                                                                            <td class="first last alignText">8</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
@@ -133,7 +133,7 @@
                                                                             <td class="first last alignText">Round 3</td>
                                                                             <td class="first last alignText">Thursday, June 4, 2009<br />
                                                                               9:30 a.m. - 11:00 a.m.***</td>
-                                                                            <td class="first last alignText">10</td>
+                                                                            <td class="first last alignText">8</td>
                                                                             <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                     </table>
