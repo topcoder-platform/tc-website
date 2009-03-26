@@ -1,8 +1,4 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer,
-                 com.topcoder.web.common.BaseServlet, com.topcoder.web.common.SessionInfo" %>
-<%@ page language="java" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 		
@@ -176,12 +172,9 @@ $(document).ready(function(){
 		        
 		        <div id="engage-content">
 		            <div class="engage-right">
-						<p><strong>Take the Next Step &gt;&gt;</strong></p>
-		                <p><a id="btn-lets-talk" href="javascript:;"><img width="239" height="63" id="lets_talk" src="/i/innovate/btn_lets_talk.png" alt="" /><img width="239" height="63" id="lets_talk_grey" src="/i/innovate/btn_lets_talk_grey.png" alt="" style="display:none" /></a></p>		          
-						<p><strong>Seeing is Believing &gt;&gt;</strong></p>
-		                <div class="client-list"> <a href="http://www.topcoder.com/direct/blogs/?p=116"><img src="/i/innovate/espnfeatured.png" alt="Featured Client" width="255" height="65" border="0" /></a>
-		              
-						<p class="news-link"><a href="<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=pressroom&d2=pr_032509">TopCoder Named 2009 'Cool Vendor' for Application Development by Leading Analyst Firm</a></p>
+						<div class="client-list"> <a href="http://www.topcoder.com/direct/blogs/?p=116"><img src="/i/innovate/espnfeatured.png" alt="Featured Client" width="255" height="65" border="0" /></a>
+						
+		           		<p class="news-link"><a href="<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=pressroom&d2=pr_032509">TopCoder Named 2009 'Cool Vendor' for Application Development by Leading Analyst Firm</a></p>
 						<p class="news-link"><a href="<%=ApplicationServer.SERVER_NAME%>/direct/blogs/?p=206">Julian Birkinshaw of London Business School Interview with TopCoder &ndash; Exploring the Impact of Web 2.0 upon Management</a></p>
 						<p class="news-link"><a href="<%=ApplicationServer.SERVER_NAME%>/direct/blogs/?p=174">Crowdsourcing Guru Jeff Howe Interview with TopCoder &ndash; Crowdsourcing and Which Business Models Will Succeed</a></p>
 						
@@ -190,104 +183,23 @@ $(document).ready(function(){
 		            
 		            <div class="engage-left">
 		                <div id="engage-info">
-		                    <p class="info-title">Why is it that no matter how much money and how many people you throw at a problem, the results never seem to meet your expectations?</p>
-		                    <p>New customers have to be reached in an expanding number of ways &ndash; Internet, mobile and all things digital; existing customers have to be wooed with ever more valuable product and higher levels of service.</p>
-                            <p>Now, you can access an on-demand, economical, structured, secure resource base that can multiply your ability to get things done without breaking the bank. No longer do you have to choose between initiatives; now you can get far more done within the same budget limitations.</p>
-                        <br />
-                            
-                            <div class="info-list-row">
-		                        <div class="info-list left-list">
-		                            <img width="54" height="54" src="/i/innovate/icon_app_dev.png" alt="Application Development" />
-		                            <p class="info-list-title">Application Development</p>
-                                    <p class="info-list-desc">Build applications quickly by leveraging the TopCoder community and the largest catalog or reusable software components.</p>
-		                        </div>
-		                     	<div class="info-list">
-		                            <img width="54" height="54" src="/i/innovate/icon_creative_sol.png" alt="Creative Marketing and Social Media" />
-		                            <p class="info-list-title">Creative Marketing and Social Media</p>
-                                    <p class="info-list-desc">Have the community compete to create your next logo, banner ad, website, Flash demo or give your message exponential growth with the TopCoder viral bundle &ndash; the possibilities are endless.</p>
-		                        </div>
-		                    </div>
-		                    <br />
-		                    <div class="info-list-row">
-		                        <div class="info-list left-list">
-		                            <img width="54" height="54" src="/i/innovate/icon_idea_gen.png" alt="Idea Generation" />
-		                            <p class="info-list-title">Idea Generation and Problem Solving</p>
-                                    <p class="info-list-desc">Tap the creative or analytical minds of the TopCoder Community to help you drive your next innovation or solve your most complex problems.</p>
-		                        </div>
-		                    	<div class="info-list">
-		                            <img width="54" height="54" src="/i/innovate/icon_web_app.png" alt="Web Applications / Online Gaming" />
-	                            	<p class="info-list-title">Research and Development </p>
-                                  	<p class="info-list-desc">Looking to implement new ways to reach your customers &ndash; or looking for ideas? Tap into an online community to concept, design and create your next product.</p>									
-		                        </div>
-		                    </div>
-                            <p><strong>TopCoder, Inc.</strong></p>
-		                    <p>TopCoder is a new paradigm in meeting the needs of companies &ndash; large and small. TopCoder is the first massively parallel, deliverables-based solution for the development of all things digital. With hundreds of thousands of community members across the globe, every skill set from web design to development to operational system design and development are covered. TopCoder is the Platform that provides instant access to a wealth of resources.</p>
-                            <p>TopCoder has the resources to directly &lsquo;plug-in&rsquo; to your organization, vastly accelerating your ability to get things done. Because of TopCoder&rsquo;s unique approach, all of this can be done at a cost unmatched by others.</p>
-    		            </div>
-		                
-		                <div id="engage-contact">		                
-		                
-		                    <div class="tabs_content" id="tabsContent01">
-		                        <div class="content_columns">
-		                            <div>
-										<p class="contact-title">		                                    
-	                                        <span>However big or small your company, however big or small your problem,</span><br />
-	                                        <img alt="TopCoder can help you find the solution." src="/i/innovate/bnr_tc_solution.png" /><br />
-	                                        <span>Every day we work with Fortune 500 companies, small businesses and individuals alike, <br />helping them tap into the resources of our Global Community to tackle issues just like yours.</span><br /><br />
-	                                        <span class="title-info">Send us an email, and let's talk about how TopCoder can work for you!</span>
-		                                </p><br />
-		                                <div class="contact-left">
-		                                	<form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=utf-8" method="post">
-		                                		<input type="hidden" value="00D300000001UY4" name="oid" />
-                                                <input type="hidden" value="<%=ApplicationServer.SERVER_NAME%>/innovate/contactusSuccess.jsp" name="retURL" />
-                                                <input id="lead_source" type="hidden" value="CEO Mailing" name="lead_source" />
-                                           		<table id="contact-email-table" cellpadding="0" cellspacing="0">
-                                                	<tbody>
-														<tr>
-															<td><label for="first_name">First Name</label></td>
-															<td colspan="2"><input id="first_name" class="large" maxlength="80" name="first_name" /></td>
-														</tr>
-														<tr>
-															<td><label for="last_name">Last Name</label></td>
-															<td><input id="last_name" class="large" maxlength="80" name="last_name" /></td>
-														</tr>
-														<tr>
-															<td><label for="email">Your Email Address</label></td>
-															<td colspan="2"><input id="email" class="large" maxlength="80" name="email" /></td>
-													   </tr>
-													   <tr>
-															<td><label for="company">Company</label></td>
-															<td colspan="2"><input id="company" class="large" maxlength="40" name="company" /></td>
-													   </tr>
-													   <tr>
-															<td><label for="state">State/Province</label></td>
-															<td colspan="2"><input id="state" class="large" maxlength="20" name="state" /></td>
-														</tr>
-														<tr>
-															<td><label for="country">Country</label></td>
-															<td colspan="2"><input id="country" class="large" maxlength="40" name="country" /></td>
-														</tr>
-														<tr>
-															<td>How Can We Help You?</td>
-															<td colspan="2"><textarea id="help" class="textarea" rows="3" cols="4" name="help"></textarea></td>
-														</tr>
-														<tr>
-															<td><label for="phone"><span class="optional">(optional)</span> Leave a phone number <br /> and we'll call you</label></td>
-															<td colspan="2"><input id="phone" class="large" maxlength="40" name="phone" /></td>
-														</tr>
-                                                    </tbody>
-                                                </table>
-                                                <br />
-                                            	<p class="contact-submit"><input type="image" alt="Submit" src="/i/innovate/btn_submit.png" name="submit" /></p>
-                                            </form>
-		                                </div>
-		                            </div>
-		                        </div>
-		                    </div>
-		                
-		                </div>
+		                    <p class="info-title">Thank you for your interest in TopCoder. We will be contacting you shortly.</p>
+		                    <p style="width:500px;">For more information on TopCoder Direct, please <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/" title="Learn more about TopCoder Direct">click here</a> 
+		                    or to learn more about TopCoder Studio, <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/" title="Learn more about Studio TopCoder">click here</a>.</p>
+                            <p>The Team at TopCoder</p>
+                        </div>
 		            </div>
-		        </div>
+				 </div>
+				 <br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
 		    </div>
 		
 		</div><!-- .wrapper ends -->
