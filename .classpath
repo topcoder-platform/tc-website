@@ -7,7 +7,6 @@
 	<classpathentry kind="lib" path="lib/checkstyle/checkstyle-optional-3.4.jar"/>
 	<classpathentry kind="lib" path="lib/checkstyle/commons-cli.jar"/>
 	<classpathentry kind="lib" path="lib/checkstyle/jakarta-regexp-1.3.jar"/>
-	<classpathentry kind="lib" path="lib/jakarta-struts-1.1/contrib/struts-el/lib/struts-el.jar"/>
 	<classpathentry kind="lib" path="lib/jakarta-struts-1.1/lib/commons-beanutils.jar"/>
 	<classpathentry kind="lib" path="lib/jakarta-struts-1.1/lib/commons-digester.jar"/>
 	<classpathentry kind="lib" path="lib/jakarta-struts-1.1/lib/commons-lang.jar"/>
@@ -23,13 +22,6 @@
 	<classpathentry kind="lib" path="lib/jars/commons-codec-1.3.jar"/>
 	<classpathentry kind="lib" path="lib/jars/commons-discovery-0.2.jar"/>
 	<classpathentry kind="lib" path="lib/jars/commons-httpclient-3.0.1.jar"/>
-	<classpathentry kind="lib" path="lib/jars/confluence-2.5.6/atlassian-user-1.5-stable-compatible-1.jar"/>
-	<classpathentry kind="lib" path="lib/jars/confluence-2.5.6/opensymphony-oscore-2.2.4.jar"/>
-	<classpathentry kind="lib" path="lib/jars/confluence-2.5.6/opensymphony-xwork-1.0.3.jar"/>
-	<classpathentry kind="lib" path="lib/jars/confluence-2.6.0/atlassian-renderer-3.4.jar"/>
-	<classpathentry kind="lib" path="lib/jars/confluence-2.6.0/seraph-0.7.23.jar"/>
-	<classpathentry kind="lib" path="lib/jars/confluence-2.6.1/atlassian-seraph-0.8.jar"/>
-	<classpathentry kind="lib" path="lib/jars/confluence-2.6.1/atlassian-user-spring-1.2.x-1.9.jar"/>
 	<classpathentry kind="lib" path="lib/jars/confluence-2.7/atlassian-bandana-0.2.0.jar"/>
 	<classpathentry kind="lib" path="lib/jars/confluence-2.7/atlassian-bucket-0.18.jar"/>
 	<classpathentry kind="lib" path="lib/jars/confluence-2.7/atlassian-core-3.5.jar"/>
@@ -176,8 +168,10 @@
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/random_string_image-1.0.jar"/>
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/jboss-4.2.2-ejb3x.jar"/>
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/jboss-4.2.2-jaxws.jar"/>
-	<classpathentry kind="lib" path="/IvyCache/com.topcoder.internal/logging/jars/logging-1.0.0.jar"/>
-	<classpathentry kind="lib" path="/IvyCache/com.topcoder.internal/arena-shared/jars/arena-shared-6.5.1.jar"/>
-	<classpathentry kind="lib" path="/IvyCache/com.topcoder.internal/custom-serialization/jars/custom-serialization-1.0.0.jar"/>
+	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS"/>
+	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/arena-shared-6.5.1.jar"/>
+	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/custom-serialization-1.0.0.jar"/>
+	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/logging-1.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/jars/tcs/studio_service.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

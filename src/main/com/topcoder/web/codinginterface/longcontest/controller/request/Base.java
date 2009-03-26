@@ -225,8 +225,8 @@ public abstract class Base extends BaseProcessor {
      * @throws Exception if there is a db problem or if the round doesn't exist
      */
     protected boolean isRoundOver(long roundId) throws Exception {
-        //todo consider removing the long contest over command and using data from the round info command
-        //todo of course, then we're comparing app server time with db time, but i think we'll survive
+        //TODO consider removing the long contest over command and using data from the round info command
+        //TODO of course, then we're comparing app server time with db time, but i think we'll survive
         log.debug("is round over called");
         Request r = new Request();
         r.setContentHandle("long_contest_over");

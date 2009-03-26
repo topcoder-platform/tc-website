@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
@@ -61,7 +62,7 @@ public abstract class ActiveContestsBase extends Base {
 
             r.setProperty(Constants.PROJECT_TYPE_ID, String.valueOf(getProjectType()));
             r.setProperty(DataAccessConstants.SORT_QUERY, getCommandName());
-            Map result = getDataAccess().getData(r);
+            Map<String, ResultSetContainer> result = getDataAccess().getData(r);
             getRequest().setAttribute("contests", result.get(getCommandName()));
 
             // defines column's default sort.
