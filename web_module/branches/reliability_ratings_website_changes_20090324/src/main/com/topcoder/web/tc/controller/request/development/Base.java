@@ -74,13 +74,14 @@ public abstract class Base extends ShortHibernateProcessor {
     }
 
     public static String getRegistrantsCommandName(int projectTypeId) {
-        if (projectTypeId==Constants.DESIGN_PROJECT_TYPE ||
-            projectTypeId==Constants.DEVELOPMENT_PROJECT_TYPE) {
+        if (projectTypeId == Constants.DESIGN_PROJECT_TYPE ||
+            projectTypeId == Constants.DEVELOPMENT_PROJECT_TYPE ||
+            projectTypeId == Constants.CONCEPTUALIZATION_PROJECT_TYPE ||
+            projectTypeId == Constants.SPECIFICATION_PROJECT_TYPE ||
+            projectTypeId == Constants.ARCHITECTURE_PROJECT_TYPE ||
+            projectTypeId == Constants.ASSEMBLY_PROJECT_TYPE ||
+            projectTypeId == Constants.APPLICATION_TESTING_PROJECT_TYPE) {
             return "registrants";
-        } else if (projectTypeId==Constants.ASSEMBLY_PROJECT_TYPE) {
-            return "assembly_registrants";
-        } else if (projectTypeId==Constants.ARCHITECTURE_PROJECT_TYPE) {
-            return "architecture_registrants";
         } else {
             return "contest_registrants";
         }
