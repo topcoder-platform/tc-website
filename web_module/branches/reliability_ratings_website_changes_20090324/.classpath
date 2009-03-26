@@ -176,8 +176,10 @@
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/random_string_image-1.0.jar"/>
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/jboss-4.2.2-ejb3x.jar"/>
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/jboss-4.2.2-jaxws.jar"/>
-	<classpathentry kind="lib" path="/IvyCache/com.topcoder.internal/logging/jars/logging-1.0.0.jar"/>
-	<classpathentry kind="lib" path="/IvyCache/com.topcoder.internal/arena-shared/jars/arena-shared-6.5.1.jar"/>
-	<classpathentry kind="lib" path="/IvyCache/com.topcoder.internal/custom-serialization/jars/custom-serialization-1.0.0.jar"/>
+	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS"/>
+	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/arena-shared-6.5.1.jar"/>
+	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/custom-serialization-1.0.0.jar"/>
+	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/logging-1.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/jars/tcs/studio_service.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
