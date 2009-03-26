@@ -16,12 +16,10 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.ReviewBoard;
 import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
 
 /**
@@ -76,13 +74,14 @@ public abstract class Base extends ShortHibernateProcessor {
     }
 
     public static String getRegistrantsCommandName(int projectTypeId) {
-        if (projectTypeId==Constants.DESIGN_PROJECT_TYPE ||
-            projectTypeId==Constants.DEVELOPMENT_PROJECT_TYPE) {
+        if (projectTypeId == Constants.DESIGN_PROJECT_TYPE
+            || projectTypeId == Constants.DEVELOPMENT_PROJECT_TYPE
+            || projectTypeId == Constants.CONCEPTUALIZATION_PROJECT_TYPE
+            || projectTypeId == Constants.SPECIFICATION_PROJECT_TYPE
+            || projectTypeId == Constants.ARCHITECTURE_PROJECT_TYPE
+            || projectTypeId == Constants.ASSEMBLY_PROJECT_TYPE
+            || projectTypeId == Constants.APPLICATION_TESTING_PROJECT_TYPE) {
             return "registrants";
-        } else if (projectTypeId==Constants.ASSEMBLY_PROJECT_TYPE) {
-            return "assembly_registrants";
-        } else if (projectTypeId==Constants.ARCHITECTURE_PROJECT_TYPE) {
-            return "architecture_registrants";
         } else {
             return "contest_registrants";
         }
@@ -94,7 +93,7 @@ public abstract class Base extends ShortHibernateProcessor {
 
     public static ResultSetContainer getOpenProjects() throws Exception {
         Request dataRequest = null;
-        Map resultMap = null;
+        Map<String, ResultSetContainer> resultMap = null;
         dataRequest = new Request();
         dataRequest.setContentHandle("open_projects");
 

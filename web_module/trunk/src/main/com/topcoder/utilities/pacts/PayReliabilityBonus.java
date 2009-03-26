@@ -18,7 +18,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
 
 import com.topcoder.shared.util.TCContext;
@@ -192,7 +191,7 @@ public class PayReliabilityBonus extends DBUtility {
         }
         params.remove("onlyAnalyze");
 
-        // "reliabilityFilename" is more usefull than "CONF_FILENAME"
+        // "reliabilityFilename" is more useful than "CONF_FILENAME"
         String reliabilityFilename = (String) params.get("reliabilityFilename");
         try {
             if (reliabilityFilename == null || reliabilityFilename.trim().length() == 0) {
