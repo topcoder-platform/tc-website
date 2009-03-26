@@ -1,22 +1,25 @@
 package com.topcoder.dde.util.DWLoad;
 
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.util.config.ConfigManager;
-import com.topcoder.util.config.ConfigManagerException;
-import com.topcoder.util.config.UnknownNamespaceException;
-
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.Vector;
+
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.util.config.ConfigManager;
+import com.topcoder.util.config.ConfigManagerException;
+import com.topcoder.util.config.UnknownNamespaceException;
 
 public class RatingQubits {
     private static final Logger log = Logger.getLogger(RatingQubits.class);
@@ -24,6 +27,17 @@ public class RatingQubits {
     public static final String DRIVER_KEY = "DriverClass";
     public static final String CONNECTION_URL_KEY = "ConnectionURL";
     public static final String HISTORY_LENGTH_KEY = "HistoryLength";
+
+    private static final String NEW_PHASES_CUT_OFF = "03/23/2009 00:00:00";
+
+    private static final int DESIGN_PHASE_ID = 112;
+    private static final int DEV_PHASE_ID = 113;
+    private static final int ASSEMBLY_PHASE_ID = 125;
+    private static final int ARCHITECTURE_PHASE_ID = 118;
+    private static final int SPECIFICATION_PHASE_ID = 117;
+    private static final int CONCEPTUALIZATION_PHASE_ID = 134;
+    private static final int TESTING_PHASE_ID = 124;
+    private final static String NEW_RATING_CATEGORIES = "(4, 7, 8)";
 
     public static void main(String[] args) {
         RatingQubits tmp = new RatingQubits();
@@ -87,6 +101,34 @@ public class RatingQubits {
     }
 
     public void runAllScores(Connection conn, String historyLength) {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+
+        Date newPhasesCutoff = null;
+        try {
+            newPhasesCutoff = new Date(sdf.parse(NEW_PHASES_CUT_OFF).getTime());
+        } catch (ParseException e1) {
+            System.err.println("Invalid value for constant NEW_PHASES_CUT_OFF, please check it");
+            return;
+        }
+
+
+        runScore(conn, historyLength, DESIGN_PHASE_ID);
+        runScore(conn, historyLength, DEV_PHASE_ID);
+        runScore(conn, historyLength, ASSEMBLY_PHASE_ID, newPhasesCutoff);
+        runScore(conn, historyLength, ARCHITECTURE_PHASE_ID, newPhasesCutoff);
+        runScore(conn, historyLength, SPECIFICATION_PHASE_ID, newPhasesCutoff);
+        runScore(conn, historyLength, CONCEPTUALIZATION_PHASE_ID, newPhasesCutoff);
+        runScore(conn, historyLength, TESTING_PHASE_ID, newPhasesCutoff);
+    }
+
+    // Run a score without a specific cut off time
+    private void runScore(Connection conn, String historyLength, int phase) {
+        runScore(conn, historyLength, phase, null);
+    }
+
+    // Run a score with the specified cut off time
+    private void runScore(Connection conn, String historyLength, int phase, Date cutoff) {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
@@ -94,62 +136,39 @@ public class RatingQubits {
             // The rating_date format is MM/dd/yyyy hh:mm a
             //design
             String sqlStr = "select distinct pr.project_id, round(substr(pi_rd.value, 1, 2)) as month, " +
-                    "round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year," +
-                    "  case when substr(pi_rd.value, 18,2)='PM' then round(substr(pi_rd.value, 12, 2)) +12 else round(substr(pi_rd.value, 12, 2))  end as hour " +
-                    //"pi_vi.value as comp_vers_id " +
-                    "from project_result pr, project p" +
-//                    ", project_info pi_vi" +
-                    ", project_info pi_rd " + //, outer comp_version_dates cd " +
-                    "where p.project_id = pr.project_id " +
-                    "and p.project_status_id in (4, 7)  " +
-                    "and p.project_category_id = 1 " +
+                    "round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year, " +
+                    "case when substr(pi_rd.value, 18,2)='PM' then round(substr(pi_rd.value, 12, 2)) +12 else round(substr(pi_rd.value, 12, 2))  end as hour " +
+                    "from project_result pr, project p, project_info pi_rd " ;
+            if (cutoff != null) {
+            	sqlStr += ", project_phase pp ";
+            }
+            sqlStr += "where p.project_id = pr.project_id " +
+                    "and p.project_status_id in " + NEW_RATING_CATEGORIES + " " +
+                    "and p.project_category_id = ? " +
                     "and pr.rating_ind = 1 " +
                     "and pr.final_score is not null " +
-                    //"and pi_vi.project_id = p.project_id and pi_vi.project_info_type_id = 1 " +
-                    "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 " +
-                    //"and cd.comp_vers_id = pi_vi.value and cd.phase_id = 112 " +
-                    "order by year, month, day, hour, 1";
+                    "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 ";
+            if (cutoff != null) {
+            	sqlStr += "and pp.project_id = p.project_id and pp.phase_type_id = 1 " +
+                "and pp.actual_start_time > ? ";
+            }
+            sqlStr += "order by year, month, day, hour, 1";
 
             ps = conn.prepareStatement(sqlStr);
+            ps.setInt(1, phase - 111); // Project Category
+            if (cutoff != null) {
+                ps.setDate(2, cutoff);
+            }
             rs = ps.executeQuery();
 
-            this.rateProjects(conn, rs, 112, historyLength);
+            this.rateProjects(conn, rs, phase, historyLength);
 
             rs.close();
             rs = null;
             ps.close();
             ps = null;
 
-            //dev
-
-            sqlStr = "select distinct pr.project_id, round(substr(pi_rd.value, 1, 2)) as month, " +
-                    "round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year," +
-                    "  case when substr(pi_rd.value, 18,2)='PM' then round(substr(pi_rd.value, 12, 2)) +12 else round(substr(pi_rd.value, 12, 2))  end as hour " +
-                    //"pi_vi.value as comp_vers_id " +
-                    "from project_result pr, project p" +
-                    //", project_info pi_vi" +
-                    ", project_info pi_rd " + //, outer comp_version_dates cd " +
-                    "where p.project_id = pr.project_id " +
-                    "and p.project_status_id in (4, 7)  " +
-                    "and p.project_category_id = 2 " +
-                    "and pr.final_score is not null " +
-                    "and pr.rating_ind = 1 " +
-                    //"and pi_vi.project_id = p.project_id and pi_vi.project_info_type_id = 1 " +
-                    "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 " +
-                    //"and cd.comp_vers_id = pi_vi.value and cd.phase_id = 113 " +
-                    "order by year, month, day, hour, 1";
-
-            ps = conn.prepareStatement(sqlStr);
-            rs = ps.executeQuery();
-
-            this.rateProjects(conn, rs, 113, historyLength);
-
-            rs.close();
-            rs = null;
-            ps.close();
-            ps = null;
-
-            this.updateRatingOrder(conn);
+            updateRatingOrder(conn, phase);
         } catch (SQLException sqe) {
             sqe.printStackTrace();
         } catch (Exception sqe) {
@@ -170,7 +189,6 @@ public class RatingQubits {
             ps = null;
             rs = null;
         }
-
     }
 
     private class rating {
@@ -216,6 +234,7 @@ public class RatingQubits {
 
         levelId = -1;
 
+        int categoryId = phaseId - 111;
         try {
             TreeMap ratings = new TreeMap(); //contains all rating info
             ArrayList histories = new ArrayList();
@@ -227,8 +246,8 @@ public class RatingQubits {
                 histories.add(null);
             }
 
-            HashMap<String, Integer> oldRatingsMap = getOldRatingsMap(conn);
-            HashMap<String, Integer> newRatingsMap = getNewRatingsMap(conn);
+            HashMap<String, Integer> oldRatingsMap = getOldRatingsMap(conn, categoryId);
+            HashMap<String, Integer> newRatingsMap = getNewRatingsMap(conn, categoryId);
 
 
             while (rs.next()) {
@@ -490,8 +509,8 @@ public class RatingQubits {
 
     private final String OLD_RATINGS = "select pr.project_id, pr.user_id, pr.old_rating from project_result pr, project p " +
             "where p.project_id = pr.project_id " +
-            "and p.project_status_id in (4, 7)  " +
-            "and p.project_category_id in (1,2) " +
+            "and p.project_status_id in  " + NEW_RATING_CATEGORIES + " " +
+            "and p.project_category_id = ? " +
             "and pr.rating_ind =1 " +
             "and pr.final_score is not null ";
 
@@ -501,13 +520,14 @@ public class RatingQubits {
      *
      * @return
      */
-    private HashMap<String, Integer> getOldRatingsMap(Connection conn) throws SQLException {
+    private HashMap<String, Integer> getOldRatingsMap(Connection conn, int categoryId) throws SQLException {
         HashMap<String, Integer> ret = new HashMap<String, Integer>();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             ps = conn.prepareStatement(OLD_RATINGS);
+            ps.setInt(1, categoryId);
             rs = ps.executeQuery();
             while (rs.next()) {
                 ret.put(rs.getString("project_id") + "-" + rs.getString("user_id"), rs.getString("old_rating") == null ? null : rs.getInt("old_rating"));
@@ -522,8 +542,8 @@ public class RatingQubits {
 
     private final String NEW_RATINGS = "select pr.project_id, pr.user_id, pr.new_rating from project_result pr, project p " +
             "where p.project_id = pr.project_id " +
-            "and p.project_status_id in (4, 7)  " +
-            "and p.project_category_id in (1,2) " +
+            "and p.project_status_id in  " + NEW_RATING_CATEGORIES + " " +
+            "and p.project_category_id = ? " +
             "and pr.rating_ind =1 " +
             "and pr.final_score is not null ";
 
@@ -533,13 +553,14 @@ public class RatingQubits {
      *
      * @return
      */
-    private HashMap<String, Integer> getNewRatingsMap(Connection conn) throws SQLException {
+    private HashMap<String, Integer> getNewRatingsMap(Connection conn, int categoryId) throws SQLException {
         HashMap<String, Integer> ret = new HashMap<String, Integer>();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             ps = conn.prepareStatement(NEW_RATINGS);
+            ps.setInt(1, categoryId);
             rs = ps.executeQuery();
             while (rs.next()) {
                 ret.put(rs.getString("project_id") + "-" + rs.getString("user_id"), rs.getString("new_rating") == null ? null : rs.getInt("new_rating"));
@@ -552,9 +573,9 @@ public class RatingQubits {
 
     }
 
-    private void updateRatingOrder(Connection conn) throws Exception {
+    private void updateRatingOrder(Connection conn, int phase) throws Exception {
         // update rating_order column
-        log.info("UPDATING rating_order COLUMN....");
+        log.info("UPDATING rating_order COLUMN.... for phase " + phase);
         ResultSet rs2 = null;
         PreparedStatement ps = null;
         PreparedStatement psUpd = null;
@@ -567,25 +588,24 @@ public class RatingQubits {
             sqlStr.append("where pi.project_info_type_id =22  ");
             sqlStr.append("and pi.project_id = pr.project_id ");
             sqlStr.append("and pi.project_id = p.project_id  ");
-            sqlStr.append("and p.project_category_id in (1,2) ");
+            sqlStr.append("and p.project_category_id = ? ");
             sqlStr.append("and p.project_status_id in (4,5,6, 7) ");
-            sqlStr.append("order by user_id, project_category_id, year, month, day,hour, p.project_id ");
+            sqlStr.append("order by user_id, year, month, day,hour, p.project_id ");
 
             ps = conn.prepareStatement(sqlStr.toString());
+            ps.setInt(1, phase - 111);
             rs2 = ps.executeQuery();
 
             psUpd = conn.prepareStatement("UPDATE project_result SET rating_order=? where user_id=? and project_id=?");
 
             long prevUser = -1;
-            int prevCategory = -1;
             int ratingOrder = 1;
             int processed = 0;
 
             while (rs2.next()) {
-                if (rs2.getLong("user_id") != prevUser || rs2.getInt("project_category_id") != prevCategory) {
+                if (rs2.getLong("user_id") != prevUser) {
                     ratingOrder = 1;
                     prevUser = rs2.getLong("user_id");
-                    prevCategory = rs2.getInt("project_category_id");
                 }
                 if (ratingOrder != rs2.getInt("rating_order")) {
                     psUpd.clearParameters();
