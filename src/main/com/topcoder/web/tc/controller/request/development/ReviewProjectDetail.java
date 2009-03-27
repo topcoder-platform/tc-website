@@ -88,7 +88,7 @@ public class ReviewProjectDetail extends Base {
      */
     protected void developmentProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
-        if (!isProjectTypeSupported(projectTypeId)) {
+        if (!isProjectTypeSupported(projectTypeId, true)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
         
@@ -407,7 +407,6 @@ public class ReviewProjectDetail extends Base {
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the review details for projects of
      *         specified type.
-     * @throws IllegalArgumentException if specified project type is not supported.
      * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57)
      */
     private String getReviewProjectDetailView(String projectType) {
@@ -419,12 +418,9 @@ public class ReviewProjectDetail extends Base {
             return Constants.ASSEMBLY_REVIEW_PROJECT_DETAIL;
         } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
             return Constants.ARCHITECTURE_REVIEW_PROJECT_DETAIL;
-        } else if (projectType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE)) ||
-                projectType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE)) ||
-                projectType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))) {
-            return Constants.UNIFIED_REVIEW_PROJECT_DETAIL_PAGE;
         } else {
-            throw new IllegalArgumentException("Unsupported project type/category: " + projectType);
+            // we don't need to check for project types, they are already verified.
+            return Constants.UNIFIED_REVIEW_PROJECT_DETAIL_PAGE;
         }
     }
 }

@@ -174,7 +174,7 @@ public abstract class Base extends ShortHibernateProcessor {
      * @return <code>true</code> if specified project type is supported; <code>false</code> otherwise.
      * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57)
      */
-    protected boolean isProjectTypeSupported(String projectType) {
-        return ReviewBoardHelper.isReviewBoardTypeSupported(projectType);
+    protected boolean isProjectTypeSupported(String projectType, boolean includeSpecificationReviews) {
+        return ReviewBoardHelper.isReviewBoardTypeSupported(projectType, includeSpecificationReviews);
     }
 }

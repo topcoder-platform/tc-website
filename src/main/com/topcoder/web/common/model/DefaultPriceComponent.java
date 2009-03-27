@@ -272,13 +272,21 @@ public class DefaultPriceComponent implements SoftwareComponent {
         if (args.length != 4) {
             System.out.println("usage: java " + SoftwareComponent.class.toString() + " " +
                     "<numSubmissions> <numSubmissionPassScreening> <phaseId> <prize>");
-            System.out.println("Component Design phaseId      : " + DEV_PHASE);
-            System.out.println("Component Development phaseId : " + DESIGN_PHASE);
-            System.out.println("Conceptualization phaseId     : " + CONCEPTUALIZATION_PHASE);
-            System.out.println("Specification phaseId         : " + SPECIFICATION_PHASE);
-            System.out.println("Architecture phaseId          : " + ARCHITECTURE_PHASE);
-            System.out.println("Assembly phaseId              : " + ASSEMBLY_PHASE);
-            System.out.println("Application Testing phaseId   : " + APPLICATION_TESTING_PHASE);
+            System.out.println("Component Design phaseId                  : " + DEV_PHASE);
+            System.out.println("Component Development phaseId             : " + DESIGN_PHASE);
+            System.out.println("Conceptualization phaseId                 : " + CONCEPTUALIZATION_PHASE);
+            System.out.println("Specification phaseId                     : " + SPECIFICATION_PHASE);
+            System.out.println("Architecture phaseId                      : " + ARCHITECTURE_PHASE);
+            System.out.println("Assembly phaseId                          : " + ASSEMBLY_PHASE);
+            System.out.println("Application Testing phaseId               : " + APPLICATION_TESTING_PHASE);
+            System.out.println("Design Specification phaseId              : " + DESIGN_SPECIFICATION_PHASE);
+            System.out.println("Development Specification phaseId         : " + DEVELOPMENT_SPECIFICATION_PHASE);
+            System.out.println("Conceptualization Specification phaseId   : " + CONCEPTUALIZATION_SPECIFICATION_PHASE);
+            System.out.println("Specification Specification phaseId       : " + SPECIFICATION_SPECIFICATION_PHASE);
+            System.out.println("Architecture Specification phaseId        : " + ARCHITECTURE_SPECIFICATION_PHASE);
+            System.out.println("Assembly Specification phaseId            : " + ASSEMBLY_SPECIFICATION_PHASE);
+            System.out.println("Application Specification phaseId         : " + APPLICATION_TESTING_SPECIFICATION_PHASE);
+
         } else {
             DefaultPriceComponent sc = new DefaultPriceComponent(1, Integer.parseInt(args[0]),
                                                                  Integer.parseInt(args[1]), Integer.parseInt(args[2]),

@@ -89,7 +89,7 @@ public class ProjectReviewApply extends Base {
 
     protected void developmentProcessing() throws TCWebException {
         projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
-        if (!isProjectTypeSupported(projectTypeId)) {
+        if (!isProjectTypeSupported(projectTypeId, true)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
         
@@ -225,12 +225,9 @@ public class ProjectReviewApply extends Base {
             return Constants.ASSEMBLY_REVIEWER_TERMS;
         } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
             return Constants.ARCHITECTURE_REVIEWER_TERMS;
-        } else if (projectType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE)) ||
-                projectType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE)) ||
-                projectType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))) {
-            return Constants.UNIFIED_REVIEWER_TERMS_PAGE;
         } else {
-            throw new IllegalArgumentException("Unsupported project category/type: " + projectType);
+            // we don't need to check for project types, they are already verified.
+            return Constants.UNIFIED_REVIEWER_TERMS_PAGE;
         }
     }
 }

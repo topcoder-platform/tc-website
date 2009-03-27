@@ -11,10 +11,12 @@ import com.topcoder.apps.review.rboard.RBoardApplication;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.TCTimestampResult;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -82,7 +84,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      */
     protected void developmentProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
-        if (!isProjectTypeSupported(projectTypeId)) {
+        if (!isProjectTypeSupported(projectTypeId, false)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
         
@@ -141,16 +143,53 @@ public class ViewReviewProjects extends ReviewProjectDetail {
                                       new Integer((int) (applicationDelay / (1000 * 60 * 60))));
             getRequest().setAttribute("applicationDelayMinutes",
                                       new Integer((int) ((applicationDelay % (1000 * 60 * 60)) / (1000 * 60))));
-            
-            // getRequest().setAttribute("tournamentProjectList", getDataAccess().getData(r).
-            //             get("tournament_review_projects"));
+
+            // process specification review positions
+            processSpecificationReviewPositions(projectTypeId);
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+
         setNextPage(getReviewOpportunitiesView(projectTypeId));
         setIsNextPageInContext(true);
+    }
+
+    /**
+     * @param projectTypeId
+     * @throws TCWebException
+     */
+    private void processSpecificationReviewPositions(String projectTypeId) throws TCWebException {
+        Request r = new Request();
+        r.setContentHandle("review_projects");
+        r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
+
+        try {
+            ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("projects");
+            getRequest().setAttribute("specificationReviewList", rsc);
+
+            ArrayList<SoftwareComponent> prices = new ArrayList<SoftwareComponent>(rsc.size());
+
+            for (ResultSetRow rsr : rsc) {
+                if (rsr.getIntItem("submission_count") == 0) {
+                    prices.add(makeApp("", 1, 1, rsr.getIntItem("phase_id"), rsr.getIntItem("level_id"),
+                       rsr.getLongItem("project_id"), 0, rsr.getFloatItem("prize"),
+                       rsr.getFloatItem("dr_points")).getComponent());
+                } else {
+                    prices.add(makeApp("", rsr.getIntItem("submission_count"),
+                       rsr.getIntItem("submission_passed_screening_count"), rsr.getIntItem("phase_id"),
+                       rsr.getIntItem("level_id"), rsr.getLongItem("project_id"), 0,
+                       rsr.getFloatItem("prize"), rsr.getFloatItem("dr_points")).getComponent());
+                }
+            }
+
+            getRequest().setAttribute("specificationReviewPrices", prices);
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
     }
 
     /**
