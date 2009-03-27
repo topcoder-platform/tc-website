@@ -20,14 +20,7 @@
     </jsp:include>
     
     <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
-    <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
-    <script type="text/javascript">
-			$(document).ready(function(){
-				//Run the script to preload images from CSS
-				$.preloadCssImages(); 
-			});
-	</script>
-	<script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+    <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
 	<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
 	<script type="text/javascript" language="javascript">
 
@@ -64,20 +57,20 @@
 		
 <%-- content --%>
 <div id="content">
-<div class="contentTop">
-<div class="contentMiddle">
+	<div class="contentTop">
+		<div class="contentMiddle">
 
-<div class="breadcrumb">
-    <c:choose>
-        <c:when test="${currentTime>contest.endTime}">
-            <a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a> &gt;
-        </c:when>
-        <c:otherwise>
-            <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> &gt;
-        </c:otherwise>
-    </c:choose>
-    ${contest.name}
-</div>
+			<div class="breadcrumb">
+				<c:choose>
+					<c:when test="${currentTime>contest.endTime}">
+						<a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a> &gt;
+					</c:when>
+					<c:otherwise>
+						<a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> &gt;
+					</c:otherwise>
+				</c:choose>
+				${contest.name}
+			</div>
 <br />
 
 
@@ -92,9 +85,9 @@
 <div style="float: right; width: 135px;">
 	<%-- ADDTHIS BUTTON BEGIN --%>
 	<script type="text/javascript">
-	addthis_pub             = 'topcoderstudio'; 
-	addthis_brand           = 'TopCoder Studio';
-	addthis_options         = 'facebook, twitter, google, del.icio.us, stumbleupon, reddit, myspace, favorites, email';
+	addthis_pub = 'topcoderstudio';
+	addthis_brand = 'TopCoder Studio';
+	addthis_options = 'facebook, twitter, google, del.icio.us, stumbleupon, reddit, myspace, favorites, email';
 	</script>
 	<a href="http://www.addthis.com/bookmark.php" onMouseOver="return addthis_open(this, '', '[URL]', '[TITLE]')" onMouseOut="addthis_close()" onClick="return addthis_sendto()">
 	<img src="/i/v2/interface/btnShare.png" width="122" height="35" border="0" alt="Share" /></a>
@@ -200,7 +193,6 @@
         <studio:formatField text="${contest.submissionFileFormat.value}"/>
     </div>
 </c:if>
-
 <c:if test="${not empty contest.otherFileTypes.value}">
     <div class="section">Submission File Formats:</div>
     <div class="padder"><p><studio:formatField text="${contest.otherFileTypes.value}"/></p></div>
@@ -241,7 +233,7 @@
 </div>
 
 <div class="contentDetails">
-<table cellspacing="0" cellpadding="0" class="conDetIntro">
+	<table cellspacing="0" cellpadding="0" class="conDetIntro">
     <tbody>
         <tr>
             <td class="field">Contest Title:</td>
@@ -309,16 +301,13 @@
 <c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
     <div id="conDetInstructionsBox">
         <ul>
-
-
-            <c:choose>
+        	<c:choose>
                 <c:when test="${registered}">
                     <%-- REGISTERED --%>
                     <li>
                         <div>
                             <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/1NA.png" alt="1"/></a>
-                            <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="grayedOut">Register
-                                for this contest.</a>
+                            <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="grayedOut">Register for this contest.</a>
                         </div>
                     </li>
 
@@ -328,8 +317,7 @@
                     <li>
                         <div>
                             <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/1.png" alt="1"/></a>
-                            <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Register
-                                for this contest.</a>
+                            <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Register for this contest.</a>
                         </div>
                     </li>
                 </c:otherwise>
@@ -343,13 +331,11 @@
                             <c:choose>
                                 <c:when test="${has_global_ad}">
                                     <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="icon"><img src="/i/v2/interface/2NA.png" alt="2"/></a>
-                                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="grayedOut">Sign
-                                        &amp; submit an Assignment Document</a><span class="small grayedOut">(<a href="/?module=AssignmentDocumentHistory" class="grayedOut">Check the status of your AD before continuing</a>)</span>
+                                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="grayedOut">Sign &amp; submit an Assignment Document</a><span class="small grayedOut">(<a href="/?module=AssignmentDocumentHistory" class="grayedOut">Check the status of your AD before continuing</a>)</span>
                                 </c:when>
                                 <c:otherwise>
                                     <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="icon"><img src="/i/v2/interface/2.png" alt="2"/></a>
-                                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Sign & submit an
-                                        Assignment Document</a><br /><span class="small grayedOut">(<a href="/?module=AssignmentDocumentHistory" class="grayedOut">Check the status of your AD before continuing</a>)</span>
+                                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Sign & submit an Assignment Document</a><br /><span class="small grayedOut">(<a href="/?module=AssignmentDocumentHistory" class="grayedOut">Check the status of your AD before continuing</a>)</span>
                                 </c:otherwise>
                             </c:choose>
                         </div>
@@ -357,8 +343,7 @@
                     <li>
                         <div>
                             <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/3.png" alt="3"/></a>
-                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit
-                                your entry.</a>
+                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit your entry.</a>
                         </div>
                     </li>
                 </c:when>
@@ -366,8 +351,7 @@
                     <li>
                         <div>
                             <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/2.png" alt="2"/></a>
-                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit
-                                your entry.</a>
+                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit your entry.</a>
                         </div>
                     </li>
                 </c:otherwise>
@@ -377,11 +361,13 @@
     </div>
 </c:if>
 
+ <%-- Contest Summary --%>
 <div class="header"><span>Contest Summary</span></div>
 <studio:formatField text="${contest.overview.value}"/>
 
 <p><b>Entries must be your original work, and must not infringe on the copyright or licenses of others. Stock art, clip art, templates and other design elements from other sources are prohibited unless specifically permitted here in the Contest Details.</b></p>
 
+ <%-- Full Description and Project Guide --%>
 <c:if test="${not empty contest.fullDescription.value}">
     <div class="header"><span>Full Description &amp; Project Guide</span></div>
     <studio:formatField text="${contest.fullDescription.value}"/>
@@ -390,73 +376,65 @@
 <c:if test="${not empty contest.sizeRequirements.value or not empty contest.fontRequirements.value 
              or not empty contest.colorRequirements.value or not empty contest.contentRequirements.value
              or not empty contest.otherRequirements.value}">
-    <div class="header"><span>Specific Contest Details</span></div>
-    <table cellpadding="3" cellspacing="0" border="0">
-    <tbody>
-        <c:if test="${not empty contest.sizeRequirements.value}">
-        <tr>
-            <td nowrap="nowrap" valign="top">
-                <strong>Size:</strong>            </td>
-            <td>
-                <studio:formatField text="${contest.sizeRequirements.value}"/>
-            </td>
-        </tr>
-        </c:if>
-        <c:if test="${not empty contest.fontRequirements.value}">
-        <tr>
-            <td nowrap="nowrap" valign="top">
-                <strong>Font:</strong>            </td>
-            <td>
-                <studio:formatField text="${contest.fontRequirements.value}"/>
-            </td>
-        </tr>
-        </c:if>
-        <c:if test="${not empty contest.colorRequirements.value}">
-        <tr>
-            <td nowrap="nowrap" valign="top">
-                <strong>Color:</strong>            </td>
-            <td>
-                <studio:formatField text="${contest.colorRequirements.value}"/>
-            </td>
-        </tr>
-        </c:if>
-        <c:if test="${not empty contest.contentRequirements.value}">
-        <tr>
-            <td nowrap="nowrap" valign="top">
-                <strong>Content:</strong></td>
-            <td>
-                <studio:formatField text="${contest.contentRequirements.value}"/>
-            </td>
-        </tr>
-        </c:if>
-        <c:if test="${not empty contest.otherRequirements.value}">
-        <tr>
-            <td nowrap="nowrap" valign="top">
-                <strong>Other:</strong>            </td>
-            <td>
-                <studio:formatField text="${contest.otherRequirements.value}"/>
-            </td>
-        </tr>
-        </c:if>
-    </tbody>
+
+ <%-- Specific Contest Details --%>
+<div class="header"><span>Specific Contest Details</span></div>
+<div id="specific-details">  
+    <table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+			<c:if test="${not empty contest.sizeRequirements.value}">
+			<tr>
+				<td nowrap="nowrap" valign="top"><strong>Size:</strong></td>
+				<td><studio:formatField text="${contest.sizeRequirements.value}"/></td>
+			</tr>
+			</c:if>
+			<c:if test="${not empty contest.fontRequirements.value}">
+			<tr>
+				<td nowrap="nowrap" valign="top"><strong>Font:</strong></td>
+				<td><studio:formatField text="${contest.fontRequirements.value}"/></td>
+			</tr>
+			</c:if>
+			<c:if test="${not empty contest.colorRequirements.value}">
+			<tr>
+				<td nowrap="nowrap" valign="top"> <strong>Color:</strong></td>
+				<td><studio:formatField text="${contest.colorRequirements.value}"/></td>
+			</tr>
+			</c:if>
+			<c:if test="${not empty contest.contentRequirements.value}">
+			<tr>
+				<td nowrap="nowrap" valign="top"><strong>Content:</strong></td>
+				<td><studio:formatField text="${contest.contentRequirements.value}"/></td>
+			</tr>
+			</c:if>
+			<c:if test="${not empty contest.otherRequirements.value}">
+			<tr>
+				<td nowrap="nowrap" valign="top"><strong>Other:</strong></td>
+				<td><studio:formatField text="${contest.otherRequirements.value}"/></td>
+			</tr>
+			</c:if>
+		</tbody>
     </table>
+</div>
 </c:if>
 
+<%-- How to Submit --%>
 <div class="header"><span>How to Submit</span></div>
-<ul>
-    <li>You must upload your submission as a single file (see the file requirements) and it should be finalized, not a
-        work in progress.
-    </li>
-    <li>If your submission wins, your original files must meet the Final Deliverables requirements listed above before
-        payment can be released.
-    </li>
-    <li>You may submit as many times as you'd like during the submission phase, but only the number of files listed
-        above in the Required Elements that you rank the highest will be considered. On the submission page, you will
-        see a table of all the designs you have submitted, ranked by YOUR preference. You can change the order of
-        submissions on that table at any time during the submission phase. If you make revisions to your design, please
-        delete submissions you are replacing.
-    </li>
-</ul>
+<div id="how-to">
+	<ul>
+		<li>You must upload your submission as a single file (see the file requirements) and it should be finalized, not a
+			work in progress.
+		</li>
+		<li>If your submission wins, your original files must meet the Final Deliverables requirements listed above before
+			payment can be released.
+		</li>
+		<li>You may submit as many times as you'd like during the submission phase, but only the number of files listed
+			above in the Required Elements that you rank the highest will be considered. On the submission page, you will
+			see a table of all the designs you have submitted, ranked by YOUR preference. You can change the order of
+			submissions on that table at any time during the submission phase. If you make revisions to your design, please
+			delete submissions you are replacing.
+		</li>
+	</ul>
+</div>
 
 <c:if test="${not empty contest.winnerSelection.value}">
     <div class="header"><span>Winner Selection</span></div>
@@ -467,16 +445,16 @@
 ${contest.prizeDescription.value}
 
 <div class="header"><span>Eligibility</span></div>
-<studio:formatField text="${contest.eligibility.value}"/>
-
+<div id="eligibility">
+	<studio:formatField text="${contest.eligibility.value}"/>
+</div>
 <%--
 <c:choose>
 <c:when test="${contest.id==2048}"></c:when>
 <c:otherwise>
 <p>If you do not reside in the United States:</p>
 <ul>
-    <li>You must be authorized to perform services as an independent contractor. (Note: In most cases you will
-        not need to do anything to become authorized)
+    <li>You must be authorized to perform services as an independent contractor. (Note: In most cases you will not need to do anything to become authorized)
     </li>
     </c:otherwise>
     </c:choose>
