@@ -22,7 +22,7 @@ public interface SoftwareComponent extends Cloneable, Serializable {
     // since pulky
     public final static int DESIGN_SPECIFICATION_PHASE = (int) WebConstants.PHASE_DESIGN_SPECIFICATION;
     public final static int DEVELOPMENT_SPECIFICATION_PHASE = (int) WebConstants.PHASE_DEVELOPMENT_SPECIFICATION;
-    public final static int CONCEPTUALIZATION_SPECIFICATION_PHASE = (int) WebConstants.PHASE_CONCEPTUALIZATION_SPECIFICATION;
+    public final static int CONCEPTUALIZATION_SPECIFICATION_PHASE = 1134;
     public final static int SPECIFICATION_SPECIFICATION_PHASE = (int) WebConstants.PHASE_SPECIFICATION_SPECIFICATION;
     public final static int ARCHITECTURE_SPECIFICATION_PHASE = (int) WebConstants.PHASE_ARCHITECTURE_SPECIFICATION;
     public final static int ASSEMBLY_SPECIFICATION_PHASE = (int) WebConstants.PHASE_ASSEMBLY_SPECIFICATION;
