@@ -65,6 +65,8 @@ import com.topcoder.web.tc.Constants;
  */
 public class ViewReviewProjects extends ReviewProjectDetail {
 
+    private static final int SPECIFICATION_COMPETITION_OFFSET = 1000;
+
     /**
      * <p>Constructs new <code>ViewReviewProjects</code> instance. This implementation does nothing.</p>
      */
@@ -145,7 +147,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
                                       new Integer((int) ((applicationDelay % (1000 * 60 * 60)) / (1000 * 60))));
 
             // process specification review positions
-            processSpecificationReviewPositions(projectTypeId);
+            processSpecificationReviewPositions(Integer.parseInt(projectTypeId) + SPECIFICATION_COMPETITION_OFFSET);
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
@@ -160,10 +162,10 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      * @param projectTypeId
      * @throws TCWebException
      */
-    private void processSpecificationReviewPositions(String projectTypeId) throws TCWebException {
+    private void processSpecificationReviewPositions(int projectTypeId) throws TCWebException {
         Request r = new Request();
         r.setContentHandle("review_projects");
-        r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
+        r.setProperty(Constants.PROJECT_TYPE_ID, String.valueOf(projectTypeId));
 
         try {
             ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("review_projects");
