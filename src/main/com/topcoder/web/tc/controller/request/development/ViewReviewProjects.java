@@ -166,7 +166,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
         r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
 
         try {
-            ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("projects");
+            ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("review_projects");
             getRequest().setAttribute("specificationReviewList", rsc);
 
             ArrayList<SoftwareComponent> prices = new ArrayList<SoftwareComponent>(rsc.size());
