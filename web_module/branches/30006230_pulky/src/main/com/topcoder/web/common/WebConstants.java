@@ -140,7 +140,7 @@ public interface WebConstants {
     public static final long PHASE_APPLICATION_TESTING = 124;
 
     // since pulky
-    public static final long SPECIFICATION_COMPETITION_OFFSET = 1000;
+    public static final int SPECIFICATION_COMPETITION_OFFSET = 1000;
     
 
     public static final long PHASE_DESIGN_SPECIFICATION = 
