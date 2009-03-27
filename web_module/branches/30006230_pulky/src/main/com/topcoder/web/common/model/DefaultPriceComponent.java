@@ -167,11 +167,6 @@ public class DefaultPriceComponent implements SoftwareComponent {
     private ReviewerPaymentCalculator getReviewerPaymentCalculator(float prize, int submissionCount,
                                                                    int submissionsPassedScreening) {
         
-        System.out.println("CONCEPTUALIZATION_SPECIFICATION_PHASE 2: " + CONCEPTUALIZATION_SPECIFICATION_PHASE);
-        System.out.println("WebConstants.PHASE_CONCEPTUALIZATION_SPECIFICATION: " + WebConstants.PHASE_CONCEPTUALIZATION_SPECIFICATION);
-        System.out.println("WebConstants.SPECIFICATION_COMPETITION_OFFSET: " + WebConstants.SPECIFICATION_COMPETITION_OFFSET);
-        System.out.println("phaseId: " + phaseId);
-        
         if (phaseId == DESIGN_PHASE || phaseId == DEV_PHASE) {
             return new ComponentReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == CONCEPTUALIZATION_PHASE || phaseId == SPECIFICATION_PHASE

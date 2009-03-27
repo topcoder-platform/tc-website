@@ -28,6 +28,9 @@
 <c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
 <c:set var="SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>"/>
 <c:set var="APPLICATION_TESTING_PROJECT_TYPE" value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>"/>
+<c:set var="SPECIFICATION_COMPETITION_OFFSET" value="<%=Constants.SPECIFICATION_COMPETITION_OFFSET%>"/>
+<c:set var="isSpecificationReview" value="${projectType > SPECIFICATION_COMPETITION_OFFSET}"/>
+
 <c:choose>
 	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Conceptualization"/>
@@ -268,7 +271,7 @@
                                 </td>
                                 <td class="projectCells" align="center" nowrap>
                                     <c:choose>
-                                        <c:when test="${now < projectDetailRow.map['opens_on']}">
+                                        <c:when test="${now < projectDetailRow.map['opens_on'] && !isSpecificationReview}">
                                             <i>Not open yet ***</i>
                                         </c:when>
                                         <c:when test="${reviewer.spotFilled}">
@@ -287,7 +290,7 @@
                                                 </c:when>
                                             </c:choose>
                                         </c:when>
-                                        <c:when test="${waitingToReview}">
+                                        <c:when test="${waitingToReview && !isSpecificationReview}">
                                             <i>Waiting until <fmt:formatDate value="${waitingUntil}" 
                                                 pattern="MM.dd.yyyy hh:mm a"/> ****</i>
                                         </c:when>
@@ -308,36 +311,39 @@
                     <br/>
     
                     <table cellspacing="0" cellpadding="0" width="530" class="bodyText">
-                        <tr>
-                            <td class="bodyText">
-                            <p align="left">* This number assumes that all submissions pass screening, the actual 
-                                payment may differ.</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="bodyText">
-                            <p align="left">** By applying to review the component you are committing to the presented 
-                                timeline.  Failure to meet the provided timeline may result in a suspension from the 
-                                TopCoder Review Board.</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="bodyText">
-                                <p align="left">*** Review positions for new projects become open 12 hours after the 
-                                    project starts.</p>
-                            </td>
-                        </tr>
-                        <c:if test="${applicationDelayHours > 0 || applicationDelayMinutes > 0}">
+                        <c:if test="${!isSpecificationReview}">
                             <tr>
                                 <td class="bodyText">
-                                    <p align="left">
-                                        **** Due to your existing review commitments, review positions open for you 
-                                        ${applicationDelayHours} hours and ${applicationDelayMinutes} minutes after a 
-                                        project opens for review registration.
-                                    </p>
+                                <p align="left">* This number assumes that all submissions pass screening, the actual 
+                                    payment may differ.</p>
                                 </td>
                             </tr>
+                            <tr>
+                                <td class="bodyText">
+                                <p align="left">** By applying to review the component you are committing to the presented 
+                                    timeline.  Failure to meet the provided timeline may result in a suspension from the 
+                                    TopCoder Review Board.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText">
+                                    <p align="left">*** Review positions for new projects become open 12 hours after the 
+                                        project starts.</p>
+                                </td>
+                            </tr>
+                            <c:if test="${applicationDelayHours > 0 || applicationDelayMinutes > 0}">
+                                <tr>
+                                    <td class="bodyText">
+                                        <p align="left">
+                                            **** Due to your existing review commitments, review positions open for you 
+                                            ${applicationDelayHours} hours and ${applicationDelayMinutes} minutes after a 
+                                            project opens for review registration.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </c:if>
                         </c:if>
+
                         <tr>
                             <td class="bodyText">
                                 <p align="left">
