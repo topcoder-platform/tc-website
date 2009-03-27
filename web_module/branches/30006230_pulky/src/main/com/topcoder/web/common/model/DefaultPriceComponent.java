@@ -153,6 +153,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     /**
      * <p>Factory method that returns the correct instance of ReviewerPaymentCalculator for a given phase.</p>
+     *
+     * pulky: added support for specification reviews.
      * 
      * @param prize first place prize for the competition.
      * @param submissionCount number of submissions.
@@ -166,9 +168,14 @@ public class DefaultPriceComponent implements SoftwareComponent {
         if (phaseId == DESIGN_PHASE || phaseId == DEV_PHASE) {
             return new ComponentReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == CONCEPTUALIZATION_PHASE || phaseId == SPECIFICATION_PHASE
-                   || phaseId == ARCHITECTURE_PHASE || phaseId == ASSEMBLY_PHASE
-                   || phaseId == APPLICATION_TESTING_PHASE) {
+                || phaseId == ARCHITECTURE_PHASE || phaseId == ASSEMBLY_PHASE
+                || phaseId == APPLICATION_TESTING_PHASE) {
             return new ApplicationReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
+        } else if (phaseId == DESIGN_SPECIFICATION_PHASE || phaseId == DEVELOPMENT_SPECIFICATION_PHASE || 
+                phaseId == CONCEPTUALIZATION_SPECIFICATION_PHASE || phaseId == SPECIFICATION_SPECIFICATION_PHASE || 
+                phaseId == ARCHITECTURE_SPECIFICATION_PHASE || phaseId == ASSEMBLY_SPECIFICATION_PHASE || 
+                phaseId == APPLICATION_TESTING_SPECIFICATION_PHASE) {
+            return new SpecificationReviewerPaymentCalculator(phaseId);
         } else {
             throw new IllegalArgumentException("Invalid phaseId (" + phaseId + ")");
         }
