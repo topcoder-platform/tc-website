@@ -27,6 +27,11 @@ import com.topcoder.web.common.WebConstants;
  */
 public final class ReviewBoardHelper {
 
+
+    public static boolean isReviewBoardTypeSupported(String reviewBoardType) {
+        return isReviewBoardTypeSupported(reviewBoardType, false);
+    }
+
     /**
      * <p>Checks whether the specified review board type requested by client is currently supported by this controller
      * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization, Specification
