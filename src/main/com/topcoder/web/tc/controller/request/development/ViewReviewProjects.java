@@ -145,7 +145,10 @@ public class ViewReviewProjects extends ReviewProjectDetail {
                                       new Integer((int) ((applicationDelay % (1000 * 60 * 60)) / (1000 * 60))));
 
             // process specification review positions
-            processSpecificationReviewPositions(Integer.parseInt(projectTypeId) + Constants.SPECIFICATION_COMPETITION_OFFSET);
+            int specificationReviewProjectTypeId = Integer.parseInt(projectTypeId) + Constants.SPECIFICATION_COMPETITION_OFFSET;
+            getRequest().setAttribute("specificationReviewProjectTypeId", specificationReviewProjectTypeId);
+            processSpecificationReviewPositions(specificationReviewProjectTypeId);
+            
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
