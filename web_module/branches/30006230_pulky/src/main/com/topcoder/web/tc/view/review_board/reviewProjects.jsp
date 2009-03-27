@@ -295,7 +295,7 @@
                                                     ${resultRow.map["available_spots"]}
                                                 </td>
                                                 <td class="statDk" align="left" nowrap="nowrap">
-                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}&${PROJECT_TYPE_ID}=${projectType}">
+                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}&${PROJECT_TYPE_ID}=${specificationReviewProjectTypeId}">
                                                         details
                                                     </a>
                                                     <c:if test="${resultRow.map['price_changes'] > 0}">
