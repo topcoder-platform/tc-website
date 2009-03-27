@@ -140,13 +140,13 @@ public interface WebConstants {
     public static final long PHASE_APPLICATION_TESTING = 124;
 
     // since pulky
-    public static final long PHASE_DESIGN_SPECIFICATION = 1001;               
-    public static final long PHASE_DEVELOPMENT_SPECIFICATION = 1002;          
-    public static final long PHASE_CONCEPTUALIZATION_SPECIFICATION = 1023;    
-    public static final long PHASE_SPECIFICATION_SPECIFICATION = 1006;        
-    public static final long PHASE_ARCHITECTURE_SPECIFICATION = 1007;         
-    public static final long PHASE_ASSEMBLY_SPECIFICATION = 1014;             
-    public static final long PHASE_APPLICATION_TESTING_SPECIFICATION = 1013;  
+    public static final long PHASE_DESIGN_SPECIFICATION = 1112;               
+    public static final long PHASE_DEVELOPMENT_SPECIFICATION = 1113;          
+    public static final long PHASE_CONCEPTUALIZATION_SPECIFICATION = 1134;    
+    public static final long PHASE_SPECIFICATION_SPECIFICATION = 1117;        
+    public static final long PHASE_ARCHITECTURE_SPECIFICATION = 1118;         
+    public static final long PHASE_ASSEMBLY_SPECIFICATION = 1125;             
+    public static final long PHASE_APPLICATION_TESTING_SPECIFICATION = 1124;  
 
     
     /**
@@ -200,5 +200,12 @@ public interface WebConstants {
     public static final int APPLICATION_TESTING_PROJECT_TYPE = 13;
     public static final int ASSEMBLY_PROJECT_TYPE = 14;
 
+    public static final long DESIGN_SPECIFICATION_PROJECT_TYPE = 1001;               
+    public static final long DEVELOPMENT_SPECIFICATION_PROJECT_TYPE = 1002;          
+    public static final long CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE = 1023;    
+    public static final long SPECIFICATION_SPECIFICATION_PROJECT_TYPE = 1006;        
+    public static final long ARCHITECTURE_SPECIFICATION_PROJECT_TYPE = 1007;         
+    public static final long ASSEMBLY_SPECIFICATION_PROJECT_TYPE = 1014;             
+    public static final long APPLICATION_TESTING_SPECIFICATION_PROJECT_TYPE = 1013;  
 
 }

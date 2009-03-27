@@ -240,6 +240,89 @@
                         <br/>
                     </c:otherwise>
                 </c:choose>
+
+
+                <c:choose>
+                    <c:when test="${fn:length(specificationReviewList) > 0}">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
+                            <tr>
+                                <td>
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
+                                        <tr>
+                                            <td class="tableTitle" colspan="10">
+                                                ${projectTypeDesc} Specification Review Opportunities
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tableHeader" align="center">Type</td>
+                                            <td class="tableHeader" align="center">Catalog</td>
+                                            <td class="tableHeader" width="100%">${projectTypeDesc}</td>
+                                            <td class="tableHeader" align="right">Reviewer<br>Payment</td>
+                                            <td class="tableHeader" align="center">Submissions</td>
+                                            <td class="tableHeader" align="center">Opens<br>On</td>
+                                            <td class="tableHeader" align="center">Review<br>Start</td>
+                                            <td class="tableHeader" align="center">Review<br>End</td>
+                                            <td class="tableHeader" align="center">Positions<br>Available</td>
+                                            <td class="tableHeader">Details</td>
+                                        </tr>
+                        
+                                        <c:set var="i" value="0"/>
+                                        <c:forEach items="${specificationReviewList}" var="resultRow">
+                                            <tr>
+                                                <td class="statDk" align="center">${projectTypeDesc}</td>
+                                                <td class="statDk" align="center">${projectTypeDesc}</td>
+                                                <td class="statDk">
+                                                    ${resultRow.map["component_name"]}
+                                                    ${resultRow.map["version"]}
+                                                </td>
+                                                <td class="statDk" align="right">
+                                                    $ <fmt:formatNumber value="${specificationReviewPrices[i].reviewPrice}" 
+                                                        pattern="#,###.00"/>
+                                                </td>
+                                                <td class="statDk" align="center">
+                                                    ${resultRow.map["submission_count"]}
+                                                </td>
+                                                <td class="statDk" align="center"><i>open</i></td>
+                                                <td class="statDk" align="center">
+                                                    <fmt:formatDate value="${resultRow.map['review_start']}" 
+                                                                pattern="MM.dd.yyyy"/>
+                                                </td>
+                                                <td class="statDk" align="center">
+                                                    <fmt:formatDate value="${resultRow.map['review_end']}" 
+                                                                pattern="MM.dd.yyyy"/>
+                                                </td>
+                                                <td class="statDk" align="center">
+                                                    ${resultRow.map["available_spots"]}
+                                                </td>
+                                                <td class="statDk" align="left" nowrap="nowrap">
+                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}&${PROJECT_TYPE_ID}=${projectType}">
+                                                        details
+                                                    </a>
+                                                    <c:if test="${resultRow.map['price_changes'] > 0}">
+                                                        <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/> 
+                                                    </c:if>
+                                                </td>
+                                            </tr>
+                                            <c:set var="i" value="${i + 1}"/>
+                                        </c:forEach>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tableHeader" align="left" nowrap="nowrap" colspan="10">
+                                    <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>: the payment for 
+                                    reviewing this specification has increased
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                    </c:when>
+                    <c:otherwise>
+                        <br/>
+                        <p align="center">Sorry, there are currently no specification review positions available.</p>
+                        <br/>
+                    </c:otherwise>
+                </c:choose>
                 
                 </td>
                 <!-- Center Column Ends -->
