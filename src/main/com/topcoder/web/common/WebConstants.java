@@ -139,6 +139,16 @@ public interface WebConstants {
     public static final long PHASE_ASSEMBLY = 125;
     public static final long PHASE_APPLICATION_TESTING = 124;
 
+    // since pulky
+    public static final long PHASE_DESIGN_SPECIFICATION = 1001;               
+    public static final long PHASE_DEVELOPMENT_SPECIFICATION = 1002;          
+    public static final long PHASE_CONCEPTUALIZATION_SPECIFICATION = 1023;    
+    public static final long PHASE_SPECIFICATION_SPECIFICATION = 1006;        
+    public static final long PHASE_ARCHITECTURE_SPECIFICATION = 1007;         
+    public static final long PHASE_ASSEMBLY_SPECIFICATION = 1014;             
+    public static final long PHASE_APPLICATION_TESTING_SPECIFICATION = 1013;  
+
+    
     /**
      * The status constant used to indicate a component has been deleted
      */
