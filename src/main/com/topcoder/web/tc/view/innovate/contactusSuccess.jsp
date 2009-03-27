@@ -174,10 +174,10 @@ $(document).ready(function(){
 		            <div class="engage-right">
 						<div class="client-list"> <a href="http://www.topcoder.com/direct/blogs/?p=116"><img src="/i/innovate/espnfeatured.png" alt="Featured Client" width="255" height="65" border="0" /></a>
 						
-		           		<p class="news-link"><a href="<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=pressroom&d2=pr_032509">TopCoder Named 2009 'Cool Vendor' for Application Development by Leading Analyst Firm</a></p>
-						<p class="news-link"><a href="<%=ApplicationServer.SERVER_NAME%>/direct/blogs/?p=206">Julian Birkinshaw of London Business School Interview with TopCoder &ndash; Exploring the Impact of Web 2.0 upon Management</a></p>
-						<p class="news-link"><a href="<%=ApplicationServer.SERVER_NAME%>/direct/blogs/?p=174">Crowdsourcing Guru Jeff Howe Interview with TopCoder &ndash; Crowdsourcing and Which Business Models Will Succeed</a></p>
-						
+						<p class="news-link"><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_032509">TopCoder Named 2009 'Cool Vendor' for Application Development by Leading Analyst Firm</a></p>
+						<p class="news-link"><a href="http://www.topcoder.com/direct/blogs/?p=206">Julian Birkinshaw of London Business School Interview with TopCoder &ndash; Exploring the Impact of Web 2.0 upon Management</a></p>
+						<p class="news-link"><a href="http://www.topcoder.com/direct/blogs/?p=174">Crowdsourcing Guru Jeff Howe Interview with TopCoder &ndash; Crowdsourcing and Which Business Models Will Succeed</a></p>
+		               
 		               </div>
 		            </div>
 		            
