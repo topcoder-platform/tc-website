@@ -179,11 +179,12 @@ $(document).ready(function(){
 						<p><strong>Take the Next Step &gt;&gt;</strong></p>
 		                <p><a id="btn-lets-talk" href="javascript:;"><img width="239" height="63" id="lets_talk" src="/i/innovate/btn_lets_talk.png" alt="" /><img width="239" height="63" id="lets_talk_grey" src="/i/innovate/btn_lets_talk_grey.png" alt="" style="display:none" /></a></p>		          
 						<p><strong>Seeing is Believing &gt;&gt;</strong></p>
+		                
 		                <div class="client-list"> <a href="http://www.topcoder.com/direct/blogs/?p=116"><img src="/i/innovate/espnfeatured.png" alt="Featured Client" width="255" height="65" border="0" /></a>
 		              
-						<p class="news-link"><a href="<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=pressroom&d2=pr_032509">TopCoder Named 2009 'Cool Vendor' for Application Development by Leading Analyst Firm</a></p>
-						<p class="news-link"><a href="<%=ApplicationServer.SERVER_NAME%>/direct/blogs/?p=206">Julian Birkinshaw of London Business School Interview with TopCoder &ndash; Exploring the Impact of Web 2.0 upon Management</a></p>
-						<p class="news-link"><a href="<%=ApplicationServer.SERVER_NAME%>/direct/blogs/?p=174">Crowdsourcing Guru Jeff Howe Interview with TopCoder &ndash; Crowdsourcing and Which Business Models Will Succeed</a></p>
+						<p class="news-link"><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_032509">TopCoder Named 2009 'Cool Vendor' for Application Development by Leading Analyst Firm</a></p>
+						<p class="news-link"><a href="http://www.topcoder.com/direct/blogs/?p=206">Julian Birkinshaw of London Business School Interview with TopCoder &ndash; Exploring the Impact of Web 2.0 upon Management</a></p>
+						<p class="news-link"><a href="http://www.topcoder.com/direct/blogs/?p=174">Crowdsourcing Guru Jeff Howe Interview with TopCoder &ndash; Crowdsourcing and Which Business Models Will Succeed</a></p>
 						
 		               </div>
 		            </div>
@@ -199,7 +200,7 @@ $(document).ready(function(){
 		                        <div class="info-list left-list">
 		                            <img width="54" height="54" src="/i/innovate/icon_app_dev.png" alt="Application Development" />
 		                            <p class="info-list-title">Application Development</p>
-                                    <p class="info-list-desc">Build applications quickly by leveraging the TopCoder community and the largest catalog or reusable software components.</p>
+                                    <p class="info-list-desc">Build applications quickly by leveraging the TopCoder community and the largest catalog of reusable software components.</p>
 		                        </div>
 		                     	<div class="info-list">
 		                            <img width="54" height="54" src="/i/innovate/icon_creative_sol.png" alt="Creative Marketing and Social Media" />
