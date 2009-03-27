@@ -85,7 +85,7 @@ public class ReliabilityRating {
             Class.forName(jdbcDriver);
             c = DriverManager.getConnection(connectionURL);
 
-            IReliabilityCalculator rc = new ReliabilityCalculator();
+            ReliabilityCalculator rc = new OldTracksReliabilityCalculator();
 
             // Design
             rc.calculateReliability(c, historyLength, 1, START_DATE, PIVOT_DATE);
@@ -93,7 +93,7 @@ public class ReliabilityRating {
             // Development
             rc.calculateReliability(c, historyLength, 2, START_DATE, PIVOT_DATE);
 
-            rc = new PostPivotReliabilityCalculator();
+            rc = new NewTracksReliabilityCalculator();
 
             // Conceptualization
             rc.calculateReliability(c, historyLength, 23, NEW_PHASE_DATE, NEW_PHASE_DATE);

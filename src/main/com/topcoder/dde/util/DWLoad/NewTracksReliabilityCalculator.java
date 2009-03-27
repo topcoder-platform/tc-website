@@ -10,7 +10,7 @@ import java.util.List;
 
 
 
-public class PostPivotReliabilityCalculator extends ReliabilityCalculator  {
+public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculator  {
 	
     private static final String reliabilityData =
         " select pr.reliable_submission_ind" +
@@ -61,7 +61,53 @@ public class PostPivotReliabilityCalculator extends ReliabilityCalculator  {
             close(ps);
         }
         
-        return history;
-    	
+        return history;    	
     }
+    
+    private final static String markIncluded =
+        "update project_result " +
+        "set reliability_ind = 1 " +
+        "where reliability_ind is null " +
+        "and final_score >= ? " +       
+        " and project_id in (select project_id from project " +
+        "           where project_category_id = ?) " +
+    	" and project_id in (select project_id from project_phase group by project_id having min(actual_start_time) > ?) ";
+    
+    private final static String markBeforeStartDate =
+        "update project_result " +
+        "set reliability_ind = 0 " +
+        "where reliability_ind is null " +
+        " and project_id in (select project_id from project " +
+        "           where project_category_id = ?) " +
+        " and project_id in (select project_id from project_phase group by project_id having min(actual_start_time) <= ?) ";
+
+    
+    protected int markForInclusionAndExclusion(Connection conn, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
+        PreparedStatement ps = null;
+        PreparedStatement ps2 = null;
+        int ret = 0;
+        try {
+
+            //mark the easy ones..people that scored over the min
+            ps = conn.prepareStatement(markIncluded);
+            ps.setInt(1, MIN_PASSING_SCORE);
+            ps.setInt(2, competitionTypeId);
+            ps.setDate(3, new java.sql.Date(startDate.getTime()));
+            ret = ps.executeUpdate();
+
+            ps2 = conn.prepareStatement(markBeforeStartDate);
+            ps2.setInt(1, competitionTypeId);
+            ps2.setDate(2, new java.sql.Date(startDate.getTime()));
+            ret += ps2.executeUpdate();
+            
+            
+            ret += markBasedOnPriorProjects(conn, competitionTypeId, startDate, pivotDate);
+            
+        } finally {
+            close(ps);
+            close(ps2);
+        }
+        return ret;
+    }
+
 }
