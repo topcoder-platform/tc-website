@@ -4,6 +4,7 @@
 package com.topcoder.web.common.model;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.WebConstants;
 
 /**
  * <p><strong>Purpose</strong>: Calculates Reviewers tasks costs.</p>
@@ -166,7 +167,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
     private ReviewerPaymentCalculator getReviewerPaymentCalculator(float prize, int submissionCount,
                                                                    int submissionsPassedScreening) {
         
-        System.out.println("CONCEPTUALIZATION_SPECIFICATION_PHASE: " + CONCEPTUALIZATION_SPECIFICATION_PHASE);
+        System.out.println("CONCEPTUALIZATION_SPECIFICATION_PHASE 2: " + CONCEPTUALIZATION_SPECIFICATION_PHASE);
+        System.out.println("WebConstants.PHASE_CONCEPTUALIZATION_SPECIFICATION: " + WebConstants.PHASE_CONCEPTUALIZATION_SPECIFICATION);
+        System.out.println("WebConstants.SPECIFICATION_COMPETITION_OFFSET: " + WebConstants.SPECIFICATION_COMPETITION_OFFSET);
         
         if (phaseId == DESIGN_PHASE || phaseId == DEV_PHASE) {
             return new ComponentReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
