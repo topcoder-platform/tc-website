@@ -179,9 +179,10 @@ public class ProjectReviewApply extends Base {
         int type = Integer.parseInt(this.projectTypeId);
         // Assembly, Architecture, Conceptualization, Specification and Application Testing competition 
         // reviews do not take into consideration the catalogs as for now
+        // same with specification reviews
         if (type == WebConstants.ASSEMBLY_PROJECT_TYPE || type == WebConstants.ARCHITECTURE_PROJECT_TYPE ||
             type == WebConstants.CONCEPTUALIZATION_PROJECT_TYPE || type == WebConstants.SPECIFICATION_PROJECT_TYPE ||
-            type == WebConstants.APPLICATION_TESTING_PROJECT_TYPE) {
+            type == WebConstants.APPLICATION_TESTING_PROJECT_TYPE || type > WebConstants.SPECIFICATION_COMPETITION_OFFSET) {
             rBoardApplication.validateUserWithoutCatalog(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, reviewTypeId,
                                                          getUser().getId(), type);
         } else {
