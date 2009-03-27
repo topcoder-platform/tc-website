@@ -33,10 +33,6 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
      */
     public void setPhaseId(int phaseId) {
         
-        System.out.println("1 phaseId: " + phaseId);
-        System.out.println("1 SoftwareComponent.CONCEPTUALIZATION_SPECIFICATION_PHASE: " + SoftwareComponent.CONCEPTUALIZATION_SPECIFICATION_PHASE);
-        System.out.println("1 phaseId != SoftwareComponent.CONCEPTUALIZATION_SPECIFICATION_PHASE: " + (phaseId != SoftwareComponent.CONCEPTUALIZATION_SPECIFICATION_PHASE));
-        
         if (phaseId != SoftwareComponent.DESIGN_SPECIFICATION_PHASE
                 && phaseId != SoftwareComponent.DEVELOPMENT_SPECIFICATION_PHASE
                 && phaseId != SoftwareComponent.CONCEPTUALIZATION_SPECIFICATION_PHASE
