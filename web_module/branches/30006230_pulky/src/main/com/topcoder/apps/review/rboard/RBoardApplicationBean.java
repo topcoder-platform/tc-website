@@ -96,6 +96,8 @@ import java.util.Map;
  * @version 1.0.8
  */
 public class RBoardApplicationBean extends BaseEJB {
+    private static final int MAX_REGULAR_REVIEW_POSITIONS = 3;
+    private static final int MAX_SPECIFICATION_REVIEW_POSITIONS = 1;
     private static final int INTERNAL_ADMIN_USER = 100129;
     private static final int ACTIVE_REVIEWER = 100;
 
@@ -568,7 +570,8 @@ public class RBoardApplicationBean extends BaseEJB {
             // Prepre resource for review phase
             insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
 
-            if (primary) {
+            // we don't need this if it's a specification review
+            if (primary && !isSpecificationReview(phaseId)) {
                 // Prepare for primary screener
                 roleId = PRIMARY_SCREEN_ROLE;
                 pid = (String) phaseInfos.get(String.valueOf(SCREEN_PHASE));
@@ -610,6 +613,10 @@ public class RBoardApplicationBean extends BaseEJB {
             close(ps);
             close(conn);
         }
+    }
+
+    private boolean isSpecificationReview(int phaseId) {
+        return phaseId > WebConstants.SPECIFICATION_COMPETITION_OFFSET;
     }
 
     /**
@@ -927,23 +934,29 @@ public class RBoardApplicationBean extends BaseEJB {
             throw new RBoardRegistrationException("You have already applied to review this project.");
         }
 
-        if (opensOn.getTime() > System.currentTimeMillis()) {
-            throw new RBoardRegistrationException("Sorry, this project is not open for review yet.  "
-                                                  + "You will need to wait until "
-                                                  + timeStampToString(opensOn));
+        int maxReviewPositions;
+        if (isSpecificationReview(phaseId)) {
+            maxReviewPositions = MAX_SPECIFICATION_REVIEW_POSITIONS;
+        } else {
+            if (opensOn.getTime() > System.currentTimeMillis()) {
+                throw new RBoardRegistrationException("Sorry, this project is not open for review yet.  "
+                                                      + "You will need to wait until "
+                                                      + timeStampToString(opensOn));
+            }
+    
+            long applicationDelay = getApplicationDelay(conn, userId);
+            if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
+                throw new RBoardRegistrationException("Sorry, you can not apply for this review yet.  "
+                                                      + "You will need to wait until "
+                                                      + timeStampToString(new Timestamp(opensOn.getTime()
+                                                                                        + applicationDelay)));
+            }
+            maxReviewPositions = MAX_REGULAR_REVIEW_POSITIONS;
         }
-
-        long applicationDelay = getApplicationDelay(conn, userId);
-        if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
-            throw new RBoardRegistrationException("Sorry, you can not apply for this review yet.  "
-                                                  + "You will need to wait until "
-                                                  + timeStampToString(new Timestamp(opensOn.getTime()
-                                                                                    + applicationDelay)));
-        }
-
+        
         ResultSetContainer reviewers = getReviewers(conn, projectId, phaseId);
-
-        if (reviewers.size() == 3) {
+        
+        if (reviewers.size() == maxReviewPositions) {
             throw new RBoardRegistrationException("Sorry, the project's review positions are already full.");
         }
 
