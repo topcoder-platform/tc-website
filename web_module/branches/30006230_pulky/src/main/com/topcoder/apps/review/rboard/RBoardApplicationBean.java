@@ -174,6 +174,56 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private static final int APPLICATION_TESTING_PRIMARY_REVIEW_ID = 19;
 
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for design specification projects.</p>
+     *
+     * @since 1.0.8
+     */
+    private static final int DESIGN_SPECIFICATION_PRIMARY_REVIEW_ID = 22;
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for development specification projects.</p>
+     *
+     * @since 1.0.8
+     */
+    private static final int DEVELOPMENT_SPECIFICATION_PRIMARY_REVIEW_ID = 23;
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for conceptualization specification projects.</p>
+     *
+     * @since 1.0.8
+     */
+    private static final int CONCEPTUALIZATION_SPECIFICATION_PRIMARY_REVIEW_ID = 24;
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for specification specification projects.</p>
+     *
+     * @since 1.0.8
+     */
+    private static final int SPECIFICATION_SPECIFICATION_PRIMARY_REVIEW_ID = 25;
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for architecture specification projects.</p>
+     *
+     * @since 1.0.8
+     */
+    private static final int ARCHITECTURE_SPECIFICATION_PRIMARY_REVIEW_ID = 26;
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for assembly specification projects.</p>
+     *
+     * @since 1.0.8
+     */
+    private static final int ASSEMBLY_SPECIFICATION_PRIMARY_REVIEW_ID = 27;
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for testing competition specification projects.</p>
+     *
+     * @since 1.0.8
+     */
+    private static final int TESTING_COMPETITION_SPECIFICATION_PRIMARY_REVIEW_ID = 28;
+
     /**
      * <p>A <code>String</code> containing the error message for inconsistent reviewers for most project types.</p>
      *
@@ -927,6 +977,27 @@ public class RBoardApplicationBean extends BaseEJB {
         } else if (phaseId == (WebConstants.APPLICATION_TESTING_PROJECT_TYPE + 111)) {
             validateReviewPositions(reviewTypeId, primary, reviewers, APPLICATION_TESTING_PRIMARY_REVIEW_ID, 
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.DESIGN_SPECIFICATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, DESIGN_SPECIFICATION_PRIMARY_REVIEW_ID,
+                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.DEVELOPMENT_SPECIFICATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, DEVELOPMENT_SPECIFICATION_PRIMARY_REVIEW_ID,
+                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, CONCEPTUALIZATION_SPECIFICATION_PRIMARY_REVIEW_ID,
+                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, SPECIFICATION_SPECIFICATION_PRIMARY_REVIEW_ID,
+                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, ARCHITECTURE_SPECIFICATION_PRIMARY_REVIEW_ID,
+                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, ASSEMBLY_SPECIFICATION_PRIMARY_REVIEW_ID,
+                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.APPLICATION_TESTING_SPECIFICATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, TESTING_COMPETITION_SPECIFICATION_PRIMARY_REVIEW_ID,
+                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         }
         
         // If somebody came in by constructing the URL, make sure that there is at least one
@@ -980,9 +1051,10 @@ public class RBoardApplicationBean extends BaseEJB {
     private Map getReviewRespInfo() {
         // review_resp table is removed
         Map returnMap = new HashMap();
-        int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21};
+        int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+                22, 23, 24, 25, 26, 27, 28};
         int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134, 
-                117, 117, 117, 124, 124, 124};
+                117, 117, 117, 124, 124, 124, 1001, 1002, 1023, 1006, 1007, 1014, 1013};
 
         for (int i = 0; i < respIds.length; i++) {
             returnMap.put(new Integer(respIds[i]), new Integer(phaseIds[i]));
