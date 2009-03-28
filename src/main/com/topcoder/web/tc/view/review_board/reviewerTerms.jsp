@@ -15,19 +15,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%-- Variables to use JSTL --%>
-<c:set var="PROJECT_ID" value="<%=Constants.PROJECT_ID%>"/>
 <c:set var="REVIEWER_TYPE_ID" value="<%=Constants.REVIEWER_TYPE_ID%>"/>
 <c:set var="PRIMARY_FLAG" value="<%=Constants.PRIMARY_FLAG%>"/>
-<c:set var="MODULE_KEY" value="<%=Constants.MODULE_KEY%>"/>
-<c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
 <c:set var="TERMS" value="<%=Constants.TERMS%>"/>
 <c:set var="TERMS_AGREE" value="<%=Constants.TERMS_AGREE%>"/>
 <c:set var="CAPTCHA_RESPONSE" value="<%=Constants.CAPTCHA_RESPONSE%>"/>
 <c:set var="CAPTCHA_FILE_NAME" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
-<c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
-<c:set var="SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>"/>
-<c:set var="APPLICATION_TESTING_PROJECT_TYPE" value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>"/>
-<c:set var="projectType" value="${param[PROJECT_TYPE_ID]}"/>
+<c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
+<c:set var="projectType" value="${param[PROJECT_TYPE_ID]}" scope="request"/>
+<jsp:include page="reviewCommonVariables.jsp"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -46,25 +42,7 @@
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
                 <%-- Left Column Begins--%>
-                <td width="180">
-                    <c:choose>
-                    	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="conceptualization_review"/>
-                            </jsp:include>
-                        </c:when>
-                    	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="specification_review"/>
-                            </jsp:include>
-                        </c:when>
-                    	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="application_testing_review"/>
-                            </jsp:include>
-                        </c:when>
-                    </c:choose>
-                </td>
+                <jsp:include page="reviewGlobalLeft.jsp"/>
                 <%-- Left Column Ends --%>
                 
                 <%-- Gutter Begins --%>
@@ -73,26 +51,7 @@
                 
                 <%-- Center Column Begins --%>
                 <td width="100%" align="center">
-                    <c:choose>
-                    	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
-                            <jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="conceptualization"/>
-                                <jsp:param name="title" value="Review Opportunities"/>
-                            </jsp:include>
-                        </c:when>
-                    	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
-                            <jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="specification"/>
-                                <jsp:param name="title" value="Review Opportunities"/>
-                            </jsp:include>
-                        </c:when>
-                    	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
-                            <jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="app_testing"/>
-                                <jsp:param name="title" value="Review Opportunities"/>
-                            </jsp:include>
-                        </c:when>
-                    </c:choose>
+                    <jsp:include page="reviewPageTitle.jsp"/>
                 
                     <form action="${sessionInfo.servletPath}" method="POST" name="frmTerms">
                         <input type="hidden" name="${PROJECT_ID}" value="${param[PROJECT_ID]}"/>

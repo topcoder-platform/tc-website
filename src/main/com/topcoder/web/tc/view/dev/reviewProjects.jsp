@@ -13,6 +13,9 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>  
 <%@ taglib prefix="tc_tags" tagdir="/WEB-INF/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ArrayList<Boolean> waitingToReview = (ArrayList<Boolean>) request.getAttribute("waitingToReview"); %>
 <% ArrayList<Timestamp> waitingUntil = (ArrayList<Timestamp>) request.getAttribute("waitingUntil"); %>
@@ -25,6 +28,12 @@
 <%--<% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>--%>
 
 <%--<% ResultSetContainer tournamentProjectList = (ResultSetContainer)request.getAttribute("tournamentProjectList");%>--%>
+
+<c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
+<c:set var="PROJECT_ID" value="<%=Constants.PROJECT_ID%>"/>
+<c:set var="MODULE_KEY" value="<%=Constants.MODULE_KEY%>"/>
+<c:set var="isDesign" value="<%=design%>"/>
+
 <head>
 <title>Project Review</title>
 
@@ -232,12 +241,7 @@
 <% } %>
 <% }  // if (!design) %>
 
-<% if ((design && desProjectCount == 0) || (!design && devProjectCount == 0)) { %>
-            <br />
-            <p align="center">Sorry, there are currently no review positions available.</p>
-            <br />
-<% } else { %>
-            <br />
+<% if ((design && desProjectCount >= 0) || (!design && devProjectCount >= 0)) { %>
 <% if (applicationDelayHours > 0 || applicationDelayMinutes > 0) { %>
             <p>
               Due to your existing review commitments, review positions open for you <%= applicationDelayHours %> hours and
@@ -246,6 +250,99 @@
 <% } %>
             <p>Please note that custom components do not get added to the catalog and therefore do not have royalties.</p>
             <br />
+<% } %>
+
+            <c:if test="${fn:length(specificationReviewList) > 0}">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
+                    <tr>
+                        <td>
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
+                                <tr>
+                                    <td class="tableTitle" colspan="9">
+                                        <c:choose>
+                                            <c:when test="${isDesign}">
+                                                Design
+                                            </c:when>
+                                            <c:otherwise>
+                                                Development
+                                            </c:otherwise>
+                                        </c:choose>
+                                        Specification Review Opportunities
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tableHeader" align="center">Catalog</td>
+                                    <td class="tableHeader" width="100%">Component</td>
+                                    <td class="tableHeader" align="right">Reviewer<br>Payment</td>
+                                    <td class="tableHeader" align="center">Submissions</td>
+                                    <td class="tableHeader" align="center">Opens On</td>
+                                    <td class="tableHeader" align="center">Review<br>Start</td>
+                                    <td class="tableHeader" align="center">Review<br>End</td>
+                                    <td class="tableHeader" align="center">Positions<br>Available</td>
+                                    <td class="tableHeader">Details</td>
+                                </tr>
+                
+                                <c:set var="i" value="0"/>
+                                <c:forEach items="${specificationReviewList}" var="resultRow">
+                                    <tr>
+                                        <td class="statDk" align="center">
+                                            <tc_tags:languageIcon catalogName = "${resultRow.map['catalog']}" 
+                                                aolBrand="${not empty resultRow.map['aol_brand']}"/> 
+                                        </td>
+                                        <td class="statDk">
+                                            ${resultRow.map["component_name"]}
+                                            ${resultRow.map["version"]}
+                                        </td>
+                                        <td class="statDk" align="right">
+                                            $ <fmt:formatNumber 
+                                                value="${specificationReviewPrices[i].primaryReviewPrice}" 
+                                                pattern="#,###.00"/>
+                                        </td>
+                                        <td class="statDk" align="center">
+                                            ${resultRow.map["submission_count"]}
+                                        </td>
+                                        <td class="statDk" align="center"><i>open</i></td>
+                                        <td class="statDk" align="center">
+                                            <fmt:formatDate value="${resultRow.map['review_start']}" 
+                                                        pattern="MM.dd.yyyy"/>
+                                        </td>
+                                        <td class="statDk" align="center">
+                                            <fmt:formatDate value="${resultRow.map['review_end']}" 
+                                                        pattern="MM.dd.yyyy"/>
+                                        </td>
+                                        <td class="statDk" align="center">
+                                            ${resultRow.map["available_spots"]}
+                                        </td>
+                                        <td class="statDk" align="left" nowrap="nowrap">
+                                            <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}&${PROJECT_TYPE_ID}=${specificationReviewProjectTypeId}">
+                                                details
+                                            </a>
+                                            <c:if test="${resultRow.map['price_changes'] > 0}">
+                                                <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/> 
+                                            </c:if>
+                                        </td>
+                                    </tr>
+                                    <c:set var="i" value="${i + 1}"/>
+                                </c:forEach>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tableHeader" align="left" nowrap="nowrap" colspan="10">
+                            <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>: the payment for 
+                            reviewing this specification has increased
+                        </td>
+                    </tr>
+                </table>
+                <br/>
+            </c:if>
+
+<% if ((design && desProjectCount == 0) || (!design && devProjectCount == 0)) { %>
+        <c:if test="${fn:length(specificationReviewList) == 0}">
+            <br />
+            <p align="center">Sorry, there are currently no review positions available.</p>
+            <br />
+        </c:if>
 <% } %>
 
         </td>
