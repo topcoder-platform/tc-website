@@ -193,11 +193,11 @@ public class ProjectReviewApply extends Base {
     private boolean validateWithCatalog(int type) {
         // Design and Development specification also have a catalog associated.
         
-        return type == WebConstants.ASSEMBLY_PROJECT_TYPE || type == WebConstants.ARCHITECTURE_PROJECT_TYPE ||
-        type == WebConstants.CONCEPTUALIZATION_PROJECT_TYPE || type == WebConstants.SPECIFICATION_PROJECT_TYPE ||
-        type == WebConstants.APPLICATION_TESTING_PROJECT_TYPE || type == WebConstants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE ||
-        type == WebConstants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE || type == WebConstants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE ||
-        type == WebConstants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE || type == WebConstants.APPLICATION_TESTING_SPECIFICATION_PROJECT_TYPE;
+        return type != WebConstants.ASSEMBLY_PROJECT_TYPE && type != WebConstants.ARCHITECTURE_PROJECT_TYPE &&
+        type != WebConstants.CONCEPTUALIZATION_PROJECT_TYPE && type != WebConstants.SPECIFICATION_PROJECT_TYPE &&
+        type != WebConstants.APPLICATION_TESTING_PROJECT_TYPE && type != WebConstants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE &&
+        type != WebConstants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE && type != WebConstants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE &&
+        type != WebConstants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE && type != WebConstants.APPLICATION_TESTING_SPECIFICATION_PROJECT_TYPE;
     }
 
     protected void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException, ConfigException {
