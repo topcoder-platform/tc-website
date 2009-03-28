@@ -18,30 +18,15 @@
 
 <%-- Variables to use JSTL --%>
 <c:set var="projectDetailRow" value="${projectDetail[0]}"/>
-<c:set var="projectType" value="${projectDetailRow.map['project_category_id']}"/>
+<c:set var="projectType" value="${projectDetailRow.map['project_category_id']}" scope="request"/>
 <c:set var="now" value="<%=new TCTimestampResult(new Timestamp(System.currentTimeMillis()))%>"/>
-<c:set var="PROJECT_ID" value="<%=Constants.PROJECT_ID%>"/>
-<c:set var="MODULE_KEY" value="<%=Constants.MODULE_KEY%>"/>
-<c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
 <c:set var="PRIMARY_FLAG" value="<%=Constants.PRIMARY_FLAG%>"/>
 <c:set var="REVIEWER_TYPE_ID" value="<%=Constants.REVIEWER_TYPE_ID%>"/>
-<c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
-<c:set var="SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>"/>
-<c:set var="APPLICATION_TESTING_PROJECT_TYPE" value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>"/>
 <c:set var="SPECIFICATION_COMPETITION_OFFSET" value="<%=Constants.SPECIFICATION_COMPETITION_OFFSET%>"/>
 <c:set var="isSpecificationReview" value="${projectType > SPECIFICATION_COMPETITION_OFFSET}"/>
+<c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
 
-<c:choose>
-	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="Conceptualization"/>
-    </c:when>
-	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="Specification"/>
-    </c:when>
-	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="Application Testing"/>
-    </c:when>
-</c:choose>
+<jsp:include page="reviewCommonVariables.jsp"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -60,25 +45,7 @@
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
            <tr valign="top">
                 <!-- Left Column Begins-->
-                <td width="180">
-                    <c:choose>
-                    	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="conceptualization_review"/>
-                            </jsp:include>
-                        </c:when>
-                    	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="specification_review"/>
-                            </jsp:include>
-                        </c:when>
-                    	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="application_testing_review"/>
-                            </jsp:include>
-                        </c:when>
-                    </c:choose>
-                </td>
+                <jsp:include page="reviewGlobalLeft.jsp"/>
                 <!-- Left Column Ends -->
         
                 <!-- Gutter Begins -->
@@ -87,26 +54,7 @@
         
                 <!-- Center Column Begins -->
                 <td width="100%" align="center" class="bodyText">
-                    <c:choose>
-                    	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
-                            <jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="conceptualization"/>
-                                <jsp:param name="title" value="Review Opportunities"/>
-                            </jsp:include>
-                        </c:when>
-                    	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
-                            <jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="specification"/>
-                                <jsp:param name="title" value="Review Opportunities"/>
-                            </jsp:include>
-                        </c:when>
-                    	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
-                            <jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="app_testing"/>
-                                <jsp:param name="title" value="Review Opportunities"/>
-                            </jsp:include>
-                        </c:when>
-                    </c:choose>
+                    <jsp:include page="reviewPageTitle.jsp"/>
                     <table cellspacing="0" cellpadding="0" width="530">
                         <tr>
                             <td class="bodyText" align="left">
@@ -125,7 +73,17 @@
                             <td class="projectHeaders" align="right" width="50%">Difficulty</td>
                         </tr>
                         <tr>
-                            <td class="projectCells" align="left">${projectTypeDesc}</td>
+                            <td class="projectCells" align="left">
+                                <c:choose>
+                                    <c:when test="${projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE ||
+                                        projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
+                                        ${projectDetailRow.map['catalog']}
+                                    </c:when>
+                                    <c:otherwise>
+                                        ${projectTypeDesc}
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
                             <td class="projectCells" align="center">${projectDetailRow.map['phase_desc']}</td>
                             <td class="projectCells" align="right">${projectDetailRow.map['level']}</td>
                         </tr>
@@ -255,24 +213,13 @@
                                 </td>
                                 <td class="projectCells" align="center" nowrap>
                                     <c:choose>
-                                        <c:when test="${now < projectDetailRow.map['opens_on'] && !isSpecificationReview}">
+                                        <c:when test="${now < projectDetailRow.map['opens_on'] && 
+                                            !isSpecificationReview}">
                                             <i>Not open yet ***</i>
                                         </c:when>
                                         <c:when test="${reviewer.spotFilled}">
-                                            <c:choose>
-                                            	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
-                                                    <tc-webtag:handle coderId="${reviewer.userId}" 
-                                                        context='conceptualization'/>
-                                                </c:when>
-                                            	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
-                                                    <tc-webtag:handle coderId="${reviewer.userId}" 
-                                                        context='specification'/>
-                                                </c:when>
-                                            	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
-                                                    <tc-webtag:handle coderId="${reviewer.userId}" 
-                                                        context='application_testing'/>
-                                                </c:when>
-                                            </c:choose>
+                                            <tc-webtag:handle coderId="${reviewer.userId}" 
+                                                context="${handleContext}"/>
                                         </c:when>
                                         <c:when test="${waitingToReview && !isSpecificationReview}">
                                             <i>Waiting until <fmt:formatDate value="${waitingUntil}" 
@@ -281,12 +228,18 @@
                                         <c:otherwise>
                                             <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectReviewApply&${PROJECT_ID}=${reviewer.projectId}&${PROJECT_TYPE_ID}=${projectType}&${PRIMARY_FLAG}=${reviewer.primary}&${REVIEWER_TYPE_ID}=${reviewer.reviewerTypeId}">
                                                 Apply Now
-                                            </a> **
+                                            </a>
+                                            <c:if test="${!isSpecificationReview}">
+                                                **
+                                            </c:if>
                                         </c:otherwise>
                                     </c:choose>
                                 </td>
                                 <td class="projectCells" align="right">
-                                    $<fmt:formatNumber value="${reviewer.reviewPrice}" pattern="#,###.00"/>*
+                                    $<fmt:formatNumber value="${reviewer.reviewPrice}" pattern="#,###.00"/>
+                                    <c:if test="${!isSpecificationReview}">
+                                        *
+                                    </c:if>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -304,9 +257,9 @@
                             </tr>
                             <tr>
                                 <td class="bodyText">
-                                <p align="left">** By applying to review the component you are committing to the presented 
-                                    timeline.  Failure to meet the provided timeline may result in a suspension from the 
-                                    TopCoder Review Board.</p>
+                                <p align="left">** By applying to review the component you are committing to the 
+                                    presented timeline.  Failure to meet the provided timeline may result in a 
+                                    suspension from the TopCoder Review Board.</p>
                                 </td>
                             </tr>
                             <tr>
@@ -320,8 +273,8 @@
                                     <td class="bodyText">
                                         <p align="left">
                                             **** Due to your existing review commitments, review positions open for you 
-                                            ${applicationDelayHours} hours and ${applicationDelayMinutes} minutes after a 
-                                            project opens for review registration.
+                                            ${applicationDelayHours} hours and ${applicationDelayMinutes} minutes after 
+                                            a project opens for review registration.
                                         </p>
                                     </td>
                                 </tr>
@@ -331,9 +284,18 @@
                         <tr>
                             <td class="bodyText">
                                 <p align="left">
-                                    <a href="/tc?module=ViewReviewProjects&amp;${PROJECT_TYPE_ID}=${projectType}">
-                                        View all projects
-                                    </a>
+                                    <c:choose>
+                                        <c:when test="${isSpecificationReview}">
+                                            <a href="/tc?module=ViewReviewProjects&amp;${PROJECT_TYPE_ID}=${projectType - SPECIFICATION_COMPETITION_OFFSET}">
+                                                View all projects
+                                            </a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="/tc?module=ViewReviewProjects&amp;${PROJECT_TYPE_ID}=${projectType}">
+                                                View all projects
+                                            </a>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </p>
                             </td>
                         </tr>

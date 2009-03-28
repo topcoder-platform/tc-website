@@ -16,25 +16,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%-- Variables to use JSTL --%>
-<c:set var="PROJECT_ID" value="<%=Constants.PROJECT_ID%>"/>
-<c:set var="MODULE_KEY" value="<%=Constants.MODULE_KEY%>"/>
 <c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
-<c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
-<c:set var="SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>"/>
-<c:set var="APPLICATION_TESTING_PROJECT_TYPE" value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>"/>
-<c:set var="projectType" value="${param[PROJECT_TYPE_ID]}"/>
-
-<c:choose>
-	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="Conceptualization"/>
-    </c:when>
-	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="Specification"/>
-    </c:when>
-	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="Application Testing"/>
-    </c:when>
-</c:choose>
+<c:set var="projectType" value="${param[PROJECT_TYPE_ID]}" scope="request"/>
+<jsp:include page="reviewCommonVariables.jsp"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -52,25 +36,7 @@
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
                 <!-- Left Column Begins-->
-                <td width="180">
-                    <c:choose>
-                    	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="conceptualization_review"/>
-                            </jsp:include>
-                        </c:when>
-                    	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="specification_review"/>
-                            </jsp:include>
-                        </c:when>
-                    	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="application_testing_review"/>
-                            </jsp:include>
-                        </c:when>
-                    </c:choose>
-                </td>
+                <jsp:include page="reviewGlobalLeft.jsp"/>
                 <!-- Left Column Ends -->
                 
                 <!-- Gutter Begins -->
@@ -79,45 +45,25 @@
                 
                 <!-- Center Column Begins -->
                 <td width="100%" class="bodyText">
-                <c:choose>
-                	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
-                        <jsp:include page="/page_title.jsp">
-                            <jsp:param name="image" value="conceptualization"/>
-                            <jsp:param name="title" value="Review Opportunities"/>
-                        </jsp:include>
-                    </c:when>
-                	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
-                        <jsp:include page="/page_title.jsp">
-                            <jsp:param name="image" value="specification"/>
-                            <jsp:param name="title" value="Review Opportunities"/>
-                        </jsp:include>
-                    </c:when>
-                	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
-                        <jsp:include page="/page_title.jsp">
-                            <jsp:param name="image" value="app_testing"/>
-                            <jsp:param name="title" value="Review Opportunities"/>
-                        </jsp:include>
-                    </c:when>
-                </c:choose>
-                
-                <span class="bigTitle">Review opportunities</span>
-                
-                <p>In the table below you will be able to see which projects are available for review, the type of 
-                    project, the current number of submissions on each, the review timeline for each, and the number 
-                    of review positions available for each project. If you click on an 
-                    ${fn:toLowerCase(projectTypeDesc)} name you will be able to see all of the details associated with 
-                    that ${fn:toLowerCase(projectTypeDesc)} review.</p>
-                <p>If you are not currently on the TopCoder ${projectTypeDesc} Review Board you may send an email to
-                    <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a> requesting permission
-                    to perform reviews. Please keep in mind only members that have completed 
-                    ${fn:toLowerCase(projectTypeDesc)} projects are eligible to join the TopCoder ${projectTypeDesc} 
-                    Review board.</p>
-                <p>In order to sign up for a review position, click on the "details" link for any 
-                    ${fn:toLowerCase(projectTypeDesc)} with positions available, and then select "Apply Now" next to the 
-                    position that you would like to commit to.</p>
-                <br/>
-                <c:choose>
-                	<c:when test="${fn:length(projectList) > 0}">
+                    <jsp:include page="reviewPageTitle.jsp"/>
+                        
+                    <span class="bigTitle">Review opportunities</span>
+                    
+                    <p>In the table below you will be able to see which projects are available for review, the type of 
+                        project, the current number of submissions on each, the review timeline for each, and the number 
+                        of review positions available for each project. If you click on an 
+                        ${fn:toLowerCase(projectTypeDesc)} name you will be able to see all of the details associated 
+                        with that ${fn:toLowerCase(projectTypeDesc)} review.</p>
+                    <p>If you are not currently on the TopCoder ${projectTypeDesc} Review Board you may send an email to
+                        <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a> requesting 
+                        permission to perform reviews. Please keep in mind only members that have completed 
+                        ${fn:toLowerCase(projectTypeDesc)} projects are eligible to join the TopCoder ${projectTypeDesc} 
+                        Review board.</p>
+                    <p>In order to sign up for a review position, click on the "details" link for any 
+                        ${fn:toLowerCase(projectTypeDesc)} with positions available, and then select "Apply Now" next 
+                        to the position that you would like to commit to.</p>
+                    <br/>
+                	<c:if test="${fn:length(projectList) > 0}">
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                             <tr>
                                 <td>
@@ -217,17 +163,10 @@
                             </p>
                         </c:if>
                         <br/>
-                    </c:when>
-                    <c:otherwise>
-                        <br/>
-                        <p align="center">Sorry, there are currently no review positions available.</p>
-                        <br/>
-                    </c:otherwise>
-                </c:choose>
+                    </c:if>
 
 
-                <c:choose>
-                    <c:when test="${fn:length(specificationReviewList) > 0}">
+                    <c:if test="${fn:length(specificationReviewList) > 0}">
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                             <tr>
                                 <td>
@@ -260,7 +199,8 @@
                                                     ${resultRow.map["version"]}
                                                 </td>
                                                 <td class="statDk" align="right">
-                                                    $ <fmt:formatNumber value="${specificationReviewPrices[i].reviewPrice}" 
+                                                    $ <fmt:formatNumber 
+                                                        value="${specificationReviewPrices[i].primaryReviewPrice}" 
                                                         pattern="#,###.00"/>
                                                 </td>
                                                 <td class="statDk" align="center">
@@ -300,13 +240,13 @@
                             </tr>
                         </table>
                         <br/>
-                    </c:when>
-                    <c:otherwise>
+                    </c:if>
+
+                    <c:if test="${fn:length(projectList) + fn:length(specificationReviewList) == 0}">
                         <br/>
-                        <p align="center">Sorry, there are currently no specification review positions available.</p>
+                        <p align="center">Sorry, there are currently no review positions available.</p>
                         <br/>
-                    </c:otherwise>
-                </c:choose>
+                    </c:if>
                 
                 </td>
                 <!-- Center Column Ends -->
