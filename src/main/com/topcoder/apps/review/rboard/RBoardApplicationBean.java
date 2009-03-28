@@ -1054,7 +1054,7 @@ public class RBoardApplicationBean extends BaseEJB {
         int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
                 22, 23, 24, 25, 26, 27, 28};
         int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134, 
-                117, 117, 117, 124, 124, 124, 1001, 1002, 1023, 1006, 1007, 1014, 1013};
+                117, 117, 117, 124, 124, 124, 1112, 1113, 1134, 1117, 1118, 1125, 1124};
 
         for (int i = 0; i < respIds.length; i++) {
             returnMap.put(new Integer(respIds[i]), new Integer(phaseIds[i]));

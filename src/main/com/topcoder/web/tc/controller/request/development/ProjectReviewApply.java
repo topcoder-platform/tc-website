@@ -180,15 +180,24 @@ public class ProjectReviewApply extends Base {
         // Assembly, Architecture, Conceptualization, Specification and Application Testing competition 
         // reviews do not take into consideration the catalogs as for now
         // same with specification reviews
-        if (type == WebConstants.ASSEMBLY_PROJECT_TYPE || type == WebConstants.ARCHITECTURE_PROJECT_TYPE ||
-            type == WebConstants.CONCEPTUALIZATION_PROJECT_TYPE || type == WebConstants.SPECIFICATION_PROJECT_TYPE ||
-            type == WebConstants.APPLICATION_TESTING_PROJECT_TYPE || type > WebConstants.SPECIFICATION_COMPETITION_OFFSET) {
-            rBoardApplication.validateUserWithoutCatalog(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, reviewTypeId,
-                                                         getUser().getId(), type);
-        } else {
+        
+        if (validateWithCatalog(type)) {
             rBoardApplication.validateUser(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, catalog, reviewTypeId, getUser().getId(),
-                                           this.phaseId);
+                    this.phaseId);
+        } else {
+            rBoardApplication.validateUserWithoutCatalog(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, reviewTypeId,
+                    getUser().getId(), type);
         }
+    }
+
+    private boolean validateWithCatalog(int type) {
+        // Design and Development specification also have a catalog associated.
+        
+        return type == WebConstants.ASSEMBLY_PROJECT_TYPE || type == WebConstants.ARCHITECTURE_PROJECT_TYPE ||
+        type == WebConstants.CONCEPTUALIZATION_PROJECT_TYPE || type == WebConstants.SPECIFICATION_PROJECT_TYPE ||
+        type == WebConstants.APPLICATION_TESTING_PROJECT_TYPE || type == WebConstants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE ||
+        type == WebConstants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE || type == WebConstants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE ||
+        type == WebConstants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE || type == WebConstants.APPLICATION_TESTING_SPECIFICATION_PROJECT_TYPE;
     }
 
     protected void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException, ConfigException {
