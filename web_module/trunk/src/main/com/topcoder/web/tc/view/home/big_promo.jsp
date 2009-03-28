@@ -97,10 +97,8 @@
 <br />
 <a href="<tc-webtag:linkTracking link='http://www.topcoder.com/tco09' refer='/tc' />"><img src="/images/home/tco09_510x54_banner.jpg" alt="2009 TopCoder Open" /></a>
 
-<%-- Linden Lab MM Promo --%>
 <br />
-<br />
-<a href="<tc-webtag:linkTracking link='/tc?module=MatchDetails&rd=13772' refer='/tc' />"><img src="/i/longcontest/lindenlabMM-banner.png" alt="Linden Lab OpenJPG MM" /></a>
+
 
 <%-- NORM Assembly Run 
 <br />
