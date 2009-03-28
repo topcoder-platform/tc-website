@@ -220,7 +220,7 @@ public class Constants implements WebConstants {
      *
      * @since TCS Release 2.2.0 (TCS-54)
      */
-    public static final String ASSEMBLY_REVIEW_PROJECT_DETAIL = "/dev/assembly/reviewProjectDetail.jsp";
+    //public static final String ASSEMBLY_REVIEW_PROJECT_DETAIL = "/dev/assembly/reviewProjectDetail.jsp";
 
     /**
      * <p>A <code>String</code> providing the logical name for the view corresponding to
@@ -228,7 +228,7 @@ public class Constants implements WebConstants {
      *
      * @since TCS Release 2.2.1 (TCS-57)
      */
-    public static final String ARCHITECTURE_REVIEW_PROJECT_DETAIL = "/architecture/reviewProjectDetail.jsp";
+    //public static final String ARCHITECTURE_REVIEW_PROJECT_DETAIL = "/architecture/reviewProjectDetail.jsp";
 
     /**
      * <p>A <code>String</code> providing the path to the unified review project detail page used to
@@ -240,13 +240,14 @@ public class Constants implements WebConstants {
 
     public static String REVIEW_PROJECTS;
 
+    // todo: pulky:
     /**
      * <p>A <code>String</code> providing the logical name for the view corresponding to
      * <code>Assembly Review Projects</code> page.</p>
      *
      * @since TCS Release 2.2.0 (TCS-54)
      */
-    public static final String ASSEMBLY_REVIEW_PROJECTS = "/dev/assembly/reviewProjects.jsp";
+//    public static final String ASSEMBLY_REVIEW_PROJECTS = "/dev/assembly/reviewProjects.jsp";
 
     /**
      * <p>A <code>String</code> providing the logical name for the view corresponding to
@@ -254,7 +255,7 @@ public class Constants implements WebConstants {
      *
      * @since TCS Release 2.2.1 (TCS-57)
      */
-    public static final String ARCHITECTURE_REVIEW_PROJECTS = "/architecture/reviewProjects.jsp";
+    //public static final String ARCHITECTURE_REVIEW_PROJECTS = "/architecture/reviewProjects.jsp";
 
     /**
      * <p>A <code>String</code> providing the path to the unified review project page used to
@@ -274,7 +275,7 @@ public class Constants implements WebConstants {
      *
      * @since TCS Release 2.2.0 (TCS-54)
      */
-    public static final String ASSEMBLY_REVIEWER_TERMS = "/dev/assembly/reviewerTerms.jsp";
+    //public static final String ASSEMBLY_REVIEWER_TERMS = "/dev/assembly/reviewerTerms.jsp";
 
     /**
      * <p>A <code>String</code> providing the logical name for the view corresponding to
@@ -282,7 +283,7 @@ public class Constants implements WebConstants {
      *
      * @since TCS Release 2.2.1 (TCS-57)
      */
-    public static final String ARCHITECTURE_REVIEWER_TERMS = "/architecture/reviewerTerms.jsp";
+    //public static final String ARCHITECTURE_REVIEWER_TERMS = "/architecture/reviewerTerms.jsp";
 
     /**
      * <p>A <code>String</code> providing the path to the unified review terms page used to

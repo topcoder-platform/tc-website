@@ -203,24 +203,15 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the list of review opportunities for
      *         specified project type.
-     * @throws IllegalArgumentException if specified project type is not supported.
      * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57)
      */
     private String getReviewOpportunitiesView(String projectType) {
-        if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
+        // we don't need to check for project types, they are already verified.
+        if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE)) ||
+                projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
             return Constants.REVIEW_PROJECTS;
-        } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
-            return Constants.REVIEW_PROJECTS;
-        } else if (projectType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))) {
-            return Constants.ASSEMBLY_REVIEW_PROJECTS;
-        } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
-            return Constants.ARCHITECTURE_REVIEW_PROJECTS;
-        } else if (projectType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE)) ||
-                projectType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE)) ||
-                projectType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))) {
-            return Constants.UNIFIED_REVIEW_PROJECTS_PAGE;
         } else {
-            throw new IllegalArgumentException("Unsupported project type/category: " + projectType);
+            return Constants.UNIFIED_REVIEW_PROJECTS_PAGE;
         }
     }
 }

@@ -223,18 +223,12 @@ public class ProjectReviewApply extends Base {
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the terms of use for projects of
      *         specified type.
-     * @throws IllegalArgumentException if specified project type is not supported.
      * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57)
      */
     private String getReviewTermsView(String projectType) {
-        if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
+        if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE)) ||
+                projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
             return Constants.REVIEWER_TERMS;
-        } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
-            return Constants.REVIEWER_TERMS;
-        } else if (projectType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))) {
-            return Constants.ASSEMBLY_REVIEWER_TERMS;
-        } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
-            return Constants.ARCHITECTURE_REVIEWER_TERMS;
         } else {
             // we don't need to check for project types, they are already verified.
             return Constants.UNIFIED_REVIEWER_TERMS_PAGE;
