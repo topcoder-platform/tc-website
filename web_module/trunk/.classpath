@@ -156,7 +156,6 @@
 	<classpathentry kind="lib" path="test_files/studio/tcs.jar"/>
 	<classpathentry kind="lib" path="test_files/test.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/topcoder-shared"/>
 	<classpathentry kind="lib" path="lib/jars/jboss/jbossall-client.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/tcsUtil.jar"/>
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/image_manipulation-1.0.1.jar"/>
@@ -173,5 +172,6 @@
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/custom-serialization-1.0.0.jar"/>
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/logging-1.0.0.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/studio_service.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/shared"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

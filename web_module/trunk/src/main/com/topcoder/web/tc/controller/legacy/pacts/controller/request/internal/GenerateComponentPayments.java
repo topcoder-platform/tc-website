@@ -11,7 +11,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.DevSupportException;
-import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -23,8 +22,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeaderList;
  * Create Date: May 16, 2006
  */
 public class GenerateComponentPayments extends BaseProcessor implements PactsConstants {
-
-
 	public final static String IS_DEV_SUPPORT_BY_DESIGNER = "dsd";
 	public final static String DEV_SUPPORT_PROJECT = "dsp";
 	public final static String DEV_SUPPORT_PROJECT_ID = "dspid";
@@ -34,7 +31,6 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
 
     protected void businessProcessing() throws TCWebException {
         try {
-            
             boolean applyReviewerWithholding = StringUtils.checkNull(getRequest().getParameter(APPLY_REVIEWER_WITHHOLDING_ID)).equalsIgnoreCase("on");
             boolean payRboardBonus = StringUtils.checkNull(getRequest().getParameter(PAY_RBOARD_BONUS_ID)).equalsIgnoreCase("on");
 
@@ -72,7 +68,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             	    addError(PROJECT_TERMINATION_STATUS, "Please enter the coder that will receive the development support payment");
             	    return;
             	}
-                Map m = new HashMap();
+                Map<String, String> m = new HashMap<String, String>();
                 m.put(HANDLE, handle);
                 UserProfileHeader[] users = new UserProfileHeaderList(dib.findUsers(m)).getHeaderList();
                 
@@ -92,11 +88,11 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 }
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
                 
-                List l;
+                List lst;
                 if ("none".equals(devSupportProject)) {
                     log.debug("Development support will not be paid");
 
-                    l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, applyReviewerWithholding, payRboardBonus);
+                    lst = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, applyReviewerWithholding, payRboardBonus);
                 } else {
                     long pid = 0;
                     if ("other".equals(devSupportProject)) {
@@ -109,15 +105,17 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                         return;
                     }
                     
-                    l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, devSupportId, pid, applyReviewerWithholding, payRboardBonus);
+                    lst = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, devSupportId, pid, applyReviewerWithholding, payRboardBonus);
                     
                 }
                 
-                l = bean.addPayments(l);
-                List ids = new ArrayList();
+                lst = bean.addPayments(lst);
                 
-                for (int i = 0; i < l.size(); i++) {
-                	BasePayment p = (BasePayment) l.get(i);
+                List<String> ids = new ArrayList<String>();
+                
+                for (int i = 0; i < lst.size(); i++) {
+                	BasePayment p = (BasePayment) lst.get(i);
+                	// TODO: find a better way to avoid duplicating these magic numbers, to ensure they're always in sync
                 	if (p.getPaymentType() == PactsConstants.COMPONENT_PAYMENT) counts[0]++;
                     if (p.getPaymentType() == PactsConstants.REVIEW_BOARD_PAYMENT) counts[1]++;
                     if (p.getPaymentType() == PactsConstants.REVIEW_BOARD_BONUS_PAYMENT) counts[3]++;
@@ -140,16 +138,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 
                 getRequest().setAttribute(PAYMENT_ID, ids);
                 
-                // [BUGR-1452] - add support for paying other project types
-                addError(PROJECT_ID, "Success: " + counts[0] + " design/dev, " +
-                        counts[4] + " concept., " +
-                        counts[5] + " specif., " +
-                        counts[6] + " arch., " +
-                        counts[7] + " app. testing, " +
-                        counts[8] + " assembly, " +
-                        counts[1] + " review board, " + counts[2] + " referral payments generated, " +
-                        + counts[3] + " review board bonus payments generated ");
-                
+                addError(PROJECT_ID, generateSuccessMessage(counts));
             } else {
 
             	if (!devSupportDes && devSupportId == 0) {
@@ -174,4 +163,37 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
         }
     }
 
+	/**
+	 * Generates a success message containing the counts for each type of payment generated.
+	 * 
+	 * @param counts an array containing the number of payments generated for each payment type.
+	 * @return a String containing the success message.
+	 */
+	private String generateSuccessMessage(int[] counts) {
+		// TODO: find a better way to avoid duplicating these magic numbers, to ensure they're always in sync
+		final int[] countIndex = new int[] { 0, 4, 5, 6, 8, 7, 1, 3, 2 };
+		final String[] countType = new String[] {
+				" design/development", " conceptualization", " specification", " architecture",
+				" assembly", " application testing", " review board", " review board bonus", " referral"
+		};
+		
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append("Success: ");
+		boolean first = true;
+		for (int i = 0; i < countIndex.length; ++i) {
+			if (counts[countIndex[i]] > 0) {
+				if (first) {
+					first = false;
+				} else {
+					sb.append(", ");
+				}
+				sb.append(counts[countIndex[i]]);
+				sb.append(countType[i]);
+			}
+		}
+		sb.append(" payments generated");
+		
+		return sb.toString();
+	}
 }
