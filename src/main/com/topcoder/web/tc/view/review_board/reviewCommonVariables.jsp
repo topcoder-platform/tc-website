@@ -60,7 +60,7 @@
         <c:set var="projectTypeDesc" value="Specification Specification" scope="request"/>
         <c:set var="handleContext" value="specification" scope="request"/>
     </c:when>
-    <c:when test="${projectType == APPLICATION_SPECIFICATION_TESTING_PROJECT_TYPE}">
+    <c:when test="${projectType == APPLICATION_TESTING_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Application Testing Specification" scope="request"/>
         <c:set var="handleContext" value="application_testing" scope="request"/>
     </c:when>
@@ -71,6 +71,14 @@
     <c:when test="${projectType == ASSEMBLY_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Assembly Specification" scope="request"/>
         <c:set var="handleContext" value="assembly" scope="request"/>
+    </c:when>
+    <c:when test="${projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Design Specification" scope="request"/>
+        <c:set var="handleContext" value="design" scope="request"/>
+    </c:when>
+    <c:when test="${projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Development Specification" scope="request"/>
+        <c:set var="handleContext" value="development" scope="request"/>
     </c:when>
 </c:choose>
 
