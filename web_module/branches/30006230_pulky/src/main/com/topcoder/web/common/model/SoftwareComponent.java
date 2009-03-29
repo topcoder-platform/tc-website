@@ -51,7 +51,8 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      *
      * @since 1.1
      */
-    public final static int CONCEPTUALIZATION_SPECIFICATION_PHASE = (int) WebConstants.PHASE_CONCEPTUALIZATION_SPECIFICATION;
+    public final static int CONCEPTUALIZATION_SPECIFICATION_PHASE =
+            (int) WebConstants.PHASE_CONCEPTUALIZATION_SPECIFICATION;
 
     /**
      * <p>An <code>int</code> representing specification specification phase id.</p>
@@ -79,9 +80,10 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      *
      * @since 1.1
      */
-    public final static int APPLICATION_TESTING_SPECIFICATION_PHASE = (int) WebConstants.PHASE_APPLICATION_TESTING_SPECIFICATION;
+    public final static int APPLICATION_TESTING_SPECIFICATION_PHASE =
+            (int) WebConstants.PHASE_APPLICATION_TESTING_SPECIFICATION;
 
-    
+
     public final static int LEVEL1 = 100;
     public final static int LEVEL2 = 200;
 

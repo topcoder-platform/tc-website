@@ -4,11 +4,11 @@
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
-  - Description: This page displays the review terms of use corresponding to the specified project. 
+  - Description: This page displays the review terms of use corresponding to the specified project.
   - It displays the text and provides a for for the user to accept and continue registration.
   - This is an exhaustive refactor and generalization from existing reviewTerms.jsp files.
   -
-  - Version 1.1 (Specification Review Signup Pages 1.0) changes: 
+  - Version 1.1 (Specification Review Signup Pages 1.0) changes:
   -      * support for specification reviews was added.
   -      * code was refactored to avoid duplication.
 --%>
@@ -32,7 +32,7 @@
 <html>
     <head>
         <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
-    
+
         <jsp:include page="/script.jsp"/>
         <jsp:include page="/style.jsp">
             <jsp:param name="key" value="tc_stats"/>
@@ -41,28 +41,28 @@
 
     <body>
         <jsp:include page="reviewTop.jsp"/>
-        
+
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
                 <%-- Left Column Begins--%>
                 <jsp:include page="reviewGlobalLeft.jsp"/>
                 <%-- Left Column Ends --%>
-                
+
                 <%-- Gutter Begins --%>
                 <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0" alt=""/></td>
                 <%-- Gutter Ends --%>
-                
+
                 <%-- Center Column Begins --%>
                 <td width="100%" align="center">
                     <jsp:include page="reviewPageTitle.jsp"/>
-                
+
                     <form action="${sessionInfo.servletPath}" method="POST" name="frmTerms">
                         <input type="hidden" name="${PROJECT_ID}" value="${param[PROJECT_ID]}"/>
                         <input type="hidden" name="${REVIEWER_TYPE_ID}" value="${param[REVIEWER_TYPE_ID]}"/>
                         <input type="hidden" name="${PRIMARY_FLAG}" value="${param[PRIMARY_FLAG]}"/>
                         <input type="hidden" name="${MODULE_KEY}" value="ProjectReviewTermsAgree"/>
                         <input type="hidden" name="${PROJECT_TYPE_ID}" value="${projectType}"/>
-                
+
                         <table border="0" cellspacing="0" cellpadding="5">
                             <tr>
                                 <td>
@@ -87,18 +87,18 @@
                                     <tc-webtag:chkBox name="${TERMS_AGREE}"/>
                                 </td>
                             </tr>
-                
+
                             <tr>
                                 <td class="errorText">
                                     <img src="/i/captcha/${requestScope[CAPTCHA_FILE_NAME]}" alt="captcha image"/>
-                
+
                                     <p>
-                                        <a href="javascript:window.location.reload()">This image is hard to read. 
+                                        <a href="javascript:window.location.reload()">This image is hard to read.
                                             Show me a different one.</a>
                                     </p>
                                 </td>
                             </tr>
-                
+
                             <tr>
                                 <td class="errorText">
                                     <tc-webtag:errorIterator id="err" name="${CAPTCHA_RESPONSE}">${err}
@@ -113,38 +113,38 @@
                                     </p>
                                 </td>
                             </tr>
-                
-                
+
+
                             <tr>
                                 <td align="center">
                                     <input type="submit" onClick="" name="submit" value=" Continue"/>
                                 </td>
                             </tr>
                         </table>
-                
+
                     </form>
                 </td>
                 <%-- Center Column Ends --%>
-                
+
                 <%-- Gutter --%>
                 <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0" alt=""></td>
                 <%-- Gutter Ends --%>
-                
+
                 <%-- Right Column Begins --%>
                 <td width="180">
                     <jsp:include page="/public_right.jsp">
                         <jsp:param name="level1" value="default"/>
                     </jsp:include>
-                
+
                 </td>
                 <%-- Right Column Ends --%>
-                
+
                 <%-- Gutter --%>
                 <td width="2"><img src="/i/clear.gif" width="2" height="1" border="0" alt=""></td>
                 <%-- Gutter Ends --%>
             </tr>
         </table>
-        
+
         <jsp:include page="/foot.jsp"/>
     </body>
 </html>

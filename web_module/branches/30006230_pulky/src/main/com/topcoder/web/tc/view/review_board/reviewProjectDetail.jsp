@@ -4,11 +4,11 @@
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
-  - Description: This page displays the review details corresponding to the specified project. 
+  - Description: This page displays the review details corresponding to the specified project.
   - It displays the list of projects phases along with the list of taken and available review positions.
   - This is an exhaustive refactor and generalization from existing reviewProjectDetail.jsp files.
   -
-  - Version 1.1 (Specification Review Signup Pages 1.0) changes: 
+  - Version 1.1 (Specification Review Signup Pages 1.0) changes:
   -      * support for specification reviews was added.
   -      * code was refactored to avoid duplication.
 --%>
@@ -35,26 +35,26 @@
 <html>
     <head>
         <title>Open ${projectTypeDesc} Projects Available for Review</title>
-        
+
         <jsp:include page="/script.jsp"/>
         <jsp:include page="/style.jsp">
             <jsp:param name="key" value="tc_stats"/>
         </jsp:include>
     </head>
-    
+
     <body>
         <jsp:include page="reviewTop.jsp"/>
-        
+
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
            <tr valign="top">
                 <!-- Left Column Begins-->
                 <jsp:include page="reviewGlobalLeft.jsp"/>
                 <!-- Left Column Ends -->
-        
+
                 <!-- Gutter Begins -->
                 <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0" alt=""/></td>
                 <!-- Gutter Ends -->
-        
+
                 <!-- Center Column Begins -->
                 <td width="100%" align="center" class="bodyText">
                     <jsp:include page="reviewPageTitle.jsp"/>
@@ -65,7 +65,7 @@
                             </td>
                         </tr>
                     </table>
-        
+
                     <table cellspacing="0" width="530" class="formFrame">
                         <tr>
                             <td class="projectTitles" colspan="3">Component Details</td>
@@ -91,9 +91,9 @@
                             <td class="projectCells" align="right">${projectDetailRow.map['level']}</td>
                         </tr>
                     </table>
-        
+
                     <br/>
-        
+
                     <table cellspacing="0" width="530" class="formFrame">
                         <tr>
                             <td class="projectTitles" colspan="3">Timeline</td>
@@ -104,98 +104,98 @@
                             <td class="projectHeaders" width="50%" align="right">End</td>
                         <tr>
                             <td class="projectCells">Submission</td>
-                                                                                        
-        
+
+
                             <td class="projectCells" align="center">
-                                <fmt:formatDate value="${projectDetailRow.map['submission_start']}" 
+                                <fmt:formatDate value="${projectDetailRow.map['submission_start']}"
                                     pattern="MM.dd.yyyy"/>
                             </td>
                             <td class="projectCells" align="right">
-                                <fmt:formatDate value="${projectDetailRow.map['submission_end']}" 
+                                <fmt:formatDate value="${projectDetailRow.map['submission_end']}"
                                     pattern="MM.dd.yyyy"/>
                             </td>
                         </tr>
                         <tr>
                             <td class="projectCells">Screening</td>
                             <td class="projectCells" align="center">
-                                <fmt:formatDate value="${projectDetailRow.map['screening_start']}" 
+                                <fmt:formatDate value="${projectDetailRow.map['screening_start']}"
                                     pattern="MM.dd.yyyy"/>
                             </td>
                             <td class="projectCells" align="right">
-                                <fmt:formatDate value="${projectDetailRow.map['screening_end']}" 
+                                <fmt:formatDate value="${projectDetailRow.map['screening_end']}"
                                     pattern="MM.dd.yyyy"/>
                             </td>
                         </tr>
                         <tr>
                             <td class="projectCells">Review</td>
                             <td class="projectCells" align="center">
-                                <fmt:formatDate value="${projectDetailRow.map['review_start']}" 
+                                <fmt:formatDate value="${projectDetailRow.map['review_start']}"
                                     pattern="MM.dd.yyyy"/>
                             </td>
                             <td class="projectCells" align="right">
-                                <fmt:formatDate value="${projectDetailRow.map['review_end']}" 
+                                <fmt:formatDate value="${projectDetailRow.map['review_end']}"
                                     pattern="MM.dd.yyyy"/>
                             </td>
                         </tr>
                         <tr>
                             <td class="projectCells">Appeals</td>
                             <td class="projectCells" align="center">
-                                <fmt:formatDate value="${projectDetailRow.map['appeals_start']}" 
+                                <fmt:formatDate value="${projectDetailRow.map['appeals_start']}"
                                     pattern="MM.dd.yyyy"/>
                             </td>
                             <td class="projectCells" align="right">
-                                <fmt:formatDate value="${projectDetailRow.map['appeals_end']}" 
+                                <fmt:formatDate value="${projectDetailRow.map['appeals_end']}"
                                     pattern="MM.dd.yyyy"/>
                             </td>
                         </tr>
                         <tr>
                             <td class="projectCells">Aggregation</td>
                             <td class="projectCells" align="center">
-                                <fmt:formatDate value="${projectDetailRow.map['aggregation_start']}" 
+                                <fmt:formatDate value="${projectDetailRow.map['aggregation_start']}"
                                     pattern="MM.dd.yyyy"/>
                             </td>
                             <td class="projectCells" align="right">
-                                <fmt:formatDate value="${projectDetailRow.map['aggregation_end']}" 
+                                <fmt:formatDate value="${projectDetailRow.map['aggregation_end']}"
                                     pattern="MM.dd.yyyy"/>
                             </td>
                         </tr>
                         <tr>
                             <td class="projectCells">Aggregation Review</td>
                             <td class="projectCells" align="center">
-                                <fmt:formatDate value="${projectDetailRow.map['agg_review_start']}" 
+                                <fmt:formatDate value="${projectDetailRow.map['agg_review_start']}"
                                     pattern="MM.dd.yyyy"/>
                             </td>
                             <td class="projectCells" align="right">
-                                <fmt:formatDate value="${projectDetailRow.map['agg_review_end']}" 
+                                <fmt:formatDate value="${projectDetailRow.map['agg_review_end']}"
                                     pattern="MM.dd.yyyy"/>
                             </td>
                         </tr>
                         <tr>
                             <td class="projectCells">Final Fixes</td>
                             <td class="projectCells" align="center">
-                                <fmt:formatDate value="${projectDetailRow.map['final_fix_start']}" 
+                                <fmt:formatDate value="${projectDetailRow.map['final_fix_start']}"
                                     pattern="MM.dd.yyyy"/>
                             </td>
                             <td class="projectCells" align="right">
-                                <fmt:formatDate value="${projectDetailRow.map['final_fix_end']}" 
+                                <fmt:formatDate value="${projectDetailRow.map['final_fix_end']}"
                                     pattern="MM.dd.yyyy"/>
                             </td>
                         </tr>
                         <tr>
                             <td class="projectCells">Final Review</td>
                             <td class="projectCells" align="center">
-                                <fmt:formatDate value="${projectDetailRow.map['final_review_start']}" 
+                                <fmt:formatDate value="${projectDetailRow.map['final_review_start']}"
                                     pattern="MM.dd.yyyy"/>
                             </td>
                             <td class="projectCells" align="right">
-                                <fmt:formatDate value="${projectDetailRow.map['final_review_end']}" 
+                                <fmt:formatDate value="${projectDetailRow.map['final_review_end']}"
                                     pattern="MM.dd.yyyy"/>
                             </td>
                         </tr>
                     </table>
-        
+
                     <br/>
-        
+
                     <table cellspacing="0" width="530" class="formFrame">
                         <tr>
                             <td class="projectTitles" colspan="3">Positions Available</td>
@@ -205,7 +205,7 @@
                             <td class="projectHeaders" align="center">Reviewer</td>
                             <td class="projectHeaders" width="50%" align="right">Payment</td>
                         <tr>
-        
+
                         <c:forEach items="${reviewerList}" var="reviewer">
                             <tr>
                                 <td class="projectCells">
@@ -216,16 +216,16 @@
                                 </td>
                                 <td class="projectCells" align="center" nowrap>
                                     <c:choose>
-                                        <c:when test="${now < projectDetailRow.map['opens_on'] && 
+                                        <c:when test="${now < projectDetailRow.map['opens_on'] &&
                                             !isSpecificationReview}">
                                             <i>Not open yet ***</i>
                                         </c:when>
                                         <c:when test="${reviewer.spotFilled}">
-                                            <tc-webtag:handle coderId="${reviewer.userId}" 
+                                            <tc-webtag:handle coderId="${reviewer.userId}"
                                                 context="${handleContext}"/>
                                         </c:when>
                                         <c:when test="${waitingToReview && !isSpecificationReview}">
-                                            <i>Waiting until <fmt:formatDate value="${waitingUntil}" 
+                                            <i>Waiting until <fmt:formatDate value="${waitingUntil}"
                                                 pattern="MM.dd.yyyy hh:mm a"/> ****</i>
                                         </c:when>
                                         <c:otherwise>
@@ -249,25 +249,25 @@
                     </table>
 
                     <br/>
-    
+
                     <table cellspacing="0" cellpadding="0" width="530" class="bodyText">
                         <c:if test="${!isSpecificationReview}">
                             <tr>
                                 <td class="bodyText">
-                                <p align="left">* This number assumes that all submissions pass screening, the actual 
+                                <p align="left">* This number assumes that all submissions pass screening, the actual
                                     payment may differ.</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="bodyText">
-                                <p align="left">** By applying to review the component you are committing to the 
-                                    presented timeline.  Failure to meet the provided timeline may result in a 
+                                <p align="left">** By applying to review the component you are committing to the
+                                    presented timeline.  Failure to meet the provided timeline may result in a
                                     suspension from the TopCoder Review Board.</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="bodyText">
-                                    <p align="left">*** Review positions for new projects become open 12 hours after the 
+                                    <p align="left">*** Review positions for new projects become open 12 hours after the
                                         project starts.</p>
                                 </td>
                             </tr>
@@ -275,8 +275,8 @@
                                 <tr>
                                     <td class="bodyText">
                                         <p align="left">
-                                            **** Due to your existing review commitments, review positions open for you 
-                                            ${applicationDelayHours} hours and ${applicationDelayMinutes} minutes after 
+                                            **** Due to your existing review commitments, review positions open for you
+                                            ${applicationDelayHours} hours and ${applicationDelayMinutes} minutes after
                                             a project opens for review registration.
                                         </p>
                                     </td>
@@ -305,11 +305,11 @@
                     </table>
                 </td>
                 <!-- Center Column Ends -->
-        
+
                 <!-- Gutter -->
                 <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
                 <!-- Gutter Ends -->
-        
+
                 <!-- Right Column Begins -->
                  <td width="180">
                     <jsp:include page="/public_right.jsp">
@@ -317,13 +317,13 @@
                     </jsp:include>
                  </td>
                 <!-- Right Column Ends -->
-        
+
                 <!-- Gutter -->
                 <td width="2"><img src="/i/clear.gif" width="2" height="1" border="0" alt=""></td>
                 <!-- Gutter Ends -->
             </tr>
         </table>
-        
+
         <jsp:include page="/foot.jsp" />
     </body>
 </html>

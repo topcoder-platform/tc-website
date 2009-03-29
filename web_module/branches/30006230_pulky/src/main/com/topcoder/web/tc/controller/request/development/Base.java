@@ -177,8 +177,8 @@ public abstract class Base extends ShortHibernateProcessor {
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @param includeSpecificationReviews a <code>boolean</code> specifying if specification review projects should
-     * be included in the supported types for the validation. 
-     * 
+     * be included in the supported types for the validation.
+     *
      * @return <code>true</code> if specified project type is supported; <code>false</code> otherwise.
      * @since TCS Release 2.2.0 (TCS-54)
      */

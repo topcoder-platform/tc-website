@@ -42,7 +42,7 @@ import com.topcoder.shared.util.logging.Logger;
  *          Application Testing competitions.
  *     </li>
  *   </ol>
- *   
+ *
  *   Version 1.1.0 Change notes:
  *   <ol>
  *     <li>
@@ -50,7 +50,7 @@ import com.topcoder.shared.util.logging.Logger;
  *          review payment formulas.
  *     </li>
  *   </ol>
- *   
+ *
  *   Version 1.1.1 (Specification Review Signup Pages 1.0) Change notes:
  *   <ol>
  *     <li>Added support for Specification Review projects.</li>
@@ -168,16 +168,16 @@ public class DefaultPriceComponent implements SoftwareComponent {
      */
     private ReviewerPaymentCalculator getReviewerPaymentCalculator(float prize, int submissionCount,
                                                                    int submissionsPassedScreening) {
-        
+
         if (phaseId == DESIGN_PHASE || phaseId == DEV_PHASE) {
             return new ComponentReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == CONCEPTUALIZATION_PHASE || phaseId == SPECIFICATION_PHASE
                 || phaseId == ARCHITECTURE_PHASE || phaseId == ASSEMBLY_PHASE
                 || phaseId == APPLICATION_TESTING_PHASE) {
             return new ApplicationReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
-        } else if (phaseId == DESIGN_SPECIFICATION_PHASE || phaseId == DEVELOPMENT_SPECIFICATION_PHASE || 
-                phaseId == CONCEPTUALIZATION_SPECIFICATION_PHASE || phaseId == SPECIFICATION_SPECIFICATION_PHASE || 
-                phaseId == ARCHITECTURE_SPECIFICATION_PHASE || phaseId == ASSEMBLY_SPECIFICATION_PHASE || 
+        } else if (phaseId == DESIGN_SPECIFICATION_PHASE || phaseId == DEVELOPMENT_SPECIFICATION_PHASE ||
+                phaseId == CONCEPTUALIZATION_SPECIFICATION_PHASE || phaseId == SPECIFICATION_SPECIFICATION_PHASE ||
+                phaseId == ARCHITECTURE_SPECIFICATION_PHASE || phaseId == ASSEMBLY_SPECIFICATION_PHASE ||
                 phaseId == APPLICATION_TESTING_SPECIFICATION_PHASE) {
             return new SpecificationReviewerPaymentCalculator(phaseId);
         } else {
@@ -289,7 +289,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("Specification Specification phaseId       : " + SPECIFICATION_SPECIFICATION_PHASE);
             System.out.println("Architecture Specification phaseId        : " + ARCHITECTURE_SPECIFICATION_PHASE);
             System.out.println("Assembly Specification phaseId            : " + ASSEMBLY_SPECIFICATION_PHASE);
-            System.out.println("Application Specification phaseId         : " + APPLICATION_TESTING_SPECIFICATION_PHASE);
+            System.out.println("Application Specification phaseId         : "
+                    + APPLICATION_TESTING_SPECIFICATION_PHASE);
 
         } else {
             DefaultPriceComponent sc = new DefaultPriceComponent(1, Integer.parseInt(args[0]),
