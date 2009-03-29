@@ -38,7 +38,7 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  * Version 1.1.2 Change notes:
  * <ol>
  * <li>
- * Deleted project are processed to fisically delete all related info in the dw.
+ * Deleted project are processed to physically delete all related info in the dw.
  * </li>
  * </ol>
  * <p/>
