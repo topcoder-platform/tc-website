@@ -107,7 +107,7 @@ public class TCLoadTCS extends TCLoad {
     /**
      * Return if it will load moved project which not be covered by last old_dw load.
      *
-     * @return true if loat log time is before the 2006-11-4.
+     * @return true if load log time is before the 2006-11-4.
      */
     private boolean needLoadMovedProject() {
         return this.fLastLogTime == null ? true : this.fLastLogTime.before(java.sql.Date.valueOf("2006-11-11"));
@@ -163,7 +163,7 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadProjects();
 
-            // load scorecard template before subission review because submission_review will use this table
+            // load scorecard template before submission review because submission_review will use this table
             doLoadScorecardTemplate();
 
             //load submission review before project result because the project result load will use the submission review table
