@@ -21,9 +21,7 @@ import com.topcoder.web.tc.Constants;
 
 /**
  * <p>A controller to handle the requests for displaying the list of active review projects of specified type. The
- * desired project type is expected to be provided as {@link Constants#PROJECT_TYPE_ID} request parameter. As of current 
- * version only Design, Development, Assembly, Architecture, Conceptualization, Specification and Application Testing 
- * project types are supported.</p>
+ * desired project type is expected to be provided as {@link Constants#PROJECT_TYPE_ID} request parameter.</p>
  *
  * <p>
  *   Version 1.0.1 Change notes:
@@ -57,10 +55,15 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Added support for Conceptualization, Specification and Application Testing project types.</li>
  *   </ol>
+ *
+ *   Version 1.0.6 (Specification Review Signup Pages 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Specification review project types.</li>
+ *   </ol>
  * </p>
  *
  * @author dok, pulky, ivern, isv, TCSDEVELOPER
- * @version 1.0.5
+ * @version 1.0.6
  * @since 1.0
  */
 public class ViewReviewProjects extends ReviewProjectDetail {
@@ -76,14 +79,13 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      * {@link Constants#PROJECT_TYPE_ID} request parameter.</p>
      *
      * <p>Looks up for the list of active review projects of requested project type, binds it to request and forwards 
-     * to the corresponding JSP depending on requested project type. As of current version only Design, Development, 
-     * Assembly, Architecture, Conceptualization, Specification and Application Testing project types are supported; 
-     * otherwise an exception is raised.</p>
+     * to the corresponding JSP depending on requested project type.</p>
      *
      * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
      */
     protected void developmentProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
+        // don't include specification review project types in the validation
         if (!isProjectTypeSupported(projectTypeId, false)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
@@ -144,11 +146,14 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             getRequest().setAttribute("applicationDelayMinutes",
                                       new Integer((int) ((applicationDelay % (1000 * 60 * 60)) / (1000 * 60))));
 
+            // getRequest().setAttribute("tournamentProjectList", getDataAccess().getData(r).
+            //             get("tournament_review_projects"));
+            
             // process specification review positions
-            int specificationReviewProjectTypeId = Integer.parseInt(projectTypeId) + Constants.SPECIFICATION_COMPETITION_OFFSET;
+            int specificationReviewProjectTypeId = Integer.parseInt(projectTypeId) 
+                    + Constants.SPECIFICATION_COMPETITION_OFFSET;
             getRequest().setAttribute("specificationReviewProjectTypeId", specificationReviewProjectTypeId);
             processSpecificationReviewPositions(specificationReviewProjectTypeId);
-            
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
@@ -160,8 +165,15 @@ public class ViewReviewProjects extends ReviewProjectDetail {
     }
 
     /**
-     * @param projectTypeId
-     * @throws TCWebException
+     * <p>Private helper method to process specification review positions for the specified project type id.</p>
+     * 
+     * <p>This method will get information from query tool and return an <code>ArrayList<SoftwareComponent></code>
+     * after processing it.</p>
+     * 
+     * @param projectTypeId the project type id to process
+     * @throws TCWebException if any error occurs during the process
+     * 
+     * @since 1.0.6
      */
     private void processSpecificationReviewPositions(int projectTypeId) throws TCWebException {
         Request r = new Request();
@@ -175,6 +187,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             ArrayList<SoftwareComponent> prices = new ArrayList<SoftwareComponent>(rsc.size());
 
             for (ResultSetRow rsr : rsc) {
+                //default to 1 submission if no one has submitted yet
                 if (rsr.getIntItem("submission_count") == 0) {
                     prices.add(makeApp("", 1, 1, rsr.getIntItem("phase_id"), rsr.getIntItem("level_id"),
                        rsr.getLongItem("project_id"), 0, rsr.getFloatItem("prize"),
@@ -197,8 +210,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
 
     /**
      * <p>Gets the logical name for the view which is to be used for displaying the list of review opportunities of
-     * specified type requested by client. As of current version only Design, Development, Assembly, Architecture, 
-     * Conceptualization, Specification and Application Testing project types are supported.</p>
+     * specified type requested by client.</p>
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the list of review opportunities for

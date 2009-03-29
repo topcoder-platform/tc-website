@@ -1,27 +1,69 @@
 /*
- * Copyright (C) 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.model;
 
-// since pulky
-
+/**
+ * <p><strong>Purpose</strong>: This class is used to calculate review costs for specification review projects.</p>
+ *
+ * @author TCSDEVELOPER
+ * @version 1.0 (Specification Review Signup Pages 1.0)
+ */
 public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCalculator {
 
-    private static final float STANDARD_DESIGN_SPECIFICATION_REVIEW_PRIZE = 10f;
-    private static final float STANDARD_DEVELOPMENT_SPECIFICATION_REVIEW_PRIZE = 20f;
-    private static final float STANDARD_CONCEPTUALIZATION_SPECIFICATION_REVIEW_PRIZE = 30f;
-    private static final float STANDARD_SPECIFICATION_SPECIFICATION_REVIEW_PRIZE = 40f;
-    private static final float STANDARD_ARCHITECTURE_SPECIFICATION_REVIEW_PRIZE = 50f;
-    private static final float STANDARD_ASSEMBLY_SPECIFICATION_REVIEW_PRIZE = 60f;
-    private static final float STANDARD_APPLICATION_TESTING_SPECIFICATION_REVIEW_PRIZE = 70f;
+    /**
+     * <p>An <code>float</code> representing design specification review price.</p>
+     */
+    private static final float STANDARD_DESIGN_SPECIFICATION_REVIEW_PRICE = 10f;
 
+    /**
+     * <p>An <code>float</code> representing development specification review price.</p>
+     */
+    private static final float STANDARD_DEVELOPMENT_SPECIFICATION_REVIEW_PRICE = 20f;
+
+    /**
+     * <p>An <code>float</code> representing conceptualization specification review price.</p>
+     */
+    private static final float STANDARD_CONCEPTUALIZATION_SPECIFICATION_REVIEW_PRICE = 30f;
+
+    /**
+     * <p>An <code>float</code> representing specification specification review price.</p>
+     */
+    private static final float STANDARD_SPECIFICATION_SPECIFICATION_REVIEW_PRICE = 40f;
+
+    /**
+     * <p>An <code>float</code> representing architecture specification review price.</p>
+     */
+    private static final float STANDARD_ARCHITECTURE_SPECIFICATION_REVIEW_PRICE = 50f;
+
+    /**
+     * <p>An <code>float</code> representing assembly specification review price.</p>
+     */
+    private static final float STANDARD_ASSEMBLY_SPECIFICATION_REVIEW_PRICE = 60f;
+
+    /**
+     * <p>An <code>float</code> representing application testing specification review price.</p>
+     */
+    private static final float STANDARD_APPLICATION_TESTING_SPECIFICATION_REVIEW_PRICE = 70f;
+
+
+	/**
+	 * private attribute representing phase id
+	 */
 	private int phaseId;
 	
+    /**
+     * Constructor using phase id parameter
+     * 
+     * @param phaseId the phase id
+     */
     public SpecificationReviewerPaymentCalculator(int phaseId) {
         setPhaseId(phaseId);
     }
 
     /**
+     * Gets the phase id
+     * 
      * @return the phaseId
      */
     public int getPhaseId() {
@@ -29,7 +71,10 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
     }
 
     /**
-     * @param phaseId the phaseId to set
+     * Sets the phase id
+     * 
+     * @param phaseId the phase id to set
+     * @throws IllegalArgumentException if the phase id is invalid 
      */
     public void setPhaseId(int phaseId) {
         
@@ -47,40 +92,70 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
         this.phaseId = phaseId;
     }
 
-
+    /**
+     * Gets the review cost
+     * 
+     * @return the review cost
+     */
     public float getReviewCost() {
         switch (phaseId) {
             case SoftwareComponent.DESIGN_SPECIFICATION_PHASE:
-                return STANDARD_DESIGN_SPECIFICATION_REVIEW_PRIZE;
+                return STANDARD_DESIGN_SPECIFICATION_REVIEW_PRICE;
             case SoftwareComponent.DEVELOPMENT_SPECIFICATION_PHASE:
-                return STANDARD_DEVELOPMENT_SPECIFICATION_REVIEW_PRIZE;
+                return STANDARD_DEVELOPMENT_SPECIFICATION_REVIEW_PRICE;
             case SoftwareComponent.CONCEPTUALIZATION_SPECIFICATION_PHASE:
-                return STANDARD_CONCEPTUALIZATION_SPECIFICATION_REVIEW_PRIZE;
+                return STANDARD_CONCEPTUALIZATION_SPECIFICATION_REVIEW_PRICE;
             case SoftwareComponent.SPECIFICATION_SPECIFICATION_PHASE:
-                return STANDARD_SPECIFICATION_SPECIFICATION_REVIEW_PRIZE;
+                return STANDARD_SPECIFICATION_SPECIFICATION_REVIEW_PRICE;
             case SoftwareComponent.ARCHITECTURE_SPECIFICATION_PHASE:
-                return STANDARD_ARCHITECTURE_SPECIFICATION_REVIEW_PRIZE;
+                return STANDARD_ARCHITECTURE_SPECIFICATION_REVIEW_PRICE;
             case SoftwareComponent.ASSEMBLY_SPECIFICATION_PHASE:
-                return STANDARD_ASSEMBLY_SPECIFICATION_REVIEW_PRIZE;
+                return STANDARD_ASSEMBLY_SPECIFICATION_REVIEW_PRICE;
             case SoftwareComponent.APPLICATION_TESTING_SPECIFICATION_PHASE:
-                return STANDARD_APPLICATION_TESTING_SPECIFICATION_REVIEW_PRIZE;
+                return STANDARD_APPLICATION_TESTING_SPECIFICATION_REVIEW_PRICE;
             default: 
                 return 0;
         }
     }
 
+    /**
+     * Gets the screening cost
+     * 
+     * Note: there is no screening cost for specification review projects.
+     * 
+     * @return the screening cost
+     */
     public float getScreeningCost() {
         return 0;
     }
 
+    /**
+     * Gets the aggregation cost
+     * 
+     * Note: there is no aggregation cost for specification review projects.
+     * 
+     * @return the aggregation cost
+     */
     public float getAggregationCost() {
         return 0;
     }
 
+    /**
+     * Gets the final review cost
+     * 
+     * Note: there is no final review cost for specification review projects.
+     * 
+     * @return the final review cost
+     */
     public float getFinalReviewCost() {
         return 0;
     }
     
+    /**
+     * Gets a string representation of this object
+     * 
+     * @return the string representation of this object
+     */
     public String toString() {
         return ("[phaseId:" + phaseId + "] -> (S:" + getScreeningCost() + " R:" + getReviewCost() + " A:" + 
                 getAggregationCost() + " FR:" + getFinalReviewCost() + ")");

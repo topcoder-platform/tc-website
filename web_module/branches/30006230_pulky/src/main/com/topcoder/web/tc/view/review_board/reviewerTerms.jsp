@@ -1,13 +1,16 @@
 <%--
   - Author: TCSDEVELOPER
-  - Version: 1.0
+  - Version: 1.1
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page displays the review terms of use corresponding to the specified project. 
   - It displays the text and provides a for for the user to accept and continue registration.
   - This is an exhaustive refactor and generalization from existing reviewTerms.jsp files.
-  - In this release, it will be used for Conceptualization, Specification and Application Testing project types.
+  -
+  - Version 1.1 (Specification Review Signup Pages 1.0) changes: 
+  -      * support for specification reviews was added.
+  -      * code was refactored to avoid duplication.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>

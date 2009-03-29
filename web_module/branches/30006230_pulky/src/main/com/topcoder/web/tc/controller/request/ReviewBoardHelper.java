@@ -19,25 +19,43 @@ import com.topcoder.web.common.WebConstants;
  *           </ul>
  *         </td>
  *     </tr>
+ *     <tr>
+ *         <td>Version 1.1 (Specification Review Signup Pages 1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated <code>isProjectTypeSupported</code> methods to support specification review projects.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
  * @author TCSDEVELOPER
- * @version 1.0
+ * @version 1.1
  */
 public final class ReviewBoardHelper {
 
-
+    /**
+     * <p>Checks whether the specified review board type requested by client is currently supported by this controller
+     * or not.</p>
+     * 
+     * <p>Note: Specification review won't be supported by this call.</p>
+     *
+     * @param reviewBoardType a <code>String</code> referencing the review board type requested by client.
+     * be included in the supported types for the validation. 
+     * @return <code>true</code> if specified review board type is supported; <code>false</code> otherwise.
+     */
     public static boolean isReviewBoardTypeSupported(String reviewBoardType) {
         return isReviewBoardTypeSupported(reviewBoardType, false);
     }
 
     /**
      * <p>Checks whether the specified review board type requested by client is currently supported by this controller
-     * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization, Specification
-     * and Application Testing review boards are supported.</p>
+     * or not.</p>
      *
      * @param reviewBoardType a <code>String</code> referencing the review board type requested by client.
+     * @param includeSpecificationReviews a <code>boolean</code> specifying if specification review projects should
+     * be included in the supported types for the validation. 
      * @return <code>true</code> if specified review board type is supported; <code>false</code> otherwise.
      */
     public static boolean isReviewBoardTypeSupported(String reviewBoardType, boolean includeSpecificationReviews) {

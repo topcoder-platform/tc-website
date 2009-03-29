@@ -1,3 +1,13 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.0
+  - Since: Specification Review Signup Pages 1.0
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This is a simple include page that that helps avoiding duplicated code in review board pages.
+  - It will define several variables used in those pages.
+--%>
+
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 

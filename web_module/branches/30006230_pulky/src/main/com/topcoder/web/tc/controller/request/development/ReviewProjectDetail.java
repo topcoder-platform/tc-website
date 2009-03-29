@@ -29,9 +29,7 @@ import java.util.Map;
 
 /**
  * <p>A controller to handle the requests for displaying the details for the requested review project of specified type.
- * The desired project type is expected to be provided as {@link Constants#PROJECT_TYPE_ID} request parameter.
- * As of current version only Design, Development, Assembly, Architecture, Conceptualization, Specification and 
- * Application Testing project types are supported.</p>
+ * The desired project type is expected to be provided as {@link Constants#PROJECT_TYPE_ID} request parameter.</p>
  *
  * <p>
  *   Version  1.0.1 Change notes:
@@ -60,10 +58,15 @@ import java.util.Map;
  *   <ol>
  *     <li>Added support for Conceptualization, Specification and Application Testing project types.</li>
  *   </ol>
+ *
+ *   Version 1.0.5 (Specification Review Signup Pages 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Specification review project types.</li>
+ *   </ol>
  * </p>
  * 
  * @author dok, pulky, isv, TCSDEVELOPER
- * @version 1.0.4
+ * @version 1.0.5
  * @since 1.0
  */
 public class ReviewProjectDetail extends Base {
@@ -80,14 +83,13 @@ public class ReviewProjectDetail extends Base {
      * {@link Constants#PROJECT_ID} request parameter.</p>
      *
      * <p>Looks up for the details of requested review project, binds it to request and forwards to the corresponding 
-     * JSP depending on requested project type. As of current version only Design, Development, Assembly, Architecture, 
-     * Conceptualization, Specification and Application Testing project types are supported; otherwise an exception is 
-     * raised.</p>
+     * JSP depending on requested project type.</p>
      *
      * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
      */
     protected void developmentProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
+        // include specification review project types in the validation
         if (!isProjectTypeSupported(projectTypeId, true)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
@@ -401,8 +403,7 @@ public class ReviewProjectDetail extends Base {
 
     /**
      * <p>Gets the logical name for the view which is to be used for displaying the list of review opportunities of
-     * specified type requested by client. As of current version only Design, Development, Assembly, Architecture, 
-     * Conceptualization, Specification and Application Testing project types are supported.</p>
+     * specified type requested by client.</p>
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the review details for projects of

@@ -4,7 +4,6 @@
 package com.topcoder.web.common.model;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.WebConstants;
 
 /**
  * <p><strong>Purpose</strong>: Calculates Reviewers tasks costs.</p>
@@ -51,11 +50,16 @@ import com.topcoder.web.common.WebConstants;
  *          review payment formulas.
  *     </li>
  *   </ol>
+ *   
+ *   Version 1.1.1 (Specification Review Signup Pages 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Specification Review projects.</li>
+ *   </ol>
+ * </p>
  *
- * @author dok, pulky, ivern, isv
- * @version 1.1.0
+ * @author dok, pulky, ivern, isv, TCSDEVELOPER
+ * @version 1.1.1
  */
-
 public class DefaultPriceComponent implements SoftwareComponent {
     /**
      * <p>A <code>Log</code> to be used for logging the events encountered while calculating the prices.</p>
@@ -155,8 +159,6 @@ public class DefaultPriceComponent implements SoftwareComponent {
     /**
      * <p>Factory method that returns the correct instance of ReviewerPaymentCalculator for a given phase.</p>
      *
-     * pulky: added support for specification reviews.
-     * 
      * @param prize first place prize for the competition.
      * @param submissionCount number of submissions.
      * @param submissionsPassedScreening number of submissions that passed screening.

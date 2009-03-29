@@ -1,9 +1,20 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common;
 
 /**
- * @author dok
- * @version $Revision$ $Date$
- *          Create Date: May 2, 2005
+ * <p><strong>Purpose</strong>: This interface is used to define constants for general use.</p>
+ *
+ * <p>
+ *   Version 1.1 (Specification Review Signup Pages 1.0) Change notes:
+ *   <ol>
+ *     <li>Added several constants to support Specification Review projects.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, TCSDEVELOPER
+ * @version 1.1
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -139,22 +150,65 @@ public interface WebConstants {
     public static final long PHASE_ASSEMBLY = 125;
     public static final long PHASE_APPLICATION_TESTING = 124;
 
-    // since pulky
+    /**
+     * <p>An <code>int</code> representing specification competitions offsed.</p>
+     *
+     * <p>Note: the corresponding specification review phase for an existing project phase is defined to be the phase 
+     * id plus the offset.</p>
+     *
+     * @since 1.1
+     */
     public static final int SPECIFICATION_COMPETITION_OFFSET = 1000;
-    
 
-    public static final long PHASE_DESIGN_SPECIFICATION = 
-        PHASE_DESIGN + SPECIFICATION_COMPETITION_OFFSET;
-    public static final long PHASE_DEVELOPMENT_SPECIFICATION = 
-        PHASE_DEVELOPMENT + SPECIFICATION_COMPETITION_OFFSET;
+    /**
+     * <p>An <code>long</code> representing design specification phase id.</p>
+     *
+     * @since 1.1
+     */
+    public static final long PHASE_DESIGN_SPECIFICATION = PHASE_DESIGN + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing development specification phase id.</p>
+     *
+     * @since 1.1
+     */
+    public static final long PHASE_DEVELOPMENT_SPECIFICATION = PHASE_DEVELOPMENT + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing conceptualization specification phase id.</p>
+     *
+     * @since 1.1
+     */
     public static final long PHASE_CONCEPTUALIZATION_SPECIFICATION = 
         PHASE_CONCEPTUALIZATION + SPECIFICATION_COMPETITION_OFFSET;
-    public static final long PHASE_SPECIFICATION_SPECIFICATION = 
+
+    /**
+     * <p>An <code>long</code> representing specification specification phase id.</p>
+     *
+     * @since 1.1
+     */
+    public static final long PHASE_SPECIFICATION_SPECIFICATION =  
         PHASE_SPECIFICATION + SPECIFICATION_COMPETITION_OFFSET;
-    public static final long PHASE_ARCHITECTURE_SPECIFICATION = 
-        PHASE_ARCHITECTURE + SPECIFICATION_COMPETITION_OFFSET;
-    public static final long PHASE_ASSEMBLY_SPECIFICATION = 
-        PHASE_ASSEMBLY + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing architecture specification phase id.</p>
+     *
+     * @since 1.1
+     */
+    public static final long PHASE_ARCHITECTURE_SPECIFICATION = PHASE_ARCHITECTURE + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing assembly specification phase id.</p>
+     *
+     * @since 1.1
+     */
+    public static final long PHASE_ASSEMBLY_SPECIFICATION =  PHASE_ASSEMBLY + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing testing competition specification phase id.</p>
+     *
+     * @since 1.1
+     */
     public static final long PHASE_APPLICATION_TESTING_SPECIFICATION = 
         PHASE_APPLICATION_TESTING + SPECIFICATION_COMPETITION_OFFSET;
     
@@ -209,26 +263,60 @@ public interface WebConstants {
     public static final int APPLICATION_TESTING_PROJECT_TYPE = 13;
     public static final int ASSEMBLY_PROJECT_TYPE = 14;
 
+    /**
+     * <p>An <code>long</code> representing design specification project category id.</p>
+     *
+     * @since 1.1
+     */
     public static final long DESIGN_SPECIFICATION_PROJECT_TYPE =
         DESIGN_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
-        
+
+    /**
+     * <p>An <code>long</code> representing development specification project category id.</p>
+     *
+     * @since 1.1
+     */
     public static final long DEVELOPMENT_SPECIFICATION_PROJECT_TYPE =
         DEVELOPMENT_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
-        
+
+    /**
+     * <p>An <code>long</code> representing conceptualization specification project category id.</p>
+     *
+     * @since 1.1
+     */
     public static final long CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE =
         CONCEPTUALIZATION_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
-        
+
+    /**
+     * <p>An <code>long</code> representing specification specification project category id.</p>
+     *
+     * @since 1.1
+     */
     public static final long SPECIFICATION_SPECIFICATION_PROJECT_TYPE =
         SPECIFICATION_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
-        
+
+    /**
+     * <p>An <code>long</code> representing architecture specification project category id.</p>
+     *
+     * @since 1.1
+     */
     public static final long ARCHITECTURE_SPECIFICATION_PROJECT_TYPE =
         ARCHITECTURE_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
-        
+
+    /**
+     * <p>An <code>long</code> representing assembly specification project category id.</p>
+     *
+     * @since 1.1
+     */
     public static final long ASSEMBLY_SPECIFICATION_PROJECT_TYPE =
         ASSEMBLY_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
-        
+
+    /**
+     * <p>An <code>long</code> representing testing competition specification project category id.</p>
+     *
+     * @since 1.1
+     */
     public static final long APPLICATION_TESTING_SPECIFICATION_PROJECT_TYPE =
         APPLICATION_TESTING_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
-
 
 }

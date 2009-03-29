@@ -28,8 +28,15 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.3 (Specification Review Signup Pages 1.0) Change notes:
+ *   <ol>
+ *     <li>Removed some assembly and architecture review specific constants.</li>
+ *   </ol>
+ * </p>
+ *
  * @author TCSDEVELOPER
- * @version 1.2
+ * @version 1.3
  */
 public class Constants implements WebConstants {
 
@@ -215,22 +222,6 @@ public class Constants implements WebConstants {
     public static String REVIEW_PROJECT_DETAIL;
 
     /**
-     * <p>A <code>String</code> providing the logical name for the view corresponding to
-     * <code>Assembly Review Project Details</code> page.</p>
-     *
-     * @since TCS Release 2.2.0 (TCS-54)
-     */
-    //public static final String ASSEMBLY_REVIEW_PROJECT_DETAIL = "/dev/assembly/reviewProjectDetail.jsp";
-
-    /**
-     * <p>A <code>String</code> providing the logical name for the view corresponding to
-     * <code>Architecture Review Project Details</code> page.</p>
-     *
-     * @since TCS Release 2.2.1 (TCS-57)
-     */
-    //public static final String ARCHITECTURE_REVIEW_PROJECT_DETAIL = "/architecture/reviewProjectDetail.jsp";
-
-    /**
      * <p>A <code>String</code> providing the path to the unified review project detail page used to
      * manage Conceptualization, Specification and Application Testing Review Projects.</p>
      *
@@ -239,23 +230,6 @@ public class Constants implements WebConstants {
     public static final String UNIFIED_REVIEW_PROJECT_DETAIL_PAGE = "/review_board/reviewProjectDetail.jsp";
 
     public static String REVIEW_PROJECTS;
-
-    // todo: pulky:
-    /**
-     * <p>A <code>String</code> providing the logical name for the view corresponding to
-     * <code>Assembly Review Projects</code> page.</p>
-     *
-     * @since TCS Release 2.2.0 (TCS-54)
-     */
-//    public static final String ASSEMBLY_REVIEW_PROJECTS = "/dev/assembly/reviewProjects.jsp";
-
-    /**
-     * <p>A <code>String</code> providing the logical name for the view corresponding to
-     * <code>Architecture Review Projects</code> page.</p>
-     *
-     * @since TCS Release 2.2.1 (TCS-57)
-     */
-    //public static final String ARCHITECTURE_REVIEW_PROJECTS = "/architecture/reviewProjects.jsp";
 
     /**
      * <p>A <code>String</code> providing the path to the unified review project page used to
@@ -268,22 +242,6 @@ public class Constants implements WebConstants {
     public static String DESIGN_DETAIL;
     public static String DEVELOPMENT_DETAIL;
     public static String REVIEWER_TERMS;
-
-    /**
-     * <p>A <code>String</code> providing the logical name for the view corresponding to
-     * <code>Assembly Review Terms</code> page.</p>
-     *
-     * @since TCS Release 2.2.0 (TCS-54)
-     */
-    //public static final String ASSEMBLY_REVIEWER_TERMS = "/dev/assembly/reviewerTerms.jsp";
-
-    /**
-     * <p>A <code>String</code> providing the logical name for the view corresponding to
-     * <code>Architecture Review Terms</code> page.</p>
-     *
-     * @since TCS Release 2.2.1 (TCS-57)
-     */
-    //public static final String ARCHITECTURE_REVIEWER_TERMS = "/architecture/reviewerTerms.jsp";
 
     /**
      * <p>A <code>String</code> providing the path to the unified review terms page used to

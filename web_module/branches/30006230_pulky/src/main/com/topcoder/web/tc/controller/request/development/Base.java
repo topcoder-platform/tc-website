@@ -13,15 +13,13 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.ReviewBoard;
 import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
 
 /**
@@ -39,11 +37,19 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
+ *     <tr>
+ *         <td>Version 1.2 (Specification Review Signup Pages 1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated <code>isProjectTypeSupported</code> to support specification review projects.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
  * @author dok, pulky, isv, TCSDEVELOPER
- * @version 1.1
+ * @version 1.2
  */
 public abstract class Base extends ShortHibernateProcessor {
     protected Logger log = Logger.getLogger(Base.class);
@@ -165,14 +171,16 @@ public abstract class Base extends ShortHibernateProcessor {
 
     /**
      * <p>Checks whether the specified project type requested by client is currently supported by this controller
-     * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization,
-     * Specification and Application Testing project types are supported.</p>
+     * or not.</p>
      *
      * This method delegates to ReviewBoardHelper.isReviewBoardTypeSupported().
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
+     * @param includeSpecificationReviews a <code>boolean</code> specifying if specification review projects should
+     * be included in the supported types for the validation. 
+     * 
      * @return <code>true</code> if specified project type is supported; <code>false</code> otherwise.
-     * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57)
+     * @since TCS Release 2.2.0 (TCS-54)
      */
     protected boolean isProjectTypeSupported(String projectType, boolean includeSpecificationReviews) {
         return ReviewBoardHelper.isReviewBoardTypeSupported(projectType, includeSpecificationReviews);
