@@ -16,59 +16,59 @@
 <c:set var="APPLICATION_TESTING_PROJECT_TYPE" value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" scope="request"/>
 <c:set var="ARCHITECTURE_PROJECT_TYPE" value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" scope="request"/>
 <c:set var="ASSEMBLY_PROJECT_TYPE" value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" scope="request"/>
-<c:set var="CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE" 
+<c:set var="CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
-<c:set var="SPECIFICATION_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE%>" 
+<c:set var="SPECIFICATION_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE%>"
     scope="request"/>
-<c:set var="APPLICATION_TESTING_SPECIFICATION_PROJECT_TYPE" 
+<c:set var="APPLICATION_TESTING_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.APPLICATION_TESTING_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
-<c:set var="ARCHITECTURE_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE%>" 
+<c:set var="ARCHITECTURE_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE%>"
     scope="request"/>
-<c:set var="ASSEMBLY_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE%>" 
+<c:set var="ASSEMBLY_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE%>"
     scope="request"/>
-<c:set var="DESIGN_SPECIFICATION_PROJECT_TYPE" 
+<c:set var="DESIGN_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.DESIGN_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
-<c:set var="DEVELOPMENT_SPECIFICATION_PROJECT_TYPE" 
+<c:set var="DEVELOPMENT_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.DEVELOPMENT_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 
 <c:choose>
-	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
+    <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Conceptualization" scope="request"/>
         <c:set var="handleContext" value="conceptualization" scope="request"/>
     </c:when>
-	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
+    <c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification" scope="request"/>
         <c:set var="handleContext" value="specification" scope="request"/>
     </c:when>
-	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
+    <c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Application Testing" scope="request"/>
         <c:set var="handleContext" value="application_testing" scope="request"/>
     </c:when>
-	<c:when test="${projectType == ARCHITECTURE_PROJECT_TYPE}">
+    <c:when test="${projectType == ARCHITECTURE_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Architecture" scope="request"/>
         <c:set var="handleContext" value="architecture" scope="request"/>
     </c:when>
-	<c:when test="${projectType == ASSEMBLY_PROJECT_TYPE}">
+    <c:when test="${projectType == ASSEMBLY_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Assembly" scope="request"/>
         <c:set var="handleContext" value="assembly" scope="request"/>
     </c:when>
-	<c:when test="${projectType == CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE}">
+    <c:when test="${projectType == CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Conceptualization Specification" scope="request"/>
         <c:set var="handleContext" value="conceptualization" scope="request"/>
     </c:when>
-	<c:when test="${projectType == SPECIFICATION_SPECIFICATION_PROJECT_TYPE}">
+    <c:when test="${projectType == SPECIFICATION_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Specification" scope="request"/>
         <c:set var="handleContext" value="specification" scope="request"/>
     </c:when>
-	<c:when test="${projectType == APPLICATION_SPECIFICATION_TESTING_PROJECT_TYPE}">
+    <c:when test="${projectType == APPLICATION_SPECIFICATION_TESTING_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Application Testing Specification" scope="request"/>
         <c:set var="handleContext" value="application_testing" scope="request"/>
     </c:when>
-	<c:when test="${projectType == ARCHITECTURE_SPECIFICATION_PROJECT_TYPE}">
+    <c:when test="${projectType == ARCHITECTURE_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Architecture Specification" scope="request"/>
         <c:set var="handleContext" value="architecture" scope="request"/>
     </c:when>
-	<c:when test="${projectType == ASSEMBLY_SPECIFICATION_PROJECT_TYPE}">
+    <c:when test="${projectType == ASSEMBLY_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Assembly Specification" scope="request"/>
         <c:set var="handleContext" value="assembly" scope="request"/>
     </c:when>

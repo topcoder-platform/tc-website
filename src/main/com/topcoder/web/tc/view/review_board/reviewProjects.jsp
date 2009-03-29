@@ -4,11 +4,11 @@
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
-  - Description: This page lists the active review projects corresponding to the specified project type. 
+  - Description: This page lists the active review projects corresponding to the specified project type.
   - It displays the list of review projects along with other project details and links for registering.
   - This is an exhaustive refactor and generalization from existing reviewProject.jsp files.
   -
-  - Version 1.1 (Specification Review Signup Pages 1.0) changes: 
+  - Version 1.1 (Specification Review Signup Pages 1.0) changes:
   -      * support for specification reviews was added.
   -      * code was refactored to avoid duplication.
 --%>
@@ -32,41 +32,41 @@
             <jsp:param name="key" value="tc_stats"/>
         </jsp:include>
     </head>
-    
+
     <body>
         <jsp:include page="reviewTop.jsp"/>
-        
+
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
                 <!-- Left Column Begins-->
                 <jsp:include page="reviewGlobalLeft.jsp"/>
                 <!-- Left Column Ends -->
-                
+
                 <!-- Gutter Begins -->
                 <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0" alt=""/></td>
                 <!-- Gutter Ends -->
-                
+
                 <!-- Center Column Begins -->
                 <td width="100%" class="bodyText">
                     <jsp:include page="reviewPageTitle.jsp"/>
-                        
+
                     <span class="bigTitle">Review opportunities</span>
-                    
-                    <p>In the table below you will be able to see which projects are available for review, the type of 
-                        project, the current number of submissions on each, the review timeline for each, and the number 
-                        of review positions available for each project. If you click on an 
-                        ${fn:toLowerCase(projectTypeDesc)} name you will be able to see all of the details associated 
+
+                    <p>In the table below you will be able to see which projects are available for review, the type of
+                        project, the current number of submissions on each, the review timeline for each, and the number
+                        of review positions available for each project. If you click on an
+                        ${fn:toLowerCase(projectTypeDesc)} name you will be able to see all of the details associated
                         with that ${fn:toLowerCase(projectTypeDesc)} review.</p>
                     <p>If you are not currently on the TopCoder ${projectTypeDesc} Review Board you may send an email to
-                        <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a> requesting 
-                        permission to perform reviews. Please keep in mind only members that have completed 
-                        ${fn:toLowerCase(projectTypeDesc)} projects are eligible to join the TopCoder ${projectTypeDesc} 
+                        <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a> requesting
+                        permission to perform reviews. Please keep in mind only members that have completed
+                        ${fn:toLowerCase(projectTypeDesc)} projects are eligible to join the TopCoder ${projectTypeDesc}
                         Review board.</p>
-                    <p>In order to sign up for a review position, click on the "details" link for any 
-                        ${fn:toLowerCase(projectTypeDesc)} with positions available, and then select "Apply Now" next 
+                    <p>In order to sign up for a review position, click on the "details" link for any
+                        ${fn:toLowerCase(projectTypeDesc)} with positions available, and then select "Apply Now" next
                         to the position that you would like to commit to.</p>
                     <br/>
-                	<c:if test="${fn:length(projectList) > 0}">
+                    <c:if test="${fn:length(projectList) > 0}">
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                             <tr>
                                 <td>
@@ -91,7 +91,7 @@
                                             <td class="tableHeader" align="center">Positions<br>Available</td>
                                             <td class="tableHeader">Details</td>
                                         </tr>
-                        
+
                                         <c:set var="i" value="0"/>
                                         <c:forEach items="${projectList}" var="resultRow">
                                             <tr>
@@ -104,11 +104,11 @@
                                                     </a>
                                                 </td>
                                                 <td class="statDk" align="right">
-                                                    $ <fmt:formatNumber value="${prices[i].primaryReviewPrice}" 
+                                                    $ <fmt:formatNumber value="${prices[i].primaryReviewPrice}"
                                                         pattern="#,###.00"/>
                                                 </td>
                                                 <td class="statDk" align="right">
-                                                    $ <fmt:formatNumber value="${prices[i].reviewPrice}" 
+                                                    $ <fmt:formatNumber value="${prices[i].reviewPrice}"
                                                         pattern="#,###.00"/>
                                                 </td>
                                                 <td class="statDk" align="center">
@@ -117,7 +117,7 @@
                                                 <c:choose>
                                                     <c:when test="${waitingToReview[i]}">
                                                         <td class="statDk" align="center" nowrap="nowrap">
-                                                            <fmt:formatDate value="${waitingUntil[i]}" 
+                                                            <fmt:formatDate value="${waitingUntil[i]}"
                                                                 pattern="MM.dd.yyyy'<br />'hh:mm a"/>
                                                         </td>
                                                     </c:when>
@@ -126,11 +126,11 @@
                                                     </c:otherwise>
                                                 </c:choose>
                                                 <td class="statDk" align="center">
-                                                    <fmt:formatDate value="${resultRow.map['review_start']}" 
+                                                    <fmt:formatDate value="${resultRow.map['review_start']}"
                                                                 pattern="MM.dd.yyyy"/>
                                                 </td>
                                                 <td class="statDk" align="center">
-                                                    <fmt:formatDate value="${resultRow.map['review_end']}" 
+                                                    <fmt:formatDate value="${resultRow.map['review_end']}"
                                                                 pattern="MM.dd.yyyy"/>
                                                 </td>
                                                 <td class="statDk" align="center">
@@ -141,7 +141,7 @@
                                                         details
                                                     </a>
                                                     <c:if test="${resultRow.map['price_changes'] > 0}">
-                                                        <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/> 
+                                                        <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>
                                                     </c:if>
                                                 </td>
                                             </tr>
@@ -152,7 +152,7 @@
                             </tr>
                             <tr>
                                 <td class="tableHeader" align="left" nowrap="nowrap" colspan="10">
-                                    <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>: the payment for 
+                                    <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>: the payment for
                                     reviewing this component has increased
                                 </td>
                             </tr>
@@ -160,8 +160,8 @@
                         <br/>
                         <c:if test="${applicationDelayHours > 0 || applicationDelayMinutes > 0}">
                             <p>
-                                Due to your existing review commitments, review positions open for you 
-                                ${applicationDelayHours} hours and ${applicationDelayMinutes} minutes after a project 
+                                Due to your existing review commitments, review positions open for you
+                                ${applicationDelayHours} hours and ${applicationDelayMinutes} minutes after a project
                                 opens for review registration.
                             </p>
                         </c:if>
@@ -191,7 +191,7 @@
                                             <td class="tableHeader" align="center">Positions<br>Available</td>
                                             <td class="tableHeader">Details</td>
                                         </tr>
-                        
+
                                         <c:set var="i" value="0"/>
                                         <c:forEach items="${specificationReviewList}" var="resultRow">
                                             <tr>
@@ -202,8 +202,8 @@
                                                     ${resultRow.map["version"]}
                                                 </td>
                                                 <td class="statDk" align="right">
-                                                    $ <fmt:formatNumber 
-                                                        value="${specificationReviewPrices[i].primaryReviewPrice}" 
+                                                    $ <fmt:formatNumber
+                                                        value="${specificationReviewPrices[i].primaryReviewPrice}"
                                                         pattern="#,###.00"/>
                                                 </td>
                                                 <td class="statDk" align="center">
@@ -211,11 +211,11 @@
                                                 </td>
                                                 <td class="statDk" align="center"><i>open</i></td>
                                                 <td class="statDk" align="center">
-                                                    <fmt:formatDate value="${resultRow.map['review_start']}" 
+                                                    <fmt:formatDate value="${resultRow.map['review_start']}"
                                                                 pattern="MM.dd.yyyy"/>
                                                 </td>
                                                 <td class="statDk" align="center">
-                                                    <fmt:formatDate value="${resultRow.map['review_end']}" 
+                                                    <fmt:formatDate value="${resultRow.map['review_end']}"
                                                                 pattern="MM.dd.yyyy"/>
                                                 </td>
                                                 <td class="statDk" align="center">
@@ -226,7 +226,7 @@
                                                         details
                                                     </a>
                                                     <c:if test="${resultRow.map['price_changes'] > 0}">
-                                                        <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/> 
+                                                        <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>
                                                     </c:if>
                                                 </td>
                                             </tr>
@@ -237,7 +237,7 @@
                             </tr>
                             <tr>
                                 <td class="tableHeader" align="left" nowrap="nowrap" colspan="10">
-                                    <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>: the payment for 
+                                    <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>: the payment for
                                     reviewing this specification has increased
                                 </td>
                             </tr>
@@ -250,29 +250,29 @@
                         <p align="center">Sorry, there are currently no review positions available.</p>
                         <br/>
                     </c:if>
-                
+
                 </td>
                 <!-- Center Column Ends -->
-                
+
                 <!-- Gutter -->
                 <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0" alt=""></td>
                 <!-- Gutter Ends -->
-                
+
                 <!-- Right Column Begins -->
                 <td width="180">
                     <jsp:include page="/public_right.jsp">
                         <jsp:param name="level1" value="default"/>
                     </jsp:include>
-                
+
                 </td>
                 <!-- Right Column Ends -->
-                
+
                 <!-- Gutter -->
                 <td width="2"><img src="/i/clear.gif" width="2" height="1" border="0" alt=""></td>
                 <!-- Gutter Ends -->
             </tr>
         </table>
-        
+
         <jsp:include page="/foot.jsp"/>
     </body>
 </html>

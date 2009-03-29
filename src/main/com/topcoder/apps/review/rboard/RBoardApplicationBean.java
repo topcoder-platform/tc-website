@@ -46,7 +46,7 @@ import java.util.Map;
  * <p>An implementation of the <code>RBoard EJB</code>.</p>
  *
  * <p>
- *   Version 1.0.1 Change notes: 
+ *   Version 1.0.1 Change notes:
  *   <ol>
  *     <li>Bean was moved from tc to tcs site and was updated to centralize all RBoard operations.</li>
  *   </ol>
@@ -102,7 +102,7 @@ import java.util.Map;
  */
 public class RBoardApplicationBean extends BaseEJB {
     /**
-     * <p>An <code>int</code> representing the maximum review positions for regular (non specification review) 
+     * <p>An <code>int</code> representing the maximum review positions for regular (non specification review)
      * projects.</p>
      *
      * @since 1.0.9
@@ -249,20 +249,20 @@ public class RBoardApplicationBean extends BaseEJB {
      *
      * @since 1.0.8
      */
-    private static final String INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON = 
+    private static final String INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON =
         "Sorry, there was an error in the application";
 
     /**
-     * <p>A <code>String</code> containing the error message for inconsistent reviewers for development project 
+     * <p>A <code>String</code> containing the error message for inconsistent reviewers for development project
      * types.</p>
      *
      * @since 1.0.8
      */
-    private static final String INCONSISTENT_REVIEWERS_ERROR_MESSAGE_DEVELOPMENT = 
+    private static final String INCONSISTENT_REVIEWERS_ERROR_MESSAGE_DEVELOPMENT =
         "Sorry, there was an error in the application " +
         "(primary reviewers must be failure reviewers, and " +
         "vice versa).";
-    
+
     private static Logger log = Logger.getLogger(RBoardApplicationBean.class);
 
     /**
@@ -812,8 +812,8 @@ public class RBoardApplicationBean extends BaseEJB {
             } catch (RowNotFoundException rnfe) {
                 try {
                     // show also category name
-                    throw new RBoardRegistrationException("Sorry, you are not a " 
-                            + getProjectCategoryName(conn, phaseId - 111) 
+                    throw new RBoardRegistrationException("Sorry, you are not a "
+                            + getProjectCategoryName(conn, phaseId - 111)
                             + " " + getCatalogName(conn, catalogId)
                             + " reviewer.  Please contact TopCoder if you would like to "
                             + "become one.");
@@ -961,7 +961,7 @@ public class RBoardApplicationBean extends BaseEJB {
                                                       + "You will need to wait until "
                                                       + timeStampToString(opensOn));
             }
-    
+
             long applicationDelay = getApplicationDelay(conn, userId);
             if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
                 throw new RBoardRegistrationException("Sorry, you can not apply for this review yet.  "
@@ -971,9 +971,9 @@ public class RBoardApplicationBean extends BaseEJB {
             }
             maxReviewPositions = MAX_REGULAR_REVIEW_POSITIONS;
         }
-        
+
         ResultSetContainer reviewers = getReviewers(conn, projectId, phaseId);
-        
+
         if (reviewers.size() == maxReviewPositions) {
             throw new RBoardRegistrationException("Sorry, the project's review positions are already full.");
         }
@@ -988,25 +988,25 @@ public class RBoardApplicationBean extends BaseEJB {
         }
 
         if (phaseId == SoftwareComponent.DEV_PHASE) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, DEVELOPMENT_PRIMARY_REVIEW_ID, 
+            validateReviewPositions(reviewTypeId, primary, reviewers, DEVELOPMENT_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_DEVELOPMENT);
         } else if (phaseId == SoftwareComponent.DESIGN_PHASE) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, DESIGN_PRIMARY_REVIEW_ID, 
+            validateReviewPositions(reviewTypeId, primary, reviewers, DESIGN_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.ASSEMBLY_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, ASSEMBLY_PRIMARY_REVIEW_ID, 
+            validateReviewPositions(reviewTypeId, primary, reviewers, ASSEMBLY_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.ARCHITECTURE_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, ARCHITECTURE_PRIMARY_REVIEW_ID, 
+            validateReviewPositions(reviewTypeId, primary, reviewers, ARCHITECTURE_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.CONCEPTUALIZATION_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, CONCEPTUALIZATION_PRIMARY_REVIEW_ID, 
+            validateReviewPositions(reviewTypeId, primary, reviewers, CONCEPTUALIZATION_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.SPECIFICATION_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, SPECIFICATION_PRIMARY_REVIEW_ID, 
+            validateReviewPositions(reviewTypeId, primary, reviewers, SPECIFICATION_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.APPLICATION_TESTING_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, APPLICATION_TESTING_PRIMARY_REVIEW_ID, 
+            validateReviewPositions(reviewTypeId, primary, reviewers, APPLICATION_TESTING_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.DESIGN_SPECIFICATION_PROJECT_TYPE + 111)) {
             validateReviewPositions(reviewTypeId, primary, reviewers, DESIGN_SPECIFICATION_PRIMARY_REVIEW_ID,
@@ -1027,10 +1027,10 @@ public class RBoardApplicationBean extends BaseEJB {
             validateReviewPositions(reviewTypeId, primary, reviewers, ASSEMBLY_SPECIFICATION_PRIMARY_REVIEW_ID,
                 INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.APPLICATION_TESTING_SPECIFICATION_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, 
+            validateReviewPositions(reviewTypeId, primary, reviewers,
                 TESTING_COMPETITION_SPECIFICATION_PRIMARY_REVIEW_ID, INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         }
-        
+
         // If somebody came in by constructing the URL, make sure that there is at least one
         // primary before we run out of spots.
         if (!primary && reviewers.size() == 2) {
@@ -1049,17 +1049,17 @@ public class RBoardApplicationBean extends BaseEJB {
 
     /**
      * Helper private method to validate review positions.
-     * 
-     * @param reviewTypeId the Review Type Id being validated 
+     *
+     * @param reviewTypeId the Review Type Id being validated
      * @param primary the Primary flag being validated
      * @param reviewers the list of reviewers being validated
      * @param reviewers the corresponding Primary Review Id according to the project type
-     * 
+     *
      * @throws RBoardRegistrationException if the review position is taken of the url is not consistent
      * @since 1.0.8
      */
     private void validateReviewPositions(int reviewTypeId, boolean primary,
-            ResultSetContainer reviewers, int primaryReviewId, String inconsistencyErrorMessage) 
+            ResultSetContainer reviewers, int primaryReviewId, String inconsistencyErrorMessage)
             throws RBoardRegistrationException {
 
         for (Object reviewer : reviewers) {
@@ -1085,7 +1085,7 @@ public class RBoardApplicationBean extends BaseEJB {
         Map returnMap = new HashMap();
         int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
                 22, 23, 24, 25, 26, 27, 28};
-        int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134, 
+        int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134,
                 117, 117, 117, 124, 124, 124, 1112, 1113, 1134, 1117, 1118, 1125, 1124};
 
         for (int i = 0; i < respIds.length; i++) {
@@ -1167,7 +1167,7 @@ public class RBoardApplicationBean extends BaseEJB {
     /**
      * <p>Gets the name of the specified project category.</p>
      *
-     * @param conn a <code>Connection</code> providing the connection to target database. 
+     * @param conn a <code>Connection</code> providing the connection to target database.
      * @param projectTypeId a <code>long</code> providing the ID of project category to get the name for.
      * @return a <code>String</code> providing the name of project category.
      * @throws RowNotFoundException if desired record in database table is not found.
@@ -1214,9 +1214,9 @@ public class RBoardApplicationBean extends BaseEJB {
 
     /**
      * Private helper method to know whether a phase id corresponds to a specification review project or not.
-     * 
+     *
      * @param phaseId the phase id to check.
-     * @return <code>true</code> if the phase corresponds to a specification review project. 
+     * @return <code>true</code> if the phase corresponds to a specification review project.
      */
     private boolean isSpecificationReview(int phaseId) {
         return phaseId > WebConstants.SPECIFICATION_COMPETITION_OFFSET;

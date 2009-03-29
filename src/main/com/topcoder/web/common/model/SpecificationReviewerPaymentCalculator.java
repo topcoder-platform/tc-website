@@ -47,14 +47,14 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
     private static final float STANDARD_APPLICATION_TESTING_SPECIFICATION_REVIEW_PRICE = 70f;
 
 
-	/**
-	 * private attribute representing phase id
-	 */
-	private int phaseId;
-	
+    /**
+     * private attribute representing phase id
+     */
+    private int phaseId;
+
     /**
      * Constructor using phase id parameter
-     * 
+     *
      * @param phaseId the phase id
      */
     public SpecificationReviewerPaymentCalculator(int phaseId) {
@@ -63,7 +63,7 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
 
     /**
      * Gets the phase id
-     * 
+     *
      * @return the phaseId
      */
     public int getPhaseId() {
@@ -72,12 +72,12 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
 
     /**
      * Sets the phase id
-     * 
+     *
      * @param phaseId the phase id to set
-     * @throws IllegalArgumentException if the phase id is invalid 
+     * @throws IllegalArgumentException if the phase id is invalid
      */
     public void setPhaseId(int phaseId) {
-        
+
         if (phaseId != SoftwareComponent.DESIGN_SPECIFICATION_PHASE
                 && phaseId != SoftwareComponent.DEVELOPMENT_SPECIFICATION_PHASE
                 && phaseId != SoftwareComponent.CONCEPTUALIZATION_SPECIFICATION_PHASE
@@ -94,7 +94,7 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
 
     /**
      * Gets the review cost
-     * 
+     *
      * @return the review cost
      */
     public float getReviewCost() {
@@ -113,16 +113,16 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
                 return STANDARD_ASSEMBLY_SPECIFICATION_REVIEW_PRICE;
             case SoftwareComponent.APPLICATION_TESTING_SPECIFICATION_PHASE:
                 return STANDARD_APPLICATION_TESTING_SPECIFICATION_REVIEW_PRICE;
-            default: 
+            default:
                 return 0;
         }
     }
 
     /**
      * Gets the screening cost
-     * 
+     *
      * Note: there is no screening cost for specification review projects.
-     * 
+     *
      * @return the screening cost
      */
     public float getScreeningCost() {
@@ -131,9 +131,9 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
 
     /**
      * Gets the aggregation cost
-     * 
+     *
      * Note: there is no aggregation cost for specification review projects.
-     * 
+     *
      * @return the aggregation cost
      */
     public float getAggregationCost() {
@@ -142,22 +142,22 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
 
     /**
      * Gets the final review cost
-     * 
+     *
      * Note: there is no final review cost for specification review projects.
-     * 
+     *
      * @return the final review cost
      */
     public float getFinalReviewCost() {
         return 0;
     }
-    
+
     /**
      * Gets a string representation of this object
-     * 
+     *
      * @return the string representation of this object
      */
     public String toString() {
-        return ("[phaseId:" + phaseId + "] -> (S:" + getScreeningCost() + " R:" + getReviewCost() + " A:" + 
+        return ("[phaseId:" + phaseId + "] -> (S:" + getScreeningCost() + " R:" + getReviewCost() + " A:" +
                 getAggregationCost() + " FR:" + getFinalReviewCost() + ")");
     }
 }

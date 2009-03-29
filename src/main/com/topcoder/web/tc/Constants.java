@@ -609,7 +609,7 @@ public class Constants implements WebConstants {
      *
      * @since 1.2
      */
-    public static String TCO09_STUDIO_LEADERBOARD_DETAILS_PAGE = 
+    public static String TCO09_STUDIO_LEADERBOARD_DETAILS_PAGE =
         "/tournaments/tco09/studio/advancers/leaderboardDetails.jsp";
 
     static {

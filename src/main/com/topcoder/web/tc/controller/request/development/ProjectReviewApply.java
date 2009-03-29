@@ -57,7 +57,7 @@ import java.io.FileOutputStream;
  *     <li>Refactored the logic for handling the requests to split the logic for checking the supported project
  *         types and mapping them to appropriate view into separate private methods.</li>
  *     <li>The project type requested by client is provided as parameter to <code>review_project_detail</code> query to
- *         filter the retrieved projects based on provided type.</li> 
+ *         filter the retrieved projects based on provided type.</li>
  *   </ol>
  *
  *   Version 1.0.4 Change notes:
@@ -98,7 +98,7 @@ public class ProjectReviewApply extends Base {
         if (!isProjectTypeSupported(projectTypeId, true)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
-        
+
         try {
             if (throttle.throttle(getRequest().getSession().getId())) {
                 throw new RequestRateExceededException(getRequest().getSession().getId(), getUser().getUserName());
@@ -183,17 +183,17 @@ public class ProjectReviewApply extends Base {
 
     /**
      * Performs non transactional validation of the reviewer.
-     * 
+     *
      * @param catalog the catalog to validate
      * @param reviewTypeId the review type id to validate
      * @throws Exception if an error occurs
      */
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
         int type = Integer.parseInt(this.projectTypeId);
-        // Assembly, Architecture, Conceptualization, Specification and Application Testing competition 
+        // Assembly, Architecture, Conceptualization, Specification and Application Testing competition
         // reviews do not take into consideration the catalogs as for now
         // same with specification reviews
-        
+
         if (validateWithCatalog(type)) {
             rBoardApplication.validateUser(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, catalog, reviewTypeId, getUser().getId(),
                     this.phaseId);
@@ -239,22 +239,22 @@ public class ProjectReviewApply extends Base {
 
     /**
      * Private helper method to decide if a project type should be validated with catalog or not
-     * 
+     *
      * @param projectTypeId the project type id
      * @return true if the project type should be validated with the catalog
-     * 
+     *
      * @since 1.0.6
      */
     private boolean validateWithCatalog(int projectTypeId) {
-        return projectTypeId != WebConstants.ASSEMBLY_PROJECT_TYPE && 
+        return projectTypeId != WebConstants.ASSEMBLY_PROJECT_TYPE &&
             projectTypeId != WebConstants.ARCHITECTURE_PROJECT_TYPE &&
-            projectTypeId != WebConstants.CONCEPTUALIZATION_PROJECT_TYPE && 
-            projectTypeId != WebConstants.SPECIFICATION_PROJECT_TYPE && 
-            projectTypeId != WebConstants.APPLICATION_TESTING_PROJECT_TYPE && 
+            projectTypeId != WebConstants.CONCEPTUALIZATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.APPLICATION_TESTING_PROJECT_TYPE &&
             projectTypeId != WebConstants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE &&
-            projectTypeId != WebConstants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE && 
+            projectTypeId != WebConstants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE &&
-            projectTypeId != WebConstants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE && 
+            projectTypeId != WebConstants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.APPLICATION_TESTING_SPECIFICATION_PROJECT_TYPE;
     }
 }

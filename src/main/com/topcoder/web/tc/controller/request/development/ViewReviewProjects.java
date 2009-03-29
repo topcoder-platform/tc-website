@@ -43,7 +43,7 @@ import com.topcoder.web.tc.Constants;
  *     <li>Refactored the logic for handling the requests to split the logic for checking the supported project
  *         types and mapping them to appropriate view into separate private methods.</li>
  *     <li>The project type requested by client is provided as parameter to <code>review_projects</code> query to filter
- *         the retrieved projects based on provided type.</li> 
+ *         the retrieved projects based on provided type.</li>
  *   </ol>
  *
  *   Version 1.0.4 Change notes:
@@ -78,7 +78,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      * <p>Handles the request for displaying the list of active review projects of requested type provided as
      * {@link Constants#PROJECT_TYPE_ID} request parameter.</p>
      *
-     * <p>Looks up for the list of active review projects of requested project type, binds it to request and forwards 
+     * <p>Looks up for the list of active review projects of requested project type, binds it to request and forwards
      * to the corresponding JSP depending on requested project type.</p>
      *
      * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
@@ -89,7 +89,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
         if (!isProjectTypeSupported(projectTypeId, false)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
-        
+
         int phase_id = (Integer.parseInt(projectTypeId) + 111);
         getRequest().setAttribute("phase_id", new Integer(phase_id));
 
@@ -148,9 +148,9 @@ public class ViewReviewProjects extends ReviewProjectDetail {
 
             // getRequest().setAttribute("tournamentProjectList", getDataAccess().getData(r).
             //             get("tournament_review_projects"));
-            
+
             // process specification review positions
-            int specificationReviewProjectTypeId = Integer.parseInt(projectTypeId) 
+            int specificationReviewProjectTypeId = Integer.parseInt(projectTypeId)
                     + Constants.SPECIFICATION_COMPETITION_OFFSET;
             getRequest().setAttribute("specificationReviewProjectTypeId", specificationReviewProjectTypeId);
             processSpecificationReviewPositions(specificationReviewProjectTypeId);
@@ -166,13 +166,13 @@ public class ViewReviewProjects extends ReviewProjectDetail {
 
     /**
      * <p>Private helper method to process specification review positions for the specified project type id.</p>
-     * 
+     *
      * <p>This method will get information from query tool and return an <code>ArrayList<SoftwareComponent></code>
      * after processing it.</p>
-     * 
+     *
      * @param projectTypeId the project type id to process
      * @throws TCWebException if any error occurs during the process
-     * 
+     *
      * @since 1.0.6
      */
     private void processSpecificationReviewPositions(int projectTypeId) throws TCWebException {

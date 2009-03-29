@@ -64,7 +64,7 @@ import java.util.Map;
  *     <li>Added support for Specification review project types.</li>
  *   </ol>
  * </p>
- * 
+ *
  * @author dok, pulky, isv, TCSDEVELOPER
  * @version 1.0.5
  * @since 1.0
@@ -82,7 +82,7 @@ public class ReviewProjectDetail extends Base {
      * {@link Constants#PROJECT_TYPE_ID} request parameter. The ID of requested project is expected to be provided as
      * {@link Constants#PROJECT_ID} request parameter.</p>
      *
-     * <p>Looks up for the details of requested review project, binds it to request and forwards to the corresponding 
+     * <p>Looks up for the details of requested review project, binds it to request and forwards to the corresponding
      * JSP depending on requested project type.</p>
      *
      * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
@@ -93,7 +93,7 @@ public class ReviewProjectDetail extends Base {
         if (!isProjectTypeSupported(projectTypeId, true)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
-        
+
         try {
             int phase_id = (Integer.parseInt(projectTypeId) + 111);
 
@@ -305,7 +305,7 @@ public class ReviewProjectDetail extends Base {
                                              int phaseId, int levelId, long userId, String handle, boolean primary,
                                              long projectId, int reviewerTypeId, float prize, float drPoints)
         throws Exception {
-        
+
         ReviewBoardApplication ret = makeApp(reviewerType, numSubmissions, numSubmissionsPassed, phaseId, levelId,
                                              projectId, reviewerTypeId, prize, drPoints);
         ret.setHandle(handle);
@@ -331,7 +331,7 @@ public class ReviewProjectDetail extends Base {
     protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed,
                                              int phaseId, int levelId, long projectId, int reviewerTypeId)
         throws Exception {
-        
+
         //figure out if we have default money values for the reviewers
         Request r = new Request();
         r.setContentHandle("review_board_payments");
@@ -372,7 +372,7 @@ public class ReviewProjectDetail extends Base {
      * @param reviewerTypeId a <code>int</code> referencing the reviewer type.
      * @param prize a <code>float</code> providing the prize amount for contest.
      * @param drPoints a <code>float</code> providing the DR points amount.
-     * @return a <code>ReviewBoardApplication</code> providing the reviewer payments for the specified project. 
+     * @return a <code>ReviewBoardApplication</code> providing the reviewer payments for the specified project.
      * @throws Exception if an unexpected error occurs.
      */
     protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed,

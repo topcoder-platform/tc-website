@@ -21,7 +21,7 @@
                  java.util.ArrayList,
                  java.util.List"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="tc.tld" prefix="tc" %>  
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib prefix="tc_tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -127,7 +127,7 @@
  <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DESIGN_PHASE) { %>
    <tr>
       <td class="statDk" align="center">
-         <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/> 
+         <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/>
       </td>
       <% if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
       <td class="statDk"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></td>
@@ -209,7 +209,7 @@
       <% } %>
       </td>
       <td class="statDk" align="center">
-         <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/> 
+         <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/>
       </td>
       <% if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
       <td class="statDk"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></td>
@@ -291,21 +291,21 @@
                                     <td class="tableHeader" align="center">Positions<br>Available</td>
                                     <td class="tableHeader">Details</td>
                                 </tr>
-                
+
                                 <c:set var="i" value="0"/>
                                 <c:forEach items="${specificationReviewList}" var="resultRow">
                                     <tr>
                                         <td class="statDk" align="center">
-                                            <tc_tags:languageIcon catalogName = "${resultRow.map['catalog']}" 
-                                                aolBrand="${not empty resultRow.map['aol_brand']}"/> 
+                                            <tc_tags:languageIcon catalogName = "${resultRow.map['catalog']}"
+                                                aolBrand="${not empty resultRow.map['aol_brand']}"/>
                                         </td>
                                         <td class="statDk">
                                             ${resultRow.map["component_name"]}
                                             ${resultRow.map["version"]}
                                         </td>
                                         <td class="statDk" align="right">
-                                            $ <fmt:formatNumber 
-                                                value="${specificationReviewPrices[i].primaryReviewPrice}" 
+                                            $ <fmt:formatNumber
+                                                value="${specificationReviewPrices[i].primaryReviewPrice}"
                                                 pattern="#,###.00"/>
                                         </td>
                                         <td class="statDk" align="center">
@@ -313,11 +313,11 @@
                                         </td>
                                         <td class="statDk" align="center"><i>open</i></td>
                                         <td class="statDk" align="center">
-                                            <fmt:formatDate value="${resultRow.map['review_start']}" 
+                                            <fmt:formatDate value="${resultRow.map['review_start']}"
                                                         pattern="MM.dd.yyyy"/>
                                         </td>
                                         <td class="statDk" align="center">
-                                            <fmt:formatDate value="${resultRow.map['review_end']}" 
+                                            <fmt:formatDate value="${resultRow.map['review_end']}"
                                                         pattern="MM.dd.yyyy"/>
                                         </td>
                                         <td class="statDk" align="center">
@@ -328,7 +328,7 @@
                                                 details
                                             </a>
                                             <c:if test="${resultRow.map['price_changes'] > 0}">
-                                                <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/> 
+                                                <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>
                                             </c:if>
                                         </td>
                                     </tr>
@@ -339,7 +339,7 @@
                     </tr>
                     <tr>
                         <td class="tableHeader" align="left" nowrap="nowrap" colspan="10">
-                            <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>: the payment for 
+                            <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>: the payment for
                             reviewing this specification has increased
                         </td>
                     </tr>
