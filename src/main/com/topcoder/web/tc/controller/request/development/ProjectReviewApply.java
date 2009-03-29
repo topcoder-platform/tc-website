@@ -69,10 +69,15 @@ import java.io.FileOutputStream;
  *   <ol>
  *     <li>Added support for Conceptualization, Specification and Application Testing project types.</li>
  *   </ol>
+ *
+ *   Version 1.0.6 (Specification Review Signup Pages 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Specification review project types.</li>
+ *   </ol>
  * </p>
  *
  * @author dok, pulky, isv, TCSDEVELOPER
- * @version 1.0.5
+ * @version 1.0.6
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -89,6 +94,7 @@ public class ProjectReviewApply extends Base {
 
     protected void developmentProcessing() throws TCWebException {
         projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
+        // include specification review project types in the validation
         if (!isProjectTypeSupported(projectTypeId, true)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
@@ -175,6 +181,13 @@ public class ProjectReviewApply extends Base {
         setIsNextPageInContext(true);
     }
 
+    /**
+     * Performs non transactional validation of the reviewer.
+     * 
+     * @param catalog the catalog to validate
+     * @param reviewTypeId the review type id to validate
+     * @throws Exception if an error occurs
+     */
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
         int type = Integer.parseInt(this.projectTypeId);
         // Assembly, Architecture, Conceptualization, Specification and Application Testing competition 
@@ -188,16 +201,6 @@ public class ProjectReviewApply extends Base {
             rBoardApplication.validateUserWithoutCatalog(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, reviewTypeId,
                     getUser().getId(), type);
         }
-    }
-
-    private boolean validateWithCatalog(int type) {
-        // Design and Development specification also have a catalog associated.
-        
-        return type != WebConstants.ASSEMBLY_PROJECT_TYPE && type != WebConstants.ARCHITECTURE_PROJECT_TYPE &&
-        type != WebConstants.CONCEPTUALIZATION_PROJECT_TYPE && type != WebConstants.SPECIFICATION_PROJECT_TYPE &&
-        type != WebConstants.APPLICATION_TESTING_PROJECT_TYPE && type != WebConstants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE &&
-        type != WebConstants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE && type != WebConstants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE &&
-        type != WebConstants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE && type != WebConstants.APPLICATION_TESTING_SPECIFICATION_PROJECT_TYPE;
     }
 
     protected void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException, ConfigException {
@@ -217,8 +220,7 @@ public class ProjectReviewApply extends Base {
 
     /**
      * <p>Gets the logical name for the view which is to be used for displaying the terms of use for the reviews of
-     * specified type requested by client. As of current version only Design, Development, Assembly, Architecture, 
-     * Conceptualization, Specification and Application Testing project types are supported.</p>
+     * specified type requested by client.</p>
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the terms of use for projects of
@@ -233,5 +235,26 @@ public class ProjectReviewApply extends Base {
             // we don't need to check for project types, they are already verified.
             return Constants.UNIFIED_REVIEWER_TERMS_PAGE;
         }
+    }
+
+    /**
+     * Private helper method to decide if a project type should be validated with catalog or not
+     * 
+     * @param projectTypeId the project type id
+     * @return true if the project type should be validated with the catalog
+     * 
+     * @since 1.0.6
+     */
+    private boolean validateWithCatalog(int projectTypeId) {
+        return projectTypeId != WebConstants.ASSEMBLY_PROJECT_TYPE && 
+            projectTypeId != WebConstants.ARCHITECTURE_PROJECT_TYPE &&
+            projectTypeId != WebConstants.CONCEPTUALIZATION_PROJECT_TYPE && 
+            projectTypeId != WebConstants.SPECIFICATION_PROJECT_TYPE && 
+            projectTypeId != WebConstants.APPLICATION_TESTING_PROJECT_TYPE && 
+            projectTypeId != WebConstants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE && 
+            projectTypeId != WebConstants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE && 
+            projectTypeId != WebConstants.APPLICATION_TESTING_SPECIFICATION_PROJECT_TYPE;
     }
 }

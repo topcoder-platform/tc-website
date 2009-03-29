@@ -83,21 +83,39 @@ import java.util.Map;
  *     <li>Added {@link #validateUserWithoutCatalog(String, int, long, int)} method to validate the Assembly reviewer
  *     permissions without taking any catalog into consideration.</li>
  *   </ol>
- * </p>
  *
  *   Version 1.0.8 Change notes:
  *   <ol>
  *     <li>Added support for Conceptualization, Specification and Application Testing Review projects.</li>
  *     <li>Fixed Architecture missing validation.</li>
  *   </ol>
+ *
+ *   Version 1.0.9 (Specification Review Signup Pages 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Specification Review projects.</li>
+ *     <li>Fixed Catalog validation to show project category.</li>
+ *   </ol>
  * </p>
  *
  * @author dok, pulky, ivern, isv, TCSDEVELOPER
- * @version 1.0.8
+ * @version 1.0.9
  */
 public class RBoardApplicationBean extends BaseEJB {
+    /**
+     * <p>An <code>int</code> representing the maximum review positions for regular (non specification review) 
+     * projects.</p>
+     *
+     * @since 1.0.9
+     */
     private static final int MAX_REGULAR_REVIEW_POSITIONS = 3;
+
+    /**
+     * <p>An <code>int</code> representing the maximum review positions for specification review projects.</p>
+     *
+     * @since 1.0.9
+     */
     private static final int MAX_SPECIFICATION_REVIEW_POSITIONS = 1;
+
     private static final int INTERNAL_ADMIN_USER = 100129;
     private static final int ACTIVE_REVIEWER = 100;
 
@@ -178,51 +196,51 @@ public class RBoardApplicationBean extends BaseEJB {
 
 
     /**
-     * <p>A <code>int</code> representing the primary review id for design specification projects.</p>
+     * <p>An <code>int</code> representing the primary review id for design specification projects.</p>
      *
-     * @since 1.0.8
+     * @since 1.0.9
      */
     private static final int DESIGN_SPECIFICATION_PRIMARY_REVIEW_ID = 22;
 
     /**
-     * <p>A <code>int</code> representing the primary review id for development specification projects.</p>
+     * <p>An <code>int</code> representing the primary review id for development specification projects.</p>
      *
-     * @since 1.0.8
+     * @since 1.0.9
      */
     private static final int DEVELOPMENT_SPECIFICATION_PRIMARY_REVIEW_ID = 23;
 
     /**
-     * <p>A <code>int</code> representing the primary review id for conceptualization specification projects.</p>
+     * <p>An <code>int</code> representing the primary review id for conceptualization specification projects.</p>
      *
-     * @since 1.0.8
+     * @since 1.0.9
      */
     private static final int CONCEPTUALIZATION_SPECIFICATION_PRIMARY_REVIEW_ID = 24;
 
     /**
-     * <p>A <code>int</code> representing the primary review id for specification specification projects.</p>
+     * <p>An <code>int</code> representing the primary review id for specification specification projects.</p>
      *
-     * @since 1.0.8
+     * @since 1.0.9
      */
     private static final int SPECIFICATION_SPECIFICATION_PRIMARY_REVIEW_ID = 25;
 
     /**
-     * <p>A <code>int</code> representing the primary review id for architecture specification projects.</p>
+     * <p>An <code>int</code> representing the primary review id for architecture specification projects.</p>
      *
-     * @since 1.0.8
+     * @since 1.0.9
      */
     private static final int ARCHITECTURE_SPECIFICATION_PRIMARY_REVIEW_ID = 26;
 
     /**
-     * <p>A <code>int</code> representing the primary review id for assembly specification projects.</p>
+     * <p>An <code>int</code> representing the primary review id for assembly specification projects.</p>
      *
-     * @since 1.0.8
+     * @since 1.0.9
      */
     private static final int ASSEMBLY_SPECIFICATION_PRIMARY_REVIEW_ID = 27;
 
     /**
-     * <p>A <code>int</code> representing the primary review id for testing competition specification projects.</p>
+     * <p>An <code>int</code> representing the primary review id for testing competition specification projects.</p>
      *
-     * @since 1.0.8
+     * @since 1.0.9
      */
     private static final int TESTING_COMPETITION_SPECIFICATION_PRIMARY_REVIEW_ID = 28;
 
@@ -235,7 +253,8 @@ public class RBoardApplicationBean extends BaseEJB {
         "Sorry, there was an error in the application";
 
     /**
-     * <p>A <code>String</code> containing the error message for inconsistent reviewers for development project types.</p>
+     * <p>A <code>String</code> containing the error message for inconsistent reviewers for development project 
+     * types.</p>
      *
      * @since 1.0.8
      */
@@ -615,10 +634,6 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
-    private boolean isSpecificationReview(int phaseId) {
-        return phaseId > WebConstants.SPECIFICATION_COMPETITION_OFFSET;
-    }
-
     /**
      * Searches for existence of a particular row in rboard_application
      *
@@ -705,7 +720,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 "             and u.upload_type_id = 1              " +
                 "             and u.upload_id = s.upload_id         " +
                 "             and s.submission_status_id = 1)    " +
-                "         or exists(                               " +  // ... or the submission phase is scheduled or open
+                "         or exists(                               " +  // or the submission phase is scheduled or open
                 "            select 1 from project_phase pp_subm where pp_subm.phase_type_id = 2 " +
                 "            and pp_subm.phase_status_id in (1,2) " +
                 "            and pp_subm.project_id = p.project_id)) " +
@@ -796,7 +811,9 @@ public class RBoardApplicationBean extends BaseEJB {
                 status = getStatus(conn, userId, phaseId - 111, catalogId);
             } catch (RowNotFoundException rnfe) {
                 try {
-                    throw new RBoardRegistrationException("Sorry, you are not a " + getProjectCategoryName(conn, phaseId - 111) 
+                    // show also category name
+                    throw new RBoardRegistrationException("Sorry, you are not a " 
+                            + getProjectCategoryName(conn, phaseId - 111) 
                             + " " + getCatalogName(conn, catalogId)
                             + " reviewer.  Please contact TopCoder if you would like to "
                             + "become one.");
@@ -1010,8 +1027,8 @@ public class RBoardApplicationBean extends BaseEJB {
             validateReviewPositions(reviewTypeId, primary, reviewers, ASSEMBLY_SPECIFICATION_PRIMARY_REVIEW_ID,
                 INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.APPLICATION_TESTING_SPECIFICATION_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, TESTING_COMPETITION_SPECIFICATION_PRIMARY_REVIEW_ID,
-                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+            validateReviewPositions(reviewTypeId, primary, reviewers, 
+                TESTING_COMPETITION_SPECIFICATION_PRIMARY_REVIEW_ID, INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         }
         
         // If somebody came in by constructing the URL, make sure that there is at least one
@@ -1042,7 +1059,8 @@ public class RBoardApplicationBean extends BaseEJB {
      * @since 1.0.8
      */
     private void validateReviewPositions(int reviewTypeId, boolean primary,
-            ResultSetContainer reviewers, int primaryReviewId, String inconsistencyErrorMessage) throws RBoardRegistrationException {
+            ResultSetContainer reviewers, int primaryReviewId, String inconsistencyErrorMessage) 
+            throws RBoardRegistrationException {
 
         for (Object reviewer : reviewers) {
             ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) reviewer;
@@ -1192,5 +1210,15 @@ public class RBoardApplicationBean extends BaseEJB {
         } finally {
             close(ps);
         }
+    }
+
+    /**
+     * Private helper method to know whether a phase id corresponds to a specification review project or not.
+     * 
+     * @param phaseId the phase id to check.
+     * @return <code>true</code> if the phase corresponds to a specification review project. 
+     */
+    private boolean isSpecificationReview(int phaseId) {
+        return phaseId > WebConstants.SPECIFICATION_COMPETITION_OFFSET;
     }
 }

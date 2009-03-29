@@ -1,13 +1,26 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common.model;
 
 import java.io.Serializable;
 
 import com.topcoder.web.common.WebConstants;
 
-
 /**
- * @author dok
- *         Date: Feb 11, 2004
+ * <p><strong>Purpose</strong>: This interface represents a software component.</p>
+ *
+ * <p>Note: The meaning of this interface has grown beyond software component, but it still keeps its original name.</p>
+ *
+ * <p>
+ *   Version 1.1 (Specification Review Signup Pages 1.0) Change notes:
+ *   <ol>
+ *     <li>Added constants for Specification Review projects.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, TCSDEVELOPER
+ * @version 1.1
  */
 public interface SoftwareComponent extends Cloneable, Serializable {
 
@@ -19,13 +32,53 @@ public interface SoftwareComponent extends Cloneable, Serializable {
     public final static int ASSEMBLY_PHASE = (int) WebConstants.PHASE_ASSEMBLY;
     public final static int APPLICATION_TESTING_PHASE = (int) WebConstants.PHASE_APPLICATION_TESTING;
 
-    // since pulky
+    /**
+     * <p>An <code>int</code> representing design specification phase id.</p>
+     *
+     * @since 1.1
+     */
     public final static int DESIGN_SPECIFICATION_PHASE = (int) WebConstants.PHASE_DESIGN_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing development specification phase id.</p>
+     *
+     * @since 1.1
+     */
     public final static int DEVELOPMENT_SPECIFICATION_PHASE = (int) WebConstants.PHASE_DEVELOPMENT_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing conceptualization specification phase id.</p>
+     *
+     * @since 1.1
+     */
     public final static int CONCEPTUALIZATION_SPECIFICATION_PHASE = (int) WebConstants.PHASE_CONCEPTUALIZATION_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing specification specification phase id.</p>
+     *
+     * @since 1.1
+     */
     public final static int SPECIFICATION_SPECIFICATION_PHASE = (int) WebConstants.PHASE_SPECIFICATION_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing architecture specification phase id.</p>
+     *
+     * @since 1.1
+     */
     public final static int ARCHITECTURE_SPECIFICATION_PHASE = (int) WebConstants.PHASE_ARCHITECTURE_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing assembly specification phase id.</p>
+     *
+     * @since 1.1
+     */
     public final static int ASSEMBLY_SPECIFICATION_PHASE = (int) WebConstants.PHASE_ASSEMBLY_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing testing competition specification phase id.</p>
+     *
+     * @since 1.1
+     */
     public final static int APPLICATION_TESTING_SPECIFICATION_PHASE = (int) WebConstants.PHASE_APPLICATION_TESTING_SPECIFICATION;
 
     

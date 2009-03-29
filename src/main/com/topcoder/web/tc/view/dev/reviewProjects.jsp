@@ -1,3 +1,13 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page lists the active review projects corresponding for design and development projects.
+  - It displays the list of review projects along with other project details and links for registering.
+  -
+  - Version 1.1 (Specification Review Signup Pages 1.0) changes: support for specification reviews was added.
+--%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
