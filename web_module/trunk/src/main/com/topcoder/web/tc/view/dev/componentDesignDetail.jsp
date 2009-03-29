@@ -109,7 +109,7 @@
    <tr>
       <td colspan="3" align="center" style="padding-top:10px;">
          Register to get info necessary to submit a solution<br>
-         <span class="bigRed">Registering will affect your <A class="bigRed" href="/tc?module=Static&d1=dev&d2=support&d3=desReliability">Reliability Rating</A></span>
+         <span class="bigRed">Registering will affect your <A class="bigRed" href="/wiki/display/tc/Component+Design+Reliability+Ratings">Reliability Rating</A></span>
       </td>
    </tr>
    <% } %>
