@@ -31,7 +31,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  * Checks the component payments that don't have reliability bonus payment and create their payments.
  * 
  * 
- * @author Cucu, DixonD
+ * @author cucu, DixonD
  * @version 1.0
  */
 public class PayReliabilityBonus extends DBUtility {
