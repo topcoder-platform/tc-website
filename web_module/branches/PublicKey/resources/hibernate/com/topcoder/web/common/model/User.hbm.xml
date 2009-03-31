@@ -24,6 +24,7 @@
         <one-to-one name="secretQuestion" class="SecretQuestion" cascade="save-update" access="field" fetch="select"/>
         <one-to-one name="professor" class="com.topcoder.web.common.model.educ.Professor" cascade="save-update"
                     access="field" fetch="select"/>
+        <one-to-one name="userSecurityKey" class="UserSecurityKey" cascade="save-update" access="field" fetch="select"/>
 
         <set name="securityGroups" table="user_group_xref" cascade="none" inverse="true" access="field">
             <key column="login_id" not-null="true"/>
