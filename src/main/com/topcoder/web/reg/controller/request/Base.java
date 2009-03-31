@@ -236,6 +236,7 @@ public abstract class Base extends LongHibernateProcessor {
         ret.put(Constants.PASSWORD_CONFIRM, getTrimmedParameter(Constants.PASSWORD_CONFIRM));
         ret.put(Constants.SECRET_QUESTION, getTrimmedParameter(Constants.SECRET_QUESTION));
         ret.put(Constants.SECRET_QUESTION_RESPONSE, getTrimmedParameter(Constants.SECRET_QUESTION_RESPONSE));
+        ret.put(Constants.SECURITY_KEY, getTrimmedParameter(Constants.SECURITY_KEY));
         ret.put(Constants.HANDLE, getTrimmedParameter(Constants.HANDLE));
         ret.put(Constants.QUOTE, getTrimmedParameter(Constants.QUOTE));
         ret.put(Constants.TITLE, getTrimmedParameter(Constants.TITLE));
@@ -290,6 +291,7 @@ public abstract class Base extends LongHibernateProcessor {
         simpleValidation(PasswordValidator.class, fields, params, Constants.PASSWORD);
         simpleValidation(SecretQuestionValidator.class, fields, params, Constants.SECRET_QUESTION);
         simpleValidation(SecretQuestionResponseValidator.class, fields, params, Constants.SECRET_QUESTION_RESPONSE);
+        simpleValidation(SecurityKeyValidator.class, fields, params, Constants.SECURITY_KEY);
         simpleValidation(PostalCodeValidator.class, fields, params, Constants.POSTAL_CODE);
         simpleValidation(ProvinceValidator.class, fields, params, Constants.PROVINCE);
         simpleValidation(QuoteValidator.class, fields, params, Constants.QUOTE);
@@ -413,6 +415,10 @@ public abstract class Base extends LongHibernateProcessor {
         if (u.getCoder() != null) {
             setDefault(Constants.QUOTE, u.getCoder().getQuote());
         }
+        if (u.getUserSecurityKey() != null) {
+        	setDefault(Constants.SECURITY_KEY, u.getUserSecurityKey().getSecurityKey());
+        }
+        	
         if (u.getPrimaryPhoneNumber() != null) {
             setDefault(Constants.PHONE_NUMBER, u.getPrimaryPhoneNumber().getNumber());
         }

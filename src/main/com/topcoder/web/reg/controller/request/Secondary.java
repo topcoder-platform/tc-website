@@ -213,6 +213,16 @@ public class Secondary extends Base {
                 sc.setResponse((String) params.get(Constants.SECRET_QUESTION_RESPONSE));
             }
         }
+        
+        if (fields.contains(Constants.SECURITY_KEY)) {
+        	UserSecurityKey sk = u.getUserSecurityKey();
+        	if (sk == null) {
+        		sk = new UserSecurityKey();
+        		sk.setUser(u);
+        		u.setUserSecurityKey(sk);
+        	}
+        	sk.setSecurityKey((String) params.get(Constants.SECURITY_KEY));
+        }
 
         if (fields.contains(Constants.COMPANY_NAME)) {
             String name = (String) params.get(Constants.COMPANY_NAME);
