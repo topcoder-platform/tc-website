@@ -44,7 +44,7 @@ public class PayReliabilityBonus extends DBUtility {
     /**
      * This variable saves information about bonuses.
      */
-    private TreeMap < Date, TreeMap < Double, Double > > bonusTable;
+    private TreeMap<Date, TreeMap<Double, Double>> bonusTable;
 
 	protected void runUtility() throws Exception {
 		PactsClientServices  ejb = (PactsClientServices) createEJB();
