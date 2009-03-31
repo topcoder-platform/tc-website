@@ -31,7 +31,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  * Checks the component payments that don't have reliability bonus payment and create their payments.
  * 
  * 
- * @author Cucu, DixonD
+ * @author cucu, DixonD
  * @version 1.0
  */
 public class PayReliabilityBonus extends DBUtility {
@@ -44,7 +44,7 @@ public class PayReliabilityBonus extends DBUtility {
     /**
      * This variable saves information about bonuses.
      */
-    private TreeMap < Date, TreeMap < Double, Double > > bonusTable;
+    private TreeMap<Date, TreeMap<Double, Double>> bonusTable;
 
 	protected void runUtility() throws Exception {
 		PactsClientServices  ejb = (PactsClientServices) createEJB();
@@ -123,7 +123,7 @@ public class PayReliabilityBonus extends DBUtility {
             startDate = date;
     }
     
-        TreeMap < Double, Double > bonus = bonusTable.get(startDate);
+        TreeMap<Double, Double> bonus = bonusTable.get(startDate);
         double reliabilityValue = .0;
         for (double rel : bonus.keySet()) {
             if (rel > reliability) break;
@@ -145,7 +145,7 @@ public class PayReliabilityBonus extends DBUtility {
     }
 
     private void parseReliabilityDetails(String reliabilityFilename) throws Exception {
-        bonusTable = new TreeMap < Date, TreeMap < Double, Double > >();
+        bonusTable = new TreeMap<Date, TreeMap<Double, Double>>();
         DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
         Document doc = docBuilder.parse(new File(reliabilityFilename));
@@ -166,7 +166,7 @@ public class PayReliabilityBonus extends DBUtility {
             }
 
             NodeList reliabilities = paymentRange.getElementsByTagName("reliabilityAbove");
-            TreeMap < Double, Double > reliabilitiesMap = new TreeMap < Double, Double >();
+            TreeMap<Double, Double> reliabilitiesMap = new TreeMap<Double, Double>();
             reliabilitiesMap.put(0.0, 0.0);
             for (int j = 0; j < reliabilities.getLength(); ++j) {
                 NamedNodeMap attr = reliabilities.item(j).getAttributes();
@@ -223,7 +223,5 @@ public class PayReliabilityBonus extends DBUtility {
         sErrorMsg.append("   -onlyAnalyze : whether to just analyze without updates.\n");
         fatal_error();
     }
-
-
 
 }
