@@ -35,6 +35,7 @@ public class Constants implements WebConstants {
     public static final String SCHOOL_NAME = "schn";
     public static final String SECRET_QUESTION = "sq";
     public static final String SECRET_QUESTION_RESPONSE = "sqr";
+    public static final String SECURITY_KEY = "sk";
 
     public static final String AGE = "age";
     public static final String AGE_END_SEASON = "agees";
@@ -99,6 +100,7 @@ public class Constants implements WebConstants {
     public static int MAX_EMAIL_LENGTH;
     public static int MAX_PHONE_LENGTH;
     public static int MAX_QUOTE_LENGTH;
+    public static int MAX_SECURITY_KEY_LENGTH;
     public static int MAX_GPA_LENGTH;
 
     public static int MAX_DEMOG_RESPONSE_LENGTH;

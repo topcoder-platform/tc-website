@@ -48,6 +48,17 @@
                     }
                 }
             }
+			function showhide(id){
+				if (document.getElementById){
+					obj = document.getElementById(id);
+					if (obj.style.display == "none"){
+						obj.style.display = "";
+					} else {
+						obj.style.display = "none";
+					}
+				}
+			}
+
             // -->
         </script>
     
@@ -717,6 +728,40 @@
                             <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><script type="text/javascript">applyError('<%=Constants.CODER_TYPE%>_row', '<%=Constants.CODER_TYPE%>_status')</script></tc-webtag:errorIterator>
                             
                         </li>
+                        </c:if>
+
+						<c:if test="${isNewReg}">
+							<input type="hidden" name="<%=Constants.SECURITY_KEY%>" value="">						
+						</c:if>
+                        <c:if test="${not isNewReg}">
+							<c:set value="<%=Constants.SECURITY_KEY%>" var="securityKey"/>
+							<c:if test="${cf:contains(fields, securityKey)}">
+							<li class="form-row" id="<%=Constants.SECURITY_KEY%>_row">
+								<tc-webtag:errorIterator id="err" name="<%=Constants.SECURITY_KEY%>"></tc-webtag:errorIterator>
+
+
+								<label for="<%=Constants.SECURITY_KEY%>" style="padding-top: 0px;" >                            
+									Security Key:
+								</label>
+																
+								<a href="javascript:showhide('securityKeyDiv');">Click here to store your public key</a>
+								<br>
+								<div id="securityKeyDiv">
+									<tc-webtag:textArea name="<%=Constants.SECURITY_KEY%>" rows="18" cols="60" />
+								</div>
+
+								<span style="visibility: hidden" id="<%=Constants.SECURITY_KEY%>_status">
+								<tc-webtag:errorIterator id="err" name="<%=Constants.SECURITY_KEY%>"><%=err%></tc-webtag:errorIterator>
+								</span>
+								<tc-webtag:errorIterator id="err" name="<%=Constants.SECURITY_KEY%>"><script type="text/javascript">applyError('<%=Constants.SECURITY_KEY%>_row', '<%=Constants.SECURITY_KEY%>_status')</script></tc-webtag:errorIterator>
+
+							</li>
+							<c:if test="${empty processor_defaults.sk}">
+								<script>
+									showhide('securityKeyDiv');
+								</script>
+							</c:if>
+						</c:if>                        
                         </c:if>
 
                         <li class="form-bottom">
