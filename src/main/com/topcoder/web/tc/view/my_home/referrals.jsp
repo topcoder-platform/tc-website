@@ -45,7 +45,7 @@
  
 <p>As of December 5, 2008, the referral program will award commission based on the winnings of new members of TopCoder Studio only. TopCoder will honor all commission payments due based on non-Studio referrals made before 12/5/08.</p>
          <br><br>
-         <A href="http://studio.topcoder.com/blog/?page_id=70">Referring TopCoder Studio Competitors</a><br>
+         <A href="http://studio.topcoder.com/?module=Static&d1=support&d2=memberRefferalProgram">Referring TopCoder Studio Competitors</a><br>
         </p>
 
         <br/>
