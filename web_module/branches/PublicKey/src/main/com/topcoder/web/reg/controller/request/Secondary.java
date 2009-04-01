@@ -50,13 +50,13 @@ public class Secondary extends Base {
                         reloadMain(params, u, fields);
                     } else {
                         if (registeringHS) {
-                            // put the responses in session so that they're saved in the db when submitting 
+                            // put the responses in session so that they're saved in the db when submitting
                             getRequest().getSession().setAttribute(Constants.HS_RESPONSES, rh.getResponsesMap());
 
                             log.info("user " + u.getId() + " is " + ((!rh.isEligibleHS()) ? "not" : "") + " eligible. ");
-                            
+
                             log.info("Inactivate flag: " + getRequest().getSession().getAttribute(Constants.INACTIVATE_HS));
-                            
+
                             if (!rh.isEligibleHS() || getRequest().getSession().getAttribute(Constants.INACTIVATE_HS) != null) {
 
                                 if (isNewRegistration()) {
@@ -213,7 +213,7 @@ public class Secondary extends Base {
                 sc.setResponse((String) params.get(Constants.SECRET_QUESTION_RESPONSE));
             }
         }
-        
+
         if (fields.contains(Constants.SECURITY_KEY)) {
         	UserSecurityKey sk = u.getUserSecurityKey();
         	if (sk == null) {
@@ -222,6 +222,7 @@ public class Secondary extends Base {
         		u.setUserSecurityKey(sk);
         	}
         	sk.setSecurityKey((String) params.get(Constants.SECURITY_KEY));
+        	sk.setSecurityKeyTypeId(1);
         }
 
         if (fields.contains(Constants.COMPANY_NAME)) {
