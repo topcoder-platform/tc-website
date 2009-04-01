@@ -61,7 +61,7 @@ public interface Constants {
     public static final int REFERENCE_PARENT_PAYMENT_ID = 8;
     public static final int REFERENCE_DIGITAL_RUN_TRACK_ID = 9;
 
-    // Modficiation rationale codes
+    // Modification rationale codes
     public static final int MODIFICATION_NEW = 1;
     public static final int MODIFICATION_ADDRESS = 2;
     public static final int MODIFICATION_WITHOLDING_AMOUNT = 3;
