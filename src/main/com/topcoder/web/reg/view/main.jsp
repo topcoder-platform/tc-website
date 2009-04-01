@@ -730,6 +730,9 @@
                         </li>
                         </c:if>
 
+						<c:if test="${isNewReg}">
+							<input type="hidden" name="<%=Constants.SECURITY_KEY%>" value="">						
+						</c:if>
                         <c:if test="${not isNewReg}">
 							<c:set value="<%=Constants.SECURITY_KEY%>" var="securityKey"/>
 							<c:if test="${cf:contains(fields, securityKey)}">
