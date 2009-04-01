@@ -106,6 +106,7 @@
         <mapping resource="com/topcoder/web/common/model/UserGroup.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/UserPreference.hbm.xml"/>
         <mapping class="com.topcoder.web.common.model.UserSchool"/>
+        <mapping resource="com/topcoder/web/common/model/UserSecurityKey.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/VisaLetterEvent.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/VisaLetterRequest.hbm.xml"/>
 

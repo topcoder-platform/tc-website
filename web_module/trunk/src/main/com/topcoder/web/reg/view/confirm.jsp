@@ -353,7 +353,19 @@
         </td>
     </tr>
 </c:if>
-                                     
+        
+<c:set value="<%=Constants.SECURITY_KEY %>" var="securityKey"/>
+<c:if test="${cf:contains(fields, securityKey)}">
+    <tr>
+        <td class="field-name">
+            Security Key:
+        </td>
+        <td class="field-value">
+                ${regUser.userSecurityKey.securityKey}
+        </td>
+    </tr>
+</c:if>
+
 <c:set value="<%=Constants.DEMOG_PREFIX%>" var="demogPrefix"/>
 <c:set value="<%=Constants.RESUME%>" var="resume"/>
 <c:set value="<%=Constants.GPA%>" var="gpa"/>
