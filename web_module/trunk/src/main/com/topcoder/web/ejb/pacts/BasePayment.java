@@ -526,7 +526,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     }
 
     /**
-     * Base class for procesing payments, i.e. completing some information that must be looked
+     * Base class for processing payments, i.e. completing some information that must be looked
      * up in other tables.
      *
      * @author Cucu
@@ -599,7 +599,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
         /**
          * Checks whether the payment is already in the DB.
-         * The default behaviour is to return always false.
+         * The default behavior is to return always false.
          *
          * @param payment the payment to check for duplicates.
          * @return false
@@ -691,7 +691,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         }
 
         /**
-         * Run a query in the specified conneciton.
+         * Run a query in the specified connection.
          *
          * @param c connection where the query will run.
          * @param query query to run.
@@ -760,7 +760,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
          *
          * @param coderId coder to check for tax form
          * @return whether the user has already sent a Tax form.
-         * @throws SQLException if a problem occurs accesing DB
+         * @throws SQLException if a problem occurs accessing DB
          */
         protected boolean hasTaxForm(long coderId) throws SQLException {
             StringBuffer query = new StringBuffer(1000);
@@ -786,7 +786,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case 0: return "winnings";
             case 1: return "1st place";
             case 2: return "2nd place";
-            case 3: return  "3rd place";
+            case 3: return "3rd place";
             }
             return placed + "th place";
         }
