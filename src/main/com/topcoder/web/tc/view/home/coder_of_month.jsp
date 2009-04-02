@@ -14,34 +14,33 @@
 <div class="leftColContent">
    <div style="padding-left:3px;">
    <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br />
-   - April</div>
+   - February</div>
    <table cellpadding="0" cellspacing="0" border="0" width="165">
    <tr>
-      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/jmpld40_big.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/tsebayoth_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</a></strong><br />
-         <tc-webtag:handle coderId="14999860" context="<%=HandleTag.ALGORITHM%>" darkBG="true" /><br />schooled petr
-         <span class="small">
-         <!-- SRMs Go here -->
-         </span><br /><br />
-      </td>
-   </tr>
-   <tr>
-      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/ivern_big2.jpg" alt="" width="55" height="61"/></td>
-      <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
-         <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</a></strong><br />
-         <tc-webtag:handle coderId="156859" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br />
-         outranks them all<br />
+         <tc-webtag:handle coderId="22659399" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />
+         <br />
          <br />
       </td>
    </tr>
    <tr>
-      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/mess_big.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/saarixx_big.jpg" alt="" width="55" height="61"/></td>
+      <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
+         <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</a></strong><br />
+         <tc-webtag:handle coderId="21932422" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br />
+         with 5 wins and one second place in February<br />
+         <br />
+      </td>
+   </tr>
+   <tr>
+      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/assistant_big3.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</a></strong><br />
-         <tc-webtag:handle coderId="305384" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br />
+         <tc-webtag:handle coderId="20076717" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br />
          <span class="small">
-         the best of the best<br />
+         with 3 wins and 2 second places in February<br />
          </span><br /><br />
       </td>
    </tr>
