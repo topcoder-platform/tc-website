@@ -216,6 +216,12 @@
                                                                           <td class="last">&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
+                                                                          <td class="first">&nbsp;</td>
+                                                                          <td class="first last alignText">11:00 a.m. - 11:45 a.m.</td>
+                                                                          <td class="first last alignText">TopCoder Q &amp; A, Featuring Jack Hughes, Founder, and TopCoder staff</td>
+                                                                          <td class="last">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
                                                                             <td class="first">&nbsp;</td>
                                                                             <td class="first last alignText">12:00 p.m. - 1:30 p.m.</td>
                                                                             <td class="first last alignText">Lunch</td>
