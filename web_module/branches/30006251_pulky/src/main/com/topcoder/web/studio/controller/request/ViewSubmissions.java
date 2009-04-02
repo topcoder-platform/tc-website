@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.shared.dataAccess.DataAccess;
@@ -17,12 +20,26 @@ import com.topcoder.web.studio.model.Contest;
 import java.util.Date;
 
 /**
- * @author dok, isv
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Aug 31, 2006
+ * <p>This class implements the request processor for the View Submissions page.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Submission Viewer Upgrade Integration v1.0) Change notes:
+ *   <ol>
+ *     <li>Changed usage of start and end ranks parameters to pagination-like parameters.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, TCSDEVELOPER
+ * @version 1.1
  */
 public class ViewSubmissions extends ShortHibernateProcessor {
 
+    /**
+     * <p>This method is the responsible for performing page's logic.</p> 
+     * 
+     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     * @throws Exception if any error occurs
+     */
     protected void dbProcessing() throws Exception {
 
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
@@ -78,34 +95,45 @@ public class ViewSubmissions extends ShortHibernateProcessor {
             submissions.sortByColumn(Integer.parseInt(col), dir.trim().toLowerCase().equals("asc"));
         }
 
-        String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
-        if (start.equals("")) {
-            start = "0";
+        // get pagination parameters from request
+        String pageNumber = StringUtils.checkNull(getRequest().getParameter(Constants.PAGE_NUMBER_KEY));
+        if (pageNumber.equals("")) {
+            pageNumber = "1";
         }
 
-        String end = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
-        if (end.equals("")) {
-            end = String.valueOf(Constants.VIEW_SUBMISSIONS_SCROLL_SIZE);
+        String pageSize = StringUtils.checkNull(getRequest().getParameter(Constants.PAGE_SIZE_KEY));
+        if (pageSize.equals("")) {
+            pageSize = String.valueOf(Constants.VIEW_SUBMISSIONS_SCROLL_SIZE);
+        }
+
+        // calculate start and end rank using pagination information
+        Integer start = (Integer.parseInt(pageNumber) - 1) * Integer.parseInt(pageSize);
+        
+        // for invalid start point, make it the first element
+        if (start >= submissions.size()) {
+            start = 0;
+        }
+
+        Integer end = start + Integer.parseInt(pageSize);
+
+        // for invalid end point, make it the last element
+        if (end >= submissions.size()) {
+            end = submissions.size();
         }
 
         if (log.isDebugEnabled()) {
             log.debug("start: " + start + " end: " + end);
         }
-        if (Integer.parseInt(end) - Integer.parseInt(start) > (Constants.VIEW_SUBMISSIONS_SCROLL_SIZE)) {
-            end = String.valueOf(Integer.parseInt(start) + Constants.VIEW_SUBMISSIONS_SCROLL_SIZE);
-        }
-        if (log.isDebugEnabled()) {
-            log.debug("start: " + start + " end: " + end);
-        }
+        getRequest().setAttribute(Constants.PAGE_NUMBER_KEY, pageNumber);
+        getRequest().setAttribute(Constants.PAGE_SIZE_KEY, pageSize);
+        getRequest().setAttribute("totalItems", submissions.size());
 
-        getRequest().setAttribute("submissions", submissions.subList(Integer.parseInt(start), Integer.parseInt(end)));
+        getRequest().setAttribute("submissions", submissions.subList(start, end));
 
         SortInfo s = new SortInfo();
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
         setNextPage("/submissions.jsp");
         setIsNextPageInContext(true);
-
-
     }
 }
