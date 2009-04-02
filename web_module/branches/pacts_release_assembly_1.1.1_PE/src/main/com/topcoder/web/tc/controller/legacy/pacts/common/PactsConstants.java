@@ -1,13 +1,22 @@
-/**
- * Constants that are used throughout the PACTS system.
- *
- * @author Dave Pecora
- * @version 1.00, 03/06/2002
+/*
+ * Copyright (c) 2001-2009 TopCoder Inc.  All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
 import com.topcoder.web.ejb.pacts.Constants;
 
+/**
+ * <p>
+ * Constants that are used throughout the PACTS system.
+ * </p>
+ *
+ * <p>
+ * <b>Changes in PACTS Release Assembly: </b>Copilot, Studio Bug Fix, Studio Enhancement, and Studio Specification Review payments are added.
+ * </p>
+ *
+ * @author Dave Pecora
+ * @version 1.00, 03/06/2002
+ */
 public interface PactsConstants extends Constants {
     // Object types
     // Coordinate with note_type_lu table in the DB
@@ -48,14 +57,23 @@ public interface PactsConstants extends Constants {
     public static final int AFFIDAVIT_STATUS_EXPIRED = 59;
     public static final int AFFIDAVIT_STATUS_PENDING = 57;
 
-    // Types of payment that pay to referrals
+    /**
+     * <p>
+     * Types of payment that pay to referrals.
+     * </p>
+     *
+     * <p>
+     * <b>Changes in PACTS Release Assembly: </b>Copilot, Studio Bug Fix, Studio Enhancement, and Studio Specification Review payments are added.
+     * </p>
+     */
     public static final int[] PAY_REFFERAL_TYPES = {ALGORITHM_CONTEST_PAYMENT, CHARITY_PAYMENT, COMPONENT_PAYMENT, REVIEW_BOARD_PAYMENT,
             ASSEMBLY_PAYMENT, TESTING_PAYMENT, LOGO_CONTEST_PAYMENT, TC_STUDIO_PAYMENT, CCIP_PAYMENT, DIGITAL_RUN_PRIZE_PAYMENT,
             DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT, COMPONENT_TOURNAMENT_BONUS_PAYMENT, MARATHON_MATCH_PAYMENT, ALGORITHM_TOURNAMENT_PRIZE_PAYMENT,
             RELIABILITY_BONUS_PAYMENT, DIGITAL_RUN_TOP_THIRD_PAYMENT, MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT, TC_STUDIO_TOURNAMENT_PRIZE_PAYMENT,
             HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT, STUDIO_REVIEW_BOARD_PAYMENT, ARCHITECTURE_PAYMENT, REVIEW_BOARD_BONUS_PAYMENT,
             DIGITAL_RUN_V2_PRIZE_PAYMENT, DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT, CONCEPTUALIZATION_CONTEST_PAYMENT,
-            SPECIFICATION_CONTEST_PAYMENT, TESTING_COMPETITION_PAYMENT};
+            SPECIFICATION_CONTEST_PAYMENT, TESTING_COMPETITION_PAYMENT, COPILOT_PAYMENT, TC_STUDIO_BUG_FIXES_PAYMENT,
+            TC_STUDIO_ENHANCEMENT_PAYMENT, TC_STUDIO_SPECIFICATION_REVIEW_PAYMENT};
 
     // Contract type codes
     public static final int DEVELOPMENT_CONTRACT = 1;

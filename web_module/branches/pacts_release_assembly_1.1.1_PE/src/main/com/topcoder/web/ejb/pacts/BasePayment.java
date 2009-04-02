@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2001-2009 TopCoder Inc.  All Rights Reserved.
+ */
 package com.topcoder.web.ejb.pacts;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -13,12 +16,18 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
+ * <p>
  * Represents basic payment information, without reference information.
  * This class partially overlaps with Payment class.  However, this class is intendeed
  * to be uses with PactsClientServices, and tries to be more friendly.
  *
  * Payment is still used for internal processing, but maybe we can think in the future
  * to do just one class.
+ * </p>
+ *
+ * <p>
+ * <b>Changes in PACTS Release Assembly: </b>Copilot, Studio Bug Fix, Studio Enhancement, and Studio Specification Review payments are added.
+ * </p>
  *
  * @author cucu
  *
@@ -124,8 +133,14 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     }
 
     /**
+     * <p>
      * Get the type of reference for the specified type of payment.
      * It will return the value of one of the constants: NO_REFERENCE or REFERENCE_*
+     * </p>
+     *
+     * <p>
+     * <b>Changes in PACTS Release Assembly: </b>Copilot, Studio Bug Fix, Studio Enhancement, and Studio Specification Review payments are added.
+     * </p>
      *
      * @param paymenteType type of payment
      * @return the type of reference for the specified type of payment.
@@ -153,6 +168,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case SPECIFICATION_CONTEST_PAYMENT:
         case CONCEPTUALIZATION_CONTEST_PAYMENT:
         case TESTING_COMPETITION_PAYMENT:
+        case COPILOT_PAYMENT:
             return REFERENCE_COMPONENT_PROJECT_ID;
 
         case PROBLEM_WRITING_PAYMENT:
@@ -160,6 +176,9 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
         case TC_STUDIO_TOURNAMENT_PRIZE_PAYMENT:
         case TC_STUDIO_PAYMENT:
+        case TC_STUDIO_BUG_FIXES_PAYMENT:
+        case TC_STUDIO_ENHANCEMENT_PAYMENT:
+        case TC_STUDIO_SPECIFICATION_REVIEW_PAYMENT:
             return REFERENCE_STUDIO_CONTEST_ID;
 
         case COMPONENT_TOURNAMENT_BONUS_PAYMENT:
@@ -189,8 +208,14 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
 
     /**
+     * <p>
      * Create a payment using the specified information.
      * An instance of an extending class of BasePayment will be returned, depending on the type of payment.
+     * </p>
+     *
+     * <p>
+     * <b>Changes in PACTS Release Assembly: </b>Copilot, Studio Bug Fix, Studio Enhancement, and Studio Specification Review payments are added.
+     * </p>
      *
      * @param paymentTypeId type of payment
      * @param coderId id of the coder
@@ -233,6 +258,10 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case SPECIFICATION_CONTEST_PAYMENT: return new SpecificationContestPayment(coderId, grossAmount, referenceId, placed);
         case CONCEPTUALIZATION_CONTEST_PAYMENT: return new ConceptualizationContestPayment(coderId, grossAmount, referenceId, placed);
         case TESTING_COMPETITION_PAYMENT: return new TestingCompetitionPayment(coderId, grossAmount, referenceId, placed);
+        case COPILOT_PAYMENT: return new CopilotPayment(coderId, grossAmount, referenceId, placed);
+        case TC_STUDIO_BUG_FIXES_PAYMENT: return new StudioBugFixesPayment(coderId, grossAmount, referenceId, placed);
+        case TC_STUDIO_ENHANCEMENT_PAYMENT: return new StudioEnhancementPayment(coderId, grossAmount, referenceId, placed);
+        case TC_STUDIO_SPECIFICATION_REVIEW_PAYMENT: return new StudioSpecificationReviewPayment(coderId, grossAmount, referenceId, placed);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
     }
@@ -299,7 +328,13 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     }
 
     /**
+     * <p>
      * Get the type desc for this payment.
+     * </p>
+     *
+     * <p>
+     * <b>Changes in PACTS Release Assembly: </b>Copilot payment is added.
+     * </p>
      *
      * @return the type desc for this payment.
      */
@@ -349,6 +384,10 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case SPECIFICATION_CONTEST_PAYMENT: return "Specification Contest Payment";
             case CONCEPTUALIZATION_CONTEST_PAYMENT: return "Conceptualization Contest Payment";
             case TESTING_COMPETITION_PAYMENT: return "Testing Competition Payment";
+            case COPILOT_PAYMENT: return "Copilot Payment";
+            case TC_STUDIO_BUG_FIXES_PAYMENT: return "TopCoder Studio Bug Fixes Payment";
+            case TC_STUDIO_ENHANCEMENT_PAYMENT: return "TopCoder Studio Enhancement Payment";
+            case TC_STUDIO_SPECIFICATION_REVIEW_PAYMENT: return "TopCoder Studio Specification Review Payment";
             default: return "Other Payment";
         }
     }

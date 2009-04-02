@@ -1,7 +1,19 @@
+/*
+ * Copyright (c) 2001-2009 TopCoder Inc.  All Rights Reserved.
+ */
 package com.topcoder.web.ejb.pacts;
 
 /**
+ * <p>
  * Constants for PACTS.
+ * </p>
+ * 
+ * <p>
+ * <b>Changes in PACTS Release Assembly: </b>Copilot, Studio Bug Fix, Studio Enhancement, and Studio Specification Review payments are added.
+ * </p>
+ *
+ * @author TCSASSEMBLY
+ * @version 1.0
  */
 public interface Constants {
 
@@ -49,6 +61,34 @@ public interface Constants {
     public static final int SPECIFICATION_CONTEST_PAYMENT = 42;
     public static final int CONCEPTUALIZATION_CONTEST_PAYMENT = 43;
     public static final int TESTING_COMPETITION_PAYMENT = 44;
+
+    /**
+     * Represents the Copilot payment type id.
+     * 
+     * @since PACTS Release Assembly
+     */
+    public static final int COPILOT_PAYMENT = 45;
+
+    /**
+     * Represents the Studio Bug Fix payment type id.
+     * 
+     * @since PACTS Release Assembly
+     */
+    public static final int TC_STUDIO_BUG_FIXES_PAYMENT = 46;
+
+    /**
+     * Represents the Studio Enhancement payment type id.
+     * 
+     * @since PACTS Release Assembly
+     */
+    public static final int TC_STUDIO_ENHANCEMENT_PAYMENT = 47;
+
+    /**
+     * Represents the Studio Specification Review payment type id.
+     * 
+     * @since PACTS Release Assembly
+     */
+    public static final int TC_STUDIO_SPECIFICATION_REVIEW_PAYMENT = 48;
 
     public static final int NO_REFERENCE = 0;
     public static final int REFERENCE_ALGORITHM_ROUND_ID = 1;

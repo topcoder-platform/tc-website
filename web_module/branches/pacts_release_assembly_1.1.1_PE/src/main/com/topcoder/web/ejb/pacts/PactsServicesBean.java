@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2001-2009 TopCoder Inc.  All Rights Reserved.
+ */
 package com.topcoder.web.ejb.pacts;
 
 import java.sql.Connection;
@@ -62,9 +65,17 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 
 /**
+ * <p>
  * The EJB class which handles database access for the PACTS system.
- * <p/>
+ * </p>
+ *
+ * <p>
  * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * </p>
+ *
+ * <p>
+ * <b>Changes in PACTS Release Assembly: </b>
+ * </p>
  *
  * @author Dave Pecora
  * @version 1.00, 03/06/2002
@@ -6130,9 +6141,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
+     * <p>
      * Create payments for a design/dev project.
      * For a 1st place design project, it just creates a payment consisting in the 75% of the amount.
      * For a 1st place dev project, it finds the associated design project and creates a payment for the project.
+     * </p>
+     *
+     * <p>
+     * <b>Changes in PACTS Release Assembly: </b>
+     * </p>
      *
      * @param coderId             coder to be paid.
      * @param grossAmount         amount to be paid.
