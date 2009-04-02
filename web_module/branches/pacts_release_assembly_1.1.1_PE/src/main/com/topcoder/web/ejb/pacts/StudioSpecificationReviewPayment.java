@@ -40,7 +40,7 @@ public class StudioSpecificationReviewPayment extends StudioContestReferencePaym
      * @param placed placement of the coder in the contest.
      */
     public StudioSpecificationReviewPayment(long coderId, double grossAmount, long contestId, int placed) {
-        super(STUDIO_SPECIFICATION_REVIEW_PAYMENT, coderId, grossAmount, contestId, placed);
+        super(TC_STUDIO_SPECIFICATION_REVIEW_PAYMENT, coderId, grossAmount, contestId, placed);
     }
 
     /**

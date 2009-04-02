@@ -40,7 +40,7 @@ public class StudioBugFixesPayment extends StudioContestReferencePayment {
      * @param placed placement of the coder in the contest.
      */
     public StudioBugFixesPayment(long coderId, double grossAmount, long contestId, int placed) {
-        super(STUDIO_BUG_FIXES_PAYMENT, coderId, grossAmount, contestId, placed);
+        super(TC_STUDIO_BUG_FIXES_PAYMENT, coderId, grossAmount, contestId, placed);
     }
 
     /**

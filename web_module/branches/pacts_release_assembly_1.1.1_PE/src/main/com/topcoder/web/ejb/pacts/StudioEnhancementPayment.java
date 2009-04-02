@@ -40,7 +40,7 @@ public class StudioEnhancementPayment extends StudioContestReferencePayment {
      * @param placed placement of the coder in the contest.
      */
     public StudioEnhancementPayment(long coderId, double grossAmount, long contestId, int placed) {
-        super(STUDIO_ENHANCEMENT_PAYMENT, coderId, grossAmount, contestId, placed);
+        super(TC_STUDIO_ENHANCEMENT_PAYMENT, coderId, grossAmount, contestId, placed);
     }
 
     /**
