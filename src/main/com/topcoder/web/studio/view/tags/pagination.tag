@@ -9,6 +9,8 @@
   - Required attributes:
   -     * baseUrl: the base url for building the links included in this tag.
   -     * itemsNumber: the total items to be paginated.
+  -     * pageNumber: the current page number.
+  -     * pageSize: the current size of the page.
   -
   - Note: this tag will get page number and page size from the request.
 --%>
@@ -18,15 +20,16 @@
 
 <%@ attribute name="baseUrl" required="true" type="java.lang.String" %>
 <%@ attribute name="itemsNumber" required="true" type="java.lang.Integer" %>
+<%@ attribute name="pageNumber" required="true" type="java.lang.Integer" %>
+<%@ attribute name="pageSize" required="true" type="java.lang.Integer" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="PAGE_NUMBER" value="<%=Constants.PAGE_NUMBER_KEY%>"/>
 <c:set var="PAGE_SIZE" value="<%=Constants.PAGE_SIZE_KEY%>"/>
-<c:set var="pageNumber" value="${requestScope[PAGE_NUMBER]}" />
-<c:set var="pageSize" value="${requestScope[PAGE_SIZE]}" />
 
+<%-- First thing is to process parameters so that the pagination and thumbnails can be rendered afterwards --%>
 <c:set var="fullSize" value="false"/>
 <c:if test="${pageSize == 0}">
     <c:set var="fullSize" value="true"/>
@@ -36,10 +39,10 @@
 
 <c:choose>
     <c:when test="${itemsNumber % pageSize == 0}">
-        <fmt:parseNumber var="totalPages" value="${itemsNumber / pageSize}" integerOnly="true"/>
+        <fmt:formatNumber var="totalPages" value="${itemsNumber / pageSize}" pattern="#"/>
     </c:when>
     <c:otherwise>
-        <fmt:parseNumber var="totalPages" value="${itemsNumber / pageSize + 1}" integerOnly="true"/>
+        <fmt:formatNumber var="totalPages" value="${itemsNumber / pageSize + 1}" pattern="#"/>
     </c:otherwise>
 </c:choose>
 
@@ -77,6 +80,8 @@
         <c:set var="pageEnd" value="${pageNumber + 2}"/>
     </c:otherwise>
 </c:choose>
+
+<%-- Now that all parameters are cleared, render paging box and page thumbnails --%>
 
 <div class="pagingBox">
     <div class="pageNav">

@@ -101,7 +101,7 @@
                             <h1>
                                 Winners
                             </h1>
-                            <form id="submissionsForm" method="get" action="/">
+                            <div id="winners">
                                 <div id="submissions">
                                     <table>
                                         <tbody>
@@ -129,7 +129,7 @@
                                     </table>
                                     <br />
                                 </div><!-- .submissions block ends -->
-                            </form>
+                            </div>
                             <br/>
                             <a href="?${modKey}=ViewSubmissions&amp;${contestId}=${contest.id}">
                                 ...view all submissions
