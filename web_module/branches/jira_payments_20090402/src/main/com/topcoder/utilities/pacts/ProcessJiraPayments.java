@@ -8,6 +8,7 @@ import java.rmi.RemoteException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -241,7 +242,8 @@ public class ProcessJiraPayments extends DBUtility {
 	}
 	
 	/**
-	 * Retrieves a client's real name by their Greek nickname.  The comparison is not case sensitive.
+	 * Retrieves a client's real name by their Greek nickname.  The comparison is not case sensitive.  If the search
+	 * fails, an attempt is made to get a match with the real name just in case that is what was entered.
 	 * 
 	 * @param nickname the client's Greek nickname.
 	 * @return the client's real name.
@@ -251,6 +253,12 @@ public class ProcessJiraPayments extends DBUtility {
 		
 		if (clients.containsKey(canonicalNickname)) {
 			return clients.get(canonicalNickname);
+		}
+		
+		for (String name : clients.values()) {
+			if (canonicalNickname.equals(canonicalize(name))) {
+				return name;
+			}
 		}
 		
 		return null;
