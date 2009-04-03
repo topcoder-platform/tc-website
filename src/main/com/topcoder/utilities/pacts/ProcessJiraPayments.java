@@ -41,11 +41,11 @@ public class ProcessJiraPayments extends DBUtility {
 	private static final String JIRA_PAYMENTS_PASSWORD = "t0pc0der76";
 	private static final String JIRA_PAYMENTS_FILTER = "10634";
 	
-	private static final String JIRA_PAYMENT_AMOUNT_FIELD_ID = "10012";
-	private static final String JIRA_PAYEE_FIELD_ID = "10040";
-	private static final String JIRA_CLIENT_NICKNAME_FIELD_ID = "10074";
-	private static final String JIRA_PROJECT_ID_FIELD_ID = "10090";
-	private static final String JIRA_STUDIO_ID_FIELD_ID = "10091";
+	private static final String JIRA_PAYMENT_AMOUNT_FIELD_ID = "customfield_10012";
+	private static final String JIRA_PAYEE_FIELD_ID = "customfield_10040";
+	private static final String JIRA_CLIENT_NICKNAME_FIELD_ID = "customfield_10074";
+	private static final String JIRA_PROJECT_ID_FIELD_ID = "customfield_10090";
+	private static final String JIRA_STUDIO_ID_FIELD_ID = "customfield_10091";
 	
 	private static final String QUERY_USER_ID_BY_HANDLE = "SELECT user_id FROM user WHERE handle = ?";
 	
@@ -213,7 +213,6 @@ public class ProcessJiraPayments extends DBUtility {
 	 */
 	private String getCustomFieldValueById(RemoteIssue issue, String id) {
 		for (RemoteCustomFieldValue field : issue.getCustomFieldValues()) {
-			System.out.println(" - id: " + field.getCustomfieldId() + ", key: " + field.getKey());
 			if (field.getCustomfieldId().equals(id)) {
 				return (field.getValues() != null) ? field.getValues()[0].trim() : null;
 			}
