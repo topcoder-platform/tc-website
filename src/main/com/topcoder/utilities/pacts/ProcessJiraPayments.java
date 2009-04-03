@@ -51,7 +51,7 @@ public class ProcessJiraPayments extends DBUtility {
 	
 	private Map<String, String> clients = null;
 	
-	ProcessJiraPayments() {
+	public ProcessJiraPayments() {
 		clients = new HashMap<String, String>();
 		
 		// TODO: Load this from XML
