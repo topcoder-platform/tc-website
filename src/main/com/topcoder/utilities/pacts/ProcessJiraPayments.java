@@ -225,7 +225,7 @@ public class ProcessJiraPayments extends DBUtility {
 							+ ")");
 					
 					for (String e : errors) {
-						log.info("Reason: " + e);
+						log.info("    Reason : " + e);
 					}
 					
 					if (false && onlyAnalyze.equalsIgnoreCase("false")) {
