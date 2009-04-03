@@ -8,13 +8,14 @@ import java.rmi.RemoteException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Collection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
-import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.rpc.ServiceException;
 
@@ -22,14 +23,12 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 
+import com.atlassian.jira.rpc.soap.beans.RemoteComment;
 import com.atlassian.jira.rpc.soap.beans.RemoteCustomFieldValue;
 import com.atlassian.jira.rpc.soap.beans.RemoteFieldValue;
 import com.atlassian.jira.rpc.soap.beans.RemoteIssue;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.sql.DBUtility;
-import com.topcoder.web.ejb.pacts.BasePayment;
-import com.topcoder.web.ejb.pacts.BugFixesPayment;
-import com.topcoder.web.ejb.pacts.ComponentEnhancementsPayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
 import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
 import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapService;
@@ -37,7 +36,6 @@ import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapServiceServiceL
 
 /**
  * @author ivern
- *
  */
 public class ProcessJiraPayments extends DBUtility {
     /**
@@ -49,6 +47,7 @@ public class ProcessJiraPayments extends DBUtility {
 	private static final String JIRA_PAYMENTS_PASSWORD = "t0pc0der76";
 	private static final String JIRA_PAYMENTS_FILTER = "10634";
 	
+	private static final String JIRA_PAYMENT_STATUS_FIELD_KEY = "customfield_10030";
 	private static final String JIRA_PAYMENT_AMOUNT_FIELD_ID = "customfield_10012";
 	private static final String JIRA_PAYEE_FIELD_ID = "customfield_10040";
 	private static final String JIRA_CLIENT_NICKNAME_FIELD_ID = "customfield_10074";
@@ -56,6 +55,7 @@ public class ProcessJiraPayments extends DBUtility {
 	private static final String JIRA_STUDIO_ID_FIELD_ID = "customfield_10091";
 	
 	private static final String QUERY_USER_ID_BY_HANDLE = "SELECT user_id FROM user WHERE handle = ?";
+	
 	private static final String QUERY_TOPCODER_PROJECT_INFO_BY_ID =
 		"SELECT pi_name.value AS name" +
 		"     , pi_version.value AS version" +
@@ -70,6 +70,14 @@ public class ProcessJiraPayments extends DBUtility {
 	private PreparedStatement queryTopCoderProjectInfoById = null;
 	
 	private Map<String, String> clients = null;
+	
+	private DateFormat dateFormat = null;
+	
+	public ProcessJiraPayments() {
+		super();
+		
+		dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	}
 
 	/**
 	 * @throws RuntimeException
@@ -94,11 +102,10 @@ public class ProcessJiraPayments extends DBUtility {
 			
 			for (RemoteIssue issue : issuesToPay) {				
 				try {
-					boolean dubious = false;
+					boolean reject = false;
 					
 					String type = getIssueType(issue);
 					String amountStr = getCustomFieldValueById(issue, JIRA_PAYMENT_AMOUNT_FIELD_ID);
-					// PAYEE HAS TO BE RIGHT
 					String payee = getCustomFieldValueById(issue, JIRA_PAYEE_FIELD_ID);
 					String clientNickname = getCustomFieldValueById(issue, JIRA_CLIENT_NICKNAME_FIELD_ID);
 					String projectId = getCustomFieldValueById(issue, JIRA_PROJECT_ID_FIELD_ID);
@@ -130,7 +137,7 @@ public class ProcessJiraPayments extends DBUtility {
 					// Check for null, etc.
 					String client = getClientName(clientNickname);
 					if (client == null) {
-						dubious = true;
+						reject = true;
 						client = clientNickname;
 					}
 					
@@ -140,36 +147,44 @@ public class ProcessJiraPayments extends DBUtility {
 					
 					String summary = "[" + issue.getKey() + "] - " + projectInfo;
 					
-					log.info("runUtility: [" + (dubious ? "DUBIOUS" : "GOOD") + "] - (payment type: " + type
+					log.info("runUtility: [" + (reject ? "REJECTED" : "ACCEPTED") + "] - (payment type: " + type
 							+ ", project type: " + projectType + ", reference id: " + referenceId + ", user id: "
 							+ userId + ", client: "	+ client + ", amount: " + amount + ", description: " + summary
 							+ ")");
 					
 					if (onlyAnalyze.equalsIgnoreCase("false")) {
-						// TODO: FOR NOW IGNORE STUDIO.
-/*						if ("Studio".equals(projectType)) {
-							// TODO: Nice error message here.
-							continue;
-						}
-						
-						// Insert the payment into PACTS
-						BasePayment payment = null;
-						
-						if ("Bug Fix".equals(type)) {
-							payment = new BugFixesPayment(userId, amount, client, referenceId);
+						if (reject) {
+							// TODO: Insert a detailed reasoning of why the payment failed into Jira.
 						} else {
-							payment = new ComponentEnhancementsPayment(userId, amount, client, referenceId);
+							// TODO: FOR NOW IGNORE STUDIO.
+	/*						if ("Studio".equals(projectType)) {
+								// TODO: Nice error message here.
+								continue;
+							}
+							
+							// Insert the payment into PACTS
+							BasePayment payment = null;
+							
+							if ("Bug Fix".equals(type)) {
+								payment = new BugFixesPayment(userId, amount, client, referenceId);
+							} else {
+								payment = new ComponentEnhancementsPayment(userId, amount, client, referenceId);
+							}
+							payment.setNetAmount(amount);
+							payment.setDescription(description);
+							// TODO: Set status according to dubiousness?
+							
+							ejb.addPayment(payment);
+	
+							// Update Jira.
+							jira.updateIssue(token, issue.getId(), new RemoteFieldValue[] {
+								new RemoteFieldValue(JIRA_PAYMENT_STATUS_FIELD_KEY, new String[] { "Paid" })
+							});
+							final RemoteComment comment = new RemoteComment(); 
+							comment.setBody("Payment processed on " + dateFormat.format(new Date()));
+							jira.addComment(token, issue.getId(), comment);
+							*/
 						}
-						payment.setNetAmount(amount);
-						payment.setDescription(description);
-						// TODO: Set status according to dubiousness?
-						
-						ejb.addPayment(payment);
-						
-						// Update Jira.
-						jira.updateIssue(token, issue.getId(), new RemoteFieldValue[] {
-							new RemoteFieldValue(JIRA_PAYMENT_STATUS_FIELD_KEY, new String[] { "Paid" })
-						});*/
 					}
 				} catch (Exception e) {
 					// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.
@@ -243,6 +258,7 @@ public class ProcessJiraPayments extends DBUtility {
 	 */
 	private String getIssueType(RemoteIssue issue) {
 		// FIXME: Handle Specification Review, Copilot, etc.
+		// FIXME: Load this mapping from an XML file.
 		return issue.getType().equals("Bug") ? "Bug Fix" : "Enhancement";
 	}
 	
