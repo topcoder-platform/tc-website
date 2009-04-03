@@ -90,9 +90,7 @@
                             <studio:forumLink forumID="${contest.forumId}"/>
                         </div>
                         <div class="breadcrumb">
-                            <a href="${sessionInfo.servletPath}?module=ViewPastContests">
-                                Past Contests
-                            </a>
+                            <a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a>
                             &gt; ${contest.name}
                         </div>
                         <br />
@@ -120,7 +118,7 @@
                                                             showPlacement="true" viewSubmitters="true"/>
                                                     </td>
                                                     <c:if test="${(i - 1) % 4 == 0 || i == 1}">
-                                                        </tr><tr>
+                                                        </tr><tr align="center">
                                                     </c:if>
                                                     <c:set var="i" value="${i + 1}"/>
                                                 </c:forEach>

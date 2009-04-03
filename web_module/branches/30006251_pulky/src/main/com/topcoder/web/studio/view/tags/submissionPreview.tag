@@ -9,8 +9,8 @@
   -
   - Required attributes:
   -     * row: the submission information
-  -     * showPlacement: wether to show placements or not.
-  -     * viewSubmitters: wether to show submitters or not.
+  -     * showPlacement: whether to show placements or not.
+  -     * viewSubmitters: whether to show submitters or not.
 --%>
 
 <%@ tag import="com.topcoder.web.studio.Constants" %>
@@ -181,13 +181,9 @@
             </c:otherwise>
         </c:choose>
         <span>
-            <a class="${fullSizeClass}" href="javascript:;">
-                View Full Size
-            </a>
+            <a class="${fullSizeClass}" href="javascript:;">View Full Size</a>
             &nbsp;|&nbsp;
-            <a href="?${modKey}=DownloadSubmission&amp;${subId}=${row.map["submission_id"]}">
-                Download
-            </a>
+            <a href="?${modKey}=DownloadSubmission&amp;${subId}=${row.map["submission_id"]}">Download</a>
         </span>
     </div>
 </div>
