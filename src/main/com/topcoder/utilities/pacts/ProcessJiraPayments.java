@@ -115,6 +115,7 @@ public class ProcessJiraPayments extends DBUtility {
 				try {
 					boolean reject = false;
 					
+					// TODO: Unify the treatment of Jira issue types...id or name?
 					String type = getIssueType(issue);
 					if (type == null) {
 						reject = true;
@@ -224,6 +225,7 @@ public class ProcessJiraPayments extends DBUtility {
 
 	private void initializeJiraIssueTypes(JiraSoapService jira, String token) throws Exception {
 		RemoteIssueType[] issueTypes = jira.getIssueTypes(token);
+		System.out.println("number of issue types: " + issueTypes.length);
 		for (RemoteIssueType issueType : issueTypes) {
 			jiraIssueTypes.put(issueType.getId(), issueType.getName());
 		}
