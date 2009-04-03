@@ -44,7 +44,7 @@ import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapServiceServiceL
  * @author ivern
  */
 /**
- * @author Javier
+ * @author ivern
  *
  */
 public class ProcessJiraPayments extends DBUtility {
@@ -223,7 +223,9 @@ public class ProcessJiraPayments extends DBUtility {
 							+ userId + ", client: "	+ client + ", amount: " + amount + ", description: " + summary
 							+ ")");
 					
-					log.info(getErrorString(errors));
+					for (String e : errors) {
+						log.info("Reason: " + e);
+					}
 					
 					if (false && onlyAnalyze.equalsIgnoreCase("false")) {
 						if (reject) {
@@ -274,17 +276,6 @@ public class ProcessJiraPayments extends DBUtility {
 			// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.  Use sErrorMsg for stuff!
 			se.printStackTrace();
 		}
-	}
-
-	private String getErrorString(List<String> errors) {
-		StringBuffer sb = new StringBuffer();
-		
-		for (String error : errors) {
-			sb.append(error);
-			sb.append("\n");
-		}
-		
-		return sb.toString();
 	}
 
 	private void initializeJiraIssueTypes(JiraSoapService jira, String token) throws Exception {
