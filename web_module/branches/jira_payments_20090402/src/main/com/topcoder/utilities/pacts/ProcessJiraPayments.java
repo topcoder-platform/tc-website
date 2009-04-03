@@ -247,7 +247,7 @@ public class ProcessJiraPayments extends DBUtility {
 	 * @return the client's real name.
 	 */
 	private String getClientName(String nickname) {
-		String canonicalNickname = nickname.trim().toLowerCase();
+		String canonicalNickname = canonicalize(nickname);
 		
 		if (clients.containsKey(canonicalNickname)) {
 			return clients.get(canonicalNickname);
@@ -256,7 +256,11 @@ public class ProcessJiraPayments extends DBUtility {
 		return null;
 	}
 	
-    public static Object createEJB() throws Exception {
+    private String canonicalize(String nickname) {
+    	return nickname.trim().toLowerCase();
+	}
+
+	public static Object createEJB() throws Exception {
         InitialContext initial = TCContext.getInitial();
 
         Object objref = initial.lookup(PactsClientServicesHome.class.getName());
@@ -325,9 +329,9 @@ public class ProcessJiraPayments extends DBUtility {
         	String nickName = attr.getNamedItem("nickName").getNodeValue();
         	String realName = attr.getNamedItem("realName").getNodeValue();
         	
-            clients.put(nickName, realName);
+            clients.put(canonicalize(nickName), realName);
             
-            log.info("parseClientNamingConfiguration: added client (" + nickName + ", " + realName + ")");
+            log.info("parseClientNamingConfiguration: added client (" + nickName + " -> " + realName + ")");
         }
 	}
 
