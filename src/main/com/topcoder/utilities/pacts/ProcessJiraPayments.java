@@ -213,6 +213,7 @@ public class ProcessJiraPayments extends DBUtility {
 	 */
 	private String getCustomFieldValueById(RemoteIssue issue, String id) {
 		for (RemoteCustomFieldValue field : issue.getCustomFieldValues()) {
+			System.out.println(" - id: " + field.getCustomfieldId() + ", key: " + field.getKey());
 			if (field.getCustomfieldId().equals(id)) {
 				return (field.getValues() != null) ? field.getValues()[0].trim() : null;
 			}
