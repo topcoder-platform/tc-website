@@ -402,8 +402,7 @@ public class ProcessJiraPayments extends DBUtility {
     
     /**
      * Process and validate the parameters.
-     */
-    /* (non-Javadoc)
+	 *
      * @see com.topcoder.shared.util.sql.DBUtility#processParams()
      */
     protected void processParams() {
@@ -414,7 +413,6 @@ public class ProcessJiraPayments extends DBUtility {
         	onlyAnalyze = "false";
         }
         params.remove("onlyAnalyze");
-        
         log.debug("onlyAnalyze: " + onlyAnalyze);
 
         clientNicknameTranslation = initializeTranslationFromConfiguration("clientNamingFilename");
@@ -457,7 +455,7 @@ public class ProcessJiraPayments extends DBUtility {
         Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(filename));
         doc.getDocumentElement().normalize();
         
-        NodeList translations = doc.getElementsByTagName("translation");
+        NodeList translations = doc.getElementsByTagName("translate");
 				
         for (int i = 0; i < translations.getLength(); ++i) {
         	NamedNodeMap attr = translations.item(i).getAttributes();
