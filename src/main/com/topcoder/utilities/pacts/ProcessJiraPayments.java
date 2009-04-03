@@ -27,6 +27,7 @@ import com.atlassian.jira.rpc.soap.beans.RemoteComment;
 import com.atlassian.jira.rpc.soap.beans.RemoteCustomFieldValue;
 import com.atlassian.jira.rpc.soap.beans.RemoteFieldValue;
 import com.atlassian.jira.rpc.soap.beans.RemoteIssue;
+import com.atlassian.jira.rpc.soap.beans.RemoteIssueType;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.sql.DBUtility;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
@@ -76,6 +77,7 @@ public class ProcessJiraPayments extends DBUtility {
 	
 	private Map<String, String> clients = null;
 	private Map<String, String> types = null;
+	private Map<String, String> jiraIssueTypes = null;
 	
 	private DateFormat dateFormat = null;
 	
@@ -100,9 +102,12 @@ public class ProcessJiraPayments extends DBUtility {
 			initializeDatabase();
 			
 			PactsClientServices ejb = (PactsClientServices) createEJB();
+			
 			JiraSoapService jira = new JiraSoapServiceServiceLocator().getJirasoapserviceV2();
 			
 			String token = jira.login(JIRA_PAYMENTS_USER, JIRA_PAYMENTS_PASSWORD);
+			
+			initializeJiraIssueTypes(jira, token);
 			
 			RemoteIssue[] issuesToPay = jira.getIssuesFromFilter(token, JIRA_PAYMENTS_FILTER);
 			
@@ -113,7 +118,7 @@ public class ProcessJiraPayments extends DBUtility {
 					String type = getIssueType(issue);
 					if (type == null) {
 						reject = true;
-						type = issue.getType();
+						type = jiraIssueTypes.get(issue.getType());
 					}
 					
 					String amountStr = getCustomFieldValueById(issue, JIRA_PAYMENT_AMOUNT_FIELD_ID);
@@ -214,6 +219,13 @@ public class ProcessJiraPayments extends DBUtility {
 		} catch (ServiceException se) {
 			// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.
 			se.printStackTrace();
+		}
+	}
+
+	private void initializeJiraIssueTypes(JiraSoapService jira, String token) throws Exception {
+		RemoteIssueType[] issueTypes = jira.getIssueTypes(token);
+		for (RemoteIssueType issueType : issueTypes) {
+			jiraIssueTypes.put(issueType.getId(), issueType.getName());
 		}
 	}
 
