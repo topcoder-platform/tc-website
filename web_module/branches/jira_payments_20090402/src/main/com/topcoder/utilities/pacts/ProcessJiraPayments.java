@@ -62,19 +62,19 @@ public class ProcessJiraPayments extends DBUtility {
 	@Override
 	protected void runUtility() throws Exception {
 		try {
-			System.out.println("XXX - STARTING runUtility()");
+			//System.out.println("XXX - STARTING runUtility()");
 			
 			PactsClientServices ejb = (PactsClientServices) createEJB();
 			JiraSoapService jira = new JiraSoapServiceServiceLocator().getJirasoapserviceV2();
 			
 			String token = jira.login(JIRA_PAYMENTS_USER, JIRA_PAYMENTS_PASSWORD);
-			System.out.println("XXX - LOGIN SUCCESSFUL: " + token);
+			//System.out.println("XXX - LOGIN SUCCESSFUL: " + token);
 			
 			RemoteIssue[] issuesToPay = jira.getIssuesFromFilter(token, JIRA_PAYMENTS_FILTER);
-			System.out.println("XXX - getIssuesFromFilter returned: " + issuesToPay.length + " issues");
+			//System.out.println("XXX - getIssuesFromFilter returned: " + issuesToPay.length + " issues");
 			
 			PreparedStatement userIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
-			System.out.println("XXX - PreparedStatement created");
+			//System.out.println("XXX - PreparedStatement created");
 			
 			for (RemoteIssue issue : issuesToPay) {				
 				System.out.println("XXX - STARTING WORK ON ISSUE");
@@ -83,41 +83,40 @@ public class ProcessJiraPayments extends DBUtility {
 					boolean dubious = false;
 					
 					String type = getIssueType(issue);
-					System.out.println("  X - GOT ISSUE TYPE: " + type);
+					//System.out.println("  X - GOT ISSUE TYPE: " + type);
 					String amountStr = getCustomFieldValueById(issue, JIRA_PAYMENT_AMOUNT_FIELD_ID);
-					System.out.println("  X - GOT AMOUNT    : " + amountStr);
+					//System.out.println("  X - GOT AMOUNT    : " + amountStr);
 					// PAYEE HAS TO BE RIGHT
 					String payee = getCustomFieldValueById(issue, JIRA_PAYEE_FIELD_ID);
-					System.out.println("  X - GOT PAYEE     : " + payee);
+					//System.out.println("  X - GOT PAYEE     : " + payee);
 					String clientNickname = getCustomFieldValueById(issue, JIRA_CLIENT_NICKNAME_FIELD_ID);
-					System.out.println("  X - GOT CLIENT    : " + clientNickname);
+					//System.out.println("  X - GOT CLIENT    : " + clientNickname);
 					String projectId = getCustomFieldValueById(issue, JIRA_PROJECT_ID_FIELD_ID);
-					System.out.println("  X - GOT PROJECT ID: " + projectId);
+					//System.out.println("  X - GOT PROJECT ID: " + projectId);
 					String studioId = getCustomFieldValueById(issue, JIRA_STUDIO_ID_FIELD_ID);
-					System.out.println("  X - GOT STUDIO ID : " + studioId);
+					//System.out.println("  X - GOT STUDIO ID : " + studioId);
 					
-					System.out.println("XXX - " + type + "," + amountStr + "," + payee + "," + clientNickname + ","
-							+ projectId	+ "," + studioId);
+					//System.out.println("XXX - " + type + "," + amountStr + "," + payee + "," + clientNickname + ","
+					//		+ projectId	+ "," + studioId);
 				
 					if (isNullOrEmpty(type) || isNullOrEmpty(amountStr) || isNullOrEmpty(payee)
-							|| isNullOrEmpty(clientNickname) || isNullOrEmpty(projectId)
-							|| isNullOrEmpty(studioId)) {
+							|| isNullOrEmpty(clientNickname)) {
 						// TODO: Nice error message here.
 						continue;
 					}
 					
 					String projectType = null;
 					long referenceId;
-					if (!(isNullOrEmpty(projectId) ^ isNullOrEmpty(studioId))) {
+					/*if (!(isNullOrEmpty(projectId) ^ isNullOrEmpty(studioId))) {
 						// TODO: Nice error message here.
 						continue;
-					} else if (!isNullOrEmpty(projectId)) {
+					} else if (!isNullOrEmpty(projectId)) {*/
 						projectType = "TopCoder";
 						referenceId = Long.parseLong(projectId);
-					} else {
+/*					} else {
 						projectType = "Studio";
 						referenceId = Long.parseLong(studioId);
-					}
+					}*/
 					
 					// Check for null, etc.
 					String client = getClientName(clientNickname);
