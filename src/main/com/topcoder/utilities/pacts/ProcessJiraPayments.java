@@ -85,7 +85,7 @@ public class ProcessJiraPayments extends DBUtility {
 					boolean dubious = false;
 					
 					String type = getIssueType(issue);
-					System.out.println("  X - GOT ISSUE TYPE: " + issue);
+					System.out.println("  X - GOT ISSUE TYPE: " + type);
 					String amountStr = getCustomFieldValueByKey(issue, JIRA_PAYMENT_AMOUNT_FIELD_KEY);
 					System.out.println("  X - GOT AMOUNT    : " + amountStr);
 					// PAYEE HAS TO BE RIGHT
@@ -174,12 +174,15 @@ public class ProcessJiraPayments extends DBUtility {
 					}
 				} catch (Exception e) {
 					// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.
+					e.printStackTrace();
 				}
 			}
 		} catch (RemoteException re) {
 			// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.
+			re.printStackTrace();
 		} catch (ServiceException se) {
 			// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.
+			se.printStackTrace();
 		}
 	}
 
