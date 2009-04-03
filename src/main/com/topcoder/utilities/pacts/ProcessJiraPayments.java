@@ -79,16 +79,24 @@ public class ProcessJiraPayments extends DBUtility {
 			for (int i = 0; i < issuesToPay.length; ++i) {
 				RemoteIssue issue = issuesToPay[i];
 				
+				System.out.println("XXX - STARTING WORK ON ISSUE " + i);
+				
 				try {
 					boolean dubious = false;
 					
 					String type = getIssueType(issue);
+					System.out.println("  X - GOT ISSUE TYPE: " + issue);
 					String amountStr = getCustomFieldValueByKey(issue, JIRA_PAYMENT_AMOUNT_FIELD_KEY);
+					System.out.println("  X - GOT AMOUNT    : " + amountStr);
 					// PAYEE HAS TO BE RIGHT
 					String payee = getCustomFieldValueByKey(issue, JIRA_PAYEE_FIELD_KEY);
+					System.out.println("  X - GOT PAYEE     : " + payee);
 					String clientNickname = getCustomFieldValueByKey(issue, JIRA_CLIENT_NICKNAME_FIELD_KEY);
+					System.out.println("  X - GOT CLIENT    : " + clientNickname);
 					String projectId = getCustomFieldValueByKey(issue, JIRA_PROJECT_ID_FIELD_KEY);
+					System.out.println("  X - GOT PROJECT ID: " + projectId);
 					String studioId = getCustomFieldValueByKey(issue, JIRA_STUDIO_ID_FIELD_KEY);
+					System.out.println("  X - GOT STUDIO ID : " + studioId);
 					
 					System.out.println("XXX - " + type + "," + amountStr + "," + payee + "," + clientNickname + ","
 							+ projectId	+ "," + studioId);
