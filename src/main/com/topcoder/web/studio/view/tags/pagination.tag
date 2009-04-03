@@ -1,17 +1,35 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.0
+  - Since: Studio Submission Viewer Upgrade Integration v1.0
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This is a custom tag to handle pagination for the view submissions page.
+  -
+  - Required attributes:
+  -     * baseUrl: the base url for building the links included in this tag.
+  -     * itemsNumber: the total items to be paginated.
+  -
+  - Note: this tag will get page number and page size from the request.
+--%>
+
 <%@ tag import="com.topcoder.web.studio.Constants" %>
 <%@ tag body-content="empty" %>
 
 <%@ attribute name="baseUrl" required="true" type="java.lang.String" %>
 <%@ attribute name="itemsNumber" required="true" type="java.lang.Integer" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<c:set var="PAGE_NUMBER_KEY" value="<%=Constants.PAGE_NUMBER_KEY%>"/>
-<c:set var="PAGE_SIZE_KEY" value="<%=Constants.PAGE_SIZE_KEY%>"/>
-<c:set var="pageNumber" value="${requestScope[PAGE_NUMBER_KEY]}" />
-<c:set var="pageSize" value="${requestScope[PAGE_SIZE_KEY]}" />
+<c:set var="PAGE_NUMBER" value="<%=Constants.PAGE_NUMBER_KEY%>"/>
+<c:set var="PAGE_SIZE" value="<%=Constants.PAGE_SIZE_KEY%>"/>
+<c:set var="pageNumber" value="${requestScope[PAGE_NUMBER]}" />
+<c:set var="pageSize" value="${requestScope[PAGE_SIZE]}" />
 
+<c:set var="fullSize" value="false"/>
 <c:if test="${pageSize == 0}">
+    <c:set var="fullSize" value="true"/>
     <c:set var="pageSize" value="${itemsNumber}"/>
     <c:set var="pageNumber" value="1"/>
 </c:if>
@@ -35,7 +53,6 @@
         <c:set var="endRank" value="${pageNumber * pageSize}"/>
     </c:otherwise>
 </c:choose>
-
 
 <c:choose>
     <c:when test="${pageNumber <= 3}">
@@ -63,64 +80,94 @@
 
 <div class="pagingBox">
     <div class="pageNav">
-        <span>Pages:&nbsp;&nbsp;</span>
+        <span>
+            Pages:&nbsp;&nbsp;
+        </span>
         <ul>
             <c:choose>
                 <c:when test="${pageNumber > 1}">
-                    <li><a href="${baseUrl}&amp;${PAGE_NUMBER_KEY}=${pageNumber-1}&amp;${PAGE_SIZE_KEY}=${pageSize}">&lt;&lt;</a></li>
+                    <li>
+                        <a href="${baseUrl}&amp;${PAGE_NUMBER}=${pageNumber-1}&amp;${PAGE_SIZE}=${pageSize}">
+                            &lt;&lt;
+                        </a>
+                    </li>
                 </c:when>
                 <c:otherwise>
-                    <li>&nbsp;</li>
+                    <li>
+                        &nbsp;
+                    </li>
                 </c:otherwise>
             </c:choose>
-            <c:forEach begin="${pageStart}" end="${pageEnd}" step="${1}" var="i"> 
+            <c:forEach begin="${pageStart}" end="${pageEnd}" step="${1}" var="i">
                 <li>
                     <c:choose>
                         <c:when test="${i == pageNumber}">
-                            <a class="active" href="${baseUrl}&amp;${PAGE_NUMBER_KEY}=${i}&amp;${PAGE_SIZE_KEY}=${pageSize}">${i}</a>
+                            <a class="active" href="${baseUrl}&amp;${PAGE_NUMBER}=${i}&amp;${PAGE_SIZE}=${pageSize}">
+                                ${i}
+                            </a>
                         </c:when>
                         <c:otherwise>
-                            <a href="${baseUrl}&amp;${PAGE_NUMBER_KEY}=${i}&amp;${PAGE_SIZE_KEY}=${pageSize}">${i}</a>
+                            <a href="${baseUrl}&amp;${PAGE_NUMBER}=${i}&amp;${PAGE_SIZE}=${pageSize}">
+                                ${i}
+                            </a>
                         </c:otherwise>
                     </c:choose>
                 </li>
             </c:forEach>
             <c:choose>
                 <c:when test="${pageNumber < totalPages}">
-                    <li><a href="${baseUrl}&amp;${PAGE_NUMBER_KEY}=${pageNumber+1}&amp;${PAGE_SIZE_KEY}=${pageSize}">&gt;&gt;</a></li>
+                    <li>
+                        <a href="${baseUrl}&amp;${PAGE_NUMBER}=${pageNumber+1}&amp;${PAGE_SIZE}=${pageSize}">
+                            &gt;&gt;
+                        </a>
+                    </li>
                 </c:when>
                 <c:otherwise>
-                    <li>&nbsp;</li>
+                    <li>
+                        &nbsp;
+                    </li>
                 </c:otherwise>
             </c:choose>
         </ul>
-        <span>(${startRank}-${endRank} of ${itemsNumber} Submissions)</span>
+        <span>
+            (${startRank}-${endRank} of ${itemsNumber} Submissions)
+        </span>
     </div>
     <div class="pageThumbnails">
-        <span>Thumbnails per page:&nbsp;&nbsp;</span>
+        <span>
+            Thumbnails per page:&nbsp;&nbsp;
+        </span>
         <ul>
-            <c:forEach begin="12" end="48" step="12" var="i"> 
+            <c:forEach begin="12" end="48" step="12" var="i">
                 <li>
                     <c:choose>
-                        <c:when test="${i == pageSize && totalPages >= 2}">
-                            <a class="active" href="${baseUrl}&amp;${PAGE_NUMBER_KEY}=${pageNumber}&amp;${PAGE_SIZE_KEY}=${i}">${i}</a>
+                        <c:when test="${i == pageSize}">
+                            <a class="active" href="${baseUrl}&amp;${PAGE_NUMBER}=1&amp;${PAGE_SIZE}=${i}">
+                                ${i}
+                            </a>
                         </c:when>
                         <c:otherwise>
-                            <a href="${baseUrl}&amp;${PAGE_NUMBER_KEY}=${pageNumber}&amp;${PAGE_SIZE_KEY}=${i}">${i}</a>
+                            <a href="${baseUrl}&amp;${PAGE_NUMBER}=1&amp;${PAGE_SIZE}=${i}">
+                                ${i}
+                            </a>
                         </c:otherwise>
                     </c:choose>
                 </li>
             </c:forEach>
             <li>
                 <c:choose>
-                    <c:when test="${totalPages < 2}">
-                        <a class="active" href="${baseUrl}&amp;${PAGE_NUMBER_KEY}=${pageNumber}&amp;${PAGE_SIZE_KEY}=0">All</a>
+                    <c:when test="${fullSize}">
+                        <a class="active" href="${baseUrl}&amp;${PAGE_NUMBER}=1&amp;${PAGE_SIZE}=0">
+                            All
+                        </a>
                     </c:when>
                     <c:otherwise>
-                        <a href="${baseUrl}&amp;${PAGE_NUMBER_KEY}=${pageNumber}&amp;${PAGE_SIZE_KEY}=0">All</a>
+                        <a href="${baseUrl}&amp;${PAGE_NUMBER}=1&amp;${PAGE_SIZE}=0">
+                            All
+                        </a>
                     </c:otherwise>
                 </c:choose>
             </li>
         </ul>
     </div>
-</div><!-- .pagingBox block ends -->
+</div>
