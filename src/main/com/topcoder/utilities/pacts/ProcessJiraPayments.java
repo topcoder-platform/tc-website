@@ -88,8 +88,8 @@ public class ProcessJiraPayments extends DBUtility {
 					String projectId = getCustomFieldValueByKey(issue, JIRA_PROJECT_ID_FIELD_KEY);
 					String studioId = getCustomFieldValueByKey(issue, JIRA_STUDIO_ID_FIELD_KEY);
 					
-					System.out.println("XXX - type + "," + amountStr + "," + payee + "," + clientNickname + "," + projectId
-							+ "," + studioId);
+					System.out.println("XXX - " + type + "," + amountStr + "," + payee + "," + clientNickname + ","
+							+ projectId	+ "," + studioId);
 				
 					if (isNullOrEmpty(type) || isNullOrEmpty(amountStr) || isNullOrEmpty(payee)
 							|| isNullOrEmpty(clientNickname) || isNullOrEmpty(projectId)
