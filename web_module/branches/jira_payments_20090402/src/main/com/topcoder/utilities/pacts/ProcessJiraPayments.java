@@ -71,7 +71,7 @@ public class ProcessJiraPayments extends DBUtility {
 			System.out.println("XXX - LOGIN SUCCESSFUL: " + token);
 			
 			RemoteIssue[] issuesToPay = jira.getIssuesFromFilter(token, JIRA_PAYMENTS_FILTER);
-			System.out.println("XXX - getIssuesFromFilter returned: " + issuesToPay + " issues");
+			System.out.println("XXX - getIssuesFromFilter returned: " + issuesToPay.length + " issues");
 			
 			PreparedStatement userIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
 			System.out.println("XXX - PreparedStatement created");
@@ -87,6 +87,9 @@ public class ProcessJiraPayments extends DBUtility {
 					String clientNickname = getCustomFieldValueByKey(issue, JIRA_CLIENT_NICKNAME_FIELD_KEY);
 					String projectId = getCustomFieldValueByKey(issue, JIRA_PROJECT_ID_FIELD_KEY);
 					String studioId = getCustomFieldValueByKey(issue, JIRA_STUDIO_ID_FIELD_KEY);
+					
+					System.out.println("XXX - type + "," + amountStr + "," + payee + "," + clientNickname + "," + projectId
+							+ "," + studioId);
 				
 					if (isNullOrEmpty(type) || isNullOrEmpty(amountStr) || isNullOrEmpty(payee)
 							|| isNullOrEmpty(clientNickname) || isNullOrEmpty(projectId)
@@ -129,7 +132,7 @@ public class ProcessJiraPayments extends DBUtility {
 					
 					String summary = "[" + issue.getKey() + "]"; // TODO: Add project name.
 					
-					System.out.println("[" + (dubious ? "DUBIOUS" : "GOOD") + "] - (payment type: " + type + ", project type: "
+					System.out.println("XXX - [" + (dubious ? "DUBIOUS" : "GOOD") + "] - (payment type: " + type + ", project type: "
 							+ projectType + ", reference id: " + referenceId + ", user id: " + userId + ", client: "
 							+ client + ", amount: " + amount + ", description: " + summary + ")");
 					
