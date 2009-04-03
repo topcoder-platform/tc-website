@@ -138,7 +138,7 @@ public class ProcessJiraPayments extends DBUtility {
 					
 					double amount = Double.parseDouble(amountStr);
 					
-					String summary = "[" + issue.getKey() + "]"; // TODO: Add project name.
+					String summary = "[" + issue.getKey() + "] - " + projectInfo;
 					
 					log.info("runUtility: [" + (dubious ? "DUBIOUS" : "GOOD") + "] - (payment type: " + type
 							+ ", project type: " + projectType + ", reference id: " + referenceId + ", user id: "
@@ -371,6 +371,8 @@ public class ProcessJiraPayments extends DBUtility {
         	
         	String nickName = attr.getNamedItem("nickName").getNodeValue();
         	String realName = attr.getNamedItem("realName").getNodeValue();
+        	
+        	// TODO: Check for errors such as duplicate nicknames.
         	
             clients.put(canonicalize(nickName), realName);
             
