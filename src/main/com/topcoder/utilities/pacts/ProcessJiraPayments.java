@@ -331,7 +331,8 @@ public class ProcessJiraPayments extends DBUtility {
         	
             clients.put(canonicalize(nickName), realName);
             
-            log.info("parseClientNamingConfiguration: added client (" + nickName + " -> " + realName + ")");
+            log.debug("parseClientNamingConfiguration: read client (nickName: " + nickName + ", realName: " + realName
+            		+ ")");
         }
 	}
 
