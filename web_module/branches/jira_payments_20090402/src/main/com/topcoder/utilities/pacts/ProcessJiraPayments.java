@@ -37,12 +37,17 @@ import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapServiceServiceL
 /**
  * @author ivern
  */
+/**
+ * @author Javier
+ *
+ */
 public class ProcessJiraPayments extends DBUtility {
     /**
      * This variable tells if only an analysis is wanted.
      */
     private String onlyAnalyze = null;
     
+    // TODO: Get these from configuration.
 	private static final String JIRA_PAYMENTS_USER = "jira_payments";
 	private static final String JIRA_PAYMENTS_PASSWORD = "t0pc0der76";
 	private static final String JIRA_PAYMENTS_FILTER = "10634";
@@ -70,6 +75,7 @@ public class ProcessJiraPayments extends DBUtility {
 	private PreparedStatement queryTopCoderProjectInfoById = null;
 	
 	private Map<String, String> clients = null;
+	private Map<String, String> types = null;
 	
 	private DateFormat dateFormat = null;
 	
@@ -105,6 +111,11 @@ public class ProcessJiraPayments extends DBUtility {
 					boolean reject = false;
 					
 					String type = getIssueType(issue);
+					if (type == null) {
+						reject = true;
+						type = issue.getType();
+					}
+					
 					String amountStr = getCustomFieldValueById(issue, JIRA_PAYMENT_AMOUNT_FIELD_ID);
 					String payee = getCustomFieldValueById(issue, JIRA_PAYEE_FIELD_ID);
 					String clientNickname = getCustomFieldValueById(issue, JIRA_CLIENT_NICKNAME_FIELD_ID);
@@ -155,8 +166,14 @@ public class ProcessJiraPayments extends DBUtility {
 					if (onlyAnalyze.equalsIgnoreCase("false")) {
 						if (reject) {
 							// TODO: Insert a detailed reasoning of why the payment failed into Jira.
+							// Update Jira.
+							/*
+							jira.updateIssue(token, issue.getId(), new RemoteFieldValue[] {
+								new RemoteFieldValue(JIRA_PAYMENT_STATUS_FIELD_KEY, new String[] { "Payment On Hold" })
+							});
+							*/
 						} else {
-							// TODO: FOR NOW IGNORE STUDIO.
+							// TODO: FOR NOW IGNORE STUDIO, WE DON'T HAVE THE NECESSARY PAYMENT TYPES.
 	/*						if ("Studio".equals(projectType)) {
 								// TODO: Nice error message here.
 								continue;
@@ -229,9 +246,17 @@ public class ProcessJiraPayments extends DBUtility {
 		return userId;
 	}
 	
+	/**
+	 * Looks up a TopCoder project's name and version by project id.
+	 * 
+	 * @param projectId the id of the project to look up.
+	 * @return a <code>String</code> containing the name and version of the project.
+	 * @throws SQLException if there is a SQL error.
+	 * @throws RuntimeException if the project does not exist.
+	 */
 	private String getTopCoderProjectInfoById(long projectId) throws SQLException, RuntimeException {
 		ResultSet rs = null;
-		StringBuffer projectInfo = new StringBuffer();
+		StringBuffer projectInfo = new StringBuffer(80);
 		
 		try {
 			queryTopCoderProjectInfoById.setLong(1, projectId);
@@ -253,13 +278,18 @@ public class ProcessJiraPayments extends DBUtility {
 	}
 
 	/**
-	 * @param issue
-	 * @return
+	 * Returns the PACTS payment type for a Jira issue type.
+	 * 
+	 * @param issue the Jira issue.
+	 * @return the PACTS payment type for the Jira issue.
 	 */
 	private String getIssueType(RemoteIssue issue) {
-		// FIXME: Handle Specification Review, Copilot, etc.
-		// FIXME: Load this mapping from an XML file.
-		return issue.getType().equals("Bug") ? "Bug Fix" : "Enhancement";
+		// TODO: straighten out the mess with build payments.
+		if (types.containsKey(issue.getType())) {
+			return types.get(issue.getType());
+		}
+		
+		return null;
 	}
 	
 	/**
@@ -312,10 +342,22 @@ public class ProcessJiraPayments extends DBUtility {
 		return null;
 	}
 	
-    private String canonicalize(String nickname) {
-    	return nickname.trim().toLowerCase();
+    /**
+     * Returns a canonical representation of a string (trimmed, and lower case).
+     * 
+     * @param s the string to canonicalize.
+     * @return the input string, trimmed and converted to lower case.
+     */
+    private String canonicalize(String s) {
+    	return s.trim().toLowerCase();
 	}
 
+	/**
+	 * Helper method to create a PACTS service EJB home object.
+	 * 
+	 * @return a configured PACTS service EJB home object.
+	 * @throws Exception if errors occur while creating the EJB home object.
+	 */
 	public static Object createEJB() throws Exception {
         InitialContext initial = TCContext.getInitial();
 
@@ -326,13 +368,19 @@ public class ProcessJiraPayments extends DBUtility {
         return home.create();
     }
     
+	
+    /**
+     * Helper method to close a JDBC ResultSet.
+     * 
+     * @param rs the ResultSet to close.
+     */
     private void close(ResultSet rs) {
     	try {
     		if (rs != null) {
     			rs.close();
     		}
     	} catch (SQLException e) {
-    		// Ignore
+    		// Ignore.
     	}
     }
     
@@ -367,6 +415,21 @@ public class ProcessJiraPayments extends DBUtility {
             fatal_error(ex);
         }
         params.remove("clientNamingFilename");
+        
+        String issueTypesFilename = (String) params.get("issueTypesFilename");
+        try {
+            if (issueTypesFilename == null || issueTypesFilename.trim().length() == 0) {
+                throw new Exception("Invalid or non-existent parameter [issueTypesFilename].");
+            }
+            parseIssueTypesConfiguration(issueTypesFilename);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            sErrorMsg.setLength(0);
+            sErrorMsg.append("Load of issue types configuration XML file failed:\n");
+            sErrorMsg.append(ex.getMessage());
+            fatal_error(ex);
+        }
+        params.remove("issueTypesFilename");
     }
 
 	/**
@@ -393,6 +456,34 @@ public class ProcessJiraPayments extends DBUtility {
             clients.put(canonicalize(nickName), realName);
             
             log.debug("parseClientNamingConfiguration: read client (nickName: " + nickName + ", realName: " + realName
+            		+ ")");
+        }
+	}
+	
+	/**
+	 * Reads the mapping of Jira issue types to PACTS payment types.  The mappings are then loaded into the
+	 * <code>types</code> map.
+	 * 
+	 * @param configurationFilename the name of the XML configuration file to read.
+	 */
+	private void parseIssueTypesConfiguration(String issueTypesFilename) throws Exception {
+        Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(issueTypesFilename));
+        doc.getDocumentElement().normalize();
+        
+        NodeList issueTypeList = doc.getElementsByTagName("issueType");
+		types = new HashMap<String, String>();
+		
+        for (int i = 0; i < issueTypeList.getLength(); ++i) {
+        	NamedNodeMap attr = issueTypeList.item(i).getAttributes();
+        	
+        	String jiraType = attr.getNamedItem("jira").getNodeValue();
+        	String pactsType = attr.getNamedItem("pacts").getNodeValue();
+        	
+        	// TODO: Check for errors such as duplicate Jira types.
+        	
+            types.put(jiraType, pactsType);
+            
+            log.debug("parseIssueTypesConfiguration: read issue type (jira: " + jiraType + ", pacts: " + pactsType
             		+ ")");
         }
 	}
