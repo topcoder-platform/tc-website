@@ -224,10 +224,12 @@ public class ProcessJiraPayments extends DBUtility {
 	}
 
 	private void initializeJiraIssueTypes(JiraSoapService jira, String token) throws Exception {
+		jiraIssueTypes = new HashMap<String, String>();
+		
 		RemoteIssueType[] issueTypes = jira.getIssueTypes(token);
-		System.out.println("number of issue types: " + issueTypes.length);
 		for (RemoteIssueType issueType : issueTypes) {
 			jiraIssueTypes.put(issueType.getId(), issueType.getName());
+			log.debug("Found Jira issue type (id: " + issueType.getId() + ", name: " + issueType.getName() + ")");
 		}
 	}
 
