@@ -130,9 +130,10 @@ public class ProcessJiraPayments extends DBUtility {
 					
 					String summary = "[" + issue.getKey() + "]"; // TODO: Add project name.
 					
-					System.out.println("XXX - [" + (dubious ? "DUBIOUS" : "GOOD") + "] - (payment type: " + type + ", project type: "
-							+ projectType + ", reference id: " + referenceId + ", user id: " + userId + ", client: "
-							+ client + ", amount: " + amount + ", description: " + summary + ")");
+					log.info("runUtility: [" + (dubious ? "DUBIOUS" : "GOOD") + "] - (payment type: " + type
+							+ ", project type: " + projectType + ", reference id: " + referenceId + ", user id: "
+							+ userId + ", client: "	+ client + ", amount: " + amount + ", description: " + summary
+							+ ")");
 					
 					if (onlyAnalyze.equalsIgnoreCase("false")) {
 						// TODO: FOR NOW IGNORE STUDIO.
@@ -320,7 +321,13 @@ public class ProcessJiraPayments extends DBUtility {
 		
         for (int i = 0; i < clientList.getLength(); ++i) {
         	NamedNodeMap attr = clientList.item(i).getAttributes();
-            clients.put(attr.getNamedItem("nickName").getNodeValue(), attr.getNamedItem("realName").getNodeValue());
+        	
+        	String nickName = attr.getNamedItem("nickName").getNodeValue();
+        	String realName = attr.getNamedItem("realName").getNodeValue();
+        	
+            clients.put(nickName, realName);
+            
+            log.info("parseClientNamingConfiguration: added client (" + nickName + ", " + realName + ")");
         }
 	}
 
