@@ -155,6 +155,8 @@
             <include name="com/topcoder/security/**"/>
             <include name="com/topcoder/utilities/**"/>
             <include name="com/topcoder/web/**"/>
+        	<include name="com/topcoder/www/**"/>
+        	<include name="com/atlassian/**"/>
             <exclude name="com/topcoder/web/csf/**"/>
             <exclude name="com/topcoder/web/wiki/**"/>
             <exclude name="com/topcoder/web/studio/**"/>
