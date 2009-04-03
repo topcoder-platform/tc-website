@@ -3,6 +3,7 @@
  */
 package com.topcoder.utilities.pacts;
 
+import java.io.File;
 import java.rmi.RemoteException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +13,13 @@ import java.util.Map;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.rpc.ServiceException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.NodeList;
 
 import com.atlassian.jira.rpc.soap.beans.RemoteCustomFieldValue;
 import com.atlassian.jira.rpc.soap.beans.RemoteFieldValue;
@@ -49,55 +56,48 @@ public class ProcessJiraPayments extends DBUtility {
 	
 	private static final String QUERY_USER_ID_BY_HANDLE = "SELECT user_id FROM user WHERE handle = ?";
 	
+	private PreparedStatement queryUserIdByHandle = null;
+	
 	private Map<String, String> clients = null;
 	
 	public ProcessJiraPayments() {
-		clients = new HashMap<String, String>();
-		
-		// TODO: Load this from XML
-		clients.put("cronos", "TopCoder");
-		clients.put("hera", "Lending Tree");
+		super();
+		initializeDatabase();
+	}
+
+	/**
+	 * @throws RuntimeException
+	 */
+	private void initializeDatabase() throws RuntimeException {
+		try {
+			queryUserIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException("Could not create prepared statement queryUserIdByHandle", e);
+		}
 	}
 	
 	@Override
 	protected void runUtility() throws Exception {
 		try {
-			//System.out.println("XXX - STARTING runUtility()");
-			
 			PactsClientServices ejb = (PactsClientServices) createEJB();
 			JiraSoapService jira = new JiraSoapServiceServiceLocator().getJirasoapserviceV2();
 			
 			String token = jira.login(JIRA_PAYMENTS_USER, JIRA_PAYMENTS_PASSWORD);
-			//System.out.println("XXX - LOGIN SUCCESSFUL: " + token);
 			
 			RemoteIssue[] issuesToPay = jira.getIssuesFromFilter(token, JIRA_PAYMENTS_FILTER);
-			//System.out.println("XXX - getIssuesFromFilter returned: " + issuesToPay.length + " issues");
-			
-			PreparedStatement userIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
-			//System.out.println("XXX - PreparedStatement created");
 			
 			for (RemoteIssue issue : issuesToPay) {				
-				//System.out.println("XXX - STARTING WORK ON ISSUE");
-				
 				try {
 					boolean dubious = false;
 					
 					String type = getIssueType(issue);
-					//System.out.println("  X - GOT ISSUE TYPE: " + type);
 					String amountStr = getCustomFieldValueById(issue, JIRA_PAYMENT_AMOUNT_FIELD_ID);
-					//System.out.println("  X - GOT AMOUNT    : " + amountStr);
 					// PAYEE HAS TO BE RIGHT
 					String payee = getCustomFieldValueById(issue, JIRA_PAYEE_FIELD_ID);
-					//System.out.println("  X - GOT PAYEE     : " + payee);
 					String clientNickname = getCustomFieldValueById(issue, JIRA_CLIENT_NICKNAME_FIELD_ID);
-					//System.out.println("  X - GOT CLIENT    : " + clientNickname);
 					String projectId = getCustomFieldValueById(issue, JIRA_PROJECT_ID_FIELD_ID);
-					//System.out.println("  X - GOT PROJECT ID: " + projectId);
 					String studioId = getCustomFieldValueById(issue, JIRA_STUDIO_ID_FIELD_ID);
-					//System.out.println("  X - GOT STUDIO ID : " + studioId);
-					
-					//System.out.println("XXX - " + type + "," + amountStr + "," + payee + "," + clientNickname + ","
-					//		+ projectId	+ "," + studioId);
 				
 					if (isNullOrEmpty(type) || isNullOrEmpty(amountStr) || isNullOrEmpty(payee)
 							|| isNullOrEmpty(clientNickname)) {
@@ -118,6 +118,7 @@ public class ProcessJiraPayments extends DBUtility {
 						projectType = "Studio";
 						referenceId = Long.parseLong(studioId);
 					}*/
+					// FIXME: check that the reference id exists.  If it doesn't, this doesn't go.
 					
 					// Check for null, etc.
 					String client = getClientName(clientNickname);
@@ -126,21 +127,7 @@ public class ProcessJiraPayments extends DBUtility {
 						client = clientNickname;
 					}
 					
-					System.out.println(" X - QUERYING FOR HANDLE: " + payee);
-					userIdByHandle.setString(1, payee);
-					ResultSet rs = null;
-					long userId;
-					try {
-						rs = userIdByHandle.executeQuery();
-						if (rs.next()) {
-							userId = rs.getLong("user_id");
-						} else {
-							// TODO: Prettier.
-							throw new RuntimeException("User not found: " + payee);
-						}
-					} finally {
-						close(rs);
-					}
+					long userId = getUserIdByHandle(payee);
 					
 					double amount = Double.parseDouble(amountStr);
 					
@@ -188,6 +175,35 @@ public class ProcessJiraPayments extends DBUtility {
 			// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.
 			se.printStackTrace();
 		}
+	}
+
+	/**
+	 * Looks up a member's user id by handle.
+	 * 
+	 * @param handle the handle of the member to look up.
+	 * @return the member's user id.
+	 * @throws SQLException if there is a SQL error.
+	 * @throws RuntimeException if the user does not exist.
+	 */
+	private long getUserIdByHandle(String handle) throws SQLException, RuntimeException {
+		ResultSet rs = null;
+		long userId;
+		
+		try {
+			queryUserIdByHandle.setString(1, handle);
+			rs = queryUserIdByHandle.executeQuery();
+			
+			if (rs.next()) {
+				userId = rs.getLong("user_id");
+			} else {
+				// TODO: Prettier.
+				throw new RuntimeException("User not found: " + handle);
+			}
+		} finally {
+			close(rs);
+		}
+		
+		return userId;
 	}
 
 	/**
@@ -265,6 +281,9 @@ public class ProcessJiraPayments extends DBUtility {
     /**
      * Process and validate the parameters.
      */
+    /* (non-Javadoc)
+     * @see com.topcoder.shared.util.sql.DBUtility#processParams()
+     */
     protected void processParams() {
         super.processParams();
 
@@ -273,25 +292,40 @@ public class ProcessJiraPayments extends DBUtility {
         	onlyAnalyze = "false";
         }
         params.remove("onlyAnalyze");
+        
+        log.debug("onlyAnalyze: " + onlyAnalyze);
 
-        // "jiraPaymentsFilename" is more useful than "CONF_FILENAME"
-        String jiraPaymentsFilename = (String) params.get("jiraPaymentsFilename");
-/*        try {
-            if (jiraPaymentsFilename == null || jiraPaymentsFilename.trim().length() == 0) {
-                throw new Exception("Invalid or non-existent parameter [jiraPaymentsFilename].");
+        String clientNamingFilename = (String) params.get("clientNamingFilename");
+        try {
+            if (clientNamingFilename == null || clientNamingFilename.trim().length() == 0) {
+                throw new Exception("Invalid or non-existent parameter [clientNamingFilename].");
             }
-            parseReliabilityDetails(reliabilityFilename);
+            parseClientNamingConfiguration(clientNamingFilename);
         } catch (Exception ex) {
             ex.printStackTrace();
             sErrorMsg.setLength(0);
-            sErrorMsg.append("Load of Jira payments XML file failed:\n");
+            sErrorMsg.append("Load of client naming configuration XML file failed:\n");
             sErrorMsg.append(ex.getMessage());
             fatal_error(ex);
-        }*/
-        params.remove("jiraPaymentsFilename");
-
-        log.debug("onlyAnalyze: " + onlyAnalyze);
+        }
+        params.remove("clientNamingFilename");
     }
+
+	/**
+	 * @param configurationFilename
+	 */
+	private void parseClientNamingConfiguration(String clientNamingFilename) throws Exception {
+        Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(clientNamingFilename));
+        doc.getDocumentElement().normalize();
+        
+        NodeList clientList = doc.getElementsByTagName("client");
+		clients = new HashMap<String, String>();
+		
+        for (int i = 0; i < clientList.getLength(); ++i) {
+        	NamedNodeMap attr = clientList.item(i).getAttributes();
+            clients.put(attr.getNamedItem("nickName").getNodeValue(), attr.getNamedItem("realName").getNodeValue());
+        }
+	}
 
 	/**
 	 * Show usage of the ProcessJiraPayments utility.
