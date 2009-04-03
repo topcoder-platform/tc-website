@@ -10,8 +10,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.naming.InitialContext;
@@ -85,6 +87,8 @@ public class ProcessJiraPayments extends DBUtility {
 	private Map<String, String> issueTypeTranslation = null;
 	private Map<String, String> jiraIssueTypes = null;
 	
+	private List<String> errors = null;
+	
 	private DateFormat dateFormat = null;
 	
 	public ProcessJiraPayments() {
@@ -122,6 +126,8 @@ public class ProcessJiraPayments extends DBUtility {
 				try {
 					boolean reject = false;
 					
+					errors = new ArrayList<String>();
+					
 					// TODO: Unify the treatment of Jira issue types...id or name?
 					String type = getIssueType(issue);
 					if (type == null) {
@@ -149,30 +155,58 @@ public class ProcessJiraPayments extends DBUtility {
 						referenceType = "N/A";
 						referenceId = 0L;
 						referenceInfo = "N/A";
+						errors.add("One exactly of either ProjectID or StudioID must be filled out.");
 					} else if (!isNullOrEmpty(projectId)) {
 						referenceType = "TopCoder";
-						referenceId = Long.parseLong(projectId);
-						// TODO: Check for exception.
-						referenceInfo = getTopCoderProjectInfoById(referenceId);
+						try {
+							referenceId = Long.parseLong(projectId);
+							referenceInfo = getTopCoderProjectInfoById(referenceId);
+							if (referenceInfo == null) {
+								reject = true;
+								errors.add("Could not find TopCoder project with id " + referenceId);
+							}
+						} catch (NumberFormatException e) {
+							reject = true;
+							referenceId = 0L;
+							errors.add("ProjectID (" + projectId + ") is not a valid Long number.");
+						}
 					} else {
 						referenceType = "Studio";
-						referenceId = Long.parseLong(studioId);
-						referenceInfo = getStudioContestInfoById(referenceId);
+						try {
+							referenceId = Long.parseLong(studioId);
+							referenceInfo = getStudioContestInfoById(referenceId);
+							if (referenceInfo == null) {
+								reject = true;
+								errors.add("Could not find Studio project with id " + referenceId);
+							}
+						} catch (NumberFormatException e) {
+							reject = true;
+							referenceId = 0L;
+							errors.add("StudioID (" + studioId + ") is not a valid Long number.");
+						}
 					}
-					// FIXME: check that the reference id exists.  If it doesn't, this doesn't go.
 					
-					// Check for null, etc.
+					// Check for null, etc. both before and after.
 					String client = getClientName(clientNickname);
 					if (client == null) {
 						reject = true;
 						client = clientNickname;
 					}
 					
-					// TODO: Check for exception.
 					long userId = getUserIdByHandle(payee);
+					if (userId == 0L) {
+						reject = true;
+						errors.add("Payee (" + payee + ") must be a valid TopCoder handle.");
+					}
 					
-					// TODO: Check that this is a parsable double.
-					double amount = Double.parseDouble(amountStr);
+					double amount;
+					try {
+						amount = Double.parseDouble(amountStr);
+					} catch (NumberFormatException e) {
+						reject = true;
+						amount = 0.0;
+						errors.add("First Place Payment $ (" + amountStr + ") is not a valid Double number.");
+					}
 					
 					String summary = "[" + issue.getKey() + "] - " + referenceInfo;
 					
@@ -180,6 +214,8 @@ public class ProcessJiraPayments extends DBUtility {
 							+ ", project type: " + referenceType + ", reference id: " + referenceId + ", user id: "
 							+ userId + ", client: "	+ client + ", amount: " + amount + ", description: " + summary
 							+ ")");
+					
+					log.info(getErrorString());
 					
 					if (false && onlyAnalyze.equalsIgnoreCase("false")) {
 						if (reject) {
@@ -232,6 +268,17 @@ public class ProcessJiraPayments extends DBUtility {
 		}
 	}
 
+	private String getErrorString() {
+		StringBuffer sb = new StringBuffer();
+		
+		for (String error : errors) {
+			sb.append(error);
+			sb.append("\n");
+		}
+		
+		return sb.toString();
+	}
+
 	private void initializeJiraIssueTypes(JiraSoapService jira, String token) throws Exception {
 		jiraIssueTypes = new HashMap<String, String>();
 		
@@ -261,8 +308,7 @@ public class ProcessJiraPayments extends DBUtility {
 			if (rs.next()) {
 				userId = rs.getLong("user_id");
 			} else {
-				// TODO: Prettier.
-				throw new RuntimeException("User not found: " + handle);
+				userId = 0L;
 			}
 		} finally {
 			close(rs);
@@ -275,24 +321,16 @@ public class ProcessJiraPayments extends DBUtility {
 	 * Looks up a TopCoder project's name and version by project id.
 	 * 
 	 * @param projectId the id of the project to look up.
-	 * @return a <code>String</code> containing the name and version of the project.
+	 * @return a <code>String</code> containing the name and version of the project, or <code>null</code> if it
+	 * 		   doesn't exist.
 	 * @throws SQLException if there is a SQL error.
-	 * @throws RuntimeException if the project does not exist.
 	 */
-	private String getTopCoderProjectInfoById(long referenceId) throws SQLException, RuntimeException {
-		try {
-			return getReferenceInfoById(queryTopCoderProjectInfoById, referenceId);
-		} catch (Exception e) {
-			throw new RuntimeException("Failed to retrieve TopCoder project info.  Project Id: " + referenceId, e);
-		}
+	private String getTopCoderProjectInfoById(long referenceId) throws SQLException {
+		return getReferenceInfoById(queryTopCoderProjectInfoById, referenceId);
 	}
 
-	private String getStudioContestInfoById(long referenceId) throws SQLException, RuntimeException {
-		try {
-			return getReferenceInfoById(queryStudioContestInfoById, referenceId);
-		} catch (Exception e) {
-			throw new RuntimeException("Failed to retrieve Studio contest info.  Contest Id: " + referenceId, e);
-		}
+	private String getStudioContestInfoById(long referenceId) throws SQLException {
+		return getReferenceInfoById(queryStudioContestInfoById, referenceId);
 	}
 	
 	/**
@@ -301,8 +339,7 @@ public class ProcessJiraPayments extends DBUtility {
 	 * @throws SQLException
 	 * @throws RuntimeException
 	 */
-	private String getReferenceInfoById(PreparedStatement query, long referenceId)
-			throws SQLException, RuntimeException {
+	private String getReferenceInfoById(PreparedStatement query, long referenceId) throws SQLException {
 		
 		ResultSet rs = null;
 		
@@ -313,8 +350,7 @@ public class ProcessJiraPayments extends DBUtility {
 			if (rs.next()) {
 				return rs.getString("info");
 			} else {
-				// TODO: Prettier.
-				throw new RuntimeException("Reference not found: " + referenceId);
+				return null;
 			}
 		} finally {
 			close(rs);
