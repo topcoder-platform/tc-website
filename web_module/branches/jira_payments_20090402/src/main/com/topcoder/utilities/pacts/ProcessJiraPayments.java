@@ -75,8 +75,8 @@ public class ProcessJiraPayments extends DBUtility {
 	private PreparedStatement queryUserIdByHandle = null;
 	private PreparedStatement queryTopCoderProjectInfoById = null;
 	
-	private Map<String, String> clients = null;
-	private Map<String, String> types = null;
+	private Map<String, String> clientNicknameTranslation = null;
+	private Map<String, String> issueTypeTranslation = null;
 	private Map<String, String> jiraIssueTypes = null;
 	
 	private DateFormat dateFormat = null;
@@ -301,8 +301,8 @@ public class ProcessJiraPayments extends DBUtility {
 	 */
 	private String getIssueType(RemoteIssue issue) {
 		// TODO: straighten out the mess with build payments.
-		if (types.containsKey(issue.getType())) {
-			return types.get(issue.getType());
+		if (issueTypeTranslation.containsKey(issue.getType())) {
+			return issueTypeTranslation.get(issue.getType());
 		}
 		
 		return null;
@@ -345,11 +345,11 @@ public class ProcessJiraPayments extends DBUtility {
 	private String getClientName(String nickname) {
 		String canonicalNickname = canonicalize(nickname);
 		
-		if (clients.containsKey(canonicalNickname)) {
-			return clients.get(canonicalNickname);
+		if (clientNicknameTranslation.containsKey(canonicalNickname)) {
+			return clientNicknameTranslation.get(canonicalNickname);
 		}
 		
-		for (String name : clients.values()) {
+		for (String name : clientNicknameTranslation.values()) {
 			if (canonicalNickname.equals(canonicalize(name))) {
 				return name;
 			}
@@ -417,91 +417,62 @@ public class ProcessJiraPayments extends DBUtility {
         
         log.debug("onlyAnalyze: " + onlyAnalyze);
 
-        String clientNamingFilename = (String) params.get("clientNamingFilename");
-        try {
-            if (clientNamingFilename == null || clientNamingFilename.trim().length() == 0) {
-                throw new Exception("Invalid or non-existent parameter [clientNamingFilename].");
-            }
-            parseClientNamingConfiguration(clientNamingFilename);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            sErrorMsg.setLength(0);
-            sErrorMsg.append("Load of client naming configuration XML file failed:\n");
-            sErrorMsg.append(ex.getMessage());
-            fatal_error(ex);
-        }
-        params.remove("clientNamingFilename");
-        
-        String issueTypesFilename = (String) params.get("issueTypesFilename");
-        try {
-            if (issueTypesFilename == null || issueTypesFilename.trim().length() == 0) {
-                throw new Exception("Invalid or non-existent parameter [issueTypesFilename].");
-            }
-            parseIssueTypesConfiguration(issueTypesFilename);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            sErrorMsg.setLength(0);
-            sErrorMsg.append("Load of issue types configuration XML file failed:\n");
-            sErrorMsg.append(ex.getMessage());
-            fatal_error(ex);
-        }
-        params.remove("issueTypesFilename");
+        clientNicknameTranslation = initializeTranslationFromConfiguration("clientNamingFilename");
+        issueTypeTranslation = initializeTranslationFromConfiguration("issueTypesFilename");
     }
 
+    private Map<String, String> initializeTranslationFromConfiguration(String configurationKey) {
+        Map<String, String> translationMap = null;
+        
+        String filename = (String) params.get(configurationKey);
+        
+        try {
+            if (filename == null || filename.trim().length() == 0) {
+                throw new Exception("Invalid or non-existent parameter [" + configurationKey + "].");
+            }
+            translationMap = loadTranslationMap(filename);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            sErrorMsg.setLength(0);
+            sErrorMsg.append("Load of XML file for " + configurationKey + " failed:\n");
+            sErrorMsg.append(ex.getMessage());
+            fatal_error(ex);
+        }
+        
+        params.remove(configurationKey);
+
+        return translationMap;
+    }
+    
 	/**
-	 * Reads the mapping of client nicknames to client names from an XML configuration file.  The nicknames are then
-	 * canonicalized and used as keys in the <code>clients</code> map.
+	 * Reads the a translation mapping from an XML configuration file.  The origin words are stored canonicalized,
+	 * so the mapping is case insensitive and ignores leading and trailing whitespace.  When using a translation map,
+	 * the keys must be canonicalized as well.
 	 * 
-	 * @param configurationFilename the name of the XML configuration file to read.
+	 * @param filename the name of the XML translation mapping file to read.
 	 */
-	private void parseClientNamingConfiguration(String clientNamingFilename) throws Exception {
-        Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(clientNamingFilename));
+	private Map<String, String> loadTranslationMap(String filename) throws Exception {
+		Map<String, String> translationMap = new HashMap<String, String>();
+		
+        Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(filename));
         doc.getDocumentElement().normalize();
         
-        NodeList clientList = doc.getElementsByTagName("client");
-		clients = new HashMap<String, String>();
-		
-        for (int i = 0; i < clientList.getLength(); ++i) {
-        	NamedNodeMap attr = clientList.item(i).getAttributes();
+        NodeList translations = doc.getElementsByTagName("translation");
+				
+        for (int i = 0; i < translations.getLength(); ++i) {
+        	NamedNodeMap attr = translations.item(i).getAttributes();
         	
-        	String nickName = attr.getNamedItem("nickName").getNodeValue();
-        	String realName = attr.getNamedItem("realName").getNodeValue();
+        	String from = attr.getNamedItem("from").getNodeValue();
+        	String to = attr.getNamedItem("to").getNodeValue();
         	
-        	// TODO: Check for errors such as duplicate nicknames.
+        	// TODO: Check for errors such as duplicate from.
         	
-            clients.put(canonicalize(nickName), realName);
+            translationMap.put(canonicalize(from), to);
             
-            log.debug("parseClientNamingConfiguration: read client (nickName: " + nickName + ", realName: " + realName
-            		+ ")");
+            log.debug("loadTranslationMap: read translation (from: " + from + ", to: " + to + ")");
         }
-	}
-	
-	/**
-	 * Reads the mapping of Jira issue types to PACTS payment types.  The mappings are then loaded into the
-	 * <code>types</code> map.
-	 * 
-	 * @param configurationFilename the name of the XML configuration file to read.
-	 */
-	private void parseIssueTypesConfiguration(String issueTypesFilename) throws Exception {
-        Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(issueTypesFilename));
-        doc.getDocumentElement().normalize();
         
-        NodeList issueTypeList = doc.getElementsByTagName("issueType");
-		types = new HashMap<String, String>();
-		
-        for (int i = 0; i < issueTypeList.getLength(); ++i) {
-        	NamedNodeMap attr = issueTypeList.item(i).getAttributes();
-        	
-        	String jiraType = attr.getNamedItem("jira").getNodeValue();
-        	String pactsType = attr.getNamedItem("pacts").getNodeValue();
-        	
-        	// TODO: Check for errors such as duplicate Jira types.
-        	
-            types.put(jiraType, pactsType);
-            
-            log.debug("parseIssueTypesConfiguration: read issue type (jira: " + jiraType + ", pacts: " + pactsType
-            		+ ")");
-        }
+        return translationMap;
 	}
 
 	/**
