@@ -59,11 +59,6 @@ public class ProcessJiraPayments extends DBUtility {
 	private PreparedStatement queryUserIdByHandle = null;
 	
 	private Map<String, String> clients = null;
-	
-	public ProcessJiraPayments() {
-		super();
-		initializeDatabase();
-	}
 
 	/**
 	 * @throws RuntimeException
@@ -80,6 +75,8 @@ public class ProcessJiraPayments extends DBUtility {
 	@Override
 	protected void runUtility() throws Exception {
 		try {
+			initializeDatabase();
+			
 			PactsClientServices ejb = (PactsClientServices) createEJB();
 			JiraSoapService jira = new JiraSoapServiceServiceLocator().getJirasoapserviceV2();
 			
