@@ -56,21 +56,28 @@ public class ProcessJiraPayments extends DBUtility {
 	private static final String JIRA_STUDIO_ID_FIELD_ID = "customfield_10091";
 	
 	private static final String QUERY_USER_ID_BY_HANDLE = "SELECT user_id FROM user WHERE handle = ?";
+	private static final String QUERY_TOPCODER_PROJECT_INFO_BY_ID =
+		"SELECT pi_name.value AS name" +
+		"     , pi_version.value AS version" +
+		"  FROM tcs_catalog:project_info pi_name" +
+		"     , tcs_catalog:project_info pi_version" +
+		" WHERE pi_name.project_id = ?" +
+		"   AND pi_name.project_info_type_id = 6" +
+		"   AND pi_version.project_id = pi_name.project_id" +
+		"   AND pi_version.project_info_type_id = 7";
 	
 	private PreparedStatement queryUserIdByHandle = null;
+	private PreparedStatement queryTopCoderProjectInfoById = null;
 	
 	private Map<String, String> clients = null;
 
 	/**
 	 * @throws RuntimeException
 	 */
-	private void initializeDatabase() throws RuntimeException {
-		try {
-			queryUserIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException("Could not create prepared statement queryUserIdByHandle", e);
-		}
+	private void initializeDatabase() throws SQLException {
+		// TODO: Nicer exception handling.
+		queryUserIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
+		queryTopCoderProjectInfoById = prepareStatement("informixoltp", QUERY_TOPCODER_PROJECT_INFO_BY_ID);
 	}
 	
 	@Override
@@ -105,6 +112,7 @@ public class ProcessJiraPayments extends DBUtility {
 					
 					String projectType = null;
 					long referenceId;
+					String projectInfo = null;
 					/*if (!(isNullOrEmpty(projectId) ^ isNullOrEmpty(studioId))) {
 						// TODO: Nice error message here.
 						continue;
@@ -112,6 +120,7 @@ public class ProcessJiraPayments extends DBUtility {
 						projectType = "TopCoder";
 //						referenceId = Long.parseLong(projectId);
 						referenceId = 12345L;
+						projectInfo = getTopCoderProjectInfoById(30006283);
 /*					} else {
 						projectType = "Studio";
 						referenceId = Long.parseLong(studioId);
@@ -203,6 +212,29 @@ public class ProcessJiraPayments extends DBUtility {
 		}
 		
 		return userId;
+	}
+	
+	private String getTopCoderProjectInfoById(long projectId) throws SQLException, RuntimeException {
+		ResultSet rs = null;
+		StringBuffer projectInfo = new StringBuffer();
+		
+		try {
+			queryTopCoderProjectInfoById.setLong(1, projectId);
+			rs = queryTopCoderProjectInfoById.executeQuery();
+			
+			if (rs.next()) {
+				projectInfo.append(rs.getString("name"));
+				projectInfo.append(" ");
+				projectInfo.append(rs.getString("version"));
+			} else {
+				// TODO: Prettier.
+				throw new RuntimeException("TopCoder project not found: " + projectId);
+			}
+		} finally {
+			close(rs);
+		}
+		
+		return projectInfo.toString();
 	}
 
 	/**
