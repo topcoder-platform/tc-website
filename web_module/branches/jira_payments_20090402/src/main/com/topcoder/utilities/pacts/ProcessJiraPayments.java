@@ -62,14 +62,19 @@ public class ProcessJiraPayments extends DBUtility {
 	@Override
 	protected void runUtility() throws Exception {
 		try {
+			System.out.println("XXX - STARTING runUtility()");
+			
 			PactsClientServices ejb = (PactsClientServices) createEJB();
 			JiraSoapService jira = new JiraSoapServiceServiceLocator().getJirasoapserviceV2();
 			
 			String token = jira.login(JIRA_PAYMENTS_USER, JIRA_PAYMENTS_PASSWORD);
+			System.out.println("XXX - LOGIN SUCCESSFUL: " + token);
 			
 			RemoteIssue[] issuesToPay = jira.getIssuesFromFilter(token, JIRA_PAYMENTS_FILTER);
+			System.out.println("XXX - getIssuesFromFilter returned: " + issuesToPay + " issues");
 			
 			PreparedStatement userIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
+			System.out.println("XXX - PreparedStatement created");
 			
 			for (RemoteIssue issue : issuesToPay) {
 				try {
