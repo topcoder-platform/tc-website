@@ -96,15 +96,11 @@
                         <div class="breadcrumb">
                             <c:choose>
                                 <c:when test="${isOver}">
-                                    <a href="${sessionInfo.servletPath}?module=ViewPastContests">
-                                        Past Contests
-                                    </a>
+                                    <a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a>
                                     &gt;
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="${sessionInfo.servletPath}?module=ViewActiveContests">
-                                        Active Contests
-                                    </a>
+                                    <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a>
                                     &gt;
                                 </c:otherwise>
                             </c:choose>
