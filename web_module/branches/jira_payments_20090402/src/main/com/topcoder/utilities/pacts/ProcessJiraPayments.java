@@ -122,11 +122,11 @@ public class ProcessJiraPayments extends DBUtility {
 					
 					double amount = Double.parseDouble(amountStr);
 					
-					String description = "[" + issue.getKey() + "]"; // TODO: Add project name.
+					String summary = "[" + issue.getKey() + "]"; // TODO: Add project name.
 					
-					log.info("[" + (dubious ? "DUBIOUS" : "GOOD") + "] - (payment type: " + type + ", project type: "
+					System.out.println("[" + (dubious ? "DUBIOUS" : "GOOD") + "] - (payment type: " + type + ", project type: "
 							+ projectType + ", reference id: " + referenceId + ", user id: " + userId + ", client: "
-							+ client + ", amount: " + amount + ", description: " + description + ")");
+							+ client + ", amount: " + amount + ", description: " + summary + ")");
 					
 					if (onlyAnalyze.equalsIgnoreCase("false")) {
 						// TODO: FOR NOW IGNORE STUDIO.
