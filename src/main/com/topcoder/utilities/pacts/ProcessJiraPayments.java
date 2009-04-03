@@ -41,11 +41,11 @@ public class ProcessJiraPayments extends DBUtility {
 	private static final String JIRA_PAYMENTS_PASSWORD = "t0pc0der76";
 	private static final String JIRA_PAYMENTS_FILTER = "10634";
 	
-	private static final String JIRA_PAYMENT_AMOUNT_FIELD_KEY = "customfield_10012";
-	private static final String JIRA_PAYEE_FIELD_KEY = "customfield_10040";
-	private static final String JIRA_CLIENT_NICKNAME_FIELD_KEY = "customfield_10074";
-	private static final String JIRA_PROJECT_ID_FIELD_KEY = "customfield_10090";
-	private static final String JIRA_STUDIO_ID_FIELD_KEY = "customfield_10091";
+	private static final String JIRA_PAYMENT_AMOUNT_FIELD_ID = "10012";
+	private static final String JIRA_PAYEE_FIELD_ID = "10040";
+	private static final String JIRA_CLIENT_NICKNAME_FIELD_ID = "10074";
+	private static final String JIRA_PROJECT_ID_FIELD_ID = "10090";
+	private static final String JIRA_STUDIO_ID_FIELD_ID = "10091";
 	
 	private static final String QUERY_USER_ID_BY_HANDLE = "SELECT user_id FROM user WHERE handle = ?";
 	
@@ -84,16 +84,16 @@ public class ProcessJiraPayments extends DBUtility {
 					
 					String type = getIssueType(issue);
 					System.out.println("  X - GOT ISSUE TYPE: " + type);
-					String amountStr = getCustomFieldValueByKey(issue, JIRA_PAYMENT_AMOUNT_FIELD_KEY);
+					String amountStr = getCustomFieldValueById(issue, JIRA_PAYMENT_AMOUNT_FIELD_ID);
 					System.out.println("  X - GOT AMOUNT    : " + amountStr);
 					// PAYEE HAS TO BE RIGHT
-					String payee = getCustomFieldValueByKey(issue, JIRA_PAYEE_FIELD_KEY);
+					String payee = getCustomFieldValueById(issue, JIRA_PAYEE_FIELD_ID);
 					System.out.println("  X - GOT PAYEE     : " + payee);
-					String clientNickname = getCustomFieldValueByKey(issue, JIRA_CLIENT_NICKNAME_FIELD_KEY);
+					String clientNickname = getCustomFieldValueById(issue, JIRA_CLIENT_NICKNAME_FIELD_ID);
 					System.out.println("  X - GOT CLIENT    : " + clientNickname);
-					String projectId = getCustomFieldValueByKey(issue, JIRA_PROJECT_ID_FIELD_KEY);
+					String projectId = getCustomFieldValueById(issue, JIRA_PROJECT_ID_FIELD_ID);
 					System.out.println("  X - GOT PROJECT ID: " + projectId);
-					String studioId = getCustomFieldValueByKey(issue, JIRA_STUDIO_ID_FIELD_KEY);
+					String studioId = getCustomFieldValueById(issue, JIRA_STUDIO_ID_FIELD_ID);
 					System.out.println("  X - GOT STUDIO ID : " + studioId);
 					
 					System.out.println("XXX - " + type + "," + amountStr + "," + payee + "," + clientNickname + ","
@@ -204,16 +204,16 @@ public class ProcessJiraPayments extends DBUtility {
 	}
 	
 	/**
-	 * Retrieves the value of an issue's custom field by key.  Assumes the field has only one value, so it
+	 * Retrieves the value of an issue's custom field by id.  Assumes the field has only one value, so it
 	 * trims and then returns the first element of the value array.
 	 *  
 	 * @param issue the issue to retrieve the value from.
-	 * @param key the custom field's key.
+	 * @param id the custom field's id.
 	 * @return the trimmed first value in the custom field, or <code>null</code> if it doesn't exist.
 	 */
-	private String getCustomFieldValueByKey(RemoteIssue issue, String key) {
+	private String getCustomFieldValueById(RemoteIssue issue, String id) {
 		for (RemoteCustomFieldValue field : issue.getCustomFieldValues()) {
-			if (field.getKey().equals(key)) {
+			if (field.getCustomfieldId().equals(id)) {
 				return (field.getValues() != null) ? field.getValues()[0].trim() : null;
 			}
 		}
