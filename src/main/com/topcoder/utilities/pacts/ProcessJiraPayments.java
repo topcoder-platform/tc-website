@@ -30,6 +30,9 @@ import com.atlassian.jira.rpc.soap.beans.RemoteIssue;
 import com.atlassian.jira.rpc.soap.beans.RemoteIssueType;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.sql.DBUtility;
+import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.BugFixesPayment;
+import com.topcoder.web.ejb.pacts.ComponentEnhancementsPayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
 import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
 import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapService;
@@ -63,8 +66,7 @@ public class ProcessJiraPayments extends DBUtility {
 	private static final String QUERY_USER_ID_BY_HANDLE = "SELECT user_id FROM user WHERE handle = ?";
 	
 	private static final String QUERY_TOPCODER_PROJECT_INFO_BY_ID =
-		"SELECT pi_name.value AS name" +
-		"     , pi_version.value AS version" +
+		"SELECT pi_name.value || ' ' || pi_version.value AS info" +
 		"  FROM tcs_catalog:project_info pi_name" +
 		"     , tcs_catalog:project_info pi_version" +
 		" WHERE pi_name.project_id = ?" +
@@ -72,8 +74,12 @@ public class ProcessJiraPayments extends DBUtility {
 		"   AND pi_version.project_id = pi_name.project_id" +
 		"   AND pi_version.project_info_type_id = 7";
 	
+	private static final String QUERY_STUDIO_CONTEST_INFO_BY_ID =
+		"SELECT name AS info FROM studio_oltp:contest WHERE contest_id = ?";
+	
 	private PreparedStatement queryUserIdByHandle = null;
 	private PreparedStatement queryTopCoderProjectInfoById = null;
+	private PreparedStatement queryStudioContestInfoById = null;
 	
 	private Map<String, String> clientNicknameTranslation = null;
 	private Map<String, String> issueTypeTranslation = null;
@@ -94,6 +100,7 @@ public class ProcessJiraPayments extends DBUtility {
 		// TODO: Nicer exception handling.
 		queryUserIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
 		queryTopCoderProjectInfoById = prepareStatement("informixoltp", QUERY_TOPCODER_PROJECT_INFO_BY_ID);
+		queryStudioContestInfoById = prepareStatement("informixoltp", QUERY_STUDIO_CONTEST_INFO_BY_ID);
 	}
 	
 	@Override
@@ -131,24 +138,27 @@ public class ProcessJiraPayments extends DBUtility {
 					if (isNullOrEmpty(type) || isNullOrEmpty(amountStr) || isNullOrEmpty(payee)
 							|| isNullOrEmpty(clientNickname)) {
 						// TODO: Nice error message here.
-						continue;
+						reject = true;
 					}
 					
-					String projectType = null;
+					String referenceType = null;
 					long referenceId;
-					String projectInfo = null;
-					/*if (!(isNullOrEmpty(projectId) ^ isNullOrEmpty(studioId))) {
-						// TODO: Nice error message here.
-						continue;
-					} else if (!isNullOrEmpty(projectId)) {*/
-						projectType = "TopCoder";
-//						referenceId = Long.parseLong(projectId);
-						referenceId = 12345L;
-						projectInfo = getTopCoderProjectInfoById(30006283);
-/*					} else {
-						projectType = "Studio";
+					String referenceInfo = null;
+					if (!(isNullOrEmpty(projectId) ^ isNullOrEmpty(studioId))) {
+						reject = true;
+						referenceType = "N/A";
+						referenceId = 0L;
+						referenceInfo = "N/A";
+					} else if (!isNullOrEmpty(projectId)) {
+						referenceType = "TopCoder";
+						referenceId = Long.parseLong(projectId);
+						// TODO: Check for exception.
+						referenceInfo = getTopCoderProjectInfoById(referenceId);
+					} else {
+						referenceType = "Studio";
 						referenceId = Long.parseLong(studioId);
-					}*/
+						referenceInfo = getStudioContestInfoById(referenceId);
+					}
 					// FIXME: check that the reference id exists.  If it doesn't, this doesn't go.
 					
 					// Check for null, etc.
@@ -158,29 +168,29 @@ public class ProcessJiraPayments extends DBUtility {
 						client = clientNickname;
 					}
 					
+					// TODO: Check for exception.
 					long userId = getUserIdByHandle(payee);
 					
+					// TODO: Check that this is a parsable double.
 					double amount = Double.parseDouble(amountStr);
 					
-					String summary = "[" + issue.getKey() + "] - " + projectInfo;
+					String summary = "[" + issue.getKey() + "] - " + referenceInfo;
 					
-					log.info("runUtility: [" + (reject ? "REJECTED" : "ACCEPTED") + "] - (payment type: " + type
-							+ ", project type: " + projectType + ", reference id: " + referenceId + ", user id: "
+					log.info("[" + (reject ? "REJECTED" : "ACCEPTED") + "] - (payment type: " + type
+							+ ", project type: " + referenceType + ", reference id: " + referenceId + ", user id: "
 							+ userId + ", client: "	+ client + ", amount: " + amount + ", description: " + summary
 							+ ")");
 					
-					if (onlyAnalyze.equalsIgnoreCase("false")) {
+					if (false && onlyAnalyze.equalsIgnoreCase("false")) {
 						if (reject) {
 							// TODO: Insert a detailed reasoning of why the payment failed into Jira.
 							// Update Jira.
-							/*
 							jira.updateIssue(token, issue.getId(), new RemoteFieldValue[] {
 								new RemoteFieldValue(JIRA_PAYMENT_STATUS_FIELD_KEY, new String[] { "Payment On Hold" })
 							});
-							*/
 						} else {
 							// TODO: FOR NOW IGNORE STUDIO, WE DON'T HAVE THE NECESSARY PAYMENT TYPES.
-	/*						if ("Studio".equals(projectType)) {
+							if ("Studio".equals(referenceType)) {
 								// TODO: Nice error message here.
 								continue;
 							}
@@ -194,7 +204,7 @@ public class ProcessJiraPayments extends DBUtility {
 								payment = new ComponentEnhancementsPayment(userId, amount, client, referenceId);
 							}
 							payment.setNetAmount(amount);
-							payment.setDescription(description);
+							payment.setDescription(summary);
 							// TODO: Set status according to dubiousness?
 							
 							ejb.addPayment(payment);
@@ -206,19 +216,18 @@ public class ProcessJiraPayments extends DBUtility {
 							final RemoteComment comment = new RemoteComment(); 
 							comment.setBody("Payment processed on " + dateFormat.format(new Date()));
 							jira.addComment(token, issue.getId(), comment);
-							*/
 						}
 					}
 				} catch (Exception e) {
-					// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.
+					// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.  Use sErrorMsg for stuff!
 					e.printStackTrace();
 				}
 			}
 		} catch (RemoteException re) {
-			// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.
+			// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.  Use sErrorMsg for stuff!
 			re.printStackTrace();
 		} catch (ServiceException se) {
-			// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.
+			// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.  Use sErrorMsg for stuff!
 			se.printStackTrace();
 		}
 	}
@@ -270,27 +279,46 @@ public class ProcessJiraPayments extends DBUtility {
 	 * @throws SQLException if there is a SQL error.
 	 * @throws RuntimeException if the project does not exist.
 	 */
-	private String getTopCoderProjectInfoById(long projectId) throws SQLException, RuntimeException {
+	private String getTopCoderProjectInfoById(long referenceId) throws SQLException, RuntimeException {
+		try {
+			return getReferenceInfoById(queryTopCoderProjectInfoById, referenceId);
+		} catch (Exception e) {
+			throw new RuntimeException("Failed to retrieve TopCoder project info.  Project Id: " + referenceId, e);
+		}
+	}
+
+	private String getStudioContestInfoById(long referenceId) throws SQLException, RuntimeException {
+		try {
+			return getReferenceInfoById(queryStudioContestInfoById, referenceId);
+		} catch (Exception e) {
+			throw new RuntimeException("Failed to retrieve Studio contest info.  Contest Id: " + referenceId, e);
+		}
+	}
+	
+	/**
+	 * @param referenceId
+	 * @return
+	 * @throws SQLException
+	 * @throws RuntimeException
+	 */
+	private String getReferenceInfoById(PreparedStatement query, long referenceId)
+			throws SQLException, RuntimeException {
+		
 		ResultSet rs = null;
-		StringBuffer projectInfo = new StringBuffer(80);
 		
 		try {
-			queryTopCoderProjectInfoById.setLong(1, projectId);
-			rs = queryTopCoderProjectInfoById.executeQuery();
+			query.setLong(1, referenceId);
+			rs = query.executeQuery();
 			
 			if (rs.next()) {
-				projectInfo.append(rs.getString("name"));
-				projectInfo.append(" ");
-				projectInfo.append(rs.getString("version"));
+				return rs.getString("info");
 			} else {
 				// TODO: Prettier.
-				throw new RuntimeException("TopCoder project not found: " + projectId);
+				throw new RuntimeException("Reference not found: " + referenceId);
 			}
 		} finally {
 			close(rs);
 		}
-		
-		return projectInfo.toString();
 	}
 
 	/**
@@ -419,6 +447,12 @@ public class ProcessJiraPayments extends DBUtility {
         issueTypeTranslation = initializeTranslationFromConfiguration("issueTypesFilename");
     }
 
+    /**
+     * Reads a translation mapping from a file specified by a configuration key.
+     * 
+     * @param configurationKey the configuration key specifying the file to be loaded.
+     * @return a <code>Map</code> containing the translation mapping.
+     */
     private Map<String, String> initializeTranslationFromConfiguration(String configurationKey) {
         Map<String, String> translationMap = null;
         
@@ -443,8 +477,8 @@ public class ProcessJiraPayments extends DBUtility {
     }
     
 	/**
-	 * Reads the a translation mapping from an XML configuration file.  The origin words are stored canonicalized,
-	 * so the mapping is case insensitive and ignores leading and trailing whitespace.  When using a translation map,
+	 * Reads a translation mapping from an XML configuration file.  The origin words are stored canonicalized, so
+	 * the mapping is case insensitive and ignores leading and trailing whitespace.  When using a translation map,
 	 * the keys must be canonicalized as well.
 	 * 
 	 * @param filename the name of the XML translation mapping file to read.
@@ -467,7 +501,7 @@ public class ProcessJiraPayments extends DBUtility {
         	
             translationMap.put(canonicalize(from), to);
             
-            log.debug("loadTranslationMap: read translation (from: " + from + ", to: " + to + ")");
+            log.debug("loadTranslationMap: read translation (" + from + " -> " + to + ")");
         }
         
         return translationMap;
