@@ -270,7 +270,8 @@ public class Constants implements WebConstants {
     public static final String CONTEST_TYPE = "ctt";
 
     /**
-     * <p>A <code>String</code> providing the name of request parameter to specify the digital run points of the contest.</p>
+     * <p>A <code>String</code> providing the name of request parameter to specify the digital run points of the
+     * contest.</p>
      *
      * @since Digital Run v2.0
      */
@@ -429,7 +430,7 @@ public class Constants implements WebConstants {
 
     // Flag to turn on/off the global AD feature
     public static String GLOBAL_AD_FLAG;
-   
+
     /**
      * <p>A <code>String</code> providing the name of default request attribute which refers to
      * the page number required for pagination.</p>
@@ -445,7 +446,7 @@ public class Constants implements WebConstants {
      * @since 1.1
      */
     public static final String PAGE_SIZE_KEY = "ps";
-    
+
     static {
         initialize();
     }

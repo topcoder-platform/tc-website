@@ -25,7 +25,7 @@ import java.util.Date;
  * <p>
  *   Version 1.1 (Studio Submission Viewer Upgrade Integration v1.0) Change notes:
  *   <ol>
- *     <li>Changed usage of start and end ranks parameters to pagination-like parameters.</li>
+ *     <li>Changed usage of start and end rank parameters to pagination-like parameters.</li>
  *   </ol>
  * </p>
  *
@@ -35,10 +35,19 @@ import java.util.Date;
 public class ViewSubmissions extends ShortHibernateProcessor {
 
     /**
-     * <p>This method is the responsible for performing page's logic.</p> 
-     * 
+     * <p>A <code>String</code> providing the page size representation for "all".
+     *
+     * @since 1.1
+     */
+    private static final String PAGE_SIZE_ALL = "0";
+
+    /**
+     * <p>This method is the responsible for performing page's logic.</p>
+     *
+     * @throws Exception if any error in the underlying layer
+     * @throws NavigationException if any validation error occurs or if submissions are not available.
+     *
      * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
-     * @throws Exception if any error occurs
      */
     protected void dbProcessing() throws Exception {
 
@@ -64,8 +73,8 @@ public class ViewSubmissions extends ShortHibernateProcessor {
 
         getRequest().setAttribute("isOver", String.valueOf(isOver));
 
-        //not caching anymore, it doesn't gain much.  perhaps we can in the future if we figure out exactly how the admins
-        //use the system so we know when to refresh the cache
+        //not caching anymore, it doesn't gain much.  perhaps we can in the future if we figure out exactly how the
+        //admins use the system so we know when to refresh the cache
         //DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         //load up the submissions
         DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
@@ -106,17 +115,26 @@ public class ViewSubmissions extends ShortHibernateProcessor {
             pageSize = String.valueOf(Constants.VIEW_SUBMISSIONS_SCROLL_SIZE);
         }
 
+        if (log.isDebugEnabled()) {
+            log.debug("[ViewSubmissions] pageNumber: " + pageNumber + " pageSize: " + pageSize);
+        }
+
         // calculate start and end rank using pagination information
         Integer start = (Integer.parseInt(pageNumber) - 1) * Integer.parseInt(pageSize);
-        
-        // for invalid start point, make it the first element
+
+        // for invalid start, make it the first element
         if (start >= submissions.size()) {
             start = 0;
         }
 
-        Integer end = start + Integer.parseInt(pageSize);
+        Integer end;
+        if (pageSize.equals(PAGE_SIZE_ALL)) {
+            end = submissions.size();
+        } else {
+            end = start + Integer.parseInt(pageSize);
+        }
 
-        // for invalid end point, make it the last element
+        // for invalid end, make it the last element
         if (end >= submissions.size()) {
             end = submissions.size();
         }
