@@ -76,10 +76,8 @@ public class ProcessJiraPayments extends DBUtility {
 			PreparedStatement userIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
 			System.out.println("XXX - PreparedStatement created");
 			
-			for (int i = 0; i < issuesToPay.length; ++i) {
-				RemoteIssue issue = issuesToPay[i];
-				
-				System.out.println("XXX - STARTING WORK ON ISSUE " + i);
+			for (RemoteIssue issue : issuesToPay) {				
+				System.out.println("XXX - STARTING WORK ON ISSUE");
 				
 				try {
 					boolean dubious = false;
@@ -216,7 +214,7 @@ public class ProcessJiraPayments extends DBUtility {
 	private String getCustomFieldValueByKey(RemoteIssue issue, String key) {
 		for (RemoteCustomFieldValue field : issue.getCustomFieldValues()) {
 			if (field.getKey().equals(key)) {
-				return field.getValues()[0].trim();
+				return (field.getValues() != null) ? field.getValues()[0].trim() : null;
 			}
 		}
 		return null;
