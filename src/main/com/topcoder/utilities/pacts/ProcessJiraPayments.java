@@ -77,7 +77,7 @@ public class ProcessJiraPayments extends DBUtility {
 			//System.out.println("XXX - PreparedStatement created");
 			
 			for (RemoteIssue issue : issuesToPay) {				
-				System.out.println("XXX - STARTING WORK ON ISSUE");
+				//System.out.println("XXX - STARTING WORK ON ISSUE");
 				
 				try {
 					boolean dubious = false;
@@ -112,7 +112,8 @@ public class ProcessJiraPayments extends DBUtility {
 						continue;
 					} else if (!isNullOrEmpty(projectId)) {*/
 						projectType = "TopCoder";
-						referenceId = Long.parseLong(projectId);
+//						referenceId = Long.parseLong(projectId);
+						referenceId = 12345L;
 /*					} else {
 						projectType = "Studio";
 						referenceId = Long.parseLong(studioId);
