@@ -5,5 +5,6 @@
   </sourcesList>
   <parameterList>
     <parameter name="clientNamingFilename" value="clientNaming.xml" />
+    <parameter name="issueTypesFilename" value="issueTypes.xml" />
   </parameterList>
 </payReliabilityBonus>

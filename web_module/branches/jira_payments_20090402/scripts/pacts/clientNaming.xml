@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
-<clientNaming>
-  <client nickName="Cronos" realName="TopCoder" />
-</clientNaming>
+<translationMap>
+  <translate from="Cronos"    to="TopCoder" />
+</translationMap>
