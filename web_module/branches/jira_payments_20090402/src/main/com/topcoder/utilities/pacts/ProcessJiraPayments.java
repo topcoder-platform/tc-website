@@ -76,7 +76,9 @@ public class ProcessJiraPayments extends DBUtility {
 			PreparedStatement userIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
 			System.out.println("XXX - PreparedStatement created");
 			
-			for (RemoteIssue issue : issuesToPay) {
+			for (int i = 0; i < issuesToPay.length; ++i) {
+				RemoteIssue issue = issuesToPay[i];
+				
 				try {
 					boolean dubious = false;
 					
