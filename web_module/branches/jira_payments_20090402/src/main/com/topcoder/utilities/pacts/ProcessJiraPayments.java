@@ -314,7 +314,10 @@ public class ProcessJiraPayments extends DBUtility {
     }
 
 	/**
-	 * @param configurationFilename
+	 * Reads the mapping of client nicknames to client names from an XML configuration file.  The nicknames are then
+	 * canonicalized and used as keys in the <code>clients</code> map.
+	 * 
+	 * @param configurationFilename the name of the XML configuration file to read.
 	 */
 	private void parseClientNamingConfiguration(String clientNamingFilename) throws Exception {
         Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(clientNamingFilename));
