@@ -26,6 +26,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="studio" uri="studio.tld" %>
 
+<%-- Prepare some variables for further use --%>
 <c:set var="subAltType" value="<%=Constants.SUBMISSION_ALT_TYPE%>"/>
 <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
@@ -50,6 +51,7 @@
 <c:set var="downloadSubmissionBaseUrl"
     value="studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${row.map['submission_id']}&amp;${subAltType}=full"/>
 
+<%-- Decide image to shown according to the contest configuration --%>
 <c:choose>
     <c:when test="${row.map['contest_channel_id'] eq adminV1}">
         <%-- Old Studio Admin contests --%>
@@ -73,6 +75,7 @@
     </c:otherwise>
 </c:choose>
 
+<%-- Render the preview box --%>
 <div id="sub${row.map["submission_id"]}" class="submission">
     <div class="previewImg">
         <c:choose>

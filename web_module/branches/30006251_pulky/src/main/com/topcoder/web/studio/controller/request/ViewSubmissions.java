@@ -119,11 +119,30 @@ public class ViewSubmissions extends ShortHibernateProcessor {
             log.debug("[ViewSubmissions] pageNumber: " + pageNumber + " pageSize: " + pageSize);
         }
 
+        // we don't care if they are invalid. In that case, just use defaults.
+        Integer pageNumberInt;        
+        try {
+            pageNumberInt = Integer.parseInt(pageNumber);
+        } catch (NumberFormatException e) {
+            pageNumberInt = 1;
+        }
+        
+        Integer pageSizeInt;        
+        try {
+            pageSizeInt = Integer.parseInt(pageSize);
+        } catch (NumberFormatException e) {
+            pageSizeInt = Constants.VIEW_SUBMISSIONS_SCROLL_SIZE;
+        }
+
+        if (log.isDebugEnabled()) {
+            log.debug("[ViewSubmissions] pageNumberInt: " + pageNumberInt + " pageSizeInt: " + pageSizeInt);
+        }
+
         // calculate start and end rank using pagination information
-        Integer start = (Integer.parseInt(pageNumber) - 1) * Integer.parseInt(pageSize);
+        Integer start = (pageNumberInt - 1) * pageSizeInt;
 
         // for invalid start, make it the first element
-        if (start >= submissions.size()) {
+        if (start >= submissions.size() || start < 0) {
             start = 0;
         }
 
@@ -131,7 +150,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         if (pageSize.equals(PAGE_SIZE_ALL)) {
             end = submissions.size();
         } else {
-            end = start + Integer.parseInt(pageSize);
+            end = start + pageSizeInt;
         }
 
         // for invalid end, make it the last element
@@ -142,8 +161,8 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         if (log.isDebugEnabled()) {
             log.debug("start: " + start + " end: " + end);
         }
-        getRequest().setAttribute(Constants.PAGE_NUMBER_KEY, pageNumber);
-        getRequest().setAttribute(Constants.PAGE_SIZE_KEY, pageSize);
+        getRequest().setAttribute(Constants.PAGE_NUMBER_KEY, pageNumberInt);
+        getRequest().setAttribute(Constants.PAGE_SIZE_KEY, pageSizeInt);
         getRequest().setAttribute("totalItems", submissions.size());
 
         getRequest().setAttribute("submissions", submissions.subList(start, end));
