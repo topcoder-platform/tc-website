@@ -126,12 +126,18 @@ public class ProcessJiraPayments extends DBUtility {
 						client = clientNickname;
 					}
 					
+					System.out.println(" X - QUERYING FOR HANDLE: " + payee);
 					userIdByHandle.setString(1, payee);
 					ResultSet rs = null;
 					long userId;
 					try {
 						rs = userIdByHandle.executeQuery();
-						userId = rs.getLong("user_id");
+						if (rs.next()) {
+							userId = rs.getLong("user_id");
+						} else {
+							// TODO: Prettier.
+							throw new RuntimeException("User not found: " + payee);
+						}
 					} finally {
 						close(rs);
 					}
