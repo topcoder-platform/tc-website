@@ -37,6 +37,7 @@ import com.topcoder.web.ejb.pacts.BugFixesPayment;
 import com.topcoder.web.ejb.pacts.ComponentEnhancementsPayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
 import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
+import com.topcoder.web.ejb.pacts.SpecificationReviewPayment;
 import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapService;
 import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapServiceServiceLocator;
 
@@ -127,10 +128,10 @@ public class ProcessJiraPayments extends DBUtility {
 					List<String> errors = new ArrayList<String>();
 					
 					// TODO: Unify the treatment of Jira issue types...id or name?
-					String type = getIssueType(issue);
-					if (type == null) {
+					String paymentType = getIssueType(issue);
+					if (paymentType == null) {
 						reject = true;
-						type = jiraIssueTypes.get(issue.getType());
+						paymentType = jiraIssueTypes.get(issue.getType());
 					}
 					
 					String amountStr = getCustomFieldValueById(issue, JIRA_PAYMENT_AMOUNT_FIELD_ID);
@@ -139,7 +140,7 @@ public class ProcessJiraPayments extends DBUtility {
 					String projectId = getCustomFieldValueById(issue, JIRA_PROJECT_ID_FIELD_ID);
 					String studioId = getCustomFieldValueById(issue, JIRA_STUDIO_ID_FIELD_ID);
 				
-					if (isNullOrEmpty(type) || isNullOrEmpty(amountStr) || isNullOrEmpty(payee)
+					if (isNullOrEmpty(paymentType) || isNullOrEmpty(amountStr) || isNullOrEmpty(payee)
 							|| isNullOrEmpty(clientNickname)) {
 						// TODO: Nice error message here.
 						reject = true;
@@ -218,7 +219,7 @@ public class ProcessJiraPayments extends DBUtility {
 					// Build a payment description summary.
 					String summary = "[" + issue.getKey() + "] - " + referenceInfo;
 					
-					log.info("[" + (reject ? "REJECTED" : "ACCEPTED") + "] - (payment type: " + type
+					log.info("[" + (reject ? "REJECTED" : "ACCEPTED") + "] - (payment type: " + paymentType
 							+ ", project type: " + referenceType + ", reference id: " + referenceId + ", user id: "
 							+ userId + ", client: "	+ client + ", amount: " + amount + ", description: " + summary
 							+ ")");
@@ -244,14 +245,17 @@ public class ProcessJiraPayments extends DBUtility {
 							// Insert the payment into PACTS
 							BasePayment payment = null;
 							
-							if ("Bug Fix".equals(type)) {
+							if ("Bug Fix".equals(paymentType)) {
 								payment = new BugFixesPayment(userId, amount, client, referenceId);
-							} else {
+							} else if ("Enhancement".equals(paymentType)){
 								payment = new ComponentEnhancementsPayment(userId, amount, client, referenceId);
+							} else if ("Specification Review".equals(paymentType)) {
+								payment = new SpecificationReviewPayment(userId, amount, client, referenceId);
+							} else {
+								throw new RuntimeException("Unknown payment type: " + paymentType);
 							}
 							payment.setNetAmount(amount);
 							payment.setDescription(summary);
-							// TODO: Set status according to dubiousness?
 							
 							ejb.addPayment(payment);
 	
