@@ -87,8 +87,6 @@ public class ProcessJiraPayments extends DBUtility {
 	private Map<String, String> issueTypeTranslation = null;
 	private Map<String, String> jiraIssueTypes = null;
 	
-	private List<String> errors = null;
-	
 	private DateFormat dateFormat = null;
 	
 	public ProcessJiraPayments() {
@@ -126,7 +124,7 @@ public class ProcessJiraPayments extends DBUtility {
 				try {
 					boolean reject = false;
 					
-					errors = new ArrayList<String>();
+					List<String> errors = new ArrayList<String>();
 					
 					// TODO: Unify the treatment of Jira issue types...id or name?
 					String type = getIssueType(issue);
@@ -186,19 +184,28 @@ public class ProcessJiraPayments extends DBUtility {
 						}
 					}
 					
-					// Check for null, etc. both before and after.
-					String client = getClientName(clientNickname);
-					if (client == null) {
+					String client = null;
+					if (clientNickname != null) {
+						client = getClientName(clientNickname);
+						if (client == null) {
+							reject = true;
+							client = clientNickname;
+							errors.add("Unknown client nickname " + clientNickname + ".");
+						}
+					} else {
 						reject = true;
-						client = clientNickname;
+						client = "N/A";
+						errors.add("The Client Nickname field must not be null.");
 					}
 					
+					// Retrieve the payee's user id.
 					long userId = getUserIdByHandle(payee);
 					if (userId == 0L) {
 						reject = true;
 						errors.add("Payee (" + payee + ") must be a valid TopCoder handle.");
 					}
 					
+					// Parse the payment amount.
 					double amount;
 					try {
 						amount = Double.parseDouble(amountStr);
@@ -208,6 +215,7 @@ public class ProcessJiraPayments extends DBUtility {
 						errors.add("First Place Payment $ (" + amountStr + ") is not a valid Double number.");
 					}
 					
+					// Build a payment description summary.
 					String summary = "[" + issue.getKey() + "] - " + referenceInfo;
 					
 					log.info("[" + (reject ? "REJECTED" : "ACCEPTED") + "] - (payment type: " + type
@@ -215,7 +223,7 @@ public class ProcessJiraPayments extends DBUtility {
 							+ userId + ", client: "	+ client + ", amount: " + amount + ", description: " + summary
 							+ ")");
 					
-					log.info(getErrorString());
+					log.info(getErrorString(errors));
 					
 					if (false && onlyAnalyze.equalsIgnoreCase("false")) {
 						if (reject) {
@@ -268,7 +276,7 @@ public class ProcessJiraPayments extends DBUtility {
 		}
 	}
 
-	private String getErrorString() {
+	private String getErrorString(List<String> errors) {
 		StringBuffer sb = new StringBuffer();
 		
 		for (String error : errors) {
