@@ -88,10 +88,10 @@ public class ProcessJiraPayments extends DBUtility {
 	
 	private DateFormat dateFormat = null;
 	
-	PactsClientServices pactsService = null;;
+	private PactsClientServices pactsService = null;;
 	
-	boolean rejected;
-	List<String> errors = null;
+	private boolean rejected;
+	private List<String> errors = null;
 	
 	public ProcessJiraPayments() {
 		super();
