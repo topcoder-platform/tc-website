@@ -102,7 +102,7 @@ public class PayWithholdings extends DBUtility {
             }
 
             log.info("" + userId + ", " + referenceId + ", " + projectCompletionDate + ", " + totalAmount + ", " 
-                    + releaseAmount + ", " + paymentId);
+                    + releaseAmount);
 
             count++;            
         }
