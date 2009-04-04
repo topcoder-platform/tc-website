@@ -36,7 +36,7 @@ public class PayWithholdings extends DBUtility {
     /**
      * This variable tells how many days after first installment payment the withholding should be released. 
      */
-    private String releasePeriodDays = null;
+    private int releasePeriodDays;
 
     /**
      * This method will be executed after connections are created.
@@ -138,7 +138,12 @@ public class PayWithholdings extends DBUtility {
         params.remove("onlyAnalyze");
 
         // "reliabilityFilename" is more useful than "CONF_FILENAME"
-        releasePeriodDays = Integer.parseInt((String) params.get("release_period_days"));
+        try {
+            releasePeriodDays = Integer.parseInt((String) params.get("release_period_days"));
+        } catch (NumberFormatException nfe) {
+            sErrorMsg.append("Invalid release_period_days specified.\n");
+            fatal_error(sErrorMsg);
+        }
 
         log.debug("onlyAnalyze : " + onlyAnalyze);
         log.debug("releasePeriodDays : " + releasePeriodDays);
