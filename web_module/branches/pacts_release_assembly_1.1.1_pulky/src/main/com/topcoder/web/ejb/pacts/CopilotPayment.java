@@ -101,6 +101,11 @@ public class CopilotPayment extends ComponentProjectReferencePayment {
     protected static class Processor extends ComponentProjectReferencePayment.Processor {
 
         /**
+         * <p>A <code>String</code> containing the payment description suffix.
+         */
+        private static final String PAYMENT_DESCRIPTION_SUFFIX = " - Copilot";
+
+        /**
          * Get the description for the payment.
          *
          * @param payment payment to create its description.
@@ -113,7 +118,7 @@ public class CopilotPayment extends ComponentProjectReferencePayment {
 
             String type = getProjectType(p.getProjectId());
 
-            return getComponentName(p.getProjectId()) + " - " + type + ", " + getOrdinal(p.getPlaced());
+            return getComponentName(p.getProjectId()) + " - " + type + PAYMENT_DESCRIPTION_SUFFIX;
         }
     }
 }
