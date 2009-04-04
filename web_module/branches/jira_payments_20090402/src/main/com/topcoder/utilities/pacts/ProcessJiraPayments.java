@@ -25,6 +25,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 
+import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
+import com.atlassian.jira.rpc.exception.RemotePermissionException;
 import com.atlassian.jira.rpc.soap.beans.RemoteComment;
 import com.atlassian.jira.rpc.soap.beans.RemoteCustomFieldValue;
 import com.atlassian.jira.rpc.soap.beans.RemoteFieldValue;
@@ -90,10 +92,18 @@ public class ProcessJiraPayments extends DBUtility {
 	
 	private DateFormat dateFormat = null;
 	
+	PactsClientServices pactsService = null;;
+	
 	public ProcessJiraPayments() {
 		super();
 		
 		dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		try {
+			pactsService = (PactsClientServices) createEJB();
+		} catch (Exception e) {
+			// TODO: FAIL BETTER.
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -110,8 +120,6 @@ public class ProcessJiraPayments extends DBUtility {
 	protected void runUtility() throws Exception {
 		try {
 			initializeDatabase();
-			
-			PactsClientServices ejb = (PactsClientServices) createEJB();
 			
 			JiraSoapService jira = new JiraSoapServiceServiceLocator().getJirasoapserviceV2();
 			
@@ -231,10 +239,10 @@ public class ProcessJiraPayments extends DBUtility {
 					if (false && onlyAnalyze.equalsIgnoreCase("false")) {
 						if (reject) {
 							// TODO: Insert a detailed reasoning of why the payment failed into Jira.
-							// Update Jira.
-							jira.updateIssue(token, issue.getId(), new RemoteFieldValue[] {
-								new RemoteFieldValue(JIRA_PAYMENT_STATUS_FIELD_KEY, new String[] { "Payment On Hold" })
-							});
+							// Update Jira.  Turned off for now.
+							if (false) {
+								updateJira(jira, token, issue, false);
+							}
 						} else {
 							// TODO: FOR NOW IGNORE STUDIO, WE DON'T HAVE THE NECESSARY PAYMENT TYPES.
 							if ("Studio".equals(referenceType)) {
@@ -242,30 +250,9 @@ public class ProcessJiraPayments extends DBUtility {
 								continue;
 							}
 							
-							// Insert the payment into PACTS
-							BasePayment payment = null;
-							
-							if ("Bug Fix".equals(paymentType)) {
-								payment = new BugFixesPayment(userId, amount, client, referenceId);
-							} else if ("Enhancement".equals(paymentType)){
-								payment = new ComponentEnhancementsPayment(userId, amount, client, referenceId);
-							} else if ("Specification Review".equals(paymentType)) {
-								payment = new SpecificationReviewPayment(userId, amount, client, referenceId);
-							} else {
-								throw new RuntimeException("Unknown payment type: " + paymentType);
-							}
-							payment.setNetAmount(amount);
-							payment.setDescription(summary);
-							
-							ejb.addPayment(payment);
+							insertPactsPayment(paymentType, referenceId, client, userId, amount, summary);
 	
-							// Update Jira.
-							jira.updateIssue(token, issue.getId(), new RemoteFieldValue[] {
-								new RemoteFieldValue(JIRA_PAYMENT_STATUS_FIELD_KEY, new String[] { "Paid" })
-							});
-							final RemoteComment comment = new RemoteComment(); 
-							comment.setBody("Payment processed on " + dateFormat.format(new Date()));
-							jira.addComment(token, issue.getId(), comment);
+							updateJira(jira, token, issue, true);
 						}
 					}
 				} catch (Exception e) {
@@ -280,6 +267,95 @@ public class ProcessJiraPayments extends DBUtility {
 			// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.  Use sErrorMsg for stuff!
 			se.printStackTrace();
 		}
+	}
+
+	/**
+	 * @param jira
+	 * @param token
+	 * @param issue
+	 * @param accepted
+	 * @throws RemoteException
+	 * @throws com.atlassian.jira.rpc.exception.RemoteException
+	 * @throws RemotePermissionException
+	 * @throws RemoteAuthenticationException
+	 */
+	private void updateJira(JiraSoapService jira, String token, RemoteIssue issue, boolean accepted)
+			throws RemoteException,	com.atlassian.jira.rpc.exception.RemoteException, RemotePermissionException,
+					RemoteAuthenticationException {
+		
+		if (accepted) {
+			updateJiraPaymentStatus(jira, token, issue, "Paid");
+			addJiraComment(jira, token, issue, "Payment processed on " + dateFormat.format(new Date()));
+		} else {
+			updateJiraPaymentStatus(jira, token, issue, "Payment On Hold");
+		}
+	}
+
+	/**
+	 * @param jira
+	 * @param token
+	 * @param issue
+	 * @param body
+	 * @throws RemoteException
+	 * @throws RemotePermissionException
+	 * @throws RemoteAuthenticationException
+	 * @throws RemoteException
+	 */
+	private void addJiraComment(JiraSoapService jira, String token,	RemoteIssue issue, String body)
+			throws RemoteException,	RemotePermissionException, RemoteAuthenticationException,
+					com.atlassian.jira.rpc.exception.RemoteException {
+		
+		final RemoteComment comment = new RemoteComment(); 
+		comment.setBody(body);
+
+		jira.addComment(token, issue.getId(), comment);
+	}
+
+	/**
+	 * @param jira
+	 * @param token
+	 * @param issue
+	 * @param status
+	 * @throws RemoteException
+	 * @throws RemoteException
+	 */
+	private void updateJiraPaymentStatus(JiraSoapService jira, String token, RemoteIssue issue, String status)
+			throws RemoteException,	com.atlassian.jira.rpc.exception.RemoteException {
+
+		jira.updateIssue(token, issue.getId(), new RemoteFieldValue[] {
+			new RemoteFieldValue(JIRA_PAYMENT_STATUS_FIELD_KEY, new String[] { status })
+		});
+	}
+
+	/**
+	 * @param paymentType
+	 * @param referenceId
+	 * @param client
+	 * @param userId
+	 * @param amount
+	 * @param summary
+	 * @throws RuntimeException
+	 * @throws RemoteException
+	 * @throws SQLException
+	 */
+	private void insertPactsPayment(String paymentType, long referenceId, String client, long userId, double amount,
+			String summary) throws RuntimeException, RemoteException, SQLException {
+		
+		BasePayment payment = null;
+		
+		if ("Bug Fix".equals(paymentType)) {
+			payment = new BugFixesPayment(userId, amount, client, referenceId);
+		} else if ("Enhancement".equals(paymentType)){
+			payment = new ComponentEnhancementsPayment(userId, amount, client, referenceId);
+		} else if ("Specification Review".equals(paymentType)) {
+			payment = new SpecificationReviewPayment(userId, amount, client, referenceId);
+		} else {
+			throw new RuntimeException("Unknown payment type: " + paymentType);
+		}
+		payment.setNetAmount(amount);
+		payment.setDescription(summary);
+		
+		pactsService.addPayment(payment);
 	}
 
 	private void initializeJiraIssueTypes(JiraSoapService jira, String token) throws Exception {
