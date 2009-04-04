@@ -10,13 +10,12 @@ import java.util.Date;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.sql.DBUtility;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
 import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
-
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.sql.DBUtility;
 
 /**
  * Payment class for Copilot projects.
@@ -142,7 +141,7 @@ public class PayWithholdings extends DBUtility {
             releasePeriodDays = Integer.parseInt((String) params.get("release_period_days"));
         } catch (NumberFormatException nfe) {
             sErrorMsg.append("Invalid release_period_days specified.\n");
-            fatal_error(sErrorMsg);
+            fatal_error(nfe);
         }
 
         log.debug("onlyAnalyze : " + onlyAnalyze);
