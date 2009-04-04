@@ -4,6 +4,6 @@
         <source name = "informixoltp" value = "jdbc:informix-sqli://env.topcoder.com:2021/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=c0d3r4T"/>
     </sourcesList>
     <parameterList>
-        <parameter name="release_period_days" value=30" />
+        <parameter name="release_period_days" value="30" />
     </parameterList>
   </payWithholdings>
