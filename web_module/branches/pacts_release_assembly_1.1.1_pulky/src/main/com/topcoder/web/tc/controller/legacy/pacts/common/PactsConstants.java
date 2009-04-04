@@ -1,13 +1,24 @@
-/**
- * Constants that are used throughout the PACTS system.
- *
- * @author Dave Pecora
- * @version 1.00, 03/06/2002
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
 import com.topcoder.web.ejb.pacts.Constants;
 
+/**
+ * <p>This interface stores a variety of constants for PACTS.</p>
+ *
+ * <p>
+ *   Version 1.1 (PACTS Release Assembly 1.1.1) Change notes:
+ *   <ol>
+ *     <li><code>PAY_REFFERAL_TYPES</code> updated to support Copilot, Studio bug fixes, Studio enhancements 
+ *     and Studio specification review Payments.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author Dave Pecora, TCSDEVELOPER
+ * @version 1.1
+ */
 public interface PactsConstants extends Constants {
     // Object types
     // Coordinate with note_type_lu table in the DB
@@ -48,7 +59,9 @@ public interface PactsConstants extends Constants {
     public static final int AFFIDAVIT_STATUS_EXPIRED = 59;
     public static final int AFFIDAVIT_STATUS_PENDING = 57;
 
-    // Types of payment that pay to referrals
+    /**
+     * <p>A <code>int[]</code> storing types of payment that pay to referrals.</p>
+     */ 
     public static final int[] PAY_REFFERAL_TYPES = {
     	ALGORITHM_CONTEST_PAYMENT, CHARITY_PAYMENT, COMPONENT_PAYMENT, REVIEW_BOARD_PAYMENT, ASSEMBLY_PAYMENT,
     	TESTING_PAYMENT, LOGO_CONTEST_PAYMENT, TC_STUDIO_PAYMENT, CCIP_PAYMENT, DIGITAL_RUN_PRIZE_PAYMENT,
@@ -58,7 +71,8 @@ public interface PactsConstants extends Constants {
     	HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT, STUDIO_REVIEW_BOARD_PAYMENT, ARCHITECTURE_PAYMENT,
     	REVIEW_BOARD_BONUS_PAYMENT, DIGITAL_RUN_V2_PRIZE_PAYMENT, DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT,
     	CONCEPTUALIZATION_CONTEST_PAYMENT, SPECIFICATION_CONTEST_PAYMENT, TESTING_COMPETITION_PAYMENT,
-    	BUG_FIXES_PAYMENT, SPECIFICATION_REVIEW_PAYMENT, COMPONENT_ENHANCEMENTS_PAYMENT
+    	BUG_FIXES_PAYMENT, SPECIFICATION_REVIEW_PAYMENT, COMPONENT_ENHANCEMENTS_PAYMENT,
+    	COPILOT_PAYMENT, STUDIO_BUG_FIXES_PAYMENT, STUDIO_ENHANCEMENTS_PAYMENT, STUDIO_SPECIFICATION_REVIEW_PAYMENT
     };
 
     // Contract type codes
