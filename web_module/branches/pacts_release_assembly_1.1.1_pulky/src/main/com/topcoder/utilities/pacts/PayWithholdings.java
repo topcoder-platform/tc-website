@@ -51,27 +51,27 @@ public class PayWithholdings extends DBUtility {
         StringBuffer query = new StringBuffer(200);
 
         query.append("SELECT user_id, client, pd.payment_type_id, pd.payment_method_id, p.payment_id ");
-        query.append("     , pd.component_project_id ");
-        query.append("     , sum(gross_amount) as amount_paid ");
-        query.append("     , max(total_amount) as total_amount ");
-        query.append("     , max(installment_number) as installment_number ");
-        query.append("     , min(pd.create_date) as first_payment_date ");
-        query.append(" FROM payment p, payment_detail pd ");
+        query.append(" , pd.component_project_id, to_date(pi.value, '%m.%d.%Y %H:%M %p') as project_completion_date ");
+        query.append(" , sum(gross_amount) as amount_paid ");
+        query.append(" , max(total_amount) as total_amount ");
+        query.append(" , max(installment_number) as installment_number ");
+        query.append(" FROM payment p, payment_detail pd, tcs_catalog:project_info pi ");
         query.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
         query.append(" AND gross_amount <> total_amount "); 
+        query.append(" AND pi.project_info_type_id = 21 "); 
+        query.append(" AND pi.project_id = pd.component_project_id "); 
         query.append(" AND pd.payment_type_id in ("); 
         query.append(PactsConstants.ARCHITECTURE_PAYMENT).append(", ");
         query.append(PactsConstants.ASSEMBLY_PAYMENT).append(", ");
+        query.append(PactsConstants.REVIEW_BOARD_PAYMENT).append(", ");
         query.append(PactsConstants.COMPONENT_PAYMENT).append(") ");
-        query.append(" GROUP BY user_id, client, pd.payment_type_id, pd.payment_method_id, p.payment_id");
-        query.append(" , pd.component_project_id");
+        query.append(" GROUP BY 1, 2, 3, 4, 5, 6, 7 ");
         query.append(" HAVING sum(gross_amount) < max(total_amount) ");
         query.append(" AND min(pd.create_date) + " + releasePeriodDays + " UNITS DAY < TODAY ");
 
         PreparedStatement psSelProjects = prepareStatement("informixoltp", query.toString());
         
-        log.info("User id, Reference id, First payment date, Total amount, Release amount, First installment payment id");
-
+        log.info("User id, Reference id, Completion date, Total amount, Release amount, First installment payment id");
 
         int count = 0;
         ResultSet rs = psSelProjects.executeQuery();
@@ -81,7 +81,7 @@ public class PayWithholdings extends DBUtility {
             double totalAmount = rs.getDouble("total_amount");
             double amountPaid = rs.getDouble("amount_paid");
             long paymentId = rs.getLong("payment_id");
-            Date firstPaymentDate= rs.getDate("first_payment_date");
+            Date projectCompletionDate = rs.getDate("project_completion_date");
             String client = rs.getString("client");
             int paymentTypeId = rs.getInt("payment_type_id");
             int installment = rs.getInt("installment_number") + 1;
@@ -100,7 +100,7 @@ public class PayWithholdings extends DBUtility {
                 ejb.addPayment(bp);
             }
 
-            log.info("" + userId + ", " + referenceId + ", " + firstPaymentDate + ", " + totalAmount + ", " 
+            log.info("" + userId + ", " + referenceId + ", " + projectCompletionDate + ", " + totalAmount + ", " 
                     + releaseAmount + ", " + paymentId);
 
             count++;            
