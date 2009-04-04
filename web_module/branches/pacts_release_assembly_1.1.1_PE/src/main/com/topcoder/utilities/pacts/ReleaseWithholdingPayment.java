@@ -70,7 +70,7 @@ public class ReleaseWithholdingPayment extends DBUtility {
 
         try {
             int count = 0;
-            psSelProjects = prepareStatement("informixoltp", query.toString());
+            psSelProjects = prepareStatement("informixoltp", query);
             rs = psSelProjects.executeQuery();
 
             while (rs.next()) {

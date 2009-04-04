@@ -8,5 +8,5 @@ CP=$CP:/home/tc/web/lib/jars/ifxjdbc.jar
 CP=$CP:/home/tc/web/lib/jars/tcs/configuration_manager/2.1.3/configuration_manager.jar
 CP=$CP:/home/tc/jboss-4.0.4.GA/client/jbossall-client.jar
 
-nohup java  -cp $CP com.topcoder.shared.util.sql.DBUtilityLauncher com.topcoder.utilities.pacts.ReleaseWithholdingPayment -period 30 $@ > ./nohup.out 2>&1 &
+nohup java  -cp $CP com.topcoder.shared.util.sql.DBUtilityLauncher com.topcoder.utilities.pacts.ReleaseWithholdingPayment -xmlfile releaseWithholdingPayment.xml $@ > ./nohup.out 2>&1 &
 tail -f nohup.out
