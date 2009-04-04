@@ -161,6 +161,9 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
         case TC_STUDIO_TOURNAMENT_PRIZE_PAYMENT:
         case TC_STUDIO_PAYMENT:
+        case TC_STUDIO_BUG_FIXES_PAYMENT: // jira issue: PACTS-83
+        case TC_STUDIO_ENHANCEMENT_PAYMENT: // jira issue: PACTS-83
+        case TC_STUDIO_SPECIFICATION_REVIEW_PAYMENT: // jira issue: PACTS-83
             return REFERENCE_STUDIO_CONTEST_ID;
 
         case COMPONENT_TOURNAMENT_BONUS_PAYMENT:
@@ -234,7 +237,10 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case SPECIFICATION_CONTEST_PAYMENT: return new SpecificationContestPayment(coderId, grossAmount, referenceId, placed);
         case CONCEPTUALIZATION_CONTEST_PAYMENT: return new ConceptualizationContestPayment(coderId, grossAmount, referenceId, placed);
         case TESTING_COMPETITION_PAYMENT: return new TestingCompetitionPayment(coderId, grossAmount, referenceId, placed);
-        case COPILOT_PAYMENT: return new CopilotPayment(coderId, grossAmount, referenceId);
+        case COPILOT_PAYMENT: return new CopilotPayment(coderId, grossAmount, referenceId); // jira issue: PACTS-82
+        case TC_STUDIO_BUG_FIXES_PAYMENT: return new StudioBugFixPayment(coderId, grossAmount, referenceId); // jira issue: PACTS-83
+        case TC_STUDIO_ENHANCEMENT_PAYMENT: return new StudioEnhancementPayment(coderId, grossAmount, referenceId); // jira issue: PACTS-83
+        case TC_STUDIO_SPECIFICATION_REVIEW_PAYMENT: return new StudioSpecificationReviewPayment(coderId, grossAmount, referenceId); // jira issue: PACTS-83
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
     }
@@ -352,6 +358,9 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case CONCEPTUALIZATION_CONTEST_PAYMENT: return "Conceptualization Contest Payment";
             case TESTING_COMPETITION_PAYMENT: return "Testing Competition Payment";
             case COPILOT_PAYMENT: return "Copilot Payment"; // jira issue: PACTS-82
+            case TC_STUDIO_BUG_FIXES_PAYMENT: return "TopCoder Studio Bug Fixes Payment"; // jira issue: PACTS-83
+            case TC_STUDIO_ENHANCEMENT_PAYMENT: return "TopCoder Studio Enhancements Payment"; // jira issue: PACTS-83
+            case TC_STUDIO_SPECIFICATION_REVIEW_PAYMENT: return "TopCoder Studio Specification Review Payment"; // jira issue: PACTS-83
             default: return "Other Payment";
         }
     }

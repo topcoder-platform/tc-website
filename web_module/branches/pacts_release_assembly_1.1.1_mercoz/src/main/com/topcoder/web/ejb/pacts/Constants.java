@@ -50,6 +50,9 @@ public interface Constants {
     public static final int CONCEPTUALIZATION_CONTEST_PAYMENT = 43;
     public static final int TESTING_COMPETITION_PAYMENT = 44;
     public static final int COPILOT_PAYMENT = 45; // jira issue: PACTS-82
+    public static final int TC_STUDIO_BUG_FIXES_PAYMENT = 46; // jira issue: PACTS-83
+    public static final int TC_STUDIO_ENHANCEMENT_PAYMENT = 47; // jira issue: PACTS-83
+    public static final int TC_STUDIO_SPECIFICATION_REVIEW_PAYMENT = 48; // jira issue: PACTS-83
 
     public static final int NO_REFERENCE = 0;
     public static final int REFERENCE_ALGORITHM_ROUND_ID = 1;
