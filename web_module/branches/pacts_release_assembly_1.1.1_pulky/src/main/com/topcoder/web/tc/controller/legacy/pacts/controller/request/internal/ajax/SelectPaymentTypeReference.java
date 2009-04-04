@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
- */
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax;
 
 import java.util.Map;
@@ -12,26 +9,10 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
- * <p>This class implements AJAX processor for selecting payment types reference.</p>
- *
- * <p>
- *   Version 1.1 (PACTS Release Assembly 1.1.1) Change notes:
- *   <ol>
- *     <li>Added support to specifically show Copilot projects. (Studio contests are already supported)</li>
- *   </ol>
- * </p>
- * 
- * @author cucu, TCSDEVELOPER
- * @version 1.1
+ * @author  cucu
  */
 public class SelectPaymentTypeReference extends BaseProcessor implements PactsConstants {
 
-    /**
-     * This method processes the incoming requests and forwards to the select payment type reference page.
-     * 
-     * @throws TCWebException if any error occurs.
-     * @see com.topcoder.web.common.BaseProcessor#businessProcessing()
-     */
     protected void businessProcessing() throws TCWebException {
         try {
             int type = Integer.parseInt(getRequest().getParameter("payment_type_id"));
@@ -150,3 +131,4 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
         }
     }
 }
+
