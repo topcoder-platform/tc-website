@@ -50,7 +50,7 @@ public class PayWithholdings extends DBUtility {
         
         StringBuffer query = new StringBuffer(200);
 
-        query.append("SELECT user_id, client, pd.payment_type_id, pd.payment_method_id, p.payment_id ");
+        query.append("SELECT user_id, client, pd.payment_type_id, pd.payment_method_id ");
         query.append(" , pd.component_project_id, to_date(pi.value, '%m.%d.%Y %H:%M %p') as project_completion_date ");
         query.append(" , sum(gross_amount) as amount_paid ");
         query.append(" , max(total_amount) as total_amount ");
@@ -81,7 +81,6 @@ public class PayWithholdings extends DBUtility {
             long referenceId = rs.getLong("component_project_id");
             double totalAmount = rs.getDouble("total_amount");
             double amountPaid = rs.getDouble("amount_paid");
-            long paymentId = rs.getLong("payment_id");
             Date projectCompletionDate = rs.getDate("project_completion_date");
             String client = rs.getString("client");
             int paymentTypeId = rs.getInt("payment_type_id");
@@ -98,6 +97,7 @@ public class PayWithholdings extends DBUtility {
                 bp.setInstallmentNumber(installment);
                 bp.setMethodId(methodId);
                 bp.setTotalAmount(totalAmount);
+                p.setGrossAmount(totalAmount - paid);
                 
                 ejb.addPayment(bp);
             }
@@ -107,7 +107,11 @@ public class PayWithholdings extends DBUtility {
 
             count++;            
         }
-        log.info("Done. Payments released: " + count);
+        if (onlyAnalyze.equalsIgnoreCase("false")) {
+            log.info("Done. Payments released: " + count);
+        } else {
+            log.info("Done. Payments that will be released: " + count);
+        }
     }
 
     /**
