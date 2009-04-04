@@ -127,6 +127,7 @@ public class ProcessJiraPayments extends DBUtility {
 			
 			initializeJiraIssueTypes(jira, token);
 			
+			// TODO: Stop filtering for resolved, instead handle it in here.
 			RemoteIssue[] issuesToPay = jira.getIssuesFromFilter(token, JIRA_PAYMENTS_FILTER);
 			
 			for (RemoteIssue issue : issuesToPay) {				
