@@ -57,10 +57,9 @@ public class ReleaseWithholdingPayment extends DBUtility {
         "       , pd.payment_type_id " +
         "       , pd.component_project_id " +
         "       , max(payment_method_id) as payment_method_id " +
-        " FROM payment p, payment_detail pd, tcs_catalog:project proj, tcs_catalog:project_info pi_complete " +
+        " FROM payment p, payment_detail pd, tcs_catalog:project_info pi_complete " +
         " WHERE p.most_recent_detail_id = pd.payment_detail_id " +
-        " AND pd.component_project_id = proj.project_id " +
-        " AND proj.project_id = pi_complete.project_id " +
+        " AND pd.component_project_id = pi_complete.project_id " +
         " AND pi_complete.project_info_type_id = 21 " +
         " AND to_date(pi_complete.value, \"%m.%d.%Y %H:%M %p\") < (current - " + period + " units day)" +
         " group by user_id, pd.payment_type_id, pd.component_project_id ";
