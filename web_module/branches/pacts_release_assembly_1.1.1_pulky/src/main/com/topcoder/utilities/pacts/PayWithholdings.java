@@ -73,6 +73,7 @@ public class PayWithholdings extends DBUtility {
         PreparedStatement psSelProjects = prepareStatement("informixoltp", query.toString());
         
         log.info("User id, Reference id, Completion date, Total amount, Release amount, First installment payment id");
+        log.info("==================================================================================================");
 
         int count = 0;
         ResultSet rs = psSelProjects.executeQuery();
