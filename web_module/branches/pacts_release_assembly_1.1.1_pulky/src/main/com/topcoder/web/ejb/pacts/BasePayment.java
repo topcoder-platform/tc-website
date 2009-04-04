@@ -26,11 +26,11 @@ import java.util.Date;
  * <p>
  *   Version 1.1 (PACTS Release Assembly 1.1.1) Change notes:
  *   <ol>
- *     <li>Added support for Copilot, Studio bug fixes, Studio enhancements and Studio specification review 
+ *     <li>Added support for Copilot, Studio bug fixes, Studio enhancements and Studio specification review
  *         Payments.</li>
  *   </ol>
  * </p>
- * 
+ *
  * @author cucu, TCSDEVELOPER
  * @version 1.1
  */
@@ -250,9 +250,9 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case TESTING_COMPETITION_PAYMENT: return new TestingCompetitionPayment(coderId, grossAmount, referenceId, placed);
         case COPILOT_PAYMENT: return new CopilotPayment(coderId, grossAmount, referenceId, placed);
         case STUDIO_BUG_FIXES_PAYMENT: return new StudioBugFixesPayment(coderId, grossAmount, referenceId, placed);
-        case STUDIO_ENHANCEMENTS_PAYMENT: 
+        case STUDIO_ENHANCEMENTS_PAYMENT:
             return new StudioEnhancementsPayment(coderId, grossAmount, referenceId, placed);
-        case STUDIO_SPECIFICATION_REVIEW_PAYMENT: 
+        case STUDIO_SPECIFICATION_REVIEW_PAYMENT:
             return new StudioSpecificationReviewPayment(coderId, grossAmount, referenceId, placed);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }

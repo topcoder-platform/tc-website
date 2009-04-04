@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001-2008 TopCoder Inc.  All Rights Reserved.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.pacts;
 
@@ -8,9 +8,9 @@ import java.util.Date;
 
 /**
  * Payment class for Studio specification reviews.
- * 
+ *
  * This class will store payment information and will provide a custom processor class
- * to allow specific functionality for this payment type. 
+ * to allow specific functionality for this payment type.
  *
  * VERY IMPORTANT: remember to update serialVersionUID if needed
  *
@@ -21,10 +21,10 @@ public class StudioSpecificationReviewPayment extends StudioContestReferencePaym
 
     /**
      * <p>A <code>long</code> containing the serial Version UID of this class
-     * 
+     *
      * Note: Please change that number if you affect the fields in a way that will affect the
      * serialization for this object, i.e. when data members are changed.
-     * 
+     *
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
@@ -67,9 +67,9 @@ public class StudioSpecificationReviewPayment extends StudioContestReferencePaym
 
     /**
      * Processor for Studio specification reviews payments.
-     * 
-     * This class will implement <code>lookupDescription</code> to allow custom description 
-     * generation for the Studio specification reviews payment and <code>lookupEventDate</code> to retrieve 
+     *
+     * This class will implement <code>lookupDescription</code> to allow custom description
+     * generation for the Studio specification reviews payment and <code>lookupEventDate</code> to retrieve
      * event's date.
      */
     protected static class Processor extends StudioContestReferencePayment.Processor {

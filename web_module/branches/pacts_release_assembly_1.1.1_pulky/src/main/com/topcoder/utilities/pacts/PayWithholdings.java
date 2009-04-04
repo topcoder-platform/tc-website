@@ -18,9 +18,9 @@ import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
- * Payment class for Copilot projects.
- * 
- * This class will check for pending withholdings that should be released and generates the payments accordingly. 
+ * Utility class for paying withholded payments.
+ *
+ * This class will check for pending withholdings that should be released and will generate the payments accordingly.
  *
  * @author TCSDEVELOPER
  * @version 1.0 (PACTS Release Assembly 1.1.1)
@@ -31,25 +31,27 @@ public class PayWithholdings extends DBUtility {
      * This variable tells if only an analysis is wanted.
      */
     private String onlyAnalyze = null;
-    
+
     /**
-     * This variable tells how many days after first installment payment the withholding should be released. 
+     * This variable tells how many days after first installment payment the withholding should be released.
      */
     private int releasePeriodDays;
 
     /**
      * This method will be executed after connections are created.
-     * 
+     *
      * It will search for payments that have withholding for <code>releasePeriodDays</code> days and release
      * the corresponding difference.
-     * 
+     *
      * @throws Exception if any error occurs.
      */
     protected void runUtility() throws Exception {
         PactsClientServices  ejb = (PactsClientServices) createEJB();
-        
+
         StringBuffer query = new StringBuffer(200);
 
+        // Get partial payments to release withholdings.
+        // If releasePeriodDays were reached since project completion, make the payment.
         query.append("SELECT user_id, client, pd.payment_type_id, pd.payment_method_id ");
         query.append(" , pd.component_project_id, to_date(pi.value, '%m.%d.%Y %H:%M %p') as project_completion_date ");
         query.append(" , sum(gross_amount) as amount_paid ");
@@ -57,21 +59,21 @@ public class PayWithholdings extends DBUtility {
         query.append(" , max(installment_number) as installment_number ");
         query.append(" FROM payment p, payment_detail pd, tcs_catalog:project_info pi ");
         query.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
-        query.append(" AND gross_amount <> total_amount "); 
-        query.append(" AND pi.project_info_type_id = 21 "); 
-        query.append(" AND pi.project_id = pd.component_project_id "); 
-        query.append(" AND pd.payment_type_id in ("); 
+        query.append(" AND gross_amount <> total_amount ");
+        query.append(" AND pi.project_info_type_id = 21 ");
+        query.append(" AND pi.project_id = pd.component_project_id ");
+        query.append(" AND pd.payment_type_id in (");
         query.append(PactsConstants.ARCHITECTURE_PAYMENT).append(", ");
         query.append(PactsConstants.ASSEMBLY_PAYMENT).append(", ");
         query.append(PactsConstants.REVIEW_BOARD_PAYMENT).append(", ");
         query.append(PactsConstants.COMPONENT_PAYMENT).append(") ");
         query.append(" AND to_date(pi.value, '%m.%d.%Y %H:%M %p') + ").append(releasePeriodDays);
-        query.append(" UNITS DAY < current "); 
+        query.append(" UNITS DAY < current ");
         query.append(" GROUP BY 1, 2, 3, 4, 5, 6 ");
         query.append(" HAVING sum(gross_amount) < max(total_amount) ");
 
         PreparedStatement psSelProjects = prepareStatement("informixoltp", query.toString());
-        
+
         log.info("User id, Reference id, Completion date, Total amount, Release amount, First installment payment id");
         log.info("==================================================================================================");
 
@@ -88,24 +90,22 @@ public class PayWithholdings extends DBUtility {
             int installment = rs.getInt("installment_number") + 1;
             int methodId = rs.getInt("payment_method_id");
             double releaseAmount = totalAmount - amountPaid;
-                
+
             if (onlyAnalyze.equalsIgnoreCase("false")) {
-                
-                BasePayment bp = BasePayment.createPayment(paymentTypeId, userId, releaseAmount, 
-                        referenceId, 1);  
+                BasePayment bp = BasePayment.createPayment(paymentTypeId, userId, releaseAmount, referenceId, 1);
 
                 bp.setClient(client);
                 bp.setInstallmentNumber(installment);
                 bp.setMethodId(methodId);
                 bp.setTotalAmount(totalAmount);
-                
+
                 ejb.addPayment(bp);
             }
 
-            log.info("" + userId + ", " + referenceId + ", " + projectCompletionDate + ", " + totalAmount + ", " 
+            log.info("" + userId + ", " + referenceId + ", " + projectCompletionDate + ", " + totalAmount + ", "
                     + releaseAmount);
 
-            count++;            
+            count++;
         }
         if (onlyAnalyze.equalsIgnoreCase("false")) {
             log.info("Done. Payments released: " + count);
@@ -116,15 +116,15 @@ public class PayWithholdings extends DBUtility {
 
     /**
      * Private helper method to retrieve PACTS EJB.
-     * 
-     * @return a <code>PactsClientServices</code> with PACTS EJB. 
+     *
+     * @return a <code>PactsClientServices</code> with PACTS EJB.
      * @throws Exception if any error occurs
      */
     private static PactsClientServices createEJB() throws Exception {
         InitialContext initial = TCContext.getInitial();
 
         Object objref = initial.lookup(PactsClientServicesHome.class.getName());
-        PactsClientServicesHome home = (PactsClientServicesHome) 
+        PactsClientServicesHome home = (PactsClientServicesHome)
             PortableRemoteObject.narrow(objref, PactsClientServicesHome.class);
 
         return ((PactsClientServices) home.create());
@@ -143,7 +143,7 @@ public class PayWithholdings extends DBUtility {
         }
         params.remove("onlyAnalyze");
 
-        // "reliabilityFilename" is more useful than "CONF_FILENAME"
+        // get release_period_days parameter
         try {
             releasePeriodDays = Integer.parseInt((String) params.get("release_period_days"));
         } catch (NumberFormatException nfe) {

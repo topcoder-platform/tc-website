@@ -9,11 +9,11 @@ package com.topcoder.web.ejb.pacts;
  * <p>
  *   Version 1.1 (PACTS Release Assembly 1.1.1) Change notes:
  *   <ol>
- *     <li>Added constants to support Copilot, Studio bug fixes, Studio enhancements and Studio specification review 
+ *     <li>Added constants to support Copilot, Studio bug fixes, Studio enhancements and Studio specification review
  *         Payments.</li>
  *   </ol>
  * </p>
- * 
+ *
  * @author TCSDEVELOPER
  * @version 1.1
  */
@@ -70,7 +70,7 @@ public interface Constants {
      * @since 1.1
      */
     public static final int COPILOT_PAYMENT = 45;
-    
+
     /**
      * <p>A <code>int</code> representing the payment type for Studio bug fixes payments.</p>
      *
@@ -91,7 +91,7 @@ public interface Constants {
      * @since 1.1
      */
     public static final int STUDIO_SPECIFICATION_REVIEW_PAYMENT = 48;
-    
+
     public static final int NO_REFERENCE = 0;
     public static final int REFERENCE_ALGORITHM_ROUND_ID = 1;
     public static final int REFERENCE_COMPONENT_PROJECT_ID = 2;
