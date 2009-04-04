@@ -234,6 +234,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case SPECIFICATION_CONTEST_PAYMENT: return new SpecificationContestPayment(coderId, grossAmount, referenceId, placed);
         case CONCEPTUALIZATION_CONTEST_PAYMENT: return new ConceptualizationContestPayment(coderId, grossAmount, referenceId, placed);
         case TESTING_COMPETITION_PAYMENT: return new TestingCompetitionPayment(coderId, grossAmount, referenceId, placed);
+        case COPILOT_PAYMENT: return new CopilotPayment(coderId, grossAmount, referenceId);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
     }
