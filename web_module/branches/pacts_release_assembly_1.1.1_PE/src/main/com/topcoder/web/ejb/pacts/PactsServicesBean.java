@@ -74,7 +74,8 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
  * </p>
  *
  * <p>
- * <b>Changes in PACTS Release Assembly: </b>
+ * <b>Changes in PACTS Release Assembly: </b>To avoid duplicate missing withholdings entries get created
+ * and show a message explaining what happened if the sweeper script has released its withholdings.
  * </p>
  *
  * @author Dave Pecora
@@ -6148,7 +6149,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * </p>
      *
      * <p>
-     * <b>Changes in PACTS Release Assembly: </b>
+     * <b>Changes in PACTS Release Assembly: </b>To avoid duplicate missing withholdings entries get created
+     * and show a message explaining what happened if the sweeper script has released its withholdings.
      * </p>
      *
      * @param coderId             coder to be paid.
@@ -6235,6 +6237,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     }
                     log.info("Pay to: " + coderId2 + " $ " + (totalAmount - paid) + " for project " + designProject);
                     l.add(p);
+                } else if (totalAmount == paid) {
+                    log.info("The missing component withholdings entries are already created by the sweeper script.");
                 }
 
                 l.addAll(generateReviewersDevSupportPayments(designProject, payRboardBonus));
@@ -6270,6 +6274,24 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return l;
     }
 
+    /**
+     * <p>
+     * Generates the reviewers dev support payments.
+     * </p>
+     *
+     * <p>
+     * <b>Changes in PACTS Release Assembly: </b>To avoid duplicate missing withholdings entries get created
+     * and show a message explaining what happened if the sweeper script has released its withholdings.
+     * </p>
+     * 
+     * @param designProject the id of the design project
+     * @param payRboardBonus the flag whether to pay review board bonus
+     *
+     * @return the newly created payments if exist.
+     *
+     * @throws SQLException any SQL layer exception.
+     * @throws DevSupportException any other exceptions.
+     */
     private List generateReviewersDevSupportPayments(long designProject, boolean payRboardBonus) throws SQLException, DevSupportException {
         List l = new ArrayList();
 
@@ -6305,6 +6327,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 p.setInstallmentNumber(installment);
                 p.setMethodId(methodId);
                 l.add(p);
+            } else if (totalAmount == paid) {
+                log.info("The missing reviewer withholdings entries are already created by the sweeper script.");
             }
             
             if (payRboardBonus) {

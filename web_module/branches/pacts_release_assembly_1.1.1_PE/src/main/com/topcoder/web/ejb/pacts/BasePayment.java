@@ -30,7 +30,7 @@ import java.util.Date;
  * </p>
  *
  * @author cucu
- *
+ * @version 1.0
  */
 public abstract class BasePayment implements Constants, java.io.Serializable {
     private static Logger log = Logger.getLogger(BasePayment.class);
