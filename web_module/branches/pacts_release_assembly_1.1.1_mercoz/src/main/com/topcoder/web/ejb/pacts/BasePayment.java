@@ -153,6 +153,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case SPECIFICATION_CONTEST_PAYMENT:
         case CONCEPTUALIZATION_CONTEST_PAYMENT:
         case TESTING_COMPETITION_PAYMENT:
+        case COPILOT_PAYMENT: // jira issue: PACTS-82
             return REFERENCE_COMPONENT_PROJECT_ID;
 
         case PROBLEM_WRITING_PAYMENT:
