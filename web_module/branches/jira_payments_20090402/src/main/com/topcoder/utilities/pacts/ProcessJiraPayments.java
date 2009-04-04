@@ -46,10 +46,6 @@ import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapServiceServiceL
 /**
  * @author ivern
  */
-/**
- * @author ivern
- *
- */
 public class ProcessJiraPayments extends DBUtility {
     /**
      * This variable tells if only an analysis is wanted.
@@ -94,6 +90,9 @@ public class ProcessJiraPayments extends DBUtility {
 	
 	PactsClientServices pactsService = null;;
 	
+	boolean rejected;
+	List<String> errors = null;
+	
 	public ProcessJiraPayments() {
 		super();
 		
@@ -132,51 +131,29 @@ public class ProcessJiraPayments extends DBUtility {
 			
 			for (RemoteIssue issue : issuesToPay) {				
 				try {
-					boolean reject = false;
+					rejected = false;
+					errors = new ArrayList<String>();
 					
-					List<String> errors = new ArrayList<String>();
+					String paymentType = getPaymentType(issue);
 					
-					// TODO: Unify the treatment of Jira issue types...id or name?
-					String paymentType = getIssueType(issue);
-					if (paymentType == null) {
-						reject = true;
-						paymentType = jiraIssueTypes.get(issue.getType());
-					}
-					
-					String amountStr = getCustomFieldValueById(issue, JIRA_PAYMENT_AMOUNT_FIELD_ID);
-					String payee = getCustomFieldValueById(issue, JIRA_PAYEE_FIELD_ID);
-					String clientNickname = getCustomFieldValueById(issue, JIRA_CLIENT_NICKNAME_FIELD_ID);
 					String projectId = getCustomFieldValueById(issue, JIRA_PROJECT_ID_FIELD_ID);
 					String studioId = getCustomFieldValueById(issue, JIRA_STUDIO_ID_FIELD_ID);
-				
-					if (isNullOrEmpty(paymentType) || isNullOrEmpty(amountStr) || isNullOrEmpty(payee)
-							|| isNullOrEmpty(clientNickname)) {
-						// TODO: Nice error message here.
-						reject = true;
-					}
 					
-					String referenceType = null;
-					long referenceId;
-					String referenceInfo = null;
+					long referenceId = 0L;
+					String referenceType = "N/A";
+					String referenceInfo = "N/A";
 					if (!(isNullOrEmpty(projectId) ^ isNullOrEmpty(studioId))) {
-						reject = true;
-						referenceType = "N/A";
-						referenceId = 0L;
-						referenceInfo = "N/A";
-						errors.add("One exactly of either ProjectID or StudioID must be filled out.");
+						rejectIssue("One exactly of either ProjectID or StudioID must be filled out.");
 					} else if (!isNullOrEmpty(projectId)) {
 						referenceType = "TopCoder";
 						try {
 							referenceId = Long.parseLong(projectId);
 							referenceInfo = getTopCoderProjectInfoById(referenceId);
 							if (referenceInfo == null) {
-								reject = true;
-								errors.add("Could not find TopCoder project with id " + referenceId);
+								rejectIssue("Could not find TopCoder project with id " + referenceId);
 							}
 						} catch (NumberFormatException e) {
-							reject = true;
-							referenceId = 0L;
-							errors.add("ProjectID (" + projectId + ") is not a valid Long number.");
+							rejectIssue("ProjectID (" + projectId + ") is not a valid Long number.");
 						}
 					} else {
 						referenceType = "Studio";
@@ -184,51 +161,21 @@ public class ProcessJiraPayments extends DBUtility {
 							referenceId = Long.parseLong(studioId);
 							referenceInfo = getStudioContestInfoById(referenceId);
 							if (referenceInfo == null) {
-								reject = true;
-								errors.add("Could not find Studio project with id " + referenceId);
+								rejectIssue("Could not find Studio project with id " + referenceId);
 							}
 						} catch (NumberFormatException e) {
-							reject = true;
-							referenceId = 0L;
-							errors.add("StudioID (" + studioId + ") is not a valid Long number.");
+							rejectIssue("StudioID (" + studioId + ") is not a valid Long number.");
 						}
 					}
 					
-					String client = null;
-					if (clientNickname != null) {
-						client = getClientName(clientNickname);
-						if (client == null) {
-							reject = true;
-							client = clientNickname;
-							errors.add("Unknown client nickname " + clientNickname + ".");
-						}
-					} else {
-						reject = true;
-						client = "N/A";
-						errors.add("The Client Nickname field must not be null.");
-					}
-					
-					// Retrieve the payee's user id.
-					long userId = getUserIdByHandle(payee);
-					if (userId == 0L) {
-						reject = true;
-						errors.add("Payee (" + payee + ") must be a valid TopCoder handle.");
-					}
-					
-					// Parse the payment amount.
-					double amount;
-					try {
-						amount = Double.parseDouble(amountStr);
-					} catch (NumberFormatException e) {
-						reject = true;
-						amount = 0.0;
-						errors.add("First Place Payment $ (" + amountStr + ") is not a valid Double number.");
-					}
+					String client = getClientName(issue);
+					long userId = getPayeeUserId(issue);
+					double amount = getPaymentAmount(issue);
 					
 					// Build a payment description summary.
 					String summary = "[" + issue.getKey() + "] - " + referenceInfo;
 					
-					log.info("[" + (reject ? "REJECTED" : "ACCEPTED") + "] - (payment type: " + paymentType
+					log.info("[" + (rejected ? "REJECTED" : "ACCEPTED") + "] - (payment type: " + paymentType
 							+ ", project type: " + referenceType + ", reference id: " + referenceId + ", user id: "
 							+ userId + ", client: "	+ client + ", amount: " + amount + ", description: " + summary
 							+ ")");
@@ -238,7 +185,7 @@ public class ProcessJiraPayments extends DBUtility {
 					}
 					
 					if (false && onlyAnalyze.equalsIgnoreCase("false")) {
-						if (reject) {
+						if (rejected) {
 							// TODO: Insert a detailed reasoning of why the payment failed into Jira.
 							// Update Jira.  Turned off for now.
 							if (false) {
@@ -252,7 +199,6 @@ public class ProcessJiraPayments extends DBUtility {
 							}
 							
 							insertPactsPayment(paymentType, referenceId, client, userId, amount, summary);
-	
 							updateJira(jira, token, issue, true);
 						}
 					}
@@ -268,6 +214,79 @@ public class ProcessJiraPayments extends DBUtility {
 			// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.  Use sErrorMsg for stuff!
 			se.printStackTrace();
 		}
+	}
+
+	/**
+	 * @param message
+	 */
+	private void rejectIssue(String message) {
+		rejected = true;
+		errors.add(message);
+	}
+
+	/**
+	 * @param issue
+	 * @return
+	 */
+	private String getPaymentType(RemoteIssue issue) {
+		// TODO: Unify the treatment of Jira issue types...id or name?
+		String paymentType = getIssueType(issue);
+		if (paymentType == null) {
+			rejected = true;
+			paymentType = jiraIssueTypes.get(issue.getType());
+		}
+		return paymentType;
+	}
+
+	/**
+	 * @param issue
+	 * @return
+	 */
+	private String getClientName(RemoteIssue issue) {
+		String clientNickname = getCustomFieldValueById(issue, JIRA_CLIENT_NICKNAME_FIELD_ID);
+		String client = null;
+		if (clientNickname != null) {
+			client = getClientName(clientNickname);
+			if (client == null) {
+				client = clientNickname;
+				rejectIssue("Unknown client nickname " + clientNickname + ".");
+			}
+		} else {
+			client = "N/A";
+			rejectIssue("The Client Nickname field must not be null.");
+		}
+		return client;
+	}
+
+	/**
+	 * @param issue
+	 * @return
+	 * @throws SQLException
+	 * @throws RuntimeException
+	 */
+	private long getPayeeUserId(RemoteIssue issue) throws SQLException,	RuntimeException {
+		String payee = getCustomFieldValueById(issue, JIRA_PAYEE_FIELD_ID);
+		long userId = getUserIdByHandle(payee);
+		if (userId == 0L) {
+			rejectIssue("Payee (" + payee + ") must be a valid TopCoder handle.");
+		}
+		return userId;
+	}
+
+	/**
+	 * @param issue
+	 * @return
+	 */
+	private double getPaymentAmount(RemoteIssue issue) {
+		String amountStr = getCustomFieldValueById(issue, JIRA_PAYMENT_AMOUNT_FIELD_ID);
+		double amount;
+		try {
+			amount = Double.parseDouble(amountStr);
+		} catch (NumberFormatException e) {
+			amount = 0.0;
+			rejectIssue("First Place Payment $ (" + amountStr + ") is not a valid Double number.");
+		}
+		return amount;
 	}
 
 	/**
