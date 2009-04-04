@@ -132,11 +132,4 @@ public interface Constants {
     public static final int CONCEPTUALIZATION_PROJECT_CATEGORY_LU = 23;
     public static final int SPECIFICATION_PROJECT_CATEGORY_LU = 6;
     public static final int APPLICATION_TESTING_PROJECT_CATEGORY_LU = 13;
-
-    /**
-     * <p>A <code>int</code> representing the project category id for Copilot projects.</p>
-     *
-     * @since 1.1
-     */
-    public static final int COPILOT_PROJECT_CATEGORY_LU = 24;
 }
