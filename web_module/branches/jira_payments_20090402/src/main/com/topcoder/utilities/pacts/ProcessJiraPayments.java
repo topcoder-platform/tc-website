@@ -56,31 +56,7 @@ public class ProcessJiraPayments extends DBUtility {
 	private static final String JIRA_PAYMENTS_USER = "jira_payments";
 	private static final String JIRA_PAYMENTS_PASSWORD = "t0pc0der76";
 	private static final String JIRA_PAYMENTS_FILTER = "10634";
-	
 	private static final String JIRA_PAYMENT_STATUS_FIELD_KEY = "customfield_10030";
-	private static final String JIRA_PAYMENT_AMOUNT_FIELD_ID = "customfield_10012";
-	private static final String JIRA_PAYEE_FIELD_ID = "customfield_10040";
-	private static final String JIRA_CLIENT_NICKNAME_FIELD_ID = "customfield_10074";
-	private static final String JIRA_PROJECT_ID_FIELD_ID = "customfield_10090";
-	private static final String JIRA_STUDIO_ID_FIELD_ID = "customfield_10091";
-	
-	private static final String QUERY_USER_ID_BY_HANDLE = "SELECT user_id FROM user WHERE handle = ?";
-	
-	private static final String QUERY_TOPCODER_PROJECT_INFO_BY_ID =
-		"SELECT pi_name.value || ' ' || pi_version.value AS info" +
-		"  FROM tcs_catalog:project_info pi_name" +
-		"     , tcs_catalog:project_info pi_version" +
-		" WHERE pi_name.project_id = ?" +
-		"   AND pi_name.project_info_type_id = 6" +
-		"   AND pi_version.project_id = pi_name.project_id" +
-		"   AND pi_version.project_info_type_id = 7";
-	
-	private static final String QUERY_STUDIO_CONTEST_INFO_BY_ID =
-		"SELECT name AS info FROM studio_oltp:contest WHERE contest_id = ?";
-	
-	private PreparedStatement queryUserIdByHandle = null;
-	private PreparedStatement queryTopCoderProjectInfoById = null;
-	private PreparedStatement queryStudioContestInfoById = null;
 	
 	private Map<String, String> clientNicknameTranslation = null;
 	private Map<String, String> issueTypeTranslation = null;
@@ -89,9 +65,6 @@ public class ProcessJiraPayments extends DBUtility {
 	private DateFormat dateFormat = null;
 	
 	private PactsClientServices pactsService = null;;
-	
-	private boolean rejected;
-	private List<String> errors = null;
 	
 	public ProcessJiraPayments() {
 		super();
@@ -103,16 +76,6 @@ public class ProcessJiraPayments extends DBUtility {
 			// TODO: FAIL BETTER.
 			e.printStackTrace();
 		}
-	}
-
-	/**
-	 * @throws RuntimeException
-	 */
-	private void initializeDatabase() throws SQLException {
-		// TODO: Nicer exception handling.
-		queryUserIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
-		queryTopCoderProjectInfoById = prepareStatement("informixoltp", QUERY_TOPCODER_PROJECT_INFO_BY_ID);
-		queryStudioContestInfoById = prepareStatement("informixoltp", QUERY_STUDIO_CONTEST_INFO_BY_ID);
 	}
 	
 	@Override
@@ -129,77 +92,38 @@ public class ProcessJiraPayments extends DBUtility {
 			// TODO: Stop filtering for resolved, instead handle it in here.
 			RemoteIssue[] issuesToPay = jira.getIssuesFromFilter(token, JIRA_PAYMENTS_FILTER);
 			
-			for (RemoteIssue issue : issuesToPay) {				
+			for (RemoteIssue remoteIssue : issuesToPay) {
 				try {
-					rejected = false;
-					errors = new ArrayList<String>();
+					// Parse all the relevant data from the Jira issue and determine rejection status and errors.
+					JiraIssue issue = new JiraIssue(remoteIssue);
+			
+					log.info("[" + (issue.isRejected() ? "REJECTED" : "ACCEPTED") + "] - (payment type: "
+							+ issue.getPaymentType() + ", project type: " + issue.getReferenceType()
+							+ ", reference id: " + issue.getReferenceId() + ", user id: " + issue.getPayeeUserId()
+							+ ", client: "	+ issue.getClient() + ", amount: " + issue.getPaymentAmount()
+							+ ", description: " + issue.getDescription() + ")");
 					
-					String paymentType = getPaymentType(issue);
-					
-					String projectId = getCustomFieldValueById(issue, JIRA_PROJECT_ID_FIELD_ID);
-					String studioId = getCustomFieldValueById(issue, JIRA_STUDIO_ID_FIELD_ID);
-					
-					long referenceId = 0L;
-					String referenceType = "N/A";
-					String referenceInfo = "N/A";
-					if (!(isNullOrEmpty(projectId) ^ isNullOrEmpty(studioId))) {
-						rejectIssue("One exactly of either ProjectID or StudioID must be filled out.");
-					} else if (!isNullOrEmpty(projectId)) {
-						referenceType = "TopCoder";
-						try {
-							referenceId = Long.parseLong(projectId);
-							referenceInfo = getTopCoderProjectInfoById(referenceId);
-							if (referenceInfo == null) {
-								rejectIssue("Could not find TopCoder project with id " + referenceId);
-							}
-						} catch (NumberFormatException e) {
-							rejectIssue("ProjectID (" + projectId + ") is not a valid Long number.");
-						}
-					} else {
-						referenceType = "Studio";
-						try {
-							referenceId = Long.parseLong(studioId);
-							referenceInfo = getStudioContestInfoById(referenceId);
-							if (referenceInfo == null) {
-								rejectIssue("Could not find Studio project with id " + referenceId);
-							}
-						} catch (NumberFormatException e) {
-							rejectIssue("StudioID (" + studioId + ") is not a valid Long number.");
-						}
-					}
-					
-					String client = getClientName(issue);
-					long userId = getPayeeUserId(issue);
-					double amount = getPaymentAmount(issue);
-					
-					// Build a payment description summary.
-					String summary = "[" + issue.getKey() + "] - " + referenceInfo;
-					
-					log.info("[" + (rejected ? "REJECTED" : "ACCEPTED") + "] - (payment type: " + paymentType
-							+ ", project type: " + referenceType + ", reference id: " + referenceId + ", user id: "
-							+ userId + ", client: "	+ client + ", amount: " + amount + ", description: " + summary
-							+ ")");
-					
-					for (String e : errors) {
+					for (String e : issue.getErrors()) {
 						log.info("    Reason : " + e);
 					}
 					
 					if (false && onlyAnalyze.equalsIgnoreCase("false")) {
-						if (rejected) {
+						if (issue.isRejected()) {
 							// TODO: Insert a detailed reasoning of why the payment failed into Jira.
 							// Update Jira.  Turned off for now.
 							if (false) {
-								updateJira(jira, token, issue, false);
+								updateJira(jira, token, remoteIssue, false);
 							}
 						} else {
 							// TODO: FOR NOW IGNORE STUDIO, WE DON'T HAVE THE NECESSARY PAYMENT TYPES.
-							if ("Studio".equals(referenceType)) {
+							if ("Studio".equals(issue.getReferenceType())) {
 								// TODO: Nice error message here.
 								continue;
 							}
 							
-							insertPactsPayment(paymentType, referenceId, client, userId, amount, summary);
-							updateJira(jira, token, issue, true);
+							insertPactsPayment(issue.getPaymentType(), issue.getReferenceId(), issue.getClient(),
+									issue.getPayeeUserId(), issue.getPaymentAmount(), issue.getDescription());
+							updateJira(jira, token, remoteIssue, true);
 						}
 					}
 				} catch (Exception e) {
@@ -214,79 +138,6 @@ public class ProcessJiraPayments extends DBUtility {
 			// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.  Use sErrorMsg for stuff!
 			se.printStackTrace();
 		}
-	}
-
-	/**
-	 * @param message
-	 */
-	private void rejectIssue(String message) {
-		rejected = true;
-		errors.add(message);
-	}
-
-	/**
-	 * @param issue
-	 * @return
-	 */
-	private String getPaymentType(RemoteIssue issue) {
-		// TODO: Unify the treatment of Jira issue types...id or name?
-		String paymentType = getIssueType(issue);
-		if (paymentType == null) {
-			rejected = true;
-			paymentType = jiraIssueTypes.get(issue.getType());
-		}
-		return paymentType;
-	}
-
-	/**
-	 * @param issue
-	 * @return
-	 */
-	private String getClientName(RemoteIssue issue) {
-		String clientNickname = getCustomFieldValueById(issue, JIRA_CLIENT_NICKNAME_FIELD_ID);
-		String client = null;
-		if (clientNickname != null) {
-			client = getClientName(clientNickname);
-			if (client == null) {
-				client = clientNickname;
-				rejectIssue("Unknown client nickname " + clientNickname + ".");
-			}
-		} else {
-			client = "N/A";
-			rejectIssue("The Client Nickname field must not be null.");
-		}
-		return client;
-	}
-
-	/**
-	 * @param issue
-	 * @return
-	 * @throws SQLException
-	 * @throws RuntimeException
-	 */
-	private long getPayeeUserId(RemoteIssue issue) throws SQLException,	RuntimeException {
-		String payee = getCustomFieldValueById(issue, JIRA_PAYEE_FIELD_ID);
-		long userId = getUserIdByHandle(payee);
-		if (userId == 0L) {
-			rejectIssue("Payee (" + payee + ") must be a valid TopCoder handle.");
-		}
-		return userId;
-	}
-
-	/**
-	 * @param issue
-	 * @return
-	 */
-	private double getPaymentAmount(RemoteIssue issue) {
-		String amountStr = getCustomFieldValueById(issue, JIRA_PAYMENT_AMOUNT_FIELD_ID);
-		double amount;
-		try {
-			amount = Double.parseDouble(amountStr);
-		} catch (NumberFormatException e) {
-			amount = 0.0;
-			rejectIssue("First Place Payment $ (" + amountStr + ") is not a valid Double number.");
-		}
-		return amount;
 	}
 
 	/**
@@ -389,74 +240,6 @@ public class ProcessJiraPayments extends DBUtility {
 	}
 
 	/**
-	 * Looks up a member's user id by handle.
-	 * 
-	 * @param handle the handle of the member to look up.
-	 * @return the member's user id.
-	 * @throws SQLException if there is a SQL error.
-	 * @throws RuntimeException if the user does not exist.
-	 */
-	private long getUserIdByHandle(String handle) throws SQLException, RuntimeException {
-		ResultSet rs = null;
-		long userId;
-		
-		try {
-			queryUserIdByHandle.setString(1, handle);
-			rs = queryUserIdByHandle.executeQuery();
-			
-			if (rs.next()) {
-				userId = rs.getLong("user_id");
-			} else {
-				userId = 0L;
-			}
-		} finally {
-			close(rs);
-		}
-		
-		return userId;
-	}
-	
-	/**
-	 * Looks up a TopCoder project's name and version by project id.
-	 * 
-	 * @param projectId the id of the project to look up.
-	 * @return a <code>String</code> containing the name and version of the project, or <code>null</code> if it
-	 * 		   doesn't exist.
-	 * @throws SQLException if there is a SQL error.
-	 */
-	private String getTopCoderProjectInfoById(long referenceId) throws SQLException {
-		return getReferenceInfoById(queryTopCoderProjectInfoById, referenceId);
-	}
-
-	private String getStudioContestInfoById(long referenceId) throws SQLException {
-		return getReferenceInfoById(queryStudioContestInfoById, referenceId);
-	}
-	
-	/**
-	 * @param referenceId
-	 * @return
-	 * @throws SQLException
-	 * @throws RuntimeException
-	 */
-	private String getReferenceInfoById(PreparedStatement query, long referenceId) throws SQLException {
-		
-		ResultSet rs = null;
-		
-		try {
-			query.setLong(1, referenceId);
-			rs = query.executeQuery();
-			
-			if (rs.next()) {
-				return rs.getString("info");
-			} else {
-				return null;
-			}
-		} finally {
-			close(rs);
-		}
-	}
-
-	/**
 	 * Returns the PACTS payment type for a Jira issue type.
 	 * 
 	 * @param issue the Jira issue.
@@ -545,22 +328,6 @@ public class ProcessJiraPayments extends DBUtility {
         		(PactsClientServicesHome) PortableRemoteObject.narrow(objref, PactsClientServicesHome.class);
 
         return home.create();
-    }
-    
-	
-    /**
-     * Helper method to close a JDBC ResultSet.
-     * 
-     * @param rs the ResultSet to close.
-     */
-    private void close(ResultSet rs) {
-    	try {
-    		if (rs != null) {
-    			rs.close();
-    		}
-    	} catch (SQLException e) {
-    		// Ignore.
-    	}
     }
     
     /**
@@ -657,4 +424,301 @@ public class ProcessJiraPayments extends DBUtility {
         fatal_error();
 	}
 
+	private class JiraIssue {
+		private static final String JIRA_PAYMENT_AMOUNT_FIELD_ID = "customfield_10012";
+		private static final String JIRA_PAYEE_FIELD_ID = "customfield_10040";
+		private static final String JIRA_CLIENT_NICKNAME_FIELD_ID = "customfield_10074";
+		private static final String JIRA_PROJECT_ID_FIELD_ID = "customfield_10090";
+		private static final String JIRA_STUDIO_ID_FIELD_ID = "customfield_10091";
+		
+		private String paymentType;
+		private String referenceType;
+		private String referenceInfo;
+		private long referenceId;
+		private long payeeUserId;
+		private String client;
+		private double paymentAmount;
+		private String description;
+		
+		private boolean rejected;
+		private List<String> errors;
+		
+		public JiraIssue(RemoteIssue remoteIssue) {
+			rejected = false;
+			errors = new ArrayList<String>();
+			
+			populatePaymentType(remoteIssue);
+			populateReferenceData(remoteIssue);
+			populatePayeeUserId(remoteIssue);
+			populateClient(remoteIssue);
+			populatePaymentAmount(remoteIssue);
+			populateDescription(remoteIssue);
+		}
+		
+		private void populateDescription(RemoteIssue remoteIssue) {	
+			description = "[" + remoteIssue.getKey() + "] - " + referenceInfo;
+		}
+
+		private void populatePaymentAmount(RemoteIssue remoteIssue) {
+			String amountString = getCustomFieldValueById(remoteIssue, JIRA_PAYMENT_AMOUNT_FIELD_ID);
+			try {
+				paymentAmount = Double.parseDouble(amountString);
+			} catch (NumberFormatException e) {
+				paymentAmount = 0.0;
+				rejectIssue("First Place Payment $ (" + amountString + ") is not a valid Double number.");
+			}
+		}
+
+		private void populateClient(RemoteIssue remoteIssue) {
+			String clientNickname = getCustomFieldValueById(remoteIssue, JIRA_CLIENT_NICKNAME_FIELD_ID);
+			if (clientNickname != null) {
+				client = getClientName(clientNickname);
+				if (client == null) {
+					client = clientNickname;
+					rejectIssue("Unknown client nickname " + clientNickname + ".");
+				}
+			} else {
+				client = "N/A";
+				rejectIssue("The Client Nickname field must not be null.");
+			}
+		}
+
+		private void populatePayeeUserId(RemoteIssue remoteIssue) {
+			String payeeHandle = getCustomFieldValueById(remoteIssue, JIRA_PAYEE_FIELD_ID);
+			payeeUserId = getUserIdByHandle(payeeHandle);
+			if (payeeUserId == 0L) {
+				rejectIssue("Payee (" + payeeHandle + ") must be a valid TopCoder handle.");
+			}
+		}
+
+		private void populateReferenceData(RemoteIssue remoteIssue) {
+			String projectId = getCustomFieldValueById(remoteIssue, JIRA_PROJECT_ID_FIELD_ID);
+			String studioId = getCustomFieldValueById(remoteIssue, JIRA_STUDIO_ID_FIELD_ID);
+			
+			referenceId = 0L;
+			referenceType = "N/A";
+			referenceInfo = "N/A";
+			
+			if (!(isNullOrEmpty(projectId) ^ isNullOrEmpty(studioId))) {
+				rejectIssue("One exactly of either ProjectID or StudioID must be filled out.");
+			} else if (!isNullOrEmpty(projectId)) {
+				referenceType = "TopCoder";
+				try {
+					referenceId = Long.parseLong(projectId);
+					referenceInfo = getTopCoderProjectInfoById(referenceId);
+					if (referenceInfo == null) {
+						rejectIssue("Could not find TopCoder project with id " + referenceId);
+					}
+				} catch (NumberFormatException e) {
+					rejectIssue("ProjectID (" + projectId + ") is not a valid Long number.");
+				}
+			} else {
+				referenceType = "Studio";
+				try {
+					referenceId = Long.parseLong(studioId);
+					referenceInfo = getStudioContestInfoById(referenceId);
+					if (referenceInfo == null) {
+						rejectIssue("Could not find Studio project with id " + referenceId);
+					}
+				} catch (NumberFormatException e) {
+					rejectIssue("StudioID (" + studioId + ") is not a valid Long number.");
+				}
+			}
+		}
+
+		private void populatePaymentType(RemoteIssue remoteIssue) {
+			// TODO: Unify the treatment of Jira issue types...id or name?
+			paymentType = getIssueType(remoteIssue);
+			if (paymentType == null) {
+				rejected = true;
+				paymentType = jiraIssueTypes.get(remoteIssue.getType());
+			}
+		}
+
+		/**
+		 * @param message
+		 */
+		private void rejectIssue(String message) {
+			rejected = true;
+			errors.add(message);
+		}
+		
+		/**
+		 * @return the rejected
+		 */
+		public boolean isRejected() {
+			return rejected;
+		}
+
+		/**
+		 * @return the errors
+		 */
+		public List<String> getErrors() {
+			return errors;
+		}
+
+		/**
+		 * @return the paymentType
+		 */
+		public String getPaymentType() {
+			return paymentType;
+		}
+
+		/**
+		 * @return the referenceType
+		 */
+		public String getReferenceType() {
+			return referenceType;
+		}
+
+		/**
+		 * @return the referenceId
+		 */
+		public long getReferenceId() {
+			return referenceId;
+		}
+
+		/**
+		 * @return the userId
+		 */
+		public long getPayeeUserId() {
+			return payeeUserId;
+		}
+
+		/**
+		 * @return the client
+		 */
+		public String getClient() {
+			return client;
+		}
+
+		/**
+		 * @return the amount
+		 */
+		public double getPaymentAmount() {
+			return paymentAmount;
+		}
+
+		/**
+		 * @return the description
+		 */
+		public String getDescription() {
+			return description;
+		}
+	}
+	
+	private static final String QUERY_USER_ID_BY_HANDLE =
+		"SELECT user_id FROM user WHERE handle = ?";
+
+	private static final String QUERY_TOPCODER_PROJECT_INFO_BY_ID =
+		"SELECT pi_name.value || ' ' || pi_version.value AS info" +
+		"  FROM tcs_catalog:project_info pi_name" +
+		"     , tcs_catalog:project_info pi_version" +
+		" WHERE pi_name.project_id = ?" +
+		"   AND pi_name.project_info_type_id = 6" +
+		"   AND pi_version.project_id = pi_name.project_id" +
+		"   AND pi_version.project_info_type_id = 7";
+
+	private static final String QUERY_STUDIO_CONTEST_INFO_BY_ID =
+		"SELECT name AS info FROM studio_oltp:contest WHERE contest_id = ?";
+
+	private PreparedStatement queryUserIdByHandle = null;
+	private PreparedStatement queryTopCoderProjectInfoById = null;
+	private PreparedStatement queryStudioContestInfoById = null;
+
+	private void initializeDatabase() throws SQLException {
+		queryUserIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
+		queryTopCoderProjectInfoById = prepareStatement("informixoltp", QUERY_TOPCODER_PROJECT_INFO_BY_ID);
+		queryStudioContestInfoById = prepareStatement("informixoltp", QUERY_STUDIO_CONTEST_INFO_BY_ID);
+	}
+
+	/**
+	 * Looks up a member's user id by handle.
+	 * 
+	 * @param handle the handle of the member to look up.
+	 * @return the member's user id.
+	 * @throws SQLException if there is a SQL error.
+	 * @throws RuntimeException if the user does not exist.
+	 */
+	private long getUserIdByHandle(String handle) {
+		ResultSet rs = null;
+		long userId;
+
+		try {
+			queryUserIdByHandle.setString(1, handle);
+			rs = queryUserIdByHandle.executeQuery();
+
+			if (rs.next()) {
+				userId = rs.getLong("user_id");
+			} else {
+				userId = 0L;
+			}
+		} catch (SQLException e) {
+			// TODO: Is this enough?
+			userId = 0L;
+			e.printStackTrace();
+		} finally {
+			close(rs);
+		}
+
+		return userId;
+	}
+
+	/**
+	 * Looks up a TopCoder project's name and version by project id.
+	 * 
+	 * @param projectId the id of the project to look up.
+	 * @return a <code>String</code> containing the name and version of the project, or <code>null</code> if it
+	 * 		   doesn't exist.
+	 * @throws SQLException if there is a SQL error.
+	 */
+	private String getTopCoderProjectInfoById(long referenceId) {
+		return getReferenceInfoById(queryTopCoderProjectInfoById, referenceId);
+	}
+
+	private String getStudioContestInfoById(long referenceId) {
+		return getReferenceInfoById(queryStudioContestInfoById, referenceId);
+	}
+
+	/**
+	 * @param referenceId
+	 * @return
+	 * @throws SQLException
+	 * @throws RuntimeException
+	 */
+	private String getReferenceInfoById(PreparedStatement query, long referenceId) {
+
+		ResultSet rs = null;
+
+		try {
+			query.setLong(1, referenceId);
+			rs = query.executeQuery();
+
+			if (rs.next()) {
+				return rs.getString("info");
+			} else {
+				return null;
+			}
+		} catch (SQLException e) {
+			// TODO: Prettier!
+			return null;
+		} finally {
+			close(rs);
+		}
+	}
+	
+    /**
+     * Helper method to close a JDBC ResultSet.
+     * 
+     * @param rs the ResultSet to close.
+     */
+    private void close(ResultSet rs) {
+    	try {
+    		if (rs != null) {
+    			rs.close();
+    		}
+    	} catch (SQLException e) {
+    		// Ignore.
+    	}
+    }
 }
