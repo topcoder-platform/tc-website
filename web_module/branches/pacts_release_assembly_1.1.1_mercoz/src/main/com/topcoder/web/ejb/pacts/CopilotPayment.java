@@ -7,11 +7,11 @@ package com.topcoder.web.ejb.pacts;
 import java.sql.SQLException;
 
 /**
- * Payment for conceptualization winner.
+ * Payment for a copilot.
  *
  * VERY IMPORTANT: remember to update serialVersionUID if needed
  *
- * Copyright (c) 2001-2008 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2001-2009 TopCoder, Inc. All rights reserved.
  * Only for use in connection with a TopCoder competition.
  *
  * @author mercoz
