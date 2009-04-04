@@ -97,7 +97,6 @@ public class PayWithholdings extends DBUtility {
                 bp.setInstallmentNumber(installment);
                 bp.setMethodId(methodId);
                 bp.setTotalAmount(totalAmount);
-                p.setGrossAmount(totalAmount - paid);
                 
                 ejb.addPayment(bp);
             }
