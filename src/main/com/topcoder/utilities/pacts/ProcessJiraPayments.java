@@ -1,5 +1,5 @@
 /**
- * 
+ * Copyright (c) 2009 TopCoder, Inc.  All rights reserved.
  */
 package com.topcoder.utilities.pacts;
 
@@ -50,26 +50,39 @@ import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapServiceServiceL
  * @author ivern
  */
 public class ProcessJiraPayments extends DBUtility {
-	
+	/** */
 	private static final String JIRA_PAYMENT_STATUS_FIELD_KEY = "customfield_10030";
 	
-    /**
-     * This variable tells if only an analysis is wanted.
-     */
+    /** This variable tells if only an analysis is wanted. */
     private String onlyAnalyze = null;
 	
+    /** Jira login username for the application. */
 	private String jiraPaymentsUser = null;
+	
+	/** Jira login password for the application. */
 	private String jiraPaymentsPassword = null;
+	
+	/** Jira filter that returns the issues to be considered for payment. */
 	private String jiraPaymentsFilterId = null;
 	
+	/** A translation mapping of client Greek nicknames to their real names. */
 	private Map<String, String> clientNicknameTranslation = null;
+	
+	/** A translation mapping of Jira issue type ids to PACTS payment types. */
 	private Map<String, String> issueTypeTranslation = null;
+	
+	/** A translation mapping of Jira issue type ids to issue type names. */
 	private Map<String, String> jiraIssueTypes = null;
 	
+	/** The date format to be used when inserting timestamps into Jira comments. */
 	private DateFormat dateFormat = null;
 	
+	/** */
 	private PactsClientServices pactsService = null;;
 	
+	/**
+	 * 
+	 */
 	public ProcessJiraPayments() {
 		super();
 		
@@ -82,6 +95,9 @@ public class ProcessJiraPayments extends DBUtility {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.topcoder.shared.util.sql.DBUtility#runUtility()
+	 */
 	@Override
 	protected void runUtility() throws Exception {
 		try {
@@ -232,6 +248,11 @@ public class ProcessJiraPayments extends DBUtility {
 		pactsService.addPayment(payment);
 	}
 
+	/**
+	 * @param jira
+	 * @param token
+	 * @throws Exception
+	 */
 	private void initializeJiraIssueTypes(JiraSoapService jira, String token) throws Exception {
 		jiraIssueTypes = new HashMap<String, String>();
 		
@@ -450,25 +471,59 @@ public class ProcessJiraPayments extends DBUtility {
         fatal_error();
 	}
 
+	/**
+	 * @author ivern
+	 *
+	 */
 	private class JiraIssue {
+		/** */
 		private static final String JIRA_PAYMENT_AMOUNT_FIELD_ID = "customfield_10012";
+		
+		/** */
 		private static final String JIRA_PAYEE_FIELD_ID = "customfield_10040";
+		
+		/** */
 		private static final String JIRA_CLIENT_NICKNAME_FIELD_ID = "customfield_10074";
+		
+		/** */
 		private static final String JIRA_PROJECT_ID_FIELD_ID = "customfield_10090";
+		
+		/** */
 		private static final String JIRA_STUDIO_ID_FIELD_ID = "customfield_10091";
 		
+		/** */
 		private String paymentType;
+		
+		/** */
 		private String referenceType;
+		
+		/** */
 		private String referenceInfo;
+		
+		/** */
 		private long referenceId;
+		
+		/** */
 		private long payeeUserId;
+		
+		/** */
 		private String client;
+		
+		/** */
 		private double paymentAmount;
+		
+		/** */
 		private String description;
 		
+		/** */
 		private boolean rejected;
+		
+		/** */
 		private List<String> errors;
 		
+		/**
+		 * @param remoteIssue
+		 */
 		public JiraIssue(RemoteIssue remoteIssue) {
 			rejected = false;
 			errors = new ArrayList<String>();
@@ -481,10 +536,16 @@ public class ProcessJiraPayments extends DBUtility {
 			populateDescription(remoteIssue);
 		}
 		
+		/**
+		 * @param remoteIssue
+		 */
 		private void populateDescription(RemoteIssue remoteIssue) {	
 			description = "[" + remoteIssue.getKey() + "] - " + referenceInfo;
 		}
 
+		/**
+		 * @param remoteIssue
+		 */
 		private void populatePaymentAmount(RemoteIssue remoteIssue) {
 			String amountString = getCustomFieldValueById(remoteIssue, JIRA_PAYMENT_AMOUNT_FIELD_ID);
 			try {
@@ -495,6 +556,9 @@ public class ProcessJiraPayments extends DBUtility {
 			}
 		}
 
+		/**
+		 * @param remoteIssue
+		 */
 		private void populateClient(RemoteIssue remoteIssue) {
 			String clientNickname = getCustomFieldValueById(remoteIssue, JIRA_CLIENT_NICKNAME_FIELD_ID);
 			if (clientNickname != null) {
@@ -509,6 +573,9 @@ public class ProcessJiraPayments extends DBUtility {
 			}
 		}
 
+		/**
+		 * @param remoteIssue
+		 */
 		private void populatePayeeUserId(RemoteIssue remoteIssue) {
 			String payeeHandle = getCustomFieldValueById(remoteIssue, JIRA_PAYEE_FIELD_ID);
 			payeeUserId = getUserIdByHandle(payeeHandle);
@@ -517,6 +584,9 @@ public class ProcessJiraPayments extends DBUtility {
 			}
 		}
 
+		/**
+		 * @param remoteIssue
+		 */
 		private void populateReferenceData(RemoteIssue remoteIssue) {
 			String projectId = getCustomFieldValueById(remoteIssue, JIRA_PROJECT_ID_FIELD_ID);
 			String studioId = getCustomFieldValueById(remoteIssue, JIRA_STUDIO_ID_FIELD_ID);
@@ -552,6 +622,9 @@ public class ProcessJiraPayments extends DBUtility {
 			}
 		}
 
+		/**
+		 * @param remoteIssue
+		 */
 		private void populatePaymentType(RemoteIssue remoteIssue) {
 			// TODO: Unify the treatment of Jira issue types...id or name?
 			paymentType = getIssueType(remoteIssue);
@@ -633,9 +706,11 @@ public class ProcessJiraPayments extends DBUtility {
 		}
 	}
 	
+	/** */
 	private static final String QUERY_USER_ID_BY_HANDLE =
 		"SELECT user_id FROM user WHERE handle = ?";
 
+	/** */
 	private static final String QUERY_TOPCODER_PROJECT_INFO_BY_ID =
 		"SELECT pi_name.value || ' ' || pi_version.value AS info" +
 		"  FROM tcs_catalog:project_info pi_name" +
@@ -645,13 +720,22 @@ public class ProcessJiraPayments extends DBUtility {
 		"   AND pi_version.project_id = pi_name.project_id" +
 		"   AND pi_version.project_info_type_id = 7";
 
+	/** */
 	private static final String QUERY_STUDIO_CONTEST_INFO_BY_ID =
 		"SELECT name AS info FROM studio_oltp:contest WHERE contest_id = ?";
 
+	/** */
 	private PreparedStatement queryUserIdByHandle = null;
+	
+	/** */
 	private PreparedStatement queryTopCoderProjectInfoById = null;
+	
+	/** */
 	private PreparedStatement queryStudioContestInfoById = null;
 
+	/**
+	 * @throws SQLException
+	 */
 	private void initializeDatabase() throws SQLException {
 		queryUserIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
 		queryTopCoderProjectInfoById = prepareStatement("informixoltp", QUERY_TOPCODER_PROJECT_INFO_BY_ID);
@@ -663,8 +747,6 @@ public class ProcessJiraPayments extends DBUtility {
 	 * 
 	 * @param handle the handle of the member to look up.
 	 * @return the member's user id.
-	 * @throws SQLException if there is a SQL error.
-	 * @throws RuntimeException if the user does not exist.
 	 */
 	private long getUserIdByHandle(String handle) {
 		ResultSet rs = null;
@@ -696,12 +778,15 @@ public class ProcessJiraPayments extends DBUtility {
 	 * @param projectId the id of the project to look up.
 	 * @return a <code>String</code> containing the name and version of the project, or <code>null</code> if it
 	 * 		   doesn't exist.
-	 * @throws SQLException if there is a SQL error.
 	 */
 	private String getTopCoderProjectInfoById(long referenceId) {
 		return getReferenceInfoById(queryTopCoderProjectInfoById, referenceId);
 	}
 
+	/**
+	 * @param referenceId
+	 * @return
+	 */
 	private String getStudioContestInfoById(long referenceId) {
 		return getReferenceInfoById(queryStudioContestInfoById, referenceId);
 	}
@@ -709,11 +794,8 @@ public class ProcessJiraPayments extends DBUtility {
 	/**
 	 * @param referenceId
 	 * @return
-	 * @throws SQLException
-	 * @throws RuntimeException
 	 */
 	private String getReferenceInfoById(PreparedStatement query, long referenceId) {
-
 		ResultSet rs = null;
 
 		try {
