@@ -67,7 +67,7 @@ public class PayWithholdings extends DBUtility {
         query.append(PactsConstants.COMPONENT_PAYMENT).append(") ");
         query.append(" AND to_date(pi.value, '%m.%d.%Y %H:%M %p') + ").append(releasePeriodDays);
         query.append(" UNITS DAY < current "); 
-        query.append(" GROUP BY 1, 2, 3, 4, 5, 6, 7 ");
+        query.append(" GROUP BY 1, 2, 3, 4, 5, 6 ");
         query.append(" HAVING sum(gross_amount) < max(total_amount) ");
 
         PreparedStatement psSelProjects = prepareStatement("informixoltp", query.toString());
