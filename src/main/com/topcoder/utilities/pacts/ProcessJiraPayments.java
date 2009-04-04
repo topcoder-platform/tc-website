@@ -44,19 +44,23 @@ import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapService;
 import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapServiceServiceLocator;
 
 /**
+ * Wishlist:
+ *  - Email about rejected issues.
+ *  
  * @author ivern
  */
 public class ProcessJiraPayments extends DBUtility {
+	
+	private static final String JIRA_PAYMENT_STATUS_FIELD_KEY = "customfield_10030";
+	
     /**
      * This variable tells if only an analysis is wanted.
      */
     private String onlyAnalyze = null;
-    
-    // TODO: Get these from configuration.
-	private static final String JIRA_PAYMENTS_USER = "jira_payments";
-	private static final String JIRA_PAYMENTS_PASSWORD = "t0pc0der76";
-	private static final String JIRA_PAYMENTS_FILTER = "10634";
-	private static final String JIRA_PAYMENT_STATUS_FIELD_KEY = "customfield_10030";
+	
+	private String jiraPaymentsUser = null;
+	private String jiraPaymentsPassword = null;
+	private String jiraPaymentsFilterId = null;
 	
 	private Map<String, String> clientNicknameTranslation = null;
 	private Map<String, String> issueTypeTranslation = null;
@@ -85,17 +89,25 @@ public class ProcessJiraPayments extends DBUtility {
 			
 			JiraSoapService jira = new JiraSoapServiceServiceLocator().getJirasoapserviceV2();
 			
-			String token = jira.login(JIRA_PAYMENTS_USER, JIRA_PAYMENTS_PASSWORD);
+			String token = jira.login(jiraPaymentsUser, jiraPaymentsPassword);
 			
 			initializeJiraIssueTypes(jira, token);
 			
 			// TODO: Stop filtering for resolved, instead handle it in here.
-			RemoteIssue[] issuesToPay = jira.getIssuesFromFilter(token, JIRA_PAYMENTS_FILTER);
+			RemoteIssue[] issuesToPay = jira.getIssuesFromFilter(token, jiraPaymentsFilterId);
 			
 			for (RemoteIssue remoteIssue : issuesToPay) {
 				try {
 					// Parse all the relevant data from the Jira issue and determine rejection status and errors.
 					JiraIssue issue = new JiraIssue(remoteIssue);
+					
+					// Ignoring types we don't have for now.
+					if ("Studio".equals(issue.getReferenceType())) {
+						issue.rejectIssue("Studio reference types are not implemented yet.");
+					}
+					if ("Copilot".equals(issue.getPaymentType())) {
+						issue.rejectIssue("Copilot payment type is not implemented yet.");
+					}
 			
 					log.info("[" + (issue.isRejected() ? "REJECTED" : "ACCEPTED") + "] - (payment type: "
 							+ issue.getPaymentType() + ", project type: " + issue.getReferenceType()
@@ -109,18 +121,8 @@ public class ProcessJiraPayments extends DBUtility {
 					
 					if (false && onlyAnalyze.equalsIgnoreCase("false")) {
 						if (issue.isRejected()) {
-							// TODO: Insert a detailed reasoning of why the payment failed into Jira.
-							// Update Jira.  Turned off for now.
-							if (false) {
-								updateJira(jira, token, remoteIssue, false);
-							}
-						} else {
-							// TODO: FOR NOW IGNORE STUDIO, WE DON'T HAVE THE NECESSARY PAYMENT TYPES.
-							if ("Studio".equals(issue.getReferenceType())) {
-								// TODO: Nice error message here.
-								continue;
-							}
-							
+							updateJira(jira, token, remoteIssue, false);
+						} else {							
 							insertPactsPayment(issue.getPaymentType(), issue.getReferenceId(), issue.getClient(),
 									issue.getPayeeUserId(), issue.getPaymentAmount(), issue.getDescription());
 							updateJira(jira, token, remoteIssue, true);
@@ -158,6 +160,7 @@ public class ProcessJiraPayments extends DBUtility {
 			updateJiraPaymentStatus(jira, token, issue, "Paid");
 			addJiraComment(jira, token, issue, "Payment processed on " + dateFormat.format(new Date()));
 		} else {
+			// TODO: Insert a detailed reasoning of why the payment failed into Jira.
 			updateJiraPaymentStatus(jira, token, issue, "Payment On Hold");
 		}
 	}
@@ -344,6 +347,24 @@ public class ProcessJiraPayments extends DBUtility {
         }
         params.remove("onlyAnalyze");
         log.debug("onlyAnalyze: " + onlyAnalyze);
+        
+        jiraPaymentsUser = (String) params.get("jiraPaymentsUser");
+        if (jiraPaymentsUser == null) {
+        	setUsageError("Required parameter jiraPaymentsUser missing.");
+        }
+        params.remove("jiraPaymentsUser");
+        
+        jiraPaymentsPassword = (String) params.get("jiraPaymentsPassword");
+        if (jiraPaymentsPassword == null) {
+        	setUsageError("Required parameter jiraPaymentsPassword missing.");
+        }
+        params.remove("jiraPaymentsPassword");
+        
+        jiraPaymentsFilterId = (String) params.get("jiraPaymentsFilterId");
+        if (jiraPaymentsFilterId == null) {
+        	setUsageError("Required parameter jiraPaymentsFilterId missing.");
+        }
+        params.remove("jiraPaymentsFilterId");
 
         clientNicknameTranslation = initializeTranslationFromConfiguration("clientNamingFilename");
         issueTypeTranslation = initializeTranslationFromConfiguration("issueTypesFilename");
@@ -420,7 +441,12 @@ public class ProcessJiraPayments extends DBUtility {
         sErrorMsg.append(msg + "\n");
         sErrorMsg.append("ProcessJiraPayments:\n");
         sErrorMsg.append("   The following parameters should be included in the XML or the command line");
-        sErrorMsg.append("   -onlyAnalyze : whether to just analyze without updates.\n");
+        sErrorMsg.append("   -onlyAnalyze          : whether to just analyze without updates.\n");
+        sErrorMsg.append("   -jiraPaymentsUser     : the Jira user name for the payments application.\n");
+        sErrorMsg.append("   -jiraPaymentsPassword : the Jira password for the payments application.\n");
+        sErrorMsg.append("   -jiraPaymentsFilterId : the id of a Jira filter that returns the issues to be paid.\n");
+        sErrorMsg.append("   -clientNamingFilename : client Greek to real name mapping file.\n");
+        sErrorMsg.append("   -issueTypesFilename   : Jira issue to PACTS payment type mapping file.\n");
         fatal_error();
 	}
 
@@ -449,8 +475,8 @@ public class ProcessJiraPayments extends DBUtility {
 			
 			populatePaymentType(remoteIssue);
 			populateReferenceData(remoteIssue);
-			populatePayeeUserId(remoteIssue);
 			populateClient(remoteIssue);
+			populatePayeeUserId(remoteIssue);
 			populatePaymentAmount(remoteIssue);
 			populateDescription(remoteIssue);
 		}
@@ -538,7 +564,7 @@ public class ProcessJiraPayments extends DBUtility {
 		/**
 		 * @param message
 		 */
-		private void rejectIssue(String message) {
+		public void rejectIssue(String message) {
 			rejected = true;
 			errors.add(message);
 		}
