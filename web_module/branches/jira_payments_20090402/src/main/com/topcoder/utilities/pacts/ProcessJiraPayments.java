@@ -83,21 +83,13 @@ public class ProcessJiraPayments extends DBUtility {
 	/** The date format to be used when inserting timestamps into Jira comments. */
 	private DateFormat dateFormat = null;
 	
-	/** A reference to the local PACTS services bean instance. */
-	private PactsClientServices pactsService = null;;
-	
 	/**
-	 * Class constructor.  Initializes the date format and local PACTS services bean instance.
+	 * Class constructor.  Initializes the date format.
 	 */
 	public ProcessJiraPayments() {
 		super();
 		
 		dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		try {
-			pactsService = (PactsClientServices) createEJB();
-		} catch (Exception e) {
-			fatal_error(e);
-		}
 	}
 	
 	/* (non-Javadoc)
@@ -106,6 +98,8 @@ public class ProcessJiraPayments extends DBUtility {
 	@Override
 	protected void runUtility() throws Exception {
 		initializeDatabase();
+		
+		PactsClientServices pactsService = (PactsClientServices) createEJB();
 
 		JiraSoapService jira = new JiraSoapServiceServiceLocator().getJirasoapserviceV2();
 
@@ -143,8 +137,12 @@ public class ProcessJiraPayments extends DBUtility {
 					if (issue.isRejected()) {
 						updateJira(jira, token, remoteIssue, false);
 					} else {							
-						insertPactsPayment(issue.getPaymentType(), issue.getReferenceId(), issue.getClient(),
-								issue.getPayeeUserId(), issue.getPaymentAmount(), issue.getDescription());
+						BasePayment payment = createPactsPayment(issue.getReferenceType(), issue.getPaymentType(),
+								issue.getReferenceId(),	issue.getClient(), issue.getPayeeUserId(),
+								issue.getPaymentAmount(), issue.getDescription());
+						
+						payment = pactsService.addPayment(payment);
+						
 						updateJira(jira, token, remoteIssue, true);
 					}
 				}
@@ -217,34 +215,39 @@ public class ProcessJiraPayments extends DBUtility {
 	}
 
 	/**
+	 * @param referenceType
 	 * @param paymentType
 	 * @param referenceId
 	 * @param client
 	 * @param userId
 	 * @param amount
 	 * @param summary
-	 * @throws RuntimeException
-	 * @throws RemoteException
-	 * @throws SQLException
+	 * @return
 	 */
-	private void insertPactsPayment(String paymentType, long referenceId, String client, long userId, double amount,
-			String summary) throws RuntimeException, RemoteException, SQLException {
+	private BasePayment createPactsPayment(String referenceType, String paymentType, long referenceId, String client,
+			long userId, double amount, String summary) {
 		
 		BasePayment payment = null;
 		
-		if ("Bug Fix".equals(paymentType)) {
-			payment = new BugFixesPayment(userId, amount, client, referenceId);
-		} else if ("Enhancement".equals(paymentType)){
-			payment = new ComponentEnhancementsPayment(userId, amount, client, referenceId);
-		} else if ("Specification Review".equals(paymentType)) {
-			payment = new SpecificationReviewPayment(userId, amount, client, referenceId);
+		if ("TopCoder".equals(referenceType)) {
+			if ("Bug Fix".equals(paymentType)) {
+				payment = new BugFixesPayment(userId, amount, client, referenceId);
+			} else if ("Enhancement".equals(paymentType)){
+				payment = new ComponentEnhancementsPayment(userId, amount, client, referenceId);
+			} else if ("Specification Review".equals(paymentType)) {
+				payment = new SpecificationReviewPayment(userId, amount, client, referenceId);
+			} else {
+				throw new IllegalArgumentException("Unknown payment type: " + paymentType);
+			}
+		} else if ("Studio".equals(referenceType)) {
+			// TODO: Add Studio payment types once they exist.
 		} else {
-			throw new RuntimeException("Unknown payment type: " + paymentType);
+			throw new IllegalArgumentException("Unknown reference type: " + referenceType);
 		}
 		payment.setNetAmount(amount);
 		payment.setDescription(summary);
 		
-		pactsService.addPayment(payment);
+		return payment;
 	}
 
 	/**
@@ -403,7 +406,7 @@ public class ProcessJiraPayments extends DBUtility {
         
         try {
             if (filename == null || filename.trim().length() == 0) {
-                throw new Exception("Invalid or non-existent parameter [" + configurationKey + "].");
+                throw new IllegalArgumentException("Invalid or non-existent parameter [" + configurationKey + "].");
             }
             translationMap = loadTranslationMap(filename);
         } catch (Exception ex) {
