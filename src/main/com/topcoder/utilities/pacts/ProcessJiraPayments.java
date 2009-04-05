@@ -443,7 +443,7 @@ public class ProcessJiraPayments extends DBUtility {
         	String canonicalFrom = canonicalize(from);
         	
         	if (translationMap.containsKey(canonicalFrom)) {
-        		log.error("ERROR: " + filename + " - more than one translation found for " + canonicalFrom
+        		log.warn("WARNING: " + filename + " - more than one translation found for " + canonicalFrom
         				+ ", ignoring translation to " + to);
         	}
         	
