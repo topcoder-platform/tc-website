@@ -43,13 +43,20 @@ import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapService;
 import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapServiceServiceLocator;
 
 /**
+ * <p>Processes any pending payments from Jira (resolved issues marked as Payment Owed), and inserts the resulting
+ * member payments into PACTS.</p>
+ * 
  * Wishlist:
- *  - Email about rejected issues.
+ * <ul>
+ *   <li>Email about rejected issues.</li>
+ * </ul>
  *  
  * @author ivern
+ * @version 1.0.0
+ * @see com.topcoder.shared.util.sql.DBUtility
  */
 public class ProcessJiraPayments extends DBUtility {
-	/** */
+	/** The Jira key for the Payment Status custom field. */
 	private static final String JIRA_PAYMENT_STATUS_FIELD_KEY = "customfield_10030";
 	
     /** This variable tells if only an analysis is wanted. */
@@ -76,11 +83,11 @@ public class ProcessJiraPayments extends DBUtility {
 	/** The date format to be used when inserting timestamps into Jira comments. */
 	private DateFormat dateFormat = null;
 	
-	/** */
+	/** A reference to the local PACTS services bean instance. */
 	private PactsClientServices pactsService = null;;
 	
 	/**
-	 * 
+	 * Class constructor.  Initializes the date format and local PACTS services bean instance.
 	 */
 	public ProcessJiraPayments() {
 		super();
