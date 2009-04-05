@@ -215,17 +215,20 @@ public class ProcessJiraPayments extends DBUtility {
 	}
 
 	/**
-	 * @param referenceType
-	 * @param paymentType
-	 * @param referenceId
-	 * @param client
-	 * @param userId
-	 * @param amount
-	 * @param summary
-	 * @return
+	 * Creates an instance of the right PACTS payment for a given reference and payment type, populated with
+	 * the provided reference, payee, client, amount, and description information.
+	 * 
+	 * @param referenceType the type of reference, currently either "TopCoder" or "Studio".
+	 * @param paymentType the type of payment, such as "Bug Fix", "Enhancement", "Specification Review", etc.
+	 * @param referenceId a reference to the project or contest that this payment is related to.
+	 * @param client the name of the client that the work was done for.
+	 * @param userId the payee's user id.
+	 * @param amount the payment amount.
+	 * @param description a description of the payment.
+	 * @return the created payment instance.
 	 */
 	private BasePayment createPactsPayment(String referenceType, String paymentType, long referenceId, String client,
-			long userId, double amount, String summary) {
+			long userId, double amount, String description) {
 		
 		BasePayment payment = null;
 		
@@ -245,7 +248,7 @@ public class ProcessJiraPayments extends DBUtility {
 			throw new IllegalArgumentException("Unknown reference type: " + referenceType);
 		}
 		payment.setNetAmount(amount);
-		payment.setDescription(summary);
+		payment.setDescription(description);
 		
 		return payment;
 	}
