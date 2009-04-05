@@ -19,7 +19,6 @@ import java.util.Map;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.rpc.ServiceException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -90,8 +89,7 @@ public class ProcessJiraPayments extends DBUtility {
 		try {
 			pactsService = (PactsClientServices) createEJB();
 		} catch (Exception e) {
-			// TODO: FAIL BETTER.
-			e.printStackTrace();
+			fatal_error(e);
 		}
 	}
 	
@@ -100,61 +98,55 @@ public class ProcessJiraPayments extends DBUtility {
 	 */
 	@Override
 	protected void runUtility() throws Exception {
-		try {
-			initializeDatabase();
-			
-			JiraSoapService jira = new JiraSoapServiceServiceLocator().getJirasoapserviceV2();
-			
-			String token = jira.login(jiraPaymentsUser, jiraPaymentsPassword);
-			
-			initializeJiraIssueTypes(jira, token);
-			
-			// TODO: Stop filtering for resolved, instead handle it in here.
-			RemoteIssue[] issuesToPay = jira.getIssuesFromFilter(token, jiraPaymentsFilterId);
-			
-			for (RemoteIssue remoteIssue : issuesToPay) {
-				try {
-					// Parse all the relevant data from the Jira issue and determine rejection status and errors.
-					JiraIssue issue = new JiraIssue(remoteIssue);
-					
-					// Ignoring types we don't have for now.
-					if ("Studio".equals(issue.getReferenceType())) {
-						issue.rejectIssue("Studio reference types are not implemented yet.");
-					}
-					if ("Copilot".equals(issue.getPaymentType())) {
-						issue.rejectIssue("Copilot payment type is not implemented yet.");
-					}
-			
-					log.info("[" + (issue.isRejected() ? "REJECTED" : "ACCEPTED") + "] - (payment type: "
-							+ issue.getPaymentType() + ", project type: " + issue.getReferenceType()
-							+ ", reference id: " + issue.getReferenceId() + ", user id: " + issue.getPayeeUserId()
-							+ ", client: "	+ issue.getClient() + ", amount: " + issue.getPaymentAmount()
-							+ ", description: " + issue.getDescription() + ")");
-					
-					for (String e : issue.getErrors()) {
-						log.info("    Reason : " + e);
-					}
-					
-					if (false && onlyAnalyze.equalsIgnoreCase("false")) {
-						if (issue.isRejected()) {
-							updateJira(jira, token, remoteIssue, false);
-						} else {							
-							insertPactsPayment(issue.getPaymentType(), issue.getReferenceId(), issue.getClient(),
-									issue.getPayeeUserId(), issue.getPaymentAmount(), issue.getDescription());
-							updateJira(jira, token, remoteIssue, true);
-						}
-					}
-				} catch (Exception e) {
-					// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.  Use sErrorMsg for stuff!
-					e.printStackTrace();
+		initializeDatabase();
+
+		JiraSoapService jira = new JiraSoapServiceServiceLocator().getJirasoapserviceV2();
+
+		String token = jira.login(jiraPaymentsUser, jiraPaymentsPassword);
+
+		initializeJiraIssueTypes(jira, token);
+
+		// TODO: Stop filtering for resolved, instead handle it in here.
+		RemoteIssue[] issuesToPay = jira.getIssuesFromFilter(token, jiraPaymentsFilterId);
+
+		for (RemoteIssue remoteIssue : issuesToPay) {
+			try {
+				// Parse all the relevant data from the Jira issue and determine rejection status and errors.
+				JiraIssue issue = new JiraIssue(remoteIssue);
+
+				// Ignoring types we don't have for now.
+				if ("Studio".equals(issue.getReferenceType())) {
+					issue.rejectIssue("Studio reference types are not implemented yet.");
 				}
+				if ("Copilot".equals(issue.getPaymentType())) {
+					issue.rejectIssue("Copilot payment type is not implemented yet.");
+				}
+
+				log.info("[" + (issue.isRejected() ? "REJECTED" : "ACCEPTED") + "] - (payment type: "
+						+ issue.getPaymentType() + ", project type: " + issue.getReferenceType()
+						+ ", reference id: " + issue.getReferenceId() + ", user id: " + issue.getPayeeUserId()
+						+ ", client: "	+ issue.getClient() + ", amount: " + issue.getPaymentAmount()
+						+ ", description: " + issue.getDescription() + ")");
+
+				for (String e : issue.getErrors()) {
+					log.info("    Reason : " + e);
+				}
+
+				if (false && onlyAnalyze.equalsIgnoreCase("false")) {
+					if (issue.isRejected()) {
+						updateJira(jira, token, remoteIssue, false);
+					} else {							
+						insertPactsPayment(issue.getPaymentType(), issue.getReferenceId(), issue.getClient(),
+								issue.getPayeeUserId(), issue.getPaymentAmount(), issue.getDescription());
+						updateJira(jira, token, remoteIssue, true);
+					}
+				}
+			} catch (Exception e) {
+				log.error("*******************************************");
+				log.error("FAILURE: Processing issue " + remoteIssue.getKey());
+				log.error(e);
+				log.error("*******************************************");
 			}
-		} catch (RemoteException re) {
-			// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.  Use sErrorMsg for stuff!
-			re.printStackTrace();
-		} catch (ServiceException se) {
-			// FIXME: MAKE SURE I HANDLE FAILURES CORRECTLY.  Use sErrorMsg for stuff!
-			se.printStackTrace();
 		}
 	}
 
@@ -441,11 +433,16 @@ public class ProcessJiraPayments extends DBUtility {
         	String from = attr.getNamedItem("from").getNodeValue();
         	String to = attr.getNamedItem("to").getNodeValue();
         	
-        	// TODO: Check for errors such as duplicate from.
+        	String canonicalFrom = canonicalize(from);
         	
-            translationMap.put(canonicalize(from), to);
+        	if (translationMap.containsKey(canonicalFrom)) {
+        		log.error("ERROR: " + filename + " - more than one translation found for " + canonicalFrom
+        				+ ", ignoring translation to " + to);
+        	}
+        	
+            translationMap.put(canonicalFrom, to);
             
-            log.debug("loadTranslationMap: read translation (" + from + " -> " + to + ")");
+            log.debug(filename + ": loaded translation (" + from + " -> " + to + ")");
         }
         
         return translationMap;
@@ -746,11 +743,11 @@ public class ProcessJiraPayments extends DBUtility {
 	 * Looks up a member's user id by handle.
 	 * 
 	 * @param handle the handle of the member to look up.
-	 * @return the member's user id.
+	 * @return the member's user id, or 0L if the member could not be found. 
 	 */
 	private long getUserIdByHandle(String handle) {
 		ResultSet rs = null;
-		long userId;
+		long userId = 0L;
 
 		try {
 			queryUserIdByHandle.setString(1, handle);
@@ -758,13 +755,11 @@ public class ProcessJiraPayments extends DBUtility {
 
 			if (rs.next()) {
 				userId = rs.getLong("user_id");
-			} else {
-				userId = 0L;
 			}
 		} catch (SQLException e) {
-			// TODO: Is this enough?
-			userId = 0L;
-			e.printStackTrace();
+			log.error("*******************************************");
+			log.error("FAILURE: " + e);
+			log.error("*******************************************");
 		} finally {
 			close(rs);
 		}
@@ -797,22 +792,24 @@ public class ProcessJiraPayments extends DBUtility {
 	 */
 	private String getReferenceInfoById(PreparedStatement query, long referenceId) {
 		ResultSet rs = null;
+		String info = null;
 
 		try {
 			query.setLong(1, referenceId);
 			rs = query.executeQuery();
 
 			if (rs.next()) {
-				return rs.getString("info");
-			} else {
-				return null;
+				info = rs.getString("info");
 			}
 		} catch (SQLException e) {
-			// TODO: Prettier!
-			return null;
+			log.error("*******************************************");
+			log.error("FAILURE: " + e);
+			log.error("*******************************************");
 		} finally {
 			close(rs);
 		}
+		
+		return info;
 	}
 	
     /**
