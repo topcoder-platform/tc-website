@@ -620,7 +620,9 @@ public class ProcessJiraPayments extends DBUtility {
 		}
 
 		/**
-		 * @param message
+		 * Marks the issue as rejected for payment, and adds the provided error message to the error list.
+		 * 
+		 * @param message the error message to add.
 		 */
 		public void rejectIssue(String message) {
 			rejected = true;
@@ -628,14 +630,19 @@ public class ProcessJiraPayments extends DBUtility {
 		}
 		
 		/**
-		 * @return the rejected
+		 * Checks whether the issue has been rejected for payment.
+		 * 
+		 * @return <code>true</code> if the issue has been rejected, <code>false</code> otherwise.
 		 */
 		public boolean isRejected() {
 			return rejected;
 		}
 
 		/**
-		 * @return the errors
+		 * Returns the list of errors that caused the issue to be rejected for payment.  If none exist, an empty
+		 * list is returned.
+		 * 
+		 * @return the errors as a list of <code>String</code>.
 		 */
 		public List<String> getErrors() {
 			return errors;
@@ -691,11 +698,11 @@ public class ProcessJiraPayments extends DBUtility {
 		}
 	}
 	
-	/** */
+	/** A query that finds a member by handle and returns their user id. */
 	private static final String QUERY_USER_ID_BY_HANDLE =
 		"SELECT user_id FROM user WHERE handle = ?";
 
-	/** */
+	/** A query that finds a TopCoder project by id and returns its name and version. */
 	private static final String QUERY_TOPCODER_PROJECT_INFO_BY_ID =
 		"SELECT pi_name.value || ' ' || pi_version.value AS info" +
 		"  FROM tcs_catalog:project_info pi_name" +
@@ -705,21 +712,23 @@ public class ProcessJiraPayments extends DBUtility {
 		"   AND pi_version.project_id = pi_name.project_id" +
 		"   AND pi_version.project_info_type_id = 7";
 
-	/** */
+	/** A query that finds a Studio contest by id and returns its name. */
 	private static final String QUERY_STUDIO_CONTEST_INFO_BY_ID =
 		"SELECT name AS info FROM studio_oltp:contest WHERE contest_id = ?";
 
-	/** */
+	/** A prepared statement that finds a member by handle and returns their user id. */
 	private PreparedStatement queryUserIdByHandle = null;
 	
-	/** */
+	/** A prepared statement that finds a TopCoder project by id and returns its name and version. */
 	private PreparedStatement queryTopCoderProjectInfoById = null;
 	
-	/** */
+	/** A prepared statement that finds a Studio contest by id and returns its name. */
 	private PreparedStatement queryStudioContestInfoById = null;
 
 	/**
-	 * @throws SQLException
+	 * Initializes all of the prepared statements used by the application.
+	 * 
+	 * @throws SQLException if an error occurs.
 	 */
 	private void initializeDatabase() throws SQLException {
 		queryUserIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
@@ -747,6 +756,7 @@ public class ProcessJiraPayments extends DBUtility {
 		} catch (SQLException e) {
 			log.error("*******************************************");
 			log.error("FAILURE: " + e);
+			e.printStackTrace();
 			log.error("*******************************************");
 		} finally {
 			close(rs);
@@ -762,21 +772,25 @@ public class ProcessJiraPayments extends DBUtility {
 	 * @return a <code>String</code> containing the name and version of the project, or <code>null</code> if it
 	 * 		   doesn't exist.
 	 */
-	private String getTopCoderProjectInfoById(long referenceId) {
-		return getReferenceInfoById(queryTopCoderProjectInfoById, referenceId);
+	private String getTopCoderProjectInfoById(long projectId) {
+		return getReferenceInfoById(queryTopCoderProjectInfoById, projectId);
 	}
 
 	/**
-	 * @param referenceId
-	 * @return
+	 * Looks up a Studio contest's name by contest id.
+	 * 
+	 * @param contestId the id of the contest to look up.
+	 * @return a <code>String</code> containing the name of the contest, or <code>null</code> if it doesn't exist.
 	 */
-	private String getStudioContestInfoById(long referenceId) {
-		return getReferenceInfoById(queryStudioContestInfoById, referenceId);
+	private String getStudioContestInfoById(long contestId) {
+		return getReferenceInfoById(queryStudioContestInfoById, contestId);
 	}
 
 	/**
-	 * @param referenceId
-	 * @return
+	 * Looks up a contest or project by id and returns the reference information.
+	 * 
+	 * @param referenceId the id of the project or contest to look up.
+	 * @return the reference information (project name and version, or contest name).
 	 */
 	private String getReferenceInfoById(PreparedStatement query, long referenceId) {
 		ResultSet rs = null;
@@ -792,6 +806,7 @@ public class ProcessJiraPayments extends DBUtility {
 		} catch (SQLException e) {
 			log.error("*******************************************");
 			log.error("FAILURE: " + e);
+			e.printStackTrace();
 			log.error("*******************************************");
 		} finally {
 			close(rs);
