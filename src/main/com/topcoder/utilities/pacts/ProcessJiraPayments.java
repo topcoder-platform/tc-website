@@ -197,7 +197,9 @@ public class ProcessJiraPayments extends DBUtility {
 		final RemoteComment comment = new RemoteComment(); 
 		comment.setBody(body);
 
+		log.debug("Calling addComment");
 		jira.addComment(token, issue.getKey(), comment);
+		log.debug("Returned from addComment");
 	}
 
 	/**
