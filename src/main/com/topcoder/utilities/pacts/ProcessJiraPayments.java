@@ -104,6 +104,9 @@ public class ProcessJiraPayments extends DBUtility {
 				if ("Copilot".equals(issue.getPaymentType())) {
 					issue.rejectIssue("Copilot payment type is not implemented yet.");
 				}
+				if ("COMPBUILDS".equals(remoteIssue.getKey().substring(0, 10))) {
+					issue.rejectIssue("Component Build payment types are not implemented yet.");
+				}
 
 				log.info("[" + (issue.isRejected() ? "REJECTED" : "ACCEPTED") + "] - (payment type: "
 						+ issue.getPaymentType() + ", project type: " + issue.getReferenceType()
@@ -145,7 +148,7 @@ public class ProcessJiraPayments extends DBUtility {
 			} catch (Exception e) {
 				log.error("*******************************************");
 				log.error("FAILURE: Processing issue " + remoteIssue.getKey());
-				log.error(e);
+				log.error(e.getStackTrace());
 				log.error("*******************************************");
 			}
 		}
