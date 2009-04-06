@@ -133,9 +133,11 @@ public class ProcessJiraPayments extends DBUtility {
 					log.info("    Reason : " + e);
 				}
 
-				if (false && onlyAnalyze.equalsIgnoreCase("false")) {
+				if (onlyAnalyze.equalsIgnoreCase("false")) {
 					if (issue.isRejected()) {
-						updateJira(jira, token, remoteIssue, false);
+						if (false) {
+							updateJira(jira, token, remoteIssue, false);
+						}
 					} else {							
 						BasePayment payment = createPactsPayment(issue.getReferenceType(), issue.getPaymentType(),
 								issue.getReferenceId(),	issue.getClient(), issue.getPayeeUserId(),
@@ -244,6 +246,7 @@ public class ProcessJiraPayments extends DBUtility {
 			}
 		} else if ("Studio".equals(referenceType)) {
 			// TODO: Add Studio payment types once they exist.
+			throw new RuntimeException("Studio payment types have not been implemented yet");
 		} else {
 			throw new IllegalArgumentException("Unknown reference type: " + referenceType);
 		}
