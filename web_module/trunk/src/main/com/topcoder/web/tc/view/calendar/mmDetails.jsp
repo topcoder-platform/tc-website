@@ -86,6 +86,66 @@
 
 <div class="sectionHeader">Competition Overview</div>
 
+<%-- EXPERIMENTAL SERIES --%>
+<%if(rsr.getIntItem("round_id") == 13793) {%>
+<p align="justify">
+This is the first of a series of Experimental Marathon Matches that TopCoder is running in coordination with Harvard Business School.  
+The structure and rules for these events are a departure from anything that TopCoder has run in the past, in that we are exploring the 
+effects of changes in how individuals collaborate and share information about approaches and code.
+<br><br>
+The competitions each will involve solving a computational biology problem.  This first problem is related to genomics. 
+We believe that the TopCoder community may have an interesting take on these problems and could potentially come up with breakthroughs 
+that benefit science in general.  We will of course also make sure that the writers of the algorithms that win get both cash prizes and 
+if we uncover something publishable to get credit in a research paper.
+<br><br>
+This Experimental Marathon Match event has a total of <b>$6,000 in prizes</b>! 
+In addition, there will be three 2009 TCO trips to Las Vegas being given away as prizes for performance in this Experimental Marathon event.
+<br><br>
+In this Experimental Marathon Match, members who register for the event will automatically assigned into one of 3 groups:
+<br><br>
+<ul>
+
+<li>
+<b>Group 1</b> - <i>Traditional Marathon Match</i> - Individuals in this group will be assigned to work on the problem individually - 
+i.e. no information sharing at all. Winners will be declared based on the best performing code according to the problem's statement.
+</li>
+
+<li>
+<b>Group 2</b> - <i>Traditional + Sharing</i> - In this group individuals will initially compete individually in a first phase of competition lasting one week.  In a second phase, 
+they will be in the information sharing mode, where all the entries that they submit will be viewable to all those in the same group/treatment.  
+From that point on they are encouraged to openly discuss their code and their ideas in their group's forum.  While sharing, participants will still submit 
+individually but they will be asked to give credit to individuals from which they have borrowed or incorporated code or ideas. 
+</li>
+
+<li>
+<b>Group 3</b> - <i>Sharing</i> - Individuals in this group will be sharing code and ideas during the entire length of the competition.  
+In both phases, participants will submit individually but they will be asked to give credit to individuals from which they have borrowed or 
+incorporated code or ideas. We will declare winners for best performing code and have a shared pool prize which will go to individuals who were credited by others.
+</li>
+</ul>
+<br>
+Participants in all groups may submit code written in any of the following languages: Java, C++, C#.NET, VB.NET, or Python.
+<br>
+All Groups will be isolated from one another so that there are no spillovers of information, discussions, or code amongst the groups.  
+Our hope is to learn more about which processes are most effective.
+<br><br>
+<a href="http://www.topcoder.com/longcontest/?module=ViewReg&rd=13793">Register to be assigned to one of the three groups here.</a>
+<br><br>
+Keep in mind that there is no actual problem statement associated with the "registration" round.  Once the registration period closes on April 13, 2009,
+you will automatically be assigned to a competition round that corresponds with the group to which you have been assigned.  We ask that you register only 
+if you plan to make a reasonable effort at participation in the competition round that begins on April 13, 2009 and will last for two weeks.
+
+Once registration is closed, and prior to the start of the competition, you will receive an email with your Group/Treatment 
+assignment - you will be assigned based on your Marathon Match rating.  
+<br><br>
+Harvard's Professor Lakhani has been active in the forums discussing this Experimental Marathon Series.  
+His handle is <a href="http://www.topcoder.com/tc?module=MemberProfile&cr=22681631">karimlakhani</a> and you can find 
+<a href="http://forums.topcoder.com/?module=Thread&threadID=637060&start=0">further discussion here</a> in the TopCoder forum discussions. 
+<br><br>
+Please check out the rules link below for more detail.
+</p>
+<%}%>
+
 <%if(rsr.getIntItem("round_id") == 10834) {%>
 <p align="justify">
     This Marathon Match has some new rules and terms.  Please make sure to read
@@ -93,6 +153,7 @@
     you are agreeing to license it under the GNU Public License, Version 2.0.
 </p>
 <%}%>
+
 <%if(rsr.getIntItem("round_id") == 10862 || rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13772 ) {%>
 <p align="justify">
     This Marathon Match has some different rules and terms.  Please make sure to read
@@ -104,22 +165,29 @@
 
 <%if(rsr.getIntItem("round_id") == 13569 ||  rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 || rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681 ) {%>
 <p align="justify">
-    This Marathon Match is an encryption match. Use a known encryption method like DES, Substitution cipher, or Cryptography, to decipher the problem, and you can be a part of the $5,000 prize purse. The top five highest scorers will receive prizes with the first place winner receiving $2,500.
+    This Marathon Match is an encryption match. Use a known encryption method like DES, Substitution cipher, or Cryptography, 
+	to decipher the problem, and you can be a part of the $5,000 prize purse. 
+	The top five highest scorers will receive prizes with the first place winner receiving $2,500.
 </p>
 <%}%>
 
 <%if(rsr.getIntItem("round_id") == 13754 ) {%>
 <p align="justify">
-    This Marathon Match is a money match that has a <b>$5,000 prize purse</b>! The top five highest scorers will receive prizes with the first place winner receiving $2,500!
+    This Marathon Match is a money match that has a <b>$5,000 prize purse</b>! The top five highest scorers 
+	will receive prizes with the first place winner receiving $2,500!
 </p>
 <%}%>
 
 <%if(rsr.getIntItem("round_id") == 13772 ) {%>
 <p align="justify">
-    This Marathon Match is a money match that has a <b>$10,000 prize purse</b>! The top five highest scorers will receive prizes with the first place winner receiving $5,000!
+    This Marathon Match is a money match that has a <b>$10,000 prize purse</b>! The top five highest scorers 
+	will receive prizes with the first place winner receiving $5,000!
 </p>
 <%}%>
 
+
+<%-- LIMIT THE REMAINING COPY FOR THE EXPERIMENTAL SERIES --%>
+<%if(rsr.getIntItem("round_id") != 13793 ) {%>
 
 <%if(rsr.getIntItem("round_id") == 13772 ) {%>
 <p align="justify">
@@ -242,7 +310,10 @@
 </p>
 <%}%>
 
-<%if(rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13772 ) {%>
+<%-- END IF FOR LIMIT ON EXPERIMENTAL SERIES --%>
+<%}%>
+
+<%if(rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13793) {%>
 <div class="sectionHeader">Eligibility</div>
   <p align="justify">
     You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition,
@@ -265,14 +336,23 @@
   </p>
 <%}%>
 
-<div class="sectionHeader">Timeline</div>
+<%if(rsr.getIntItem("round_id") == 13793) {%>
+  <div class="sectionHeader">Registration Timeline</div>
+<%} else { %>
+  <div class="sectionHeader">Timeline</div>
+<%}%>
 
 <div align="center" style="margin: 20px;">
     <table cellpadding="0" cellspacing="0" style="width: 180px;">
         <tbody>
             <tr>
                 <td align="center" colspan="2" style="border-bottom: 1px solid #999999;">
-                    <strong>Registration &amp; Submission</strong>
+				   <%if(rsr.getIntItem("round_id") == 13793) {%>
+                     <strong>Registration</strong>
+                   <%} else { %>
+                     <strong>Registration &amp; Submission</strong>
+                    <%}%>
+                    
                 </td>
             </tr>
             <tr>
