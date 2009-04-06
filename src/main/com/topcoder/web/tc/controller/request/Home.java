@@ -61,6 +61,11 @@ public class Home extends Base {
             getRequest().setAttribute("Country_Avg_Rating",map.get("Country_Avg_Rating"));
             getRequest().setAttribute("top_developers",map.get("top_developers"));
             getRequest().setAttribute("top_designers",map.get("top_designers"));
+            getRequest().setAttribute("top_conceptors", map.get("top_conceptors"));
+            getRequest().setAttribute("top_specificators", map.get("top_specificators"));
+            getRequest().setAttribute("top_architects", map.get("top_architects"));
+            getRequest().setAttribute("top_assemblers", map.get("top_assemblers"));
+            getRequest().setAttribute("top_testers", map.get("top_testers"));
 
             getRequest().setAttribute("activeContestsSummary", getActiveContests());
 
