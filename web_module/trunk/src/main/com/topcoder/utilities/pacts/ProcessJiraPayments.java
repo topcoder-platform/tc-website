@@ -482,10 +482,8 @@ public class ProcessJiraPayments extends DBUtility {
 		/** The payment amount. */
 		private double paymentAmount;
 		
-		/**
-		 * A description of the issue to be used for payment purposes.  Typically this is the issue key followed by
-		 * the reference information.
-		 */
+		/** A description of the issue to be used for payment purposes.  Typically this is the issue key followed by
+		    the reference information. */
 		private String description;
 		
 		/** Whether this issue is being rejected for payment or not. */
