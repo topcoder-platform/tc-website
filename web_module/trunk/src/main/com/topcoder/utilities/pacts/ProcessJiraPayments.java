@@ -596,8 +596,8 @@ public class ProcessJiraPayments extends DBUtility {
 			// TODO: Unify the treatment of Jira issue types...id or name?
 			paymentType = getIssueType(remoteIssue);
 			if (paymentType == null) {
-				rejected = true;
 				paymentType = jiraIssueTypes.get(remoteIssue.getType());
+				rejectIssue("Unknown issue type " + paymentType + ".");
 			}
 		}
 
