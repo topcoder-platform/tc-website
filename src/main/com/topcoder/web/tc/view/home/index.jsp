@@ -58,12 +58,13 @@ $(document).ready(function(){
     });
 
 	$("#tco09").hide();
+	$("#lindenlab").hide();
 	
 		var randomnumber=Math.floor(Math.random()*2)
 		if (randomnumber==0) {
 			$("#tco09").show();
 		} else if (randomnumber==1) {
-			$("#tco09").show();
+			$("#lindenlab").show();
 		}
 
 	
@@ -244,6 +245,7 @@ $(document).ready(function(){
                                 <p>The creative side of TopCoder. Logos, posters, storyboards, prototypes&hellip;</p>
                             </div>
                             <div id="tco09"><a href="http://www.topcoder.com/tco09"><img src="/i/tco09/340x76_banner.jpg" alt="2009 TopCoder Open" /></a></div>
+                            <div id="lindenlab"><a href="/tc?module=MatchDetails&rd=13772"><img src="/i/home/lindenlabMM-banner-340x76.png" alt="Linden Lab OpenJPG MM" /></a></div>
                         </div>
                     </div>
                     <div id="member-box-bottom"></div>

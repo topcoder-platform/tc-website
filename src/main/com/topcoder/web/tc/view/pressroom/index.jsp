@@ -118,48 +118,6 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
-                
-                <%-- Cool Vendor begin --%>
-                <div class="pr_newsitem">
-                    <div class="pr_img">
-                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_032509"><img src="/i/pressroom/gartner_logo.gif" alt="Gartner logo" border="0" /></a>
-                    </div>
-                    <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_032509">TopCoder Named 2009 "Cool Vendor" for Application Development by Leading Analyst Firm</a></h3>
-                        <p>Vendors selected for the "Cool Vendor" report are innovative, impactful and intriguing <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_032509">[March 25th]</a></small></p>
-                    </div>
-                    <div class="pr_clear"></div>
-                </div>
-                <%-- Cool Vendor end --%>
-                
-                <%-- Julian Birkinshaw Interview begin --%>
-                <div class="pr_newsitem">
-                    <div class="pr_img">
-                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031709"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
-                    </div>
-                    <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031709">Julian Birkinshaw of London Business School Interview with TopCoder</a></h3>
-                        <p>Exploring the Impact of Web 2.0 upon Management <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031709">[March 17th]</a></small></p>
-                    </div>
-                    <div class="pr_clear"></div>
-                </div>
-                <%-- Julian Birkinshaw Interview end --%>
-                
-                
-                <%-- Jeff Howe Interview begin --%>
-                <div class="pr_newsitem">
-                    <div class="pr_img">
-                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031309"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder logo" border="0" /></a>
-                    </div>
-                    <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031309">Crowdsourcing Guru Jeff Howe Interview with TopCoder</a></h3>
-                        <p>Crowdsourcing and Which Business Models Will Succeed <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_031309">[March 13th]</a></small></p>
-                    </div>
-                    <div class="pr_clear"></div>
-                </div>
-                <%-- Jeff Howe Interview end --%>
-                
-                
                 <%-- China, Belarus & Croatia TCHS09 begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
@@ -212,21 +170,6 @@
                     <div class="pr_clear"></div>
                 </div>
                 <%-- TopCoder MLab Keynote end --%>
-                
-                
-                <%-- Blake Tolbert Article begin --%>
-                <div class="pr_newsitem">
-                    <div class="pr_img">
-                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_010109"><img src="/i/pressroom/sticky-minds-logo.png" alt="Sticky Rinds logo" border="0" /></a>
-                    </div>
-                    <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_010109">Lowering the Test Automation Barrier to Entry</a></h3>
-                        <p><small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_010109">[January 1st]</a></small></p>
-                    </div>
-                    <div class="pr_clear"></div>
-                </div>
-                <%-- Blake Tolbert Article end --%>
-                
                 
                 <%-- Ribbit's Killer App Challenge Launches at Adobe Max begin --%>
                 <div class="pr_newsitem">

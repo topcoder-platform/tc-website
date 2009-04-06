@@ -225,7 +225,7 @@
                                                                                     </tr>
                                                                                     <tr>
                                                                                       <td class="first">&nbsp;</td>
-                                                                                      <td class="first last alignText">6th - 10th place finishers* in the Championship </td>
+                                                                                      <td class="first last alignText">5th - 10th place finishers* in the Championship </td>
                                                                                       <td class="first last alignText">$300 each</td>
                                                                                       <td class="last">&nbsp;</td>
                                                                                     </tr>

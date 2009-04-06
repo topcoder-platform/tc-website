@@ -45,7 +45,6 @@ public class User extends Base {
     private Set<TermsOfUse> terms;
     private Set<EventRegistration> eventRegistrations;
     private SecretQuestion secretQuestion;
-    private UserSecurityKey userSecurityKey;
     private Set<Response> responses;
     private Set<RankBallot> ballots;
     private Set<UserContestPrize> compPrizes;
@@ -413,13 +412,6 @@ public class User extends Base {
         this.secretQuestion = secretQuestion;
     }
 
-    public UserSecurityKey getUserSecurityKey() {
-		return userSecurityKey;
-	}
-
-    public void setUserSecurityKey(UserSecurityKey userSecurityKey) {
-		this.userSecurityKey = userSecurityKey;
-	}
 
     public Set<EventRegistration> getEventRegistrations() {
         return Collections.unmodifiableSet(eventRegistrations);

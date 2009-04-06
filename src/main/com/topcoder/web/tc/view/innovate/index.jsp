@@ -9,7 +9,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Who is TopCoder?</title>
+<title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 
 <link rel="stylesheet" type="text/css" media="screen" href="/css/innovate/screen.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="/css/home/jquery.jcarousel.css" /> 	
@@ -167,64 +167,61 @@ $(document).ready(function(){
 		                    <span id="logo2" class="org_logo"><img width="150" height="50" src="/i/innovate/logo_espn.png" alt="ESPN" /></span>
 		                    <span id="logo3" class="org_logo"><img width="150" height="50" src="/i/innovate/logo_ribbit.png" alt="RIBBIT" /></span>
 		                    <span id="logo4" class="org_logo"><img width="150" height="50" src="/i/innovate/logo_snia.png" alt="SNIA" /></span>
-							<span id="logo5" class="org_logo"><img width="150" height="40" src="/i/innovate/logo_lendingtree.png" alt="LENDING TREE" /></span>
-							<span id="logo6" class="org_logo"><img width="150" height="40" src="/i/innovate/logo_lindenlab.png" alt="LINDEN LAB" /></span>
+							<span id="logo5" class="org_logo"><img width="205" height="50" src="/i/innovate/logo_lendingtree.png" alt="LENDING TREE" /></span>
+							<span id="logo6" class="org_logo"><img width="180" height="40" src="/i/innovate/logo_lindenlab.png" alt="LINDEN LAB" /></span>
 		                </div>
 		                <p class="org_quote">See why the worlds most <br /> innovative organizations are turning <br /> to TopCoder for their Application <br /> and Creative Development.</p>
 		            </div>
 		        </div>
-		        
 		        <div id="engage-content">
 		            <div class="engage-right">
 						<p><strong>Take the Next Step &gt;&gt;</strong></p>
 		                <p><a id="btn-lets-talk" href="javascript:;"><img width="239" height="63" id="lets_talk" src="/i/innovate/btn_lets_talk.png" alt="" /><img width="239" height="63" id="lets_talk_grey" src="/i/innovate/btn_lets_talk_grey.png" alt="" style="display:none" /></a></p>		          
 						<p><strong>Seeing is Believing &gt;&gt;</strong></p>
-		                
 		                <div class="client-list"> <a href="http://www.topcoder.com/direct/blogs/?p=116"><img src="/i/innovate/espnfeatured.png" alt="Featured Client" width="255" height="65" border="0" /></a>
-		              
-						<p class="news-link"><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_032509">TopCoder Named 2009 'Cool Vendor' for Application Development by Leading Analyst Firm</a></p>
-						<p class="news-link"><a href="http://www.topcoder.com/direct/blogs/?p=206">Julian Birkinshaw of London Business School Interview with TopCoder &ndash; Exploring the Impact of Web 2.0 upon Management</a></p>
-						<p class="news-link"><a href="http://www.topcoder.com/direct/blogs/?p=174">Crowdsourcing Guru Jeff Howe Interview with TopCoder &ndash; Crowdsourcing and Which Business Models Will Succeed</a></p>
-						
-		               </div>
+		                </div>
 		            </div>
-		            
 		            <div class="engage-left">
 		                <div id="engage-info">
 		                    <p class="info-title">Why is it that no matter how much money and how many people you throw at a problem, the results never seem to meet your expectations?</p>
+		                    <p>You understand that as the world gets increasingly competitive, great opportunities arise, but so do the challenges to respond to the marketplace. </p>
 		                    <p>New customers have to be reached in an expanding number of ways &ndash; Internet, mobile and all things digital; existing customers have to be wooed with ever more valuable product and higher levels of service.</p>
-                            <p>Now, you can access an on-demand, economical, structured, secure resource base that can multiply your ability to get things done without breaking the bank. No longer do you have to choose between initiatives; now you can get far more done within the same budget limitations.</p>
-                        <br />
-                            
+                            <p>In the Internet age, shouldn&rsquo;t there be a better way?  Shouldn&rsquo;t there be a way to access an on-demand, economical, structured, secure resource base that can multiply your ability to get things done without breaking the bank. No longer do you have to choose between initiatives; now you can get far more done within the same budget limitations.</p><br />
                             <div class="info-list-row">
 		                        <div class="info-list left-list">
 		                            <img width="54" height="54" src="/i/innovate/icon_app_dev.png" alt="Application Development" />
 		                            <p class="info-list-title">Application Development</p>
-                                    <p class="info-list-desc">Build applications quickly by leveraging the TopCoder community and the largest catalog of reusable software components.</p>
+                                    <p class="info-list-desc">Build applications quickly by leveraging the TopCoder community and the largest catalog or reusable software components.</p>
 		                        </div>
-		                     	<div class="info-list">
+		                       </div>
+		                       <div class="info-list-row">
+		                        <div class="info-list left-list">
 		                            <img width="54" height="54" src="/i/innovate/icon_creative_sol.png" alt="Creative Marketing and Social Media" />
 		                            <p class="info-list-title">Creative Marketing and Social Media</p>
-                                    <p class="info-list-desc">Have the community compete to create your next logo, banner ad, website, Flash demo or give your message exponential growth with the TopCoder viral bundle &ndash; the possibilities are endless.</p>
+                                    <p class="info-list-desc">Have the community compete to create your next logo, website, brochure, banner ad, GUI, FLASH demo, prototype or give your message exponential growth with the TopCoder viral bundle  &ndash; the possibilities are endless.</p>
 		                        </div>
 		                    </div>
-		                    <br />
 		                    <div class="info-list-row">
 		                        <div class="info-list left-list">
 		                            <img width="54" height="54" src="/i/innovate/icon_idea_gen.png" alt="Idea Generation" />
 		                            <p class="info-list-title">Idea Generation and Problem Solving</p>
                                     <p class="info-list-desc">Tap the creative or analytical minds of the TopCoder Community to help you drive your next innovation or solve your most complex problems.</p>
 		                        </div>
-		                    	<div class="info-list">
+		                     </div>
+		                       <div class="info-list-row">
+	                          <div class="info-list left-list">
 		                            <img width="54" height="54" src="/i/innovate/icon_web_app.png" alt="Web Applications / Online Gaming" />
-	                            	<p class="info-list-title">Research and Development </p>
-                                  	<p class="info-list-desc">Looking to implement new ways to reach your customers &ndash; or looking for ideas? Tap into an online community to concept, design and create your next product.</p>									
+	                            <p class="info-list-title">Research and Development </p>
+                                  <p class="info-list-desc">Looking to implement new ways to reach your  customers &ndash; or looking for ideas? Tap into an online community to concept, design and create your next product.</p>									
 		                        </div>
 		                    </div>
-                            <p><strong>TopCoder, Inc.</strong></p>
+                            <p>TopCoder, Inc.</p>
 		                    <p>TopCoder is a new paradigm in meeting the needs of companies &ndash; large and small. TopCoder is the first massively parallel, deliverables-based solution for the development of all things digital. With hundreds of thousands of community members across the globe, every skill set from web design to development to operational system design and development are covered. TopCoder is the Platform that provides instant access to a wealth of resources.</p>
-                            <p>TopCoder has the resources to directly &lsquo;plug-in&rsquo; to your organization, vastly accelerating your ability to get things done. Because of TopCoder&rsquo;s unique approach, all of this can be done at a cost unmatched by others.</p>
-    		            </div>
+                            <p>TopCoder has the resources to directly &lsquo;plug-in&rsquo; to your organization, vastly accelerating your ability to get things done.  Because of TopCoder&rsquo;s unique approach, all of this can be done at a cost unmatched by others.</p>
+    		                
+    		                
+    		               
+		                </div>
 		                
 		                <div id="engage-contact">		                
 		                
@@ -240,7 +237,7 @@ $(document).ready(function(){
 		                                <div class="contact-left">
 		                                	<form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=utf-8" method="post">
 		                                		<input type="hidden" value="00D300000001UY4" name="oid" />
-                                                <input type="hidden" value="<%=ApplicationServer.SERVER_NAME%>/innovate/contactusSuccess.jsp" name="retURL" />
+                                                <input type="hidden" value="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=contactusSuccess" name="retURL" />
                                                 <input id="lead_source" type="hidden" value="CEO Mailing" name="lead_source" />
                                            		<table id="contact-email-table" cellpadding="0" cellspacing="0">
                                                 	<tbody>
@@ -371,7 +368,7 @@ $(document).ready(function(){
     <div id="footer">
         <div class="wrapper">
             <p id="footer_1800"><strong>1-866-TOPCODER or Service@TopCoder.com</strong></p>
-            <p>TopCoder is the world's largest competitive software development community with over 190,000 developers representing over 200 countries.</p>
+            <p>TopCoder is the world's largest competitive software development community with <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> developers representing over 200 countries.</p>
             <p>Copyright &copy;2001-2009, TopCoder, Inc. All rights reserved.</p>
         </div><%-- .wrapper ends --%>
     </div><%-- #footer ends --%>

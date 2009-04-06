@@ -45,7 +45,10 @@ public class ProjectUtil {
     private static final int PHASE_TYPE_APPEAL = 5;
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy hh:mm", Locale.US);
 
+    public static final int ASSEMBLY_PROJECT_TYPE = 14;
+    public static final int ARCHITECTURE_PROJECT_TYPE = 7;
     public static final int COMPONENT_TESTING_PROJECT_TYPE = 5;
+    public static final int APPLICATION_TESTING_PROJECT_TYPE = 13;
 
     static void userInquiry(Connection conn, long userId, long projectId) throws SQLException {
         PreparedStatement ps = null;
@@ -83,13 +86,21 @@ public class ProjectUtil {
         // in case the project is an assembly project, the rating should be the max between design and development
         // while if the project is a regular component project, the rating should correspond to either design or development
         while (rs.next()) {
-            if (rs.getLong(3) == COMPONENT_TESTING_PROJECT_TYPE) {
-                // Component testing gets development rating
-                if (rs.getLong(2) == 113) {
-                    old_rating = rs.getLong(1);
-                }
-            } else if (rs.getLong(3) + 111 == rs.getLong(2)) {
-                old_rating = rs.getLong(1);                    
+            if (rs.getLong(3) == ASSEMBLY_PROJECT_TYPE || rs.getLong(3) == ARCHITECTURE_PROJECT_TYPE || 
+                    rs.getLong(3) == APPLICATION_TESTING_PROJECT_TYPE) {
+
+                if (old_rating < rs.getLong(1)) {
+                    old_rating = rs.getLong(1);                    
+                }                                
+            } else {
+                if (rs.getLong(3) == COMPONENT_TESTING_PROJECT_TYPE) {
+                    // component testing get dev rating
+                    if (rs.getLong(2) == 113) {
+                        old_rating = rs.getLong(1);
+                    }
+                } else if (rs.getLong(3)+111 == rs.getLong(2)) {
+                    old_rating = rs.getLong(1);                    
+                }                
             }
         }
 
@@ -256,6 +267,9 @@ public class ProjectUtil {
         ps.setLong(3, projectTypeId);
         rs = ps.executeQuery();
 
+
+        
+
         if (rs.next()) {
             throw new BaseException("Online Review: A project already exists! Terminate it before changing phase!");
         }
@@ -306,8 +320,7 @@ public class ProjectUtil {
         }
         com.topcoder.project.phases.Project project = template.applyTemplate(templateName);
         if (project == null) {
-            throw new BaseException("Online Review: project template does not exist, templateName: " + templateName
-            		+ " Please make sure Project_Phase_Template_Config.xml is configured well!");
+            throw new BaseException("Online Review: project template does not exist, templateName: " + templateName + " Please make sure Project_Phase_Template_Config.xml is configured well!");
         }
         com.topcoder.project.phases.Phase[] phases = project.getAllPhases();
         for (int i = 0; i < phases.length; i++) {
@@ -586,8 +599,8 @@ public class ProjectUtil {
         // Prepare project_version
         createProjectInfo(ps, projectId, 7, versionText, modUserId);
 
-        // Auto Pilot
-        createProjectInfo(ps, projectId, 9, "Off", modUserId);
+        // Prepare auto_pilot_ind
+        createProjectInfo(ps, projectId, 9, "On", modUserId);
 
         // Status Notification
         createProjectInfo(ps, projectId, 10, "On", modUserId);
@@ -607,19 +620,10 @@ public class ProjectUtil {
         // Payments
         createProjectInfo(ps, projectId, 16, String.valueOf(price), modUserId);
 
-        // Digital Run
-        if (projectTypeId == 1            // Component Design
-        		|| projectTypeId == 2     // Component Development
-        		|| projectTypeId == 6     // Specification
-        		|| projectTypeId == 7     // Architecture
-        		|| projectTypeId == 13    // Application Testing
-        		|| projectTypeId == 14    // Assembly
-        		|| projectTypeId == 23) { // Conceptualization
+        //digital run
+        if (projectTypeId==1 || projectTypeId ==2 || projectTypeId ==14) {
             createProjectInfo(ps, projectId, 26, "On", modUserId);
         }
-        
-        // Contest Indicator
-        createProjectInfo(ps, projectId, 29, "On", modUserId);
 
         close(ps);
     }

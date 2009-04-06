@@ -85,8 +85,9 @@ public class ComponentManagerBean
     private static final String
             CONFIG_NAMESPACE = "com.topcoder.dde.catalog.ComponentManagerBean";
 
-    private static final int[] competitionCategories = {1, 2, 6, 7, 13, 14, 16, 17, 18, 19, 20, 21, 23};
-
+    private static final int[] competitionCategories = 
+        {1, 2, 7, 13, 14, 16, 17, 18, 19, 20, 21};
+    
     //Permission constants
     private static final long JAVA_PERM = 21;
     private static final long NET_PERM = 22;
@@ -2023,17 +2024,17 @@ public class ComponentManagerBean
      * - grant access if registered to a current dev, design, assembly, testing, architecture or studio project
      * - deny access if the user has already downloaded more than N components
      * - deny access if the requested component doesn't is not "public"
-     *
+     * 
      * @param subject the security subject of the requester
      * @return true if permission is granted.
-     * @throws CatalogException
+     * @throws CatalogException 
      */
     public boolean canDownload(TCSubject subject) throws CatalogException {
         if (subject == null) {
             throw new CatalogException("Null specified for subject");
         }
         log.debug("canDownload called (user, component): " + subject.getUserId() + ", " + componentId);
-
+        
         int maxPublicDownloads = getMaxPublicDownloads();
         int maxDaysFromRegistration = getMaxDaysFromRegistration();
 
@@ -2064,7 +2065,7 @@ public class ComponentManagerBean
             if (!hasPermission) {
                 return false;
             }
-
+        
             // check for rating
             UserServices us = UserServicesLocator.getService();
             boolean isRated = us.isRated(subject.getUserId());
@@ -2072,27 +2073,27 @@ public class ComponentManagerBean
             if (isRated) {
                 return true;
             }
-
+            
             // check if the user has registrations
             boolean hasCompetitionRegistration = us.hasCompetitionRegistration(subject.getUserId(), maxDaysFromRegistration, competitionCategories);
             log.debug("us.hasRegistration(subject.getUserId(), competitionCategories): " + hasCompetitionRegistration);
             if (hasCompetitionRegistration) {
-                return true;
+                return true; 
             }
-
+            
             // check how many downloads the user has already done
             int numberDownloads = trackingHome.numberComponentDownloadsByUserId(subject.getUserId());
             log.debug("numberDownloads: " + numberDownloads);
             if (numberDownloads >= maxPublicDownloads) {
                 throw new ReachedQuotaException("You have exceeded the number of allowed downloads");
             }
-
+        
             // check if the component is for public download
             LocalDDECompCatalog comp = catalogHome.findByPrimaryKey(new Long(componentId));
             if (comp.getPublicInd() != 1) {
                 log.debug("Not public component.");
                 throw new NonPublicComponentException("You are not allowed to download non-public components");
-            }
+            } 
             log.debug("Public component.");
         } catch (ObjectNotFoundException e) {
             throw new EJBException(e);
@@ -2107,7 +2108,7 @@ public class ComponentManagerBean
         } catch (RemoteException e) {
             throw new EJBException(e);
         }
-
+        
         return true;
     }
 

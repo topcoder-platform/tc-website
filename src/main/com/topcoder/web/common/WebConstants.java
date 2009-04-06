@@ -132,13 +132,6 @@ public interface WebConstants {
      */
     public static final long PHASE_COMPLETED = 114;
 
-    /* The following constants aren't really phases, but are the phase ids for the application tracks. */
-    public static final long PHASE_CONCEPTUALIZATION = 134;
-    public static final long PHASE_SPECIFICATION = 117;
-    public static final long PHASE_ARCHITECTURE = 118;
-    public static final long PHASE_ASSEMBLY = 125;
-    public static final long PHASE_APPLICATION_TESTING = 124;
-
     /**
      * The status constant used to indicate a component has been deleted
      */

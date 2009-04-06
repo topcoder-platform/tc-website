@@ -20,9 +20,10 @@
       <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/tsebayoth_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</a></strong><br />
-         <tc-webtag:handle coderId="22659399" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />
-         <br />
-         <br />
+         <tc-webtag:handle coderId="22659399" context="<%=HandleTag.ALGORITHM%>" darkBG="true" /><br />
+         <span class="small">
+         <!-- SRMs Go here -->
+         </span><br /><br />
       </td>
    </tr>
    <tr>
@@ -30,7 +31,7 @@
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</a></strong><br />
          <tc-webtag:handle coderId="21932422" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br />
-         with 5 wins and one second place in February<br />
+         5 First Place Wins, and 1 Second Place<br />
          <br />
       </td>
    </tr>
@@ -40,13 +41,13 @@
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</a></strong><br />
          <tc-webtag:handle coderId="20076717" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br />
          <span class="small">
-         with 3 wins and 2 second places in February<br />
+         3 First Place Wins, and 2 Second Places<br />
          </span><br /><br />
       </td>
    </tr>
    </table>
    <%-- On/Off --%>
-   <!--<div><a class="cotmFeature" href="http://www.topcoder.com/news/2009/03/17/meet-the-february-coders-and-designers-of-the-month">Read Their Interviews</a></div>-->
+   <div><a class="cotmFeature" href="http://www.topcoder.com/news/2009/03/17/meet-the-february-coders-and-designers-of-the-month">Read Their Interviews</a></div>
    
    </div>
 </div>

@@ -38,7 +38,7 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  * Version 1.1.2 Change notes:
  * <ol>
  * <li>
- * Deleted project are processed to physically delete all related info in the dw.
+ * Deleted project are processed to fisically delete all related info in the dw.
  * </li>
  * </ol>
  * <p/>
@@ -79,21 +79,21 @@ public class TCLoadTCS extends TCLoad {
      *
      * @since 1.1.0
      */
-    //private static final int CONFIRMED = 1;
+    private static final int CONFIRMED = 1;
 
     /**
      * Passed review threshold for being elegible for the ROTY season..
      *
      * @since 1.1.0
      */
-    //private static final int PASSED_REVIEW_THRESHOLD = 6;
+    private static final int PASSED_REVIEW_THRESHOLD = 6;
 
     /**
      * Potential status.
      *
      * @since 1.1.0
      */
-    //private static final int POTENTIAL = 0;
+    private static final int POTENTIAL = 0;
 
 
     private static final long DELETED_PROJECT_STATUS = 3;
@@ -107,7 +107,7 @@ public class TCLoadTCS extends TCLoad {
     /**
      * Return if it will load moved project which not be covered by last old_dw load.
      *
-     * @return true if load log time is before the 2006-11-4.
+     * @return true if loat log time is before the 2006-11-4.
      */
     private boolean needLoadMovedProject() {
         return this.fLastLogTime == null ? true : this.fLastLogTime.before(java.sql.Date.valueOf("2006-11-11"));
@@ -163,7 +163,7 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadProjects();
 
-            // load scorecard template before submission review because submission_review will use this table
+            // load scorecard template before subission review because submission_review will use this table
             doLoadScorecardTemplate();
 
             //load submission review before project result because the project result load will use the submission review table
@@ -201,7 +201,7 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadStreak();
 
-            List<CoderRating> list = getCurrentRatings();
+            List list = getCurrentRatings();
             doLoadRank(112, ACTIVE_RATING_RANK_TYPE_ID, list);
             doLoadRank(112, OVERALL_RATING_RANK_TYPE_ID, list);
             doLoadRank(113, ACTIVE_RATING_RANK_TYPE_ID, list);
@@ -1427,7 +1427,7 @@ public class TCLoadTCS extends TCLoad {
 
                 projectResults = resultSelect.executeQuery();
 
-                HashMap<Long, Integer> ratingsMap;
+                HashMap ratingsMap;
                 while (projectResults.next()) {
                     long project_id = projectResults.getLong("project_id");
 
@@ -1435,10 +1435,10 @@ public class TCLoadTCS extends TCLoad {
                     psNumRatings.setLong(1, project_id);
                     numRatings = psNumRatings.executeQuery();
 
-                    ratingsMap = new HashMap<Long, Integer>();
+                    ratingsMap = new HashMap();
 
                     while (numRatings.next()) {
-                        ratingsMap.put(numRatings.getLong("user_id"), numRatings.getInt("count"));
+                        ratingsMap.put(new Long(numRatings.getLong("user_id")), new Integer(numRatings.getInt("count")));
                     }
 
                     boolean passedReview = false;
@@ -1601,7 +1601,7 @@ public class TCLoadTCS extends TCLoad {
                     Long tempUserId = new Long(projectResults.getLong("user_id"));
                     int currNumRatings = 0;
                     if (ratingsMap.containsKey(tempUserId)) {
-                        currNumRatings = ratingsMap.get(tempUserId);
+                        currNumRatings = ((Integer) ratingsMap.get(tempUserId)).intValue();
                     }
                     resultInsert.setInt(25, projectResults.getInt("rating_ind") == 1 ? currNumRatings + 1 : currNumRatings);
                     resultInsert.setObject(26, projectResults.getObject("rating_order"));
@@ -1614,12 +1614,12 @@ public class TCLoadTCS extends TCLoad {
 
                     //log.debug("before result insert");
                     try {
-                    	resultInsert.executeUpdate();
-                    } catch(Exception e) {
+                    resultInsert.executeUpdate();
+                     } catch(Exception e) {
                     // Notes: it seems same user will appear in resource table twice
-                    	log.debug("project_id: " + project_id + " user_id: " + projectResults.getLong("user_id"));
-                    	throw(e);
-                    }
+                      log.debug("project_id: " + project_id + " user_id: " + projectResults.getLong("user_id"));
+                      throw(e);
+                     }
                     //log.debug("after result insert");
 
                     //printLoadProgress(count, "project result");
@@ -1869,7 +1869,7 @@ public class TCLoadTCS extends TCLoad {
 
             projects = projectSelect.executeQuery();
 
-            Map<String, Integer> reviewerResps = new HashMap<String, Integer>();
+            Map reviewerResps = new HashMap();
             while (projects.next()) {
                 submissionSelect.clearParameters();
                 submissionSelect.setLong(1, projects.getLong("project_id"));
@@ -1975,7 +1975,7 @@ public class TCLoadTCS extends TCLoad {
                             reviewRespUpdate.setLong(4, reviewerId);
                             reviewRespUpdate.executeUpdate();
                         }
-                        reviewerResps.put(key, reviewRespId);
+                        reviewerResps.put(key, new Integer(reviewRespId));
                     }
                     count++;
                     printLoadProgress(count, "submission review");
@@ -2577,17 +2577,17 @@ public class TCLoadTCS extends TCLoad {
 
 
     /**
-     * Get a sorted list (by rating_desc) of all the active coders
+     * Get a sorted list (by rating desc) of all the active coders
      * and their ratings.
      *
      * @return List containing CoderRating objects
      * @throws Exception if something goes wrong when querying
      */
-    private List<CoderRating> getCurrentRatings() throws Exception {
+    private List getCurrentRatings() throws Exception {
         StringBuffer query;
         PreparedStatement psSel = null;
         ResultSet rs = null;
-        List<CoderRating> ret = null;
+        List ret = null;
 
         try {
 
@@ -2616,7 +2616,7 @@ public class TCLoadTCS extends TCLoad {
             psSel = prepareStatement(query.toString(), TARGET_DB);
 
             rs = psSel.executeQuery();
-            ret = new ArrayList<CoderRating>();
+            ret = new ArrayList();
             while (rs.next()) {
                 //pros
                 if (rs.getInt("coder_type_id") == 2) {
@@ -2652,7 +2652,7 @@ public class TCLoadTCS extends TCLoad {
 
     }
 
-    private class CoderRating implements Comparable<CoderRating> {
+    private class CoderRating implements Comparable {
         private long coderId = 0;
         private int rating = 0;
         private long schoolId = 0;
@@ -2677,10 +2677,10 @@ public class TCLoadTCS extends TCLoad {
             this.countryCode = countryCode;
         }
 
-        public int compareTo(CoderRating other) {
-            if (other.getRating() > rating)
+        public int compareTo(Object other) {
+            if (((CoderRating) other).getRating() > rating)
                 return 1;
-            else if (other.getRating() < rating)
+            else if (((CoderRating) other).getRating() < rating)
                 return -1;
             else
                 return 0;
@@ -2739,7 +2739,7 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
-    private void doLoadRank(int phaseId, int rankTypeId, List<CoderRating> list) throws Exception {
+    private void doLoadRank(int phaseId, int rankTypeId, List list) throws Exception {
         log.info("load rank");
         StringBuffer query = null;
         PreparedStatement psDel = null;
@@ -2768,10 +2768,10 @@ public class TCLoadTCS extends TCLoad {
             /* coder_rank table should be kept "up-to-date" so get the most recent stuff
              * from the rating table
              */
-            ArrayList<CoderRating> ratings = new ArrayList<CoderRating>(list.size() / 2);
+            ArrayList ratings = new ArrayList(list.size() / 2);
             CoderRating cr = null;
             for (int i = 0; i < list.size(); i++) {
-                cr = list.get(i);
+                cr = (CoderRating) list.get(i);
                 if (cr.getPhaseId() == phaseId) {
                     if ((rankTypeId == ACTIVE_RATING_RANK_TYPE_ID && cr.isActive()) ||
                             rankTypeId != ACTIVE_RATING_RANK_TYPE_ID) {
@@ -2824,7 +2824,7 @@ public class TCLoadTCS extends TCLoad {
      * Loads the school_coder_rank table with information about
      * rating rank within a school.
      */
-    private void loadSchoolRatingRank(int phaseId, int rankTypeId, List<CoderRating> list) throws Exception {
+    private void loadSchoolRatingRank(int phaseId, int rankTypeId, List list) throws Exception {
         log.debug("loadSchoolRatingRank called...");
         StringBuffer query = null;
         PreparedStatement psDel = null;
@@ -2832,7 +2832,7 @@ public class TCLoadTCS extends TCLoad {
         ResultSet rs = null;
         int count = 0;
         int coderCount = 0;
-        List<CoderRating> ratings = null;
+        List ratings = null;
 
         try {
             long start = System.currentTimeMillis();
@@ -2852,9 +2852,9 @@ public class TCLoadTCS extends TCLoad {
             // delete all the records from the country ranking table
             psDel.executeUpdate();
 
-            HashMap<Long, List<CoderRating>> schools = new HashMap<Long, List<CoderRating>>();
+            HashMap schools = new HashMap();
             Long tempId;
-            List<CoderRating> tempList;
+            List tempList;
             CoderRating temp;
             /**
              * iterate through our big list and pluck out only those where:
@@ -2863,15 +2863,15 @@ public class TCLoadTCS extends TCLoad {
              * and their status lines up
              */
             for (int i = 0; i < list.size(); i++) {
-                temp = list.get(i);
+                temp = (CoderRating) list.get(i);
                 if (phaseId == temp.getPhaseId() && temp.getSchoolId() > 0) {
                     if ((rankTypeId == ACTIVE_RATING_RANK_TYPE_ID && temp.isActive()) ||
                             rankTypeId != ACTIVE_RATING_RANK_TYPE_ID) {
                         tempId = new Long(temp.getSchoolId());
                         if (schools.containsKey(tempId)) {
-                            tempList = schools.get(tempId);
+                            tempList = (List) schools.get(tempId);
                         } else {
-                            tempList = new ArrayList<CoderRating>(10);
+                            tempList = new ArrayList(10);
                         }
                         tempList.add(list.get(i));
                         schools.put(tempId, tempList);
@@ -2880,8 +2880,8 @@ public class TCLoadTCS extends TCLoad {
                 }
             }
 
-            for (Iterator<Map.Entry<Long,List<CoderRating>>> it = schools.entrySet().iterator(); it.hasNext();) {
-                ratings = it.next().getValue();
+            for (Iterator it = schools.entrySet().iterator(); it.hasNext();) {
+                ratings = (List) ((Map.Entry) it.next()).getValue();
                 Collections.sort(ratings);
                 coderCount = ratings.size();
 
@@ -2924,7 +2924,7 @@ public class TCLoadTCS extends TCLoad {
 
     }
 
-    private void loadCountryRatingRank(int phaseId, int rankTypeId, List<CoderRating> list) throws Exception {
+    private void loadCountryRatingRank(int phaseId, int rankTypeId, List list) throws Exception {
         log.debug("loadCountryRatingRank called...");
         StringBuffer query = null;
         PreparedStatement psDel = null;
@@ -2932,7 +2932,7 @@ public class TCLoadTCS extends TCLoad {
         ResultSet rs = null;
         int count = 0;
         int coderCount;
-        List<CoderRating> ratings;
+        List ratings;
 
         try {
             long start = System.currentTimeMillis();
@@ -2952,9 +2952,9 @@ public class TCLoadTCS extends TCLoad {
             // delete all the records from the country ranking table
             psDel.executeUpdate();
 
-            HashMap<String, List<CoderRating>> countries = new HashMap<String, List<CoderRating>>();
+            HashMap countries = new HashMap();
             String tempCode = null;
-            List<CoderRating> tempList = null;
+            List tempList = null;
             CoderRating temp = null;
             /**
              * iterate through our big list and pluck out only those where:
@@ -2963,15 +2963,15 @@ public class TCLoadTCS extends TCLoad {
              * and their status lines up
              */
             for (int i = 0; i < list.size(); i++) {
-                temp = list.get(i);
+                temp = (CoderRating) list.get(i);
                 if (temp.getPhaseId() == phaseId) {
                     if ((rankTypeId == ACTIVE_RATING_RANK_TYPE_ID && temp.isActive()) ||
                             rankTypeId != ACTIVE_RATING_RANK_TYPE_ID) {
                         tempCode = temp.getCountryCode();
                         if (countries.containsKey(tempCode)) {
-                            tempList = countries.get(tempCode);
+                            tempList = (List) countries.get(tempCode);
                         } else {
-                            tempList = new ArrayList<CoderRating>(100);
+                            tempList = new ArrayList(100);
                         }
                         tempList.add(list.get(i));
                         countries.put(tempCode, tempList);
@@ -2980,8 +2980,8 @@ public class TCLoadTCS extends TCLoad {
                 }
             }
 
-            for (Iterator<Map.Entry<String, List<CoderRating>>> it = countries.entrySet().iterator(); it.hasNext();) {
-                ratings = it.next().getValue();
+            for (Iterator it = countries.entrySet().iterator(); it.hasNext();) {
+                ratings = (List) ((Map.Entry) it.next()).getValue();
                 Collections.sort(ratings);
                 coderCount = ratings.size();
 

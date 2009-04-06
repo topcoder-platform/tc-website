@@ -11,13 +11,8 @@ import com.topcoder.web.common.WebConstants;
  */
 public interface SoftwareComponent extends Cloneable, Serializable {
 
-    public final static int DEV_PHASE = (int) WebConstants.PHASE_DEVELOPMENT;
-    public final static int DESIGN_PHASE = (int) WebConstants.PHASE_DESIGN;
-    public final static int CONCEPTUALIZATION_PHASE = (int) WebConstants.PHASE_CONCEPTUALIZATION;
-    public final static int SPECIFICATION_PHASE = (int) WebConstants.PHASE_SPECIFICATION;
-    public final static int ARCHITECTURE_PHASE = (int) WebConstants.PHASE_ARCHITECTURE;
-    public final static int ASSEMBLY_PHASE = (int) WebConstants.PHASE_ASSEMBLY;
-    public final static int APPLICATION_TESTING_PHASE = (int) WebConstants.PHASE_APPLICATION_TESTING;
+    public final static int DEV_PHASE = (int)WebConstants.PHASE_DEVELOPMENT;
+    public final static int DESIGN_PHASE = (int)WebConstants.PHASE_DESIGN;
 
     public final static int LEVEL1 = 100;
     public final static int LEVEL2 = 200;

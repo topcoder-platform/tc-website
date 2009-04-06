@@ -16,10 +16,12 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.ReviewBoard;
 import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
 
 /**
@@ -74,14 +76,13 @@ public abstract class Base extends ShortHibernateProcessor {
     }
 
     public static String getRegistrantsCommandName(int projectTypeId) {
-        if (projectTypeId == Constants.DESIGN_PROJECT_TYPE
-            || projectTypeId == Constants.DEVELOPMENT_PROJECT_TYPE
-            || projectTypeId == Constants.CONCEPTUALIZATION_PROJECT_TYPE
-            || projectTypeId == Constants.SPECIFICATION_PROJECT_TYPE
-            || projectTypeId == Constants.ARCHITECTURE_PROJECT_TYPE
-            || projectTypeId == Constants.ASSEMBLY_PROJECT_TYPE
-            || projectTypeId == Constants.APPLICATION_TESTING_PROJECT_TYPE) {
+        if (projectTypeId==Constants.DESIGN_PROJECT_TYPE ||
+            projectTypeId==Constants.DEVELOPMENT_PROJECT_TYPE) {
             return "registrants";
+        } else if (projectTypeId==Constants.ASSEMBLY_PROJECT_TYPE) {
+            return "assembly_registrants";
+        } else if (projectTypeId==Constants.ARCHITECTURE_PROJECT_TYPE) {
+            return "architecture_registrants";
         } else {
             return "contest_registrants";
         }
@@ -93,7 +94,7 @@ public abstract class Base extends ShortHibernateProcessor {
 
     public static ResultSetContainer getOpenProjects() throws Exception {
         Request dataRequest = null;
-        Map<String, ResultSetContainer> resultMap = null;
+        Map resultMap = null;
         dataRequest = new Request();
         dataRequest.setContentHandle("open_projects");
 
@@ -146,16 +147,6 @@ public abstract class Base extends ShortHibernateProcessor {
                 projectTypeId = Constants.DESIGN_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.DEV_PHASE).equals(phaseId)) {
                 projectTypeId = Constants.DEVELOPMENT_PROJECT_TYPE;
-            } else if (String.valueOf(SoftwareComponent.CONCEPTUALIZATION_PHASE).equals(phaseId)) {
-                projectTypeId = Constants.CONCEPTUALIZATION_PROJECT_TYPE;
-            } else if (String.valueOf(SoftwareComponent.SPECIFICATION_PHASE).equals(phaseId)) {
-                projectTypeId = Constants.SPECIFICATION_PROJECT_TYPE;
-            } else if (String.valueOf(SoftwareComponent.ARCHITECTURE_PHASE).equals(phaseId)) {
-                projectTypeId = Constants.ARCHITECTURE_PROJECT_TYPE;
-            } else if (String.valueOf(SoftwareComponent.ASSEMBLY_PHASE).equals(phaseId)) {
-                projectTypeId = Constants.ASSEMBLY_PROJECT_TYPE;
-            } else if (String.valueOf(SoftwareComponent.APPLICATION_TESTING_PHASE).equals(phaseId)) {
-                projectTypeId = Constants.APPLICATION_TESTING_PROJECT_TYPE;
             }
         }
         return projectTypeId;
@@ -164,9 +155,9 @@ public abstract class Base extends ShortHibernateProcessor {
 
     /**
      * <p>Checks whether the specified project type requested by client is currently supported by this controller
-     * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization,
+     * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization, 
      * Specification and Application Testing project types are supported.</p>
-     *
+     * 
      * This method delegates to ReviewBoardHelper.isReviewBoardTypeSupported().
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.

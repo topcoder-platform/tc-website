@@ -18,6 +18,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
 
 import com.topcoder.shared.util.TCContext;
@@ -31,7 +32,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  * Checks the component payments that don't have reliability bonus payment and create their payments.
  * 
  * 
- * @author cucu, DixonD
+ * @author Cucu, DixonD
  * @version 1.0
  */
 public class PayReliabilityBonus extends DBUtility {
@@ -44,7 +45,7 @@ public class PayReliabilityBonus extends DBUtility {
     /**
      * This variable saves information about bonuses.
      */
-    private TreeMap<Date, TreeMap<Double, Double>> bonusTable;
+    private TreeMap < Date, TreeMap < Double, Double > > bonusTable;
 
 	protected void runUtility() throws Exception {
 		PactsClientServices  ejb = (PactsClientServices) createEJB();
@@ -123,7 +124,7 @@ public class PayReliabilityBonus extends DBUtility {
             startDate = date;
     }
     
-        TreeMap<Double, Double> bonus = bonusTable.get(startDate);
+        TreeMap < Double, Double > bonus = bonusTable.get(startDate);
         double reliabilityValue = .0;
         for (double rel : bonus.keySet()) {
             if (rel > reliability) break;
@@ -145,7 +146,7 @@ public class PayReliabilityBonus extends DBUtility {
     }
 
     private void parseReliabilityDetails(String reliabilityFilename) throws Exception {
-        bonusTable = new TreeMap<Date, TreeMap<Double, Double>>();
+        bonusTable = new TreeMap < Date, TreeMap < Double, Double > >();
         DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
         Document doc = docBuilder.parse(new File(reliabilityFilename));
@@ -166,7 +167,7 @@ public class PayReliabilityBonus extends DBUtility {
             }
 
             NodeList reliabilities = paymentRange.getElementsByTagName("reliabilityAbove");
-            TreeMap<Double, Double> reliabilitiesMap = new TreeMap<Double, Double>();
+            TreeMap < Double, Double > reliabilitiesMap = new TreeMap < Double, Double >();
             reliabilitiesMap.put(0.0, 0.0);
             for (int j = 0; j < reliabilities.getLength(); ++j) {
                 NamedNodeMap attr = reliabilities.item(j).getAttributes();
@@ -191,7 +192,7 @@ public class PayReliabilityBonus extends DBUtility {
         }
         params.remove("onlyAnalyze");
 
-        // "reliabilityFilename" is more useful than "CONF_FILENAME"
+        // "reliabilityFilename" is more usefull than "CONF_FILENAME"
         String reliabilityFilename = (String) params.get("reliabilityFilename");
         try {
             if (reliabilityFilename == null || reliabilityFilename.trim().length() == 0) {
@@ -223,5 +224,7 @@ public class PayReliabilityBonus extends DBUtility {
         sErrorMsg.append("   -onlyAnalyze : whether to just analyze without updates.\n");
         fatal_error();
     }
+
+
 
 }

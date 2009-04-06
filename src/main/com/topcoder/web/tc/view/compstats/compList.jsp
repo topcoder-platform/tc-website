@@ -13,11 +13,6 @@
 
 <c:set value="<%=Constants.DESIGN_PROJECT_TYPE%>" var="DESIGN_TYPE_ID"/>
 <c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_TYPE_ID"/>
-<c:set value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>" var="CONCEPTUALIZATION_TYPE_ID"/>
-<c:set value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>" var="SPECIFICATION_TYPE_ID"/>
-<c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_TYPE_ID"/>
-<c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_TYPE_ID"/>
-<c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_TYPE_ID"/>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
@@ -76,31 +71,6 @@
                     <jsp:param name="node" value="dev_stats"/>
                  </jsp:include>
             </c:when>
-            <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
-                 <jsp:include page="/includes/global_left.jsp">
-                    <jsp:param name="node" value="conceptualization_stats"/>
-                 </jsp:include>
-            </c:when>
-            <c:when test="${pt == SPECIFICATION_TYPE_ID}">
-                 <jsp:include page="/includes/global_left.jsp">
-                    <jsp:param name="node" value="specification_stats"/>
-                 </jsp:include>
-            </c:when>
-            <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
-                 <jsp:include page="/includes/global_left.jsp">
-                    <jsp:param name="node" value="architecture_stats"/>
-                 </jsp:include>
-            </c:when>
-            <c:when test="${pt == ASSEMBLY_TYPE_ID}">
-                 <jsp:include page="/includes/global_left.jsp">
-                    <jsp:param name="node" value="assembly_stats"/>
-                 </jsp:include>
-            </c:when>
-            <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
-                 <jsp:include page="/includes/global_left.jsp">
-                    <jsp:param name="node" value="testing_stats"/>
-                 </jsp:include>
-            </c:when>
         </c:choose>
         </td>
 <!-- Left Column Ends -->
@@ -120,21 +90,6 @@
     </c:when>
     <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
         <span class="bodySubtitle">Component Statistics &gt; Development Contests</span><br>
-    </c:when>
-    <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
-        <span class="bodySubtitle">Application Statistics &gt; Conceptualization Contests</span><br>
-    </c:when>
-    <c:when test="${pt == SPECIFICATION_TYPE_ID}">
-        <span class="bodySubtitle">Application Statistics &gt; Specification Contests</span><br>
-    </c:when>
-    <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
-        <span class="bodySubtitle">Application Statistics &gt; Architecture Contests</span><br>
-    </c:when>
-    <c:when test="${pt == ASSEMBLY_TYPE_ID}">
-        <span class="bodySubtitle">Application Statistics &gt; Assembly Contests</span><br>
-    </c:when>
-    <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
-        <span class="bodySubtitle">Application Statistics &gt; Application Testing Contests</span><br>
     </c:when>
 </c:choose>
 
@@ -163,26 +118,6 @@
                 <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
                     <td class="tableTitle" colspan="10">
                     Development
-                </c:when>
-                <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
-                    <td class="tableTitle" colspan="9">
-                    Conceptualization
-                </c:when>
-                <c:when test="${pt == SPECIFICATION_TYPE_ID}">
-                    <td class="tableTitle" colspan="9">
-                    Specification
-                </c:when>
-                <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
-                    <td class="tableTitle" colspan="9">
-                    Architecture
-                </c:when>
-                <c:when test="${pt == ASSEMBLY_TYPE_ID}">
-                    <td class="tableTitle" colspan="9">
-                    Assembly
-                </c:when>
-                <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
-                    <td class="tableTitle" colspan="9">
-                    Application Testing
                 </c:when>
             </c:choose>
             Contest Details
