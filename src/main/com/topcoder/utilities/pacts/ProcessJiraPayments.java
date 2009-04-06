@@ -197,7 +197,7 @@ public class ProcessJiraPayments extends DBUtility {
 		final RemoteComment comment = new RemoteComment(); 
 		comment.setBody(body);
 
-		jira.addComment(token, issue.getId(), comment);
+		jira.addComment(token, issue.getKey(), comment);
 	}
 
 	/**
@@ -211,7 +211,7 @@ public class ProcessJiraPayments extends DBUtility {
 	private void updateJiraPaymentStatus(JiraSoapService jira, String token, RemoteIssue issue, String status)
 			throws RemoteException,	com.atlassian.jira.rpc.exception.RemoteException {
 
-		jira.updateIssue(token, issue.getId(), new RemoteFieldValue[] {
+		jira.updateIssue(token, issue.getKey(), new RemoteFieldValue[] {
 			new RemoteFieldValue(JIRA_PAYMENT_STATUS_FIELD_KEY, new String[] { status })
 		});
 	}
