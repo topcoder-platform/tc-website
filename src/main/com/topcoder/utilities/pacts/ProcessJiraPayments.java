@@ -135,9 +135,17 @@ public class ProcessJiraPayments extends DBUtility {
 
 				if (onlyAnalyze.equalsIgnoreCase("false")) {
 					if (issue.isRejected()) {
-						if (false) {
-							updateJira(jira, token, remoteIssue, false);
+						StringBuffer sb = new StringBuffer(200);
+						
+						sb.append("Payment placed on hold for the following reasons:\n\n");
+						for (String e : issue.getErrors()) {
+							sb.append(" * ");
+							sb.append(e);
+							sb.append("\n");
 						}
+						
+						updateJiraPaymentStatus(jira, token, remoteIssue, "Payment On Hold");
+						addJiraComment(jira, token, remoteIssue, sb.toString());
 					} else {							
 						BasePayment payment = createPactsPayment(issue.getReferenceType(), issue.getPaymentType(),
 								issue.getReferenceId(),	issue.getClient(), issue.getPayeeUserId(),
@@ -145,7 +153,9 @@ public class ProcessJiraPayments extends DBUtility {
 						
 						payment = pactsService.addPayment(payment);
 						
-						updateJira(jira, token, remoteIssue, true);
+						updateJiraPaymentStatus(jira, token, remoteIssue, "Paid");
+						addJiraComment(jira, token, remoteIssue,
+								"Payment processed on " + dateFormat.format(new Date()));
 					}
 				}
 			} catch (Exception e) {
@@ -154,29 +164,6 @@ public class ProcessJiraPayments extends DBUtility {
 				log.error(e);
 				log.error("*******************************************");
 			}
-		}
-	}
-
-	/**
-	 * @param jira
-	 * @param token
-	 * @param issue
-	 * @param accepted
-	 * @throws RemoteException
-	 * @throws com.atlassian.jira.rpc.exception.RemoteException
-	 * @throws RemotePermissionException
-	 * @throws RemoteAuthenticationException
-	 */
-	private void updateJira(JiraSoapService jira, String token, RemoteIssue issue, boolean accepted)
-			throws RemoteException,	com.atlassian.jira.rpc.exception.RemoteException, RemotePermissionException,
-					RemoteAuthenticationException {
-		
-		if (accepted) {
-			updateJiraPaymentStatus(jira, token, issue, "Paid");
-			addJiraComment(jira, token, issue, "Payment processed on " + dateFormat.format(new Date()));
-		} else {
-			// TODO: Insert a detailed reasoning of why the payment failed into Jira.
-			updateJiraPaymentStatus(jira, token, issue, "Payment On Hold");
 		}
 	}
 
