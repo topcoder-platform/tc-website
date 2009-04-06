@@ -440,57 +440,64 @@ public class ProcessJiraPayments extends DBUtility {
 	}
 
 	/**
+	 * A data object holding all relevant information about a payable Jira issue.
+	 * 
 	 * @author ivern
-	 *
+	 * @version 1.0.0
 	 */
 	private class JiraIssue {
-		/** */
+		/** The Jira id for the First Place Payment $ custom field. */
 		private static final String JIRA_PAYMENT_AMOUNT_FIELD_ID = "customfield_10012";
 		
-		/** */
+		/** The Jira id for the Payee custom field. */
 		private static final String JIRA_PAYEE_FIELD_ID = "customfield_10040";
 		
-		/** */
+		/** The Jira id for the Client Nickname custom field. */
 		private static final String JIRA_CLIENT_NICKNAME_FIELD_ID = "customfield_10074";
 		
-		/** */
+		/** The Jira id for the ProjectID custom field. */
 		private static final String JIRA_PROJECT_ID_FIELD_ID = "customfield_10093";
 		
-		/** */
+		/** The Jira id for the StudioID custom field. */
 		private static final String JIRA_STUDIO_ID_FIELD_ID = "customfield_10094";
 		
-		/** */
+		/** The PACTS payment type for this issue. */
 		private String paymentType;
 		
-		/** */
+		/** The reference type (TopCoder or Studio) for this issue. */
 		private String referenceType;
 		
-		/** */
+		/** The reference information for this issue (project name for TopCoder, contest name for Studio). */
 		private String referenceInfo;
 		
-		/** */
+		/** The reference id for this issue (project id for TopCoder, contest id for Studio). */
 		private long referenceId;
 		
-		/** */
+		/** The payee's TopCoder user id. */
 		private long payeeUserId;
 		
-		/** */
+		/** The client's real name. */
 		private String client;
 		
-		/** */
+		/** The payment amount. */
 		private double paymentAmount;
 		
-		/** */
+		/**
+		 * A description of the issue to be used for payment purposes.  Typically this is the issue key followed by
+		 * the reference information.
+		 */
 		private String description;
 		
-		/** */
+		/** Whether this issue is being rejected for payment or not. */
 		private boolean rejected;
 		
-		/** */
+		/** A list of errors explaining why the issue has been rejected for payment, if applicable. */
 		private List<String> errors;
 		
 		/**
-		 * @param remoteIssue
+		 * Constructs a new JiraIssue instance from the provided RemoteIssue.
+		 * 
+		 * @param remoteIssue the RemoteIssue to obtain data from.
 		 */
 		public JiraIssue(RemoteIssue remoteIssue) {
 			rejected = false;
@@ -505,14 +512,18 @@ public class ProcessJiraPayments extends DBUtility {
 		}
 		
 		/**
-		 * @param remoteIssue
+		 * Populates the description field from the provided RemoteIssue.
+		 * 
+		 * @param remoteIssue the RemoteIssue to obtain data from.
 		 */
 		private void populateDescription(RemoteIssue remoteIssue) {	
 			description = "[" + remoteIssue.getKey() + "] - " + referenceInfo;
 		}
 
 		/**
-		 * @param remoteIssue
+		 * Populates the payment amount field from the provided RemoteIssue.
+		 * 
+		 * @param remoteIssue the RemoteIssue to obtain data from.
 		 */
 		private void populatePaymentAmount(RemoteIssue remoteIssue) {
 			String amountString = getCustomFieldValueById(remoteIssue, JIRA_PAYMENT_AMOUNT_FIELD_ID);
@@ -525,7 +536,9 @@ public class ProcessJiraPayments extends DBUtility {
 		}
 
 		/**
-		 * @param remoteIssue
+		 * Populates the client field from the provided RemoteIssue.
+		 * 
+		 * @param remoteIssue the RemoteIssue to obtain data from.
 		 */
 		private void populateClient(RemoteIssue remoteIssue) {
 			String clientNickname = getCustomFieldValueById(remoteIssue, JIRA_CLIENT_NICKNAME_FIELD_ID);
@@ -542,7 +555,9 @@ public class ProcessJiraPayments extends DBUtility {
 		}
 
 		/**
-		 * @param remoteIssue
+		 * Populates the payee user id field from the provided RemoteIssue.
+		 * 
+		 * @param remoteIssue the RemoteIssue to obtain data from.
 		 */
 		private void populatePayeeUserId(RemoteIssue remoteIssue) {
 			String payeeHandle = getCustomFieldValueById(remoteIssue, JIRA_PAYEE_FIELD_ID);
@@ -553,7 +568,9 @@ public class ProcessJiraPayments extends DBUtility {
 		}
 
 		/**
-		 * @param remoteIssue
+		 * Populates the reference id, type, and info fields from the provided RemoteIssue.
+		 * 
+		 * @param remoteIssue the RemoteIssue to obtain data from.
 		 */
 		private void populateReferenceData(RemoteIssue remoteIssue) {
 			String projectId = getCustomFieldValueById(remoteIssue, JIRA_PROJECT_ID_FIELD_ID);
@@ -591,7 +608,9 @@ public class ProcessJiraPayments extends DBUtility {
 		}
 
 		/**
-		 * @param remoteIssue
+		 * Populates the payment type field from the provided RemoteIssue.
+		 * 
+		 * @param remoteIssue the RemoteIssue to obtain data from.
 		 */
 		private void populatePaymentType(RemoteIssue remoteIssue) {
 			// TODO: Unify the treatment of Jira issue types...id or name?
