@@ -496,10 +496,10 @@ public class ProcessJiraPayments extends DBUtility {
 		private static final String JIRA_CLIENT_NICKNAME_FIELD_ID = "customfield_10074";
 		
 		/** */
-		private static final String JIRA_PROJECT_ID_FIELD_ID = "customfield_10090";
+		private static final String JIRA_PROJECT_ID_FIELD_ID = "customfield_10093";
 		
 		/** */
-		private static final String JIRA_STUDIO_ID_FIELD_ID = "customfield_10091";
+		private static final String JIRA_STUDIO_ID_FIELD_ID = "customfield_10094";
 		
 		/** */
 		private String paymentType;
