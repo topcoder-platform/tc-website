@@ -104,7 +104,7 @@ public class ProcessJiraPayments extends DBUtility {
 				if ("Copilot".equals(issue.getPaymentType())) {
 					issue.rejectIssue("Copilot payment type is not implemented yet.");
 				}
-				if ("COMPBUILDS".equals(remoteIssue.getKey().substring(0, 10))) {
+				if (remoteIssue.getKey().length() > 10 && "COMPBUILDS".equals(remoteIssue.getKey().substring(0, 10))) {
 					issue.rejectIssue("Component Build payment types are not implemented yet.");
 				}
 
