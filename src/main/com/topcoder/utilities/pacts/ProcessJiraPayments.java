@@ -148,7 +148,7 @@ public class ProcessJiraPayments extends DBUtility {
 			} catch (Exception e) {
 				log.error("*******************************************");
 				log.error("FAILURE: Processing issue " + remoteIssue.getKey());
-				log.error(e.getStackTrace());
+				e.printStackTrace();
 				log.error("*******************************************");
 			}
 		}
