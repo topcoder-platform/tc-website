@@ -8,10 +8,7 @@ import java.rmi.RemoteException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,9 +21,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 
-import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
-import com.atlassian.jira.rpc.exception.RemotePermissionException;
-import com.atlassian.jira.rpc.soap.beans.RemoteComment;
 import com.atlassian.jira.rpc.soap.beans.RemoteCustomFieldValue;
 import com.atlassian.jira.rpc.soap.beans.RemoteFieldValue;
 import com.atlassian.jira.rpc.soap.beans.RemoteIssue;
@@ -79,18 +73,6 @@ public class ProcessJiraPayments extends DBUtility {
 	
 	/** A translation mapping of Jira issue type ids to issue type names. */
 	private Map<String, String> jiraIssueTypes = null;
-	
-	/** The date format to be used when inserting timestamps into Jira comments. */
-	private DateFormat dateFormat = null;
-	
-	/**
-	 * Class constructor.  Initializes the date format.
-	 */
-	public ProcessJiraPayments() {
-		super();
-		
-		dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	}
 	
 	/* (non-Javadoc)
 	 * @see com.topcoder.shared.util.sql.DBUtility#runUtility()
@@ -145,7 +127,8 @@ public class ProcessJiraPayments extends DBUtility {
 						}
 						
 						updateJiraPaymentStatus(jira, token, remoteIssue, "Payment On Hold");
-						addJiraComment(jira, token, remoteIssue, sb.toString());
+						// Comment addition removed to avoid spamming members.
+						//addJiraComment(jira, token, remoteIssue, sb.toString());
 					} else {							
 						BasePayment payment = createPactsPayment(issue.getReferenceType(), issue.getPaymentType(),
 								issue.getReferenceId(),	issue.getClient(), issue.getPayeeUserId(),
@@ -154,8 +137,9 @@ public class ProcessJiraPayments extends DBUtility {
 						payment = pactsService.addPayment(payment);
 						
 						updateJiraPaymentStatus(jira, token, remoteIssue, "Paid");
-						addJiraComment(jira, token, remoteIssue,
-								"Payment processed on " + dateFormat.format(new Date()));
+						// Comment addition removed to avoid spamming members.
+						//addJiraComment(jira, token, remoteIssue,
+						//		"Payment processed on " + dateFormat.format(new Date()));
 					}
 				}
 			} catch (Exception e) {
@@ -165,26 +149,6 @@ public class ProcessJiraPayments extends DBUtility {
 				log.error("*******************************************");
 			}
 		}
-	}
-
-	/**
-	 * @param jira
-	 * @param token
-	 * @param issue
-	 * @param body
-	 * @throws RemoteException
-	 * @throws RemotePermissionException
-	 * @throws RemoteAuthenticationException
-	 * @throws RemoteException
-	 */
-	private void addJiraComment(JiraSoapService jira, String token,	RemoteIssue issue, String body)
-			throws RemoteException,	RemotePermissionException, RemoteAuthenticationException,
-					com.atlassian.jira.rpc.exception.RemoteException {
-		
-		final RemoteComment comment = new RemoteComment(); 
-		comment.setBody(body);
-
-		jira.addComment(token, issue.getKey(), comment);
 	}
 
 	/**
