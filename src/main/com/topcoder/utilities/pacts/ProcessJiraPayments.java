@@ -155,15 +155,16 @@ public class ProcessJiraPayments extends DBUtility {
 	}
 
 	/**
-	 * @param jira
-	 * @param token
-	 * @param issue
-	 * @param status
-	 * @throws RemoteException
-	 * @throws RemoteException
+	 * Updates a Jira issue's Payment Status custom field.
+	 * 
+	 * @param jira an instance of JiraSoapService.
+	 * @param token the user's login token.
+	 * @param issue the remote issue to modify.
+	 * @param status a String containing the new status to set.
+	 * @throws RemoteException if there was an error changing the field's value.
 	 */
 	private void updateJiraPaymentStatus(JiraSoapService jira, String token, RemoteIssue issue, String status)
-			throws RemoteException,	com.atlassian.jira.rpc.exception.RemoteException {
+			throws RemoteException {
 
 		jira.updateIssue(token, issue.getKey(), new RemoteFieldValue[] {
 			new RemoteFieldValue(JIRA_PAYMENT_STATUS_FIELD_KEY, new String[] { status })
