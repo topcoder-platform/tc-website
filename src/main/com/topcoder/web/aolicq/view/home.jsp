@@ -37,6 +37,79 @@
             </div>
             
             <div id="about-text">
+           	<h2 style="color:#ff6600;">Announcing the Winners of <br />the Ribbit Killer App Challenge!</h2>
+	
+			<p>Thank you to everyone who participated in the Ribbit Killer App Challenge.</p>
+			<p>The choice was tough, as many apps pushed the envelope of integrating Ribbit's voice, telephony and messaging API. Overall, we looked for apps that achieved innovative interactions with Flash - and integrated Ribbit's features to make significant impact on the way we communicate.</p>
+			
+			<h2 style="color:#47ad00;">And the winners are:</h2>
+			<h3 style="text-align: center; font-size:14px;"><strong>Media Advertising &amp; Entertainment</strong><strong> : $15,000</strong></h3> 
+			<h3 style="text-align: center; font-size:14px;"><strong>Ribbit Killer App Challenge &#8220;Best in Show&#8221; Winner : $15,000</strong></h3> 
+			<p style="text-align: center;"><a href="http://killerappchallenge.ribbit.com/news/?page_id=576"><strong>Lucid Viewer - Developer, Jason Villmer, Naples, Italy [villmer]</strong></a></p>
+			<p style="text-align: center;"><a href="http://killerappchallenge.ribbit.com/news/?page_id=576"><img class="aligncenter" title="Lucid Viewer" src="http://killerappchallenge.ribbit.com/news/wp-content/uploads/2009/03/lucid_viewer.jpg" alt="" width="300" height="211" /></a></p>
+			<p style="text-align: left;">Lucid&#8217;s immersion technology coupled with Ribbit&#8217;s capabilities is the next step in terms of creating new interactive experiences. Adding a voice and communications layer completes the bridge to the real world that is missing in other virtual reality experiences. The landscape for new business and artistic applications is almost endless.</p>
+			
+			<br />
+			<br />
+			
+			<h3 style="text-align: center; font-size:14px;"><strong>Social Networking &amp; Communications</strong><strong> : $15,000</strong></h3> 
+			<p style="text-align: center;"><strong><a href="http://killerappchallenge.ribbit.com/news/?page_id=712">Save a Life - Developer - Romin K. Irani, Mumbai, India [rominirani]</a></strong></p>
+			<p style="text-align: center;">
+				<a href="http://killerappchallenge.ribbit.com/news/?page_id=712"><img class="aligncenter" src="http://killerappchallenge.ribbit.com/news/wp-content/uploads/2009/03/savealife1.png" alt="" width="289" height="226" /></a>
+			</p>
+			<p style="text-align: left;">
+				This socially-conscious application really brings to light the use of voice and telephony as an enabler to address real-world communication challenges; in this case as it relates to finding blood donors. This serves as a informative example to institutions that currently perform similar tasks and how they can drive workflow enhancements by communications enabling healthcare processes.
+			</p>
+			
+			<br />
+			<br />
+			
+			<h3 style="text-align: center; font-size:14px;"><strong>Business &amp; Productivity</strong><strong> : $15,000</strong></h3> 
+			<p style="text-align: center;">
+				<strong><a href="http://killerappchallenge.ribbit.com/news/?page_id=899">Sugared Frog - Developer - Sena Gbeckor-Kove, Amsterdam, The Netherlands [senagbe]</a></strong>
+			</p>
+			<p style="text-align: center;">
+				<a href="http://killerappchallenge.ribbit.com/news/?page_id=899"><img class="aligncenter" style="border: 1px solid black;" src="http://killerappchallenge.ribbit.com/news/wp-content/uploads/2009/03/screenshot.jpg" alt="" width="270" height="237" /></a>
+			</p>
+			<p style="text-align: left;">
+				Continuing in the vein of Ribbit&#8217;s award-winning Ribbit for Salesforce application, Sugared Frog demonstrates the tremendous market potential for communications enabling business processes. The return on investment from a CRM perspective is especially compelling in the current economic environment.
+			</p>
+			
+			<br />
+			<br />
+			
+			<h3 style="text-align: center; font-size:14px;"><strong>Carrier, Network or ISP Integration : $15,000</strong></h3> 
+			<p style="text-align: center;">
+				<strong><a href="http://killerappchallenge.ribbit.com/news/?page_id=868">SimplePhone - Developer - Joseph Farrar, Las Vegas, NV [joedeveloper]</a></strong>
+			</p>
+			<p style="text-align: center;">
+				<a href="http://killerappchallenge.ribbit.com/news/?page_id=868"><img class="aligncenter" src="http://killerappchallenge.ribbit.com/news/wp-content/uploads/2009/03/appimage.jpg" alt="" width="182" height="268" /></a>
+			</p>
+			<p style="text-align: left;">
+				This app integrates the Ribbit platform and Broadsoft's Broadworx API and is skinned and deployed on SimpleSignal It can function as a stand-alone Flash phone and can also be linked with Broadworx XSP accounts to access Broadworx user profile feature set. For example, the user has set his DND (Do-Not-Disturb) notification on his Broadsoft account which is supported on the Ribbit Flash Phone.
+			</p>
+			<p style="text-align: left;">
+				It also demonstrates a federated developer ecosystem model - marrying Ribbit's open platform with the Broadworx API - which, in turn, opens up Broadsoft's customer base (including a number of the world's largest telecom carriers) to the Ribbit Developer Community.
+			</p>
+			
+			<br />
+			<br />
+			
+			<h3 style="text-align: center; font-size:14px;"><strong>Wildcard</strong> <strong>: $15,000</strong></h3> 
+			<p style="text-align: center;">
+				<strong><a href="http://killerappchallenge.ribbit.com/news/?page_id=571">CHYAA - Developer - David H. Bello, Bogota, Columbia [dhbellol]</a></strong>
+			</p>
+			<p style="text-align: center;">
+				<a href="http://killerappchallenge.ribbit.com/news/?page_id=571"><img class="aligncenter" src="http://killerappchallenge.ribbit.com/news/wp-content/uploads/2009/03/cyhaa.jpg" alt="" width="240" height="240" /></a>
+			</p>
+			<p style="text-align: left;">Voice as an interface is an incredibly exciting prospect with a multitude of potential applications. The ease and familiarity of using a phone and your voice combined with the usefulness of remotely controlling home functions highlights a broad category of applications that are innovative yet easy to use.</p>
+			<p>Congratulations to all of the winners! We'll take great pride seeing these apps deployed around the world.</p>
+			<p>On a final contest note, there were some very close votes and we are planning to contact several submitters directly in the coming weeks to discuss other Ribbit opportunities on the horizon. And, if you are planning on monetizing your application, please contact us as partneropps@ribbit.com.</p>
+            	
+            	
+            	
+            	
+            <%--	
             	<div id="home-side">
                     <div id="fiveways">
                         <div id="fivecontainer">
@@ -79,9 +152,30 @@
             	<p><a href="http://<%=ApplicationServer.AOLICQ_SERVER_NAME%>/?module=Static&amp;d1=learnMore">Click here</a> to learn more about how to compete and the benefits of submitting early.</p>
 
 				<p>Good Luck!</p>
+			    --%> 
             </div>
+           
             
-            <div id="timeline"><img src="/images/killerapp/killerapp_timeline.png"></div>
+              <%-- <div id="timeline"><img src="/images/killerapp/killerapp_timeline.png"></div> --%> 
+            
+            
+           
+			
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <%-- 
             
             <div id="register-steps">
             	<h2>Steps to Register</h2>
@@ -110,7 +204,7 @@
                     </li>
                 </ol>
           </div>
-        
+        --%> 
         </div>
         
         <div id="right-sidebar">

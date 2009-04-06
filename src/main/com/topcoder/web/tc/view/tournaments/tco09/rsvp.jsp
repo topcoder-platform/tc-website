@@ -156,6 +156,9 @@
                 <h2 class="title">Don’t Miss the Innovative Discussions…</h2>
                 <strong>In addition to the great competitions, we are also featuring the following Discussion Forums:</strong>
                 <ul>
+                    <li><strong>TopCoder Q & A, Featuring Jack Hughes, Founder and TopCoder staff. </strong>  This round table discussion will be an opportunity for TCO09 attendees to ask questions and start conversations with the Founder of TopCoder, Jack Hughes as well as other TopCoder personnel.  It will be an open discussion that will also be available to members online.</li>
+                </ul>
+          <ul>
                     <li><a href="http://sensations.aol.com/" target="_blank">AOL/TopCoder Sensations Developer Challenge</a>, <strong>featuring Tom Wlodkowski, Director, Accessibility at AOL.</strong>  The discussion will summarize the competition, the accessibility applications built throughout, and showcase the big winners.</li>
                 </ul>
                 <em>More Innovative Discussions to be announced soon!</em><br/><br/>
