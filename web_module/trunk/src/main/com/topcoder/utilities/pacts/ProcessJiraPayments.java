@@ -517,7 +517,7 @@ public class ProcessJiraPayments extends DBUtility {
 			String amountString = getCustomFieldValueById(remoteIssue, JIRA_PAYMENT_AMOUNT_FIELD_ID);
 			try {
 				paymentAmount = Double.parseDouble(amountString);
-			} catch (NumberFormatException e) {
+			} catch (Exception e) {
 				paymentAmount = 0.0;
 				rejectIssue("First Place Payment $ (" + amountString + ") is not a valid Double number.");
 			}
