@@ -75,7 +75,11 @@
                 <tr>
                     <td style="padding: 0px 5px 10px 0px;" align="center" width="50%">
                         <a class="bigButton" style="width: 130px;"
-                           href="/longcontest/?module=ViewReg&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}">Register/Submit</a>
+						   <%if(rsr.getIntItem("round_id") == 13793) {%>
+                             href="/longcontest/?module=ViewReg&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}">Register</a>
+						   <%} else { %>
+							 href="/longcontest/?module=ViewReg&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}">Register/Submit</a>
+						   <%}%>
                         <%--<div class="bigButton" style="width: 100px;">Register</div>--%>
                     </td>
                 </tr>
