@@ -635,49 +635,63 @@ public class ProcessJiraPayments extends DBUtility {
 		}
 
 		/**
-		 * @return the paymentType
+		 * Returns the PACTS payment type for this issue.
+		 * 
+		 * @return the payment type.
 		 */
 		public String getPaymentType() {
 			return paymentType;
 		}
 
 		/**
-		 * @return the referenceType
+		 * Returns the issue's reference type (currently "TopCoder" or "Studio").
+		 * 
+		 * @return the reference type.
 		 */
 		public String getReferenceType() {
 			return referenceType;
 		}
 
 		/**
-		 * @return the referenceId
+		 * Returns the issue's reference id (currently a TopCoder project or Studio contest id).
+		 * 
+		 * @return the reference id.
 		 */
 		public long getReferenceId() {
 			return referenceId;
 		}
 
 		/**
-		 * @return the userId
+		 * Returns the TopCoder user id for the issue's payee.
+		 * 
+		 * @return the user id.
 		 */
 		public long getPayeeUserId() {
 			return payeeUserId;
 		}
 
 		/**
-		 * @return the client
+		 * Returns the name of the client this issue was resolved for.
+		 * 
+		 * @return the client name.
 		 */
 		public String getClient() {
 			return client;
 		}
 
 		/**
-		 * @return the amount
+		 * Returns the amount owed to the payee.
+		 * 
+		 * @return the amount.
 		 */
 		public double getPaymentAmount() {
 			return paymentAmount;
 		}
 
 		/**
-		 * @return the description
+		 * Returns a description of the issue.
+		 * 
+		 * @return the description.
 		 */
 		public String getDescription() {
 			return description;
