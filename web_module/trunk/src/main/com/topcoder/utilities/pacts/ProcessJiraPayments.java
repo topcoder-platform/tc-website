@@ -121,7 +121,7 @@ public class ProcessJiraPayments extends DBUtility {
 				if (onlyAnalyze.equalsIgnoreCase("false")) {
 					if (issue.isRejected()) {
 						updateJiraPaymentStatus(jira, token, remoteIssue, "Payment On Hold");
-					} else {							
+					} else {
 						BasePayment payment = createPactsPayment(issue.getReferenceType(), issue.getPaymentType(),
 								issue.getReferenceId(),	issue.getClient(), issue.getPayeeUserId(),
 								issue.getPaymentAmount(), issue.getDescription());
