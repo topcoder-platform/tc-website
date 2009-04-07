@@ -120,18 +120,7 @@ public class ProcessJiraPayments extends DBUtility {
 
 				if (onlyAnalyze.equalsIgnoreCase("false")) {
 					if (issue.isRejected()) {
-						StringBuffer sb = new StringBuffer(200);
-						
-						sb.append("Payment placed on hold for the following reasons:\n\n");
-						for (String e : issue.getErrors()) {
-							sb.append(" * ");
-							sb.append(e);
-							sb.append("\n");
-						}
-						
 						updateJiraPaymentStatus(jira, token, remoteIssue, "Payment On Hold");
-						// Comment addition removed to avoid spamming members.
-						//addJiraComment(jira, token, remoteIssue, sb.toString());
 					} else {							
 						BasePayment payment = createPactsPayment(issue.getReferenceType(), issue.getPaymentType(),
 								issue.getReferenceId(),	issue.getClient(), issue.getPayeeUserId(),
@@ -140,9 +129,6 @@ public class ProcessJiraPayments extends DBUtility {
 						payment = pactsService.addPayment(payment);
 						
 						updateJiraPaymentStatus(jira, token, remoteIssue, "Paid");
-						// Comment addition removed to avoid spamming members.
-						//addJiraComment(jira, token, remoteIssue,
-						//		"Payment processed on " + dateFormat.format(new Date()));
 					}
 				}
 			} catch (Exception e) {
