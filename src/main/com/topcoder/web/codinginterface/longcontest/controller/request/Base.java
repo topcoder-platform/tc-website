@@ -16,6 +16,7 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.model.ImageInfo;
+import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -61,7 +62,8 @@ public abstract class Base extends BaseProcessor {
                         type == Constants.INTEL_LONG_ROUND_TYPE_ID ||
                         type == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID ||
                         type == Constants.AMD_LONG_ROUND_TYPE_ID ||
-                        type == Constants.AMD_LONG_PRACTICE_ROUND_TYPE_ID)) {
+                        type == Constants.AMD_LONG_PRACTICE_ROUND_TYPE_ID || 
+                        type == Constants.LONG_COLLAB_ROUND_TYPE_ID)) {
                     throw new NavigationException("Invalid round specified, wrong type");
                 }
                 getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(type));
@@ -265,6 +267,24 @@ public abstract class Base extends BaseProcessor {
         }
     }
 
-
+    /**
+     * Returns whether the user registered for the specified round.
+     *
+     * @param userID  The coder's ID
+     * @param roundID The round's ID
+     * @return True is the user is registered for the specified round
+     * @throws Exception Propagates unexpected exceptions
+     */
+    protected boolean isUserRegistered(long userID, long roundID) throws Exception {
+        boolean ret = false;
+        try {
+            RoundRegistration reg = (RoundRegistration) createEJB(getInitialContext(), RoundRegistration.class);
+            ret = reg.exists(userID, roundID);
+        } catch (Exception e) {
+            log.error("Error isUserRegistered user: " + userID + " for round: " + roundID, e);
+            throw e;
+        }
+        return ret;
+    }
 }
 
