@@ -12,6 +12,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.codinginterface.longcontest.Helper;
 
 import java.util.Map;
 
@@ -36,6 +37,10 @@ public class ViewProblemSolution extends Base {
             getRequest().setAttribute(Constants.EXAMPLE_FLAG, String.valueOf("1".equals(example)));
             log.debug("coder: " + coder + " user " + getUser().getId());
             String dataSource = null;
+
+            long coderId = Long.parseLong(coder);
+            long roundId = Long.parseLong(round);
+
             // they can also see any solution if it's a practice round
             int roundType = ((Integer)getRequest().getAttribute(Constants.ROUND_TYPE_ID)).intValue();
             if (roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID||
@@ -43,9 +48,12 @@ public class ViewProblemSolution extends Base {
                     roundType==Constants.AMD_LONG_PRACTICE_ROUND_TYPE_ID) {
                 dataSource = DBMS.OLTP_DATASOURCE_NAME;
             } else {
-                //if the results aren't final, they can see their own code, but not anyone else's.
+                // if the results aren't final, they can see their own code, but not anyone else's...
+                // unless the round is collaborative and they are registered for it.
                 if (!areResultsAvailable(Long.parseLong(round))) {
-                    if (getUser().getId()==Long.parseLong(coder) || getSessionInfo().isAdmin()) {
+                    if (getUser().getId() == coderId || getSessionInfo().isAdmin() ||
+                        (roundType == Constants.LONG_COLLAB_ROUND_TYPE_ID && isUserRegistered(getUser().getId(), roundId))) {
+                        
                         dataSource = DBMS.OLTP_DATASOURCE_NAME;
                     } else {
                         throw new PermissionException(getUser(), new ClassResource(this.getClass()));
@@ -54,6 +62,12 @@ public class ViewProblemSolution extends Base {
                     dataSource = DBMS.DW_DATASOURCE_NAME;
                 }
             }
+
+            // always audit a view if the viewer is not looking at themselves.
+            if (getUser().getId() != coderId) {
+                Helper.auditViewSubmission(getUser().getId(),coderId, roundId, Long.parseLong(problem), Long.parseLong(submissionNumber));
+            }
+
             Request r = new Request();
             r.setContentHandle("long_contest_submission");
             r.setProperty(Constants.CODER_ID, coder);

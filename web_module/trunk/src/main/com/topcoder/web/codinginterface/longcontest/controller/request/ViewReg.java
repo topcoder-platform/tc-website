@@ -234,25 +234,7 @@ public class ViewReg extends Base {
         return ret;
     }
 
-    /**
-     * Returns whether the user registered for the specified round.
-     *
-     * @param userID  The coder's ID
-     * @param roundID The round's ID
-     * @return True is the user is registered for the specified round
-     * @throws Exception Propagates unexpected exceptions
-     */
-    protected boolean isUserRegistered(long userID, long roundID) throws Exception {
-        boolean ret = false;
-        try {
-            RoundRegistration reg = (RoundRegistration) createEJB(getInitialContext(), RoundRegistration.class);
-            ret = reg.exists(userID, roundID);
-        } catch (Exception e) {
-            log.error("Error isUserRegistered user: " + userID + " for round: " + roundID, e);
-            throw e;
-        }
-        return ret;
-    }
+
 
 
     protected boolean isRegistrationOpen(long roundId) throws Exception {
