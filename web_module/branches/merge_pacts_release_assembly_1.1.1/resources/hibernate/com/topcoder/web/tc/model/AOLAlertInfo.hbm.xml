@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.tc.model">
+
+    <class name="AOLAlertInfo" table="aol_alert_info">
+        <id name="id" column="user_id" access="field">
+            <generator class="foreign">
+                <param name="property">user</param>
+            </generator>
+        </id>
+        <one-to-one name="user" class="com.topcoder.web.common.model.User" constrained="true"/>
+        <property name="aolEncryptedUserId" column="aol_encrypted_user_id" access="field"/>
+    </class>
+</hibernate-mapping>
