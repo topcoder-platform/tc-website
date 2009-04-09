@@ -13,7 +13,7 @@ import java.sql.SQLException;
  *
  * VERY IMPORTANT: remember to update serialVersionUID if needed
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0 (PACTS Release Assembly 1.1.1)
  */
 public class CopilotPayment extends ComponentProjectReferencePayment {

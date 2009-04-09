@@ -22,7 +22,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  *
  * This class will check for pending withholdings that should be released and will generate the payments accordingly.
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0 (PACTS Release Assembly 1.1.1)
  */
 public class PayWithholdings extends DBUtility {
