@@ -1,7 +1,21 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.ejb.pacts;
 
 /**
- * Constants for PACTS.
+ * <p>This class stores a variety of constants for PACTS.</p>
+ *
+ * <p>
+ *   Version 1.1 (PACTS Release Assembly 1.1.1) Change notes:
+ *   <ol>
+ *     <li>Added constants to support Copilot, Studio bug fixes, Studio enhancements and Studio specification review
+ *         Payments.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER
+ * @version 1.1
  */
 public interface Constants {
 
@@ -50,6 +64,34 @@ public interface Constants {
     public static final int CONCEPTUALIZATION_CONTEST_PAYMENT = 43;
     public static final int TESTING_COMPETITION_PAYMENT = 44;
 
+    /**
+     * <p>A <code>int</code> representing the payment type for Copilot payments.</p>
+     *
+     * @since 1.1
+     */
+    public static final int COPILOT_PAYMENT = 45;
+
+    /**
+     * <p>A <code>int</code> representing the payment type for Studio bug fixes payments.</p>
+     *
+     * @since 1.1
+     */
+    public static final int STUDIO_BUG_FIXES_PAYMENT = 46;
+
+    /**
+     * <p>A <code>int</code> representing the payment type for Studio enhancements payments.</p>
+     *
+     * @since 1.1
+     */
+    public static final int STUDIO_ENHANCEMENTS_PAYMENT = 47;
+
+    /**
+     * <p>A <code>int</code> representing the payment type for Studio specification review payments.</p>
+     *
+     * @since 1.1
+     */
+    public static final int STUDIO_SPECIFICATION_REVIEW_PAYMENT = 48;
+
     public static final int NO_REFERENCE = 0;
     public static final int REFERENCE_ALGORITHM_ROUND_ID = 1;
     public static final int REFERENCE_COMPONENT_PROJECT_ID = 2;
@@ -90,5 +132,4 @@ public interface Constants {
     public static final int CONCEPTUALIZATION_PROJECT_CATEGORY_LU = 23;
     public static final int SPECIFICATION_PROJECT_CATEGORY_LU = 6;
     public static final int APPLICATION_TESTING_PROJECT_CATEGORY_LU = 13;
-
 }

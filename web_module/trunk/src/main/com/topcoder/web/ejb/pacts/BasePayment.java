@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.ejb.pacts;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -13,15 +16,23 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Represents basic payment information, without reference information.
+ * <p>Represents basic payment information, without reference information.
  * This class partially overlaps with Payment class.  However, this class is intendeed
  * to be uses with PactsClientServices, and tries to be more friendly.
  *
  * Payment is still used for internal processing, but maybe we can think in the future
- * to do just one class.
+ * to do just one class.</p>
  *
- * @author cucu
+ * <p>
+ *   Version 1.1 (PACTS Release Assembly 1.1.1) Change notes:
+ *   <ol>
+ *     <li>Added support for Copilot, Studio bug fixes, Studio enhancements and Studio specification review
+ *         Payments.</li>
+ *   </ol>
+ * </p>
  *
+ * @author cucu, TCSDEVELOPER
+ * @version 1.1
  */
 public abstract class BasePayment implements Constants, java.io.Serializable {
     private static Logger log = Logger.getLogger(BasePayment.class);
@@ -153,6 +164,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case SPECIFICATION_CONTEST_PAYMENT:
         case CONCEPTUALIZATION_CONTEST_PAYMENT:
         case TESTING_COMPETITION_PAYMENT:
+        case COPILOT_PAYMENT:
             return REFERENCE_COMPONENT_PROJECT_ID;
 
         case PROBLEM_WRITING_PAYMENT:
@@ -160,6 +172,9 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
         case TC_STUDIO_TOURNAMENT_PRIZE_PAYMENT:
         case TC_STUDIO_PAYMENT:
+        case STUDIO_BUG_FIXES_PAYMENT:
+        case STUDIO_ENHANCEMENTS_PAYMENT:
+        case STUDIO_SPECIFICATION_REVIEW_PAYMENT:
             return REFERENCE_STUDIO_CONTEST_ID;
 
         case COMPONENT_TOURNAMENT_BONUS_PAYMENT:
@@ -233,6 +248,12 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case SPECIFICATION_CONTEST_PAYMENT: return new SpecificationContestPayment(coderId, grossAmount, referenceId, placed);
         case CONCEPTUALIZATION_CONTEST_PAYMENT: return new ConceptualizationContestPayment(coderId, grossAmount, referenceId, placed);
         case TESTING_COMPETITION_PAYMENT: return new TestingCompetitionPayment(coderId, grossAmount, referenceId, placed);
+        case COPILOT_PAYMENT: return new CopilotPayment(coderId, grossAmount, referenceId, placed);
+        case STUDIO_BUG_FIXES_PAYMENT: return new StudioBugFixesPayment(coderId, grossAmount, referenceId, placed);
+        case STUDIO_ENHANCEMENTS_PAYMENT:
+            return new StudioEnhancementsPayment(coderId, grossAmount, referenceId, placed);
+        case STUDIO_SPECIFICATION_REVIEW_PAYMENT:
+            return new StudioSpecificationReviewPayment(coderId, grossAmount, referenceId, placed);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
     }
@@ -349,6 +370,11 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case SPECIFICATION_CONTEST_PAYMENT: return "Specification Contest Payment";
             case CONCEPTUALIZATION_CONTEST_PAYMENT: return "Conceptualization Contest Payment";
             case TESTING_COMPETITION_PAYMENT: return "Testing Competition Payment";
+            case COPILOT_PAYMENT: return "Copilot Payment";
+            case STUDIO_BUG_FIXES_PAYMENT: return "TopCoder Studio bug fixes Payment";
+            case STUDIO_ENHANCEMENTS_PAYMENT: return "TopCoder Studio enhancements Payment";
+            case STUDIO_SPECIFICATION_REVIEW_PAYMENT: return "TopCoder Studio specification review Payment";
+
             default: return "Other Payment";
         }
     }
