@@ -286,5 +286,14 @@ public abstract class Base extends BaseProcessor {
         }
         return ret;
     }
+    
+    protected boolean isRoundCollab(long roundID) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("long_contest_collab_round_check");
+        r.setProperty("rd", String.valueOf(roundID));
+        return !((ResultSetContainer)getDataAccess(true).getData(r).get(
+        		"long_contest_collab_round_check")).isEmpty();
+           	
+    }
 }
 
