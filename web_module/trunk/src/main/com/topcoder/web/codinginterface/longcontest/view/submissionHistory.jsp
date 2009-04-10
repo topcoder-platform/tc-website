@@ -21,8 +21,10 @@
 <%
     ResultSetContainer submissions = (ResultSetContainer) resultMap.get("long_coder_submissions");
     ResultSetContainer tmp = (ResultSetContainer) resultMap.get("long_contest_over");
+    
     boolean over = tmp.getBooleanItem(0, 0);
     boolean self = !submissions.isEmpty() && submissions.getLongItem(0, "coder_id")==sessionInfo.getUserId();
+    boolean collab = resultMap.containsKey("long_collab_round");
 %>
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
 <% String myNode = "long_compete";
@@ -119,7 +121,7 @@
                             <rsc:iterator list="<%=submissions%>" id="resultRow">
                                 <tr>
                                     <td class="<%=even?"statLt":"statDk"%>">
-                                    <% if (over||self) { %>
+                                    <% if (over||self||collab) { %>
                                        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemSolution&amp;<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&amp;<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&amp;<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&amp;<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>" class="statLink">
                                     <% } %>
                                         <rsc:item name="submission_number" row="<%=resultRow%>"/>

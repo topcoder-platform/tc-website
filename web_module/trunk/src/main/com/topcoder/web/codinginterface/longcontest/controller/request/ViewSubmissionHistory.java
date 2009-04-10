@@ -70,6 +70,11 @@ public class ViewSubmissionHistory extends Base {
             }            
             request.setAttribute("infoRow", infoRsc.get(0));
 
+            if (isRoundCollab(Long.parseLong(request.getParameter(Constants.ROUND_ID))))
+            {
+            	result.put("long_collab_round", new ResultSetContainer());
+            }
+                       
 //            SortInfo s = new SortInfo();
 //            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 

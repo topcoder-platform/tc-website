@@ -52,7 +52,7 @@ public class ViewProblemSolution extends Base {
                 // unless the round is collaborative and they are registered for it.
                 if (!areResultsAvailable(Long.parseLong(round))) {
                     if (getUser().getId() == coderId || getSessionInfo().isAdmin() ||
-                        (roundType == Constants.LONG_COLLAB_ROUND_TYPE_ID && isUserRegistered(getUser().getId(), roundId))) {
+                        (isRoundCollab(roundId) && isUserRegistered(getUser().getId(), roundId))) {
                         
                         dataSource = DBMS.OLTP_DATASOURCE_NAME;
                     } else {
