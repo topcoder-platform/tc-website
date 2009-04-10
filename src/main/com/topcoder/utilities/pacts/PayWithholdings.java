@@ -18,7 +18,7 @@ import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
- * Utility class for paying withholded payments.
+ * Utility class for paying withheld payments.
  *
  * This class will check for pending withholdings that should be released and will generate the payments accordingly.
  *
@@ -27,6 +27,11 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  */
 public class PayWithholdings extends DBUtility {
 
+	/**
+	 * A hard cutoff date for the start of the payments, to filter out old project data.
+	 */
+	private static final String START_DATE = "MDY(03, 01, 2009)";
+	
     /**
      * This variable tells if only an analysis is wanted.
      */
@@ -69,6 +74,7 @@ public class PayWithholdings extends DBUtility {
         query.append(PactsConstants.COMPONENT_PAYMENT).append(") ");
         query.append(" AND to_date(pi.value, '%m.%d.%Y %H:%M %p') + ").append(releasePeriodDays);
         query.append(" UNITS DAY < current ");
+        query.append(" AND to_date(pi.value, '%m.%d.%Y %H:%M %p') >= " + START_DATE);
         query.append(" GROUP BY 1, 2, 3, 4, 5, 6 ");
         query.append(" HAVING sum(gross_amount) < max(total_amount) ");
 
