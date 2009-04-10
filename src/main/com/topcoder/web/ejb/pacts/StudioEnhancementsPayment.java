@@ -34,11 +34,38 @@ public class StudioEnhancementsPayment extends StudioContestReferencePayment {
      *
      * @param coderId coder to be paid.
      * @param grossAmount amount to be paid.
+     * @param client the client of the contest.
+     * @param contestId project that is being paid.
+     * @param placed the place of the coder in the contest.
+     */
+    public StudioEnhancementsPayment(long coderId, double grossAmount, String client, long contestId, int placed) {
+        super(STUDIO_ENHANCEMENTS_PAYMENT, coderId, grossAmount, client, contestId, placed);
+    }
+
+    /**
+     * Creates a Studio enhancements payment using the specified parameters.
+     *
+     * Note: this constructor will default placed to 0.
+     *
+     * @param coderId coder to be paid.
+     * @param grossAmount amount to be paid.
+     * @param client the client of the contest.
+     * @param contestId project that is being paid.
+     */
+    public StudioEnhancementsPayment(long coderId, double grossAmount, String client, long contestId) {
+        this(coderId, grossAmount, client, contestId, 0);
+    }
+
+    /**
+     * Creates a Studio enhancements payment using the specified parameters.
+     *
+     * @param coderId coder to be paid.
+     * @param grossAmount amount to be paid.
      * @param contestId project that is being paid.
      * @param placed the place of the coder in the contest.
      */
     public StudioEnhancementsPayment(long coderId, double grossAmount, long contestId, int placed) {
-        super(STUDIO_ENHANCEMENTS_PAYMENT, coderId, grossAmount, contestId, placed);
+        this(coderId, grossAmount, null, contestId, placed);
     }
 
     /**
@@ -51,9 +78,8 @@ public class StudioEnhancementsPayment extends StudioContestReferencePayment {
      * @param contestId project that is being paid.
      */
     public StudioEnhancementsPayment(long coderId, double grossAmount, long contestId) {
-        this(coderId, grossAmount, contestId, 0);
+        this(coderId, grossAmount, null, contestId, 0);
     }
-
 
     /**
      * Get a processor for this type of payment.

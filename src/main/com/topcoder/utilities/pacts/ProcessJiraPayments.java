@@ -30,9 +30,13 @@ import com.topcoder.shared.util.sql.DBUtility;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.BugFixesPayment;
 import com.topcoder.web.ejb.pacts.ComponentEnhancementsPayment;
+import com.topcoder.web.ejb.pacts.CopilotPayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
 import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
 import com.topcoder.web.ejb.pacts.SpecificationReviewPayment;
+import com.topcoder.web.ejb.pacts.StudioBugFixesPayment;
+import com.topcoder.web.ejb.pacts.StudioEnhancementsPayment;
+import com.topcoder.web.ejb.pacts.StudioSpecificationReviewPayment;
 import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapService;
 import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapServiceServiceLocator;
 
@@ -98,12 +102,6 @@ public class ProcessJiraPayments extends DBUtility {
 				JiraIssue issue = new JiraIssue(remoteIssue);
 
 				// Ignoring types we don't have for now.
-				if ("Studio".equals(issue.getReferenceType())) {
-					issue.rejectIssue("Studio reference types are not implemented yet.");
-				}
-				if ("Copilot".equals(issue.getPaymentType())) {
-					issue.rejectIssue("Copilot payment type is not implemented yet.");
-				}
 				if (remoteIssue.getKey().length() > 10 && "COMPBUILDS".equals(remoteIssue.getKey().substring(0, 10))) {
 					issue.rejectIssue("Component Build payment types are not implemented yet.");
 				}
@@ -182,12 +180,21 @@ public class ProcessJiraPayments extends DBUtility {
 				payment = new ComponentEnhancementsPayment(userId, amount, client, referenceId);
 			} else if ("Specification Review".equals(paymentType)) {
 				payment = new SpecificationReviewPayment(userId, amount, client, referenceId);
+			} else if ("Copilot".equals(paymentType)) {
+				payment = new CopilotPayment(userId, amount, client, referenceId);
 			} else {
-				throw new IllegalArgumentException("Unknown payment type: " + paymentType);
+				throw new IllegalArgumentException("Unknown TopCoder payment type: " + paymentType);
 			}
 		} else if ("Studio".equals(referenceType)) {
-			// TODO: Add Studio payment types once they exist.
-			throw new RuntimeException("Studio payment types have not been implemented yet");
+			if ("Bug Fix".equals(paymentType)) {
+				payment = new StudioBugFixesPayment(userId, amount, client, referenceId);
+			} else if ("Enhancement".equals(paymentType)){
+				payment = new StudioEnhancementsPayment(userId, amount, client, referenceId);
+			} else if ("Specification Review".equals(paymentType)) {
+				payment = new StudioSpecificationReviewPayment(userId, amount, client, referenceId);
+			} else {
+				throw new IllegalArgumentException("Unknown Studio payment type: " + paymentType);
+			}
 		} else {
 			throw new IllegalArgumentException("Unknown reference type: " + referenceType);
 		}
