@@ -14,7 +14,7 @@
     <br /><br />
     <h2 class="title">Event Sponsors</h2>
     <div class="logo">
-        <a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/logo-ieee.png" alt="IEEE USA" /></a>
+        <a href="http://www.topcoder.com/tc?module=LinkTracking&link=http://www.ieeeusa.org"><img src="/i/tournament/tco09/logo-ieee.png" alt="IEEE USA" /></a>
     </div>
     <div class="logo">
         <a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor2"><img src="/i/tournament/tco09/logo-snia.png" alt="SNIA XAM Initiative" /></a>
