@@ -205,9 +205,11 @@ public class ProcessJiraPayments extends DBUtility {
 	}
 
 	/**
-	 * @param jira
-	 * @param token
-	 * @throws Exception
+	 * Loads all the existing issue types from Jira.
+	 * 
+	 * @param jira the Jira service.
+	 * @param token the user's login token.
+	 * @throws Exception if there is an error.
 	 */
 	private void initializeJiraIssueTypes(JiraSoapService jira, String token) throws Exception {
 		jiraIssueTypes = new HashMap<String, String>();
