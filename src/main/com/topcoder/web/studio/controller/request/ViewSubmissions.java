@@ -29,7 +29,7 @@ import java.util.Date;
  *   </ol>
  * </p>
  *
- * @author dok, isv, TCSDEVELOPER
+ * @author dok, isv, pulky
  * @version 1.1
  */
 public class ViewSubmissions extends ShortHibernateProcessor {
