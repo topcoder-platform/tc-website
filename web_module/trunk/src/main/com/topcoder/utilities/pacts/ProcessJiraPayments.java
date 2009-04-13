@@ -33,6 +33,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.sql.DBUtility;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.BugFixesPayment;
+import com.topcoder.web.ejb.pacts.ComponentBuildPayment;
 import com.topcoder.web.ejb.pacts.ComponentEnhancementsPayment;
 import com.topcoder.web.ejb.pacts.CopilotPayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
@@ -110,11 +111,6 @@ public class ProcessJiraPayments extends DBUtility {
 			try {
 				// Parse all the relevant data from the Jira issue and determine rejection status and errors.
 				JiraIssue issue = new JiraIssue(remoteIssue);
-
-				// Ignoring types we don't have for now.
-				if (remoteIssue.getKey().length() > 10 && "COMPBUILDS".equals(remoteIssue.getKey().substring(0, 10))) {
-					issue.rejectIssue("Component Build payment types are not implemented yet.");
-				}
 
 				log.info("[" + (issue.isRejected() ? "REJECTED" : "ACCEPTED") + "] - (payment type: "
 						+ issue.getPaymentType() + ", project type: " + issue.getReferenceType()
@@ -221,6 +217,9 @@ public class ProcessJiraPayments extends DBUtility {
 				payment = new SpecificationReviewPayment(userId, amount, client, referenceId);
 			} else if ("Copilot".equals(paymentType)) {
 				payment = new CopilotPayment(userId, amount, client, referenceId);
+			} else if ("Build".equals(paymentType) || "Re-Build".equals(paymentType) || "Build QC".equals(paymentType)) {
+				payment = new ComponentBuildPayment(userId, amount, client, referenceId);
+				payment.setDescription(payment.getDescription() + " (" + paymentType + ")");
 			} else {
 				throw new IllegalArgumentException("Unknown TopCoder payment type: " + paymentType);
 			}
@@ -253,6 +252,7 @@ public class ProcessJiraPayments extends DBUtility {
 	private void initializeJiraIssueTypes(JiraSoapService jira, String token) throws Exception {
 		jiraIssueTypes = new HashMap<String, String>();
 		
+		// FIXME: This doesn't seem to be retrieving subtask types.
 		RemoteIssueType[] issueTypes = jira.getIssueTypes(token);
 		for (RemoteIssueType issueType : issueTypes) {
 			jiraIssueTypes.put(issueType.getId(), issueType.getName());
