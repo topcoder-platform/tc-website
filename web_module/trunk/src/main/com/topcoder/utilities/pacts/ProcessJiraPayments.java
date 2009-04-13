@@ -219,7 +219,7 @@ public class ProcessJiraPayments extends DBUtility {
 				payment = new CopilotPayment(userId, amount, client, referenceId);
 			} else if ("Build".equals(paymentType) || "Re-Build".equals(paymentType) || "Build QC".equals(paymentType)) {
 				payment = new ComponentBuildPayment(userId, amount, client, referenceId);
-				payment.setDescription(payment.getDescription() + " (" + paymentType + ")");
+				description += " (" + paymentType + ")";
 			} else {
 				throw new IllegalArgumentException("Unknown TopCoder payment type: " + paymentType);
 			}
