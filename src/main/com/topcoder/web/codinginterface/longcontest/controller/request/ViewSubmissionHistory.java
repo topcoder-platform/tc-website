@@ -29,6 +29,9 @@ public class ViewSubmissionHistory extends Base {
 
             int numRecords = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
             int startRank = 1, sortCol = 3;
+
+            long roundId = Long.parseLong(request.getParameter(Constants.ROUND_ID);
+
             if (!"".equals(numRecordsStr)) {
                 numRecords = Integer.parseInt(numRecordsStr);
             }
@@ -70,7 +73,7 @@ public class ViewSubmissionHistory extends Base {
             }            
             request.setAttribute("infoRow", infoRsc.get(0));
 
-            if (isRoundCollab(Long.parseLong(request.getParameter(Constants.ROUND_ID))))
+            if (isRoundCollab(roundId) && isUserRegistered(getUser().getId(), roundId))
             {
             	result.put("long_collab_round", new ResultSetContainer());
             }
