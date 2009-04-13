@@ -267,7 +267,6 @@ public class ProcessJiraPayments extends DBUtility {
 	 * @return the PACTS payment type for the Jira issue.
 	 */
 	private String getIssueType(RemoteIssue issue) {
-		// TODO: straighten out the mess with build payments.
 		if (issueTypeTranslation.containsKey(issue.getType())) {
 			return issueTypeTranslation.get(issue.getType());
 		}
