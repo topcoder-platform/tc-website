@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <translationMap>
   <translate from="1"  to="Bug Fix" />
-  <translate from="4"  to="Enhancement" />
   <translate from="2"  to="Enhancement" />
+  <translate from="4"  to="Enhancement" />
   <translate from="11" to="Specification Review" />
   <translate from="12" to="Copilot" />
   <translate from="13" to="Build" />
