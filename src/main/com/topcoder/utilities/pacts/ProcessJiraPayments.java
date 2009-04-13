@@ -578,7 +578,7 @@ public class ProcessJiraPayments extends DBUtility {
 				client = getClientName(clientNickname);
 				if (client == null) {
 					client = clientNickname;
-					rejectIssue("Unknown client nickname " + clientNickname + ".");
+					rejectIssue("Unknown client " + clientNickname + ".");
 				}
 			} else {
 				client = "N/A";
