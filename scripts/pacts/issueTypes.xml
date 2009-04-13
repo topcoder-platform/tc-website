@@ -5,4 +5,7 @@
   <translate from="2"  to="Enhancement" />
   <translate from="11" to="Specification Review" />
   <translate from="12" to="Copilot" />
+  <translate from="13" to="Build" />
+  <translate from="14" to="Re-Build" />
+  <translate from="16" to="Build QC" />
 </translationMap>
