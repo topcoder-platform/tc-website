@@ -8,7 +8,10 @@ import java.rmi.RemoteException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +24,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 
+import com.atlassian.jira.rpc.soap.beans.RemoteComment;
 import com.atlassian.jira.rpc.soap.beans.RemoteCustomFieldValue;
 import com.atlassian.jira.rpc.soap.beans.RemoteFieldValue;
 import com.atlassian.jira.rpc.soap.beans.RemoteIssue;
@@ -43,11 +47,6 @@ import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapServiceServiceL
 /**
  * <p>Processes any pending payments from Jira (resolved issues marked as Payment Owed), and inserts the resulting
  * member payments into PACTS.</p>
- * 
- * Wishlist:
- * <ul>
- *   <li>Email about rejected issues.</li>
- * </ul>
  *  
  * @author ivern
  * @version 1.0.0
@@ -77,6 +76,17 @@ public class ProcessJiraPayments extends DBUtility {
 	
 	/** A translation mapping of Jira issue type ids to issue type names. */
 	private Map<String, String> jiraIssueTypes = null;
+	
+	/** The date format to be used when inserting timestamps into Jira comments. */
+	private DateFormat dateFormat = null;
+	
+	/**
+	 * Class constructor.  Initializes the date format.
+	 */
+	public ProcessJiraPayments() {
+		super();
+		dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	}
 	
 	/* (non-Javadoc)
 	 * @see com.topcoder.shared.util.sql.DBUtility#runUtility()
@@ -118,7 +128,17 @@ public class ProcessJiraPayments extends DBUtility {
 
 				if (onlyAnalyze.equalsIgnoreCase("false")) {
 					if (issue.isRejected()) {
+						StringBuffer sb = new StringBuffer(200);
+						
+						sb.append("Payment placed on hold for the following reasons:\n\n");
+						for (String e : issue.getErrors()) {
+							sb.append(" * ");
+							sb.append(e);
+							sb.append("\n");
+						}
+						
 						updateJiraPaymentStatus(jira, token, remoteIssue, "Payment On Hold");
+						addJiraComment(jira, token, remoteIssue, sb.toString());
 					} else {
 						BasePayment payment = createPactsPayment(issue.getReferenceType(), issue.getPaymentType(),
 								issue.getReferenceId(),	issue.getClient(), issue.getPayeeUserId(),
@@ -127,6 +147,8 @@ public class ProcessJiraPayments extends DBUtility {
 						payment = pactsService.addPayment(payment);
 						
 						updateJiraPaymentStatus(jira, token, remoteIssue, "Paid");
+						addJiraComment(jira, token, remoteIssue,
+								"Payment processed on " + dateFormat.format(new Date()));
 					}
 				}
 			} catch (Exception e) {
@@ -153,6 +175,23 @@ public class ProcessJiraPayments extends DBUtility {
 		jira.updateIssue(token, issue.getKey(), new RemoteFieldValue[] {
 			new RemoteFieldValue(JIRA_PAYMENT_STATUS_FIELD_KEY, new String[] { status })
 		});
+	}
+	
+	/**
+	 * Inserts a comment into a Jira issue.
+	 * 
+	 * @param jira an instance of JiraSoapService
+	 * @param token the user's login token.
+	 * @param issue the remote issue to add the comment to.
+	 * @param body the comment body.
+	 * @throws RemoteException if there was an error inserting the comment.
+	 */
+	private void addJiraComment(JiraSoapService jira, String token,	RemoteIssue issue, String body)
+			throws RemoteException {
+	
+		final RemoteComment comment = new RemoteComment(); 
+		comment.setBody(body);
+		jira.addComment(token, issue.getKey(), comment);
 	}
 
 	/**
