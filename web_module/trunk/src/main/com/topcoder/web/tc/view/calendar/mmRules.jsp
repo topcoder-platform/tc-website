@@ -61,7 +61,7 @@
         </c:if>
 
 <%-- FIRST, ALL OF THE EXPERIMENTAL RULES --%>	
-<%if(rsr.getIntItem("round_id") == 13793) {%>
+<%if(rsr.getIntItem("round_id") == 13793 || rsr.getIntItem("round_id") == 13796 || rsr.getIntItem("round_id") == 13797 || rsr.getIntItem("round_id") == 13798) {%>
        <%-- BRANDING --%>
         <h2>${row.map['contest_name']} &gt; ${row.map['round_name']}</h2>
 
@@ -100,14 +100,14 @@
 		<br><br>
 		After the close of registration, Contestants will be assigned to one of three Groups based on their Marathon Match rating, so as to evenly allocate skill levels among the Groups.  Contestants who do not have a Marathon Match rating will be treated as having a rating of zero.  Each Group will have different rules regarding the sharing of solution information.  There will be a private forum on the TopCoder web site for each of the Groups to communicate.
 		<br><br>
-		Group 1 will not be allowed to collaborate with other Contestants in any way, and will not receive any information of others.  Group 3 Contestants will be allowed to see other Contestants' Submissions and make use of and improve upon such other Contestant's work.  Group 2 not be allowed to collaborate with other Contestants during the first phase, but during the second phase will be allowed to see, make use of, and improve upon other Contestant's Submissions.  
+		Group A will not be allowed to collaborate with other Contestants in any way, and will not receive any information of others.  Group C Contestants will be allowed to see other Contestants' Submissions and make use of and improve upon such other Contestant's work.  Group B not be allowed to collaborate with other Contestants during the first phase, but during the second phase will be allowed to see, make use of, and improve upon other Contestant's Submissions.  
 		<br><br>
-		Competitors in Group 1 during both phases, and in Group 2 only during the first phase, will follow typical Marathon Match rules.  Discussion in the competition forums will be limited to questions and general discussion, and should not discuss or share information about solving the problem.  
+		Competitors in Group A during both phases, and in Group B only during the first phase, will follow typical Marathon Match rules.  Discussion in the competition forums will be limited to questions and general discussion, and should not discuss or share information about solving the problem.  
 		<br><br>
-		Competitors in Group 2 only in the second phase, and Competitors in Group 3 in both phases, will be able to communicate about solving the problem in the Group forum with other Contestants in the same Group, and will be able to see the submissions made by others.  During the second phase, Competitors in Group 2 will be allowed to see other Contestants' Submissions from the first phase.  If viewing is permitted, submissions will available on the competition page. 
+		Competitors in Group B only in the second phase, and Competitors in Group C in both phases, will be able to communicate about solving the problem in the Group forum with other Contestants in the same Group, and will be able to see the submissions made by others.  During the second phase, Competitors in Group B will be allowed to see other Contestants' Submissions from the first phase.  If viewing is permitted, submissions will available on the competition page. 
 		<br><br>
-		Contestants in Group 3, and in the second phase Contestants in Group 2, are required to maintain a contribution list in the comments at the top of their submissions, in the form of a template that will be provided, allocating the amount of contribution to their solution that they attribute to other Contestants.  
-		TopCoder may, at its discretion, reject a contribution list, or modify the allocation in any way if TopCoder in its sole judgment believes that the contribution list was not completed accurately.  Completing the contribution list is a requirement of participation.  Contestants will not receive prizes unless they have submitted the contribution list, and Group 3 Contestants will not be permitted to participate in the second phase if they neglected to include a contribution list in the first phase.  
+		Contestants in Group C, and in the second phase Contestants in Group B, are required to maintain a contribution list in the comments at the top of their submissions, in the form of a template that will be provided, allocating the amount of contribution to their solution that they attribute to other Contestants.  
+		TopCoder may, at its discretion, reject a contribution list, or modify the allocation in any way if TopCoder in its sole judgment believes that the contribution list was not completed accurately.  Completing the contribution list is a requirement of participation.  Contestants will not receive prizes unless they have submitted the contribution list, and Group C Contestants will not be permitted to participate in the second phase if they neglected to include a contribution list in the first phase.  
 		<br><br>
 		Depending on the results of the competition, Sponsors may choose to write a scientific paper that highlights the technical accomplishments in the algorithm and code for that field.  The Sponsors have stated that Contestants whose code is featured in the paper will be invited to be co-authors in the publication.
 		</p>
@@ -125,11 +125,11 @@
 		<br><br>
 		In a Marathon Match, all Contestants are encouraged to improve their solutions and resubmit iteratively throughout the length of the submission phase. The most recent Submission is always the one that counts, so if you enter a Submission that does not score as well as a prior Submission, the most recent will still be the one that counts in the standings. Contestants may submit code written in one of the following languages: Java, C++, C#.NET, VB.NET, or Python.
 		<br><br>
-		During the Contest, Contestants in each Group must not communicate with Contestants in other Groups about the Contest, and also must follow the rules for communication with other Contestants who are in their Group.  For Group 1 during both phases and for Group 2 only during the first phase, all Submissions must be the Contestant's original creation, created solely by the Contestant.  In these Groups/Phases, no collaboration or use of the Submissions or ideas of other Contestants is permitted.  
+		During the Contest, Contestants in each Group must not communicate with Contestants in other Groups about the Contest, and also must follow the rules for communication with other Contestants who are in their Group.  For Group A during both phases and for Group B only during the first phase, all Submissions must be the Contestant's original creation, created solely by the Contestant.  In these Groups/Phases, no collaboration or use of the Submissions or ideas of other Contestants is permitted.  
 		<br><br>
-		For Group 2 during the second phase, and for Group 3 during both phases, Contestants can communicate with other Contestants in their Group in the Group forums, and will have access to the Submissions of other Contestants.  No communication about the problems or solutions outside of the assigned Group forum is permitted. 
+		For Group B during the second phase, and for Group C during both phases, Contestants can communicate with other Contestants in their Group in the Group forums, and will have access to the Submissions of other Contestants.  No communication about the problems or solutions outside of the assigned Group forum is permitted. 
 		<br><br>
-		Contestants must not cheat.  Unless otherwise permitted by the collaboration rules (i.e., in Group 2 during Phase 2 and in Group 3), all ideas for any code submitted must be solely the Contestant's. Unless otherwise permitted by the collaboration rules (i.e., in Group 2 during Phase 2 and in Group 3), Contestant's must use their own independently developed code.  In any case, Contestants shall not copy or include code from any other party other than the Contestants, including publicly available "open source" code that is or may be subject to licensing restrictions.  Your Submission may not have been entered in previous contests, nor won previous awards; Nor may your Submission have been previously published or distributed in any media; Your Submission is intended for a family audience and must, in the sole and unfettered discretion of the TopCoder, be suitable for a general audience. 
+		Contestants must not cheat.  Unless otherwise permitted by the collaboration rules (i.e., in Group B during Phase 2 and in Group C), all ideas for any code submitted must be solely the Contestant's. Unless otherwise permitted by the collaboration rules (i.e., in Group B during Phase 2 and in Group C), Contestant's must use their own independently developed code.  In any case, Contestants shall not copy or include code from any other party other than the Contestants, including publicly available "open source" code that is or may be subject to licensing restrictions.  Your Submission may not have been entered in previous contests, nor won previous awards; Nor may your Submission have been previously published or distributed in any media; Your Submission is intended for a family audience and must, in the sole and unfettered discretion of the TopCoder, be suitable for a general audience. 
 		<br><br>
 		The content of the Submission must not be subject to the rights of any third parties, other than TopCoder, Sponsor and/or their licensors. Submissions may not promote third party products or services, or incorporate third party intellectual property (unless otherwise permitted by the collaboration rules), including, but not limited to copyright protected software, images, characters, logos, names and trademarks.  The Submission may not be offensive or otherwise unsuitable for use, as determined in TopCoder's sole discretion.  TopCoder shall not be responsible for reviewing Submissions that are unworkable for any reason.  
 		<br><br>
@@ -141,6 +141,10 @@
 		As a condition of participation, all Competitors hereby grant a perpetual, royalty-free, irrevocable, non-exclusive license to TopCoder and the Sponsors (a) to use, reproduce and publish such Submissions or material in connection with the Contest; (b) to permit TopCoder, Sponsors, and other Contestants to copy, modify, prepare derivative works of, make and use your Submissions in their Submissions and in the Group forums as permitted in these Rules, with the understanding that your Submissions, portions of your Submissions, or derivative works of your Submissions may be part of the winning Submission; (c) to publicly display, and/or feature your Submission and all its content in connection with the promotion of this Contest in all media (now known or later developed); and (d) store your Submission on TopCoder or the Contest's TopCoder's servers, for marketing purposes, and/or for the promotion of the Contest.  You agree to sign any necessary documentation that may be required by TopCoder or its designees to make use of the rights you granted above. 
 		<br><br>
 		As a condition of participation, Contestants agree that all Submissions will be licensed for use and/or assigned to TopCoder for unrestricted use by TopCoder and the Sponsor to the extent that they are or are incorporated into winning Submissions.  Contestants agree to assign, grant, transfer, and set over to, TopCoder upon request all right, title and interest throughout the world, along with any and all copyright, patent, trade secret, moral right, and other intellectual property rights, in and to such Submissions. To the extent any rights in a Submission are not assigned or assignable, each Contestant grants and agrees to grant to TopCoder under any and all such rights an irrevocable, paid-up, royalty free, perpetual, exclusive, sublicensable (directly or indirectly through multiple tiers), transferable, and worldwide license to use and permit others to use such Submission in any manner desired by TopCoder (and/or the Sponsors) without restriction or accounting to competitor, including, without limitation, the right to make, have made, sell, offer for sale, use, rent, lease, import, copy, prepare derivative works, publicly display, publicly perform, and distribute all or any part of such Submission and modifications and combinations thereof and to sublicense (directly or indirectly through multiple tiers) or transfer any and all such rights. Further, each Contestant waives and agrees to waive in favor of TopCoder any moral right or other right or claim that is contrary to the intent of a complete transfer of rights to TopCoder.  Contestants agree to promptly execute such documents and perform such acts as TopCoder may reasonably require to perfect TopCoder's entire right, title, and interest in and to each and every Covered Submission as defined in the Assignment 2.0 document.  Contest winners must submit TopCoder's Assignment 2.0 document prior to payment.  
+		<br><br>
+		For winning submissions, code designated in code comments as "Library Code" will not be assigned, but will be licensed under the non-exclusive license above. The Library Code designation is for code that was written by the submitter, was in substantial part written prior to the competition, and is not specific to the problem solution. It is expected that the Library Code designation will be used appropriately and in good faith. At TopCoder's sole discretion, TopCoder may disqualify a submission for abuse of the "Library Code" designation. 
+		<br><br>
+		At a time after the competition, which will include time for writing and submission to academic publication(s) if appropriate, the winning submissions will be released under the Apache License Version 2.0
 		<br><br>
 		You also understand and acknowledge that TopCoder, and/or other Contestants may have developed or commissioned materials similar or identical to your Submission and you waive any claims you may have resulting from any similarities to your Submission.  Nothing in these Rules shall be construed as granting you any right or license under any intellectual property right of TopCoder (including any rights they may have in any patents, copyrights, trademarks, service marks or any trade secrets) or in TopCoder's web site, by implication, estoppel or otherwise, except as expressly set forth herein.
 		</p>
@@ -154,11 +158,11 @@
 		
 		<div class="sectionHeader">JUDGING CRITERIA</div>
 		<p align="justify">
-		All Submissions will be judged according to the criteria provided in the problem statement.  In addition, in Group 2 and Group 3, all Contestants' Submissions will be judged by the other Contestants in that Group, as described further below.  
+		All Submissions will be judged according to the criteria provided in the problem statement.  In addition, in Group B and Group C, all Contestants' Submissions will be judged by the other Contestants in that Group, as described further below.  
 		<br><br>
-		A trip to the TopCoder Open 2009 will be awarded to one winner of Group 1, and one winner in each of Group 2 and Group 3.  The Group 1 TCO trip winner will be determined based on performance score.  The Group 2 and Group 3 TCO trip winner will be the Contestant in each respective Group with the highest average ranking in Phase 2 of (i) individual results and (ii) contribution list results.  
+		A trip to the TopCoder Open 2009 will be awarded to one winner of Group A, and one winner in each of Group B and Group C.  The Group A TCO trip winner will be determined based on performance score.  The Group B and Group C TCO trip winner will be the Contestant in each respective Group with the highest average ranking in Phase 2 of (i) individual results and (ii) contribution list results.  
 		<br><br>
-		In Group 2 in phase 2, and in Group 3 in both phases, Contestants will complete a contribution list in their submissions attributing contributions to their Submission made by other Contestants, for example, from discussions in the forums, or from review of other Contestants' submissions.  The attributions from the 5 submissions with the highest performance score will be totaled to obtain a contribution list score.  The contestants with the highest contribution list scores will be the contribution list result winners.  If more than 5 submissions have the same highest performance score, the contribution list from all of those submissions will be used. 
+		In Group B in phase 2, and in Group C in both phases, Contestants will complete a contribution list in their submissions attributing contributions to their Submission made by other Contestants, for example, from discussions in the forums, or from review of other Contestants' submissions.  The attributions from the 5 submissions with the highest performance score will be totaled to obtain a contribution list score.  The contestants with the highest contribution list scores will be the contribution list result winners.  If more than 5 submissions have the same highest performance score, the contribution list from all of those submissions will be used. 
 		<br><br>
 		In the unlikely event of a tie in the award of a prize, the sum of the prize money for all tied positions will be distributed equally among the tied Contestants.  With respect to the TCO trips, the highest phase 2 contribution list score, the highest phase 2 performance score, the highest phase 1 contribution list score (if applicable for that Group), the highest phase 1 performance score, and the highest Marathon Match rating will be used to break the tie, in that order. 
 		<br><br>
@@ -177,7 +181,7 @@
 				<td class="bodyText" align="center"><b>Phase Two Prizes</b></td>
 			</tr>
 			<tr>
-				<td class="bodyText" nowrap="nowrap" align="left" valign="top">Group 1</td>
+				<td class="bodyText" nowrap="nowrap" align="left" valign="top">Group A</td>
 				<td class="bodyText" align="left" valign="top">Performance Prizes in both Phases</td>
 				<td class="bodyText" align="left" valign="top">
 					$400 to highest scoring submission.<br>
@@ -196,7 +200,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="bodyText" nowrap="nowrap" align="left" valign="top">Group 2</td>
+				<td class="bodyText" nowrap="nowrap" align="left" valign="top">Group B</td>
 				<td class="bodyText" align="left" valign="top">Performance Prizes during Phase 1 <br><br>
 				  Performance and Collaboration Prizes during Phase 2
 				</td>
@@ -224,7 +228,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="bodyText" nowrap="nowrap" align="left" valign="top">Group 3</td>
+				<td class="bodyText" nowrap="nowrap" align="left" valign="top">Group C</td>
 				<td class="bodyText" align="left" valign="top">Performance and Collaboration Prizes during both Phase 1 and Phase 2</td>
 				<td class="bodyText" align="left" valign="top">
 					$200 to highest scoring submission.<br>
