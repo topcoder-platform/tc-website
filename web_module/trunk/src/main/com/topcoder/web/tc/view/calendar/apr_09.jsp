@@ -150,7 +150,7 @@
       <td class="value">29
          <div class="long">
          <strong><a href="/tc?module=MatchDetails&amp;rd=13795">Marathon Match 53</a></strong><br />
-         12:00 NOON<br />
+         1:00 PM<br />
          2 weeks
          </div>
       </td>
