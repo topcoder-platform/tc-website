@@ -148,6 +148,11 @@
       <td class="value">28
       </td>
       <td class="value">29
+         <div class="long">
+         <strong><a href="/tc?module=MatchDetails&amp;rd=13795">Marathon Match 53</a></strong><br />
+         12:00 NOON<br />
+         2 weeks
+         </div>
       </td>
       <td class="value">30
          <div class="srm">
