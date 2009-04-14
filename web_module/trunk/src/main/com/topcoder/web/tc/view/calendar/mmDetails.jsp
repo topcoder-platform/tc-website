@@ -91,7 +91,7 @@
 <div class="sectionHeader">Competition Overview</div>
 
 <%-- EXPERIMENTAL SERIES --%>
-<%if(rsr.getIntItem("round_id") == 13793) {%>
+<%if(rsr.getIntItem("round_id") == 13793 || rsr.getIntItem("round_id") == 13796 || rsr.getIntItem("round_id") == 13797 || rsr.getIntItem("round_id") == 13798) {%>
 <p align="justify">
 This is the first of a series of Experimental Marathon Matches that TopCoder is running in coordination with Harvard Business School.  
 The structure and rules for these events are a departure from anything that TopCoder has run in the past, in that we are exploring the 
@@ -110,19 +110,19 @@ In this Experimental Marathon Match, members who register for the event will aut
 <ul>
 
 <li>
-<b>Group 1</b> - <i>Traditional Marathon Match</i> - Individuals in this group will be assigned to work on the problem individually - 
+<b>Group A</b> - <i>Traditional Marathon Match</i> - Individuals in this group will be assigned to work on the problem individually - 
 i.e. no information sharing at all. Winners will be declared based on the best performing code according to the problem's statement.
 </li>
 
 <li>
-<b>Group 2</b> - <i>Traditional + Sharing</i> - In this group individuals will initially compete individually in a first phase of competition lasting one week.  In a second phase, 
+<b>Group B</b> - <i>Traditional + Sharing</i> - In this group individuals will initially compete individually in a first phase of competition lasting one week.  In a second phase, 
 they will be in the information sharing mode, where all the entries that they submit will be viewable to all those in the same group/treatment.  
 From that point on they are encouraged to openly discuss their code and their ideas in their group's forum.  While sharing, participants will still submit 
 individually but they will be asked to give credit to individuals from which they have borrowed or incorporated code or ideas. 
 </li>
 
 <li>
-<b>Group 3</b> - <i>Sharing</i> - Individuals in this group will be sharing code and ideas during the entire length of the competition.  
+<b>Group C</b> - <i>Sharing</i> - Individuals in this group will be sharing code and ideas during the entire length of the competition.  
 In both phases, participants will submit individually but they will be asked to give credit to individuals from which they have borrowed or 
 incorporated code or ideas. We will declare winners for best performing code and have a shared pool prize which will go to individuals who were credited by others.
 </li>
@@ -191,7 +191,7 @@ Please check out the rules link below for more detail.
 
 
 <%-- LIMIT THE REMAINING COPY FOR THE EXPERIMENTAL SERIES --%>
-<%if(rsr.getIntItem("round_id") != 13793 ) {%>
+<%if(rsr.getIntItem("round_id") != 13793 && rsr.getIntItem("round_id") != 13796 && rsr.getIntItem("round_id") != 13797 && rsr.getIntItem("round_id") != 13798) {%>
 
 <%if(rsr.getIntItem("round_id") == 13772 ) {%>
 <p align="justify">
@@ -317,7 +317,7 @@ Please check out the rules link below for more detail.
 <%-- END IF FOR LIMIT ON EXPERIMENTAL SERIES --%>
 <%}%>
 
-<%if(rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13793) {%>
+<%if(rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13793 || rsr.getIntItem("round_id") == 13796 || rsr.getIntItem("round_id") == 13797 || rsr.getIntItem("round_id") == 13798 ) {%>
 <div class="sectionHeader">Eligibility</div>
   <p align="justify">
     You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition,
