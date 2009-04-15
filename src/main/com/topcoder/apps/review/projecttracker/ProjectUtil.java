@@ -43,7 +43,7 @@ public class ProjectUtil {
     private static final int PHASE_TYPE_SCREEN = 3;
     private static final int PHASE_TYPE_REVIEW = 4;
     private static final int PHASE_TYPE_APPEAL = 5;
-    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy hh:mm", Locale.US);
+    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy hh:mm a", Locale.US);
 
     public static final int COMPONENT_TESTING_PROJECT_TYPE = 5;
 
