@@ -38,7 +38,7 @@
         <jsp:param name="title" value="Powered by TopCoder"/>
     </jsp:include>
 
-<%-- Current Tournaments begins --%>
+<%-- Current Tournaments begins
 
          <div class="sectionHeader">Current Tournaments</div>
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -54,7 +54,7 @@
                     </td>
                 </tr>
             </table>
-           <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+           <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/> --%>
 
 
 <%-- Past Tournaments begins --%>

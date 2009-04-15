@@ -119,6 +119,19 @@
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
                 
+                <%-- IEEE Sponsor begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040909"><img src="/i/pressroom/ieee_logo.png" alt="IEEE-USA" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040909">IEEE-USA Becomes Sponsor of 2009 TopCoder Open</a></h3>
+                        <p>World's Largest Technical Professional Society Joins Sponsors of TCO09 in Las Vegas <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040909">[April 9th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- IEEE Sponsor end --%>
+                
                 <%-- Cool Vendor begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
