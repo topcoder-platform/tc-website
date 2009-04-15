@@ -49,7 +49,7 @@
 <c:set var="multi" value="false"/>
 
 <c:set var="downloadSubmissionBaseUrl"
-    value="studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${row.map['submission_id']}&amp;${subAltType}=full"/>
+    value="studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${row.map['submission_id']}&amp;${subAltType}=full&amp;it=28"/>
 
 <%-- Decide image to shown according to the contest configuration --%>
 <c:choose>
