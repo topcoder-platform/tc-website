@@ -1,9 +1,11 @@
 package com.topcoder.web.studio.controller.request;
 
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.model.Image;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.controller.StudioServlet;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestChannel;
@@ -29,7 +31,8 @@ import java.util.Set;
  * @version $Revision$ Date: 2005/01/01 00:00:00 Create Date: Aug 29, 2006
  */
 public class DownloadSubmission extends BaseSubmissionDataProcessor {
-
+	private static final Logger log = Logger.getLogger(DownloadSubmission.class);
+	
     /**
      * <p>A <code>String</code> array listing the supported types of alternate presentations of submission.</p>
      *
@@ -40,12 +43,15 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
     /**
      * <p>A <code>int</code> array listing the supported types of images provided with submission.</p>
      *
+     * <p>BUGR-1694 Added Image.GALLERY_FULL_TYPE_ID as a valid image type so unwatermarked images can be previewed. </p>
      * @since Studio Download Submission Refactor (Req# 2.1.2)
      */
     private static final int[] ALTERNATE_SUBMISSION_IMAGE_TYPES = {Image.GALLERY_THUMBNAIL_TYPE_ID,
                                                                    Image.GALLERY_SMALL_WATERMARKED_TYPE_ID,
                                                                    Image.GALLERY_MEDIUM_WATERMARKED_TYPE_ID,
-                                                                   Image.GALLERY_FULL_WATERMARKED_TYPE_ID};
+                                                                   Image.GALLERY_FULL_WATERMARKED_TYPE_ID,
+                                                                   Image.GALLERY_FULL_TYPE_ID};
+    
 
     protected void dbProcessing() throws Exception {
         Long submissionId;
@@ -187,6 +193,8 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         // Check if the preview file was requested
         boolean previewFileRequested = "preview".equalsIgnoreCase(submissionType);
 
+        log.debug("originalSubmissionRequested: " + originalSubmissionRequested);
+        log.debug("previewFileRequested: " + previewFileRequested);
         // Determine tha name of requested file and it's mime type
         if (!originalSubmissionRequested) {
             // The alternate presentation is requested
@@ -205,6 +213,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 targetImageTypeId = requestedImageTypeId;
             }
 
+            log.debug("targetImageTypeId: " + targetImageTypeId);
             String[] fileNames;
             if (targetImageTypeId > 0) {
                 int fileIndex = getRequestedFileIndex();
@@ -215,12 +224,18 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 fileNames = dir.list(new SubmissionPresentationFilter(submissionType, submission.getId()));
             }
 
+            
             // Since Studio Download Submission Refactor (Req# 2.1.4) - if preview file was requested but it was not
             // found then attempt to download image of type 31; if that doesn't exist also then raise an error
             if ((fileNames == null) || (fileNames.length < 1)) {
                 if (previewFileRequested) {
-                    SubmissionImage image = getSubmissionImage(submission, Image.GALLERY_FULL_WATERMARKED_TYPE_ID,
-                                                               Constants.DEFAULT_FILE_INDEX);
+                	// For BUGR-1694 - Previews should now show the un-watermarked version, so 
+                	// changing this to return the FULL_TYPE_ID.
+                    /*SubmissionImage image = getSubmissionImage(submission, Image.GALLERY_FULL_WATERMARKED_TYPE_ID,
+                                                               Constants.DEFAULT_FILE_INDEX);*/                	
+                	SubmissionImage image = getSubmissionImage(submission, Image.GALLERY_FULL_TYPE_ID,
+                            Constants.DEFAULT_FILE_INDEX);
+                	log.debug("image.getImage().getFileName(): " + image.getImage().getFileName());
                     fileNames = dir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
                 }
             }
