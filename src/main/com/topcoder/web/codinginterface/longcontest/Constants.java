@@ -60,7 +60,8 @@ public class Constants implements CodingInterfaceConstants {
     public static int INTEL_LONG_ROUND_TYPE_ID;
     public static int AMD_LONG_PRACTICE_ROUND_TYPE_ID;
     public static int AMD_LONG_ROUND_TYPE_ID;
-
+    public static int LONG_COLLAB_ROUND_TYPE_ID;
+    
     public static String WIN_STREAK_TYPE;
 
     public static String LOGIN_JSP;

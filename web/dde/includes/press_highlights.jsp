@@ -7,7 +7,12 @@
 <table width="95%" border="0" cellspacing="0" cellpadding="4">
    <tr>
    <td class="prHead">
-         <a class="linkage" target="_blank" href="http://archives.subscribermail.com/msg/8d2bfa1d899a4aa58b20e5ce4695fe78.htm">COMING SOON: THE GAME PLAN</a> [January 2009]
+         <a class="linkage" target="_blank" href="http://archives.subscribermail.com/msg/8b1f1251244a47499afcf53c33025f7a.htm">SNIA and IEEE-USA Join Sponsors of TCO09</a> | <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/tc_developments_200904.pdf">PDF</a> [April 2009]
+   </td>
+   </tr>
+   <tr>
+   <td class="prHead">
+         <a class="linkage" target="_blank" href="http://archives.subscribermail.com/msg/8d2bfa1d899a4aa58b20e5ce4695fe78.htm">COMING SOON: THE GAME PLAN</a> | <a target="_blank" href="http://www.topcoder.com/i/pressroom/pdfs/tc_developments_200901.pdf">PDF</a> [January 2009]
    </td>
    </tr>
    <tr>

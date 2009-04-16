@@ -327,7 +327,7 @@ public class RBoardApplicationBean extends BaseEJB {
         return returnMap;
     }
 
-    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy hh:mm", Locale.US);
+    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM.dd.yyyy hh:mm a", Locale.US);
 
     /**
      * Inserts a specified user role
@@ -859,13 +859,13 @@ public class RBoardApplicationBean extends BaseEJB {
     }
 
     /**
-     * Validates some transacional constraints for the review signup
+     * Validates some transactional constraints for the review signup
      *
      * @param conn the connection being used
      * @param projectId the project id to validate
      * @param phaseId the project type
      * @param userId the user id to validate
-     * @param opensOn the timestamp when the position opnens
+     * @param opensOn the timestamp when the position opens
      * @param reviewTypeId the review type
      * @param primary true if the position if for primary reviewer
      */

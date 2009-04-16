@@ -25,11 +25,36 @@ public class StudioContestPayment extends StudioContestReferencePayment {
      *
      * @param coderId coder to be paid.
      * @param grossAmount amount to be paid.
+     * @param client the client of the contest.
+     * @param contestId referenced studio contest.
+     * @param placed placement of the coder in the contest.
+     */
+    public StudioContestPayment(long coderId, double grossAmount, String client, long contestId, int placed) {
+        super(TC_STUDIO_PAYMENT, coderId, grossAmount, client, contestId, placed);
+    }
+
+    /**
+     * Create a new payment for a TC Studio Contest.
+     *
+     * @param coderId coder to be paid.
+     * @param grossAmount amount to be paid.
+     * @param client the client of the contest.
+     * @param contestId referenced studio contest.
+     */
+    public StudioContestPayment(long coderId, double grossAmount, String client, long contestId) {
+        this(coderId, grossAmount, client, contestId, 0);
+    }
+    
+    /**
+     * Create a new payment for a TC Studio Contest.
+     *
+     * @param coderId coder to be paid.
+     * @param grossAmount amount to be paid.
      * @param contestId referenced studio contest.
      * @param placed placement of the coder in the contest.
      */
     public StudioContestPayment(long coderId, double grossAmount, long contestId, int placed) {
-        super(TC_STUDIO_PAYMENT, coderId, grossAmount, contestId, placed);
+        this(coderId, grossAmount, null, contestId, placed);
     }
 
     /**
@@ -40,7 +65,7 @@ public class StudioContestPayment extends StudioContestReferencePayment {
      * @param contestId referenced studio contest.
      */
     public StudioContestPayment(long coderId, double grossAmount, long contestId) {
-        this(coderId, grossAmount, contestId, 0);
+        this(coderId, grossAmount, null, contestId, 0);
     }
 
     /**
