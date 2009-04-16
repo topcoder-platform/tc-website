@@ -91,7 +91,8 @@
 <div class="sectionHeader">Competition Overview</div>
 
 <%-- EXPERIMENTAL SERIES --%>
-<%if(rsr.getIntItem("round_id") == 13793 || rsr.getIntItem("round_id") == 13796 || rsr.getIntItem("round_id") == 13797 || rsr.getIntItem("round_id") == 13798) {%>
+<%if(rsr.getIntItem("round_id") == 13793 || rsr.getIntItem("round_id") == 13796 || rsr.getIntItem("round_id") == 13797 || rsr.getIntItem("round_id") == 13798
+     || rsr.getIntItem("round_id") == 13799 || rsr.getIntItem("round_id") == 13800 || rsr.getIntItem("round_id") == 13801 ) {%>
 <p align="justify">
 This is the first of a series of Experimental Marathon Matches that TopCoder is running in coordination with Harvard Business School.  
 The structure and rules for these events are a departure from anything that TopCoder has run in the past, in that we are exploring the 
@@ -191,7 +192,8 @@ Please check out the rules link below for more detail.
 
 
 <%-- LIMIT THE REMAINING COPY FOR THE EXPERIMENTAL SERIES --%>
-<%if(rsr.getIntItem("round_id") != 13793 && rsr.getIntItem("round_id") != 13796 && rsr.getIntItem("round_id") != 13797 && rsr.getIntItem("round_id") != 13798) {%>
+<%if(rsr.getIntItem("round_id") != 13793 && rsr.getIntItem("round_id") != 13796 && rsr.getIntItem("round_id") != 13797 && rsr.getIntItem("round_id") != 13798
+      && rsr.getIntItem("round_id") != 13799 && rsr.getIntItem("round_id") != 13800 && rsr.getIntItem("round_id") != 13801 ) {%>
 
 <%if(rsr.getIntItem("round_id") == 13772 ) {%>
 <p align="justify">
@@ -317,7 +319,8 @@ Please check out the rules link below for more detail.
 <%-- END IF FOR LIMIT ON EXPERIMENTAL SERIES --%>
 <%}%>
 
-<%if(rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13793 || rsr.getIntItem("round_id") == 13796 || rsr.getIntItem("round_id") == 13797 || rsr.getIntItem("round_id") == 13798 ) {%>
+<%if(rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13793 || rsr.getIntItem("round_id") == 13796 || rsr.getIntItem("round_id") == 13797 || rsr.getIntItem("round_id") == 13798 
+     || rsr.getIntItem("round_id") == 13799 || rsr.getIntItem("round_id") == 13800 || rsr.getIntItem("round_id") == 13801 ) {%>
 <div class="sectionHeader">Eligibility</div>
   <p align="justify">
     You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition,
