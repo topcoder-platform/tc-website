@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.shared.dataAccess.DataAccess;
@@ -17,12 +20,35 @@ import com.topcoder.web.studio.model.Contest;
 import java.util.Date;
 
 /**
- * @author dok, isv
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Aug 31, 2006
+ * <p>This class implements the request processor for the View Submissions page.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Submission Viewer Upgrade Integration v1.0) Change notes:
+ *   <ol>
+ *     <li>Changed usage of start and end rank parameters to pagination-like parameters.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, pulky
+ * @version 1.1
  */
 public class ViewSubmissions extends ShortHibernateProcessor {
 
+    /**
+     * <p>A <code>String</code> providing the page size representation for "all".
+     *
+     * @since 1.1
+     */
+    private static final String PAGE_SIZE_ALL = "0";
+
+    /**
+     * <p>This method is the responsible for performing page's logic.</p>
+     *
+     * @throws Exception if any error in the underlying layer
+     * @throws NavigationException if any validation error occurs or if submissions are not available.
+     *
+     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     */
     protected void dbProcessing() throws Exception {
 
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
@@ -47,8 +73,8 @@ public class ViewSubmissions extends ShortHibernateProcessor {
 
         getRequest().setAttribute("isOver", String.valueOf(isOver));
 
-        //not caching anymore, it doesn't gain much.  perhaps we can in the future if we figure out exactly how the admins
-        //use the system so we know when to refresh the cache
+        //not caching anymore, it doesn't gain much.  perhaps we can in the future if we figure out exactly how the
+        //admins use the system so we know when to refresh the cache
         //DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         //load up the submissions
         DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
@@ -78,34 +104,73 @@ public class ViewSubmissions extends ShortHibernateProcessor {
             submissions.sortByColumn(Integer.parseInt(col), dir.trim().toLowerCase().equals("asc"));
         }
 
-        String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
-        if (start.equals("")) {
-            start = "0";
+        // get pagination parameters from request
+        String pageNumber = StringUtils.checkNull(getRequest().getParameter(Constants.PAGE_NUMBER_KEY));
+        if (pageNumber.equals("")) {
+            pageNumber = "1";
         }
 
-        String end = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
-        if (end.equals("")) {
-            end = String.valueOf(Constants.VIEW_SUBMISSIONS_SCROLL_SIZE);
+        String pageSize = StringUtils.checkNull(getRequest().getParameter(Constants.PAGE_SIZE_KEY));
+        if (pageSize.equals("")) {
+            pageSize = String.valueOf(Constants.VIEW_SUBMISSIONS_SCROLL_SIZE);
+        }
+
+        if (log.isDebugEnabled()) {
+            log.debug("[ViewSubmissions] pageNumber: " + pageNumber + " pageSize: " + pageSize);
+        }
+
+        // we don't care if they are invalid. In that case, just use defaults.
+        Integer pageNumberInt;        
+        try {
+            pageNumberInt = Integer.parseInt(pageNumber);
+        } catch (NumberFormatException e) {
+            pageNumberInt = 1;
+        }
+        
+        Integer pageSizeInt;        
+        try {
+            pageSizeInt = Integer.parseInt(pageSize);
+        } catch (NumberFormatException e) {
+            pageSizeInt = Constants.VIEW_SUBMISSIONS_SCROLL_SIZE;
+        }
+
+        if (log.isDebugEnabled()) {
+            log.debug("[ViewSubmissions] pageNumberInt: " + pageNumberInt + " pageSizeInt: " + pageSizeInt);
+        }
+
+        // calculate start and end rank using pagination information
+        Integer start = (pageNumberInt - 1) * pageSizeInt;
+
+        // for invalid start, make it the first element
+        if (start >= submissions.size() || start < 0) {
+            start = 0;
+        }
+
+        Integer end;
+        if (pageSize.equals(PAGE_SIZE_ALL)) {
+            end = submissions.size();
+        } else {
+            end = start + pageSizeInt;
+        }
+
+        // for invalid end, make it the last element
+        if (end >= submissions.size()) {
+            end = submissions.size();
         }
 
         if (log.isDebugEnabled()) {
             log.debug("start: " + start + " end: " + end);
         }
-        if (Integer.parseInt(end) - Integer.parseInt(start) > (Constants.VIEW_SUBMISSIONS_SCROLL_SIZE)) {
-            end = String.valueOf(Integer.parseInt(start) + Constants.VIEW_SUBMISSIONS_SCROLL_SIZE);
-        }
-        if (log.isDebugEnabled()) {
-            log.debug("start: " + start + " end: " + end);
-        }
+        getRequest().setAttribute(Constants.PAGE_NUMBER_KEY, pageNumberInt);
+        getRequest().setAttribute(Constants.PAGE_SIZE_KEY, pageSizeInt);
+        getRequest().setAttribute("totalItems", submissions.size());
 
-        getRequest().setAttribute("submissions", submissions.subList(Integer.parseInt(start), Integer.parseInt(end)));
+        getRequest().setAttribute("submissions", submissions.subList(start, end));
 
         SortInfo s = new SortInfo();
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
         setNextPage("/submissions.jsp");
         setIsNextPageInContext(true);
-
-
     }
 }

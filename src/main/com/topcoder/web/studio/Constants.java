@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio;
 
 import com.topcoder.shared.util.TCResourceBundle;
@@ -11,9 +14,17 @@ import java.lang.reflect.Modifier;
 import java.util.MissingResourceException;
 
 /**
- * @author dok, isv
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jun 22, 2006
+ * <p>This class stores a variety of constants for general use of Studio application.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Submission Viewer Upgrade Integration v1.0) Change notes:
+ *   <ol>
+ *     <li>Added constants to support pagination request parameters.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, pulky
+ * @version 1.1
  */
 public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Studio");
@@ -259,7 +270,8 @@ public class Constants implements WebConstants {
     public static final String CONTEST_TYPE = "ctt";
 
     /**
-     * <p>A <code>String</code> providing the name of request parameter to specify the digital run points of the contest.</p>
+     * <p>A <code>String</code> providing the name of request parameter to specify the digital run points of the
+     * contest.</p>
      *
      * @since Digital Run v2.0
      */
@@ -418,6 +430,22 @@ public class Constants implements WebConstants {
 
     // Flag to turn on/off the global AD feature
     public static String GLOBAL_AD_FLAG;
+
+    /**
+     * <p>A <code>String</code> providing the name of default request attribute which refers to
+     * the page number required for pagination.</p>
+     *
+     * @since 1.1
+     */
+    public static final String PAGE_NUMBER_KEY = "pn";
+
+    /**
+     * <p>A <code>String</code> providing the name of default request attribute which refers to
+     * the page size required for pagination.</p>
+     *
+     * @since 1.1
+     */
+    public static final String PAGE_SIZE_KEY = "ps";
 
     static {
         initialize();
