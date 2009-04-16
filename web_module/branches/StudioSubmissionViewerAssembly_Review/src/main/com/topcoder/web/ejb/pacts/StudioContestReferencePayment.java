@@ -40,6 +40,36 @@ public abstract class StudioContestReferencePayment extends BasePayment {
         super(paymentTypeId, coderId, grossAmount, placed);
         this.contestId = contestId;
     }
+    
+    /**
+     * Create a new payment referencing a TC Studio Contest.
+     *
+     * @param paymentTypeId type of the payment
+     * @param coderId coder to be paid.
+     * @param grossAmount amount to be paid.
+     * @param client the client of the project.
+     * @param contestId referenced studio contest.
+     */
+    public StudioContestReferencePayment(int paymentTypeId, long coderId, double grossAmount, String client,
+    		long contestId) {
+        this(paymentTypeId, coderId, grossAmount, client, contestId, 0);
+    }
+
+    /**
+     * Create a new payment referencing a TC Studio Contest.
+     *
+     * @param paymentTypeId type of the payment
+     * @param coderId coder to be paid.
+     * @param grossAmount amount to be paid.
+     * @param client the client of the project.
+     * @param contestId referenced studio contest.
+     * @param placed the place that the coder had in the contest, used for creating the description.
+     */
+    public StudioContestReferencePayment(int paymentTypeId, long coderId, double grossAmount, String client,
+    		long contestId, int placed) {
+        super(paymentTypeId, coderId, client, grossAmount, placed);
+        this.contestId = contestId;
+    }
 
     /**
      * Get the id of the referenced studio contest.

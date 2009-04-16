@@ -57,29 +57,24 @@
    </table>
 --%>
 
-<%--
+<%--  --%>
    <div class="sectionHeader">Current Tournaments</div>
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about"><img src="/i/tournament/tco08current.png" alt="2008 TopCoder Open" border="0" /></a><br /></td>
+         <td style="padding-right: 8px;"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=overview"><img src="/i/tournament/tco09/tco09logo.png" alt="2009 TopCoder Open" border="0" hspace="31" /></a><br /></td>
          <td width="100%">
-         <span class="bodySubtitle">2008 TopCoder&#174; Open</span>
+         <span class="bodySubtitle">2009 TopCoder&#174; Open</span>
          <br /><br />
-         May 11 - 15, 2008<br />
+         June 1 - 4, 2009<br />
          The Mirage <br />
          Las Vegas, NV, USA<br />
-         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=about">Details</a>
-         <br />
-         <a target="_blank" href="/pdfs/tournaments/tco08/TCO08_Program_View.pdf">Program [PDF]</a>
-         <br />
-         <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2127">Logo Contest</a>
+         <a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=overview">Details</a>
          </td>
       </tr>
    </table>
    
    <hr width="100%" size="1" noshade="noshade" />
-   --%>
    
 
    <div class="sectionHeader" width="100%">Past Tournaments</div>
