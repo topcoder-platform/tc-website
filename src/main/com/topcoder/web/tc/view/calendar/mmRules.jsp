@@ -61,7 +61,8 @@
         </c:if>
 
 <%-- FIRST, ALL OF THE EXPERIMENTAL RULES --%>	
-<%if(rsr.getIntItem("round_id") == 13793 || rsr.getIntItem("round_id") == 13796 || rsr.getIntItem("round_id") == 13797 || rsr.getIntItem("round_id") == 13798) {%>
+<%if(rsr.getIntItem("round_id") == 13793 || rsr.getIntItem("round_id") == 13796 || rsr.getIntItem("round_id") == 13797 || rsr.getIntItem("round_id") == 13798
+     || rsr.getIntItem("round_id") == 13799 || rsr.getIntItem("round_id") == 13800 || rsr.getIntItem("round_id") == 13801) {%>
        <%-- BRANDING --%>
         <h2>${row.map['contest_name']} &gt; ${row.map['round_name']}</h2>
 
@@ -151,7 +152,7 @@
 		
 		<div class="sectionHeader">SUBMISSION DEADLINES</div>
 		<p align="justify">
-		The Contest Period is divided into two phases, namely one phase ending 12:59:59 p.m. U.S. EDT on April 20, 2009 and a second phase ending on 12:59:59 on April 27, 2009.  During each phase, all Submissions submitted will be judged for performance.  Each Contest phase is an independent event.  Being chosen a winner or runner-up in one Contest phase is not a prediction of your score and/or results in any subsequent phase.  
+		The Contest Period is divided into two phases, namely one phase ending 12:59:59 p.m. U.S. EDT on April 20, 2009 and a second phase ending on 1:59:59 on April 27, 2009.  During each phase, all Submissions submitted will be judged for performance.  Each Contest phase is an independent event.  Being chosen a winner or runner-up in one Contest phase is not a prediction of your score and/or results in any subsequent phase.  
 		<br><br>
 		All Submissions will be judged according to the judging criteria below. After each phase, TopCoder will announce and display each phase winner and runners-up by handle. 
 		</p>
