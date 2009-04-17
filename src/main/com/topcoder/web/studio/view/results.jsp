@@ -83,9 +83,9 @@
                 <jsp:include page="top.jsp"/>
                 <br />
 
-                <div id="wrapper">
+                <div id="wrapper_submission">
                     <!-- CONTENT BLOCK -->
-                    <div id="content">
+                    <div id="content_submission">
                         <div class="linkBox">
                             <studio:forumLink forumID="${contest.forumId}"/>
                         </div>
