@@ -162,18 +162,15 @@
         <c:when test="${fn:length(contest.documents)>0}">
             <c:choose>
                 <c:when test="${registered || currentTime>contest.endTime}">
-              <%--       <c:forEach items="${contest.documents}" var="document">
+                    <c:forEach items="${contest.documents}" var="document">
                         <p>
                             <strong><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">${document.originalFileName}</a></strong>
                             <br /><em>${document.type.description}</em>
                             <c:if test="${not empty document.description}">
                                 <br />${document.description}
                             </c:if>
-                        </p>  --%>
-                        <p align="center">
-                        	<strong>Since this contest has ended, all attached files are no longer available for viewing.</strong>
-                    	</p>
-             <%--   </c:forEach>  --%>
+                        </p>
+              </c:forEach> 
                 </c:when>
                 <c:otherwise>
                     <p align="center" class="bigRed">
