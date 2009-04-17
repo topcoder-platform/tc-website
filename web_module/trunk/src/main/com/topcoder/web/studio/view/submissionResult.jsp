@@ -70,10 +70,10 @@
             
         <!-- container -->
         <div id="container">
-        	<div id="wrapper">
+        	<div id="wrapper_submission">
     
             <!-- content -->
-            <div id="content">
+            <div id="content_submission">
                 <div class="contentTop">
                     <div class="contentMiddle">
 
