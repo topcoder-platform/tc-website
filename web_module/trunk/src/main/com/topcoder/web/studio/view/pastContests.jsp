@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
@@ -200,6 +201,13 @@
 											<% } %>
 											<c:if test="${resultRow.map['forum_id']!=null}">| <studio:forumLink forumID="${resultRow.map['forum_id']}" message="discuss"/></c:if>
 										</div>
+									</td>
+									<td class="value">
+										<% if ("3009".equals(resultRow.getStringItem("event_id"))) { %>
+										<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=description"><img src="/i/tournament/tco09/09emblem.png" alt="Eligible for the TCO09" /><span>Eligible for the TCO09</span></a>
+										<% } else { %>
+										&nbsp;
+										<% } %>
 									</td>
 									<td class="valueC">
 										<rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
