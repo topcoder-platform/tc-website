@@ -32,13 +32,19 @@ public class ViewContestResults extends ShortHibernateProcessor {
             } catch (NumberFormatException e) {
                 throw new NavigationException("Invalid contest specified");
             }
-            Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);
+            Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);                       
+            
             getRequest().setAttribute("hasScores", contest.getProject() != null);
 
             if (Util.isAdmin(getUser().getId())) {
                 getRequest().setAttribute("contest", contest);
                 loadData(cid);
             } else {
+            	// Added in BUGR-1739: Check if submissions are not viewable for non-admins.            	
+            	if (!String.valueOf(true).equals(contest.getViewableSubmissions().getValue())) {
+                    throw new NavigationException("Submissions are not available for this contest");
+                }
+            	
                 if (ContestStatus.ACTIVE.equals(contest.getStatus().getId())) {
                     Date now = new Date();
                     if (contest.getEndTime().before(now)) {
