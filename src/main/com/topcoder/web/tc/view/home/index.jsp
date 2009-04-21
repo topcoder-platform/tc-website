@@ -91,7 +91,7 @@ $(document).ready(function(){
         <div class="wrapper">
 
 <%-- MASTHEAD AND LOGO --%>
-            <h1><a href="http://<%=ApplicationServer.SERVER_NAME%>/" title="TopCoder"><span>TopCoder Direct</span></a><%--<sup><small>BETA</small></sup>--%></h1>
+            <h1><a href="http://<%=ApplicationServer.SERVER_NAME%>/" title="TopCoder"><span>TopCoder Direct</span></a></h1>
             <h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
 
 <%-- MAIN NAVIGATION --%>
@@ -243,7 +243,8 @@ $(document).ready(function(){
                                 <h3><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">TopCoder Studio</a></h3>
                                 <p>The creative side of TopCoder. Logos, posters, storyboards, prototypes&hellip;</p>
                             </div>
-                            <div id="tco09"><!--<a href="http://www.topcoder.com/tco09"><img src="/i/tco09/340x76_banner.jpg" alt="2009 TopCoder Open" /></a>--><a href="http://www.topcoder.com/tco09"><img src="/i/tournament/tco09/tco09-snia-340x76.png" alt="SNIA XAM Initiative" /></a></div>
+                            <div id="tco09"><a href="http://www.topcoder.com/tco09"><img src="/i/tco09/340x76_banner.jpg" alt="2009 TopCoder Open" /></a>
+                            <%-- <a href="http://www.topcoder.com/tco09"><img src="/i/tournament/tco09/tco09-snia-340x76.png" alt="SNIA XAM Initiative" /></a> --%></div>
                         </div>
                     </div>
                     <div id="member-box-bottom"></div>
