@@ -243,8 +243,9 @@ $(document).ready(function(){
                                 <h3><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">TopCoder Studio</a></h3>
                                 <p>The creative side of TopCoder. Logos, posters, storyboards, prototypes&hellip;</p>
                             </div>
-                            <div id="tco09"><a href="http://www.topcoder.com/tco09"><img src="/i/tco09/340x76_banner.jpg" alt="2009 TopCoder Open" /></a>
-                            <%-- <a href="http://www.topcoder.com/tco09"><img src="/i/tournament/tco09/tco09-snia-340x76.png" alt="SNIA XAM Initiative" /></a> --%></div>
+                            <div id="tco09"> <a href="http://www.topcoder.com/remix"><img src="/i/remix/remix-340.jpg" alt="REMIX Challenge" /></a>
+                            <%--<a href="http://www.topcoder.com/tco09"><img src="/i/tco09/340x76_banner.jpg" alt="2009 TopCoder Open" /></a> --%>
+                            <%--<a href="http://www.topcoder.com/tco09"><img src="/i/tournament/tco09/tco09-snia-340x76.png" alt="SNIA XAM Initiative" /></a> --%></div>
                         </div>
                     </div>
                     <div id="member-box-bottom"></div>
