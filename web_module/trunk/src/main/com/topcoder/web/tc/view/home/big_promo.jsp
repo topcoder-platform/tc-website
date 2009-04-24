@@ -95,10 +95,12 @@
 
 <%-- TCO09 --%>
 <br />
+<a href="<tc-webtag:linkTracking link='http://www.topcoder.com/remix' refer='/tc' />"><img src="/images/remix/remix-510.jpg" alt="REMIX Challenge" /></a>
+
+<br />
 <a href="<tc-webtag:linkTracking link='http://www.topcoder.com/tco09' refer='/tc' />"><img src="/images/home/tco09_510x54_banner.jpg" alt="2009 TopCoder Open" /></a>
 
 <br />
-
 
 <%-- NORM Assembly Run 
 <br />
