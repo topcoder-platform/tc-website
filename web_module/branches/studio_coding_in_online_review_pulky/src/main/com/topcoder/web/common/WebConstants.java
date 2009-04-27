@@ -158,28 +158,6 @@ public interface WebConstants {
     public static final long GENERAL_PHASE_OFFSET = 111;
 
     /**
-     * <p>A <code>long</code> representing studio prototype phase id.</p>
-     *
-     * @since 1.1
-     */
-    public static final long PHASE_STUDIO_PROTOTYPE = STUDIO_PROTOTYPE_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
-
-    /**
-     * <p>A <code>long</code> representing studio build phase id.</p>
-     *
-     * @since 1.1
-     */
-    public static final long PHASE_STUDIO_BUILD = STUDIO_BUILD_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
-
-    /**
-     * <p>A <code>long</code> representing studio component phase id.</p>
-     *
-     * @since 1.1
-     */
-    public static final long PHASE_STUDIO_COMPONENT = STUDIO_COMPONENT_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
-
-
-    /**
      * The status constant used to indicate a component has been deleted
      */
     public static final long STATUS_DELETED = 0;
@@ -250,5 +228,26 @@ public interface WebConstants {
      * @since 1.1
      */
     public static final int STUDIO_COMPONENT_PROJECT_TYPE = 25;
+
+    /**
+     * <p>A <code>long</code> representing studio prototype phase id.</p>
+     *
+     * @since 1.1
+     */
+    public static final long PHASE_STUDIO_PROTOTYPE = STUDIO_PROTOTYPE_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+
+    /**
+     * <p>A <code>long</code> representing studio build phase id.</p>
+     *
+     * @since 1.1
+     */
+    public static final long PHASE_STUDIO_BUILD = STUDIO_BUILD_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+
+    /**
+     * <p>A <code>long</code> representing studio component phase id.</p>
+     *
+     * @since 1.1
+     */
+    public static final long PHASE_STUDIO_COMPONENT = STUDIO_COMPONENT_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
 
 }
