@@ -58,6 +58,42 @@
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Algorithm+Competition+FAQs", "FAQs", "algo_faqs"));
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Algorithm+Competition+Rating+System", "Rating System", "algo_rating_system"));
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Write+Problems+for+TopCoder", "Write Problems", "algo_write"));
+      /* Since Studio Coding In Online Review : Added Studio Prototype left navigation entries */
+      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_prototype_competitions')", "Studio Prototype", "m_studio_prototype_competitions"));
+         nav.search("m_studio_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/StudioPrototype", "Overview", "studio_prototype_overview"));
+         nav.search("m_studio_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.STUDIO_PROTOTYPE_PROJECT_TYPE, "Active Contests", "app_studio_prototype_compete"));
+         nav.search("m_studio_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + WebConstants.STUDIO_PROTOTYPE_PROJECT_TYPE, "Contest Status", "app_studio_prototype_status"));
+         nav.search("m_studio_prototype_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.STUDIO_PROTOTYPE_PROJECT_TYPE, "Review Opportunities", "studio_prototype_review"));
+         nav.search("m_studio_prototype_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.STUDIO_PROTOTYPE_PROJECT_TYPE, "Meet the Review Board", "studio_prototype_review_board"));
+         nav.search("m_studio_prototype_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_prototype_stats')", "Statistics", "m_studio_prototype_stats"));
+            nav.search("m_studio_prototype_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=" + WebConstants.STUDIO_PROTOTYPE_PROJECT_TYPE + 111, "Past Contests", "studio_prototype_stats"));
+         nav.search("m_studio_prototype_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_prototype_support')", "Support / FAQs", "m_studio_prototype_support"));
+            nav.search("m_studio_prototype_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Studio+Prototype+Competitions", "How to Compete", "studio_prototype_how_to_compete"));
+
+      /* Since Studio Coding In Online Review : Added Studio Build left navigation entries */
+      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_build_competitions')", "Studio Build", "m_studio_build_competitions"));
+         nav.search("m_studio_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/StudioBuild", "Overview", "studio_build_overview"));
+         nav.search("m_studio_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.STUDIO_BUILD_PROJECT_TYPE, "Active Contests", "app_studio_build_compete"));
+         nav.search("m_studio_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + WebConstants.STUDIO_BUILD_PROJECT_TYPE, "Contest Status", "app_studio_build_status"));
+         nav.search("m_studio_build_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.STUDIO_BUILD_PROJECT_TYPE, "Review Opportunities", "studio_build_review"));
+         nav.search("m_studio_build_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.STUDIO_BUILD_PROJECT_TYPE, "Meet the Review Board", "studio_build_review_board"));
+         nav.search("m_studio_build_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_build_stats')", "Statistics", "m_studio_build_stats"));
+            nav.search("m_studio_build_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=" + WebConstants.STUDIO_BUILD_PROJECT_TYPE + 111, "Past Contests", "studio_build_stats"));
+         nav.search("m_studio_build_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_build_support')", "Support / FAQs", "m_studio_build_support"));
+            nav.search("m_studio_build_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Studio+Build+Competitions", "How to Compete", "studio_build_how_to_compete"));
+
+      /* Since Studio Coding In Online Review : Added Studio Component left navigation entries */
+      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_component_competitions')", "Studio Component", "m_studio_component_competitions"));
+         nav.search("m_studio_component_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/StudioComponent", "Overview", "studio_component_overview"));
+         nav.search("m_studio_component_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.STUDIO_COMPONENT_PROJECT_TYPE, "Active Contests", "app_studio_component_compete"));
+         nav.search("m_studio_component_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + WebConstants.STUDIO_COMPONENT_PROJECT_TYPE, "Contest Status", "app_studio_component_status"));
+         nav.search("m_studio_component_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.STUDIO_COMPONENT_PROJECT_TYPE, "Review Opportunities", "studio_component_review"));
+         nav.search("m_studio_component_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.STUDIO_COMPONENT_PROJECT_TYPE, "Meet the Review Board", "studio_component_review_board"));
+         nav.search("m_studio_component_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_component_stats')", "Statistics", "m_studio_component_stats"));
+            nav.search("m_studio_component_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=" + WebConstants.STUDIO_COMPONENT_PROJECT_TYPE + 111, "Past Contests", "studio_component_stats"));
+         nav.search("m_studio_component_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_component_support')", "Support / FAQs", "m_studio_component_support"));
+            nav.search("m_studio_component_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Studio+Component+Competitions", "How to Compete", "studio_component_how_to_compete"));
+
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_conceptualization_competitions')", "Software Conceptualization", "m_conceptualization_competitions"));
          nav.search("m_conceptualization_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/TopCoder+Conceptualization+Contests", "Overview", "conceptualization_overview"));
          nav.search("m_conceptualization_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&pt=23", "Active Contests", "conceptualization_compete"));
