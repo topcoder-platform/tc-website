@@ -8,8 +8,11 @@
  *   links for Conceptualization, Specification and Application Testing competitions.
  *   Related Jira tickets: TCS-60, TCS-61, TCS-63, TCS-64, TCS-72, TCS-74 
  *
- * Author TCSDEVELOPER
- * Version 1.1
+ * - Version 1.2 (Studio Coding In Online Review) : Added Studio Prototype, Studio Build and Studio 
+ *   Component navigation entries.
+ *
+ * Author pulky, TCSDEVELOPER
+ * Version 1.2
 --%>
 <%@ page language="java"%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
@@ -58,7 +61,7 @@
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Algorithm+Competition+FAQs", "FAQs", "algo_faqs"));
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Algorithm+Competition+Rating+System", "Rating System", "algo_rating_system"));
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Write+Problems+for+TopCoder", "Write Problems", "algo_write"));
-      /* Since Studio Coding In Online Review : Added Studio Prototype left navigation entries */
+      /* Since 1.2 : Added Studio Prototype left navigation entries */
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_prototype_competitions')", "Studio Prototype", "m_studio_prototype_competitions"));
          nav.search("m_studio_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/StudioPrototype", "Overview", "studio_prototype_overview"));
          nav.search("m_studio_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.STUDIO_PROTOTYPE_PROJECT_TYPE, "Active Contests", "app_studio_prototype_compete"));
@@ -70,7 +73,7 @@
          nav.search("m_studio_prototype_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_prototype_support')", "Support / FAQs", "m_studio_prototype_support"));
             nav.search("m_studio_prototype_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Studio+Prototype+Competitions", "How to Compete", "studio_prototype_how_to_compete"));
 
-      /* Since Studio Coding In Online Review : Added Studio Build left navigation entries */
+      /* Since 1.2 : Added Studio Build left navigation entries */
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_build_competitions')", "Studio Build", "m_studio_build_competitions"));
          nav.search("m_studio_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/StudioBuild", "Overview", "studio_build_overview"));
          nav.search("m_studio_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.STUDIO_BUILD_PROJECT_TYPE, "Active Contests", "app_studio_build_compete"));
@@ -82,7 +85,7 @@
          nav.search("m_studio_build_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_build_support')", "Support / FAQs", "m_studio_build_support"));
             nav.search("m_studio_build_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Studio+Build+Competitions", "How to Compete", "studio_build_how_to_compete"));
 
-      /* Since Studio Coding In Online Review : Added Studio Component left navigation entries */
+      /* Since 1.2 : Added Studio Component left navigation entries */
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_component_competitions')", "Studio Component", "m_studio_component_competitions"));
          nav.search("m_studio_component_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/StudioComponent", "Overview", "studio_component_overview"));
          nav.search("m_studio_component_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.STUDIO_COMPONENT_PROJECT_TYPE, "Active Contests", "app_studio_component_compete"));
