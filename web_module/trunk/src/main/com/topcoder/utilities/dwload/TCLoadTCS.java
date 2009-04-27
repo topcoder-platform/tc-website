@@ -1521,7 +1521,7 @@ public class TCLoadTCS extends TCLoad {
                                     drInsert.setLong(2, t.getTrackId());
                                     drInsert.setString(3, "Digital Run Points won for " + projectResults.getString("project_desc"));
                                     drInsert.setLong(4, pr.getUserId());
-                                    drInsert.setDouble(5, pointsAwarded + projectResults.getInt("point_adjustment"));
+                                    drInsert.setDouble(5, pointsAwarded + projectResults.getDouble("point_adjustment"));
                                     drInsert.setTimestamp(6, projectResults.getTimestamp("posting_date"));
                                     drInsert.setTimestamp(7, projectResults.getTimestamp("winner_announced"));
                                     drInsert.setLong(8, pr.getProjectId());
@@ -1541,7 +1541,7 @@ public class TCLoadTCS extends TCLoad {
                                     drInsert.setLong(2, t.getTrackId());
                                     drInsert.setString(3, "Potential Digital Run Points for " + projectResults.getString("project_desc"));
                                     drInsert.setLong(4, pr.getUserId());
-                                    drInsert.setDouble(5, potentialPoints + projectResults.getInt("point_adjustment"));
+                                    drInsert.setDouble(5, potentialPoints + projectResults.getDouble("point_adjustment"));
                                     drInsert.setTimestamp(6, projectResults.getTimestamp("posting_date"));
                                     drInsert.setTimestamp(7, projectResults.getTimestamp("submission_date"));
                                     drInsert.setLong(8, pr.getProjectId());
