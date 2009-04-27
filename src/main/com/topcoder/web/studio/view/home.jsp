@@ -101,9 +101,11 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
             <%-- default banner 
             <a href="/?module=ViewActiveContests"><img alt="Get Started Now!" src="/i/v3/welcome_banner.png" width="536" height="121" border="0"/></a>--%>
             
-            <%-- sensations banner --%>
+            <%-- TCO09 banner 
             <a href="http://<%=ApplicationServer.SERVER_NAME%>/tco09"><img alt="TopCoder Open 2009, Register Now!" style="margin:0 1px;"src="/i/536x121_banner.png" width="534" height="121" border="0"/></a>
-            
+            --%>
+             <%-- Remix banner --%>
+            <a href="http://www.topcoder.com/remix"><img alt="Think outside the Big Box with the Best Buy Remix API" src="/i/remix_banner.jpg" width="536" height="121" border="0"/></a>
          </div>
     </div>
     
