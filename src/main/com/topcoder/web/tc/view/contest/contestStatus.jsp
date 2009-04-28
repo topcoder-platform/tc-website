@@ -195,7 +195,7 @@
             </td>
         </c:if>
         <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != APPLICATION_TESTING_TYPE_ID 
-            && pt != STUDIO_PROTOTYPE_TYPE_ID || pt != STUDIO_BUILD_TYPE_ID || pt != STUDIO_COMPONENT_TYPE_ID}">
+            && pt != STUDIO_PROTOTYPE_TYPE_ID && pt != STUDIO_BUILD_TYPE_ID && pt != STUDIO_COMPONENT_TYPE_ID}">
             <td class="headerC">
                 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
             </td>
@@ -233,7 +233,7 @@
                 </td>
             </c:if>
             <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != APPLICATION_TESTING_TYPE_ID 
-                && pt != STUDIO_PROTOTYPE_TYPE_ID || pt != STUDIO_BUILD_TYPE_ID || pt != STUDIO_COMPONENT_TYPE_ID}">
+                && pt != STUDIO_PROTOTYPE_TYPE_ID && pt != STUDIO_BUILD_TYPE_ID && pt != STUDIO_COMPONENT_TYPE_ID}">
             <td class="valueC">
                 <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/>
             </td>
