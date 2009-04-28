@@ -145,7 +145,7 @@ By&#160;<tc-webtag:handle coderId="7504863" context="algorithm"/><br>
 <br><br><br>
 My first submission was a greedy algorithm that, for each packet in
 turn, found the fastest way that packet could reach its destination,
-using classic bread first search and keeping track of which edges were
+using classic breadth first search and keeping track of which edges were
 already used at which times. By routing the packets further away from
 their destinations first, I found one could achieve an average score
 above 3000, which was a lot better than all the variants of the naive
