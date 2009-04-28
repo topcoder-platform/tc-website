@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.contest;
 
 import java.rmi.RemoteException;
@@ -26,6 +29,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCWebException;
@@ -36,9 +40,17 @@ import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.tc.Constants;
 
 /**
- * @author dok, pulky
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jan 6, 2006
+ * <p><strong>Purpose</strong>: This processor handle registration to a specific project.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Coding In Online Review) Change notes:
+ *   <ol>
+ *     <li>Added support for new Studio prototype, Studio Build and Studio Component competitions.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, TCSDEVELOPER
+ * @version 1.1
  */
 public class Register extends ViewRegistration {
     protected void developmentProcessing() throws TCWebException {
@@ -86,8 +98,14 @@ public class Register extends ViewRegistration {
             throw new TCWebException(e);
         }
     }
-
     
+    /**
+     * <p>This helper method registers a user to a project.</p>
+     * 
+     * @throws CreateException if the underlying service fails to be created.
+     * @throws RemoteException if the underlying service fails to execute.
+     * @throws Exception if any other error occurs while performing registration.
+     */
     private void register() throws Exception, RemoteException, CreateException {
         InitialContext ctx = null;
         try {
@@ -112,6 +130,12 @@ public class Register extends ViewRegistration {
                 project += " Component Testing Project";
             } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.APPLICATION_TESTING_PROJECT_TYPE))) {
                 project += " Application Testing Project";
+            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.STUDIO_PROTOTYPE_PROJECT_TYPE))) {
+                project += " Studio Prototype Project";
+            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.STUDIO_BUILD_PROJECT_TYPE))) {
+                project += " Studio Build Project";
+            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.STUDIO_COMPONENT_PROJECT_TYPE))) {
+                project += " Studio Component Project";
             }
             
             long activeForumCategoryId = componentManager.getActiveForumCategory().getId();

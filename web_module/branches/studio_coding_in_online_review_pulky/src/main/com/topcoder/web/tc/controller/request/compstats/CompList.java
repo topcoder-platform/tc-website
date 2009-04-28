@@ -34,7 +34,7 @@ public class CompList extends Base {
 
     /**
      * <p>Handles the request for displaying the past contests page of requested project type provided as
-     * {@link Constants#PROJECT_TYPE_ID} request parameter or {@link Constants#PHASE_ID} request parameter.
+     * {@link Constants#PROJECT_TYPE_ID} request parameter or {@link Constants#PHASE_ID} request parameter.</p>
      *
      * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
      */
