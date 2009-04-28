@@ -226,18 +226,18 @@
         </c:when>
         <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
             Competition opportunities via RSS -
-            <a href="/tc?module=BasicRSS&amp;c=rss_studio_prototype_Registration_Open&amp;dsid=28">Subscribe Now</a>
-            <a href="/tc?module=BasicRSS&amp;c=rss_studio_prototype_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Studio_Prototype_Registration_Open&amp;dsid=28">Subscribe Now</a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Studio_Prototype_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
         <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
             Competition opportunities via RSS -
-            <a href="/tc?module=BasicRSS&amp;c=rss_studio_build_Registration_Open&amp;dsid=28">Subscribe Now</a>
-            <a href="/tc?module=BasicRSS&amp;c=rss_studio_build_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Studio_Build_Registration_Open&amp;dsid=28">Subscribe Now</a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Studio_Build_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
         <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
             Competition opportunities via RSS -
-            <a href="/tc?module=BasicRSS&amp;c=rss_studio_component_Registration_Open&amp;dsid=28">Subscribe Now</a>
-            <a href="/tc?module=BasicRSS&amp;c=rss_studio_component_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Studio_Component_Registration_Open&amp;dsid=28">Subscribe Now</a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Studio_Component_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
       </c:choose>
     <br /><br />
