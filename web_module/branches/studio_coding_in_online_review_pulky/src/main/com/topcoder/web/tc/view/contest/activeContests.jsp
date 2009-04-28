@@ -15,6 +15,10 @@
 <c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_TYPE_ID"/>
 <c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_TYPE_ID"/>
 
+<c:set value="<%=Constants.STUDIO_PROTOTYPE_PROJECT_TYPE%>" var="STUDIO_PROTOTYPE_TYPE_ID"/>
+<c:set value="<%=Constants.STUDIO_BUILD_PROJECT_TYPE%>" var="STUDIO_BUILD_TYPE_ID"/>
+<c:set value="<%=Constants.STUDIO_COMPONENT_PROJECT_TYPE%>" var="STUDIO_COMPONENT_TYPE_ID"/>
+
 
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -69,6 +73,21 @@
                     <jsp:param name="node" value="assembly_compete"/>
                 </jsp:include>
             </c:when>
+            <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="studio_prototype_compete"/>
+                </jsp:include>
+            </c:when>
+            <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="studio_build_compete"/>
+                </jsp:include>
+            </c:when>
+            <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="studio_component_compete"/>
+                </jsp:include>
+            </c:when>
           </c:choose>
         </td>
 <%-- Left Column Ends --%>
@@ -104,6 +123,24 @@
         <c:when test="${pt == SPECIFICATION_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="specification"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="studio_prototype"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="studio_build"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="studio_component"/>
                 <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
         </c:when>
@@ -144,6 +181,15 @@
                 <a href="/wiki/display/tc/How+to+Compete+in+Specification+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
                 <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor2"><img src="/i/tournament/tco09/tco09-snia-340x76.png" alt="SNIA XAM Initiative" /></a><br /><br />
             </c:when>
+            <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+                <a href="/wiki/display/tc/How+to+Compete+in+Studio+Prototype+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+            </c:when>
+            <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+                <a href="/wiki/display/tc/How+to+Compete+in+Studio+Build+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+            </c:when>
+            <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+                <a href="/wiki/display/tc/How+to+Compete+in+Studio+Component+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+            </c:when>
           </c:choose>
         </td>
     </tr>
@@ -178,6 +224,21 @@
             <a href="/tc?module=BasicRSS&amp;c=rss_Specification_Registration_Open&amp;dsid=28">Subscribe Now</a>
             <a href="/tc?module=BasicRSS&amp;c=rss_Specification_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
+        <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+            Competition opportunities via RSS -
+            <a href="/tc?module=BasicRSS&amp;c=rss_studio_prototype_Registration_Open&amp;dsid=28">Subscribe Now</a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_studio_prototype_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+        </c:when>
+        <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+            Competition opportunities via RSS -
+            <a href="/tc?module=BasicRSS&amp;c=rss_studio_build_Registration_Open&amp;dsid=28">Subscribe Now</a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_studio_build_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+        </c:when>
+        <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+            Competition opportunities via RSS -
+            <a href="/tc?module=BasicRSS&amp;c=rss_studio_component_Registration_Open&amp;dsid=28">Subscribe Now</a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_studio_component_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+        </c:when>
       </c:choose>
     <br /><br />
 </div>
@@ -208,6 +269,15 @@
             </c:when>
             <c:when test="${pt == SPECIFICATION_TYPE_ID}">
                 Active Software Specification Contests</td>
+            </c:when>
+            <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+                Active Studio Prototype Contests</td>
+            </c:when>
+            <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+                Active Studio Build Contests</td>
+            </c:when>
+            <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+                Active Studio Component Contests</td>
             </c:when>
           </c:choose>
     </tr>
