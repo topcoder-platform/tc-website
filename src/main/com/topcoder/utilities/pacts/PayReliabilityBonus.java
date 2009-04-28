@@ -75,7 +75,7 @@ public class PayReliabilityBonus extends DBUtility {
         query.append("AND pr.project_id = pro.project_id ");
         query.append("AND pro.project_status_id = 7 ");
         query.append("AND old_reliability >= 0.8 ");
-        query.append("AND pd.payment_type_id in (6, 27, 31, 32, 42, 43, 44) ");
+        query.append("AND pd.payment_type_id in (6, 29, 10, 11, 42, 43, 44) ");
         query.append("AND not exists ");
         query.append("   (SELECT 1 FROM payment_detail pd2 ");
         query.append("     WHERE pd2.parent_payment_id=p.payment_id ");
