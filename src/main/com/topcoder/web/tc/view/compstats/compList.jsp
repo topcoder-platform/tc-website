@@ -19,6 +19,10 @@
 <c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_TYPE_ID"/>
 <c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_TYPE_ID"/>
 
+<c:set value="<%=Constants.STUDIO_PROTOTYPE_PROJECT_TYPE%>" var="STUDIO_PROTOTYPE_TYPE_ID"/>
+<c:set value="<%=Constants.STUDIO_BUILD_PROJECT_TYPE%>" var="STUDIO_BUILD_TYPE_ID"/>
+<c:set value="<%=Constants.STUDIO_COMPONENT_PROJECT_TYPE%>" var="STUDIO_COMPONENT_TYPE_ID"/>
+
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -101,6 +105,21 @@
                     <jsp:param name="node" value="testing_stats"/>
                  </jsp:include>
             </c:when>
+            <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="studio_prototype_stats"/>
+                </jsp:include>
+            </c:when>
+            <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="studio_build_stats"/>
+                </jsp:include>
+            </c:when>
+            <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="studio_component_stats"/>
+                </jsp:include>
+            </c:when>
         </c:choose>
         </td>
 <!-- Left Column Ends -->
@@ -135,6 +154,15 @@
     </c:when>
     <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
         <span class="bodySubtitle">Application Statistics &gt; Application Testing Contests</span><br>
+    </c:when>
+    <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+        <span class="bodySubtitle">Studio Statistics &gt; Studio Prototype Contests</span><br>
+    </c:when>
+    <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+        <span class="bodySubtitle">Studio Statistics &gt; Studio Build Contests</span><br>
+    </c:when>
+    <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+        <span class="bodySubtitle">Studio Statistics &gt; Studio Component Contests</span><br>
     </c:when>
 </c:choose>
 
@@ -183,6 +211,18 @@
                 <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
                     <td class="tableTitle" colspan="9">
                     Application Testing
+                </c:when>
+                <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+                    <td class="tableTitle" colspan="9">
+                    Studio Prototype
+                </c:when>
+                <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+                    <td class="tableTitle" colspan="9">
+                    Studio Build
+                </c:when>
+                <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+                    <td class="tableTitle" colspan="9">
+                    Studio Component
                 </c:when>
             </c:choose>
             Contest Details
