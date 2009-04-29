@@ -5,17 +5,25 @@
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows project details for Studio Build competitions.
+  - 
+  - Note: existing project details page was used to create this new page. The code was cleaned and refactored.
+  -       All scriptlets were removed.
 --%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page language="java" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer, com.topcoder.web.tc.Constants" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.shared.util.ApplicationServer,
-                 com.topcoder.web.tc.Constants" %>
-<% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail");%>
-<% ResultSetContainer technologies = (ResultSetContainer) request.getAttribute("technologies");%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<%-- Variables to use JSTL --%>
+<c:set var="projectDetailRow" value="${projectDetail[0]}"/>
+<c:set var="SOFTWARE_SERVER_NAME" value="<%=ApplicationServer.SOFTWARE_SERVER_NAME%>"/>
+<c:set var="ONLINE_REVIEW_URL" value="http://${SOFTWARE_SERVER_NAME}/review"/>
+<c:set var="PROJECT_ID" value="<%=Constants.PROJECT_ID%>"/>
+<c:set var="FORUMS_SERVER_NAME" value="<%=ApplicationServer.FORUMS_SERVER_NAME%>"/>
+<c:set var="FORUMS_URL" value="http://${FORUMS_SERVER_NAME}/?module=Category&categoryID"/>
 
 <html>
     <head>
@@ -59,69 +67,71 @@
                                 <table cellspacing="0" class="formFrame" align="center" width="530">
                                     <tr>
                                         <td class="projectTitles" nowrap="nowrap">
-                                            Studio Build Project -
-                                            <rsc:item set="<%=projectDetail%>" name="component_name"/>
+                                            Studio Build Project - ${projectDetailRow.map["component_name"]}
                                         </td>
                                     </tr>
                                 </table>
                                 <table cellspacing="0" cellpadding="0" width="530" class="bodyText" style="margin-top: 20px; margin-bottom: 20px;">
-                                    <% if (projectDetail.getStringItem(0, "project_status").equals("closed")) { %>
-                                        <tr>
-                                            <td width="50%" valign="top">
-                                                <h2>
-                                                    Registration is closed.
-                                                </h2>
-                                            </td>
-                                            <td width="25%" valign="top" align="right" style="padding: 0px 5px 0px 0px;">
-                                                <%-- Register --%>
-                                                <div class="bigButton" style="width: 100px;">
-                                                    1: Register
-                                                </div>
-                                            </td>
-                                            <td width="25%" valign="top" align="right" style="padding: 0px 0px 0px 5px;">
-                                                <%-- Submit --%>
-                                                <A class="bigButton" style="width: 100px;" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">
-                                                    2: Submit
-                                                </A>
-                                            </td>
-                                        </tr>
-                                    <% } else { %>
-                                        <tr>
-                                            <td width="35%">
-                                                <div class="bigRed" style="border-top: 1px solid #999999; border-bottom: 1px solid #999999;">
-                                                    <div style="float:right; text-align:right;">
-                                                        $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br>
-                                                        $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br>
-                                                        <rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/>
+                                    <c:choose>
+                                        <c:when test="${projectDetailRow.map['project_status'] == 'closed'}">
+                                            <tr>
+                                                <td width="50%" valign="top">
+                                                    <h2>
+                                                        Registration is closed.
+                                                    </h2>
+                                                </td>
+                                                <td width="25%" valign="top" align="right" style="padding: 0px 5px 0px 0px;">
+                                                    <%-- Register --%>
+                                                    <div class="bigButton" style="width: 100px;">
+                                                        1: Register
                                                     </div>
-                                                    <strong>
-                                                        First place:<br>
-                                                        Second place:<br>
-                                                        Due date:
-                                                    </strong>
-                                                </div>
-                                            </td>
-                                            <td width="40%" align="right" style="padding: 0px 5px 10px 0px;">
-                                                <A class="bigButton" style="width: 100px;" href="/tc?module=ViewRegistration&<%=Constants.PROJECT_ID%>=<%= request.getAttribute("projectId") %>">
-                                                    1: Register
-                                                </A>
-                                            </td>
-                                            <td width="25%" align="right" style="padding: 0px 0px 10px 5px;">
-                                                <%-- Submit --%>
-                                                <A class="bigButton" style="width: 100px;" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">
-                                                    2: Submit
-                                                </A>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3" align="center" style="padding-top:10px;">
-                                                Register to get info necessary to submit a solution<br />
-                                                <span class="bigRed">
-                                                    Registering will affect your Reliability Rating
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    <% } %>
+                                                </td>
+                                                <td width="25%" valign="top" align="right" style="padding: 0px 0px 0px 5px;">
+                                                    <%-- Submit --%>
+                                                    <A class="bigButton" style="width: 100px;" href="${ONLINE_REVIEW_URL}">
+                                                        2: Submit
+                                                    </A>
+                                                </td>
+                                            </tr>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <tr>
+                                                <td width="35%">
+                                                    <div class="bigRed" style="border-top: 1px solid #999999; border-bottom: 1px solid #999999;">
+                                                        <div style="float:right; text-align:right;">
+                                                            $<fmt:formatNumber value="${projectDetailRow.map['total_payment']}" pattern="#,###.00"/><br>
+                                                            $<fmt:formatNumber value="${projectDetailRow.map['second_place_payment']}" pattern="#,###.00"/><br>
+                                                            <fmt:formatDate value="${projectDetailRow.map['initial_submission_date']}" pattern="MM.dd.yyyy"/>
+                                                        </div>
+                                                        <strong>
+                                                            First place:<br>
+                                                            Second place:<br>
+                                                            Due date:
+                                                        </strong>
+                                                    </div>
+                                                </td>
+                                                <td width="40%" align="right" style="padding: 0px 5px 10px 0px;">
+                                                    <A class="bigButton" style="width: 100px;" href="/tc?module=ViewRegistration&${PROJECT_ID}=${projectId}">
+                                                        1: Register
+                                                    </A>
+                                                </td>
+                                                <td width="25%" align="right" style="padding: 0px 0px 10px 5px;">
+                                                    <%-- Submit --%>
+                                                    <A class="bigButton" style="width: 100px;" href="${ONLINE_REVIEW_URL}">
+                                                        2: Submit
+                                                    </A>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3" align="center" style="padding-top:10px;">
+                                                    Register to get info necessary to submit a solution<br />
+                                                    <span class="bigRed">
+                                                        Registering will affect your Reliability Rating
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </table>
                                 <table cellspacing="0" class="formFrame" align="center" width="530">
                                     <tr>
@@ -138,7 +148,7 @@
                                 </p>
                                 
                                 <p>
-                                    <rsc:item set="<%=projectDetail%>" name="description"/>
+                                    ${projectDetailRow.map["description"]}
                                 </p>
                                 
                                 <%-- Technologies --%>
@@ -148,11 +158,11 @@
                                     </strong>
                                 </p>
                                 <ul class="noSpList">
-                                    <rsc:iterator list="<%=technologies%>" id="item">
+                                    <c:forEach items="${technologies}" var="technologiesRow">
                                         <li>
-                                            <rsc:item row="<%=item%>" name="technology_name"/>
+                                            ${technologiesRow.map["technology_name"]}
                                         </li>
-                                    </rsc:iterator>
+                                    </c:forEach>
                                 </ul>
                                 
                                 <%-- Documentation --%>
@@ -162,11 +172,14 @@
                                     </strong><br>
                                     Documentation available in the
                                 
-                                    <% if (projectDetail.getItem(0, "jive_category_id").getResultData() == null) { %>
-                                        discussion forums
-                                    <% } else { %>
-                                        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">component forums</a>
-                                    <% } %>
+                                    <c:choose>
+                                        <c:when test="${empty projectDetailRow.map['jive_category_id']}">
+                                            discussion forums
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="${FORUMS_URL}=${projectDetailRow.map['jive_category_id']}">component forums</a>
+                                        </c:otherwise>
+                                    </c:choose>
                                     after you successfully register for this competition.
                                 </p>
                                 
@@ -196,7 +209,8 @@
                                                 Posting Date:
                                             </td>
                                             <td class="bodyText" align="right">
-                                                <rsc:item set="<%=projectDetail%>" name="posting_date" format="MM.dd.yyyy"/>
+                                                <fmt:formatDate value="${projectDetailRow.map['posting_date']}"
+                                                    pattern="MM.dd.yyyy"/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -204,7 +218,8 @@
                                                 Initial Submission Due Date:
                                             </td>
                                             <td class="bodyText" align="right">
-                                                <rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/>
+                                                <fmt:formatDate value="${projectDetailRow.map['initial_submission_date']}"
+                                                    pattern="MM.dd.yyyy"/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -212,7 +227,8 @@
                                                 Winner Announced:
                                             </td>
                                             <td class="bodyText" align="right">
-                                                <rsc:item set="<%=projectDetail%>" name="winner_announced_date" format="MM.dd.yyyy"/>
+                                                <fmt:formatDate value="${projectDetailRow.map['winner_announced_date']}"
+                                                    pattern="MM.dd.yyyy"/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -220,7 +236,8 @@
                                                 Final Submission Due Date:
                                             </td>
                                             <td class="bodyText" align="right">
-                                                <rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM.dd.yyyy"/>
+                                                <fmt:formatDate value="${projectDetailRow.map['final_submission_date']}"
+                                                    pattern="MM.dd.yyyy"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -246,14 +263,14 @@
                                     <strong>
                                         Winning submission
                                     </strong><br>
-                                    Total Payment - $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br>
+                                    Total Payment - $<fmt:formatNumber value="${projectDetailRow.map['total_payment']}" pattern="#,###.00"/><br>
                                 </p>
                                 
                                 <p>
                                     <strong>
                                         Second Place submission
                                     </strong><br>
-                                    Total Payment - $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br>
+                                    Total Payment - $<fmt:formatNumber value="${projectDetailRow.map['second_place_payment']}" pattern="#,###.00"/><br>
                                 </p>
                                 
                                 
