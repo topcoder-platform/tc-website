@@ -348,7 +348,7 @@
                                                         context='application_testing'/>
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <tc-webtag:handle coderId="${resultRow.map['user_id']}" />
+                                                    <tc-webtag:handle coderId="${reviewer.userId}" />
                                                 </c:otherwise>
                                             </c:choose>
                                         </c:when>
