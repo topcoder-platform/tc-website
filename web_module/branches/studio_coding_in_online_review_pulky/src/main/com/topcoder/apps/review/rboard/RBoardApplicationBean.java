@@ -46,7 +46,7 @@ import java.util.Map;
  * <p>An implementation of the <code>RBoard EJB</code>.</p>
  *
  * <p>
- *   Version 1.0.1 Change notes: 
+ *   Version 1.0.1 Change notes:
  *   <ol>
  *     <li>Bean was moved from tc to tcs site and was updated to centralize all RBoard operations.</li>
  *   </ol>
@@ -205,7 +205,7 @@ public class RBoardApplicationBean extends BaseEJB {
      *
      * @since 1.0.8
      */
-    private static final String INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON = 
+    private static final String INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON =
         "Sorry, there was an error in the application";
 
     /**
@@ -214,11 +214,11 @@ public class RBoardApplicationBean extends BaseEJB {
      *
      * @since 1.0.8
      */
-    private static final String INCONSISTENT_REVIEWERS_ERROR_MESSAGE_DEVELOPMENT = 
+    private static final String INCONSISTENT_REVIEWERS_ERROR_MESSAGE_DEVELOPMENT =
         "Sorry, there was an error in the application " +
         "(primary reviewers must be failure reviewers, and " +
         "vice versa).";
-    
+
     private static Logger log = Logger.getLogger(RBoardApplicationBean.class);
 
     /**
@@ -895,7 +895,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param opensOn the timestamp when the position opens
      * @param reviewTypeId the review type
      * @param primary true if the position if for primary reviewer
-     * 
+     *
      * @throws RBoardRegistrationException if there are validation errors
      */
     private void validateUserTrans(Connection conn, long projectId, int phaseId, long userId, Timestamp opensOn,
@@ -936,25 +936,25 @@ public class RBoardApplicationBean extends BaseEJB {
         }
 
         if (phaseId == SoftwareComponent.DEV_PHASE) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, DEVELOPMENT_PRIMARY_REVIEW_ID, 
+            validateReviewPositions(reviewTypeId, primary, reviewers, DEVELOPMENT_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_DEVELOPMENT);
         } else if (phaseId == SoftwareComponent.DESIGN_PHASE) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, DESIGN_PRIMARY_REVIEW_ID, 
+            validateReviewPositions(reviewTypeId, primary, reviewers, DESIGN_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.ASSEMBLY_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, ASSEMBLY_PRIMARY_REVIEW_ID, 
+            validateReviewPositions(reviewTypeId, primary, reviewers, ASSEMBLY_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.ARCHITECTURE_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, ARCHITECTURE_PRIMARY_REVIEW_ID, 
+            validateReviewPositions(reviewTypeId, primary, reviewers, ARCHITECTURE_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.CONCEPTUALIZATION_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, CONCEPTUALIZATION_PRIMARY_REVIEW_ID, 
+            validateReviewPositions(reviewTypeId, primary, reviewers, CONCEPTUALIZATION_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.SPECIFICATION_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, SPECIFICATION_PRIMARY_REVIEW_ID, 
+            validateReviewPositions(reviewTypeId, primary, reviewers, SPECIFICATION_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.APPLICATION_TESTING_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, APPLICATION_TESTING_PRIMARY_REVIEW_ID, 
+            validateReviewPositions(reviewTypeId, primary, reviewers, APPLICATION_TESTING_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.STUDIO_PROTOTYPE_PROJECT_TYPE + 111)) {
             validateReviewPositions(reviewTypeId, primary, reviewers, STUDIO_PROTOTYPE_PRIMARY_REVIEW_ID,
@@ -966,7 +966,7 @@ public class RBoardApplicationBean extends BaseEJB {
             validateReviewPositions(reviewTypeId, primary, reviewers, STUDIO_COMPONENT_PRIMARY_REVIEW_ID,
                 INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         }
-        
+
         // If somebody came in by constructing the URL, make sure that there is at least one
         // primary before we run out of spots.
         if (!primary && reviewers.size() == 2) {
@@ -985,12 +985,12 @@ public class RBoardApplicationBean extends BaseEJB {
 
     /**
      * Helper private method to validate review positions.
-     * 
-     * @param reviewTypeId the Review Type Id being validated 
+     *
+     * @param reviewTypeId the Review Type Id being validated
      * @param primary the Primary flag being validated
      * @param reviewers the list of reviewers being validated
      * @param reviewers the corresponding Primary Review Id according to the project type
-     * 
+     *
      * @throws RBoardRegistrationException if the review position is taken of the url is not consistent
      * @since 1.0.8
      */
@@ -1020,7 +1020,7 @@ public class RBoardApplicationBean extends BaseEJB {
         Map returnMap = new HashMap();
         int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
                 22, 23, 24, 25, 26, 27, 28, 29, 30};
-        int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134, 
+        int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134,
                 117, 117, 117, 124, 124, 124, 130, 130, 130, 135, 135, 135, 136, 136, 136};
 
         for (int i = 0; i < respIds.length; i++) {
@@ -1102,7 +1102,7 @@ public class RBoardApplicationBean extends BaseEJB {
     /**
      * <p>Gets the name of the specified project category.</p>
      *
-     * @param conn a <code>Connection</code> providing the connection to target database. 
+     * @param conn a <code>Connection</code> providing the connection to target database.
      * @param projectTypeId a <code>long</code> providing the ID of project category to get the name for.
      * @return a <code>String</code> providing the name of project category.
      * @throws RowNotFoundException if desired record in database table is not found.

@@ -13,13 +13,13 @@ public class StudioReviewerPaymentCalculator extends BaseReviewerPaymentCalculat
     /**
      * <p>An <code>float</code> representing standard price.</p>
      */
-	private static final float STANDARD_PRIZE = 750f;
+    private static final float STANDARD_PRIZE = 750f;
 
-	/**
+    /**
      * <p>An <code>float</code> representing standard submissions.</p>
      */
-	private static final float STANDARD_SUBMISSIONS = 3f;
-	
+    private static final float STANDARD_SUBMISSIONS = 3f;
+
     /**
      * Constructor using parameters
      *
@@ -46,8 +46,8 @@ public class StudioReviewerPaymentCalculator extends BaseReviewerPaymentCalculat
      * @return the review cost
      */
     public float getReviewCost() {
-        return (Math.max(0f, STANDARD_SUBMISSIONS + 1 - getPassedScreeningCount()) * 1.5f + 2f * getPassedScreeningCount())
-        		* getActualBaseRate();
+        return (Math.max(0f, STANDARD_SUBMISSIONS + 1 - getPassedScreeningCount()) * 1.5f + 2f 
+                * getPassedScreeningCount()) * getActualBaseRate();
     }
 
     /**
@@ -67,10 +67,10 @@ public class StudioReviewerPaymentCalculator extends BaseReviewerPaymentCalculat
     public float getFinalReviewCost() {
         return 2f * getActualBaseRate() * 0.75f;
     }
-    
+
     /**
      * Gets the calculated base hourly rate for the reviewers, scaled by the first place prize.
-     * 
+     *
      * @return the base hourly rate for the reviewers
      */
     protected float getCalculatedBaseRate() {
@@ -80,7 +80,7 @@ public class StudioReviewerPaymentCalculator extends BaseReviewerPaymentCalculat
     /**
      * Gets the calculated review cost for this project, assuming it has three submissions and they all pass
      * screening.
-     * 
+     *
      * @return the review cost for this project with the mentioned assumptions.
      */
     protected float getCalculatedReviewCost() {
@@ -90,7 +90,7 @@ public class StudioReviewerPaymentCalculator extends BaseReviewerPaymentCalculat
     /**
      * Gets the actual base hourly rate for the reviewers, which right now is the same as the calculated base rate.
      * This is in place should an override be added later.
-     * 
+     *
      * @return the base hourly rate for the reviewers
      */
     protected float getActualBaseRate() {
@@ -99,7 +99,7 @@ public class StudioReviewerPaymentCalculator extends BaseReviewerPaymentCalculat
 
     /**
      * Gets the additional payment due to the primary reviewer.
-     * 
+     *
      * @return the additional payment due to the primary reviewer
      */
     protected float getPrimaryExtraCost() {

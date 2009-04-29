@@ -1,3 +1,11 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.0
+  - Since: Studio Coding In Online Review
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page shows project details for Studio Comoponent competitions.
+--%>
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -80,7 +88,7 @@
          </div>
       <strong>First place:<br>
       Second place:<br>
-      Due date:</strong> 
+      Due date:</strong>
       </div>
       </td>
       <td width="40%" align="right" style="padding: 0px 5px 10px 0px;">
@@ -176,9 +184,9 @@
     </tr>
 </table>
 <p>
-TopCoder will compensate competitors with first and second place submissions. 
-Initial payment for the winning submission will be distributed in two installments. 
-First Milestone: When the winning solution is submitted and review board suggestions are integrated. 
+TopCoder will compensate competitors with first and second place submissions.
+Initial payment for the winning submission will be distributed in two installments.
+First Milestone: When the winning solution is submitted and review board suggestions are integrated.
 Second Milestone: Marked by the completion of the Deployment phase of the project.</p>
 
 <p><strong>Winning submission</strong><br>

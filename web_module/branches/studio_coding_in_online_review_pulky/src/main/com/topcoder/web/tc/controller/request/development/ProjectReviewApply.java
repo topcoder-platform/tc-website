@@ -57,7 +57,7 @@ import java.io.FileOutputStream;
  *     <li>Refactored the logic for handling the requests to split the logic for checking the supported project
  *         types and mapping them to appropriate view into separate private methods.</li>
  *     <li>The project type requested by client is provided as parameter to <code>review_project_detail</code> query to
- *         filter the retrieved projects based on provided type.</li> 
+ *         filter the retrieved projects based on provided type.</li>
  *   </ol>
  *
  *   Version 1.0.4 Change notes:
@@ -97,7 +97,7 @@ public class ProjectReviewApply extends Base {
         if (!isProjectTypeSupported(projectTypeId)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
-        
+
         try {
             if (throttle.throttle(getRequest().getSession().getId())) {
                 throw new RequestRateExceededException(getRequest().getSession().getId(), getUser().getUserName());
@@ -191,7 +191,7 @@ public class ProjectReviewApply extends Base {
         int type = Integer.parseInt(this.projectTypeId);
         // Assembly, Architecture, Conceptualization, Specification, Application Testing competition and
         // Studio related competition reviews do not take into consideration the catalogs as for now
-        if (validateWithCatalog(type)) {            
+        if (validateWithCatalog(type)) {
             rBoardApplication.validateUser(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, catalog, reviewTypeId, getUser().getId(),
                     this.phaseId);
         } else {
@@ -238,7 +238,7 @@ public class ProjectReviewApply extends Base {
             return Constants.UNIFIED_REVIEWER_TERMS_PAGE;
         }
     }
-    
+
     /**
      * Private helper method to decide if a project type should be validated with catalog or not
      *

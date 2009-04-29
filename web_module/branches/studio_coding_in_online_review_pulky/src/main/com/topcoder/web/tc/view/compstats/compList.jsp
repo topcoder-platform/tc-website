@@ -1,3 +1,13 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page lists all past projects for a specific project type.
+  -
+  - Version 1.1 (Studio Coding In Online Review) changes: added support for new Studio prototype, Studio Build and 
+  - Studio Component competitions.
+--%>
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
           java.util.Map"%>
@@ -260,12 +270,12 @@
                 </c:when>
             </c:choose>
             Contest Details
-            
+
             </td></tr>
             <tr>
                 <c:if test="${pt == DEVELOPMENT_TYPE_ID}">
                     <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="12" includeParams="true" excludeParams="sr" />" class="statLink">Type</a></td>
-                </c:if>               
+                </c:if>
                <td CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />" class="statLink">Component</a>
                     <br /><tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
                 </td>
@@ -283,7 +293,7 @@
             <TR>
             <c:if test="${pt == DEVELOPMENT_TYPE_ID}">
                 <td class="<%=even?"statLt":"statDk"%>" align="center"><strong><rsc:item name="type" row="<%=resultRow%>" /></strong></TD>
-            </c:if>               
+            </c:if>
             <td class="<%=even?"statLt":"statDk"%>" align="left"><rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" /></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="category_desc" row="<%=resultRow%>" /></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="complete_date" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="unknown*"/></TD>

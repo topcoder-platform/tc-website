@@ -41,7 +41,7 @@ import com.topcoder.web.tc.Constants;
  *     <li>Refactored the logic for handling the requests to split the logic for checking the supported project
  *         types and mapping them to appropriate view into separate private methods.</li>
  *     <li>The project type requested by client is provided as parameter to <code>review_projects</code> query to filter
- *         the retrieved projects based on provided type.</li> 
+ *         the retrieved projects based on provided type.</li>
  *   </ol>
  *
  *   Version 1.0.4 Change notes:
@@ -62,7 +62,6 @@ import com.topcoder.web.tc.Constants;
  *
  * @author dok, pulky, ivern, isv, TCSDEVELOPER
  * @version 1.0.6
- * @since 1.0
  */
 public class ViewReviewProjects extends ReviewProjectDetail {
 
@@ -76,7 +75,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      * <p>Handles the request for displaying the list of active review projects of requested type provided as
      * {@link Constants#PROJECT_TYPE_ID} request parameter.</p>
      *
-     * <p>Looks up for the list of active review projects of requested project type, binds it to request and forwards 
+     * <p>Looks up for the list of active review projects of requested project type, binds it to request and forwards
      * to the corresponding JSP depending on requested project type.</p>
      *
      * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
@@ -86,7 +85,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
         if (!isProjectTypeSupported(projectTypeId)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
-        
+
         int phase_id = (Integer.parseInt(projectTypeId) + 111);
         getRequest().setAttribute("phase_id", new Integer(phase_id));
 

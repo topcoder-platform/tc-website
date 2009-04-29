@@ -23,7 +23,7 @@ import com.topcoder.web.common.WebConstants;
  *         <td>Version 1.1 (Studio Coding In Online Review)</td>
  *         <td>
  *           <ul>
- *             <li>Updated <code>isReviewBoardTypeSupported</code> methods to support Studio prototype, Studio Build 
+ *             <li>Updated <code>isReviewBoardTypeSupported</code> methods to support Studio prototype, Studio Build
  *                 and Studio Component competitions.</li>
  *           </ul>
  *         </td>

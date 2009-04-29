@@ -35,11 +35,11 @@ public class ViewRegistration extends Base {
     private ComponentRegistrationServicesLocal regServices = null;
 
     protected int projectTypeId = 0;
-    
+
     protected void developmentProcessing() throws TCWebException {
 
         try {
-            
+
             if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
                 throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
             }
@@ -73,7 +73,7 @@ public class ViewRegistration extends Base {
 
     /**
      * <p>This helper method handles the validation of the request.</p>
-     * 
+     *
      * <p>Note: validation messages will be added to the request as an attribute.</p>
      *
      * @throws NavigationException if the specified project is invalid or if the project category is not supported.

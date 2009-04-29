@@ -36,7 +36,7 @@ public class ContestStatus extends Base {
         Constants.DESIGN_PROJECT_TYPE, Constants.DEVELOPMENT_PROJECT_TYPE,
         Constants.ASSEMBLY_PROJECT_TYPE, Constants.ARCHITECTURE_PROJECT_TYPE,
         Constants.APPLICATION_TESTING_PROJECT_TYPE, Constants.SPECIFICATION_PROJECT_TYPE,
-        Constants.CONCEPTUALIZATION_PROJECT_TYPE, Constants.STUDIO_PROTOTYPE_PROJECT_TYPE, 
+        Constants.CONCEPTUALIZATION_PROJECT_TYPE, Constants.STUDIO_PROTOTYPE_PROJECT_TYPE,
         Constants.STUDIO_BUILD_PROJECT_TYPE, Constants.STUDIO_COMPONENT_PROJECT_TYPE};
 
     public static final String DEFAULT_NAMESPACE = "com.topcoder.web.tc.controller.request.contest.ContestStatus";
