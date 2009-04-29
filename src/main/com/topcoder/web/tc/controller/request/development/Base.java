@@ -211,8 +211,7 @@ public abstract class Base extends ShortHibernateProcessor {
 
     /**
      * <p>Checks whether the specified project type requested by client is currently supported by this controller
-     * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization,
-     * Specification and Application Testing project types are supported.</p>
+     * or not.</p>
      *
      * This method delegates to ReviewBoardHelper.isReviewBoardTypeSupported().
      *

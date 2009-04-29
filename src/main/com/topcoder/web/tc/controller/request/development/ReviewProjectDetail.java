@@ -29,9 +29,7 @@ import java.util.Map;
 
 /**
  * <p>A controller to handle the requests for displaying the details for the requested review project of specified type.
- * The desired project type is expected to be provided as {@link Constants#PROJECT_TYPE_ID} request parameter.
- * As of current version only Design, Development, Assembly, Architecture, Conceptualization, Specification and 
- * Application Testing project types are supported.</p>
+ * The desired project type is expected to be provided as {@link Constants#PROJECT_TYPE_ID} request parameter.</p>
  *
  * <p>
  *   Version  1.0.1 Change notes:
@@ -60,10 +58,15 @@ import java.util.Map;
  *   <ol>
  *     <li>Added support for Conceptualization, Specification and Application Testing project types.</li>
  *   </ol>
+ *
+ *   Version 1.0.5 (Studio Coding In Online Review) Change notes:
+ *   <ol>
+ *     <li>Added support for Studio prototype, Studio Build and Studio Component competitions.</li>
+ *   </ol>
  * </p>
  * 
  * @author dok, pulky, isv, TCSDEVELOPER
- * @version 1.0.4
+ * @version 1.0.5
  * @since 1.0
  */
 public class ReviewProjectDetail extends Base {
@@ -80,9 +83,7 @@ public class ReviewProjectDetail extends Base {
      * {@link Constants#PROJECT_ID} request parameter.</p>
      *
      * <p>Looks up for the details of requested review project, binds it to request and forwards to the corresponding 
-     * JSP depending on requested project type. As of current version only Design, Development, Assembly, Architecture, 
-     * Conceptualization, Specification and Application Testing project types are supported; otherwise an exception is 
-     * raised.</p>
+     * JSP depending on requested project type.</p>
      *
      * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
      */
@@ -401,14 +402,12 @@ public class ReviewProjectDetail extends Base {
 
     /**
      * <p>Gets the logical name for the view which is to be used for displaying the list of review opportunities of
-     * specified type requested by client. As of current version only Design, Development, Assembly, Architecture, 
-     * Conceptualization, Specification and Application Testing project types are supported.</p>
+     * specified type requested by client.</p>
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the review details for projects of
      *         specified type.
-     * @throws IllegalArgumentException if specified project type is not supported.
-     * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57)
+     * @since TCS Release 2.2.0 (TCS-54)
      */
     private String getReviewProjectDetailView(String projectType) {
         if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
@@ -419,12 +418,9 @@ public class ReviewProjectDetail extends Base {
             return Constants.ASSEMBLY_REVIEW_PROJECT_DETAIL;
         } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
             return Constants.ARCHITECTURE_REVIEW_PROJECT_DETAIL;
-        } else if (projectType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE)) ||
-                projectType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE)) ||
-                projectType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))) {
-            return Constants.UNIFIED_REVIEW_PROJECT_DETAIL_PAGE;
         } else {
-            throw new IllegalArgumentException("Unsupported project type/category: " + projectType);
+            // we don't need to check for project types, they are already verified.
+            return Constants.UNIFIED_REVIEW_PROJECT_DETAIL_PAGE;
         }
     }
 }
