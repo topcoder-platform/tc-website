@@ -4,12 +4,13 @@
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
-  - Description: This page displays the review terms of use corresponding to the specified project. 
+  - Description: This page displays the review terms of use corresponding to the specified project.
   - It displays the text and provides a for for the user to accept and continue registration.
   - This is an exhaustive refactor and generalization from existing reviewTerms.jsp files.
   - In this release, it will be used for Conceptualization, Specification and Application Testing project types.
   -
-  - Version 1.1 changes: added support for new Studio prototype, Studio Build and Studio Component competitions.
+  - Version 1.1 (Studio Coding In Online Review) changes: added support for new Studio prototype, Studio Build and 
+  - Studio Component competitions.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -38,7 +39,7 @@
 <html>
     <head>
         <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
-    
+
         <jsp:include page="/script.jsp"/>
         <jsp:include page="/style.jsp">
             <jsp:param name="key" value="tc_stats"/>
@@ -47,69 +48,69 @@
 
     <body>
         <c:choose>
-        	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
+            <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
                 <jsp:include page="/top.jsp">
                     <jsp:param name="level1" value="conceptualization"/>
                 </jsp:include>
             </c:when>
-        	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
+            <c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
                 <jsp:include page="/top.jsp">
                     <jsp:param name="level1" value="specification"/>
                 </jsp:include>
             </c:when>
-        	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
+            <c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
                 <jsp:include page="/top.jsp">
                     <jsp:param name="level1" value="application_testing"/>
                 </jsp:include>
             </c:when>
-        	<c:when test="${projectType == STUDIO_PROTOTYPE_PROJECT_TYPE}">
+            <c:when test="${projectType == STUDIO_PROTOTYPE_PROJECT_TYPE}">
                 <jsp:include page="/top.jsp" >
                     <jsp:param name="level1" value="studio_prototype"/>
                 </jsp:include>
             </c:when>
-        	<c:when test="${projectType == STUDIO_BUILD_PROJECT_TYPE}">
+            <c:when test="${projectType == STUDIO_BUILD_PROJECT_TYPE}">
                 <jsp:include page="/top.jsp" >
                     <jsp:param name="level1" value="studio_build"/>
                 </jsp:include>
             </c:when>
-        	<c:when test="${projectType == STUDIO_COMPONENT_PROJECT_TYPE}">
+            <c:when test="${projectType == STUDIO_COMPONENT_PROJECT_TYPE}">
                 <jsp:include page="/top.jsp" >
                     <jsp:param name="level1" value="studio_component"/>
                 </jsp:include>
             </c:when>
         </c:choose>
-        
+
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
                 <%-- Left Column Begins--%>
                 <td width="180">
                     <c:choose>
-                    	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
+                        <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="conceptualization_review"/>
                             </jsp:include>
                         </c:when>
-                    	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
+                        <c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="specification_review"/>
                             </jsp:include>
                         </c:when>
-                    	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
+                        <c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="application_testing_review"/>
                             </jsp:include>
                         </c:when>
-                    	<c:when test="${projectType == STUDIO_PROTOTYPE_PROJECT_TYPE}">
+                        <c:when test="${projectType == STUDIO_PROTOTYPE_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="studio_prototype_review"/>
                             </jsp:include>
                         </c:when>
-                    	<c:when test="${projectType == STUDIO_BUILD_PROJECT_TYPE}">
+                        <c:when test="${projectType == STUDIO_BUILD_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="studio_build_review"/>
                             </jsp:include>
                         </c:when>
-                    	<c:when test="${projectType == STUDIO_COMPONENT_PROJECT_TYPE}">
+                        <c:when test="${projectType == STUDIO_COMPONENT_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="studio_component_review"/>
                             </jsp:include>
@@ -117,59 +118,59 @@
                     </c:choose>
                 </td>
                 <%-- Left Column Ends --%>
-                
+
                 <%-- Gutter Begins --%>
                 <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0" alt=""/></td>
                 <%-- Gutter Ends --%>
-                
+
                 <%-- Center Column Begins --%>
                 <td width="100%" align="center">
                     <c:choose>
-                    	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
+                        <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
                             <jsp:include page="/page_title.jsp">
                                 <jsp:param name="image" value="conceptualization"/>
                                 <jsp:param name="title" value="Review Opportunities"/>
                             </jsp:include>
                         </c:when>
-                    	<c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
+                        <c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
                             <jsp:include page="/page_title.jsp">
                                 <jsp:param name="image" value="specification"/>
                                 <jsp:param name="title" value="Review Opportunities"/>
                             </jsp:include>
                         </c:when>
-                    	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
+                        <c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
                             <jsp:include page="/page_title.jsp">
                                 <jsp:param name="image" value="app_testing"/>
                                 <jsp:param name="title" value="Review Opportunities"/>
                             </jsp:include>
                         </c:when>
-                    	<c:when test="${projectType == STUDIO_PROTOTYPE_PROJECT_TYPE}">
+                        <c:when test="${projectType == STUDIO_PROTOTYPE_PROJECT_TYPE}">
                             <jsp:include page="/page_title.jsp">
                                 <jsp:param name="image" value="studio_prototype"/>
                                 <jsp:param name="title" value="Review Opportunities"/>
                             </jsp:include>
                         </c:when>
-                    	<c:when test="${projectType == STUDIO_BUILD_PROJECT_TYPE}">
+                        <c:when test="${projectType == STUDIO_BUILD_PROJECT_TYPE}">
                             <jsp:include page="/page_title.jsp">
                                 <jsp:param name="image" value="studio_build"/>
                                 <jsp:param name="title" value="Review Opportunities"/>
                             </jsp:include>
                         </c:when>
-                    	<c:when test="${projectType == STUDIO_COMPONENT_PROJECT_TYPE}">
+                        <c:when test="${projectType == STUDIO_COMPONENT_PROJECT_TYPE}">
                             <jsp:include page="/page_title.jsp">
                                 <jsp:param name="image" value="studio_component"/>
                                 <jsp:param name="title" value="Review Opportunities"/>
                             </jsp:include>
                         </c:when>
                     </c:choose>
-                
+
                     <form action="${sessionInfo.servletPath}" method="POST" name="frmTerms">
                         <input type="hidden" name="${PROJECT_ID}" value="${param[PROJECT_ID]}"/>
                         <input type="hidden" name="${REVIEWER_TYPE_ID}" value="${param[REVIEWER_TYPE_ID]}"/>
                         <input type="hidden" name="${PRIMARY_FLAG}" value="${param[PRIMARY_FLAG]}"/>
                         <input type="hidden" name="${MODULE_KEY}" value="ProjectReviewTermsAgree"/>
                         <input type="hidden" name="${PROJECT_TYPE_ID}" value="${projectType}"/>
-                
+
                         <table border="0" cellspacing="0" cellpadding="5">
                             <tr>
                                 <td>
@@ -194,18 +195,18 @@
                                     <tc-webtag:chkBox name="${TERMS_AGREE}"/>
                                 </td>
                             </tr>
-                
+
                             <tr>
                                 <td class="errorText">
                                     <img src="/i/captcha/${requestScope[CAPTCHA_FILE_NAME]}" alt="captcha image"/>
-                
+
                                     <p>
-                                        <a href="javascript:window.location.reload()">This image is hard to read. 
+                                        <a href="javascript:window.location.reload()">This image is hard to read.
                                             Show me a different one.</a>
                                     </p>
                                 </td>
                             </tr>
-                
+
                             <tr>
                                 <td class="errorText">
                                     <tc-webtag:errorIterator id="err" name="${CAPTCHA_RESPONSE}">${err}
@@ -220,38 +221,38 @@
                                     </p>
                                 </td>
                             </tr>
-                
-                
+
+
                             <tr>
                                 <td align="center">
                                     <input type="submit" onClick="" name="submit" value=" Continue"/>
                                 </td>
                             </tr>
                         </table>
-                
+
                     </form>
                 </td>
                 <%-- Center Column Ends --%>
-                
+
                 <%-- Gutter --%>
                 <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0" alt=""></td>
                 <%-- Gutter Ends --%>
-                
+
                 <%-- Right Column Begins --%>
                 <td width="180">
                     <jsp:include page="/public_right.jsp">
                         <jsp:param name="level1" value="default"/>
                     </jsp:include>
-                
+
                 </td>
                 <%-- Right Column Ends --%>
-                
+
                 <%-- Gutter --%>
                 <td width="2"><img src="/i/clear.gif" width="2" height="1" border="0" alt=""></td>
                 <%-- Gutter Ends --%>
             </tr>
         </table>
-        
+
         <jsp:include page="/foot.jsp"/>
     </body>
 </html>

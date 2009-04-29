@@ -1,3 +1,11 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.0
+  - Since: Studio Coding In Online Review
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page shows project details for Studio Prototype competitions.
+--%>
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -66,7 +74,9 @@
       </td>
       <td width="25%" valign="top" align="right" style="padding: 0px 0px 0px 5px;">
       <%-- Submit --%>
-      <A class="bigButton" style="width: 100px;" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">2: Submit</A>
+      <A class="bigButton" style="width: 100px;" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">
+        2: Submit
+      </A>
       </td>
    </tr>
    <% } else { %>
@@ -80,7 +90,7 @@
          </div>
       <strong>First place:<br>
       Second place:<br>
-      Due date:</strong> 
+      Due date:</strong>
       </div>
       </td>
       <td width="40%" align="right" style="padding: 0px 5px 10px 0px;">
@@ -88,7 +98,9 @@
       </td>
       <td width="25%" align="right" style="padding: 0px 0px 10px 5px;">
       <%-- Submit --%>
-      <A class="bigButton" style="width: 100px;" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">2: Submit</A>
+      <A class="bigButton" style="width: 100px;" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">
+        2: Submit
+      </A>
       </td>
    </tr>
    <tr>
@@ -135,7 +147,9 @@
 </p>
 
 <p>
-<div align="right"><a href="/wiki/display/tc/How+to+Compete+in+Studio+Prototype+Competitions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a></div>
+<div align="right"><a href="/wiki/display/tc/How+to+Compete+in+Studio+Prototype+Competitions">
+    <img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
+</div>
 </p>
 
 
@@ -176,9 +190,9 @@
     </tr>
 </table>
 <p>
-TopCoder will compensate competitors with first and second place submissions. 
-Initial payment for the winning submission will be distributed in two installments. 
-First Milestone: When the winning solution is submitted and review board suggestions are integrated. 
+TopCoder will compensate competitors with first and second place submissions.
+Initial payment for the winning submission will be distributed in two installments.
+First Milestone: When the winning solution is submitted and review board suggestions are integrated.
 Second Milestone: Marked by the completion of the Deployment phase of the project.</p>
 
 <p><strong>Winning submission</strong><br>

@@ -98,10 +98,10 @@ public class Register extends ViewRegistration {
             throw new TCWebException(e);
         }
     }
-    
+
     /**
      * <p>This helper method registers a user to a project.</p>
-     * 
+     *
      * @throws CreateException if the underlying service fails to be created.
      * @throws RemoteException if the underlying service fails to execute.
      * @throws Exception if any other error occurs while performing registration.
@@ -123,7 +123,7 @@ public class Register extends ViewRegistration {
                     (ComponentManagerHome) PortableRemoteObject.narrow(objComponentManager, ComponentManagerHome.class);
             ComponentManager componentManager = componentManagerHome.create(componentId);
             String project = componentManager.getComponentInfo().getName();
-            
+
             if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.ASSEMBLY_PROJECT_TYPE))) {
                 project += " Assembly Project";
             } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.COMPONENT_TESTING_PROJECT_TYPE))) {
@@ -137,7 +137,7 @@ public class Register extends ViewRegistration {
             } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.STUDIO_COMPONENT_PROJECT_TYPE))) {
                 project += " Studio Component Project";
             }
-            
+
             long activeForumCategoryId = componentManager.getActiveForumCategory().getId();
 
             if (log.isDebugEnabled()) {
@@ -182,12 +182,12 @@ public class Register extends ViewRegistration {
             formatter.setFormatMethodForClass(Calendar.class,
                     new CalendarDateFormatMethod("MM.dd.yyyy HH:mm a z"), true);
             String date = formatter.format(cal);
-          
+
             if (String.valueOf(projectTypeId).equals(Constants.ASSEMBLY_PROJECT_TYPE)) {
                 mail.setBody(getUser().getUserName() + ", \n\nRegistration Complete. \n\n" +
                         "Thank you, for your interest in the " + project + ". You now have access to the Discussion Forum ( http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=" + activeForumCategoryId + " ) which can be used to obtain documentation, as well as to ask questions regarding the project. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\n\n" +
                         "The deadline for submitting a solution is " + date + ". Please upload your submission using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review.  If you encounter any problems, please contact us at service@topcodersoftware.com.  All late submissions will be ignored.\n\n" +
-                        "Please use these forums to form your team:\n" + 
+                        "Please use these forums to form your team:\n" +
                         "http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=19.\n\n" +
                         "If you have any questions please contact service@topcodersoftware.com\n\n" +
                         "TopCoder Software Team");
@@ -198,7 +198,7 @@ public class Register extends ViewRegistration {
                         "If you have any questions please contact service@topcodersoftware.com\n\n" +
                         "TopCoder Software Team");
             }
-            
+
             EmailEngine.send(mail);
 
         } finally {

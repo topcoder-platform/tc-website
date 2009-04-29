@@ -1,3 +1,13 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page shows a successful registration message after registration.
+  -
+  - Version 1.1 (Studio Coding In Online Review) changes: added support for new Studio prototype, Studio Build and 
+  - Studio Component competitions.
+--%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% int projectTypeId = ((Integer) request.getAttribute(Constants.PROJECT_TYPE_ID)).intValue(); %>
@@ -53,32 +63,32 @@
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="assembly_compete"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="architecture_compete"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="app_testing_compete"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == STUDIO_PROTOTYPE_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="studio_prototype_compete"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == STUDIO_BUILD_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="studio_build_compete"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == STUDIO_COMPONENT_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="studio_component_compete"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
             </c:choose>
         </td>
 <%-- Left Column Ends --%>
@@ -103,43 +113,43 @@
                         <jsp:param name="image" value="assembly"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="architecture"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == COMPONENT_TESTING_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="comp_testing"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="app_testing"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == STUDIO_PROTOTYPE_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="studio_prototype"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == STUDIO_BUILD_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="studio_build"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == STUDIO_COMPONENT_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="studio_component"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
             </c:choose>
 
 
@@ -151,7 +161,7 @@
 
         </td>
 <%-- Center Column Ends --%>
-       
+
 <%-- Right Column Begins --%>
         <td width="170">
             <jsp:include page="../public_right.jsp">
@@ -159,7 +169,7 @@
     </jsp:include>
         </td>
 <%-- Right Column Ends --%>
-       
+
     </tr>
 </tbody>
 </table>

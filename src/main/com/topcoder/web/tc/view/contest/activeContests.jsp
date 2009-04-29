@@ -1,3 +1,13 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page lists all active contests for a specific project type.
+  -
+  - Version 1.1 (Studio Coding In Online Review) changes: added support for new Studio prototype, Studio Build and 
+  - Studio Component competitions.
+--%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
@@ -315,7 +325,7 @@
                 </a>
             </td>
             <td class="value">
-	      <% if (resultRow.getIntItem("tourny_project") > 0) { %>
+          <% if (resultRow.getIntItem("tourny_project") > 0) { %>
                 <div align="center">
                   <a href='/tc?module=Static&amp;d1=tco09&amp;d2=teaser'><img class="emblem" src="/i/tournament/tco09/emblem.png" alt="" border="0" onMouseOver="postPopUpText('globalPopupText','Eligible for the 2009 TopCoder Open'); popUp(this,'globalPopup');" onMouseOut="popHide()" /></a>
                 </div>

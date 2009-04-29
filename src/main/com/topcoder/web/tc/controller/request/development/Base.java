@@ -164,7 +164,7 @@ public abstract class Base extends ShortHibernateProcessor {
      */
     /**
      * <p>This method infers the project type id from the request.</p>
-     * <p>It will get the project type id from the request. If the request contains the phase id, then it will use 
+     * <p>It will get the project type id from the request. If the request contains the phase id, then it will use
      *    that to figure out the project type id.</p>
      *
      * @param r an <code>TCRequest</code> containing the request.

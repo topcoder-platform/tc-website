@@ -42,7 +42,7 @@ import com.topcoder.shared.util.logging.Logger;
  *          Application Testing competitions.
  *     </li>
  *   </ol>
- *   
+ *
  *   Version 1.1.0 Change notes:
  *   <ol>
  *     <li>
@@ -159,7 +159,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     /**
      * <p>Factory method that returns the correct instance of ReviewerPaymentCalculator for a given phase.</p>
-     * 
+     *
      * @param prize first place prize for the competition.
      * @param submissionCount number of submissions.
      * @param submissionsPassedScreening number of submissions that passed screening.
