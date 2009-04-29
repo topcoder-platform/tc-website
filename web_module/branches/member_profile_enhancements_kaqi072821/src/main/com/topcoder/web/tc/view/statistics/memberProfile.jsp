@@ -85,6 +85,14 @@ This member has not yet been rated in a competition.
             </td></tr>
 <% } %>
 
+            <tr><td class="cat" nowrap="nowrap">Conceptualization Rating:</td><td class="stat" align="right">
+            <%if(rscCoderData.getStringItem(0, "conceptualization_rating") != null) {%>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "conceptualization_rating")%>'>
+                <rsc:item name="conceptualization_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
+            <%} else {%>
+                not rated
+            <%}%>
+            </td></tr>
             <tr><td class="cat" nowrap="nowrap">Design Rating:</td><td class="stat" align="right">
             <%if(rscCoderData.getStringItem(0, "design_rating") != null) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "design_rating")%>'>
