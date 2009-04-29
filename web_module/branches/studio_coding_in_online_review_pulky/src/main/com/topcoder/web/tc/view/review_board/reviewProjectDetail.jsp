@@ -1,6 +1,6 @@
 <%--
   - Author: TCSDEVELOPER
-  - Version: 1.0
+  - Version: 1.1
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
@@ -8,6 +8,8 @@
   - It displays the list of projects phases along with the list of taken and available review positions.
   - This is an exhaustive refactor and generalization from existing reviewProjectDetail.jsp files.
   - In this release, it will be used for Conceptualization, Specification and Application Testing project types.
+  -
+  - Version 1.1 changes: added support for new Studio prototype, Studio Build and Studio Component competitions.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.TCTimestampResult,
@@ -28,6 +30,9 @@
 <c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
 <c:set var="SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>"/>
 <c:set var="APPLICATION_TESTING_PROJECT_TYPE" value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>"/>
+<c:set var="STUDIO_PROTOTYPE_PROJECT_TYPE" value="<%=Constants.STUDIO_PROTOTYPE_PROJECT_TYPE%>" />
+<c:set var="STUDIO_BUILD_PROJECT_TYPE" value="<%=Constants.STUDIO_BUILD_PROJECT_TYPE%>" />
+<c:set var="STUDIO_COMPONENT_PROJECT_TYPE" value="<%=Constants.STUDIO_COMPONENT_PROJECT_TYPE%>" />
 <c:choose>
 	<c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Conceptualization"/>
@@ -37,6 +42,15 @@
     </c:when>
 	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Application Testing"/>
+    </c:when>
+	<c:when test="${projectType == STUDIO_PROTOTYPE_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Studio Prototype"/>
+    </c:when>
+	<c:when test="${projectType == STUDIO_BUILD_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Studio Build"/>
+    </c:when>
+	<c:when test="${projectType == STUDIO_COMPONENT_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Studio Component"/>
     </c:when>
 </c:choose>
 
@@ -68,6 +82,21 @@
                     <jsp:param name="level1" value="application_testing"/>
                 </jsp:include>
             </c:when>
+        	<c:when test="${projectType == STUDIO_PROTOTYPE_PROJECT_TYPE}">
+                <jsp:include page="/top.jsp" >
+                    <jsp:param name="level1" value="studio_prototype"/>
+                </jsp:include>
+            </c:when>
+        	<c:when test="${projectType == STUDIO_BUILD_PROJECT_TYPE}">
+                <jsp:include page="/top.jsp" >
+                    <jsp:param name="level1" value="studio_build"/>
+                </jsp:include>
+            </c:when>
+        	<c:when test="${projectType == STUDIO_COMPONENT_PROJECT_TYPE}">
+                <jsp:include page="/top.jsp" >
+                    <jsp:param name="level1" value="studio_component"/>
+                </jsp:include>
+            </c:when>
         </c:choose>
         
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -88,6 +117,21 @@
                     	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="application_testing_review"/>
+                            </jsp:include>
+                        </c:when>
+                    	<c:when test="${projectType == STUDIO_PROTOTYPE_PROJECT_TYPE}">
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="studio_prototype_review"/>
+                            </jsp:include>
+                        </c:when>
+                    	<c:when test="${projectType == STUDIO_BUILD_PROJECT_TYPE}">
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="studio_build_review"/>
+                            </jsp:include>
+                        </c:when>
+                    	<c:when test="${projectType == STUDIO_COMPONENT_PROJECT_TYPE}">
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="studio_component_review"/>
                             </jsp:include>
                         </c:when>
                     </c:choose>
@@ -116,6 +160,24 @@
                     	<c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
                             <jsp:include page="/page_title.jsp">
                                 <jsp:param name="image" value="app_testing"/>
+                                <jsp:param name="title" value="Review Opportunities"/>
+                            </jsp:include>
+                        </c:when>
+                    	<c:when test="${projectType == STUDIO_PROTOTYPE_PROJECT_TYPE}">
+                            <jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="studio_prototype"/>
+                                <jsp:param name="title" value="Review Opportunities"/>
+                            </jsp:include>
+                        </c:when>
+                    	<c:when test="${projectType == STUDIO_BUILD_PROJECT_TYPE}">
+                            <jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="studio_build"/>
+                                <jsp:param name="title" value="Review Opportunities"/>
+                            </jsp:include>
+                        </c:when>
+                    	<c:when test="${projectType == STUDIO_COMPONENT_PROJECT_TYPE}">
+                            <jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="studio_component"/>
                                 <jsp:param name="title" value="Review Opportunities"/>
                             </jsp:include>
                         </c:when>
@@ -285,6 +347,9 @@
                                                     <tc-webtag:handle coderId="${reviewer.userId}" 
                                                         context='application_testing'/>
                                                 </c:when>
+                                                <c:otherwise>
+                                                    <tc-webtag:handle coderId="${resultRow.map['user_id']}" />
+                                                </c:otherwise>
                                             </c:choose>
                                         </c:when>
                                         <c:when test="${waitingToReview}">
