@@ -619,6 +619,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " , ci.create_time" +
         " , pr.project_id" +
         " , case when pi.scheduled_start_time >= ? then 1 else 0 end as after_start_flag" +
+        " , (select max(actual_end_time) from project_phase where project_id = p.project_id) as complete_date" +
         " from project_result pr" +
         " , component_inquiry ci" +
         " , project_phase pi" +
@@ -633,12 +634,12 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pi.phase_type_id = 2" + // phase type 2 is submission
         " and pr.project_id = pi2.project_id" +
         " and pi2.phase_type_id = 4" + // phase type 4 is review
-        " and (p.project_status_id IN (4,5,6,7) " +
+        " and (p.project_status_id IN (4,5,6,7,8) " +
         "       OR (p.project_status_id = 1 and pi2.phase_status_id = 3))" +
         " and pr.reliability_ind = 1" +
         " and pr.reliable_submission_ind is not null" +
         " and pi.scheduled_start_time > ?" + // BUGR-852 modification: scheduled_start_time should be greater than pivot date
-        " order by pr.modify_date asc"; // BUGR-852 modification: sort by pr.modify_date
+        " order by complete_date asc";
 
     protected List<ReliabilityInstance> retrieveReliabilityHistory(Connection conn, long userId, int historyLength, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
         PreparedStatement psBeforePivot = null;
