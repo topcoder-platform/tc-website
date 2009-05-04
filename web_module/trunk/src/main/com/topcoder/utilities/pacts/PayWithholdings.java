@@ -150,7 +150,7 @@ public class PayWithholdings extends DBUtility {
         // let set this to true by default to avoid running this by mistake
         onlyAnalyze = (String) params.get("onlyAnalyze");
         if (onlyAnalyze == null) {
-            onlyAnalyze = "true";
+            onlyAnalyze = "false";
         }
         params.remove("onlyAnalyze");
 
