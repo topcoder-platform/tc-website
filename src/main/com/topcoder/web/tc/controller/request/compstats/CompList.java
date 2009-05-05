@@ -1,14 +1,10 @@
 /*
- * CompList.java
- *
- * Created on August 12, 2005 by Cucu
- *
- * To change this template, choose Tools | Options and locate the template under
- * the Source Creation and Management node. Right-click the template and choose
- * Open. You can then make changes to the template in the Source Editor.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
-
 package com.topcoder.web.tc.controller.request.compstats;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
@@ -17,19 +13,31 @@ import com.topcoder.shared.dataAccess.resultSet.ResultFilter;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 
-import java.util.ArrayList;
-import java.util.Map;
-
 /**
- * @author cucu
+ * <p><strong>Purpose</strong>: This processor handle requests to preview past contests for a specific
+ * project type (using phase id).</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Coding In Online Review) Change notes:
+ *   <ol>
+ *     <li>Added support for new Studio prototype, Studio Build and Studio Component competitions.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author cucu, pulky
+ * @version 1.1
  */
 public class CompList extends Base {
 
-
+    /**
+     * <p>Handles the request for displaying the past contests page of requested project type provided as
+     * {@link Constants#PROJECT_TYPE_ID} request parameter or {@link Constants#PHASE_ID} request parameter.</p>
+     *
+     * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
+     */
     protected void businessProcessing() throws TCWebException {
         try {
             Request r = new Request();
@@ -49,7 +57,10 @@ public class CompList extends Base {
                   || Constants.SPECIFICATION_PROJECT_TYPE == projectTypeId
                   || Constants.ARCHITECTURE_PROJECT_TYPE == projectTypeId
                   || Constants.ASSEMBLY_PROJECT_TYPE == projectTypeId
-                  || Constants.APPLICATION_TESTING_PROJECT_TYPE == projectTypeId)) {
+                  || Constants.APPLICATION_TESTING_PROJECT_TYPE == projectTypeId
+                  || Constants.STUDIO_PROTOTYPE_PROJECT_TYPE == projectTypeId
+                  || Constants.STUDIO_BUILD_PROJECT_TYPE == projectTypeId
+                  || Constants.STUDIO_COMPONENT_PROJECT_TYPE == projectTypeId)) {
                 throw new TCWebException("Invalid project_type_id (" + projectTypeId + ") parameter");
             }
 

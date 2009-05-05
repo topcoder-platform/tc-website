@@ -19,9 +19,7 @@ import com.topcoder.web.tc.Constants;
 
 /**
  * <p>A controller to handle the requests for displaying the list of active review projects of specified type. The
- * desired project type is expected to be provided as {@link Constants#PROJECT_TYPE_ID} request parameter. As of current 
- * version only Design, Development, Assembly, Architecture, Conceptualization, Specification and Application Testing 
- * project types are supported.</p>
+ * desired project type is expected to be provided as {@link Constants#PROJECT_TYPE_ID} request parameter.</p>
  *
  * <p>
  *   Version 1.0.1 Change notes:
@@ -43,7 +41,7 @@ import com.topcoder.web.tc.Constants;
  *     <li>Refactored the logic for handling the requests to split the logic for checking the supported project
  *         types and mapping them to appropriate view into separate private methods.</li>
  *     <li>The project type requested by client is provided as parameter to <code>review_projects</code> query to filter
- *         the retrieved projects based on provided type.</li> 
+ *         the retrieved projects based on provided type.</li>
  *   </ol>
  *
  *   Version 1.0.4 Change notes:
@@ -55,11 +53,15 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Added support for Conceptualization, Specification and Application Testing project types.</li>
  *   </ol>
+ *
+ *   Version 1.0.6 (Studio Coding In Online Review) Change notes:
+ *   <ol>
+ *     <li>Added support for Studio prototype, Studio Build and Studio Component competitions.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, ivern, isv, TCSDEVELOPER
- * @version 1.0.5
- * @since 1.0
+ * @author dok, ivern, isv, pulky
+ * @version 1.0.6
  */
 public class ViewReviewProjects extends ReviewProjectDetail {
 
@@ -73,10 +75,8 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      * <p>Handles the request for displaying the list of active review projects of requested type provided as
      * {@link Constants#PROJECT_TYPE_ID} request parameter.</p>
      *
-     * <p>Looks up for the list of active review projects of requested project type, binds it to request and forwards 
-     * to the corresponding JSP depending on requested project type. As of current version only Design, Development, 
-     * Assembly, Architecture, Conceptualization, Specification and Application Testing project types are supported; 
-     * otherwise an exception is raised.</p>
+     * <p>Looks up for the list of active review projects of requested project type, binds it to request and forwards
+     * to the corresponding JSP depending on requested project type.</p>
      *
      * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
      */
@@ -85,7 +85,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
         if (!isProjectTypeSupported(projectTypeId)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
-        
+
         int phase_id = (Integer.parseInt(projectTypeId) + 111);
         getRequest().setAttribute("phase_id", new Integer(phase_id));
 
@@ -155,14 +155,12 @@ public class ViewReviewProjects extends ReviewProjectDetail {
 
     /**
      * <p>Gets the logical name for the view which is to be used for displaying the list of review opportunities of
-     * specified type requested by client. As of current version only Design, Development, Assembly, Architecture, 
-     * Conceptualization, Specification and Application Testing project types are supported.</p>
+     * specified type requested by client.</p>
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the list of review opportunities for
      *         specified project type.
-     * @throws IllegalArgumentException if specified project type is not supported.
-     * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57)
+     * @since TCS Release 2.2.0 (TCS-54)
      */
     private String getReviewOpportunitiesView(String projectType) {
         if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
@@ -173,12 +171,9 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             return Constants.ASSEMBLY_REVIEW_PROJECTS;
         } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
             return Constants.ARCHITECTURE_REVIEW_PROJECTS;
-        } else if (projectType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE)) ||
-                projectType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE)) ||
-                projectType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))) {
-            return Constants.UNIFIED_REVIEW_PROJECTS_PAGE;
         } else {
-            throw new IllegalArgumentException("Unsupported project type/category: " + projectType);
+            // we don't need to check for project types, they are already verified.
+            return Constants.UNIFIED_REVIEW_PROJECTS_PAGE;
         }
     }
 }

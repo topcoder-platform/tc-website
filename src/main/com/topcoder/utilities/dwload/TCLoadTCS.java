@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.utilities.dwload;
 
@@ -32,34 +32,40 @@ import com.topcoder.utilities.dwload.contestresult.TopPerformersCalculator;
 import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV2;
 
 /**
- * <strong>Purpose</strong>:
- * Extends from <strong>TCLoad</strong> to load TCS date to the DW.
- * <p/>
- * Version 1.1.2 Change notes:
- * <ol>
- * <li>
- * Deleted project are processed to physically delete all related info in the dw.
- * </li>
- * </ol>
- * <p/>
- * Version 1.1.0 Change notes:
- * <ol>
- * <li>
- * Added columns to project, project_result.
- * </li>
- * <li>
- * Added table rookie.
- * </li>
- * <li>
- * Non rated project left out of DR points.
- * </li>
- * </ol>
+ * <p><strong>Purpose</strong>:
+ * Extends from <strong>TCLoad</strong> to load TCS date to the DW.</p>
+ * 
+ * <p>
+ *   Version 1.1.0 Change notes:
+ *   <ol>
+ *     <li>Added columns to project, project_result.</li>
+ *     <li>Added table rookie.</li>
+ *     <li>Non rated project left out of DR points.</li>
+ *   </ol>
+ * </p>
+ * <p>
+ *   Version 1.1.2 Change notes:
+ *   <ol>
+ *     <li>Deleted project are processed to physically delete all related info in the dw.</li>
+ *   </ol>
+ * </p>
+ * <p>
+ *   Version 1.1.3 (Studio Coding In Online Review) Change notes:
+ *   <ol>
+ *     <li>Added support for new Studio prototype, Studio Build and Studio Component competitions.</li>
+ *   </ol>
+ * </p>
  *
  * @author rfairfax, pulky
- * @version 1.1.2
+ * @version 1.1.3
  */
 public class TCLoadTCS extends TCLoad {
-    private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23)";
+
+    /**
+     * <p>A <code>String</code> representing all those project categories than should be loaded to the 
+     * datawarehouse.</p>
+     */
+    private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25)";
 
     private static Logger log = Logger.getLogger(TCLoadTCS.class);
 
@@ -1614,11 +1620,11 @@ public class TCLoadTCS extends TCLoad {
 
                     //log.debug("before result insert");
                     try {
-                    	resultInsert.executeUpdate();
+                        resultInsert.executeUpdate();
                     } catch(Exception e) {
                     // Notes: it seems same user will appear in resource table twice
-                    	log.debug("project_id: " + project_id + " user_id: " + projectResults.getLong("user_id"));
-                    	throw(e);
+                        log.debug("project_id: " + project_id + " user_id: " + projectResults.getLong("user_id"));
+                        throw(e);
                     }
                     //log.debug("after result insert");
 

@@ -1,3 +1,13 @@
+<%--
+  - Author: pulky
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page lists all active contests for a specific project type.
+  -
+  - Version 1.1 (Studio Coding In Online Review) changes: added support for new Studio prototype, Studio Build and 
+  - Studio Component competitions.
+--%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
@@ -14,6 +24,10 @@
 <c:set value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>" var="SPECIFICATION_TYPE_ID"/>
 <c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_TYPE_ID"/>
 <c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_TYPE_ID"/>
+
+<c:set value="<%=Constants.STUDIO_PROTOTYPE_PROJECT_TYPE%>" var="STUDIO_PROTOTYPE_TYPE_ID"/>
+<c:set value="<%=Constants.STUDIO_BUILD_PROJECT_TYPE%>" var="STUDIO_BUILD_TYPE_ID"/>
+<c:set value="<%=Constants.STUDIO_COMPONENT_PROJECT_TYPE%>" var="STUDIO_COMPONENT_TYPE_ID"/>
 
 
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -69,6 +83,21 @@
                     <jsp:param name="node" value="assembly_compete"/>
                 </jsp:include>
             </c:when>
+            <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="studio_prototype_compete"/>
+                </jsp:include>
+            </c:when>
+            <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="studio_build_compete"/>
+                </jsp:include>
+            </c:when>
+            <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="studio_component_compete"/>
+                </jsp:include>
+            </c:when>
           </c:choose>
         </td>
 <%-- Left Column Ends --%>
@@ -104,6 +133,24 @@
         <c:when test="${pt == SPECIFICATION_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="specification"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="studio_prototype"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="studio_build"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="studio_component"/>
                 <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
         </c:when>
@@ -144,6 +191,15 @@
                 <a href="/wiki/display/tc/How+to+Compete+in+Specification+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
            <%--     <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor2"><img src="/i/tournament/tco09/tco09-snia-340x76.png" alt="SNIA XAM Initiative" /></a><br /><br />   --%>
             </c:when>
+            <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+                <a href="/wiki/display/tc/How+to+Compete+in+Studio+Prototype+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+            </c:when>
+            <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+                <a href="/wiki/display/tc/How+to+Compete+in+Studio+Build+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+            </c:when>
+            <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+                <a href="/wiki/display/tc/How+to+Compete+in+Studio+Component+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+            </c:when>
           </c:choose>
         </td>
     </tr>
@@ -178,6 +234,21 @@
             <a href="/tc?module=BasicRSS&amp;c=rss_Specification_Registration_Open&amp;dsid=28">Subscribe Now</a>
             <a href="/tc?module=BasicRSS&amp;c=rss_Specification_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
+        <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+            Competition opportunities via RSS -
+            <a href="/tc?module=BasicRSS&amp;c=rss_Studio_Prototype_Registration_Open&amp;dsid=28">Subscribe Now</a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Studio_Prototype_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+        </c:when>
+        <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+            Competition opportunities via RSS -
+            <a href="/tc?module=BasicRSS&amp;c=rss_Studio_Build_Registration_Open&amp;dsid=28">Subscribe Now</a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Studio_Build_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+        </c:when>
+        <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+            Competition opportunities via RSS -
+            <a href="/tc?module=BasicRSS&amp;c=rss_Studio_Component_Registration_Open&amp;dsid=28">Subscribe Now</a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Studio_Component_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+        </c:when>
       </c:choose>
     <br /><br />
 </div>
@@ -208,6 +279,15 @@
             </c:when>
             <c:when test="${pt == SPECIFICATION_TYPE_ID}">
                 Active Software Specification Contests</td>
+            </c:when>
+            <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+                Active Studio Prototype Contests</td>
+            </c:when>
+            <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+                Active Studio Build Contests</td>
+            </c:when>
+            <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+                Active Studio Component Contests</td>
             </c:when>
           </c:choose>
     </tr>
@@ -245,7 +325,7 @@
                 </a>
             </td>
             <td class="value">
-	      <% if (resultRow.getIntItem("tourny_project") > 0) { %>
+          <% if (resultRow.getIntItem("tourny_project") > 0) { %>
                 <div align="center">
                   <a href='/tc?module=Static&amp;d1=tco09&amp;d2=teaser'><img class="emblem" src="/i/tournament/tco09/emblem.png" alt="" border="0" onMouseOver="postPopUpText('globalPopupText','Eligible for the 2009 TopCoder Open'); popUp(this,'globalPopup');" onMouseOut="popHide()" /></a>
                 </div>
