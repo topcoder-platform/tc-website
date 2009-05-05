@@ -31,7 +31,7 @@ import com.topcoder.web.common.WebConstants;
  *   </table>
  * </p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.1
  */
 public final class ReviewBoardHelper {

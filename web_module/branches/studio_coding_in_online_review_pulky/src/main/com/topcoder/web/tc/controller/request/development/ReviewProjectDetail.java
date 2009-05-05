@@ -65,7 +65,7 @@ import java.util.Map;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, isv, TCSDEVELOPER
+ * @author dok, isv, pulky
  * @version 1.0.5
  */
 public class ReviewProjectDetail extends Base {

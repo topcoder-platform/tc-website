@@ -6,7 +6,7 @@ package com.topcoder.web.common.model;
 /**
  * <p><strong>Purpose</strong>: This class is used to calculate review costs for Studio related review projects.</p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0 (Studio Coding In Online Review)
  */
 public class StudioReviewerPaymentCalculator extends BaseReviewerPaymentCalculator {

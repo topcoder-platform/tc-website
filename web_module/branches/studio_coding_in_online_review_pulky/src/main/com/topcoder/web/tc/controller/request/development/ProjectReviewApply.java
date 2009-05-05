@@ -76,7 +76,7 @@ import java.io.FileOutputStream;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, isv, TCSDEVELOPER
+ * @author dok, isv, pulky
  * @version 1.0.6
  */
 public class ProjectReviewApply extends Base {

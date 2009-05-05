@@ -23,7 +23,7 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, TCSDEVELOPER
+ * @author dok, pulky
  * @version 1.1
  */
 public class ContestStatus extends Base {

@@ -27,7 +27,7 @@ import com.topcoder.web.tc.Constants;
  *   </ol>
  * </p>
  *
- * @author cucu, TCSDEVELOPER
+ * @author cucu, pulky
  * @version 1.1
  */
 public class CompList extends Base {

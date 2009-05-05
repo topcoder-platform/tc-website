@@ -1,5 +1,5 @@
 <%--
-  - Author: TCSDEVELOPER
+  - Author: pulky
   - Version: 1.1
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
