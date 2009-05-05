@@ -11,7 +11,7 @@
  * - Version 1.2 (Studio Coding In Online Review) : Added Studio Prototype, Studio Build and Studio
  *   Component navigation entries.
  *
- * Author pulky, TCSDEVELOPER
+ * Author pulky
  * Version 1.2
 --%>
 <%@ page language="java"%>

@@ -20,7 +20,7 @@ import com.topcoder.web.common.WebConstants;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER
+ * @author dok, pulky
  * @version 1.1
  */
 public interface SoftwareComponent extends Cloneable, Serializable {

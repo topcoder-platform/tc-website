@@ -57,7 +57,7 @@ import com.topcoder.shared.util.logging.Logger;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, ivern, isv, TCSDEVELOPER
+ * @author dok, ivern, isv, pulky
  * @version 1.1.1
  */
 

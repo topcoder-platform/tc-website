@@ -61,7 +61,7 @@ import com.topcoder.web.tc.Constants;
  *   </table>
  * </p>
  *
- * @author dok, isv, TCSDEVELOPER
+ * @author dok, isv, pulky
  * @version 1.4
  */
 public class ReviewBoard extends Base {
