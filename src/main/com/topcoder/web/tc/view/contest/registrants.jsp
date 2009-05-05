@@ -1,3 +1,13 @@
+<%--
+  - Author: pulky
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page lists all registrants to a specific project.
+  -
+  - Version 1.1 (Studio Coding In Online Review) changes: added support for new Studio prototype, Studio Build and 
+  - Studio Component competitions.
+--%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -10,7 +20,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="tc_tags" tagdir="/WEB-INF/tags" %>
 <% int projectTypeId = ((Integer) request.getAttribute(Constants.PROJECT_TYPE_ID)).intValue();
-	ResultSetContainer registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get(Base.getRegistrantsCommandName(projectTypeId));
+    ResultSetContainer registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get(Base.getRegistrantsCommandName(projectTypeId));
 %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 
@@ -37,6 +47,9 @@
 <c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_PROJECT_TYPE"/>
 <c:set value="<%=Constants.COMPONENT_TESTING_PROJECT_TYPE%>" var="COMPONENT_TESTING_PROJECT_TYPE"/>
 <c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_PROJECT_TYPE"/>
+<c:set value="<%=Constants.STUDIO_PROTOTYPE_PROJECT_TYPE%>" var="STUDIO_PROTOTYPE_PROJECT_TYPE"/>
+<c:set value="<%=Constants.STUDIO_BUILD_PROJECT_TYPE%>" var="STUDIO_BUILD_PROJECT_TYPE"/>
+<c:set value="<%=Constants.STUDIO_COMPONENT_PROJECT_TYPE%>" var="STUDIO_COMPONENT_PROJECT_TYPE"/>
 
 <body>
 
@@ -74,17 +87,32 @@
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="assembly_compete"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="architecture_compete"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="app_testing_compete"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
+                <c:when test="${pt == STUDIO_PROTOTYPE_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="studio_prototype_compete"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == STUDIO_BUILD_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="studio_build_compete"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == STUDIO_COMPONENT_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="studio_component_compete"/>
+                    </jsp:include>
+                </c:when>
             </c:choose>
         </td>
 <%-- Left Column Ends --%>
@@ -109,37 +137,55 @@
                         <jsp:param name="image" value="conceptualization"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
-                </c:when>   
+                </c:when>
                 <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="specification"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
-                </c:when>   
+                </c:when>
                 <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="assembly"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="architecture"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == COMPONENT_TESTING_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="comp_testing"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="app_testing"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
-                </c:when>        
+                </c:when>
+                <c:when test="${pt == STUDIO_PROTOTYPE_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="studio_prototype"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == STUDIO_BUILD_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="studio_build"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == STUDIO_COMPONENT_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="studio_component"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
             </c:choose>
 
 
@@ -157,49 +203,58 @@
                 </c:when>
                 <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
                       Conceptualization
-                </c:when> 
+                </c:when>
                 <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
                       Specification
-                </c:when> 
+                </c:when>
                 <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
                       Assembly
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
                       Architecture
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == COMPONENT_TESTING_PROJECT_TYPE}">
                       Component Testing
-                </c:when>        
+                </c:when>
                 <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
                       Application Testing
-                </c:when>        
+                </c:when>
+                <c:when test="${pt == STUDIO_PROTOTYPE_PROJECT_TYPE}">
+                      Studio Prototype
+                </c:when>
+                <c:when test="${pt == STUDIO_BUILD_PROJECT_TYPE}">
+                      Studio Build
+                </c:when>
+                <c:when test="${pt == STUDIO_COMPONENT_PROJECT_TYPE}">
+                      Studio Component
+                </c:when>
             </c:choose>
                  Contest Details</td></tr>
         <tr>
             <td class="cat" nowrap="nowrap">Contest:</td>
             <td class="stat" align="right" nowrap="nowrap">
                 <rsc:item name="component_name" set="<%=registrants%>"/>
-               	<rsc:item name="version_text" set="<%=registrants%>"/>
+                   <rsc:item name="version_text" set="<%=registrants%>"/>
             </td>
         </tr>
         <c:if test="${pt == DESIGN_PROJECT_TYPE or pt == DEVELOPMENT_PROJECT_TYPE}">
-	        <tr>
-	            <td class="cat" nowrap="nowrap">Component:</td>
-	            <td class="stat" align="right" nowrap="nowrap">
-	            <% if (registrants.getIntItem(0, "viewable")==1) { %>
-	            <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" set="<%=registrants%>"/>">
-	                <rsc:item name="component_name" set="<%=registrants%>"/>
-	            </a>
-	                <% } else { %>
-	                <rsc:item name="component_name" set="<%=registrants%>"/>
-	                <% } %>
-	            </td>
-	        </tr>
+            <tr>
+                <td class="cat" nowrap="nowrap">Component:</td>
+                <td class="stat" align="right" nowrap="nowrap">
+                <% if (registrants.getIntItem(0, "viewable")==1) { %>
+                <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" set="<%=registrants%>"/>">
+                    <rsc:item name="component_name" set="<%=registrants%>"/>
+                </a>
+                    <% } else { %>
+                    <rsc:item name="component_name" set="<%=registrants%>"/>
+                    <% } %>
+                </td>
+            </tr>
         </c:if>
         <tr>
             <td class="cat" nowrap="nowrap" style="padding-top: 3px">Catalog:</td>
             <td class="stat" align="right" nowrap="nowrap" style="padding-top: 3px">
-                <tc_tags:languageIcon catalogName = "<%=registrants.getStringItem(0, "catalog_name")%>" aolBrand="<%=(registrants.getItem(0, "aol_brand").getResultData() != null)%>"/> 
+                <tc_tags:languageIcon catalogName = "<%=registrants.getStringItem(0, "catalog_name")%>" aolBrand="<%=(registrants.getItem(0, "aol_brand").getResultData() != null)%>"/>
             </td>
         </tr>
     </table>
@@ -239,6 +294,9 @@
                 <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Application_Testing'/>
                 </c:when>
+                <c:otherwise>
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' />
+                </c:otherwise>
             </c:choose>
               </td>
               <td class="statDk" align="right" nowrap="0">
@@ -267,7 +325,7 @@
         <td width="100%" align="left" class="bodyColumn">
         </td>
 <%-- Center Column Ends --%>
-       
+
 <%-- Right Column Begins --%>
         <td width="170">
             <jsp:include page="../public_right.jsp">
@@ -275,7 +333,7 @@
     </jsp:include>
         </td>
 <%-- Right Column Ends --%>
-       
+
     </tr>
 </tbody>
 </table>

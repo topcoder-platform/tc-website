@@ -57,7 +57,7 @@ import java.io.FileOutputStream;
  *     <li>Refactored the logic for handling the requests to split the logic for checking the supported project
  *         types and mapping them to appropriate view into separate private methods.</li>
  *     <li>The project type requested by client is provided as parameter to <code>review_project_detail</code> query to
- *         filter the retrieved projects based on provided type.</li> 
+ *         filter the retrieved projects based on provided type.</li>
  *   </ol>
  *
  *   Version 1.0.4 Change notes:
@@ -69,10 +69,15 @@ import java.io.FileOutputStream;
  *   <ol>
  *     <li>Added support for Conceptualization, Specification and Application Testing project types.</li>
  *   </ol>
+ *
+ *   Version 1.0.6 (Studio Coding In Online Review) Change notes:
+ *   <ol>
+ *     <li>Added support for Studio prototype, Studio Build and Studio Component competitions.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, isv, TCSDEVELOPER
- * @version 1.0.5
+ * @author dok, isv, pulky
+ * @version 1.0.6
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -92,7 +97,7 @@ public class ProjectReviewApply extends Base {
         if (!isProjectTypeSupported(projectTypeId)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
-        
+
         try {
             if (throttle.throttle(getRequest().getSession().getId())) {
                 throw new RequestRateExceededException(getRequest().getSession().getId(), getUser().getUserName());
@@ -175,18 +180,23 @@ public class ProjectReviewApply extends Base {
         setIsNextPageInContext(true);
     }
 
+    /**
+     * Performs non transactional validation of the reviewer.
+     *
+     * @param catalog the catalog to validate
+     * @param reviewTypeId the review type id to validate
+     * @throws Exception if an error occurs
+     */
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
         int type = Integer.parseInt(this.projectTypeId);
-        // Assembly, Architecture, Conceptualization, Specification and Application Testing competition 
-        // reviews do not take into consideration the catalogs as for now
-        if (type == WebConstants.ASSEMBLY_PROJECT_TYPE || type == WebConstants.ARCHITECTURE_PROJECT_TYPE ||
-            type == WebConstants.CONCEPTUALIZATION_PROJECT_TYPE || type == WebConstants.SPECIFICATION_PROJECT_TYPE ||
-            type == WebConstants.APPLICATION_TESTING_PROJECT_TYPE) {
-            rBoardApplication.validateUserWithoutCatalog(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, reviewTypeId,
-                                                         getUser().getId(), type);
-        } else {
+        // Assembly, Architecture, Conceptualization, Specification, Application Testing competition and
+        // Studio related competition reviews do not take into consideration the catalogs as for now
+        if (validateWithCatalog(type)) {
             rBoardApplication.validateUser(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, catalog, reviewTypeId, getUser().getId(),
-                                           this.phaseId);
+                    this.phaseId);
+        } else {
+            rBoardApplication.validateUserWithoutCatalog(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, reviewTypeId,
+                    getUser().getId(), type);
         }
     }
 
@@ -207,14 +217,12 @@ public class ProjectReviewApply extends Base {
 
     /**
      * <p>Gets the logical name for the view which is to be used for displaying the terms of use for the reviews of
-     * specified type requested by client. As of current version only Design, Development, Assembly, Architecture, 
-     * Conceptualization, Specification and Application Testing project types are supported.</p>
+     * specified type requested by client.</p>
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the terms of use for projects of
      *         specified type.
-     * @throws IllegalArgumentException if specified project type is not supported.
-     * @since TCS Release 2.2.0 (TCS-54), TCS Release 2.2.1 (TCS-57)
+     * @since TCS Release 2.2.0 (TCS-54)
      */
     private String getReviewTermsView(String projectType) {
         if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
@@ -225,12 +233,28 @@ public class ProjectReviewApply extends Base {
             return Constants.ASSEMBLY_REVIEWER_TERMS;
         } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
             return Constants.ARCHITECTURE_REVIEWER_TERMS;
-        } else if (projectType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE)) ||
-                projectType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE)) ||
-                projectType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))) {
-            return Constants.UNIFIED_REVIEWER_TERMS_PAGE;
         } else {
-            throw new IllegalArgumentException("Unsupported project category/type: " + projectType);
+            // we don't need to check for project types, they are already verified.
+            return Constants.UNIFIED_REVIEWER_TERMS_PAGE;
         }
+    }
+
+    /**
+     * Private helper method to decide if a project type should be validated with catalog or not
+     *
+     * @param projectTypeId the project type id
+     * @return true if the project type should be validated with the catalog
+     *
+     * @since 1.0.6
+     */
+    private boolean validateWithCatalog(int projectTypeId) {
+        return projectTypeId != WebConstants.ASSEMBLY_PROJECT_TYPE &&
+            projectTypeId != WebConstants.ARCHITECTURE_PROJECT_TYPE &&
+            projectTypeId != WebConstants.CONCEPTUALIZATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.APPLICATION_TESTING_PROJECT_TYPE &&
+            projectTypeId != WebConstants.STUDIO_PROTOTYPE_PROJECT_TYPE &&
+            projectTypeId != WebConstants.STUDIO_BUILD_PROJECT_TYPE &&
+            projectTypeId != WebConstants.STUDIO_COMPONENT_PROJECT_TYPE;
     }
 }

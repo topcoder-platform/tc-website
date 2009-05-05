@@ -1,9 +1,20 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common;
 
 /**
- * @author dok
- * @version $Revision$ $Date$
- *          Create Date: May 2, 2005
+ * <p><strong>Purpose</strong>: This interface is used to define constants for general use.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Coding In Online Review) Change notes:
+ *   <ol>
+ *     <li>Added constants to support new Studio prototype, Studio Build and Studio Component competitions.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky
+ * @version 1.1
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -140,6 +151,13 @@ public interface WebConstants {
     public static final long PHASE_APPLICATION_TESTING = 124;
 
     /**
+     * <p>A <code>long</code> representing phase offeset according to project id.</p>
+     *
+     * @since 1.1
+     */
+    public static final long GENERAL_PHASE_OFFSET = 111;
+
+    /**
      * The status constant used to indicate a component has been deleted
      */
     public static final long STATUS_DELETED = 0;
@@ -190,5 +208,46 @@ public interface WebConstants {
     public static final int APPLICATION_TESTING_PROJECT_TYPE = 13;
     public static final int ASSEMBLY_PROJECT_TYPE = 14;
 
+    /**
+     * <p>An <code>int</code> representing studio prototype project type id.</p>
+     *
+     * @since 1.1
+     */
+    public static final int STUDIO_PROTOTYPE_PROJECT_TYPE = 19;
+
+    /**
+     * <p>An <code>int</code> representing studio build project type id.</p>
+     *
+     * @since 1.1
+     */
+    public static final int STUDIO_BUILD_PROJECT_TYPE = 24;
+
+    /**
+     * <p>An <code>int</code> representing studio component project type id.</p>
+     *
+     * @since 1.1
+     */
+    public static final int STUDIO_COMPONENT_PROJECT_TYPE = 25;
+
+    /**
+     * <p>A <code>long</code> representing studio prototype phase id.</p>
+     *
+     * @since 1.1
+     */
+    public static final long PHASE_STUDIO_PROTOTYPE = STUDIO_PROTOTYPE_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+
+    /**
+     * <p>A <code>long</code> representing studio build phase id.</p>
+     *
+     * @since 1.1
+     */
+    public static final long PHASE_STUDIO_BUILD = STUDIO_BUILD_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+
+    /**
+     * <p>A <code>long</code> representing studio component phase id.</p>
+     *
+     * @since 1.1
+     */
+    public static final long PHASE_STUDIO_COMPONENT = STUDIO_COMPONENT_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
 
 }

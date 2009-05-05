@@ -37,11 +37,19 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
+ *     <tr>
+ *         <td>Version 1.2 (Studio Coding In Online Review)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added support for new Studio prototype, Studio Build and Studio Component competitions.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
- * @author dok, pulky, isv, TCSDEVELOPER
- * @version 1.1
+ * @author dok, isv, pulky
+ * @version 1.2
  */
 public abstract class Base extends ShortHibernateProcessor {
     protected Logger log = Logger.getLogger(Base.class);
@@ -51,6 +59,13 @@ public abstract class Base extends ShortHibernateProcessor {
         return pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
 
+    /**
+     * <p>This method returns the page to show Project Details according to the project type.</p>
+     *
+     * @param projectTypeId an <code>int</code> referencing the requested project type.
+     *
+     * @return a <code>String</code> with the corresponding page path.
+     */
     public static String getProjectDetailPage(int projectTypeId) {
         if (projectTypeId==Constants.DESIGN_PROJECT_TYPE) {
             return Constants.DESIGN_DETAIL;
@@ -68,11 +83,24 @@ public abstract class Base extends ShortHibernateProcessor {
             return "/conceptualization/projectDetail.jsp";
         } else if (projectTypeId==Constants.SPECIFICATION_PROJECT_TYPE) {
             return "/specification/projectDetail.jsp";
+        } else if (projectTypeId==Constants.STUDIO_PROTOTYPE_PROJECT_TYPE) {
+            return "/studioprototype/projectDetail.jsp";
+        } else if (projectTypeId==Constants.STUDIO_BUILD_PROJECT_TYPE) {
+            return "/studiobuild/projectDetail.jsp";
+        } else if (projectTypeId==Constants.STUDIO_COMPONENT_PROJECT_TYPE) {
+            return "/studiocomponent/projectDetail.jsp";
         } else {
             return "";
         }
     }
 
+    /**
+     * <p>This method returns registrants command name according to the project type.</p>
+     *
+     * @param projectTypeId an <code>int</code> referencing the requested project type.
+     *
+     * @return a <code>String</code> with the corresponding command name.
+     */
     public static String getRegistrantsCommandName(int projectTypeId) {
         if (projectTypeId == Constants.DESIGN_PROJECT_TYPE
             || projectTypeId == Constants.DEVELOPMENT_PROJECT_TYPE
@@ -80,7 +108,10 @@ public abstract class Base extends ShortHibernateProcessor {
             || projectTypeId == Constants.SPECIFICATION_PROJECT_TYPE
             || projectTypeId == Constants.ARCHITECTURE_PROJECT_TYPE
             || projectTypeId == Constants.ASSEMBLY_PROJECT_TYPE
-            || projectTypeId == Constants.APPLICATION_TESTING_PROJECT_TYPE) {
+            || projectTypeId == Constants.APPLICATION_TESTING_PROJECT_TYPE
+            || projectTypeId == Constants.STUDIO_PROTOTYPE_PROJECT_TYPE
+            || projectTypeId == Constants.STUDIO_BUILD_PROJECT_TYPE
+            || projectTypeId == Constants.STUDIO_COMPONENT_PROJECT_TYPE) {
             return "registrants";
         } else {
             return "contest_registrants";
@@ -131,6 +162,16 @@ public abstract class Base extends ShortHibernateProcessor {
      * @return the project type id or 0 if we could not find the necessary information in the request
      * @throws TCWebException if non null non number is passed for project type
      */
+    /**
+     * <p>This method infers the project type id from the request.</p>
+     * <p>It will get the project type id from the request. If the request contains the phase id, then it will use
+     *    that to figure out the project type id.</p>
+     *
+     * @param r an <code>TCRequest</code> containing the request.
+     *
+     * @return a <code>int</code> with the corresponding project type id. (a zero will be returned if it can't be found)
+     * @throws TCWebException if the project type id parameter is not valid.
+     */
     public static int getProjectTypeId(TCRequest r) throws TCWebException {
         int projectTypeId=0;
         if (!"".equals(StringUtils.checkNull(r.getParameter(Constants.PROJECT_TYPE_ID)))) {
@@ -156,6 +197,12 @@ public abstract class Base extends ShortHibernateProcessor {
                 projectTypeId = Constants.ASSEMBLY_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.APPLICATION_TESTING_PHASE).equals(phaseId)) {
                 projectTypeId = Constants.APPLICATION_TESTING_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.STUDIO_PROTOTYPE_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.STUDIO_PROTOTYPE_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.STUDIO_BUILD_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.STUDIO_BUILD_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.STUDIO_COMPONENT_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.STUDIO_COMPONENT_PROJECT_TYPE;
             }
         }
         return projectTypeId;
@@ -164,8 +211,7 @@ public abstract class Base extends ShortHibernateProcessor {
 
     /**
      * <p>Checks whether the specified project type requested by client is currently supported by this controller
-     * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization,
-     * Specification and Application Testing project types are supported.</p>
+     * or not.</p>
      *
      * This method delegates to ReviewBoardHelper.isReviewBoardTypeSupported().
      *

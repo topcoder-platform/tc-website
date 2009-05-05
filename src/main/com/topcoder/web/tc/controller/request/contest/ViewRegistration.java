@@ -1,5 +1,7 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.contest;
-
 
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -16,20 +18,28 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jan 5, 2006
+ * <p><strong>Purpose</strong>: This processor handle requests to register to a specific project.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Coding In Online Review) Change notes:
+ *   <ol>
+ *     <li>Added support for new Studio prototype, Studio Build and Studio Component competitions.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky
+ * @version 1.1
  */
 public class ViewRegistration extends Base {
 
     private ComponentRegistrationServicesLocal regServices = null;
 
     protected int projectTypeId = 0;
-    
+
     protected void developmentProcessing() throws TCWebException {
 
         try {
-            
+
             if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
                 throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
             }
@@ -61,6 +71,14 @@ public class ViewRegistration extends Base {
 
     }
 
+    /**
+     * <p>This helper method handles the validation of the request.</p>
+     *
+     * <p>Note: validation messages will be added to the request as an attribute.</p>
+     *
+     * @throws NavigationException if the specified project is invalid or if the project category is not supported.
+     * @throws Exception if project type id can't be retrieved.
+     */
     protected void validation() throws Exception {
         long projectId = 0;
         if (!StringUtils.isNumber(getRequest().getParameter(Constants.PROJECT_ID))) {
@@ -76,7 +94,10 @@ public class ViewRegistration extends Base {
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.COMPONENT_TESTING_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.CONCEPTUALIZATION_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.SPECIFICATION_PROJECT_TYPE)) &&
-                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.APPLICATION_TESTING_PROJECT_TYPE))) {
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.APPLICATION_TESTING_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.STUDIO_PROTOTYPE_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.STUDIO_BUILD_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.STUDIO_COMPONENT_PROJECT_TYPE))) {
             throw new NavigationException("Invalid project specified (wrong category)");
         }
 
