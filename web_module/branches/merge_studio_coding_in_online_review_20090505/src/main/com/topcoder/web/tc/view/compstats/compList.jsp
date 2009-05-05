@@ -1,3 +1,13 @@
+<%--
+  - Author: pulky
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page lists all past projects for a specific project type.
+  -
+  - Version 1.1 (Studio Coding In Online Review) changes: added support for new Studio prototype, Studio Build and 
+  - Studio Component competitions.
+--%>
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
           java.util.Map"%>
@@ -18,6 +28,10 @@
 <c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_TYPE_ID"/>
 <c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_TYPE_ID"/>
 <c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_TYPE_ID"/>
+
+<c:set value="<%=Constants.STUDIO_PROTOTYPE_PROJECT_TYPE%>" var="STUDIO_PROTOTYPE_TYPE_ID"/>
+<c:set value="<%=Constants.STUDIO_BUILD_PROJECT_TYPE%>" var="STUDIO_BUILD_TYPE_ID"/>
+<c:set value="<%=Constants.STUDIO_COMPONENT_PROJECT_TYPE%>" var="STUDIO_COMPONENT_TYPE_ID"/>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
@@ -101,6 +115,21 @@
                     <jsp:param name="node" value="testing_stats"/>
                  </jsp:include>
             </c:when>
+            <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="studio_prototype_stats"/>
+                </jsp:include>
+            </c:when>
+            <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="studio_build_stats"/>
+                </jsp:include>
+            </c:when>
+            <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="studio_component_stats"/>
+                </jsp:include>
+            </c:when>
         </c:choose>
         </td>
 <!-- Left Column Ends -->
@@ -108,33 +137,76 @@
 <!-- Center Column Begins -->
 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
-<jsp:include page="../page_title.jsp" >
-<jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="Component Contest List"/>
-</jsp:include>
-
-
 <c:choose>
     <c:when test="${pt == DESIGN_TYPE_ID}">
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="statistics_w"/>
+            <jsp:param name="title" value="Component Contest List"/>
+        </jsp:include>
         <span class="bodySubtitle">Component Statistics &gt; Design Contests</span><br>
     </c:when>
     <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="statistics_w"/>
+            <jsp:param name="title" value="Component Contest List"/>
+        </jsp:include>
         <span class="bodySubtitle">Component Statistics &gt; Development Contests</span><br>
     </c:when>
     <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="statistics_w"/>
+            <jsp:param name="title" value="Component Contest List"/>
+        </jsp:include>
         <span class="bodySubtitle">Application Statistics &gt; Conceptualization Contests</span><br>
     </c:when>
     <c:when test="${pt == SPECIFICATION_TYPE_ID}">
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="statistics_w"/>
+            <jsp:param name="title" value="Component Contest List"/>
+        </jsp:include>
         <span class="bodySubtitle">Application Statistics &gt; Specification Contests</span><br>
     </c:when>
     <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="statistics_w"/>
+            <jsp:param name="title" value="Component Contest List"/>
+        </jsp:include>
         <span class="bodySubtitle">Application Statistics &gt; Architecture Contests</span><br>
     </c:when>
     <c:when test="${pt == ASSEMBLY_TYPE_ID}">
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="statistics_w"/>
+            <jsp:param name="title" value="Component Contest List"/>
+        </jsp:include>
         <span class="bodySubtitle">Application Statistics &gt; Assembly Contests</span><br>
     </c:when>
     <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="statistics_w"/>
+            <jsp:param name="title" value="Component Contest List"/>
+        </jsp:include>
         <span class="bodySubtitle">Application Statistics &gt; Application Testing Contests</span><br>
+    </c:when>
+    <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="statistics_w"/>
+            <jsp:param name="title" value="Studio Contest List"/>
+        </jsp:include>
+        <span class="bodySubtitle">Studio Statistics &gt; Studio Prototype Contests</span><br>
+    </c:when>
+    <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="statistics_w"/>
+            <jsp:param name="title" value="Studio Contest List"/>
+        </jsp:include>
+        <span class="bodySubtitle">Studio Statistics &gt; Studio Build Contests</span><br>
+    </c:when>
+    <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="statistics_w"/>
+            <jsp:param name="title" value="Studio Contest List"/>
+        </jsp:include>
+        <span class="bodySubtitle">Studio Statistics &gt; Studio Component Contests</span><br>
     </c:when>
 </c:choose>
 
@@ -184,14 +256,26 @@
                     <td class="tableTitle" colspan="9">
                     Application Testing
                 </c:when>
+                <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+                    <td class="tableTitle" colspan="9">
+                    Studio Prototype
+                </c:when>
+                <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+                    <td class="tableTitle" colspan="9">
+                    Studio Build
+                </c:when>
+                <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+                    <td class="tableTitle" colspan="9">
+                    Studio Component
+                </c:when>
             </c:choose>
             Contest Details
-            
+
             </td></tr>
             <tr>
                 <c:if test="${pt == DEVELOPMENT_TYPE_ID}">
                     <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="12" includeParams="true" excludeParams="sr" />" class="statLink">Type</a></td>
-                </c:if>               
+                </c:if>
                <td CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />" class="statLink">Component</a>
                     <br /><tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>" size="16" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
                 </td>
@@ -209,7 +293,7 @@
             <TR>
             <c:if test="${pt == DEVELOPMENT_TYPE_ID}">
                 <td class="<%=even?"statLt":"statDk"%>" align="center"><strong><rsc:item name="type" row="<%=resultRow%>" /></strong></TD>
-            </c:if>               
+            </c:if>
             <td class="<%=even?"statLt":"statDk"%>" align="left"><rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" /></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="category_desc" row="<%=resultRow%>" /></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="complete_date" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="unknown*"/></TD>

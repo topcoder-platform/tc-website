@@ -19,11 +19,20 @@ import com.topcoder.web.common.WebConstants;
  *           </ul>
  *         </td>
  *     </tr>
+ *     <tr>
+ *         <td>Version 1.1 (Studio Coding In Online Review)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated <code>isReviewBoardTypeSupported</code> methods to support Studio prototype, Studio Build
+ *                 and Studio Component competitions.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
- * @author TCSDEVELOPER
- * @version 1.0
+ * @author pulky
+ * @version 1.1
  */
 public final class ReviewBoardHelper {
 
@@ -42,6 +51,9 @@ public final class ReviewBoardHelper {
             || reviewBoardType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE));
+            || reviewBoardType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.STUDIO_PROTOTYPE_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.STUDIO_BUILD_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.STUDIO_COMPONENT_PROJECT_TYPE));
     }
 }
