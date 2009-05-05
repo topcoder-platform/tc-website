@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.contest;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
@@ -10,18 +13,31 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
 
 /**
+ * <p><strong>Purpose</strong>: This processor handle requests to preview contests status for a specific
+ * project type.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Coding In Online Review) Change notes:
+ *   <ol>
+ *     <li>Added support for new Studio prototype, Studio Build and Studio Component competitions.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, pulky
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Feb 28, 2006
+ * @version 1.1
  */
 public class ContestStatus extends Base {
 
+    /**
+     * <p>An <code>int[]</code> representing default valid project types. This array will be used for
+     * validation if the configuration entry is not found.</p>
+     */
     public static int[] DEFAULT_PROJECT_TYPES = new int[] {
         Constants.DESIGN_PROJECT_TYPE, Constants.DEVELOPMENT_PROJECT_TYPE,
         Constants.ASSEMBLY_PROJECT_TYPE, Constants.ARCHITECTURE_PROJECT_TYPE,
         Constants.APPLICATION_TESTING_PROJECT_TYPE, Constants.SPECIFICATION_PROJECT_TYPE,
-        Constants.CONCEPTUALIZATION_PROJECT_TYPE
-    };
+        Constants.CONCEPTUALIZATION_PROJECT_TYPE, Constants.STUDIO_PROTOTYPE_PROJECT_TYPE,
+        Constants.STUDIO_BUILD_PROJECT_TYPE, Constants.STUDIO_COMPONENT_PROJECT_TYPE};
 
     public static final String DEFAULT_NAMESPACE = "com.topcoder.web.tc.controller.request.contest.ContestStatus";
 
