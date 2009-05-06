@@ -54,14 +54,15 @@
 
 <%
     ResultSetContainer rsc2 = (ResultSetContainer) request.getAttribute(Constants.HISTORY_LIST_KEY);
-    //String type = (String) request.getAttribute(Constants.TYPE_KEY);
-    //String projectTypeId = (String) request.getParameter(Constants.PROJECT_TYPE_ID);
-    //String coderId = (String) request.getParameter(Constants.CODER_ID);
 %>
 
 <c:set value="<%=Constants.DESIGN_PROJECT_TYPE%>" var="DESIGN_PROJECT_TYPE"/>
 <c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_PROJECT_TYPE"/>
 <c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>" var="CONCEPTUALIZATION_PROJECT_TYPE"/>
+<c:set value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>" var="SPECIFICATION_PROJECT_TYPE"/>
+<c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_PROJECT_TYPE"/>
+<c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_PROJECT_TYPE"/>
 
 <TD WIDTH="180">
     <!-- Left nav begins -->
@@ -80,7 +81,27 @@
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_assembly_competitions"/>
             </jsp:include>
-        </c:when>        
+        </c:when>
+        <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_conceptualization_competitions"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_specification_competitions"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_architecture_competitions"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_testing_competitions"/>
+            </jsp:include>
+        </c:when>
     </c:choose>
     <!-- Left nav ends -->
 </TD>
@@ -106,7 +127,31 @@
                 <jsp:param name="image" value="assembly"/>
                 <jsp:param name="title" value="Assembly Competition History"/>
             </jsp:include>
-        </c:when>        
+        </c:when>
+        <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="conceptualization"/>
+                <jsp:param name="title" value="Conceptualization Competition History"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="specification"/>
+                <jsp:param name="title" value="Specification Competition History"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="architecture"/>
+                <jsp:param name="title" value="Architecture Competition History"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="app_testing"/>
+                <jsp:param name="title" value="Application Testing Competition History"/>
+            </jsp:include>
+        </c:when>
     </c:choose>
 
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='${cr}' context='${type}'/></span>
@@ -120,7 +165,19 @@
         </c:when>
         <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
             <span class="bodySubtitle">Assembly Statistics&#160;>&#160;</span><br>
-        </c:when>        
+        </c:when>
+        <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
+            <span class="bodySubtitle">Conceptualization Statistics&#160;>&#160;</span><br>
+        </c:when>
+        <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
+            <span class="bodySubtitle">Specification Statistics&#160;>&#160;</span><br>
+        </c:when>
+        <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+            <span class="bodySubtitle">Architecture Statistics&#160;>&#160;</span><br>
+        </c:when>
+        <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+            <span class="bodySubtitle">Application Testing Statistics&#160;>&#160;</span><br>
+        </c:when>
     </c:choose>
 
     <span class="bc">
@@ -133,6 +190,21 @@
         </c:when>
         <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
              | <A HREF="/tc?module=ReliabilityDetail&ph=113&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=125&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=134&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=117&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=118&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=124&uid=${cr}" class="bcLink">Reliability Detail</A>
         </c:when>
     </c:choose>
 </span>
@@ -166,7 +238,19 @@
                 </c:when>
                 <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
                     <td class="title" colspan="10">Assembly
-                </c:when>        
+                </c:when>
+                <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
+                    <td class="title" colspan="10">Conceptualization
+                </c:when>
+                <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
+                    <td class="title" colspan="10">Specification
+                </c:when>
+                <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+                    <td class="title" colspan="10">Architecture
+                </c:when>
+                <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+                    <td class="title" colspan="10">Application Testing
+                </c:when>
             </c:choose>
             Competition History
         </td></tr>
@@ -178,7 +262,14 @@
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a>
             </TD>
             <TD CLASS="header" WIDTH="36%">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Component</a>
+                <c:choose>
+                    <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE || pt == DESIGN_PROJECT_TYPE}">
+                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Component</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Application</a>
+                    </c:otherwise>
+                </c:choose>
             </TD>
             <TD CLASS="header" WIDTH="8%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("category_desc")%>" includeParams="true"/>">Category</a>
@@ -235,13 +326,11 @@
                     <% } %>
                 </TD>
                 <TD class="valueR" nowrap="nowrap">
-                    <c:if test="${pt != ASSEMBLY_PROJECT_TYPE}">
-                        <% if (resultRow.getItem("project_id").getResultData() != null) { %>
+                    <% if (resultRow.getItem("project_id").getResultData() != null) { %>
                         <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
                             Contest Details
                         </A>
-                        <% } %>
-                    </c:if>
+                    <% } %>
                 </TD>
             </tr>
             <%even = !even;%>

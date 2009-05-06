@@ -1,6 +1,6 @@
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,com.topcoder.shared.util.ApplicationServer,
-          com.topcoder.web.common.StringUtils"%>
+          com.topcoder.web.common.StringUtils, com.topcoder.web.common.WebConstants"%>
 
 <%@ page import="java.util.Map"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -84,7 +84,30 @@ This member has not yet been rated in a competition.
             <%}%>
             </td></tr>
 <% } %>
-
+            <tr><td class="cat" nowrap="nowrap">Conceptualization Rating:</td><td class="stat" align="right">
+            <%if(rscCoderData.getStringItem(0, "concept_rating") != null) {%>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "concept_rating")%>'>
+                <rsc:item name="concept_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
+            <%} else {%>
+                not rated
+            <%}%>
+            </td></tr>
+            <tr><td class="cat" nowrap="nowrap">Specification Rating:</td><td class="stat" align="right">
+            <%if(rscCoderData.getStringItem(0, "spec_rating") != null) {%>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "spec_rating")%>'>
+                <rsc:item name="spec_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
+            <%} else {%>
+                not rated
+            <%}%>
+            </td></tr>
+            <tr><td class="cat" nowrap="nowrap">Architecture Rating:</td><td class="stat" align="right">
+            <%if(rscCoderData.getStringItem(0, "arch_rating") != null) {%>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "arch_rating")%>'>
+                <rsc:item name="arch_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
+            <%} else {%>
+                not rated
+            <%}%>
+            </td></tr>
             <tr><td class="cat" nowrap="nowrap">Design Rating:</td><td class="stat" align="right">
             <%if(rscCoderData.getStringItem(0, "design_rating") != null) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "design_rating")%>'>
@@ -98,6 +121,22 @@ This member has not yet been rated in a competition.
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "development_rating")%>'>
                 <rsc:item name="development_rating" set="<%=rscCoderData%>" format="####"/>
                 </tc-webtags:ratingColor>
+            <%} else {%>
+                not rated
+            <%}%>
+            </td></tr>
+            <tr><td class="cat" nowrap="nowrap">Assembly Rating:</td><td class="stat" align="right">
+            <%if(rscCoderData.getStringItem(0, "assembly_rating") != null) {%>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "assembly_rating")%>'>
+                <rsc:item name="assembly_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
+            <%} else {%>
+                not rated
+            <%}%>
+            </td></tr>
+            <tr><td class="cat" nowrap="nowrap">Application Testing Rating:</td><td class="stat" align="right">
+            <%if(rscCoderData.getStringItem(0, "test_rating") != null) {%>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "test_rating")%>'>
+                <rsc:item name="test_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
             <%} else {%>
                 not rated
             <%}%>
@@ -168,12 +207,47 @@ This member has not yet been rated in a competition.
 <% } else if(tab.equals("hs")) { %>
 <jsp:include page="memberProfileTabs.jsp" />
 <jsp:include page="memberProfileTabHS.jsp" />
+<% } else if(tab.equals("concept")) { %> <!-- Member Profile Enhancment -->
+<jsp:include page="memberProfileTabs.jsp" />
+<jsp:include page="memberProfileTabTrack.jsp">
+   <jsp:param name="track" value="Conceptualization"/>
+   <jsp:param name="competition_type" value="concept"/>
+   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_CONCEPTUALIZATION %>"/>
+</jsp:include>
+<% } else if(tab.equals("spec")) { %> <!-- Member Profile Enhancment -->
+<jsp:include page="memberProfileTabs.jsp" />
+<jsp:include page="memberProfileTabTrack.jsp">
+   <jsp:param name="track" value="Specification"/>
+   <jsp:param name="competition_type" value="spec"/>
+   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_SPECIFICATION %>"/>
+</jsp:include>
+<% } else if(tab.equals("arch")) { %> <!-- Member Profile Enhancment -->
+<jsp:include page="memberProfileTabs.jsp" />
+<jsp:include page="memberProfileTabTrack.jsp">
+   <jsp:param name="track" value="Architecture"/>
+   <jsp:param name="competition_type" value="arch"/>
+   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_ARCHITECTURE %>"/>
+</jsp:include>
 <% } else if(tab.equals("des")) { %>
 <jsp:include page="memberProfileTabs.jsp" />
 <jsp:include page="memberProfileTabDes.jsp" />
 <% } else if(tab.equals("dev")) { %>
 <jsp:include page="memberProfileTabs.jsp" />
 <jsp:include page="memberProfileTabDev.jsp" />
+<% } else if(tab.equals("assembly")) { %> <!-- Member Profile Enhancment -->
+<jsp:include page="memberProfileTabs.jsp" />
+<jsp:include page="memberProfileTabTrack.jsp">
+   <jsp:param name="track" value="Assembly"/>
+   <jsp:param name="competition_type" value="assembly"/>
+   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_ASSEMBLY %>"/>
+</jsp:include>
+<% } else if(tab.equals("test")) { %> <!-- Member Profile Enhancment -->
+<jsp:include page="memberProfileTabs.jsp" />
+<jsp:include page="memberProfileTabTrack.jsp">
+   <jsp:param name="track" value="Application Testing"/>
+   <jsp:param name="competition_type" value="test"/>
+   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_APPLICATION_TESTING %>"/>
+</jsp:include>
 <% } else if(tab.equals("long")) { %>
 <jsp:include page="memberProfileTabs.jsp" />
 <jsp:include page="memberProfileTabLong.jsp" />
@@ -183,15 +257,15 @@ This member has not yet been rated in a competition.
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-         <td width="170">
+        <!--  <td width="185">
             <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
-         </td>
+         </td> -->
 <!-- Right Column Ends -->
 
 <!-- Gutter -->
-         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+     <!--     <td width="5"><img src="/i/clear.gif" width="5" height="1" border="0"></td> -->
 <!-- Gutter Ends -->
     </tr>
 </table>
