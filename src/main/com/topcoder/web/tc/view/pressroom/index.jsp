@@ -119,6 +119,19 @@
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
                 
+                <%-- Youdao Partner begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_050609"><img src="/i/pressroom/youdao-poster.png" alt="Youdao and NetEase" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_050609">NetEase and Youdao Partner with TopCoder to Host Algorithm Tournament in China</a></h3>
+                        <p>Search Engine Subsidiary of NetEase Selects TopCoder Competition Platform to Help Identify Best and Brightest Chinese Programmers for Recruitment  <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_050609">[May 6th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Youdao Partner end --%>
+                
                 <%-- IEEE Sponsor begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
