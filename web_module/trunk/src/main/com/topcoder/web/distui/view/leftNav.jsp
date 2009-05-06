@@ -187,7 +187,7 @@
             nav.search("m_testing_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Testing+Competition+Documentation", "Documentation", "testing_documentation"));
         /* Since 1.2 : Added Studio Prototype left navigation entries */
         nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_prototype_competitions')", "Studio Prototype", "m_studio_prototype_competitions"));
-           nav.search("m_studio_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/StudioPrototype", "Overview", "studio_prototype_overview"));
+           nav.search("m_studio_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tcstudio/Studio+Prototype+Competitions", "Overview", "studio_prototype_overview"));
            nav.search("m_studio_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.STUDIO_PROTOTYPE_PROJECT_TYPE, "Active Contests", "studio_prototype_compete"));
            nav.search("m_studio_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + WebConstants.STUDIO_PROTOTYPE_PROJECT_TYPE, "Contest Status", "studio_prototype_status"));
            nav.search("m_studio_prototype_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.STUDIO_PROTOTYPE_PROJECT_TYPE, "Review Opportunities", "studio_prototype_review"));
@@ -195,9 +195,9 @@
            nav.search("m_studio_prototype_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_prototype_stats')", "Statistics", "m_studio_prototype_stats"));
                nav.search("m_studio_prototype_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt=" + WebConstants.STUDIO_PROTOTYPE_PROJECT_TYPE, "Past Contests", "studio_prototype_stats"));
            nav.search("m_studio_prototype_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_prototype_support')", "Support / FAQs", "m_studio_prototype_support"));
-               nav.search("m_studio_prototype_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Studio+Prototype+Competitions", "How to Compete", "studio_prototype_how_to_compete"));
+               nav.search("m_studio_prototype_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tcstudio/Getting+Started+in+Studio+Prototype+Competitions", "How to Compete", "studio_prototype_how_to_compete"));
         nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_build_competitions')", "Studio Build", "m_studio_build_competitions"));
-           nav.search("m_studio_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/StudioBuild", "Overview", "studio_build_overview"));
+           nav.search("m_studio_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tcstudio/Studio+Build+Competitions", "Overview", "studio_build_overview"));
            nav.search("m_studio_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.STUDIO_BUILD_PROJECT_TYPE, "Active Contests", "studio_build_compete"));
            nav.search("m_studio_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + WebConstants.STUDIO_BUILD_PROJECT_TYPE, "Contest Status", "studio_build_status"));
            nav.search("m_studio_build_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.STUDIO_BUILD_PROJECT_TYPE, "Review Opportunities", "studio_build_review"));
@@ -205,9 +205,9 @@
            nav.search("m_studio_build_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_build_stats')", "Statistics", "m_studio_build_stats"));
                nav.search("m_studio_build_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt=" + WebConstants.STUDIO_BUILD_PROJECT_TYPE, "Past Contests", "studio_build_stats"));
            nav.search("m_studio_build_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_build_support')", "Support / FAQs", "m_studio_build_support"));
-               nav.search("m_studio_build_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Studio+Build+Competitions", "How to Compete", "studio_build_how_to_compete"));
+               nav.search("m_studio_build_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tcstudio/Getting+Started+in+Studio+Build+Competitions", "How to Compete", "studio_build_how_to_compete"));
         nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_component_competitions')", "Studio Component", "m_studio_component_competitions"));
-           nav.search("m_studio_component_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/StudioComponent", "Overview", "studio_component_overview"));
+           nav.search("m_studio_component_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tcstudio/Studio+Component+Competitions", "Overview", "studio_component_overview"));
            nav.search("m_studio_component_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.STUDIO_COMPONENT_PROJECT_TYPE, "Active Contests", "studio_component_compete"));
            nav.search("m_studio_component_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + WebConstants.STUDIO_COMPONENT_PROJECT_TYPE, "Contest Status", "studio_component_status"));
            nav.search("m_studio_component_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.STUDIO_COMPONENT_PROJECT_TYPE, "Review Opportunities", "studio_component_review"));
@@ -215,7 +215,7 @@
            nav.search("m_studio_component_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_component_stats')", "Statistics", "m_studio_component_stats"));
                nav.search("m_studio_component_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt=" + WebConstants.STUDIO_COMPONENT_PROJECT_TYPE, "Past Contests", "studio_component_stats"));
            nav.search("m_studio_component_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_studio_component_support')", "Support / FAQs", "m_studio_component_support"));
-               nav.search("m_studio_component_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Studio+Component+Competitions", "How to Compete", "studio_component_how_to_compete"));
+               nav.search("m_studio_component_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tcstudio/Getting+Started+in+Studio+Component+Competitions", "How to Compete", "studio_component_how_to_compete"));
 
             nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_bugraces_competitions')", "Bug Races", "m_bugraces_competitions"));
             nav.search("m_bugraces_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Bug+Races", "Overview", "bugraces_overview"));
