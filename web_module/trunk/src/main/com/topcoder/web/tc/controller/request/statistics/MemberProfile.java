@@ -1,11 +1,5 @@
 /*
- * MemberProfile.java
- *
- * Created on May 3, 2005, 3:22 PM
- *
- * To change this template, choose Tools | Options and locate the template under
- * the Source Creation and Management node. Right-click the template and choose
- * Open. You can then make changes to the template in the Source Editor.
+ * Copyright (c) 2005-2009 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.web.tc.controller.request.statistics;
@@ -25,16 +19,44 @@ import com.topcoder.web.common.model.Country;
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.common.WebConstants;
 
 /**
- * @author rfairfax
+ * <p>
+ * This class retrieve the member profile information.
+ * </p>
+ * 
+ * <p>
+ *   Version 1.1 (Member Profile Enhancement 1.0) Change notes:
+ *   <ol>
+ *     <li>
+ *     Added support for retrieving informations about the newly
+ *     added tracks (conceptualization, specification, architecture, assembly,
+ *     and application testing).
+ *     </li>
+ *   </ol>
+ * </p>
+ * 
+ * @author rfairfax, elkhawajah
+ * @version 1.1
  */
 public class MemberProfile extends Base {
 
+    /**
+     * <p>
+     * Process the request of displaying member profile page.
+     * </p>
+     *
+     * <p>
+     * This has been updated to support all tracks.
+     * </p>
+     *
+     * @since Member Profile Enhancement assembly
+     */
     protected void businessProcessing() throws TCWebException {
         try {
-            //step 1, get the base data used for the top section
-            if(!hasParameter("cr")) {
+            // step 1, get the base data used for the top section
+            if (!hasParameter("cr")) {
                 throw new TCWebException("Invalid Coder ID");
             }
 
@@ -48,48 +70,140 @@ public class MemberProfile extends Base {
             Map result = dai.getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get("Coder_Data");
 
-            //here we want to get the current tab, then load data for that tab
+            // here we want to get the current tab, then load data for that tab
             boolean hasAlg = false;
             boolean hasHS = false;
             boolean registeredHS = false;
             boolean hasDes = false;
             boolean hasDev = false;
             boolean hasLong = false;
-
+            boolean hasConcept = false;
+            boolean hasSpec = false;
+            boolean hasArch = false;
+            boolean hasAssembly = false;
+            boolean hasTest = false;
 
             int algRating = 0;
             int hsRating = 0;
             int mmRating = 0;
             int desRating = 0;
             int devRating = 0;
+            int conceptRating = 0;
+            int specRating = 0;
+            int archRating = 0;
+            int assemblyRating = 0;
+            int testRating = 0;
 
             String tab = StringUtils.checkNull(getRequest().getParameter("tab"));
 
+            String defaultTab = "";
+            int maxRating = 0;
+
             if (rsc.size() != 0) {
 
-                if ((rsc.getItem(0, "rating").getResultData() != null) && (rsc.getIntItem(0, "rating") != 0)) {
+                if ((rsc.getItem(0, "rating").getResultData() != null)
+                    && (rsc.getIntItem(0, "rating") != 0)) {
                     hasAlg = true;
                     algRating = rsc.getIntItem(0, "rating");
+                    defaultTab = "alg";
+                    maxRating = algRating;
                 }
 
-                if ((rsc.getItem(0, "hs_rating").getResultData() != null) && (rsc.getIntItem(0, "hs_rating") != 0)) {
+                if ((rsc.getItem(0, "hs_rating").getResultData() != null)
+                    && (rsc.getIntItem(0, "hs_rating") != 0)) {
                     hasHS = true;
                     hsRating = rsc.getIntItem(0, "hs_rating");
+
+                    if(hsRating > maxRating) {
+                        maxRating = hsRating;
+                        defaultTab = "hs";
+                    }
                 }
 
-                if ((rsc.getItem(0, "mm_rating").getResultData() != null) && (rsc.getIntItem(0, "mm_rating") != 0)) {
+                if ((rsc.getItem(0, "mm_rating").getResultData() != null)
+                    && (rsc.getIntItem(0, "mm_rating") != 0)) {
                     //hasLong = true;
                     mmRating = rsc.getIntItem(0, "mm_rating");
+
+                    if(mmRating > maxRating) {
+                        maxRating = mmRating;
+                        defaultTab = "long";
+                    }
+                }
+
+                if ((rsc.getItem(0, "concept_rating").getResultData() != null)
+                    && (rsc.getIntItem(0, "concept_rating") != 0)) {
+                    hasConcept = true;
+                    conceptRating = rsc.getIntItem(0, "concept_rating");
+
+                    if(conceptRating > maxRating) {
+                        maxRating = conceptRating;
+                        defaultTab = "concept";
+                    }
+                }
+
+                if ((rsc.getItem(0, "spec_rating").getResultData() != null)
+                    && (rsc.getIntItem(0, "spec_rating") != 0)) {
+                    hasSpec = true;
+                    specRating = rsc.getIntItem(0, "spec_rating");
+
+                    if(specRating > maxRating) {
+                        maxRating = specRating;
+                        defaultTab = "spec";
+                    }
+                }
+
+                if ((rsc.getItem(0, "arch_rating").getResultData() != null)
+                    && (rsc.getIntItem(0, "arch_rating") != 0)) {
+                    hasArch = true;
+                    archRating = rsc.getIntItem(0, "arch_rating");
+
+                    if(archRating > maxRating) {
+                        maxRating = archRating;
+                        defaultTab = "arch";
+                    }
                 }
 
                 if (rsc.getItem(0, "design_rating").getResultData() != null) {
                     hasDes = true;
                     desRating = rsc.getIntItem(0, "design_rating");
+
+                    if(desRating > maxRating) {
+                        maxRating = desRating;
+                        defaultTab = "des";
+                    }
                 }
 
                 if (rsc.getItem(0, "development_rating").getResultData() != null) {
                     hasDev = true;
                     devRating = rsc.getIntItem(0, "development_rating");
+
+                    if(devRating > maxRating) {
+                        maxRating = devRating;
+                        defaultTab = "dev";
+                    }
+                }
+
+                if ((rsc.getItem(0, "assembly_rating").getResultData() != null)
+                    && (rsc.getIntItem(0, "assembly_rating") != 0)) {
+                    hasAssembly = true;
+                    assemblyRating = rsc.getIntItem(0, "assembly_rating");
+
+                    if(assemblyRating > maxRating) {
+                        maxRating = assemblyRating;
+                        defaultTab = "assembly";
+                    }
+                }
+
+                if ((rsc.getItem(0, "test_rating").getResultData() != null)
+                    && (rsc.getIntItem(0, "test_rating") != 0)) {
+                    hasTest = true;
+                    testRating = rsc.getIntItem(0, "test_rating");
+
+                    if(testRating > maxRating) {
+                        maxRating = testRating;
+                        defaultTab = "test";
+                    }
                 }
 
                 if (log.isDebugEnabled()) {
@@ -99,27 +213,18 @@ public class MemberProfile extends Base {
 
                 registeredHS = rsc.getIntItem(0, "hs_registered") == 1;
 
-                //get the selected tab
+                // get the selected tab
                 if (tab.equals("")) {
-                    if (!hasAlg && !hasHS && !hasDes && !hasDev && !hasLong) {
+                    if (!hasAlg && !hasHS && !hasDes && !hasDev && !hasLong && !hasConcept && !hasSpec && !hasArch
+                        && !hasAssembly && !hasTest) {
                         tab = "";
-                    } else if (!hasAlg && !hasHS && !hasDes && !hasDev && hasLong) {
-                        tab = "long";
-                    } else if (hasAlg && algRating >= hsRating && algRating >= desRating && algRating >= devRating && algRating >= mmRating) {
-                        tab = "alg";
-                    } else if (hasHS && hsRating >= algRating && hsRating >= desRating && hsRating >= devRating && hsRating >= mmRating) {
-                        tab = "hs";
-                    } else if (hasLong && mmRating >= algRating && mmRating >= desRating && mmRating >= devRating && mmRating >= hsRating) {
-                        tab = "long";
-                    } else if (hasDes && desRating >= algRating && desRating >= hsRating && desRating >= devRating && desRating >= mmRating) {
-                        tab = "des";
-                    } else if (hasDev) {
-                        tab = "dev";
+                    } else{
+                        tab = defaultTab;
                     }
                 }
 
                 if (tab.equals("alg")) {
-                    //load algo data from Coder_Alg_Data
+                    // load algo data from Coder_Alg_Data
                     r = new Request();
                     r.setContentHandle("Coder_Alg_Data");
                     r.setProperty("cr", coderId);
@@ -133,7 +238,7 @@ public class MemberProfile extends Base {
                         result.put(key, algoData.get(key));
                     }
                 } else if (tab.equals("hs")) {
-                    //load algo data from Coder_HS_Data
+                    // load algo data from Coder_HS_Data
                     r = new Request();
                     r.setContentHandle("Coder_hs_Data");
                     r.setProperty("cr", coderId);
@@ -147,11 +252,12 @@ public class MemberProfile extends Base {
                         result.put(key, algoData.get(key));
                     }
                 } else if (tab.equals("des")) {
-                    //load des data from Coder_Des_Data
+                    // load des data from Coder_Des_Data
                     r = new Request();
                     r.setContentHandle("Coder_Des_Data");
                     r.setProperty("cr", coderId);
-                    r.setProperty(Constants.PHASE_ID, "112"); //design phase id
+                    // design phase id
+                    r.setProperty(Constants.PHASE_ID, "112");
 
                     dai = getDataAccess(true);
                     Map algoData = dai.getData(r);
@@ -161,11 +267,12 @@ public class MemberProfile extends Base {
                         result.put(key, algoData.get(key));
                     }
                 } else if (tab.equals("dev")) {
-                    //load des data from Coder_Des_Data
+                    // load des data from Coder_Des_Data
                     r = new Request();
                     r.setContentHandle("Coder_Dev_Data");
                     r.setProperty("cr", coderId);
-                    r.setProperty(Constants.PHASE_ID, "113"); //design phase id
+                    // development phase id
+                    r.setProperty(Constants.PHASE_ID, "113");
 
                     dai = getDataAccess(true);
                     Map algoData = dai.getData(r);
@@ -186,10 +293,34 @@ public class MemberProfile extends Base {
                         String key = (String) it.next();
                         result.put(key, longData.get(key));
                     }
+                } else if (tab.equals("concept") || tab.equals("spec") || tab.equals("arch")
+                    || tab.equals("assembly") || tab.equals("test")) {
+                    r = new Request();
+                    r.setContentHandle("Coder_Track_Data");
+                    r.setProperty("cr", coderId);
 
+                    if (tab.equals("concept")) {
+                        r.setProperty(Constants.PHASE_ID, "134");
+                    } else if (tab.equals("spec")) {
+                        r.setProperty(Constants.PHASE_ID, "117");
+                    } else if (tab.equals("arch")) {
+                        r.setProperty(Constants.PHASE_ID, "118");
+                    } else if (tab.equals("assembly")) {
+                        r.setProperty(Constants.PHASE_ID, "125");
+                    } else if (tab.equals("test")) {
+                        r.setProperty(Constants.PHASE_ID, "124");
+                    }
+
+                    dai = getDataAccess(true);
+                    Map longData = dai.getData(r);
+                    Iterator it = longData.keySet().iterator();
+                    while (it.hasNext()) {
+                        String key = (String) it.next();
+                        result.put(key, longData.get(key));
+                    }
                 }
             }
-            
+
             r = new Request();
             r.setContentHandle("member_contact_enabled");
             r.setProperty("cr", coderId);
@@ -199,7 +330,7 @@ public class MemberProfile extends Base {
             ResultSetContainer rsc2 = (ResultSetContainer) result2.get("member_contact_enabled");
 
             boolean memberContactEnabled = false;
-            if(rsc2.size() > 0) {
+            if (rsc2.size() > 0) {
                 memberContactEnabled = "yes".equals(rsc2.getStringItem(0, "value"));
             }
 
@@ -207,10 +338,11 @@ public class MemberProfile extends Base {
             if (!DAOUtil.useQueryToolFactory) {
                 HibernateUtils.getSession().beginTransaction();
             }
-            
-            UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Long.parseLong(coderId), Preference.SHOW_EARNINGS_PREFERENCE_ID);
+
+            UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Long.parseLong(coderId),
+                Preference.SHOW_EARNINGS_PREFERENCE_ID);
             boolean hidePayments = up != null && "hide".equals(up.getValue());
-            
+
             getRequest().setAttribute("resultMap", result);
 
             getRequest().setAttribute("hasAlg", new Boolean(hasAlg));
@@ -219,6 +351,11 @@ public class MemberProfile extends Base {
             getRequest().setAttribute("hasDes", new Boolean(hasDes));
             getRequest().setAttribute("hasDev", new Boolean(hasDev));
             getRequest().setAttribute("hasLong", new Boolean(hasLong));
+            getRequest().setAttribute("hasConcept", new Boolean(hasConcept));
+            getRequest().setAttribute("hasSpec", new Boolean(hasSpec));
+            getRequest().setAttribute("hasArch", new Boolean(hasArch));
+            getRequest().setAttribute("hasAssembly", new Boolean(hasAssembly));
+            getRequest().setAttribute("hasTest", new Boolean(hasTest));
             getRequest().setAttribute("memberContactEnabled", new Boolean(memberContactEnabled));
             getRequest().setAttribute("hidePayments", new Boolean(hidePayments));
             getRequest().setAttribute("tab", tab);

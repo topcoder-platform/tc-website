@@ -101,6 +101,13 @@ public class HandleTag extends TagSupport {
         return SKIP_BODY;
     }
 
+    /**
+     * <p>
+     * Build the handle link tag of the given coder id, using the given parameters.
+     * </p>
+     * 
+     * @since Member Profile Enhancement assembly
+     */
     public static String getLink(long coderId, String cssclass, String link,
                                  PageContext pageContext, String context,
                                  String[] lightStyles, String[] darkStyles, boolean darkBG) throws Exception {
@@ -242,6 +249,7 @@ public class HandleTag extends TagSupport {
                                 rsc.getIntItem(0, "application_testing_rating"));
                     }
                 }
+                
                 //log.debug("rating: " + rating + " rsc: " + rsc.toString());
                 output.append(getRatingCSS(rating, lightStyles, darkStyles, darkBG));
             }

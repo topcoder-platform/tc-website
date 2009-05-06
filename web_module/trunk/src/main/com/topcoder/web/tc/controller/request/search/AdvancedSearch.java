@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
+ */
 package com.topcoder.web.tc.controller.request.search;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
@@ -6,8 +9,35 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.MemberSearch;
 
+/**
+ * <p>
+ * This class perform an advance member search.
+ * </p>
+ * 
+ * <p>
+ *   Version 1.1 (Member Profile Enhancement 1.0) Change notes:
+ *   <ol>
+ *     <li>
+ *     Added support to search for members using the newly
+ *     added tracks (conceptualization, specification, architecture, assembly,
+ *     and application testing).
+ *     </li>
+ *   </ol>
+ * </p>
+ * 
+ * @author elkhawajah, TCSDEVELOPER
+ * @version 1.1
+ */
 public class AdvancedSearch extends SimpleSearch {
 
+    /**
+     * <p>
+     * Process search for member using the given search information.
+     * If the return result contains only one member, then the result
+     * will display the profile page of that member instead of displaying
+     * the result in the advance search page.
+     * </p>
+     */
     protected void businessProcessing() throws TCWebException {
         try {
 
@@ -32,17 +62,39 @@ public class AdvancedSearch extends SimpleSearch {
 
     }
 
+    /**
+     * <p>
+     * Set the default values of the member seach.
+     * </p>
+     *  
+     * @since Member Profile Enhancment
+     */
     protected void setDefaults(MemberSearch m) {
+        System.out.println("Constants loaded from : " + Constants.class.getResource("Constants.class"));
         super.setDefaults(m);
         setDefault(Constants.STATE_CODE, m.getStateCode() == null ? "" : m.getStateCode());
         setDefault(Constants.COUNTRY_CODE, m.getCountryCode() == null ? "" : m.getCountryCode());
         setDefault(Constants.SCHOOL_NAME, m.getSchoolName() == null ? "" : m.getSchoolName());
+        System.out.println("Constants.MIN_RATING : " + Constants.MIN_RATING);
         setDefault(Constants.MIN_RATING, m.getMinRating() == null ? "" : m.getMinRating().toString());
+        System.out.println("Constants.MAX_RATING : " + Constants.MAX_RATING);
         setDefault(Constants.MAX_RATING, m.getMaxRating() == null ? "" : m.getMaxRating().toString());
+        System.out.println("Constants.MIN_CONCEPT_RATING : " + Constants.MIN_CONCEPT_RATING);
+        setDefault(Constants.MIN_CONCEPT_RATING, m.getMinConceptRating() == null ? "" : m.getMinConceptRating().toString());
+        System.out.println("Constants.MAX_CONCEPT_RATING : " + Constants.MAX_CONCEPT_RATING);
+        setDefault(Constants.MAX_CONCEPT_RATING, m.getMaxConceptRating() == null ? "" : m.getMaxConceptRating().toString());
+        setDefault(Constants.MIN_SPEC_RATING, m.getMinSpecRating() == null ? "" : m.getMinSpecRating().toString());
+        setDefault(Constants.MAX_SPEC_RATING, m.getMaxSpecRating() == null ? "" : m.getMaxSpecRating().toString());
+        setDefault(Constants.MIN_ARCH_RATING, m.getMinArchRating() == null ? "" : m.getMinArchRating().toString());
+        setDefault(Constants.MAX_ARCH_RATING, m.getMaxArchRating() == null ? "" : m.getMaxArchRating().toString());
         setDefault(Constants.MIN_DESIGN_RATING, m.getMinDesignRating() == null ? "" : m.getMinDesignRating().toString());
         setDefault(Constants.MAX_DESIGN_RATING, m.getMaxDesignRating() == null ? "" : m.getMaxDesignRating().toString());
         setDefault(Constants.MIN_DEV_RATING, m.getMinDevRating() == null ? "" : m.getMinDevRating().toString());
         setDefault(Constants.MAX_DEV_RATING, m.getMaxDevRating() == null ? "" : m.getMaxDevRating().toString());
+        setDefault(Constants.MIN_ASS_RATING, m.getMinAssRating() == null ? "" : m.getMinAssRating().toString());
+        setDefault(Constants.MAX_ASS_RATING, m.getMaxAssRating() == null ? "" : m.getMaxAssRating().toString());
+        setDefault(Constants.MIN_TEST_RATING, m.getMinTestRating() == null ? "" : m.getMinTestRating().toString());
+        setDefault(Constants.MAX_TEST_RATING, m.getMaxTestRating() == null ? "" : m.getMaxTestRating().toString());
         setDefault(Constants.MIN_NUM_RATINGS, m.getMinNumRatings() == null ? "" : m.getMinNumRatings().toString());
         setDefault(Constants.MAX_NUM_RATINGS, m.getMaxNumRatings() == null ? "" : m.getMaxNumRatings().toString());
         setDefault(Constants.MAX_DAYS_SINCE_LAST_COMP, m.getMaxDaysSinceLastComp() == null ? "" : m.getMaxDaysSinceLastComp().toString());
@@ -63,8 +115,10 @@ public class AdvancedSearch extends SimpleSearch {
     /**
      * pull the info out of the request and do some error checking
      *
-     * @return
+     * @return the built member search instance.
      * @throws Exception
+     *
+     * @since Member Profile Enhancment
      */
     protected MemberSearch buildMemberSearch() throws Exception {
         MemberSearch ret = super.buildMemberSearch();
@@ -88,6 +142,34 @@ public class AdvancedSearch extends SimpleSearch {
         if (!maxRating.equals(""))
             ret.setMaxRating(new Integer(maxRating));
 
+        // Conceptualization
+        String minConceptRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_CONCEPT_RATING));
+        if (!minConceptRating.equals(""))
+            ret.setMinConceptRating(new Integer(minConceptRating));
+
+        String maxConceptRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_CONCEPT_RATING));
+        if (!maxConceptRating.equals(""))
+            ret.setMaxConceptRating(new Integer(maxConceptRating));
+
+        // Specification
+        String minSpecRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_SPEC_RATING));
+        if (!minSpecRating.equals(""))
+            ret.setMinSpecRating(new Integer(minSpecRating));
+
+        String maxSpecRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_SPEC_RATING));
+        if (!maxSpecRating.equals(""))
+            ret.setMaxSpecRating(new Integer(maxSpecRating));
+
+        // Architecture
+        String minArchRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_ARCH_RATING));
+        if (!minArchRating.equals(""))
+            ret.setMinArchRating(new Integer(minArchRating));
+
+        String maxArchRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_ARCH_RATING));
+        if (!maxArchRating.equals(""))
+            ret.setMaxArchRating(new Integer(maxArchRating));
+
+        // Design
         String minDesignRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_DESIGN_RATING));
         if (!minDesignRating.equals(""))
             ret.setMinDesignRating(new Integer(minDesignRating));
@@ -96,6 +178,7 @@ public class AdvancedSearch extends SimpleSearch {
         if (!maxDesignRating.equals(""))
             ret.setMaxDesignRating(new Integer(maxDesignRating));
 
+        // Development
         String minDevRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_DEV_RATING));
         if (!minDevRating.equals(""))
             ret.setMinDevRating(new Integer(minDevRating));
@@ -103,6 +186,24 @@ public class AdvancedSearch extends SimpleSearch {
         String maxDevRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_DEV_RATING));
         if (!maxDevRating.equals(""))
             ret.setMaxDevRating(new Integer(maxDevRating));
+
+        // Assembly
+        String minAssRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_ASS_RATING));
+        if (!minAssRating.equals(""))
+            ret.setMinAssRating(new Integer(minAssRating));
+
+        String maxAssRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_ASS_RATING));
+        if (!maxAssRating.equals(""))
+            ret.setMaxAssRating(new Integer(maxAssRating));
+
+        // Application Testing
+        String minTestRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_TEST_RATING));
+        if (!minTestRating.equals(""))
+            ret.setMinTestRating(new Integer(minTestRating));
+
+        String maxTestRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_TEST_RATING));
+        if (!maxTestRating.equals(""))
+            ret.setMaxTestRating(new Integer(maxTestRating));
 
         String minNumRatings = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_NUM_RATINGS));
         if (!minNumRatings.equals(""))

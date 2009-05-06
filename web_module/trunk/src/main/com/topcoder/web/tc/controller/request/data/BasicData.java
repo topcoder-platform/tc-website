@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
+ */
 package com.topcoder.web.tc.controller.request.data;
 
 import com.topcoder.shared.dataAccess.Request;
@@ -24,13 +27,32 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author dok
- * @version $Revision$ $Date$
- *          Create Date: May 13, 2005
+ * <p>
+ * Retrieves the rating distribution history for all tracks.
+ * </p>
+ * 
+ * <p>
+ *   Version 1.1 (Member Profile Enhancement 1.0) Change notes:
+ *   <ol>
+ *     <li>
+ *     Added support for retrieving rating history for the newly
+ *     added tracks (conceptualization, specification, architecture, assembly,
+ *     and application testing).
+ *     </li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, elkhawajah
+ * @version 1.1
  * @deprecated this class has been moved to its own module and will be removed in the future
  */
 public class BasicData extends Base {
 
+    /**
+     * Process retrieving the rating history for all tracks.
+     *
+     * @since Member Profile Enhancement assembly
+     */
     protected void businessProcessing() throws Exception {
         Request r = new Request();
         r.setProperties(getRequest().getParameterMap());
@@ -52,11 +74,11 @@ public class BasicData extends Base {
         	MaxAge maxAge = MaxAge.THREE_HOUR;
             if (ds == 33 && r.getContentHandle().equals("dd_active_contests")) {
             	maxAge = MaxAge.FIVE_MINUTES;
-            } 
+            }
 
         	Map<String, ResultSetContainer> m = new CachedDataAccess(maxAge, getDataSource(ds)).getData(r);
-            
-             
+
+
             ResultSetContainer rsc;
             String key;
             Iterator it = m.keySet().iterator();
@@ -85,7 +107,8 @@ public class BasicData extends Base {
                         ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "paid", "coder_id", getHideUsersList(), getResponse().getOutputStream());
                     }
                 } else if (key.equals("dd_design_rating_history") ||
-                        key.equals("dd_development_rating_history")) {
+                        key.equals("dd_development_rating_history") ||
+                        key.equals("dd_track_rating_history")) {
                     if ("json".equalsIgnoreCase(type)) {
                         ResultSetContainerConverter.writeJSONhidingPayments(rsc, r.getContentHandle(), "payment", "coder_id", getHideUsersList(), getResponse().getOutputStream());
                     } else {
