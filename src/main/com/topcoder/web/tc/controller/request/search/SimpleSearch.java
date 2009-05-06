@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
+ */
 package com.topcoder.web.tc.controller.request.search;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
@@ -16,6 +19,25 @@ import com.topcoder.web.tc.model.MemberSearch;
 
 import java.util.Map;
 
+/**
+ * <p>
+ * This class performs searching for member based on a given data.
+ * </p>
+ * 
+ * <p>
+ *   Version 1.1 (Member Profile Enhancement 1.0) Change notes:
+ *   <ol>
+ *     <li>
+ *     Modified the sql query in getResults method to perform search using
+ *     the newly added tracks (conceptualization, specification, architecture, assembly,
+ *     and application testing).
+ *     </li>
+ *   </ol>
+ * </p>
+ * 
+ * @author elkhawajah, TCSDEVELOPER
+ * @version 1.1
+ */
 public class SimpleSearch extends Base {
     protected void businessProcessing() throws TCWebException {
 
@@ -80,7 +102,7 @@ public class SimpleSearch extends Base {
             ret.setSortCol(new Integer(sortCol));
             ret.setSortAsc("asc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION)));
         }
-        
+
         String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE));
         if (!handle.equals(""))
             ret.setHandle(handle);
@@ -117,6 +139,17 @@ public class SimpleSearch extends Base {
         }
     }
 
+    /**
+     * <p>
+     * Get the result of executing the member search.
+     * </p>
+     *
+     * <p>
+     * This method has been updated to support all tracks.
+     * </p>
+     *
+     * @since Member Profile Enhancement assembly
+     */
     protected MemberSearch getResults() throws Exception {
         MemberSearch m = buildMemberSearch();
 
@@ -182,6 +215,21 @@ public class SimpleSearch extends Base {
         } else {
             queryBottom.append(" , outer (school s, current_school cs)");
         }
+        if (m.getMinConceptRating() == null && m.getMaxConceptRating() == null) {
+            queryBottom.append(", outer (tcs_dw:user_rating conceptr)");
+        } else {
+            queryBottom.append(", tcs_dw:user_rating conceptr");
+        }
+        if (m.getMinSpecRating() == null && m.getMaxSpecRating() == null) {
+            queryBottom.append(", outer (tcs_dw:user_rating specr)");
+        } else {
+            queryBottom.append(", tcs_dw:user_rating specr");
+        }
+        if (m.getMinArchRating() == null && m.getMaxArchRating() == null) {
+            queryBottom.append(", outer (tcs_dw:user_rating archr)");
+        } else {
+            queryBottom.append(", tcs_dw:user_rating archr");
+        }
         if (m.getMinDesignRating() == null && m.getMaxDesignRating() == null) {
             queryBottom.append(", outer (tcs_dw:user_rating desr)");
         } else {
@@ -191,6 +239,16 @@ public class SimpleSearch extends Base {
             queryBottom.append(", outer (tcs_dw:user_rating devr)");
         } else {
             queryBottom.append(", tcs_dw:user_rating devr");
+        }
+        if (m.getMinAssRating() == null && m.getMaxAssRating() == null) {
+            queryBottom.append(", outer (tcs_dw:user_rating assr)");
+        } else {
+            queryBottom.append(", tcs_dw:user_rating assr");
+        }
+        if (m.getMinTestRating() == null && m.getMaxTestRating() == null) {
+            queryBottom.append(", outer (tcs_dw:user_rating testr)");
+        } else {
+            queryBottom.append(", tcs_dw:user_rating testr");
         }
         queryBottom.append(" WHERE c.coder_id = r.coder_id");
         queryBottom.append(" AND c.coder_id = hsr.coder_id");
@@ -206,8 +264,13 @@ public class SimpleSearch extends Base {
         queryBottom.append(betweenFilter("r.rating", m.getMinRating(), m.getMaxRating()));
         queryBottom.append(betweenFilter("hsr.rating", m.getMinHSRating(), m.getMaxHSRating()));
         queryBottom.append(betweenFilter("mmr.rating", m.getMinMarRating(), m.getMaxMarRating()));
+        queryBottom.append(betweenFilter("conceptr.rating", m.getMinConceptRating(), m.getMaxConceptRating()));
+        queryBottom.append(betweenFilter("specr.rating", m.getMinSpecRating(), m.getMaxSpecRating()));
+        queryBottom.append(betweenFilter("archr.rating", m.getMinArchRating(), m.getMaxArchRating()));
         queryBottom.append(betweenFilter("desr.rating", m.getMinDesignRating(), m.getMaxDesignRating()));
         queryBottom.append(betweenFilter("devr.rating", m.getMinDevRating(), m.getMaxDevRating()));
+        queryBottom.append(betweenFilter("assr.rating", m.getMinAssRating(), m.getMaxAssRating()));
+        queryBottom.append(betweenFilter("testr.rating", m.getMinTestRating(), m.getMaxTestRating()));
         queryBottom.append(betweenFilter("r.num_ratings", m.getMinNumRatings(), m.getMaxNumRatings()));
         queryBottom.append(betweenFilter("hsr.num_ratings", m.getMinNumHSRatings(), m.getMaxNumHSRatings()));
         queryBottom.append(betweenFilter("mmr.num_ratings", m.getMinNumMarRatings(), m.getMaxNumMarRatings()));
@@ -233,10 +296,20 @@ public class SimpleSearch extends Base {
             queryBottom.append(" AND lower(s.name) like lower('").append(StringUtils.replace(m.getSchoolName(), "'", "''")).append("')");
             queryBottom.append(" AND c.coder_type_id = 1");
         }
+        queryBottom.append(" AND c.coder_id = conceptr.user_id");
+        queryBottom.append(" AND conceptr.phase_id = 134");
+        queryBottom.append(" AND c.coder_id = specr.user_id");
+        queryBottom.append(" AND specr.phase_id = 117");
+        queryBottom.append(" AND c.coder_id = archr.user_id");
+        queryBottom.append(" AND archr.phase_id = 118");
         queryBottom.append(" AND c.coder_id = desr.user_id");
         queryBottom.append(" AND desr.phase_id = 112");
         queryBottom.append(" AND c.coder_id = devr.user_id");
         queryBottom.append(" AND devr.phase_id = 113");
+        queryBottom.append(" AND c.coder_id = assr.user_id");
+        queryBottom.append(" AND assr.phase_id = 125");
+        queryBottom.append(" AND c.coder_id = testr.user_id");
+        queryBottom.append(" AND testr.phase_id = 124");
         queryBottom.append(" AND r.algo_rating_type_id=1");
         queryBottom.append(" AND hsr.algo_rating_type_id=2");
         queryBottom.append(" AND mmr.algo_rating_type_id=3");
@@ -252,33 +325,83 @@ public class SimpleSearch extends Base {
         searchQuery.append(" , CASE WHEN r.rating > 0 THEN 1 ELSE 2 END AS rating_order");
         searchQuery.append(" , co.country_name");
         searchQuery.append(" , CASE WHEN c.coder_type_id = 2 then null else s.name end as school_name ");
+        searchQuery.append(" , conceptr.rating as concept_rating");
+        searchQuery.append(" , specr.rating as spec_rating");
+        searchQuery.append(" , archr.rating as arch_rating");
         searchQuery.append(" , desr.rating as design_rating");
         searchQuery.append(" , devr.rating as dev_rating ");
+        searchQuery.append(" , assr.rating as ass_rating");
+        searchQuery.append(" , testr.rating as test_rating");
         searchQuery.append(" , hsr.rating as hs_rating");
         searchQuery.append(" , hsr.num_ratings as num_hs_ratings");
         searchQuery.append(" , (SELECT date FROM calendar cal WHERE cal.calendar_id = hsro.calendar_id) AS last_hs_competed");
         searchQuery.append(" , mmr.rating as mm_rating");
         searchQuery.append(" , mmr.num_ratings as num_mm_ratings");
         searchQuery.append(" , (SELECT date FROM calendar cal WHERE cal.calendar_id = mmro.calendar_id) AS last_mm_competed");
-        searchQuery.append(" , (select max(num_ratings) from tcs_dw:project_result pr, tcs_dw:project p "); 
+        searchQuery.append(" , (select max(num_ratings)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 134");
+        searchQuery.append("     and user_id = c.coder_id) as num_concept_ratings ");
+        searchQuery.append(" , (select max(rating_date)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 134");
+        searchQuery.append("     and rating_ind = 1 ");
+        searchQuery.append("     and user_id = c.coder_id) as last_concept_competed ");
+        searchQuery.append(" , (select max(num_ratings)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 117");
+        searchQuery.append("     and user_id = c.coder_id) as num_spec_ratings ");
+        searchQuery.append(" , (select max(rating_date)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 117");
+        searchQuery.append("     and rating_ind = 1 ");
+        searchQuery.append("     and user_id = c.coder_id) as last_spec_competed ");
+        searchQuery.append(" , (select max(num_ratings)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 118");
+        searchQuery.append("     and user_id = c.coder_id) as num_arch_ratings ");
+        searchQuery.append(" , (select max(rating_date)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 118");
+        searchQuery.append("     and rating_ind = 1 ");
+        searchQuery.append("     and user_id = c.coder_id) as last_arch_competed ");
+        searchQuery.append(" , (select max(num_ratings) from tcs_dw:project_result pr, tcs_dw:project p ");
         searchQuery.append("      where p.project_id = pr.project_id  ");
         searchQuery.append("      and phase_id = 112 ");
-        searchQuery.append("      and user_id = c.coder_id) as num_des_ratings ");       
-        searchQuery.append(" , (select max(rating_date)  from tcs_dw:project_result pr, tcs_dw:project p "); 
-        searchQuery.append("     where p.project_id = pr.project_id "); 
+        searchQuery.append("      and user_id = c.coder_id) as num_des_ratings ");
+        searchQuery.append(" , (select max(rating_date)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
         searchQuery.append("     and phase_id = 112 ");
         searchQuery.append("     and rating_ind = 1 ");
         searchQuery.append("     and user_id = c.coder_id) as last_des_competed ");
-        searchQuery.append(" , (select max(num_ratings) from tcs_dw:project_result pr, tcs_dw:project p "); 
+        searchQuery.append(" , (select max(num_ratings) from tcs_dw:project_result pr, tcs_dw:project p ");
         searchQuery.append("      where p.project_id = pr.project_id  ");
         searchQuery.append("      and phase_id = 113 ");
-        searchQuery.append("      and user_id = c.coder_id) as num_dev_ratings ");       
-        searchQuery.append(" , (select max(rating_date)  from tcs_dw:project_result pr, tcs_dw:project p "); 
-        searchQuery.append("     where p.project_id = pr.project_id "); 
+        searchQuery.append("      and user_id = c.coder_id) as num_dev_ratings ");
+        searchQuery.append(" , (select max(rating_date)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
         searchQuery.append("     and phase_id = 113 ");
         searchQuery.append("     and rating_ind = 1 ");
         searchQuery.append("     and user_id = c.coder_id) as last_dev_competed ");
-        
+        searchQuery.append(" , (select max(num_ratings)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 125");
+        searchQuery.append("     and user_id = c.coder_id) as num_ass_ratings ");
+        searchQuery.append(" , (select max(rating_date)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 125");
+        searchQuery.append("     and rating_ind = 1 ");
+        searchQuery.append("     and user_id = c.coder_id) as last_ass_competed ");
+        searchQuery.append(" , (select max(num_ratings)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 124");
+        searchQuery.append("     and user_id = c.coder_id) as num_test_ratings ");
+        searchQuery.append(" , (select max(rating_date)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 124");
+        searchQuery.append("     and rating_ind = 1 ");
+        searchQuery.append("     and user_id = c.coder_id) as last_test_competed ");
+
         searchQuery.append(queryBottom.toString());
         if (m.getSortCol() == null) {
             searchQuery.append(" ORDER BY rating_order, lower_handle");
@@ -327,7 +450,7 @@ public class SimpleSearch extends Base {
             filter.append(" AND mmcal.date > CURRENT - ").append(m.getMaxDaysSinceLastMarComp()).append(" UNITS DAY");
         }
 
-        
+
         if (needsHSRating) {
             countQuery.append(" , algo_rating hsr");
             filter.append(" AND c.coder_id = hsr.coder_id");
@@ -351,6 +474,24 @@ public class SimpleSearch extends Base {
             filter.append(" AND c.coder_type_id = 1");
         }
 
+        if (!(m.getMinConceptRating() == null && m.getMaxConceptRating() == null)) {
+            countQuery.append(", tcs_dw:user_rating conceptr");
+            filter.append(" AND c.coder_id = conceptr.user_id");
+            filter.append(" AND conceptr.phase_id = 134");
+        }
+
+        if (!(m.getMinSpecRating() == null && m.getMaxSpecRating() == null)) {
+            countQuery.append(", tcs_dw:user_rating specr");
+            filter.append(" AND c.coder_id = specr.user_id");
+            filter.append(" AND specr.phase_id = 117");
+        }
+
+        if (!(m.getMinArchRating() == null && m.getMaxArchRating() == null)) {
+            countQuery.append(", tcs_dw:user_rating archr");
+            filter.append(" AND c.coder_id = archr.user_id");
+            filter.append(" AND archr.phase_id = 118");
+        }
+
         if (!(m.getMinDesignRating() == null && m.getMaxDesignRating() == null)) {
             countQuery.append(", tcs_dw:user_rating desr");
             filter.append(" AND c.coder_id = desr.user_id");
@@ -363,6 +504,18 @@ public class SimpleSearch extends Base {
             filter.append(" AND devr.phase_id = 113");
         }
 
+        if (!(m.getMinAssRating() == null && m.getMaxAssRating() == null)) {
+            countQuery.append(", tcs_dw:user_rating assr");
+            filter.append(" AND c.coder_id = assr.user_id");
+            filter.append(" AND assr.phase_id = 125");
+        }
+
+        if (!(m.getMinTestRating() == null && m.getMaxTestRating() == null)) {
+            countQuery.append(", tcs_dw:user_rating testr");
+            filter.append(" AND c.coder_id = testr.user_id");
+            filter.append(" AND testr.phase_id = 124");
+        }
+
         if (m.getStateCode() != null)
             filter.append(" AND c.state_code like '").append(StringUtils.replace(m.getStateCode(), "'", "''")).append("'");
 
@@ -373,8 +526,13 @@ public class SimpleSearch extends Base {
         filter.append(betweenFilter("r.rating", m.getMinRating(), m.getMaxRating()));
         filter.append(betweenFilter("hsr.rating", m.getMinHSRating(), m.getMaxHSRating()));
         filter.append(betweenFilter("mmr.rating", m.getMinMarRating(), m.getMaxMarRating()));
+        filter.append(betweenFilter("conceptr.rating", m.getMinConceptRating(), m.getMaxConceptRating()));
+        filter.append(betweenFilter("specr.rating", m.getMinSpecRating(), m.getMaxSpecRating()));
+        filter.append(betweenFilter("archr.rating", m.getMinArchRating(), m.getMaxArchRating()));
         filter.append(betweenFilter("desr.rating", m.getMinDesignRating(), m.getMaxDesignRating()));
         filter.append(betweenFilter("devr.rating", m.getMinDevRating(), m.getMaxDevRating()));
+        filter.append(betweenFilter("assr.rating", m.getMinAssRating(), m.getMaxAssRating()));
+        filter.append(betweenFilter("testr.rating", m.getMinTestRating(), m.getMaxTestRating()));
         filter.append(betweenFilter("r.num_ratings", m.getMinNumRatings(), m.getMaxNumRatings()));
         filter.append(betweenFilter("hsr.num_ratings", m.getMinNumHSRatings(), m.getMaxNumHSRatings()));
         filter.append(betweenFilter("mmr.num_ratings", m.getMinNumMarRatings(), m.getMaxNumMarRatings()));
@@ -385,7 +543,7 @@ public class SimpleSearch extends Base {
 
         log.debug("count query: " + countQuery.toString());
         log.debug("search query: " + searchQuery.toString());
-        
+
         QueryRequest r = new QueryRequest();
         r.addQuery("member_search", searchQuery.toString());
         r.addQuery("count", countQuery.toString());
@@ -396,7 +554,7 @@ public class SimpleSearch extends Base {
         CachedQueryDataAccess cda = new CachedQueryDataAccess(MaxAge.QUARTER_HOUR, DBMS.DW_DATASOURCE_NAME);
         Map<String, ResultSetContainer> res = cda.getData(r);
         ResultSetContainer rsc = res.get("member_search");
-                
+
         ResultSetContainer count = res.get("count");
         m.setResults(rsc);
         m.setTotal(count.getIntItem(0, "count"));
@@ -406,26 +564,41 @@ public class SimpleSearch extends Base {
         if (m.getTotal() == 0) {
             m.setStart(0);
         }
-        
+
         SortInfo s = new SortInfo();
-        s.addDefault(rsc.getColumnIndex("rating"), "desc");            
-        s.addDefault(rsc.getColumnIndex("num_ratings"), "desc");            
-        s.addDefault(rsc.getColumnIndex("last_competed"), "desc");            
-        s.addDefault(rsc.getColumnIndex("design_rating"), "desc");            
-        s.addDefault(rsc.getColumnIndex("num_des_ratings"), "desc");            
-        s.addDefault(rsc.getColumnIndex("last_des_competed"), "desc");            
-        s.addDefault(rsc.getColumnIndex("dev_rating"), "desc");            
-        s.addDefault(rsc.getColumnIndex("num_dev_ratings"), "desc");            
-        s.addDefault(rsc.getColumnIndex("last_dev_competed"), "desc");            
-        s.addDefault(rsc.getColumnIndex("hs_rating"), "desc");            
-        s.addDefault(rsc.getColumnIndex("num_hs_ratings"), "desc");            
-        s.addDefault(rsc.getColumnIndex("last_hs_competed"), "desc");            
-        s.addDefault(rsc.getColumnIndex("mm_rating"), "desc");            
-        s.addDefault(rsc.getColumnIndex("num_mm_ratings"), "desc");            
-        s.addDefault(rsc.getColumnIndex("last_mm_competed"), "desc");            
+        s.addDefault(rsc.getColumnIndex("rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("num_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_competed"), "desc");
+        s.addDefault(rsc.getColumnIndex("concept_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("num_concept_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_concept_competed"), "desc");
+        s.addDefault(rsc.getColumnIndex("spec_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("num_spec_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_spec_competed"), "desc");
+        s.addDefault(rsc.getColumnIndex("arch_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("num_arch_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_arch_competed"), "desc");
+        s.addDefault(rsc.getColumnIndex("design_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("num_des_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_des_competed"), "desc");
+        s.addDefault(rsc.getColumnIndex("dev_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("num_dev_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_dev_competed"), "desc");
+        s.addDefault(rsc.getColumnIndex("ass_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("num_ass_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_ass_competed"), "desc");
+        s.addDefault(rsc.getColumnIndex("test_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("num_test_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_test_competed"), "desc");
+        s.addDefault(rsc.getColumnIndex("hs_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("num_hs_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_hs_competed"), "desc");
+        s.addDefault(rsc.getColumnIndex("mm_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("num_mm_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_mm_competed"), "desc");
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
-        
+
         return m;
     }
 

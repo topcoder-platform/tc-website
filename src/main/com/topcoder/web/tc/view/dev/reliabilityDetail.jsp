@@ -9,8 +9,8 @@
 <%@ taglib prefix="tc_tags" tagdir="/WEB-INF/tags" %>
 <% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
 <% String type = (String) request.getAttribute(Constants.TYPE_KEY);
-    String phaseId = (String) request.getAttribute(Constants.PHASE_ID);
-    String coderId = (String) request.getAttribute(Constants.CODER_ID);%>
+    String coderId = (String) request.getAttribute(Constants.CODER_ID);
+    int phaseId = Integer.parseInt((String) request.getAttribute(Constants.PHASE_ID));%>
 <html>
 
 <head>
@@ -26,40 +26,107 @@
 <body>
 
 
-<jsp:include page="../top.jsp">
-    <jsp:param name="level1" value="development"/>
-</jsp:include>
+<jsp:include page="../top.jsp"/>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr valign="top">
 <!-- Left Column Begins-->
 <td width="180">
-    <jsp:include page="/includes/global_left.jsp">
-        <jsp:param name="node" value="<%= String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(phaseId) ? "m_des_competitions" : "m_dev_competitions"%>"/>
-    </jsp:include>
+    <!-- Left nav begins -->
+    <% if(phaseId == SoftwareComponent.DESIGN_PHASE) { %>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_des_competitions"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.DEV_PHASE) { %>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_dev_competitions"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.ASSEMBLY_PHASE ) { %>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_assembly_competitions"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.CONCEPTUALIZATION_PHASE) { %>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_conceptualization_competitions"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.SPECIFICATION_PHASE) { %>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_specification_competitions"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.ARCHITECTURE_PHASE) { %>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_architecture_competitions"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.APPLICATION_TESTING_PHASE) { %>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_testing_competitions"/>
+            </jsp:include>
+    <% } %>
+    <!-- Left nav ends -->
 </td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
 <td class="statTableSpacer" width="100%" valign="top">
-
-<jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="<%= String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(phaseId) ? "comp_design" : "comp_development"%>"/>
-    <jsp:param name="title" value="Reliability Detail"/>
-</jsp:include>
+    <% if(phaseId == SoftwareComponent.DESIGN_PHASE) { %>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="comp_design"/>
+                <jsp:param name="title" value="Reliability Detail"/>
+            </jsp:include>   
+    <% } else if(phaseId == SoftwareComponent.DEV_PHASE) { %>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="comp_development"/>
+                <jsp:param name="title" value="Reliability Detail"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.ASSEMBLY_PHASE ) { %>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="assembly"/>
+                <jsp:param name="title" value="Reliability Detail"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.CONCEPTUALIZATION_PHASE) { %>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="conceptualization"/>
+                <jsp:param name="title" value="Reliability Detail"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.SPECIFICATION_PHASE) { %>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="specification"/>
+                <jsp:param name="title" value="Reliability Detail"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.ARCHITECTURE_PHASE) { %>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="architecture"/>
+                <jsp:param name="title" value="Reliability Detail"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.APPLICATION_TESTING_PHASE) { %>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="app_testing"/>
+                <jsp:param name="title" value="Reliability Detail"/>
+            </jsp:include>
+    <% } %>
 
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/></span>
 <br>
-<% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
-<span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
-<% } else { %>
-<span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
-<% } %>
+    <% if(phaseId == SoftwareComponent.DESIGN_PHASE) { %>
+            <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>  
+    <% } else if(phaseId == SoftwareComponent.DEV_PHASE) { %>
+            <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
+    <% } else if(phaseId == SoftwareComponent.ASSEMBLY_PHASE ) { %>
+            <span class="bodySubtitle">Assembly Statistics&#160;>&#160;</span><br>
+    <% } else if(phaseId == SoftwareComponent.CONCEPTUALIZATION_PHASE) { %>
+            <span class="bodySubtitle">Conceptualization Statistics&#160;>&#160;</span><br>
+    <% } else if(phaseId == SoftwareComponent.SPECIFICATION_PHASE) { %>
+            <span class="bodySubtitle">Specification Statistics&#160;>&#160;</span><br>
+    <% } else if(phaseId == SoftwareComponent.ARCHITECTURE_PHASE) { %>
+            <span class="bodySubtitle">Architecture Statistics&#160;>&#160;</span><br>
+    <% } else if(phaseId == SoftwareComponent.APPLICATION_TESTING_PHASE) { %>
+            <span class="bodySubtitle">Application Testing Statistics&#160;>&#160;</span><br>
+    <% } %>
                 <span class="bc">
                 <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
-             | <A HREF="/tc?module=CompetitionHistory&ph=<%=phaseId%>&cr=<%=coderId%>" class="bcLink">Competition
+             | <A HREF="/tc?module=CompetitionHistory&pt=${pt}&cr=<%=coderId%>" class="bcLink">Competition
                     History</A>
-             | <A HREF="/tc?module=OutstandingProjects&cr=<%=coderId%>&ph=<%=phaseId%>" class="bcLink">Current
+             | <A HREF="/tc?module=OutstandingProjects&cr=<%=coderId%>&pt=${pt}" class="bcLink">Current
                     Contests</A>
                     | Reliability Detail
             </span>
@@ -75,7 +142,11 @@
             Catalog
         </td>
         <td class="header" width="40%">
-            Component
+            <% if(phaseId == SoftwareComponent.DESIGN_PHASE || phaseId == SoftwareComponent.DEV_PHASE ) { %>
+                    Component
+            <% } else { %>
+                    Application
+            <% } %>    
         </td>
         <td class="headerR" width="20%">
             Reliability Before
@@ -96,7 +167,11 @@
     <rsc:iterator list="<%=contests%>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
             <td class="valueC">
-                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/> 
+            <% if(phaseId == SoftwareComponent.DESIGN_PHASE || phaseId == SoftwareComponent.DEV_PHASE ) { %>
+                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/>
+            <% } else { %>
+                Application
+            <% } %> 
             </td>
             <td class="value">
                 <% if (resultRow.getIntItem("viewable") == 1) { %>
@@ -125,14 +200,16 @@
     </rsc:iterator>
 </table>
 <br>
-<% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
-<div class="bodySubtitle" align="center">Have a question about
-    <A href="/wiki/display/tc/Component+Development+Reliability+Ratings">reliability ratings</A>?</div>
-<% } else { %>
-<div class="bodySubtitle" align="center">Have a question about
+            <% if(phaseId == SoftwareComponent.DESIGN_PHASE  ) { %>
+                    <div class="bodySubtitle" align="center">Have a question about
     <A href="/wiki/display/tc/Component+Design+Reliability+Ratings">reliability ratings</A>?</div>
-<% } %>
-
+            <% } else if(phaseId == SoftwareComponent.DEV_PHASE ) { %>
+                  <div class="bodySubtitle" align="center">Have a question about
+    <A href="/wiki/display/tc/Component+Development+Reliability+Ratings">reliability ratings</A>?</div>
+            <% } else { %>
+            <div class="bodySubtitle" align="center">Have a question about
+    <A href="/wiki/display/tc/Component+Application+Reliability+Ratings">reliability ratings</A>?</div>
+            <% } %> 
 <p><br/></p>
 
 

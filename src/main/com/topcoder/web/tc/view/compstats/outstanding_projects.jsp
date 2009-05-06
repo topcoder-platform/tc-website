@@ -24,6 +24,10 @@
 <c:set value="<%=Constants.DESIGN_PROJECT_TYPE%>" var="DESIGN_PROJECT_TYPE"/>
 <c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_PROJECT_TYPE"/>
 <c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>" var="CONCEPTUALIZATION_PROJECT_TYPE"/>
+<c:set value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>" var="SPECIFICATION_PROJECT_TYPE"/>
+<c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_PROJECT_TYPE"/>
+<c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_PROJECT_TYPE"/>
 
 <BODY>
 <jsp:include page="../top.jsp"/>
@@ -51,7 +55,27 @@
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_assembly_competitions"/>
             </jsp:include>
-        </c:when>        
+        </c:when>
+        <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_conceptualization_competitions"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_specification_competitions"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_architecture_competitions"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_testing_competitions"/>
+            </jsp:include>
+        </c:when>
     </c:choose>
     <!-- Left nav ends -->
 </TD>
@@ -78,7 +102,31 @@
                 <jsp:param name="image" value="assembly"/>
                 <jsp:param name="title" value="Assembly Competition History"/>
             </jsp:include>
-        </c:when>        
+        </c:when>
+        <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="conceptualization"/>
+                <jsp:param name="title" value="Conceptualization Competition History"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="specification"/>
+                <jsp:param name="title" value="Specification Competition History"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="architecture"/>
+                <jsp:param name="title" value="Architecture Competition History"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="app_testing"/>
+                <jsp:param name="title" value="Application Testing Competition History"/>
+            </jsp:include>
+        </c:when>
     </c:choose>
 
     <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='${cr}' context='${type}'/></span>
@@ -92,7 +140,19 @@
         </c:when>
         <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
             <span class="bodySubtitle">Assembly Statistics&#160;>&#160;</span><br>
-        </c:when>        
+        </c:when>
+        <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
+            <span class="bodySubtitle">Conceptualization Statistics&#160;>&#160;</span><br>
+        </c:when>
+        <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
+            <span class="bodySubtitle">Specification Statistics&#160;>&#160;</span><br>
+        </c:when>
+        <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+            <span class="bodySubtitle">Architecture Statistics&#160;>&#160;</span><br>
+        </c:when>
+        <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+            <span class="bodySubtitle">Application Testing Statistics&#160;>&#160;</span><br>
+        </c:when>
     </c:choose>
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=${cr}" class="bcLink">Member Profile</A>
@@ -104,6 +164,21 @@
         </c:when>
         <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
              | <A HREF="/tc?module=ReliabilityDetail&ph=113&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+             | <A HREF="/tc?module=ReliabilityDetail&ph=125&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=134&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=117&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=118&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=124&uid=${cr}" class="bcLink">Reliability Detail</A>
         </c:when>
     </c:choose>
    </span>
@@ -121,7 +196,19 @@
                 </c:when>
                 <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
                     <td class="title" colspan="10">Current Assembly
-                </c:when>        
+                </c:when>
+                <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
+                    <td class="title" colspan="10">Current Conceptualization
+                </c:when>
+                <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
+                    <td class="title" colspan="10">Current Specification
+                </c:when>
+                <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+                    <td class="title" colspan="10">Current Architecture
+                </c:when>
+                <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+                    <td class="title" colspan="10">Current Application Testing
+                </c:when>
             </c:choose>
             Contests
         </td></tr>
@@ -133,7 +220,14 @@
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Date</a>
             </TD>
             <TD CLASS="header" width="40%">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Component</a>
+                <c:choose>
+                    <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE || pt == DESIGN_PROJECT_TYPE}">
+                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Component</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Application</a>
+                    </c:otherwise>
+                </c:choose>
             </TD>
             <TD CLASS="headerC" width="20%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Submissions</a>
@@ -149,7 +243,7 @@
         <% if (rsc2.isEmpty()) {%>
         <tr class="light">
             <TD class="value" colspan="5">
-                <tc-webtag:handle coderId='${cr}' context='${type}>'/> has no current contests.
+                <tc-webtag:handle coderId='${cr}' context='${type}'/> has no current contests.
             </TD>
         </tr>
         <% } else { %>

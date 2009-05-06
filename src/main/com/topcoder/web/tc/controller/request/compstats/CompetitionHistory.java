@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.web.tc.controller.request.compstats;
@@ -22,8 +22,19 @@ import java.util.Map;
  * <strong>Purpose</strong>:
  * A processor to retrieve competition history.
  *
- * @author pulky
- * @version 1.0
+ * <p>
+ *   Version 1.1 (Member Profile Enhancement 1.0) Change notes:
+ *   <ol>
+ *     <li>
+ *     Added support for retrieving the competition history for the newly
+ *     added tracks (conceptualization, specification, architecture, assembly,
+ *     and application testing).
+ *     </li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, elkhawajah
+ * @version 1.1
  */
 public class CompetitionHistory extends BaseProcessor {
     /**
@@ -33,7 +44,9 @@ public class CompetitionHistory extends BaseProcessor {
 
     /**
      * Process the competition history request.
-     * Retrieves the competition history list for development or design for a particular coder.
+     * Retrieves the competition history list for a particular coder.
+     *
+     * @since Member Profile Enhancement
      */
     protected void businessProcessing() throws Exception {
         //todo smarten this up.  if we do the sorting in memory, we wouldn't have to make a db hit for every
@@ -45,18 +58,28 @@ public class CompetitionHistory extends BaseProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-        if (hasParameter(Constants.PHASE_ID) && !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) &&
-                !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
+        if (hasParameter(Constants.PHASE_ID) &&
+            !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) &&
+            !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE)) &&
+            !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.CONCEPTUALIZATION_PHASE)) &&
+            !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.SPECIFICATION_PHASE)) &&
+            !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.ARCHITECTURE_PHASE)) &&
+            !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.ASSEMBLY_PHASE)) &&
+            !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.APPLICATION_TESTING_PHASE))) {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
         if (!hasParameter(Constants.PHASE_ID)) {
             if (!getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.DESIGN_PROJECT_TYPE)) &&
                     !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.DEVELOPMENT_PROJECT_TYPE)) &&
-                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.ASSEMBLY_PROJECT_TYPE))) {
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.ASSEMBLY_PROJECT_TYPE)) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.CONCEPTUALIZATION_PROJECT_TYPE)) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.SPECIFICATION_PROJECT_TYPE)) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.ARCHITECTURE_PROJECT_TYPE)) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.APPLICATION_TESTING_PROJECT_TYPE))) {
                 throw new TCWebException("invalid " + Constants.PROJECT_TYPE_ID + " parameter.");
             }
-            
+
             projectTypeId = Integer.parseInt(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
         } else {
             projectTypeId = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID)) - 111;
@@ -69,7 +92,7 @@ public class CompetitionHistory extends BaseProcessor {
         } else {
             projectTypeIds = String.valueOf(projectTypeId);
         }
-        
+
         if (!hasParameter(Constants.CODER_ID)) {
             throw new TCWebException("parameter " + Constants.CODER_ID + " expected.");
         }
@@ -125,16 +148,28 @@ public class CompetitionHistory extends BaseProcessor {
         // sets attributes for the jsp
         getRequest().setAttribute(Constants.HISTORY_LIST_KEY, rsc);
 
-        String handleType = ""; 
+        String handleType = "";
         switch (projectTypeId) {
-            case 1:
+            case Constants.DESIGN_PROJECT_TYPE:
                 handleType = HandleTag.DESIGN;
                 break;
-            case 2:
+            case Constants.DEVELOPMENT_PROJECT_TYPE:
                 handleType = HandleTag.DEVELOPMENT;
                 break;
-            case 14:
-                handleType = HandleTag.COMPONENT;
+            case Constants.ASSEMBLY_PROJECT_TYPE:
+                handleType = HandleTag.ASSEMBLY;
+                break;
+            case Constants.CONCEPTUALIZATION_PROJECT_TYPE:
+                handleType = HandleTag.CONCEPTUALIZATION;
+                break;
+            case Constants.SPECIFICATION_PROJECT_TYPE:
+                handleType = HandleTag.SPECIFICATION;
+                break;
+            case Constants.ARCHITECTURE_PROJECT_TYPE:
+                handleType = HandleTag.ARCHITECTURE;
+                break;
+            case Constants.APPLICATION_TESTING_PROJECT_TYPE:
+                handleType = HandleTag.APPLICATION_TESTING;
                 break;
         }
         getRequest().setAttribute(Constants.TYPE_KEY, handleType);

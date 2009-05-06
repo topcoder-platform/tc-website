@@ -134,6 +134,57 @@ selections will be returned. Click on a Handle to view information about the Cod
    </tr>
    <tr>
       <td class="valueR" style="border: 0px;">
+         <strong>Conceptualization</strong> rating:
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Min:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MIN_CONCEPT_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Max:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MAX_CONCEPT_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" style="border: 0px;">
+         <strong>Specification</strong> rating:
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Min:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MIN_SPEC_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Max:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MAX_SPEC_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" style="border: 0px;">
+         <strong>Architecture</strong> rating:
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Min:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MIN_ARCH_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Max:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MAX_ARCH_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" style="border: 0px;">
          <strong>Design</strong> rating:
       </td>
       <td class="valueR" style="border: 0px;">
@@ -164,6 +215,40 @@ selections will be returned. Click on a Handle to view information about the Cod
       </td>
       <td class="value" style="border: 0px;">
          <tc-webtag:textInput name="<%=Constants.MAX_DEV_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" style="border: 0px;">
+         <strong>Assembly</strong> rating:
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Min:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MIN_ASS_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Max:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MAX_ASS_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" style="border: 0px;">
+         <strong>Application Testing</strong> rating:
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Min:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MIN_TEST_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Max:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MAX_TEST_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
       </td>
    </tr>
    <tr>

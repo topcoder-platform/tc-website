@@ -38,13 +38,18 @@
     <table cellspacing="0" cellpadding="0" class="stat" width="100%">
     <tbody>
         <tr>
-            <td class="title" colspan="16">Member Search Results</td>
+            <td class="title" colspan="31">Member Search Results</td>
         </tr>
         <tr>
             <td class="headerC B">&nbsp;</td>
             <td class="headerC B NW" colspan="3">Algorithm<br />Rated Events</td>
+            <td class="headerC B NW" colspan="3">Conceptualization<br />Rated Events</td>
+            <td class="headerC B NW" colspan="3">Specification<br />Rated Events</td>
+            <td class="headerC B NW" colspan="3">Architecture<br />Rated Events</td>
             <td class="headerC B NW" colspan="3">Design<br />Rated Events</td>
             <td class="headerC B NW" colspan="3">Development<br />Rated Events</td>
+            <td class="headerC B NW" colspan="3">Assembly<br />Rated Events</td>
+            <td class="headerC B NW" colspan="3">Application Testing<br />Rated Events</td>
             <td class="headerC B NW" colspan="3">TCHS<br />Rated Events</td>
             <td class="headerC NW" colspan="3">Marathon Match<br />Rated Events</td>
         </tr>
@@ -55,7 +60,22 @@
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
             <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
-            
+
+            <%-- Conceptualization --%>
+            <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("concept_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
+            <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_concept_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
+            <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_concept_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
+
+            <%-- Specification --%>
+            <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("spec_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
+            <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_spec_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
+            <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_spec_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
+
+            <%-- Architecture --%>
+            <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("arch_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
+            <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_arch_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
+            <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_arch_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
+                                    
             <%-- Design --%>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("design_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_des_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
@@ -66,6 +86,16 @@
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_dev_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
             <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_dev_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
             
+            <%-- Assembly --%>
+            <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("ass_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
+            <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_ass_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
+            <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_ass_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
+
+            <%-- Application Testing --%>
+            <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("test_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
+            <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_test_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
+            <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_test_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
+
             <%-- TCHS --%>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("hs_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_hs_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
@@ -107,6 +137,48 @@
             </c:otherwise>
             </c:choose>
             
+            <%-- Conceptualization --%>
+            <c:choose>
+            <c:when test="${not empty rr.map['concept_rating'] and (rr.map['concept_rating']  > 0)}">
+                <td class="valueC"><rsc:item row="<%=resultRow%>" name="concept_rating" format="#" ifNull="unrated"/></td>
+                <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_concept_ratings"/></td>
+                <td class="valueC B"><rsc:item row="<%=resultRow%>" name="last_concept_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+            </c:when>
+            <c:otherwise>
+                <td class="valueC B" colspan="3">
+                    <span class="grayedOut">unrated</span>
+                </td> 
+            </c:otherwise>
+            </c:choose>
+            
+            <%-- Specification --%>
+            <c:choose>
+            <c:when test="${not empty rr.map['spec_rating'] and (rr.map['spec_rating']  > 0)}">
+                <td class="valueC"><rsc:item row="<%=resultRow%>" name="spec_rating" format="#" ifNull="unrated"/></td>
+                <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_spec_ratings"/></td>
+                <td class="valueC B"><rsc:item row="<%=resultRow%>" name="last_spec_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+            </c:when>
+            <c:otherwise>
+                <td class="valueC B" colspan="3">
+                    <span class="grayedOut">unrated</span>
+                </td> 
+            </c:otherwise>
+            </c:choose>
+            
+            <%-- Architecture --%>
+            <c:choose>
+            <c:when test="${not empty rr.map['arch_rating'] and (rr.map['arch_rating']  > 0)}">
+                <td class="valueC"><rsc:item row="<%=resultRow%>" name="arch_rating" format="#" ifNull="unrated"/></td>
+                <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_arch_ratings"/></td>
+                <td class="valueC B"><rsc:item row="<%=resultRow%>" name="last_arch_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+            </c:when>
+            <c:otherwise>
+                <td class="valueC B" colspan="3">
+                    <span class="grayedOut">unrated</span>
+                </td> 
+            </c:otherwise>
+            </c:choose>
+            
             <%-- Design --%>
             <c:choose>
             <c:when test="${not empty rr.map['design_rating'] and (rr.map['design_rating']  > 0)}">
@@ -127,6 +199,34 @@
                 <td class="valueC"><rsc:item row="<%=resultRow%>" name="dev_rating" format="#" ifNull="unrated"/></td>
                 <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_dev_ratings"/></td>
                 <td class="valueC B"><rsc:item row="<%=resultRow%>" name="last_dev_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+            </c:when>
+            <c:otherwise>
+                <td class="valueC B" colspan="3">
+                    <span class="grayedOut">unrated</span>
+                </td> 
+            </c:otherwise>
+            </c:choose>
+            
+            <%-- Assembly --%>
+            <c:choose>
+            <c:when test="${not empty rr.map['ass_rating'] and (rr.map['ass_rating']  > 0)}">
+                <td class="valueC"><rsc:item row="<%=resultRow%>" name="ass_rating" format="#" ifNull="unrated"/></td>
+                <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_ass_ratings"/></td>
+                <td class="valueC B"><rsc:item row="<%=resultRow%>" name="last_ass_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+            </c:when>
+            <c:otherwise>
+                <td class="valueC B" colspan="3">
+                    <span class="grayedOut">unrated</span>
+                </td> 
+            </c:otherwise>
+            </c:choose>
+            
+            <%-- Application Testing --%>
+            <c:choose>
+            <c:when test="${not empty rr.map['test_rating'] and (rr.map['test_rating']  > 0)}">
+                <td class="valueC"><rsc:item row="<%=resultRow%>" name="test_rating" format="#" ifNull="unrated"/></td>
+                <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_test_ratings"/></td>
+                <td class="valueC B"><rsc:item row="<%=resultRow%>" name="last_test_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
             </c:when>
             <c:otherwise>
                 <td class="valueC B" colspan="3">

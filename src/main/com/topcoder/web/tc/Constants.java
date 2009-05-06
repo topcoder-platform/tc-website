@@ -27,9 +27,16 @@ import java.util.MissingResourceException;
  *     <li>Added several constants to support TCO09 Studio track leaderboard pages.</li>
  *   </ol>
  * </p>
+ * 
+ * <p>
+ *   Version 1.3 (Member Profile Enhancement 1.0) Change notes:
+ *   <ol>
+ *     <li>Added serveral constants to support Member Advance Search Pages for newly added tracks.</li>
+ *   </ol>
+ * </p>
  *
  * @author TCSDEVELOPER
- * @version 1.2
+ * @version 1.3
  */
 public class Constants implements WebConstants {
 
@@ -299,6 +306,96 @@ public class Constants implements WebConstants {
      * @since 1.1
      */
     public static final String UNIFIED_MEET_REVIEW_BOARD_PAGE = "/review_board/meetReviewBoard.jsp";
+
+    /**
+     * <p>
+     * Minimum conceptualization rating parameter name.
+     * </p>
+     *
+     * @since Member Profile Enhancment assembly
+     */
+    public static String MIN_CONCEPT_RATING;
+
+    /**
+     * <p>
+     * Maximum conceptualization rating parameter name.
+     * </p>
+     *
+     * @since Member Profile Enhancment assembly
+     */
+    public static String MAX_CONCEPT_RATING;
+
+    /**
+     * <p>
+     * Minimum specification rating parameter name.
+     * </p>
+     *
+     * @since Member Profile Enhancment assembly
+     */
+    public static String MIN_SPEC_RATING;
+
+    /**
+     * <p>
+     * Maximum specification rating parameter name.
+     * </p>
+     *
+     * @since Member Profile Enhancment assembly
+     */
+    public static String MAX_SPEC_RATING;
+
+    /**
+     * <p>
+     * Minimum architecture rating parameter name.
+     * </p>
+     *
+     * @since Member Profile Enhancment assembly
+     */
+    public static String MIN_ARCH_RATING;
+
+    /**
+     * <p>
+     * Maximum architecture rating parameter name.
+     * </p>
+     *
+     * @since Member Profile Enhancment assembly
+     */
+    public static String MAX_ARCH_RATING;
+
+    /**
+     * <p>
+     * Minimum assembly rating parameter name.
+     * </p>
+     *
+     * @since Member Profile Enhancment assembly
+     */
+    public static String MIN_ASS_RATING;
+
+    /**
+     * <p>
+     * Maximum assembly rating parameter name.
+     * </p>
+     *
+     * @since Member Profile Enhancment assembly
+     */
+    public static String MAX_ASS_RATING;
+
+    /**
+     * <p>
+     * Minimum application testing rating parameter name.
+     * </p>
+     *
+     * @since Member Profile Enhancment assembly
+     */
+    public static String MIN_TEST_RATING;
+
+    /**
+     * <p>
+     * Maximum application testing rating parameter name.
+     * </p>
+     *
+     * @since Member Profile Enhancment assembly
+     */
+    public static String MAX_TEST_RATING;
 
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;
@@ -650,7 +747,7 @@ public class Constants implements WebConstants {
      *
      * @since 1.2
      */
-    public static String TCO09_STUDIO_LEADERBOARD_DETAILS_PAGE = 
+    public static String TCO09_STUDIO_LEADERBOARD_DETAILS_PAGE =
         "/tournaments/tco09/studio/advancers/leaderboardDetails.jsp";
 
     static {
@@ -672,6 +769,7 @@ public class Constants implements WebConstants {
                         }
                     } else if (f[i].getType().getName().equals("java.lang.String")) {
                         try {
+                            System.out.println(f[i].getName().toLowerCase() + ":"+ bundle.getProperty(f[i].getName().toLowerCase()));
                             f[i].set(null, bundle.getProperty(f[i].getName().toLowerCase()));
                         } catch (MissingResourceException ignore) {
                         }
