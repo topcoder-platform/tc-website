@@ -42,7 +42,7 @@ import com.topcoder.shared.util.logging.Logger;
  *          Application Testing competitions.
  *     </li>
  *   </ol>
- *   
+ *
  *   Version 1.1.0 Change notes:
  *   <ol>
  *     <li>
@@ -51,8 +51,14 @@ import com.topcoder.shared.util.logging.Logger;
  *     </li>
  *   </ol>
  *
- * @author dok, pulky, ivern, isv
- * @version 1.1.0
+ *   Version 1.1.1 (Studio Coding In Online Review) Change notes:
+ *   <ol>
+ *     <li>Added support for new Studio prototype, Studio Build and Studio Component competitions.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, ivern, isv, pulky
+ * @version 1.1.1
  */
 
 public class DefaultPriceComponent implements SoftwareComponent {
@@ -153,7 +159,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     /**
      * <p>Factory method that returns the correct instance of ReviewerPaymentCalculator for a given phase.</p>
-     * 
+     *
      * @param prize first place prize for the competition.
      * @param submissionCount number of submissions.
      * @param submissionsPassedScreening number of submissions that passed screening.
@@ -169,6 +175,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
                    || phaseId == ARCHITECTURE_PHASE || phaseId == ASSEMBLY_PHASE
                    || phaseId == APPLICATION_TESTING_PHASE) {
             return new ApplicationReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
+        } else if (phaseId == STUDIO_PROTOTYPE_PHASE || phaseId == STUDIO_BUILD_PHASE ||
+                phaseId == STUDIO_COMPONENT_PHASE) {
+            return new StudioReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else {
             throw new IllegalArgumentException("Invalid phaseId (" + phaseId + ")");
         }
@@ -272,6 +281,10 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("Architecture phaseId          : " + ARCHITECTURE_PHASE);
             System.out.println("Assembly phaseId              : " + ASSEMBLY_PHASE);
             System.out.println("Application Testing phaseId   : " + APPLICATION_TESTING_PHASE);
+            System.out.println("Studio Prototype phaseId      : " + STUDIO_PROTOTYPE_PHASE);
+            System.out.println("Studio Build phaseId          : " + STUDIO_BUILD_PHASE);
+            System.out.println("Studio Component phaseId      : " + STUDIO_COMPONENT_PHASE);
+
         } else {
             DefaultPriceComponent sc = new DefaultPriceComponent(1, Integer.parseInt(args[0]),
                                                                  Integer.parseInt(args[1]), Integer.parseInt(args[2]),

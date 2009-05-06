@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common.model;
 
 import java.io.Serializable;
@@ -6,8 +9,19 @@ import com.topcoder.web.common.WebConstants;
 
 
 /**
- * @author dok
- *         Date: Feb 11, 2004
+ * <p><strong>Purpose</strong>: This interface represents a software component.</p>
+ *
+ * <p>Note: The meaning of this interface has grown beyond software component, but it still keeps its original name.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Coding In Online Review) Change notes:
+ *   <ol>
+ *     <li>Added constants for Studio prototype, Studio Build and Studio Component competitions.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky
+ * @version 1.1
  */
 public interface SoftwareComponent extends Cloneable, Serializable {
 
@@ -18,6 +32,27 @@ public interface SoftwareComponent extends Cloneable, Serializable {
     public final static int ARCHITECTURE_PHASE = (int) WebConstants.PHASE_ARCHITECTURE;
     public final static int ASSEMBLY_PHASE = (int) WebConstants.PHASE_ASSEMBLY;
     public final static int APPLICATION_TESTING_PHASE = (int) WebConstants.PHASE_APPLICATION_TESTING;
+
+    /**
+     * <p>An <code>int</code> representing studio prototype phase id.</p>
+     *
+     * @since 1.1
+     */
+    public final static int STUDIO_PROTOTYPE_PHASE = (int) WebConstants.PHASE_STUDIO_PROTOTYPE;
+
+    /**
+     * <p>An <code>int</code> representing studio build phase id.</p>
+     *
+     * @since 1.1
+     */
+    public final static int STUDIO_BUILD_PHASE = (int) WebConstants.PHASE_STUDIO_BUILD;
+
+    /**
+     * <p>An <code>int</code> representing studio component phase id.</p>
+     *
+     * @since 1.1
+     */
+    public final static int STUDIO_COMPONENT_PHASE = (int) WebConstants.PHASE_STUDIO_COMPONENT;
 
     public final static int LEVEL1 = 100;
     public final static int LEVEL2 = 200;

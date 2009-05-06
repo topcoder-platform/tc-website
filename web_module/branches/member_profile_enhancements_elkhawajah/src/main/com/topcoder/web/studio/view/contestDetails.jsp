@@ -161,7 +161,25 @@
     <c:choose>
         <c:when test="${fn:length(contest.documents)>0}">
             <c:choose>
-                <c:when test="${registered || currentTime>contest.endTime}">
+            
+            	<c:when test="${currentTime>contest.endTime}">
+                        <p>
+                            <strong>Since this contest has ended all attached files are no longer available for viewing</strong>
+                        </p>
+                </c:when>
+                <c:when test="${registered}">
+                  <c:forEach items="${contest.documents}" var="document">
+                        <p>
+                            <strong><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">${document.originalFileName}</a></strong>
+                            <br /><em>${document.type.description}</em>
+                            <c:if test="${not empty document.description}">
+                                <br />${document.description}
+                            </c:if>
+                        </p>
+             		</c:forEach>
+               </c:when>
+            
+           <%--     <c:when test="${registered || currentTime>contest.endTime}">
                     <c:forEach items="${contest.documents}" var="document">
                         <p>
                             <strong><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">${document.originalFileName}</a></strong>
@@ -171,7 +189,7 @@
                             </c:if>
                         </p>
               </c:forEach> 
-                </c:when>
+                </c:when>  --%>
                 <c:otherwise>
                     <p align="center" class="bigRed">
                         You must register for the contest<br />to download any attached files.<br /><br />

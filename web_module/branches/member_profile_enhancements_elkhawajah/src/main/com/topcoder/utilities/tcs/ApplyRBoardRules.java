@@ -12,9 +12,9 @@ import java.sql.SQLException;
 
 /**
  * <strong>Purpose</strong>:
- * Utility to qualify/disqualify reviewers sistematically.
+ * Utility to qualify/disqualify reviewers systematically.
  * <p/>
- * This utility analyzes the reviwers for a set of rules and decide whether to qualify
+ * This utility analyzes the reviewers for a set of rules and decide whether to qualify
  * inactive reviewers or disqualify active ones. It also sends the corresponding notifications
  * and warnings for reviewers that are "about" to be disqualified.
  *
@@ -110,7 +110,7 @@ public class ApplyRBoardRules extends DBUtility {
     /**
      * Runs the ApplyRBoardRules utility.
      * <p/>
-     * This utility analyzes the reviwers for a set of rules and decide whether to qualify
+     * This utility analyzes the reviewers for a set of rules and decide whether to qualify
      * inactive reviewers or disqualify active ones. It also sends the corresponding notifications
      * and warnings for reviewers that are "about" to be disqualified.
      */
