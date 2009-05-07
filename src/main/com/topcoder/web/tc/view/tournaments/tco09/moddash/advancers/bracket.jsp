@@ -75,7 +75,33 @@
                                             
                                             <div class="bottomAreaContent">
                                                 
-                                                <jsp:include page="../../comingSoon.jsp"/>
+                                                <div class="bottomAreaContent">
+                                                
+                                                <div class="mainContent">
+                                                    <div id="mainContentInner">
+                                                        <div>
+                                                            <div class="pageContent">
+                                                                <h2 class="title">Mod Dash Semifinalists</h2>
+                                                                <p><ol style="list-style-type: none;">
+                                                                		<li>cucu</li>
+                                                                		<li>enefem21</li>
+                                                                		<li>saarixx</li>
+                                                                		<li>Margarita</li>
+                                                                		<li>PE</li>
+                                                                		<li>ShindouHikaru</li>
+                                                                		<li>will.xie</li>
+                                                                		<li>Yeung</li>
+                                                                		</ol>
+                                                                	</p>
+                                                            </div>
+                                                        </div>                                                      
+                                                    </div><!-- End #mainContentInner -->
+
+                                                </div><!-- End #mainContent -->
+                                                
+                                                <jsp:include page="../../sponsors.jsp"/>
+                                                
+                                            </div><!-- End .bottomAreaContent -->
                                                 
                                                 <jsp:include page="../../sponsors.jsp"/>
                                                 

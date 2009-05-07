@@ -75,7 +75,29 @@
                                             
                                             <div class="bottomAreaContent">
                                                 
-                                                <jsp:include page="../../comingSoon.jsp"/>
+                                                <div class="mainContent">
+                                                    <div id="mainContentInner">
+                                                        <div>
+                                                            <div class="pageContent">
+                                                                <h2 class="title">Studio Semifinalists</h2>
+                                                                <p><ol style="list-style-type: none;">
+                                                                		<li>abedavera</li>
+                                                                		<li>djackmania</li>
+                                                                		<li>djnapier</li>
+                                                                		<li>Elizabethhee</li>
+                                                                		<li>foxyhu</li>
+                                                                		<li>oton</li>
+                                                                		<li>mahestro</li>
+                                                                		<li>oninkxronda</li>
+                                                                		<li>sweetpea</li>
+                                                                		<li>Tricia_Tjia</li>
+                                                                		</ol>
+                                                                	</p>
+                                                            </div>
+                                                        </div>                                                      
+                                                    </div><!-- End #mainContentInner -->
+                                                    
+                                                </div><!-- End #mainContent -->
                                                 
                                                 <jsp:include page="../../sponsors.jsp"/>
                                                 
