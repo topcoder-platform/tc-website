@@ -63,7 +63,7 @@ public class TCLoadTCS extends TCLoad {
 
     /**
      * <p>A <code>String</code> representing all those project categories than should be loaded to the 
-     * datawarehouse.</p>
+     * data warehouse.</p>
      */
     private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25)";
 
@@ -88,7 +88,7 @@ public class TCLoadTCS extends TCLoad {
     //private static final int CONFIRMED = 1;
 
     /**
-     * Passed review threshold for being elegible for the ROTY season..
+     * Passed review threshold for being eligible for the ROTY season.
      *
      * @since 1.1.0
      */
@@ -809,15 +809,15 @@ public class TCLoadTCS extends TCLoad {
                             "   ,cc.component_name " +
                             "   ,(select count(*) from resource where project_id = p.project_id and resource_role_id = 1) as num_registrations " +
                             "   ,(select count(*) from submission sub, upload where sub.upload_id = upload.upload_id and project_id = p.project_id and submission_status_id <> 5) as num_submissions " +
-                            //todo this should probably use the flag on project result in the dw, not got back to the submission table in transactoinal
+                            //todo this should probably use the flag on project result in the dw, not got back to the submission table in transactional
                             "   ,(select count(*) from submission s, upload where upload.upload_id = s.upload_id and project_id = p.project_id and submission_status_id in (1, 3, 4)) as num_valid_submissions " +
                             //todo this should use the flag on project result, not go back to transactional
                             "   ,(select count(*) from submission s, upload u where u.upload_id = s.upload_id and project_id = p.project_id and submission_status_id in (1, 4)) as num_submissions_passed_review " +
                             //todo again...none of this aggregate data should come from transactional
                             "   ,(select avg(case when raw_score is null then 0 else raw_score end) from project_result where project_id = p.project_id and raw_score is not null) as avg_raw_score " +
                             "   ,(select avg(case when final_score is null then 0 else final_score end) from project_result where project_id = p.project_id and final_score is not null) as avg_final_score " +
-                            "   ,case when p.project_category_id = 1 then 112 when p.project_category_id = 2 then 113 else null end  as phase_id " +
-                            "   ,case when p.project_category_id = 1 then 'Design' when p.project_category_id = 2 then 'Development' else null end as phase_desc " +
+                            "   ,p.project_category_id + 111 as phase_id " +
+                            "   ,pcl.name as phase_desc " +
                             "   ,cat.category_id " +
                             "   ,cat.category_name as category_desc " +
                             "   ,case when ppd.actual_start_time is not null then ppd.actual_start_time else psd.actual_start_time end as posting_date " +
