@@ -56,7 +56,7 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  *   </ol>
  * </p>
  *
- * @author rfairfax, pulky
+ * @author rfairfax, pulky, ivern
  * @version 1.1.3
  */
 public class TCLoadTCS extends TCLoad {
@@ -66,6 +66,11 @@ public class TCLoadTCS extends TCLoad {
      * data warehouse.</p>
      */
     private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25)";
+    
+    /**
+     * <p>An <code>int</code> array representing all project categories that are currently being rated.</p>
+     */
+    private static final int[] RATED_CATEGORIES = new int[] {1, 2, 6, 7, 13, 14, 23};
 
     private static Logger log = Logger.getLogger(TCLoadTCS.class);
 
@@ -208,20 +213,15 @@ public class TCLoadTCS extends TCLoad {
             doLoadStreak();
 
             List<CoderRating> list = getCurrentRatings();
-            doLoadRank(112, ACTIVE_RATING_RANK_TYPE_ID, list);
-            doLoadRank(112, OVERALL_RATING_RANK_TYPE_ID, list);
-            doLoadRank(113, ACTIVE_RATING_RANK_TYPE_ID, list);
-            doLoadRank(113, OVERALL_RATING_RANK_TYPE_ID, list);
-
-            loadSchoolRatingRank(112, ACTIVE_RATING_RANK_TYPE_ID, list);
-            loadSchoolRatingRank(112, OVERALL_RATING_RANK_TYPE_ID, list);
-            loadSchoolRatingRank(113, ACTIVE_RATING_RANK_TYPE_ID, list);
-            loadSchoolRatingRank(113, OVERALL_RATING_RANK_TYPE_ID, list);
-
-            loadCountryRatingRank(112, ACTIVE_RATING_RANK_TYPE_ID, list);
-            loadCountryRatingRank(112, OVERALL_RATING_RANK_TYPE_ID, list);
-            loadCountryRatingRank(113, ACTIVE_RATING_RANK_TYPE_ID, list);
-            loadCountryRatingRank(113, OVERALL_RATING_RANK_TYPE_ID, list);
+            
+            for (int cat : RATED_CATEGORIES) {
+                doLoadRank(cat, ACTIVE_RATING_RANK_TYPE_ID, list);
+                doLoadRank(cat, OVERALL_RATING_RANK_TYPE_ID, list);
+                loadSchoolRatingRank(cat, ACTIVE_RATING_RANK_TYPE_ID, list);
+                loadSchoolRatingRank(cat, OVERALL_RATING_RANK_TYPE_ID, list);
+                loadCountryRatingRank(cat, ACTIVE_RATING_RANK_TYPE_ID, list);
+                loadCountryRatingRank(cat, OVERALL_RATING_RANK_TYPE_ID, list);
+            }
 
             doLoadSeason();
 
