@@ -75,7 +75,37 @@
                                             
                                             <div class="bottomAreaContent">
                                                 
-                                                <jsp:include page="../../comingSoon.jsp"/>
+                                                <div class="mainContent">
+                                                    <div id="mainContentInner">
+                                                        <div>
+                                                            <div class="pageContent">
+                                                                <h2 class="title">Algorithm Semifinalists</h2>
+                                                                <p><ol style="list-style-type: none;">
+                                                                		<li>(iwi)</li>
+                                                                		<li>ACRush</li>
+                                                                		<li>andrewzta</li>
+                                                                		<li>blueblimp</li>
+                                                                		<li>crazyb0y</li>
+                                                                		<li>Gluk</li>
+                                                                		<li>lucasr</li>
+                                                                		<li>marek.cygan</li>
+                                                                		<li>Ostap</li>
+                                                                		<li>pdallago</li>
+                                                                		<li>Petr</li>
+                                                                		<li>Im2Good</li>
+                                                                		<li>SnapDragon</li>
+                                                                		<li>syg96</li>
+                                                                		<li>UdH-WiNGeR</li>
+                                                                		<li>wata</li>
+                                                                		<li>yuhch123</li>
+                                                                		<li>WSX</li>
+                                                                		</ol>
+                                                                	</p>
+                                                            </div>
+                                                        </div>                                                      
+                                                    </div><!-- End #mainContentInner -->
+                                                    
+                                                </div><!-- End #mainContent -->
                                                 
                                                 <jsp:include page="../../sponsors.jsp"/>
                                                 
