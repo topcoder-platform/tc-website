@@ -56,7 +56,7 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  *   </ol>
  * </p>
  *
- * @author rfairfax, pulky
+ * @author rfairfax, pulky, ivern
  * @version 1.1.3
  */
 public class TCLoadTCS extends TCLoad {
@@ -66,6 +66,11 @@ public class TCLoadTCS extends TCLoad {
      * data warehouse.</p>
      */
     private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25)";
+    
+    /**
+     * <p>An <code>int</code> array representing all project categories that are currently being rated.</p>
+     */
+    private static final int[] RATED_CATEGORIES = new int[] {1, 2, 6, 7, 13, 14, 23};
 
     private static Logger log = Logger.getLogger(TCLoadTCS.class);
 
@@ -208,20 +213,15 @@ public class TCLoadTCS extends TCLoad {
             doLoadStreak();
 
             List<CoderRating> list = getCurrentRatings();
-            doLoadRank(112, ACTIVE_RATING_RANK_TYPE_ID, list);
-            doLoadRank(112, OVERALL_RATING_RANK_TYPE_ID, list);
-            doLoadRank(113, ACTIVE_RATING_RANK_TYPE_ID, list);
-            doLoadRank(113, OVERALL_RATING_RANK_TYPE_ID, list);
-
-            loadSchoolRatingRank(112, ACTIVE_RATING_RANK_TYPE_ID, list);
-            loadSchoolRatingRank(112, OVERALL_RATING_RANK_TYPE_ID, list);
-            loadSchoolRatingRank(113, ACTIVE_RATING_RANK_TYPE_ID, list);
-            loadSchoolRatingRank(113, OVERALL_RATING_RANK_TYPE_ID, list);
-
-            loadCountryRatingRank(112, ACTIVE_RATING_RANK_TYPE_ID, list);
-            loadCountryRatingRank(112, OVERALL_RATING_RANK_TYPE_ID, list);
-            loadCountryRatingRank(113, ACTIVE_RATING_RANK_TYPE_ID, list);
-            loadCountryRatingRank(113, OVERALL_RATING_RANK_TYPE_ID, list);
+            
+            for (int cat : RATED_CATEGORIES) {
+                doLoadRank(cat, ACTIVE_RATING_RANK_TYPE_ID, list);
+                doLoadRank(cat, OVERALL_RATING_RANK_TYPE_ID, list);
+                loadSchoolRatingRank(cat, ACTIVE_RATING_RANK_TYPE_ID, list);
+                loadSchoolRatingRank(cat, OVERALL_RATING_RANK_TYPE_ID, list);
+                loadCountryRatingRank(cat, ACTIVE_RATING_RANK_TYPE_ID, list);
+                loadCountryRatingRank(cat, OVERALL_RATING_RANK_TYPE_ID, list);
+            }
 
             doLoadSeason();
 
@@ -257,9 +257,9 @@ public class TCLoadTCS extends TCLoad {
         String[] keys = new String[]{
             "member_projects", "project_results_all", "contest_prizes", "contest_projects", "project_details",
             "tccc05_", "tccc06_", "tco07_", "usdc_", "component_history", "tcs_ratings_history",
-            "member_profile", "Coder_Dev_Data", "Coder_Des_Data", "Component_",
+            "member_profile", "Coder_Data", "Coder_Track_Data", "Coder_Dev_Data", "Coder_Des_Data", "Component_",
             "public_home_data", "top_designers", "top_developers", "tco04",
-            "coder_all_ratings", "tco05", "coder_dev", "coder_des", "coder_algo",
+            "coder_all_ratings", "tco05", "coder_dev", "coder_des", "coder_algo", "dd_track",
             "dd_design", "dd_development", "dd_component", "comp_list", "find_projects", "get_review_scorecard",
             "get_screening_scorecard", "project_info", "reviewers_for_project", "scorecard_details", "submissions",
             "comp_contest_details", "dr_leader_board", "competition_history", "algo_competition_history",
