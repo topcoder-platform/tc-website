@@ -68,7 +68,8 @@ public class TCLoadTCS extends TCLoad {
     private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25)";
     
     /**
-     * <p>An <code>int</code> array representing all project categories that are currently being rated.</p>
+     * <p>An <code>int</code> array representing all project categories that are currently being rated.
+     * IF YOU CHANGE THIS LIST, YOU MUST ALSO UPDATE THE <code>getCurrentRatings</code> METHOD!</p>
      */
     private static final int[] RATED_CATEGORIES = new int[] {1, 2, 6, 7, 13, 14, 23};
 
