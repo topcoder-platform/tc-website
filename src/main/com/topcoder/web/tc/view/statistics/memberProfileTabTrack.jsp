@@ -106,104 +106,120 @@
 <td width="75%" valign="top">
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 <tr>
-    <td class="tableTitle" colspan="5">Submission Details</td>
+    <td class="tableTitle" colspan="6">Submission Details</td>
 </tr>
 <tr>
     <td class="tableHeader">&#160;</td>
     <td class="tableHeader" align="right" width="33%">Total</td>
+    <td class="tableHeader" width="33%">&nbsp;</td>
 </tr>
 <tr>
     <td class="catLt" nowrap="nowrap">Inquiries</td>
     <td class="statLt" align="right">
         <rsc:item name="inquiry_count" set="<%=rscTotalData%>" format="###0" ifNull="n/a"/>
     </td>
+    <td class="statLt" align="right">&nbsp;</td>
 </tr>
 <tr>
     <td class="catDk" nowrap="nowrap">Submissions</td>
     <td class="statDk" align="right">
         <rsc:item name="submit_count" set="<%=rscTotalData%>" format="###0" ifNull="n/a"/>
     </td>
+    <td class="statDk" align="right">&nbsp;</td>
 </tr>
 <tr>
     <td class="catLt" nowrap="nowrap">Submission Rate</td>
     <td class="statLt" align="right">
         <rsc:item name="submit_percent" set="<%=rscTotalData%>" format="0.00%" ifNull="n/a"/>
     </td>
+    <td class="statLt" align="right">&nbsp;</td>
 </tr>
 <tr>
     <td class="catDk" nowrap="nowrap">Passed Screening</td>
     <td class="statDk" align="right">
         <rsc:item name="passed_screening_count" set="<%=rscTotalData%>" format="###0" ifNull="n/a"/>
     </td>
+    <td class="statDk" align="right">&nbsp;</td>
 </tr>
 <tr>
     <td class="catLt" nowrap="nowrap">Screening Success Rate</td>
     <td class="statLt" align="right">
         <rsc:item name="passed_screening_percent" set="<%=rscTotalData%>" format="0.00%" ifNull="n/a"/>
     </td>
+    <td class="statLt" align="right">&nbsp;</td>
 </tr>
 <tr>
     <td class="catDk" nowrap="nowrap">Passed Review</td>
     <td class="statDk" align="right">
         <rsc:item name="passed_review_count" set="<%=rscTotalData%>" format="###0" ifNull="n/a"/>
     </td>
+    <td class="statDk" align="right">&nbsp;</td>
 </tr>
 <tr>
     <td class="catLt" nowrap="nowrap">Review Success Rate</td>
     <td class="statLt" align="right">
         <rsc:item name="review_percent" set="<%=rscTotalData%>" format="0.00%" ifNull="n/a"/>
     </td>
+    <td class="statLt" align="right">&nbsp;</td>
 </tr>
 <tr>
     <td class="catDk" nowrap="nowrap">Appeals*</td>
     <td class="statDk" align="right">
         <rsc:item name="num_appeals" set="<%=rscTotalData%>" ifNull="n/a"/>
     </td>
+    <td class="statDk" align="right">&nbsp;</td>
 </tr>
 <tr>
     <td class="catLt" nowrap="nowrap">Appeal Success Rate*</td>
     <td class="statLt" align="right">
         <rsc:item name="successful_appeal_percentage" set="<%=rscTotalData%>" format="0.00%" ifNull="n/a"/>
     </td>
+    <td class="statLt" align="right">&nbsp;</td>
 </tr>
 <tr>
     <td class="catDk" nowrap="nowrap">Maximum Score</td>
     <td class="statDk" align="right">
         <rsc:item name="max_score" set="<%=rscTotalData%>" format="###0.00" ifNull="n/a"/>
     </td>
+    <td class="statDk" align="right">&nbsp;</td>
 </tr>
 <tr>
     <td class="catLt" nowrap="nowrap">Minimum Score</td>
     <td class="statLt" align="right">
         <rsc:item name="min_score" set="<%=rscTotalData%>" format="###0.00" ifNull="n/a"/>
     </td>
+    <td class="statLt" align="right">&nbsp;</td>
 </tr>
 <tr>
     <td class="catDk" nowrap="nowrap">Average Score</td>
     <td class="statDk" align="right">
         <rsc:item name="avg_score" set="<%=rscTotalData%>" format="###0.00" ifNull="n/a"/>
     </td>
+    <td class="statDk" align="right">&nbsp;</td>
 </tr>
 <tr>
     <td class="catLt" nowrap="nowrap">Average Placement</td>
     <td class="statLt" align="right">
         <rsc:item name="avg_placement" set="<%=rscTotalData%>" format="###0.00" ifNull="n/a"/>
     </td>
+    <td class="statLt" align="right">&nbsp;</td>
 </tr>
 <tr>
     <td class="catDk" nowrap="nowrap">Wins</td>
     <td class="statDk" align="right">
         <rsc:item name="wins" set="<%=rscTotalData%>" format="###0" ifNull="n/a"/>
     </td>
+    <td class="statDk" align="right">&nbsp;</td>
 </tr>
 <tr>
     <td class="catLt" nowrap="nowrap">Win Percentage</td>
     <td class="statLt" align="right">
         <rsc:item name="win_percent" set="<%=rscTotalData%>" format="0.00%" ifNull="n/a"/>
     </td>
+    <td class="statLt" align="right">&nbsp;</td>
 </tr>
 <tr>
-    <td class="statDk" colspan="4">* only includes appeals from projects posted on or after March 16, 2006 (TopCoder did
+    <td class="statDk" colspan="5">* only includes appeals from projects posted on or after March 16, 2006 (TopCoder did
         not previously collect the relevant data)
     </td>
 </tr>
