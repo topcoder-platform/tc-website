@@ -3315,7 +3315,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Adds the specified affidavit and payment to the database, and associates the two.
-     * Also adds a correpsonding referral payment if the affidavit is a contest winnings
+     * Also adds a corresponding referral payment if the affidavit is a contest winnings
      * affidavit and someone referred the winning coder. <p>
      * <p/>
      * If the payment input parameter is null, the affidavit will still be created, but
