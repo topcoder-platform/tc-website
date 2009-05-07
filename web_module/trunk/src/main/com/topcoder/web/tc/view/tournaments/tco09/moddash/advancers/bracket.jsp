@@ -81,7 +81,7 @@
                                                     <div id="mainContentInner">
                                                         <div>
                                                             <div class="pageContent">
-                                                                <h2 class="title">Mod Dash Semifinalists</h2>
+                                                                <h2 class="title">Mod Dash Finalists</h2>
                                                                 <p><ol style="list-style-type: none;">
                                                                 		<li>cucu</li>
                                                                 		<li>enefem21</li>

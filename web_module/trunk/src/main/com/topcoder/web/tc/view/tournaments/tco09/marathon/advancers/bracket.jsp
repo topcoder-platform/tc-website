@@ -79,7 +79,7 @@
                                                     <div id="mainContentInner">
                                                         <div>
                                                             <div class="pageContent">
-                                                                <h2 class="title">Marathon Semifinalists</h2>
+                                                                <h2 class="title">Marathon Finalists</h2>
                                                                 <p><ol style="list-style-type: none;">
                                                                 		<li>AlexanderL</li>
                                                                 		<li>jdmetz</li>
