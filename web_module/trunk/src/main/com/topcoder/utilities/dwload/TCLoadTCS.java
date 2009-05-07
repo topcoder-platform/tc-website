@@ -215,12 +215,13 @@ public class TCLoadTCS extends TCLoad {
             List<CoderRating> list = getCurrentRatings();
             
             for (int cat : RATED_CATEGORIES) {
-                doLoadRank(cat, ACTIVE_RATING_RANK_TYPE_ID, list);
-                doLoadRank(cat, OVERALL_RATING_RANK_TYPE_ID, list);
-                loadSchoolRatingRank(cat, ACTIVE_RATING_RANK_TYPE_ID, list);
-                loadSchoolRatingRank(cat, OVERALL_RATING_RANK_TYPE_ID, list);
-                loadCountryRatingRank(cat, ACTIVE_RATING_RANK_TYPE_ID, list);
-                loadCountryRatingRank(cat, OVERALL_RATING_RANK_TYPE_ID, list);
+                final int phase = cat + 111;
+                doLoadRank(phase, ACTIVE_RATING_RANK_TYPE_ID, list);
+                doLoadRank(phase, OVERALL_RATING_RANK_TYPE_ID, list);
+                loadSchoolRatingRank(phase, ACTIVE_RATING_RANK_TYPE_ID, list);
+                loadSchoolRatingRank(phase, OVERALL_RATING_RANK_TYPE_ID, list);
+                loadCountryRatingRank(phase, ACTIVE_RATING_RANK_TYPE_ID, list);
+                loadCountryRatingRank(phase, OVERALL_RATING_RANK_TYPE_ID, list);
             }
 
             doLoadSeason();
