@@ -68,7 +68,8 @@ public class TCLoadTCS extends TCLoad {
     private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25)";
     
     /**
-     * <p>An <code>int</code> array representing all project categories that are currently being rated.</p>
+     * <p>An <code>int</code> array representing all project categories that are currently being rated.
+     * IF YOU CHANGE THIS LIST, YOU MUST ALSO UPDATE THE <code>getCurrentRatings</code> METHOD!</p>
      */
     private static final int[] RATED_CATEGORIES = new int[] {1, 2, 6, 7, 13, 14, 23};
 
@@ -215,12 +216,13 @@ public class TCLoadTCS extends TCLoad {
             List<CoderRating> list = getCurrentRatings();
             
             for (int cat : RATED_CATEGORIES) {
-                doLoadRank(cat, ACTIVE_RATING_RANK_TYPE_ID, list);
-                doLoadRank(cat, OVERALL_RATING_RANK_TYPE_ID, list);
-                loadSchoolRatingRank(cat, ACTIVE_RATING_RANK_TYPE_ID, list);
-                loadSchoolRatingRank(cat, OVERALL_RATING_RANK_TYPE_ID, list);
-                loadCountryRatingRank(cat, ACTIVE_RATING_RANK_TYPE_ID, list);
-                loadCountryRatingRank(cat, OVERALL_RATING_RANK_TYPE_ID, list);
+                final int phase = cat + 111;
+                doLoadRank(phase, ACTIVE_RATING_RANK_TYPE_ID, list);
+                doLoadRank(phase, OVERALL_RATING_RANK_TYPE_ID, list);
+                loadSchoolRatingRank(phase, ACTIVE_RATING_RANK_TYPE_ID, list);
+                loadSchoolRatingRank(phase, OVERALL_RATING_RANK_TYPE_ID, list);
+                loadCountryRatingRank(phase, ACTIVE_RATING_RANK_TYPE_ID, list);
+                loadCountryRatingRank(phase, OVERALL_RATING_RANK_TYPE_ID, list);
             }
 
             doLoadSeason();
@@ -2609,6 +2611,21 @@ public class TCLoadTCS extends TCLoad {
             query.append(" , case");
             query.append(" when ur.phase_id = 112 and exists (select '1' from active_designers ades where ades.user_id = ur.user_id)");
             query.append(" then 1 else 0 end as active_des");
+            query.append(" , case");
+            query.append(" when ur.phase_id = 134 and exists (select '1' from active_conceptualizers acon where acon.user_id = ur.user_id)");
+            query.append(" then 1 else 0 end as active_con");
+            query.append(" , case");
+            query.append(" when ur.phase_id = 117 and exists (select '1' from active_specifiers aspe where aspe.user_id = ur.user_id)");
+            query.append(" then 1 else 0 end as active_spe");
+            query.append(" , case");
+            query.append(" when ur.phase_id = 118 and exists (select '1' from active_architects aarc where aarc.user_id = ur.user_id)");
+            query.append(" then 1 else 0 end as active_arc");
+            query.append(" , case");
+            query.append(" when ur.phase_id = 125 and exists (select '1' from active_assemblers aass where aass.user_id = ur.user_id)");
+            query.append(" then 1 else 0 end as active_ass");
+            query.append(" , case");
+            query.append(" when ur.phase_id = 124 and exists (select '1' from active_application_testers ates where ates.user_id = ur.user_id)");
+            query.append(" then 1 else 0 end as active_tes");
             query.append(" , cs.school_id");
             query.append(" , c.coder_type_id");
             query.append(" , c.comp_country_code");
@@ -2629,19 +2646,50 @@ public class TCLoadTCS extends TCLoad {
                     if (rs.getInt("phase_id") == 113) {
                         ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
                                 rs.getInt("active_dev") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
-                    } else {
+                    } else if (rs.getInt("phase_id") == 112) {
                         ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
                                 rs.getInt("active_des") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 134) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
+                                rs.getInt("active_con") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 117) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
+                                rs.getInt("active_spe") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 118) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
+                                rs.getInt("active_arc") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 125) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
+                                rs.getInt("active_ass") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 124) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
+                                rs.getInt("active_tes") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
                     }
                 } else {
                     //students
                     if (rs.getInt("phase_id") == 113) {
                         ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
                                 rs.getInt("active_dev") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
-                    } else {
+                    } else if (rs.getInt("phase_id") == 112) {
                         ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
                                 rs.getInt("active_des") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 134) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
+                                rs.getInt("active_con") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 117) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
+                                rs.getInt("active_spe") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 118) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
+                                rs.getInt("active_arc") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 125) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
+                                rs.getInt("active_ass") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 124) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
+                                rs.getInt("active_tes") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
                     }
+
                 }
             }
 
