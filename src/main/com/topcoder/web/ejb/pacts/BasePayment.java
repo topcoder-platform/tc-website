@@ -31,8 +31,16 @@ import java.util.Date;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.2 (BUGR-1843, BUGR-1845) Change notes:
+ *   <ol>
+ *     <li>Added constants to support Specification Writing, Studio Specification Writing, UI Prototype Competition, 
+ *         RIA Build Competition and RIA Component Competition Payments.</li>
+ *   </ol>
+ * </p>
+ *
  * @author cucu, TCSDEVELOPER
- * @version 1.1
+ * @version 1.2
  */
 public abstract class BasePayment implements Constants, java.io.Serializable {
     private static Logger log = Logger.getLogger(BasePayment.class);
@@ -196,7 +204,16 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case RELIABILITY_BONUS_PAYMENT:
         case REVIEW_BOARD_BONUS_PAYMENT:
             return REFERENCE_PARENT_PAYMENT_ID;
-
+        case UI_PROTOTYPE_COMPETITION_PAYMENT:
+            return REFERENCE_COMPONENT_PROJECT_ID;
+        case RIA_BUILD_COMPETITION_PAYMENT:
+            return REFERENCE_COMPONENT_PROJECT_ID;
+        case RIA_COMPONENT_COMPETITION_PAYMENT:
+            return REFERENCE_COMPONENT_PROJECT_ID;
+        case SPECIFICATION_WRITING_PAYMENT:
+            return REFERENCE_COMPONENT_PROJECT_ID;
+        case STUDIO_SPECIFICATION_WRITING_PAYMENT:
+            return REFERENCE_STUDIO_CONTEST_ID;
         default:
             return NO_REFERENCE;
         }
@@ -254,6 +271,16 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             return new StudioEnhancementsPayment(coderId, grossAmount, referenceId, placed);
         case STUDIO_SPECIFICATION_REVIEW_PAYMENT:
             return new StudioSpecificationReviewPayment(coderId, grossAmount, referenceId, placed);
+        case UI_PROTOTYPE_COMPETITION_PAYMENT: 
+            return new UIPrototypeCompetitionPayment(coderId, grossAmount, referenceId, placed);
+        case RIA_BUILD_COMPETITION_PAYMENT: 
+            return new RIABuildCompetitionPayment(coderId, grossAmount, referenceId, placed);
+        case RIA_COMPONENT_COMPETITION_PAYMENT: 
+            return new RIAComponentCompetitionPayment(coderId, grossAmount, referenceId, placed);
+        case SPECIFICATION_WRITING_PAYMENT: 
+            return new SpecificationWritingPayment(coderId, grossAmount, referenceId, placed);
+        case STUDIO_SPECIFICATION_WRITING_PAYMENT: 
+            return new StudioSpecificationWritingPayment(coderId, grossAmount, referenceId, placed);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
     }
@@ -374,6 +401,11 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case STUDIO_BUG_FIXES_PAYMENT: return "TopCoder Studio bug fixes Payment";
             case STUDIO_ENHANCEMENTS_PAYMENT: return "TopCoder Studio enhancements Payment";
             case STUDIO_SPECIFICATION_REVIEW_PAYMENT: return "TopCoder Studio specification review Payment";
+            case UI_PROTOTYPE_COMPETITION_PAYMENT: return "UI Prototype Competition Payment";
+            case RIA_BUILD_COMPETITION_PAYMENT: return "RIA Build Competition Payment";
+            case RIA_COMPONENT_COMPETITION_PAYMENT: return "RIA Component Competition Payment";
+            case SPECIFICATION_WRITING_PAYMENT: return "Specification Writing Payment";
+            case STUDIO_SPECIFICATION_WRITING_PAYMENT: return "Studio Specification Writing Payment";
 
             default: return "Other Payment";
         }
