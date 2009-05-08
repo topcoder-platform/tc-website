@@ -16,7 +16,7 @@ import com.topcoder.web.common.WebConstants;
  * <p>
  *   Version 1.1 (Studio Coding In Online Review) Change notes:
  *   <ol>
- *     <li>Added constants for Studio prototype, Studio Build and Studio Component competitions.</li>
+ *     <li>Added constants for UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
  * </p>
  *
@@ -34,25 +34,25 @@ public interface SoftwareComponent extends Cloneable, Serializable {
     public final static int APPLICATION_TESTING_PHASE = (int) WebConstants.PHASE_APPLICATION_TESTING;
 
     /**
-     * <p>An <code>int</code> representing studio prototype phase id.</p>
+     * <p>An <code>int</code> representing ui prototype phase id.</p>
      *
      * @since 1.1
      */
-    public final static int STUDIO_PROTOTYPE_PHASE = (int) WebConstants.PHASE_STUDIO_PROTOTYPE;
+    public final static int UI_PROTOTYPE_PHASE = (int) WebConstants.PHASE_UI_PROTOTYPE;
 
     /**
-     * <p>An <code>int</code> representing studio build phase id.</p>
+     * <p>An <code>int</code> representing ria build phase id.</p>
      *
      * @since 1.1
      */
-    public final static int STUDIO_BUILD_PHASE = (int) WebConstants.PHASE_STUDIO_BUILD;
+    public final static int RIA_BUILD_PHASE = (int) WebConstants.PHASE_RIA_BUILD;
 
     /**
-     * <p>An <code>int</code> representing studio component phase id.</p>
+     * <p>An <code>int</code> representing ria component phase id.</p>
      *
      * @since 1.1
      */
-    public final static int STUDIO_COMPONENT_PHASE = (int) WebConstants.PHASE_STUDIO_COMPONENT;
+    public final static int RIA_COMPONENT_PHASE = (int) WebConstants.PHASE_RIA_COMPONENT;
 
     public final static int LEVEL1 = 100;
     public final static int LEVEL2 = 200;

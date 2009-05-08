@@ -9,7 +9,7 @@ package com.topcoder.web.common;
  * <p>
  *   Version 1.1 (Studio Coding In Online Review) Change notes:
  *   <ol>
- *     <li>Added constants to support new Studio prototype, Studio Build and Studio Component competitions.</li>
+ *     <li>Added constants to support new UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
  * </p>
  *
@@ -209,45 +209,45 @@ public interface WebConstants {
     public static final int ASSEMBLY_PROJECT_TYPE = 14;
 
     /**
-     * <p>An <code>int</code> representing studio prototype project type id.</p>
+     * <p>An <code>int</code> representing ui prototype project type id.</p>
      *
      * @since 1.1
      */
-    public static final int STUDIO_PROTOTYPE_PROJECT_TYPE = 19;
+    public static final int UI_PROTOTYPE_PROJECT_TYPE = 19;
 
     /**
-     * <p>An <code>int</code> representing studio build project type id.</p>
+     * <p>An <code>int</code> representing ria build project type id.</p>
      *
      * @since 1.1
      */
-    public static final int STUDIO_BUILD_PROJECT_TYPE = 24;
+    public static final int RIA_BUILD_PROJECT_TYPE = 24;
 
     /**
-     * <p>An <code>int</code> representing studio component project type id.</p>
+     * <p>An <code>int</code> representing ria component project type id.</p>
      *
      * @since 1.1
      */
-    public static final int STUDIO_COMPONENT_PROJECT_TYPE = 25;
+    public static final int RIA_COMPONENT_PROJECT_TYPE = 25;
 
     /**
-     * <p>A <code>long</code> representing studio prototype phase id.</p>
+     * <p>A <code>long</code> representing ui prototype phase id.</p>
      *
      * @since 1.1
      */
-    public static final long PHASE_STUDIO_PROTOTYPE = STUDIO_PROTOTYPE_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+    public static final long PHASE_UI_PROTOTYPE = UI_PROTOTYPE_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
 
     /**
-     * <p>A <code>long</code> representing studio build phase id.</p>
+     * <p>A <code>long</code> representing ria build phase id.</p>
      *
      * @since 1.1
      */
-    public static final long PHASE_STUDIO_BUILD = STUDIO_BUILD_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+    public static final long PHASE_RIA_BUILD = RIA_BUILD_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
 
     /**
-     * <p>A <code>long</code> representing studio component phase id.</p>
+     * <p>A <code>long</code> representing ria component phase id.</p>
      *
      * @since 1.1
      */
-    public static final long PHASE_STUDIO_COMPONENT = STUDIO_COMPONENT_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+    public static final long PHASE_RIA_COMPONENT = RIA_COMPONENT_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
 
 }

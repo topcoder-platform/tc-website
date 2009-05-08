@@ -23,8 +23,8 @@ import com.topcoder.web.common.WebConstants;
  *         <td>Version 1.1 (Studio Coding In Online Review)</td>
  *         <td>
  *           <ul>
- *             <li>Updated <code>isReviewBoardTypeSupported</code> methods to support Studio prototype, Studio Build
- *                 and Studio Component competitions.</li>
+ *             <li>Updated <code>isReviewBoardTypeSupported</code> methods to support UI Prototype, RIA Build
+ *                 and RIA Component competitions.</li>
  *           </ul>
  *         </td>
  *     </tr>
@@ -52,8 +52,8 @@ public final class ReviewBoardHelper {
             || reviewBoardType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.STUDIO_PROTOTYPE_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.STUDIO_BUILD_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.STUDIO_COMPONENT_PROJECT_TYPE));
+            || reviewBoardType.equals(String.valueOf(WebConstants.UI_PROTOTYPE_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.RIA_BUILD_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_PROJECT_TYPE));
     }
 }

@@ -23,7 +23,7 @@ import com.topcoder.web.tc.Constants;
  * <p>
  *   Version 1.1 (Studio Coding In Online Review) Change notes:
  *   <ol>
- *     <li>Added support for new Studio prototype, Studio Build and Studio Component competitions.</li>
+ *     <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
  * </p>
  *
@@ -58,9 +58,9 @@ public class CompList extends Base {
                   || Constants.ARCHITECTURE_PROJECT_TYPE == projectTypeId
                   || Constants.ASSEMBLY_PROJECT_TYPE == projectTypeId
                   || Constants.APPLICATION_TESTING_PROJECT_TYPE == projectTypeId
-                  || Constants.STUDIO_PROTOTYPE_PROJECT_TYPE == projectTypeId
-                  || Constants.STUDIO_BUILD_PROJECT_TYPE == projectTypeId
-                  || Constants.STUDIO_COMPONENT_PROJECT_TYPE == projectTypeId)) {
+                  || Constants.UI_PROTOTYPE_PROJECT_TYPE == projectTypeId
+                  || Constants.RIA_BUILD_PROJECT_TYPE == projectTypeId
+                  || Constants.RIA_COMPONENT_PROJECT_TYPE == projectTypeId)) {
                 throw new TCWebException("Invalid project_type_id (" + projectTypeId + ") parameter");
             }
 

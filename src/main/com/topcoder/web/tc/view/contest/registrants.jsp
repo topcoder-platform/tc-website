@@ -5,8 +5,8 @@
   -
   - Description: This page lists all registrants to a specific project.
   -
-  - Version 1.1 (Studio Coding In Online Review) changes: added support for new Studio prototype, Studio Build and 
-  - Studio Component competitions.
+  - Version 1.1 (Studio Coding In Online Review) changes: added support for new UI Prototype, RIA Build and 
+  - RIA Component competitions.
 --%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -47,9 +47,9 @@
 <c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_PROJECT_TYPE"/>
 <c:set value="<%=Constants.COMPONENT_TESTING_PROJECT_TYPE%>" var="COMPONENT_TESTING_PROJECT_TYPE"/>
 <c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_PROJECT_TYPE"/>
-<c:set value="<%=Constants.STUDIO_PROTOTYPE_PROJECT_TYPE%>" var="STUDIO_PROTOTYPE_PROJECT_TYPE"/>
-<c:set value="<%=Constants.STUDIO_BUILD_PROJECT_TYPE%>" var="STUDIO_BUILD_PROJECT_TYPE"/>
-<c:set value="<%=Constants.STUDIO_COMPONENT_PROJECT_TYPE%>" var="STUDIO_COMPONENT_PROJECT_TYPE"/>
+<c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_PROJECT_TYPE"/>
+<c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_PROJECT_TYPE"/>
+<c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_PROJECT_TYPE"/>
 
 <body>
 
@@ -98,19 +98,19 @@
                         <jsp:param name="node" value="app_testing_compete"/>
                     </jsp:include>
                 </c:when>
-                <c:when test="${pt == STUDIO_PROTOTYPE_PROJECT_TYPE}">
+                <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
-                        <jsp:param name="node" value="studio_prototype_compete"/>
+                        <jsp:param name="node" value="ui_prototype_compete"/>
                     </jsp:include>
                 </c:when>
-                <c:when test="${pt == STUDIO_BUILD_PROJECT_TYPE}">
+                <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
-                        <jsp:param name="node" value="studio_build_compete"/>
+                        <jsp:param name="node" value="ria_build_compete"/>
                     </jsp:include>
                 </c:when>
-                <c:when test="${pt == STUDIO_COMPONENT_PROJECT_TYPE}">
+                <c:when test="${pt == RIA_COMPONENT_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
-                        <jsp:param name="node" value="studio_component_compete"/>
+                        <jsp:param name="node" value="ria_component_compete"/>
                     </jsp:include>
                 </c:when>
             </c:choose>
@@ -168,21 +168,21 @@
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>
-                <c:when test="${pt == STUDIO_PROTOTYPE_PROJECT_TYPE}">
+                <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
-                        <jsp:param name="image" value="studio_prototype"/>
+                        <jsp:param name="image" value="ui_prototype"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>
-                <c:when test="${pt == STUDIO_BUILD_PROJECT_TYPE}">
+                <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
-                        <jsp:param name="image" value="studio_build"/>
+                        <jsp:param name="image" value="ria_build"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>
-                <c:when test="${pt == STUDIO_COMPONENT_PROJECT_TYPE}">
+                <c:when test="${pt == RIA_COMPONENT_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
-                        <jsp:param name="image" value="studio_component"/>
+                        <jsp:param name="image" value="ria_component"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>
@@ -219,14 +219,14 @@
                 <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
                       Application Testing
                 </c:when>
-                <c:when test="${pt == STUDIO_PROTOTYPE_PROJECT_TYPE}">
-                      Studio Prototype
+                <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
+                      UI Prototype
                 </c:when>
-                <c:when test="${pt == STUDIO_BUILD_PROJECT_TYPE}">
-                      Studio Build
+                <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
+                      RIA Build
                 </c:when>
-                <c:when test="${pt == STUDIO_COMPONENT_PROJECT_TYPE}">
-                      Studio Component
+                <c:when test="${pt == RIA_COMPONENT_PROJECT_TYPE}">
+                      RIA Component
                 </c:when>
             </c:choose>
                  Contest Details</td></tr>

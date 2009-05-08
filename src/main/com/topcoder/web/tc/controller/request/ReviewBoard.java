@@ -54,7 +54,7 @@ import com.topcoder.web.tc.Constants;
  *         <td>Version 1.4 (Studio Coding In Online Review)</td>
  *         <td>
  *           <ul>
- *             <li>Added support for Studio prototype, Studio Build and Studio Component competitions.</li>
+ *             <li>Added support for UI Prototype, RIA Build and RIA Component competitions.</li>
  *           </ul>
  *         </td>
  *     </tr>
