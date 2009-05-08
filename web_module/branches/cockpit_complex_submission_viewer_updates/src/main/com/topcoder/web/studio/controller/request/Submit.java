@@ -4,8 +4,11 @@
 package com.topcoder.web.studio.controller.request;
 
 import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,10 +16,13 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
 import javax.imageio.ImageIO;
@@ -350,7 +356,27 @@ public class Submit extends BaseSubmissionDataProcessor {
 							}
 						}
 						*/
-
+						
+						//
+						// process source submission, this makes sure 
+						// 	- source submission file has a valid structure.
+						//	- it does have index.html webpage. 
+						//
+						// @since Cockpit Submission Viewer assembly part 2.
+						//
+						String decompressedSourceFilePath = null;
+						
+						// NOTE THAT: for now for testing purpose contest type has been put any - see check contestType.equals("")
+						// this would get removed in final fixes. It was tedious to create a new contest of desired type.
+						// the only available registrable contest is of type Logo - so it has been done.
+						// but it doesn't change the functionality.
+						String contestType = s.getContest().getType().getDescription();
+			            if (contestType != null
+			                    && (!contestType.equals("") || contestType.equalsIgnoreCase("Prototype") || contestType.equalsIgnoreCase("FLASH")
+			                            || contestType.equalsIgnoreCase("Widget") || contestType.equalsIgnoreCase("Flex"))) {
+			            	decompressedSourceFilePath = processSourceSubmission(sourceFile);
+			            }
+						
 						if (maxRank == null) {
 							s.setRank(one);
 							dao.saveOrUpdate(s);
@@ -365,7 +391,16 @@ public class Submit extends BaseSubmissionDataProcessor {
 								dao.changeRank(newRank, s);
 							}
 						}
-
+						
+						//
+						// deploys the submission to deployment directory. 
+						//
+						// @since Cockpit Submission Viewer assembly part 2.
+						//
+						if (decompressedSourceFilePath != null) {
+							deploySourceSubmission(decompressedSourceFilePath, s.getId());
+						}
+						
 						closeConversation();
 						// have to wrap up the last stuff, and get into
 						// new stuff. we don't want
@@ -541,8 +576,8 @@ public class Submit extends BaseSubmissionDataProcessor {
 		return this.generatorThreads;
 	}
 
-        // BUGR-628 Change: change the parameter for this method.
-        // Change the third parameter 'String fileName' to 'Long SubmissionId', and add a parameter 'String contestName'.
+    // BUGR-628 Change: change the parameter for this method.
+    // Change the third parameter 'String fileName' to 'Long SubmissionId', and add a parameter 'String contestName'.
 	private void sendEmail(User submitter, String text, Long SubmissionId,
 			ReviewStatus status, Date submitDate, String contestName) throws Exception {
 
@@ -599,6 +634,137 @@ public class Submit extends BaseSubmissionDataProcessor {
 				.setFromAddress("studioadmin@topcoder.com",
 						"TopCoder Studio Admin");
 		EmailEngine.send(mail);
+	}
+	
+	/**
+	 * <p>
+	 * Processes source submission.
+	 * It does following -
+	 * a) De-compresses the source submission to temp location.
+	 * b) Validates the source site structure. On invalid format, throws error.
+	 * </p>
+	 * 
+	 * @param sourceFile the uploaded source file.
+	 * @return the path to 'site' directory in source submission.
+	 * @throws TCException throws this custom error on invalid file structure etc. 
+	 * @throws PersistenceException throws this error for problems on uploaded file and its property retrieval.
+	 * @throws FileDoesNotExistException throws this error if the uploaded file is not accessible.
+	 * @since Complex Submission Viewer Assembly - Part 2
+	 */
+	private String processSourceSubmission(UploadedFile sourceFile)
+			throws TCException, PersistenceException, FileDoesNotExistException {
+		int BUFFER = 512;
+		String remoteFileName = sourceFile.getRemoteFileName();
+
+		log.debug("unified submission: " + remoteFileName);
+
+		if (!remoteFileName.equals(Constants.SOURCE_ZIP_FILE_NAME)) {
+			throw new TCException(
+					"Source submission name should be 'source.zip' and it must be zip file format.");
+		}
+
+		long timestamp = System.currentTimeMillis();
+
+		MimeType mt = UnifiedSubmissionValidator.getMimeType(sourceFile);
+
+		StringBuffer buf = new StringBuffer(80);
+		buf.append(Constants.SOURCE_SUBMISSION_TEMP_STORAGE_DIR);
+		buf.append(System.getProperty("file.separator"));
+		buf.append(timestamp);
+
+		FilePath p = new FilePath();
+		p.setPath(buf.toString());
+
+		File directory = new File(buf.toString());
+		if (!directory.exists()) {
+			directory.mkdirs();
+		}
+
+		try {
+			BufferedOutputStream dest = null;
+			ZipEntry entry;
+
+			ZipInputStream in = new ZipInputStream(new BufferedInputStream(
+					sourceFile.getInputStream()));
+			while ((entry = in.getNextEntry()) != null) {
+				if (entry.getName().endsWith(".DS_Store")
+						|| entry.getName().startsWith("__MACOSX")) {
+					// ignore
+					log.debug("Ignoring zip entry: " + entry);
+					continue;
+				}
+
+				log.debug("Extracting zip entry: " + entry);
+
+				String filePath = p.getPath()
+						+ System.getProperty("file.separator")
+						+ entry.getName();
+
+				if (entry.isDirectory()) {
+					new File(filePath).mkdirs();
+					continue;
+				}
+
+				int count;
+				byte data[] = new byte[BUFFER];
+
+				FileOutputStream fos = new FileOutputStream(filePath);
+				dest = new BufferedOutputStream(fos, BUFFER);
+				while ((count = in.read(data, 0, BUFFER)) != -1) {
+					dest.write(data, 0, count);
+				}
+
+				dest.flush();
+				dest.close();
+
+			}
+
+			in.close();
+
+		} catch (IOException e) {
+			throw new TCException("Error in processing the source submission: "
+					+ e.getMessage());
+		}
+
+		// check if source/site/index.html file exists, if not throw an error.
+		String indexHtmlFilePath = p.getPath()
+				+ System.getProperty("file.separator")
+				+ Constants.SOURCE_SUBMISSION_SITE_PATH;
+		if (!new File(indexHtmlFilePath).exists()) {
+			throw new TCException(
+					"Source submission must have source/site/index.html file.");
+		}
+
+		// return the temp path where decompressed files were stored.
+		// deployer would copy/move the files from this location to the correct
+		// location.
+		return p.getPath() + System.getProperty("file.separator") + "source";
+	}
+
+	/**
+	 * It deploys the decompressed source file to the deployment path.
+	 *  
+	 * @param decompressedSourceFilePath decompressed source files path.
+	 * @param submissionId submission id.
+	 * @throws TCException thrown if some error in deploying.
+	 * @since Complex Submission Viewer Assembly - Part 2
+	 */
+	private void deploySourceSubmission(String decompressedSourceFilePath,
+			Long submissionId) throws TCException {
+		// move file from specified decompressedSourceFilePath to
+		// submissionDeploymentPath/submissionId/
+		File decompressedDirectory = new File(decompressedSourceFilePath);
+
+		String newDirectory = Constants.SOURCE_SUBMISSION_DEPLOYMENT_DIR
+				+ System.getProperty("file.separator") + submissionId;
+		boolean success = decompressedDirectory
+				.renameTo(new File(newDirectory));
+		if (!success) {
+			throw new TCException(
+					"Source submission could not be successfully deployed.");
+		}
+		
+		log.debug("Successfully moved " + decompressedDirectory  + " to: " + newDirectory);
 	}
 
 }
