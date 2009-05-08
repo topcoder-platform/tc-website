@@ -14,8 +14,16 @@ package com.topcoder.web.ejb.pacts;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.2 (BUGR-1843, BUGR-1845) Change notes:
+ *   <ol>
+ *     <li>Added constants to support Specification Writing, Studio Specification Writing, UI Prototype Competition, 
+ *         RIA Build Competition and RIA Component Competition Payments.</li>
+ *   </ol>
+ * </p>
+ *
  * @author TCSDEVELOPER
- * @version 1.1
+ * @version 1.2
  */
 public interface Constants {
 
@@ -92,6 +100,42 @@ public interface Constants {
      */
     public static final int STUDIO_SPECIFICATION_REVIEW_PAYMENT = 48;
 
+    /**
+     * <p>A <code>int</code> representing the payment type for UI prototype payments.</p>
+     *
+     * @since 1.2
+     */
+    public static final int UI_PROTOTYPE_COMPETITION_PAYMENT = 49;
+
+    /**
+     * <p>A <code>int</code> representing the payment type for RIA build payments.</p>
+     *
+     * @since 1.2
+     */
+    public static final int RIA_BUILD_COMPETITION_PAYMENT = 50;
+
+    /**
+     * <p>A <code>int</code> representing the payment type for RIA component payments.</p>
+     *
+     * @since 1.2
+     */
+    public static final int RIA_COMPONENT_COMPETITION_PAYMENT = 51;
+
+    /**
+     * <p>A <code>int</code> representing the payment type for specification writing payments.</p>
+     *
+     * @since 1.2
+     */
+    public static final int SPECIFICATION_WRITING_PAYMENT = 52;
+
+    /**
+     * <p>A <code>int</code> representing the payment type for studio specification writing payments.</p>
+     *
+     * @since 1.2
+     */
+    public static final int STUDIO_SPECIFICATION_WRITING_PAYMENT = 53;
+
+    
     public static final int NO_REFERENCE = 0;
     public static final int REFERENCE_ALGORITHM_ROUND_ID = 1;
     public static final int REFERENCE_COMPONENT_PROJECT_ID = 2;
@@ -132,4 +176,9 @@ public interface Constants {
     public static final int CONCEPTUALIZATION_PROJECT_CATEGORY_LU = 23;
     public static final int SPECIFICATION_PROJECT_CATEGORY_LU = 6;
     public static final int APPLICATION_TESTING_PROJECT_CATEGORY_LU = 13;
+    
+    public static final int UI_PROTOTYPE_COMPETITION_PROJECT_CATEGORY_LU = 19;
+    public static final int RIA_BUILD_COMPETITION_PROJECT_CATEGORY_LU = 24;
+    public static final int RIA_COMPONENT_COMPETITION_PROJECT_CATEGORY_LU = 25;
+
 }

@@ -17,14 +17,15 @@ import com.topcoder.web.ejb.pacts.Constants;
  * </p>
  *
  * <p>
- *   Version 1.2 (BUGR-1840) Change notes:
+ *   Version 1.2 (BUGR-1840, BUGR-1843) Change notes:
  *   <ol>
  *     <li>Referral bonus should only apply to Studio payments after 12/05/2008.</li>
+ *     <li><code>PAY_REFFERAL_TYPES</code> updated to support Studio Specification Writing.</li>
  *   </ol>
  * </p>
  *
- * @author Dave Pecora, TCSDEVELOPER
- * @version 1.1
+ * @author Dave Pecora, pulky
+ * @version 1.2
  */
 public interface PactsConstants extends Constants {
     // Object types
@@ -71,7 +72,7 @@ public interface PactsConstants extends Constants {
      */
     public static final int[] PAY_REFFERAL_TYPES = {
         TC_STUDIO_PAYMENT, TC_STUDIO_TOURNAMENT_PRIZE_PAYMENT, STUDIO_REVIEW_BOARD_PAYMENT, STUDIO_BUG_FIXES_PAYMENT, 
-        STUDIO_ENHANCEMENTS_PAYMENT, STUDIO_SPECIFICATION_REVIEW_PAYMENT
+        STUDIO_ENHANCEMENTS_PAYMENT, STUDIO_SPECIFICATION_REVIEW_PAYMENT, STUDIO_SPECIFICATION_WRITING_PAYMENT
     };
 
     // Contract type codes
