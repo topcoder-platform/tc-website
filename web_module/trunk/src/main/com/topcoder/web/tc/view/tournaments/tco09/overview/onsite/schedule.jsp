@@ -129,6 +129,12 @@
                                                                         </tr>
                                                                         <tr>
                                                                           <td class="first">&nbsp;</td>
+                                                                          <td class="first last alignText">1:00 p.m. - 1:45 p.m.</td>
+                                                                          <td class="first last alignText">Innovating Technical Writing Through Competitions Round Table</td>
+                                                                          <td class="last">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                          <td class="first">&nbsp;</td>
                                                                           <td class="first last alignText">2:00 p.m. - 2:45 p.m.</td>
                                                                           <td class="first last alignText">Specification and Conceptualization Round Table</td>
                                                                           <td class="last">&nbsp;</td>
