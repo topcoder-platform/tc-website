@@ -92,7 +92,7 @@ import java.util.Map;
  *
  *   Version 1.0.9 (Studio Coding In Online Review) Change notes:
  *   <ol>
- *     <li>Added support for new Studio prototype, Studio Build and Studio Component competitions.</li>
+ *     <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
  * </p>
  *
@@ -180,25 +180,25 @@ public class RBoardApplicationBean extends BaseEJB {
 
 
     /**
-     * <p>An <code>int</code> representing the primary review id for studio prototype projects.</p>
+     * <p>An <code>int</code> representing the primary review id for ui prototype projects.</p>
      *
      * @since 1.0.9
      */
-    private static final int STUDIO_PROTOTYPE_PRIMARY_REVIEW_ID = 22;
+    private static final int UI_PROTOTYPE_PRIMARY_REVIEW_ID = 22;
 
     /**
-     * <p>An <code>int</code> representing the primary review id for studio build projects.</p>
+     * <p>An <code>int</code> representing the primary review id for ria build projects.</p>
      *
      * @since 1.0.9
      */
-    private static final int STUDIO_BUILD_PRIMARY_REVIEW_ID = 25;
+    private static final int RIA_BUILD_PRIMARY_REVIEW_ID = 25;
 
     /**
-     * <p>An <code>int</code> representing the primary review id for studio component projects.</p>
+     * <p>An <code>int</code> representing the primary review id for ria component projects.</p>
      *
      * @since 1.0.9
      */
-    private static final int STUDIO_COMPONENT_PRIMARY_REVIEW_ID = 28;
+    private static final int RIA_COMPONENT_PRIMARY_REVIEW_ID = 28;
 
     /**
      * <p>A <code>String</code> containing the error message for inconsistent reviewers for most project types.</p>
@@ -956,14 +956,14 @@ public class RBoardApplicationBean extends BaseEJB {
         } else if (phaseId == (WebConstants.APPLICATION_TESTING_PROJECT_TYPE + 111)) {
             validateReviewPositions(reviewTypeId, primary, reviewers, APPLICATION_TESTING_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
-        } else if (phaseId == (WebConstants.STUDIO_PROTOTYPE_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, STUDIO_PROTOTYPE_PRIMARY_REVIEW_ID,
+        } else if (phaseId == (WebConstants.UI_PROTOTYPE_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, UI_PROTOTYPE_PRIMARY_REVIEW_ID,
                 INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
-        } else if (phaseId == (WebConstants.STUDIO_BUILD_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, STUDIO_BUILD_PRIMARY_REVIEW_ID,
+        } else if (phaseId == (WebConstants.RIA_BUILD_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, RIA_BUILD_PRIMARY_REVIEW_ID,
                 INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
-        } else if (phaseId == (WebConstants.STUDIO_COMPONENT_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, STUDIO_COMPONENT_PRIMARY_REVIEW_ID,
+        } else if (phaseId == (WebConstants.RIA_COMPONENT_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, RIA_COMPONENT_PRIMARY_REVIEW_ID,
                 INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         }
 

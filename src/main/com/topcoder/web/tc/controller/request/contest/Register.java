@@ -45,7 +45,7 @@ import com.topcoder.web.tc.Constants;
  * <p>
  *   Version 1.1 (Studio Coding In Online Review) Change notes:
  *   <ol>
- *     <li>Added support for new Studio prototype, Studio Build and Studio Component competitions.</li>
+ *     <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
  * </p>
  *
@@ -130,12 +130,12 @@ public class Register extends ViewRegistration {
                 project += " Component Testing Project";
             } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.APPLICATION_TESTING_PROJECT_TYPE))) {
                 project += " Application Testing Project";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.STUDIO_PROTOTYPE_PROJECT_TYPE))) {
-                project += " Studio Prototype Project";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.STUDIO_BUILD_PROJECT_TYPE))) {
-                project += " Studio Build Project";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.STUDIO_COMPONENT_PROJECT_TYPE))) {
-                project += " Studio Component Project";
+            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.UI_PROTOTYPE_PROJECT_TYPE))) {
+                project += " UI Prototype Project";
+            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_BUILD_PROJECT_TYPE))) {
+                project += " RIA Build Project";
+            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_COMPONENT_PROJECT_TYPE))) {
+                project += " RIA Component Project";
             }
 
             long activeForumCategoryId = componentManager.getActiveForumCategory().getId();
