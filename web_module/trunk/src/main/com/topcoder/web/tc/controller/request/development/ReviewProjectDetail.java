@@ -61,7 +61,7 @@ import java.util.Map;
  *
  *   Version 1.0.5 (Studio Coding In Online Review) Change notes:
  *   <ol>
- *     <li>Added support for Studio prototype, Studio Build and Studio Component competitions.</li>
+ *     <li>Added support for UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
  * </p>
  *

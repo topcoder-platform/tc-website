@@ -72,7 +72,7 @@ import java.io.FileOutputStream;
  *
  *   Version 1.0.6 (Studio Coding In Online Review) Change notes:
  *   <ol>
- *     <li>Added support for Studio prototype, Studio Build and Studio Component competitions.</li>
+ *     <li>Added support for UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
  * </p>
  *
@@ -253,8 +253,8 @@ public class ProjectReviewApply extends Base {
             projectTypeId != WebConstants.CONCEPTUALIZATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.APPLICATION_TESTING_PROJECT_TYPE &&
-            projectTypeId != WebConstants.STUDIO_PROTOTYPE_PROJECT_TYPE &&
-            projectTypeId != WebConstants.STUDIO_BUILD_PROJECT_TYPE &&
-            projectTypeId != WebConstants.STUDIO_COMPONENT_PROJECT_TYPE;
+            projectTypeId != WebConstants.UI_PROTOTYPE_PROJECT_TYPE &&
+            projectTypeId != WebConstants.RIA_BUILD_PROJECT_TYPE &&
+            projectTypeId != WebConstants.RIA_COMPONENT_PROJECT_TYPE;
     }
 }

@@ -4,7 +4,7 @@
   - Since: Studio Coding In Online Review
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
-  - Description: This page shows project details for Studio Component competitions.
+  - Description: This page shows project details for UI Prototype competitions.
   - 
   - Note: existing project details page was used to create this new page. The code was cleaned and refactored.
   -       All scriptlets were removed.
@@ -28,7 +28,7 @@
 <html>
     <head>
         <title>
-            TopCoder Studio Component Competitions
+            TopCoder UI Prototype Competitions
         </title>
         
         <jsp:include page="/script.jsp"/>
@@ -47,7 +47,7 @@
                 <%-- Left Column Begins--%>
                 <td width="180">
                     <jsp:include page="/includes/global_left.jsp">
-                        <jsp:param name="node" value="studio_component_compete"/>
+                        <jsp:param name="node" value="ui_prototype_compete"/>
                     </jsp:include>
                 </td>
                 <%-- Left Column Ends --%>
@@ -55,7 +55,7 @@
                 <%-- Center Column Begins --%>
                 <td width="100%" align="left" class="bodyColumn">
                     <jsp:include page="/page_title.jsp">
-                        <jsp:param name="image" value="studio_component"/>
+                        <jsp:param name="image" value="ui_prototype"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 
@@ -67,7 +67,7 @@
                                 <table cellspacing="0" class="formFrame" align="center" width="530">
                                     <tr>
                                         <td class="projectTitles" nowrap="nowrap">
-                                            Studio Component Project - ${projectDetailRow.map["component_name"]}
+                                            UI Prototype Project - ${projectDetailRow.map["component_name"]}
                                         </td>
                                     </tr>
                                 </table>
@@ -185,7 +185,7 @@
                                 
                                 <p>
                                     <div align="right">
-                                        <a href="/wiki/display/tc/How+to+Compete+in+Studio+Component+Competitions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
+                                        <a href="/wiki/display/tc/How+to+Compete+in+Studio+Prototype+Competitions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
                                     </div>
                                 </p>
                                 
