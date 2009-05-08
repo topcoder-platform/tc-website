@@ -206,7 +206,7 @@
                nav.search("m_ria_build_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Past Contests", "ria_build_stats"));
            nav.search("m_ria_build_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ria_build_support')", "Support / FAQs", "m_ria_build_support"));
                nav.search("m_ria_build_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+RIA+Builds", "How to Compete", "ria_build_how_to_compete"));
-        /*               
+        /*
         nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ria_component_competitions')", "RIA Component", "m_ria_component_competitions"));
            nav.search("m_ria_component_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/RIA+Component+Competitions", "Overview", "ria_component_overview"));
            nav.search("m_ria_component_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.RIA_COMPONENT_PROJECT_TYPE, "Active Contests", "ria_component_compete"));
