@@ -53,7 +53,7 @@ import com.topcoder.shared.util.logging.Logger;
  *
  *   Version 1.1.1 (Studio Coding In Online Review) Change notes:
  *   <ol>
- *     <li>Added support for new Studio prototype, Studio Build and Studio Component competitions.</li>
+ *     <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
  * </p>
  *
@@ -175,8 +175,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
                    || phaseId == ARCHITECTURE_PHASE || phaseId == ASSEMBLY_PHASE
                    || phaseId == APPLICATION_TESTING_PHASE) {
             return new ApplicationReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
-        } else if (phaseId == STUDIO_PROTOTYPE_PHASE || phaseId == STUDIO_BUILD_PHASE ||
-                phaseId == STUDIO_COMPONENT_PHASE) {
+        } else if (phaseId == UI_PROTOTYPE_PHASE || phaseId == RIA_BUILD_PHASE ||
+                phaseId == RIA_COMPONENT_PHASE) {
             return new StudioReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else {
             throw new IllegalArgumentException("Invalid phaseId (" + phaseId + ")");
@@ -281,9 +281,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("Architecture phaseId          : " + ARCHITECTURE_PHASE);
             System.out.println("Assembly phaseId              : " + ASSEMBLY_PHASE);
             System.out.println("Application Testing phaseId   : " + APPLICATION_TESTING_PHASE);
-            System.out.println("Studio Prototype phaseId      : " + STUDIO_PROTOTYPE_PHASE);
-            System.out.println("Studio Build phaseId          : " + STUDIO_BUILD_PHASE);
-            System.out.println("Studio Component phaseId      : " + STUDIO_COMPONENT_PHASE);
+            System.out.println("UI Prototype phaseId      : " + UI_PROTOTYPE_PHASE);
+            System.out.println("RIA Build phaseId          : " + RIA_BUILD_PHASE);
+            System.out.println("RIA Component phaseId      : " + RIA_COMPONENT_PHASE);
 
         } else {
             DefaultPriceComponent sc = new DefaultPriceComponent(1, Integer.parseInt(args[0]),

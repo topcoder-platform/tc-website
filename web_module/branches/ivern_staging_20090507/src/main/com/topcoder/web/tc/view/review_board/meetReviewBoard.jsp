@@ -10,8 +10,8 @@
   - This is an exhaustive refactor and generalization from existing "Meet the Review Board" JSP files.
   - In this release, it will be used for Conceptualization, Specification and Application Testing project types.
   -
-  - Version 1.1 (Studio Coding In Online Review) changes: added support for new Studio prototype, Studio Build and 
-  - Studio Component competitions.
+  - Version 1.1 (Studio Coding In Online Review) changes: added support for new UI Prototype, RIA Build and 
+  - RIA Component competitions.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -24,9 +24,9 @@
 <c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
 <c:set var="SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>"/>
 <c:set var="APPLICATION_TESTING_PROJECT_TYPE" value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>"/>
-<c:set var="STUDIO_PROTOTYPE_PROJECT_TYPE" value="<%=Constants.STUDIO_PROTOTYPE_PROJECT_TYPE%>" />
-<c:set var="STUDIO_BUILD_PROJECT_TYPE" value="<%=Constants.STUDIO_BUILD_PROJECT_TYPE%>" />
-<c:set var="STUDIO_COMPONENT_PROJECT_TYPE" value="<%=Constants.STUDIO_COMPONENT_PROJECT_TYPE%>" />
+<c:set var="UI_PROTOTYPE_PROJECT_TYPE" value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" />
+<c:set var="RIA_BUILD_PROJECT_TYPE" value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" />
+<c:set var="RIA_COMPONENT_PROJECT_TYPE" value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" />
 
 <c:set var="projectType" value="${param[PROJECT_TYPE_ID]}"/>
 
@@ -40,14 +40,14 @@
     <c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Application Testing"/>
     </c:when>
-    <c:when test="${projectType == STUDIO_PROTOTYPE_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="Studio Prototype"/>
+    <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="UI Prototype"/>
     </c:when>
-    <c:when test="${projectType == STUDIO_BUILD_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="Studio Build"/>
+    <c:when test="${projectType == RIA_BUILD_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="RIA Build"/>
     </c:when>
-    <c:when test="${projectType == STUDIO_COMPONENT_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="Studio Component"/>
+    <c:when test="${projectType == RIA_COMPONENT_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="RIA Component"/>
     </c:when>
 </c:choose>
 
@@ -77,19 +77,19 @@
                     <jsp:param name="level1" value="application_testing"/>
                 </jsp:include>
             </c:when>
-            <c:when test="${projectType == STUDIO_PROTOTYPE_PROJECT_TYPE}">
+            <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
                 <jsp:include page="/top.jsp" >
-                    <jsp:param name="level1" value="studio_prototype"/>
+                    <jsp:param name="level1" value="ui_prototype"/>
                 </jsp:include>
             </c:when>
-            <c:when test="${projectType == STUDIO_BUILD_PROJECT_TYPE}">
+            <c:when test="${projectType == RIA_BUILD_PROJECT_TYPE}">
                 <jsp:include page="/top.jsp" >
-                    <jsp:param name="level1" value="studio_build"/>
+                    <jsp:param name="level1" value="ria_build"/>
                 </jsp:include>
             </c:when>
-            <c:when test="${projectType == STUDIO_COMPONENT_PROJECT_TYPE}">
+            <c:when test="${projectType == RIA_COMPONENT_PROJECT_TYPE}">
                 <jsp:include page="/top.jsp" >
-                    <jsp:param name="level1" value="studio_component"/>
+                    <jsp:param name="level1" value="ria_component"/>
                 </jsp:include>
             </c:when>
         </c:choose>
@@ -113,19 +113,19 @@
                                 <jsp:param name="node" value="application_testing_review_board"/>
                             </jsp:include>
                         </c:when>
-                        <c:when test="${projectType == STUDIO_PROTOTYPE_PROJECT_TYPE}">
+                        <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="studio_prototype_review_board"/>
+                                <jsp:param name="node" value="ui_prototype_review_board"/>
                             </jsp:include>
                         </c:when>
-                        <c:when test="${projectType == STUDIO_BUILD_PROJECT_TYPE}">
+                        <c:when test="${projectType == RIA_BUILD_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="studio_build_review_board"/>
+                                <jsp:param name="node" value="ria_build_review_board"/>
                             </jsp:include>
                         </c:when>
-                        <c:when test="${projectType == STUDIO_COMPONENT_PROJECT_TYPE}">
+                        <c:when test="${projectType == RIA_COMPONENT_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="studio_component_review_board"/>
+                                <jsp:param name="node" value="ria_component_review_board"/>
                             </jsp:include>
                         </c:when>
                     </c:choose>
@@ -157,22 +157,22 @@
                                 <jsp:param name="title" value="Meet the Application Testing Review Board"/>
                             </jsp:include>
                         </c:when>
-                        <c:when test="${projectType == STUDIO_PROTOTYPE_PROJECT_TYPE}">
+                        <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
                             <jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="studio_prototype"/>
-                                <jsp:param name="title" value="Meet the Studio Prototype Review Board"/>
+                                <jsp:param name="image" value="ui_prototype"/>
+                                <jsp:param name="title" value="Meet the UI Prototype Review Board"/>
                             </jsp:include>
                         </c:when>
-                        <c:when test="${projectType == STUDIO_BUILD_PROJECT_TYPE}">
+                        <c:when test="${projectType == RIA_BUILD_PROJECT_TYPE}">
                             <jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="studio_build"/>
-                                <jsp:param name="title" value="Meet the Studio Build Review Board"/>
+                                <jsp:param name="image" value="ria_build"/>
+                                <jsp:param name="title" value="Meet the RIA Build Review Board"/>
                             </jsp:include>
                         </c:when>
-                        <c:when test="${projectType == STUDIO_COMPONENT_PROJECT_TYPE}">
+                        <c:when test="${projectType == RIA_COMPONENT_PROJECT_TYPE}">
                             <jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="studio_component"/>
-                                <jsp:param name="title" value="Meet the Studio Component Review Board"/>
+                                <jsp:param name="image" value="ria_component"/>
+                                <jsp:param name="title" value="Meet the RIA Component Review Board"/>
                             </jsp:include>
                         </c:when>
                     </c:choose>
@@ -278,22 +278,22 @@
                                 <jsp:param name="level2" value="application_testing"/>
                             </jsp:include>
                         </c:when>
-                        <c:when test="${projectType == STUDIO_PROTOTYPE_PROJECT_TYPE}">
+                        <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
                             <jsp:include page="/public_right.jsp">
                                 <jsp:param name="level1" value="review_board"/>
-                                <jsp:param name="level2" value="studio_prototype"/>
+                                <jsp:param name="level2" value="ui_prototype"/>
                             </jsp:include>
                         </c:when>
-                        <c:when test="${projectType == STUDIO_BUILD_PROJECT_TYPE}">
+                        <c:when test="${projectType == RIA_BUILD_PROJECT_TYPE}">
                             <jsp:include page="/public_right.jsp">
                                 <jsp:param name="level1" value="review_board"/>
-                                <jsp:param name="level2" value="studio_build"/>
+                                <jsp:param name="level2" value="ria_build"/>
                             </jsp:include>
                         </c:when>
-                        <c:when test="${projectType == STUDIO_COMPONENT_PROJECT_TYPE}">
+                        <c:when test="${projectType == RIA_COMPONENT_PROJECT_TYPE}">
                             <jsp:include page="/public_right.jsp">
                                 <jsp:param name="level1" value="review_board"/>
-                                <jsp:param name="level2" value="studio_component"/>
+                                <jsp:param name="level2" value="ria_component"/>
                             </jsp:include>
                         </c:when>
                     </c:choose>

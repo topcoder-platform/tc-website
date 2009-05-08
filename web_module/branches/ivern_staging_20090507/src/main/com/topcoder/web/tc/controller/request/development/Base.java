@@ -41,7 +41,7 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *         <td>Version 1.2 (Studio Coding In Online Review)</td>
  *         <td>
  *           <ul>
- *             <li>Added support for new Studio prototype, Studio Build and Studio Component competitions.</li>
+ *             <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
  *           </ul>
  *         </td>
  *     </tr>
@@ -83,12 +83,12 @@ public abstract class Base extends ShortHibernateProcessor {
             return "/conceptualization/projectDetail.jsp";
         } else if (projectTypeId==Constants.SPECIFICATION_PROJECT_TYPE) {
             return "/specification/projectDetail.jsp";
-        } else if (projectTypeId==Constants.STUDIO_PROTOTYPE_PROJECT_TYPE) {
-            return "/studioprototype/projectDetail.jsp";
-        } else if (projectTypeId==Constants.STUDIO_BUILD_PROJECT_TYPE) {
-            return "/studiobuild/projectDetail.jsp";
-        } else if (projectTypeId==Constants.STUDIO_COMPONENT_PROJECT_TYPE) {
-            return "/studiocomponent/projectDetail.jsp";
+        } else if (projectTypeId==Constants.UI_PROTOTYPE_PROJECT_TYPE) {
+            return "/uiprototype/projectDetail.jsp";
+        } else if (projectTypeId==Constants.RIA_BUILD_PROJECT_TYPE) {
+            return "/riabuild/projectDetail.jsp";
+        } else if (projectTypeId==Constants.RIA_COMPONENT_PROJECT_TYPE) {
+            return "/riacomponent/projectDetail.jsp";
         } else {
             return "";
         }
@@ -109,9 +109,9 @@ public abstract class Base extends ShortHibernateProcessor {
             || projectTypeId == Constants.ARCHITECTURE_PROJECT_TYPE
             || projectTypeId == Constants.ASSEMBLY_PROJECT_TYPE
             || projectTypeId == Constants.APPLICATION_TESTING_PROJECT_TYPE
-            || projectTypeId == Constants.STUDIO_PROTOTYPE_PROJECT_TYPE
-            || projectTypeId == Constants.STUDIO_BUILD_PROJECT_TYPE
-            || projectTypeId == Constants.STUDIO_COMPONENT_PROJECT_TYPE) {
+            || projectTypeId == Constants.UI_PROTOTYPE_PROJECT_TYPE
+            || projectTypeId == Constants.RIA_BUILD_PROJECT_TYPE
+            || projectTypeId == Constants.RIA_COMPONENT_PROJECT_TYPE) {
             return "registrants";
         } else {
             return "contest_registrants";
@@ -197,12 +197,12 @@ public abstract class Base extends ShortHibernateProcessor {
                 projectTypeId = Constants.ASSEMBLY_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.APPLICATION_TESTING_PHASE).equals(phaseId)) {
                 projectTypeId = Constants.APPLICATION_TESTING_PROJECT_TYPE;
-            } else if (String.valueOf(SoftwareComponent.STUDIO_PROTOTYPE_PHASE).equals(phaseId)) {
-                projectTypeId = Constants.STUDIO_PROTOTYPE_PROJECT_TYPE;
-            } else if (String.valueOf(SoftwareComponent.STUDIO_BUILD_PHASE).equals(phaseId)) {
-                projectTypeId = Constants.STUDIO_BUILD_PROJECT_TYPE;
-            } else if (String.valueOf(SoftwareComponent.STUDIO_COMPONENT_PHASE).equals(phaseId)) {
-                projectTypeId = Constants.STUDIO_COMPONENT_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.UI_PROTOTYPE_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.UI_PROTOTYPE_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.RIA_BUILD_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.RIA_BUILD_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.RIA_COMPONENT_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.RIA_COMPONENT_PROJECT_TYPE;
             }
         }
         return projectTypeId;

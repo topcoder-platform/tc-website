@@ -52,7 +52,7 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  * <p>
  *   Version 1.1.3 (Studio Coding In Online Review) Change notes:
  *   <ol>
- *     <li>Added support for new Studio prototype, Studio Build and Studio Component competitions.</li>
+ *     <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
  * </p>
  *

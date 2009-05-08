@@ -4,7 +4,7 @@
   - Since: Studio Coding In Online Review
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
-  - Description: This page shows project details for Studio Build competitions.
+  - Description: This page shows project details for RIA Build competitions.
   - 
   - Note: existing project details page was used to create this new page. The code was cleaned and refactored.
   -       All scriptlets were removed.
@@ -28,7 +28,7 @@
 <html>
     <head>
         <title>
-            TopCoder Studio Build Competitions
+            TopCoder RIA Build Competitions
         </title>
         
         <jsp:include page="/script.jsp"/>
@@ -47,7 +47,7 @@
                 <%-- Left Column Begins--%>
                 <td width="180">
                     <jsp:include page="/includes/global_left.jsp">
-                        <jsp:param name="node" value="studio_build_compete"/>
+                        <jsp:param name="node" value="ria_build_compete"/>
                     </jsp:include>
                 </td>
                 <%-- Left Column Ends --%>
@@ -55,7 +55,7 @@
                 <%-- Center Column Begins --%>
                 <td width="100%" align="left" class="bodyColumn">
                     <jsp:include page="/page_title.jsp">
-                        <jsp:param name="image" value="studio_build"/>
+                        <jsp:param name="image" value="ria_build"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 
@@ -67,7 +67,7 @@
                                 <table cellspacing="0" class="formFrame" align="center" width="530">
                                     <tr>
                                         <td class="projectTitles" nowrap="nowrap">
-                                            Studio Build Project - ${projectDetailRow.map["component_name"]}
+                                            RIA Build Project - ${projectDetailRow.map["component_name"]}
                                         </td>
                                     </tr>
                                 </table>

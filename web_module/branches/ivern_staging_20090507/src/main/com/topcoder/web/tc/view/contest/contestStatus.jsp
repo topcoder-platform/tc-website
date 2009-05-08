@@ -5,8 +5,8 @@
   -
   - Description: This page lists all active contests for a specific project type to show their status.
   -
-  - Version 1.1 (Studio Coding In Online Review) changes: added support for new Studio prototype, Studio Build and 
-  - Studio Component competitions.
+  - Version 1.1 (Studio Coding In Online Review) changes: added support for new UI Prototype, RIA Build and 
+  - RIA Component competitions.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -44,9 +44,9 @@
 <c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_TYPE_ID"/>
 <c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_TYPE_ID"/>
 
-<c:set value="<%=Constants.STUDIO_PROTOTYPE_PROJECT_TYPE%>" var="STUDIO_PROTOTYPE_TYPE_ID"/>
-<c:set value="<%=Constants.STUDIO_BUILD_PROJECT_TYPE%>" var="STUDIO_BUILD_TYPE_ID"/>
-<c:set value="<%=Constants.STUDIO_COMPONENT_PROJECT_TYPE%>" var="STUDIO_COMPONENT_TYPE_ID"/>
+<c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_TYPE_ID"/>
+<c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_TYPE_ID"/>
+<c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_TYPE_ID"/>
 
 
 <jsp:include page="../top.jsp">
@@ -93,19 +93,19 @@
             <jsp:param name="node" value="app_testing_status"/>
            </jsp:include>
         </c:when>
-            <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+            <c:when test="${pt == UI_PROTOTYPE_TYPE_ID}">
                 <jsp:include page="/includes/global_left.jsp">
-                    <jsp:param name="node" value="studio_prototype_status"/>
+                    <jsp:param name="node" value="ui_prototype_status"/>
                 </jsp:include>
             </c:when>
-            <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+            <c:when test="${pt == RIA_BUILD_TYPE_ID}">
                 <jsp:include page="/includes/global_left.jsp">
-                    <jsp:param name="node" value="studio_build_status"/>
+                    <jsp:param name="node" value="ria_build_status"/>
                 </jsp:include>
             </c:when>
-            <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+            <c:when test="${pt == RIA_COMPONENT_TYPE_ID}">
                 <jsp:include page="/includes/global_left.jsp">
-                    <jsp:param name="node" value="studio_component_status"/>
+                    <jsp:param name="node" value="ria_component_status"/>
                 </jsp:include>
             </c:when>
       </c:choose>
@@ -163,21 +163,21 @@
                 <jsp:param name="title" value="Contest Status"/>
             </jsp:include>
         </c:when>
-        <c:when test="${pt == STUDIO_PROTOTYPE_TYPE_ID}">
+        <c:when test="${pt == UI_PROTOTYPE_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="studio_prototype"/>
+                <jsp:param name="image" value="ui_prototype"/>
                 <jsp:param name="title" value="Contest Status"/>
             </jsp:include>
         </c:when>
-        <c:when test="${pt == STUDIO_BUILD_TYPE_ID}">
+        <c:when test="${pt == RIA_BUILD_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="studio_build"/>
+                <jsp:param name="image" value="ria_build"/>
                 <jsp:param name="title" value="Contest Status"/>
             </jsp:include>
         </c:when>
-        <c:when test="${pt == STUDIO_COMPONENT_TYPE_ID}">
+        <c:when test="${pt == RIA_COMPONENT_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="studio_component"/>
+                <jsp:param name="image" value="ria_component"/>
                 <jsp:param name="title" value="Contest Status"/>
             </jsp:include>
         </c:when>
@@ -187,7 +187,7 @@
     <tr>
         <c:choose>
         <c:when test="${pt == ARCHITECTURE_TYPE_ID || pt == ASSEMBLY_TYPE_ID || pt == APPLICATION_TESTING_TYPE_ID
-            || pt == STUDIO_PROTOTYPE_TYPE_ID || pt == STUDIO_BUILD_TYPE_ID || pt == STUDIO_COMPONENT_TYPE_ID}">
+            || pt == UI_PROTOTYPE_TYPE_ID || pt == RIA_BUILD_TYPE_ID || pt == RIA_COMPONENT_TYPE_ID}">
             <td class="title" colspan="8">Contest Status</td>
         </c:when>
         <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
@@ -205,7 +205,7 @@
             </td>
         </c:if>
         <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != APPLICATION_TESTING_TYPE_ID
-            && pt != STUDIO_PROTOTYPE_TYPE_ID && pt != STUDIO_BUILD_TYPE_ID && pt != STUDIO_COMPONENT_TYPE_ID}">
+            && pt != UI_PROTOTYPE_TYPE_ID && pt != RIA_BUILD_TYPE_ID && pt != RIA_COMPONENT_TYPE_ID}">
             <td class="headerC">
                 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
             </td>
@@ -243,7 +243,7 @@
                 </td>
             </c:if>
             <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != APPLICATION_TESTING_TYPE_ID
-                && pt != STUDIO_PROTOTYPE_TYPE_ID && pt != STUDIO_BUILD_TYPE_ID && pt != STUDIO_COMPONENT_TYPE_ID}">
+                && pt != UI_PROTOTYPE_TYPE_ID && pt != RIA_BUILD_TYPE_ID && pt != RIA_COMPONENT_TYPE_ID}">
             <td class="valueC">
                 <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/>
             </td>
