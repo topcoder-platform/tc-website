@@ -446,6 +446,30 @@ public class Constants implements WebConstants {
      * @since 1.1
      */
     public static final String PAGE_SIZE_KEY = "ps";
+    
+    /**
+     * Name of source submission zip file
+     * Since Complex Submission Viewer Assembly - Part 2
+     */
+    public static final String SOURCE_ZIP_FILE_NAME = "source.zip";
+    
+    /**
+     * Source submission temp storage directory
+     * Since Complex Submission Viewer Assembly - Part 2
+     */
+    public static final String SOURCE_SUBMISSION_TEMP_STORAGE_DIR = "/mnt/apache/studio/temp/submissions";
+    
+    /**
+     * Source submission deployment directory
+     * Since Complex Submission Viewer Assembly - Part 2
+     */
+    public static final String SOURCE_SUBMISSION_DEPLOYMENT_DIR = "/mnt/apache/studio/submissions";
+    
+    /**
+     * Source submission site url
+     * Since Complex Submission Viewer Assembly - Part 2
+     */
+    public static final String SOURCE_SUBMISSION_SITE_PATH = "source/site/index.html";
 
     static {
         initialize();
