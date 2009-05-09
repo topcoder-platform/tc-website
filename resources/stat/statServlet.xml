@@ -76,6 +76,11 @@
         <ContentItem contentHandle="country_avg_rating" nextPage="/statistics/topRankedCountries.jsp" access="0"/>
         <ContentItem contentHandle="top_designers" nextPage="/statistics/topRankedDesigners.jsp" access="0"/>
         <ContentItem contentHandle="top_developers" nextPage="/statistics/topRankedDevelopers.jsp" access="0"/>
+        <ContentItem contentHandle="top_conceptors" nextPage="/statistics/topRankedPage.jsp" access="0"/>
+        <ContentItem contentHandle="top_specificators" nextPage="/statistics/topRankedPage.jsp" access="0"/>
+        <ContentItem contentHandle="top_architects" nextPage="/statistics/topRankedPage.jsp" access="0"/>
+        <ContentItem contentHandle="top_assemblers" nextPage="/statistics/topRankedPage.jsp" access="0"/>
+        <ContentItem contentHandle="top_testers" nextPage="/statistics/topRankedPage.jsp" access="0"/>
         <ContentItem contentHandle="consecutive_rating_increases" nextPage="/statistics/consecutiveRatingIncreases.jsp"
                      access="0"/>
         <ContentItem contentHandle="consecutive_srm_appearances" nextPage="/statistics/consecutiveSRMAppearances.jsp"
