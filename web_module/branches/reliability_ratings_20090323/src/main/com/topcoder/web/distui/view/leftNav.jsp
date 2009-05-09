@@ -1,15 +1,18 @@
 <%--
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  *
- * This JSP renders TopCoder web site's left navigation bar. 
- * 
+ * This JSP renders TopCoder web site's left navigation bar.
+ *
  * Changelog:
- * - Version 1.1 (TCS Release 2.2.2) : added "Review Opportunities" and "Meet The Review Board" 
+ * - Version 1.1 (TCS Release 2.2.2) : added "Review Opportunities" and "Meet The Review Board"
  *   links for Conceptualization, Specification and Application Testing competitions.
- *   Related Jira tickets: TCS-60, TCS-61, TCS-63, TCS-64, TCS-72, TCS-74 
+ *   Related Jira tickets: TCS-60, TCS-61, TCS-63, TCS-64, TCS-72, TCS-74
  *
- * Author TCSDEVELOPER
- * Version 1.1
+ * - Version 1.2 (Studio Coding In Online Review) : Added UI Prototype, RIA Build and Studio
+ *   Component navigation entries.
+ *
+ * Author pulky
+ * Version 1.2
 --%>
 <%@ page language="java"%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
@@ -29,10 +32,15 @@
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_competitor_stats')",  "The Tops", "m_competitor_stats"));
          nav.search("m_competitor_stats").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_top_rated_competitors')",  "Top Ranked", "m_top_rated_competitors"));
             nav.search("m_top_rated_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=AlgoRank", "Algorithm", "top_rated_algo"));
-            nav.search("m_top_rated_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?c=top_designers", "Design", "top_rated_des"));
-            nav.search("m_top_rated_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?c=top_developers", "Development", "top_rated_dev"));
             nav.search("m_top_rated_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=HSRank", "High School", "top_rated_hs"));
             nav.search("m_top_rated_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/stats/?module=CoderRank", "Marathon Match", "top_rated_long"));
+            nav.search("m_top_rated_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?c=top_conceptors", "Conceptualization", "top_rated_conceptors"));
+            nav.search("m_top_rated_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?c=top_specificators", "Specification", "top_rated_specificators"));
+            nav.search("m_top_rated_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?c=top_architects", "Architecture", "top_rated_architects"));
+            nav.search("m_top_rated_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?c=top_designers", "Design", "top_rated_des"));
+            nav.search("m_top_rated_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?c=top_developers", "Development", "top_rated_dev"));
+            nav.search("m_top_rated_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?c=top_assemblers", "Assembly", "top_rated_assemblers"));
+            nav.search("m_top_rated_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?c=top_testers", "Application Testing", "top_rated_testers"));
          nav.search("m_competitor_stats").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_recordbook')",  "Record Book", "m_recordbook"));
             nav.search("m_recordbook").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=statistics&amp;d2=recordbook_home", "Algorithm", "algo_recordbook"));
             nav.search("m_recordbook").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=compstats&amp;d2=comp_recordbook_home", "Component", "comp_recordbook"));
@@ -66,6 +74,8 @@
          nav.search("m_conceptualization_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.CONCEPTUALIZATION_PROJECT_TYPE, "Review Opportunities", "conceptualization_review"));
          nav.search("m_conceptualization_competitions").addChild(new NavNode("http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/review", "Submit &amp; Review", "conceptualization_submit"));
          nav.search("m_conceptualization_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/TopCoder+UML+Tool", "UML Tool", "arch_uml_tool"));
+         nav.search("m_conceptualization_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_conceptualization_stats')", "Statistics", "m_conceptualization_stats"));
+            nav.search("m_conceptualization_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=134", "Past Contests", "conceptualization_stats"));
          /* Since Version 1.1 (TCS Release 2.2.2, TCS-64) : Added "Meet The Review Board" link for Conceptualization competitions */
          nav.search("m_conceptualization_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.CONCEPTUALIZATION_PROJECT_TYPE, "Meet the Review Board", "conceptualization_review_board"));
          nav.search("m_conceptualization_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_conceptualization_support')", "Support / FAQs", "m_conceptualization_support"));
@@ -80,6 +90,8 @@
          nav.search("m_specification_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/TopCoder+UML+Tool", "UML Tool", "arch_uml_tool"));
          /* Since Version 1.1 (TCS Release 2.2.2, TCS-61) : Added "Meet The Review Board" link for Specification competitions */
          nav.search("m_specification_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.SPECIFICATION_PROJECT_TYPE, "Meet the Review Board", "specification_review_board"));
+         nav.search("m_specification_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_specification_stats')", "Statistics", "m_specification_stats"));
+            nav.search("m_specification_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=117", "Past Contests", "specification_stats"));
          nav.search("m_specification_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_specification_support')", "Support / FAQs", "m_specification_support"));
          nav.search("m_specification_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Software+Specification+How+To", "How to Compete", "specification_how_to_compete"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_architecture_competitions')", "Software Architecture", "m_architecture_competitions"));
@@ -92,6 +104,8 @@
          nav.search("m_architecture_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/TopCoder+UML+Tool", "UML Tool", "arch_uml_tool"));
          /* Since Version 1.1 (TCS Release 2.2.1, TCS-57) : Added "Meet The Review Board" link for Architecture competitions */
          nav.search("m_architecture_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&amp;pt=7", "Meet the Review Board", "architecture_review_board"));
+         nav.search("m_architecture_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_architecture_stats')", "Statistics", "m_architecture_stats"));
+            nav.search("m_architecture_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=118", "Past Contests", "architecture_stats"));
          nav.search("m_architecture_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_architecture_support')", "Support / FAQs", "m_architecture_support"));
          nav.search("m_architecture_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Architecture+Competitions", "How to Compete", "architecture_how_to_compete"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_des_competitions')", "Software Design", "m_des_competitions"));
@@ -155,6 +169,8 @@
          nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/review", "Submit &amp; Review", "assembly_submit"));
          /* Since TCS Release 2.2.0 (TCS-55) : Added "Meet The Review Board" link for Assembly competitions */
          nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&amp;pt=14", "Meet the Review Board", "assembly_review_board"));
+         nav.search("m_assembly_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_assembly_stats')", "Statistics", "m_assembly_stats"));
+            nav.search("m_assembly_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=125", "Past Contests", "assembly_stats"));
          nav.search("m_assembly_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_assembly_support')", "Support / FAQs", "m_assembly_support"));
             nav.search("m_assembly_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Assembly+Competitions", "How to Compete", "assembly_how_to_compete"));
             nav.search("m_assembly_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Assembly+Competition+Tutorial", "Tutorial", "assembly_tutorial"));
@@ -168,15 +184,50 @@
          nav.search("m_testing_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.APPLICATION_TESTING_PROJECT_TYPE, "Review Opportunities", "application_testing_review"));
          /* Since TCS Release 2.2.2 (TCS-72) : Added "Meet The Review Board" link for Application Testing competitions */
          nav.search("m_testing_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.APPLICATION_TESTING_PROJECT_TYPE, "Meet the Review Board", "application_testing_review_board"));
+         nav.search("m_testing_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_testing_stats')", "Statistics", "m_testing_stats"));
+            nav.search("m_testing_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=124", "Past Contests", "testing_stats"));
          nav.search("m_testing_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_testing_support')", "Support / FAQs", "m_testing_support"));
             nav.search("m_testing_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Testing+Competitions", "How to Compete", "testing_how_to_compete"));
             nav.search("m_testing_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Testing+Competition+Tutorial", "Tutorial", "testing_tutorial"));
             nav.search("m_testing_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Testing+Competition+Documentation", "Documentation", "testing_documentation"));
-      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_bugraces_competitions')", "Bug Races", "m_bugraces_competitions"));
-         nav.search("m_bugraces_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Bug+Races", "Overview", "bugraces_overview"));
-         nav.search("m_bugraces_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Active+Bug+Races", "Active Contests", "bugraces_compete"));
-         nav.search("m_bugraces_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Bug+Races+Reviews", "Review Opportunities", "bugraces_review"));
-         nav.search("m_bugraces_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_bugraces_support')", "Support / FAQs", "m_bugraces_support"));
+        /* Since 1.2 : Added UI Prototype left navigation entries */
+        nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ui_prototype_competitions')", "UI Prototype", "m_ui_prototype_competitions"));
+           nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/UI+Prototype+Competitions", "Overview", "ui_prototype_overview"));
+           nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Active Contests", "ui_prototype_compete"));
+           nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Contest Status", "ui_prototype_status"));
+           nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Review Opportunities", "ui_prototype_review"));
+           nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Meet the Review Board", "ui_prototype_review_board"));
+           nav.search("m_ui_prototype_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ui_prototype_stats')", "Statistics", "m_ui_prototype_stats"));
+               nav.search("m_ui_prototype_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Past Contests", "ui_prototype_stats"));
+           nav.search("m_ui_prototype_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ui_prototype_support')", "Support / FAQs", "m_ui_prototype_support"));
+               nav.search("m_ui_prototype_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+IU+Prototype+Competitions ", "How to Compete", "ui_prototype_how_to_compete"));
+        nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ria_build_competitions')", "RIA Build", "m_ria_build_competitions"));
+           nav.search("m_ria_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/RIA+Build+Competitions", "Overview", "ria_build_overview"));
+           nav.search("m_ria_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Active Contests", "ria_build_compete"));
+           nav.search("m_ria_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Contest Status", "ria_build_status"));
+           nav.search("m_ria_build_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Review Opportunities", "ria_build_review"));
+           nav.search("m_ria_build_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Meet the Review Board", "ria_build_review_board"));
+           nav.search("m_ria_build_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ria_build_stats')", "Statistics", "m_ria_build_stats"));
+               nav.search("m_ria_build_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Past Contests", "ria_build_stats"));
+           nav.search("m_ria_build_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ria_build_support')", "Support / FAQs", "m_ria_build_support"));
+               nav.search("m_ria_build_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+RIA+Builds", "How to Compete", "ria_build_how_to_compete"));
+        /*
+        nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ria_component_competitions')", "RIA Component", "m_ria_component_competitions"));
+           nav.search("m_ria_component_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/RIA+Component+Competitions", "Overview", "ria_component_overview"));
+           nav.search("m_ria_component_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.RIA_COMPONENT_PROJECT_TYPE, "Active Contests", "ria_component_compete"));
+           nav.search("m_ria_component_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + WebConstants.RIA_COMPONENT_PROJECT_TYPE, "Contest Status", "ria_component_status"));
+           nav.search("m_ria_component_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.RIA_COMPONENT_PROJECT_TYPE, "Review Opportunities", "ria_component_review"));
+           nav.search("m_ria_component_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.RIA_COMPONENT_PROJECT_TYPE, "Meet the Review Board", "ria_component_review_board"));
+           nav.search("m_ria_component_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ria_component_stats')", "Statistics", "m_ria_component_stats"));
+               nav.search("m_ria_component_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt=" + WebConstants.RIA_COMPONENT_PROJECT_TYPE, "Past Contests", "ria_component_stats"));
+           nav.search("m_ria_component_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ria_component_support')", "Support / FAQs", "m_ria_component_support"));
+               nav.search("m_ria_component_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+RIA+Component+Competitions", "How to Compete", "ria_component_how_to_compete"));
+        */
+            nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_bugraces_competitions')", "Bug Races", "m_bugraces_competitions"));
+            nav.search("m_bugraces_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Bug+Races", "Overview", "bugraces_overview"));
+            nav.search("m_bugraces_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Active+Bug+Races", "Active Contests", "bugraces_compete"));
+            nav.search("m_bugraces_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Bug+Races+Reviews", "Review Opportunities", "bugraces_review"));
+            nav.search("m_bugraces_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_bugraces_support')", "Support / FAQs", "m_bugraces_support"));
             nav.search("m_bugraces_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Bug+Races", "How to Compete", "bugraces_how_to_compete"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_hs_competitions')", "High School", "m_hs_competitions"));
          nav.search("m_hs_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=hs&amp;d2=home", "Overview", "hs_overview"));
