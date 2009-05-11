@@ -23,6 +23,11 @@ function swapTopTen(topTenID){
     hide('topTenDes');
     hide('topTenDev');
     hide('topTenMM');
+    hide('topTenConceptualization');
+    hide('topTenSpecification');
+    hide('topArchitecture');
+    hide('topAssembly');
+    hide('topTesting');
     showBlock(topTenID);
     createCookie('defaultTopTen',topTenID,365);
 }
@@ -149,6 +154,11 @@ function init() {
                     <option value="topTenDes">Design</option>
                     <option value="topTenDev">Development</option>
                     <option value="topTenMM">Marathon Matches</option>
+                    <option value="topTenConceptualization">Conceptualization</option>
+                    <option value="topTenSpecification">Specification</option>
+                    <option value="topArchitecture">Architecture</option>
+                    <option value="topAssembly">Assembly</option>
+                    <option value="topTesting">Application Testing</option>
                     </select>
                     </form>
                 </div>
@@ -159,7 +169,41 @@ function init() {
                 <jsp:include page="top_designers.jsp" />
                 <jsp:include page="top_developers.jsp" />
                 <jsp:include page="top_mm_coders.jsp" />
-
+                <jsp:include page="top_template.jsp" >
+                     <jsp:param name="title" value="Conceptualization" />
+                     <jsp:param name="name" value="top_conceptors" />
+                     <jsp:param name="id" value="topTenConceptualization" />
+                     <jsp:param name="help" value="/tc?module=Static&d1=statistics&d2=info&d3=topRatedConceptors" />
+                     <jsp:param name="ctxt" value="conceptualization" />
+                </jsp:include>
+                 <jsp:include page="top_template.jsp" >
+                     <jsp:param name="title" value="Specification" />
+                     <jsp:param name="name" value="top_specificators" />
+                     <jsp:param name="id" value="topTenSpecification" />
+                     <jsp:param name="help" value="/tc?module=Static&d1=statistics&d2=info&d3=topRatedSpecificators" />
+                     <jsp:param name="ctxt" value="specification" />
+                </jsp:include>
+                <jsp:include page="top_template.jsp" >
+                     <jsp:param name="title" value="Architecture" />
+                     <jsp:param name="name" value="top_architects" />
+                     <jsp:param name="id" value="topArchitecture" />
+                     <jsp:param name="help" value="/tc?module=Static&d1=statistics&d2=info&d3=topRatedArchitects" />
+                     <jsp:param name="ctxt" value="architecture" />
+                </jsp:include>
+                <jsp:include page="top_template.jsp" >
+                     <jsp:param name="title" value="Assembly" />
+                     <jsp:param name="name" value="top_assemblers" />
+                     <jsp:param name="id" value="topAssembly" />
+                     <jsp:param name="help" value="/tc?module=Static&d1=statistics&d2=info&d3=topRatedAssemblers" />
+                     <jsp:param name="ctxt" value="assembly" />
+                </jsp:include>
+                <jsp:include page="top_template.jsp" >
+                     <jsp:param name="title" value="Application Testing" />
+                     <jsp:param name="name" value="top_testers" />
+                     <jsp:param name="id" value="topTesting" />
+                     <jsp:param name="help" value="/tc?module=Static&d1=statistics&d2=info&d3=topRatedTesters" />
+                     <jsp:param name="ctxt" value="application_testing" />
+                </jsp:include>
             </div>
         </div>
     </div>
