@@ -17,6 +17,9 @@
 <c:set var="appTesting" value="<%=Home.APPLICATION_TESTING%>"/>
 <c:set var="studio" value="<%=Home.STUDIO%>"/>
 <c:set var="mm" value="<%=Home.MM%>"/>
+<c:set var="uiprototype" value="<%=Home.UI_PROTOTYPE%>"/>
+<c:set var="riabuild" value="<%=Home.RIA_BUILD%>"/>
+<c:set var="riacomponent" value="<%=Home.RIA_COMPONENT%>"/>
 
 <div>
     <img src="/i/interface/rightNavTop.png" alt="" style="display: block;"/>
@@ -118,6 +121,38 @@
                             </td>
                         </tr>
                     </c:if>
+                    <c:if test="${activeContestsSummary[uiprototype].contestCount>0}">
+
+                        <tr>
+                            <td class="value">
+                                <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[uiprototype].prizeTotal}" pattern="$###,###"/></div>
+                                <a href="/tc?module=ActiveContests&pt=23" class="gMetal">UI Prototype</a>
+                                (${activeContestsSummary[uiprototype].contestCount})
+                            </td>
+                        </tr>
+                    </c:if>
+                    <c:if test="${activeContestsSummary[riabuild].contestCount>0}">
+
+                        <tr>
+                            <td class="value">
+                                <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[riabuild].prizeTotal}" pattern="$###,###"/></div>
+                                <a href="/tc?module=ActiveContests&pt=23" class="gMetal">RIA Build</a>
+                                (${activeContestsSummary[riabuild].contestCount})
+                            </td>
+                        </tr>
+                    </c:if>
+                    <%-- Hidden for now
+                    <c:if test="${activeContestsSummary[riacomponent].contestCount>0}">
+
+                        <tr>
+                            <td class="value">
+                                <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[riacomponent].prizeTotal}" pattern="$###,###"/></div>
+                                <a href="/tc?module=ActiveContests&pt=23" class="gMetal">RIA Component</a>
+                                (${activeContestsSummary[riacomponent].contestCount})
+                            </td>
+                        </tr>
+                    </c:if>
+                    --%>
                     <c:if test="${activeContestsSummary[studio].contestCount>0}">
 
                         <tr>
