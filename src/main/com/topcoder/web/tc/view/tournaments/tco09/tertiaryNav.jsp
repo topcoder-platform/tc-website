@@ -44,6 +44,7 @@
                     <c:when test="${mainTab == 'overview' && secondaryTab == 'sponsors'}">
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1" class="${tertiaryTab == 'sponsor1' ? 'on' : ''}">IEEE USA</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor2" class="${tertiaryTab == 'sponsor2' ? 'on' : ''}">SNIA XAM Initiative</a></li>
+                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor3" class="${tertiaryTab == 'sponsor3' ? 'on' : ''}">Facebook</a></li>
                     </c:when>
                     <c:when test="${mainTab == 'online' && secondaryTab == 'architecture'}">
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=architecture&d5=description" class="${tertiaryTab == 'description' ? 'on' : ''}">Description</a></li>
