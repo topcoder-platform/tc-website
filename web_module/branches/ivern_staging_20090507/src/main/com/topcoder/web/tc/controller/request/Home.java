@@ -23,6 +23,9 @@ public class Home extends Base {
     public static final String CONCEPTUALIZATION = "concept";
     public static final String SPECIFICATION = "spec";
     public static final String STUDIO = "studio";
+    public static final String UI_PROTOTYPE = "uiprototype";
+    public static final String RIA_BUILD = "riabuild";
+    public static final String RIA_COMPONENT = "riacomponent";
     public static final String BUGS = "bugs";
     public static final String DR = "dr";
     public static final String MM = "mm";
@@ -252,6 +255,41 @@ tchs08 is over, don't need to do this anymore
             ret.put(SPECIFICATION, summary);
         }
 
+        ResultSetContainer uiprototype = dataMap.get("ui_prototype_active_contests_summary");
+        if (!uiprototype.isEmpty()) {
+            ResultSetContainer.ResultSetRow row = uiprototype.get(0);
+            summary = new ActiveContestsSummary();
+            summary.setContestCount(row.getIntItem("total_contests"));
+            summary.setName(row.getStringItem("category_name"));
+            if (row.getItem("total_prizes").getResultData()!=null) {
+                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
+            }
+            ret.put(UI_PROTOTYPE, summary);
+        }
+
+        ResultSetContainer riabuild = dataMap.get("ria_build_active_contests_summary");
+        if (!riabuild.isEmpty()) {
+            ResultSetContainer.ResultSetRow row = riabuild.get(0);
+            summary = new ActiveContestsSummary();
+            summary.setContestCount(row.getIntItem("total_contests"));
+            summary.setName(row.getStringItem("category_name"));
+            if (row.getItem("total_prizes").getResultData()!=null) {
+                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
+            }
+            ret.put(RIA_BUILD, summary);
+        }
+
+        ResultSetContainer riacomponent = dataMap.get("ria_component_active_contests_summary");
+        if (!riacomponent.isEmpty()) {
+            ResultSetContainer.ResultSetRow row = riacomponent.get(0);
+            summary = new ActiveContestsSummary();
+            summary.setContestCount(row.getIntItem("total_contests"));
+            summary.setName(row.getStringItem("category_name"));
+            if (row.getItem("total_prizes").getResultData()!=null) {
+                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
+            }
+            ret.put(RIA_COMPONENT, summary);
+        }
 
         for (ResultSetContainer.ResultSetRow row : dataMap.get("homepage_active_contest_summary")) {
             summary = new ActiveContestsSummary();
