@@ -93,6 +93,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static final int SPECIFICATION_PROJECT_TYPE = 6;
     private static final int APPLICATION_TESTING_PROJECT_TYPE = 13;
     private static final int ASSEMBLY_PROJECT_TYPE = 14;
+
+    // [BUGR-1842] - add support for UI/RIA project types
+    private static final int UI_PROTOTYPE_PROJECT_TYPE = 19;
+    private static final int RIA_BUILD_PROJECT_TYPE = 24;
+    private static final int RIA_COMPONENT_PROJECT_TYPE = 15;
     
     private static final double DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
 
@@ -101,6 +106,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static final double ARCHITECTURE_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
     private static final double DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT = 0.75;
     private static final double DESIGN_REVIEWERS_BONUS_PERCENT = 0.15;
+
+    // [BUGR-1842] - add support for UI/RIA project types
+    private static final double UI_PROTOTYPE_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
+    private static final double RIA_BUILD_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
+    private static final double RIA_COMPONENT_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
 
     public static final Long COLLEGE_MAJOR_DESC = 14l;
     public static final Long DEGREE_PROGRAM = 16l;
@@ -5143,9 +5153,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
             } else if (projectType == DEVELOPMENT_PROJECT || projectType == COMPONENT_TESTING_PROJECT || 
                 // [BUGR-1452] - add support for paying other project types
+                // [BUGR-1842] - add support for UI/RIA project types
                 projectType == ARCHITECTURE_PROJECT_TYPE || projectType == CONCEPTUALIZATION_PROJECT_TYPE ||
                 projectType == SPECIFICATION_PROJECT_TYPE || projectType == APPLICATION_TESTING_PROJECT_TYPE || 
-                projectType == ASSEMBLY_PROJECT_TYPE) {
+                projectType == ASSEMBLY_PROJECT_TYPE || projectType == UI_PROTOTYPE_PROJECT_TYPE ||
+                projectType == RIA_BUILD_PROJECT_TYPE || projectType == RIA_COMPONENT_PROJECT_TYPE) {
                 p = new ReviewBoardPayment(coderId, amount, client, projectId);
             }
 
@@ -6237,15 +6249,34 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             TestingCompetitionPayment cwp = new TestingCompetitionPayment(coderId, grossAmount, client, projectId, placed);
             l.add(cwp);
         } else if (projectType == ARCHITECTURE_PROJECT_TYPE) {
-	    BasePayment p = new ArchitecturePayment(coderId, grossAmount, client, projectId, placed);
-	    if (placed == 1) {
-		p.setGrossAmount(grossAmount * ARCHITECTURE_PROJECT_FIRST_INSTALLMENT_PERCENT);
-	    }
-	    l.add(p);
+    	    BasePayment p = new ArchitecturePayment(coderId, grossAmount, client, projectId, placed);
+    	    if (placed == 1) {
+        		p.setGrossAmount(grossAmount * ARCHITECTURE_PROJECT_FIRST_INSTALLMENT_PERCENT);
+    	    }
+    	    l.add(p);
         } else if (projectType == ASSEMBLY_PROJECT_TYPE) {
             BasePayment p = new AssemblyPayment(coderId, grossAmount, client, projectId, placed);
             if (placed == 1) {
                 p.setGrossAmount(grossAmount * ASSEMBLY_PROJECT_FIRST_INSTALLMENT_PERCENT);
+            }
+            l.add(p);
+        // [BUGR-1842] - add support for UI/RIA project types
+        } else if (projectType == UI_PROTOTYPE_PROJECT_TYPE) {
+            BasePayment p = new UIPrototypeCompetitionPayment(coderId, grossAmount, client, projectId, placed);
+            if (placed == 1) {
+                p.setGrossAmount(grossAmount * UI_PROTOTYPE_PROJECT_FIRST_INSTALLMENT_PERCENT);
+            }
+            l.add(p);
+        } else if (projectType == RIA_BUILD_PROJECT_TYPE) {
+            BasePayment p = new RIABuildCompetitionPayment(coderId, grossAmount, client, projectId, placed);
+            if (placed == 1) {
+                p.setGrossAmount(grossAmount * RIA_BUILD_PROJECT_FIRST_INSTALLMENT_PERCENT);
+            }
+            l.add(p);
+        } else if (projectType == RIA_COMPONENT_PROJECT_TYPE) {
+            BasePayment p = new RIAComponentCompetitionPayment(coderId, grossAmount, client, projectId, placed);
+            if (placed == 1) {
+                p.setGrossAmount(grossAmount * RIA_COMPONENT_PROJECT_FIRST_INSTALLMENT_PERCENT);
             }
             l.add(p);
         } else throw new IllegalArgumentException("Project " + projectId + " not found or is not a dev/des component");

@@ -82,8 +82,9 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             if (!projectID.equals("") && !projectTermStatus.equals("") && (devSupportDes || devSupportId > 0)) {
                 DataInterfaceBean bean = new DataInterfaceBean();
                 // [BUGR-1452] - add support for paying other project types
-                int[] counts = new int[9];
-                for (int i = 0; i < 9; i++) {
+                // [BUGR-1842] - add support for UI/RIA project types
+                int[] counts = new int[12];
+                for (int i = 0; i < 12; i++) {
                     counts[i] =0;
                 }
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
@@ -126,6 +127,11 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                     if (p.getPaymentType() == PactsConstants.ARCHITECTURE_PAYMENT) counts[6]++;
                     if (p.getPaymentType() == PactsConstants.TESTING_COMPETITION_PAYMENT) counts[7]++;
                     if (p.getPaymentType() == PactsConstants.ASSEMBLY_PAYMENT) counts[8]++;
+                    // [BUGR-1842] - add support for UI/RIA project types
+                    if (p.getPaymentType() == PactsConstants.UI_PROTOTYPE_COMPETITION_PAYMENT) counts[9]++;
+                    if (p.getPaymentType() == PactsConstants.RIA_BUILD_COMPETITION_PAYMENT) counts[10]++;
+                    if (p.getPaymentType() == PactsConstants.RIA_COMPONENT_COMPETITION_PAYMENT) counts[11]++;
+
                     ids.add(p.getId() + "");
                 	
                 	List refer = bean.findPayments(CODER_REFERRAL_PAYMENT, p.getId());
@@ -171,10 +177,12 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
 	 */
 	private String generateSuccessMessage(int[] counts) {
 		// TODO: find a better way to avoid duplicating these magic numbers, to ensure they're always in sync
-		final int[] countIndex = new int[] { 0, 4, 5, 6, 8, 7, 1, 3, 2 };
+        // [BUGR-1842] - add support for UI/RIA project types
+		final int[] countIndex = new int[] { 0, 4, 5, 6, 8, 7, 1, 3, 2, 9, 10, 11 };
 		final String[] countType = new String[] {
 				" design/development", " conceptualization", " specification", " architecture",
-				" assembly", " application testing", " review board", " review board bonus", " referral"
+				" assembly", " application testing", " review board", " review board bonus", " referral",
+				" UI prototype", " RIA Build", " RIA Component"
 		};
 		
 		StringBuffer sb = new StringBuffer();
