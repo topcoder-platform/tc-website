@@ -11,35 +11,41 @@
     String title="top rated ";
     String header="TopCoder Statistics - Top Ranked ";
     String nodeVal="top_rated_des";
+    String ctxt="design";
     if(paramStr.equals("top_conceptors"))
     {
         title+="conceptors";
         header+="Conceptors";
         nodeVal="top_rated_conceptors";
+        ctxt="conceptualization";
     }
     else if(paramStr.equals("top_specificators"))
     {
         title+="specificators";
         header+="Specificators";
         nodeVal="top_rated_specificators";
+        ctxt="specification";
     }
     else if(paramStr.equals("top_architects"))
     {
         title+="architects";
         header+="Architects";
         nodeVal="top_rated_architects";
+        ctxt="architecture";
     }
     else if(paramStr.equals("top_assemblers"))
     {
         title+="assemblers";
         header+="Assemblers";
         nodeVal="top_rated_assemblers";
+        ctxt="assembly";
     }
     else if(paramStr.equals("top_testers"))
     {
         title+="testers";
         header+="Testers";
         nodeVal="top_rated_testers";
+        ctxt="application_testing";
     }
 %>
 
@@ -75,6 +81,11 @@
 </jsp:include>
 
 
+<A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Design Cup Series Leaderboard</a><br>
+<A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Development Cup Series Leaderboard</a><br>
+<A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
+<A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development Cup Series ROTY Leaderboard</a>
+
 <br><br>
 The <strong><%=title%></strong> that have competed in the last 180 days:
 <br><br>
@@ -100,7 +111,7 @@ The <strong><%=title%></strong> that have competed in the last 180 days:
       <rsc:iterator list="<%=rsc%>" id="resultRow">
       <tr class="<%=even?"dark":"light"%>">
          <TD CLASS="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></TD>
-         <TD CLASS="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="design" /></TD>
+         <TD CLASS="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="<%=ctxt%>" /></TD>
          <TD CLASS="valueR"><rsc:item name="rating" row="<%=resultRow%>" format="#"/></TD>
       </TR>
       <%even=!even;%>
