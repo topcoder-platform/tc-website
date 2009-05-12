@@ -72,7 +72,7 @@
                                             <jsp:include page="../../tertiaryNav.jsp" >
                                                 <jsp:param name="mainTab" value="overview"/>
                                                 <jsp:param name="secondaryTab" value="sponsors"/>
-                                                <jsp:param name="tertiaryTab" value="sponsor1"/>
+                                                <jsp:param name="tertiaryTab" value="sponsor2"/>
                                             </jsp:include>
                                             
                                             <div class="bottomAreaContent">
