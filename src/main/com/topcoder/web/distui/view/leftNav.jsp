@@ -84,7 +84,7 @@
          nav.search("m_conceptualization_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Conceptualization+Submission+Instructions", "Tutorial", "conceptualization_tutorial"));
          nav.search("m_conceptualization_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Conceptualization+Reliability+Bonus", "Reliability Ratings", "conceptualization_reliability_ratings"));
 		 nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_specification_competitions')", "Software Specification", "m_specification_competitions"));
-         nav.search("m_specification_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/TopCoder+Conceptualization+Contests", "Overview", "specification_overview"));
+         nav.search("m_specification_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/TopCoder+Specification+Contests", "Overview", "specification_overview"));
          nav.search("m_specification_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=6", "Active Contests", "specification_compete"));
          nav.search("m_specification_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=6", "Contest Status", "specification_contest_status"));
          /* Since Version 1.1 (TCS Release 2.2.2, TCS-60) : Added "Review Opportunities" link for Specification competitions */
