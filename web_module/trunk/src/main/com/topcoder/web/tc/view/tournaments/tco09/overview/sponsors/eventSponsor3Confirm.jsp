@@ -1,7 +1,7 @@
 <%--
  * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
  *
- * This JSP shows specific information about sponsor 1.
+ * This JSP handles confirmation of job inquiries for the event patron.
  *
  * Author TCSDEVELOPER
  * Version 1.0
@@ -58,8 +58,8 @@
                             <div id="contentInner" class="contentInner">
                             
                                 <div id="contentInnerInner">
-
-                                    <jsp:include page="../topArea.jsp"/>
+                                
+                                    <jsp:include page="topArea.jsp"/>
                                 
                                     <div class="bottomArea">
                                         <div class="bottomLeft"><div class="bottomRight">
@@ -78,21 +78,21 @@
                                             <div class="bottomAreaContent">
                                                 
                                                 <div class="mainContent">
+                                                
+                                                    
                                                     <div id="mainContentInner">
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title">Facebook</h2>
-                                                                	<p><object width="576" height="324" ><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://www.facebook.com/v/183757000483" /><embed src="http://www.facebook.com/v/183757000483" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="576" height="324"></embed></object></p>
-                                                                	<p>Facebook is hiring brilliant engineers who like to build. Because we’re growing so quickly, there is enormous opportunity for individuals to have an impact and to grow as our service and our company grows. What matters here is what you contribute, not your credentials.</p>
-                                                                	<p>No one has ever done what we are trying to do at such speed and scale, and we do it all with less than two hundred engineers. Our active user to engineer ratio is over 1,000,000:1... and growing, and you just won’t get that personal impact at any other company.</p>
-                                                                	<p>We also move as fast as we can to launch things quickly, try new things and then iterate to make them better. We would rather take risks and break a few things in the process than move slowly. The code you write one day can be used by hundreds of millions of users that same night.</p>
-                                                                	<p>Everyone at Facebook makes daily decisions in their work to solve the most impactful problems in the fastest, most efficient way possible and to build solutions that will scale to reach hundreds of millions of users around the world. One engineer built the photos application on the service, and Facebook is now the largest photo sharing site on the Web. Another engineer built Facebook Video in a one night Hackathon. The feature now has hundreds of thousands of video uploads every day.</p>
-                                                                	<p>We've got 200 million users so far, but we have so much more to do and build... and that's where your kung fu comes into play. Come build with us, we’re hiring.</p>
-                                                                	<p><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=eventSponsor3Confirm">Apply Now</a></p>
-                                                          </div>
-                                                      </div>
+                                                                    <p><strong>By applying, you will be releasing your TopCoder contact and statistical information to Facebook and you will be giving Facebook permission to contact you about their current job opportunities.</strong>
+                                                                    
+                                                                    <h3 class="subtitle"><a href="/tc?module=JobHit&jid=479&jt=1">Submit your information to Facebook</a></h3>
+                                                            </div>
+                                                        </div>
+                                                        
                                                     </div><!-- End #mainContentInner -->
-                                                </div><!-- End #mainContent -->                                                 
+                                                    
+                                                </div><!-- End #mainContent -->
                                                 
                                                 <jsp:include page="../../sponsors.jsp"/>
                                                 
@@ -120,3 +120,4 @@
 <jsp:include page="../../footer.jsp"/>
 </body>
 </html>
+
