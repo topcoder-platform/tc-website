@@ -86,7 +86,7 @@
                                                             <div class="pageContent">
                                                                 <h2 class="title">Overview</h2>
                                                                 <p>The TCO09 Finals will take place on June 1-4, 2009 at The Mirage Las Vegas.  Mark your calendars, start practicing, set your aspirations high, and get your travel documents ready!  We don't want you to miss it!</p>
-                                                                <p>Registration is open now for the TCO so <a href="/tco09?module=ViewUnifiedRegistration">register now!</a></p>
+                                                                <%-- <p>Registration is open now for the TCO so <a href="/tco09?module=ViewUnifiedRegistration">register now!</a></p> --%>
                                                                 <p>It is important that you read the <a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=rules&d5=tco09">official rules and regulations</a> for the competition in which you are going to compete for more details before signing up.</p>
                                                                 <p>The competition is free and you must be a member 18 years or older, as well as meet the eligibility criteria, in order to compete.</p>
                                                             </div>
