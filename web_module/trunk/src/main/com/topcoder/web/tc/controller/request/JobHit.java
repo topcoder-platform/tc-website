@@ -121,8 +121,8 @@ public class JobHit extends Base {
                     throw new Exception("job: " + jobId + " either doesn't exist or isn't active");
                 }
             } else {
-                if (hit.isRated()) {
-                    if (hit.hasResume()) {
+                //if (hit.isRated()) {
+                //    if (hit.hasResume()) {
                         if (jobHits.size() > 0) {
                             for (int i = 0; i < jobHits.size(); i++) {
                                 long currJob = ((Long) jobHits.get(i)).intValue();
@@ -160,14 +160,14 @@ public class JobHit extends Base {
                                         " hit type: " + Constants.JOB_POSTING_ID + "\n" + e.getMessage());
                             }
                         }
-                    } else {
-                        setNextPage(Constants.NO_RESUME_PAGE);
-                        setIsNextPageInContext(true);
-                    }
-                } else {
-                    setNextPage(Constants.UNRATED_PAGE);
-                    setIsNextPageInContext(true);
-                }
+                //    } else {
+                //        setNextPage(Constants.NO_RESUME_PAGE);
+                //        setIsNextPageInContext(true);
+                //    }
+                //} else {
+                //    setNextPage(Constants.UNRATED_PAGE);
+                //    setIsNextPageInContext(true);
+                //}
             }
 
         } catch (TCWebException e) {
