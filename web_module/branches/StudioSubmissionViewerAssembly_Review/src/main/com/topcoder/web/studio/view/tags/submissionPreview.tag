@@ -7,8 +7,7 @@
   - Description: This is a custom tag to handle submission preview for the view submissions
   - and view contest results pages.
   -
-  - Version 1.1 changes: When the submission failed screening the preview should not be shown (instead an X should
-  - be presented) and download link should also dissapear.
+  - Version 1.1 (BUGR-1755/1756): removed full preview javascript.
   -
   - Required attributes:
   -     * row: the submission information
@@ -19,7 +18,6 @@
 <%@ tag import="com.topcoder.web.studio.Constants" %>
 <%@ tag import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ tag import="com.topcoder.web.studio.model.PrizeType" %>
-<%@ tag import="com.topcoder.web.studio.model.ReviewStatus" %>
 <%@ tag body-content="empty" %>
 
 <%@ attribute name="row" required="true" type="java.lang.Object" %>
@@ -35,7 +33,7 @@
 <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 <c:set var="modKey" value="<%=Constants.MODULE_KEY%>"/>
-<c:set var="passed" value="<%=ReviewStatus.PASSED%>"/>
+<c:set var="module" value="${param[modKey]}"/>
 
 <c:set var="submissionId" value="${row.map['submission_id']}"/>
 <c:set var="contestId" value="${row.map['contest_id']}"/>
@@ -88,39 +86,21 @@
                 <ul>
                     <c:forEach begin="1" end="${row.map['gallery_image_count']}" step="1" varStatus="index">
                         <li>
-                            <c:choose>
-                                <c:when test="${row.map['review_status_id']==passed}">
-                                    <a class="viewFullSizeMulti" href="javascript:;">
-                                        <span class="prevImg${index.index}">
-                                            <img src="${downloadSubmissionBaseUrl}&amp;${subFileIdx}=${index.index}" alt="" />
-                                        </span>
-                                    </a>
-                                </c:when>
-                                <c:otherwise>
-                                    <span class="prevImg${index.index}">
-                                        <img src="/i/layout/fail.png" alt="" />
-                                    </span>
-                                </c:otherwise>
-                            </c:choose>
+                            <a class="viewFullSizeMulti" href="?${modKey}=${module}&amp;ct=${contestId}&amp;sbmid=${row.map['submission_id']}&amp;pn=${pn}&amp;ps=${ps}">
+                                <span class="prevImg${index.index}">
+                                    <img src="${downloadSubmissionBaseUrl}&amp;${subFileIdx}=${index.index}" alt="" />
+                                </span>
+                            </a>
                         </li>
                     </c:forEach>
                 </ul>
             </c:when>
             <c:otherwise>
-                <c:choose>
-                    <c:when test="${row.map['review_status_id']==passed}">
-                        <a class="viewFullSize" href="javascript:;">
-                            <span class="prevImg">
-                                <img src="${previewImageSrc}" alt="" />
-                            </span>
-                        </a>
-                    </c:when>
-                    <c:otherwise>
-                        <span class="prevImg">
-                            <img src="/i/layout/fail.png" alt="" />
-                        </span>
-                    </c:otherwise>
-                </c:choose>
+                <a class="viewFullSize" href="?${modKey}=${module}&amp;ct=${contestId}&amp;sbmid=${row.map['submission_id']}&amp;pn=${pn}&amp;ps=${ps}">
+                    <span class="prevImg">
+                        <img src="${previewImageSrc}" alt="" />
+                    </span>
+                </a>
             </c:otherwise>
         </c:choose>
     </div>
@@ -203,12 +183,10 @@
                 <c:set var="fullSizeClass" value="viewFullSize"/>
             </c:otherwise>
         </c:choose>
-        <c:if test="${row.map['review_status_id']==passed}">
-            <span>
-                <a class="${fullSizeClass}" href="javascript:;">View Full Size</a>
-                &nbsp;|&nbsp;
-                <a href="?${modKey}=DownloadSubmission&amp;${subId}=${row.map["submission_id"]}">Download</a>
-            </span>
-        </c:if>
+        <span>
+            <a class="${fullSizeClass}" href="?${modKey}=${module}&amp;ct=${contestId}&amp;sbmid=${row.map['submission_id']}&amp;pn=${pn}&amp;ps=${ps}">View Full Size</a>
+            &nbsp;|&nbsp;
+            <a href="?${modKey}=DownloadSubmission&amp;${subId}=${row.map["submission_id"]}">Download</a>
+        </span>
     </div>
 </div>
