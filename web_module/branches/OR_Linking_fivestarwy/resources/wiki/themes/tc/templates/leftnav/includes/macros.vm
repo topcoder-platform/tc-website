@@ -1,0 +1,2095 @@
+#macro (contentIcon $content)
+    #contentIconWithLinkPrefix($content $req.contextPath)
+#end
+
+#macro (contentIconWithLinkPrefix $content $prefix)
+    #if ($content.type == "page")
+    #if ($content.homePage)<img src="$prefix/images/icons/home_16.gif" height="16" width="16" border="0" align="absmiddle" title="$webwork.htmlEncode($content.title) ($action.getText('space.home.page'))"/>
+    #elseif ($remoteUser && $content.isRecentlyUpdatedFor($remoteUser))<img src="$prefix/images/icons/new_16.gif" height="16" width="16" border="0" align="absmiddle" title="$webwork.htmlEncode($content.title) ($action.getText('updated.name'))"/>
+    #else<img src="$prefix/images/icons/docs_16.gif" height="16" width="16" border="0" align="absmiddle" title="$webwork.htmlEncode($content.title)"/>
+    #end
+    #elseif ($content.type == "comment") <img src="$prefix/images/icons/comment_16.gif" height="16" width="16" border="0" align="absmiddle"/>
+    #elseif ($content.type == "spacedesc")<img src="$prefix/images/icons/web_16.gif" height="16" width="16" border="0" align="absmiddle" title="$webwork.htmlEncode($content.space.name)"/>
+    #elseif ($content.type == "personalspacedesc")<img src="$prefix/images/icons/personal_space_16.gif" height="16" width="16" border="0" align="absmiddle" title="$webwork.htmlEncode($content.space.name)"/>
+    #elseif ($content.type == "userinfo")<img src="$prefix/images/icons/user_16.gif" height="16" width="16" border="0" align="absmiddle" title="User Profile: $webwork.htmlEncode($action.getUserFullName($content.username))"/>
+    #elseif ($content.type == "blogpost")<img src="$prefix/images/icons/blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="User Profile: $webwork.htmlEncode($action.getUserFullName($content.username))"/>
+    #elseif ($content.type == "trackback")<img src="$prefix/images/icons/document_exchange.gif" height="16" width="16" border="0" align="absmiddle" title="$content.title"/>
+    #elseif ($content.type == "mail")<img src="$prefix/images/icons/mail_content_16.gif" height="16" width="16" border="0" align="absmiddle" title="$content.title"/>
+    #elseif ($content.type == "attachment")#set ($attachment = $content)#parse ("/pages/includes/attachment_icon.vm")#end
+#end
+
+#macro (contentIcon2 $content $linkColor $linkHref $linkTitle)
+    #if($content.type == "page")
+    #if($content.homePage)<a $linkColor href="$linkHref" title="$linkTitle"><img src="$req.contextPath/images/icons/home_16.gif" height="16" width="16" border="0" align="absmiddle" title="$webwork.htmlEncode($content.title) ($action.getText('space.home.page'))"/></a>
+    #elseif($remoteUser && $content.isRecentlyUpdatedFor($remoteUser))<a $linkColor href="$linkHref" title="$linkTitle"><img src="$req.contextPath/images/icons/new_16.gif" height="16" width="16" border="0" align="absmiddle" title="$webwork.htmlEncode($content.title) ($action.getText('updated.name'))"/></a>
+    #else<a $linkColor href="$linkHref" title="$linkTitle"><img src="$req.contextPath/images/icons/docs_16.gif" height="16" width="16" border="0" align="absmiddle" title="$webwork.htmlEncode($content.title)"/></a>
+    #end
+    #elseif($content.type == "comment")<a $linkColor href="$linkHref" title="$linkTitle"><img src="$req.contextPath/images/icons/comment_16.gif" height="16" width="16" border="0" align="absmiddle"/></a>
+    #elseif($content.type == "spacedesc")<a $linkColor href="$linkHref" title="$linkTitle"><img src="$req.contextPath/images/icons/web_16.gif" height="16" width="16" border="0" align="absmiddle" title="$webwork.htmlEncode($content.space.name)"/></a>
+    #elseif($content.type == "personalspacedesc")<a $linkColor href="$linkHref" title="$linkTitle"><img src="$req.contextPath/images/icons/personal_space_16.gif" height="16" width="16" border="0" align="absmiddle" title="$webwork.htmlEncode($content.space.name)"/></a>
+    #elseif($content.type == "userinfo")<a $linkColor href="$linkHref" title="$linkTitle"><img src="$req.contextPath/images/icons/user_16.gif" height="16" width="16" border="0" align="absmiddle" title="User Profile: $webwork.htmlEncode($action.getUserFullName($content.username))"/></a>
+    #elseif($content.type == "blogpost")<a $linkColor href="$linkHref" title="$linkTitle"><img src="$req.contextPath/images/icons/blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="User Profile: $webwork.htmlEncode($action.getUserFullName($content.username))"/></a>
+    #elseif($content.type == "trackback")<a $linkColor href="$linkHref" title="$linkTitle"><img src="$req.contextPath/images/icons/document_exchange.gif" height="16" width="16" border="0" align="absmiddle" title="$content.title"/></a>
+    #elseif($content.type == "mail")<a $linkColor href="$linkHref" title="$linkTitle"><img src="$req.contextPath/images/icons/mail_content_16.gif" height="16" width="16" border="0" align="absmiddle" title="$content.title"/></a>
+    #elseif($content.type == "attachment")#set ($attachment = $content)#parse ("/pages/includes/attachment_icon.vm")#end#end
+
+#macro (typeIcon $type)
+    #if ($type == "page")
+        <img src="$req.contextPath/images/icons/docs_16.gif" height="16" width="16" border="0" align="absmiddle" />
+    #elseif ($type == "comment")
+        <img src="$req.contextPath/images/icons/comment_16.gif" height="16" width="16" border="0" align="absmiddle"/>
+    #elseif ($type == "spacedesc")
+        <img src="$req.contextPath/images/icons/web_16.gif" height="16" width="16" border="0" align="absmiddle" />
+    #elseif ($type == "personalspacedesc")
+        <img src="$req.contextPath/images/icons/personal_space_16.gif" height="16" width="16" border="0" align="absmiddle" />
+    #elseif ($type == "userinfo")
+        <img src="$req.contextPath/images/icons/user_16.gif" height="16" width="16" border="0" align="absmiddle" />
+    #elseif ($type == "blogpost")
+        <img src="$req.contextPath/images/icons/blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" />
+    #elseif ($type == "attachment")
+        <img src="$req.contextPath/images/icons/attachments/file.gif" height="16" width="16" border="0" align="absmiddle" />
+    #elseif ($type == "mail")
+        <img src="$req.contextPath/images/icons/mail_content_16.gif" height="16" width="16" border="0" align="absmiddle" />
+    #end
+#end
+
+<!-- this macro draws a icon with the specified width. This saves us from specifying the img tag over and over again -->
+#macro (icon $imageName $size $title)<img src="$req.contextPath/images/icons/${imageName}" height="$size" width="$size" border="0" align="absmiddle" #if($title != '')title="$title"#end/>#end
+
+#macro (contentHref $content)
+    #contentHrefWithLinkPrefix($content $req.contextPath)
+#end
+
+#macro (contentHrefWithLinkPrefix $content $prefix)
+    #if ($content.type == "attachment")
+        <a href="$prefix$content.content.urlPath">$webwork.htmlEncode($content.content.realTitle)</a> &gt;
+        <a href="$prefix$content.downloadPath">$webwork.htmlEncode($content.realTitle)</a>
+    #elseif ($content.type == "comment")
+        <a href="$prefix$content.page.urlPath">$webwork.htmlEncode($content.page.realTitle)</a> &gt;
+        <a href="$prefix$content.urlPath">$webwork.htmlEncode($content.realTitle)</a>
+    #else
+        <a href="$prefix$content.urlPath">$webwork.htmlEncode($content.realTitle)</a>
+    #end
+#end
+
+#macro (contentOther $content)
+    #if ($content.type == "page" || $content.type == "blogpost")
+        #if ($content.originalVersion)
+            <span class="smalltext">v. $content.version ($webwork.htmlEncode($content.originalVersion.space.name))</span>
+        #else
+            <span class="smalltext">($webwork.htmlEncode($content.space.name))</span>
+        #end
+    #elseif ($content.type == "comment")
+        <span class="smalltext">($webwork.htmlEncode($content.page.space.name))</span>
+    #elseif ($content.type == "userinfo")
+        <span class="smalltext">($content.username)</span>
+    ## If the attachment is attached to a profile, the container text is different (CONF-4465)
+    #elseif ($content.type == "attachment" && $content.content.type == "userinfo")
+        <span class="smalltext">($content.content.username)</span>
+    #elseif ($content.type == "attachment")
+        <span class="smalltext">($webwork.htmlEncode($content.content.space.name))</span>
+    #end
+#end
+
+#macro (contentLink2 $content $showIcon $showSpace)
+    #contentLink2WithLinkPrefix($content $showIcon $showSpace $req.contextPath)
+#end
+
+#macro (contentLink2WithLinkPrefix $content $showIcon $showSpace $baseUrl)
+    #if ($showIcon) #contentIconWithLinkPrefix($content $baseUrl) #end
+    #contentHrefWithLinkPrefix($content $baseUrl)
+    #if ($showSpace) #contentOther($content) #end
+#end
+
+#macro (contentLink $content)
+    #contentLink2($content true true)
+#end
+
+#macro (contentLinkWithLinkPrefix $content $prefix)
+    #contentLink2WithLinkPrefix($content true true $prefix)
+#end
+
+#macro (contentLinkWithAnchor $content $anchor)
+    #contentIcon($content)
+    <a #if ($textUtil.stringSet($anchor)) name="$anchor" #end href="$req.contextPath$content.urlPath">$webwork.htmlEncode($content.realTitle)</a>
+#end
+
+#*
+PARAMETERS:
+request		- the http request
+title		- the text of the link
+url 		- the URI to link to
+selected	- the nav item will be selected if this link matches request.getServletPath().startsWith(selected)
+tooltip		- an optional phrase to be used as the tooltip for the navitem link.
+*#
+#macro( navitem $title $url $selected $tooltip $accessKey)
+    ## only hide the javascript if it is IE or Mozilla (not netscape or Opera) - Fixes JRA-1427
+    #if ($webReqUtils.isGoodBrowser($req) && $textUtils.noNull($req.getHeader("USER-AGENT")).indexOf("Opera") == -1)
+        #set ($captureJavascript = true)
+    #end
+
+    #if ($req.servletPath.startsWith($selected))
+        ## css hack as described here:  http://www.fo3nix.pwp.blueyonder.co.uk/tutorials/css/hacks/
+        ## only good browsers recognise that 'return false' isn't killing the <a> tag.  So don't 'return false' in netscape 4
+	    <td nowrap onClick="window.document.location='$url'" align=center valign=middle class="navItemOver">&nbsp;&nbsp;
+    #else
+        <td nowrap onClick="window.document.location='$url'" align=center valign=middle class="navItem" onMouseOver="this.className='navItemOver'" onMouseOut="this.className='navItem'">&nbsp;&nbsp;
+    #end
+        <a href="$url"
+        #if ($tooltip) title="$tooltip"#end
+        #if ($accessKey) accessKey="$accessKey" #end
+        #if ($captureJavascript) onClick="return false" #end
+        >$title</a> &nbsp;&nbsp;</td>
+#end
+
+#* this can only be used with page titles that are safe to append to a URL *#
+#* must check existance of page before $permissionCheckDispatcher, otherwise dispatcher will throw an IllegalStatementException *#
+#macro (includePage $spaceKey $pageTitle)
+    #if ($generalUtil.isAllAscii($pageTitle))
+        #if ($renderBean.pageExists($spaceKey, $pageTitle))
+            #if ($permissionCheckDispatcher.isPermitted("/pages/viewpage.action?spaceKey=$spaceKey&title=$pageTitle"))
+                $renderBean.render($spaceKey, $pageTitle)
+            #else
+                <span class="error"><span class="errorMessage">$action.getText('insufficient.privelages.to.view.page')</span></span>
+            #end
+        #else
+            <span class="error"><span class="errorMessage">$action.getText('page.not.found.error')</span></span>
+        #end
+    #else
+        <span class="error"><span class="errorMessage">$action.getText('includepage.macro.only.ascii')</em></span></span>
+    #end
+#end
+
+#macro (includePageWithId $pageId)
+    #if ($renderBean.pageExists($pageId))
+        #if ($permissionCheckDispatcher.isPermitted("/pages/viewpage.action?pageId=$pageId"))
+            $renderBean.render($pageId)
+        #else
+            <span class="error"><span class="errorMessage">$action.getText('insufficient.privelages.to.view.page')</span></span>
+        #end
+    #else
+        <span class="error"><span class="errorMessage">$action.getText('page.not.found.error')</span></span>
+    #end
+#end
+
+#*
+Link to a user's profile page, given their username. If the username doesn't exist, "Anonymous" is printed
+*#
+#macro (usernameLink $username)
+#if ($username != "")
+    ##if ($action.getUserFullName($username))<a href="$!req.contextPath/display/~$generalUtil.doubleUrlEncode($username)">$generalUtil.htmlEncode($action.getUserFullName($username))</a>#else<a href="$!req.contextPath/display/~$generalUtil.doubleUrlEncode($username)">$username</a>#end
+    ##TC Change - we don't want the links
+    $username
+#else Anonymous#end
+#end
+
+#macro (usernameLinkWithCustomBaseUrl $username $baseurl)
+    #if ($username != "")
+        #if ($action.getUserFullName($username))<a href="$baseurl/display/~$generalUtil.doubleUrlEncode($username)">$generalUtil.htmlEncode($action.getUserFullName($username))</a>#else<a href="$baseurl/display/~$generalUtil.doubleUrlEncode($username)">$username</a>#end
+    #else Anonymous#end
+#end
+
+#macro (usernameLinkParentWindow $username)
+    #if ($username)
+        <a href="javascript:window.opener.location='$!req.contextPath/display/~$generalUtil.doubleUrlEncode($username)'; window.close();">$generalUtil.htmlEncode($action.getUserFullName($username))</a>
+    #else
+        $action.getText('anonymous.name')
+    #end
+#end
+
+#macro (emailUserLink $user $baseurl)
+    #if ($user)
+        <a href="$baseurl/display/~$generalUtil.doubleUrlEncode($user.name)">$generalUtil.htmlEncode($user.fullName)</a>
+    #else
+        $action.getText('anonymous.name')
+    #end
+#end
+
+#macro (userNonLink $user)
+#if($user && $user.name)$generalUtil.htmlEncode($action.getUserFullName($user.name))#else $action.getText('anonymous.name') #end
+#end
+
+#macro (siteTitle)$settingsManager.globalSettings.siteTitle#end
+
+#*
+Prints the search result pagination info.
+*#
+#macro(pagination $paginationSupport $actionContext)
+    #set ($previousIndexes = $paginationSupport.previousStartIndexes)
+    #set ($nextIndexes = $paginationSupport.nextStartIndexes)
+
+    <div class="centered">
+        #if( $paginationSupport.items.size() > 0 )
+            #set ($startIndex = $paginationSupport.startIndex + 1)
+            #set ($endIndex = $paginationSupport.endIndex)
+        #end
+
+        #if( $previousIndexes || $nextIndexes )
+            #set ($currentIndex = 0)
+
+            #if( $previousIndexes )
+                <a href="${actionContext}startIndex=$paginationSupport.previousIndex">$action.getText('previous.name')</a>
+                #foreach( $index in $previousIndexes )
+                    #set ($currentIndex = $currentIndex + 1)
+                    #if ($velocityCount > $generalUtil.arraySize($previousIndexes) - 10)
+                    |
+                    <a href="${actionContext}startIndex=$index">
+                    $currentIndex</a>
+                    #end
+                #end
+                |
+            #end
+
+            #set ($currentIndex = $currentIndex + 1)
+            <b>$currentIndex</b>
+
+            #if( $nextIndexes )
+                #foreach( $index in $nextIndexes )
+                    #set ($currentIndex = $currentIndex + 1)
+                    #if ($velocityCount < 10)
+                    |
+                    <a href="${actionContext}startIndex=$index">
+                    $currentIndex</a>
+                    #end
+                #end
+                |
+                <a href="${actionContext}startIndex=$paginationSupport.nextIndex">$action.getText('next.name')</a>
+            #end
+            <span class="smalltext">$action.getText('total.results.display',["$paginationSupport.total"])</span>
+        #end
+    </div>
+#end
+
+#*
+Prints the search result pagination info. for a pager object (i.e. with total size unknown).
+*#
+#macro(entityPagination $paginationSuppor $actionContext)
+    #set ($previousIndexes = $paginationSupport.previousStartIndexes)
+    #set ($nextIndexes = $paginationSupport.nextStartIndexes)
+
+    <div class="centered">
+    #if( $paginationSupport.items )
+        #set ($startIndex = $paginationSupport.startIndex + 1)
+        #set ($endIndex = $paginationSupport.endIndex)
+    #end
+
+    #if( $previousIndexes || $nextIndexes )
+        #set ($currentIndex = 0)
+
+        #if( $previousIndexes )
+<!--                <a href="$searchFunction('$req.contextPath', $paginationSupport.previousIndex)">&lt;&lt; Previous</a>-->
+            <a href="${actionContext}startIndex=$paginationSupport.previousIndex">$action.getText('previous.name')</a>
+            #foreach( $index in $previousIndexes )
+                #set ($currentIndex = $currentIndex + 1)
+                | <a href="${actionContext}startIndex=$index">$currentIndex</a>
+            #end
+            |
+        #end
+
+        #set ($currentIndex = $currentIndex + 1)
+        <b>$currentIndex</b>
+
+        #if( $nextIndexes )
+            #foreach( $index in $nextIndexes )
+                #set ($currentIndex = $currentIndex + 1)
+                #if ($velocityCount < 10)
+                    | <a href="${actionContext}startIndex=$index">$currentIndex</a>
+                #end
+            #end
+            |
+<!--        <a href="$searchFunction('$req.contextPath', $paginationSupport.nextIndex)">Next &gt;&gt;</a>-->
+            <a href="${actionContext}startIndex=$paginationSupport.nextIndex">$action.getText('next.name')</a>
+        #end
+    #else
+        #if ($paginationSupport.tryNext)
+            <a href="${actionContext}startIndex=0">$action.getText('previous.name')</a>
+        #end
+
+        #if (!$paginationSupport.items.onLastPage())
+            <a href="${actionContext}tryNext=true">$action.getText('next.name')</a>
+        #end
+    #end
+    </div>
+#end
+
+
+#*
+Prints the search box (if Confluence is setup)
+*#
+#macro(searchbox)
+    #if ($bootstrap.isSetupComplete())
+        <form method="GET" action="$req.contextPath/dosearchsite.action" name="searchForm">
+            <input type="hidden" name="quickSearch" value="true" />
+        <td align=right width=200 valign="bottom"><span class="tobBarDiv"><a href="$req.contextPath/searchsite.action">$action.getText('search-pages-action')</a>:<input type="text" accessKey="$action.getTextStrict('search-pages-action.accesskey')" name="searchQuery.queryString" size="10"/><input type="submit" value="$action.getText('go.button')"/><br/><img src="$req.contextPath/images/border/spacer.gif" height="1" width="200"/></span></td>
+        </form>
+    #end
+#end
+
+#*
+    Prints the breadcrumbs
+*#
+#macro(breadcrumbs)
+    #if ($sitemeshPage.getProperty("page.breadcrumbs"))
+        $sitemeshPage.getProperty("page.breadcrumbs")
+    #end
+#end
+
+
+#macro(usernavbar)
+    #if ($bootstrap.isSetupComplete())
+
+    <span class="smalltext" id="userNavBar">
+        #if ($user)
+            $action.getText('welcome.user', [$generalUtil.htmlEncode($user.fullName), $generalUtil.personalSpaceUrl($req.contextPath, $user.name)]) |
+
+            #if ($userHistory)
+                #set ($windowHeight = 100 + (25 * $userHistory.content.size()))
+                <a href="$req.contextPath/users/viewuserhistory.action" onClick="window.open(this.href,'user_history', 'width=620, height=${windowHeight}, resizable'); return false;" title="View History">$action.getText('history.name')</a> |
+            #end
+
+            <a href="$!req.contextPath/users/viewuserprofile.action?username=$generalUtil.doubleUrlEncode($user.name)">$action.getText('navbar.preferences.name')</a> |
+
+            #if ($permissionHelper.isGlobalAdministrator($user))
+                <a href="$req.contextPath/admin/console.action">$action.getText('administration.name')</a> |
+            #end
+
+            <a href="$req.contextPath/logout.action" id="logout">$action.getText('logout.name')</a>&nbsp;
+        #else
+            #*  for the login link, we want it to carry the current page the user is viewing anonymously, so that once they login they will be taken back
+                to this page. However, we do not want to do this if they are on the logout/signup page/forgot password pages *#
+
+            <a href="$seraph.getLinkLoginURL($req)">$action.getText('login.name')</a>
+
+            #if (!$settingsManager.getGlobalSettings().isExternalUserManagement())
+                #if (!$settingsManager.getGlobalSettings().isDenyPublicSignup())
+                | <a href="$req.contextPath/signup.action">$action.getText('sign.up')</a>
+                #end
+                &nbsp;
+            #end
+        #end
+    </span>
+    #end
+#end
+
+#macro(helpicon)
+    <a href="$action.getText('url.confluence.atlassian')$action.getText('urlsuffix.doc.space')"><img src="$req.contextPath/images/icons/help_16.gif" width="16" height="16" hspace="1" vspace="1" align="absmiddle" border="0" alt="$action.getText('get.help.from.confluence.website')" title="$action.getText('get.help.from.confluence.website')"/></a>
+#end
+
+#macro(printableicon)
+        <a href="$req.requestURI?#if ($textUtil.stringSet($req.queryString))$generalUtil.escapeXml(${req.queryString})&#end
+decorator=printable" rel="nofollow"><img src="$req.contextPath/images/icons/print_16.gif" width="16" height="16" hspace="1" vspace="1" align="absmiddle" border="0" alt="$action.getText('view.printable.version.of.page')" title="$action.getText('view.printable.version.of.page')"/></a>
+
+    #if ($sitemeshPage && $sitemeshPage.req)
+        <a href="$sitemeshPage.req.requestURI?#if ($textUtils.stringSet($sitemeshPage.req.queryString))$generalUtil.escapeXml(${sitemeshPage.req.queryString})&#end
+decorator=printable" rel="nofollow"><img src="$req.contextPath/images/icons/print_16.gif" width="16" height="16" hspace="1" vspace="1" align="absmiddle" border="0" alt="$action.getText('view.printable.version.of.page')" title="$action.getText('view.printable.version.of.page')"/></a>
+    #end
+#end
+
+#macro(pdficon)
+    #set ($pageId = $sitemeshPage.getProperty("page.pageId"))
+
+    #if ($sitemeshPage && $req && $pageId && $permissionCheckDispatcher.isPermitted("/pages/doexportpage.action?pageId=$pageId&type=TYPE_PDF"))
+        <a href="$req.contextPath/pages/doexportpage.action?pageId=$pageId&type=TYPE_PDF" rel="nofollow">
+        <img src="$req.contextPath/images/icons/attachments/pdf.gif" height="16" width="16" border="0" align="absmiddle" title="$action.getText('export.as.pdf')"></a>
+    #end
+#end
+
+#macro(feedicon)
+    #if ($sitemeshPage.getProperty("page.feedurl"))
+        <a href="$req.contextPath$sitemeshPage.getProperty('page.feedurl')" rel="nofollow"><img src="$req.contextPath/images/icons/feed-icon-16x16.png" align="absmiddle" border="0" alt="Atom Feed" title="Atom Feed" width="16" height="16"></a>
+    #end
+#end
+
+#macro(pagetitle $class)
+    #if ($bootstrap.isSetupComplete() && $sitemeshPage.getProperty("page.spacename"))
+        <div class="$class">#if ($sitemeshPage.getProperty("page.spacekey"))<a href="$req.contextPath/display/$sitemeshPage.getProperty("page.spacekey")">#end<img src="#logo($sitemeshPage.getProperty("page.spacekey"))" align="absmiddle" border="0">#if ($sitemeshPage.getProperty("page.spacekey"))</a>#end $sitemeshPage.getProperty("page.spacename")</div>
+    #else
+        <div class="$class"><a href="$req.contextPath/"><img src="$req.contextPath/images/confluence_logo.gif" border="0"></a> <a href="$req.contextPath/">CONFLUENCE</a></div>
+    #end
+#end
+
+#macro(bottomshadow)
+  	    #if ($generalUtil.isSetupComplete())
+            #set ($license = $licenseManager.getLicense("CONF") )
+            #if ($license && $license.licenseType.niceName != "Confluence: Commercial Server")
+                #if ($license.licenseType.niceName == "Confluence: Evaluation")
+                    <div class="license license-eval">
+                      <b>#if ($generalUtil.isLicenseExpired()) LICENSE EXPIRED #else EVALUATION LICENSE #end</b> - $action.getText('consider.purchasing',[$action.getText('url.atlassian'),$action.getText('hitcounter.consider.purchasing')])
+                    </div>
+                #elseif ($license.licenseType.niceName == "Confluence: Non-Profit / Open Source")
+                    <div class="license license-nonprofit">
+                    $action.getText('opensource.learn.more',[$action.getText('url.atlassian'),$action.getText('hitcounter.open.source'),$action.getText('url.atlassian'),$action.getText('hitcounter.confluence'), $action.getText('url.atlassian'),$action.getText('hitcounter.confluence'), $action.getText('url.atlassian'),$action.getText('hitcounter.confluence')])
+                    </div>
+                #elseif ($license.licenseType.niceName == "Confluence: Personal Server")
+                    <div class="license license-personal">
+                      $action.getText('personal.server',[$action.getText('url.atlassian'),$action.getText('hitcounter.confluence'),$action.getText('url.atlassian'),$action.getText('hitcounter.confluence'), $action.getText('url.atlassian'),$action.getText('hitcounter.open.source')])<br>
+                    </div>
+                #elseif ($license.licenseType.niceName == "Confluence: Community")
+                    <div class="license license-community">
+                      $action.getText('licensefooter.community',[$action.getText('url.atlassian'), $action.getText('hitcounter.community'), $license.organisation])<br>
+                    </div>
+                #elseif ($license.licenseType.niceName == "Confluence: Open Source")
+                    <div class="license license-opensource">
+                      $action.getText('licensefooter.opensource',[$action.getText('url.atlassian'), $action.getText('hitcounter.opensource'), $license.organisation])<br>
+                    </div>
+                #elseif ($license.licenseType.niceName == "Confluence: Developer")
+                    <div class="license license-developer">
+                      $action.getText('licensefooter.developer')<br>
+                    </div>
+                #elseif ($license.licenseType.niceName == "Confluence: Demonstration")
+                    <div class="license license-demonstration">
+                      $action.getText('licensefooter.demonstration', [$action.getText('url.atlassian'), $action.getText('hitcounter.demonstration')])<br>
+                    </div>
+                #end
+            #elseif (!$license)
+                <div class="license-none">
+                   $action.getText('licensing.error', [$action.getText('mailto.confluence.support')])
+                </div>
+            #end
+        #end
+        <div class="bottomshadow"></div>
+#end
+
+#macro(poweredby)
+  	<div id="poweredby" class="smalltext">
+		$action.getText('powered.by.atlassian.confluence',["$generalUtil.versionNumber","${generalUtil.buildNumber}", "${generalUtil.buildDateString}"])
+		-
+		<a href="$action.getText('url.bug.feature.request')" class="smalltext">$action.getText('bug.feature.request')</a>
+		-
+		<a href="$req.contextPath/administrators.action">$action.getText('contact.administrators')</a>
+		<br/>
+	</div>
+#end
+
+#macro(dashboardlink)
+    #if ($req.getRequestURI().indexOf("dashboard.action") != -1)
+        $action.getText("dashboard.name")
+    #else
+        <a href="$req.contextPath/dashboard.action">$action.getText("dashboard.name")</a>
+    #end
+#end
+
+#macro (peopledirectorylink)
+    <a href="$req.contextPath/peopledirectory.action">$action.getText('people.directory.name')</a>
+#end
+
+#macro (colourRow $name $colour $isDefault)
+    <tr>
+        <td nowrap width="40%" align="right"><b>$action.getText($name)</b></td>
+        <td width="30"><div style="background-color: $colour; width: 30; border: 1px solid black">&nbsp;</div></td>
+        <td><span class="monospaceInput">#if($isDefault)&lt;$action.getText('default')&gt;#else$colour#end</span></td>
+    </tr>
+#end
+
+#macro (trackbackRdf $identifier $title $ping)
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+<rdf:Description
+    rdf:about="$identifier"
+    dc:identifier="$identifier"
+    dc:title="$title"
+    trackback:ping="$ping"/>
+</rdf:RDF>
+-->
+#end
+
+#macro (onoff $test)
+    #if ($test) <font color="009900"><b>$action.getText('on.name')</b></font> #else <font color="990000"><b>$action.getText('off.name')</b></font> #end
+#end
+
+#macro (yesno $test)
+    #if ($test) <font color="009900"><b>$action.getText('yes.name.caps')</b></font> #else <font color="990000"><b>$action.getText('no.name.caps')</b></font> #end
+#end
+
+## Expects a javascript function as a variable which can be excecuted in this script.
+#macro (fielderrorExecuteFunction $fieldname $javascriptFunction)
+    #set ($fieldErrors = $action.fieldErrors)
+    #if ($fieldErrors)
+      #if ($fieldErrors.get($fieldname))
+          #foreach ($error in $fieldErrors.get($fieldname))
+          <div class="error"><span class="errorMessage">
+              <script>
+                  $javascriptFunction
+              </script>
+            #set( $message = $action.getText(${error}) )
+            #if( $message && $message != "" )
+              $message
+            #else
+              $error
+            #end
+          </span></div>
+          #end
+      #end
+    #end
+#end
+
+#macro (fielderror $fieldname)
+    #set ($fieldErrors = $action.fieldErrors)
+    #if ($fieldErrors)
+      #if ($fieldErrors.get($fieldname))
+          #foreach ($error in $fieldErrors.get($fieldname))
+          <div id="${fieldname}-error" class="error"><span class="errorMessage">
+            #set( $message = $action.getText(${error}) )
+            #if( $message && $message != "" )
+              $message
+            #else
+              $error
+            #end
+          </span></div>
+          #end
+      #end
+    #end
+#end
+
+#macro (fielderrorRow $fieldname)
+    #set ($fieldErrors = $stack.findValue("fieldErrors"))
+    #if ($fieldErrors)
+        #if ($fieldErrors.get($fieldname))
+            #foreach ($error in $fieldErrors.get($fieldname))
+                <tr>
+                <td colspan="2" class="error"><span class="errorMessage">
+                #set( $message = $stack.findValue("getText(${error})") )
+                #if( $message && $message != "" )
+                  $message
+                #else
+                  $error
+                #end
+                </span></td>
+                </tr>
+            #end
+        #end
+    #end
+#end
+
+
+
+#*
+    Sets up variables which are used to determine whether or not the help panel
+    should be displayed.
+*#
+
+#macro(infoPanelInit)
+    #if ($sitemeshPage.getProperty("meta.help-path"))
+      #set ($helpPath = $sitemeshPage.getProperty("meta.help-path"))
+    #end
+
+    #if ($sitemeshPage.getProperty("page.help-content"))
+      #set ($helpContent = $sitemeshPage.getProperty("page.help-content"))
+    #end
+
+    ## decide whether or not to include the right nav bar
+    #if ($helpPath || $helpContent)
+      #set ($helpAvailable = true)
+    #end
+
+    #if ($sitemeshPage.getProperty("meta.infopanel-width"))
+      #set ($panelWidth = $sitemeshPage.getProperty("meta.infopanel-width"))
+    #end
+
+    #set ($infoPanelRequired = $helpAvailable)
+#end
+
+#*
+    Sets up variables which are used to determine whether or not the help panel
+    should be displayed, using the parameter object passed by the inline decorator
+    directive: applyDecorator
+*#
+
+#macro(infoPanelInitFromParams)
+    #if ($params.get("help-path"))
+      #set ($helpPath = $params.get("help-path"))
+    #end
+
+    #if ($params.get("help-content"))
+      #set ($helpContent = $params.get("help-content"))
+    #end
+
+    ## decide whether or not to include the right nav bar
+    #if ($helpPath || $helpContent)
+      #set ($helpAvailable = true)
+    #end
+
+    #if ($params.get("infopanel-width"))
+      #set ($panelWidth = $params.get("infopanel-width"))
+    #end
+
+    #set ($infoPanelRequired = $helpAvailable)
+#end
+
+#macro(standardHeader)
+    ##infoPanelInit() we  now initialize the info panel in the content decorator
+
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="-1">
+    <script language="javascript">
+        var contextPath = '$req.contextPath';
+        var i18n = [];
+    </script>
+
+    ## we can only serve main-action.css as a cacheable web resource when the webResourceManager is present
+    #if ($webResourceManager)
+        #if ($sitemeshPage.getProperty("page.spacekey"))
+            <link rel="stylesheet" href="${webResourceManager.getSpaceCssPrefix($sitemeshPage.getProperty("page.spacekey"))}/styles/main-action.css?spaceKey=$sitemeshPage.getProperty("page.spacekey")" type="text/css" />
+        #else
+            <link rel="stylesheet" href="${webResourceManager.globalCssResourcePrefix}/styles/main-action.css" type="text/css" />
+        #end
+    #else
+        <link rel="stylesheet" href="$req.contextPath/styles/main-action.css" type="text/css" />
+    #end
+
+    #if (!$sitemeshPage.getProperty("page.allowindex"))
+        <meta name="robots" content="noindex,nofollow">
+        <meta name="robots" content="noarchive">
+    #end
+    <link rel="shortcut icon" href="$req.contextPath/images/icons/favicon.ico">
+    <link rel="icon" type="image/png" href="$req.contextPath/images/icons/favicon.png">
+    #includeJavascript('/decorators/effects.js')
+
+
+    #if ($sitemeshPage.getProperty("page.rssautodiscovery"))
+        $sitemeshPage.getProperty("page.rssautodiscovery")
+    #end
+    #if ($sitemeshPage.getProperty("page.headsection"))
+        $sitemeshPage.getProperty("page.headsection")
+    #end
+
+
+#end
+
+#macro(rssautodiscovery $rssDescriptor)
+    #if($rssDescriptor)
+        <content tag="rssautodiscovery">
+        <link rel="alternate" type="application/rss+xml"
+            title="$action.rssDescriptor.title"
+            href="$req.contextPath$action.rssDescriptor.rssHref" />
+        <link rel="alternate" type="application/atom+xml"
+            title="$action.rssDescriptor.title"
+            href="$req.contextPath$action.rssDescriptor.atomHref" />
+        </content>
+        <content tag="feedurl">$action.rssDescriptor.atomHref</content>
+    #end
+#end
+
+#macro(displayGlobalMessages $spaceKey $username)
+    <script type="text/javascript">
+        function hideMessage(messageId)
+        {
+            var message = document.getElementById(messageId)
+            message.style.display = "none";
+            setCookie(messageId, true);
+        }
+    </script>
+
+    #set ($messages = $messageManager.getMessages($spaceKey, $username))
+    #if($messages && $messages.size() > 0)
+    <div class="globalMessages">
+        #foreach($message in $messages)
+            #if($message.isVisible())
+            <div id="msg${message.text.hashCode()}" class="${message.cssClass}" style="display:none">
+                <div style="float:right; width:16px">
+                        #if($message.isClosable())<img src="$req.contextPath/images/icons/close_16.gif" onclick="hideMessage('msg${message.text.hashCode()}')" height=16 width=16 border=0 align=absmiddle title="$action.getText('close.name')">#end
+                    </div>
+                    $message.text
+            </div>
+            <script type="text/javascript">if (!getCookie('msg${message.text.hashCode()}')) document.getElementById('msg${message.text.hashCode()}').style.display='block';</script>
+            #end
+        #end
+    </div>
+    #end
+#end
+
+#macro(infoPanel $incomingLinks $trackbacks $referrers $externalReferences)
+<div class="rightpanel">
+  #if ($helpAvailable)
+      <div id="helpheading">
+        <img src="$req.contextPath/images/icons/help_16.gif" height=16 width=16 border=0 align=absmiddle title="$action.getText('help.tips')">
+        $action.getText('help.tips')
+      </div>
+      <div id="helpcontent">
+          #if ($helpContent)
+              $sitemeshPage.getProperty("page.help-content")
+          #else
+              #parse ($helpPath)
+          #end
+      </div>
+  #else
+      #if ($hasPageOperations)
+          #if ($sitemeshPage.getProperty("page.operations.title"))
+              <div class="menuheading">$sitemeshPage.getProperty("page.operations.title")</div>
+          #else
+              <div class="menuheading">$action.getText('operations.word')</div>
+          #end
+          <div class="menuitems">
+              $sitemeshPage.getProperty("page.operations")
+
+              #if ($incomingLinks && $sitemeshPage.getProperty("page.incoming-links"))
+                  $sitemeshPage.getProperty("page.incoming-links")
+              #end
+
+              #if ($trackbacks && $sitemeshPage.getProperty("page.trackbacks"))
+                  $sitemeshPage.getProperty("page.trackbacks")
+              #end
+
+              #if ($referrers && $sitemeshPage.getProperty("page.referrers"))
+                  $sitemeshPage.getProperty("page.referrers")
+              #end
+
+              #if ($externalReferences && $sitemeshPage.getProperty("page.external-references"))
+                  $sitemeshPage.getProperty("page.external-references")
+              #end
+          </div>
+      #end
+  #end
+</div>
+#end
+
+#macro(breadcrumbsAndSearch)
+  <div width="100%" class="breadcrumbs">
+      <table width=100% cellspacing=0 cellpadding=0 border=0><tr>
+          <td>
+          &nbsp;#breadcrumbs()
+          </td>
+          #searchbox()
+      </tr></table>
+  </div>
+#end
+
+#macro (nameList $names)
+    #set($user = "")
+    #foreach ($user in $names)
+        #if ($velocityCount == $names.size())
+            #usernameLink ($user)
+        #else
+            #usernameLink($user),
+        #end
+        #set($user = "")
+    #end
+#end
+
+#* Put this macro back in for backward compatability
+ * Use the blogPostsCalendarWithArrows from now on (it puts the correct arrows links whereas this one doesn't see CONF-6779)
+ *#
+#macro (blogPostsCalendar $cal)
+    <table id="blogcalendar" class="blogcalendar" border="0" cellspacing="0" cellpadding="2" summary="$action.getText('monthly.calander.with.links.to.news.items')">
+           <tr>
+               <th class="calendarhead">
+                   #if ($cal.lastPostInPreviousMonth)
+                   <a href="$req.contextPath/display/$cal.spaceKey/$cal.previousMonth/" rel="nofollow"><span class="backArrow"><span>&lt;&lt;</span></span></a>
+                   #else &nbsp; #end
+               </th>
+               <th class="calendarhead" colspan="5" align="center"><a class="calendarhead" href="$req.contextPath/display/$cal.spaceKey/$cal.currentMonth/">$cal.formatMonthYear()</a></th>
+               <th class="calendarhead">
+                   #if ($cal.firstPostInNextMonth)
+                   <a href="$req.contextPath/display/$cal.spaceKey/$cal.nextMonth" rel="nofollow"><span class="fwdArrow"><span>&gt;&gt;</span></span></a>
+                   #else &nbsp; #end
+               </th>
+           </tr>
+           <tr>
+               <th abbr="Sunday" align="center">$action.getText('sunday.abbr')</th>
+               <th abbr="Monday" align="center">$action.getText('monday.abbr')</th>
+               <th abbr="Tuesday" align="center">$action.getText('tuesday.abbr')</th>
+               <th abbr="Wednesday" align="center">$action.getText('wednesday.abbr')</th>
+               <th abbr="Thursday" align="center">$action.getText('thursday.abbr')</th>
+               <th abbr="Friday" align="center">$action.getText('friday.abbr')</th>
+               <th abbr="Saturday" align="center">$action.getText('saturday.abbr')</th>
+           </tr>
+
+        #set ( $weeks = ($cal.getDaysInMonth() + $cal.startingDayOfMonth)/7 )
+        #foreach ( $week in [0..$weeks] )
+           <tr>
+           #foreach ($day in [1..7] )
+              <td align="center">
+              #set ($date = $week * 7 + $day - $cal.startingDayOfMonth)
+              #if ($date < 1 || $date > $cal.getDaysInMonth())
+                  &nbsp;
+              #elseif ($cal.getPostsForDay($date).size() == 0)
+                  $date
+              #else
+                  #set ($thePost = $cal.getPostsForDay($date).get(0))
+                  <a href="$req.contextPath/display/$thePost.space.key/$thePost.datePath/">$date</a>
+              #end
+              </td>
+           #end
+           </tr>
+        #end
+    </table>
+#end
+
+#* Passes in the action and a flag to display the correct arrow links to blogs:
+ *   true = link to the next/prev DATE post, with blog post date displayed
+ *   false = link to the next/prev post, with blog post title displayed
+ *#
+#macro (blogPostsCalendarWithDateLinks $action $datePostArrows)
+
+    #set ($cal = $action.calendarForThisMonth)
+
+    <table class="blogcalendar" border="0" cellspacing="0" cellpadding="2" summary="$action.getText('monthly.calander.with.links.to.news.items')">
+           <tr>
+               <th class="calendarhead">
+                   #if ($cal.lastPostInPreviousMonth)
+                   <a href="$req.contextPath/display/$cal.spaceKey/$cal.previousMonth/" rel="nofollow"><img src="$req.contextPath/images/icons/back_16.gif" height=16 width=16 border=0 align=absmiddle title="$action.getText('previous.month')"></a>
+                   #else &nbsp; #end
+               </th>
+               <th class="calendarhead" colspan="5" align="center"><a class="calendarhead" href="$req.contextPath/display/$cal.spaceKey/$cal.currentMonth/">$cal.formatMonthYear()</a></th>
+               <th class="calendarhead">
+                   #if ($cal.firstPostInNextMonth)
+                   <a href="$req.contextPath/display/$cal.spaceKey/$cal.nextMonth" rel="nofollow"><img src="$req.contextPath/images/icons/forwd_16.gif" height=16 width=16 border=0 align=absmiddle title="$action.getText('next.month')"></a>
+                   #else &nbsp; #end
+               </th>
+           </tr>
+           <tr>
+               <th abbr="Sunday" align="center">$action.getText('sunday.abbr')</th>
+               <th abbr="Monday" align="center">$action.getText('monday.abbr')</th>
+               <th abbr="Tuesday" align="center">$action.getText('tuesday.abbr')</th>
+               <th abbr="Wednesday" align="center">$action.getText('wednesday.abbr')</th>
+               <th abbr="Thursday" align="center">$action.getText('thursday.abbr')</th>
+               <th abbr="Friday" align="center">$action.getText('friday.abbr')</th>
+               <th abbr="Saturday" align="center">$action.getText('saturday.abbr')</th>
+           </tr>
+
+        #set ( $weeks = ($cal.getDaysInMonth() + $cal.startingDayOfMonth)/7 )
+        #foreach ( $week in [0..$weeks] )
+           <tr>
+           #foreach ($day in [1..7] )
+              <td align="center">
+              #set ($date = $week * 7 + $day - $cal.startingDayOfMonth)
+              #if ($date < 1 || $date > $cal.getDaysInMonth())
+                  &nbsp;
+              #elseif ($cal.getPostsForDay($date).size() == 0)
+                  $date
+              #else
+                  #set ($thePost = $cal.getPostsForDay($date).get(0))
+                  <a href="$req.contextPath/display/$thePost.space.key/$thePost.datePath/">$date</a>
+              #end
+              </td>
+           #end
+           </tr>
+        #end
+    </table><br/>
+
+    #if ($datePostArrows)
+        #if ($action.nextDatePost || $action.previousDatePost)
+            #if ($action.nextDatePost && $permissionCheckDispatcher.isPermitted("/pages/viewblogposts.action?pageId=$action.nextDatePost.id") )
+                <a href="$req.contextPath/display/$action.nextDatePost.space.key/$action.nextDatePost.datePath/"><img src="$req.contextPath/images/icons/forwd_16.gif" height=16 width=16 border=0 align=absmiddle title="Next Post"></a>
+                <a href="$req.contextPath/display/$action.nextDatePost.space.key/$action.nextDatePost.datePath/">$generalUtil.format($action.nextDatePost.creationDate)</a><br/>
+            #end
+            #if ($action.previousDatePost && $permissionCheckDispatcher.isPermitted("/pages/viewblogposts.action?pageId=$action.previousDatePost.id") )
+                <a href="$req.contextPath/display/$action.previousDatePost.space.key/$action.previousDatePost.datePath/"><img src="$req.contextPath/images/icons/back_16.gif" height=16 width=16 border=0 align=absmiddle title="Previous Post"></a>
+                <a href="$req.contextPath/display/$action.previousDatePost.space.key/$action.previousDatePost.datePath/">$generalUtil.format($action.previousDatePost.creationDate)</a><br/>
+            #end
+            <br />
+        #end
+    #else
+        #if ($action.nextPost || $action.previousPost)
+             #if ($action.nextPost && $permissionCheckDispatcher.isPermitted("/pages/viewpage.action?pageId=$action.nextPost.id") )
+                 <a href="$req.contextPath$generalUtil.getPageUrl($action.nextPost)"><img src="$req.contextPath/images/icons/forwd_16.gif" height=16 width=16 border=0 align=absmiddle title="Next Post"></a>
+                 <a href="$req.contextPath$generalUtil.getPageUrl($action.nextPost)">$action.nextPost.title</a><br/>
+             #end
+
+             #if ($action.previousPost && $permissionCheckDispatcher.isPermitted("/pages/viewpage.action?pageId=$action.previousPost.id") )
+                 <a href="$req.contextPath$generalUtil.getPageUrl($action.previousPost)"><img src="$req.contextPath/images/icons/back_16.gif" height=16 width=16 border=0 align=absmiddle title="Previous Post"></a>
+                 <a href="$req.contextPath$generalUtil.getPageUrl($action.previousPost)">$action.previousPost.title</a><br/>
+             #end
+             <br />
+         #end
+    #end
+#end
+
+#* passes the url to the permissionDispatcher first. if user has permissions to see link, this macro will display it
+ * $url: the url of the action. You must drop the contextPath off the url before passing it in here.
+ * $linkTextKey: the i18n key for the name of the link
+ *#
+#macro (confluenceLink $url $linkTextKey)
+    #if ($permissionCheckDispatcher.isPermitted($url))
+        <a href="$req.contextPath/$url">$action.getText($linkTextKey)</a>
+    #end
+#end
+
+#macro (confluenceLink2 $url $linkTextKey $prefix $suffix)
+    #if ($permissionCheckDispatcher.isPermitted($url))
+        $prefix <a href="$req.contextPath/$url">$action.getText($linkTextKey)</a> $suffix
+    #end
+#end
+
+#macro (showPermissionsHeader)
+        <tr>
+            <th class="permissionHeading" width="25%">&nbsp;</th>
+            <th class="permissionHeading">&nbsp;</th>
+            <th colspan=4 class="permissionSuperTab">$action.getText('perms.pages')</th>
+            <th colspan=2 class="permissionSuperTab">$action.getText('perms.news')</th>
+            <th colspan=2 class="permissionSuperTab">$action.getText('perms.comments')</th>
+            <th colspan=2 class="permissionSuperTab">$action.getText('perms.attachments')</th>
+            <th class="permissionSuperTab">$action.getText('perms.mail')</th>
+            <th colspan=2 class="permissionSuperTab">$action.getText('perms.space')</th>
+        </tr>
+        <tr>
+            <th class="permissionHeading">&nbsp;</th>
+            <th width="40" class="permissionSuperTab">$action.getText('perms.view')</th>
+            <th width="40" class="permissionTab">$action.getText('perms.create')</th>
+            <th width="40" class="permissionTab">$action.getText('perms.export')</th>
+            <th width="40" class="permissionTab">$action.getText('perms.restrict')</th>
+            <th width="40" class="permissionTab">$action.getText('perms.remove')</th>
+            <th width="40" class="permissionTab">$action.getText('perms.create')</th>
+            <th width="40" class="permissionTab">$action.getText('perms.remove')</th>
+            <th width="40" class="permissionTab">$action.getText('perms.create')</th>
+            <th width="40" class="permissionTab">$action.getText('perms.remove')</th>
+            <th width="40" class="permissionTab">$action.getText('perms.create')</th>
+            <th width="40" class="permissionTab">$action.getText('perms.remove')</th>
+            <th width="40" class="permissionTab">$action.getText('perms.remove')</th>
+            <th width="40" class="permissionTab">$action.getText('perms.export')</th>
+            <th width="40" class="permissionTab">$action.getText('perms.admin')</th>
+        </tr>
+#end
+
+#*
+ * Macro for getting the URL of a resource from within a themed decorator
+ *#
+
+#macro (themeResource $resourcePath)$req.contextPath$sitemeshPage.getProperty("theme.resource.path")$resourcePath#end
+
+#*
+ * This macro is quite messy but is neater than simply copying and pasting the HTML three times on two different
+ * screens to represent view and edit views of permissions for groups, users, and anonymous entities.
+ *
+ * Note - this macro renders form elements when in edit mode but you must wrap it in a form element yourself.
+ *
+ * $who: list containing the following symbols - "g" (group), "u" (user), "a" (anonymous), "e" (everyone).
+ * Each symbol is a directive to print out symbolized information in the order in which the symbols are expressed.
+ * Note - "e" is actually ["g", "u", "a"]
+ *
+ * $action: an object carry functionality to support calls for group, user, and anonymous permissions; for example
+ * com.atlassian.confluence.security.actions.EditSpacePermissionsAction .
+ *
+ * $edit: string literal; if set to "true" it will output input boxes for each permission listing, otherwise it will
+ * use a tick or cross image for read-only.
+ *#
+
+#macro (showPermissions $who $action $edit )
+
+    #if ($who == ["e"])
+        #set ($who = ["g", "u", "a"])
+    #end
+
+    #foreach( $entity in $who )
+       <table border="0" cellpadding=2 cellspacing=0 width="100%">
+
+    #*  -- outputting group permissions from $action -- *#
+        #if ($entity == "g")
+
+            #set ($groups = $action.activeGroups)
+            #if ($groups.size() > 0)
+                #showPermissionsHeader()
+
+                #foreach ($group in $groups)
+                    <tr style=" #if ($velocityCount % 2 == 0) background: #f0f0f0; #end">
+                        <td>
+                            <img src="$req.contextPath/images/icons/group_16.gif" width=16 height=16 border=0 align=absmiddle>
+                            $group.name
+                        </td>
+                        <td align="center" class="permissionCell">
+                        #if ($edit == "true")
+                            <input type="checkbox" name="$action.buildGroupCheckboxName('viewspace', $group.name)" checked>
+                        #else
+                            #if ($action.hasGroupPermission($group.name, 'viewspace'))
+                                <img src="$req.contextPath/images/icons/emoticons/check.gif" width=16 height=16 align=absmiddle border=0>
+                            #else
+                                <img src="$req.contextPath/images/icons/emoticons/error.gif" width=16 height=16 align=absmiddle border=0>
+                            #end
+                        #end
+                        </td>
+                        #foreach ($permission in ["editspace", "exportpage", "setpagepermissions", "removepage", "editblog", "removeblog", "comment", "removecomment", "createattachment", "removeattachment", "removemail", "exportspace", "setspacepermissions"])
+                        <td align="center" class="permissionCell" valign="middle">
+                            #if ($edit == "true")
+                                #if ($action.hasGroupPermission($group.name, $permission))
+                                    <input type="checkbox" name="$action.buildGroupCheckboxName($permission, $group.name)" checked>
+                                #else
+                                    <input type="checkbox" name="$action.buildGroupCheckboxName($permission, $group.name)">
+                                #end
+                            #else
+                                #if ($action.hasGroupPermission($group.name, $permission))
+                                    <img src="$req.contextPath/images/icons/emoticons/check.gif" width=16 height=16 align=absmiddle border=0>
+                                #else
+                                    <img src="$req.contextPath/images/icons/emoticons/error.gif" width=16 height=16 align=absmiddle border=0>
+                                #end
+                            #end
+                        </td>
+                        #end
+                    </tr>
+                #end
+            #else
+                <tr><td colspan=5>$action.getText('no.groups.have.access') </td></tr>
+            #end
+        #end
+    #*  -- outputting user permissions from $action -- *#
+        #if ($entity == "u")
+            #set ($users = $action.activeUsers)
+            #if ($users.size() > 0)
+                #showPermissionsHeader()
+
+                #foreach ($user in $users)
+                    <tr style=" #if ($velocityCount % 2 == 0) background: #f0f0f0; #end">
+                        <td>
+                            <img src="$req.contextPath/images/icons/group_16.gif" width=16 height=16 border=0 align=absmiddle>
+                            $generalUtil.htmlEncode($user.fullName)
+                        </td>
+                        <td align="center" class="permissionCell">
+
+                            ## Don't show checkboxes for owners of personal spaces
+                            #if ($edit == "true" && !($action.getSpace().getType() == "personal" && $user.getName() == $action.getSpace().getCreatorName()) )
+                                <input type="checkbox" name="$action.buildUserCheckboxName('viewspace', $user.name)" checked>
+                            #else
+                                #if ($action.hasUserPermission($user, 'viewspace'))
+                                    <img src="$req.contextPath/images/icons/emoticons/check.gif" width=16 height=16 align=absmiddle border=0>
+                                #else
+                                    <img src="$req.contextPath/images/icons/emoticons/error.gif" width=16 height=16 align=absmiddle border=0>
+                                #end
+                            #end
+                        </td>
+                            #foreach ($permission in ["editspace", "exportpage", "setpagepermissions", "removepage", "editblog", "removeblog", "comment", "removecomment", "createattachment", "removeattachment", "removemail", "exportspace", "setspacepermissions"])
+                            <td align="center" class="permissionCell" valign="middle">
+                                ## Don't show checkboxes for owners of personal spaces
+                                #if ($edit == "true" && !($action.getSpace().getType() == "personal" && $user.getName() == $action.getSpace().getCreatorName()) )
+                                    #if ($action.hasUserPermission($user, $permission))
+                                        <input type="checkbox" name="$action.buildUserCheckboxName($permission, $user.name)" checked>
+                                    #else
+                                        <input type="checkbox" name="$action.buildUserCheckboxName($permission, $user.name)">
+                                    #end
+                                #else
+                                    #if ($action.hasUserPermission($user, $permission))
+                                        <img src="$req.contextPath/images/icons/emoticons/check.gif" width=16 height=16 align=absmiddle border=0>
+                                    #else
+                                        <img src="$req.contextPath/images/icons/emoticons/error.gif" width=16 height=16 align=absmiddle border=0>
+                                    #end
+                                #end
+                            </td>
+                        #end
+                    </tr>
+                #end
+
+            #else
+                <tr><td colspan=5>$action.getText('no.users.have.rights.to.this.space')</td></tr>
+            #end
+        #end
+
+    #*  -- outputting anonymous permissions from $action -- *#
+        #if ($entity == "a")
+            #showPermissionsHeader()
+
+            <tr>
+                <td>
+                    <img src="$req.contextPath/images/icons/group_anyone_16.gif" width=16 height=16 border=0 align=absmiddle>
+                    <b>$action.getText('anonymous.name')</b>
+                </td>
+                <td align="center" class="permissionCell">
+                    #if ($edit == "true")
+                        #if ($action.hasAnonymousPermission('viewspace'))
+                            <input type="checkbox" name="$action.buildAnonymousCheckboxName('viewspace')" checked>
+                        #else
+                            <input type="checkbox" name="$action.buildAnonymousCheckboxName('viewspace')">
+                        #end
+                    #else
+                        #if ($action.hasAnonymousPermission('viewspace'))
+                            <img src="$req.contextPath/images/icons/emoticons/check.gif" width=16 height=16 align=absmiddle border=0>
+                        #else
+                            <img src="$req.contextPath/images/icons/emoticons/error.gif" width=16 height=16 align=absmiddle border=0>
+                        #end
+                    #end
+                </td>
+
+                #foreach ($permission in ["editspace", "exportpage", "setpagepermissions", "removepage", "editblog", "removeblog", "comment", "removecomment", "createattachment", "removeattachment", "removemail", "exportspace", "setspacepermissions"])
+                <td align="center" class="permissionCell">
+                    #if ($edit == "true")
+                        #if ($action.hasAnonymousPermission($permission))
+                            <input type="checkbox" name="$action.buildAnonymousCheckboxName($permission)" checked>
+                        #else
+                            <input type="checkbox" name="$action.buildAnonymousCheckboxName($permission)">
+                        #end
+                    #else
+                        #if ($action.hasAnonymousPermission($permission))
+                            <img src="$req.contextPath/images/icons/emoticons/check.gif" width=16 height=16 align=absmiddle border=0>
+                        #else
+                            <img src="$req.contextPath/images/icons/emoticons/error.gif" width=16 height=16 align=absmiddle border=0>
+                        #end
+                    #end
+                </td>
+            #end
+            </tr>
+        #end
+        </table>
+    #end
+#end
+
+## use this function in tr's to alternate the row colors when displaying a list of items.
+#macro (alternateRowColors)
+    #if ($velocityCount % 2 == 0)
+        class="rowAlternate"
+    #end
+#end
+
+#macro (spaceTitleLink)
+    #if ($sitemeshPage.getProperty("page.spacename"))
+        #if($sitemeshPage.getProperty("page.spacekey"))<a href="$req.contextPath/display/$sitemeshPage.getProperty("page.spacekey")">#end$sitemeshPage.getProperty("page.spacename")#if($sitemeshPage.getProperty("page.spacekey"))</a>#end
+    #else
+        &nbsp;
+    #end
+#end
+
+#macro (pageTitleLink)
+    #if ($sitemeshPage.getProperty("page.pageTitle"))
+        $sitemeshPage.getProperty("page.pageTitle")
+    #else
+        $title
+    #end
+#end
+
+#macro (quickSearch)
+    <form method="POST" action="$req.contextPath/dosearchsite.action" name="searchForm" style="padding: 1px; margin: 1px">
+        <input type="hidden" name="quickSearch" value="true" />
+        #* search only global spaces by default *#
+        <input type="hidden" name="searchQuery.spaceKey" value="conf_global" />
+        <input type="text" accessKey="$action.getTextStrict('search-pages-action.accesskey')" name="searchQuery.queryString" size="25"/>
+        <input type="submit" value="$action.getText('search.name')"/>
+    </form>
+#end
+
+
+#macro (watchLink )
+
+    #set ($action = $helper.action)
+
+    #if(!$action.anonymousUser && !$action.isPrintableVersion() && $actionErrors.size() == 0)
+        #if(!$action.userWatchingSpace)
+            #if($action.userWatchingPage)
+              #if( $permissionCheckDispatcher.isPermitted("/pages/removepagenotification.action?pageId=$helper.page.id") )
+                    <a href="$req.contextPath/pages/removepagenotification.action?pageId=$helper.page.id" title="$action.getText('stop.watching.page')"><img border="0" src="$req.contextPath/images/icons/watch_cancel_16.gif" align="absmiddle"></a>
+              #end
+            #else
+                #if( $permissionCheckDispatcher.isPermitted("/pages/addpagenotification.action?pageId=$helper.page.id") )
+                    <a href="$req.contextPath/pages/addpagenotification.action?pageId=$helper.page.id" title="$action.getText('watch.this.page')"><img border="0" src="$req.contextPath/images/icons/watch_16.gif" align="absmiddle"></a>
+                #end
+            #end
+        #else
+                    <a href="$req.contextPath/spaces/viewspacecontent.action?key=$helper.spaceKey" title="$action.getText('you.are.currently.watching.space',[$webwork.htmlEncode($!page.space.name)])"><img border="0" src="$req.contextPath/images/icons/add_space_notification_16.gif" align="absmiddle"></a>
+        #end
+    #end
+#end
+
+#macro (favouriteLink )
+
+    #set ($action = $helper.action)
+
+    #if(!$action.anonymousUser && !$action.isPrintableVersion() && $actionErrors.size() == 0)
+        #if($action.favouritePage)
+          #if( $permissionCheckDispatcher.isPermitted("/labels/removefavourite.action?entityId=$helper.page.id") )
+                <a href="$req.contextPath/labels/removefavourite.action?entityId=$helper.page.id" title="$helper.getText("favourite.remove.page")"><img border="0" src="$req.contextPath/images/icons/star_yellow.gif" width="16" height="16" align="absmiddle"></a>
+          #end
+        #else
+            #if( $permissionCheckDispatcher.isPermitted("/labels/addfavourite.action?entityId=$helper.page.id") )
+                <a href="$req.contextPath/labels/addfavourite.action?entityId=$helper.page.id" title="$helper.getText("favourite.add.page")"><img border="0" src="$req.contextPath/images/icons/star_grey.gif" width="16" height="16" align="absmiddle"></a>
+            #end
+        #end
+    #end
+#end
+
+
+
+#*
+    Renders an edit link with image, for a blog.
+*#
+#macro (editBlogPostWithImageLink )
+
+    #set ($page = $helper.page)
+
+   #if ($permissionCheckDispatcher.isPermitted("/pages/editblogpost.action?pageId=$page.id"))
+       <a href="$req.contextPath/pages/editblogpost.action?pageId=$page.id"><img border="0" src="$req.contextPath/images/icons/edit_16.gif" align="absmiddle"></a>
+       <a href="$req.contextPath/pages/editblogpost.action?pageId=$page.id">Edit</a>
+   #end
+#end
+
+
+#macro (renderChildren )
+
+    #set ($page = $helper.page)
+    #if (!$page.originalVersion && $helper.childrenShowing)
+        #if ($helper.action.getPermittedChildren().size() > 0)
+            <div class="tabletitle">
+                <a name="children">$action.getText('children.title')</a>
+
+                <span class="bodytext">
+                &nbsp;
+                <a href="$req.contextPath$generalUtil.customGetPageUrl($page)showChildren=false">$action.getText('hide.children')</a>
+                | <a href="$req.contextPath/pages/listpages-dirview.action?key=$page.space.key&openId=$page.id#selectedPageInHierarchy">$action.getText('view.in.heirarchy')</a>
+                #if ($permissionHelper.canCreatePage($remoteUser, $space))
+                    #if ($page.type == "page")
+                        |
+                        <a href="$req.contextPath/pages/createpage.action?spaceKey=$generalUtil.urlEncode($space.key)&fromPageId=$page.id"><img src="$req.contextPath/images/icons/add_page_child_16.gif" height=16 width=16 border=0 align=absmiddle title="$helper.getText("action.add.page.child")"></a>
+                        <a href="$req.contextPath/pages/createpage.action?spaceKey=$generalUtil.urlEncode($space.key)&fromPageId=$page.id">$helper.getText("action.add.page.child")</a>
+                    #end
+                #end
+                </span>
+            </div>
+            <div class="greybox" align="left">
+                #foreach ($child in $helper.action.getPermittedChildren())
+                    #contentLink ($child) <br/>
+                #end
+            </div>
+        #end
+    #else
+        #if ($helper.action.getPermittedChildren().size() > 0)
+        <div class="greybox">
+            <img src="$req.contextPath/images/icons/page_hierarchy_16.gif" height="16" width="16" border="0" align="absmiddle">
+            <a href="$req.contextPath$generalUtil.customGetPageUrl($page)showChildren=true&#0035;children">$action.getText('number.of.children',["$helper.action.getPermittedChildren().size()"])</a>
+            | <a href="$req.contextPath/pages/listpages-dirview.action?key=$page.space.key&openId=$page.id#selectedPageInHierarchy">$action.getText('view.in.heirarchy')</a>
+        </div>
+        #end
+    #end
+#end
+
+#macro (renderComments)
+    #applyDecorator("root")
+        #decoratorParam("sitemeshPage" $sitemeshPage)
+        #decoratorParam("page" $page)
+        #decoratorParam("context" "sharedcomments")
+    #end
+#end
+
+
+#macro (onLoad)
+    #if (!$textUtil.stringSet($sitemeshPage.getProperty("page.bodyOnLoad")))
+        <body onload="placeFocus()">
+    #else
+        <body onload="$sitemeshPage.getProperty('page.bodyOnLoad')">
+    #end
+#end
+
+#macro (versionInfo)
+<p style="clear: both">
+  <div class="noteMacro" style="margin-bottom:10px;">
+    <div class="padded">
+        #if ($helper.historicalVersion)
+      <img src="$req.contextPath/images/icons/emoticons/warning.gif" align="absmiddle" height=16 width=16> <b>$action.getText('viewing.old.version',["$page.version"])</b>
+        #else
+        <b>$action.getText('viewing.current.version', ["$page.version"])</b>
+        #end
+      <br>
+      <div class="smallfont">
+          #if ($helper.historicalVersion)
+        $action.getText('latest.version.is',["$req.contextPath$generalUtil.getPageUrl($page.originalVersion)","$page.originalVersion.version","$action.dateFormatter.format(${page.originalVersion.lastModificationDate})"])
+        (<a href="$req.contextPath/pages/diffpagesbyversion.action?pageId=$page.originalVersion.id&originalVersion=$page.version&revisedVersion=$page.originalVersion.version">$action.getText('view.differences')</a>
+        |
+        #if ($permissionCheckDispatcher.isPermitted("/pages/revertpagebacktoversion.action?pageId=$page.originalVersion.id&version=${page.version}"))
+          <a href="revertpagebacktoversion.action?pageId=$page.originalVersion.id&version=${page.version}">$action.getText('restore.this.version.smalls')</a>
+        #end)<br>#end
+        #if ($action.hasPreviousVersion($page))
+          <a href="$req.contextPath/pages/viewpage.action?pageId=$action.getPageIdOfVersionBefore($page)&navigatingVersions=true">&lt;&lt; $action.getText('view.previous.version')</a> |
+        #end
+          <a href="$req.contextPath/pages/viewpreviouspageversions.action?pageId=$page.originalVersion.id">$action.getText('view.page.history.smalls')</a>
+        #if ($action.hasNextVersion($page))
+          | <a href="$req.contextPath/pages/viewpage.action?pageId=$action.getPageIdOfVersionAfter($page)&navigatingVersions=true">$action.getText('view.next.version') &gt;&gt;</a>
+        #end
+      </div>
+    </div>
+  </div>
+  #versionComment()
+</p>
+#end
+
+
+#macro (versionComment)
+  <div id="versionComment" class="noteMacro" style="display:none; padding: 5px;">
+      <b>$action.getText('comment.name'):</b>
+      $page.renderedVersionComment<br />
+      <span class="smalltext"><a href="$req.contextPath/pages/viewpreviouspageversions.action?pageId=$page.id">$action.getText('view.page.history')</a></span>
+  </div>
+
+    <script>
+      var show = document.getElementById('show');
+      var hide = document.getElementById('hide');
+      var versionComment = document.getElementById('versionComment');
+
+      function showComment(){
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+        versionComment.style.display = 'block';
+      }
+
+      function hideComment(){
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+        versionComment.style.display = 'none';
+      }
+
+    </script>
+#end
+
+#macro (editReport)
+    #if ($page.isLatestVersion() == true)
+        $action.getText('added.by.user.last.edited.on.date', ["#usernameLink ($page.creatorName)","#usernameLink ($page.lastModifierName)","$action.dateFormatter.format( $page.lastModificationDate )"])
+    #else
+        $action.getText('added.by.user.edited.on.date', ["#usernameLink ($page.creatorName)","#usernameLink ($page.lastModifierName)","$action.dateFormatter.format( $page.lastModificationDate )"])
+    #end
+    #if ($page.isLatestVersion())
+      #set ($previousPage = $action.getPreviousVersion($page.previousVersion))
+      #if ($!previousPage)
+        &nbsp;(<a href="$req.contextPath/pages/diffpages.action?pageId=${page.id}&originalId=$previousPage.id">$action.getText('view.change')</a>)
+      #end
+    #end
+    #if ($page.isVersionCommentAvailable())
+        <span id="show" class="inline-control-link"><a href="#" onclick="showComment(); return false;">$action.getText('show.comment')</a></span>
+        <span id="hide" class="inline-control-link" style="display:none;"><a href="#" onclick="hideComment(); return false;">$action.getText('hide.comment')</a></span>
+        #versionComment()
+    #end
+
+#end
+
+#macro (labelsWithNone $labels $showNone)
+    #if ($labels.size() > 0) #foreach($label in $labels)#if($velocityCount > 1), #end #labelLink($label)#end
+    #elseif ($showNone) (None) #end
+#end
+
+#*
+    Renders a comma seperated list of labels limited by a max amount.
+    If there are more than max labels it shows: ... x $message.
+*#
+#macro (labelsMax $labels $max $message)
+    #if ($labels.size() > 0)
+    #set($remaining = $labels.size() - $max)
+        #foreach($label in $labels)#if($velocityCount <= $max)#if($velocityCount > 1), #end #labelLink($label)#end#end
+        #if($remaining > 0)
+        ... $remaining $message
+        #end
+    #end
+#end
+
+#macro (labels $labels)
+    #labelsWithNone ($labels true)
+#end
+
+## label links shown in the context of a space should take the user to a page that contains content for that space only
+## to do this, we need to pull the space key either from the $helper or from the $action
+## neither of these are available for the $label.urlPath method (which contains the intelligence to display a i18n label properly by id)
+## the compromise is to move $label.urlPath logic into here (and also append a spacekey at the end of the i18n friendly url)
+## please use this macro to generate url's for labels where ever possible
+#macro (labelLinkUrl $label)#*
+    *##if ($label.teamLabel)#*
+        *#$req.contextPath/homepage.action?spacesSelectedTab=team&selectedTeam=$generalUtil.htmlEncode($generalUtil.urlEncode($label.realTitle))#*
+    *##elseif ($generalUtil.isSafeTitleForUrl($label.realTitle))#*
+        *#$req.contextPath/label/#if($helper.spaceKey)$generalUtil.urlEncode($helper.spaceKey)/#elseif($spaceKey)$generalUtil.urlEncode($spaceKey)/#end$webwork.urlEncode($label.realTitle)#*
+    *##else#*
+        *#$req.contextPath$label.urlPath#if($helper.spaceKey)&key=$generalUtil.urlEncode($helper.spaceKey)#elseif($spaceKey)&key=$generalUtil.urlEncode($spaceKey)#end#*
+    *##end#*
+*##end
+
+#macro (labelLink $label)<a href="#labelLinkUrl($label)">$generalUtil.htmlEncode($label.realTitle)</a>#end
+
+## Displays the label link without the namespace
+#macro (labelLinkBasic $label)<a href="#labelLinkUrl($label)">$label.name</a>#end
+
+#macro (labelString $labelable)#if ($labelable.labels.size() > 0) #foreach($label in $labelable.labels)#if($velocityCount > 1), #end$label.name#end#end
+
+#macro (mailOperations $helper)
+
+    <div class="menuheading">
+        $action.getText('mail.operations')
+    </div>
+    <div class="menuitems">
+        <div class="operations">
+            #if ($helper.action.inThread || $helper.action.nextMail || $helper.action.previousMail)
+                <ul style="list-style: none;">
+                    #if ($helper.action.inThread)
+                        <li>
+                            <a href="$req.contextPath/spaces/viewthread.action?key=$helper.action.key&id=$helper.action.mail.id" title="$helper.getText("view.mail.thread.title")"><img src="$req.contextPath/images/icons/mail_thread_16.gif" border="0" height=16 width=16 alt="" align="absmiddle"></a>
+                            <a href="$req.contextPath/spaces/viewthread.action?key=$helper.action.key&id=$helper.action.mail.id" title="$helper.getText("view.mail.thread.title")"><span class="label">$helper.getText("view.mail.thread.desc")</span></a>
+                        </li>
+                    #end
+
+                    #if( $helper.action.nextMail && $permissionCheckDispatcher.isPermitted("/spaces/viewmail.action?key=$helper.action.nextMail.space.key&id=$helper.action.nextMail.id"))
+                        <li>
+                            <a href="${req.contextPath}$helper.action.nextMail.urlPath"><img src="$req.contextPath/images/icons/forwd_16.gif" height=16 width=16 border=0 align=absmiddle title="$generalUtil.escapeXml($helper.action.nextMail.title)"></a><span class="label">
+                            <a href="${req.contextPath}$helper.action.nextMail.urlPath" title="$generalUtil.escapeXml($helper.action.nextMail.title)">$helper.getText("next.mail")</a></span>
+                        </li>
+                    #end
+
+                    #if( $helper.action.previousMail && $permissionCheckDispatcher.isPermitted("/spaces/viewmail.action?key=$helper.action.previousMail.space.key&id=$helper.action.previousMail.id"))
+                        <li>
+                            <a href="${req.contextPath}$helper.action.previousMail.urlPath"><img src="$req.contextPath/images/icons/back_16.gif" height=16 width=16 border=0 align=absmiddle title="$generalUtil.escapeXml($helper.action.previousMail.title)"></a><span class="label">
+                            <a href="${req.contextPath}$helper.action.previousMail.urlPath" title="$generalUtil.escapeXml($helper.action.previousMail.title)">$helper.getText("previous.mail")</a></span>
+                        </li>
+                    #end
+                </ul>
+            #end
+
+            <ul style="list-style: none;">
+                #if( $mail && $permissionCheckDispatcher.isPermitted("/spaces/removemail.action?key=$mail.space.key&id=$mail.id") )
+                    <li>
+                        <a href="$req.contextPath/spaces/removemail.action?key=$mail.space.key&id=$mail.id"><img src="$req.contextPath/images/icons/trash_16.gif" height=16 width=16 border=0 align=absmiddle title="${stack.findValue('getText("remove.mail.name")')}"></a><span class="label">
+                        <a href="$req.contextPath/spaces/removemail.action?key=$mail.space.key&id=$mail.id">$helper.getText("remove.mail.name")</a></span>
+                    </li>
+                #end
+
+                #if( $permissionCheckDispatcher.isPermitted("/spaces/viewmailarchive.action?key=$mail.space.key") )
+                    <li>
+                    #if ($mail)
+                        <a href="$req.contextPath/spaces/viewmailarchive.action?key=$mail.space.key"><img src="$req.contextPath/images/icons/list_mail_content_16.gif" width="16" height="16" border="0" align="absmiddle" title="$helper.getText("mail.archive.name")"></a><span class="label">
+                        <a href="$req.contextPath/spaces/viewmailarchive.action?key=$mail.space.key">$helper.getText("mail.archive.name")</a></span>
+                    #else
+                        <a href="$req.contextPath/spaces/viewmailarchive.action?key=$helper.action.key"><img src="$req.contextPath/images/icons/list_mail_content_16.gif" width="16" height="16" border="0" align="absmiddle" title="$helper.getText("mail.archive.name")"></a><span class="label">
+                        <a href="$req.contextPath/spaces/viewmailarchive.action?key=$helper.action.key">$helper.getText("mail.archive.name")</a></span>
+                    #end
+                    </li>
+                #end
+            </ul>
+
+        </div>
+    </div>
+#end
+
+
+#* ----------------------------------------------- LOGO MACROS ----------------------------------------------- *#
+
+## only returns the image url of the appropriate logo
+#macro (logo $spaceKeyOrUsername)#*
+
+	Firstly, if it's a username, look for user profile picture
+	*##if ($textUtil.stringSet($spaceKeyOrUsername) && $spaceKeyOrUsername.startsWith("~"))#*
+		*##set ($userProfilePicture = $userAccessor.getUserProfilePicture($spaceKeyOrUsername.substring(1)))#*
+		*##if ($userProfilePicture)#*
+			*#$req.contextPath$userProfilePicture.downloadPath#*
+		*##else#*
+			*#$req.contextPath/images/confluence_logo.gif#*
+		*##end#*
+
+	Otherwise, it's not a username, so let's check if the space has a set logo
+	*##elseif ($textUtil.stringSet($spaceKeyOrUsername) && $resourceManager.getResourceWithSpaceKey("logo", $spaceKeyOrUsername))#*
+		*#$req.contextPath/download/userResources/$spaceKeyOrUsername/logo#*
+
+	No space logo, let's look for a global logo set
+	*##elseif ($resourceManager.getResource("logo", null))#*
+        *#$req.contextPath/download/userResources/logo#*
+
+	No global logo, let's use the default Confluence logo
+    *##else#*
+		*#$req.contextPath/images/confluence_logo.gif#*
+    *##end#*
+
+*##end
+
+## checks if space preferences to determine if the logo has been disabled, and then displays it.
+## include href link just in case we want to customize this part based on some preference in the future (without breaking people's stuff again)
+#macro (logoBlock $spaceKeyOrUsername)#*
+    *##if ($textUtil.stringSet($spaceKeyOrUsername))#*
+		*##if ($spaceKeyOrUsername.startsWith("~"))#*
+			*##userLogoBlock($spaceKeyOrUsername)#*
+		*##else#*
+			*##spaceLogoBlock($spaceKeyOrUsername)#*
+		*##end#*
+	*##else#*
+        *##globalLogoBlock()#*
+    *##end#*
+*##end
+
+## private - use #logoBlock
+#macro (spaceLogoBlock $spaceKey)#*
+    *##if ($settingsManager.getSpaceSettings($spaceKey).isDisableLogo())#* render nothing
+    *##else#*
+        *##if($resourceManager.getResourceWithSpaceKey("logo", $spaceKey))#* check if a space logo exists so we know if we need to defer to global logo settings
+            *#<a href="$req.contextPath/display/$spaceKey"><img src="#logo($spaceKey)" align="absmiddle" border="0"></a>#*
+        *##else#*
+            *#<a href="$req.contextPath/display/$spaceKey"><img src="#logo(null)" align="absmiddle" border="0"></a>#*
+        *##end#*
+    *##end#*
+*##end
+
+## private - use #logoBlock
+#macro (userLogoBlock $username)#*
+	*#<a href="$req.contextPath/display/$username"><img src="#logo($username)" align="absmiddle" border="0" width="48" height="48"></a>#*
+*##end
+
+## private - use #logoBlock
+#macro (globalLogoBlock)#*
+    *##if ($settingsManager.getGlobalSettings().isDisableLogo())#* render nothing
+    *##else#*
+        *#<a href="$req.contextPath/homepage.action"><img src="#logo(null)" align="absmiddle" border="0"></a>#*
+    *##end#*
+*##end
+
+#* ----------------------------------------------- SIMPLE LINK MACROS -----------------------------------------------
+ Store macros which render a one line link here.
+*#
+
+#macro (tinyLink )
+    <a href="$helper.domainName/x/$helper.tinyUrl">$helper.domainName/x/$helper.tinyUrl</a>
+#end
+
+#*
+    Renders a link and image and text label for removing the current page.
+*#
+#macro (removePageLinkAndImageAndText )
+        #if ($permissionHelper.canRemove($remoteUser, $page))
+        <a href="$req.contextPath/pages/removepage.action?pageId=$helper.page.id"><img src="${req.contextPath}/images/icons/trash_16.gif" width="16" height="16" border="0px" align="absmiddle" title="$helper.getText("remove.name")"></a>&nbsp;<a href="$req.contextPath/pages/removepage.action?pageId=$helper.page.id">$helper.getText("remove.page.name")</a>
+        #else
+        <img src="${req.contextPath}/images/icons/trashdisabled_16.gif" width="16" height="16" border="0px" align="absmiddle" title="$helper.getText("remove.name")">&nbsp;<span class="smalltext">$helper.getText("cant.remove.page.name")</span>
+        #end
+#end
+
+#*
+    Renders a link and image for removing the current page.
+*#
+#macro (removePageLinkAndImage )
+    <a href="$req.contextPath/pages/removepage.action?pageId=$helper.page.id"><img src="${req.contextPath}/images/icons/trash_16.gif" width="16" height="16" border="0px" align="absmiddle" title="$helper.getText("remove.name")"></a>
+#end
+
+#*
+    Renders a link for removing the current page.
+*#
+#macro (removePageLink)
+    <a href="$req.contextPath/pages/removepage.action?pageId=$helper.page.id">$action.getText('remove.page.name')</a>
+#end
+
+#*
+    Renders a link and image and text label for removing the current blogpost.
+*#
+#macro (removeBlogPostLinkAndImageAndText )
+    <a href="$req.contextPath/pages/removeblogpost.action?pageId=$helper.page.id">$helper.getText("remove.news.name")</a>&nbsp;<a href="$req.contextPath/pages/removeblogpost.action?pageId=$helper.page.id"><img src="${req.contextPath}/images/icons/trash_16.gif" width="16" height="16" border="0px" align="absmiddle" title="$helper.getText("remove.name")"></a>
+#end
+
+#*
+    Renders a link and image for removing the current blogpost.
+*#
+#macro (removeBlogPostLinkAndImage )
+    <a href="$req.contextPath/pages/removeblogpost.action?pageId=$helper.page.id"><img src="${req.contextPath}/images/icons/trash_16.gif" width="16" height="16" border="0px" align="absmiddle" title="$helper.getText("remove.name")"></a>
+#end
+
+#*
+    Renders a link for removing the current blogpost.
+*#
+#macro (removeBlogPostLink )
+    <a href="$req.contextPath/pages/removeblogpost.action?pageId=$helper.page.id">$action.getText('remove.news.name')</a>
+#end
+
+#macro (browseSpaceLinkAndImage)
+    #set ($spaceKey = $helper.spaceKey)
+    #if (!$spaceKey && $space)
+        #set ($spaceKey = $space.key)
+    #end
+
+    #if ($permissionCheckDispatcher.isPermitted("/pages/listpages.action?key=$spaceKey"))
+        <a href="$req.contextPath/pages/listpages.action?key=$generalUtil.urlEncode($spaceKey)"><img src="$req.contextPath/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="$action.getText('find.content')"></a>
+        <a href="$req.contextPath/spaces/browsespace.action?key=$generalUtil.urlEncode($spaceKey)">$action.getText('browse.space')</a>
+    #end
+#end
+
+#macro (browseSpaceLink)
+    #set ($spaceKey = $helper.spaceKey)
+
+    #if ($permissionCheckDispatcher.isPermitted("/pages/listpages.action?key=$spaceKey"))
+        <a href="$req.contextPath/spaces/browsespace.action?key=$generalUtil.urlEncode($spaceKey)">$action.getText('browse.space')</a>
+    #end
+#end
+
+#macro (addPageLinkAndImage)
+    #set ($spaceKey = $helper.spaceKey)
+
+    #if ($permissionHelper.canCreatePage($remoteUser, $space))
+        ## if user currently viewing a page, add page automatically creates a new page with that page is the parent
+        #if ($helper.page.id && !$helper.page.postingDay)
+            <a href="$req.contextPath/pages/createpage.action?spaceKey=$generalUtil.urlEncode($spaceKey)&fromPageId=$helper.page.id"><img src="$req.contextPath/images/icons/add_page_16.gif" height=16 width=16 border=0 align=absmiddle title="$action.getText('add.page')"></a>
+            <a href="$req.contextPath/pages/createpage.action?spaceKey=$generalUtil.urlEncode($spaceKey)&fromPageId=$helper.page.id">$action.getText('add.page')</a>
+        #else
+            <a href="$req.contextPath/pages/createpage.action?spaceKey=$generalUtil.urlEncode($spaceKey)"><img src="$req.contextPath/images/icons/add_page_16.gif" height=16 width=16 border=0 align=absmiddle title="$action.getText('add.page')"></a>
+            <a href="$req.contextPath/pages/createpage.action?spaceKey=$generalUtil.urlEncode($spaceKey)">$action.getText('add.page')</a>
+        #end
+    #end
+#end
+
+#macro (addPageLink)
+    #set ($spaceKey = $helper.spaceKey)
+
+    #if ($permissionHelper.canCreatePage($remoteUser, $space))
+        ## if user currently viewing a page, add page automatically creates a new page with that page is the parent
+        #if ($helper.page.pageId && !$helper.page.postingDay)
+            <a href="$req.contextPath/pages/createpage.action?spaceKey=$generalUtil.urlEncode($spaceKey)&fromPageId=$helper.page.id">$action.getText('add.page')</a>
+        #else
+            <a href="$req.contextPath/pages/createpage.action?spaceKey=$generalUtil.urlEncode($spaceKey)">$action.getText('add.page')</a>
+        #end
+    #end
+#end
+
+
+#macro (addNewsLinkAndImage)
+    #set ($spaceKey = $helper.spaceKey)
+
+    #if ($permissionHelper.canCreateBlogPost($remoteUser, $space))
+        #if ($helper.page.id)
+          #set ($fromPageParam = "&fromPageId=$helper.page.id")
+        #else
+          #set ($fromPageParam = "")
+        #end
+        <a href="$req.contextPath/pages/createblogpost.action?spaceKey=$generalUtil.urlEncode($spaceKey)$fromPageParam"><img src="$req.contextPath/images/icons/add_blogentry_16.gif" height=16 width=16 border=0 align=absmiddle title="$action.getText('add.news')"></a>
+        <a href="$req.contextPath/pages/createblogpost.action?spaceKey=$generalUtil.urlEncode($spaceKey)$fromPageParam">$action.getText('add.news')</a>
+    #end
+#end
+
+#macro (addNewsLink)
+    #set ($spaceKey = $helper.spaceKey)
+
+    #if ($permissionHelper.canCreateBlogPost($remoteUser, $space))
+        #if ($helper.page.id)
+          #set ($fromPageParam = "&fromPageId=$helper.page.id")
+        #else
+          #set ($fromPageParam = "")
+        #end
+        <a href="$req.contextPath/pages/createblogpost.action?spaceKey=$generalUtil.urlEncode($spaceKey)$fromPageParam">$action.getText('add.news')</a>
+    #end
+#end
+
+#macro (createPersonalSpaceLink)
+    #if ($permissionHelper.canCreatePersonalSpace($remoteUser) && $action.viewingMyProfile)
+        <a href="$req.contextPath/spaces/createpersonalspace.action"><img src="$req.contextPath/images/icons/personal_space_16.gif" height=16 width=16 border=0 align=absmiddle title="$action.getText('create.personal.space')"></a>
+        <a href="$req.contextPath/spaces/createpersonalspace.action">$action.getText('create.personal.space')</a>
+    #end
+#end
+
+#macro (personalSpaceLink)
+    #set ( $personalSpaceLink = "$req.contextPath/display/~$!generalUtil.doubleUrlEncode($helper.space.creatorName)" )
+    #if ($action.viewingMyProfile)
+        <a href="$personalSpaceLink"><img src="$req.contextPath/images/icons/personal_space_16.gif" height="16" width="16" border="0" align="absmiddle" title="$action.getText('your.personal.space')"></a>
+        <a href="$personalSpaceLink">$action.getText('your.personal.space')</a>
+    #else
+        <a href="$personalSpaceLink"><img src="$req.contextPath/images/icons/personal_space_16.gif" height="16" width="16" border="0" align="absmiddle" title="$action.getText('open.personal.space')"></a>
+        <a href="$personalSpaceLink">$action.getText('open.personal.space')</a>
+    #end
+#end
+
+
+#macro (viewPageLink )
+    #if ($helper.page.id)
+        #if ( $permissionCheckDispatcher.isPermitted("/pages/viewpage.action?pageId=$pageId") )
+            <a href="$req.contextPath/pages/viewpage.action?pageId=$pageId" #if ($tool == "view") class="current" #end>$action.getText('view.name')</a>
+        #end
+    #end
+#end
+
+#macro (attachmentsLink)
+    #if ( $permissionCheckDispatcher.isPermitted("/pages/viewattachments.action?pageId=$pageId") )
+        <a href="$req.contextPath/pages/viewattachments.action?pageId=$pageId" #if ($tool == "attachments") class="current" #end>$action.getText('attachments.link', ["$!helper.numberOfAttachments"])</a>
+    #end
+#end
+
+#macro (recentlyUpdatedListLink)
+    <a href="$req.contextPath/pages/recentlyupdated.action?key=$generalUtil.urlEncode($key)">$action.getText('recently.updated')</a>
+#end
+
+#macro (alphabeticalListLink)
+    <a href="$req.contextPath/pages/listpages-alphaview.action?key=$generalUtil.urlEncode($key)">$action.getText('alphabetical.name')</a>
+#end
+
+#macro (contentTreeLink)
+    <a href="$req.contextPath/pages/listpages-dirview.action?key=$generalUtil.urlEncode($key)">$action.getText('tree.heirarchy')</a>
+#end
+
+#macro (pluginStylesheet $pluginCompleteKey $stylesheetName)
+    #pluginSpaceStylesheet($pluginCompleteKey $stylesheetName "")
+#end
+
+#macro (pluginSpaceStylesheet $pluginCompleteKey $stylesheetName $spaceKey)
+    #set( $styleParams = "pluginCompleteKey=$generalUtil.urlEncode($pluginCompleteKey)&stylesheetName=$generalUtil.urlEncode($stylesheetName)" )
+    #if( $textUtil.stringSet($spaceKey) )
+        #set( $styleParams = "$styleParams&spaceKey=$spaceKey" )
+    #end
+    <link rel="stylesheet" href="$req.contextPath/styles/main-action.css?$styleParams" type="text/css" />
+#end
+
+## src - path to js file _without_ context path
+#macro (includeJavascript $src)
+    #if ($src && !$src.startsWith("/"))
+        #set ($src = "/${src}")
+    #end
+
+    #if ($webResourceManager)
+        <script type="text/javascript" src="$webResourceManager.getStaticResourcePrefix()$src"></script>
+    #else
+        <script type="text/javascript" src="$req.contextPath$src"></script>
+    #end
+#end
+
+## use this macro to include javascript resources in plugins
+## this macro appends a special prefix to the normal script URL (effectively enabling caching on the serving of this javascript)
+#macro (includePluginJavascript $pluginCompleteKey $scriptName)
+    #if ($webResourceManager)
+        <script type="text/javascript" src="$webResourceManager.getStaticPluginResource($pluginCompleteKey, $scriptName)"></script>
+    #else
+        <script type="text/javascript" src="$req.contextPath/download/resources/$pluginCompleteKey/$scriptName"></script>
+    #end
+#end
+
+
+#macro (node $p $idsToExpandAsList $openId)
+    #if ($action.hasPermittedChildren($p))
+        <a href="#if($idsToExpandAsList.contains($p.id))$action.generateCollapseNodeLinkForNonJSUsers($p)#else $!action.generateExpandNodeLinkForNonJSUsers($p)#end" onClick="toggleChildren('$p.id'); return false;">
+        #if($idsToExpandAsList.contains($p.id))
+            <img border="0" onClick="togglePlusMinus(this)" src="$req.contextPath/images/icons/tree_minus.gif"></a>
+        #else
+            <img border="0" onClick="togglePlusMinus(this)" src="$req.contextPath/images/icons/tree_plus.gif"></a>
+        #end
+    #else
+        <img border="0" src="$req.contextPath/images/icons/tree_square.gif">
+    #end
+    #if ($p.id == $openId)
+        <span class="openPageHighlight">#contentLinkWithAnchor($p 'selectedPageInHierarchy')</span>
+    #else
+        #contentLink2 ($p true false)
+    #end
+    <div id="children$p.id" style="border: 1px solid white">
+        #if ($idsToExpandAsList.contains($p.id))
+            <ul style="list-style-type: none">
+            #foreach ($child in $action.getPermittedChildren($p))
+                <li>#node($child $idsToExpandAsList $openId)</li>
+            #end
+            </ul>
+        #end
+    </div>
+#end
+
+#macro (permitSearchEngines)
+    <content tag="allowindex">true</content>
+#end
+
+#macro (viewPageComment $comment $rootDepth)
+    #set ($depth = $comment.depth - $rootDepth)
+    #set ($page = $comment.page)
+    <div style="padding: 0 0 0 #if ($depth && $depth > 0) 20px #else 0 #end">
+        <a name="comment-$comment.id"></a>
+        #if ($focusedCommentId == $comment.id && $action.editComment && $permissionHelper.canEdit($remoteUser, $comment ))
+        $action
+        <div align="left">
+            <div style="padding: 10px; width: 75%">
+                <div style="width:720px;">
+                    <form name="editcommentform" method="POST" action="$req.contextPath/pages/doeditcomment.action?pageId=$page.id&amp;commentId=$comment.id">
+                        #bodytag (Component "name='content'" "theme='notable'" "template='wiki-textarea.vm'")
+                            #param ("formname" "editcommentform")
+                            #param ("spaceKey" "$generalUtil.urlEncode($spaceKey)")
+                            #param ("rows" 15)
+                            #param ("cols" 70)
+                            #param ("width" "100%")
+                            #param ("tabindex" "4")
+                            #param ("tdcolor" "f0f0f0")
+                            #param ("toolbarExpanded" "false")
+                            #param ("initialFocus" "false")
+                            #param ("edit" "true")
+                            #param ("heartbeat" "false")
+                            #param ("wikiContent" "$comment.content")
+                            #param ("wysiwygContent" "$action.getCommentAsXHtmlForWysiwyg()")
+                        #end
+                        #commentSubmission()
+                    </form>
+                </div>
+            </div>
+        </div>
+        #else
+        <div #if ($comment.id == $focusedCommentId) class="focusedComment" #else class="commentBox" style="background-color: #if ($depth%2 == 1) f0f0f0#end"#end>
+            <div class="commentblock">$xHtmlComments.get($comment)</div>
+            <div align="left" class="smallfont" style="color: #666666; width: 98%">
+                #contentIcon($comment)
+
+                #if ($action.helper.shouldRenderCommentAsUpdated($comment))
+                    #set ($creationDateHtml = $action.dateFormatter.formatDateTime( $comment.creationDate ))
+                #else
+                    #set ($creationDateHtml = "<a href='$req.contextPath$comment.urlPath'>$action.dateFormatter.formatDateTime( $comment.creationDate )</a>")
+                #end
+
+                #set ($postedHtml = $action.getText('comment.posted.by',["#usernameLink ($comment.creatorName)", $creationDateHtml]))
+
+                #if ($action.helper.shouldRenderCommentAsUpdated($comment))
+                    #if ($comment.creatorName == $comment.lastModifierName)
+                        $postedHtml$action.getText("comment.updated.by.author", ["#usernameLink ($comment.lastModifierName)", "<a href='$req.contextPath$comment.urlPath'>$action.dateFormatter.formatDateTime( $comment.lastModificationDate )</a>"])
+                    #else
+                        $postedHtml$action.getText("comment.updated.by.non.author", ["#usernameLink ($comment.lastModifierName)", "<a href='$req.contextPath$comment.urlPath'>$action.dateFormatter.formatDateTime( $comment.lastModificationDate )</a>"])
+                    #end
+                #else
+                    $postedHtml
+                #end
+
+                #if (!$action.printableVersion)
+                  #if ( $permissionHelper.canEdit($remoteUser, $comment ))
+                  | <a id="edit-$comment.id" href="$req.contextPath$generalUtil.customGetPageUrl($page)showComments=true&amp;editComment=true&amp;focusedCommentId=$comment.id#comment-$comment.id">$action.getText('edit.name')</a>
+                  #end
+                  #if ( $permissionHelper.canRemove($remoteUser, $comment ))
+                    | <a id="remove-$comment.id" href="$req.contextPath/pages/removecomment.action?pageId=$page.id&amp;commentId=$comment.id"
+                       onClick="javascript:if( confirm( '$stack.findValue( "getText( 'remove.comment.confirmation.message' )" )' )) { this.href = this.href + '&confirm=yes'; return true; } else return false;">$action.getText('remove.name')</a>
+                  #end
+                  #if ($threadComments && $permissionHelper.canComment($remoteUser, $page))
+                    | <a id="reply-$comment.id" href="$req.contextPath$generalUtil.customGetPageUrl($page)replyToComment=$comment.id#comment-$comment.id">$action.getText("reply.to.comment")</a>
+                  #end
+                #end
+            </div>
+
+            #trackbackRdf ($trackbackUtils.getContentIdentifier($comment) $comment.title $trackbackUtils.getPingUrl($comment))
+
+            #if ( $threadComments && $replyToComment == $comment.id && $permissionCheckDispatcher.isPermitted("/pages/doaddcomment.action?pageId=$page.id") && $action.isPrintableVersion()==false )
+                <div align="left">
+                    #if( !$remoteUser )
+                        #parse ("/includes/alert-anonymous.vm")
+                    #end
+
+                    <div style="padding: 10px; width: 75%">
+                        <a name="commentreply"/>
+                        <div style="width:720px;">
+                            <form name="threadedcommentform" method="POST" action="$req.contextPath/pages/doaddcomment.action?pageId=${page.id}&parentId=${comment.id}">
+                                #bodytag (Component "name='content'" "theme='notable'" "template='wiki-textarea.vm'")
+                                    #param ("formname" "threadedcommentform")
+                                    #param ("spaceKey" "$generalUtil.urlEncode($spaceKey)")
+                                    #param ("rows" 15)
+                                    #param ("cols" 70)
+                                    #param ("width" "100%")
+                                    #param ("tabindex" "4")
+                                    #param ("tdcolor" "f0f0f0")
+                                    #param ("toolbarExpanded" "false")
+                                    #param ("initialFocus" "false")
+                                    #param ("edit" "true")
+                                    #param ("heartbeat" "false")
+                                #end
+                                #commentSubmission()
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            #end
+        </div>
+        #end
+
+        #if ($threadComments)
+            #if ($comment.children.size() > 0)
+                #if ($depth < 3 || $comment.descendantsCount == 1)
+                    #foreach ($childComment in $comment.children)
+                        #viewPageComment($childComment $rootDepth)
+                    #end
+                #else
+                        <div style="padding-left: 60px; color: #666666" class="smallfont">
+                            <a href="$req.contextPath$generalUtil.customGetPageUrl($page)rootCommentId=$comment.id#comments">$action.getText('view.the.rest.of.this.thread')</a>. $action.getText('most.recent.comment') #if ($generalUtil.isInLastDays($comment.threadChangedDate, 60)) $generalUtil.getRelativeTime($comment.threadChangedDate) #else $action.dateFormatter.format($comment.threadChangedDate) #end<br/>
+                            $comment.descendantsCount more comments by: #nameList($comment.descendantAuthors)<br/>
+                        </div>
+                #end
+            #end
+        #end
+    </div>
+#end
+
+#macro (searchResultContentLink $content)
+    #contentIcon($content)
+
+    ## Render the search result link
+    #if ($content.type == "attachment")
+        <a href="$req.contextPath$content.downloadPath">$webwork.htmlEncode($content.realTitle)</a>
+    #elseif ($content.type == "comment")
+        <a href="$req.contextPath$content.urlPath">$webwork.htmlEncode($content.realTitle)</a>
+    #else
+        <a href="$req.contextPath$content.urlPath">$webwork.htmlEncode($content.realTitle)</a>
+    #end
+
+    ## Render the context of the search result (what space it was in, etc)
+    #if ($content.type == "page" || $content.type == "blogpost")
+        #if ($content.originalVersion)
+            <span class="smalltext">v. $content.version (#spaceLink($content.originalVersion.space)</span>
+        #else
+            <span class="smalltext">(#spaceLink($content.space))</span>
+        #end
+    #elseif ($content.type == "comment")
+        <span class="smalltext">(#spaceLink($content.page.space) &gt; <a href="$req.contextPath$content.page.urlPath">$webwork.htmlEncode($content.page.realTitle)</a>)</span>
+    #elseif ($content.type == "spacedesc")
+        <span class="smalltext">($action.getText('search.result.type.space'))</span>
+    #elseif ($content.type == "personalspacedesc")
+        <span class="smalltext">($action.getText('search.result.type.personal.space'))</span>
+    #elseif ($content.type == "userinfo")
+        <span class="smalltext">($content.username)</span>
+    ## If it is a profile attachment, display the username (CONF-4272)
+    #elseif ($content.type == "attachment" && $content.content.type == "userinfo")
+        <span class="smalltext">($content.content.username)</span>
+    #elseif ($content.type == "attachment")
+        <span class="smalltext">(#spaceLink($content.content.space) &gt; <a href="$req.contextPath$content.content.urlPath">$webwork.htmlEncode($content.content.realTitle)</a>)</span>
+    #elseif ($content.type == "mail")
+        <span class="smalltext">(#spaceLink($content.space))</span>
+    #end
+#end
+
+#macro (spaceLink $space)<a href="$req.contextPath$space.urlPath">$webwork.htmlEncode($space.name)</a>#end
+
+#macro (searchResult $searchResultWithExcerpt $showExcerpts)
+    #if($searchResultWithExcerpt.resultObject)
+        #set ($content = $searchResultWithExcerpt.resultObject)
+    #else
+        #set ($content = $searchResultWithExcerpt)
+    #end
+    ##
+    #if($content.contentBody)#set ($contentBody = $content.contentBody)
+    #else #set ($contentBody = $searchResultWithExcerpt.contentBodyString) #end
+
+    #searchResultContentLink($content)
+    #if ('true' == $showExcerpts && $textUtil.stringSet($contentBody))
+        #if ($content.type != "attachment")
+            #set ($summary = $generalUtil.makeSummary($contentBody, $action.searchQuery.getSearchWords()))
+        #elseif ($content.type == "attachment" && $contentBody)
+            #set ($summary = $generalUtil.makeSummary($contentBody, $action.searchQuery.getSearchWords()))
+        #elseif ($content.type == "attachment" && $content.comment)
+            #set ($summary = $generalUtil.makeSummary($content.comment, $action.searchQuery.getSearchWords()))
+        #end
+
+        #if ($summary)
+            <br/>
+            ## this is all one one line so that fragments are concatenated properly without spaces
+            #foreach ($fragment in $summary.fragments)#if ($fragment.isHighlight() == true)<span class="search-highlight"><b>$generalUtil.htmlEncode($fragment.toString())</b></span>#else$generalUtil.htmlEncode($fragment.toString())#end#end
+        #end
+
+        ## clear the summary after displaying it to avoid Velocity scope problems
+        #set ($summary = '')
+    #end
+
+    <br />
+    #if($action.explain)
+    $action.searcher $action.query $searchResultWithExcerpt.docid
+    $action.searcher.explain($action.query, $searchResultWithExcerpt.docid)
+    #end
+    <span class="smalltext">
+        #if ($content.type == 'attachment')
+            #if ($content.niceType)
+                $content.niceType -
+            #end
+            $content.niceFileSize -
+        #end
+
+        $action.dateFormatter.format($content.lastModificationDate)
+
+        #if ($content.type == 'attachment')
+            - <a href="$req.contextPath$content.downloadPath">$action.getText('download.name')</a>
+            - <a href="$req.contextPath$content.urlPath">$action.getText('all.attachments')</a>
+        #elseif ($content.type == 'comment')
+            - <a href="$req.contextPath$content.page.urlPath#comments">$action.getText('all.comments')</a>
+        #elseif ($content.type == 'blogpost')
+            - <a href="$req.contextPath/pages/viewrecentblogposts.action?key=$generalUtil.urlEncode($content.space.key)">$action.getText('all.news')</a>
+        #elseif ($content.type == 'mail')
+            - <a href="$req.contextPath/spaces/viewmailarchive.action?key=$generalUtil.urlEncode($content.space.key)">$action.getText('all.mail')</a>
+        #end
+    </span>
+
+    #if ($action.isLabelable($content))
+
+        #set ($visibleLabels = $content.getVisibleLabels($remoteUser))
+
+        #if ($visibleLabels.size() > 0)
+        <br />
+        <span class="smalltext">
+        $action.getText('labels.name'): #labelsMax($visibleLabels 5 'more labels.')
+        </span>
+        #end
+
+    #end
+
+#end
+
+#macro (commaDelimitedList $list)
+    #foreach($item in $list)#if($velocityCount != 1), #end$!item#end
+#end
+
+#macro (doc $link $body)
+    <a href="$action.getText('url.confluence.atlassian')/$link" target="_blank">$body</a>
+#end
+
+#macro (spaceActionLinks $mode $browseSpace)
+	#foreach ($item in $action.webInterfaceManager.getDisplayableItems("system.space.actions", $action.remoteUser, $helper))
+		#if ($velocityCount != 1) &nbsp; #end
+		#set ($itemRenderedUrl = $item.link.getDisplayableUrl($req, $helper))
+		#set ($itemLabel = $item.label.getDisplayableLabel($req, $helper))
+
+        #set ($currentAction = false)
+
+        #if (($mode == "create-page" && $item.key == "add-page") || ($mode == "create-blogpost" && $item.key == "add-news"))
+            #set ($currentAction = true)
+        #end
+
+        #if ($browseSpace && ($item.key == "browse-space" || $item.key == "browse-personal-space") && !$mode.equals("create-page") && !$mode.equals("create-blogpost"))
+            #set ($currentAction = true)
+        #end
+
+        #if ($item.icon)
+			#set ($icon = $item.icon)
+			#if ($currentAction)
+			    <img src="$icon.url.getDisplayableUrl($req, $helper)" height="$icon.height" width="$icon.width" border="0" align="absmiddle" title="$itemLabel">&nbsp;$itemLabel
+			#else
+			    <a href="$itemRenderedUrl"><img src="$icon.url.getDisplayableUrl($req, $helper)" height="$icon.height" width="$icon.width" border="0" align="absmiddle" title="$itemLabel"></a>&nbsp;<a href="$itemRenderedUrl">$itemLabel</a>
+			#end
+		#else
+		    #if ($currentAction)
+		        $itemLabel
+		    #else
+			    <a href="$itemRenderedUrl">$itemLabel</a>
+			#end
+		#end
+    #end
+#end
+
+#macro (captchaImage $style)
+     <img src="$req.contextPath/jcaptcha/$action.random?captchaId=$action.captchaId" width="200" height="100" style="$style"/>
+     <input type="hidden" name="captchaId" value="$action.captchaId">
+#end
+
+#macro (commentSubmission)
+    #if ($action.editComment)
+        #set ($submitLabel = "update.name")
+    #else
+        #set ($submitLabel = "post.name")
+    #end
+
+    #if($captchaManager.showCaptchaForCurrentUser())
+    <div class="borderedGreyBox">
+        $action.getText("captcha.challenge") <br/>
+        #captchaImage("border:1px solid #CCC; margin-right: 50px;") <br/>
+        #fielderror('captcha')
+        <input type='text' name='captchaResponse' style="width: 200px;" value='' tabindex="5"> <br />
+        #bodytag (Submit "name='confirm'" "value='$submitLabel'" "theme='notable'")
+             #param ("accessKey" "s")
+             #param ("tabindex" "6")
+        #end
+        #bodytag (Submit "name='cancel'" "value='cancel.name'" "theme='notable'" )
+            #param ("tabindex" "7")
+        #end
+    </div>
+    #else
+        <br />
+        #bodytag (Submit "name='confirm'" "value='$submitLabel'" "theme='notable'")
+             #param ("accessKey" "s")
+             #param ("tabindex" "5")
+        #end
+        #bodytag (Submit "name='cancel'" "value='cancel.name'" "theme='notable'" )
+            #param ("tabindex" "6")
+        #end
+    #end
+#end
+
+
+#macro (displayPageHierarchyWithCheckboxes $contentTree $checkboxName)
+    #foreach ($rootNode in $contentTree.getRootNodes())
+        #displayPageHierarchyWithCheckboxesHelper($rootNode $checkboxName)
+    #end
+#end
+
+#macro (displayPageHierarchyWithCheckboxesHelper $node $checkboxName)
+    <li style="list-style:none">
+        <input type="checkbox" name="$checkboxName" value="$node.getPage().getId()" checked="checked" style="vertical-align: middle" />
+        <label class="label">#contentLink2($node.getPage() false false)</label>
+        #foreach ($childNode in $node.children)
+            <ul style="list-style:none">
+            #displayPageHierarchyWithCheckboxesHelper($childNode $checkboxName)
+            </ul>
+        #end
+    </li>
+#end
+
+#macro (displayContentPermission $perm)
+    #if ($perm.isUserPermission())
+        <img src="$req.contextPath/images/icons/user_16.gif">&nbsp;$perm.userName
+    #else
+        <img src="$req.contextPath/images/icons/group_16.gif">&nbsp;$perm.groupName
+    #end
+#end
