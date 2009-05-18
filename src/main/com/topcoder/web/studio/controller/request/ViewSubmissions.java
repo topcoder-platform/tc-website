@@ -29,8 +29,15 @@ import java.util.Date;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.2 (BUGR-1755/1756) Change notes:
+ *   <ol>
+ *     <li>Added submission id parameter to redirect to full preview page.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, isv, pulky
- * @version 1.1
+ * @version 1.2
  */
 public class ViewSubmissions extends ShortHibernateProcessor {
 
@@ -170,7 +177,19 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         SortInfo s = new SortInfo();
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
-        setNextPage("/submissions.jsp");
+        Long submissionId = 0l;
+        try {
+            submissionId = new Long(getRequest().getParameter(Constants.SUBMISSION_ID));
+        } catch (NumberFormatException e) {
+            // if the submission id is invalid, just ignore it.
+        }
+
+        if (submissionId > 0) {
+            getRequest().setAttribute(Constants.SUBMISSION_ID, submissionId);
+            setNextPage("/fullSizeSubmission.jsp");
+        } else {
+            setNextPage("/submissions.jsp");
+        }
         setIsNextPageInContext(true);
     }
 }

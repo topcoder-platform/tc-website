@@ -16,9 +16,17 @@ import com.topcoder.web.studio.util.Util;
 import java.util.Date;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Mar 13, 2007
+ * <p>This class implements the request processor for the contest results (winners) page.</p>
+ *
+ * <p>
+ *   Version 1.1 (BUGR-1755/1756) Change notes:
+ *   <ol>
+ *     <li>Added submission id parameter to redirect to full preview page.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky
+ * @version 1.1
  */
 public class ViewContestResults extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
@@ -32,19 +40,13 @@ public class ViewContestResults extends ShortHibernateProcessor {
             } catch (NumberFormatException e) {
                 throw new NavigationException("Invalid contest specified");
             }
-            Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);                       
-            
+            Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);
             getRequest().setAttribute("hasScores", contest.getProject() != null);
 
             if (Util.isAdmin(getUser().getId())) {
                 getRequest().setAttribute("contest", contest);
                 loadData(cid);
             } else {
-            	// Added in BUGR-1739: Check if submissions are not viewable for non-admins.            	
-            	if (!String.valueOf(true).equals(contest.getViewableSubmissions().getValue())) {
-                    throw new NavigationException("Submissions are not available for this contest");
-                }
-            	
                 if (ContestStatus.ACTIVE.equals(contest.getStatus().getId())) {
                     Date now = new Date();
                     if (contest.getEndTime().before(now)) {
@@ -58,7 +60,19 @@ public class ViewContestResults extends ShortHibernateProcessor {
                 }
             }
 
-            setNextPage("/results.jsp");
+            Long submissionId = 0l;
+            try {
+                submissionId = new Long(getRequest().getParameter(Constants.SUBMISSION_ID));
+            } catch (NumberFormatException e) {
+                // if the submission id is invalid, just ignore it.
+            }
+
+            if (submissionId > 0) {
+                getRequest().setAttribute(Constants.SUBMISSION_ID, submissionId);
+                setNextPage("/fullSizeSubmission.jsp");
+            } else {
+                setNextPage("/results.jsp");
+            }
             setIsNextPageInContext(true);
         }
 
