@@ -24,8 +24,15 @@ import com.topcoder.web.ejb.pacts.Constants;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.3 (BUGR-1901) Change notes:
+ *   <ol>
+ *     <li><code>PAY_REFFERAL_TYPES</code> updated to support Deployment Task payment.</li>
+ *   </ol>
+ * </p>
+ *
  * @author Dave Pecora, pulky
- * @version 1.2
+ * @version 1.3
  */
 public interface PactsConstants extends Constants {
     // Object types
@@ -72,7 +79,8 @@ public interface PactsConstants extends Constants {
      */
     public static final int[] PAY_REFFERAL_TYPES = {
         TC_STUDIO_PAYMENT, TC_STUDIO_TOURNAMENT_PRIZE_PAYMENT, STUDIO_REVIEW_BOARD_PAYMENT, STUDIO_BUG_FIXES_PAYMENT, 
-        STUDIO_ENHANCEMENTS_PAYMENT, STUDIO_SPECIFICATION_REVIEW_PAYMENT, STUDIO_SPECIFICATION_WRITING_PAYMENT
+        STUDIO_ENHANCEMENTS_PAYMENT, STUDIO_SPECIFICATION_REVIEW_PAYMENT, STUDIO_SPECIFICATION_WRITING_PAYMENT,
+        DEPLOYMENT_TASK_PAYMENT
     };
 
     // Contract type codes
