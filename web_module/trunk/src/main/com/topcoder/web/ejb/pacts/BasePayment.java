@@ -39,8 +39,15 @@ import java.util.Date;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.3 (BUGR-1901) Change notes:
+ *   <ol>
+ *     <li>Added constants to support Deployment Task Payments.</li>
+ *   </ol>
+ * </p>
+ *
  * @author cucu, TCSDEVELOPER
- * @version 1.2
+ * @version 1.3
  */
 public abstract class BasePayment implements Constants, java.io.Serializable {
     private static Logger log = Logger.getLogger(BasePayment.class);
@@ -173,6 +180,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case CONCEPTUALIZATION_CONTEST_PAYMENT:
         case TESTING_COMPETITION_PAYMENT:
         case COPILOT_PAYMENT:
+        case DEPLOYMENT_TASK_PAYMENT:
             return REFERENCE_COMPONENT_PROJECT_ID;
 
         case PROBLEM_WRITING_PAYMENT:
@@ -253,6 +261,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT: return new MarathonMatchTournamentPrizePayment(coderId, grossAmount, referenceId, placed);
         case TC_STUDIO_TOURNAMENT_PRIZE_PAYMENT: return new StudioTournamentPrizePayment(coderId, grossAmount, referenceId, placed);
         case BUG_FIXES_PAYMENT: return new BugFixesPayment(coderId, grossAmount, referenceId);
+        case DEPLOYMENT_TASK_PAYMENT: return new DeploymentTaskPayment(coderId, grossAmount, referenceId);
         case COMPONENT_ENHANCEMENTS_PAYMENT: return new ComponentEnhancementsPayment(coderId, grossAmount, referenceId);
         case SPECIFICATION_REVIEW_PAYMENT: return new SpecificationReviewPayment(coderId, grossAmount, referenceId);
         case REVIEW_BOARD_BONUS_PAYMENT: return new ReviewBoardBonusPayment(coderId, grossAmount, referenceId);
@@ -381,6 +390,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT: return "High School Tournament Prize Payment";
             case COLLEGE_TOUR_REP_PAYMENT: return "College Tour Representative Payment";
             case BUG_FIXES_PAYMENT: return "Bug Fixes Payment";
+            case DEPLOYMENT_TASK_PAYMENT: return "Deployment Task Payment";
             case COMPONENT_ENHANCEMENTS_PAYMENT: return "Component Enhancements Payment";
             case RELIABILITY_BONUS_PAYMENT: return "Reliability Bonus Payment";
             case DIGITAL_RUN_TOP_THIRD_PAYMENT: return "Digital Run Top Performers Payment";
