@@ -91,7 +91,7 @@
                                                                             <h3 class="subtitle">Hotels</h3>
                                                                                 <p>There are a plethora of hotels in Las Vegas that you can choose from. Here are a few that are affordable and in the vicinity of the 2008 TopCoder Open.</p>
                                                                                 <p><strong>Mirage Hotel and Casino</strong><br />
-                                                                                    800-374-9000 | Room rates:  $199*<br />
+                                                                                    800-374-9000 | Room rates:  $95*<br />
                                                                                     The event will take place at the Mirage* so it is the most convenient for attending the event. Rooms at the Mirage can be reserved with a TopCoder group rate. In order to receive the TopCoder group rate, please mention TopCoder upon calling. Alternatively, you can book online <a href="https://reservations.mgmmirage.com/bookingengine.aspx?host=group&amp;pid=160&amp;code=topcoder">here.</a><br />
                                                                                     <br />
                                                                                     <em>*All finalists' rooms will be booked by TopCoder. If you are attending as a competitor, please do not book a room through this link.</em></p>
