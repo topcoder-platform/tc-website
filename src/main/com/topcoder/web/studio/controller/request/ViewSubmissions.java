@@ -36,8 +36,15 @@ import java.util.Date;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.3 (BUGR-1915) Change notes:
+ *   <ol>
+ *     <li><code>PAGE_SIZE_ALL</code> was made public so that it could be used from other processors.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, isv, pulky
- * @version 1.2
+ * @version 1.3
  */
 public class ViewSubmissions extends ShortHibernateProcessor {
 
@@ -46,7 +53,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
      *
      * @since 1.1
      */
-    private static final String PAGE_SIZE_ALL = "0";
+    public static final String PAGE_SIZE_ALL = "0";
 
     /**
      * <p>This method is the responsible for performing page's logic.</p>
