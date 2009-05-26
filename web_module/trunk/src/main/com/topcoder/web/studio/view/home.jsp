@@ -227,10 +227,10 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
     <div class="designerBox">
         <h2>DESIGNER OF THE MONTH</h2>
         <p>
-            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/billow_big2.jpg"/>
-            <b>March 2009</b><br />
-            <b><a href="http://<%=ApplicationServer.SERVER_NAME%>/news/2009/04/14/meet-the-march-coders-and-designers-of-the-month/">billow</a></b> 
-            won $2,600 in 15 contests! 
+            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/djnapier_big.jpg"/>
+            <b>April 2009</b><br />
+            <b><a href="http://<%=ApplicationServer.SERVER_NAME%>/news/2009/05/26/meet-the-april-coders-and-designers-of-the-month">djnapier</a></b> 
+            won $2,975 in 6 contests! 
         </p>
 
         <div></div>
