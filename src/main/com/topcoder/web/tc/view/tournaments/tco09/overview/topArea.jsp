@@ -14,7 +14,7 @@
         <div class="spotLightContent">
             <div class="spotLightBottom"><div class="spotLightTop">
                 <div id="spotLightContentInner">
-                    <a href="tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=comingSoon" id="programButton" class="spotlightButton" title="Program"><span>Program</span></a><br />
+                    <a href="/i/tournament/tco09/TCO09-Program.pdf" id="programButton" class="spotlightButton" title="Program"><span>Program</span></a><br />
                     <a href="tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=comingSoon" id="blogButton" class="spotlightButton" title="Blog"><span>Blog</span></a><br />
                     <a href="tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=comingSoon" id="photosButton" class="spotlightButton" title="Photos"><span>Photos</span></a><br />
                     <a href="tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=comingSoon" id="moviesButton" class="spotlightButton" title="Movie"><span>Movie</span></a>
