@@ -75,7 +75,20 @@
                                             
                                             <div class="bottomAreaContent">
                                                 
-                                                <jsp:include page="../../comingSoon.jsp"/>
+                                                <div class="mainContent">
+                                                    <div id="mainContentInner">
+                                                        <div>   
+                                                            <div class="pageContent">
+                                                                <h2 class="title">Development Competition Final Results</h2>
+                                                                    <p>The Component Development track takes the output of a Component Design competition and produces a working implementation of the design.  In addition, the development competitor delivers a full suite of unit tests and thorough class and method level documentation for the code.  Reviewers write their own test suites and review the code to ensure that the implementation follows the design and that it meets all of the original requirements.</p>
+                                                                    <p>It was a tough series, but both Su-17 and MutatisMutandis were bested by newcomer Mycroft, who amazed his reviewers with 5 straight 100 scoring submissions in the last weeks of the tournament.  A highlight was the XYZ Hog Wrestling Specification, which all three competitors submitted on and only .5 points separated first and last place!</p>
+                                                                    <p>Congratulations to assistant, our 2009 TopCoder Open Development Champion!</p>
+                                                            </div>                                              
+                                                        </div>
+                                                        
+                                                    </div><!-- End #mainContentInner -->
+                                                    
+                                                </div><!-- End #mainContent -->
 
                                                 <jsp:include page="../../sponsors.jsp"/>
                                                 

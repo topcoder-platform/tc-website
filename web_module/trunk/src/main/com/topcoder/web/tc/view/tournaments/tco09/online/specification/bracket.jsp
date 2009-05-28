@@ -75,7 +75,20 @@
                                             
                                             <div class="bottomAreaContent">
                                                 
-                                                <jsp:include page="../../comingSoon.jsp"/>
+                                                <div class="mainContent">
+                                                    <div id="mainContentInner">
+                                                        <div>   
+                                                            <div class="pageContent">
+                                                                <h2 class="title">Specification Competition Final Results</h2>
+                                                                    <p>The Specification track covers two competitions: Conceptualization and Specification.  Both competitions elicit and document requirements from our clients.  Using our collaboration forums, members and client stakeholders discuss the core business issues and features that new systems must incorporate.  Conceptualization brings members and clients together to explore and document new ideas.  Clients fill out a questionnaire that identifies the basic goals and describes the scope for the system.  Members delve into these ideas and create a Business Requirements Document (BRD).  Each member submits a detailed process map, enterprise context, and core use cases for the new system.  The member’s BRD presents their individual take on the system and the business case for building it.  Clients screen submissions to identify valid and invalid business elements, and member reviewers perform a detailed review to select a winner.  Specification competitions dive into the detailed requirements for a smaller piece of the system described in the conceptualization – producing an Application Requirements Specification which covers the detailed use cases for the system.</p>
+                                                                    <p>It was a tough series, but both Su-17 and MutatisMutandis were bested by newcomer Mycroft, who amazed his reviewers with 5 straight 100 scoring submissions in the last weeks of the tournament.  A highlight was the XYZ Hog Wrestling Specification, which all three competitors submitted on and only .5 points separated first and last place!</p>
+                                                                    <p>Congratulations to AleaActaEst, our 2009 TopCoder Open Specification Champion!</p>
+                                                            </div>                                              
+                                                        </div>
+                                                        
+                                                    </div><!-- End #mainContentInner -->
+                                                    
+                                                </div><!-- End #mainContent -->
 
                                                 <jsp:include page="../../sponsors.jsp"/>
                                                 

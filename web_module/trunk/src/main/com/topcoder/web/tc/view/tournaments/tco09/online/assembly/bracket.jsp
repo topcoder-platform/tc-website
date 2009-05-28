@@ -75,7 +75,20 @@
                                             
                                             <div class="bottomAreaContent">
                                                 
-                                                <jsp:include page="../../comingSoon.jsp"/>
+                                                <div class="mainContent">
+                                                    <div id="mainContentInner">
+                                                        <div>   
+                                                            <div class="pageContent">
+                                                                <h2 class="title">Assembly Competition Final Results</h2>
+                                                                    <p>While architecture plans and divides the work necessary to implement a system, assembly brings all the pieces together.  Assemblers combine components and glue code to create the applications produced for our clients.  Their deliverables include the final code base for the application, deployment and configuration guides, and any other initialization and build scripts necessary to construct the system.  Reviewers test and inspect the submitted material to ensure that the system performs as required, and that the code is correct and well-written.</p>
+                                                                    <p>It was a tough series, but both Su-17 and MutatisMutandis were bested by newcomer Mycroft, who amazed his reviewers with 5 straight 100 scoring submissions in the last weeks of the tournament.  A highlight was the XYZ Hog Wrestling Specification, which all three competitors submitted on and only .5 points separated first and last place!</p>
+                                                                    <p>Congratulations to pulky, our 2009 TopCoder Open Assembly Champion!</p>
+                                                            </div>                                              
+                                                        </div>
+                                                        
+                                                    </div><!-- End #mainContentInner -->
+                                                    
+                                                </div><!-- End #mainContent -->
 
                                                 <jsp:include page="../../sponsors.jsp"/>
                                                 
