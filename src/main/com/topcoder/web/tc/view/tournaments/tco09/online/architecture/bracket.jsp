@@ -75,7 +75,20 @@
                                             
                                             <div class="bottomAreaContent">
                                                 
-                                                <jsp:include page="../../comingSoon.jsp"/>
+                                                <div class="mainContent">
+                                                    <div id="mainContentInner">
+                                                        <div>   
+                                                            <div class="pageContent">
+                                                                <h2 class="title">Architecture Competition Final Results</h2>
+                                                                    <p>This is the first year architecture competitions have been incorporated in the TopCoder Open.  Architecture competitions decompose large systems into modules, modules into components, and provide a detailed technical plan to implement the system.  Member Architects draft the blueprint for the production of our client’s applications – from user interface technology to database schema, the architect maps the system out for later competition.  Architects produce design specifications, and create diagrams detailing interfaces, sequences and entities that drive our software production process.  Reviewers perform an in-depth evaluation of how well the architect’s plan meets the client’s needs, and the soundness of the technical design.</p>
+                                                                    <p>It was a tough series, but both Su-17 and MutatisMutandis were bested by newcomer Mycroft, who amazed his reviewers with 5 straight 100 scoring submissions in the last weeks of the tournament.  A highlight was the XYZ Hog Wrestling Specification, which all three competitors submitted on and only .5 points separated first and last place!</p>
+                                                                    <p>Congratulations to Standlove, our 2009 TopCoder Open Architecture Champion!</p>
+                                                            </div>                                              
+                                                        </div>
+                                                        
+                                                    </div><!-- End #mainContentInner -->
+                                                    
+                                                </div><!-- End #mainContent -->
 
                                                 <jsp:include page="../../sponsors.jsp"/>
                                                 

@@ -50,31 +50,31 @@
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=architecture&d5=description" class="${tertiaryTab == 'description' ? 'on' : ''}">Description</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=architecture&d5=schedule" class="${tertiaryTab == 'schedule' ? 'on' : ''}">Schedule</a></li>
                         <li><a href="/tco09?module=ContestDetails&eid=3009&ct=472" class="${tertiaryTab == 'leaderboard' ? 'on' : ''}">Leaderboard</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=architecture&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Bracket</a></li>
+                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=architecture&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Results</a></li>
                     </c:when>
                     <c:when test="${mainTab == 'online' && secondaryTab == 'assembly'}">
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=assembly&d5=description" class="${tertiaryTab == 'description' ? 'on' : ''}">Description</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=assembly&d5=schedule" class="${tertiaryTab == 'schedule' ? 'on' : ''}">Schedule</a></li>
                         <li><a href="/tco09?module=ContestDetails&eid=3009&ct=473" class="${tertiaryTab == 'leaderboard' ? 'on' : ''}">Leaderboard</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=assembly&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Bracket</a></li>
+                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=assembly&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Results</a></li>
                     </c:when>
                     <c:when test="${mainTab == 'online' && secondaryTab == 'design'}">
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=design&d5=description" class="${tertiaryTab == 'description' ? 'on' : ''}">Description</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=design&d5=schedule" class="${tertiaryTab == 'schedule' ? 'on' : ''}">Schedule</a></li>
                         <li><a href="/tco09?module=ContestDetails&eid=3009&ct=470" class="${tertiaryTab == 'leaderboard' ? 'on' : ''}">Leaderboard</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=design&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Bracket</a></li>
+                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=design&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Results</a></li>
                     </c:when>
                     <c:when test="${mainTab == 'online' && secondaryTab == 'development'}">
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=development&d5=description" class="${tertiaryTab == 'description' ? 'on' : ''}">Description</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=development&d5=schedule" class="${tertiaryTab == 'schedule' ? 'on' : ''}">Schedule</a></li>
                         <li><a href="/tco09?module=ContestDetails&eid=3009&ct=471" class="${tertiaryTab == 'leaderboard' ? 'on' : ''}">Leaderboard</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=development&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Bracket</a></li>
+                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=development&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Results</a></li>
                     </c:when>
                     <c:when test="${mainTab == 'online' && secondaryTab == 'specification'}">
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=specification&d5=description" class="${tertiaryTab == 'description' ? 'on' : ''}">Description</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=specification&d5=schedule" class="${tertiaryTab == 'schedule' ? 'on' : ''}">Schedule</a></li>
                         <li><a href="/tco09?module=ContestDetails&eid=3009&ct=474" class="${tertiaryTab == 'leaderboard' ? 'on' : ''}">Leaderboard</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=specification&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Bracket</a></li>
+                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=online&d4=specification&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Results</a></li>
                     </c:when>
                     <c:when test="${mainTab == 'algorithm' && secondaryTab == 'advancers'}">
                         <li><a href="/tco09?module=AlgorithmQualification" class="${tertiaryTab == 'qualification' ? 'on' : ''}">Qualification</a></li>
