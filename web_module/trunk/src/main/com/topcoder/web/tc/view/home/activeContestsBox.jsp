@@ -126,7 +126,7 @@
                         <tr>
                             <td class="value">
                                 <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[uiprototype].prizeTotal}" pattern="$###,###"/></div>
-                                <a href="/tc?module=ActiveContests&pt=23" class="gMetal">UI Prototype</a>
+                                <a href="/tc?module=ActiveContests&pt=19" class="gMetal">UI Prototype</a>
                                 (${activeContestsSummary[uiprototype].contestCount})
                             </td>
                         </tr>
@@ -136,7 +136,7 @@
                         <tr>
                             <td class="value">
                                 <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[riabuild].prizeTotal}" pattern="$###,###"/></div>
-                                <a href="/tc?module=ActiveContests&pt=23" class="gMetal">RIA Build</a>
+                                <a href="/tc?module=ActiveContests&pt=24" class="gMetal">RIA Build</a>
                                 (${activeContestsSummary[riabuild].contestCount})
                             </td>
                         </tr>
@@ -147,7 +147,7 @@
                         <tr>
                             <td class="value">
                                 <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[riacomponent].prizeTotal}" pattern="$###,###"/></div>
-                                <a href="/tc?module=ActiveContests&pt=23" class="gMetal">RIA Component</a>
+                                <a href="/tc?module=ActiveContests&pt=25" class="gMetal">RIA Component</a>
                                 (${activeContestsSummary[riacomponent].contestCount})
                             </td>
                         </tr>
