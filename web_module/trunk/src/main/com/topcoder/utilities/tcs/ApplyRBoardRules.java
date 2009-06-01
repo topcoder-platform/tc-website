@@ -331,8 +331,8 @@ public class ApplyRBoardRules extends DBUtility {
         mail.append("We are pleased to inform you that you have been reactivated for performing ");
         mail.append("reviews on " + catalogName + " " + projectTypeName + " projects.\n\n");
         mail.append("Remember that to stay active you must complete at least " + submissionThresholdShort + " project" + (submissionThresholdShort > 1 ? "s" : " "));
-        mail.append("in the last " + daysShortPeriod + " days and " + submissionThresholdLong + " overall in the corresponding catalog / ");
-        mail.append("development or design with a score equal or greater than " + scoreThresholdShort + " in each one.\n\n");
+        mail.append("in the last " + daysShortPeriod + " days and " + submissionThresholdLong + " overall in the corresponding catalog and ");
+        mail.append("track with a score equal or greater than " + scoreThresholdShort + " in each one.\n\n");
         mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
@@ -373,8 +373,8 @@ public class ApplyRBoardRules extends DBUtility {
         mail.append("This is temporary. You no longer fulfill the requirements to be a reviewer, ");
         mail.append("but if you resolve this, you will be able to perform reviews again.\n\n");
         mail.append("Note: To be qualified as a reviewer you must complete at least " + submissionThresholdShort + " project" + (submissionThresholdShort > 1 ? "s" : " "));
-        mail.append("in the last " + daysShortPeriod + " days and " + submissionThresholdLong + " overall in the corresponding catalog / ");
-        mail.append("development or design with a score equal or greater than " + scoreThresholdShort + " in each one.\n\n");        
+        mail.append("in the last " + daysShortPeriod + " days and " + submissionThresholdLong + " overall in the corresponding catalog and ");
+        mail.append("track with a score equal or greater than " + scoreThresholdShort + " in each one.\n\n");        
         mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
@@ -413,8 +413,8 @@ public class ApplyRBoardRules extends DBUtility {
         mail.append("This mail is to warn you that in " + daysToBeDisqualified + " day/s you will be disqualified from performing ");
         mail.append("reviews on " + catalogName + " " + projectTypeName + " projects.\n\n");
         mail.append("Note: To be qualified as a reviewer you must complete at least " + submissionThresholdShort + " project" + (submissionThresholdShort > 1 ? "s" : " "));
-        mail.append("in the last " + daysShortPeriod + " days and " + submissionThresholdLong + " overall in the corresponding catalog / ");
-        mail.append("development or design with a score equal or greater than " + scoreThresholdShort + " in each one.\n\n");        
+        mail.append("in the last " + daysShortPeriod + " days and " + submissionThresholdLong + " overall in the corresponding catalog and ");
+        mail.append("track with a score equal or greater than " + scoreThresholdShort + " in each one.\n\n");        
         mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
