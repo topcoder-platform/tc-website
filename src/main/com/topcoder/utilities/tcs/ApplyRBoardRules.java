@@ -3,12 +3,13 @@
  */
 package com.topcoder.utilities.tcs;
 
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.sql.DBUtility;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.sql.DBUtility;
 
 /**
  * <strong>Purpose</strong>:
@@ -78,9 +79,9 @@ public class ApplyRBoardRules extends DBUtility {
     private int submissionThresholdShort = 1;
 
     /**
-     * This variable tells how many submissions should be in the long period.
+     * This variable tells how many submissions should be in the long period for each competition type.
      */
-    private int submissionThresholdLong = 10;
+    private HashMap<Integer, Integer> submissionThresholdLongMap = new HashMap<Integer, Integer>();
 
     /**
      * This variable tells if only an analysis is wanted.
@@ -106,6 +107,18 @@ public class ApplyRBoardRules extends DBUtility {
      * This variable stores the digest mail text to be sent to the admin.
      */
     private StringBuffer digestMail = new StringBuffer(500);
+    
+    public ApplyRBoardRules() {
+    	super();
+    	// TODO: Make this configurable again.
+    	submissionThresholdLongMap.put(1, 10);
+    	submissionThresholdLongMap.put(2, 10);
+    	submissionThresholdLongMap.put(6, 3);
+    	submissionThresholdLongMap.put(7, 3);
+    	submissionThresholdLongMap.put(13, 3);
+    	submissionThresholdLongMap.put(14, 3);
+    	submissionThresholdLongMap.put(23, 3);
+    }
 
     /**
      * Runs the ApplyRBoardRules utility.
@@ -150,6 +163,8 @@ public class ApplyRBoardRules extends DBUtility {
                 psSelDetails.setInt(3, rsUsers.getInt("project_type_id"));  // project_type
                 psSelDetails.setLong(4, rsUsers.getLong("user_id"));  // user_id
                 psSelDetails.setLong(5, rsUsers.getLong("catalog_id"));  // catalog_id
+                
+                int submissionThresholdLong = submissionThresholdLongMap.get(rsUsers.getInt("project_type_id"));
 
 //                String possibleDisqualificationReason = " (no " + submissionThresholdShort + " submissions in the last " + daysShortPeriod + " days.";
                 
@@ -179,7 +194,7 @@ public class ApplyRBoardRules extends DBUtility {
                     psSelDetails.setInt(1, daysLongPeriod);  // Days to analyze
                     psSelDetails.setInt(2, scoreThresholdLong);  // score threshold
                     rsDetailsLong = psSelDetails.executeQuery();
-
+                    
                     // counts submissions
                     int countLong = 0;
                     for (; countLong < submissionThresholdLong && rsDetailsLong.next(); countLong++) ;
@@ -215,7 +230,8 @@ public class ApplyRBoardRules extends DBUtility {
 
                         // send mail.
                         sendActivationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
-                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
+                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
+                                submissionThresholdLong);
                     }
                 } else {
                     activeReviewersCount++;
@@ -230,7 +246,8 @@ public class ApplyRBoardRules extends DBUtility {
 
                         // send mail.
                         sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
-                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
+                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
+                                submissionThresholdLong);
                     } else {
                         // reviewer shouldn't be disqualified, but maybe a warning mail is appropriate if he is
                         // near to be disqualified.
@@ -244,7 +261,7 @@ public class ApplyRBoardRules extends DBUtility {
                                     (daysToBeDisqualified < firstWarningInterval && daysToBeDisqualified % secondWarningInterval == 0)) {
                                 sendWarningMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
                                         rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
-                                        daysToBeDisqualified);
+                                        daysToBeDisqualified, submissionThresholdLong);
                             }
                         } else {
                             log.debug("OK" + logMsg);
@@ -306,7 +323,9 @@ public class ApplyRBoardRules extends DBUtility {
      * @param projectTypeName the project's type.
      * @param catalogName     the catalogs description.
      */
-    private void sendActivationMail(String handle, String userEmail, String projectTypeName, String catalogName) throws Exception {
+    private void sendActivationMail(String handle, String userEmail, String projectTypeName, String catalogName,
+    		int submissionThresholdLong) throws Exception {
+    	
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
         mail.append("We are pleased to inform you that you have been reactivated for performing ");
@@ -343,7 +362,9 @@ public class ApplyRBoardRules extends DBUtility {
      * @param projectTypeName the project's type.
      * @param catalogName     the catalogs description.
      */
-    private void sendDisqualificationMail(String handle, String userEmail, String projectTypeName, String catalogName) throws Exception {
+    private void sendDisqualificationMail(String handle, String userEmail, String projectTypeName, String catalogName,
+    		int submissionThresholdLong) throws Exception {
+    	
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
         mail.append("We are sorry to inform you that you have been disqualified from performing additional ");
@@ -384,7 +405,9 @@ public class ApplyRBoardRules extends DBUtility {
      * @param catalogName          the catalogs description.
      * @param daysToBeDisqualified the days left to be disqualified.
      */
-    private void sendWarningMail(String handle, String userEmail, String projectTypeName, String catalogName, long daysToBeDisqualified) throws Exception {
+    private void sendWarningMail(String handle, String userEmail, String projectTypeName, String catalogName, long daysToBeDisqualified,
+    		int submissionThresholdLong) throws Exception {
+    	
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
         mail.append("This mail is to warn you that in " + daysToBeDisqualified + " day/s you will be disqualified from performing ");
@@ -486,11 +509,11 @@ public class ApplyRBoardRules extends DBUtility {
         submissionThresholdShort = Integer.parseInt(temp);
         params.remove("submissionThresholdShort");
 
-        temp = (String) params.get("submissionThresholdLong");
-        if (temp == null)
-            setUsageError("Please specify a submissionThresholdLong.\n");
-        submissionThresholdLong = Integer.parseInt(temp);
-        params.remove("submissionThresholdLong");
+        //temp = (String) params.get("submissionThresholdLong");
+        //if (temp == null)
+        //    setUsageError("Please specify a submissionThresholdLong.\n");
+        //submissionThresholdLong = Integer.parseInt(temp);
+        //params.remove("submissionThresholdLong");
 
         log.debug("onlyAnalyze : " + onlyAnalyze);
     }
