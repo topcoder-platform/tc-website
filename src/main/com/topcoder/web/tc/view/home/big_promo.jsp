@@ -98,7 +98,12 @@
 <a href="<tc-webtag:linkTracking link='http://www.topcoder.com/remix' refer='/tc' />"><img src="/images/remix/remix-510.jpg" alt="REMIX Challenge" /></a>
 <br />
 <br />
-<a href="<tc-webtag:linkTracking link='http://www.topcoder.com/tco09' refer='/tc' />"><img src="/images/home/tco09_510x54_banner.jpg" alt="2009 TopCoder Open" /></a>
+<img src="/images/home/tco09_510x121_banner.jpg" width="510" height="121" border="0" usemap="#Map" />
+<map name="Map" id="Map"><area shape="rect" coords="241,82,295,109" href="http://www.topcoder.com/tco09/blog/" />
+<area shape="rect" coords="301,82,360,110" href="http://www.topcoder.com/tco09/blog/photos/" />
+<area shape="rect" coords="366,81,424,111" href="http://www.topcoder.com/tco09/blog/movies/" />
+<area shape="rect" coords="429,81,496,109" href="http://www.topcoder.com/tco09/blog/twitter/" />
+<area shape="rect" coords="6,6,237,109" href="<tc-webtag:linkTracking link='http://www.topcoder.com/tco09' refer='/tc' />" />
 <br />
 
 <%-- NORM Assembly Run 
