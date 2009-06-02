@@ -85,10 +85,10 @@
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title">Overview</h2>
-                                                                <p>The TCO09 Finals will take place on June 1-4, 2009 at The Mirage Las Vegas.  Mark your calendars, start practicing, set your aspirations high, and get your travel documents ready!  We don't want you to miss it!</p>
-                                                                <%-- <p>Registration is open now for the TCO so <a href="/tco09?module=ViewUnifiedRegistration">register now!</a></p> --%>
-                                                                <p>It is important that you read the <a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=rules&d5=tco09">official rules and regulations</a> for the competition in which you are going to compete for more details before signing up.</p>
-                                                                <p>The competition is free and you must be a member 18 years or older, as well as meet the eligibility criteria, in order to compete.</p>
+                                                                <p>The 2009 TopCoder Open is underway in Las Vegas, Nevada and you can follow all the action here!</p>
+                                                                <p>TC staff and our member bloggers will be keeping you up to date with the latest results and analysis, plus some color from this week in fabulous Las Vegas on the <a href="http://www.topcoder.com/tco09/blog/">TCO'09 Blog</a> We've also got the <a href=http://www.topcoder.com/tco09/twitter>TCO'09 TwitterStream</a> running so you can follow along live and even join the conversation, plus lots and lots of TCO <a href="http://www.topcoder.com/tco09/blog/photos/">photos</a> and <a href="http://www.topcoder.com/tco09/blog/movies/">videos</a>.</p>
+                                                                <p>Many of the TopCoder and Sponsor roundtables will be <a href="http://www.topcoder.com/tco09/blog/livevideo/">streamed live</a>, including a Q&A with TopCoder founder, Jack Hughes - so check the <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=onsite&d5=schedule">schedule</a> and come back often for these live events.</p>
+                                                                <p>Good luck to all our competitors here at the 2009 TopCoder Open!</p>
                                                             </div>
                                                         </div>                                                      
                                                     </div><!-- End #mainContentInner -->
