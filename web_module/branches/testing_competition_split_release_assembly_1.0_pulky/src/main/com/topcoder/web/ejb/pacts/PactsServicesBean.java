@@ -114,7 +114,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @since 1.1
      */
-    private static final int TEST_SCENARIOS_PROJECT_TYPE = ;
+    private static final int TEST_SCENARIOS_PROJECT_TYPE = 26;
     
     private static final int ASSEMBLY_PROJECT_TYPE = 14;
 

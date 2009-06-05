@@ -90,7 +90,7 @@ public interface Constants {
      *
      * @since 1.4
      */
-    public static final int TEST_SCENARIOS_PAYMENT = ;
+    public static final int TEST_SCENARIOS_PAYMENT = 54;
 
     /**
      * <p>A <code>int</code> representing the payment type for Copilot payments.</p>
@@ -214,7 +214,7 @@ public interface Constants {
      *
      * @since 1.4
      */
-    public static final int TEST_SCENARIOS_PROJECT_CATEGORY_LU = ;
+    public static final int TEST_SCENARIOS_PROJECT_CATEGORY_LU = 26;
     
     public static final int UI_PROTOTYPE_COMPETITION_PROJECT_CATEGORY_LU = 19;
     public static final int RIA_BUILD_COMPETITION_PROJECT_CATEGORY_LU = 24;
