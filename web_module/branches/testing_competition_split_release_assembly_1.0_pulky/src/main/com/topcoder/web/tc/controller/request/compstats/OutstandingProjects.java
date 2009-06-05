@@ -71,7 +71,7 @@ public class OutstandingProjects extends BaseProcessor {
             && !getRequest().getParameter(Constants.PHASE_ID)
                 .equals(String.valueOf(SoftwareComponent.ASSEMBLY_PHASE))
             && !getRequest().getParameter(Constants.PHASE_ID).equals(
-                String.valueOf(SoftwareComponent.TEST_SUITES_PHASE))) {
+                String.valueOf(SoftwareComponent.TEST_SUITES_PHASE)) 
             && !getRequest().getParameter(Constants.PHASE_ID).equals(
                 String.valueOf(SoftwareComponent.TEST_SCENARIOS_PHASE))) {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");

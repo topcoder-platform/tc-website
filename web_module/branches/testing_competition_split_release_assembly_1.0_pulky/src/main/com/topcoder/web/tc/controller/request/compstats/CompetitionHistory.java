@@ -82,7 +82,7 @@ public class CompetitionHistory extends BaseProcessor {
                     !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.CONCEPTUALIZATION_PROJECT_TYPE)) &&
                     !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.SPECIFICATION_PROJECT_TYPE)) &&
                     !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.ARCHITECTURE_PROJECT_TYPE)) &&
-                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.TEST_SUITES_PROJECT_TYPE))) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.TEST_SUITES_PROJECT_TYPE)) &&
                     !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.TEST_SCENARIOS_PROJECT_TYPE))) {
                 throw new TCWebException("invalid " + Constants.PROJECT_TYPE_ID + " parameter.");
             }

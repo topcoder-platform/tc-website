@@ -55,7 +55,7 @@ public class ReliabilityDetail extends Base {
                 || String.valueOf(SoftwareComponent.SPECIFICATION_PHASE).equals(phaseId)
                 || String.valueOf(SoftwareComponent.ARCHITECTURE_PHASE).equals(phaseId)
                 || String.valueOf(SoftwareComponent.ASSEMBLY_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.TEST_SUITES_PHASE).equals(phaseId))
+                || String.valueOf(SoftwareComponent.TEST_SUITES_PHASE).equals(phaseId)
                 || String.valueOf(SoftwareComponent.TEST_SCENARIOS_PHASE).equals(phaseId))
             {
                 Request r = new Request();
