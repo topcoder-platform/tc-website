@@ -33,7 +33,7 @@ public class TestSuitesCompetitionPayment extends ComponentProjectReferencePayme
      * @param placed the place of the coder in the contest.
      */
     public TestSuitesCompetitionPayment(long coderId, double grossAmount, String client, long projectId, int placed) {
-        super(TEST_SUITES_COMPETITION_PAYMENT, coderId, grossAmount, client, projectId, placed);
+        super(TEST_SUITES_PAYMENT, coderId, grossAmount, client, projectId, placed);
     }
 
     /**
