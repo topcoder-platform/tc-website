@@ -198,6 +198,7 @@ tchs08 is over, don't need to do this anymore
         dataRequest.setContentHandle("homepage_active_contest_summary");
 
         Map<String, ResultSetContainer> dataMap = dai.getData(dataRequest);
+        System.out.println("       ???         " + dataMap);
 
 
         ActiveContestsSummary summary;
@@ -268,7 +269,7 @@ tchs08 is over, don't need to do this anymore
         }
 
         ResultSetContainer riabuild = dataMap.get("ria_build_active_contests_summary");
-        if (!riabuild.isEmpty()) {
+        if (riabuild != null && !riabuild.isEmpty()) {
             ResultSetContainer.ResultSetRow row = riabuild.get(0);
             summary = new ActiveContestsSummary();
             summary.setContestCount(row.getIntItem("total_contests"));
@@ -280,7 +281,7 @@ tchs08 is over, don't need to do this anymore
         }
 
         ResultSetContainer riacomponent = dataMap.get("ria_component_active_contests_summary");
-        if (!riacomponent.isEmpty()) {
+        if (riacomponent != null && !riacomponent.isEmpty()) {
             ResultSetContainer.ResultSetRow row = riacomponent.get(0);
             summary = new ActiveContestsSummary();
             summary.setContestCount(row.getIntItem("total_contests"));
