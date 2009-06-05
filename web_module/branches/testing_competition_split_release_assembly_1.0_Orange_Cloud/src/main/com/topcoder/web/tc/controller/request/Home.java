@@ -256,7 +256,7 @@ tchs08 is over, don't need to do this anymore
         }
 
         ResultSetContainer uiprototype = dataMap.get("ui_prototype_active_contests_summary");
-        if (!uiprototype.isEmpty()) {
+        if (uiprototype != null && !uiprototype.isEmpty()) {
             ResultSetContainer.ResultSetRow row = uiprototype.get(0);
             summary = new ActiveContestsSummary();
             summary.setContestCount(row.getIntItem("total_contests"));
