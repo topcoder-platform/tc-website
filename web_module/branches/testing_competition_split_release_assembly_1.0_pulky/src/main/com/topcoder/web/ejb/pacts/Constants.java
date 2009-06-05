@@ -29,8 +29,16 @@ package com.topcoder.web.ejb.pacts;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.4 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites</li>
+ *     <li>Added support for new Test Scenarios competitions.</li>
+ *   </ol>
+ * </p>
+ *
  * @author TCSDEVELOPER
- * @version 1.3
+ * @version 1.4
  */
 public interface Constants {
 
