@@ -213,7 +213,7 @@ public interface WebConstants {
     public static final int CONCEPTUALIZATION_PROJECT_TYPE = 23;
     public static final int SPECIFICATION_PROJECT_TYPE = 6;
     public static final int TEST_SUITES_PROJECT_TYPE = 13;
-    public static final int TEST_SCENARIOS_PROJECT_TYPE = ;
+    public static final int TEST_SCENARIOS_PROJECT_TYPE = 26;
     public static final int ASSEMBLY_PROJECT_TYPE = 14;
 
     /**
