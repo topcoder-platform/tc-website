@@ -55,10 +55,16 @@ import com.topcoder.shared.util.logging.Logger;
  *   <ol>
  *     <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
+ *
+ *   Version 1.1.2 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites.</li>
+ *     <li>Added support for new Test Scenarios competitions.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky
- * @version 1.1.1
+ * @author dok, ivern, isv, pulky, TCSDEVELOPER
+ * @version 1.1.2
  */
 
 public class DefaultPriceComponent implements SoftwareComponent {
@@ -173,7 +179,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             return new ComponentReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == CONCEPTUALIZATION_PHASE || phaseId == SPECIFICATION_PHASE
                    || phaseId == ARCHITECTURE_PHASE || phaseId == ASSEMBLY_PHASE
-                   || phaseId == APPLICATION_TESTING_PHASE) {
+                   || phaseId == TEST_SUITES_PHASE || phaseId == TEST_SCENARIOS_PHASE) {
             return new ApplicationReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == UI_PROTOTYPE_PHASE || phaseId == RIA_BUILD_PHASE ||
                 phaseId == RIA_COMPONENT_PHASE) {
@@ -280,10 +286,11 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("Specification phaseId         : " + SPECIFICATION_PHASE);
             System.out.println("Architecture phaseId          : " + ARCHITECTURE_PHASE);
             System.out.println("Assembly phaseId              : " + ASSEMBLY_PHASE);
-            System.out.println("Application Testing phaseId   : " + APPLICATION_TESTING_PHASE);
-            System.out.println("UI Prototype phaseId      : " + UI_PROTOTYPE_PHASE);
-            System.out.println("RIA Build phaseId          : " + RIA_BUILD_PHASE);
-            System.out.println("RIA Component phaseId      : " + RIA_COMPONENT_PHASE);
+            System.out.println("Test Suites phaseId           : " + TEST_SUITES_PHASE);
+            System.out.println("Test Scenarios phaseId        : " + TEST_SCENARIOS_PHASE);
+            System.out.println("UI Prototype phaseId          : " + UI_PROTOTYPE_PHASE);
+            System.out.println("RIA Build phaseId             : " + RIA_BUILD_PHASE);
+            System.out.println("RIA Component phaseId         : " + RIA_COMPONENT_PHASE);
 
         } else {
             DefaultPriceComponent sc = new DefaultPriceComponent(1, Integer.parseInt(args[0]),

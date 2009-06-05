@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.ejb.pacts;
 
 import java.sql.Connection;
@@ -62,15 +65,22 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 
 /**
- * The EJB class which handles database access for the PACTS system.
- * <p/>
- * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * <p>The EJB class which handles database access for the PACTS system.</p>
  *
- * @author Dave Pecora
- * @version 1.00, 03/06/2002
+ * <p>
+ *   Version 1.1 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites.</li>
+ *     <li>Added support for new Test Scenarios competitions.</li>
+ *   </ol>
+ * </p>
+ * 
+ * <p>VERY IMPORTANT: remember to update serialVersionUID if needed.</p>
+ *
+ * @author Dave Pecora, TCSDEVELOPER
+ * @version 1.1
  * @see PactsConstants
  */
-
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
@@ -91,7 +101,21 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static final int ARCHITECTURE_PROJECT_TYPE = 7;
     private static final int CONCEPTUALIZATION_PROJECT_TYPE = 23;
     private static final int SPECIFICATION_PROJECT_TYPE = 6;
-    private static final int APPLICATION_TESTING_PROJECT_TYPE = 13;
+
+    /**
+     * <p>A <code>int</code> representing the test suites project id.</p>
+     *
+     * @since 1.1
+     */
+    private static final int TEST_SUITES_PROJECT_TYPE = 13;
+
+    /**
+     * <p>A <code>int</code> representing the test scenarios project id.</p>
+     *
+     * @since 1.1
+     */
+    private static final int TEST_SCENARIOS_PROJECT_TYPE = ;
+    
     private static final int ASSEMBLY_PROJECT_TYPE = 14;
 
     // [BUGR-1842] - add support for UI/RIA project types
@@ -5155,9 +5179,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 // [BUGR-1452] - add support for paying other project types
                 // [BUGR-1842] - add support for UI/RIA project types
                 projectType == ARCHITECTURE_PROJECT_TYPE || projectType == CONCEPTUALIZATION_PROJECT_TYPE ||
-                projectType == SPECIFICATION_PROJECT_TYPE || projectType == APPLICATION_TESTING_PROJECT_TYPE || 
+                projectType == SPECIFICATION_PROJECT_TYPE || projectType == TEST_SUITES_PROJECT_TYPE || 
                 projectType == ASSEMBLY_PROJECT_TYPE || projectType == UI_PROTOTYPE_PROJECT_TYPE ||
-                projectType == RIA_BUILD_PROJECT_TYPE || projectType == RIA_COMPONENT_PROJECT_TYPE) {
+                projectType == RIA_BUILD_PROJECT_TYPE || projectType == RIA_COMPONENT_PROJECT_TYPE || 
+                projectType == TEST_SCENARIOS_PROJECT_TYPE) {
                 p = new ReviewBoardPayment(coderId, amount, client, projectId);
             }
 
@@ -6245,8 +6270,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } else if (projectType == SPECIFICATION_PROJECT_TYPE) {
             SpecificationContestPayment scp = new SpecificationContestPayment(coderId, grossAmount, client, projectId, placed);
             l.add(scp);
-        } else if (projectType == APPLICATION_TESTING_PROJECT_TYPE) {
-            TestingCompetitionPayment cwp = new TestingCompetitionPayment(coderId, grossAmount, client, projectId, placed);
+        } else if (projectType == TEST_SUITES_PROJECT_TYPE) {
+            TestSuitesCompetitionPayment cwp = new TestSuitesCompetitionPayment(coderId, grossAmount, client, projectId, placed);
+            l.add(cwp);
+        } else if (projectType == TEST_SCENARIOS_PROJECT_TYPE) {
+            TestScenariosCompetitionPayment cwp = new TestScenariosCompetitionPayment(coderId, grossAmount, client, projectId, placed);
             l.add(cwp);
         } else if (projectType == ARCHITECTURE_PROJECT_TYPE) {
     	    BasePayment p = new ArchitecturePayment(coderId, grossAmount, client, projectId, placed);

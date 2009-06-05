@@ -20,8 +20,16 @@ import com.topcoder.web.common.WebConstants;
  *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites.</li>
+ *     <li>Added support for new Test Scenarios competitions.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, TCSDEVELOPER
+ * @version 1.2
  */
 public interface SoftwareComponent extends Cloneable, Serializable {
 
@@ -31,7 +39,20 @@ public interface SoftwareComponent extends Cloneable, Serializable {
     public final static int SPECIFICATION_PHASE = (int) WebConstants.PHASE_SPECIFICATION;
     public final static int ARCHITECTURE_PHASE = (int) WebConstants.PHASE_ARCHITECTURE;
     public final static int ASSEMBLY_PHASE = (int) WebConstants.PHASE_ASSEMBLY;
-    public final static int APPLICATION_TESTING_PHASE = (int) WebConstants.PHASE_APPLICATION_TESTING;
+
+    /**
+     * <p>An <code>int</code> representing test suites phase id.</p>
+     *
+     * @since 1.2
+     */
+    public final static int TEST_SUITES_PHASE = (int) WebConstants.PHASE_TEST_SUITES;
+
+    /**
+     * <p>An <code>int</code> representing test scenarios phase id.</p>
+     *
+     * @since 1.2
+     */
+    public final static int TEST_SCENARIOS_PHASE = (int) WebConstants.PHASE_TEST_SCENARIOS;
 
     /**
      * <p>An <code>int</code> representing ui prototype phase id.</p>

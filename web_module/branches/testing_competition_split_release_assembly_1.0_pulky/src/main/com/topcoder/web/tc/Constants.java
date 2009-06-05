@@ -35,8 +35,15 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.4 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites.</li>
+ *   </ol>
+ * </p>
+ *
  * @author TCSDEVELOPER
- * @version 1.3
+ * @version 1.4
  */
 public class Constants implements WebConstants {
 
@@ -238,8 +245,7 @@ public class Constants implements WebConstants {
     public static final String ARCHITECTURE_REVIEW_PROJECT_DETAIL = "/architecture/reviewProjectDetail.jsp";
 
     /**
-     * <p>A <code>String</code> providing the path to the unified review project detail page used to
-     * manage Conceptualization, Specification and Application Testing Review Projects.</p>
+     * <p>A <code>String</code> providing the path to the unified review project detail page.</p>
      *
      * @since 1.1
      */
@@ -264,8 +270,7 @@ public class Constants implements WebConstants {
     public static final String ARCHITECTURE_REVIEW_PROJECTS = "/architecture/reviewProjects.jsp";
 
     /**
-     * <p>A <code>String</code> providing the path to the unified review project page used to
-     * manage Conceptualization, Specification and Application Testing Review Projects.</p>
+     * <p>A <code>String</code> providing the path to the unified review project page.</p>
      *
      * @since 1.1
      */
@@ -292,16 +297,14 @@ public class Constants implements WebConstants {
     public static final String ARCHITECTURE_REVIEWER_TERMS = "/architecture/reviewerTerms.jsp";
 
     /**
-     * <p>A <code>String</code> providing the path to the unified review terms page used to
-     * manage Conceptualization, Specification and Application Testing Review Projects.</p>
+     * <p>A <code>String</code> providing the path to the unified review terms page.</p>
      *
      * @since 1.1
      */
     public static final String UNIFIED_REVIEWER_TERMS_PAGE = "/review_board/reviewerTerms.jsp";
 
     /**
-     * <p>A <code>String</code> providing the path to the unified meet the review board page used to
-     * manage Conceptualization, Specification and Application Testing Review Projects.</p>
+     * <p>A <code>String</code> providing the path to the unified meet the review board page.</p>
      *
      * @since 1.1
      */
@@ -381,7 +384,7 @@ public class Constants implements WebConstants {
 
     /**
      * <p>
-     * Minimum application testing rating parameter name.
+     * Minimum test suites rating parameter name.
      * </p>
      *
      * @since Member Profile Enhancment assembly
@@ -390,7 +393,7 @@ public class Constants implements WebConstants {
 
     /**
      * <p>
-     * Maximum application testing rating parameter name.
+     * Maximum test suites rating parameter name.
      * </p>
      *
      * @since Member Profile Enhancment assembly

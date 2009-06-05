@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky
-  - Version: 1.1
+  - Author: pulky, TCSDEVELOPER
+  - Version: 1.2
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
@@ -12,6 +12,9 @@
   -
   - Version 1.1 (Studio Coding In Online Review) changes: added support for new UI Prototype, RIA Build and 
   - RIA Component competitions.
+  -
+  - Version 1.2 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites
+  - and added support for new Test Scenarios competitions.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -23,7 +26,8 @@
 <c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
 <c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
 <c:set var="SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>"/>
-<c:set var="APPLICATION_TESTING_PROJECT_TYPE" value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>"/>
+<c:set var="TEST_SUITES_PROJECT_TYPE" value="<%=Constants.TEST_SUITES_PROJECT_TYPE%>"/>
+<c:set var="TEST_SCENARIOS_PROJECT_TYPE" value="<%=Constants.TEST_SCENARIOS_PROJECT_TYPE%>"/>
 <c:set var="UI_PROTOTYPE_PROJECT_TYPE" value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" />
 <c:set var="RIA_BUILD_PROJECT_TYPE" value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" />
 <c:set var="RIA_COMPONENT_PROJECT_TYPE" value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" />
@@ -37,8 +41,11 @@
     <c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification"/>
     </c:when>
-    <c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="Application Testing"/>
+    <c:when test="${projectType == TEST_SUITES_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Test Suites"/>
+    </c:when>
+    <c:when test="${projectType == TEST_SCENARIOS_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Test Scenarios"/>
     </c:when>
     <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="UI Prototype"/>
@@ -72,9 +79,14 @@
                     <jsp:param name="level1" value="specification"/>
                 </jsp:include>
             </c:when>
-            <c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
+            <c:when test="${projectType == TEST_SUITES_PROJECT_TYPE}">
                 <jsp:include page="/top.jsp">
-                    <jsp:param name="level1" value="application_testing"/>
+                    <jsp:param name="level1" value="test_suites"/>
+                </jsp:include>
+            </c:when>
+            <c:when test="${projectType == TEST_SCENARIOS_PROJECT_TYPE}">
+                <jsp:include page="/top.jsp">
+                    <jsp:param name="level1" value="test_scenarios"/>
                 </jsp:include>
             </c:when>
             <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
@@ -108,9 +120,14 @@
                                 <jsp:param name="node" value="specification_review_board"/>
                             </jsp:include>
                         </c:when>
-                        <c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
+                        <c:when test="${projectType == TEST_SUITES_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="application_testing_review_board"/>
+                                <jsp:param name="node" value="test_suites_review_board"/>
+                            </jsp:include>
+                        </c:when>
+                        <c:when test="${projectType == TEST_SCENARIOS_PROJECT_TYPE}">
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="test_scenarios_review_board"/>
                             </jsp:include>
                         </c:when>
                         <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
@@ -151,10 +168,16 @@
                                 <jsp:param name="title" value="Meet the Specification Review Board"/>
                             </jsp:include>
                         </c:when>
-                        <c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
+                        <c:when test="${projectType == TEST_SUITES_PROJECT_TYPE}">
                             <jsp:include page="/page_title.jsp">
-                                <jsp:param name="image" value="app_testing"/>
-                                <jsp:param name="title" value="Meet the Application Testing Review Board"/>
+                                <jsp:param name="image" value="test_suites"/>
+                                <jsp:param name="title" value="Meet the Test Suites Review Board"/>
+                            </jsp:include>
+                        </c:when>
+                        <c:when test="${projectType == TEST_SCENARIOS_PROJECT_TYPE}">
+                            <jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="test_scenarios"/>
+                                <jsp:param name="title" value="Meet the Test Scenarios Review Board"/>
                             </jsp:include>
                         </c:when>
                         <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
@@ -230,9 +253,13 @@
                                                 <tc-webtag:handle coderId="${resultRow.map['user_id']}"
                                                     context='specification'/>
                                             </c:when>
-                                            <c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
+                                            <c:when test="${projectType == TEST_SUITES_PROJECT_TYPE}">
                                                 <tc-webtag:handle coderId="${resultRow.map['user_id']}"
-                                                    context='application_testing'/>
+                                                    context='test_suites'/>
+                                            </c:when>
+                                            <c:when test="${projectType == TEST_SCENARIOS_PROJECT_TYPE}">
+                                                <tc-webtag:handle coderId="${resultRow.map['user_id']}"
+                                                    context='test_scenarios'/>
                                             </c:when>
                                             <c:otherwise>
                                                 <tc-webtag:handle coderId="${resultRow.map['user_id']}" />
@@ -272,10 +299,16 @@
                                 <jsp:param name="level2" value="specification"/>
                             </jsp:include>
                         </c:when>
-                        <c:when test="${projectType == APPLICATION_TESTING_PROJECT_TYPE}">
+                        <c:when test="${projectType == TEST_SUITES_PROJECT_TYPE}">
                             <jsp:include page="/public_right.jsp">
                                 <jsp:param name="level1" value="review_board"/>
-                                <jsp:param name="level2" value="application_testing"/>
+                                <jsp:param name="level2" value="test_suites"/>
+                            </jsp:include>
+                        </c:when>
+                        <c:when test="${projectType == TEST_SCENARIOS_PROJECT_TYPE}">
+                            <jsp:include page="/public_right.jsp">
+                                <jsp:param name="level1" value="review_board"/>
+                                <jsp:param name="level2" value="test_scenarios"/>
                             </jsp:include>
                         </c:when>
                         <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">

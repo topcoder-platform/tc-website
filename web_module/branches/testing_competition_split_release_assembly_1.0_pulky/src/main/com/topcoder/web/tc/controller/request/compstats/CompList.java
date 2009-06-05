@@ -25,10 +25,16 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
+ *
+ *   Version 1.2 (Member Profile Enhancement 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites</li>
+ *     <li>Added support for new Test Scenarios competitions</li>
+ *   </ol>
  * </p>
  *
- * @author cucu, pulky
- * @version 1.1
+ * @author cucu, pulky, TCSDEVELOPER
+ * @version 1.2
  */
 public class CompList extends Base {
 
@@ -57,7 +63,8 @@ public class CompList extends Base {
                   || Constants.SPECIFICATION_PROJECT_TYPE == projectTypeId
                   || Constants.ARCHITECTURE_PROJECT_TYPE == projectTypeId
                   || Constants.ASSEMBLY_PROJECT_TYPE == projectTypeId
-                  || Constants.APPLICATION_TESTING_PROJECT_TYPE == projectTypeId
+                  || Constants.TEST_SUITES_PROJECT_TYPE == projectTypeId
+                  || Constants.TEST_SCENARIOS_PROJECT_TYPE == projectTypeId
                   || Constants.UI_PROTOTYPE_PROJECT_TYPE == projectTypeId
                   || Constants.RIA_BUILD_PROJECT_TYPE == projectTypeId
                   || Constants.RIA_COMPONENT_PROJECT_TYPE == projectTypeId)) {

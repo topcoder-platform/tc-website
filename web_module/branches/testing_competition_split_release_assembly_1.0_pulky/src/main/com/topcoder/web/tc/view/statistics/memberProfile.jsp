@@ -1,3 +1,12 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays the member profile page.
+  -
+  - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
+--%>
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,com.topcoder.shared.util.ApplicationServer,
           com.topcoder.web.common.StringUtils, com.topcoder.web.common.WebConstants"%>
@@ -246,7 +255,7 @@ This member has not yet been rated in a competition.
 <jsp:include page="memberProfileTabTrack.jsp">
    <jsp:param name="track" value="Application Testing"/>
    <jsp:param name="competition_type" value="test"/>
-   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_APPLICATION_TESTING %>"/>
+   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_TEST_SUITES %>"/>
 </jsp:include>
 <% } else if(tab.equals("long")) { %>
 <jsp:include page="memberProfileTabs.jsp" />

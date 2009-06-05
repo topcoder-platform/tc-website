@@ -23,11 +23,16 @@ import com.topcoder.web.tc.Constants;
  *     and application testing).
  *     </li>
  *   </ol>
+ *
+ *   Version 1.2 (Member Profile Enhancement 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites</li>
+ *     <li>Added support for new Test Scenarios competitions</li>
+ *   </ol>
  * </p>
  *
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Aug 9, 2006
+ * @author dok, TCSDEVELOPER
+ * @version 1.2
  */
 public class ReliabilityDetail extends Base {
 
@@ -50,7 +55,8 @@ public class ReliabilityDetail extends Base {
                 || String.valueOf(SoftwareComponent.SPECIFICATION_PHASE).equals(phaseId)
                 || String.valueOf(SoftwareComponent.ARCHITECTURE_PHASE).equals(phaseId)
                 || String.valueOf(SoftwareComponent.ASSEMBLY_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.APPLICATION_TESTING_PHASE).equals(phaseId))
+                || String.valueOf(SoftwareComponent.TEST_SUITES_PHASE).equals(phaseId))
+                || String.valueOf(SoftwareComponent.TEST_SCENARIOS_PHASE).equals(phaseId))
             {
                 Request r = new Request();
                 r.setContentHandle("reliability_detail");
@@ -81,8 +87,11 @@ public class ReliabilityDetail extends Base {
                     case Constants.ARCHITECTURE_PROJECT_TYPE:
                         handleType = HandleTag.ARCHITECTURE;
                         break;
-                    case Constants.APPLICATION_TESTING_PROJECT_TYPE:
-                        handleType = HandleTag.APPLICATION_TESTING;
+                    case Constants.TEST_SUITES_PROJECT_TYPE:
+                        handleType = HandleTag.TEST_SUITES;
+                        break;
+                    case Constants.TEST_SCENARIOS_PROJECT_TYPE:
+                        handleType = HandleTag.TEST_SCENARIOS;
                         break;
                 }
 

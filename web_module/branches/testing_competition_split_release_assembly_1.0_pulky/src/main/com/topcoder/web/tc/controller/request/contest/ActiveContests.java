@@ -17,10 +17,16 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
+ *
+ *   Version 1.2 (Member Profile Enhancement 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites</li>
+ *     <li>Added support for new Test Scenarios competitions</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.1
+ * @author dok, pulky, TCSDEVELOPER
+ * @version 1.2
  */
 public class ActiveContests extends ActiveContestsBase {
 
@@ -29,7 +35,7 @@ public class ActiveContests extends ActiveContestsBase {
      * validation if the configuration entry is not found.</p>
      */
     public static final int[] DEFAULT_PROJECT_TYPES = new int[] {Constants.ASSEMBLY_PROJECT_TYPE,
-        Constants.ARCHITECTURE_PROJECT_TYPE, Constants.APPLICATION_TESTING_PROJECT_TYPE,
+        Constants.ARCHITECTURE_PROJECT_TYPE, Constants.TEST_SUITES_PROJECT_TYPE, Constants.TEST_SCENARIOS_PROJECT_TYPE,
         Constants.SPECIFICATION_PROJECT_TYPE, Constants.CONCEPTUALIZATION_PROJECT_TYPE,
         Constants.UI_PROTOTYPE_PROJECT_TYPE, Constants.RIA_BUILD_PROJECT_TYPE,
         Constants.RIA_COMPONENT_PROJECT_TYPE};

@@ -1,3 +1,13 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays the home page's active contest box.
+  -
+  - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites
+  - and added support for new Test Scenarios competitions.
+--%>
 <%@ page import="com.topcoder.web.tc.controller.request.Home" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
@@ -14,7 +24,8 @@
 <c:set var="arch" value="<%=Home.ARCHITECTURE%>"/>
 <c:set var="concept" value="<%=Home.CONCEPTUALIZATION%>"/>
 <c:set var="spec" value="<%=Home.SPECIFICATION%>"/>
-<c:set var="appTesting" value="<%=Home.APPLICATION_TESTING%>"/>
+<c:set var="testSuites" value="<%=Home.TEST_SUITES%>"/>
+<c:set var="testScenarios" value="<%=Home.TEST_SCENARIOS%>"/>
 <c:set var="studio" value="<%=Home.STUDIO%>"/>
 <c:set var="mm" value="<%=Home.MM%>"/>
 <c:set var="uiprototype" value="<%=Home.UI_PROTOTYPE%>"/>
@@ -111,13 +122,23 @@
                             </td>
                         </tr>
                     </c:if>
-                    <c:if test="${activeContestsSummary[appTesting].contestCount>0}">
+                    <c:if test="${activeContestsSummary[testScenarios].contestCount>0}">
 
                         <tr>
                             <td class="value">
-                                <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[appTesting].prizeTotal}" pattern="$###,###"/></div>
-                                <a href="/tc?module=ActiveContests&pt=13" class="gMetal">App Testing</a>
-                                (${activeContestsSummary[appTesting].contestCount})
+                                <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[testScenarios].prizeTotal}" pattern="$###,###"/></div>
+                                <a href="/tc?module=ActiveContests&pt=13" class="gMetal">Test Scenarios</a>
+                                (${activeContestsSummary[testScenarios].contestCount})
+                            </td>
+                        </tr>
+                    </c:if>
+                    <c:if test="${activeContestsSummary[testSuites].contestCount>0}">
+
+                        <tr>
+                            <td class="value">
+                                <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[testSuites].prizeTotal}" pattern="$###,###"/></div>
+                                <a href="/tc?module=ActiveContests&pt=13" class="gMetal">Test Suites</a>
+                                (${activeContestsSummary[testSuites].contestCount})
                             </td>
                         </tr>
                     </c:if>

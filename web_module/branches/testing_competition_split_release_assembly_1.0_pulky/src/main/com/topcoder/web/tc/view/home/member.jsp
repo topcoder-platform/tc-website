@@ -1,3 +1,12 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays the member page.
+  -
+  - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
+--%>
 <%@  page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -27,7 +36,7 @@ function swapTopTen(topTenID){
     hide('topTenSpecification');
     hide('topArchitecture');
     hide('topAssembly');
-    hide('topTesting');
+    hide('topTestSuites');
     showBlock(topTenID);
     createCookie('defaultTopTen',topTenID,365);
 }
@@ -158,7 +167,7 @@ function init() {
                     <option value="topTenSpecification">Specification</option>
                     <option value="topArchitecture">Architecture</option>
                     <option value="topAssembly">Assembly</option>
-                    <option value="topTesting">Application Testing</option>
+                    <option value="topTestSuites">Test Suites</option>
                     </select>
                     </form>
                 </div>
@@ -198,11 +207,11 @@ function init() {
                      <jsp:param name="ctxt" value="assembly" />
                 </jsp:include>
                 <jsp:include page="top_template.jsp" >
-                     <jsp:param name="title" value="Application Testing" />
+                     <jsp:param name="title" value="Test Suites" />
                      <jsp:param name="name" value="top_testers" />
-                     <jsp:param name="id" value="topTesting" />
+                     <jsp:param name="id" value="topTestSuites" />
                      <jsp:param name="help" value="/tc?module=Static&d1=statistics&d2=info&d3=topRatedTesters" />
-                     <jsp:param name="ctxt" value="application_testing" />
+                     <jsp:param name="ctxt" value="test_suites" />
                 </jsp:include>
             </div>
         </div>

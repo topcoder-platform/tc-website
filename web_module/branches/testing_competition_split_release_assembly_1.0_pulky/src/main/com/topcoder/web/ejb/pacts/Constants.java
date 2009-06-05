@@ -77,7 +77,20 @@ public interface Constants {
     public static final int DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT = 41;
     public static final int SPECIFICATION_CONTEST_PAYMENT = 42;
     public static final int CONCEPTUALIZATION_CONTEST_PAYMENT = 43;
-    public static final int TESTING_COMPETITION_PAYMENT = 44;
+
+    /**
+     * <p>A <code>int</code> representing the payment id for test suites.</p>
+     *
+     * @since 1.4
+     */
+    public static final int TEST_SUITES_PAYMENT = 44;
+
+    /**
+     * <p>A <code>int</code> representing the payment id for test scenarios.</p>
+     *
+     * @since 1.4
+     */
+    public static final int TEST_SCENARIOS_PAYMENT = ;
 
     /**
      * <p>A <code>int</code> representing the payment type for Copilot payments.</p>
@@ -188,7 +201,20 @@ public interface Constants {
     public static final int ARCHITECTURE_PROJECT_CATEGORY_LU = 7;
     public static final int CONCEPTUALIZATION_PROJECT_CATEGORY_LU = 23;
     public static final int SPECIFICATION_PROJECT_CATEGORY_LU = 6;
-    public static final int APPLICATION_TESTING_PROJECT_CATEGORY_LU = 13;
+
+    /**
+     * <p>A <code>int</code> representing the test suites project category id.</p>
+     *
+     * @since 1.4
+     */
+    public static final int TEST_SUITES_PROJECT_CATEGORY_LU = 13;
+
+    /**
+     * <p>A <code>int</code> representing the test scenarios project category id.</p>
+     *
+     * @since 1.4
+     */
+    public static final int TEST_SCENARIOS_PROJECT_CATEGORY_LU = ;
     
     public static final int UI_PROTOTYPE_COMPETITION_PROJECT_CATEGORY_LU = 19;
     public static final int RIA_BUILD_COMPETITION_PROJECT_CATEGORY_LU = 24;

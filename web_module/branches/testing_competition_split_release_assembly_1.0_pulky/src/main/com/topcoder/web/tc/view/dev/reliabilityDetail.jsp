@@ -1,3 +1,12 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays the reliability details page.
+  -
+  - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
+--%>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -57,9 +66,9 @@
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_architecture_competitions"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.APPLICATION_TESTING_PHASE) { %>
+    <% } else if(phaseId == SoftwareComponent.TEST_SUITES_PHASE) { %>
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="m_testing_competitions"/>
+                <jsp:param name="node" value="m_test_suites_competitions"/>
             </jsp:include>
     <% } %>
     <!-- Left nav ends -->
@@ -98,9 +107,9 @@
                 <jsp:param name="image" value="architecture"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.APPLICATION_TESTING_PHASE) { %>
+    <% } else if(phaseId == SoftwareComponent.TEST_SUITES_PHASE) { %>
             <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="app_testing"/>
+                <jsp:param name="image" value="test_suites"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
     <% } %>
@@ -119,8 +128,8 @@
             <span class="bodySubtitle">Specification Statistics&#160;>&#160;</span><br>
     <% } else if(phaseId == SoftwareComponent.ARCHITECTURE_PHASE) { %>
             <span class="bodySubtitle">Architecture Statistics&#160;>&#160;</span><br>
-    <% } else if(phaseId == SoftwareComponent.APPLICATION_TESTING_PHASE) { %>
-            <span class="bodySubtitle">Application Testing Statistics&#160;>&#160;</span><br>
+    <% } else if(phaseId == SoftwareComponent.TEST_SUITES_PHASE) { %>
+            <span class="bodySubtitle">Test Suites Statistics&#160;>&#160;</span><br>
     <% } %>
                 <span class="bc">
                 <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
