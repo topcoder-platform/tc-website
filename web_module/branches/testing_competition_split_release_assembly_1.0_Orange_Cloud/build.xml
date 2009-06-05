@@ -3,6 +3,4 @@
     <property name="root.dir" location="${basedir}/.." />
     <property name="glue.dir" location="${root.dir}/glue" />
     <import file="${glue.dir}/glue-jar.xml" />
-
-    
 </project>
