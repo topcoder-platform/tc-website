@@ -18,8 +18,19 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeaderList;
 
 /**
- * @author mktong
- * Create Date: May 16, 2006
+ * <strong>Purpose</strong>:
+ * A processor to generate automated payments.
+ *
+ * <p>
+ *   Version 1.1 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites</li>
+ *     <li>Added support for new Test Scenarios competitions.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author mktong, TCSDEVELOPER
+ * @version 1.1
  */
 public class GenerateComponentPayments extends BaseProcessor implements PactsConstants {
 	public final static String IS_DEV_SUPPORT_BY_DESIGNER = "dsd";
@@ -83,8 +94,8 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 DataInterfaceBean bean = new DataInterfaceBean();
                 // [BUGR-1452] - add support for paying other project types
                 // [BUGR-1842] - add support for UI/RIA project types
-                int[] counts = new int[12];
-                for (int i = 0; i < 12; i++) {
+                int[] counts = new int[13];
+                for (int i = 0; i < 13; i++) {
                     counts[i] =0;
                 }
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
@@ -125,12 +136,14 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                     if (p.getPaymentType() == PactsConstants.CONCEPTUALIZATION_CONTEST_PAYMENT) counts[4]++;
                     if (p.getPaymentType() == PactsConstants.SPECIFICATION_CONTEST_PAYMENT) counts[5]++;
                     if (p.getPaymentType() == PactsConstants.ARCHITECTURE_PAYMENT) counts[6]++;
-                    if (p.getPaymentType() == PactsConstants.TESTING_COMPETITION_PAYMENT) counts[7]++;
+                    if (p.getPaymentType() == PactsConstants.TEST_SUITES_PAYMENT) counts[7]++;
                     if (p.getPaymentType() == PactsConstants.ASSEMBLY_PAYMENT) counts[8]++;
                     // [BUGR-1842] - add support for UI/RIA project types
                     if (p.getPaymentType() == PactsConstants.UI_PROTOTYPE_COMPETITION_PAYMENT) counts[9]++;
                     if (p.getPaymentType() == PactsConstants.RIA_BUILD_COMPETITION_PAYMENT) counts[10]++;
                     if (p.getPaymentType() == PactsConstants.RIA_COMPONENT_COMPETITION_PAYMENT) counts[11]++;
+
+                    if (p.getPaymentType() == PactsConstants.TEST_SCENARIOS_PAYMENT) counts[12]++;
 
                     ids.add(p.getId() + "");
                 	

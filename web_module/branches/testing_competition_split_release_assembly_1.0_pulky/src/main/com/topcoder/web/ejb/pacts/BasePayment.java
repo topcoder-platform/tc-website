@@ -46,8 +46,16 @@ import java.util.Date;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.4 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites</li>
+ *     <li>Added support for new Test Scenarios competitions.</li>
+ *   </ol>
+ * </p>
+ *
  * @author cucu, TCSDEVELOPER
- * @version 1.3
+ * @version 1.4
  */
 public abstract class BasePayment implements Constants, java.io.Serializable {
     private static Logger log = Logger.getLogger(BasePayment.class);
@@ -178,7 +186,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case ARCHITECTURE_PAYMENT:
         case SPECIFICATION_CONTEST_PAYMENT:
         case CONCEPTUALIZATION_CONTEST_PAYMENT:
-        case TESTING_COMPETITION_PAYMENT:
+        case TEST_SUITES_PAYMENT:
+        case TEST_SCENARIOS_PAYMENT:
         case COPILOT_PAYMENT:
         case DEPLOYMENT_TASK_PAYMENT:
             return REFERENCE_COMPONENT_PROJECT_ID;
@@ -273,7 +282,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT: return new DigitalRunV2TopPerformersPayment(coderId, grossAmount, referenceId, placed);
         case SPECIFICATION_CONTEST_PAYMENT: return new SpecificationContestPayment(coderId, grossAmount, referenceId, placed);
         case CONCEPTUALIZATION_CONTEST_PAYMENT: return new ConceptualizationContestPayment(coderId, grossAmount, referenceId, placed);
-        case TESTING_COMPETITION_PAYMENT: return new TestingCompetitionPayment(coderId, grossAmount, referenceId, placed);
+        case TEST_SUITES_PAYMENT: return new TestSuitesCompetitionPayment(coderId, grossAmount, referenceId, placed);
+        case TEST_SCENARIOS_PAYMENT: return new TestScenariosCompetitionPayment(coderId, grossAmount, referenceId, placed);
         case COPILOT_PAYMENT: return new CopilotPayment(coderId, grossAmount, referenceId, placed);
         case STUDIO_BUG_FIXES_PAYMENT: return new StudioBugFixesPayment(coderId, grossAmount, referenceId, placed);
         case STUDIO_ENHANCEMENTS_PAYMENT:
@@ -406,7 +416,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT: return "Digital Run v2 Top Performers Payment";
             case SPECIFICATION_CONTEST_PAYMENT: return "Specification Contest Payment";
             case CONCEPTUALIZATION_CONTEST_PAYMENT: return "Conceptualization Contest Payment";
-            case TESTING_COMPETITION_PAYMENT: return "Testing Competition Payment";
+            case TEST_SUITES_PAYMENT: return "Test Suites Payment";
+            case TEST_SCENARIOS_PAYMENT: return "Test Scenarios Payment";
             case COPILOT_PAYMENT: return "Copilot Payment";
             case STUDIO_BUG_FIXES_PAYMENT: return "TopCoder Studio bug fixes Payment";
             case STUDIO_ENHANCEMENTS_PAYMENT: return "TopCoder Studio enhancements Payment";

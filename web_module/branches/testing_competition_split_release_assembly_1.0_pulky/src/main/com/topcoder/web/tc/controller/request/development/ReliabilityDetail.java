@@ -24,10 +24,9 @@ import com.topcoder.web.tc.Constants;
  *     </li>
  *   </ol>
  *
- *   Version 1.2 (Member Profile Enhancement 1.0) Change notes:
+ *   Version 1.2 (Testing Competition Split Release Assembly 1.0) Change notes:
  *   <ol>
  *     <li>Updated Application Testing to Test Suites</li>
- *     <li>Added support for new Test Scenarios competitions</li>
  *   </ol>
  * </p>
  *
@@ -55,8 +54,7 @@ public class ReliabilityDetail extends Base {
                 || String.valueOf(SoftwareComponent.SPECIFICATION_PHASE).equals(phaseId)
                 || String.valueOf(SoftwareComponent.ARCHITECTURE_PHASE).equals(phaseId)
                 || String.valueOf(SoftwareComponent.ASSEMBLY_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.TEST_SUITES_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.TEST_SCENARIOS_PHASE).equals(phaseId))
+                || String.valueOf(SoftwareComponent.TEST_SUITES_PHASE).equals(phaseId))
             {
                 Request r = new Request();
                 r.setContentHandle("reliability_detail");
@@ -89,9 +87,6 @@ public class ReliabilityDetail extends Base {
                         break;
                     case Constants.TEST_SUITES_PROJECT_TYPE:
                         handleType = HandleTag.TEST_SUITES;
-                        break;
-                    case Constants.TEST_SCENARIOS_PROJECT_TYPE:
-                        handleType = HandleTag.TEST_SCENARIOS;
                         break;
                 }
 
