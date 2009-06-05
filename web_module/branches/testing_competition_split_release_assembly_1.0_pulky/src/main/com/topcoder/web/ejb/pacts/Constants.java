@@ -90,7 +90,7 @@ public interface Constants {
      *
      * @since 1.4
      */
-    public static final int TEST_SCENARIOS_PAYMENT = 54;
+    public static final int TEST_SCENARIOS_PAYMENT = 55;
 
     /**
      * <p>A <code>int</code> representing the payment type for Copilot payments.</p>
