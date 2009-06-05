@@ -198,7 +198,7 @@ tchs08 is over, don't need to do this anymore
         dataRequest.setContentHandle("homepage_active_contest_summary");
 
         Map<String, ResultSetContainer> dataMap = dai.getData(dataRequest);
-        System.out.println("       ???         " + dataMap);
+        System.out.println("       ???         " + dataMap.keySet());
 
 
         ActiveContestsSummary summary;
