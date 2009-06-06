@@ -189,7 +189,7 @@ public class RBoardApplicationBean extends BaseEJB {
      *
      * @since 1.0.10
      */
-    private static final int TEST_SCENARIOS_PRIMARY_REVIEW_ID = 29;
+    private static final int TEST_SCENARIOS_PRIMARY_REVIEW_ID = 31;
 
     /**
      * <p>An <code>int</code> representing the primary review id for ui prototype projects.</p>
