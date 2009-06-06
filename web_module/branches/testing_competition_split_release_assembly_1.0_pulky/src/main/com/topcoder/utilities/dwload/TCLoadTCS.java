@@ -55,9 +55,15 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  *     <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
  * </p>
+ * <p>
+ *   Version 1.1.4 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new Test Scenarios competitions.</li>
+ *   </ol>
+ * </p>
  *
- * @author rfairfax, pulky, ivern
- * @version 1.1.3
+ * @author rfairfax, pulky, ivern, TCSDEVELOPER
+ * @version 1.1.4
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -65,7 +71,7 @@ public class TCLoadTCS extends TCLoad {
      * <p>A <code>String</code> representing all those project categories than should be loaded to the 
      * data warehouse.</p>
      */
-    private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25)";
+    private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25, 26)";
     
     /**
      * <p>An <code>int</code> array representing all project categories that are currently being rated.

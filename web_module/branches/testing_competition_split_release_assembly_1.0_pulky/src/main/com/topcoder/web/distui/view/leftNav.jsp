@@ -189,7 +189,7 @@
          nav.search("m_test_scenarios_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.TEST_SCENARIOS_PROJECT_TYPE, "Review Opportunities", "test_scenarios_review"));
          nav.search("m_test_scenarios_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.TEST_SCENARIOS_PROJECT_TYPE, "Meet the Review Board", "test_scenarios_review_board"));
          nav.search("m_test_scenarios_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_test_scenarios_stats')", "Statistics", "m_test_scenarios_stats"));
-            nav.search("m_test_scenarios_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph="+ WebConstants.PHASE_TEST_SCENARIOS, "Past Contests", "test_scenarios_stats"));
+            nav.search("m_test_scenarios_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt="+ WebConstants.TEST_SCENARIOS_PROJECT_TYPE, "Past Contests", "test_scenarios_stats"));
          nav.search("m_test_scenarios_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_test_scenarios_support')", "Support / FAQs", "m_test_scenarios_support"));
             nav.search("m_test_scenarios_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Test+Scenarios+Competitions", "How to Compete", "test_scenarios_how_to_compete"));
             nav.search("m_test_scenarios_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Test+Scenarios+Competition+Tutorial", "Tutorial", "test_scenarios_tutorial"));
@@ -203,7 +203,7 @@
          /* Since TCS Release 2.2.2 (TCS-72) : Added "Meet The Review Board" link for Application Testing competitions */
          nav.search("m_test_suites_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.TEST_SUITES_PROJECT_TYPE, "Meet the Review Board", "test_suites_review_board"));
          nav.search("m_test_suites_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_test_suites_stats')", "Statistics", "m_test_suites_stats"));
-            nav.search("m_test_suites_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=" + WebConstants.PHASE_TEST_SUITES, "Past Contests", "test_suites_stats"));
+            nav.search("m_test_suites_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt=" + WebConstants.TEST_SUITES_PROJECT_TYPE, "Past Contests", "test_suites_stats"));
          nav.search("m_test_suites_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_test_suites_support')", "Support / FAQs", "m_test_suites_support"));
             nav.search("m_test_suites_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Test+Suites+Competitions", "How to Compete", "test_suites_how_to_compete"));
             nav.search("m_test_suites_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Test+Suites+Competition+Tutorial", "Tutorial", "test_suites_tutorial"));

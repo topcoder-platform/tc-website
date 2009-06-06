@@ -66,7 +66,7 @@
                     <jsp:param name="node" value="test_suites_compete"/>
                 </jsp:include>
             </c:when>
-            <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
+            <c:when test="${pt == TEST_SCENARIOS_TYPE_ID}">
                 <jsp:include page="/includes/global_left.jsp">
                     <jsp:param name="node" value="test_scenarios_compete"/>
                 </jsp:include>
@@ -120,7 +120,7 @@
                 <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
         </c:when>
-        <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
+        <c:when test="${pt == TEST_SCENARIOS_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="test_scenarios"/>
                 <jsp:param name="title" value="Active Contests"/>
