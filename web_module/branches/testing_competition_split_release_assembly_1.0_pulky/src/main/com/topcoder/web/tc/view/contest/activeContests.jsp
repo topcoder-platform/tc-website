@@ -186,12 +186,12 @@
         <td align="right">
           <c:choose>
             <c:when test="${pt == TEST_SUITES_TYPE_ID}">
-                <a href="/tc?module=Static&amp;d1=dev&amp;d2=testsuites&amp;d3=instructions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+                <a href="/wiki/display/tc/How+to+Compete+in+Test+Suites+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
           <%--      <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor2"><img src="/i/tournament/tco09/tco09-snia-340x76.png" alt="SNIA XAM Initiative" /></a><br /><br />   --%>
           <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA" /></a><br /><br />
             </c:when>
             <c:when test="${pt == TEST_SCENARIOS_TYPE_ID}">
-                <a href="/tc?module=Static&amp;d1=dev&amp;d2=testscenarios&amp;d3=instructions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+                <a href="/wiki/display/tc/How+to+Compete+in+Test+Scenarios+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
           <%--      <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor2"><img src="/i/tournament/tco09/tco09-snia-340x76.png" alt="SNIA XAM Initiative" /></a><br /><br />   --%>
           <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA" /></a><br /><br />
             </c:when>
