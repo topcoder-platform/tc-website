@@ -1,3 +1,12 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays search results
+  -
+  - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
+--%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ page language="java"  %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -49,7 +58,7 @@
             <td class="headerC B NW" colspan="3">Design<br />Rated Events</td>
             <td class="headerC B NW" colspan="3">Development<br />Rated Events</td>
             <td class="headerC B NW" colspan="3">Assembly<br />Rated Events</td>
-            <td class="headerC B NW" colspan="3">Application Testing<br />Rated Events</td>
+            <td class="headerC B NW" colspan="3">Test Suites<br />Rated Events</td>
             <td class="headerC B NW" colspan="3">TCHS<br />Rated Events</td>
             <td class="headerC NW" colspan="3">Marathon Match<br />Rated Events</td>
         </tr>
@@ -91,7 +100,7 @@
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_ass_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
             <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_ass_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
 
-            <%-- Application Testing --%>
+            <%-- Test Suites --%>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("test_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_test_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
             <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_test_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
@@ -221,7 +230,7 @@
             </c:otherwise>
             </c:choose>
             
-            <%-- Application Testing --%>
+            <%-- Test Suites --%>
             <c:choose>
             <c:when test="${not empty rr.map['test_rating'] and (rr.map['test_rating']  > 0)}">
                 <td class="valueC"><rsc:item row="<%=resultRow%>" name="test_rating" format="#" ifNull="unrated"/></td>

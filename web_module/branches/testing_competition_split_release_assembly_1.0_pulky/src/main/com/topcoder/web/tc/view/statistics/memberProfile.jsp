@@ -142,7 +142,7 @@ This member has not yet been rated in a competition.
                 not rated
             <%}%>
             </td></tr>
-            <tr><td class="cat" nowrap="nowrap">Application Testing Rating:</td><td class="stat" align="right">
+            <tr><td class="cat" nowrap="nowrap">Test Suites Rating:</td><td class="stat" align="right">
             <%if(rscCoderData.getStringItem(0, "test_rating") != null) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "test_rating")%>'>
                 <rsc:item name="test_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
@@ -253,7 +253,7 @@ This member has not yet been rated in a competition.
 <% } else if(tab.equals("test")) { %> <!-- Member Profile Enhancment -->
 <jsp:include page="memberProfileTabs.jsp" />
 <jsp:include page="memberProfileTabTrack.jsp">
-   <jsp:param name="track" value="Application Testing"/>
+   <jsp:param name="track" value="Test Suites"/>
    <jsp:param name="competition_type" value="test"/>
    <jsp:param name="phase_id" value="<%= WebConstants.PHASE_TEST_SUITES %>"/>
 </jsp:include>

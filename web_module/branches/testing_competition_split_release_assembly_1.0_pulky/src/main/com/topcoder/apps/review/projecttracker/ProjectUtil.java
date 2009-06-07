@@ -1,5 +1,5 @@
-/**
- * Copyright (C) 2005 TopCoder Inc., All Rights Reserved.
+/*
+ * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.review.projecttracker;
 
@@ -32,10 +32,19 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * The test of ProjectUtil.
+ * <strong>Purpose</strong>:
+ * A processor to retrieve competition history.
  *
- * @author brain_cn
- * @version 1.0
+ * <p>
+ *   Version 1.1 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites</li>
+ *     <li>Added support for Test Scenarios</li>
+ *   </ol>
+ * </p>
+ *
+ * @author brain_cn, TCSDEVELOPER
+ * @version 1.1
  */
 public class ProjectUtil {
     private static final int PHASE_TYPE_REGISTRATION = 1;
@@ -612,7 +621,8 @@ public class ProjectUtil {
         		|| projectTypeId == 2     // Component Development
         		|| projectTypeId == 6     // Specification
         		|| projectTypeId == 7     // Architecture
-        		|| projectTypeId == 13    // Application Testing
+                || projectTypeId == 13    // Test Suites
+                || projectTypeId == 26    // Test Scenarios
         		|| projectTypeId == 14    // Assembly
         		|| projectTypeId == 23) { // Conceptualization
             createProjectInfo(ps, projectId, 26, "On", modUserId);

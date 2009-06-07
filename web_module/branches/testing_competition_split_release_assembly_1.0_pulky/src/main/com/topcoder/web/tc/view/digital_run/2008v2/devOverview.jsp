@@ -1,3 +1,12 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays development overview for the digital run
+  -
+  - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
+--%>
 <%@  page language="java"  %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -35,7 +44,7 @@
 
 <span class="title">Overview</span>
 <br /><br />
-Each contest posted in <a href="/tc?module=ViewActiveContests&amp;ph=113">Software Development</a>, <a href="/tc?module=ViewAssemblyActiveContests">Software Assembly</a> and <a href="/tc?module=ActiveContests&amp;pt=13">Application Testing</a> will carry a point value. Placement points will be awarded based on the number of submissions that pass review, as follows:
+Each contest posted in <a href="/tc?module=ViewActiveContests&amp;ph=113">Software Development</a>, <a href="/tc?module=ViewAssemblyActiveContests">Software Assembly</a> and <a href="/tc?module=ActiveContests&amp;pt=13">Test Suites</a> will carry a point value. Placement points will be awarded based on the number of submissions that pass review, as follows:
 <br /><br />
 <a class="bcLink" name="point_table"></a>
 <div align="center">

@@ -270,7 +270,7 @@ $(document).ready(function(){
                    
                     <ul class="right-list">
                     	<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Assembly">Software Assembly</a></li>
-                    	<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Testing">Application Testing</a></li>
+                    	<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Test+Suites">Test Suites</a></li>
 						<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Bug+Races">Bug Races </a></li>
 						<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=hs&d2=home">High School </a></li>
 						<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=instructions">Marathon Matches </a></li>

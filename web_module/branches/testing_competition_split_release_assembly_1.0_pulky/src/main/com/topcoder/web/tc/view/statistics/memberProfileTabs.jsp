@@ -1,3 +1,12 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays member profile tabs
+  -
+  - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
+--%>
 <%
    boolean isRegHS = ((Boolean)request.getAttribute("registeredHS")).booleanValue();
    boolean isRatedAlg = ((Boolean)request.getAttribute("hasAlg")).booleanValue();
@@ -133,12 +142,12 @@
       <td>
       <% if (isRatedTest) {%>
          <% if (selectedTab.equals("test")) {%>
-         <A class="tabLinkOn" href="/tc?module=MemberProfile&tab=test&cr=<%=coderId%>"><div>Application Testing</div></A>
+         <A class="tabLinkOn" href="/tc?module=MemberProfile&tab=test&cr=<%=coderId%>"><div>Test Suites</div></A>
          <% } else { %>
-         <A class="tabLinkOff" href="/tc?module=MemberProfile&tab=test&cr=<%=coderId%>"><div>Application Testing</div></A>
+         <A class="tabLinkOff" href="/tc?module=MemberProfile&tab=test&cr=<%=coderId%>"><div>Test Suites</div></A>
          <% } %>
       <% } else { %>
-      <div class="tabLinkNA">Application Testing</div>
+      <div class="tabLinkNA">Test Suites</div>
       <% } %>
       </td>
       
