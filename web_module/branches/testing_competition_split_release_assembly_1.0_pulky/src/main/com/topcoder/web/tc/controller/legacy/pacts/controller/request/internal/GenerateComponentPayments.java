@@ -191,11 +191,11 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
 	private String generateSuccessMessage(int[] counts) {
 		// TODO: find a better way to avoid duplicating these magic numbers, to ensure they're always in sync
         // [BUGR-1842] - add support for UI/RIA project types
-		final int[] countIndex = new int[] { 0, 4, 5, 6, 8, 7, 1, 3, 2, 9, 10, 11 };
+		final int[] countIndex = new int[] { 0, 4, 5, 6, 8, 7, 1, 3, 2, 9, 10, 11, 12 };
 		final String[] countType = new String[] {
 				" design/development", " conceptualization", " specification", " architecture",
-				" assembly", " application testing", " review board", " review board bonus", " referral",
-				" UI prototype", " RIA Build", " RIA Component"
+				" assembly", "  test suites", " review board", " review board bonus", " referral",
+				" UI prototype", " RIA Build", " RIA Component", " test scenarios"
 		};
 		
 		StringBuffer sb = new StringBuffer();
