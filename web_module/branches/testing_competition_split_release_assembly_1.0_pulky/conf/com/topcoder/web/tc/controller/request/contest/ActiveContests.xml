@@ -12,7 +12,7 @@
             <Value>19</Value> <!-- UI_PROTOTYPE_PROJECT_TYPE -->
             <Value>24</Value> <!-- RIA_BUILD_PROJECT_TYPE -->
             <Value>25</Value> <!-- RIA_COMPONENT_PROJECT_TYPE -->
-            <Value></Value> <!-- TEST_SCENARIOS_PROJECT_TYPE -->
+            <Value>26</Value> <!-- TEST_SCENARIOS_PROJECT_TYPE -->
         </Property>
     </Config>
 </CMConfig>
