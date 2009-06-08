@@ -44,14 +44,14 @@ function swapTopTen(topTenID){
 function init() {
    id = readCookie('defaultTopTen');
    if (id == null) id = 'topTenAlgo';
-   
+
    for (var i = 0; i < document.f.topTen.length; i++) {
       if (document.f.topTen.options[i].value == id) {
          document.f.topTen.selectedIndex = i;
          break;
       }
    }
-   
+
    swapTopTen(id);
 }
 </script>
@@ -97,13 +97,13 @@ function init() {
             <div id="replaced">
     </div>
     <script type="text/javascript" language="javascript">
-	
-	$("#replaced").load("/news/index.php #replacercode");
-	
+
+    $("#replaced").load("/news/index.php #replacercode");
+
     </script>
     </td>
     </tr>
-    
+
     </table>
     <br /><br />
     <jsp:include page="news_archives.jsp" />
@@ -141,7 +141,7 @@ function init() {
     <div style="margin-bottom: 20px;">
     <img src="/i/interface/rightNavBottom.png" alt="" style="display: block;" />
     </div>
-                
+
     <div>
     <img src="/i/interface/rightNavTop.png" alt="" style="display: block;" />
     </div>
@@ -171,7 +171,7 @@ function init() {
                     </select>
                     </form>
                 </div>
-                
+
                 <jsp:include page="top_coders.jsp" />
                 <jsp:include page="top_schools.jsp" />
                 <jsp:include page="top_countries.jsp" />

@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import java.util.ArrayList;
@@ -33,9 +36,9 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeaderList;
  * @version 1.1
  */
 public class GenerateComponentPayments extends BaseProcessor implements PactsConstants {
-	public final static String IS_DEV_SUPPORT_BY_DESIGNER = "dsd";
-	public final static String DEV_SUPPORT_PROJECT = "dsp";
-	public final static String DEV_SUPPORT_PROJECT_ID = "dspid";
+    public final static String IS_DEV_SUPPORT_BY_DESIGNER = "dsd";
+    public final static String DEV_SUPPORT_PROJECT = "dsp";
+    public final static String DEV_SUPPORT_PROJECT_ID = "dspid";
 
     public final static String APPLY_REVIEWER_WITHHOLDING_ID = "arwid";
     public final static String PAY_RBOARD_BONUS_ID = "prbbid";
@@ -55,7 +58,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
 
             setDefault(APPLY_REVIEWER_WITHHOLDING_ID , applyReviewerWithholding);
             setDefault(PAY_RBOARD_BONUS_ID , payRboardBonus);
-            
+
             setNextPage(INTERNAL_GENERATE_COMPONENT_PAYMENTS);
             setIsNextPageInContext(true);
 
@@ -65,31 +68,31 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             String devSupportProjectId = StringUtils.checkNull(getRequest().getParameter(DEV_SUPPORT_PROJECT_ID)).trim();
             boolean devSupportDes = "designer".equals(devSupport);
             long devSupportId = 0;
-            
-        	if (!devSupportDes && !"other".equals(devSupport)) {
-        	    addError(PROJECT_TERMINATION_STATUS, "Please select who will receive the development support");
-        	    return;
-        	}
-        	
+
+            if (!devSupportDes && !"other".equals(devSupport)) {
+                addError(PROJECT_TERMINATION_STATUS, "Please select who will receive the development support");
+                return;
+            }
+
             if (!devSupportDes) {
-                
-            	String handle = StringUtils.checkNull(getRequest().getParameter("coder"));
-            	
-            	if (handle.trim().length() == 0) {
-            	    addError(PROJECT_TERMINATION_STATUS, "Please enter the coder that will receive the development support payment");
-            	    return;
-            	}
+
+                String handle = StringUtils.checkNull(getRequest().getParameter("coder"));
+
+                if (handle.trim().length() == 0) {
+                    addError(PROJECT_TERMINATION_STATUS, "Please enter the coder that will receive the development support payment");
+                    return;
+                }
                 Map<String, String> m = new HashMap<String, String>();
                 m.put(HANDLE, handle);
                 UserProfileHeader[] users = new UserProfileHeaderList(dib.findUsers(m)).getHeaderList();
-                
-            	if (users.length == 1) {
-            		devSupportId = users[0].getId();
-            	}
+
+                if (users.length == 1) {
+                    devSupportId = users[0].getId();
+                }
             }
-            
+
             log.debug("devSupportId=" + devSupportId);
-            
+
             if (!projectID.equals("") && !projectTermStatus.equals("") && (devSupportDes || devSupportId > 0)) {
                 DataInterfaceBean bean = new DataInterfaceBean();
                 // [BUGR-1452] - add support for paying other project types
@@ -99,7 +102,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                     counts[i] =0;
                 }
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
-                
+
                 List lst;
                 if ("none".equals(devSupportProject)) {
                     log.debug("Development support will not be paid");
@@ -111,24 +114,24 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                         pid = Integer.parseInt(devSupportProjectId);
                         log.debug("Development support paid to project " + pid);
                     } else if ("auto".equals(devSupportProject)) {
-                        log.debug("Development support paid to design project");                        
+                        log.debug("Development support paid to design project");
                     } else {
                         addError(PROJECT_TERMINATION_STATUS, "Please select the development support project");
                         return;
                     }
-                    
+
                     lst = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, devSupportId, pid, applyReviewerWithholding, payRboardBonus);
-                    
+
                 }
-                
+
                 lst = bean.addPayments(lst);
-                
+
                 List<String> ids = new ArrayList<String>();
-                
+
                 for (int i = 0; i < lst.size(); i++) {
-                	BasePayment p = (BasePayment) lst.get(i);
-                	// TODO: find a better way to avoid duplicating these magic numbers, to ensure they're always in sync
-                	if (p.getPaymentType() == PactsConstants.COMPONENT_PAYMENT) counts[0]++;
+                    BasePayment p = (BasePayment) lst.get(i);
+                    // TODO: find a better way to avoid duplicating these magic numbers, to ensure they're always in sync
+                    if (p.getPaymentType() == PactsConstants.COMPONENT_PAYMENT) counts[0]++;
                     if (p.getPaymentType() == PactsConstants.REVIEW_BOARD_PAYMENT) counts[1]++;
                     if (p.getPaymentType() == PactsConstants.REVIEW_BOARD_BONUS_PAYMENT) counts[3]++;
 
@@ -146,24 +149,24 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                     if (p.getPaymentType() == PactsConstants.TEST_SCENARIOS_PAYMENT) counts[12]++;
 
                     ids.add(p.getId() + "");
-                	
-                	List refer = bean.findPayments(CODER_REFERRAL_PAYMENT, p.getId());
-                	if (refer.size() > 0) {
-                		counts[2]++;
-                		BasePayment pr = (BasePayment) refer.get(0);
-                    	ids.add(pr.getId() + "");
-                	}
+
+                    List refer = bean.findPayments(CODER_REFERRAL_PAYMENT, p.getId());
+                    if (refer.size() > 0) {
+                        counts[2]++;
+                        BasePayment pr = (BasePayment) refer.get(0);
+                        ids.add(pr.getId() + "");
+                    }
                 }
-                
+
                 getRequest().setAttribute(PAYMENT_ID, ids);
-                
+
                 addError(PROJECT_ID, generateSuccessMessage(counts));
             } else {
 
-            	if (!devSupportDes && devSupportId == 0) {
+                if (!devSupportDes && devSupportId == 0) {
                     addError(PROJECT_TERMINATION_STATUS, "Error: invalid coder for development support");
                 }
-            	
+
                 if (projectID.equals("")) {
                     addError(PROJECT_ID, "Error: Missing project id");
                 }
@@ -182,39 +185,39 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
         }
     }
 
-	/**
-	 * Generates a success message containing the counts for each type of payment generated.
-	 * 
-	 * @param counts an array containing the number of payments generated for each payment type.
-	 * @return a String containing the success message.
-	 */
-	private String generateSuccessMessage(int[] counts) {
-		// TODO: find a better way to avoid duplicating these magic numbers, to ensure they're always in sync
+    /**
+     * Generates a success message containing the counts for each type of payment generated.
+     *
+     * @param counts an array containing the number of payments generated for each payment type.
+     * @return a String containing the success message.
+     */
+    private String generateSuccessMessage(int[] counts) {
+        // TODO: find a better way to avoid duplicating these magic numbers, to ensure they're always in sync
         // [BUGR-1842] - add support for UI/RIA project types
-		final int[] countIndex = new int[] { 0, 4, 5, 6, 8, 7, 1, 3, 2, 9, 10, 11, 12 };
-		final String[] countType = new String[] {
-				" design/development", " conceptualization", " specification", " architecture",
-				" assembly", "  test suites", " review board", " review board bonus", " referral",
-				" UI prototype", " RIA Build", " RIA Component", " test scenarios"
-		};
-		
-		StringBuffer sb = new StringBuffer();
-		
-		sb.append("Success: ");
-		boolean first = true;
-		for (int i = 0; i < countIndex.length; ++i) {
-			if (counts[countIndex[i]] > 0) {
-				if (first) {
-					first = false;
-				} else {
-					sb.append(", ");
-				}
-				sb.append(counts[countIndex[i]]);
-				sb.append(countType[i]);
-			}
-		}
-		sb.append(" payments generated");
-		
-		return sb.toString();
-	}
+        final int[] countIndex = new int[] { 0, 4, 5, 6, 8, 7, 1, 3, 2, 9, 10, 11, 12 };
+        final String[] countType = new String[] {
+                " design/development", " conceptualization", " specification", " architecture",
+                " assembly", "  test suites", " review board", " review board bonus", " referral",
+                " UI prototype", " RIA Build", " RIA Component", " test scenarios"
+        };
+
+        StringBuffer sb = new StringBuffer();
+
+        sb.append("Success: ");
+        boolean first = true;
+        for (int i = 0; i < countIndex.length; ++i) {
+            if (counts[countIndex[i]] > 0) {
+                if (first) {
+                    first = false;
+                } else {
+                    sb.append(", ");
+                }
+                sb.append(counts[countIndex[i]]);
+                sb.append(countType[i]);
+            }
+        }
+        sb.append(" payments generated");
+
+        return sb.toString();
+    }
 }

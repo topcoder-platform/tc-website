@@ -27,7 +27,7 @@ import java.util.MissingResourceException;
  *     <li>Added several constants to support TCO09 Studio track leaderboard pages.</li>
  *   </ol>
  * </p>
- * 
+ *
  * <p>
  *   Version 1.3 (Member Profile Enhancement 1.0) Change notes:
  *   <ol>

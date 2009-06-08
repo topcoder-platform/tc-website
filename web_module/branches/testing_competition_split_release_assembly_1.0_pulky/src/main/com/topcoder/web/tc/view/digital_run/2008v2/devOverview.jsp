@@ -111,7 +111,7 @@ Each contest posted in <a href="/tc?module=ViewActiveContests&amp;ph=113">Softwa
 </table>
 </div>
 <br /><br />
-If more than five (5) submissions pass review, the competitors who place in 6th position or below will not receive any placement points. 
+If more than five (5) submissions pass review, the competitors who place in 6th position or below will not receive any placement points.
 <br /><br />
 Up to 100% of placement points may be deducted for bugs or late final fixes. 20% of placement point will be deducted for every (24) hours a final fix or component forum issue is late. On a case-by-case basis, as determined by TopCoder staff, additional placement points may be deducted for bugs found in submissions within 30 days of completion.
 <br /><br />

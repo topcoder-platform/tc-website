@@ -34,7 +34,7 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
 /**
  * <p><strong>Purpose</strong>:
  * Extends from <strong>TCLoad</strong> to load TCS date to the DW.</p>
- * 
+ *
  * <p>
  *   Version 1.1.0 Change notes:
  *   <ol>
@@ -68,11 +68,11 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
 public class TCLoadTCS extends TCLoad {
 
     /**
-     * <p>A <code>String</code> representing all those project categories than should be loaded to the 
+     * <p>A <code>String</code> representing all those project categories than should be loaded to the
      * data warehouse.</p>
      */
     private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25, 26)";
-    
+
     /**
      * <p>An <code>int</code> array representing all project categories that are currently being rated.
      * IF YOU CHANGE THIS LIST, YOU MUST ALSO UPDATE THE <code>getCurrentRatings</code> METHOD!</p>
@@ -220,7 +220,7 @@ public class TCLoadTCS extends TCLoad {
             doLoadStreak();
 
             List<CoderRating> list = getCurrentRatings();
-            
+
             for (int cat : RATED_CATEGORIES) {
                 final int phase = cat + 111;
                 doLoadRank(phase, ACTIVE_RATING_RANK_TYPE_ID, list);

@@ -226,7 +226,7 @@ public interface WebConstants {
      * @since 1.2
      */
     public static final int TEST_SCENARIOS_PROJECT_TYPE = 26;
-    
+
     public static final int ASSEMBLY_PROJECT_TYPE = 14;
 
     /**

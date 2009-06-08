@@ -47,7 +47,7 @@
       <% } else { %>
       <div class="tabLinkNA">Algorithm</div>
       <% } %>
-      </td>      
+      </td>
 
       <% if (isRegHS) {%>
          <td>
@@ -75,7 +75,7 @@
       <div class="tabLinkNA">Conceptualization</div>
       <% } %>
       </td>
-      
+
       <!-- Member Profile Enhancement  -->
       <td>
       <% if (isRatedSpec) {%>
@@ -88,7 +88,7 @@
       <div class="tabLinkNA">Specification</div>
       <% } %>
       </td>
-      
+
       <!-- Member Profile Enhancement  -->
       <td>
       <% if (isRatedArch) {%>
@@ -101,7 +101,7 @@
       <div class="tabLinkNA">Architecture</div>
       <% } %>
       </td>
-      
+
       <td>
       <% if (isRatedDes) {%>
          <% if (selectedTab.equals("des")) {%>
@@ -124,7 +124,7 @@
       <div class="tabLinkNA">Development</div>
       <% } %>
       </td>
-      
+
       <!-- Member Profile Enhancement  -->
       <td>
       <% if (isRatedAssembly) {%>
@@ -137,7 +137,7 @@
       <div class="tabLinkNA">Assembly</div>
       <% } %>
       </td>
-      
+
       <!-- Member Profile Enhancement  -->
       <td>
       <% if (isRatedTest) {%>
@@ -150,7 +150,7 @@
       <div class="tabLinkNA">Test Suites</div>
       <% } %>
       </td>
-      
+
       <td>
       <% if (isRatedLong) {%>
          <% if (selectedTab.equals("long")) {%>

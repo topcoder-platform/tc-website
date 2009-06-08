@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax;
 
@@ -16,7 +16,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  * A processor to select payment type reference
  *
  * <p>
- *   Version 1.1 (Member Profile Enhancement 1.0) Change notes:
+ *   Version 1.1 (Testing Competition Split Release Assembly 1.0) Change notes:
  *   <ol>
  *     <li>Updated Application Testing to Test Suites</li>
  *     <li>Added support for new Test Scenarios competitions</li>

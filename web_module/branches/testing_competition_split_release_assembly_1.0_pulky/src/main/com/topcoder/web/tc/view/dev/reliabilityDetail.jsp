@@ -81,7 +81,7 @@
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="comp_design"/>
                 <jsp:param name="title" value="Reliability Detail"/>
-            </jsp:include>   
+            </jsp:include>
     <% } else if(phaseId == SoftwareComponent.DEV_PHASE) { %>
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="comp_development"/>
@@ -117,7 +117,7 @@
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/></span>
 <br>
     <% if(phaseId == SoftwareComponent.DESIGN_PHASE) { %>
-            <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>  
+            <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
     <% } else if(phaseId == SoftwareComponent.DEV_PHASE) { %>
             <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
     <% } else if(phaseId == SoftwareComponent.ASSEMBLY_PHASE ) { %>
@@ -155,7 +155,7 @@
                     Component
             <% } else { %>
                     Application
-            <% } %>    
+            <% } %>
         </td>
         <td class="headerR" width="20%">
             Reliability Before
@@ -180,7 +180,7 @@
                 <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/>
             <% } else { %>
                 Application
-            <% } %> 
+            <% } %>
             </td>
             <td class="value">
                 <% if (resultRow.getIntItem("viewable") == 1) { %>
@@ -218,7 +218,7 @@
             <% } else { %>
             <div class="bodySubtitle" align="center">Have a question about
     <A href="/wiki/display/tc/Component+Application+Reliability+Ratings">reliability ratings</A>?</div>
-            <% } %> 
+            <% } %>
 <p><br/></p>
 
 

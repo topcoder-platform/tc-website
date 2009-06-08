@@ -34,7 +34,7 @@ import java.util.Date;
  * <p>
  *   Version 1.2 (BUGR-1843, BUGR-1845) Change notes:
  *   <ol>
- *     <li>Added constants to support Specification Writing, Studio Specification Writing, UI Prototype Competition, 
+ *     <li>Added constants to support Specification Writing, Studio Specification Writing, UI Prototype Competition,
  *         RIA Build Competition and RIA Component Competition Payments.</li>
  *   </ol>
  * </p>
@@ -290,15 +290,15 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             return new StudioEnhancementsPayment(coderId, grossAmount, referenceId, placed);
         case STUDIO_SPECIFICATION_REVIEW_PAYMENT:
             return new StudioSpecificationReviewPayment(coderId, grossAmount, referenceId, placed);
-        case UI_PROTOTYPE_COMPETITION_PAYMENT: 
+        case UI_PROTOTYPE_COMPETITION_PAYMENT:
             return new UIPrototypeCompetitionPayment(coderId, grossAmount, referenceId, placed);
-        case RIA_BUILD_COMPETITION_PAYMENT: 
+        case RIA_BUILD_COMPETITION_PAYMENT:
             return new RIABuildCompetitionPayment(coderId, grossAmount, referenceId, placed);
-        case RIA_COMPONENT_COMPETITION_PAYMENT: 
+        case RIA_COMPONENT_COMPETITION_PAYMENT:
             return new RIAComponentCompetitionPayment(coderId, grossAmount, referenceId, placed);
-        case SPECIFICATION_WRITING_PAYMENT: 
+        case SPECIFICATION_WRITING_PAYMENT:
             return new SpecificationWritingPayment(coderId, grossAmount, referenceId, placed);
-        case STUDIO_SPECIFICATION_WRITING_PAYMENT: 
+        case STUDIO_SPECIFICATION_WRITING_PAYMENT:
             return new StudioSpecificationWritingPayment(coderId, grossAmount, referenceId, placed);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }

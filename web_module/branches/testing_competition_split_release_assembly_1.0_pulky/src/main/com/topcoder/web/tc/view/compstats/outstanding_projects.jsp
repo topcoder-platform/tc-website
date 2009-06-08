@@ -243,7 +243,7 @@
         <tr>
             <c:if test="${pt == DEVELOPMENT_PROJECT_TYPE}">
                 <TD CLASS="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("type")%>" includeParams="true" excludeParams="sr" />" class="statLink">Type</a></td>
-            </c:if>               
+            </c:if>
             <TD CLASS="header">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Date</a>
             </TD>
@@ -280,7 +280,7 @@
             <tr class="<%=even?"dark":"light"%>">
                 <c:if test="${pt == DEVELOPMENT_PROJECT_TYPE}">
                     <TD CLASS="valueC"><strong><rsc:item name="type" row="<%=resultRow%>"/></strong></td>
-                </c:if>               
+                </c:if>
                 <TD class="value"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
                 <TD class="value">
                     <% if (resultRow.getItem("component_id").getResultData() != null && resultRow.getIntItem("viewable_category_ind") == 1) { %>

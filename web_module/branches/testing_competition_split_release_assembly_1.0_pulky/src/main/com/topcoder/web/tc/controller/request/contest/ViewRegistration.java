@@ -26,7 +26,7 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *     <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
  *
- *   Version 1.2 (Member Profile Enhancement 1.0) Change notes:
+ *   Version 1.2 (Testing Competition Split Release Assembly 1.0) Change notes:
  *   <ol>
  *     <li>Updated Application Testing to Test Suites</li>
  *     <li>Added support for new Test Scenarios competitions</li>

@@ -4,9 +4,8 @@
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows project details for Test Scenarios projects.
-  - 
-  - Note: existing project details page was used to create this new page. The code was cleaned and refactored.
-  -       All scriptlets were removed.
+  -
+  - Since: Testing Competition Split Release Assembly 1.0
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
@@ -96,7 +95,7 @@
          </div>
       <strong>1st Place:<br />
       2nd Place:<br />
-      Due date:</strong> 
+      Due date:</strong>
       </div>
       </td>
       <td width="40%" align="right" style="padding: 0px 5px 10px 0px;">
@@ -238,7 +237,7 @@
 
         </td>
 <%-- Center Column Ends --%>
-       
+
 <%-- Right Column Begins --%>
         <td width="170">
             <jsp:include page="../public_right.jsp">
@@ -246,7 +245,7 @@
     </jsp:include>
         </td>
 <%-- Right Column Ends --%>
-       
+
     </tr>
 </tbody>
 </table>

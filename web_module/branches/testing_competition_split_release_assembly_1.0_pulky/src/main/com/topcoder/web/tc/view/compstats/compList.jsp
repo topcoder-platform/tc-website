@@ -5,7 +5,7 @@
   -
   - Description: This page lists all past projects for a specific project type.
   -
-  - Version 1.1 (Studio Coding In Online Review) changes: added support for new UI Prototype, RIA Build and 
+  - Version 1.1 (Studio Coding In Online Review) changes: added support for new UI Prototype, RIA Build and
   - RIA Component competitions.
   -
   - Version 1.2 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.

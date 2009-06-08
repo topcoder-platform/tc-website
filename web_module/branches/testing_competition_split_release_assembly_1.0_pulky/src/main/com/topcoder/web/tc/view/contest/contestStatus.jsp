@@ -5,7 +5,7 @@
   -
   - Description: This page lists all active contests for a specific project type to show their status.
   -
-  - Version 1.1 (Studio Coding In Online Review) changes: added support for new UI Prototype, RIA Build and 
+  - Version 1.1 (Studio Coding In Online Review) changes: added support for new UI Prototype, RIA Build and
   - RIA Component competitions.
   -
   - Version 1.2 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites
@@ -201,7 +201,7 @@
     <tr>
         <c:choose>
         <c:when test="${pt == ARCHITECTURE_TYPE_ID || pt == ASSEMBLY_TYPE_ID || pt == TEST_SUITES_TYPE_ID ||
-            pt == TEST_SCENARIOS_TYPE_ID || pt == UI_PROTOTYPE_TYPE_ID || pt == RIA_BUILD_TYPE_ID || 
+            pt == TEST_SCENARIOS_TYPE_ID || pt == UI_PROTOTYPE_TYPE_ID || pt == RIA_BUILD_TYPE_ID ||
             pt == RIA_COMPONENT_TYPE_ID}">
             <td class="title" colspan="8">Contest Status</td>
         </c:when>
@@ -219,8 +219,8 @@
                 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("type")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Type</a>
             </td>
         </c:if>
-        <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != TEST_SUITES_TYPE_ID && 
-            pt != TEST_SCENARIOS_TYPE_ID && pt != UI_PROTOTYPE_TYPE_ID && pt != RIA_BUILD_TYPE_ID && 
+        <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != TEST_SUITES_TYPE_ID &&
+            pt != TEST_SCENARIOS_TYPE_ID && pt != UI_PROTOTYPE_TYPE_ID && pt != RIA_BUILD_TYPE_ID &&
             pt != RIA_COMPONENT_TYPE_ID}">
             <td class="headerC">
                 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
@@ -258,8 +258,8 @@
                     <strong><rsc:item name="type" row="<%=resultRow%>"/></strong>
                 </td>
             </c:if>
-            <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != TEST_SUITES_TYPE_ID && 
-                pt != TEST_SCENARIOS_TYPE_ID && pt != UI_PROTOTYPE_TYPE_ID && pt != RIA_BUILD_TYPE_ID && 
+            <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != TEST_SUITES_TYPE_ID &&
+                pt != TEST_SCENARIOS_TYPE_ID && pt != UI_PROTOTYPE_TYPE_ID && pt != RIA_BUILD_TYPE_ID &&
                 pt != RIA_COMPONENT_TYPE_ID}">
             <td class="valueC">
                 <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/>

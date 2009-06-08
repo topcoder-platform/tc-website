@@ -27,19 +27,19 @@
 <% } else { %>
     <a name="jump"></a>
     <div class="pagingBox">
-        Search Results: 
-        <strong><jsp:getProperty name="memberSearch" property="start"/></strong> to 
+        Search Results:
+        <strong><jsp:getProperty name="memberSearch" property="start"/></strong> to
         <strong><jsp:getProperty name="memberSearch" property="end"/></strong> of
         <strong><jsp:getProperty name="memberSearch" property="total"/></strong><br />
         <%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
         | <%=(results.croppedDataAfter()?"<a href=\"Javascript:next()\">next &gt;&gt;</a>":"next &gt;&gt;")%>
     </div>
-    
+
     <div align="left">
-        <strong>Sort by: 
-        <a style="text-decoration:none;" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("lower_handle") %>" includeParams="true" excludeParams="sr" />#jump">Handle</a> | 
-        <a style="text-decoration:none;" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("state_code") %>" includeParams="true" excludeParams="sr" />#jump">State</a> | 
-        <a style="text-decoration:none;" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("school_name") %>" includeParams="true" excludeParams="sr" />#jump">School</a> | 
+        <strong>Sort by:
+        <a style="text-decoration:none;" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("lower_handle") %>" includeParams="true" excludeParams="sr" />#jump">Handle</a> |
+        <a style="text-decoration:none;" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("state_code") %>" includeParams="true" excludeParams="sr" />#jump">State</a> |
+        <a style="text-decoration:none;" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("school_name") %>" includeParams="true" excludeParams="sr" />#jump">School</a> |
         <a style="text-decoration:none;" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("country_name") %>" includeParams="true" excludeParams="sr" />#jump">Country</a>
         </strong>
     </div>
@@ -64,7 +64,7 @@
         </tr>
         <tr>
             <td class="header B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("lower_handle") %>" includeParams="true" excludeParams="sr" />#jump">Handle</a></td>
-            
+
             <%-- Algorithm --%>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
@@ -84,17 +84,17 @@
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("arch_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_arch_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
             <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_arch_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
-                                    
+
             <%-- Design --%>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("design_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_des_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
             <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_des_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
-            
+
             <%-- Development --%>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("dev_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_dev_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
             <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_dev_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
-            
+
             <%-- Assembly --%>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("ass_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_ass_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
@@ -109,13 +109,13 @@
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("hs_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_hs_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
             <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_hs_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
-            
+
             <%-- Marathon Match --%>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("mm_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_mm_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_mm_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
         </tr>
-       
+
         <%boolean even = false;%>
         <rsc:iterator list="<%=results%>" id="resultRow">
         <c:set var="rr" value="<%= resultRow %>" />
@@ -126,12 +126,12 @@
                     <rsc:item row="<%=resultRow%>" name="school_name"/><br/>
                 </c:if>
                 <c:if test="${not empty rr.map['state_code'] }">
-                    <rsc:item row="<%=resultRow%>" name="state_code"/>,  
+                    <rsc:item row="<%=resultRow%>" name="state_code"/>,
                 </c:if>
                 <rsc:item row="<%=resultRow%>" name="country_name"/>
                 </div>
             </td>
-            
+
             <%-- Algorithm --%>
             <c:choose>
             <c:when test="${not empty rr.map['rating'] and (rr.map['rating']  > 0)}">
@@ -142,10 +142,10 @@
             <c:otherwise>
                 <td class="valueC B" colspan="3">
                     <span class="grayedOut">unrated</span>
-                </td> 
+                </td>
             </c:otherwise>
             </c:choose>
-            
+
             <%-- Conceptualization --%>
             <c:choose>
             <c:when test="${not empty rr.map['concept_rating'] and (rr.map['concept_rating']  > 0)}">
@@ -156,10 +156,10 @@
             <c:otherwise>
                 <td class="valueC B" colspan="3">
                     <span class="grayedOut">unrated</span>
-                </td> 
+                </td>
             </c:otherwise>
             </c:choose>
-            
+
             <%-- Specification --%>
             <c:choose>
             <c:when test="${not empty rr.map['spec_rating'] and (rr.map['spec_rating']  > 0)}">
@@ -170,10 +170,10 @@
             <c:otherwise>
                 <td class="valueC B" colspan="3">
                     <span class="grayedOut">unrated</span>
-                </td> 
+                </td>
             </c:otherwise>
             </c:choose>
-            
+
             <%-- Architecture --%>
             <c:choose>
             <c:when test="${not empty rr.map['arch_rating'] and (rr.map['arch_rating']  > 0)}">
@@ -184,10 +184,10 @@
             <c:otherwise>
                 <td class="valueC B" colspan="3">
                     <span class="grayedOut">unrated</span>
-                </td> 
+                </td>
             </c:otherwise>
             </c:choose>
-            
+
             <%-- Design --%>
             <c:choose>
             <c:when test="${not empty rr.map['design_rating'] and (rr.map['design_rating']  > 0)}">
@@ -198,10 +198,10 @@
             <c:otherwise>
                 <td class="valueC B" colspan="3">
                     <span class="grayedOut">unrated</span>
-                </td> 
+                </td>
             </c:otherwise>
             </c:choose>
-            
+
             <%-- Development --%>
             <c:choose>
             <c:when test="${not empty rr.map['dev_rating'] and (rr.map['dev_rating']  > 0)}">
@@ -212,10 +212,10 @@
             <c:otherwise>
                 <td class="valueC B" colspan="3">
                     <span class="grayedOut">unrated</span>
-                </td> 
+                </td>
             </c:otherwise>
             </c:choose>
-            
+
             <%-- Assembly --%>
             <c:choose>
             <c:when test="${not empty rr.map['ass_rating'] and (rr.map['ass_rating']  > 0)}">
@@ -226,10 +226,10 @@
             <c:otherwise>
                 <td class="valueC B" colspan="3">
                     <span class="grayedOut">unrated</span>
-                </td> 
+                </td>
             </c:otherwise>
             </c:choose>
-            
+
             <%-- Test Suites --%>
             <c:choose>
             <c:when test="${not empty rr.map['test_rating'] and (rr.map['test_rating']  > 0)}">
@@ -240,10 +240,10 @@
             <c:otherwise>
                 <td class="valueC B" colspan="3">
                     <span class="grayedOut">unrated</span>
-                </td> 
+                </td>
             </c:otherwise>
             </c:choose>
-            
+
             <%-- TCHS --%>
             <c:choose>
             <c:when test="${not empty rr.map['hs_rating'] and (rr.map['hs_rating']  > 0)}">
@@ -254,10 +254,10 @@
             <c:otherwise>
                 <td class="valueC B" colspan="3">
                     <span class="grayedOut">unrated</span>
-                </td> 
+                </td>
             </c:otherwise>
             </c:choose>
-            
+
             <%-- Marathon Match --%>
             <c:choose>
             <c:when test="${not empty rr.map['mm_rating'] and (rr.map['mm_rating']  > 0)}">
@@ -268,13 +268,13 @@
             <c:otherwise>
                 <td class="valueC" colspan="3">
                     <span class="grayedOut">unrated</span>
-                </td> 
+                </td>
             </c:otherwise>
             </c:choose>
        </tr>
        <%even=!even;%>
        </rsc:iterator>
-       
+
     </table>
     </div>
     <div class="pagingBox">

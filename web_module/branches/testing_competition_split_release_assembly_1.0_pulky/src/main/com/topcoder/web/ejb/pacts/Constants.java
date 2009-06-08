@@ -17,7 +17,7 @@ package com.topcoder.web.ejb.pacts;
  * <p>
  *   Version 1.2 (BUGR-1843, BUGR-1845) Change notes:
  *   <ol>
- *     <li>Added constants to support Specification Writing, Studio Specification Writing, UI Prototype Competition, 
+ *     <li>Added constants to support Specification Writing, Studio Specification Writing, UI Prototype Competition,
  *         RIA Build Competition and RIA Component Competition Payments.</li>
  *   </ol>
  * </p>
@@ -169,7 +169,7 @@ public interface Constants {
      * @since 1.3
      */
     public static final int DEPLOYMENT_TASK_PAYMENT = 54;
-    
+
     public static final int NO_REFERENCE = 0;
     public static final int REFERENCE_ALGORITHM_ROUND_ID = 1;
     public static final int REFERENCE_COMPONENT_PROJECT_ID = 2;
@@ -223,7 +223,7 @@ public interface Constants {
      * @since 1.4
      */
     public static final int TEST_SCENARIOS_PROJECT_CATEGORY_LU = 26;
-    
+
     public static final int UI_PROTOTYPE_COMPETITION_PROJECT_CATEGORY_LU = 19;
     public static final int RIA_BUILD_COMPETITION_PROJECT_CATEGORY_LU = 24;
     public static final int RIA_COMPONENT_COMPETITION_PROJECT_CATEGORY_LU = 25;

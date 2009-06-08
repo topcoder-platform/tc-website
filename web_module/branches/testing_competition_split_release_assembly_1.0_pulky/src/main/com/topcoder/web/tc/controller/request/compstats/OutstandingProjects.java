@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.compstats;
 
