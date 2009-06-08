@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request;
 
@@ -23,7 +23,7 @@ import java.util.HashMap;
  * </p>
  *
  * <p>
- *   Version 1.1 (Member Profile Enhancement 1.0) Change notes:
+ *   Version 1.1 (Testing Competition Split Release Assembly 1.0) Change notes:
  *   <ol>
  *     <li>Updated Application Testing to Test Suites</li>
  *     <li>Added support for new Test Scenarios competitions</li>
@@ -37,8 +37,21 @@ public class Home extends Base {
     public static final String DESIGN = "design";
     public static final String ASSEMBLY = "assembly";
     public static final String DEVELOPMENT = "dev";
+
+    /**
+     * <p>A <code>String</code> representing test suites key.</p>
+     *
+     * @since 1.1
+     */
     public static final String TEST_SUITES = "testsuites";
+
+    /**
+     * <p>A <code>String</code> representing test scenarios key.</p>
+     *
+     * @since 1.1
+     */
     public static final String TEST_SCENARIOS = "testscenarios";
+
     public static final String ARCHITECTURE= "arch";
     public static final String CONCEPTUALIZATION = "concept";
     public static final String SPECIFICATION = "spec";
