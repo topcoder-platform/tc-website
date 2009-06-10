@@ -8,4 +8,6 @@
   <translate from="13" to="Build" />
   <translate from="14" to="Re-Build" />
   <translate from="16" to="Build QC" />
+  <translate from="18" to="Deployment" />
+  <translate from="19" to="Environment Setup" />
 </translationMap>

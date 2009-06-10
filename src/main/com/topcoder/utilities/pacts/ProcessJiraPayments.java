@@ -36,6 +36,7 @@ import com.topcoder.web.ejb.pacts.BugFixesPayment;
 import com.topcoder.web.ejb.pacts.ComponentBuildPayment;
 import com.topcoder.web.ejb.pacts.ComponentEnhancementsPayment;
 import com.topcoder.web.ejb.pacts.CopilotPayment;
+import com.topcoder.web.ejb.pacts.DeploymentTaskPayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
 import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
 import com.topcoder.web.ejb.pacts.SpecificationReviewPayment;
@@ -245,6 +246,9 @@ public class ProcessJiraPayments extends DBUtility {
                 payment = new CopilotPayment(userId, amount, client, referenceId);
             } else if ("Build".equals(paymentType) || "Re-Build".equals(paymentType) || "Build QC".equals(paymentType)) {
                 payment = new ComponentBuildPayment(userId, amount, client, referenceId);
+                description += " (" + paymentType + ")";
+            } else if ("Deployment".equals(paymentType) || "Environment Setup".equals(paymentType)) {
+                payment = new DeploymentTaskPayment(userId, amount, client, referenceId);
                 description += " (" + paymentType + ")";
             } else {
                 throw new IllegalArgumentException("Unknown TopCoder payment type: " + paymentType);
