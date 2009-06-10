@@ -119,6 +119,62 @@
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
                 
+                <%-- Computerworld begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyName=development&articleId=9134122&taxonomyId=11&intsrc=kc_top"><img src="/i/pressroom/compworld_logo.gif" alt="Computerworld" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyName=development&articleId=9134122&taxonomyId=11&intsrc=kc_top">China dominates NSA-backed coding contest</a></h3>
+                        <p>"Whether the outcome of this competition is another sign that math and science education in the U.S. needs improvement may spur debate. But the fact remains: Of 70 finalists, 20 were from China, 10 from Russia and two from the U.S."
+                        <small><a href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyName=development&articleId=9134122&taxonomyId=11&intsrc=kc_top">[June 8th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Computerworld end --%>
+                
+                <%-- WSJ begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="http://blogs.wsj.com/digits/2009/06/08/shanghai-high-schooler-wins-coding-match/tab/print/"><img src="/i/pressroom/wsj_logo.gif" alt="Wall Street Journal" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="http://blogs.wsj.com/digits/2009/06/08/shanghai-high-schooler-wins-coding-match/tab/print/">Shanghai High-Schooler Wins Coding Match</a></h3>
+                        <p>"Programmers and software developers from 17 countries met in Las Vegas last week for the annual <a href="http://www.topcoder.com/tco09">TopCoder Open</a>, seen by some as a world championship of competitive coding."
+                        <small><a href="http://blogs.wsj.com/digits/2009/06/08/shanghai-high-schooler-wins-coding-match/tab/print/">[June 8th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- WSJ end --%>
+                
+                <%-- TCO Champions begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060509"><img src="/i/pressroom/tco09_logo.png" alt="TopCoder Open 2009" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060509">TopCoder Announces 2009 TopCoder Open Champions</a></h3>
+                        <p>Top Programmers Share $150,000 in Prizes; High School Student From China Earns International Honors from Global Software Development Competition in Las Vegas
+                        <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060509">[June 5th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TCO Champions end --%>
+                
+                <%-- JavaWorld begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="http://www.javaworld.com/community/?q=node/3034"><img src="/i/pressroom/javaworld_logo.png" alt="JavaWorld" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="http://www.javaworld.com/community/?q=node/3034">Making Programming Certifications Relevant in the Real World</a></h3>
+                        <p>"Here's the basic information: In conjuction with Sun, TopCoder.com is developing a Java certification exam that will require the programmer to write actual code. Like, y'know, what you might do on a job if you're hired."
+                        <small><a href="http://www.javaworld.com/community/?q=node/3034">[June 5th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- JavaWorld end --%>
+                
                 <%-- Sensations TCO begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
@@ -132,6 +188,20 @@
                     <div class="pr_clear"></div>
                 </div>
                 <%-- Sensations TCO end --%>
+                
+                <%-- TCO Finalists begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051309"><img src="/i/pressroom/tco09_logo.png" alt="TopCoder Open 2009" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051309">TopCoder Announces 2009 TopCoder Open Onsite Competitors for World Championship of Programming</a></h3>
+                        <p>Top 76 Finalists from 17 Countries to Meet June 4th in Las Vegas, NV
+                        <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_051309">[May 13th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TCO Finalists end --%>
                 
                 <%-- Youdao Partner begin --%>
                 <div class="pr_newsitem">
