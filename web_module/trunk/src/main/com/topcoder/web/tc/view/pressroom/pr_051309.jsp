@@ -40,7 +40,7 @@
                         <jsp:param name="title" value="Press Release"/>
                     </jsp:include>
                     
-<div align="right"><tc-webtag:forumLink forumID="528036" message="Discuss this press release" /></div>
+<div align="right"><tc-webtag:forumLink forumID="528767" message="Discuss this press release" /></div>
                         
 <div align="center">
 <p><span class="bodyTitle">TopCoder Announces 2009 TopCoder Open Onsite Competitors for World Championship of Programming</span><br />
@@ -159,7 +159,7 @@
 <p>The 6 finalists in the <strong>Assembly competition</strong>, representing 4 countries are:   
 	<div style="float: left; width: 50%;">
 		<ul style=" margin-top: 0;">
-			<li>Stanpulky, Argentina * (winner)</li>
+			<li>pulky, Argentina * (winner)</li>
 			<li>PE, China</li>
 			<li>retunsky, Russian Federation</li>
 		</ul><br />
