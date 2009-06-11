@@ -3,6 +3,7 @@
   <translate from="1"  to="Bug Fix" />
   <translate from="2"  to="Enhancement" />
   <translate from="4"  to="Enhancement" />
+  <translate from="6"  to="Bug Race Review" />
   <translate from="11" to="Specification Review" />
   <translate from="12" to="Copilot" />
   <translate from="13" to="Build" />
