@@ -1,5 +1,5 @@
 <%--
-  - Author: pulky, TCSDEVELOPER
+  - Author: pulky
   - Version: 1.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
@@ -98,7 +98,7 @@
             </c:when>
             <c:when test="${pt == TEST_SCENARIOS_TYPE_ID}">
                 <jsp:include page="/includes/global_left.jsp">
-                    <jsp:param name="node" value="test_scenarios_compete"/>
+                    <jsp:param name="node" value="test_scenarios_status"/>
                 </jsp:include>
             </c:when>
             <c:when test="${pt == UI_PROTOTYPE_TYPE_ID}">
