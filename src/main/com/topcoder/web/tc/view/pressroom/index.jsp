@@ -119,6 +119,20 @@
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
                 
+                <%-- BusinessWeek begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="http://www.businessweek.com/innovate/content/jun2009/id20090615_946326.htm"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="http://www.businessweek.com/innovate/content/jun2009/id20090615_946326.htm">Crowdsourcing: What It Means for Innovation</a></h3>
+                        <p>"Some might think once the global financial crisis has come to an end these marketplaces will dwindle as people go back to work. Instead, I believe that they will evolve further, supplying a more efficient and creative way for companies to engage with and harness the crowd for help."
+                        <small><a href="http://www.businessweek.com/innovate/content/jun2009/id20090615_946326.htm">[June 15th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- BusinessWeek end --%>
+                
                 <%-- Computerworld begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
