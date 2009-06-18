@@ -107,56 +107,61 @@
                             ${contest.name}
                         </div>
                         <br />
+                        <c:choose>
+                            <c:when test="${contest.status.id==11}">
+                                <div id="content"> 
+                                  <div class="contentTop"> 
+                                    <div class="contentMiddle"> 
+                                      <h1>This contest has been abandoned</h1>
+                                
+                                      <div align="center"> 
+                                        <div style="width:500px; padding: 50px 0px 100px 0px;">
+                                          When a contest is abandoned, the client has made no
+                                          effort to complete their responsibility toward the
+                                          competition. This includes choosing winners,
+                                          communication with TopCoder Studio and other
+                                          obligations. This inaction reflects very poorly on the
+                                          client with any future contests and their standing
+                                          within the community and our company.
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>                                                                
+                            </c:when>
+                            <c:when test="${contest.status.id==10}">
+                                <div id="content"> 
+                                  <div class="contentTop"> 
+                                    <div class="contentMiddle"> 
+                                      <h1>No Winners have been chosen</h1>
+                                      <div align="center"> 
+                                        <div style="width:500px; padding: 50px 0px 100px 0px;">
+                                          The client has decided not to choose any winners for
+                                          this competition. Please refer to the forums for
+                                          further details.
+                                          Thank you for participating in this and all Studio
+                                          contests.
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>                                                              
+                            </c:when>
+                            
+                            <c:otherwise>
 
-                        <div id="contentSubmissions">
-                            <h1 class="middle">
-                                All Submissions
-                            </h1>
-                            <div id="submissions">
-                                <studio_tags:pagination
-                                    baseUrl="/?${modKey}=ViewSubmissions&amp;${contestId}=${contest.id}"
-                                    itemsNumber="${totalItems}" pageNumber="${pn}" pageSize="${ps}"/>
-                                <br />
+                                <div id="contentSubmissions">
+                                    <h1 class="middle">
+                                        All Submissions
+                                    </h1>
+                                    <div id="submissions">
+                                        <studio_tags:pagination
+                                            baseUrl="/?${modKey}=ViewSubmissions&amp;${contestId}=${contest.id}"
+                                            itemsNumber="${totalItems}" pageNumber="${pn}" pageSize="${ps}"/>
+                                        <br />
 
-                                <table>
-                                    <tbody>
-                                        <c:choose>
-                                            <c:when test="${contest.status.id==11}">
-                                                 <tr>
-                                                    <td colspan="4">
-                                                        <p>
-                                                            This contest has been abandoned
-                                                        </p>
-                                                        <p>
-                                                            When a contest is abandoned, the client has made no
-                                                            effort to complete their responsibility toward the
-                                                            competition. This includes choosing winners,
-                                                            communication with TopCoder Studio and other
-                                                            obligations. This inaction reflects very poorly on the
-                                                            client with any future contests and their standing
-                                                            within the community and our company.
-                                                        </p>
-                                                    </td>
-                                                </tr>
-                                            </c:when>
-                                            <c:when test="${contest.status.id==10}">
-                                                 <tr>
-                                                    <td colspan="4">
-                                                        <p>
-                                                            No winners have been chosen
-                                                        </p>
-                                                        <p>
-                                                            The client has decided not to choose any winners for
-                                                            this competition. Please refer to the forums for
-                                                            further details.
-                                                            Thank you for participating in this and all Studio
-                                                            contests.
-                                                        </p>
-                                                    </td>
-
-                                                </tr>
-                                            </c:when>
-                                            <c:otherwise>
+                                        <table>
+                                            <tbody>
                                                 <tr>
                                                     <c:set var="i" value="1"/>
                                                     <c:forEach items="${submissions}" var="resultRow">
@@ -171,24 +176,24 @@
                                                         <c:set var="i" value="${i + 1}"/>
                                                     </c:forEach>
                                                 </tr>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </tbody>
-                                </table>
-                                <br />
+                                            </tbody>
+                                        </table>
+                                        <br />
 
-                                <h1 class="middleLine">
-                                    &nbsp;
-                                </h1>
+                                        <h1 class="middleLine">
+                                            &nbsp;
+                                        </h1>
 
-                                <studio_tags:pagination
-                                    baseUrl="/?${modKey}=ViewSubmissions&amp;${contestId}=${contest.id}"
-                                    itemsNumber="${totalItems}" pageNumber="${pn}" pageSize="${ps}"/>
+                                        <studio_tags:pagination
+                                            baseUrl="/?${modKey}=ViewSubmissions&amp;${contestId}=${contest.id}"
+                                            itemsNumber="${totalItems}" pageNumber="${pn}" pageSize="${ps}"/>
 
-                            </div><!-- .submissions block ends -->
-                        </div>
+                                    </div><!-- .submissions block ends -->
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
                         <!-- #contentSubmissions block ends -->
-
+                        
                         <!-- View Preview Image In Full Size -->
                         <div class="hide" id="contentImgFullSize">
                             <h1>

@@ -1,11 +1,14 @@
 <%--
   - Author: pulky
-  - Version: 1.0
+  - Version: 1.2
   - Since: Studio Submission Viewer Upgrade Integration v1.0
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This is a custom tag to handle submission preview for the view submissions
   - and view contest results pages.
+  -
+  - Version 1.1 (BUGR-1755/1756): removed full preview javascript.
+  - Version 1.2 (BUGR-1914): Added prize information.
   -
   - Required attributes:
   -     * row: the submission information
@@ -31,6 +34,7 @@
 <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 <c:set var="modKey" value="<%=Constants.MODULE_KEY%>"/>
+<c:set var="module" value="${param[modKey]}"/>
 
 <c:set var="submissionId" value="${row.map['submission_id']}"/>
 <c:set var="contestId" value="${row.map['contest_id']}"/>
@@ -83,7 +87,7 @@
                 <ul>
                     <c:forEach begin="1" end="${row.map['gallery_image_count']}" step="1" varStatus="index">
                         <li>
-                            <a class="viewFullSizeMulti" href="javascript:;">
+                            <a class="viewFullSizeMulti" href="?${modKey}=${module}&amp;ct=${contestId}&amp;sbmid=${row.map['submission_id']}&amp;pn=${pn}&amp;ps=${ps}">
                                 <span class="prevImg${index.index}">
                                     <img src="${downloadSubmissionBaseUrl}&amp;${subFileIdx}=${index.index}" alt="" />
                                 </span>
@@ -93,7 +97,7 @@
                 </ul>
             </c:when>
             <c:otherwise>
-                <a class="viewFullSize" href="javascript:;">
+                <a class="viewFullSize" href="?${modKey}=${module}&amp;ct=${contestId}&amp;sbmid=${row.map['submission_id']}&amp;pn=${pn}&amp;ps=${ps}">
                     <span class="prevImg">
                         <img src="${previewImageSrc}" alt="" />
                     </span>
@@ -150,6 +154,10 @@
                 </strong>
             </span>
             <br/>
+            <span>
+                <fmt:formatNumber value="${row.map['amount']}" pattern="$###,###.00"/>
+            </span>        
+            <br/>
         </c:if>
         <span class="submissionId">
             <strong>
@@ -181,7 +189,7 @@
             </c:otherwise>
         </c:choose>
         <span>
-            <a class="${fullSizeClass}" href="javascript:;">View Full Size</a>
+            <a class="${fullSizeClass}" href="?${modKey}=${module}&amp;ct=${contestId}&amp;sbmid=${row.map['submission_id']}&amp;pn=${pn}&amp;ps=${ps}">View Full Size</a>
             &nbsp;|&nbsp;
             <a href="?${modKey}=DownloadSubmission&amp;${subId}=${row.map["submission_id"]}">Download</a>
         </span>
