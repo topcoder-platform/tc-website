@@ -439,20 +439,19 @@
 <div class="header"><span>How to Submit</span></div>
 <div id="how-to">
 	<ul>
-		<li>You must upload your submission as a single file (see the file requirements) and it should be finalized, not a
-			work in progress.
+		<li>New to Studio? <A href="http://studio.topcoder.com/?module=Static&d1=support&d2=newMemberFaqs">Learn how to compete here</a>.
 		</li>
-		<li>If your submission wins, your original files must meet the Final Deliverables requirements listed above before
-			payment can be released.
+		<li>Upload your submission in three parts (<A href="http://studio.topcoder.com/?module=Static&d1=support&d2=newMemberFaqs#QA_5-9">see this FAQs for more information</a>). Your design should be finalized and should contain only a single design concept (do not include multiple designs in a single submission).
 		</li>
-		<li>You may submit as many times as you'd like during the submission phase, but only the number of files listed
-			above in the Required Elements that you rank the highest will be considered. On the submission page, you will
-			see a table of all the designs you have submitted, ranked by YOUR preference. You can change the order of
-			submissions on that table at any time during the submission phase. If you make revisions to your design, please
-			delete submissions you are replacing.
+		<li>If your submission wins, your source files must be correct and "Final Fixes" (if applicable) must be completed before payment can be released.
 		</li>
+		<li>You may submit as many times as you'd like during the submission phase, but only the number of files listed above in the Submission Limit that you rank the highest will be considered. You can change the order of your submissions at any time during the submission phase. If you make revisions to your design, please delete submissions you are replacing.</li>
+		
 	</ul>
 </div>
+
+
+
 
 <c:if test="${not empty contest.winnerSelection.value}">
     <div class="header"><span>Winner Selection</span></div>
