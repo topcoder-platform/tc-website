@@ -82,31 +82,22 @@
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=advancers&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Bracket</a></li>
                     </c:when>
                     <c:when test="${mainTab == 'algorithm' && secondaryTab == 'summary'}">
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=summary&d5=onlineQualificationRound1" class="${tertiaryTab == 'onlineQualificationRound1' ? 'on' : ''}">Online <br />Round 1</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=summary&d5=onlineQualificationRound2" class="${tertiaryTab == 'onlineQualificationRound2' ? 'on' : ''}">Online <br />Round 2</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=summary&d5=onlineQualificationRound3" class="${tertiaryTab == 'onlineQualificationRound3' ? 'on' : ''}">Online <br />Round 3</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=summary&d5=onlineEliminationRound1" class="${tertiaryTab == 'onlineEliminationRound1' ? 'on' : ''}">Online <br />Round 1</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=summary&d5=onlineEliminationRound2" class="${tertiaryTab == 'onlineEliminationRound2' ? 'on' : ''}">Online <br />Round 2</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=summary&d5=onlineEliminationRound3" class="${tertiaryTab == 'onlineEliminationRound3' ? 'on' : ''}">Online <br />Round 3</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=summary&d5=onlineEliminationRound4" class="${tertiaryTab == 'onlineEliminationRound4' ? 'on' : ''}">Online <br />Round 4</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=summary&d5=onlineEliminationRound5" class="${tertiaryTab == 'onlineEliminationRound5' ? 'on' : ''}">Online <br />Round 5</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=summary&d5=onsiteSemifinalRound" class="${tertiaryTab == 'onsiteSemifinalRound' ? 'on' : ''}">Onsite <br />Semifinals</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=summary&d5=onsiteChampionshipRound" class="${tertiaryTab == 'onsiteChampionshipRound' ? 'on' : ''}">Onsite <br />Championship</a></li>
+                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=summary&d5=onsiteChampionshipRound" class="${tertiaryTab == 'onsiteChampionshipRound' ? 'on' : ''}">Onsite Championship</a></li>
                     </c:when>
                     <c:when test="${mainTab == 'marathon' && secondaryTab == 'advancers'}">
                         <li><a href="/tco09?module=MarathonAdvancers" class="${tertiaryTab == 'leaderboard' ? 'on' : ''}">Leaderboard</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=marathon&d4=advancers&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Bracket</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=marathon&d4=advancers&d5=summary" class="${tertiaryTab == 'summary' ? 'on' : ''}">Summary</a></li>
+                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=marathon&d4=advancers&d5=summary" class="${tertiaryTab == 'summary' ? 'on' : ''}">Onsite Championship</a></li>
                     </c:when>
                     <c:when test="${mainTab == 'moddash' && secondaryTab == 'advancers'}">
                         <li><a href="/tco09?module=ModDashLeaders" class="${tertiaryTab == 'leaderboard' ? 'on' : ''}">Leaderboard</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=moddash&d4=advancers&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Bracket</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=moddash&d4=advancers&d5=summary" class="${tertiaryTab == 'summary' ? 'on' : ''}">Summary</a></li>
+                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=moddash&d4=advancers&d5=summary" class="${tertiaryTab == 'summary' ? 'on' : ''}">Onsite Championship</a></li>
                     </c:when>
                     <c:when test="${mainTab == 'studio' && secondaryTab == 'advancers'}">
                         <li><a href="/tco09?module=StudioLeaders&eid=3009" class="${tertiaryTab == 'leaderboard' ? 'on' : ''}">Leaderboard</a></li>
                         <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=advancers&d5=bracket" class="${tertiaryTab == 'bracket' ? 'on' : ''}">Bracket</a></li>
-                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=advancers&d5=summary" class="${tertiaryTab == 'summary' ? 'on' : ''}">Summary</a></li>
+                        <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=advancers&d5=summary" class="${tertiaryTab == 'summary' ? 'on' : ''}">Onsite Championship</a></li>
                     </c:when>
                     <c:otherwise>
                         <li>&nbsp;</li>

@@ -41,7 +41,7 @@
                     <li class="first"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=description" class="${secondaryTab == 'description' ? 'on' : ''}"><span>Description</span></a></li>
                     <li><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=schedule" class="${secondaryTab == 'schedule' ? 'on' : ''}"><span>Schedule</span></a></li>
                     <li><a href="/tco09?module=AlgorithmQualification" class="${secondaryTab == 'advancers' ? 'on' : ''}"><span>Advancers</span></a></li>
-                    <li class="last"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=summary&d5=onlineQualificationRound1" class="${secondaryTab == 'summary' ? 'on' : ''}"><span>Summary</span></a></li>
+                    <li class="last"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=algorithm&d4=summary&d5=onsiteChampionshipRound" class="${secondaryTab == 'summary' ? 'on' : ''}"><span>Summary</span></a></li>
               </c:when>
               <c:when test="${mainTab == 'marathon'}">
                     <li class="first"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=marathon&d4=description" class="${secondaryTab == 'description' ? 'on' : ''}"><span>Description</span></a></li>
