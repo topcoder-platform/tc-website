@@ -85,10 +85,21 @@
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title">Overview</h2>
-                                                                <p>The 2009 TopCoder Open is underway in Las Vegas, Nevada and you can follow all the action here!</p>
-                                                                <p>TC staff and our member bloggers will be keeping you up to date with the latest results and analysis, plus some color from this week in fabulous Las Vegas on the <a href="http://www.topcoder.com/tco09/blog/">TCO'09 Blog</a> We've also got the <a href=http://www.topcoder.com/tco09/twitter/>TCO'09 TwitterStream</a> running so you can follow along live and even join the conversation, plus lots and lots of TCO <a href="http://www.topcoder.com/tco09/blog/photos/">photos</a> and <a href="http://www.topcoder.com/tco09/blog/movies/">videos</a>.</p>
-                                                                <p>Many of the TopCoder and Sponsor roundtables will be <a href="http://www.topcoder.com/tco09/blog/livevideo/">streamed live</a>, including a Q&A with TopCoder founder, Jack Hughes - so check the <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=onsite&d5=schedule">schedule</a> and come back often for these live events.</p>
-                                                                <p>Good luck to all our competitors here at the 2009 TopCoder Open!</p>
+                                                                <p>The 2009 TopCoder Open is now complete.  Congratulations to all champions!</p>
+                                                                <p><img src="/i/tournament/tco09/winners/tco09-winner-all.png" alt="TCO09 Champions" /></p>
+                                                                <p>Algorithm Champion: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=22675094" target="_blank">crazyb0y</a><br />
+                                                                  Architecture Champion: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=310233" target="_blank">Standlove</a><br />
+                                                                  Assembly Champion: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=14882871" target="_blank">pulky</a><br />
+                                                                  Component Design Champion: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=21932422" target="_blank">saarixx</a><br />
+                                                                  Component Development Champion: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=20076717" target="_blank">assistant</a><br />
+                                                                  Marathon Champion: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=15805598" target="_blank">KOTEHOK</a><br />
+                                                                  Mod Dash Champion: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=9998760" target="_blank">PE</a><br />
+                                                                  Specification Champion: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=252022" target="_blank">AleaActaEst</a><br />
+                                                                Studio Champion: <a href="http://studio.topcoder.com/?module=ViewMemberProfile&amp;ha=djnapier" target="_blank">djnapier</a></p>
+                                                                <p>Thanks to the TopCoder staff and members for another awesome event!</p>
+                                                                <p>If you missed anything, check out the  <a href="http://www.topcoder.com/tco09/blog/">TCO09 Blog,</a> <a href="http://www.topcoder.com/tco09/blog/photos/">photos</a> and <a href="http://www.topcoder.com/tco09/blog/movies/">videos</a>.</p>
+                                                                <p>Many of the TopCoder and Sponsor roundtables were <a href="http://www.topcoder.com/tco09/blog/livevideo/">streamed live</a>, including a Q&A with TopCoder founder, Jack Hughes - so check out the archived versions!</p>
+                                                                <p>We hope all competitors enjoyed the TCO09!</p>
                                                             </div>
                                                         </div>                                                      
                                                     </div><!-- End #mainContentInner -->

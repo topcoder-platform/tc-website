@@ -28,12 +28,7 @@
 <script type="text/javascript" src="/js/tournaments/tco09/jquery-1.2.6.js"></script>
 <script type="text/javascript" src="/js/tournaments/tco09/jquery.backgroundPosition.js"></script>
 <script type="text/javascript" src="/js/tournaments/tco09/scripts.js"></script>
-<script type="text/javascript" src="/js/arena.js"></script> 
-<style type="text/css">
-<!--
-.style2 {color: #FF0000}
--->
-</style>
+<script type="text/javascript" src="/js/arena.js"></script>
 </head>
 
 <body id="page">
@@ -75,9 +70,75 @@
                                             
                                             <div class="bottomAreaContent">
                                                 
-                                                <jsp:include page="../../comingSoon.jsp">
-                                                    <jsp:param name="shiftDown" value="true"/>
-                                                </jsp:include>
+                                                <div class="mainContent">
+                                                
+                                                    
+                                                    <div id="mainContentInner">
+                                                        <div>
+                                                            <div class="pageContent">
+                                                                <h2 class="title">Congratulations to crazyb0y!</h2>
+                                                                <p><img src="/i/tournament/tco09/winners/tco09-winner-algo.png" alt="TCO09 Algorithm Champion" /></p>
+                                                                <p>
+                                                                    <table class="data" width="100%" cellpadding="0" cellspacing="0">
+                                                                        <tr>
+                                                                            <th class="first">&nbsp;</th>
+                                                                          	<th colspan="2">Congratulations Algorithm Winners!</th>
+                                                                            <th class="last">&nbsp;</th>
+                                                                        </tr>
+                                                                        <tr>
+                                                                        	<td class="first">&nbsp;</td>
+                                                                        	<td class="first last alignText"><strong>Champion</strong></td>
+                                                                        	<td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=22675094" target="_blank">crazyb0y</a></td>
+                                                                        	<td class="last">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                        	<td class="first">&nbsp;</td>
+                                                                        	<td class="first last alignText">2nd Place</td>
+                                                                        	<td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=22221928" target="_blank">UdH-WiNGeR</a></td>
+                                                                        	<td class="last">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                        	<td class="first">&nbsp;</td>
+                                                                        	<td class="first last alignText">3rd Place</td>
+                                                                        	<td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=7442498" target="_blank">marek.cygan</a></td>
+                                                                        	<td class="last">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                        	<td class="first">&nbsp;</td>
+                                                                        	<td class="first last alignText">4th Place</td>
+                                                                        	<td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=10574855" target="_blank">Petr</a></td>
+                                                                        	<td class="last">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                        	<td class="first">&nbsp;</td>
+                                                                        	<td class="first last alignText">5th Place</td>
+                                                                        	<td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=7452866" target="_blank">Im2Good</a></td>
+                                                                        	<td class="last">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                        	<td class="first">&nbsp;</td>
+                                                                        	<td class="first last alignText">6th Place</td>
+                                                                        	<td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=22629087" target="_blank">syg96</a></td>
+                                                                        	<td class="last">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                        	<td class="first">&nbsp;</td>
+                                                                        	<td class="first last alignText">7th Place</td>
+                                                                        	<td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=272072" target="_blank">SnapDragon</a></td>
+                                                                        	<td class="last">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                        	<td class="first">&nbsp;</td>
+                                                                        	<td class="first last alignText">8th Place</td>
+                                                                        	<td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=22664457" target="_blank">lucasr</a></td>
+                                                                        	<td class="last">&nbsp;</td>
+                                                                        </tr>
+                                                                   </table>
+                                                               </p>
+                                                            </div>
+                                                        </div>
+                                                 </div>
+                                                </div>       
                                                 
                                                 <jsp:include page="../../sponsors.jsp"/>
                                                 
