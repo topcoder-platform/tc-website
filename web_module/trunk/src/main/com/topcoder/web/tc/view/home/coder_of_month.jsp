@@ -44,8 +44,8 @@
       </td>
    </tr>
    </table>
-   <%-- On/Off
-   <div><a class="cotmFeature" href="http://www.topcoder.com/news/2009/05/26/meet-the-april-coders-and-designers-of-the-month">Read Their Interviews</a></div> --%>
+   <%-- On/Off --%>
+   <div><a class="cotmFeature" href="http://www.topcoder.com/news/2009/06/19/meet-the-may-coders-and-designers-of-the-month/">Read Their Interviews</a></div>
    
    </div>
 </div>
