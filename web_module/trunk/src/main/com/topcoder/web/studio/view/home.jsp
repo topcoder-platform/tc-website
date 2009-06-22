@@ -227,10 +227,10 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
     <div class="designerBox">
         <h2>DESIGNER OF THE MONTH</h2>
         <p>
-            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/nophoto.jpg"/>
+            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/Trial_and_Error_big.jpg"/>
             <b>May 2009</b><br />
-            <b><%-- <a href="http://<%=ApplicationServer.SERVER_NAME%>/news/2009/05/26/meet-the-april-coders-and-designers-of-the-month"> --%><strong>Trial_and_Error</strong><%-- </a> --%></b> 
-            won $4,625 in 5 contests! 
+            <b><a href="http://studio.topcoder.com/?module=ViewMemberProfile&ha=Trial_and_Error">Trial_and_Error</a>
+            won $4,625 in 5 contests!</b>
         </p>
 
         <div></div>
@@ -238,10 +238,12 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
 
     <%-- assignement box --%>
     <div class="assignmentBox">
-        <p class="simpleArrow">
-            Have you signed your assignment document?<br />
-            <img alt="More Info" src="/i/v3/right_arrow.png"/><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=support&d2=assignmentDocFaq" class="img_c" >
-            Click here for more info!</a>
+        <p>
+            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/Trial_and_Error_big.jpg"/>
+            <b>May 2009</b><br />
+            <b><a href="http://studio.topcoder.com/?module=ViewMemberProfile&ha=Trial_and_Error">Trial_and_Error</a></b>
+            won $4,625 in 5 contests!<br /><br />
+            <b><a href="http://www.topcoder.com/news/2009/06/19/meet-the-may-coders-and-designers-of-the-month/">Read The Interview</a></b>
         </p>
     </div><!--assignement box-->
 
