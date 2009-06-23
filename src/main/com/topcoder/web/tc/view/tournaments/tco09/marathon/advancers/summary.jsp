@@ -75,8 +75,88 @@
                                             
                                             <div class="bottomAreaContent">
                                                 
-                                                <jsp:include page="../../comingSoon.jsp"/>
-                                    
+                                                <div class="mainContent">
+                                                
+                                                    
+                                                    <div id="mainContentInner">
+                                                        <div>
+                                                            <div class="pageContent">
+                                                                <h2 class="title">Congratulations to KOTEHOK!</h2>
+                                                                <p><img src="/i/tournament/tco09/winners/tco09-winner-marathon.png" alt="TCO09 Marathon Champion" /></p>
+                                                                <p>
+                                                              <table class="data" width="100%" cellpadding="0" cellspacing="0">
+                                                                  <tr>
+                                                                      <th class="first">&nbsp;</th>
+                                                                   	  <th colspan="2">Congratulations Marathon Winners!</th>
+                                                                      <th class="last">&nbsp;</th>
+                                                                  </tr>
+                                                                  <tr>
+                                                                   	  <td class="first">&nbsp;</td>
+                                                                   	  <td class="first last alignText"><strong>Champion</strong></td>
+                                                                   	  <td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=15805598" target="_blank">KOTEHOK</a></td>
+                                                                   	  <td class="last">&nbsp;</td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                   	  <td class="first">&nbsp;</td>
+                                                                   	  <td class="first last alignText">2nd Place</td>
+                                                                   	  <td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=10597114" target="_blank">Psyho</a></td>
+                                                                   	  <td class="last">&nbsp;</td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                   	  <td class="first">&nbsp;</td>
+                                                                   	  <td class="first last alignText">3rd Place</td>
+                                                                   	  <td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=11789293" target="_blank">nhzp339</a></td>
+                                                                   	  <td class="last">&nbsp;</td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                   	  <td class="first">&nbsp;</td>
+                                                                   	  <td class="first last alignText">4th Place</td>
+                                                                   	  <td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=21170029" target="_blank">zibada</a></td>
+                                                                   	  <td class="last">&nbsp;</td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                   	  <td class="first">&nbsp;</td>
+                                                                   	  <td class="first last alignText">5th Place</td>
+                                                                   	  <td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=7459326" target="_blank">jdmetz</a></td>
+                                                                   	  <td class="last">&nbsp;</td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                   	  <td class="first">&nbsp;</td>
+                                                                   	  <td class="first last alignText">6th Place</td>
+                                                                   	  <td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=7213681" target="_blank">wleite</a></td>
+                                                                   	  <td class="last">&nbsp;</td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                   	  <td class="first">&nbsp;</td>
+                                                                   	  <td class="first last alignText">7th Place</td>
+                                                                   	  <td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=7389864" target="_blank">roma</a></td>
+                                                                   	  <td class="last">&nbsp;</td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                   	  <td class="first">&nbsp;</td>
+                                                                   	  <td class="first last alignText">8th Place</td>
+                                                                   	  <td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=22657262" target="_blank">prober</a></td>
+                                                                   	  <td class="last">&nbsp;</td>
+                                                                  </tr>
+                                                                    <tr>
+                                                                      <td class="first">&nbsp;</td>
+                                                                      <td class="first last alignText">9th Place</td>
+                                                                      <td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=11854576" target="_blank">maniek</a></td>
+                                                                      <td class="last">&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="first">&nbsp;</td>
+                                                                      <td class="first last alignText">10th Place</td>
+                                                                      <td class="first last alignText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=22657314" target="_blank">AlexanderL</a></td>
+                                                                      <td class="last">&nbsp;</td>
+                                                                    </tr>
+                                                                </table>
+                                                               </p>
+                                                            </div>
+                                                        </div>
+                                                 </div>
+                                                </div>       
+                                                
                                                 <jsp:include page="../../sponsors.jsp"/>
                                                 
                                             </div><!-- End .bottomAreaContent -->
