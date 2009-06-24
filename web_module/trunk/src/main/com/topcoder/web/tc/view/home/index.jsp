@@ -259,7 +259,7 @@ $(document).ready(function(){
                             <%-- 	<div id="tco09"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MatchDetails&rd=13747"><img src="/i/tournament/tco09/srm_banner-nsa-home.jpg" alt="SRM 439 brought to you by NSA" /></a> --%>
                             <%-- <a href="http://www.topcoder.com/tco09"><img src="/i/tco09/340x76_banner.jpg" alt="2009 TopCoder Open" /></a> --%>
                             <%-- <a href="http://www.topcoder.com/tco09"><img src="/i/tournament/tco09/tco09-snia-340x76.png" alt="SNIA XAM Initiative" /></a>  --%>
-                            <div id="tco09"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MatchDetails&rd=13751"><img src="/i/home/srm443_nsa.png" alt="SRM 443 brought to you by NSA" /></a></div>
+                            <%-- <div id="tco09"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MatchDetails&rd=13751"><img src="/i/home/srm443_nsa.png" alt="SRM 443 brought to you by NSA" /></a></div>  --%>
                         </div>
                     </div>
                     <div id="member-box-bottom"></div>
