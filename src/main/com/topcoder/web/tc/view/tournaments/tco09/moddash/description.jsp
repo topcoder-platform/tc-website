@@ -81,7 +81,7 @@
                                                     <div id="mainContentInner">
                                                         <div>
                                                             <div class="pageContent">
-                                                                <h2 class="title">Welcome to the Mod Dash Competition!</h2>
+                                                                <h2 class="title">Welcome to the Mod Dash&#153; Competition!</h2>
                                                                     <p>We opened up our bug fix process to the community over the past few months, and now it is facing it's inaugural year as a competition track for the 2009 TopCoder Open. This competition will run for eight (8) weeks and placement will be based on a point system. Work on fixing these bugs and you could be one of the eight (8) to win a free trip to compete at The Mirage, Las Vegas, Nevada.</p>
                                                               <div class="subtitle">
                                                                             <h3 class="subtitle">What is Mod Dash?</h3>
