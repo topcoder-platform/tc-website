@@ -168,7 +168,7 @@
 
          <strong><a href="/tc?module=MatchDetails&amp;rd=13897">Marathon Match 54</a></strong><br />
 
-         12:00 NOON<br />
+         1:00 PM<br />
 
          2 weeks
 
