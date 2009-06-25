@@ -173,48 +173,35 @@
           <c:choose>
             <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
                 <a href="/tc?module=Static&amp;d1=dev&amp;d2=testing&amp;d3=instructions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
-          <%--      <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor2"><img src="/i/tournament/tco09/tco09-snia-340x76.png" alt="SNIA XAM Initiative" /></a><br /><br />   --%>
-          <%--      <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA" /></a><br /><br />   --%>
-          <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
+          		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
             </c:when>
             <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
                 <a href="/wiki/display/tc/How+to+Compete+in+Architecture+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
-          <%--      <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor2"><img src="/i/tournament/tco09/tco09-snia-340x76.png" alt="SNIA XAM Initiative" /></a><br /><br />   --%>
-          <%--      <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA" /></a><br /><br />   --%>
-          <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
+          		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
             </c:when>
             <c:when test="${pt == ASSEMBLY_TYPE_ID}">
                 <a href="http://<%=ApplicationServer.WIKI_SERVER_NAME%>/display/tc/How+to+Compete+in+Assembly+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
-          <%--      <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor2"><img src="/i/tournament/tco09/tco09-snia-340x76.png" alt="SNIA XAM Initiative" /></a><br /><br />   --%>
-          <%--      <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA" /></a><br /><br />   --%>
-          <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
+          		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
             </c:when>
             <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
                 <a href="/wiki/display/tc/How+to+Compete+in+Conceptualization+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
-           <%--     <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor2"><img src="/i/tournament/tco09/tco09-snia-340x76.png" alt="SNIA XAM Initiative" /></a><br /><br />   --%>
-           <%--      <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA" /></a><br /><br />   --%>
-          <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
+          		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
             </c:when>
             <c:when test="${pt == SPECIFICATION_TYPE_ID}">
                 <a href="/wiki/display/tc/How+to+Compete+in+Specification+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
-           <%--     <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor2"><img src="/i/tournament/tco09/tco09-snia-340x76.png" alt="SNIA XAM Initiative" /></a><br /><br />   --%>
-           <%--      <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA" /></a><br /><br />   --%>
-          <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
+          		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
             </c:when>
             <c:when test="${pt == UI_PROTOTYPE_TYPE_ID}">
                 <a href="/wiki/display/tc/How+to+Compete+in+Studio+Prototype+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
-                <%--      <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA" /></a><br /><br />   --%>
-          <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
+          		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
             </c:when>
             <c:when test="${pt == RIA_BUILD_TYPE_ID}">
                 <a href="/wiki/display/tc/How+to+Compete+in+Studio+Build+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
-                <%--      <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA" /></a><br /><br />   --%>
-          <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
+          		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
             </c:when>
             <c:when test="${pt == RIA_COMPONENT_TYPE_ID}">
                 <a href="/wiki/display/tc/How+to+Compete+in+Studio+Component+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
-                <%--      <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA" /></a><br /><br />   --%>
-          <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
+          		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
             </c:when>
           </c:choose>
         </td>
