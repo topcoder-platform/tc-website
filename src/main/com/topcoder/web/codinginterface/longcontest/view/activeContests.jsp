@@ -60,7 +60,6 @@
             </div>
             
             <div align="left" style="margin: 8px 0px;">
-            	<a href="/tc?module=MatchDetails&rd=13793"><img src="/i/longcontest/experimental-mm-banner.jpg" alt="Experimental Marathon Series" /></a>
             </div>
             
         <%-- MM Promo On/Off--%>
