@@ -100,11 +100,13 @@
 										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("start_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Start Date</a></td>
 									<td class="headerC">
 										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End Date</a></td>
+									<td class="headerC" nowrap="nowrap">
+										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Time Left</a></td>
 									<td class="headerR" nowrap="nowrap">
 										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("prize_total")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Prize Purse</a>
 									</td>
 									<td class="headerR" nowrap="nowrap">
-										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("dr_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">SC Points</a>
+										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("dr_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Points</a>
 									</td>
 									<td class="headerC">
 										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("registrants")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Registrants</a>
@@ -116,9 +118,9 @@
 								</tr>
 								<c:choose>
 									<c:when test="${fn:length(contests)==0}">
-										<tr><td class="space" colspan="9">&nbsp;</td></tr>
+										<tr><td class="space" colspan="10">&nbsp;</td></tr>
 										<tr class="light">
-											<td class="valueC" colspan="9">
+											<td class="valueC" colspan="10">
 												<div align="center" style="margin: 40px 0px 40px 0px;">
 													There are currently no active contests, but check back soon.
 												</div>
@@ -129,7 +131,7 @@
         
 									<% boolean even = true;%>
 									<rsc:iterator list="${contests}" id="resultRow">
-										<tr><td class="space" colspan="9">&nbsp;</td></tr>
+										<tr><td class="space" colspan="10">&nbsp;</td></tr>
 										<tr class="<%=even?"light":"dark"%>">
 											<td class="valueE">
 												<%-- Since TopCoder Studio Modifications assembly Req# 5.2 --%>
@@ -154,6 +156,9 @@
 											<td class="valueC">
 												<rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
 											</td>
+											<td class="valueC">
+												<div class="countdown"><studio_tags:countdownClock mode="short" end="<%=resultRow.getTimestampItem("end_time")%>"/></div>
+											</td>											
 											<td class="valueR">
 												<rsc:item name="prize_total" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
 											</td>
