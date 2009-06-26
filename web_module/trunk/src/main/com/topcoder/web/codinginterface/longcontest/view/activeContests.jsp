@@ -56,10 +56,8 @@
             </jsp:include>
 
             <div align="right" style="margin: 6px 0px;">
-                <a href="/longcontest/?module=Static&amp;d1=instructions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a>
-            </div>
-            
-            <div align="left" style="margin: 8px 0px;">
+                <a href="/longcontest/?module=Static&amp;d1=instructions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a><br /><br />
+          		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
             </div>
             
         <%-- MM Promo On/Off--%>
