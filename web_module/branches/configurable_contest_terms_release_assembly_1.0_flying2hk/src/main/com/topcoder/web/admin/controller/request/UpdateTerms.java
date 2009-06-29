@@ -21,6 +21,8 @@ public class UpdateTerms extends EditTerms {
     protected void businessProcessing() throws Exception {
         String tId = getRequest().getParameter(Constants.TERMS_OF_USE_ID);
         String termsText = getRequest().getParameter(Constants.TERMS);
+        String title = getRequest().getParameter(Constants.TERMS_OF_USE_TITLE);
+        
         String ttId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_TYPE_ID));
 
         TransactionManager tm = null;
@@ -33,6 +35,7 @@ public class UpdateTerms extends EditTerms {
                 setDefault(Constants.TERMS_OF_USE_TYPE_ID, ttId);
                 setDefault(Constants.TERMS_OF_USE_ID, tId);
                 setDefault(Constants.TERMS, termsText);
+                setDefault(Constants.TERMS_OF_USE_TITLE, title);
                 setNextPage("/editTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
@@ -47,6 +50,7 @@ public class UpdateTerms extends EditTerms {
                 }
                 termsOfUse.setText(termsOfUseId, termsText, DBMS.JTS_OLTP_DATASOURCE_NAME);
                 termsOfUse.setTermsOfUseTypeId(termsOfUseId, Long.parseLong(ttId), DBMS.JTS_OLTP_DATASOURCE_NAME);
+                termsOfUse.setTitle(termsOfUseId, title, DBMS.JTS_OLTP_DATASOURCE_NAME);
                 tm.commit();
 
                 SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);

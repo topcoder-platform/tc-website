@@ -1,5 +1,8 @@
 package com.topcoder.web.ejb.termsofuse;
 
+import java.rmi.RemoteException;
+
+import javax.ejb.EJBException;
 import javax.ejb.EJBLocalObject;
 
 /**
@@ -29,4 +32,8 @@ public interface TermsOfUseLocal extends EJBLocalObject {
 
     void setElectronicallySignable(long termsOfUseId,
     								boolean electronicallySignable, String dataSource);
+    
+    String getURL(long termsOfUseId, String dataSource);
+    
+    void setURL(long termsOfUseId, String url, String dataSource);
 }

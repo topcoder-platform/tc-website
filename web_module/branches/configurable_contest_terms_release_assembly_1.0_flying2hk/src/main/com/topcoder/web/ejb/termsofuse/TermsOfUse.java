@@ -24,7 +24,7 @@ public interface TermsOfUse extends EJBObject {
     String getTitle(long termsOfUseId, String dataSource)
     		throws EJBException, RemoteException;
     
-    void setTitle(long termsOfUseId, String _title, String dataSource)
+    void setTitle(long termsOfUseId, String title, String dataSource)
     		throws EJBException, RemoteException;
     
     boolean isElectronicallySignable(long termsOfUseId, String dataSource)
@@ -33,4 +33,10 @@ public interface TermsOfUse extends EJBObject {
     void setElectronicallySignable(long termsOfUseId,
 			boolean electronicallySignable, String dataSource)
         	throws EJBException, RemoteException;
+    
+    String getURL(long termsOfUseId, String dataSource)
+			throws EJBException, RemoteException;
+
+    void setURL(long termsOfUseId, String url, String dataSource)
+			throws EJBException, RemoteException;
 }

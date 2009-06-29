@@ -8,6 +8,8 @@ import com.topcoder.web.common.IdGeneratorClient;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
+
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -258,10 +260,10 @@ public class TermsOfUseBean extends BaseEJB {
             close(conn);
             close(ctx);
         }
-        return (title);
+        return title;
     }
 
-	public void setTitle(long termsOfUseId, String _title, String dataSource)
+    public void setTitle(long termsOfUseId, String title, String dataSource)
             throws EJBException {
 
         Connection conn = null;
@@ -278,7 +280,7 @@ public class TermsOfUseBean extends BaseEJB {
 
             conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
-            ps.setString(1, _title);
+            ps.setString(1, title);
             ps.setLong(2, termsOfUseId);
 
             int rc = ps.executeUpdate();
@@ -344,7 +346,7 @@ public class TermsOfUseBean extends BaseEJB {
     }
 
     public void setElectronicallySignable(long termsOfUseId,
-    			boolean electronicallySignable, String dataSource)
+          boolean electronicallySignable, String dataSource)
             throws EJBException {
 
         Connection conn = null;
@@ -378,4 +380,88 @@ public class TermsOfUseBean extends BaseEJB {
             close(ctx);
         }
     }
+    
+	public String getURL(long termsOfUseId, String dataSource)
+			throws EJBException {
+
+		String url = null;
+
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		InitialContext ctx = null;
+
+		try {
+
+			StringBuffer query = new StringBuffer(1024);
+			query.append("SELECT url ");
+			query.append("FROM terms_of_use ");
+			query.append("WHERE terms_of_use_id=?");
+
+			conn = DBMS.getConnection(dataSource);
+			ps = conn.prepareStatement(query.toString());
+			ps.setLong(1, termsOfUseId);
+
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				url = rs.getString(1);
+			} else {
+				throw (new EJBException("No rows found when selecting from "
+						+ "'terms_of_use' with terms_of_use_id=" + termsOfUseId
+						+ "."));
+			}
+		} catch (SQLException _sqle) {
+			DBMS.printSqlException(true, _sqle);
+			throw (new EJBException(_sqle.getMessage()));
+		} catch (Exception _e) {
+			_e.printStackTrace();
+			throw (new EJBException(_e.getMessage()));
+		} finally {
+			close(rs);
+			close(ps);
+			close(conn);
+			close(ctx);
+		}
+		return url;
+	}
+
+	public void setURL(long termsOfUseId, String url, String dataSource)
+			throws EJBException {
+
+		Connection conn = null;
+		PreparedStatement ps = null;
+
+		InitialContext ctx = null;
+
+		try {
+
+			StringBuffer query = new StringBuffer(1024);
+			query.append("UPDATE terms_of_use ");
+			query.append("SET url=? ");
+			query.append("WHERE terms_of_use_id=?");
+
+			conn = DBMS.getConnection(dataSource);
+			ps = conn.prepareStatement(query.toString());
+			ps.setString(1, url);
+			ps.setLong(2, termsOfUseId);
+
+			int rc = ps.executeUpdate();
+			if (rc != 1) {
+				throw (new EJBException("Wrong number of rows updated in "
+						+ "'terms_of_use'. Updated " + rc + ", should "
+						+ "have updated 1."));
+			}
+		} catch (SQLException _sqle) {
+			DBMS.printSqlException(true, _sqle);
+			throw (new EJBException(_sqle.getMessage()));
+		} catch (Exception _e) {
+			_e.printStackTrace();
+			throw (new EJBException(_e.getMessage()));
+		} finally {
+			close(ps);
+			close(conn);
+			close(ctx);
+		}
+	}
+    
 }
