@@ -51,6 +51,19 @@
                                     <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="40" cols="120"/>
                                 </td>
                             </tr>
+                            
+                            <tr>
+                                <td align="left">
+                                    <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_OF_USE_TITLE%>"><%=err%></tc-webtag:errorIterator>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="left">
+                                    <tc-webtag:textInput name="<%=Constants.TERMS_OF_USE_TITLE%>" rows="40" cols="120"/>
+                                </td>
+                            </tr>
+                            
                             <tr>
                                 <td align="center">
                                     <input type="submit" name="submit" value="Save"/>

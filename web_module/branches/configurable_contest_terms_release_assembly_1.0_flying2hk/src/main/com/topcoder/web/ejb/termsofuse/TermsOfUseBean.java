@@ -216,5 +216,166 @@ public class TermsOfUseBean extends BaseEJB {
             close(ctx);
         }
     }
+    
+    public String getTitle(long termsOfUseId, String dataSource)
+            throws EJBException {
 
+        String title = null;
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        InitialContext ctx = null;
+
+        try {
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("SELECT title ");
+            query.append("FROM terms_of_use ");
+            query.append("WHERE terms_of_use_id=?");
+
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, termsOfUseId);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                text = rs.getString(1);
+            } else {
+                throw(new EJBException("No rows found when selecting from " +
+                        "'terms_of_use' with terms_of_use_id=" +
+                        termsOfUseId + "."));
+            }
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw(new EJBException(_sqle.getMessage()));
+        } catch (Exception _e) {
+            _e.printStackTrace();
+            throw(new EJBException(_e.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+        return (title);
+    }
+
+		public void setTitle(long termsOfUseId, String _title, String dataSource)
+            throws EJBException {
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        InitialContext ctx = null;
+
+        try {
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("UPDATE terms_of_use ");
+            query.append("SET title=? ");
+            query.append("WHERE terms_of_use_id=?");
+
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query.toString());
+            ps.setString(1, _title);
+            ps.setLong(2, termsOfUseId);
+
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new EJBException("Wrong number of rows updated in " +
+                        "'terms_of_use'. Updated " + rc + ", should " +
+                        "have updated 1."));
+            }
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw(new EJBException(_sqle.getMessage()));
+        } catch (Exception _e) {
+            _e.printStackTrace();
+            throw(new EJBException(_e.getMessage()));
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
+    
+    public boolean isElectronicallySignable(long termsOfUseId, String dataSource)
+            throws EJBException {
+
+        int ret = 0;
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        InitialContext ctx = null;
+
+        try {
+
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("SELECT electronically_signable ");
+            query.append("FROM terms_of_use ");
+            query.append("WHERE terms_of_use_id=?");
+
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, termsOfUseId);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                ret = rs.getInt(1);
+            } else {
+                throw(new EJBException("No rows found when selecting from " +
+                        "'terms_of_use' with terms_of_use_id=" +
+                        termsOfUseId + "."));
+            }
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw(new EJBException(_sqle.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+        return (ret == 1);
+    }
+
+    public void setElectronicallySignable(long termsOfUseId,
+                                    boolean electronicallySignable, String dataSource)
+            throws EJBException {
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+
+        try {
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("UPDATE terms_of_use ");
+            query.append("SET electronically_signable=? ");
+            query.append("WHERE terms_of_use_id=?");
+
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query.toString());
+            ps.setInt(1, electronicallySignable == 1);
+            ps.setLong(2, termsOfUseId);
+
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new EJBException("Wrong number of rows updated in " +
+                        "'terms_of_use'. Updated " + rc + ", should " +
+                        "have updated 1."));
+            }
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw(new EJBException(_sqle.getMessage()));
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
 }
