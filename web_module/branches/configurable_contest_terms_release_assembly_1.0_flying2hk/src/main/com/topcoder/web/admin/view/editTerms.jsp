@@ -23,49 +23,55 @@
                             <tc-webtag:hiddenInput name="<%=Constants.TERMS_OF_USE_ID%>" />
 
                             <tr>
-                                <td align="center">
+                                <td align="center" colspan="2">
                                     <input type="submit" name="submit" value="Save"/>
                                 </td>
                             </tr>
-
-                            <tr>
-                                <td align="left">
-                                    <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_OF_USE_TYPE_ID%>"><%=err%></tc-webtag:errorIterator>
+														
+														<tr>
+                                <td align="left" colspan="2">
+                                    <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_OF_USE_TITLE%>"><%=err%></tc-webtag:errorIterator>
                                 </td>
                             </tr>
 
                             <tr>
+                            		<td>Title</td>
+                                <td align="left">
+                                    <tc-webtag:textInput name="<%=Constants.TERMS_OF_USE_TITLE%>" size="30" maxlength="50" />
+                                </td>
+                            </tr>
+														
+                            <tr>
+                            		
+                                <td align="left" colspan="2">
+                                    <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_OF_USE_TYPE_ID%>"><%=err%></tc-webtag:errorIterator>
+                                </td>
+                            </tr>
+														<tr>
+																<td>Type</td>
                                 <td align="left">
                                     <tc-webtag:rscSelect name="<%=Constants.TERMS_OF_USE_TYPE_ID%>" list='<%=(ResultSetContainer)request.getAttribute("terms_of_use_type_list")%>' fieldText="terms_of_use_type_desc" fieldValue="terms_of_use_type_id"/>
                                 </td>
                             </tr>
 
                             <tr>
-                                <td align="left">
+                                <td align="left" colspan="2">
                                     <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS%>"><%=err%></tc-webtag:errorIterator>
                                 </td>
                             </tr>
 
+														<tr>
+																<td colspan="2">Terms Text</td>
+													  </tr>
+													  
                             <tr>
-                                <td align="left">
+                                <td colspan="2" align="left">
                                     <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="40" cols="120"/>
                                 </td>
                             </tr>
                             
                             <tr>
-                                <td align="left">
-                                    <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_OF_USE_TITLE%>"><%=err%></tc-webtag:errorIterator>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td align="left">
-                                    <tc-webtag:textInput name="<%=Constants.TERMS_OF_USE_TITLE%>" size="30" maxlength="50" />
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td align="center">
+                                <td align="center" colspan="2">
                                     <input type="submit" name="submit" value="Save"/>
                                 </td>
                             </tr>
