@@ -240,7 +240,7 @@ public class TermsOfUseBean extends BaseEJB {
 
             rs = ps.executeQuery();
             if (rs.next()) {
-                text = rs.getString(1);
+                title = rs.getString(1);
             } else {
                 throw(new EJBException("No rows found when selecting from " +
                         "'terms_of_use' with terms_of_use_id=" +
@@ -360,7 +360,7 @@ public class TermsOfUseBean extends BaseEJB {
 
             conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, electronicallySignable == 1);
+            ps.setInt(1, electronicallySignable ? 1 : 0);
             ps.setLong(2, termsOfUseId);
 
             int rc = ps.executeUpdate();
