@@ -60,7 +60,7 @@
 
                             <tr>
                                 <td align="left">
-                                    <tc-webtag:textInput name="<%=Constants.TERMS_OF_USE_TITLE%>" rows="40" cols="120"/>
+                                    <tc-webtag:textInput name="<%=Constants.TERMS_OF_USE_TITLE%>" size="30" maxlength="50" />
                                 </td>
                             </tr>
                             
