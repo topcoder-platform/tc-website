@@ -20,5 +20,17 @@ public interface TermsOfUse extends EJBObject {
 
     void setText(long termsOfUseId, String text, String dataSource)
             throws EJBException, RemoteException;
-
+    
+    String getTitle(long termsOfUseId, String dataSource)
+    		throws EJBException, RemoteException;
+    
+    void setTitle(long termsOfUseId, String _title, String dataSource)
+    		throws EJBException, RemoteException;
+    
+    boolean isElectronicallySignable(long termsOfUseId, String dataSource)
+    		throws EJBException, RemoteException;
+    
+    void setElectronicallySignable(long termsOfUseId,
+			boolean electronicallySignable, String dataSource)
+        	throws EJBException, RemoteException;
 }

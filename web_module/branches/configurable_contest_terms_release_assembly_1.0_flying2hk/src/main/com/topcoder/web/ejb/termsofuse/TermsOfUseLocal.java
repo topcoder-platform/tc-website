@@ -20,5 +20,13 @@ public interface TermsOfUseLocal extends EJBLocalObject {
     String getText(long termsOfUseId, String dataSource);
 
     void setText(long termsOfUseId, String text, String dataSource);
+    
+    String getTitle(long termsOfUseId, String dataSource);
 
+    void setTitle(long termsOfUseId, String _title, String dataSource);
+
+    boolean isElectronicallySignable(long termsOfUseId, String dataSource);
+
+    void setElectronicallySignable(long termsOfUseId,
+    								boolean electronicallySignable, String dataSource);
 }

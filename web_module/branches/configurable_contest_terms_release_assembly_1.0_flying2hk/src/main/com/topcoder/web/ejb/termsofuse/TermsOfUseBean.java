@@ -261,7 +261,7 @@ public class TermsOfUseBean extends BaseEJB {
         return (title);
     }
 
-		public void setTitle(long termsOfUseId, String _title, String dataSource)
+	public void setTitle(long termsOfUseId, String _title, String dataSource)
             throws EJBException {
 
         Connection conn = null;
@@ -344,7 +344,7 @@ public class TermsOfUseBean extends BaseEJB {
     }
 
     public void setElectronicallySignable(long termsOfUseId,
-                                    boolean electronicallySignable, String dataSource)
+    			boolean electronicallySignable, String dataSource)
             throws EJBException {
 
         Connection conn = null;
