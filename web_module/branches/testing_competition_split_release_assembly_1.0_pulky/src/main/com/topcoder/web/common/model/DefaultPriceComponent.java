@@ -177,8 +177,10 @@ public class DefaultPriceComponent implements SoftwareComponent {
                                                                    int submissionsPassedScreening) {
         if (phaseId == DESIGN_PHASE || phaseId == DEV_PHASE) {
             return new ComponentReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
+        } else if (phaseId == ASSEMBLY_PHASE) {
+            return new AssemblyReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == CONCEPTUALIZATION_PHASE || phaseId == SPECIFICATION_PHASE
-                   || phaseId == ARCHITECTURE_PHASE || phaseId == ASSEMBLY_PHASE
+                   || phaseId == ARCHITECTURE_PHASE
                    || phaseId == TEST_SUITES_PHASE || phaseId == TEST_SCENARIOS_PHASE) {
             return new ApplicationReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == UI_PROTOTYPE_PHASE || phaseId == RIA_BUILD_PHASE ||

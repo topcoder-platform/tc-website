@@ -85,10 +85,21 @@
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title">Overview</h2>
-                                                                <p>The TCO09 Finals will take place on June 1-4, 2009 at The Mirage Las Vegas.  Mark your calendars, start practicing, set your aspirations high, and get your travel documents ready!  We don't want you to miss it!</p>
-                                                                <%-- <p>Registration is open now for the TCO so <a href="/tco09?module=ViewUnifiedRegistration">register now!</a></p> --%>
-                                                                <p>It is important that you read the <a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=rules&d5=tco09">official rules and regulations</a> for the competition in which you are going to compete for more details before signing up.</p>
-                                                                <p>The competition is free and you must be a member 18 years or older, as well as meet the eligibility criteria, in order to compete.</p>
+                                                                <p>The 2009 TopCoder Open is now complete.  Congratulations to all champions!</p>
+                                                                <p><img src="/i/tournament/tco09/winners/tco09-winner-all.png" alt="TCO09 Champions" /></p>
+                                                                <p>Algorithm Champion: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=22675094" target="_blank">crazyb0y</a><br />
+                                                                  Architecture Champion: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=310233" target="_blank">Standlove</a><br />
+                                                                  Assembly Champion: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=14882871" target="_blank">pulky</a><br />
+                                                                  Component Design Champion: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=21932422" target="_blank">saarixx</a><br />
+                                                                  Component Development Champion: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=20076717" target="_blank">assistant</a><br />
+                                                                  Marathon Champion: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=15805598" target="_blank">KOTEHOK</a><br />
+                                                                  Mod Dash Champion: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=9998760" target="_blank">PE</a><br />
+                                                                  Specification Champion: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=252022" target="_blank">AleaActaEst</a><br />
+                                                                Studio Champion: <a href="http://studio.topcoder.com/?module=ViewMemberProfile&amp;ha=djnapier" target="_blank">djnapier</a></p>
+                                                                <p>Thanks to the TopCoder staff and members for another awesome event!</p>
+                                                                <p>If you missed anything, check out the  <a href="http://www.topcoder.com/tco09/blog/">TCO09 Blog,</a> <a href="http://www.topcoder.com/tco09/blog/photos/">photos</a> and <a href="http://www.topcoder.com/tco09/blog/movies/">videos</a>.</p>
+                                                                <p>Many of the TopCoder and Sponsor roundtables were <a href="http://www.topcoder.com/tco09/blog/livevideo/">streamed live</a>, including a Q&A with TopCoder founder, Jack Hughes - so check out the archived versions!</p>
+                                                                <p>We hope all competitors enjoyed the TCO09!</p>
                                                             </div>
                                                         </div>                                                      
                                                     </div><!-- End #mainContentInner -->

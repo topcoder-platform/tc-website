@@ -29,8 +29,22 @@ import java.util.Date;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.2 (BUGR-1755/1756) Change notes:
+ *   <ol>
+ *     <li>Added submission id parameter to redirect to full preview page.</li>
+ *   </ol>
+ * </p>
+ *
+ * <p>
+ *   Version 1.3 (BUGR-1915) Change notes:
+ *   <ol>
+ *     <li><code>PAGE_SIZE_ALL</code> was made public so that it could be used from other processors.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, isv, pulky
- * @version 1.1
+ * @version 1.3
  */
 public class ViewSubmissions extends ShortHibernateProcessor {
 
@@ -39,7 +53,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
      *
      * @since 1.1
      */
-    private static final String PAGE_SIZE_ALL = "0";
+    public static final String PAGE_SIZE_ALL = "0";
 
     /**
      * <p>This method is the responsible for performing page's logic.</p>
@@ -170,7 +184,19 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         SortInfo s = new SortInfo();
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
-        setNextPage("/submissions.jsp");
+        Long submissionId = 0l;
+        try {
+            submissionId = new Long(getRequest().getParameter(Constants.SUBMISSION_ID));
+        } catch (NumberFormatException e) {
+            // if the submission id is invalid, just ignore it.
+        }
+
+        if (submissionId > 0) {
+            getRequest().setAttribute(Constants.SUBMISSION_ID, submissionId);
+            setNextPage("/fullSizeSubmission.jsp");
+        } else {
+            setNextPage("/submissions.jsp");
+        }
         setIsNextPageInContext(true);
     }
 }
