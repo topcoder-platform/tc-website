@@ -2,6 +2,8 @@
                  com.topcoder.web.admin.Constants" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <html>
 <head>
@@ -40,7 +42,8 @@
                         <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>"
                                                                      name="terms_of_use_type_desc"/></td>
                         <td class="<%=even?"even":"odd"%>"><%=terms.getIntItem("electronically_signable") == 1 ? "Yes" : "No" %></td>
-                        <td class="<%=even?"even":"odd"%>"><%=terms.getStringItem("url") == null ? "" : terms.getStringItem("url")%></td>
+                        <c:set value="<%=terms.getStringItem("url") == null ? "" : terms.getStringItem("url")%>" var="termsURL"/>
+                        <td class="<%=even?"even":"odd" %>"><tc-webtag:ifLink text="<%=termsURL%>" link="<%=termsURL %>" useLink="<%=!"".equals(termsURL) %>" /></td>
                         <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="create_date"
                                                                      format="MM.dd.yyyy HH:mm:ss"/></td>
                         <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="modify_date"
