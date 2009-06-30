@@ -44,7 +44,7 @@
                         <td class="<%=even?"even":"odd"%>"><%=terms.getIntItem("electronically_signable") == 1 ? "Yes" : "No" %></td>
                         <td class="<%=even?"even":"odd" %>">
                             <tc-webtag:ifLink text="<%=terms.getStringItem("url") == null ? "" :  terms.getStringItem("url")%>"
-                                link="<%=terms.getStringItem("url") == null ? "" :  terms.getStringItem("url")%>" useLink="<%= terms.getStringItem("url") != null%>" />
+                                link="<%=terms.getStringItem("url") == null ? "" :  terms.getStringItem("url")%>" useLink="<%= String.valueOf(terms.getStringItem("url") != null)%>" />
                         </td>
                         <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="create_date"
                                                                      format="MM.dd.yyyy HH:mm:ss"/></td>
