@@ -74,11 +74,6 @@
                             <tr>
                                 <td>URL</td>
                                 <td align="left">
-                                    <tc-webtag:rscSelect name="<%=Constants.TERMS_OF_USE_URL%>" list='<%=(ResultSetContainer)request.getAttribute("terms_of_use_type_list")%>' fieldText="terms_of_use_type_desc" fieldValue="terms_of_use_type_id"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="left" colspan="2">
                                     <tc-webtag:textInput name="<%=Constants.TERMS_OF_USE_URL%>" size="30" maxlength="100" />
                                 </td>
                             </tr>
