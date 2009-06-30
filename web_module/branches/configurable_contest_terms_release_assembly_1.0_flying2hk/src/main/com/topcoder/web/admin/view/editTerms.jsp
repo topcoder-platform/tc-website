@@ -62,7 +62,7 @@
                             <tr>
                                 <td>Electronically Signable</td>
                                 <td align="left">
-                                    <tc-webtag:chkBox name="<%=Constants.TERMS_OF_USE_ELECTRONICALLY_SIGNABLE%>" value="true" />
+                                    <tc-webtag:chkBox name="<%=Constants.TERMS_OF_USE_ELECTRONICALLY_SIGNABLE%>" />
                                 </td>
                             </tr>
 

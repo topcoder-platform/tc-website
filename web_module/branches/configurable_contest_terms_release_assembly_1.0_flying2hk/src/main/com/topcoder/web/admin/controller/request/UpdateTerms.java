@@ -33,13 +33,13 @@ public class UpdateTerms extends EditTerms {
         	
         	if ("".equals(ttId)) {
         		addError(Constants.TERMS_OF_USE_TYPE_ID, "You must choose a terms of use type");
-        		loadTermsTypeList();
         	}
         	if (!"on".equals(electronicallySignable) && "".equals(url)) {
         		addError(Constants.TERMS_OF_USE_URL,
         				"You must set the terms download URL if 'Electronically Signable' is off.");
         	}
             if (hasErrors()) {
+            	loadTermsTypeList();
                 setDefault(Constants.TERMS_OF_USE_TYPE_ID, ttId);
                 setDefault(Constants.TERMS_OF_USE_ID, tId);
                 setDefault(Constants.TERMS, termsText);
