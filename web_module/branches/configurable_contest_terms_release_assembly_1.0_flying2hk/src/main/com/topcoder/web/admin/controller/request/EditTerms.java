@@ -21,7 +21,7 @@ public class EditTerms extends Base {
                     String.valueOf(termsOfUse.getTermsOfUseTypeId(Long.parseLong(tId), DBMS.OLTP_DATASOURCE_NAME)));
             setDefault("terms", termsOfUse.getText(Long.parseLong(tId), DBMS.OLTP_DATASOURCE_NAME));
             setDefault(Constants.TERMS_OF_USE_TITLE, termsOfUse.getTitle(Long.parseLong(tId), DBMS.OLTP_DATASOURCE_NAME));
-            setDefault(Constants.ELECTRONICALLY_SIGNABLE,
+            setDefault(Constants.TERMS_OF_USE_ELECTRONICALLY_SIGNABLE,
             				String.valueOf(termsOfUse.isElectronicallySignable(Long.parseLong(tId), DBMS.OLTP_DATASOURCE_NAME)));
         }
         loadTermsTypeList();

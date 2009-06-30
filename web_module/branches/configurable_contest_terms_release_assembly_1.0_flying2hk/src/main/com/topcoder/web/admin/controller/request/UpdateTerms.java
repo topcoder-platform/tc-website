@@ -19,23 +19,34 @@ import javax.transaction.TransactionManager;
 public class UpdateTerms extends EditTerms {
 
     protected void businessProcessing() throws Exception {
-        String tId = getRequest().getParameter(Constants.TERMS_OF_USE_ID);
-        String termsText = getRequest().getParameter(Constants.TERMS);
-        String title = getRequest().getParameter(Constants.TERMS_OF_USE_TITLE);
-        
+        String tId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
+        String termsText = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS));
+        String title = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_TITLE));
+        String url = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_URL));
+        String electronicallySignable = StringUtils.checkNull(
+        		getRequest().getParameter(Constants.TERMS_OF_USE_ELECTRONICALLY_SIGNABLE));
+
         String ttId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_TYPE_ID));
 
         TransactionManager tm = null;
         try {
-
-            if (ttId.equals("")) {
-                addError(Constants.TERMS_OF_USE_TYPE_ID, "You must choose a terms of use type");
-                loadTermsTypeList();
-                log.debug("defaut type is " + ttId);
+        	
+        	if ("".equals(ttId)) {
+        		addError(Constants.TERMS_OF_USE_TYPE_ID, "You must choose a terms of use type");
+        		loadTermsTypeList();
+        	}
+        	if (!"on".equals(electronicallySignable) && "".equals(url)) {
+        		addError(Constants.TERMS_OF_USE_URL,
+        				"You must set the terms download URL if 'Electronically Signable' is off.");
+        	}
+            if (hasErrors()) {
                 setDefault(Constants.TERMS_OF_USE_TYPE_ID, ttId);
                 setDefault(Constants.TERMS_OF_USE_ID, tId);
                 setDefault(Constants.TERMS, termsText);
                 setDefault(Constants.TERMS_OF_USE_TITLE, title);
+                setDefault(Constants.TERMS_OF_USE_URL, url);
+                setDefault(Constants.TERMS_OF_USE_ELECTRONICALLY_SIGNABLE, String.valueOf("on".equals(electronicallySignable)));
+
                 setNextPage("/editTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
@@ -51,6 +62,10 @@ public class UpdateTerms extends EditTerms {
                 termsOfUse.setText(termsOfUseId, termsText, DBMS.JTS_OLTP_DATASOURCE_NAME);
                 termsOfUse.setTermsOfUseTypeId(termsOfUseId, Long.parseLong(ttId), DBMS.JTS_OLTP_DATASOURCE_NAME);
                 termsOfUse.setTitle(termsOfUseId, title, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                termsOfUse.setURL(termsOfUseId, url, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                termsOfUse.setElectronicallySignable(termsOfUseId, "on".equals(electronicallySignable),
+                		DBMS.JTS_OLTP_DATASOURCE_NAME);
+
                 tm.commit();
 
                 SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);

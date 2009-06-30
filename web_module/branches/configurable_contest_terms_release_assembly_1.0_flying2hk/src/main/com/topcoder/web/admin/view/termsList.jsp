@@ -37,13 +37,10 @@
                                 href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditTerms&<%=Constants.TERMS_OF_USE_ID%>=<rsc:item row="<%=terms%>" name="terms_of_use_id"/>">edit</a>
                             <rsc:item row="<%=terms%>" name="terms_of_use_id"/></td>
                         <td class="<%=even?"even":"odd"%>"><%=terms.getStringItem("title")%></td>
-                        <%--
-                        <td class="<%=even?"even":"odd"%>"><%=terms.getStringItem("terms_text")  != null && terms.getStringItem("terms_text").length() > 50 ? terms.getStringItem("terms_text").substring(0, 50) : terms.getStringItem("terms_text")%></td>
-												--%>
                         <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>"
                                                                      name="terms_of_use_type_desc"/></td>
-                        <td class="<%=even?"even":"odd"%>"></td>
-                        <td class="<%=even?"even":"odd"%>"><%=terms.getStringItem("url")%></td>
+                        <td class="<%=even?"even":"odd"%>"><%=terms.getIntItem("electronically_signable") == 1 ? "Yes" : "No" %></td>
+                        <td class="<%=even?"even":"odd"%>"><%=terms.getStringItem("url") == null ? "" : terms.getStringItem("url")%></td>
                         <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="create_date"
                                                                      format="MM.dd.yyyy HH:mm:ss"/></td>
                         <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="modify_date"
