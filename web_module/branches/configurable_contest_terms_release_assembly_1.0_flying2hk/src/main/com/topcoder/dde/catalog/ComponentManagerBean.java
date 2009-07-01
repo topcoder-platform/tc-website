@@ -2495,6 +2495,7 @@ public class ComponentManagerBean
     }
     
     private void populateTerms(long projectId) throws CatalogException {
+    	log.debug("populateTerms : projectId=" + projectId);
     	try {
 			ProjectRoleTermsOfUse prTermsOfUse = projectRoleTermsOfUseHome.create();
 			prTermsOfUse.createProjectRoleTermsOfUse(projectId, SUBMITTER_ROLE, Constants.PROJECT_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
@@ -2505,10 +2506,14 @@ public class ComponentManagerBean
 			prTermsOfUse.createProjectRoleTermsOfUse(projectId, AGGREGATOR_REVIEWER_ROLE, Constants.REVIEWER_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
 			prTermsOfUse.createProjectRoleTermsOfUse(projectId, FINAL_REVIEWER_ROLE, Constants.REVIEWER_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
 		} catch (RemoteException e) {
+			log.error(e.toString());
 			ejbContext.setRollbackOnly();
+			
             throw new CatalogException(e.toString());
 		} catch (CreateException e) {
+			log.error(e.toString());
 			ejbContext.setRollbackOnly();
+			
             throw new CatalogException(e.toString());
 		}
     }

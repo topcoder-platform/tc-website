@@ -19,10 +19,10 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
 			long termsOfUseId, String dataSource) throws EJBException {
 		Connection conn = null;
         PreparedStatement ps = null;
-
+        
         InitialContext ctx = null;
         try {
-
+        	log.debug("enter ProjectRoleTermsOfUseBean.createProjectRoleTermsOfUse");
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
             query.append("INTO project_role_terms_of_use_xref (project_id, resource_role_id, terms_of_use_id) ");
@@ -40,6 +40,7 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
                         "'project_role_terms_of_use_xref'. Inserted " + rc + ", " +
                         "should have inserted 1."));
             }
+            log.debug("exit ProjectRoleTermsOfUseBean.createProjectRoleTermsOfUse");
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
