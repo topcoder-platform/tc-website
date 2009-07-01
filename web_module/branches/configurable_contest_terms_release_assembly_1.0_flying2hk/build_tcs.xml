@@ -33,9 +33,9 @@
 
     <property environment="env"/>
     <property name="jboss.home.dir" value="../jboss-4.0.2"/>
-    <property name="jboss.deploy.dir" value="${jboss.home.dir}/server/default/deploy"/>
-    <property name="jboss.lib.dir" value="${jboss.home.dir}/server/default/lib"/>
-    <property name="jboss.conf.dir" value="${jboss.home.dir}/server/default/conf"/>
+    <property name="jboss.deploy.dir" value="../jboss-4.0.2/server/default/deploy"/>
+    <property name="jboss.lib.dir" value="../jboss-4.0.2/server/default/lib"/>
+    <property name="jboss.conf.dir" value="../jboss-4.0.2/server/default/conf"/>
 
     <property name="deprecation" value="false"/>
     <property name="debug" value="true"/>
