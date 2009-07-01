@@ -4,5 +4,5 @@ import javax.ejb.CreateException;
 import javax.ejb.EJBLocalHome;
 
 public interface ProjectRoleTermsOfUseLocalHome extends EJBLocalHome {
-	ProjectRoleTermsOfUse create() throws CreateException;
+	ProjectRoleTermsOfUseLocal create() throws CreateException;
 }
