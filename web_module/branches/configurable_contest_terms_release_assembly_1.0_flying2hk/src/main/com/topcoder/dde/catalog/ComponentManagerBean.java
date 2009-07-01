@@ -24,6 +24,7 @@ import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.security.policy.PolicyRemoteHome;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
@@ -31,7 +32,9 @@ import com.topcoder.util.config.ConfigManagerInterface;
 import com.topcoder.util.errorhandling.BaseException;
 import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.ejb.forums.ForumsHome;
-
+import com.topcoder.web.ejb.project.ProjectRoleTermsOfUse;
+import com.topcoder.web.ejb.project.ProjectRoleTermsOfUseHome;
+import com.topcoder.web.tc.Constants;
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.ejb.FinderException;
@@ -93,6 +96,16 @@ public class ComponentManagerBean
     private static final long JAVA_CAT = 5801776;
     private static final long NET_CAT = 5801777;
 
+    // Resource Role constants
+    private static final long SUBMITTER_ROLE = 1;
+    private static final long PRIMARY_SCREENER_ROLE = 2;
+    private static final long SCREENER_ROLE = 3;
+    private static final long REVIEWER_ROLE = 4;
+    private static final long ACCURACY_REVIWER_ROLE = 5;
+    private static final long FAILURE_REVIEWER_ROLE = 6;
+    private static final long STRESS_REVIEWER_ROLE = 7;
+    private static final long AGGREGATOR_REVIEWER_ROLE = 8;
+    private static final long FINAL_REVIEWER_ROLE = 9;
     /*
      * The following field declarations should be private, but a bug in JBoss
      * prevents stateful session beans from being passivated and activated
@@ -125,6 +138,8 @@ public class ComponentManagerBean
     public PolicyRemoteHome policyHome;
     public ProjectTrackerV2Home projectTrackerHome;
     public DocumentManagerHome documentManagerHome;
+    public ProjectRoleTermsOfUseHome projectRoleTermsOfUseHome;
+    
     public long componentId;
     public long versionId;
     public long version;
@@ -213,6 +228,9 @@ public class ComponentManagerBean
         documentManagerHome = (DocumentManagerHome) PortableRemoteObject.narrow(
                 homeBindings.lookup(DocumentManagerHome.EJB_REF_NAME),
                 DocumentManagerHome.class);
+        projectRoleTermsOfUseHome = (ProjectRoleTermsOfUseHome) PortableRemoteObject.narrow(
+                homeBindings.lookup(ProjectRoleTermsOfUseHome.EJB_REF_NAME),
+                ProjectRoleTermsOfUseHome.class);
     }
 
     public void ejbCreate(long componentId) throws CreateException {
@@ -687,7 +705,7 @@ public class ComponentManagerBean
             throw new CatalogException(exception.toString());
         }
     }
-
+    
     public void updateVersionInfo(ComponentVersionInfo info, TCSubject requestor, long levelId)
             throws CatalogException {
 
@@ -922,6 +940,9 @@ public class ComponentManagerBean
                         info.getPrice());
 
 
+                // populate default terms (TCS-95)
+                populateTerms(projectId);
+                
                 if (categoryID >= 0) {
                     log.debug("New category created, adding PM to notification. New category: " + categoryID);
 
@@ -2471,5 +2492,24 @@ public class ComponentManagerBean
             throw new CatalogException(e.toString());
         }
         return forumsBean;
+    }
+    
+    private void populateTerms(long projectId) throws CatalogException {
+    	try {
+			ProjectRoleTermsOfUse prTermsOfUse = projectRoleTermsOfUseHome.create();
+			prTermsOfUse.createProjectRoleTermsOfUse(projectId, SUBMITTER_ROLE, Constants.PROJECT_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
+			prTermsOfUse.createProjectRoleTermsOfUse(projectId, PRIMARY_SCREENER_ROLE, Constants.REVIEWER_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
+			prTermsOfUse.createProjectRoleTermsOfUse(projectId, ACCURACY_REVIWER_ROLE, Constants.REVIEWER_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
+			prTermsOfUse.createProjectRoleTermsOfUse(projectId, FAILURE_REVIEWER_ROLE, Constants.REVIEWER_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
+			prTermsOfUse.createProjectRoleTermsOfUse(projectId, STRESS_REVIEWER_ROLE, Constants.REVIEWER_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
+			prTermsOfUse.createProjectRoleTermsOfUse(projectId, AGGREGATOR_REVIEWER_ROLE, Constants.REVIEWER_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
+			prTermsOfUse.createProjectRoleTermsOfUse(projectId, FINAL_REVIEWER_ROLE, Constants.REVIEWER_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
+		} catch (RemoteException e) {
+			ejbContext.setRollbackOnly();
+            throw new CatalogException(e.toString());
+		} catch (CreateException e) {
+			ejbContext.setRollbackOnly();
+            throw new CatalogException(e.toString());
+		}
     }
 }
