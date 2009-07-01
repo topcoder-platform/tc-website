@@ -141,7 +141,6 @@
             <include name="com/topcoder/security/**"/>
             <exclude name="com/topcoder/apps/screening/**"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
-            <include name="com/topcoder/web/ejb/project/**"/>
         </javac>
     </target>
 
