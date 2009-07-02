@@ -1,3 +1,12 @@
+<%--
+  - Author: TCSDEVELOPER, pulky
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays the reliability details page.
+  -
+  - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
+--%>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -57,9 +66,9 @@
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_architecture_competitions"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.APPLICATION_TESTING_PHASE) { %>
+    <% } else if(phaseId == SoftwareComponent.TEST_SUITES_PHASE) { %>
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="m_testing_competitions"/>
+                <jsp:param name="node" value="m_test_suites_competitions"/>
             </jsp:include>
     <% } %>
     <!-- Left nav ends -->
@@ -72,7 +81,7 @@
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="comp_design"/>
                 <jsp:param name="title" value="Reliability Detail"/>
-            </jsp:include>   
+            </jsp:include>
     <% } else if(phaseId == SoftwareComponent.DEV_PHASE) { %>
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="comp_development"/>
@@ -98,9 +107,9 @@
                 <jsp:param name="image" value="architecture"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.APPLICATION_TESTING_PHASE) { %>
+    <% } else if(phaseId == SoftwareComponent.TEST_SUITES_PHASE) { %>
             <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="app_testing"/>
+                <jsp:param name="image" value="test_suites"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
     <% } %>
@@ -108,7 +117,7 @@
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/></span>
 <br>
     <% if(phaseId == SoftwareComponent.DESIGN_PHASE) { %>
-            <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>  
+            <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
     <% } else if(phaseId == SoftwareComponent.DEV_PHASE) { %>
             <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
     <% } else if(phaseId == SoftwareComponent.ASSEMBLY_PHASE ) { %>
@@ -119,8 +128,8 @@
             <span class="bodySubtitle">Specification Statistics&#160;>&#160;</span><br>
     <% } else if(phaseId == SoftwareComponent.ARCHITECTURE_PHASE) { %>
             <span class="bodySubtitle">Architecture Statistics&#160;>&#160;</span><br>
-    <% } else if(phaseId == SoftwareComponent.APPLICATION_TESTING_PHASE) { %>
-            <span class="bodySubtitle">Application Testing Statistics&#160;>&#160;</span><br>
+    <% } else if(phaseId == SoftwareComponent.TEST_SUITES_PHASE) { %>
+            <span class="bodySubtitle">Test Suites Statistics&#160;>&#160;</span><br>
     <% } %>
                 <span class="bc">
                 <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
@@ -146,7 +155,7 @@
                     Component
             <% } else { %>
                     Application
-            <% } %>    
+            <% } %>
         </td>
         <td class="headerR" width="20%">
             Reliability Before
@@ -171,7 +180,7 @@
                 <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/>
             <% } else { %>
                 Application
-            <% } %> 
+            <% } %>
             </td>
             <td class="value">
                 <% if (resultRow.getIntItem("viewable") == 1) { %>
@@ -209,7 +218,7 @@
             <% } else { %>
             <div class="bodySubtitle" align="center">Have a question about
     <A href="/wiki/display/tc/Component+Application+Reliability+Ratings">reliability ratings</A>?</div>
-            <% } %> 
+            <% } %>
 <p><br/></p>
 
 
