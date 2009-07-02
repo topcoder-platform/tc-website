@@ -1,3 +1,12 @@
+<%--
+  - Author: TCSDEVELOPER, pulky
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays the member profile page.
+  -
+  - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
+--%>
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,com.topcoder.shared.util.ApplicationServer,
           com.topcoder.web.common.StringUtils, com.topcoder.web.common.WebConstants"%>
@@ -12,7 +21,7 @@
 <title>TopCoder Member Profile</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    
+
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
@@ -133,7 +142,7 @@ This member has not yet been rated in a competition.
                 not rated
             <%}%>
             </td></tr>
-            <tr><td class="cat" nowrap="nowrap">Application Testing Rating:</td><td class="stat" align="right">
+            <tr><td class="cat" nowrap="nowrap">Test Suites Rating:</td><td class="stat" align="right">
             <%if(rscCoderData.getStringItem(0, "test_rating") != null) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "test_rating")%>'>
                 <rsc:item name="test_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
@@ -244,9 +253,9 @@ This member has not yet been rated in a competition.
 <% } else if(tab.equals("test")) { %> <!-- Member Profile Enhancment -->
 <jsp:include page="memberProfileTabs.jsp" />
 <jsp:include page="memberProfileTabTrack.jsp">
-   <jsp:param name="track" value="Application Testing"/>
+   <jsp:param name="track" value="Test Suites"/>
    <jsp:param name="competition_type" value="test"/>
-   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_APPLICATION_TESTING %>"/>
+   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_TEST_SUITES %>"/>
 </jsp:include>
 <% } else if(tab.equals("long")) { %>
 <jsp:include page="memberProfileTabs.jsp" />

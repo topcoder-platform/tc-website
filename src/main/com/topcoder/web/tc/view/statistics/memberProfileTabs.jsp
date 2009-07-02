@@ -1,3 +1,12 @@
+<%--
+  - Author: TCSDEVELOPER, pulky
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays member profile tabs
+  -
+  - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
+--%>
 <%
    boolean isRegHS = ((Boolean)request.getAttribute("registeredHS")).booleanValue();
    boolean isRatedAlg = ((Boolean)request.getAttribute("hasAlg")).booleanValue();
@@ -38,7 +47,7 @@
       <% } else { %>
       <div class="tabLinkNA">Algorithm</div>
       <% } %>
-      </td>      
+      </td>
 
       <% if (isRegHS) {%>
          <td>
@@ -66,7 +75,7 @@
       <div class="tabLinkNA">Conceptualization</div>
       <% } %>
       </td>
-      
+
       <!-- Member Profile Enhancement  -->
       <td>
       <% if (isRatedSpec) {%>
@@ -79,7 +88,7 @@
       <div class="tabLinkNA">Specification</div>
       <% } %>
       </td>
-      
+
       <!-- Member Profile Enhancement  -->
       <td>
       <% if (isRatedArch) {%>
@@ -92,7 +101,7 @@
       <div class="tabLinkNA">Architecture</div>
       <% } %>
       </td>
-      
+
       <td>
       <% if (isRatedDes) {%>
          <% if (selectedTab.equals("des")) {%>
@@ -115,7 +124,7 @@
       <div class="tabLinkNA">Development</div>
       <% } %>
       </td>
-      
+
       <!-- Member Profile Enhancement  -->
       <td>
       <% if (isRatedAssembly) {%>
@@ -128,20 +137,20 @@
       <div class="tabLinkNA">Assembly</div>
       <% } %>
       </td>
-      
+
       <!-- Member Profile Enhancement  -->
       <td>
       <% if (isRatedTest) {%>
          <% if (selectedTab.equals("test")) {%>
-         <A class="tabLinkOn" href="/tc?module=MemberProfile&tab=test&cr=<%=coderId%>"><div>Application Testing</div></A>
+         <A class="tabLinkOn" href="/tc?module=MemberProfile&tab=test&cr=<%=coderId%>"><div>Test Suites</div></A>
          <% } else { %>
-         <A class="tabLinkOff" href="/tc?module=MemberProfile&tab=test&cr=<%=coderId%>"><div>Application Testing</div></A>
+         <A class="tabLinkOff" href="/tc?module=MemberProfile&tab=test&cr=<%=coderId%>"><div>Test Suites</div></A>
          <% } %>
       <% } else { %>
-      <div class="tabLinkNA">Application Testing</div>
+      <div class="tabLinkNA">Test Suites</div>
       <% } %>
       </td>
-      
+
       <td>
       <% if (isRatedLong) {%>
          <% if (selectedTab.equals("long")) {%>

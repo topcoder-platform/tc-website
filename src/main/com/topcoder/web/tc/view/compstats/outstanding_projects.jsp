@@ -1,3 +1,13 @@
+<%--
+  - Author: pulky
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page lists all outstanding projects.
+  -
+  - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
+  - and added support for new Test Scenarios competitions.
+--%>
 <%@ page
         language="java"
         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
@@ -27,7 +37,8 @@
 <c:set value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>" var="CONCEPTUALIZATION_PROJECT_TYPE"/>
 <c:set value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>" var="SPECIFICATION_PROJECT_TYPE"/>
 <c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_PROJECT_TYPE"/>
-<c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_PROJECT_TYPE"/>
+<c:set value="<%=Constants.TEST_SUITES_PROJECT_TYPE%>" var="TEST_SUITES_PROJECT_TYPE"/>
+<c:set value="<%=Constants.TEST_SCENARIOS_PROJECT_TYPE%>" var="TEST_SCENARIOS_PROJECT_TYPE"/>
 
 <BODY>
 <jsp:include page="../top.jsp"/>
@@ -71,9 +82,14 @@
                 <jsp:param name="node" value="m_architecture_competitions"/>
             </jsp:include>
         </c:when>
-        <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+        <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="m_testing_competitions"/>
+                <jsp:param name="node" value="m_test_suites_competitions"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_test_scenarios_competitions"/>
             </jsp:include>
         </c:when>
     </c:choose>
@@ -121,10 +137,16 @@
                 <jsp:param name="title" value="Architecture Competition History"/>
             </jsp:include>
         </c:when>
-        <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+        <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
-                <jsp:param name="image" value="app_testing"/>
-                <jsp:param name="title" value="Application Testing Competition History"/>
+                <jsp:param name="image" value="test_suites"/>
+                <jsp:param name="title" value="Test Suites Competition History"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="test_scenarios"/>
+                <jsp:param name="title" value="Test Scenarios Competition History"/>
             </jsp:include>
         </c:when>
     </c:choose>
@@ -150,8 +172,11 @@
         <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
             <span class="bodySubtitle">Architecture Statistics&#160;>&#160;</span><br>
         </c:when>
-        <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
-            <span class="bodySubtitle">Application Testing Statistics&#160;>&#160;</span><br>
+        <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
+            <span class="bodySubtitle">Test Suites Statistics&#160;>&#160;</span><br>
+        </c:when>
+        <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
+            <span class="bodySubtitle">Test Scenarios Statistics&#160;>&#160;</span><br>
         </c:when>
     </c:choose>
     <span class="bc">
@@ -177,7 +202,7 @@
         <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
             | <A HREF="/tc?module=ReliabilityDetail&ph=118&uid=${cr}" class="bcLink">Reliability Detail</A>
         </c:when>
-        <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+        <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
             | <A HREF="/tc?module=ReliabilityDetail&ph=124&uid=${cr}" class="bcLink">Reliability Detail</A>
         </c:when>
     </c:choose>
@@ -206,8 +231,11 @@
                 <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
                     <td class="title" colspan="10">Current Architecture
                 </c:when>
-                <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
-                    <td class="title" colspan="10">Current Application Testing
+                <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
+                    <td class="title" colspan="10">Current Test Suites
+                </c:when>
+                <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
+                    <td class="title" colspan="10">Current Test Scenarios
                 </c:when>
             </c:choose>
             Contests
@@ -215,7 +243,7 @@
         <tr>
             <c:if test="${pt == DEVELOPMENT_PROJECT_TYPE}">
                 <TD CLASS="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("type")%>" includeParams="true" excludeParams="sr" />" class="statLink">Type</a></td>
-            </c:if>               
+            </c:if>
             <TD CLASS="header">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Date</a>
             </TD>
@@ -252,7 +280,7 @@
             <tr class="<%=even?"dark":"light"%>">
                 <c:if test="${pt == DEVELOPMENT_PROJECT_TYPE}">
                     <TD CLASS="valueC"><strong><rsc:item name="type" row="<%=resultRow%>"/></strong></td>
-                </c:if>               
+                </c:if>
                 <TD class="value"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
                 <TD class="value">
                     <% if (resultRow.getItem("component_id").getResultData() != null && resultRow.getIntItem("viewable_category_ind") == 1) { %>

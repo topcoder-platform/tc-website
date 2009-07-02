@@ -1,12 +1,15 @@
 <%--
   - Author: pulky
-  - Version: 1.1
+  - Version: 1.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all active contests for a specific project type.
   -
-  - Version 1.1 (Studio Coding In Online Review) changes: added support for new UI Prototype, RIA Build and 
+  - Version 1.1 (Studio Coding In Online Review) changes: added support for new UI Prototype, RIA Build and
   - RIA Component competitions.
+  -
+  - Version 1.2 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites
+  - and added support for new Test Scenarios competitions.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -23,8 +26,8 @@
 <c:set value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>" var="CONCEPTUALIZATION_TYPE_ID"/>
 <c:set value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>" var="SPECIFICATION_TYPE_ID"/>
 <c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_TYPE_ID"/>
-<c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_TYPE_ID"/>
-
+<c:set value="<%=Constants.TEST_SUITES_PROJECT_TYPE%>" var="TEST_SUITES_TYPE_ID"/>
+<c:set value="<%=Constants.TEST_SCENARIOS_PROJECT_TYPE%>" var="TEST_SCENARIOS_TYPE_ID"/>
 <c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_TYPE_ID"/>
 <c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_TYPE_ID"/>
 <c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_TYPE_ID"/>
@@ -58,9 +61,14 @@
 <%-- Left Column Begins--%>
         <td width="180">
           <c:choose>
-            <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
+            <c:when test="${pt == TEST_SUITES_TYPE_ID}">
                 <jsp:include page="/includes/global_left.jsp">
-                    <jsp:param name="node" value="app_testing_compete"/>
+                    <jsp:param name="node" value="test_suites_compete"/>
+                </jsp:include>
+            </c:when>
+            <c:when test="${pt == TEST_SCENARIOS_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="test_scenarios_compete"/>
                 </jsp:include>
             </c:when>
             <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
@@ -106,9 +114,15 @@
         <td width="100%" align="left" class="bodyColumn">
 
       <c:choose>
-        <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
+        <c:when test="${pt == TEST_SUITES_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="app_testing"/>
+                <jsp:param name="image" value="test_suites"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == TEST_SCENARIOS_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="test_scenarios"/>
                 <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
         </c:when>
@@ -171,9 +185,14 @@
 
         <td align="right">
           <c:choose>
-            <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
-                <a href="/tc?module=Static&amp;d1=dev&amp;d2=testing&amp;d3=instructions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+            <c:when test="${pt == TEST_SUITES_TYPE_ID}">
+                <a href="/wiki/display/tc/How+to+Compete+in+Test+Suites+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
           		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE" /></a><br /><br />
+            </c:when>
+            <c:when test="${pt == TEST_SCENARIOS_TYPE_ID}">
+                <a href="/wiki/display/tc/How+to+Compete+in+Test+Scenarios+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+          <%--      <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor2"><img src="/i/tournament/tco09/tco09-snia-340x76.png" alt="SNIA XAM Initiative" /></a><br /><br />   --%>
+          <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron"><img src="/i/tournament/tco09/tco09-nsa-340x76.png" alt="NSA" /></a><br /><br />
             </c:when>
             <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
                 <a href="/wiki/display/tc/How+to+Compete+in+Architecture+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
@@ -210,13 +229,6 @@
 
 <div align="right" style="padding-top: 10px">
       <c:choose>
-    <%--
-        <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
-            Competition opportunities via RSS -
-            <a href="">Subscribe Now</a>
-            <a href=""><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
-        </c:when>
-    --%>
         <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
             Competition opportunities via RSS -
             <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28">Subscribe Now</a>
@@ -268,8 +280,11 @@
           </c:choose>
 
           <c:choose>
-            <c:when test="${pt == APPLICATION_TESTING_TYPE_ID}">
-                Active Application Testing Contests</td>
+            <c:when test="${pt == TEST_SUITES_TYPE_ID}">
+                Active Test Suites Contests</td>
+            </c:when>
+            <c:when test="${pt == TEST_SCENARIOS_TYPE_ID}">
+                Active Test Scenarios Contests</td>
             </c:when>
             <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
                 Active Software Architecture Contests</td>

@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax;
 
 import java.util.Map;
@@ -9,7 +12,19 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
- * @author  cucu
+ * <strong>Purpose</strong>:
+ * A processor to select payment type reference
+ *
+ * <p>
+ *   Version 1.1 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites</li>
+ *     <li>Added support for new Test Scenarios competitions</li>
+ *   </ol>
+ * </p>
+ *
+ * @author cucu, pulky
+ * @version 1.1
  */
 public class SelectPaymentTypeReference extends BaseProcessor implements PactsConstants {
 
@@ -64,8 +79,10 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                             map = dib.findProjects("%" + search + "%", CONCEPTUALIZATION_PROJECT_CATEGORY_LU);
                         } else if (type == SPECIFICATION_CONTEST_PAYMENT) {
                             map = dib.findProjects("%" + search + "%", SPECIFICATION_PROJECT_CATEGORY_LU);
-                        } else if (type == TESTING_COMPETITION_PAYMENT) {
-                            map = dib.findProjects("%" + search + "%", APPLICATION_TESTING_PROJECT_CATEGORY_LU);
+                        } else if (type == TEST_SUITES_PAYMENT) {
+                            map = dib.findProjects("%" + search + "%", TEST_SUITES_PROJECT_CATEGORY_LU);
+                        } else if (type == TEST_SCENARIOS_PAYMENT) {
+                            map = dib.findProjects("%" + search + "%", TEST_SCENARIOS_PROJECT_CATEGORY_LU);
                         } else if (type == UI_PROTOTYPE_COMPETITION_PAYMENT) {
                             map = dib.findProjects("%" + search + "%", UI_PROTOTYPE_COMPETITION_PROJECT_CATEGORY_LU);
                         } else if (type == RIA_BUILD_COMPETITION_PAYMENT) {
