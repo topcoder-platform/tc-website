@@ -95,7 +95,7 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
         <div id="welcome_head">
             <h1>Welcome to TopCoder Studio!</h1>
 
-            <p>Show off your creative skills in a competitive environment and get paid for being the best!</p>
+            <p>Show off your creative skills in a competitive environment and get paid for being the best of the best!</p>
         </div>
         <div id="welcome_banner">
             <%-- default banner 
