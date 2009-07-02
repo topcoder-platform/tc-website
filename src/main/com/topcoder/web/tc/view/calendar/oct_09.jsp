@@ -116,7 +116,7 @@
       </td>
       <td class="value">20
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=13905">SRM 451</A></strong><br />
+         <strong><A href="/tc?module=MatchDetails&rd=13905">SRM 451</A> - <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron">NSA</a></strong><br />
          9:00 PM
          </div>       
       </td>
