@@ -28,7 +28,7 @@ public class UpdateTerms extends EditTerms {
         System.out.println("electro: " + StringUtils.checkNull(
                 getRequest().getParameter(Constants.TERMS_ELECTRONICALLY_SIGNABLE)));
         Integer termsElectronicallySignable  = StringUtils.checkNull(
-                getRequest().getParameter(Constants.TERMS_ELECTRONICALLY_SIGNABLE)).equals("true") ? 1 : 0;
+                getRequest().getParameter(Constants.TERMS_ELECTRONICALLY_SIGNABLE)).equals("on") ? 1 : 0;
         String termsUrl = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_URL));
         
         TransactionManager tm = null;
