@@ -52,8 +52,8 @@ public class TermsOfUseMigrationTool extends DBUtility {
                 psUpd = prepareStatement("common_oltp", "update terms_of_use set title = ? where terms_of_use_id = ?");
                 for (int i = 0; i < keys.size(); i++) {
                     psUpd.clearParameters();
-                    psUpd.setInt(1, keys.get(i));
-                    psUpd.setString(2, titles.get(i));
+                    psUpd.setString(1, titles.get(i));
+                    psUpd.setInt(2, keys.get(i));
     
                     psUpd.executeUpdate();
                 }
