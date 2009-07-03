@@ -138,6 +138,7 @@
             <include name="com/topcoder/project/**"/>
             <include name="com/topcoder/sql/**"/>
             <!--<include name="com/topcoder/util/**"/>-->
+            <include name="com/topcoder/web/tc/Constants" />
             <include name="com/topcoder/security/**"/>
             <exclude name="com/topcoder/apps/screening/**"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
