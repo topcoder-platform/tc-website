@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.termsofuse;
 
+import javax.ejb.EJBException;
 import javax.ejb.EJBLocalObject;
 
 /**
@@ -10,7 +11,11 @@ import javax.ejb.EJBLocalObject;
 public interface TermsOfUseLocal extends EJBLocalObject {
 
 
-    long createTermsOfUse(String dataSource, String idDataSource);
+//    long createTermsOfUse(String dataSource, String idDataSource);
+
+    TermsOfUseEntity updateTermsOfUse(String dataSource, TermsOfUseEntity terms);
+
+    TermsOfUseEntity getEntity(long termsOfUseId, String dataSource);
 
     long getTermsOfUseTypeId(long termsOfUseId, String dataSource);
 
