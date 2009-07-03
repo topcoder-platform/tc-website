@@ -53,7 +53,8 @@ public class LoginBean extends BaseEJB {
 
         //encode password
         String encPassword = Util.encodePassword(password, "users");
-
+        
+        logger.debug("Encoded Password: " + encPassword);
         String query =
                 "SELECT login_id FROM security_user " +
                 "WHERE user_id = ? AND password = ?";
@@ -67,6 +68,7 @@ public class LoginBean extends BaseEJB {
         try {
             ctx = new InitialContext();
             conn = Util.getConnection(ctx, dataSource);
+            logger.debug("dataSource = " + dataSource);
             ps1 = conn.prepareStatement(query);
             ps1.setString(1, username);
             ps1.setString(2, encPassword);
