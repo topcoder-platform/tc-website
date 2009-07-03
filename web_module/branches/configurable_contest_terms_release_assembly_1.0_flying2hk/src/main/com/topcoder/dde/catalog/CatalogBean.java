@@ -1759,12 +1759,12 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                             + exception.toString());
         }
 
-        try {
-            sendConfirmationEmail(request.getUserId());
-        } catch (DDEException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(exception.toString());
-        }
+//        try {
+//            sendConfirmationEmail(request.getUserId());
+//        } catch (DDEException exception) {
+//            ejbContext.setRollbackOnly();
+//            throw new CatalogException(exception.toString());
+//        }
 
         return generateSummary(newComponent, newVersion);
     }
