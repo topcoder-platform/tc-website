@@ -37,7 +37,7 @@ public class TermsOfUseMigrationTool extends DBUtility {
         List<String> titles = new ArrayList<String>();
 
         try {
-            psSel = prepareStatement("common_oltp", "SELECT terms_of_use_id, terms_text FROM terms_of_use");
+            psSel = prepareStatement("common_oltp", "SELECT terms_of_use_id, terms_text FROM terms_of_use where title is null");
             rs = psSel.executeQuery();
             while (rs.next()) {
                 String terms_text = DBMS.getTextString(rs, 2);
