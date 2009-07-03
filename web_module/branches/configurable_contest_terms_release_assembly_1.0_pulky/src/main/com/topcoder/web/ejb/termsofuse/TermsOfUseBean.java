@@ -17,7 +17,7 @@ public class TermsOfUseBean extends BaseEJB {
 
     private static final long serialVersionUID = 1L;
     
-    public TermsOfUseEntity updateTermsOfUse(String dataSource, TermsOfUseEntity terms) throws EJBException {
+    public TermsOfUseEntity updateTermsOfUse(TermsOfUseEntity terms, String dataSource) throws EJBException {
         
         // if the terms of use id is specified, it's an update
         boolean isUpdate = terms.getTermsOfUseId() != null;
@@ -119,6 +119,13 @@ public class TermsOfUseBean extends BaseEJB {
     }
 
     
+    /**
+     * @param termsOfUseId
+     * @param dataSource
+     * @return
+     * @throws EJBException
+     * @deprecated since 1.1
+     */
     public long getTermsOfUseTypeId(long termsOfUseId, String dataSource)
             throws EJBException {
 
@@ -162,6 +169,13 @@ public class TermsOfUseBean extends BaseEJB {
         return (termsOfuseTypeId);
     }
 
+    /**
+     * @param termsOfUseId
+     * @param termsOfUseTypeId
+     * @param dataSource
+     * @throws EJBException
+     * @deprecated since 1.1
+     */
     public void setTermsOfUseTypeId(long termsOfUseId,
                                     long termsOfUseTypeId, String dataSource)
             throws EJBException {
@@ -198,6 +212,13 @@ public class TermsOfUseBean extends BaseEJB {
         }
     }
 
+    /**
+     * @param termsOfUseId
+     * @param dataSource
+     * @return
+     * @throws EJBException
+     * @deprecated since 1.1
+     */
     public String getText(long termsOfUseId, String dataSource)
             throws EJBException {
 
@@ -242,6 +263,13 @@ public class TermsOfUseBean extends BaseEJB {
         return (text);
     }
 
+    /**
+     * @param termsOfUseId
+     * @param _text
+     * @param dataSource
+     * @throws EJBException
+     * @deprecated since 1.1
+     */
     public void setText(long termsOfUseId, String _text, String dataSource)
             throws EJBException {
 

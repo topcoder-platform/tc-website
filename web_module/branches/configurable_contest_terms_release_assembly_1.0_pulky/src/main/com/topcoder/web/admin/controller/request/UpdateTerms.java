@@ -25,6 +25,8 @@ public class UpdateTerms extends EditTerms {
         String ttId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_TYPE_ID));
 
         String termsTitle = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_TITLE));
+        System.out.println("electro: " + StringUtils.checkNull(
+                getRequest().getParameter(Constants.TERMS_ELECTRONICALLY_SIGNABLE)));
         Integer termsElectronicallySignable  = StringUtils.checkNull(
                 getRequest().getParameter(Constants.TERMS_ELECTRONICALLY_SIGNABLE)).equals("true") ? 1 : 0;
         String termsUrl = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_URL));
@@ -50,7 +52,7 @@ public class UpdateTerms extends EditTerms {
                 TermsOfUse termsOfUse = (TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class);
                 tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 tm.begin();
-                termsOfUse.updateTermsOfUse(DBMS.JTS_OLTP_DATASOURCE_NAME, terms);
+                termsOfUse.updateTermsOfUse(terms, DBMS.JTS_OLTP_DATASOURCE_NAME);
                 tm.commit();
 
                 SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
@@ -73,7 +75,7 @@ public class UpdateTerms extends EditTerms {
         }
         
         if (termsTitle.length() == 0) {
-            addError(Constants.TERMS_OF_USE_TYPE_ID, "You must enter a terms title");
+            addError(Constants.TERMS_TITLE, "You must enter a terms title");
         }
         
         if (termsElectronicallySignable == 0 && termsUrl.length() == 0) {
@@ -82,6 +84,4 @@ public class UpdateTerms extends EditTerms {
         
         return !hasErrors();
     }
-
-
 }
