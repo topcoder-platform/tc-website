@@ -35,7 +35,7 @@ public class EditTerms extends Base {
                 setDefault(Constants.TERMS_OF_USE_TYPE_ID, terms.getTermsOfUseTypeId());
                 setDefault(Constants.TERMS, terms.getTermsText());
                 setDefault(Constants.TERMS_TITLE, terms.getTitle());
-                setDefault(Constants.TERMS_ELECTRONICALLY_SIGNABLE, terms.getElectronicallySignable());
+                setDefault(Constants.TERMS_ELECTRONICALLY_SIGNABLE, terms.getElectronicallySignable().equals(1));
                 setDefault(Constants.TERMS_URL, terms.getUrl());
             } else {
                 addError(Constants.TERMS_OF_USE_TYPE_ID, "Could not retrieve the specified terms of use.");

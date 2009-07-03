@@ -37,7 +37,7 @@
 
                             <tr>
                                 <td align="left">
-                                    Title: <tc-webtag:textInput name="<%=Constants.TERMS_TITLE%>" size="30" maxlength="50"/>
+                                    Title: <tc-webtag:textInput name="<%=Constants.TERMS_TITLE%>" size="100" maxlength="50"/>
                                 </td>
                             </tr>
 
@@ -67,7 +67,7 @@
 
                             <tr>
                                 <td align="left">
-                                    URL: <tc-webtag:textInput name="<%=Constants.TERMS_URL%>" size="50" maxlength="100"/>
+                                    URL: <tc-webtag:textInput name="<%=Constants.TERMS_URL%>" size="100" maxlength="100"/>
                                 </td>
                             </tr>
 
