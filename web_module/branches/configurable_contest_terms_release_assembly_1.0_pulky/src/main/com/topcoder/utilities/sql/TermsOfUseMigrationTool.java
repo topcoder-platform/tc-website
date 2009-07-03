@@ -40,7 +40,7 @@ public class TermsOfUseMigrationTool extends DBUtility {
             psSel = prepareStatement("common_oltp", "SELECT terms_of_use_id, terms_text FROM terms_of_use");
             rs = psSel.executeQuery();
             while (rs.next()) {
-                String terms_text = DBMS.getTextString(rs, 1);
+                String terms_text = DBMS.getTextString(rs, 2);
 
                 if (terms_text != null) {
                     keys.add(rs.getInt(2));
