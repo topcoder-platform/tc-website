@@ -1014,7 +1014,7 @@ public class ComponentManagerBean
                 }
 
                 // generate new project role terms of use associations for the recently created project.
-                generateProjectRoleTermsOfUseAssociations(projectId);
+                generateProjectRoleTermsOfUseAssociations(projectId, projectTypeId);
 
             } catch (ConfigManagerException e) {
                 ejbContext.setRollbackOnly();
@@ -1052,15 +1052,16 @@ public class ComponentManagerBean
      * Private helper method to generate default Project Role Terms of Use associations for a given project.
      * 
      * @param projectId the project id for the associations
+     * @param projectTypeId the project type id of the provided project id
      * @throws NumberFormatException if configurations have wrong format
-     * @throws ConfigManagerException if Config Manager fails to retrieve the configurations
+     * @throws ConfigManagerException if Configuration Manager fails to retrieve the configurations
      * @throws NamingException if any errors occur during EJB lookup
      * @throws RemoteException if any errors occur during EJB remote invocation
      * @throws CreateException if any errors occur during EJB creation
      * @throws EJBException if any other errors occur while invoking EJB services
      * @since 1.0.3 
      */
-    private void generateProjectRoleTermsOfUseAssociations(long projectId)
+    private void generateProjectRoleTermsOfUseAssociations(long projectId, long projectTypeId)
             throws NumberFormatException, ConfigManagerException,
             NamingException, RemoteException, CreateException, EJBException {
         
@@ -1076,19 +1077,23 @@ public class ComponentManagerBean
         // create ProjectRoleTermsOfUse default associations
         ProjectRoleTermsOfUse projectRoleTermsOfUse = ProjectRoleTermsOfUseLocator.getService();
         projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
-                submitterRoleId, submitterTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
-        
-        projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
-                reviewerRoleId, reviewerTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+                submitterRoleId, submitterTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
-        projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
-                accuracyReviewerRoleId, reviewerTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
-
-        projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
-                failureReviewerRoleId, reviewerTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
-
-        projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
-                stressReviewerRoleId, reviewerTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+        if (projectTypeId == ProjectType.ID_DEVELOPMENT) {
+            // if it's a development project there are several reviewer roles
+            projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+                    accuracyReviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+    
+            projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+                    failureReviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+    
+            projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+                    stressReviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        } else {
+            // if it's not development there is a single reviewer role
+            projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+                    reviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        }
     }
 
 
