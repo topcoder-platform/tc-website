@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.admin.controller.request;
 
 import javax.transaction.Status;
@@ -13,20 +16,32 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
 
 /**
- * @author dok
- * @version $Revision$ $Date$
- *          Create Date: Apr 27, 2005
+ * <p>This class processes update/create requests for terms of use.</p>
+ *
+ * <p>
+ *   Version 1.1 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new columns in terms_of_use table.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, TCSDEVELOPER
+ * @version 1.1
  */
 public class UpdateTerms extends EditTerms {
 
+    /**
+     * This method will create/update the specified terms of use after validation. 
+     * 
+     * @throws Exception if any error occurs
+     * @see com.topcoder.web.admin.controller.request.EditTerms#businessProcessing()
+     */
     protected void businessProcessing() throws Exception {
         String tId = getRequest().getParameter(Constants.TERMS_OF_USE_ID);
         String termsText = getRequest().getParameter(Constants.TERMS);
         String ttId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_TYPE_ID));
 
         String termsTitle = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_TITLE));
-        System.out.println("electro: " + StringUtils.checkNull(
-                getRequest().getParameter(Constants.TERMS_ELECTRONICALLY_SIGNABLE)));
         Integer termsElectronicallySignable  = StringUtils.checkNull(
                 getRequest().getParameter(Constants.TERMS_ELECTRONICALLY_SIGNABLE)).equals("on") ? 1 : 0;
         String termsUrl = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_URL));
@@ -69,6 +84,18 @@ public class UpdateTerms extends EditTerms {
         }
     }
 
+    /**
+     * This method validates the terms of use data
+     * 
+     * @param ttId the terms type id field content
+     * @param termsTitle the terms title field content
+     * @param termsElectronicallySignable the terms electronically signable field content
+     * @param termsUrl the terms url field content
+     * 
+     * @return true if the form data is valid
+     * 
+     * @since 1.1
+     */
     private boolean valid(String ttId, String termsTitle, Integer termsElectronicallySignable, String termsUrl) {
         if (ttId.equals("")) {
             addError(Constants.TERMS_OF_USE_TYPE_ID, "You must choose a terms of use type");

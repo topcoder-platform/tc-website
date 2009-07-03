@@ -10,7 +10,7 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
 
 /**
- * <p>This class stores a variety of constants for the admin tool.</p>
+ * <p>This class shows terms of use details and allow edition.</p>
  *
  * <p>
  *   Version 1.1 (Configurable Contest Terms Release Assembly v1.0) Change notes:
@@ -24,6 +24,12 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
  */
 public class EditTerms extends Base {
 
+    /**
+     * This method will retrieve the existing terms of use (if needed) and present the edition form. 
+     * 
+     * @throws Exception if any error occurs
+     * @see com.topcoder.web.common.BaseProcessor#businessProcessing()
+     */
     protected void businessProcessing() throws Exception {
         String tId = getRequest().getParameter(Constants.TERMS_OF_USE_ID);
         if (tId!=null) {

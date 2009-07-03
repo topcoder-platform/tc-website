@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.ejb.termsofuse;
 
 import java.sql.Connection;
@@ -13,10 +16,46 @@ import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.ejb.BaseEJB;
 
+/**
+ * <p>EJB to handle terms of use table.</p>
+ *
+ * <p>
+ *   Version 1.1 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new columns in terms_of_use table.</li>
+ *     <li>Refactored methods to allos usage of <code>TermsOfUseEntity</code>.</li>
+ *     <li>Deprecated old methods.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER
+ * @version 1.1
+ */
 public class TermsOfUseBean extends BaseEJB {
 
+    /**
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object, i.e. when data members are changed.
+     *
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
+     * @since 1.1
+     */
     private static final long serialVersionUID = 1L;
     
+    /**
+     * This method will create/update terms of use entity.
+     * 
+     * If the object contains an id, the method will attempt an update, otherwise it will calculate an id and attempt
+     * an insertion.
+     * 
+     * @param terms a <code>TermsOfUseEntity</code> containing required information for creation/update. 
+     * @param dataSource a <code>String</code> containing the datasource.
+     * 
+     * @return a <code>TermsOfUseEntity</code> with updated id attribute.
+     * @throws EJBException
+     * 
+     * @since 1.1
+     */
     public TermsOfUseEntity updateTermsOfUse(TermsOfUseEntity terms, String dataSource) throws EJBException {
         
         // if the terms of use id is specified, it's an update
@@ -81,6 +120,17 @@ public class TermsOfUseBean extends BaseEJB {
         return (terms);
     }
 
+    /**
+     * This method will retrieve a terms of use entity from the database.
+     * 
+     * @param termsOfUseId a <code>long</code> containing the terms of use id to retrieve. 
+     * @param dataSource a <code>String</code> containing the datasource.
+     * 
+     * @return a <code>TermsOfUseEntity</code> with the requested terms of use or null if not found.
+     * @throws EJBException if any error occurs.
+     * 
+     * @since 1.1
+     */
     public TermsOfUseEntity getEntity(long termsOfUseId, String dataSource) throws EJBException {
         TermsOfUseEntity terms = null;
         
@@ -120,10 +170,6 @@ public class TermsOfUseBean extends BaseEJB {
 
     
     /**
-     * @param termsOfUseId
-     * @param dataSource
-     * @return
-     * @throws EJBException
      * @deprecated since 1.1
      */
     public long getTermsOfUseTypeId(long termsOfUseId, String dataSource)
@@ -170,10 +216,6 @@ public class TermsOfUseBean extends BaseEJB {
     }
 
     /**
-     * @param termsOfUseId
-     * @param termsOfUseTypeId
-     * @param dataSource
-     * @throws EJBException
      * @deprecated since 1.1
      */
     public void setTermsOfUseTypeId(long termsOfUseId,
@@ -213,10 +255,6 @@ public class TermsOfUseBean extends BaseEJB {
     }
 
     /**
-     * @param termsOfUseId
-     * @param dataSource
-     * @return
-     * @throws EJBException
      * @deprecated since 1.1
      */
     public String getText(long termsOfUseId, String dataSource)
@@ -264,10 +302,6 @@ public class TermsOfUseBean extends BaseEJB {
     }
 
     /**
-     * @param termsOfUseId
-     * @param _text
-     * @param dataSource
-     * @throws EJBException
      * @deprecated since 1.1
      */
     public void setText(long termsOfUseId, String _text, String dataSource)
