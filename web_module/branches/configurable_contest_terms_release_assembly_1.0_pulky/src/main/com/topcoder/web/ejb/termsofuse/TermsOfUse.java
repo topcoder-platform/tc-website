@@ -8,9 +8,9 @@ public interface TermsOfUse extends EJBObject {
 
 //    long createTermsOfUse(String dataSource, String idDataSource) throws EJBException, RemoteException;
 
-    TermsOfUseEntity updateTermsOfUse(String dataSource, TermsOfUseEntity terms) throws EJBException;
+    TermsOfUseEntity updateTermsOfUse(String dataSource, TermsOfUseEntity terms) throws EJBException, RemoteException;
 
-    TermsOfUseEntity getEntity(long termsOfUseId, String dataSource) throws EJBException;
+    TermsOfUseEntity getEntity(long termsOfUseId, String dataSource) throws EJBException, RemoteException;
 
     long getTermsOfUseTypeId(long termsOfUseId, String dataSource)
             throws EJBException, RemoteException;
