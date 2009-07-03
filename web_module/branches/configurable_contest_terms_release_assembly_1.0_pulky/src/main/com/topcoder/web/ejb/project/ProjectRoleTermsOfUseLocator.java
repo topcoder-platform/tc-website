@@ -33,7 +33,7 @@ public class ProjectRoleTermsOfUseLocator {
      *
      * @return a <code>ProjectRoleTermsOfUse</code> with the service instance
      * 
-     * @throws NamingException if any errors occure during resolution
+     * @throws NamingException if any errors occur during lookup
      * @throws RemoteException if any errors occur during remote invocation
      * @throws CreateException if any errors occur during creation
      */

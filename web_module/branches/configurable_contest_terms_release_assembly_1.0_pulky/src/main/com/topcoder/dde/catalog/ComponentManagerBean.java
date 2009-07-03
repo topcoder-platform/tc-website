@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
 
 package com.topcoder.dde.catalog;
@@ -103,7 +103,8 @@ import com.topcoder.web.ejb.userservices.UserServicesLocator;
 
 /**
  * The implementation of the methods of ComponentManagerEJB.
- * <p/>
+ * 
+ * <p>
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
@@ -113,15 +114,24 @@ import com.topcoder.web.ejb.userservices.UserServicesLocator;
  * Class was updated to deal with the elimination of tcsrating attribute.
  * </li>
  * </ol>
- * <p/>
+ * </p>
+ * <p>
  * Version 1.0.2 Change notes:
  * <ol>
  * <li>
  * Version admin tool was fixed to allow post-creation public forum flag changes.
  * </li>
+ * </p>
+ * <p>
+ * Version 1.0.3 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ * <ol>
+ * <li>Added Project Role User Terms Of Use association generation to project creation.</li>
+ * </ol>
+ * </p>
  *
- * @author Albert Mao, pulky
- * @version 1.0.2
+ *
+ * @author Albert Mao, pulky, TCSDEVELOPER
+ * @version 1.0.3
  * @see ComponentManager
  * @see ComponentManagerHome
  */
@@ -736,6 +746,16 @@ public class ComponentManagerBean
         }
     }
 
+    /**
+     * This method will process version update requests.
+     * 
+     * Note - Configurable Contest Terms Release Assembly v1.0: added Project Role Terms of Use generation.
+     * 
+     * @param info the ComponentVersionInfo to update
+     * @param requestor the requestor
+     * @param levelId the levelId
+     * @throws CatalogException if any error occurs
+     */
     public void updateVersionInfo(ComponentVersionInfo info, TCSubject requestor, long levelId)
             throws CatalogException {
 
@@ -993,31 +1013,8 @@ public class ComponentManagerBean
                     }
                 }
 
-                // get ProjectRoleTermsOfUse entries configurations
-                int submitterRoleId = Integer.parseInt(getConfigValue("submitter_role_id"));
-                long submitterTermsId = Long.parseLong(getConfigValue("submitter_terms_id"));
-                int reviewerRoleId = Integer.parseInt(getConfigValue("reviewer_role_id"));
-                int accuracyReviewerRoleId = Integer.parseInt(getConfigValue("accuracy_reviewer_role_id"));
-                int failureReviewerRoleId = Integer.parseInt(getConfigValue("failure_reviewer_role_id"));
-                int stressReviewerRoleId = Integer.parseInt(getConfigValue("stress_reviewer_role_id"));
-                long reviewerTermsId = Long.parseLong(getConfigValue("reviewer_terms_id"));
-
-                // create ProjectRoleTermsOfUse default associations
-                ProjectRoleTermsOfUse projectRoleTermsOfUse = ProjectRoleTermsOfUseLocator.getService();
-                projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
-                        submitterRoleId, submitterTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
-                
-                projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
-                        reviewerRoleId, reviewerTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
-
-                projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
-                        accuracyReviewerRoleId, reviewerTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
-
-                projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
-                        failureReviewerRoleId, reviewerTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
-
-                projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
-                        stressReviewerRoleId, reviewerTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+                // generate new project role terms of use associations for the recently created project.
+                generateProjectRoleTermsOfUseAssociations(projectId);
 
             } catch (ConfigManagerException e) {
                 ejbContext.setRollbackOnly();
@@ -1048,6 +1045,50 @@ public class ComponentManagerBean
                 new Timestamp(info.getPhaseDate().getTime()));
         versionBean.setPrice(info.getPrice());
         versionBean.setSuspended(info.getSuspended());
+    }
+
+
+    /**
+     * Private helper method to generate default Project Role Terms of Use associations for a given project.
+     * 
+     * @param projectId the project id for the associations
+     * @throws NumberFormatException if configurations have wrong format
+     * @throws ConfigManagerException if Config Manager fails to retrieve the configurations
+     * @throws NamingException if any errors occur during EJB lookup
+     * @throws RemoteException if any errors occur during EJB remote invocation
+     * @throws CreateException if any errors occur during EJB creation
+     * @throws EJBException if any other errors occur while invoking EJB services
+     * @since 1.0.3 
+     */
+    private void generateProjectRoleTermsOfUseAssociations(long projectId)
+            throws NumberFormatException, ConfigManagerException,
+            NamingException, RemoteException, CreateException, EJBException {
+        
+        // get ProjectRoleTermsOfUse entries configurations
+        int submitterRoleId = Integer.parseInt(getConfigValue("submitter_role_id"));
+        long submitterTermsId = Long.parseLong(getConfigValue("submitter_terms_id"));
+        int reviewerRoleId = Integer.parseInt(getConfigValue("reviewer_role_id"));
+        int accuracyReviewerRoleId = Integer.parseInt(getConfigValue("accuracy_reviewer_role_id"));
+        int failureReviewerRoleId = Integer.parseInt(getConfigValue("failure_reviewer_role_id"));
+        int stressReviewerRoleId = Integer.parseInt(getConfigValue("stress_reviewer_role_id"));
+        long reviewerTermsId = Long.parseLong(getConfigValue("reviewer_terms_id"));
+
+        // create ProjectRoleTermsOfUse default associations
+        ProjectRoleTermsOfUse projectRoleTermsOfUse = ProjectRoleTermsOfUseLocator.getService();
+        projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+                submitterRoleId, submitterTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+        
+        projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+                reviewerRoleId, reviewerTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+
+        projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+                accuracyReviewerRoleId, reviewerTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+
+        projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+                failureReviewerRoleId, reviewerTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+
+        projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+                stressReviewerRoleId, reviewerTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
 
 
