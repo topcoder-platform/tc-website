@@ -48,6 +48,7 @@ public class TermsOfUseMigrationTool extends DBUtility {
                 }
             }
     
+            int count = 0; 
             if (keys.size() > 0) {
                 psUpd = prepareStatement("common_oltp", "update terms_of_use set title = ? where terms_of_use_id = ?");
                 for (int i = 0; i < keys.size(); i++) {
@@ -55,9 +56,10 @@ public class TermsOfUseMigrationTool extends DBUtility {
                     psUpd.setString(1, titles.get(i));
                     psUpd.setInt(2, keys.get(i));
     
-                    psUpd.executeUpdate();
+                    count += psUpd.executeUpdate();
                 }
             }
+            log.info("Migration succeded. " + count + " row processed.");
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw new Exception("TermsOfUseMigrationTool failed.\n" + sqle.getMessage());
