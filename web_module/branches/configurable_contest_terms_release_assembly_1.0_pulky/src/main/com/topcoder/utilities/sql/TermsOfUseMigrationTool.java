@@ -44,7 +44,7 @@ public class TermsOfUseMigrationTool extends DBUtility {
 
                 if (terms_text != null) {
                     keys.add(rs.getInt(1));
-                    titles.add(terms_text.substring(0, 49));
+                    titles.add(terms_text.substring(0, 50));
                 }
             }
     
