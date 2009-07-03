@@ -19,6 +19,7 @@
                 <td>
                     <table>
                         <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method=post name="termsForm">
+
                             <input type="hidden" name="module" value="UpdateTerms"/>
                             <tc-webtag:hiddenInput name="<%=Constants.TERMS_OF_USE_ID%>" />
 
@@ -30,13 +31,43 @@
 
                             <tr>
                                 <td align="left">
+                                    <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_TITLE%>"><%=err%></tc-webtag:errorIterator>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="left">
+                                    Title: <tc-webtag:textInput name="<%=Constants.TERMS_TITLE%>" size="30" maxlength="50"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="left">
                                     <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_OF_USE_TYPE_ID%>"><%=err%></tc-webtag:errorIterator>
                                 </td>
                             </tr>
 
                             <tr>
                                 <td align="left">
-                                    <tc-webtag:rscSelect name="<%=Constants.TERMS_OF_USE_TYPE_ID%>" list='<%=(ResultSetContainer)request.getAttribute("terms_of_use_type_list")%>' fieldText="terms_of_use_type_desc" fieldValue="terms_of_use_type_id"/>
+                                    Type: <tc-webtag:rscSelect name="<%=Constants.TERMS_OF_USE_TYPE_ID%>" list='<%=(ResultSetContainer)request.getAttribute("terms_of_use_type_list")%>' fieldText="terms_of_use_type_desc" fieldValue="terms_of_use_type_id"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="left">
+                                    Electronically Signable: <tc-webtag:chkBox name="<%=Constants.TERMS_ELECTRONICALLY_SIGNABLE%>"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="left">
+                                    <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_URL%>"><%=err%></tc-webtag:errorIterator>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="left">
+                                    URL: <tc-webtag:textInput name="<%=Constants.TERMS_URL%>" size="50" maxlength="100"/>
                                 </td>
                             </tr>
 

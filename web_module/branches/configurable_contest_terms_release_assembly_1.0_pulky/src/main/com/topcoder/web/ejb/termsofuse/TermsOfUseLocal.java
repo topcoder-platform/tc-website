@@ -1,6 +1,5 @@
 package com.topcoder.web.ejb.termsofuse;
 
-import javax.ejb.EJBException;
 import javax.ejb.EJBLocalObject;
 
 /**
