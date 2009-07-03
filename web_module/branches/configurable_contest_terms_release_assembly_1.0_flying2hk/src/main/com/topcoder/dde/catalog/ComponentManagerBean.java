@@ -34,7 +34,7 @@ import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.ejb.forums.ForumsHome;
 import com.topcoder.web.ejb.project.ProjectRoleTermsOfUse;
 import com.topcoder.web.ejb.project.ProjectRoleTermsOfUseHome;
-import com.topcoder.web.tc.Constants;
+//import com.topcoder.web.tc.Constants;
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.ejb.FinderException;
@@ -2498,13 +2498,13 @@ public class ComponentManagerBean
     	log.debug("populateTerms : projectId=" + projectId);
     	try {
 			ProjectRoleTermsOfUse prTermsOfUse = projectRoleTermsOfUseHome.create();
-			prTermsOfUse.createProjectRoleTermsOfUse(projectId, SUBMITTER_ROLE, Constants.PROJECT_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
-			prTermsOfUse.createProjectRoleTermsOfUse(projectId, PRIMARY_SCREENER_ROLE, Constants.REVIEWER_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
-			prTermsOfUse.createProjectRoleTermsOfUse(projectId, ACCURACY_REVIWER_ROLE, Constants.REVIEWER_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
-			prTermsOfUse.createProjectRoleTermsOfUse(projectId, FAILURE_REVIEWER_ROLE, Constants.REVIEWER_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
-			prTermsOfUse.createProjectRoleTermsOfUse(projectId, STRESS_REVIEWER_ROLE, Constants.REVIEWER_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
-			prTermsOfUse.createProjectRoleTermsOfUse(projectId, AGGREGATOR_REVIEWER_ROLE, Constants.REVIEWER_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
-			prTermsOfUse.createProjectRoleTermsOfUse(projectId, FINAL_REVIEWER_ROLE, Constants.REVIEWER_TERMS_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
+			prTermsOfUse.createProjectRoleTermsOfUse(projectId, SUBMITTER_ROLE, /*Constants.PROJECT_TERMS_ID*/20623, DBMS.TCS_OLTP_DATASOURCE_NAME);
+			prTermsOfUse.createProjectRoleTermsOfUse(projectId, PRIMARY_SCREENER_ROLE, /*Constants.REVIEWER_TERMS_ID*/17, DBMS.TCS_OLTP_DATASOURCE_NAME);
+			prTermsOfUse.createProjectRoleTermsOfUse(projectId, ACCURACY_REVIWER_ROLE, /*Constants.REVIEWER_TERMS_ID*/17, DBMS.TCS_OLTP_DATASOURCE_NAME);
+			prTermsOfUse.createProjectRoleTermsOfUse(projectId, FAILURE_REVIEWER_ROLE, /*Constants.REVIEWER_TERMS_ID*/17, DBMS.TCS_OLTP_DATASOURCE_NAME);
+			prTermsOfUse.createProjectRoleTermsOfUse(projectId, STRESS_REVIEWER_ROLE, /*Constants.REVIEWER_TERMS_ID*/17, DBMS.TCS_OLTP_DATASOURCE_NAME);
+			prTermsOfUse.createProjectRoleTermsOfUse(projectId, AGGREGATOR_REVIEWER_ROLE, /*Constants.REVIEWER_TERMS_ID*/17, DBMS.TCS_OLTP_DATASOURCE_NAME);
+			prTermsOfUse.createProjectRoleTermsOfUse(projectId, FINAL_REVIEWER_ROLE, /*Constants.REVIEWER_TERMS_ID*/17, DBMS.TCS_OLTP_DATASOURCE_NAME);
 		} catch (RemoteException e) {
 			log.error(e.toString());
 			ejbContext.setRollbackOnly();
