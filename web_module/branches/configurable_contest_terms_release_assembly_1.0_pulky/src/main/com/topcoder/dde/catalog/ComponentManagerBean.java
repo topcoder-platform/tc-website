@@ -4,33 +4,21 @@
 
 package com.topcoder.dde.catalog;
 
-import com.jivesoftware.base.UnauthorizedException;
-import com.jivesoftware.base.UserNotFoundException;
-import com.jivesoftware.forum.ForumCategoryNotFoundException;
-import com.topcoder.apps.review.document.DocumentManagerHome;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerV2;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home;
-import com.topcoder.apps.review.projecttracker.ProjectType;
-import com.topcoder.apps.review.projecttracker.User;
-import com.topcoder.dde.persistencelayer.interfaces.*;
-import com.topcoder.security.GeneralSecurityException;
-import com.topcoder.security.RolePrincipal;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PolicyMgrRemote;
-import com.topcoder.security.admin.PolicyMgrRemoteHome;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.security.policy.PermissionCollection;
-import com.topcoder.security.policy.PolicyRemote;
-import com.topcoder.security.policy.PolicyRemoteHome;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.util.config.ConfigManager;
-import com.topcoder.util.config.ConfigManagerException;
-import com.topcoder.util.config.ConfigManagerInterface;
-import com.topcoder.util.errorhandling.BaseException;
-import com.topcoder.web.ejb.forums.Forums;
-import com.topcoder.web.ejb.forums.ForumsHome;
+import java.rmi.RemoteException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+import java.util.Vector;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
@@ -44,12 +32,72 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
-import java.rmi.RemoteException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Timestamp;
-import java.util.*;
+
+import com.jivesoftware.base.UnauthorizedException;
+import com.jivesoftware.base.UserNotFoundException;
+import com.jivesoftware.forum.ForumCategoryNotFoundException;
+import com.topcoder.apps.review.document.DocumentManagerHome;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerV2;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home;
+import com.topcoder.apps.review.projecttracker.ProjectType;
+import com.topcoder.apps.review.projecttracker.User;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECategories;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECategoriesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalog;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalogHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCategories;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCategoriesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDependencies;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDependenciesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDocumentation;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDocumentationHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDownload;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDownloadHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompExamples;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompExamplesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompForumXref;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompForumXrefHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompKeywords;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompKeywordsHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompReviews;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompReviewsHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompTechnology;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompTechnologyHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersionDates;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersionDatesHistoryHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersionDatesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersions;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersionsHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDEDownloadTrackingHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDELicenseLevel;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDELicenseLevelHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDERolesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDETechnologyTypes;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDETechnologyTypesHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDEUserMaster;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDEUserMasterHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDEUserRoleHome;
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.RolePrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.admin.PolicyMgrRemote;
+import com.topcoder.security.admin.PolicyMgrRemoteHome;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.security.policy.PermissionCollection;
+import com.topcoder.security.policy.PolicyRemote;
+import com.topcoder.security.policy.PolicyRemoteHome;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.util.config.ConfigManager;
+import com.topcoder.util.config.ConfigManagerException;
+import com.topcoder.util.config.ConfigManagerInterface;
+import com.topcoder.util.errorhandling.BaseException;
+import com.topcoder.web.ejb.forums.Forums;
+import com.topcoder.web.ejb.forums.ForumsHome;
+import com.topcoder.web.ejb.project.ProjectRoleTermsOfUse;
+import com.topcoder.web.ejb.project.ProjectRoleTermsOfUseLocator;
 import com.topcoder.web.ejb.userservices.UserServices;
 import com.topcoder.web.ejb.userservices.UserServicesLocator;
 
@@ -945,6 +993,35 @@ public class ComponentManagerBean
                     }
                 }
 
+                // get ProjectRoleTermsOfUse entries configurations
+                int submitterRoleId = Integer.parseInt(getConfigValue("submitter_role_id"));
+                long submitterTermsId = Long.parseLong(getConfigValue("submitter_terms_id"));
+                int reviewerRoleId = Integer.parseInt(getConfigValue("reviewer_role_id"));
+                int accuracyReviewerRoleId = Integer.parseInt(getConfigValue("accuracy_reviewer_role_id"));
+                int failureReviewerRoleId = Integer.parseInt(getConfigValue("failure_reviewer_role_id"));
+                int stressReviewerRoleId = Integer.parseInt(getConfigValue("stress_reviewer_role_id"));
+                long reviewerTermsId = Long.parseLong(getConfigValue("reviewer_terms_id"));
+
+                // create ProjectRoleTermsOfUse default associations
+                ProjectRoleTermsOfUse projectRoleTermsOfUse = ProjectRoleTermsOfUseLocator.getService();
+                projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+                        submitterRoleId, submitterTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+                
+                projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+                        reviewerRoleId, reviewerTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+
+                projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+                        accuracyReviewerRoleId, reviewerTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+
+                projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+                        failureReviewerRoleId, reviewerTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+
+                projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+                        stressReviewerRoleId, reviewerTermsId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+
+            } catch (ConfigManagerException e) {
+                ejbContext.setRollbackOnly();
+                throw new CatalogException(e.toString());
             } catch (ClassCastException e) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(e.toString());
