@@ -43,7 +43,7 @@ public class TermsOfUseMigrationTool extends DBUtility {
                 String terms_text = DBMS.getTextString(rs, 2);
 
                 if (terms_text != null) {
-                    keys.add(rs.getInt(2));
+                    keys.add(rs.getInt(1));
                     titles.add(terms_text.substring(0, 49));
                 }
             }
