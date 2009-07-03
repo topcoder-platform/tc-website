@@ -41,7 +41,7 @@ public class UpdateTerms extends EditTerms {
                 tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 tm.begin();
                 if (StringUtils.checkNull(tId).equals("")) {
-                    termsOfUseId = termsOfUse.createTermsOfUse(DBMS.JTS_OLTP_DATASOURCE_NAME, DBMS.OLTP_DATASOURCE_NAME);
+//                    termsOfUseId = termsOfUse.createTermsOfUse(DBMS.JTS_OLTP_DATASOURCE_NAME, DBMS.OLTP_DATASOURCE_NAME);
                 } else {
                     termsOfUseId = Long.parseLong(tId);
                 }
