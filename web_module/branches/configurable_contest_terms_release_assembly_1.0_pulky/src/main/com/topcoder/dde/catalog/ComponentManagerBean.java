@@ -1068,10 +1068,6 @@ public class ComponentManagerBean
         // get ProjectRoleTermsOfUse entries configurations
         int submitterRoleId = Integer.parseInt(getConfigValue("submitter_role_id"));
         long submitterTermsId = Long.parseLong(getConfigValue("submitter_terms_id"));
-        int reviewerRoleId = Integer.parseInt(getConfigValue("reviewer_role_id"));
-        int accuracyReviewerRoleId = Integer.parseInt(getConfigValue("accuracy_reviewer_role_id"));
-        int failureReviewerRoleId = Integer.parseInt(getConfigValue("failure_reviewer_role_id"));
-        int stressReviewerRoleId = Integer.parseInt(getConfigValue("stress_reviewer_role_id"));
         long reviewerTermsId = Long.parseLong(getConfigValue("reviewer_terms_id"));
 
         // create ProjectRoleTermsOfUse default associations
@@ -1080,6 +1076,10 @@ public class ComponentManagerBean
                 submitterRoleId, submitterTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
         if (projectTypeId == ProjectType.ID_DEVELOPMENT) {
+            int accuracyReviewerRoleId = Integer.parseInt(getConfigValue("accuracy_reviewer_role_id"));
+            int failureReviewerRoleId = Integer.parseInt(getConfigValue("failure_reviewer_role_id"));
+            int stressReviewerRoleId = Integer.parseInt(getConfigValue("stress_reviewer_role_id"));
+
             // if it's a development project there are several reviewer roles
             projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
                     accuracyReviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
@@ -1090,6 +1090,8 @@ public class ComponentManagerBean
             projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
                     stressReviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
         } else {
+            int reviewerRoleId = Integer.parseInt(getConfigValue("reviewer_role_id"));
+
             // if it's not development there is a single reviewer role
             projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
                     reviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
