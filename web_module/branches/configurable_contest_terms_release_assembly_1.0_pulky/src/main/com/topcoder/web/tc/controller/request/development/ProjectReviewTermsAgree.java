@@ -39,10 +39,15 @@ import com.topcoder.web.tc.Constants;
  *     <li>The project type requested by client is provided as parameter to <code>review_project_detail</code> query to
  *         filter the retrieved projects based on provided type.</li>
  *   </ol>
+ *   
+ *   Version 1.0.3 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, isv
- * @version 1.0.2
+ * @author dok, pulky, isv, TCSDEVELOPER
+ * @version 1.0.3
  */
 public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
@@ -54,6 +59,13 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
     public ProjectReviewTermsAgree() {
     }
 
+    /**
+     * This method processes review application.
+     * 
+     * @param opensOn the time the review position opens
+     * @param reviewTypeId the review type id
+     * @throws Exception if any error occurs
+     */
     protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws Exception {
         String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
         boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
@@ -91,8 +103,6 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                 }
     
                 if (hasErrors()) {
-    //                setDefault(Constants.TERMS_AGREE,
-    //                        "on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE)));
                     loadCaptcha();
     
                     int[] roleIds = getResourceRoleIds(reviewTypeId, primary);                 
@@ -101,16 +111,10 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                     setNextPage(Constants.REVIEWER_TERMS);
                     setIsNextPageInContext(true);
                 } else {
-    //                    UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
-    //                    if (!userTerms.hasTermsOfUse(getUser().getId(),
-    //                            Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME)) {
-    //                        userTerms.createUserTermsOfUse(getUser().getId(),
-    //                                Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
-    //                    }
-                        apply(opensOn, reviewTypeId);
-                        setNextPage("/tc?" + Constants.MODULE_KEY + "=ReviewProjectDetail&" + Constants.PROJECT_ID + "="
-                                    + projectId + "&" + Constants.PROJECT_TYPE_ID + "=" + this.projectTypeId);
-                        setIsNextPageInContext(false);
+                    apply(opensOn, reviewTypeId);
+                    setNextPage("/tc?" + Constants.MODULE_KEY + "=ReviewProjectDetail&" + Constants.PROJECT_ID + "="
+                                + projectId + "&" + Constants.PROJECT_TYPE_ID + "=" + this.projectTypeId);
+                    setIsNextPageInContext(false);
                 }
             }
         } else {

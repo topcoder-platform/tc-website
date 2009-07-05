@@ -3,15 +3,28 @@
  */
 package com.topcoder.web.tc.controller.request.development;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.Map;
+
+import javax.ejb.CreateException;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+
 import com.topcoder.apps.review.rboard.RBoardApplication;
 import com.topcoder.apps.review.rboard.RBoardApplicationHome;
 import com.topcoder.apps.review.rboard.RBoardRegistrationException;
+import com.topcoder.randomstringimg.InvalidConfigException;
+import com.topcoder.randomstringimg.ObfuscationException;
+import com.topcoder.randomstringimg.RandomStringImage;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.util.spell.ConfigException;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
@@ -19,21 +32,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.error.RequestRateExceededException;
 import com.topcoder.web.common.throttle.Throttle;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.randomstringimg.InvalidConfigException;
-import com.topcoder.randomstringimg.ObfuscationException;
-import com.topcoder.randomstringimg.RandomStringImage;
-import com.topcoder.util.spell.ConfigException;
-
-import javax.ejb.CreateException;
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import java.sql.Timestamp;
-import java.util.Map;
-import java.io.IOException;
-import java.io.FileOutputStream;
 
 /**
  * <p>Processor for the user requests to review the components.</p>
@@ -74,10 +73,15 @@ import java.io.FileOutputStream;
  *   <ol>
  *     <li>Added support for UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
+ *   
+ *   Version 1.0.7 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, isv, pulky
- * @version 1.0.6
+ * @author dok, isv, pulky, TCSDEVELOPER
+ * @version 1.0.7
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -92,6 +96,12 @@ public class ProjectReviewApply extends Base {
     public ProjectReviewApply() {
     }
 
+    /**
+     * This method is the final processor for the request
+     *
+     * @throws TCWebException if any error occurs
+     * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()
+     */
     protected void developmentProcessing() throws TCWebException {
         projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
         if (!isProjectTypeSupported(projectTypeId)) {
@@ -123,10 +133,6 @@ public class ProjectReviewApply extends Base {
                 nonTransactionalValidation(catalog, reviewTypeId);
 
                 applicationProcessing((Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
-
-                // Put the terms text in the request.
-//                TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
-//                setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
             } else {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }

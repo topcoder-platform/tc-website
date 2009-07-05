@@ -180,7 +180,6 @@ public class Register extends ViewRegistration {
                     }
                 } else {
                     getRequest().setAttribute("questionInfo", getQuestions());
-    //                setDefault(Constants.TERMS, getTerms());
                     setDefaults(responses);
 
                     // process terms of use
