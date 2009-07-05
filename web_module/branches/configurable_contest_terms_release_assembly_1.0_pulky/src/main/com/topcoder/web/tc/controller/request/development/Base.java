@@ -292,14 +292,14 @@ public abstract class Base extends ShortHibernateProcessor {
             // check if the user has this terms
             if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
                 hasPendingTerms = true;
-                setDefault(Constants.TERMS, terms);                        
+                getRequest().setAttribute(Constants.TERMS, terms);                        
             } else {
                 termsAgreed.add(terms);
             }
         }
         
         if (!hasPendingTerms) {
-            setDefault(Constants.TERMS_AGREED, termsAgreed);
+            getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreed);
         }
     }
 
