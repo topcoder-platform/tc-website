@@ -85,7 +85,7 @@ public class Register extends ViewRegistration {
                 if (!agreed) {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
                 }
-                setDefault(Constants.TERMS, getTerms());
+//                setDefault(Constants.TERMS, getTerms());
                 //we're assuming if we got here, we had a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                 setNextPage("/contest/regTerms.jsp");

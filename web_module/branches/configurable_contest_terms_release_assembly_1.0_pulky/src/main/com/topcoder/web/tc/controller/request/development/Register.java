@@ -128,7 +128,7 @@ public class Register extends ViewRegistration {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
                 }
                 getRequest().setAttribute("questionInfo", getQuestions());
-                setDefault(Constants.TERMS, getTerms());
+//                setDefault(Constants.TERMS, getTerms());
                 setDefaults(responses);
                 //we're assuming if we got here, we had a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
