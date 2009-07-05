@@ -20,9 +20,9 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
@@ -79,7 +79,16 @@ public abstract class Base extends ShortHibernateProcessor {
      * 
      * @since 1.3
      */
-    private static final long SUBMITTER_ROLE_ID = 1;
+    protected static final int[] SUBMITTER_ROLE_IDS = new int[] {1};
+
+    /**
+     * Constant containing primary reviewer role ids
+     * 
+     * Note: first item is just a placeholder. It will be filled with the corresponding review role id.
+     * 
+     * @since 1.3
+     */
+    protected static final int[] PRIMARY_ROLE_IDS = new int[] {0, 2, 8, 9};
 
     protected Logger log = Logger.getLogger(Base.class);
 
@@ -287,7 +296,7 @@ public abstract class Base extends ShortHibernateProcessor {
      * 
      * @since 1.3
      */
-    protected void processTermsOfUse(String projectId, long userId)
+    protected void processTermsOfUse(String projectId, long userId, int[] roleIds)
             throws NamingException, RemoteException, CreateException, EJBException {
 
         // check if the user agreed to all terms of use                
@@ -296,10 +305,8 @@ public abstract class Base extends ShortHibernateProcessor {
         TermsOfUse termsOfUse = TermsOfUseLocator.getService();
         
         // validate that new resources have agreed to the necessary terms of use 
-        long roleId = SUBMITTER_ROLE_ID;
-            
         List<Long> necessaryTerms = projectRoleTermsOfUse.getTermsOfUse(Integer.parseInt(projectId), 
-                new int[] {new Long(roleId).intValue()}, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                roleIds, DBMS.COMMON_OLTP_DATASOURCE_NAME);
             
         List<TermsOfUseEntity> termsAgreed = new ArrayList<TermsOfUseEntity>();
         
@@ -324,4 +331,34 @@ public abstract class Base extends ShortHibernateProcessor {
         }
     }
 
+    /**
+     * This helper method will get resource role ids based on the review type id and primary flag
+     * 
+     * @param reviewTypeId the review type id
+     * @param primary if the position is a primary review position
+     * @return <code>int[]</code> with the role ids
+     */
+    protected int[] getResourceRoleIds(int reviewTypeId, boolean primary) {
+        int[] roleIds;
+        int roleId = 0;
+        
+        if (primary) {
+            roleIds = Base.PRIMARY_ROLE_IDS;
+        } else {
+            roleIds = new int[1];
+        }
+        switch (reviewTypeId) {
+            case 1:
+                roleId = 7;                    
+            case 2:
+                roleId = 6;                    
+            case 3:
+                roleId = 5;
+            default:
+                roleId = 4;
+        }
+        
+        roleIds[0] = roleId;
+        return roleIds;
+    }
 }

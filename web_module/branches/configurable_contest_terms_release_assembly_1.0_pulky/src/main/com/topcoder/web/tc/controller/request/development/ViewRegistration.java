@@ -81,7 +81,7 @@ public class ViewRegistration extends Base {
                 long userId = getLoggedInUser().getId();
                 
                 // process terms of use
-                processTermsOfUse(projectId, userId);
+                processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
 
                 //we're assuming that if we're here, we got a valid project id
                 setDefault(Constants.PROJECT_ID, projectId);

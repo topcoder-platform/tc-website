@@ -41,6 +41,7 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.development.Base;
 
 /**
  * <p><strong>Purpose</strong>: This processor handle registration to a specific project.</p>
@@ -96,7 +97,7 @@ public class Register extends ViewRegistration {
                     saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
                     
                     // process terms of use
-                    processTermsOfUse(projectId, userId);
+                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
                 } else {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
 

@@ -104,7 +104,7 @@ public class Register extends ViewRegistration {
                     getRequest().setAttribute("questionInfo", getQuestions());
 
                     // process terms of use
-                    processTermsOfUse(projectId, userId);
+                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
                 } else {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
 
@@ -184,7 +184,7 @@ public class Register extends ViewRegistration {
                     setDefaults(responses);
 
                     // process terms of use
-                    processTermsOfUse(projectId, userId);
+                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
 
                     setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                     setNextPage("/contest/regTerms.jsp");

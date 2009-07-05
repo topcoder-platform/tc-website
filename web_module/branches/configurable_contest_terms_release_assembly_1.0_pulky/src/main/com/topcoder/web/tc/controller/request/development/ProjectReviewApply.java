@@ -125,8 +125,8 @@ public class ProjectReviewApply extends Base {
                 applicationProcessing((Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
 
                 // Put the terms text in the request.
-                TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
-                setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+//                TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
+//                setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
             } else {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
@@ -163,17 +163,21 @@ public class ProjectReviewApply extends Base {
         return rBoardApplication;
     }
 
+    /**
+     * This method processes review application.
+     * 
+     * @param opensOn the time the review position opens
+     * @param reviewTypeId the review type id
+     * @throws Exception if any error occurs
+     */
     protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws Exception {
         boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
         rBoardApplication.validateUserTrans(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId, getUser().getId(),
                                             opensOn, reviewTypeId, primary);
 
-        UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
-
-        boolean agreed = userTerms.hasTermsOfUse(getUser().getId(),
-                Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
-
-        setDefault(Constants.TERMS_AGREE, String.valueOf(agreed));
+        // get corresponding resource role ids
+        int[] roleIds = getResourceRoleIds(reviewTypeId, primary);                 
+        processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
 
         loadCaptcha();
         setNextPage(getReviewTermsView(this.projectTypeId));

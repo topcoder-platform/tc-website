@@ -3,6 +3,9 @@
  */
 package com.topcoder.web.tc.controller.request.development;
 
+import java.sql.Timestamp;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
@@ -12,11 +15,10 @@ import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
-
-import java.sql.Timestamp;
-import java.util.Map;
 
 /**
  * <p>Processor the user requests to review the components after accepting terms of use.</p>
@@ -53,33 +55,63 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
     }
 
     protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws Exception {
+        String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
+        boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
+        setDefault(Constants.PRIMARY_FLAG, primary);
+        
+        long userId = getLoggedInUser().getId();
+
         if ("POST".equals(getRequest().getMethod())) {
-            if (!"on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
-                addError(Constants.TERMS_AGREE, "You must agree to the terms in order to review a component.");
-            }
-
-            if (!answeredCaptchaCorrectly()) {
-                addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
-            }
-
-            if (hasErrors()) {
-                setDefault(Constants.TERMS_AGREE,
-                        "on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE)));
-                loadCaptcha();
+            if (!"".equals(termsOfUseId)) {
+                
+                if (!"on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
+                    addError(Constants.TERMS_AGREE, "You must agree to the terms in order to review a component.");
+                    
+                    TermsOfUse termsOfUse = TermsOfUseLocator.getService();
+                    TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId), 
+                            DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    getRequest().setAttribute(Constants.TERMS, terms);                        
+                } else {
+                    // save user terms of use record
+                    saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
+                    
+                    loadCaptcha();
+    
+                    // process terms of use
+                    int[] roleIds = getResourceRoleIds(reviewTypeId, primary);                 
+                    processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
+                }
                 setNextPage(Constants.REVIEWER_TERMS);
                 setIsNextPageInContext(true);
             } else {
-
-                    UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
-                    if (!userTerms.hasTermsOfUse(getUser().getId(),
-                            Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME)) {
-                        userTerms.createUserTermsOfUse(getUser().getId(),
-                                Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
-                    }
-                    apply(opensOn, reviewTypeId);
-                    setNextPage("/tc?" + Constants.MODULE_KEY + "=ReviewProjectDetail&" + Constants.PROJECT_ID + "="
-                                + projectId + "&" + Constants.PROJECT_TYPE_ID + "=" + this.projectTypeId);
-                    setIsNextPageInContext(false);
+                // they don't have pending terms of use
+    
+                if (!answeredCaptchaCorrectly()) {
+                    addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
+                }
+    
+                if (hasErrors()) {
+    //                setDefault(Constants.TERMS_AGREE,
+    //                        "on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE)));
+                    loadCaptcha();
+    
+                    int[] roleIds = getResourceRoleIds(reviewTypeId, primary);                 
+                    processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
+    
+                    setNextPage(Constants.REVIEWER_TERMS);
+                    setIsNextPageInContext(true);
+                } else {
+    //                    UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
+    //                    if (!userTerms.hasTermsOfUse(getUser().getId(),
+    //                            Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME)) {
+    //                        userTerms.createUserTermsOfUse(getUser().getId(),
+    //                                Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
+    //                    }
+                        apply(opensOn, reviewTypeId);
+                        setNextPage("/tc?" + Constants.MODULE_KEY + "=ReviewProjectDetail&" + Constants.PROJECT_ID + "="
+                                    + projectId + "&" + Constants.PROJECT_TYPE_ID + "=" + this.projectTypeId);
+                        setIsNextPageInContext(false);
+                }
             }
         } else {
             throw new NavigationException("Invalid request type.");
