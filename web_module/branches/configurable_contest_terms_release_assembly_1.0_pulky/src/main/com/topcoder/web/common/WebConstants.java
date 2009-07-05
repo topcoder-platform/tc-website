@@ -13,8 +13,15 @@ package com.topcoder.web.common;
  *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added new constant for terms agreed attribute key.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pulky, TCSDEVELOPER
+ * @version 1.2
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -69,6 +76,14 @@ public interface WebConstants {
     public static final String EVENT_ID = "eid";
 
     public static final String TERMS = "terms";
+    
+    /**
+     * <p>A <code>String</code> representing terms agree attribute key.</p>
+     *
+     * @since 1.2
+     */
+    public static final String TERMS_AGREED = "terms_agreed";
+    
     public static final String TERMS_AGREE = "terms_agree";
     public static final String TERMS_OF_USE_ID = "tuid";
 

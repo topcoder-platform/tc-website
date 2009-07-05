@@ -3,7 +3,14 @@
  */
 package com.topcoder.web.tc.controller.request.development;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+
+import javax.ejb.CreateException;
+import javax.ejb.EJBException;
+import javax.naming.NamingException;
 
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -19,6 +26,13 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
+import com.topcoder.web.ejb.project.ProjectRoleTermsOfUse;
+import com.topcoder.web.ejb.project.ProjectRoleTermsOfUseLocator;
+import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
 
@@ -45,13 +59,28 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
+ *     <tr>
+ *         <td>Version 1.3 (Configurable Contest Terms Release Assembly v1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
- *
- * @author dok, isv, pulky
- * @version 1.2
+ * 
+ * @author dok, isv, pulky, TCSDEVELOPER
+ * @version 1.3
  */
 public abstract class Base extends ShortHibernateProcessor {
+    /**
+     * Constant containing submitter role id
+     * 
+     * @since 1.3
+     */
+    private static final long SUBMITTER_ROLE_ID = 1;
+
     protected Logger log = Logger.getLogger(Base.class);
 
     protected int getProjectTypeId(long projectId) throws Exception {
@@ -222,4 +251,56 @@ public abstract class Base extends ShortHibernateProcessor {
     protected boolean isProjectTypeSupported(String projectType) {
         return ReviewBoardHelper.isReviewBoardTypeSupported(projectType);
     }
+    
+    /**
+     * This helper method will go through all required terms of use and check whether the user has agreed to 
+     * them or not. If the user agreed to all required terms of use, the list of these terms of use will be 
+     * added to the request. If the user is missing a terms of use, that terms of use will be added to the request. 
+     * 
+     * @param projectId the project id the user is registering to
+     * @param userId the user id that is requesting the registration
+     * @throws NamingException if any errors occur during EJB lookup
+     * @throws RemoteException if any errors occur during EJB remote invocation
+     * @throws CreateException if any errors occur during EJB creation
+     * @throws EJBException if any other errors occur while invoking EJB services
+     * 
+     * @since 1.3
+     */
+    protected void processTermsOfUse(String projectId, long userId)
+            throws NamingException, RemoteException, CreateException, EJBException {
+
+        // check if the user agreed to all terms of use                
+        ProjectRoleTermsOfUse projectRoleTermsOfUse = ProjectRoleTermsOfUseLocator.getService();
+        UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
+        TermsOfUse termsOfUse = TermsOfUseLocator.getService();
+        
+        // validate that new resources have agreed to the necessary terms of use 
+        long roleId = SUBMITTER_ROLE_ID;
+            
+        List<Long> necessaryTerms = projectRoleTermsOfUse.getTermsOfUse(Integer.parseInt(projectId), 
+                new int[] {new Long(roleId).intValue()}, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            
+        List<TermsOfUseEntity> termsAgreed = new ArrayList<TermsOfUseEntity>();
+        
+        boolean hasPendingTerms = false;
+        for (int i = 0; i < necessaryTerms.size() && !hasPendingTerms; i++) {
+            Long termsId = necessaryTerms.get(i); 
+
+            // get terms of use
+            TermsOfUseEntity terms =  termsOfUse.getEntity(termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+
+            // check if the user has this terms
+            if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
+                hasPendingTerms = true;
+                setDefault(Constants.TERMS, terms);                        
+            } else {
+                termsAgreed.add(terms);
+            }
+        }
+        
+        if (!hasPendingTerms) {
+            setDefault(Constants.TERMS_AGREED, termsAgreed);
+        }
+    }
+
 }

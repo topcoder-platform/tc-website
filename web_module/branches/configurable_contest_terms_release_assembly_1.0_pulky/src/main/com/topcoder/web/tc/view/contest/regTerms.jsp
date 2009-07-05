@@ -169,6 +169,9 @@
                 </c:choose>
 
                 <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID%>"/>
+                <c:if test="${not empty terms}">
+                    <tc-webtag:hiddenInput name="<%=Constants.TERMS_OF_USE_ID%>" value="${terms.id}"/>
+                </c:if>
 
                 <c:if test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
                     <tc:questionIterator list="<%=questionInfo%>" id="question">
@@ -203,7 +206,33 @@
                         <p><br /></p>
                     </tc:questionIterator>
                 </c:if>
-                <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="10" cols="60"/>
+
+                <c:choose>
+                    <c:when test="${not empty terms}">
+                        <tc-webtag:textArea name="<%=Constants.TERMS%>" text="${terms.text}" rows="10" cols="60"/>                        
+                    </c:when>
+                    <c:otherwise>
+                        <c:forEach items="${terms_agreed}" var="terms">
+                            <table>
+                                <tr>
+                                    <td>
+                                        ${terms_agreed.title}
+                                    </td>
+                                    <td>
+                                        <c:choose>
+                                            <c:when test="${not empty terms_agreed.url}">
+                                                <a href="${terms_agreed.url}">View</a>                        
+                                            </c:when>
+                                            <c:otherwise>
+                                                <a href="/tc?module=Terms&tuid=${terms_agreed.id}">View</a>                        
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </td>
+                                </tr>
+                            </table>
+                        </c:forEach>    
+                    </c:otherwise>
+                </c:choose>
 
                 <p style="width: 510px;">
                     <c:if test="${(pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE) and not empty notRegistered}">
@@ -214,12 +243,26 @@
                     <span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%>
                         <br /></tc-webtag:errorIterator></span>
 
-                    I Agree to the Terms and Conditions stated above&#160;
+                    <c:choose>
+                        <c:when test="${not empty terms}">
+                            I Agree to the Terms and Conditions stated above&#160;
+                        </c:when>
+                        <c:otherwise>
+                            I Agree to the Terms and Conditions listed above&#160;
+                        </c:otherwise>
+                    </c:choose>
                     <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
                 </p>
 
                 <p style="width: 510px;">
-                    <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Register</a>
+                    <c:choose>
+                        <c:when test="${not empty terms}">
+                            <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Continue</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Register</a>
+                        </c:otherwise>
+                    </c:choose>
                 </p>
 
             </form>
