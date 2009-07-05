@@ -19,6 +19,7 @@ import com.topcoder.dde.catalog.ComponentManager;
 import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.dde.user.UserManagerRemote;
 import com.topcoder.dde.user.UserManagerRemoteHome;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
@@ -32,11 +33,15 @@ import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.tag.CalendarDateFormatMethod;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
+import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -62,13 +67,37 @@ public class Register extends ViewRegistration {
 
             validation();
 
-            getRequest().setAttribute(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
+            String projectId = getRequest().getParameter(Constants.PROJECT_ID);
+            getRequest().setAttribute(Constants.PROJECT_ID, projectId);
+            
+            String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
 
-            boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
-            if (agreed) {
-                if (log.isDebugEnabled()) {
-                    log.debug("they agree to terms");
+            if (!"".equals(termsOfUseId)) {
+                long userId = getLoggedInUser().getId();
+
+                boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
+                if (agreed) {
+                    if (log.isDebugEnabled()) {
+                        log.debug("they agree to terms");
+                    }
+                    // save user terms of use record
+                    saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
+                    
+                    // process terms of use
+                    processTermsOfUse(projectId, userId);
+                } else {
+                    addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
+
+                    TermsOfUse termsOfUse = TermsOfUseLocator.getService();
+                    TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId), 
+                            DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    getRequest().setAttribute(Constants.TERMS, terms);                        
                 }
+                setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
+                setNextPage("/contest/regTerms.jsp");
+                setIsNextPageInContext(true);
+            } else {
+                // they don't have pending terms of use
                 boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
                 if (isEligible) {
                     if (log.isDebugEnabled()) {
@@ -80,18 +109,8 @@ public class Register extends ViewRegistration {
                 } else {
                     setNextPage("/contest/message.jsp");
                     setIsNextPageInContext(true);
-                }
-            } else {
-                if (!agreed) {
-                    addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
-                }
-//                setDefault(Constants.TERMS, getTerms());
-                //we're assuming if we got here, we had a valid project id
-                setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                setNextPage("/contest/regTerms.jsp");
-                setIsNextPageInContext(true);
+                }                
             }
-
         } catch (TCWebException e) {
             throw e;
         } catch (Throwable e) {

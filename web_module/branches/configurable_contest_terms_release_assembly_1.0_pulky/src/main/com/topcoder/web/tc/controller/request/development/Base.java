@@ -253,6 +253,27 @@ public abstract class Base extends ShortHibernateProcessor {
     }
     
     /**
+     * This helper method will go create the user terms of use association for a given user id, terms of use id. 
+     * 
+     * @param userId the user id that is requesting the registration
+     * @param termsOfUseId the terms of use id the user agreed to
+     * @throws NamingException if any errors occur during EJB lookup
+     * @throws RemoteException if any errors occur during EJB remote invocation
+     * @throws CreateException if any errors occur during EJB creation
+     * @throws EJBException if any other errors occur while invoking EJB services
+     * 
+     * @since 1.3
+     */
+    protected void saveUserTermsOfUse(long userId, long termsOfUseId)
+            throws NamingException, RemoteException, CreateException, EJBException {
+
+        // check if the user agreed to all terms of use                
+        UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
+
+        userTermsOfUse.createUserTermsOfUse(userId, termsOfUseId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+    }
+    
+    /**
      * This helper method will go through all required terms of use and check whether the user has agreed to 
      * them or not. If the user agreed to all required terms of use, the list of these terms of use will be 
      * added to the request. If the user is missing a terms of use, that terms of use will be added to the request. 
