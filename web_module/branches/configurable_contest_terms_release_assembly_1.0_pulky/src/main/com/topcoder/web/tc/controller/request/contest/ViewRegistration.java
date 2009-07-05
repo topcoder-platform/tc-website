@@ -45,6 +45,12 @@ public class ViewRegistration extends Base {
 
     protected int projectTypeId = 0;
 
+    /**
+     * This method is the final processor for the request
+     *
+     * @throws TCWebException if any error occurs
+     * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()
+     */
     protected void developmentProcessing() throws TCWebException {
 
         try {

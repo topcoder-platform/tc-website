@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.development;
 
 import java.util.ArrayList;
@@ -49,6 +52,12 @@ public class ViewRegistration extends Base {
     private ComponentRegistrationServicesLocal regServices = null;
     private List questions = null;
 
+    /**
+     * This method is the final processor for the request
+     *
+     * @throws TCWebException if any error occurs
+     * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()
+     */
     protected void developmentProcessing() throws TCWebException {
 
         try {

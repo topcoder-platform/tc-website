@@ -214,6 +214,7 @@
 
                 <c:choose>
                     <c:when test="${not empty terms}">
+                        ${terms.title}<br/>
                         <tc-webtag:textArea name="<%=Constants.TERMS%>" text="${terms.termsText}" rows="10" cols="60"/>
                     </c:when>
                     <c:otherwise>
