@@ -81,6 +81,9 @@ public class Register extends ViewRegistration {
                     // save user terms of use record
                     saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
                     
+                    // get survey
+                    getRequest().setAttribute("questionInfo", getQuestions());
+
                     // process terms of use
                     processTermsOfUse(projectId, userId);
                 } else {
