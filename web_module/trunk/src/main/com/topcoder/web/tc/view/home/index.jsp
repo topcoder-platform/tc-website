@@ -235,7 +235,6 @@ $(document).ready(function(){
                                 <p>The creative side of TopCoder. Logos, posters, storyboards, prototypes&hellip;</p>
                             </div>
                             <div id="remix"> <a href="http://www.topcoder.com/remix"><img src="/i/remix/remix-340.jpg" alt="REMIX Challenge" /></a></div>
-                            <div id="tco09"><a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor3"><img src="/i/tournament/tco09/tco09-fb-340x76.png" alt="Facebook - Sponsor of the TCO '09" /></a>
                         </div>
                     </div>
                     <div id="member-box-bottom"></div>
