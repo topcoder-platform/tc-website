@@ -54,11 +54,19 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
+ *     <tr>
+ *         <td>Version 1.4 (Specification Review Integration, Copied from: Specification Review Signup Pages 1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated <code>isProjectTypeSupported</code> to support specification review projects.</li>
+ *           </ul>
+ *         </td>
+ *     </tr> 
  *   </table>
  * </p>
  *
- * @author dok, isv, pulky
- * @version 1.3
+ * @author dok, isv, pulky, TCSASSEMBLER
+ * @version 1.4
  */
 public abstract class Base extends ShortHibernateProcessor {
     protected Logger log = Logger.getLogger(Base.class);
@@ -235,5 +243,22 @@ public abstract class Base extends ShortHibernateProcessor {
      */
     protected boolean isProjectTypeSupported(String projectType) {
         return ReviewBoardHelper.isReviewBoardTypeSupported(projectType);
+    }
+	
+	/**
+     * <p>Checks whether the specified project type requested by client is currently supported by this controller
+     * or not.</p>
+     *
+     * This method delegates to ReviewBoardHelper.isReviewBoardTypeSupported().
+     *
+     * @param projectType a <code>String</code> referencing the project type requested by client.
+     * @param includeSpecificationReviews a <code>boolean</code> specifying if specification review projects should
+     * be included in the supported types for the validation.
+     *
+     * @return <code>true</code> if specified project type is supported; <code>false</code> otherwise.
+     * @since 1.4
+     */
+    protected boolean isProjectTypeSupported(String projectType, boolean includeSpecificationReviews) {
+        return ReviewBoardHelper.isReviewBoardTypeSupported(projectType, includeSpecificationReviews);
     }
 }
