@@ -58,10 +58,15 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Added support for UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
+ *
+ *   Version 1.0.7 (Specification Review Signup Pages 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Specification review project types.</li>
+ *   </ol> 
  * </p>
  *
- * @author dok, ivern, isv, pulky
- * @version 1.0.6
+ * @author dok, ivern, isv, pulky, TCSASSEMBLER
+ * @version 1.0.7
  */
 public class ViewReviewProjects extends ReviewProjectDetail {
 
@@ -82,7 +87,8 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      */
     protected void developmentProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
-        if (!isProjectTypeSupported(projectTypeId)) {
+        // don't include specification review project types in the validation
+        if (!isProjectTypeSupported(projectTypeId, false)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
 
@@ -144,6 +150,12 @@ public class ViewReviewProjects extends ReviewProjectDetail {
 
             // getRequest().setAttribute("tournamentProjectList", getDataAccess().getData(r).
             //             get("tournament_review_projects"));
+
+            // process specification review positions
+            int specificationReviewProjectTypeId = Integer.parseInt(projectTypeId)
+                    + Constants.SPECIFICATION_COMPETITION_OFFSET;
+            getRequest().setAttribute("specificationReviewProjectTypeId", specificationReviewProjectTypeId);
+            //processSpecificationReviewPositions(specificationReviewProjectTypeId);
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {

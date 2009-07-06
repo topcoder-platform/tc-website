@@ -100,12 +100,35 @@ import java.util.Map;
  *     <li>Updated Application Testing to Test Suites.</li>
  *     <li>Added support for new Test Scenarios competitions.</li>
  *   </ol>
+ *
+ *	Version 1.0.11 (Specification Review Integration 1.0, 
+ *					copied from Specification Review Signup Pages 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Specification Review projects.</li>
+ *     <li>Fixed Catalog validation to show project category.</li>
+ *   </ol>
+ *
  * </p>
  *
- * @author dok, ivern, isv, pulky
- * @version 1.0.10
+ * @author dok, ivern, isv, pulky, TCSASSEMBLER
+ * @version 1.0.11
  */
 public class RBoardApplicationBean extends BaseEJB {
+    /**
+     * <p>An <code>int</code> representing the maximum review positions for regular (non specification review)
+     * projects.</p>
+     *
+     * @since 1.0.11
+     */
+    private static final int MAX_REGULAR_REVIEW_POSITIONS = 3;
+
+    /**
+     * <p>An <code>int</code> representing the maximum review positions for specification review projects.</p>
+     *
+     * @since 1.0.11
+     */
+    private static final int MAX_SPECIFICATION_REVIEW_POSITIONS = 1;
+
     private static final int INTERNAL_ADMIN_USER = 100129;
     private static final int ACTIVE_REVIEWER = 100;
 
@@ -211,6 +234,83 @@ public class RBoardApplicationBean extends BaseEJB {
      * @since 1.0.9
      */
     private static final int RIA_COMPONENT_PRIMARY_REVIEW_ID = 28;
+	
+	/**
+     * <p>An <code>int</code> representing the primary review id for design specification projects.</p>
+     *
+     * @since 1.0.11
+     */
+    private static final int DESIGN_SPECIFICATION_PRIMARY_REVIEW_ID = 34;
+	
+	/**
+     * <p>An <code>int</code> representing the primary review id for development specification projects.</p>
+     *
+     * @since 1.0.11
+     */
+    private static final int DEVELOPMENT_SPECIFICATION_PRIMARY_REVIEW_ID = 35;
+	
+	/**
+     * <p>An <code>int</code> representing the primary review id for conceptualization specification projects.</p>
+     *
+     * @since 1.0.11
+     */
+    private static final int CONCEPTUALIZATION_SPECIFICATION_PRIMARY_REVIEW_ID = 36;
+
+    /**
+     * <p>An <code>int</code> representing the primary review id for specification specification projects.</p>
+     *
+     * @since 1.0.11
+     */
+    private static final int SPECIFICATION_SPECIFICATION_PRIMARY_REVIEW_ID = 37;
+
+    /**
+     * <p>An <code>int</code> representing the primary review id for architecture specification projects.</p>
+     *
+     * @since 1.0.11
+     */
+    private static final int ARCHITECTURE_SPECIFICATION_PRIMARY_REVIEW_ID = 38;
+
+    /**
+     * <p>An <code>int</code> representing the primary review id for assembly specification projects.</p>
+     *
+     * @since 1.0.11
+     */
+    private static final int ASSEMBLY_SPECIFICATION_PRIMARY_REVIEW_ID = 39;
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for test suites specification projects.</p>
+     *
+     * @since 1.0.11
+     */
+    private static final int TEST_SUITES_SPECIFICATION_PRIMARY_REVIEW_ID = 40;
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for test scenarios specification projects.</p>
+     *
+     * @since 1.0.11
+     */
+    private static final int TEST_SCENARIOS_SPECIFICATION_PRIMARY_REVIEW_ID = 41;
+	
+	/**
+     * <p>An <code>int</code> representing the primary review id for ui prototype specification projects.</p>
+     *
+     * @since 1.0.11
+     */
+    private static final int UI_PROTOTYPE_SPECIFICATION_PRIMARY_REVIEW_ID = 42;
+
+    /**
+     * <p>An <code>int</code> representing the primary review id for ria build specification projects.</p>
+     *
+     * @since 1.0.11
+     */
+    private static final int RIA_BUILD_SPECIFICATION_PRIMARY_REVIEW_ID = 43;
+
+    /**
+     * <p>An <code>int</code> representing the primary review id for ria component specification projects.</p>
+     *
+     * @since 1.0.11
+     */
+    private static final int RIA_COMPONENT_SPECIFICATION_PRIMARY_REVIEW_ID = 44;
 
     /**
      * <p>A <code>String</code> containing the error message for inconsistent reviewers for most project types.</p>
@@ -557,7 +657,8 @@ public class RBoardApplicationBean extends BaseEJB {
             // Prepre resource for review phase
             insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
 
-            if (primary) {
+            // we don't need this if it's a specification review
+            if (primary && !isSpecificationReview(phaseId)) {
                 // Prepare for primary screener
                 roleId = PRIMARY_SCREEN_ROLE;
                 pid = (String) phaseInfos.get(String.valueOf(SCREEN_PHASE));
@@ -918,23 +1019,29 @@ public class RBoardApplicationBean extends BaseEJB {
             throw new RBoardRegistrationException("You have already applied to review this project.");
         }
 
-        if (opensOn.getTime() > System.currentTimeMillis()) {
-            throw new RBoardRegistrationException("Sorry, this project is not open for review yet.  "
-                                                  + "You will need to wait until "
-                                                  + timeStampToString(opensOn));
-        }
+        int maxReviewPositions;
+        if (isSpecificationReview(phaseId)) {
+            maxReviewPositions = MAX_SPECIFICATION_REVIEW_POSITIONS;
+        } else {
+            if (opensOn.getTime() > System.currentTimeMillis()) {
+                throw new RBoardRegistrationException("Sorry, this project is not open for review yet.  "
+                                                      + "You will need to wait until "
+                                                      + timeStampToString(opensOn));
+            }
 
-        long applicationDelay = getApplicationDelay(conn, userId);
-        if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
-            throw new RBoardRegistrationException("Sorry, you can not apply for this review yet.  "
-                                                  + "You will need to wait until "
-                                                  + timeStampToString(new Timestamp(opensOn.getTime()
-                                                                                    + applicationDelay)));
+            long applicationDelay = getApplicationDelay(conn, userId);
+            if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
+                throw new RBoardRegistrationException("Sorry, you can not apply for this review yet.  "
+                                                      + "You will need to wait until "
+                                                      + timeStampToString(new Timestamp(opensOn.getTime()
+                                                                                        + applicationDelay)));
+            }
+            maxReviewPositions = MAX_REGULAR_REVIEW_POSITIONS;
         }
 
         ResultSetContainer reviewers = getReviewers(conn, projectId, phaseId);
 
-        if (reviewers.size() == 3) {
+        if (reviewers.size() == maxReviewPositions) {
             throw new RBoardRegistrationException("Sorry, the project's review positions are already full.");
         }
 
@@ -980,6 +1087,30 @@ public class RBoardApplicationBean extends BaseEJB {
         } else if (phaseId == (WebConstants.RIA_COMPONENT_PROJECT_TYPE + 111)) {
             validateReviewPositions(reviewTypeId, primary, reviewers, RIA_COMPONENT_PRIMARY_REVIEW_ID,
                 INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.DESIGN_SPECIFICATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, DESIGN_SPECIFICATION_PRIMARY_REVIEW_ID,
+                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.DEVELOPMENT_SPECIFICATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, DEVELOPMENT_SPECIFICATION_PRIMARY_REVIEW_ID,
+                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, CONCEPTUALIZATION_SPECIFICATION_PRIMARY_REVIEW_ID,
+                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, SPECIFICATION_SPECIFICATION_PRIMARY_REVIEW_ID,
+                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, ARCHITECTURE_SPECIFICATION_PRIMARY_REVIEW_ID,
+                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, ASSEMBLY_SPECIFICATION_PRIMARY_REVIEW_ID,
+                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.TEST_SUITES_SPECIFICATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers,
+                TEST_SUITES_SPECIFICATION_PRIMARY_REVIEW_ID, INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.TEST_SCENARIOS_SPECIFICATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers,
+                TEST_SCENARIOS_SPECIFICATION_PRIMARY_REVIEW_ID, INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         }
 
         // If somebody came in by constructing the URL, make sure that there is at least one
@@ -1034,9 +1165,11 @@ public class RBoardApplicationBean extends BaseEJB {
         // review_resp table is removed
         Map returnMap = new HashMap();
         int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-                22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33};
+                22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 
+				34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44};
         int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134,
-                117, 117, 117, 124, 124, 124, 130, 130, 130, 135, 135, 135, 136, 136, 136, 137, 137, 137};
+                117, 117, 117, 124, 124, 124, 130, 130, 130, 135, 135, 135, 136, 136, 136, 137, 137, 137,
+				1112, 1113, 1134, 1117, 1118, 1125, 1124, 1137, 1130, 1135, 1136};
 
         for (int i = 0; i < respIds.length; i++) {
             returnMap.put(new Integer(respIds[i]), new Integer(phaseIds[i]));
@@ -1160,5 +1293,15 @@ public class RBoardApplicationBean extends BaseEJB {
         } finally {
             close(ps);
         }
+    }
+
+    /**
+     * Private helper method to know whether a phase id corresponds to a specification review project or not.
+     *
+     * @param phaseId the phase id to check.
+     * @return <code>true</code> if the phase corresponds to a specification review project.
+     */
+    private boolean isSpecificationReview(int phaseId) {
+        return phaseId > WebConstants.SPECIFICATION_COMPETITION_OFFSET;
     }
 }

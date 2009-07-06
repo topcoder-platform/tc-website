@@ -63,10 +63,16 @@ import java.util.Map;
  *   <ol>
  *     <li>Added support for UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
+ *
+ *   Version 1.0.6 (Specification Review Integration, Copied from: Specification Review Signup Pages 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Specification review project types.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, isv, pulky
- * @version 1.0.5
+ * @author dok, isv, pulky, TCSASSEMBLER
+ * @version 1.0.6
+ * @since 1.0
  */
 public class ReviewProjectDetail extends Base {
 
@@ -88,7 +94,8 @@ public class ReviewProjectDetail extends Base {
      */
     protected void developmentProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
-        if (!isProjectTypeSupported(projectTypeId)) {
+        // include specification review project types in the validation
+        if (!isProjectTypeSupported(projectTypeId, true)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
 

@@ -80,10 +80,16 @@ import java.io.FileOutputStream;
  *     <li>Updated Application Testing to Test Suites.</li>
  *     <li>Added support for new Test Scenarios competitions.</li>
  *   </ol>
+ *
+ *
+ *   Version 1.0.8 (Specification Review Signup Pages 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Specification review project types.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, isv, pulky
- * @version 1.0.7
+ * @author dok, isv, pulky, TCSASSEMBLER
+ * @version 1.0.8
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -100,7 +106,8 @@ public class ProjectReviewApply extends Base {
 
     protected void developmentProcessing() throws TCWebException {
         projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
-        if (!isProjectTypeSupported(projectTypeId)) {
+        // include specification review project types in the validation
+        if (!isProjectTypeSupported(projectTypeId, true)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
 
