@@ -170,17 +170,6 @@ $(document).ready(function(){
             </div>
 <%-- MAIN CONTENT --%>
             <div id="content-main">
-            <div id="tco-banner">
-            	<img src="/images/TCO09.jpg" width="902" height="121" border="0" usemap="#Map" />
-					<map name="Map" id="Map">
-					<area shape="rect" coords="597,76,653,112" href="http://www.topcoder.com/tco09/blog/" alt="TCO09 Blog" />
-					<area shape="rect" coords="660,77,719,110" href="http://www.topcoder.com/tco09/blog/photos/" alt="TCO09 Photos" />
-					<area shape="rect" coords="728,74,788,112" href="http://www.topcoder.com/tco09/blog/movies/" alt="TCO09 Movies" />
-					<area shape="rect" coords="798,76,865,109" href="http://www.topcoder.com/tco09/blog/twitter/" alt="TCO09 Twitter" />
-					<area shape="rect" coords="309,5,572,113" href="http://www.topcoder.com/tco09" alt="TCO09" /></map>
-					</map>
-				</div>
-				<br />
                 <div id="client-content">
                     <div id="client-box">
                          <div id="enterprise-solutions">
