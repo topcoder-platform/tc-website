@@ -311,10 +311,6 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("Architecture Specification phaseId        : " + ARCHITECTURE_SPECIFICATION_PHASE);
 			System.out.println("Test Suites Specification phaseId           : " + TEST_SUITES_SPECIFICATION_PHASE);
             System.out.println("Test Scenarios Specification phaseId        : " + TEST_SCENARIOS_SPECIFICATION_PHASE);
-            
-            System.out.println("Application Specification phaseId         : "
-                    + APPLICATION_TESTING_SPECIFICATION_PHASE);
-
         } else {
             DefaultPriceComponent sc = new DefaultPriceComponent(1, Integer.parseInt(args[0]),
                                                                  Integer.parseInt(args[1]), Integer.parseInt(args[2]),

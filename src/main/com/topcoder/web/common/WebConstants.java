@@ -317,14 +317,6 @@ public interface WebConstants {
         ASSEMBLY_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
 
     /**
-     * <p>An <code>long</code> representing testing competition specification project category id.</p>
-     *
-     * @since 1.1
-     */
-    public static final long APPLICATION_TESTING_SPECIFICATION_PROJECT_TYPE =
-        APPLICATION_TESTING_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
-
-    /**
      * <p>A <code>long</code> representing ui prototype phase id.</p>
      *
      * @since 1.1
