@@ -67,7 +67,7 @@
     </c:when>
     <c:when test="${projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
         <jsp:include page="/top.jsp">
-            <jsp:param name="level1" value="development"/>
+            <jsp:param name="level1" value="design"/>
         </jsp:include>
     </c:when>
     <c:when test="${projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">

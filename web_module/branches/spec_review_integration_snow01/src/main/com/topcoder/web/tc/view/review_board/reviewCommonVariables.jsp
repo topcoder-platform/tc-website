@@ -85,6 +85,18 @@
         <c:set var="projectTypeDesc" value="Test Scenarios Specification" scope="request"/>
         <c:set var="handleContext" value="test_scenarios" scope="request"/>
     </c:when>
+    <c:when test="${projectType == UI_PROTOTYPE_SPECIFICATION_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="UI Prototype Specification" scope="request"/>
+        <c:set var="handleContext" value="ui_prototype" scope="request"/>
+    </c:when>
+    <c:when test="${projectType == RIA_BUILD_SPECIFICATION_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Ria Build Specification" scope="request"/>
+        <c:set var="handleContext" value="ria_build" scope="request"/>
+    </c:when>
+    <c:when test="${projectType == RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Ria component Specification" scope="request"/>
+        <c:set var="handleContext" value="ria_component" scope="request"/>
+    </c:when>
     <c:when test="${projectType == ARCHITECTURE_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Architecture Specification" scope="request"/>
         <c:set var="handleContext" value="architecture" scope="request"/>
