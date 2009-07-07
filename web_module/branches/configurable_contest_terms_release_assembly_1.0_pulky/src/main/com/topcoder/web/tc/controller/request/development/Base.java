@@ -85,6 +85,8 @@ public abstract class Base extends ShortHibernateProcessor {
      * Constant containing primary reviewer role ids
      *
      * Note: first item is just a placeholder. It will be filled with the corresponding review role id.
+     * Note2: there is "similar" logic in RBoardApplicationBean. It is recommended to rewrite that method to be 
+     * able to extract the logic. Then, it should be possible to reuse it here.
      *
      * @since 1.3
      */
