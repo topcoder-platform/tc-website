@@ -116,8 +116,10 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
                 return STANDARD_ARCHITECTURE_SPECIFICATION_REVIEW_PRICE;
             case SoftwareComponent.ASSEMBLY_SPECIFICATION_PHASE:
                 return STANDARD_ASSEMBLY_SPECIFICATION_REVIEW_PRICE;
-            case SoftwareComponent.APPLICATION_TESTING_SPECIFICATION_PHASE:
-                return STANDARD_APPLICATION_TESTING_SPECIFICATION_REVIEW_PRICE;
+            case SoftwareComponent.TEST_SUITES_SPECIFICATION_PHASE:
+                return STANDARD_TEST_SUITES_SPECIFICATION_REVIEW_PRICE;
+            case SoftwareComponent.TEST_SCENARIOS_SPECIFICATION_PHASE:
+                return STANDARD_TEST_SCENARIOS_SPECIFICATION_REVIEW_PRICE;
             default:
                 return 0;
         }
