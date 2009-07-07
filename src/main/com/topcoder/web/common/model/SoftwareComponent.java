@@ -142,6 +142,30 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      */
     public final static int TEST_SCENARIOS_SPECIFICATION_PHASE =
             (int) WebConstants.PHASE_TEST_SCENARIOS_SPECIFICATION;
+            
+    /**
+     * <p>An <code>int</code> representing ui prototype competition specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public final static int UI_PROTOTYPE_SPECIFICATION_PHASE =
+            (int) WebConstants.PHASE_UI_PROTOTYPE_SPECIFICATION;
+            
+    /**
+     * <p>An <code>int</code> representing ria build competition specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public final static int RIA_BUILD_SPECIFICATION_PHASE =
+            (int) WebConstants.RIA_BUILD_PROTOTYPE_SPECIFICATION;
+            
+    /**
+     * <p>An <code>int</code> representing ria component competition specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public final static int RIA_COMPONENT_SPECIFICATION_PHASE =
+            (int) WebConstants.RIA_COMPONENT_PROTOTYPE_SPECIFICATION;
 
     public final static int LEVEL1 = 100;
     public final static int LEVEL2 = 200;
