@@ -171,7 +171,16 @@ public interface WebConstants {
      * @since 1.1
      */
     public static final long GENERAL_PHASE_OFFSET = 111;
-	
+    
+    /**
+     * <p>An <code>int</code> representing specification competitions offsed.</p>
+     *
+     * <p>Note: the corresponding specification review phase for an existing project phase is defined to be the phase
+     * id plus the offset.</p>
+     *
+     * @since 1.3
+     */
+    public static final int SPECIFICATION_COMPETITION_OFFSET = 1000;
 
     /**
      * The status constant used to indicate a component has been deleted
@@ -349,16 +358,6 @@ public interface WebConstants {
      * @since 1.2
      */
     public static final long PHASE_TEST_SCENARIOS = TEST_SCENARIOS_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
-	
-	/**
-     * <p>An <code>int</code> representing specification competitions offsed.</p>
-     *
-     * <p>Note: the corresponding specification review phase for an existing project phase is defined to be the phase
-     * id plus the offset.</p>
-     *
-     * @since 1.3
-     */
-    public static final int SPECIFICATION_COMPETITION_OFFSET = 1000;
 
     /**
      * <p>An <code>long</code> representing design specification phase id.</p>
