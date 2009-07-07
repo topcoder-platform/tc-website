@@ -195,7 +195,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
         } else if (phaseId == DESIGN_SPECIFICATION_PHASE || phaseId == DEVELOPMENT_SPECIFICATION_PHASE ||
                 phaseId == CONCEPTUALIZATION_SPECIFICATION_PHASE || phaseId == SPECIFICATION_SPECIFICATION_PHASE ||
                 phaseId == ARCHITECTURE_SPECIFICATION_PHASE || phaseId == ASSEMBLY_SPECIFICATION_PHASE ||
-                phaseId == TEST_SUITES_SPECIFICATION_PHASE || phaseId == TEST_SCENARIOS_SPECIFICATION_PHASE) {
+                phaseId == TEST_SUITES_SPECIFICATION_PHASE || phaseId == TEST_SCENARIOS_SPECIFICATION_PHASE ||
+                phaseId == UI_PROTOTYPE_SPECIFICATION_PHASE || phaseId == RIA_BUILD_SPECIFICATION_PHASE ||
+                phaseId == RIA_COMPONENT_SPECIFICATION_PHASE) {
             return new SpecificationReviewerPaymentCalculator(phaseId);
         } else {
             throw new IllegalArgumentException("Invalid phaseId (" + phaseId + ")");
@@ -311,6 +313,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("Architecture Specification phaseId        : " + ARCHITECTURE_SPECIFICATION_PHASE);
 			System.out.println("Test Suites Specification phaseId           : " + TEST_SUITES_SPECIFICATION_PHASE);
             System.out.println("Test Scenarios Specification phaseId        : " + TEST_SCENARIOS_SPECIFICATION_PHASE);
+            System.out.println("UI Prototype Specification phaseId        : " + UI_PROTOTYPE_SPECIFICATION_PHASE);
+            System.out.println("RIA Build Specification phaseId        : " + RIA_BUILD_SPECIFICATION_PHASE);
+            System.out.println("RIA Component Specification phaseId        : " + RIA_COMPONENT_SPECIFICATION_PHASE);
         } else {
             DefaultPriceComponent sc = new DefaultPriceComponent(1, Integer.parseInt(args[0]),
                                                                  Integer.parseInt(args[1]), Integer.parseInt(args[2]),
