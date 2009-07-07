@@ -69,23 +69,23 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *     </tr>
  *   </table>
  * </p>
- * 
+ *
  * @author dok, isv, pulky, TCSDEVELOPER
  * @version 1.3
  */
 public abstract class Base extends ShortHibernateProcessor {
     /**
      * Constant containing submitter role id
-     * 
+     *
      * @since 1.3
      */
     protected static final int[] SUBMITTER_ROLE_IDS = new int[] {1};
 
     /**
      * Constant containing primary reviewer role ids
-     * 
+     *
      * Note: first item is just a placeholder. It will be filled with the corresponding review role id.
-     * 
+     *
      * @since 1.3
      */
     protected static final int[] PRIMARY_ROLE_IDS = new int[] {0, 2, 8, 9};
@@ -260,59 +260,59 @@ public abstract class Base extends ShortHibernateProcessor {
     protected boolean isProjectTypeSupported(String projectType) {
         return ReviewBoardHelper.isReviewBoardTypeSupported(projectType);
     }
-    
+
     /**
-     * This helper method will go create the user terms of use association for a given user id, terms of use id. 
-     * 
+     * This helper method will go create the user terms of use association for a given user id, terms of use id.
+     *
      * @param userId the user id that is requesting the registration
      * @param termsOfUseId the terms of use id the user agreed to
      * @throws NamingException if any errors occur during EJB lookup
      * @throws RemoteException if any errors occur during EJB remote invocation
      * @throws CreateException if any errors occur during EJB creation
      * @throws EJBException if any other errors occur while invoking EJB services
-     * 
+     *
      * @since 1.3
      */
     protected void saveUserTermsOfUse(long userId, long termsOfUseId)
             throws NamingException, RemoteException, CreateException, EJBException {
 
-        // check if the user agreed to all terms of use                
+        // check if the user agreed to all terms of use
         UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
 
         userTermsOfUse.createUserTermsOfUse(userId, termsOfUseId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
     }
-    
+
     /**
-     * This helper method will go through all required terms of use and check whether the user has agreed to 
-     * them or not. If the user agreed to all required terms of use, the list of these terms of use will be 
-     * added to the request. If the user is missing a terms of use, that terms of use will be added to the request. 
-     * 
+     * This helper method will go through all required terms of use and check whether the user has agreed to
+     * them or not. If the user agreed to all required terms of use, the list of these terms of use will be
+     * added to the request. If the user is missing a terms of use, that terms of use will be added to the request.
+     *
      * @param projectId the project id the user is registering to
      * @param userId the user id that is requesting the registration
      * @throws NamingException if any errors occur during EJB lookup
      * @throws RemoteException if any errors occur during EJB remote invocation
      * @throws CreateException if any errors occur during EJB creation
      * @throws EJBException if any other errors occur while invoking EJB services
-     * 
+     *
      * @since 1.3
      */
     protected void processTermsOfUse(String projectId, long userId, int[] roleIds)
             throws NamingException, RemoteException, CreateException, EJBException {
 
-        // check if the user agreed to all terms of use                
+        // check if the user agreed to all terms of use
         ProjectRoleTermsOfUse projectRoleTermsOfUse = ProjectRoleTermsOfUseLocator.getService();
         UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
         TermsOfUse termsOfUse = TermsOfUseLocator.getService();
-        
-        // validate that new resources have agreed to the necessary terms of use 
-        List<Long> necessaryTerms = projectRoleTermsOfUse.getTermsOfUse(Integer.parseInt(projectId), 
+
+        // validate that new resources have agreed to the necessary terms of use
+        List<Long> necessaryTerms = projectRoleTermsOfUse.getTermsOfUse(Integer.parseInt(projectId),
                 roleIds, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-            
+
         List<TermsOfUseEntity> termsAgreed = new ArrayList<TermsOfUseEntity>();
-        
+
         boolean hasPendingTerms = false;
         for (int i = 0; i < necessaryTerms.size() && !hasPendingTerms; i++) {
-            Long termsId = necessaryTerms.get(i); 
+            Long termsId = necessaryTerms.get(i);
 
             // get terms of use
             TermsOfUseEntity terms =  termsOfUse.getEntity(termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
@@ -320,12 +320,12 @@ public abstract class Base extends ShortHibernateProcessor {
             // check if the user has this terms
             if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
                 hasPendingTerms = true;
-                getRequest().setAttribute(Constants.TERMS, terms);                        
+                getRequest().setAttribute(Constants.TERMS, terms);
             } else {
                 termsAgreed.add(terms);
             }
         }
-        
+
         if (!hasPendingTerms) {
             getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreed);
         }
@@ -333,7 +333,7 @@ public abstract class Base extends ShortHibernateProcessor {
 
     /**
      * This helper method will get resource role ids based on the review type id and primary flag
-     * 
+     *
      * @param reviewTypeId the review type id
      * @param primary if the position is a primary review position
      * @return <code>int[]</code> with the role ids
@@ -341,7 +341,7 @@ public abstract class Base extends ShortHibernateProcessor {
     protected int[] getResourceRoleIds(int reviewTypeId, boolean primary) {
         int[] roleIds;
         int roleId = 0;
-        
+
         if (primary) {
             roleIds = Base.PRIMARY_ROLE_IDS;
         } else {
@@ -349,15 +349,15 @@ public abstract class Base extends ShortHibernateProcessor {
         }
         switch (reviewTypeId) {
             case 1:
-                roleId = 7;                    
+                roleId = 7;
             case 2:
-                roleId = 6;                    
+                roleId = 6;
             case 3:
                 roleId = 5;
             default:
                 roleId = 4;
         }
-        
+
         roleIds[0] = roleId;
         return roleIds;
     }

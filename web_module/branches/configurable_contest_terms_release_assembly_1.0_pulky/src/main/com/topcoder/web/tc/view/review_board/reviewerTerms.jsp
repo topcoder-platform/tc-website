@@ -1,5 +1,5 @@
 <%--
-  - Author: pulky
+  - Author: pulky, TCSDEVELOPER
   - Version: 1.2
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
@@ -9,10 +9,10 @@
   - This is an exhaustive refactor and generalization from existing reviewTerms.jsp files.
   - In this release, it will be used for Conceptualization, Specification and Application Testing project types.
   -
-  - Version 1.1 (Studio Coding In Online Review) changes: added support for new UI Prototype, RIA Build and 
+  - Version 1.1 (Studio Coding In Online Review) changes: added support for new UI Prototype, RIA Build and
   - RIA Component competitions.
   - Version 1.2 (Configurable Contest Terms Release Assembly v1.0) changes: Added new functionality that asks for
-  - several terms of use and show those the reviewer already agreed to. 
+  - several terms of use and show those the reviewer already agreed to.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -188,7 +188,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <tc-webtag:textArea name="${TERMS}" text="${terms.termsText}" rows="10" 
+                                            <tc-webtag:textArea name="${TERMS}" text="${terms.termsText}" rows="10"
                                                 cols="80" readOnly="true" styleClass="bodyText"/>
                                         </td>
                                     </tr>
@@ -207,15 +207,15 @@
                                                         ${terms_agreed_item.title}
                                                         <c:choose>
                                                             <c:when test="${not empty terms_agreed_item.url}">
-                                                                <a href="${terms_agreed_item.url}">(View)</a>                        
+                                                                <a href="${terms_agreed_item.url}">(View)</a>
                                                             </c:when>
                                                             <c:otherwise>
-                                                                <a href="/tc?module=Terms&tuid=${terms_agreed_item.termsOfUseId}">(View)</a>                        
+                                                                <a href="/tc?module=Terms&tuid=${terms_agreed_item.termsOfUseId}">(View)</a>
                                                             </c:otherwise>
                                                         </c:choose>
                                                     </li>
                                                 </ul>
-                                            </c:forEach>    
+                                            </c:forEach>
                                         </td>
                                     </tr>
                                 </c:otherwise>
@@ -237,8 +237,8 @@
                                         </tr>
                                     </c:when>
                                     <c:otherwise>
-                                        You cannot agree to this terms electronically. You must print the terms and 
-                                        send a signed hard copy to TopCoder. You can get a printer friendly version 
+                                        You cannot agree to this terms electronically. You must print the terms and
+                                        send a signed hard copy to TopCoder. You can get a printer friendly version
                                         <a href="${terms.url}">here</a>.
                                     </c:otherwise>
                                 </c:choose>
@@ -248,14 +248,14 @@
                                 <tr>
                                     <td class="errorText">
                                         <img src="/i/captcha/${requestScope[CAPTCHA_FILE_NAME]}" alt="captcha image"/>
-    
+
                                         <p>
                                             <a href="javascript:window.location.reload()">This image is hard to read.
                                                 Show me a different one.</a>
                                         </p>
                                     </td>
                                 </tr>
-    
+
                                 <tr>
                                     <td class="errorText">
                                         <tc-webtag:errorIterator id="err" name="${CAPTCHA_RESPONSE}">${err}

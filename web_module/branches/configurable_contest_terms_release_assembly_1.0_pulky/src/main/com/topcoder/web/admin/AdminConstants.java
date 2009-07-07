@@ -20,7 +20,7 @@ public interface AdminConstants {
     public static final String TERMS_OF_USE_ID = "tid";
     public static final String TERMS = "terms";
     public static final String TERMS_OF_USE_TYPE_ID = "ttid";
-    
+
     /**
      * <p>
      * A <code>String</code> containing the attribute key for terms title column.
@@ -38,7 +38,7 @@ public interface AdminConstants {
      * @since 1.1
      */
     public static final String TERMS_ELECTRONICALLY_SIGNABLE = "tes";
-    
+
     /**
      * <p>
      * A <code>String</code> containing the attribute key for terms url column.
@@ -47,7 +47,7 @@ public interface AdminConstants {
      * @since 1.1
      */
     public static final String TERMS_URL = "turl";
-    
+
     public static final String SURVEY_ID = "sid";
     public static final String QUESTION_ID = "qid";
     public static final String ANSWER_ID = "aid";

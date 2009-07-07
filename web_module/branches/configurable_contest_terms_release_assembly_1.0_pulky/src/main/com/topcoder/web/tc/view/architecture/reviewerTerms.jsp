@@ -5,9 +5,9 @@
   - Copyright (C) 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: Displays the Terms Of User for Architecture Project Review and provides a form for the user to accept
-  - the - terms and submit the response to server to continue signing up for review.
+  - the terms and submit the response to server to continue signing up for review.
   - Version 1.1 (Configurable Contest Terms Release Assembly v1.0) changes: Added new functionality that asks for
-  - several terms of use and show those the reviewer already agreed to. 
+  - several terms of use and show those the reviewer already agreed to.
 --%>
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -84,7 +84,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <tc-webtag:textArea name="<%=Constants.TERMS%>" text="${terms.termsText}" rows="10" 
+                            <tc-webtag:textArea name="<%=Constants.TERMS%>" text="${terms.termsText}" rows="10"
                                 cols="80" readOnly="true" styleClass="bodyText"/>
                         </td>
                     </tr>
@@ -103,15 +103,15 @@
                                         ${terms_agreed_item.title}
                                         <c:choose>
                                             <c:when test="${not empty terms_agreed_item.url}">
-                                                <a href="${terms_agreed_item.url}">(View)</a>                        
+                                                <a href="${terms_agreed_item.url}">(View)</a>
                                             </c:when>
                                             <c:otherwise>
-                                                <a href="/tc?module=Terms&tuid=${terms_agreed_item.termsOfUseId}">(View)</a>                        
+                                                <a href="/tc?module=Terms&tuid=${terms_agreed_item.termsOfUseId}">(View)</a>
                                             </c:otherwise>
                                         </c:choose>
                                     </li>
                                 </ul>
-                            </c:forEach>    
+                            </c:forEach>
                         </td>
                     </tr>
                 </c:otherwise>
@@ -133,8 +133,8 @@
                         </tr>
                     </c:when>
                     <c:otherwise>
-                        You cannot agree to this terms electronically. You must print the terms and 
-                        send a signed hard copy to TopCoder. You can get a printer friendly version 
+                        You cannot agree to this terms electronically. You must print the terms and
+                        send a signed hard copy to TopCoder. You can get a printer friendly version
                         <a href="${terms.url}">here</a>.
                     </c:otherwise>
                 </c:choose>
@@ -145,14 +145,14 @@
                 <tr>
                     <td class="errorText">
                         <img src="/i/captcha/${requestScope[captchaFileName]}" alt="captcha image"/>
-    
+
                         <p>
                             <a href="javascript:window.location.reload()">This image is hard to read. Show me a different
                                 one.</a>
                         </p>
                     </td>
                 </tr>
-    
+
                 <tr>
                     <td class="errorText">
                         <tc-webtag:errorIterator id="err" name="<%=Constants.CAPTCHA_RESPONSE%>">${err}

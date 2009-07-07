@@ -34,7 +34,7 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
 /**
- * <p><strong>Purpose</strong>: This processor handle requests to register to a specific design or development 
+ * <p><strong>Purpose</strong>: This processor handle requests to register to a specific design or development
  * project.</p>
  *
  * <p>
@@ -43,7 +43,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
  * </p>
- * 
+ *
  * @author dok, TCSDEVELOPER
  * @version 1.1
  */
@@ -79,7 +79,7 @@ public class ViewRegistration extends Base {
 
                 String projectId = getRequest().getParameter(Constants.PROJECT_ID);
                 long userId = getLoggedInUser().getId();
-                
+
                 // process terms of use
                 processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
 

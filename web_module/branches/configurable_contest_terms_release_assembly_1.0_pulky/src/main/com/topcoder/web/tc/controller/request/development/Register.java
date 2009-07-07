@@ -53,7 +53,7 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
 
 /**
- * <p><strong>Purpose</strong>: This processor handle requests to register to a specific design or development 
+ * <p><strong>Purpose</strong>: This processor handle requests to register to a specific design or development
  * project.</p>
  *
  * <p>
@@ -62,7 +62,7 @@ import com.topcoder.web.tc.Constants;
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
  * </p>
- * 
+ *
  * @author dok, TCSDEVELOPER
  * @version 1.1
  */
@@ -99,7 +99,7 @@ public class Register extends ViewRegistration {
                     }
                     // save user terms of use record
                     saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
-                    
+
                     // get survey
                     getRequest().setAttribute("questionInfo", getQuestions());
 
@@ -109,9 +109,9 @@ public class Register extends ViewRegistration {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
 
                     TermsOfUse termsOfUse = TermsOfUseLocator.getService();
-                    TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId), 
+                    TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId),
                             DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    getRequest().setAttribute(Constants.TERMS, terms);                        
+                    getRequest().setAttribute(Constants.TERMS, terms);
                 }
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                 setNextPage("/contest/regTerms.jsp");
@@ -120,18 +120,18 @@ public class Register extends ViewRegistration {
                 // they don't have pending terms of use
 
                 List responses = validateSurvey();
-    
+
                 boolean bother = true;
-    
+
                 // only bother if the user is not a professional (tccc)
                 // comment this line if not needed
                 // bother = !CoderType.PROFESSIONAL.equals(DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId())).getCoderType().getId());
                 log.debug("Bother: " + bother);
-    
+
                 // Coder c = (Coder) createEJB(getInitialContext(), Coder.class);
                 // boolean isStudent = c.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME) == 1;
-                
-                
+
+
                 if (!hasErrors()) {
                     if (log.isDebugEnabled()) {
                         log.debug("there are no errors");

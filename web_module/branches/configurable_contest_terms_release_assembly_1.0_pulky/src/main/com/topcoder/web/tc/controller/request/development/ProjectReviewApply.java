@@ -73,7 +73,7 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Added support for UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
- *   
+ *
  *   Version 1.0.7 (Configurable Contest Terms Release Assembly v1.0) Change notes:
  *   <ol>
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
@@ -171,7 +171,7 @@ public class ProjectReviewApply extends Base {
 
     /**
      * This method processes review application.
-     * 
+     *
      * @param opensOn the time the review position opens
      * @param reviewTypeId the review type id
      * @throws Exception if any error occurs
@@ -182,7 +182,7 @@ public class ProjectReviewApply extends Base {
                                             opensOn, reviewTypeId, primary);
 
         // get corresponding resource role ids
-        int[] roleIds = getResourceRoleIds(reviewTypeId, primary);                 
+        int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
         processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
 
         loadCaptcha();

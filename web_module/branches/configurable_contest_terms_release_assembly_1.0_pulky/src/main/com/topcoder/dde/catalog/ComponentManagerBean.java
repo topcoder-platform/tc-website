@@ -1,7 +1,6 @@
 /*
  * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
-
 package com.topcoder.dde.catalog;
 
 import java.rmi.RemoteException;
@@ -103,7 +102,7 @@ import com.topcoder.web.ejb.userservices.UserServicesLocator;
 
 /**
  * The implementation of the methods of ComponentManagerEJB.
- * 
+ *
  * <p>
  * Version 1.0.1 Change notes:
  * <ol>
@@ -748,9 +747,9 @@ public class ComponentManagerBean
 
     /**
      * This method will process version update requests.
-     * 
+     *
      * Note - Configurable Contest Terms Release Assembly v1.0: added Project Role Terms of Use generation.
-     * 
+     *
      * @param info the ComponentVersionInfo to update
      * @param requestor the requestor
      * @param levelId the levelId
@@ -1050,7 +1049,7 @@ public class ComponentManagerBean
 
     /**
      * Private helper method to generate default Project Role Terms of Use associations for a given project.
-     * 
+     *
      * @param projectId the project id for the associations
      * @param projectTypeId the project type id of the provided project id
      * @throws NumberFormatException if configurations have wrong format
@@ -1059,12 +1058,12 @@ public class ComponentManagerBean
      * @throws RemoteException if any errors occur during EJB remote invocation
      * @throws CreateException if any errors occur during EJB creation
      * @throws EJBException if any other errors occur while invoking EJB services
-     * @since 1.0.3 
+     * @since 1.0.3
      */
     private void generateProjectRoleTermsOfUseAssociations(long projectId, long projectTypeId)
             throws NumberFormatException, ConfigManagerException,
             NamingException, RemoteException, CreateException, EJBException {
-        
+
         // get ProjectRoleTermsOfUse entries configurations
         int submitterRoleId = Integer.parseInt(getConfigValue("submitter_role_id"));
         long submitterTermsId = Long.parseLong(getConfigValue("submitter_terms_id"));
@@ -1072,7 +1071,7 @@ public class ComponentManagerBean
 
         // create ProjectRoleTermsOfUse default associations
         ProjectRoleTermsOfUse projectRoleTermsOfUse = ProjectRoleTermsOfUseLocator.getService();
-        projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+        projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
                 submitterRoleId, submitterTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
         if (projectTypeId == ProjectType.ID_DEVELOPMENT) {
@@ -1081,19 +1080,19 @@ public class ComponentManagerBean
             int stressReviewerRoleId = Integer.parseInt(getConfigValue("stress_reviewer_role_id"));
 
             // if it's a development project there are several reviewer roles
-            projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+            projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
                     accuracyReviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-    
-            projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+
+            projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
                     failureReviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-    
-            projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+
+            projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
                     stressReviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
         } else {
             int reviewerRoleId = Integer.parseInt(getConfigValue("reviewer_role_id"));
 
             // if it's not development there is a single reviewer role
-            projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(), 
+            projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
                     reviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
         }
     }

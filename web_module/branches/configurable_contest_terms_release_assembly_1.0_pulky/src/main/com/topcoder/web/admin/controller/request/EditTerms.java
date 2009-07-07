@@ -25,8 +25,8 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
 public class EditTerms extends Base {
 
     /**
-     * This method will retrieve the existing terms of use (if needed) and present the edition form. 
-     * 
+     * This method will retrieve the existing terms of use (if needed) and present the edition form.
+     *
      * @throws Exception if any error occurs
      * @see com.topcoder.web.common.BaseProcessor#businessProcessing()
      */
@@ -35,7 +35,7 @@ public class EditTerms extends Base {
         if (tId!=null) {
             TermsOfUse termsOfUse = (TermsOfUse)createEJB(getInitialContext(), TermsOfUse.class);
             TermsOfUseEntity terms = termsOfUse.getEntity(Long.parseLong(tId), DBMS.OLTP_DATASOURCE_NAME);
-            
+
             if (terms != null) {
                 setDefault(Constants.TERMS_OF_USE_ID, tId);
                 setDefault(Constants.TERMS_OF_USE_TYPE_ID, terms.getTermsOfUseTypeId());
@@ -46,7 +46,7 @@ public class EditTerms extends Base {
             } else {
                 addError(Constants.TERMS_OF_USE_TYPE_ID, "Could not retrieve the specified terms of use.");
             }
-            
+
         }
         loadTermsTypeList();
         setNextPage("/editTerms.jsp");

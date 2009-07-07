@@ -13,13 +13,13 @@ import javax.ejb.EJBLocalObject;
  * <p>Local interface for the project role terms of use EJB.</p>
  *
  * @author TCSDEVELOPER
- * @version 1.0
+ * @version 1.0 (Configurable Contest Terms Release Assembly v1.0)
  */
 public interface ProjectRoleTermsOfUseLocal extends EJBLocalObject {
 
     /**
      * This method will create a project role terms of use association.
-     * 
+     *
      * @param projectId the project id to associate
      * @param resourceRoleId the role id to associate
      * @param termsOfUseId the terms of use id to associate
@@ -31,7 +31,7 @@ public interface ProjectRoleTermsOfUseLocal extends EJBLocalObject {
 
     /**
      * This method will remove a project role terms of use association.
-     * 
+     *
      * @param projectId the project id to remove
      * @param resourceRoleId the role id to remove
      * @param termsOfUseId the terms of use id to remove
@@ -43,7 +43,7 @@ public interface ProjectRoleTermsOfUseLocal extends EJBLocalObject {
 
     /**
      * This method will check if a project role terms of use association exists.
-     * 
+     *
      * @param projectId the project id to check
      * @param resourceRoleId the role id to check
      * @param termsOfUseId the terms of use id to check
@@ -56,14 +56,14 @@ public interface ProjectRoleTermsOfUseLocal extends EJBLocalObject {
 
     /**
      * This method will return a list of associated terms of use ids to specific project id and roles.
-     * 
+     *
      * @param projectId the project id to query
      * @param resourceRoleIds the an array of roles ids to query
      * @param dataSource a <code>String</code> containing the datasource.
-     * @return a <code>List<Long></code> containing associated the terms of use ids 
+     * @return a <code>List<Long></code> containing associated the terms of use ids
      * @throws EJBException if any error occurs
      * @throws RemoteException if any error occurs during remote invocation
      */
     public List<Long> getTermsOfUse(int projectId, int[] resourceRoleIds, String dataSource);
-    
+
 }

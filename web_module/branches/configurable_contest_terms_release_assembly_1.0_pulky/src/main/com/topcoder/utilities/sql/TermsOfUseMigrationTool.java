@@ -25,7 +25,7 @@ public class TermsOfUseMigrationTool extends DBUtility {
      * Runs the TermsOfUseMigrationTool.
      *
      * This method will get each terms text and will update the title column to the first 50 characters.
-     * 
+     *
      * @throws Exception if any error occurs.
      */
     public void runUtility() throws Exception {
@@ -33,7 +33,7 @@ public class TermsOfUseMigrationTool extends DBUtility {
         PreparedStatement psUpd = null;
         ResultSet rs = null;
 
-        List<Integer> keys = new ArrayList<Integer>(); 
+        List<Integer> keys = new ArrayList<Integer>();
         List<String> titles = new ArrayList<String>();
 
         try {
@@ -47,15 +47,15 @@ public class TermsOfUseMigrationTool extends DBUtility {
                     titles.add(terms_text.substring(0, terms_text.length() > 50 ? 50 : terms_text.length()));
                 }
             }
-    
-            int count = 0; 
+
+            int count = 0;
             if (keys.size() > 0) {
                 psUpd = prepareStatement("common_oltp", "update terms_of_use set title = ? where terms_of_use_id = ?");
                 for (int i = 0; i < keys.size(); i++) {
                     psUpd.clearParameters();
                     psUpd.setString(1, titles.get(i));
                     psUpd.setInt(2, keys.get(i));
-    
+
                     count += psUpd.executeUpdate();
                 }
             }

@@ -31,8 +31,8 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
 public class UpdateTerms extends EditTerms {
 
     /**
-     * This method will create/update the specified terms of use after validation. 
-     * 
+     * This method will create/update the specified terms of use after validation.
+     *
      * @throws Exception if any error occurs
      * @see com.topcoder.web.admin.controller.request.EditTerms#businessProcessing()
      */
@@ -45,7 +45,7 @@ public class UpdateTerms extends EditTerms {
         Integer termsElectronicallySignable  = StringUtils.checkNull(
                 getRequest().getParameter(Constants.TERMS_ELECTRONICALLY_SIGNABLE)).equals("on") ? 1 : 0;
         String termsUrl = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_URL));
-        
+
         TransactionManager tm = null;
         try {
 
@@ -60,10 +60,10 @@ public class UpdateTerms extends EditTerms {
                 setNextPage("/editTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
-                TermsOfUseEntity terms = new TermsOfUseEntity(StringUtils.checkNull(tId).equals("") ? null : 
-                    Long.parseLong(tId), termsText, Integer.parseInt(ttId), termsTitle, termsElectronicallySignable, 
-                    termsUrl); 
-                
+                TermsOfUseEntity terms = new TermsOfUseEntity(StringUtils.checkNull(tId).equals("") ? null :
+                    Long.parseLong(tId), termsText, Integer.parseInt(ttId), termsTitle, termsElectronicallySignable,
+                    termsUrl);
+
                 TermsOfUse termsOfUse = (TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class);
                 tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 tm.begin();
@@ -76,7 +76,7 @@ public class UpdateTerms extends EditTerms {
                 setIsNextPageInContext(false);
             }
         } catch (Exception e) {
-            if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || 
+            if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE ||
                     tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
                 tm.rollback();
             }
@@ -86,29 +86,29 @@ public class UpdateTerms extends EditTerms {
 
     /**
      * This method validates the terms of use data
-     * 
+     *
      * @param ttId the terms type id field content
      * @param termsTitle the terms title field content
      * @param termsElectronicallySignable the terms electronically signable field content
      * @param termsUrl the terms url field content
-     * 
+     *
      * @return true if the form data is valid
-     * 
+     *
      * @since 1.1
      */
     private boolean valid(String ttId, String termsTitle, Integer termsElectronicallySignable, String termsUrl) {
         if (ttId.equals("")) {
             addError(Constants.TERMS_OF_USE_TYPE_ID, "You must choose a terms of use type");
         }
-        
+
         if (termsTitle.length() == 0) {
             addError(Constants.TERMS_TITLE, "You must enter a terms title");
         }
-        
+
         if (termsElectronicallySignable == 0 && termsUrl.length() == 0) {
             addError(Constants.TERMS_URL, "If the terms is not electronically signable you must provide a terms URL");
         }
-        
+
         return !hasErrors();
     }
 }

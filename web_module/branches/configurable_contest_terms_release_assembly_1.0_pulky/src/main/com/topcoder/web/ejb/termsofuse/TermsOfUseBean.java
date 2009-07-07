@@ -41,26 +41,26 @@ public class TermsOfUseBean extends BaseEJB {
      * @since 1.1
      */
     private static final long serialVersionUID = 1L;
-    
+
     /**
      * This method will create/update terms of use entity.
-     * 
+     *
      * If the object contains an id, the method will attempt an update, otherwise it will calculate an id and attempt
      * an insertion.
-     * 
-     * @param terms a <code>TermsOfUseEntity</code> containing required information for creation/update. 
+     *
+     * @param terms a <code>TermsOfUseEntity</code> containing required information for creation/update.
      * @param dataSource a <code>String</code> containing the datasource.
-     * 
+     *
      * @return a <code>TermsOfUseEntity</code> with updated id attribute.
      * @throws EJBException
-     * 
+     *
      * @since 1.1
      */
     public TermsOfUseEntity updateTermsOfUse(TermsOfUseEntity terms, String dataSource) throws EJBException {
-        
+
         // if the terms of use id is specified, it's an update
         boolean isUpdate = terms.getTermsOfUseId() != null;
-        
+
         StringBuffer query = new StringBuffer(1024);
 
         Connection conn = null;
@@ -84,14 +84,14 @@ public class TermsOfUseBean extends BaseEJB {
                 ps.setLong(6, terms.getTermsOfUseId());
             } else {
                 long termsOfUseId = IdGeneratorClient.getSeqId("TERMS_OF_USE_SEQ");
-                
+
                 terms.setTermsOfUseId(termsOfUseId);
-    
+
                 query.append("INSERT ");
                 query.append("INTO terms_of_use (terms_of_use_id, terms_text, terms_of_use_type_id, title, ");
                 query.append("electronically_signable, url) ");
                 query.append("VALUES (?, ?, ?, ?, ?, ?)");
-    
+
                 ps = conn.prepareStatement(query.toString());
                 ps.setLong(1, termsOfUseId);
                 ps.setBytes(2, DBMS.serializeTextString(terms.getTermsText()));
@@ -122,35 +122,35 @@ public class TermsOfUseBean extends BaseEJB {
 
     /**
      * This method will retrieve a terms of use entity from the database.
-     * 
-     * @param termsOfUseId a <code>long</code> containing the terms of use id to retrieve. 
+     *
+     * @param termsOfUseId a <code>long</code> containing the terms of use id to retrieve.
      * @param dataSource a <code>String</code> containing the datasource.
-     * 
+     *
      * @return a <code>TermsOfUseEntity</code> with the requested terms of use or null if not found.
      * @throws EJBException if any error occurs.
-     * 
+     *
      * @since 1.1
      */
     public TermsOfUseEntity getEntity(long termsOfUseId, String dataSource) throws EJBException {
         TermsOfUseEntity terms = null;
-        
+
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
+
         try {
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT terms_text, terms_of_use_type_id, title, electronically_signable, url ");
             query.append("FROM terms_of_use ");
             query.append("WHERE terms_of_use_id=?");
-        
+
             conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, termsOfUseId);
-        
+
             rs = ps.executeQuery();
             if (rs.next()) {
-                terms = new TermsOfUseEntity(termsOfUseId, DBMS.getTextString(rs, 1), 
+                terms = new TermsOfUseEntity(termsOfUseId, DBMS.getTextString(rs, 1),
                         rs.getInt("terms_of_use_type_id"), rs.getString("title"), rs.getInt("electronically_signable"),
                         rs.getString("url"));
             }
@@ -168,7 +168,7 @@ public class TermsOfUseBean extends BaseEJB {
         return (terms);
     }
 
-    
+
     /**
      * @deprecated since 1.1
      */

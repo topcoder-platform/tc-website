@@ -59,7 +59,7 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
  * </p>
- * 
+ *
  * @author dok, pulky, TCSDEVELOPER
  * @version 1.2
  */
@@ -82,7 +82,7 @@ public class Register extends ViewRegistration {
 
             String projectId = getRequest().getParameter(Constants.PROJECT_ID);
             getRequest().setAttribute(Constants.PROJECT_ID, projectId);
-            
+
             String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
 
             if (!"".equals(termsOfUseId)) {
@@ -95,16 +95,16 @@ public class Register extends ViewRegistration {
                     }
                     // save user terms of use record
                     saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
-                    
+
                     // process terms of use
                     processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
                 } else {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
 
                     TermsOfUse termsOfUse = TermsOfUseLocator.getService();
-                    TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId), 
+                    TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId),
                             DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    getRequest().setAttribute(Constants.TERMS, terms);                        
+                    getRequest().setAttribute(Constants.TERMS, terms);
                 }
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                 setNextPage("/contest/regTerms.jsp");
@@ -122,7 +122,7 @@ public class Register extends ViewRegistration {
                 } else {
                     setNextPage("/contest/message.jsp");
                     setIsNextPageInContext(true);
-                }                
+                }
             }
         } catch (TCWebException e) {
             throw e;

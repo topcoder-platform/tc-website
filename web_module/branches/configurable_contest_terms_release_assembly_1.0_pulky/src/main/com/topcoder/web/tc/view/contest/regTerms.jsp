@@ -1,14 +1,14 @@
 <%--
-  - Author: pulky
+  - Author: pulky, TCSDEVELOPER
   - Version: 1.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows the registration terms for a specific project.
   -
-  - Version 1.1 (Studio Coding In Online Review) changes: added support for new UI Prototype, RIA Build and 
+  - Version 1.1 (Studio Coding In Online Review) changes: added support for new UI Prototype, RIA Build and
   - RIA Component competitions.
   - Version 1.2 (Configurable Contest Terms Release Assembly v1.0) changes: Added new functionality that asks for
-  - several terms of use and show those the user already agreed to. 
+  - several terms of use and show those the user already agreed to.
 --%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -185,7 +185,7 @@
                                             <br /><br />
                                             <hr width="100%" size="1" noshade/>
                                         </td>
-        
+
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="errorText">
@@ -232,15 +232,15 @@
                                                 ${terms_agreed_item.title}
                                                 <c:choose>
                                                     <c:when test="${not empty terms_agreed_item.url}">
-                                                        <a href="${terms_agreed_item.url}">(View)</a>                        
+                                                        <a href="${terms_agreed_item.url}">(View)</a>
                                                     </c:when>
                                                     <c:otherwise>
-                                                        <a href="/tc?module=Terms&tuid=${terms_agreed_item.termsOfUseId}">(View)</a>                        
+                                                        <a href="/tc?module=Terms&tuid=${terms_agreed_item.termsOfUseId}">(View)</a>
                                                     </c:otherwise>
                                                 </c:choose>
                                             </li>
                                         </ul>
-                                    </c:forEach>    
+                                    </c:forEach>
                                 </td>
                             </tr>
                         </table>
@@ -259,13 +259,13 @@
                             <c:when test="${terms.electronicallySignable == 1}">
                                 <span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%>
                                     <br /></tc-webtag:errorIterator></span>
-            
+
                                     I Agree to the Terms and Conditions stated above&#160;
                                     <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
                             </c:when>
                             <c:otherwise>
                                 You cannot agree to this terms electronically. You must print the terms and send a signed
-                                hard copy to TopCoder. You can get a printer friendly version 
+                                hard copy to TopCoder. You can get a printer friendly version
                                 <a href="${terms.url}">here</a>.
                             </c:otherwise>
                         </c:choose>

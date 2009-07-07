@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -39,7 +39,7 @@ import com.topcoder.web.tc.Constants;
  *     <li>The project type requested by client is provided as parameter to <code>review_project_detail</code> query to
  *         filter the retrieved projects based on provided type.</li>
  *   </ol>
- *   
+ *
  *   Version 1.0.3 (Configurable Contest Terms Release Assembly v1.0) Change notes:
  *   <ol>
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
@@ -61,7 +61,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
     /**
      * This method processes review application.
-     * 
+     *
      * @param opensOn the time the review position opens
      * @param reviewTypeId the review type id
      * @throws Exception if any error occurs
@@ -70,44 +70,44 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
         boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
         setDefault(Constants.PRIMARY_FLAG, primary);
-        
+
         long userId = getLoggedInUser().getId();
 
         if ("POST".equals(getRequest().getMethod())) {
             if (!"".equals(termsOfUseId)) {
-                
+
                 if (!"on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to review a component.");
-                    
+
                     TermsOfUse termsOfUse = TermsOfUseLocator.getService();
-                    TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId), 
+                    TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId),
                             DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    getRequest().setAttribute(Constants.TERMS, terms);                        
+                    getRequest().setAttribute(Constants.TERMS, terms);
                 } else {
                     // save user terms of use record
                     saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
-                    
+
                     loadCaptcha();
-    
+
                     // process terms of use
-                    int[] roleIds = getResourceRoleIds(reviewTypeId, primary);                 
+                    int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
                     processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
                 }
                 setNextPage(Constants.REVIEWER_TERMS);
                 setIsNextPageInContext(true);
             } else {
                 // they don't have pending terms of use
-    
+
                 if (!answeredCaptchaCorrectly()) {
                     addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
                 }
-    
+
                 if (hasErrors()) {
                     loadCaptcha();
-    
-                    int[] roleIds = getResourceRoleIds(reviewTypeId, primary);                 
+
+                    int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
                     processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
-    
+
                     setNextPage(Constants.REVIEWER_TERMS);
                     setIsNextPageInContext(true);
                 } else {

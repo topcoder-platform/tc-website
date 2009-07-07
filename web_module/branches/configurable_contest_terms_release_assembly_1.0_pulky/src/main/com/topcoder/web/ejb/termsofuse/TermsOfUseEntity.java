@@ -9,7 +9,7 @@ import java.io.Serializable;
  * <p>Simple entity class for a Terms Of Use to be used by the Terms Of Use EJB.</p>
  *
  * @author TCSDEVELOPER
- * @version 1.0
+ * @version 1.0 (Configurable Contest Terms Release Assembly v1.0)
  */
 public class TermsOfUseEntity implements Serializable {
 
@@ -21,39 +21,39 @@ public class TermsOfUseEntity implements Serializable {
      * @since 1.1
      */
     private static final long serialVersionUID = 1L;
-    
+
     /**
-     * The terms of use id. 
+     * The terms of use id.
      */
     private Long termsOfUseId;
-    
+
     /**
-     * The terms of use text. 
+     * The terms of use text.
      */
     private String termsText;
-    
+
     /**
-     * The terms of use type id. 
+     * The terms of use type id.
      */
     private Integer termsOfUseTypeId;
-    
+
     /**
-     * The terms of use title. 
+     * The terms of use title.
      */
     private String title;
-    
+
     /**
-     * The terms of use electronically signable flag. 
+     * The terms of use electronically signable flag.
      */
     private Integer electronicallySignable;
-    
+
     /**
-     * The terms of use url. 
+     * The terms of use url.
      */
     private String url;
 
     /**
-     * Default empty constructor. 
+     * Default empty constructor.
      */
     public TermsOfUseEntity() {
         super();
@@ -61,11 +61,11 @@ public class TermsOfUseEntity implements Serializable {
 
     /**
      * Constructs a <code>TermsOfUseEntity</code> using parameters.
-     * 
+     *
      * @param electronicallySignable The terms of use electronically signable flag.
      * @param termsOfUseId The terms of use id
-     * @param termsOfUseTypeId The terms of use type id 
-     * @param termsText The terms of use text 
+     * @param termsOfUseTypeId The terms of use type id
+     * @param termsText The terms of use text
      * @param title The terms of use title
      * @param url The terms of use url
      */
@@ -81,107 +81,107 @@ public class TermsOfUseEntity implements Serializable {
     }
 
     /**
-     * Getter for the Terms of use id 
-     * 
+     * Getter for the Terms of use id
+     *
      * @return the termsOfUseId
      */
     public Long getTermsOfUseId() {
         return termsOfUseId;
     }
-    
+
     /**
-     * Setter for the Terms of use id 
-     * 
+     * Setter for the Terms of use id
+     *
      * @param termsOfUseId the termsOfUseId to set
      */
     public void setTermsOfUseId(Long termsOfUseId) {
         this.termsOfUseId = termsOfUseId;
     }
-    
+
     /**
-     * Getter for the Terms of use text 
-     * 
+     * Getter for the Terms of use text
+     *
      * @return the termsText
      */
     public String getTermsText() {
         return termsText;
     }
-    
+
     /**
      * Setter for the Terms of use text
-     *  
+     *
      * @param termsText the termsText to set
      */
     public void setTermsText(String termsText) {
         this.termsText = termsText;
     }
-    
+
     /**
-     * Getter for the Terms of use type id 
-     * 
+     * Getter for the Terms of use type id
+     *
      * @return the termsOfUseTypeId
      */
     public Integer getTermsOfUseTypeId() {
         return termsOfUseTypeId;
     }
-    
+
     /**
-     * Setter for the Terms of use type id 
-     * 
+     * Setter for the Terms of use type id
+     *
      * @param termsOfUseTypeId the termsOfUseTypeId to set
      */
     public void setTermsOfUseTypeId(Integer termsOfUseTypeId) {
         this.termsOfUseTypeId = termsOfUseTypeId;
     }
-    
+
     /**
-     * Getter for the Terms of use title 
-     * 
+     * Getter for the Terms of use title
+     *
      * @return the title
      */
     public String getTitle() {
         return title;
     }
-    
+
     /**
-     * Setter for the Terms of use title 
-     * 
+     * Setter for the Terms of use title
+     *
      * @param title the title to set
      */
     public void setTitle(String title) {
         this.title = title;
     }
-    
+
     /**
-     * Getter for the Terms of use electronically signable flag 
-     * 
+     * Getter for the Terms of use electronically signable flag
+     *
      * @return the electronicallySignable
      */
     public Integer getElectronicallySignable() {
         return electronicallySignable;
     }
-    
+
     /**
-     * Setter for the Terms of use electronically signable flag 
-     * 
+     * Setter for the Terms of use electronically signable flag
+     *
      * @param electronicallySignable the electronicallySignable to set
      */
     public void setElectronicallySignable(Integer electronicallySignable) {
         this.electronicallySignable = electronicallySignable;
     }
-    
+
     /**
-     * Getter for the Terms of use url 
-     * 
+     * Getter for the Terms of use url
+     *
      * @return the url
      */
     public String getUrl() {
         return url;
     }
-    
+
     /**
-     * Setter for the Terms of use url 
-     * 
+     * Setter for the Terms of use url
+     *
      * @param url the url to set
      */
     public void setUrl(String url) {

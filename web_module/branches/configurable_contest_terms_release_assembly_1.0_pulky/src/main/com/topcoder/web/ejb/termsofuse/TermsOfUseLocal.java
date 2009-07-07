@@ -25,29 +25,29 @@ public interface TermsOfUseLocal extends EJBLocalObject {
 
     /**
      * This method will create/update terms of use entity.
-     * 
+     *
      * If the object contains an id, the method will attempt an update, otherwise it will calculate an id and attempt
      * an insertion.
-     * 
-     * @param terms a <code>TermsOfUseEntity</code> containing required information for creation/update. 
+     *
+     * @param terms a <code>TermsOfUseEntity</code> containing required information for creation/update.
      * @param dataSource a <code>String</code> containing the datasource.
-     * 
+     *
      * @return a <code>TermsOfUseEntity</code> with updated id attribute.
      * @throws EJBException if any error occurs
-     * 
+     *
      * @since 1.1
      */
     TermsOfUseEntity updateTermsOfUse(TermsOfUseEntity terms, String dataSource);
 
     /**
      * This method will retrieve a terms of use entity from the database.
-     * 
-     * @param termsOfUseId a <code>long</code> containing the terms of use id to retrieve. 
+     *
+     * @param termsOfUseId a <code>long</code> containing the terms of use id to retrieve.
      * @param dataSource a <code>String</code> containing the datasource.
-     * 
+     *
      * @return a <code>TermsOfUseEntity</code> with the requested terms of use or null if not found.
      * @throws EJBException if any error occurs.
-     * 
+     *
      * @since 1.1
      */
     TermsOfUseEntity getEntity(long termsOfUseId, String dataSource);

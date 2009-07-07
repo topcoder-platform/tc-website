@@ -35,7 +35,7 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
  * </p>
- * 
+ *
  * @author dok, pulky, TCSDEVELOPER
  * @version 1.2
  */
@@ -64,10 +64,10 @@ public class ViewRegistration extends Base {
             if (getRequest().getAttribute(Constants.MESSAGE) == null) {
                 String projectId = getRequest().getParameter(Constants.PROJECT_ID);
                 long userId = getLoggedInUser().getId();
-                
+
                 // process terms of use
                 processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
-                
+
                 //we're assuming that if we're here, we got a valid project id
                 setDefault(Constants.PROJECT_ID, projectId);
                 setNextPage("/contest/regTerms.jsp");

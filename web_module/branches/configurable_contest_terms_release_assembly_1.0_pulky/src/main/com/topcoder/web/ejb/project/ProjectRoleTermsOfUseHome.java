@@ -12,7 +12,7 @@ import javax.ejb.EJBHome;
  * <p>Remote home interface for the project role terms of use EJB.</p>
  *
  * @author TCSDEVELOPER
- * @version 1.0
+ * @version 1.0 (Configurable Contest Terms Release Assembly v1.0)
  */
 public interface ProjectRoleTermsOfUseHome extends EJBHome {
 
@@ -22,9 +22,9 @@ public interface ProjectRoleTermsOfUseHome extends EJBHome {
     public final static String EJB_REF_NAME = "com.topcoder.web.ejb.project.ProjectRoleTermsOfUseHome";
 
     /**
-     * Create method for the Project Role Terms of Use EJB  
-     * 
-     * @return an instance implementing <code>ProjectRoleTermsOfUse</code>. 
+     * Create method for the Project Role Terms of Use EJB
+     *
+     * @return an instance implementing <code>ProjectRoleTermsOfUse</code>.
      * @throws CreateException if any error occurs during creation
      * @throws RemoteException if any error occurs during remote invocation.
      */
