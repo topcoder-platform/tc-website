@@ -89,7 +89,8 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
                 && phaseId != SoftwareComponent.SPECIFICATION_SPECIFICATION_PHASE
                 && phaseId != SoftwareComponent.ARCHITECTURE_SPECIFICATION_PHASE
                 && phaseId != SoftwareComponent.ASSEMBLY_SPECIFICATION_PHASE
-                && phaseId != SoftwareComponent.APPLICATION_TESTING_SPECIFICATION_PHASE) {
+                && phaseId != SoftwareComponent.TEST_SUITES_SPECIFICATION_PHASE
+                && phaseId != SoftwareComponent.TEST_SCENARIOS_SPECIFICATION_PHASE) {
 
             throw new IllegalArgumentException("Invalid phaseId (" + phaseId + ")");
         }
