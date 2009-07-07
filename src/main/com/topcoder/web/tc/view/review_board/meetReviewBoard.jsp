@@ -261,6 +261,18 @@
                                                 <tc-webtag:handle coderId="${resultRow.map['user_id']}"
                                                     context='test_scenarios'/>
                                             </c:when>
+                                            <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
+                                                <tc-webtag:handle coderId="${resultRow.map['user_id']}"
+                                                    context='ui_prototype'/>
+                                            </c:when>
+                                            <c:when test="${projectType == RIA_BUILD_PROJECT_TYPE}">
+                                                <tc-webtag:handle coderId="${resultRow.map['user_id']}"
+                                                    context='ria_build'/>
+                                            </c:when>
+                                            <c:when test="${projectType == RIA_COMPONENT_PROJECT_TYPE}">
+                                                <tc-webtag:handle coderId="${resultRow.map['user_id']}"
+                                                    context='ria_component'/>
+                                            </c:when>
                                             <c:otherwise>
                                                 <tc-webtag:handle coderId="${resultRow.map['user_id']}" />
                                             </c:otherwise>
