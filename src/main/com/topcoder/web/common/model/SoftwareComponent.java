@@ -157,7 +157,7 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      * @since 1.3
      */
     public final static int RIA_BUILD_SPECIFICATION_PHASE =
-            (int) WebConstants.RIA_BUILD_SPECIFICATION;
+            (int) WebConstants.PHASE_RIA_BUILD_SPECIFICATION;
             
     /**
      * <p>An <code>int</code> representing ria component competition specification phase id.</p>
@@ -165,7 +165,7 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      * @since 1.3
      */
     public final static int RIA_COMPONENT_SPECIFICATION_PHASE =
-            (int) WebConstants.RIA_COMPONENT_SPECIFICATION;
+            (int) WebConstants.PHASE_RIA_COMPONENT_SPECIFICATION;
 
     public final static int LEVEL1 = 100;
     public final static int LEVEL2 = 200;
