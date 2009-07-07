@@ -100,7 +100,10 @@ public final class ReviewBoardHelper {
             || reviewBoardType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.TEST_SUITES_SPECIFICATION_PROJECT_TYPE))
-			|| reviewBoardType.equals(String.valueOf(WebConstants.TEST_SCENARIOS_SPECIFICATION_PROJECT_TYPE));
+			|| reviewBoardType.equals(String.valueOf(WebConstants.TEST_SCENARIOS_SPECIFICATION_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.UI_PROTOTYPE_SPECIFICATION_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.RIA_BUILD_SPECIFICATION_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE));
         }
 
         return supported;			
