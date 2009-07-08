@@ -14,6 +14,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer, com.topcoder.web.tc.Constants" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
@@ -141,15 +142,31 @@
                                     </tr>
                                 </table>
                                 
-                                <p>
-                                    <span class="bodySubtitle">
-                                        Application Overview
-                                    </span><br>
-                                </p>
-                                
-                                <p>
-                                    ${projectDetailRow.map["description"]}
-                                </p>
+                                <c:choose>
+									<c:when test="${fn:length(requirements) > 0}">
+										<c:forEach items="${requirements}" var="resultRow">
+											<p><span class="bodySubtitle">Detailed Requirements</span><br></p>
+											${resultRow.map["detailed_requirements"]}
+										
+											<p><span class="bodySubtitle">Submission Deliverables</span><br></p>
+											${resultRow.map["submission_deliverables"]}
+										
+											<p><span class="bodySubtitle">Environment Setup Instructions</span><br></p> 
+											${resultRow.map["environment_setup_instruction"]}
+										
+											<p><span class="bodySubtitle">Final Submission Guidelines</span><br></p> 
+											${resultRow.map["final_submission_guidelines"]}
+										
+										</c:forEach>
+									</c:when>
+									<c:otherwise>
+										<p><span class="bodySubtitle">Application Overview</span><br></p>
+										
+										<p>
+											<rsc:item set="<%=projectDetail%>" name="description"/>
+										</p>
+									</c:otherwise>
+								</c:choose>
                                 
                                 <%-- Technologies --%>
                                 <p class="noSpListTitle">
