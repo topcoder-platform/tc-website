@@ -163,7 +163,7 @@
 										<p><span class="bodySubtitle">Application Overview</span><br></p>
 										
 										<p>
-											<rsc:item set="<%=projectDetail%>" name="description"/>
+      											${projectDetailRow.map["description"]}
 										</p>
 									</c:otherwise>
 								</c:choose>
