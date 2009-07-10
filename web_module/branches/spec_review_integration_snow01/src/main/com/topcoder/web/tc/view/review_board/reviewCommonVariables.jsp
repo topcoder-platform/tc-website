@@ -11,9 +11,6 @@
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<c:set var="PROJECT_ID" value="<%=Constants.PROJECT_ID%>" scope="request"/>
-<c:set var="MODULE_KEY" value="<%=Constants.MODULE_KEY%>" scope="request"/>
-
 <c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="TEST_SUITES_PROJECT_TYPE" value="<%=Constants.TEST_SUITES_PROJECT_TYPE%>"/>
@@ -114,3 +111,6 @@
         <c:set var="handleContext" value="development" scope="request"/>
     </c:when>
 </c:choose>
+
+<c:set var="PROJECT_ID" value="<%=Constants.PROJECT_ID%>" scope="request"/>
+<c:set var="MODULE_KEY" value="<%=Constants.MODULE_KEY%>" scope="request"/>

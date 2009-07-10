@@ -28,10 +28,18 @@
 
 <%-- Variables to use JSTL --%>
 <c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
-<c:set var="projectType" value="${param[PROJECT_TYPE_ID]}"/>
-
+<c:set var="projectType" value="${param[PROJECT_TYPE_ID]}" scope="request"/>
 <jsp:include page="reviewCommonVariables.jsp"/>
 
+<%
+	// debug logs here.
+	System.out.println("reviewProjects.jsp: projectType: " + projectType);
+	System.out.println("reviewProjects.jsp: projectTypeDesc: " + projectTypeDesc);
+	System.out.println("reviewProjects.jsp: handleContext: " + handleContext);
+	System.out.println("reviewProjects.jsp: PROJECT_TYPE_ID: " + PROJECT_TYPE_ID);	
+	System.out.println("reviewProjects.jsp: PROJECT_ID: " + PROJECT_ID);	
+	System.out.println("reviewProjects.jsp: MODULE_KEY: " + MODULE_KEY);	
+%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
