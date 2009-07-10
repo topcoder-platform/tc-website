@@ -1,3 +1,13 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page renders studio site top section.
+  -
+  - Version 1.1 (Studio Release Assembly 1) Change notes:
+  - * Login box layout was modified.
+--%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.controller.request.Login" %>

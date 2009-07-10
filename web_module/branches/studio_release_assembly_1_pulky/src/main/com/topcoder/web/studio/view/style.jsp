@@ -1,3 +1,15 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page helps include custom CSS according to the caller
+  -
+  - Parameter key: this parameter is used to decide which styles to include. 
+  -
+  - Version 1.1 (Studio Release Assembly 1) Change notes:
+  - * New styles selected for studio home page.
+--%>
 <%@ page contentType="text/html" %>
 
 <%
