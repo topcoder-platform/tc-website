@@ -416,6 +416,7 @@ public class ReviewProjectDetail extends Base {
      * @since TCS Release 2.2.0 (TCS-54)
      */
     private String getReviewProjectDetailView(String projectType) {
+		System.out.println("getReviewProjectDetailView: " + projectType);
         if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
             return Constants.REVIEW_PROJECT_DETAIL;
         } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
@@ -426,6 +427,7 @@ public class ReviewProjectDetail extends Base {
             return Constants.ARCHITECTURE_REVIEW_PROJECT_DETAIL;
         } else {
             // we don't need to check for project types, they are already verified.
+			
             return Constants.UNIFIED_REVIEW_PROJECT_DETAIL_PAGE;
         }
     }

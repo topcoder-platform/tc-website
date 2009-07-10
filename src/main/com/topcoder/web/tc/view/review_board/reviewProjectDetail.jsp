@@ -28,7 +28,7 @@
 
 <%-- Variables to use JSTL --%>
 <c:set var="projectDetailRow" value="${projectDetail[0]}"/>
-<c:set var="projectType" value="${projectDetailRow.map['project_category_id']}"/>
+<c:set var="projectType" value="${projectDetailRow.map['project_category_id']}" scope="request"/>
 <c:set var="now" value="<%=new TCTimestampResult(new Timestamp(System.currentTimeMillis()))%>"/>
 <c:set var="PRIMARY_FLAG" value="<%=Constants.PRIMARY_FLAG%>"/>
 <c:set var="REVIEWER_TYPE_ID" value="<%=Constants.REVIEWER_TYPE_ID%>"/>
@@ -228,39 +228,8 @@
                                             <i>Not open yet ***</i>
                                         </c:when>
                                         <c:when test="${reviewer.spotFilled}">
-                                            <c:choose>
-                                                <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
-                                                    <tc-webtag:handle coderId="${reviewer.userId}"
-                                                        context='conceptualization'/>
-                                                </c:when>
-                                                <c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
-                                                    <tc-webtag:handle coderId="${reviewer.userId}"
-                                                        context='specification'/>
-                                                </c:when>
-                                                <c:when test="${projectType == TEST_SUITES_PROJECT_TYPE}">
-                                                    <tc-webtag:handle coderId="${reviewer.userId}"
-                                                        context='test_suites'/>
-                                                </c:when>
-                                                <c:when test="${projectType == TEST_SCENARIOS_PROJECT_TYPE}">
-                                                    <tc-webtag:handle coderId="${reviewer.userId}"
-                                                        context='test_scenarios'/>
-                                                </c:when>
-                                                <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
-                                                    <tc-webtag:handle coderId="${reviewer.userId}"
-                                                        context='ui_prototype'/>
-                                                </c:when>
-                                                <c:when test="${projectType == RIA_BUILD_PROJECT_TYPE}">
-                                                    <tc-webtag:handle coderId="${reviewer.userId}"
-                                                        context='ria_build'/>
-                                                </c:when>
-                                                <c:when test="${projectType == RIA_COMPONENT_PROJECT_TYPE}">
-                                                    <tc-webtag:handle coderId="${reviewer.userId}"
-                                                        context='ria_component'/>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <tc-webtag:handle coderId="${reviewer.userId}" />
-                                                </c:otherwise>
-                                            </c:choose>
+                                            <tc-webtag:handle coderId="${reviewer.userId}"
+                                                context="${handleContext}"/>
                                         </c:when>
                                         <c:when test="${waitingToReview && !isSpecificationReview}">
                                             <i>Waiting until <fmt:formatDate value="${waitingUntil}"

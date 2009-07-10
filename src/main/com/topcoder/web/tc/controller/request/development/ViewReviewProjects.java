@@ -87,6 +87,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      */
     protected void developmentProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
+		System.out.println("ViewReviewProjects.developmentProcessing: " + projectTypeId);
         // don't include specification review project types in the validation
         if (!isProjectTypeSupported(projectTypeId, false)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
@@ -175,6 +176,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      * @since TCS Release 2.2.0 (TCS-54)
      */
     private String getReviewOpportunitiesView(String projectType) {
+		System.out.println("ViewReviewProjects.getReviewOpportunitiesView: " + projectType);
         if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
             return Constants.REVIEW_PROJECTS;
         } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {

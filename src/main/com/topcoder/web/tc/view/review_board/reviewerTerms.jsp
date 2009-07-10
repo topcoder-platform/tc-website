@@ -32,7 +32,7 @@
 <c:set var="CAPTCHA_RESPONSE" value="<%=Constants.CAPTCHA_RESPONSE%>"/>
 <c:set var="CAPTCHA_FILE_NAME" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
 <c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
-<c:set var="projectType" value="${param[PROJECT_TYPE_ID]}"/>
+<c:set var="projectType" value="${param[PROJECT_TYPE_ID]}" scope="request"/>
 <jsp:include page="reviewCommonVariables.jsp"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
