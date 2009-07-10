@@ -43,14 +43,13 @@
 <link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
 
 <% } else if (key.equals("tc_studio_home")) { %>
-<link type="text/css" rel="stylesheet" href="/css/v4/home.css" />
-<link type="text/css" rel="stylesheet" href="/css/v4/studio-navigation.css" />
-<link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css" />
+<link type="text/css" rel="stylesheet" href="/css/v5/home.css" />
+<link type="text/css" rel="stylesheet" href="/css/v5/studio-navigation.css" />
 <!--[if IE 7]>
-	<link rel="stylesheet" type="text/css" href="/css/v4/studio-ie7.css" />
+	<link rel="stylesheet" type="text/css" href="/css/v5/studio-ie7.css" />
 <![endif]-->
 <!--[if IE 6]>
-	<link rel="stylesheet" type="text/css" href="/css/v4/studio-ie6.css" />
+	<link rel="stylesheet" type="text/css" href="/css/v5/studio-ie6.css" />
 <![endif]-->
 <% } else if (key.equals("tc_studio")) { %>
 <link type="text/css" rel="stylesheet" href="/css/v4/main.css" />
