@@ -47,23 +47,23 @@
         <c:set var="handleContext" value="specification" scope="request"/>
     </c:when>
     <c:when test="${projectType == TEST_SUITES_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="Test Suites"/>
+        <c:set var="projectTypeDesc" value="Test Suites" scope="request"/>
 	<c:set var="handleContext" value="test_suites" scope="request"/>
     </c:when>
     <c:when test="${projectType == TEST_SCENARIOS_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="Test Scenarios"/>
+        <c:set var="projectTypeDesc" value="Test Scenarios" scope="request"/>
 	<c:set var="handleContext" value="test_scenarios" scope="request"/>
     </c:when>
     <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="UI Prototype"/>
+        <c:set var="projectTypeDesc" value="UI Prototype" scope="request"/>
 	<c:set var="handleContext" value="ui_prototype" scope="request"/>
     </c:when>
     <c:when test="${projectType == RIA_BUILD_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="RIA Build"/>
+        <c:set var="projectTypeDesc" value="RIA Build" scope="request"/>
 	<c:set var="handleContext" value="ria_build" scope="request"/>
     </c:when>
     <c:when test="${projectType == RIA_COMPONENT_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="RIA Component"/>
+        <c:set var="projectTypeDesc" value="RIA Component" scope="request"/>
 	<c:set var="handleContext" value="ria_component" scope="request"/>
     </c:when>
     <c:when test="${projectType == CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE}">
