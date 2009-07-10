@@ -13,52 +13,56 @@
             
 <%-- MASTHEAD AND LOGO --%>
             <h1><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>" title="TopCoder"><span>TopCoder Direct</span></a></h1>
-			
-			
-	<%-- LOGIN FORM (NEW) --%>
-			<c:choose>
-				<c:when test="${sessionInfo.anonymous}">	
-					<div id="loginform">
-						<div id="login_left"></div>
-						<div id="login_right"></div>
-			
-						<form method="post" name="frmLogin" action="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
-						<input type="hidden" name="module" value="Login" />
-						<div id="left">
-							<div>Handle</div>
-							<div><input type="text" name="<%=Login.USER_NAME%>"  maxlength="15" type="text" tabindex="1" /></div>
-							<div><input type="checkbox" id="remember" name="<%=Login.REMEMBER_USER%>" /> <label for="remember">Remember me</label></div>
-						</div>
-						<div id="right"><a href="#" class="button" tabindex="3">Login</a>
-							<div class="register"><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" title="Register">Register today!</a></div>
-						</div>
-			
-						<div id="middle">
-							<div>Password</div>
-							<div><input type="password" name="<%=Login.PASSWORD%>"  maxlength="30" tabindex="2" /></div>
-							<div><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" title="Forgot your password?" >Forgot your password?</a></div>
-						</div>
-						</form>
-					</div>
-				</c:when>
-			</c:choose>
-	<%-- END LOGIN FORM --%>
-	
+
+<%-- LOGIN FORM (NEW) --%>
+            <c:choose>
+                <c:when test="${sessionInfo.anonymous}">    
+                    <div id="loginform">
+                    <div id="login_left"></div>
+                    <div id="login_right"></div>
+                        <form method="post" name="frmLogin" action="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
+                        <input type="hidden" name="module" value="Login" />
+                            <div id="left">
+                                <div id="username">
+                                    <span>Username:</span>
+                                    <input type="text" name="<%=Login.USER_NAME%>" maxlength="15" type="text" tabindex="1" />
+                                </div>
+                                <div id="password"><span>Password:</span>
+                                    <input type="password" name="<%=Login.PASSWORD%>" maxlength="30" tabindex="2" />
+                                    <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" title="Forgot your password?" >Forgot?</a>
+                                </div>
+                                <div id="rememberme">
+                                    <input type="checkbox" id="remember" name="<%=Login.REMEMBER_USER%>" />
+                                    <label for="remember">Remember me</label>
+                                </div>
+                            </div>
+                            <div id="right">
+                                <a href="#" class="button" tabindex="3">Login</a>
+                                <div class="register">
+                                    <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" title="Register">Register today!</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </c:when>
+            </c:choose>
+    <%-- END LOGIN FORM --%>
+    
        <h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
           <div id="studio_menu">
-				<ul>
-					<li class="left"><a href="/">{ }</a></li>
-					<li><a href="/?module=ViewActiveContests" <% if (section.equals("contest")) {%> class="active"<% } %>>Contests</a></li>
-					<li><a href="/forums" <% if (section.equals("forums")) {%> class="active"<% } %>>Forums</a></li>
-					<li><a href="/?module=Static&amp;d1=support&amp;d2=getStarted" <% if (section.equals("howitworks")) {%> class="active"<% } %>>How It Works</a></li>
-					<li><a href="/?module=Static&d1=digitalrun&d2=2008v2&d3=home" <% if (section.equals("cup")) {%> class="active"<% } %>>Studio Cup</a></li>
-					<li><a href="/?module=MyStudioHome" <% if (section.equals("my_studio")) {%> class="active"<% } %>>My Studio</a></li>
-					<li><a href="http://studio.topcoder.com/blog/" <% if (section.equals("blog")) {%> class="active"<% } %>>Blog</a></li>
-					<li><a href="/?module=Static&amp;d1=portfolio&amp;d2=portfolio" <% if (section.equals("portfolio")) {%> class="active"<% } %>>Portfolio</a></li>
-					<li class="right"><a href="/?module=Static&amp;d1=contactUs" <% if (section.equals("contact")) {%> class="active"<% } %>>Contact Us</a></li>
-				</ul>
-			</div>
-		  
+                <ul>
+                    <li class="left"><a href="/">{ }</a></li>
+                    <li><a href="/?module=ViewActiveContests" <% if (section.equals("contest")) {%> class="active"<% } %>>Contests</a></li>
+                    <li><a href="/forums" <% if (section.equals("forums")) {%> class="active"<% } %>>Forums</a></li>
+                    <li><a href="/?module=Static&amp;d1=support&amp;d2=getStarted" <% if (section.equals("howitworks")) {%> class="active"<% } %>>How It Works</a></li>
+                    <li><a href="/?module=Static&d1=digitalrun&d2=2008v2&d3=home" <% if (section.equals("cup")) {%> class="active"<% } %>>Studio Cup</a></li>
+                    <li><a href="/?module=MyStudioHome" <% if (section.equals("my_studio")) {%> class="active"<% } %>>My Studio</a></li>
+                    <li><a href="http://studio.topcoder.com/blog/" <% if (section.equals("blog")) {%> class="active"<% } %>>Blog</a></li>
+                    <li><a href="/?module=Static&amp;d1=portfolio&amp;d2=portfolio" <% if (section.equals("portfolio")) {%> class="active"<% } %>>Portfolio</a></li>
+                    <li class="right"><a href="/?module=Static&amp;d1=contactUs" <% if (section.equals("contact")) {%> class="active"<% } %>>Contact Us</a></li>
+                </ul>
+            </div>
+          
 <%-- MAIN NAVIGATION --%>
             <div id="nav">
                 <h3 class="hide">Main Navigation</h3>
@@ -66,7 +70,7 @@
                     <li class="left"><a href="http://www.topcoder.com/">TopCoder Home</a></li>
                     <li><a href="http://software.topcoder.com/">Engage</a>
                         <ul>
-                           	<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/cockpit/cockpit.jsp">TopCoder Direct</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/cockpit/cockpit.jsp">TopCoder Direct</a></li>
                             <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/">Components</a></li>
                             <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/indexTCS.jsp">Software</a></li>
                             <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/platform-tools.jsp">Platform Tools</a></li>
@@ -78,8 +82,8 @@
                     <li><a href="http://www.topcoder.com/tc">Compete</a>
                         <ul>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=23">Conceptualization</a></li>
-                    	    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=6">Specification</a></li>
-                    	    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=7">Architecture</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=6">Specification</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=7">Architecture</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=112">Component Design</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=113">Component Development</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewAssemblyActiveContests">Assembly</a></li>
@@ -89,7 +93,7 @@
                         </ul>
                     </li>
                     <li   id="studio" class="on" ><a href="http://studio.topcoder.com/">Studio</a>
-               		<%--<ul>
+                    <%--<ul>
                             <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active Contests</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">Launch a Contest</a></li>
                             <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
@@ -116,19 +120,19 @@
                     <li class="left"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=support&d2=getStarted">FAQ</a></li>
                     <li><a href="http://www.topcoder.com/tc">News</a></li>
                     <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=contactUs">Contact Us</a></li>  
-					
-					<c:choose>
-						<c:when test="${sessionInfo.anonymous}">     
-							<li class="login"><a class="gMetal" id="login_link" href="#">Login</a></li>
-						</c:when>
-						<c:otherwise> 
-							<li class="logged-in"><span class="welcome">Hello,&nbsp;</span><studio:handle coderId="${sessionInfo.userId}"/></li>
-							<li class="logout gMetal"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout" id="logout_link">Logout</a></li>
-						</c:otherwise>
-					</c:choose>	    
-				</ul>
+                    
+                    <c:choose>
+                        <c:when test="${sessionInfo.anonymous}">     
+                            <li class="login"><a class="gMetal" id="login_link" href="#">Login</a></li>
+                        </c:when>
+                        <c:otherwise> 
+                            <li class="logged-in"><span class="welcome">Hello,&nbsp;</span><studio:handle coderId="${sessionInfo.userId}"/></li>
+                            <li class="logout gMetal"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout" id="logout_link">Logout</a></li>
+                        </c:otherwise>
+                    </c:choose>     
+                </ul>
             </div><%-- #navigation ends --%>
         </div>
       <%-- .wrapper ends --%>
     </div><%-- #header ends --%>
-
+ 

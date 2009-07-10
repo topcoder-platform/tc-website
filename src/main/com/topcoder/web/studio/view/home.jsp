@@ -3,6 +3,7 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.controller.request.Login" %>
 <%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.Date" %>
 <%@ page import="java.util.Map" %>
 <%--
 <% ResultSetContainer recentWinners = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("recent_winners");%>
@@ -16,6 +17,7 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 
@@ -36,36 +38,38 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
     <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
     <script type="text/javascript">
-			$(document).ready(function(){
-				//Run the script to preload images from CSS
-				$.preloadCssImages(); 
-			});
-	</script>
-	<script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-	<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
-	<script type="text/javascript" language="javascript">
+            $(document).ready(function(){
+                //Run the script to preload images from CSS
+                $.preloadCssImages(); 
+            });
+    </script>
+    <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+    <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript">
 
-	$(document).ready(function(){
-	
-	
-		$("#nav ul li").hoverIntent(function(){
-			$(this).children("ul").slideDown("fast");
-		}, function() {
-			$(this).children("ul").slideUp("fast");
-		});
-		
-		$("#nav ul ul li").hover(function() {
-			$(this).parents("#nav ul li").children('a').addClass("active-item");
-		}, function() {
-			$(this).parents("#nav ul li").children('a').removeClass("active-item");
-		});
-	
-	
-	});
-	</script>
-	
+    $(document).ready(function(){
+    
+    
+        $("#nav ul li").hoverIntent(function(){
+            $(this).children("ul").slideDown("fast");
+        }, function() {
+            $(this).children("ul").slideUp("fast");
+        });
+        
+        $("#nav ul ul li").hover(function() {
+            $(this).parents("#nav ul li").children('a').addClass("active-item");
+        }, function() {
+            $(this).parents("#nav ul li").children('a').removeClass("active-item");
+        });
+    
+    
+    });
+    </script>
+    
     <script type="text/JavaScript" src="/js/RSSProcessor.js"> </script>
     <script type="text/JavaScript" src="/js/AJAXProcessor.js"> </script>
+    <script type="text/javascript" src="/js/NewStyleHeaderFooter/carousel/jquery.jcarousel.js"></script>
+    <script type="text/javascript" src="/js/NewStyleHeaderFooter/carousel/scripts.js"></script>
 </head>
 
 <c:set var="contests" value="<%=activeContests%>"/>
@@ -73,188 +77,185 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
 <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 
-<body onLoad="loadWinners();loadNews()">
-	<div id="page-wrap">
-		<div align="center">
+<body onLoad="loadWinners();loadThoughtsFromTheBlog();loadContestChatter();">
+    <div id="page-wrap">
+        <div align="center">
 
         <jsp:include page="top.jsp">
             <jsp:param name="section" value="home"/>
         </jsp:include>
         
-    	<br />
+        <br />
 <%--  main content --%>
 <div id="wrapper">
 
-<div id="content">
-	
-<%--  begin left container  --%>
-<div class="content_l">
-
-    <%--  welcome box  --%>
-    <div class="welcome">
-        <div id="welcome_head">
-            <h1>Welcome to TopCoder Studio!</h1>
-
-            <p>Show off your creative skills in a competitive environment and get paid for being the best!</p>
-        </div>
-        <div id="welcome_banner">
-            <%-- default banner 
-            <a href="/?module=ViewActiveContests"><img alt="Get Started Now!" src="/i/v3/welcome_banner.png" width="536" height="121" border="0"/></a>--%>
-            
-            <%-- TCO09 banner 
-            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tco09"><img alt="TopCoder Open 2009, Register Now!" style="margin:0 1px;"src="/i/536x121_banner.png" width="534" height="121" border="0"/></a>
-            --%>
-             <%-- Remix banner --%>
-            <a href="http://www.topcoder.com/remix"><img alt="Think outside the Big Box with the Best Buy Remix API" src="/i/remix_banner.jpg" width="536" height="121" border="0"/></a>
-         </div>
-    </div>
-    
-     <%-- winners box --%>
-    <div class="winners">
-	<div id="winners">
-
-    <script>
-       function loadWinners() {
-			  var rss = "/blog/?feed=rss2&cat=6";
-              var template = "js/RecentWinnersTemplate.txt";
-          try {
-              var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
-              document.getElementById("winners").innerHTML = (processor.transformRSSFeed(rss));
-          } catch (e) {
-              document.getElementById("winners").innerHTML = "Error reading recent winners feed.";
-         throw e;
-          }
-      }
-    </script>
-    
-    	</div>
-   </div>
-
-    <%-- contest box --%>
-    <c:if test="${not empty contests}">
-    <div class="contests">
-        <div>
-            <h2><span>ACTIVE CONTESTS</span></h2>
-            <span class="more"><a href="/?module=ViewActiveContests">View All <%=activeContests.size()%> Active Contests</a></span>
-            <table>
-                <thead>
-                    <tr>
-                        <th class="first">Contest</th>
-                        <th class="second">Purse</th>
-                        <th class="second">SC Points</th>
-                        <th class="last">Deadline</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <rsc:iterator list="<%=activeContests%>" id="resultRow" end="6">
-				<tr>
-					<td class="first">
-							<a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">
-							<rsc:item name="name" row="<%=resultRow%>"/></a></td>
-					<td class="second"><rsc:item name="prize_total" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/></td>
-					<td class="second"><rsc:item name="dr_points" row="<%=resultRow%>" format="######" ifNull="&nbsp;"/></td>
-					<td class="last"><rsc:item name="end_time" row="<%=resultRow%>" format="MM.dd.yyyy'<br />'HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
-				</tr>
-                    </rsc:iterator>
-                </tbody>
-            </table>
-            <div>
-                <div></div>
+    <div class="home_content">
+    <div id="top_part">
+        <div id="mycarousel" class="jcarousel-skin-tango">
+            <div class="jcarousel-control">
+                <a href="#" class="bt6" id="tab6">6</a>
+                <a href="#" class="bt7" id="tab7">7</a>
             </div>
-        </div>
-    </div>
-    </c:if>
-</div>
- <%-- end left container --%>
-
- <%-- begin right container --%>
-<div class="content_r">
-
-    <%-- login box --%>
-  
-    
-     <%-- prizes paid box --%>
-    <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/"><div id="prizesPaidBox">
-    	<p>$<%=totalPrizePaid%></p>
-    </div></a>
-
-     <%-- news box --%>
-    <div id="newsBox" class="newsBox">
-    <script>
-       function loadNews() {
-              var rss = "/blog/?feed=rss2";
-              var template = "js/WhatsNewTemplate.txt";
-          try {
-              var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
-              document.getElementById("newsBox").innerHTML = (processor.transformRSSFeed(rss));
-          } catch (e) {
-
-              document.getElementById("newsBox").innerHTML = "Error reading news";
-         throw e;
-          }
-       }
-    </script>
-    </div>
-    
-    <%--
-    <div id="newsBox" class="newsBox">
-    </div>
-
-    <div>
-    <script>
-       function loadNews() {
-              var rss = "rss/?feed=rss2";
-              var template = "js/WhatsNewTemplate.txt";
-          try {
-              var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
-              document.getElementById("newsBox").innerHTML = (processor.transformRSSFeed(rss));
-          } catch (e) {
-
-              document.getElementById("newsBox").innerHTML = "Error reading news";
-         throw e;
-          }
-       }
-    </script>
-    </div>
-    --%>
-
-	<%-- designer box --%>
-    <div>
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=support&d2=memberRefferalProgram"><img width="224" height="215" alt="Member Referral Program" src="/i/v4/member-referral-promo.jpg"/></a>
-    </div>
-
-    <%-- designer box --%>
-    <div class="designerBox">
-        <h2>DESIGNER OF THE MONTH</h2>
-        <p>
-            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/Trial_and_Error_big.jpg"/>
-            <b>May 2009</b><br />
-            <b><a href="http://studio.topcoder.com/?module=ViewMemberProfile&ha=Trial_and_Error">Trial_and_Error</a>
-            won $4,625 in 5 contests!</b>
-        </p>
-
-        <div></div>
-    </div>
-
-    <%-- assignement box --%>
-    <div class="assignmentBox">
-        <p>
-            <img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/Trial_and_Error_big.jpg"/>
-            <b>May 2009</b><br />
-            <b><a href="http://studio.topcoder.com/?module=ViewMemberProfile&ha=Trial_and_Error">Trial_and_Error</a></b>
-            won $4,625 in 5 contests!<br /><br />
-            <b><a href="http://www.topcoder.com/news/2009/06/19/meet-the-may-coders-and-designers-of-the-month/">Read The Interview</a></b>
-        </p>
-    </div><!--assignement box-->
-
-</div> <!--content_r-->
-
-<br class="clear"/>
-
-</div>
- <%-- end content main --%>
-</div>
- <%--  end wrapper --%>
+             <ul>
+                <li>
+                    <a href="#"><img width="909" height="203" src="i/v4/1.png" alt="" /></a>
+                </li>
+                <li>
+                    <a href="#"><img width="909" height="203" src="i/v4/2.png" alt="" /></a>
+                </li>
+                <li>
+                    <a href="#"><img width="909" height="203" src="i/v4/3.png" alt="" /></a>
+                </li>
+                <li>
+                    <a href="#"><img width="909" height="203" src="i/v4/4.png" alt="" /></a>
+                </li>
+                <li>
+                    <a href="#"><img width="909" height="203" src="i/v4/5.png" alt="" /></a>
+                </li>
+                <li>
+                    <a href="#"><img width="909" height="203" src="i/v4/6.png" alt="" /></a>
+                </li>
+                <li
+                    <a href="#"><img width="909" height="203" src="i/v4/7.png" alt="" /></a>
+                </li>
+            </ul>
+            <div class="jcarousel-control">
+                <a href="#" class="bt1_5 bt1" id="tab1"><span>1</span></a>
+                <a href="#" class="bt1_5 bt2" id="tab2"><span>2</span></a>
+                <a href="#" class="bt1_5 bt3" id="tab3"><span>3</span></a>
+                <a href="#" class="bt1_5 bt4" id="tab4"><span>4</span></a>
+                <a href="#" class="bt1_5 bt5" id="tab5"><span>5</span></a>
+            </div>
+            <div class="jcarousel-scroll">
+                <form action="">
+                    <a href="#" id="mycarousel-prev"></a><a href="#" id="mycarousel-next"></a>
+                </form>
+            </div>
+        </div><%-- End of #mycarousel --%>                      
+    </div><%-- End of #top_part --%>
+                    <div id="center_content">                       
+                        <c:if test="${not empty contests}">
+                        <div id="active_contest">
+                            <div id="active_contest_head">
+                                <span class="active_contests_head">ACTIVE CONTESTS</span>
+                                <span class="prize_purse_head">PRIZE PURSE</span>
+                                <span class="time_left_head">TIME LEFT</span>
+                            </div>
+                            <div id="active_contest_content">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="first"></th>
+                                            <th class="second"></th>
+                                            <th class="last"></th>
+                                        </tr>
+                                    </thead>                                    
+                                    <tbody>
+                                            <rsc:iterator list="<%=activeContests%>" id="resultRow" end="6">
+                                        <tr>
+                                            <td class="first">
+                                                    <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}"> <rsc:item name="name" row="<%=resultRow%>"/> </a>
+                                            </td>
+                                            <td class="second">
+                                                <rsc:item name="prize_total" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
+                                            </td>
+                                            <td class="last">
+                                                <% 
+                                                   int hours = (int)((((Date)(resultRow.getItem("end_time").getResultData())).getTime() - System.currentTimeMillis()) / 1000 / 3600);
+                                                   if (hours < 24) {
+                                                     out.print(hours + " hour");
+                                                     if (hours > 1) {
+                                                       out.print("s");
+                                                     }
+                                                   } else {
+                                                     out.print((hours / 24) + " Day");
+                                                     if (hours >= 48) {
+                                                       out.print("s");
+                                                     }
+                                                   }
+                                                %>
+                                            </td>
+                                        </tr>
+                                        </rsc:iterator>
+                                    </tbody>
+                                </table>
+                                <div id="view_contest_button">
+                                    <a href="/?module=ViewActiveContests">View All <%=activeContests.size()%> Active Contests</a>
+                                </div>
+                            </div><%-- End of #active_contest_content --%>
+                        </div><%-- End of #active_contest --%>
+                        </c:if>
+                        <div id="showcase">
+                            <div id="showcase_head">
+                                <h1>DESIGN SHOWCASE</h1>
+                            </div>
+                            <div id="showcase_content">
+                                <script>
+                                        function loadWinners() {
+                                                    //var rss = "/blog/?feed=rss2&cat=6";
+                                                    var rss = "js/mockRecentwinnersFeed.xml";
+                                        var template = "js/RecentWinnersTemplate.txt";
+                                            try {
+                                                var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
+                                                document.getElementById("showcase_content").innerHTML = (processor.transformRSSFeed(rss));
+                                                } catch (e) {
+                                                document.getElementById("showcase_content").innerHTML = "Error reading recent winners feed.";
+                                                        throw e;
+                                            }
+                                        }
+                                    </script>
+                             </div><%-- End of #showcase_content --%>
+                        </div><%-- End of showcase --%>
+                    </div><%-- End of center_content --%>
+                    </div><%-- End of .home_content --%>
+                    <div id="bottom_wrapper">
+                      <div class="home_content">
+                        <div id="bottom_part">
+                         <div id="bottom_part_l">
+                            <div id="thoughts_from_blog">
+                            </div>
+<!-- remove                            <div id="share_pic">
+                            </div>  --> 
+                            <div id="post_content">
+                                <script>
+                                        function loadThoughtsFromTheBlog() {
+                                                    //var rss = "/blog/?feed=rss2";
+                                                    var rss = "js/mockThoughtsFromTheBlogFeed.xml";
+                                        var template = "js/ThoughtsFromTheBlogTemplate.txt";
+                                            try {
+                                                var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
+                                                document.getElementById("post_content").innerHTML = (processor.transformRSSFeed(rss));
+                                                } catch (e) {
+                                                document.getElementById("post_content").innerHTML = "Error reading recent winners feed.";
+                                                        throw e;
+                                            }
+                                        }                                        
+                                 </script>
+                            </div>
+                            <div id="left_more">
+                                <a href="/blog/">more<img src="i/v4/arrow_r.png" /></a>
+                            </div>
+                        </div>
+                         <div id="bottom_part_r">
+                            <script>
+                                    function loadContestChatter() {
+                                                //var rss = "/forums?module=RSS&categoryID=1";
+                                                var rss = "js/mockContestChatterFeed.xml";
+                                    var template = "js/ContestChatterTemplate.txt";
+                                        try {
+                                            var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
+                                            document.getElementById("bottom_part_r").innerHTML = (processor.transformRSSFeed(rss));
+                                            } catch (e) {
+                                            document.getElementById("bottom_part_r").innerHTML = "Error reading recent winners feed.";
+                                                    throw e;
+                                        }
+                                    }                                        
+                             </script>
+                         </div>
+                        </div>
+                        <br class="clear"/>
+                      </div><%-- end of home_content of bottom --%>
+                    </div><%-- end of bottom_wrapper --%>
 </div>
 
 <!-- LINKS BLOCK -->
