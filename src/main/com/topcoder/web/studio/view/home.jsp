@@ -1,3 +1,17 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page renders studio home page.
+  -
+  - Version 1.1 (Studio Release Assembly 1) Change notes:
+  - * The layout of this page was updated to include several modifications: (among others)
+  -    * New banner carousel.
+  -    * New Design Showcase section.
+  -    * New Thoughts From The Blog section.
+  -    * New Contest Chatter section.
+--%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
