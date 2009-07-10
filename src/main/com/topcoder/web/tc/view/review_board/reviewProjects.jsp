@@ -31,16 +31,6 @@
 <c:set var="projectType" value="${param[PROJECT_TYPE_ID]}" scope="request"/>
 <jsp:include page="reviewCommonVariables.jsp"/>
 
-<%
-	// debug logs here.
-	System.out.println("reviewProjects.jsp: projectType: " + projectType);
-	System.out.println("reviewProjects.jsp: projectTypeDesc: " + projectTypeDesc);
-	System.out.println("reviewProjects.jsp: handleContext: " + handleContext);
-	System.out.println("reviewProjects.jsp: PROJECT_TYPE_ID: " + PROJECT_TYPE_ID);	
-	System.out.println("reviewProjects.jsp: PROJECT_ID: " + PROJECT_ID);	
-	System.out.println("reviewProjects.jsp: MODULE_KEY: " + MODULE_KEY);	
-%>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
@@ -56,6 +46,13 @@
 
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
+	    	projectType: <c:out value="${projectType}"/><br/>
+		projectTypeDesc: <c:out value="${projectTypeDesc}"/><br/>
+		handleContext: <c:out value="${handleContext}"/><br/>
+		PROJECT_TYPE_ID: <c:out value="${PROJECT_TYPE_ID}"/><br/>
+		PROJECT_ID: <c:out value="${PROJECT_ID}"/><br/>
+		MODULE_KEY: <c:out value="${MODULE_KEY}"/><br/>
+	
                 <!-- Left Column Begins-->
                 <jsp:include page="reviewGlobalLeft.jsp"/>
                 <!-- Left Column Ends -->
