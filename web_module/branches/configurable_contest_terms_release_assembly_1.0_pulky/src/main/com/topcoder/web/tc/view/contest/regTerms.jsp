@@ -235,7 +235,7 @@
                                                         <a href="${terms_agreed_item.url}">(View)</a>
                                                     </c:when>
                                                     <c:otherwise>
-                                                        <a href="/tc?module=Terms&tuid=${terms_agreed_item.termsOfUseId}">(View)</a>
+                                                        <a href="/tc?module=Terms&tuid=${terms_agreed_item.termsOfUseId}" target="_blank">(View)</a>
                                                     </c:otherwise>
                                                 </c:choose>
                                             </li>
