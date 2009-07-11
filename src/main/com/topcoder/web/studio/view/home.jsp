@@ -83,7 +83,7 @@
     <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
     <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 
-    <body onLoad="loadWinners();loadThoughtsFromTheBlog();loadContestChatter();">
+    <body onLoad="loadDesignShowcase();loadThoughtsFromTheBlog();loadContestChatter();">
         <div id="page-wrap">
             <jsp:include page="top.jsp">
                 <jsp:param name="section" value="home"/>
@@ -199,15 +199,15 @@
                             </div>
                             <div id="showcase_content">
                                 <script>
-                                    function loadWinners() {
+                                    function loadDesignShowcase() {
                                         //var rss = "/blog/?feed=rss2&cat=6";
-                                        var rss = "js/mockRecentwinnersFeed.xml";
-                                        var template = "js/RecentWinnersTemplate.txt";
+                                        var rss = "js/mockDesignShowcase.xml";
+                                        var template = "js/DesignShowcaseTemplate.txt";
                                         try {
                                             var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
                                             document.getElementById("showcase_content").innerHTML = (processor.transformRSSFeed(rss));
                                         } catch (e) {
-                                            document.getElementById("showcase_content").innerHTML = "Error reading recent winners feed.";
+                                            document.getElementById("showcase_content").innerHTML = "Error reading Design Showcase feed.";
                                             throw e;
                                         }
                                     }
@@ -222,8 +222,6 @@
                             <div id="bottom_part_l">
                                 <div id="thoughts_from_blog">
                                 </div>
-                                <!-- remove                            <div id="share_pic">
-                                </div>  -->
                                 <div id="post_content">
                                     <script>
                                         function loadThoughtsFromTheBlog() {
@@ -234,7 +232,7 @@
                                                 var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
                                                 document.getElementById("post_content").innerHTML = (processor.transformRSSFeed(rss));
                                             } catch (e) {
-                                                document.getElementById("post_content").innerHTML = "Error reading recent winners feed.";
+                                                document.getElementById("post_content").innerHTML = "Error reading Thoughts From The Blog feed.";
                                                 throw e;
                                             }
                                         }
@@ -254,7 +252,7 @@
                                             var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
                                             document.getElementById("bottom_part_r").innerHTML = (processor.transformRSSFeed(rss));
                                         } catch (e) {
-                                            document.getElementById("bottom_part_r").innerHTML = "Error reading recent winners feed.";
+                                            document.getElementById("bottom_part_r").innerHTML = "Error reading Contest Chatter feed.";
                                             throw e;
                                         }
                                     }
