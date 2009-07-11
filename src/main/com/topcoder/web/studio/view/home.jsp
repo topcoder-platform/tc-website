@@ -72,6 +72,7 @@
             });
         </script>
 
+        <script type="text/JavaScript" src="/js/FeedLoader.js"> </script>
         <script type="text/JavaScript" src="/js/RSSProcessor.js"> </script>
         <script type="text/JavaScript" src="/js/AJAXProcessor.js"> </script>
         <script type="text/javascript" src="/js/NewStyleHeaderFooter/carousel/jquery.jcarousel.js"></script>
@@ -83,7 +84,7 @@
     <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
     <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 
-    <body onLoad="loadDesignShowcase();loadThoughtsFromTheBlog();loadContestChatter();">
+    <body onLoad="loadHomePageFeeds();">
         <div id="page-wrap">
             <jsp:include page="top.jsp">
                 <jsp:param name="section" value="home"/>
@@ -198,20 +199,6 @@
                                 <h1>DESIGN SHOWCASE</h1>
                             </div>
                             <div id="showcase_content">
-                                <script>
-                                    function loadDesignShowcase() {
-                                        //var rss = "/blog/?feed=rss2&cat=6";
-                                        var rss = "js/mockDesignShowcase.xml";
-                                        var template = "js/DesignShowcaseTemplate.txt";
-                                        try {
-                                            var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
-                                            document.getElementById("showcase_content").innerHTML = (processor.transformRSSFeed(rss));
-                                        } catch (e) {
-                                            document.getElementById("showcase_content").innerHTML = "Error reading Design Showcase feed.";
-                                            throw e;
-                                        }
-                                    }
-                                </script>
                             </div><%-- End of #showcase_content --%>
                         </div><%-- End of showcase --%>
                     </div><%-- End of center_content --%>
@@ -223,40 +210,12 @@
                                 <div id="thoughts_from_blog">
                                 </div>
                                 <div id="post_content">
-                                    <script>
-                                        function loadThoughtsFromTheBlog() {
-                                            //var rss = "/blog/?feed=rss2";
-                                            var rss = "js/mockThoughtsFromTheBlogFeed.xml";
-                                            var template = "js/ThoughtsFromTheBlogTemplate.txt";
-                                            try {
-                                                var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
-                                                document.getElementById("post_content").innerHTML = (processor.transformRSSFeed(rss));
-                                            } catch (e) {
-                                                document.getElementById("post_content").innerHTML = "Error reading Thoughts From The Blog feed.";
-                                                throw e;
-                                            }
-                                        }
-                                    </script>
                                 </div>
                                 <div id="left_more">
                                     <a href="/blog/">more<img src="i/v4/arrow_r.png" /></a>
                                 </div>
                             </div>
                             <div id="bottom_part_r">
-                                <script>
-                                    function loadContestChatter() {
-                                        //var rss = "/forums?module=RSS&categoryID=1";
-                                        var rss = "js/mockContestChatterFeed.xml";
-                                        var template = "js/ContestChatterTemplate.txt";
-                                        try {
-                                            var processor = new js.topcoder.rss.template.RSSProcessor(false, template);
-                                            document.getElementById("bottom_part_r").innerHTML = (processor.transformRSSFeed(rss));
-                                        } catch (e) {
-                                            document.getElementById("bottom_part_r").innerHTML = "Error reading Contest Chatter feed.";
-                                            throw e;
-                                        }
-                                    }
-                                </script>
                             </div>
                         </div>
                         <br class="clear"/>
