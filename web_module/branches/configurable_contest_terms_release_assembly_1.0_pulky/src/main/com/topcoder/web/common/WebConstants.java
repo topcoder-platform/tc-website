@@ -20,7 +20,7 @@ package com.topcoder.web.common;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, pulky
+ * @author dok, pulky
  * @version 1.2
  */
 public interface WebConstants {

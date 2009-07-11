@@ -129,7 +129,7 @@ import com.topcoder.web.ejb.userservices.UserServicesLocator;
  * </p>
  *
  *
- * @author Albert Mao, pulky, pulky
+ * @author Albert Mao, pulky
  * @version 1.0.3
  * @see ComponentManager
  * @see ComponentManagerHome
