@@ -19,7 +19,7 @@ import java.rmi.RemoteException;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.1
  */
 public interface TermsOfUse extends EJBObject {

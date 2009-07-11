@@ -44,7 +44,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER
+ * @author dok, pulky
  * @version 1.1
  */
 public class ViewRegistration extends Base {

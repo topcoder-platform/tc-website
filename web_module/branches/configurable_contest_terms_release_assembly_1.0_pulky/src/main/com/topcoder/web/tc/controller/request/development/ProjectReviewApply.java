@@ -80,7 +80,7 @@ import com.topcoder.web.tc.Constants;
  *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, TCSDEVELOPER
+ * @author dok, isv, pulky, pulky
  * @version 1.0.7
  */
 public class ProjectReviewApply extends Base {

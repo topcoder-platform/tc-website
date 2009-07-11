@@ -12,7 +12,7 @@ import javax.ejb.EJBLocalObject;
 /**
  * <p>Local interface for the project role terms of use EJB.</p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0 (Configurable Contest Terms Release Assembly v1.0)
  */
 public interface ProjectRoleTermsOfUseLocal extends EJBLocalObject {

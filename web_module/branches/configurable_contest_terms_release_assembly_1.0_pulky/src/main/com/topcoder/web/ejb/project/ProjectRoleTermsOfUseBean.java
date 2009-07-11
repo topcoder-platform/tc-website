@@ -20,7 +20,7 @@ import com.topcoder.web.ejb.BaseEJB;
 /**
  * <p>EJB to handle project_role_terms_of_use_xref table.</p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0 (Configurable Contest Terms Release Assembly v1.0)
  */
 public class ProjectRoleTermsOfUseBean extends BaseEJB {

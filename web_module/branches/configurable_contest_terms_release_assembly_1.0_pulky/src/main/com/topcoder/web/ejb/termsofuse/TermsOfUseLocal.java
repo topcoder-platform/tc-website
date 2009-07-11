@@ -18,7 +18,7 @@ import javax.ejb.EJBLocalObject;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.1
  */
 public interface TermsOfUseLocal extends EJBLocalObject {

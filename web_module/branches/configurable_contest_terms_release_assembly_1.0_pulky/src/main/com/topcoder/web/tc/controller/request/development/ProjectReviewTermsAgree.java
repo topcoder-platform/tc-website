@@ -46,7 +46,7 @@ import com.topcoder.web.tc.Constants;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, isv, TCSDEVELOPER
+ * @author dok, pulky, isv, pulky
  * @version 1.0.3
  */
 public class ProjectReviewTermsAgree extends ProjectReviewApply {

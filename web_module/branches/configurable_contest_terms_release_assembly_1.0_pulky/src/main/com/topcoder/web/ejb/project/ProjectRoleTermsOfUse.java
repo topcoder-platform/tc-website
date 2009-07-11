@@ -12,7 +12,7 @@ import javax.ejb.EJBObject;
 /**
  * <p>Remote interface for the project role terms of use EJB.</p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0 (Configurable Contest Terms Release Assembly v1.0)
  */
 public interface ProjectRoleTermsOfUse extends EJBObject {

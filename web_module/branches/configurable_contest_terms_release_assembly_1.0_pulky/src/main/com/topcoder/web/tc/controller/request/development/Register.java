@@ -63,7 +63,7 @@ import com.topcoder.web.tc.Constants;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER
+ * @author dok, pulky
  * @version 1.1
  */
 public class Register extends ViewRegistration {

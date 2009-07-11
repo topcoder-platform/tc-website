@@ -16,7 +16,7 @@ import com.topcoder.shared.util.sql.DBUtility;
  * <strong>Purpose</strong>:
  * Utility to migrate old terms of use schema
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0 (Configurable Contest Terms Release Assembly v1.0)
  */
 public class TermsOfUseMigrationTool extends DBUtility {

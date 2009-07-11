@@ -1,5 +1,5 @@
 <%--
-  - Author: isv, TCSDEVELOPER
+  - Author: isv, pulky
   - Date: 07 Jan 2009
   - Version: 1.1
   - Copyright (C) 2009 TopCoder Inc., All Rights Reserved.

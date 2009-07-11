@@ -36,7 +36,7 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, TCSDEVELOPER
+ * @author dok, pulky, pulky
  * @version 1.2
  */
 public class ViewRegistration extends Base {

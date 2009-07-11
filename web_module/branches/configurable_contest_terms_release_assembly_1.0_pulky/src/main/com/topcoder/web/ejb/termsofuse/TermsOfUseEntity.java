@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * <p>Simple entity class for a Terms Of Use to be used by the Terms Of Use EJB.</p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0 (Configurable Contest Terms Release Assembly v1.0)
  */
 public class TermsOfUseEntity implements Serializable {

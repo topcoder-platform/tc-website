@@ -28,7 +28,7 @@ import com.topcoder.web.ejb.BaseEJB;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.1
  */
 public class TermsOfUseBean extends BaseEJB {

@@ -14,7 +14,7 @@ import com.topcoder.shared.util.ApplicationServer;
 /**
  * <p>A simple locator for the Project Role Terms of Use EJB</p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0 (Configurable Contest Terms Release Assembly v1.0)
  */
 public class ProjectRoleTermsOfUseLocator {

@@ -13,7 +13,7 @@ package com.topcoder.web.admin;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER
+ * @author dok, pulky
  * @version 1.1
  */
 public interface AdminConstants {
