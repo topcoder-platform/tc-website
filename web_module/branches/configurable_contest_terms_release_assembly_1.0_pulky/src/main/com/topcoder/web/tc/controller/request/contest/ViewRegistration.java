@@ -27,6 +27,12 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *   <ol>
  *     <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
+ *
+ *   Version 1.2 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites</li>
+ *     <li>Added support for new Test Scenarios competitions</li>
+ *   </ol>
  * </p>
  *
  * <p>
@@ -108,7 +114,8 @@ public class ViewRegistration extends Base {
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.COMPONENT_TESTING_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.CONCEPTUALIZATION_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.SPECIFICATION_PROJECT_TYPE)) &&
-                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.APPLICATION_TESTING_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.TEST_SUITES_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.TEST_SCENARIOS_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.UI_PROTOTYPE_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_BUILD_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_COMPONENT_PROJECT_TYPE))) {

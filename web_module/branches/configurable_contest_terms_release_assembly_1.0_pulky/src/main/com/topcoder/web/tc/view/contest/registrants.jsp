@@ -1,12 +1,15 @@
 <%--
   - Author: pulky
-  - Version: 1.1
+  - Version: 1.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all registrants to a specific project.
   -
-  - Version 1.1 (Studio Coding In Online Review) changes: added support for new UI Prototype, RIA Build and 
+  - Version 1.1 (Studio Coding In Online Review) changes: added support for new UI Prototype, RIA Build and
   - RIA Component competitions.
+  -
+  - Version 1.2 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites
+  - and added support for new Test Scenarios competitions.
 --%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -46,7 +49,8 @@
 <c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_PROJECT_TYPE"/>
 <c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_PROJECT_TYPE"/>
 <c:set value="<%=Constants.COMPONENT_TESTING_PROJECT_TYPE%>" var="COMPONENT_TESTING_PROJECT_TYPE"/>
-<c:set value="<%=Constants.APPLICATION_TESTING_PROJECT_TYPE%>" var="APPLICATION_TESTING_PROJECT_TYPE"/>
+<c:set value="<%=Constants.TEST_SUITES_PROJECT_TYPE%>" var="TEST_SUITES_PROJECT_TYPE"/>
+<c:set value="<%=Constants.TEST_SCENARIOS_PROJECT_TYPE%>" var="TEST_SCENARIOS_PROJECT_TYPE"/>
 <c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_PROJECT_TYPE"/>
 <c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_PROJECT_TYPE"/>
 <c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_PROJECT_TYPE"/>
@@ -93,9 +97,14 @@
                         <jsp:param name="node" value="architecture_compete"/>
                     </jsp:include>
                 </c:when>
-                <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+                <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
-                        <jsp:param name="node" value="app_testing_compete"/>
+                        <jsp:param name="node" value="test_suites_compete"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="test_scenarios_compete"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
@@ -162,9 +171,15 @@
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>
-                <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
+                <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
-                        <jsp:param name="image" value="app_testing"/>
+                        <jsp:param name="image" value="test_suites"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="test_scenarios"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>
@@ -216,8 +231,11 @@
                 <c:when test="${pt == COMPONENT_TESTING_PROJECT_TYPE}">
                       Component Testing
                 </c:when>
-                <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
-                      Application Testing
+                <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
+                      Test Suites
+                </c:when>
+                <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
+                      Test Scenarios
                 </c:when>
                 <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
                       UI Prototype
@@ -291,8 +309,11 @@
                 <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Assembly'/>
                 </c:when>
-                <c:when test="${pt == APPLICATION_TESTING_PROJECT_TYPE}">
-                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Application_Testing'/>
+                <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Test_Suites'/>
+                </c:when>
+                <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Test_Scenarios'/>
                 </c:when>
                 <c:otherwise>
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' />

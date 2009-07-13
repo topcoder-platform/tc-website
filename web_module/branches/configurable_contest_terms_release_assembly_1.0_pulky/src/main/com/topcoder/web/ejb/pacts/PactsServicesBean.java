@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.ejb.pacts;
 
 import java.sql.Connection;
@@ -62,15 +65,22 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 
 /**
- * The EJB class which handles database access for the PACTS system.
- * <p/>
- * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * <p>The EJB class which handles database access for the PACTS system.</p>
  *
- * @author Dave Pecora
- * @version 1.00, 03/06/2002
+ * <p>
+ *   Version 1.1 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites.</li>
+ *     <li>Added support for new Test Scenarios competitions.</li>
+ *   </ol>
+ * </p>
+ *
+ * <p>VERY IMPORTANT: remember to update serialVersionUID if needed.</p>
+ *
+ * @author Dave Pecora, pulky
+ * @version 1.1
  * @see PactsConstants
  */
-
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
@@ -91,14 +101,28 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static final int ARCHITECTURE_PROJECT_TYPE = 7;
     private static final int CONCEPTUALIZATION_PROJECT_TYPE = 23;
     private static final int SPECIFICATION_PROJECT_TYPE = 6;
-    private static final int APPLICATION_TESTING_PROJECT_TYPE = 13;
+
+    /**
+     * <p>A <code>int</code> representing the test suites project id.</p>
+     *
+     * @since 1.1
+     */
+    private static final int TEST_SUITES_PROJECT_TYPE = 13;
+
+    /**
+     * <p>A <code>int</code> representing the test scenarios project id.</p>
+     *
+     * @since 1.1
+     */
+    private static final int TEST_SCENARIOS_PROJECT_TYPE = 26;
+
     private static final int ASSEMBLY_PROJECT_TYPE = 14;
 
     // [BUGR-1842] - add support for UI/RIA project types
     private static final int UI_PROTOTYPE_PROJECT_TYPE = 19;
     private static final int RIA_BUILD_PROJECT_TYPE = 24;
     private static final int RIA_COMPONENT_PROJECT_TYPE = 15;
-    
+
     private static final double DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
 
     // [BUGR-1452] - add support for paying other project types
@@ -1883,7 +1907,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public List<AssignmentDocumentTemplate> getAssignmentDocumentTemplate(long assignmentDocumentTypeId, boolean onlyCurrent) {
         return getAssignmentDocumentTemplate(null, assignmentDocumentTypeId, onlyCurrent);
     }
-    
+
     /**
      * Returns an assignment document template
      *
@@ -1935,7 +1959,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     adt.setText("");
                 else
                     adt.setText(new String(bytes));
-                
+
                 adt.setCurrent(rs.getBoolean("cur_version"));
                 adtl.add(adt);
             }
@@ -1962,7 +1986,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public AssignmentDocumentTemplate getAssignmentDocumentTemplate(long assignmentDocumentTemplateId) {
         return getAssignmentDocumentTemplate(null, assignmentDocumentTemplateId);
     }
-    
+
     /**
      * Returns an assignment document template
      *
@@ -2002,7 +2026,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (!rs.next()) {
                 throw new IllegalUpdateException("Couldn't find an assigment document template for id: " + assignmentDocumentTemplateId);
             }
-            
+
             AssignmentDocumentTemplate adt = new AssignmentDocumentTemplate();
             adt.setId(new Long(rs.getLong("assignment_document_template_id")));
             adt.setName(rs.getString("assignment_document_template_name"));
@@ -2012,7 +2036,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 adt.setText("");
             else
                 adt.setText(new String(bytes));
-                
+
             adt.setCurrent(rs.getBoolean("cur_version"));
 
             return adt;
@@ -2033,7 +2057,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
             return addAssignmentDocument(ad, null);
     }
-    
+
     /**
      * Inserts or updates an assignment document to the DB
      *
@@ -2081,7 +2105,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 ad.setExpireDate(new Timestamp(dueDateCal.getTimeInMillis()));
             }
         }
-        
+
         if (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) && ad.getAffirmedDate() == null) {
             Calendar dueDateCal = Calendar.getInstance();
             ad.setAffirmedDate(new Timestamp(dueDateCal.getTimeInMillis()));
@@ -2141,7 +2165,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         (new PaymentStatusManager()).signedGlobalAD(ad.getUser().getId());
                     }
                 }
-                
+
                 if (oldAssignmentDocumentInstance.getType().getId().equals(AssignmentDocumentType.GLOBAL_TYPE_ID) &&
                         !ad.getType().equals(oldAssignmentDocumentInstance.getType())) {
                     throw new IllegalArgumentException("Cannot change the type of a global assignment document");
@@ -3808,7 +3832,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     referPay.getHeader().getUser().setId(referId);
                     referPay.setDueDate(p.getDueDate());
                     referPay.getHeader().setParentPaymentId(paymentId);
-                    
+
                     // use the same client as the parent
                     // referral payments always get "TopCoder" as client
                     referPay.getHeader().setClient(REFERRAL_PAYMENTS_CLIENT);
@@ -4399,7 +4423,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection(trxDataSource);
 
-            // if a supervisor is updating this payment, don't perform checks, they 
+            // if a supervisor is updating this payment, don't perform checks, they
             // can do anything.
             if (!supervisor) {
                 // Check for validity
@@ -4831,9 +4855,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             query.append("SELECT COUNT(*) FROM assignment_document WHERE user_id = " + userId);
             query.append(" and assignment_document_type_id = " + AssignmentDocumentType.GLOBAL_TYPE_ID);
             query.append(" and assignment_document_status_id = " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID);
-    
+
             boolean ret = false;
-    
+
             Connection c = null;
             try {
                 c = DBMS.getConnection(trxDataSource);
@@ -5141,7 +5165,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             long coderId = Long.parseLong(rsc.getStringItem(i, "user_id"));
             double amount = rsc.getDoubleItem(i, "paid");
 
-            ReviewBoardPayment p = null; 
+            ReviewBoardPayment p = null;
             int projectType = getProjectType(projectId);
 
             if (projectType == DESIGN_PROJECT) {
@@ -5151,13 +5175,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else {
                     p.setGrossAmount(amount);
                 }
-            } else if (projectType == DEVELOPMENT_PROJECT || projectType == COMPONENT_TESTING_PROJECT || 
+            } else if (projectType == DEVELOPMENT_PROJECT || projectType == COMPONENT_TESTING_PROJECT ||
                 // [BUGR-1452] - add support for paying other project types
                 // [BUGR-1842] - add support for UI/RIA project types
                 projectType == ARCHITECTURE_PROJECT_TYPE || projectType == CONCEPTUALIZATION_PROJECT_TYPE ||
-                projectType == SPECIFICATION_PROJECT_TYPE || projectType == APPLICATION_TESTING_PROJECT_TYPE || 
+                projectType == SPECIFICATION_PROJECT_TYPE || projectType == TEST_SUITES_PROJECT_TYPE ||
                 projectType == ASSEMBLY_PROJECT_TYPE || projectType == UI_PROTOTYPE_PROJECT_TYPE ||
-                projectType == RIA_BUILD_PROJECT_TYPE || projectType == RIA_COMPONENT_PROJECT_TYPE) {
+                projectType == RIA_BUILD_PROJECT_TYPE || projectType == RIA_COMPONENT_PROJECT_TYPE ||
+                projectType == TEST_SCENARIOS_PROJECT_TYPE) {
                 p = new ReviewBoardPayment(coderId, amount, client, projectId);
             }
 
@@ -5553,9 +5578,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     public Map findProjects(String search) throws SQLException {
-    	return findProjects(search, -1);
+        return findProjects(search, -1);
     }
-    
+
     public Map findProjects(String search, int categoryId) throws SQLException {
         StringBuffer query = new StringBuffer(1000);
 
@@ -5574,7 +5599,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" and pi_name.project_info_type_id = 6 ");
         query.append(" and " + filterCondition("pi_name.value", search));
         if (categoryId > 0) {
-            query.append(" and p.project_category_id = " + categoryId);        	
+            query.append(" and p.project_category_id = " + categoryId);
         }
         query.append(" order by pi_rated.value ");
 
@@ -6159,7 +6184,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId,
                                               boolean payDevSupport, long devSupportProjectId, boolean payRboardBonus) throws SQLException, EventFailureException, DevSupportException {
 
-        
+
         int projectType = getProjectType(projectId);
 
 
@@ -6245,15 +6270,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } else if (projectType == SPECIFICATION_PROJECT_TYPE) {
             SpecificationContestPayment scp = new SpecificationContestPayment(coderId, grossAmount, client, projectId, placed);
             l.add(scp);
-        } else if (projectType == APPLICATION_TESTING_PROJECT_TYPE) {
-            TestingCompetitionPayment cwp = new TestingCompetitionPayment(coderId, grossAmount, client, projectId, placed);
+        } else if (projectType == TEST_SUITES_PROJECT_TYPE) {
+            TestSuitesCompetitionPayment cwp = new TestSuitesCompetitionPayment(coderId, grossAmount, client, projectId, placed);
+            l.add(cwp);
+        } else if (projectType == TEST_SCENARIOS_PROJECT_TYPE) {
+            TestScenariosCompetitionPayment cwp = new TestScenariosCompetitionPayment(coderId, grossAmount, client, projectId, placed);
             l.add(cwp);
         } else if (projectType == ARCHITECTURE_PROJECT_TYPE) {
-    	    BasePayment p = new ArchitecturePayment(coderId, grossAmount, client, projectId, placed);
-    	    if (placed == 1) {
-        		p.setGrossAmount(grossAmount * ARCHITECTURE_PROJECT_FIRST_INSTALLMENT_PERCENT);
-    	    }
-    	    l.add(p);
+            BasePayment p = new ArchitecturePayment(coderId, grossAmount, client, projectId, placed);
+            if (placed == 1) {
+                p.setGrossAmount(grossAmount * ARCHITECTURE_PROJECT_FIRST_INSTALLMENT_PERCENT);
+            }
+            l.add(p);
         } else if (projectType == ASSEMBLY_PROJECT_TYPE) {
             BasePayment p = new AssemblyPayment(coderId, grossAmount, client, projectId, placed);
             if (placed == 1) {
@@ -6298,29 +6326,29 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 " AND pd.payment_type_id = " + Constants.REVIEW_BOARD_PAYMENT + " " +
                 " AND pd.component_project_id = " + designProject +
                 " group by user_id ";
-   
+
         ResultSetContainer rsc = runSelectQuery(query);
-   
+
         for (ResultSetRow rsr : rsc) {
             if (rsr.getItem("amount_paid").getResultData() == null) {
                 throw new DevSupportException("Can't find any previous payment for design project " + designProject);
             }
-       
+
             int installment = rsr.getIntItem("installment_number") + 1;
             double totalAmount = rsr.getDoubleItem("total_amount");
             double paid = rsr.getDoubleItem("amount_paid");
             String client2 = rsr.getStringItem("client");
             long coderId2 = rsr.getLongItem("user_id");
             int methodId = rsr.getIntItem("payment_method_id");
-       
-            if (totalAmount > paid) {   
+
+            if (totalAmount > paid) {
                 BasePayment p = new ReviewBoardPayment(coderId2, totalAmount, client2, designProject);
                 p.setGrossAmount(totalAmount - paid);
                 p.setInstallmentNumber(installment);
                 p.setMethodId(methodId);
                 l.add(p);
             }
-            
+
             if (payRboardBonus) {
                 // get parent payment
                 String query2 = "SELECT min(p.payment_id) as payment_id from payment p, payment_detail pd " +
@@ -6329,9 +6357,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 " AND pd.component_project_id = " + designProject +
                 " AND pd.installment_number = 1 " +
                 " AND p.user_id = " + coderId2;
-   
+
                 ResultSetContainer rsc2 = runSelectQuery(query2);
-                
+
                 if (rsc2.size() != 1) {
                     throw new DevSupportException("Can't find the parent payment for design project " + designProject + " user id " + coderId2);
                 }
@@ -6343,7 +6371,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 l.add(p);
             }
         }
-        
+
         return l;
     }
 

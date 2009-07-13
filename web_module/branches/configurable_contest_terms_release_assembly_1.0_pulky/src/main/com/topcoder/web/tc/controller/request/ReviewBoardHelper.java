@@ -28,18 +28,27 @@ import com.topcoder.web.common.WebConstants;
  *           </ul>
  *         </td>
  *     </tr>
+ *     <tr>
+ *         <td>Version 1.2 (Testing Competition Split Release Assembly 1.0)</td>
+ *         <td>
+ *           <ul>
+ *               <li>Updated Application Testing to Test Suites.</li>
+ *               <li>Added support for new Test Scenarios competitions.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
  * @author pulky
- * @version 1.1
+ * @version 1.2
  */
 public final class ReviewBoardHelper {
 
     /**
      * <p>Checks whether the specified review board type requested by client is currently supported by this controller
-     * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization, Specification
-     * and Application Testing review boards are supported.</p>
+     * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization, Specification,
+     * Test Suites and Test Scenarios review boards are supported.</p>
      *
      * @param reviewBoardType a <code>String</code> referencing the review board type requested by client.
      * @return <code>true</code> if specified review board type is supported; <code>false</code> otherwise.
@@ -51,7 +60,8 @@ public final class ReviewBoardHelper {
             || reviewBoardType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.APPLICATION_TESTING_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.TEST_SUITES_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.TEST_SCENARIOS_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.UI_PROTOTYPE_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.RIA_BUILD_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_PROJECT_TYPE));

@@ -1,7 +1,6 @@
 /*
- * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
-
 package com.topcoder.web.tc.controller.request.compstats;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
@@ -31,10 +30,15 @@ import java.util.Map;
  *     and application testing).
  *     </li>
  *   </ol>
+ *
+ *   Version 1.2 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites</li>
+ *   </ol>
  * </p>
  *
  * @author pulky, elkhawajah
- * @version 1.1
+ * @version 1.2
  */
 public class CompetitionHistory extends BaseProcessor {
     /**
@@ -65,7 +69,7 @@ public class CompetitionHistory extends BaseProcessor {
             !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.SPECIFICATION_PHASE)) &&
             !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.ARCHITECTURE_PHASE)) &&
             !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.ASSEMBLY_PHASE)) &&
-            !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.APPLICATION_TESTING_PHASE))) {
+            !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.TEST_SUITES_PHASE))) {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
@@ -76,7 +80,7 @@ public class CompetitionHistory extends BaseProcessor {
                     !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.CONCEPTUALIZATION_PROJECT_TYPE)) &&
                     !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.SPECIFICATION_PROJECT_TYPE)) &&
                     !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.ARCHITECTURE_PROJECT_TYPE)) &&
-                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.APPLICATION_TESTING_PROJECT_TYPE))) {
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.TEST_SUITES_PROJECT_TYPE))) {
                 throw new TCWebException("invalid " + Constants.PROJECT_TYPE_ID + " parameter.");
             }
 
@@ -168,8 +172,8 @@ public class CompetitionHistory extends BaseProcessor {
             case Constants.ARCHITECTURE_PROJECT_TYPE:
                 handleType = HandleTag.ARCHITECTURE;
                 break;
-            case Constants.APPLICATION_TESTING_PROJECT_TYPE:
-                handleType = HandleTag.APPLICATION_TESTING;
+            case Constants.TEST_SUITES_PROJECT_TYPE:
+                handleType = HandleTag.TEST_SUITES;
                 break;
         }
         getRequest().setAttribute(Constants.TYPE_KEY, handleType);

@@ -1,3 +1,12 @@
+<%--
+  - Author: TCSDEVELOPER, pulky
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays the public home page.
+  -
+  - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
+--%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <html>
@@ -21,12 +30,12 @@ function swapTopTen(topTenID){
     hide('topTenAlgoCountries');
     hide('topTenDes');
     hide('topTenDev');
-    hide('topTenMM');    
+    hide('topTenMM');
     hide('topTenConceptualization');
     hide('topTenSpecification');
     hide('topArchitecture');
     hide('topAssembly');
-    hide('topTesting');
+    hide('topTestSuites');
     showBlock(topTenID);
     createCookie('defaultTopTen',topTenID,365);
 }
@@ -34,14 +43,14 @@ function swapTopTen(topTenID){
 function init() {
    id = readCookie('defaultTopTen');
    if (id == null) id = 'topTenAlgo';
-   
+
    for (var i = 0; i < document.f.topTen.length; i++) {
       if (document.f.topTen.options[i].value == id) {
          document.f.topTen.selectedIndex = i;
          break;
       }
    }
-   
+
    swapTopTen(id);
 }
 </script>
@@ -87,9 +96,9 @@ function init() {
             <div id="replaced">
     </div>
     <script type="text/javascript" language="javascript">
-	
-	$("#replaced").load("/news/index.php #replacercode");
-	
+
+    $("#replaced").load("/news/index.php #replacercode");
+
     </script>
 </td>
 </tr>
@@ -131,23 +140,23 @@ function init() {
                     <option value="topTenAlgoCountries">Algorithm Countries</option>
                     <option value="topTenDes">Design</option>
                     <option value="topTenDev">Development</option>
-                    <option value="topTenMM">Marathon Matches</option>                    
+                    <option value="topTenMM">Marathon Matches</option>
                     <option value="topTenConceptualization">Conceptualization</option>
                     <option value="topTenSpecification">Specification</option>
                     <option value="topArchitecture">Architecture</option>
                     <option value="topAssembly">Assembly</option>
-                    <option value="topTesting">Application Testing</option>
+                    <option value="topTestSuites">Test Suites</option>
                     </select>
                     </form>
                 </div>
-                
+
                 <jsp:include page="top_coders.jsp" />
                 <jsp:include page="top_schools.jsp" />
                 <jsp:include page="top_countries.jsp" />
                 <jsp:include page="top_designers.jsp" />
                 <jsp:include page="top_developers.jsp" />
-                <jsp:include page="top_mm_coders.jsp" />                
-                
+                <jsp:include page="top_mm_coders.jsp" />
+
                 <jsp:include page="top_template.jsp" >
                      <jsp:param name="title" value="Conceptualization" />
                      <jsp:param name="name" value="top_conceptors" />
@@ -177,11 +186,11 @@ function init() {
                      <jsp:param name="ctxt" value="assembly" />
                 </jsp:include>
                 <jsp:include page="top_template.jsp" >
-                     <jsp:param name="title" value="Application Testing" />
+                     <jsp:param name="title" value="Test Suites" />
                      <jsp:param name="name" value="top_testers" />
-                     <jsp:param name="id" value="topTesting" />
+                     <jsp:param name="id" value="topTestSuites" />
                      <jsp:param name="help" value="/tc?module=Static&d1=statistics&d2=info&d3=topRatedTesters" />
-                     <jsp:param name="ctxt" value="application_testing" />
+                     <jsp:param name="ctxt" value="test_suites" />
                 </jsp:include>
 
             </div>

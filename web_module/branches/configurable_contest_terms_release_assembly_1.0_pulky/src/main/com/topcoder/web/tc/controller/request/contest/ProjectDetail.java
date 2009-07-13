@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.contest;
 
 import com.topcoder.shared.dataAccess.Request;
@@ -11,10 +14,17 @@ import com.topcoder.web.tc.controller.request.development.Base;
 import java.util.Map;
 
 /**
- * Added some code to permit other projects different from component competitions.
+ * <p>A controller to handle the requests for displaying the details of a given project.</p>
+ *
+ * <p>
+ *   Version 1.1 Change notes:
+ *   <ol>
+ *     <li>Added detailed requirements retrieval.</li>
+ *   </ol>
+ * </p>
  *
  * @author dok, pulky
- *         Date: Mar 1, 2004
+ * @version 1.1
  */
 public class ProjectDetail extends Base {
 
@@ -43,6 +53,7 @@ public class ProjectDetail extends Base {
             ResultSetContainer details = (ResultSetContainer) resultMap.get("project_detail");
             getRequest().setAttribute("projectDetail", details);
             getRequest().setAttribute("technologies", resultMap.get("project_technologies"));
+			getRequest().setAttribute("requirements", resultMap.get("project_requirements"));
 
             boolean full = false;  //projects are never full in our current rules
             getRequest().setAttribute("projectFull", String.valueOf(full));

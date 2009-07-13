@@ -94,10 +94,16 @@ import java.util.Map;
  *   <ol>
  *     <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
+ *
+ *   Version 1.0.10 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites.</li>
+ *     <li>Added support for new Test Scenarios competitions.</li>
+ *   </ol>
  * </p>
  *
  * @author dok, ivern, isv, pulky
- * @version 1.0.9
+ * @version 1.0.10
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
@@ -172,12 +178,18 @@ public class RBoardApplicationBean extends BaseEJB {
     private static final int SPECIFICATION_PRIMARY_REVIEW_ID = 16;
 
     /**
-     * <p>A <code>int</code> representing the primary review id for application testing projects.</p>
+     * <p>A <code>int</code> representing the primary review id for test suites projects.</p>
      *
-     * @since 1.0.8
+     * @since 1.0.10
      */
-    private static final int APPLICATION_TESTING_PRIMARY_REVIEW_ID = 19;
+    private static final int TEST_SUITES_PRIMARY_REVIEW_ID = 19;
 
+    /**
+     * <p>A <code>int</code> representing the primary review id for test scenarios projects.</p>
+     *
+     * @since 1.0.10
+     */
+    private static final int TEST_SCENARIOS_PRIMARY_REVIEW_ID = 31;
 
     /**
      * <p>An <code>int</code> representing the primary review id for ui prototype projects.</p>
@@ -953,8 +965,11 @@ public class RBoardApplicationBean extends BaseEJB {
         } else if (phaseId == (WebConstants.SPECIFICATION_PROJECT_TYPE + 111)) {
             validateReviewPositions(reviewTypeId, primary, reviewers, SPECIFICATION_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
-        } else if (phaseId == (WebConstants.APPLICATION_TESTING_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, APPLICATION_TESTING_PRIMARY_REVIEW_ID,
+        } else if (phaseId == (WebConstants.TEST_SUITES_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, TEST_SUITES_PRIMARY_REVIEW_ID,
+                    INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.TEST_SCENARIOS_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, TEST_SCENARIOS_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.UI_PROTOTYPE_PROJECT_TYPE + 111)) {
             validateReviewPositions(reviewTypeId, primary, reviewers, UI_PROTOTYPE_PRIMARY_REVIEW_ID,
@@ -1019,9 +1034,9 @@ public class RBoardApplicationBean extends BaseEJB {
         // review_resp table is removed
         Map returnMap = new HashMap();
         int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-                22, 23, 24, 25, 26, 27, 28, 29, 30};
+                22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33};
         int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134,
-                117, 117, 117, 124, 124, 124, 130, 130, 130, 135, 135, 135, 136, 136, 136};
+                117, 117, 117, 124, 124, 124, 130, 130, 130, 135, 135, 135, 136, 136, 136, 137, 137, 137};
 
         for (int i = 0; i < respIds.length; i++) {
             returnMap.put(new Integer(respIds[i]), new Integer(phaseIds[i]));

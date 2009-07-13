@@ -14,14 +14,22 @@ package com.topcoder.web.common;
  * </p>
  *
  * <p>
- *   Version 1.2 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ *   Version 1.2 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites.</li>
+ *     <li>Added support for new Test Scenarios competitions.</li>
+ *   </ol>
+ * </p>
+ *
+ * <p>
+ *   Version 1.3 (Configurable Contest Terms Release Assembly v1.0) Change notes:
  *   <ol>
  *     <li>Added new constant for terms agreed attribute key.</li>
  *   </ol>
  * </p>
  *
  * @author dok, pulky
- * @version 1.2
+ * @version 1.3
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -163,7 +171,6 @@ public interface WebConstants {
     public static final long PHASE_SPECIFICATION = 117;
     public static final long PHASE_ARCHITECTURE = 118;
     public static final long PHASE_ASSEMBLY = 125;
-    public static final long PHASE_APPLICATION_TESTING = 124;
 
     /**
      * <p>A <code>long</code> representing phase offeset according to project id.</p>
@@ -220,7 +227,21 @@ public interface WebConstants {
     public static final int ARCHITECTURE_PROJECT_TYPE = 7;
     public static final int CONCEPTUALIZATION_PROJECT_TYPE = 23;
     public static final int SPECIFICATION_PROJECT_TYPE = 6;
-    public static final int APPLICATION_TESTING_PROJECT_TYPE = 13;
+
+    /**
+     * <p>An <code>int</code> representing test suites project type id.</p>
+     *
+     * @since 1.2
+     */
+    public static final int TEST_SUITES_PROJECT_TYPE = 13;
+
+    /**
+     * <p>An <code>int</code> representing test scenarios project type id.</p>
+     *
+     * @since 1.2
+     */
+    public static final int TEST_SCENARIOS_PROJECT_TYPE = 26;
+
     public static final int ASSEMBLY_PROJECT_TYPE = 14;
 
     /**
@@ -264,5 +285,19 @@ public interface WebConstants {
      * @since 1.1
      */
     public static final long PHASE_RIA_COMPONENT = RIA_COMPONENT_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+
+    /**
+     * <p>A <code>long</code> representing test suites phase id.</p>
+     *
+     * @since 1.2
+     */
+    public static final long PHASE_TEST_SUITES = TEST_SUITES_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+
+    /**
+     * <p>A <code>long</code> representing test scenarios phase id.</p>
+     *
+     * @since 1.2
+     */
+    public static final long PHASE_TEST_SCENARIOS = TEST_SCENARIOS_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
 
 }

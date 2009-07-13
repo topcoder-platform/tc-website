@@ -38,7 +38,7 @@ public class HandleTag extends TagSupport {
     public final static String SPECIFICATION = "specification";
     public final static String ARCHITECTURE = "architecture";
     public final static String ASSEMBLY = "assembly";
-    public final static String APPLICATION_TESTING = "application_testing";
+    public final static String TEST_SUITES = "test_suites";
     public final static String COMPONENT = "component";
     public final static String HS_OR_ALGORITHM = "hs_or_algorithm";
     public final static String MARATHON_MATCH = "marathon_match";
@@ -105,7 +105,7 @@ public class HandleTag extends TagSupport {
      * <p>
      * Build the handle link tag of the given coder id, using the given parameters.
      * </p>
-     * 
+     *
      * @since Member Profile Enhancement assembly
      */
     public static String getLink(long coderId, String cssclass, String link,
@@ -165,7 +165,7 @@ public class HandleTag extends TagSupport {
                     output.append("&amp;tab=arch");
                 } else if (context.trim().equalsIgnoreCase(ASSEMBLY) && rsc.getIntItem(0, "assembly_rating") > 0) {
                     output.append("&amp;tab=assembly");
-                } else if (context.trim().equalsIgnoreCase(APPLICATION_TESTING) && rsc.getIntItem(0, "application_testing_rating") > 0) {
+                } else if (context.trim().equalsIgnoreCase(TEST_SUITES) && rsc.getIntItem(0, "test_suites_rating") > 0) {
                     output.append("&amp;tab=test");
                 } else if (context.trim().equalsIgnoreCase(COMPONENT)) {
                     if (rsc.getIntItem(0, "design_rating") >= rsc.getIntItem(0, "development_rating")) {
@@ -209,7 +209,7 @@ public class HandleTag extends TagSupport {
                                 rsc.getIntItem(0, "specification_rating"),
                                 rsc.getIntItem(0, "architecture_rating"),
                                 rsc.getIntItem(0, "assembly_rating"),
-                                rsc.getIntItem(0, "application_testing_rating"));
+                                rsc.getIntItem(0, "test_suites_rating"));
                     } else if (context.trim().equalsIgnoreCase(ALGORITHM)) {
                         rating = rsc.getIntItem(0, "algorithm_rating");
                     } else if (context.trim().equalsIgnoreCase(HS_ALGORITHM)) {
@@ -228,8 +228,8 @@ public class HandleTag extends TagSupport {
                         rating = rsc.getIntItem(0, "architecture_rating");
                     } else if (context.trim().equalsIgnoreCase(ASSEMBLY)) {
                         rating = rsc.getIntItem(0, "assembly_rating");
-                    } else if (context.trim().equalsIgnoreCase(APPLICATION_TESTING)) {
-                        rating = rsc.getIntItem(0, "application_testing_rating");
+                    } else if (context.trim().equalsIgnoreCase(TEST_SUITES)) {
+                        rating = rsc.getIntItem(0, "test_suites_rating");
                     } else if (context.trim().equalsIgnoreCase(COMPONENT)) {
                         rating = max(rsc.getIntItem(0, "design_rating"),
                                 rsc.getIntItem(0, "development_rating"));
@@ -246,10 +246,10 @@ public class HandleTag extends TagSupport {
                                 rsc.getIntItem(0, "specification_rating"),
                                 rsc.getIntItem(0, "architecture_rating"),
                                 rsc.getIntItem(0, "assembly_rating"),
-                                rsc.getIntItem(0, "application_testing_rating"));
+                                rsc.getIntItem(0, "test_suites_rating"));
                     }
                 }
-                
+
                 //log.debug("rating: " + rating + " rsc: " + rsc.toString());
                 output.append(getRatingCSS(rating, lightStyles, darkStyles, darkBG));
             }

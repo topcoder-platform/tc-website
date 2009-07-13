@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -23,11 +23,15 @@ import com.topcoder.web.tc.Constants;
  *     and application testing).
  *     </li>
  *   </ol>
+ *
+ *   Version 1.2 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites</li>
+ *   </ol>
  * </p>
  *
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Aug 9, 2006
+ * @author dok, pulky
+ * @version 1.2
  */
 public class ReliabilityDetail extends Base {
 
@@ -50,7 +54,7 @@ public class ReliabilityDetail extends Base {
                 || String.valueOf(SoftwareComponent.SPECIFICATION_PHASE).equals(phaseId)
                 || String.valueOf(SoftwareComponent.ARCHITECTURE_PHASE).equals(phaseId)
                 || String.valueOf(SoftwareComponent.ASSEMBLY_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.APPLICATION_TESTING_PHASE).equals(phaseId))
+                || String.valueOf(SoftwareComponent.TEST_SUITES_PHASE).equals(phaseId))
             {
                 Request r = new Request();
                 r.setContentHandle("reliability_detail");
@@ -81,8 +85,8 @@ public class ReliabilityDetail extends Base {
                     case Constants.ARCHITECTURE_PROJECT_TYPE:
                         handleType = HandleTag.ARCHITECTURE;
                         break;
-                    case Constants.APPLICATION_TESTING_PROJECT_TYPE:
-                        handleType = HandleTag.APPLICATION_TESTING;
+                    case Constants.TEST_SUITES_PROJECT_TYPE:
+                        handleType = HandleTag.TEST_SUITES;
                         break;
                 }
 

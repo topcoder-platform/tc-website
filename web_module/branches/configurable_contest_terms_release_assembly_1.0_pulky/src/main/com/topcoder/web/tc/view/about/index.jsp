@@ -1,3 +1,13 @@
+<%--
+  - Author: TCSDEVELOPER, pulky
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page shows tc about page
+  -
+  - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes:
+  -    * Updated Application Testing to Test Suites.
+--%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.common.BaseServlet, com.topcoder.web.common.SessionInfo" %>
 <%@ page language="java" %>
@@ -32,24 +42,24 @@ $(document).ready(function(){
     }, function() {
         $(this).children("ul").slideUp("fast");
     });
-    
+
     $("#nav ul ul li").hover(function() {
         $(this).parents("#nav ul li").children('a').addClass("active-item");
     }, function() {
         $(this).parents("#nav ul li").children('a').removeClass("active-item");
     });
-    
-    
+
+
     jQuery(document).ready(function() {
         jQuery('#news-carousel').jcarousel({
             scroll: 1,
             easing: 'swing',
-            wrap: 'both'  
+            wrap: 'both'
         });
     });
-    
-    
-    
+
+
+
     window.alert = function() {
     return;
 };
@@ -67,66 +77,66 @@ $(document).ready(function(){
 
 </script>
 <script language="javascript" type="text/javascript">
-	$(document).ready(function(){
-			$active = "#drawer-content1"
-		 $("#about-nav-container a").not("#community").not("#about-contact-button").fadeTo("slow", 0.3);
-		 $("#about-nav-container a").not("#about-contact-button").click(function(){
-		 	return false;
-		 });
-		 $("#community").hoverIntent(function(){
-		 $(this).fadeTo("slow", 1.0);
-		 $("#about-nav-container a").not(this).not("#about-contact-button").fadeTo("slow", 0.3);
-		  if ($active == "#drawer-content1") {} else
-		  {
-		  	$("#drawer-container div").stop(true,true);
-		 	$($active).slideUp(500, function(){$("#drawer-content1").slideDown("slow");
-			$active = "#drawer-content1"
-			});
-			return false;
-		 }}, function(){ 
-		 	return false;
-		 });
-		 
-		  $("#results").hoverIntent(function(){
-		  $(this).fadeTo("slow", 1.0);
-				$("#about-nav-container a").not(this).not("#about-contact-button").fadeTo("slow", 0.3);
-				
-		 if ($active == "#drawer-content3") {} else {
-			$("#drawer-container div").stop(true,true);
-		 	$($active).slideUp(500, function(){$("#drawer-content3").slideDown("slow");
-			$active = "#drawer-content3"
-			});
-		 return false;
-		 }}, function(){ 
-		 	return false;
-		 });
-		 
-		  $("#plugin").hoverIntent(function(){
-		  $(this).fadeTo("slow", 1.0);
-				$("#about-nav-container a").not(this).not("#about-contact-button").fadeTo("slow", 0.3);
-		 if ($active == "#drawer-content4") {} else {
-			$("#drawer-container div").stop(true,true);
-		 	$($active).slideUp(500, function(){$("#drawer-content4").slideDown("slow");
-			$active = "#drawer-content4"
-			});
-			return false;
-		 }}, function(){ 
-		 	return false;
-		 });
-		 
-		  $("#battling").hoverIntent(function(){
-		  $(this).fadeTo("slow", 1.0);	
-				$("#about-nav-container a").not(this).not("#about-contact-button").fadeTo("slow", 0.3);
-		 if ($active == "#drawer-content2") {} else {
-			$("#drawer-container div").stop(true,true);
-		 	$($active).slideUp(500, function(){$("#drawer-content2").slideDown("slow");
-			$active = "#drawer-content2"
-			});
-			return false;
-		 }}, function(){ 
-		 	return false;
-		 });
-	});
+    $(document).ready(function(){
+            $active = "#drawer-content1"
+         $("#about-nav-container a").not("#community").not("#about-contact-button").fadeTo("slow", 0.3);
+         $("#about-nav-container a").not("#about-contact-button").click(function(){
+             return false;
+         });
+         $("#community").hoverIntent(function(){
+         $(this).fadeTo("slow", 1.0);
+         $("#about-nav-container a").not(this).not("#about-contact-button").fadeTo("slow", 0.3);
+          if ($active == "#drawer-content1") {} else
+          {
+              $("#drawer-container div").stop(true,true);
+             $($active).slideUp(500, function(){$("#drawer-content1").slideDown("slow");
+            $active = "#drawer-content1"
+            });
+            return false;
+         }}, function(){
+             return false;
+         });
+
+          $("#results").hoverIntent(function(){
+          $(this).fadeTo("slow", 1.0);
+                $("#about-nav-container a").not(this).not("#about-contact-button").fadeTo("slow", 0.3);
+
+         if ($active == "#drawer-content3") {} else {
+            $("#drawer-container div").stop(true,true);
+             $($active).slideUp(500, function(){$("#drawer-content3").slideDown("slow");
+            $active = "#drawer-content3"
+            });
+         return false;
+         }}, function(){
+             return false;
+         });
+
+          $("#plugin").hoverIntent(function(){
+          $(this).fadeTo("slow", 1.0);
+                $("#about-nav-container a").not(this).not("#about-contact-button").fadeTo("slow", 0.3);
+         if ($active == "#drawer-content4") {} else {
+            $("#drawer-container div").stop(true,true);
+             $($active).slideUp(500, function(){$("#drawer-content4").slideDown("slow");
+            $active = "#drawer-content4"
+            });
+            return false;
+         }}, function(){
+             return false;
+         });
+
+          $("#battling").hoverIntent(function(){
+          $(this).fadeTo("slow", 1.0);
+                $("#about-nav-container a").not(this).not("#about-contact-button").fadeTo("slow", 0.3);
+         if ($active == "#drawer-content2") {} else {
+            $("#drawer-container div").stop(true,true);
+             $($active).slideUp(500, function(){$("#drawer-content2").slideDown("slow");
+            $active = "#drawer-content2"
+            });
+            return false;
+         }}, function(){
+             return false;
+         });
+    });
 </script>
 </head>
 
@@ -134,11 +144,11 @@ $(document).ready(function(){
 
     <div id="header">
         <div class="wrapper">
-            
+
 <%-- MASTHEAD AND LOGO --%>
             <h1><a href="http://www.topcoder.com" title="TopCoder"><span>TopCoder Direct</span></a><%--<sup><small>BETA</small></sup>--%></h1>
             <h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
-            
+
 <%-- MAIN NAVIGATION --%>
             <div id="nav">
                 <h3 class="hide">Main Navigation</h3>
@@ -158,8 +168,8 @@ $(document).ready(function(){
                     <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Compete</a>
                         <ul>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=23">Conceptualization</a></li>
-                    	    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=6">Specification</a></li>
-                    	    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=7">Architecture</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=6">Specification</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=7">Architecture</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=112">Component Design</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=113">Component Development</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewAssemblyActiveContests">Assembly</a></li>
@@ -175,7 +185,7 @@ $(document).ready(function(){
                             <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
                             <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/blog/">Studio Blog</a></li>
                             <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=MyStudioHome">My Studio</a></li>
-                            <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=contactUs">Contact Studio</a></li>    
+                            <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=contactUs">Contact Studio</a></li>
                         </ul>
                     </li>
                     <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Community</a>
@@ -188,7 +198,7 @@ $(document).ready(function(){
                     </li>
                 </ul>
           </div><%-- #navigation ends --%>
-            
+
             <%-- SUB NAVIGATION --%>
             <div id="nav_support">
                 <h3 class="hide">SUB Navigation</h3>
@@ -196,9 +206,9 @@ $(document).ready(function(){
                     <li class="left"><a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder.com</a></li>
                     <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=index">About TopCoder</a></li>
                     <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=index">News</a></li>
-                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a></li>    
-                    
-                                
+                    <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a></li>
+
+
                     <% if ( !sessionInfo.isAnonymous() ) { %>
             <li><a href="#">Hello,&nbsp;</a><tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" /></li><li class="right"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout&nextpage=http://<%=ApplicationServer.SERVER_NAME%>">Logout</a></li>
         <% } else {%>
@@ -211,141 +221,141 @@ $(document).ready(function(){
     </div><%-- #header ends --%>
 <div id="about-tc-wrapper">
     <div id="slide-container">
-    	
+
         <div id="about-nav-container">
         <h2>About TopCoder</h2>
         <a href="#" id="community">The World's Largest Community of Competitive Software Developers</a>
         <a href="#" id="battling">Battling to be the Best</a>
         <a href="#" id="results">The Result of Their Competition... is your application...</a>
-        <a href="#" id="plugin">Now you can plug into this communiity directly</a>  
+        <a href="#" id="plugin">Now you can plug into this communiity directly</a>
         <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=contactus" class="button" id="about-contact-button">Contact Us</a>
         </div>
     </div>
     <div id="drawer-container">
-   		
+
         <!-- Drawer 1-->
         <div id="drawer-content1" class="drawer">
-        	<div class="drawer-inner-wrapper" id="community-drawer">
-            	<div class="left-column">
+            <div class="drawer-inner-wrapper" id="community-drawer">
+                <div class="left-column">
                     <h2>TopCoder Community</h2>
-                    <p>In all fields of endeavor great people love to compete, and this is no different when it comes to delivering software solutions. 
-                    TopCoder's global community of developers competes here in skill-based challenges representing every stage of the software development 
-                    process. From discovery and specification, through development, testing and deployment; competition is at the core of everything we do. For 
-                    our members, TopCoder is the place your talents can be truly rewarded. For our customers, TopCoder can deliver solutions developed through 
+                    <p>In all fields of endeavor great people love to compete, and this is no different when it comes to delivering software solutions.
+                    TopCoder's global community of developers competes here in skill-based challenges representing every stage of the software development
+                    process. From discovery and specification, through development, testing and deployment; competition is at the core of everything we do. For
+                    our members, TopCoder is the place your talents can be truly rewarded. For our customers, TopCoder can deliver solutions developed through
                     competition, in time frames and quality levels that are simply impossible using a traditional approach.</p>
                     <ul class="links">
-                    	<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/methodology.jsp">Learn More</a></li>
+                        <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/methodology.jsp">Learn More</a></li>
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Slash TC, The Community Home Page</a></li>
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=top_designers">TopCoder's Top Tens</a></li>
                         <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">The Forums</a></li>
                     </ul>
                 </div>
                 <div class="right-column">
-                	<div id="member-map">
-                        <h3><span class="red"><tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/>	</span> members and counting!</h3>
+                    <div id="member-map">
+                        <h3><span class="red"><tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/>    </span> members and counting!</h3>
                         <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" class="join-today button">Join Today!</a>
-                    </div>  
+                    </div>
                 </div>
                 <p class="clear"></p>
-        	</div>
+            </div>
         </div>
-        
+
         <!-- Drawer 2-->
         <div id="drawer-content2" class="drawer">
-        	<div class="drawer-inner-wrapper" id="competitions-drawer">
-            	<div class="left-column">
+            <div class="drawer-inner-wrapper" id="competitions-drawer">
+                <div class="left-column">
                     <h2>TopCoder Competitions</h2>
                     <h3 class="green">Over $7 Million in Prizes awarded so far!</h3>
                     <h4>Compete now: 10 ways to win at TopCoder</h4>
-                    
-                    <ul class="left-list"> 
-                    	
+
+                    <ul class="left-list">
+
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/How+To+Compete+in+Algorithm+Competitions">Algorithm</a></li>
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/TopCoder+Conceptualization+Contests">Conceptualization &amp; Specification</a></li>
-						<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Architecture+Overview">Software Architecture</a></li>
-						<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Getting+Started+in+Component+Design+Competitions">Software Design</a></li>
-						<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Getting+Started+in+Component+Development+Competitions">Software Development</a></li>
-						
+                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Architecture+Overview">Software Architecture</a></li>
+                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Getting+Started+in+Component+Design+Competitions">Software Design</a></li>
+                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Getting+Started+in+Component+Development+Competitions">Software Development</a></li>
+
                     </ul>
-                   
+
                     <ul class="right-list">
-                    	<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Assembly">Software Assembly</a></li>
-                    	<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Testing">Application Testing</a></li>
-						<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Bug+Races">Bug Races </a></li>
-						<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=hs&d2=home">High School </a></li>
-						<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=instructions">Marathon Matches </a></li>
+                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Assembly">Software Assembly</a></li>
+                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Test+Suites">Test Suites</a></li>
+                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Bug+Races">Bug Races </a></li>
+                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=hs&d2=home">High School </a></li>
+                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=instructions">Marathon Matches </a></li>
                     </ul>
-					<p class="clear"></p>
+                    <p class="clear"></p>
                     <h3 id="topcoder-studio">TopCoder Studio</h3>
                     <h3 class="subhead1">The Global Design Community of TopCoder</h3>
                     <p>Compete now in creative competitions ranging from logo and web page design, to Flash, Flex and prototype development<br/>
                     <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/" class="blue">Check it out!</a>
                 </div>
-                    
+
                 <div class="right-column">
-                	<h3>Ongoing Competitions</h3>
+                    <h3>Ongoing Competitions</h3>
                     <div id="digital-run">
-                    	<p>You don't have to win every contest to make big money at TopCoder. The more you participate, and the better you perform, the more 
+                        <p>You don't have to win every contest to make big money at TopCoder. The more you participate, and the better you perform, the more
                         points you can earn toward this guaranteed monthly bonus pool.<br/><a href="http://<%=ApplicationServer.SERVER_NAME%>/dr">Learn More &gt;</a></p>
-                    </div>  
-                   	<div id="topcoder-open">
-                    	<p>Once a year, TopCoder brings the best of the best to Las Vegas, Nevada to compete onsite for the title of TopCoder Open Champion, and 
+                    </div>
+                       <div id="topcoder-open">
+                        <p>Once a year, TopCoder brings the best of the best to Las Vegas, Nevada to compete onsite for the title of TopCoder Open Champion, and
                         a share of more than $250,000 in prizes.
- 						<br/><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=home">Learn More &gt;</a></p>
- 					</div>
+                         <br/><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=home">Learn More &gt;</a></p>
+                     </div>
                 </div>
                 <p class="clear"></p>
             </div>
         </div>
-        
+
         <!-- Drawer 3-->
         <div id="drawer-content3" class="drawer">
-        	<div class="drawer-inner-wrapper" id="methodology-drawer">
+            <div class="drawer-inner-wrapper" id="methodology-drawer">
             <div class="left-column">
                 <h2>TopCoder Methodology</h2>
-                <p>No one understands how to apply the talent of a global community to specific problems better than TopCoder.  We take your problem, define it, 
-                break it down into pieces to be delivered in parallel and assemble the solution - all using the global resource of the world's largest 
-                competitive developer community.  By measuring and scoring every interaction - impossible in a traditional approach - we are able to provide our 
+                <p>No one understands how to apply the talent of a global community to specific problems better than TopCoder.  We take your problem, define it,
+                break it down into pieces to be delivered in parallel and assemble the solution - all using the global resource of the world's largest
+                competitive developer community.  By measuring and scoring every interaction - impossible in a traditional approach - we are able to provide our
                 customers with the peace of mind that can only come with knowing that someone is watching every detail.</p>
-     
+
                 <h3>Components: Those Little Pieces</h3>
-     
-                <p>Typically, 50% of your application is already built and exists as reusable components in TopCoder's Software Catalog.  Your access to these 
+
+                <p>Typically, 50% of your application is already built and exists as reusable components in TopCoder's Software Catalog.  Your access to these
                 more than 1400 tested and certified components speeds up your timeline, and improves your bottom line.</p>
- 			</div>
-           	<div class="right-column">
+             </div>
+               <div class="right-column">
             <div id="components-graphic">
             <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/methodology.jsp " class="button" id="learn-more">Learn More</a>
             </div>
             </div>
-            
+
             </div>
         </div>
-        
+
         <!-- Drawer 4-->
         <div id="drawer-content4" class="drawer">
-        	<div class="drawer-inner-wrapper" id="engaged-drawer">
+            <div class="drawer-inner-wrapper" id="engaged-drawer">
             <div class="left-column">
             <h2>Engage!</h2>
-        	<p class="engage-text">TopCoder is the first massively parallel, non-labor based end-to-end solution for the development of all things digital. No matter how big or small the project, from requirements discovery to design, build and test for applications ranging from small web, mobile and internal departmental apps to large ERP, CRM and decision support development and implementation, TopCoder is a platform that provides instant access to a vast wealth of resource. Send us a note so we can talk about how TopCoder can work for you.</p>
+            <p class="engage-text">TopCoder is the first massively parallel, non-labor based end-to-end solution for the development of all things digital. No matter how big or small the project, from requirements discovery to design, build and test for applications ranging from small web, mobile and internal departmental apps to large ERP, CRM and decision support development and implementation, TopCoder is a platform that provides instant access to a vast wealth of resource. Send us a note so we can talk about how TopCoder can work for you.</p>
             <a class="button" id="contact-us-button" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=contactus">Contact Us</a>
             </div>
-            
+
             <div class="right-column">
              <h3 id="tcdirect">TopCoder Direct</h3>
              <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/" class="button" id="learn-more-button" >Learn More</a>
              <p>TopCoder Direct puts you in control.  Whether you're trying to build or change your website, building a web based ordering system for your customers, need to do a presentation or a new flyer or marketing piece, TopCoder Direct is your command center.  Launch your own competitions, monitor the progress, choose a winner and download your new design - all from your personal TopCoder Direct control panel.</p>
             </div>
-           
-            
+
+
             </div>
         </div>
         <div id="drawer-footer"></div>
-   	</div>
+       </div>
 </div>
-    
-    
-        
+
+
+
 <%-- LINKS BLOCK --%>
     <div id="links">
         <div class="wrapper">
@@ -357,7 +367,7 @@ $(document).ready(function(){
                      <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=terms">Terms &amp; Conditions</a></li>
                 </ul>
             </div>
-            
+
             <div class="col">
                 <h4>About TopCoder</h4>
                 <ul>
@@ -370,7 +380,7 @@ $(document).ready(function(){
                 </ul>
 
             </div>
-            
+
             <div class="col">
                 <h4>Platform Tools</h4>
                 <ul><li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Upcoming+Contests">Pipeline</a></li>
@@ -380,7 +390,7 @@ $(document).ready(function(){
                     <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/">TopCoder Wiki</a></li>
                 </ul>
           </div>
-            
+
             <div class="col">
                 <h4>TopCoder Community</h4>
                 <ul>
@@ -388,14 +398,14 @@ $(document).ready(function(){
                     <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">TopCoder Forums</a></li>
                     <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
                 </ul>
-            
+
                 <h4>TopCoder Blogs</h4>
                  <ul>
                     <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/blogs/">TopCoder Direct</a></li>
                     <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/blog/">Studio TopCoder</a></li>
                 </ul>
             </div>
-            
+
             <div class="col">
                 <h4>My Account</h4>
                 <ul>
@@ -405,7 +415,7 @@ $(document).ready(function(){
                     <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=home">Studio Cup</a></li>
                 </ul>
             </div>
-            
+
             <div class="col">
                 <h4>Powered by TopCoder</h4>
                 <ul>
@@ -426,7 +436,7 @@ $(document).ready(function(){
             <p>Copyright &copy;2001-2008, TopCoder, Inc. All rights reserved.</p>
         </div><%-- .wrapper ends --%>
     </div><%-- #footer ends --%>
-    
+
 <%-- Google Analytics --%>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

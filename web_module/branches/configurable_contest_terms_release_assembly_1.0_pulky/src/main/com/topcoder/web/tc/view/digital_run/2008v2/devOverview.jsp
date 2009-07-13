@@ -1,3 +1,12 @@
+<%--
+  - Author: TCSDEVELOPER, pulky
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays development overview for the digital run
+  -
+  - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
+--%>
 <%@  page language="java"  %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -35,7 +44,7 @@
 
 <span class="title">Overview</span>
 <br /><br />
-Each contest posted in <a href="/tc?module=ViewActiveContests&amp;ph=113">Software Development</a>, <a href="/tc?module=ViewAssemblyActiveContests">Software Assembly</a> and <a href="/tc?module=ActiveContests&amp;pt=13">Application Testing</a> will carry a point value. Placement points will be awarded based on the number of submissions that pass review, as follows:
+Each contest posted in <a href="/tc?module=ViewActiveContests&amp;ph=113">Software Development</a>, <a href="/tc?module=ViewAssemblyActiveContests">Software Assembly</a> and <a href="/tc?module=ActiveContests&amp;pt=13">Test Suites</a> will carry a point value. Placement points will be awarded based on the number of submissions that pass review, as follows:
 <br /><br />
 <a class="bcLink" name="point_table"></a>
 <div align="center">
@@ -102,7 +111,7 @@ Each contest posted in <a href="/tc?module=ViewActiveContests&amp;ph=113">Softwa
 </table>
 </div>
 <br /><br />
-If more than five (5) submissions pass review, the competitors who place in 6th position or below will not receive any placement points. 
+If more than five (5) submissions pass review, the competitors who place in 6th position or below will not receive any placement points.
 <br /><br />
 Up to 100% of placement points may be deducted for bugs or late final fixes. 20% of placement point will be deducted for every (24) hours a final fix or component forum issue is late. On a case-by-case basis, as determined by TopCoder staff, additional placement points may be deducted for bugs found in submissions within 30 days of completion.
 <br /><br />

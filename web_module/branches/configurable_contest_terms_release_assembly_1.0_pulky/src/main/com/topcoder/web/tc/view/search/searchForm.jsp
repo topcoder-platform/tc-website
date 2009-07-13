@@ -1,3 +1,12 @@
+<%--
+  - Author: TCSDEVELOPER, pulky
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays search form
+  -
+  - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
+--%>
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.web.tc.Constants"%>
 <%@ page language="java"  %>
@@ -236,7 +245,7 @@ selections will be returned. Click on a Handle to view information about the Cod
    </tr>
    <tr>
       <td class="valueR" style="border: 0px;">
-         <strong>Application Testing</strong> rating:
+         <strong>Test Suites</strong> rating:
       </td>
       <td class="valueR" style="border: 0px;">
          Min:

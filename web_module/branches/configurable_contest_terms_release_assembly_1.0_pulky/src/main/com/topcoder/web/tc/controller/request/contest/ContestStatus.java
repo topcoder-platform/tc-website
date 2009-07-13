@@ -21,10 +21,16 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *   <ol>
  *     <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
+ *
+ *   Version 1.2 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites</li>
+ *     <li>Added support for new Test Scenarios competitions</li>
+ *   </ol>
  * </p>
  *
  * @author dok, pulky
- * @version 1.1
+ * @version 1.2
  */
 public class ContestStatus extends Base {
 
@@ -35,7 +41,7 @@ public class ContestStatus extends Base {
     public static int[] DEFAULT_PROJECT_TYPES = new int[] {
         Constants.DESIGN_PROJECT_TYPE, Constants.DEVELOPMENT_PROJECT_TYPE,
         Constants.ASSEMBLY_PROJECT_TYPE, Constants.ARCHITECTURE_PROJECT_TYPE,
-        Constants.APPLICATION_TESTING_PROJECT_TYPE, Constants.SPECIFICATION_PROJECT_TYPE,
+        Constants.TEST_SUITES_PROJECT_TYPE, Constants.TEST_SCENARIOS_PROJECT_TYPE, Constants.SPECIFICATION_PROJECT_TYPE,
         Constants.CONCEPTUALIZATION_PROJECT_TYPE, Constants.UI_PROTOTYPE_PROJECT_TYPE,
         Constants.RIA_BUILD_PROJECT_TYPE, Constants.RIA_COMPONENT_PROJECT_TYPE};
 

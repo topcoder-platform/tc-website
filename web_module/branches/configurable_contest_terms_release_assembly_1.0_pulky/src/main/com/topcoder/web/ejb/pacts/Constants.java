@@ -17,7 +17,7 @@ package com.topcoder.web.ejb.pacts;
  * <p>
  *   Version 1.2 (BUGR-1843, BUGR-1845) Change notes:
  *   <ol>
- *     <li>Added constants to support Specification Writing, Studio Specification Writing, UI Prototype Competition, 
+ *     <li>Added constants to support Specification Writing, Studio Specification Writing, UI Prototype Competition,
  *         RIA Build Competition and RIA Component Competition Payments.</li>
  *   </ol>
  * </p>
@@ -29,8 +29,16 @@ package com.topcoder.web.ejb.pacts;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER
- * @version 1.3
+ * <p>
+ *   Version 1.4 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites</li>
+ *     <li>Added support for new Test Scenarios competitions.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER, pulky
+ * @version 1.4
  */
 public interface Constants {
 
@@ -77,7 +85,20 @@ public interface Constants {
     public static final int DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT = 41;
     public static final int SPECIFICATION_CONTEST_PAYMENT = 42;
     public static final int CONCEPTUALIZATION_CONTEST_PAYMENT = 43;
-    public static final int TESTING_COMPETITION_PAYMENT = 44;
+
+    /**
+     * <p>A <code>int</code> representing the payment id for test suites.</p>
+     *
+     * @since 1.4
+     */
+    public static final int TEST_SUITES_PAYMENT = 44;
+
+    /**
+     * <p>A <code>int</code> representing the payment id for test scenarios.</p>
+     *
+     * @since 1.4
+     */
+    public static final int TEST_SCENARIOS_PAYMENT = 55;
 
     /**
      * <p>A <code>int</code> representing the payment type for Copilot payments.</p>
@@ -148,7 +169,7 @@ public interface Constants {
      * @since 1.3
      */
     public static final int DEPLOYMENT_TASK_PAYMENT = 54;
-    
+
     public static final int NO_REFERENCE = 0;
     public static final int REFERENCE_ALGORITHM_ROUND_ID = 1;
     public static final int REFERENCE_COMPONENT_PROJECT_ID = 2;
@@ -188,8 +209,21 @@ public interface Constants {
     public static final int ARCHITECTURE_PROJECT_CATEGORY_LU = 7;
     public static final int CONCEPTUALIZATION_PROJECT_CATEGORY_LU = 23;
     public static final int SPECIFICATION_PROJECT_CATEGORY_LU = 6;
-    public static final int APPLICATION_TESTING_PROJECT_CATEGORY_LU = 13;
-    
+
+    /**
+     * <p>A <code>int</code> representing the test suites project category id.</p>
+     *
+     * @since 1.4
+     */
+    public static final int TEST_SUITES_PROJECT_CATEGORY_LU = 13;
+
+    /**
+     * <p>A <code>int</code> representing the test scenarios project category id.</p>
+     *
+     * @since 1.4
+     */
+    public static final int TEST_SCENARIOS_PROJECT_CATEGORY_LU = 26;
+
     public static final int UI_PROTOTYPE_COMPETITION_PROJECT_CATEGORY_LU = 19;
     public static final int RIA_BUILD_COMPETITION_PROJECT_CATEGORY_LU = 24;
     public static final int RIA_COMPONENT_COMPETITION_PROJECT_CATEGORY_LU = 25;

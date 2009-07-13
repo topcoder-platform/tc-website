@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request;
 
 import com.topcoder.shared.dataAccess.Request;
@@ -14,11 +17,41 @@ import com.topcoder.web.tc.controller.request.util.TCCC06ComponentTerms;
 import java.util.Map;
 import java.util.HashMap;
 
+/**
+ * <p>
+ * This class is used to retreive home page information and present it.
+ * </p>
+ *
+ * <p>
+ *   Version 1.1 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites</li>
+ *     <li>Added support for new Test Scenarios competitions</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky
+ * @version 1.1
+ */
 public class Home extends Base {
     public static final String DESIGN = "design";
     public static final String ASSEMBLY = "assembly";
     public static final String DEVELOPMENT = "dev";
-    public static final String APPLICATION_TESTING = "apptesting";
+
+    /**
+     * <p>A <code>String</code> representing test suites key.</p>
+     *
+     * @since 1.1
+     */
+    public static final String TEST_SUITES = "testsuites";
+
+    /**
+     * <p>A <code>String</code> representing test scenarios key.</p>
+     *
+     * @since 1.1
+     */
+    public static final String TEST_SCENARIOS = "testscenarios";
+
     public static final String ARCHITECTURE= "arch";
     public static final String CONCEPTUALIZATION = "concept";
     public static final String SPECIFICATION = "spec";
@@ -313,8 +346,12 @@ tchs08 is over, don't need to do this anymore
                     ret.put(ASSEMBLY, summary);
                     break;
                 }
-                case Constants.APPLICATION_TESTING_PROJECT_TYPE: {
-                    ret.put(APPLICATION_TESTING, summary);
+                case Constants.TEST_SUITES_PROJECT_TYPE: {
+                    ret.put(TEST_SUITES, summary);
+                    break;
+                }
+                case Constants.TEST_SCENARIOS_PROJECT_TYPE: {
+                    ret.put(TEST_SCENARIOS, summary);
                     break;
                 }
             }

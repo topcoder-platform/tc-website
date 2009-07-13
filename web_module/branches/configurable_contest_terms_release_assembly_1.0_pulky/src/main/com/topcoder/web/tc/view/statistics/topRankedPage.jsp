@@ -1,3 +1,12 @@
+<%--
+  - Author: TCSDEVELOPER, pulky
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays the top ranked page.
+  -
+  - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
+--%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.Map"%>
 
@@ -45,7 +54,7 @@
         title+="testers";
         header+="Testers";
         nodeVal="top_rated_testers";
-        ctxt="application_testing";
+        ctxt="test_suites";
     }
 %>
 

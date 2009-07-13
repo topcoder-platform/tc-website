@@ -170,17 +170,6 @@ $(document).ready(function(){
             </div>
 <%-- MAIN CONTENT --%>
             <div id="content-main">
-            <div id="tco-banner">
-            	<img src="/images/TCO09.jpg" width="902" height="121" border="0" usemap="#Map" />
-					<map name="Map" id="Map">
-					<area shape="rect" coords="597,76,653,112" href="http://www.topcoder.com/tco09/blog/" alt="TCO09 Blog" />
-					<area shape="rect" coords="660,77,719,110" href="http://www.topcoder.com/tco09/blog/photos/" alt="TCO09 Photos" />
-					<area shape="rect" coords="728,74,788,112" href="http://www.topcoder.com/tco09/blog/movies/" alt="TCO09 Movies" />
-					<area shape="rect" coords="798,76,865,109" href="http://www.topcoder.com/tco09/blog/twitter/" alt="TCO09 Twitter" />
-					<area shape="rect" coords="309,5,572,113" href="http://www.topcoder.com/tco09" alt="TCO09" /></map>
-					</map>
-				</div>
-				<br />
                 <div id="client-content">
                     <div id="client-box">
                          <div id="enterprise-solutions">
@@ -245,8 +234,8 @@ $(document).ready(function(){
                                 <h3><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">TopCoder Studio</a></h3>
                                 <p>The creative side of TopCoder. Logos, posters, storyboards, prototypes&hellip;</p>
                             </div>
+                            <div id="remix"> <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor3"><img src="/i/tournament/tco09/tco09-fb-340x76.png" alt="Facebook - TCO09 Sponsor" /></a></div>
                             <div id="remix"> <a href="http://www.topcoder.com/remix"><img src="/i/remix/remix-340.jpg" alt="REMIX Challenge" /></a></div>
-                            <div id="tco09"><a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor3"><img src="/i/tournament/tco09/tco09-fb-340x76.png" alt="Facebook - Sponsor of the TCO '09" /></a>
                         </div>
                     </div>
                     <div id="member-box-bottom"></div>

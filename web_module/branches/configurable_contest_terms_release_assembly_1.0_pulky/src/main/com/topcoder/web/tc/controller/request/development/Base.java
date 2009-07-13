@@ -60,7 +60,16 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *         </td>
  *     </tr>
  *     <tr>
- *         <td>Version 1.3 (Configurable Contest Terms Release Assembly v1.0)</td>
+ *         <td>Version 1.3 (Testing Competition Split Release Assembly 1.0)</td>
+ *         <td>
+ *           <ul>
+ *               <li>Updated Application Testing to Test Suites.</li>
+ *               <li>Added support for new Test Scenarios competitions.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *     <tr>
+ *         <td>Version 1.4 (Configurable Contest Terms Release Assembly v1.0)</td>
  *         <td>
  *           <ul>
  *             <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
@@ -71,7 +80,7 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  * </p>
  *
  * @author dok, isv, pulky
- * @version 1.3
+ * @version 1.4
  */
 public abstract class Base extends ShortHibernateProcessor {
     /**
@@ -117,8 +126,10 @@ public abstract class Base extends ShortHibernateProcessor {
             return "/architecture/projectDetail.jsp";
         } else if (projectTypeId==Constants.COMPONENT_TESTING_PROJECT_TYPE) {
             return "/dev/testing/projectDetail.jsp";
-        } else if (projectTypeId==Constants.APPLICATION_TESTING_PROJECT_TYPE) {
-            return "/testing/projectDetail.jsp";
+        } else if (projectTypeId==Constants.TEST_SUITES_PROJECT_TYPE) {
+            return "/testsuites/projectDetail.jsp";
+        } else if (projectTypeId==Constants.TEST_SCENARIOS_PROJECT_TYPE) {
+            return "/testscenarios/projectDetail.jsp";
         } else if (projectTypeId==Constants.CONCEPTUALIZATION_PROJECT_TYPE) {
             return "/conceptualization/projectDetail.jsp";
         } else if (projectTypeId==Constants.SPECIFICATION_PROJECT_TYPE) {
@@ -148,7 +159,8 @@ public abstract class Base extends ShortHibernateProcessor {
             || projectTypeId == Constants.SPECIFICATION_PROJECT_TYPE
             || projectTypeId == Constants.ARCHITECTURE_PROJECT_TYPE
             || projectTypeId == Constants.ASSEMBLY_PROJECT_TYPE
-            || projectTypeId == Constants.APPLICATION_TESTING_PROJECT_TYPE
+            || projectTypeId == Constants.TEST_SUITES_PROJECT_TYPE
+            || projectTypeId == Constants.TEST_SCENARIOS_PROJECT_TYPE
             || projectTypeId == Constants.UI_PROTOTYPE_PROJECT_TYPE
             || projectTypeId == Constants.RIA_BUILD_PROJECT_TYPE
             || projectTypeId == Constants.RIA_COMPONENT_PROJECT_TYPE) {
@@ -235,8 +247,10 @@ public abstract class Base extends ShortHibernateProcessor {
                 projectTypeId = Constants.ARCHITECTURE_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.ASSEMBLY_PHASE).equals(phaseId)) {
                 projectTypeId = Constants.ASSEMBLY_PROJECT_TYPE;
-            } else if (String.valueOf(SoftwareComponent.APPLICATION_TESTING_PHASE).equals(phaseId)) {
-                projectTypeId = Constants.APPLICATION_TESTING_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.TEST_SUITES_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.TEST_SUITES_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.TEST_SCENARIOS_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.TEST_SCENARIOS_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.UI_PROTOTYPE_PHASE).equals(phaseId)) {
                 projectTypeId = Constants.UI_PROTOTYPE_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.RIA_BUILD_PHASE).equals(phaseId)) {

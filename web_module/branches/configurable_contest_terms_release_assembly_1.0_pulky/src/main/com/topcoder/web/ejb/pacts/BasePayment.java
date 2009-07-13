@@ -34,7 +34,7 @@ import java.util.Date;
  * <p>
  *   Version 1.2 (BUGR-1843, BUGR-1845) Change notes:
  *   <ol>
- *     <li>Added constants to support Specification Writing, Studio Specification Writing, UI Prototype Competition, 
+ *     <li>Added constants to support Specification Writing, Studio Specification Writing, UI Prototype Competition,
  *         RIA Build Competition and RIA Component Competition Payments.</li>
  *   </ol>
  * </p>
@@ -46,8 +46,16 @@ import java.util.Date;
  *   </ol>
  * </p>
  *
- * @author cucu, TCSDEVELOPER
- * @version 1.3
+ * <p>
+ *   Version 1.4 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites</li>
+ *     <li>Added support for new Test Scenarios competitions.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author cucu, pulky
+ * @version 1.4
  */
 public abstract class BasePayment implements Constants, java.io.Serializable {
     private static Logger log = Logger.getLogger(BasePayment.class);
@@ -178,7 +186,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case ARCHITECTURE_PAYMENT:
         case SPECIFICATION_CONTEST_PAYMENT:
         case CONCEPTUALIZATION_CONTEST_PAYMENT:
-        case TESTING_COMPETITION_PAYMENT:
+        case TEST_SUITES_PAYMENT:
+        case TEST_SCENARIOS_PAYMENT:
         case COPILOT_PAYMENT:
         case DEPLOYMENT_TASK_PAYMENT:
             return REFERENCE_COMPONENT_PROJECT_ID;
@@ -273,22 +282,23 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT: return new DigitalRunV2TopPerformersPayment(coderId, grossAmount, referenceId, placed);
         case SPECIFICATION_CONTEST_PAYMENT: return new SpecificationContestPayment(coderId, grossAmount, referenceId, placed);
         case CONCEPTUALIZATION_CONTEST_PAYMENT: return new ConceptualizationContestPayment(coderId, grossAmount, referenceId, placed);
-        case TESTING_COMPETITION_PAYMENT: return new TestingCompetitionPayment(coderId, grossAmount, referenceId, placed);
+        case TEST_SUITES_PAYMENT: return new TestSuitesCompetitionPayment(coderId, grossAmount, referenceId, placed);
+        case TEST_SCENARIOS_PAYMENT: return new TestScenariosCompetitionPayment(coderId, grossAmount, referenceId, placed);
         case COPILOT_PAYMENT: return new CopilotPayment(coderId, grossAmount, referenceId, placed);
         case STUDIO_BUG_FIXES_PAYMENT: return new StudioBugFixesPayment(coderId, grossAmount, referenceId, placed);
         case STUDIO_ENHANCEMENTS_PAYMENT:
             return new StudioEnhancementsPayment(coderId, grossAmount, referenceId, placed);
         case STUDIO_SPECIFICATION_REVIEW_PAYMENT:
             return new StudioSpecificationReviewPayment(coderId, grossAmount, referenceId, placed);
-        case UI_PROTOTYPE_COMPETITION_PAYMENT: 
+        case UI_PROTOTYPE_COMPETITION_PAYMENT:
             return new UIPrototypeCompetitionPayment(coderId, grossAmount, referenceId, placed);
-        case RIA_BUILD_COMPETITION_PAYMENT: 
+        case RIA_BUILD_COMPETITION_PAYMENT:
             return new RIABuildCompetitionPayment(coderId, grossAmount, referenceId, placed);
-        case RIA_COMPONENT_COMPETITION_PAYMENT: 
+        case RIA_COMPONENT_COMPETITION_PAYMENT:
             return new RIAComponentCompetitionPayment(coderId, grossAmount, referenceId, placed);
-        case SPECIFICATION_WRITING_PAYMENT: 
+        case SPECIFICATION_WRITING_PAYMENT:
             return new SpecificationWritingPayment(coderId, grossAmount, referenceId, placed);
-        case STUDIO_SPECIFICATION_WRITING_PAYMENT: 
+        case STUDIO_SPECIFICATION_WRITING_PAYMENT:
             return new StudioSpecificationWritingPayment(coderId, grossAmount, referenceId, placed);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
@@ -406,7 +416,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT: return "Digital Run v2 Top Performers Payment";
             case SPECIFICATION_CONTEST_PAYMENT: return "Specification Contest Payment";
             case CONCEPTUALIZATION_CONTEST_PAYMENT: return "Conceptualization Contest Payment";
-            case TESTING_COMPETITION_PAYMENT: return "Testing Competition Payment";
+            case TEST_SUITES_PAYMENT: return "Test Suites Payment";
+            case TEST_SCENARIOS_PAYMENT: return "Test Scenarios Payment";
             case COPILOT_PAYMENT: return "Copilot Payment";
             case STUDIO_BUG_FIXES_PAYMENT: return "TopCoder Studio bug fixes Payment";
             case STUDIO_ENHANCEMENTS_PAYMENT: return "TopCoder Studio enhancements Payment";

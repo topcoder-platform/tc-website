@@ -74,14 +74,20 @@ import com.topcoder.web.tc.Constants;
  *     <li>Added support for UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
  *
- *   Version 1.0.7 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ *   Version 1.0.7 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites.</li>
+ *     <li>Added support for new Test Scenarios competitions.</li>
+ *   </ol>
+ *
+ *   Version 1.0.8 (Configurable Contest Terms Release Assembly v1.0) Change notes:
  *   <ol>
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
  * </p>
  *
  * @author dok, isv, pulky
- * @version 1.0.7
+ * @version 1.0.8
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -199,7 +205,7 @@ public class ProjectReviewApply extends Base {
      */
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
         int type = Integer.parseInt(this.projectTypeId);
-        // Assembly, Architecture, Conceptualization, Specification, Application Testing competition and
+        // Assembly, Architecture, Conceptualization, Specification, Test Suites, Test Scenarios and
         // Studio related competition reviews do not take into consideration the catalogs as for now
         if (validateWithCatalog(type)) {
             rBoardApplication.validateUser(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, catalog, reviewTypeId, getUser().getId(),
@@ -262,7 +268,8 @@ public class ProjectReviewApply extends Base {
             projectTypeId != WebConstants.ARCHITECTURE_PROJECT_TYPE &&
             projectTypeId != WebConstants.CONCEPTUALIZATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.SPECIFICATION_PROJECT_TYPE &&
-            projectTypeId != WebConstants.APPLICATION_TESTING_PROJECT_TYPE &&
+            projectTypeId != WebConstants.TEST_SUITES_PROJECT_TYPE &&
+            projectTypeId != WebConstants.TEST_SCENARIOS_PROJECT_TYPE &&
             projectTypeId != WebConstants.UI_PROTOTYPE_PROJECT_TYPE &&
             projectTypeId != WebConstants.RIA_BUILD_PROJECT_TYPE &&
             projectTypeId != WebConstants.RIA_COMPONENT_PROJECT_TYPE;

@@ -1,5 +1,5 @@
-/**
- * Copyright (C) 2005 TopCoder Inc., All Rights Reserved.
+/*
+ * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.review.projecttracker;
 
@@ -32,10 +32,19 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * The test of ProjectUtil.
+ * <strong>Purpose</strong>:
+ * A processor to retrieve competition history.
  *
- * @author brain_cn
- * @version 1.0
+ * <p>
+ *   Version 1.1 (Testing Competition Split Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated Application Testing to Test Suites</li>
+ *     <li>Added support for Test Scenarios</li>
+ *   </ol>
+ * </p>
+ *
+ * @author brain_cn, pulky
+ * @version 1.1
  */
 public class ProjectUtil {
     private static final int PHASE_TYPE_REGISTRATION = 1;
@@ -89,7 +98,7 @@ public class ProjectUtil {
                     old_rating = rs.getLong(1);
                 }
             } else if (rs.getLong(3) + 111 == rs.getLong(2)) {
-                old_rating = rs.getLong(1);                    
+                old_rating = rs.getLong(1);
             }
         }
 
@@ -162,7 +171,7 @@ public class ProjectUtil {
         ps.setString(index++, String.valueOf(userId));
         ps.executeUpdate();
 
-        // Rating 4, 
+        // Rating 4,
         if (old_rating > 0) {
             index = 1;
             ps.setLong(index++, resourceId);
@@ -177,7 +186,7 @@ public class ProjectUtil {
             }
         }
 
-        // Reliability 5 
+        // Reliability 5
         if (oldReliability > 0) {
             index = 1;
             ps.setLong(index++, resourceId);
@@ -214,9 +223,9 @@ public class ProjectUtil {
 
         ps = conn.prepareStatement(
                 "select root_category_id " +
-                        "	from comp_versions cv       " +
-                        "	,comp_catalog cc       " +
-                        "	,categories pcat " +
+                        "    from comp_versions cv       " +
+                        "    ,comp_catalog cc       " +
+                        "    ,categories pcat " +
                         "where cc.component_id = cv.component_id " +
                         "and cc.status_id = 102     " +
                         "and pcat.category_id = cc.root_category_id " +
@@ -226,9 +235,9 @@ public class ProjectUtil {
 
         if (!rs.next()) {
             throw new BaseException("Online Review: root_category_id does not exist, " +
-            		"projectTypeId: " + projectTypeId + " compVersId: " + compVersId +
-            		" (A project must be approved before it can change from the collaboration phase to the " +
-            		"specification phase.)");
+                    "projectTypeId: " + projectTypeId + " compVersId: " + compVersId +
+                    " (A project must be approved before it can change from the collaboration phase to the " +
+                    "specification phase.)");
         }
 
         long rootCategoryId = rs.getLong(1);
@@ -241,8 +250,8 @@ public class ProjectUtil {
 
         ps = conn.prepareStatement("SELECT p.project_id " +
                 "FROM project p, " +
-                "	project_info pi_vi, " +
-                "	project_info pi_vt " +
+                "    project_info pi_vi, " +
+                "    project_info pi_vt " +
                 "where p.project_id = pi_vi.project_id " +
                 "and pi_vi.project_info_type_id = 1 " +
                 "and pi_vi.value = ? " + // 1 is external id
@@ -307,7 +316,7 @@ public class ProjectUtil {
         com.topcoder.project.phases.Project project = template.applyTemplate(templateName);
         if (project == null) {
             throw new BaseException("Online Review: project template does not exist, templateName: " + templateName
-            		+ " Please make sure Project_Phase_Template_Config.xml is configured well!");
+                    + " Please make sure Project_Phase_Template_Config.xml is configured well!");
         }
         com.topcoder.project.phases.Phase[] phases = project.getAllPhases();
         for (int i = 0; i < phases.length; i++) {
@@ -600,24 +609,25 @@ public class ProjectUtil {
 
         // Rated
         createProjectInfo(ps, projectId, 13, "Yes", modUserId);
-        
+
         // Eligibility
         createProjectInfo(ps, projectId, 14, "Open", modUserId);
-        
+
         // Payments
         createProjectInfo(ps, projectId, 16, String.valueOf(price), modUserId);
 
         // Digital Run
         if (projectTypeId == 1            // Component Design
-        		|| projectTypeId == 2     // Component Development
-        		|| projectTypeId == 6     // Specification
-        		|| projectTypeId == 7     // Architecture
-        		|| projectTypeId == 13    // Application Testing
-        		|| projectTypeId == 14    // Assembly
-        		|| projectTypeId == 23) { // Conceptualization
+                || projectTypeId == 2     // Component Development
+                || projectTypeId == 6     // Specification
+                || projectTypeId == 7     // Architecture
+                || projectTypeId == 13    // Test Suites
+                || projectTypeId == 26    // Test Scenarios
+                || projectTypeId == 14    // Assembly
+                || projectTypeId == 23) { // Conceptualization
             createProjectInfo(ps, projectId, 26, "On", modUserId);
         }
-        
+
         // Contest Indicator
         createProjectInfo(ps, projectId, 29, "On", modUserId);
 

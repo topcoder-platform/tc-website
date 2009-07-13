@@ -37,8 +37,15 @@ import java.util.Date;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.3 (BUGR-2096) Change notes:
+ *   <ol>
+ *     <li>Navigation exception is returned if submissions are not viewable.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, pulky
- * @version 1.2
+ * @version 1.3
  */
 public class ViewContestResults extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
@@ -71,6 +78,12 @@ public class ViewContestResults extends ShortHibernateProcessor {
                     throw new NavigationException("Invalid contest specified.");
                 }
             }
+
+            // added for BUGR-2096 - Fix the Winners Page on Studio when "show submissions" flag is set to "no"
+            if (!String.valueOf(true).equals(contest.getViewableSubmissions().getValue())) {
+                throw new NavigationException("Submissions are not available for this contest");
+            }
+
 
             // added after BUGR-1915: process all submissions information to show on the page
             processSubmissionsSection(contest);
