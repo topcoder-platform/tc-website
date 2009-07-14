@@ -17,35 +17,36 @@
    - May</div>
    <table cellpadding="0" cellspacing="0" border="0" width="165">
    <tr>
-      <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top" ><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top" ><img src="/i/m/knightry_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</a></strong><br />
-         <tc-webtag:handle coderId="22726964" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />
+         <tc-webtag:handle coderId="22695970" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />
          <br />
          <br />
       </td>
    </tr>
    <tr>
-      <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/saarixx_big.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/argolite_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</a></strong><br />
-         <tc-webtag:handle coderId="21932422" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br />
-         with 5 design wins<br />
+         <tc-webtag:handle coderId="287614" context="<%=HandleTag.DESIGN%>" darkBG="true" /><br />
+         with 9 wins out of 10 submissions in the design categories.<br />
          <br />
       </td>
    </tr>
    <tr>
-      <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/isv_big.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/Yeung_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</a></strong><br />
-         <tc-webtag:handle coderId="299180" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />
-         <br />
+         <tc-webtag:handle coderId="15604762" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" /><br />
+         with 7 wins out of 7 submissions in the development categories.
          <br />
       </td>
    </tr>
    </table>
    <%-- On/Off --%>
-   <div><a class="cotmFeature" href="http://www.topcoder.com/news/2009/06/19/meet-the-may-coders-and-designers-of-the-month/">Read Their Interviews</a></div>
+   
+ <%--   <div><a class="cotmFeature" href="http://www.topcoder.com/news/2009/06/19/meet-the-may-coders-and-designers-of-the-month/">Read Their Interviews</a></div> --%>
    
    </div>
 </div>
