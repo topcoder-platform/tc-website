@@ -3,7 +3,14 @@
  */
 package com.topcoder.web.tc.controller.request.development;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+
+import javax.ejb.CreateException;
+import javax.ejb.EJBException;
+import javax.naming.NamingException;
 
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -13,12 +20,19 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
+import com.topcoder.web.ejb.project.ProjectRoleTermsOfUse;
+import com.topcoder.web.ejb.project.ProjectRoleTermsOfUseLocator;
+import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
 
@@ -54,13 +68,39 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
+ *     <tr>
+ *         <td>Version 1.4 (Configurable Contest Terms Release Assembly v1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
  * @author dok, isv, pulky
- * @version 1.3
+ * @version 1.4
  */
 public abstract class Base extends ShortHibernateProcessor {
+    /**
+     * Constant containing submitter role id
+     *
+     * @since 1.3
+     */
+    protected static final int[] SUBMITTER_ROLE_IDS = new int[] {1};
+
+    /**
+     * Constant containing primary reviewer role ids
+     *
+     * Note: first item is just a placeholder. It will be filled with the corresponding review role id.
+     * Note2: there is "similar" logic in RBoardApplicationBean. It is recommended to rewrite that method to be 
+     * able to extract the logic. Then, it should be possible to reuse it here.
+     *
+     * @since 1.3
+     */
+    protected static final int[] PRIMARY_ROLE_IDS = new int[] {0, 2, 8, 9};
+
     protected Logger log = Logger.getLogger(Base.class);
 
     protected int getProjectTypeId(long projectId) throws Exception {
@@ -235,5 +275,106 @@ public abstract class Base extends ShortHibernateProcessor {
      */
     protected boolean isProjectTypeSupported(String projectType) {
         return ReviewBoardHelper.isReviewBoardTypeSupported(projectType);
+    }
+
+    /**
+     * This helper method will go create the user terms of use association for a given user id, terms of use id.
+     *
+     * @param userId the user id that is requesting the registration
+     * @param termsOfUseId the terms of use id the user agreed to
+     * @throws NamingException if any errors occur during EJB lookup
+     * @throws RemoteException if any errors occur during EJB remote invocation
+     * @throws CreateException if any errors occur during EJB creation
+     * @throws EJBException if any other errors occur while invoking EJB services
+     *
+     * @since 1.3
+     */
+    protected void saveUserTermsOfUse(long userId, long termsOfUseId)
+            throws NamingException, RemoteException, CreateException, EJBException {
+
+        // check if the user agreed to all terms of use
+        UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
+
+        userTermsOfUse.createUserTermsOfUse(userId, termsOfUseId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+    }
+
+    /**
+     * This helper method will go through all required terms of use and check whether the user has agreed to
+     * them or not. If the user agreed to all required terms of use, the list of these terms of use will be
+     * added to the request. If the user is missing a terms of use, that terms of use will be added to the request.
+     *
+     * @param projectId the project id the user is registering to
+     * @param userId the user id that is requesting the registration
+     * @throws NamingException if any errors occur during EJB lookup
+     * @throws RemoteException if any errors occur during EJB remote invocation
+     * @throws CreateException if any errors occur during EJB creation
+     * @throws EJBException if any other errors occur while invoking EJB services
+     *
+     * @since 1.3
+     */
+    protected void processTermsOfUse(String projectId, long userId, int[] roleIds)
+            throws NamingException, RemoteException, CreateException, EJBException {
+
+        // check if the user agreed to all terms of use
+        ProjectRoleTermsOfUse projectRoleTermsOfUse = ProjectRoleTermsOfUseLocator.getService();
+        UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
+        TermsOfUse termsOfUse = TermsOfUseLocator.getService();
+
+        // validate that new resources have agreed to the necessary terms of use
+        List<Long> necessaryTerms = projectRoleTermsOfUse.getTermsOfUse(Integer.parseInt(projectId),
+                roleIds, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+
+        List<TermsOfUseEntity> termsAgreed = new ArrayList<TermsOfUseEntity>();
+
+        boolean hasPendingTerms = false;
+        for (int i = 0; i < necessaryTerms.size() && !hasPendingTerms; i++) {
+            Long termsId = necessaryTerms.get(i);
+
+            // get terms of use
+            TermsOfUseEntity terms =  termsOfUse.getEntity(termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+
+            // check if the user has this terms
+            if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
+                hasPendingTerms = true;
+                getRequest().setAttribute(Constants.TERMS, terms);
+            } else {
+                termsAgreed.add(terms);
+            }
+        }
+
+        if (!hasPendingTerms) {
+            getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreed);
+        }
+    }
+
+    /**
+     * This helper method will get resource role ids based on the review type id and primary flag
+     *
+     * @param reviewTypeId the review type id
+     * @param primary if the position is a primary review position
+     * @return <code>int[]</code> with the role ids
+     */
+    protected int[] getResourceRoleIds(int reviewTypeId, boolean primary) {
+        int[] roleIds;
+        int roleId = 0;
+
+        if (primary) {
+            roleIds = Base.PRIMARY_ROLE_IDS;
+        } else {
+            roleIds = new int[1];
+        }
+        switch (reviewTypeId) {
+            case 1:
+                roleId = 7;
+            case 2:
+                roleId = 6;
+            case 3:
+                roleId = 5;
+            default:
+                roleId = 4;
+        }
+
+        roleIds[0] = roleId;
+        return roleIds;
     }
 }

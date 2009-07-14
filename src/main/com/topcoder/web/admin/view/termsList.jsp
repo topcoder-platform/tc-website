@@ -1,3 +1,12 @@
+<%--
+  - Author: pulky
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page lists terms of use.
+  -
+  - Version 1.1 (Configurable Contest Terms Release Assembly v1.0) changes: replaced terms_text by title.
+--%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.admin.Constants" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
@@ -23,7 +32,7 @@
                 </tr>
                 <tr>
                     <td class="header">&#160;</td>
-                    <td class="header">Text</td>
+                    <td class="header">Title</td>
                     <td class="header">Type</td>
                     <td class="header">Create Date</td>
                     <td class="header">Modify Date</td>
@@ -34,7 +43,7 @@
                         <td class="<%=even?"even":"odd"%>"><a
                                 href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditTerms&<%=Constants.TERMS_OF_USE_ID%>=<rsc:item row="<%=terms%>" name="terms_of_use_id"/>">edit</a>
                             <rsc:item row="<%=terms%>" name="terms_of_use_id"/></td>
-                        <td class="<%=even?"even":"odd"%>"><%=terms.getStringItem("terms_text") != null && terms.getStringItem("terms_text").length() > 50 ? terms.getStringItem("terms_text").substring(0, 50) : terms.getStringItem("terms_text")%></td>
+                        <td class="<%=even?"even":"odd"%>"><%=terms.getStringItem("title")%></td>
                         <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>"
                                                                      name="terms_of_use_type_desc"/></td>
                         <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="create_date"

@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.development;
 
 import java.rmi.RemoteException;
@@ -44,14 +47,33 @@ import com.topcoder.web.common.tag.CalendarDateFormatMethod;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
+import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jan 6, 2006
+ * <p><strong>Purpose</strong>: This processor handle requests to register to a specific design or development
+ * project.</p>
+ *
+ * <p>
+ *   Version 1.1 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky
+ * @version 1.1
  */
 public class Register extends ViewRegistration {
+
+    /**
+     * This method is the final processor for the request
+     *
+     * @throws TCWebException if any error occurs
+     * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()
+     */
     protected void developmentProcessing() throws TCWebException {
 
         try {
@@ -63,79 +85,111 @@ public class Register extends ViewRegistration {
 
             validation();
 
-            getRequest().setAttribute(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
+            String projectId = getRequest().getParameter(Constants.PROJECT_ID);
+            getRequest().setAttribute(Constants.PROJECT_ID, projectId);
 
-            boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
-            List responses = validateSurvey();
+            String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
+            long userId = getLoggedInUser().getId();
 
-            boolean bother = true;
-
-            // only bother if the user is not a professional (tccc)
-            // comment this line if not needed
-//            bother = !CoderType.PROFESSIONAL.equals(DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId())).getCoderType().getId());
-            log.debug("Bother: " + bother);
-
-//            Coder c = (Coder) createEJB(getInitialContext(), Coder.class);
-//            //boolean isStudent = c.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME) == 1;
-            if (agreed && !hasErrors()) {
-                if (log.isDebugEnabled()) {
-                    log.debug("they agree to terms and there are no errors");
-                }
-                getRequest().getSession().setAttribute("responses", responses);
-                boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
-                if (isEligible) {
+            if (!"".equals(termsOfUseId)) {
+                boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
+                if (agreed) {
                     if (log.isDebugEnabled()) {
-                        log.debug("they are eligible");
+                        log.debug("they agree to terms");
                     }
-/*
-                    if (isTournamentTime() && isStudent) {
-*/
-                    if (isTournamentTime() && bother) {
-                        if (log.isDebugEnabled()) {
-                            log.debug("it's tournament time ");
-                        }
-                        boolean isRegisteredForTournament = getRequest().getAttribute("notRegistered") == null;
-                        boolean isConfirmed = getRequest().getParameter("confirm") != null;
-                        if (log.isDebugEnabled()) {
-                            log.debug("reged: " + isRegisteredForTournament + " confirmed: " + isConfirmed);
-                        }
-                        if (isRegisteredForTournament || isConfirmed) {
-                            if (log.isDebugEnabled()) {
-                                log.debug("either they are registered, or they've confirmed they don't want to");
-                            }
-                            register();
-                            getRequest().removeAttribute("responses");
-                            setNextPage("/contest/regSuccess.jsp");
-                            setIsNextPageInContext(true);
-                        } else {
-                            setNextPage("/dev/tournamentConfirm.jsp");
-                            setIsNextPageInContext(true);
-                        }
-                    } else {
-                        if (log.isDebugEnabled()) {
-                            log.debug("just register them, it's either not tourney time");
-                        }
-                        register();
-                        setNextPage("/contest/regSuccess.jsp");
-                        setIsNextPageInContext(true);
-                    }
+                    // save user terms of use record
+                    saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
+
+                    // get survey
+                    getRequest().setAttribute("questionInfo", getQuestions());
+
+                    // process terms of use
+                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
                 } else {
-                    setNextPage("/contest/message.jsp");
-                    setIsNextPageInContext(true);
-                }
-            } else {
-                if (!agreed) {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
+
+                    TermsOfUse termsOfUse = TermsOfUseLocator.getService();
+                    TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId),
+                            DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    getRequest().setAttribute(Constants.TERMS, terms);
                 }
-                getRequest().setAttribute("questionInfo", getQuestions());
-                setDefault(Constants.TERMS, getTerms());
-                setDefaults(responses);
-                //we're assuming if we got here, we had a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
-            }
+            } else {
+                // they don't have pending terms of use
 
+                List responses = validateSurvey();
+
+                boolean bother = true;
+
+                // only bother if the user is not a professional (tccc)
+                // comment this line if not needed
+                // bother = !CoderType.PROFESSIONAL.equals(DAOUtil.getFactory().getCoderDAO().find(new Long(getUser().getId())).getCoderType().getId());
+                log.debug("Bother: " + bother);
+
+                // Coder c = (Coder) createEJB(getInitialContext(), Coder.class);
+                // boolean isStudent = c.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME) == 1;
+
+
+                if (!hasErrors()) {
+                    if (log.isDebugEnabled()) {
+                        log.debug("there are no errors");
+                    }
+                    getRequest().getSession().setAttribute("responses", responses);
+                    boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
+                    if (isEligible) {
+                        if (log.isDebugEnabled()) {
+                            log.debug("they are eligible");
+                        }
+    /*
+                        if (isTournamentTime() && isStudent) {
+    */
+                        if (isTournamentTime() && bother) {
+                            if (log.isDebugEnabled()) {
+                                log.debug("it's tournament time ");
+                            }
+                            boolean isRegisteredForTournament = getRequest().getAttribute("notRegistered") == null;
+                            boolean isConfirmed = getRequest().getParameter("confirm") != null;
+                            if (log.isDebugEnabled()) {
+                                log.debug("reged: " + isRegisteredForTournament + " confirmed: " + isConfirmed);
+                            }
+                            if (isRegisteredForTournament || isConfirmed) {
+                                if (log.isDebugEnabled()) {
+                                    log.debug("either they are registered, or they've confirmed they don't want to");
+                                }
+                                register();
+                                getRequest().removeAttribute("responses");
+                                setNextPage("/contest/regSuccess.jsp");
+                                setIsNextPageInContext(true);
+                            } else {
+                                setNextPage("/dev/tournamentConfirm.jsp");
+                                setIsNextPageInContext(true);
+                            }
+                        } else {
+                            if (log.isDebugEnabled()) {
+                                log.debug("just register them, it's either not tourney time");
+                            }
+                            register();
+                            setNextPage("/contest/regSuccess.jsp");
+                            setIsNextPageInContext(true);
+                        }
+                    } else {
+                        setNextPage("/contest/message.jsp");
+                        setIsNextPageInContext(true);
+                    }
+                } else {
+                    getRequest().setAttribute("questionInfo", getQuestions());
+                    setDefaults(responses);
+
+                    // process terms of use
+                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
+
+                    setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
+                    setNextPage("/contest/regTerms.jsp");
+                    setIsNextPageInContext(true);
+                }
+            }
         } catch (TCWebException e) {
             throw e;
         } catch (Throwable e) {

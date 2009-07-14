@@ -1,14 +1,53 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.admin;
 
 /**
- * @author  dok
- * @version  $Revision$ $Date$
- * Create Date: Apr 27, 2005
+ * <p>This class stores a variety of constants for the admin tool.</p>
+ *
+ * <p>
+ *   Version 1.1 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added constants to support new columns in terms_of_use table.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky
+ * @version 1.1
  */
 public interface AdminConstants {
     public static final String TERMS_OF_USE_ID = "tid";
     public static final String TERMS = "terms";
     public static final String TERMS_OF_USE_TYPE_ID = "ttid";
+
+    /**
+     * <p>
+     * A <code>String</code> containing the attribute key for terms title column.
+     * </p>
+     *
+     * @since 1.1
+     */
+    public static final String TERMS_TITLE = "ttit";
+
+    /**
+     * <p>
+     * A <code>String</code> containing the attribute key for terms electonically signable column.
+     * </p>
+     *
+     * @since 1.1
+     */
+    public static final String TERMS_ELECTRONICALLY_SIGNABLE = "tes";
+
+    /**
+     * <p>
+     * A <code>String</code> containing the attribute key for terms url column.
+     * </p>
+     *
+     * @since 1.1
+     */
+    public static final String TERMS_URL = "turl";
+
     public static final String SURVEY_ID = "sid";
     public static final String QUESTION_ID = "qid";
     public static final String ANSWER_ID = "aid";

@@ -32,6 +32,18 @@
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
         </session>
+        <session>
+            <description>Project Role Terms Of Use EJB</description>
+            <display-name>Project Role Terms of Use EJB</display-name>
+            <ejb-name>ProjectRoleTermsOfUse</ejb-name>
+            <home>com.topcoder.web.ejb.project.ProjectRoleTermsOfUseHome</home>
+            <remote>com.topcoder.web.ejb.project.ProjectRoleTermsOfUse</remote>
+            <local-home>com.topcoder.web.ejb.project.ProjectRoleTermsOfUseLocalHome</local-home>
+            <local>com.topcoder.web.ejb.project.ProjectRoleTermsOfUseLocal</local>
+            <ejb-class>com.topcoder.web.ejb.project.ProjectRoleTermsOfUseBean</ejb-class>
+            <transaction-type>Container</transaction-type>
+            <session-type>Stateless</session-type>
+        </session>
     </enterprise-beans>
     <assembly-descriptor>
         <container-transaction>
@@ -44,6 +56,13 @@
                 <method-name>*</method-name>
             </method>
             <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        <container-transaction>
+            <method>
+                <ejb-name>ProjectRoleTermsOfUse</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Supports</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
 </ejb-jar>

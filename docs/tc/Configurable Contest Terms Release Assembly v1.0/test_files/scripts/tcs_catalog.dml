@@ -1,0 +1,11 @@
+database tcs_catalog;
+
+-- missing data in the VM (that will cause OR to fail)
+insert into project_info_type_lu values (32,"Billing Project","Billing Project","System","2009-05-28 16:47:38.000","System","2009-05-28 16:47:38.000");
+
+-- insert a simple question for component surveys
+insert into comp_reg_question values (1, "Test question", 3, 1, 1);
+
+-- make heffan see the Create Project tab in Online Review
+insert into resource values (1, 13, null, null, 132456, current, 132456, current);
+insert into resource_info values (1, 1, 132456,	132456, current, 132456, current);
