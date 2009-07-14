@@ -9,11 +9,13 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
 
@@ -33,6 +35,13 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.2 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, pulky
  * @version 1.2
  */
@@ -42,6 +51,12 @@ public class ViewRegistration extends Base {
 
     protected int projectTypeId = 0;
 
+    /**
+     * This method is the final processor for the request
+     *
+     * @throws TCWebException if any error occurs
+     * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()
+     */
     protected void developmentProcessing() throws TCWebException {
 
         try {
@@ -53,9 +68,14 @@ public class ViewRegistration extends Base {
             validation();
 
             if (getRequest().getAttribute(Constants.MESSAGE) == null) {
-                setDefault(Constants.TERMS, getTerms());
+                String projectId = getRequest().getParameter(Constants.PROJECT_ID);
+                long userId = getLoggedInUser().getId();
+
+                // process terms of use
+                processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
+
                 //we're assuming that if we're here, we got a valid project id
-                setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
+                setDefault(Constants.PROJECT_ID, projectId);
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
@@ -68,12 +88,6 @@ public class ViewRegistration extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-
-    }
-
-    protected String getTerms() throws Exception {
-        TermsOfUseLocal t = (TermsOfUseLocal) createLocalEJB(getInitialContext(), TermsOfUse.class);
-        return t.getText(Constants.PROJECT_TERMS_ID, DBMS.OLTP_DATASOURCE_NAME);
 
     }
 
