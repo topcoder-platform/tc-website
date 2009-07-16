@@ -215,29 +215,24 @@ public class ApplyRBoardRules extends DBUtility {
                 for (; countShort < submissionThresholdShort && rsDetailsShort.next(); countShort++) ;
 
                 boolean passedShortPeriodRule = (countShort >= submissionThresholdShort);
-                boolean passedAlternateFirstRule = false;
 
-                // if not passed the short period rule successfully.
-                if (!passedShortPeriodRule) {
-                    // check alternate first rule (certain number of submissions (with a score higher or equal that a certain threshold) during the last X projects)
+                // check alternate first rule (certain number of submissions (with a score higher or equal that a certain threshold) during the last X projects)
+                psSelAlternate.clearParameters();
+                psSelAlternate.setInt(1, alternateRuleLastNProjects);  // Number of project to take into consideration
+                psSelAlternate.setLong(2, rsUsers.getLong("user_id"));  // user_id
+                psSelAlternate.setInt(3, rsUsers.getInt("project_type_id"));  // project_type
+                psSelAlternate.setLong(4, rsUsers.getLong("catalog_id"));  // catalog
+                rsAlternate = psSelAlternate.executeQuery();
 
-                    psSelAlternate.clearParameters();
-                    psSelAlternate.setInt(1, alternateRuleLastNProjects);  // Number of project to take into consideration
-                    psSelAlternate.setLong(2, rsUsers.getLong("user_id"));  // user_id
-                    psSelAlternate.setInt(3, rsUsers.getInt("project_type_id"));  // project_type
-                    psSelAlternate.setLong(4, rsUsers.getLong("catalog_id"));  // catalog
-                    rsAlternate = psSelAlternate.executeQuery();
-
-                    // counts submissions
-                    int countSub = 0;
-                    for (; countSub < alternateRuleMinimumSubmissions && rsAlternate.next(); ) {
-                        if (rsAlternate.getObject("user_score") != null && rsAlternate.getInt("user_score") >= alternateRuleMinimumScore) {
-                            countSub++;
-                        }
+                // counts submissions
+                int countSub = 0;
+                for (; countSub < alternateRuleMinimumSubmissions && rsAlternate.next(); ) {
+                    if (rsAlternate.getObject("user_score") != null && rsAlternate.getInt("user_score") >= alternateRuleMinimumScore) {
+                        countSub++;
                     }
-
-                    passedAlternateFirstRule = (countSub >= alternateRuleMinimumSubmissions);
                 }
+
+				boolean passedAlternateFirstRule = (countSub >= alternateRuleMinimumSubmissions);
 
                 if (passedShortPeriodRule || passedAlternateFirstRule) {
                     // passed the short period rule successfully.
