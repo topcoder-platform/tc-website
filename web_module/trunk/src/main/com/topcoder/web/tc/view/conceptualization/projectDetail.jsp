@@ -154,7 +154,7 @@
 </p>
 
 <p>
-<div align="right"><a href="/wiki/display/tc/How+to+Compete+in+Conceptualization+Competitions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a></div>
+<div align="right"><a href="/wiki/display/tc/Software+Conceptualization+How-To"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a></div>
 </p>
 
 
