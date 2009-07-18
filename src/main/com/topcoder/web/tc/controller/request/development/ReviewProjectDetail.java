@@ -252,10 +252,19 @@ public class ReviewProjectDetail extends Base {
             ResultSetContainer detail = (ResultSetContainer) results.get("spec_review_project_detail");
             if (detail.isEmpty()) {
                 throw new NavigationException("Could not find information on the project selected.");
-            } 
-            
+            }
+
             getRequest().setAttribute("projectDetail", detail);
-            
+
+            ArrayList reviewerList = new ArrayList(1);
+
+            ReviewBoardApplication app = makeSpecReviewApp(detail.getIntItem(0, "phase_id"), detail.getIntItem(0,
+                    "level_id"), detail.getLongItem(0, "project_id"), detail.getFloatItem(0, "prize"));
+            app.setPrimary(true);
+            reviewerList.add(app);
+
+            getRequest().setAttribute("reviewerList", reviewerList);
+
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
