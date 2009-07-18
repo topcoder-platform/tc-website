@@ -88,7 +88,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
     @SuppressWarnings("unchecked")
 	protected void developmentProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
-		System.out.println("ViewReviewProjects.developmentProcessing: " + projectTypeId);
+
         // don't include specification review project types in the validation
         if (!isProjectTypeSupported(projectTypeId, false)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
@@ -167,9 +167,6 @@ public class ViewReviewProjects extends ReviewProjectDetail {
     /**
      * <p>Private helper method to process specification review positions for the specified project type id.</p>
      *
-     * <p>This method will get information from query tool and return an <code>ArrayList<SoftwareComponent></code>
-     * after processing it.</p>
-     *
      * @param projectTypeId the project type id to process
      * @throws TCWebException if any error occurs during the process
      *
@@ -177,9 +174,10 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      */
     @SuppressWarnings("unchecked")
 	private void processSpecificationReviewPositions(String projectTypeId) throws TCWebException {
-    	// don't include specification review project types in the validation
-        if (!isProjectTypeSupported(projectTypeId, false)) {
-            throw new TCWebException("Invalid project type specified " + projectTypeId);
+    	String specificationReviewProjectTypeId = Integer.toString(Integer.parseInt(projectTypeId) + Constants.SPECIFICATION_COMPETITION_OFFSET);
+        if (!isProjectTypeSupported(specificationReviewProjectTypeId, true)) {
+            // simply return from here.
+        	return;
         }
 
         Request r = new Request();
@@ -197,14 +195,12 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             for (Iterator it = rsc.iterator(); it.hasNext();) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 //default to 1 submission, dr points is not applicable so default to zero.
-                prices.add(makeApp("", 1, 1, rsr.getIntItem("phase_id"), rsr.getIntItem("level_id"),
-                                   rsr.getLongItem("project_id"), 0, rsr.getFloatItem("prize"),
-                                   0).getComponent());
+                prices.add(makeSpecReviewApp(rsr.getIntItem("phase_id"), rsr.getIntItem("level_id"),
+                                   rsr.getLongItem("project_id"), rsr.getFloatItem("prize")).getComponent());
             }
 
             getRequest().setAttribute("specificationReviewPrices", prices);
-            getRequest().setAttribute("specificationReviewProjectTypeId", Integer.toString(Integer.parseInt(projectTypeId) 
-            		+ Constants.SPECIFICATION_COMPETITION_OFFSET));
+            getRequest().setAttribute("specificationReviewProjectTypeId", specificationReviewProjectTypeId);
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
