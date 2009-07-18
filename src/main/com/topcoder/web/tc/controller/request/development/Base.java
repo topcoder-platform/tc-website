@@ -174,14 +174,6 @@ public abstract class Base extends ShortHibernateProcessor {
         return dAccess;
     }
 
-
-    /**
-     * Get the project type id from the request.  If the request contains the phase id, then use that
-     * to figure out the project type id.
-     * @param r the http request
-     * @return the project type id or 0 if we could not find the necessary information in the request
-     * @throws TCWebException if non null non number is passed for project type
-     */
     /**
      * <p>This method infers the project type id from the request.</p>
      * <p>It will get the project type id from the request. If the request contains the phase id, then it will use

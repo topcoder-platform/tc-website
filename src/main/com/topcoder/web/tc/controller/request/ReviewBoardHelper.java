@@ -73,6 +73,9 @@ public final class ReviewBoardHelper {
      * <p>Checks whether the specified review board type requested by client is currently supported by this controller
      * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization, Specification,
      * Test Suites and Test Scenarios review boards and their specification reviews are supported.</p>
+     * 
+     * Updated for Spec Review Integration 1.0
+     *      - Added check for spec review project types.
      *
      * @param reviewBoardType a <code>String</code> referencing the review board type requested by client.
 	 * @param includeSpecificationReviews a <code>boolean</code> specifying if specification review projects should

@@ -183,7 +183,7 @@
                                 <td>
                                     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                                         <tr>
-                                            <td class="tableTitle" colspan="10">
+                                            <td class="tableTitle" colspan="8">
                                                 ${projectTypeDesc} Specification Review Opportunities
                                             </td>
                                         </tr>
@@ -201,7 +201,7 @@
                                         <c:set var="i" value="0"/>
                                         <c:forEach items="${specificationReviewList}" var="resultRow">
                                             <tr>
-                                                <td class="statDk" align="center">Spec Review</td>
+                                                <td class="statDk" align="center">Specification Review</td>
                                                 <td class="statDk" align="center">${projectTypeDesc}</td>
                                                 <td class="statDk">
                                                     ${resultRow.map["component_name"]}

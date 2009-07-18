@@ -92,23 +92,44 @@ public class ReviewProjectDetail extends Base {
      *
      * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
      */
-    @SuppressWarnings("unchecked")
-	protected void developmentProcessing() throws TCWebException {
+    protected void developmentProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
+        
         // include specification review project types in the validation
         if (!isProjectTypeSupported(projectTypeId, true)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
 
-        try {
-            int phase_id = (Integer.parseInt(projectTypeId) + 111);
+        int phaseId = (Integer.parseInt(projectTypeId) + 111);
+        String projectId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID));
 
+        if (phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
+            retrieveSpecReviewProjectDetail(projectId, phaseId);
+        } else {
+            retrieveReviewProjectDetail(projectId, phaseId, projectTypeId);
+        }
+
+        setNextPage(getReviewProjectDetailView(projectTypeId));
+        setIsNextPageInContext(true);
+    }
+    
+    /**
+     * <p>Looks up for the details of requested review project, binds it to request.</p>
+     * 
+     * @param projectId project id to look for.
+     * @param phaseId phase id of the project
+     * @param projectTypeId identifier of the type of project
+     * @throws TCWebException if an unexpected error occurs
+     */
+    @SuppressWarnings("unchecked")
+    private void retrieveReviewProjectDetail(String projectId, int phaseId, String projectTypeId) throws TCWebException {
+        try {
             Request r = new Request();
             r.setContentHandle("review_project_detail");
-            r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
-            r.setProperty(Constants.PHASE_ID, String.valueOf(phase_id));
+            r.setProperty(Constants.PROJECT_ID, projectId);
+            r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
             r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
-            getRequest().setAttribute("phase_id", new Integer(phase_id));
+            getRequest().setAttribute("phase_id", new Integer(phaseId));
 
             Map results = getDataAccess().getData(r);
             ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
@@ -119,7 +140,7 @@ public class ReviewProjectDetail extends Base {
             if (detail.isEmpty()) {
                 throw new NavigationException("Could not find information on the project selected.");
             } else {
-                //set submission count to 1 for zero submissions
+                // set submission count to 1 for zero submissions
                 int numSubmissions = detail.getIntItem(0, "submission_count");
                 int numSubmissionsPassed = detail.getIntItem(0, "submission_passed_screening_count");
                 if (numSubmissions == 0) {
@@ -127,42 +148,31 @@ public class ReviewProjectDetail extends Base {
                     numSubmissionsPassed = 1;
                 }
 
-
                 ResultSetContainer reviewers = (ResultSetContainer) results.get("reviewers");
                 ResultSetContainer.ResultSetRow row = null;
-                //add all the positions
+                // add all the positions
                 for (Iterator it = reviewers.iterator(); it.hasNext();) {
                     row = (ResultSetContainer.ResultSetRow) it.next();
-                    //this one has not been assigned yet
+                    // this one has not been assigned yet
                     if (row.getStringItem("handle") == null) {
-                        reviewerList.add(makeApp(row.getStringItem("reviewer_type"),
-                                                 numSubmissions,
-                                                 numSubmissionsPassed,
-                                                 detail.getIntItem(0, "phase_id"),
-                                                 detail.getIntItem(0, "level_id"),
-                                                 detail.getLongItem(0, "project_id"),
-                                                 row.getIntItem("review_resp_id"),
-                                                 detail.getFloatItem(0, "prize"),
-                                                 detail.getFloatItem(0, "dr_points")));
+                        reviewerList.add(makeApp(row.getStringItem("reviewer_type"), numSubmissions,
+                                numSubmissionsPassed, detail.getIntItem(0, "phase_id"), detail
+                                        .getIntItem(0, "level_id"), detail.getLongItem(0, "project_id"), row
+                                        .getIntItem("review_resp_id"), detail.getFloatItem(0, "prize"), detail
+                                        .getFloatItem(0, "dr_points")));
                     } else {
-                        //this one has been assigned
-                        reviewerList.add(makeApp(row.getStringItem("reviewer_type"),
-                                                 numSubmissions,
-                                                 numSubmissionsPassed,
-                                                 detail.getIntItem(0, "phase_id"),
-                                                 detail.getIntItem(0, "level_id"),
-                                                 row.getLongItem("user_id"),
-                                                 row.getStringItem("handle"),
-                                                 row.getIntItem("primary") == 1,
-                                                 detail.getLongItem(0, "project_id"),
-                                                 row.getIntItem("review_resp_id"),
-                                                 detail.getFloatItem(0, "prize"),
-                                                 detail.getFloatItem(0, "dr_points")));
+                        // this one has been assigned
+                        reviewerList.add(makeApp(row.getStringItem("reviewer_type"), numSubmissions,
+                                numSubmissionsPassed, detail.getIntItem(0, "phase_id"), detail
+                                        .getIntItem(0, "level_id"), row.getLongItem("user_id"), row
+                                        .getStringItem("handle"), row.getIntItem("primary") == 1, detail.getLongItem(0,
+                                        "project_id"), row.getIntItem("review_resp_id"), detail
+                                        .getFloatItem(0, "prize"), detail.getFloatItem(0, "dr_points")));
                     }
                 }
 
-                //if there is no primary spot in the list, put one in there
-                //and make sure it's the Failure reviewer
+                // if there is no primary spot in the list, put one in there
+                // and make sure it's the Failure reviewer
                 ReviewBoardApplication app = null;
                 boolean hasPrimary = false;
                 for (Iterator it = reviewerList.iterator(); it.hasNext();) {
@@ -171,16 +181,16 @@ public class ReviewProjectDetail extends Base {
                 }
                 if (!hasPrimary) {
                     if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE
-                        || detail.getLongItem(0, "phase_id") == 116) {
+                            || detail.getLongItem(0, "phase_id") == 116) {
 
                         for (Iterator it = reviewerList.iterator(); it.hasNext();) {
                             app = (ReviewBoardApplication) it.next();
 
-                            //set a primary to be the failure test spot, but only do it
-                            //if it's not filled.  perhaps we put someone in there
-                            //who didn't want to be primary, failure is primary is just
-                            //a convention, not a rule.  in this case, someone would have to
-                            //be set primary manually
+                            // set a primary to be the failure test spot, but only do it
+                            // if it's not filled. perhaps we put someone in there
+                            // who didn't want to be primary, failure is primary is just
+                            // a convention, not a rule. in this case, someone would have to
+                            // be set primary manually
                             if (app.getReviewerType().equals("Failure") && !app.isSpotFilled())
                                 app.setPrimary(true);
                         }
@@ -210,9 +220,9 @@ public class ReviewProjectDetail extends Base {
                 }
 
                 getRequest().setAttribute("applicationDelayHours",
-                                          new Integer((int) (applicationDelay / (1000 * 60 * 60))));
+                        new Integer((int) (applicationDelay / (1000 * 60 * 60))));
                 getRequest().setAttribute("applicationDelayMinutes",
-                                          new Integer((int) ((applicationDelay % (1000 * 60 * 60)) / (1000 * 60))));
+                        new Integer((int) ((applicationDelay % (1000 * 60 * 60)) / (1000 * 60))));
             }
 
         } catch (TCWebException e) {
@@ -220,9 +230,37 @@ public class ReviewProjectDetail extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-        setNextPage(getReviewProjectDetailView(projectTypeId));
-        setIsNextPageInContext(true);
+    }
+    
+    /**
+     * <p>Looks up for the details of requested spec review project, binds it to request.</p>
+     * 
+     * @param projectId project id to look for.
+     * @param phaseId phase id of the project
+     * @param projectTypeId identifier of the type of project
+     * @throws TCWebException if an unexpected error occurs
+     */
+    @SuppressWarnings("unchecked")
+    private void retrieveSpecReviewProjectDetail(String projectId, int phaseId) throws TCWebException {
+        try {
+            Request r = new Request();
+            r.setContentHandle("spec_review_project_detail");
+            r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
+            getRequest().setAttribute("phase_id", new Integer(phaseId));
 
+            Map results = getDataAccess().getData(r);
+            ResultSetContainer detail = (ResultSetContainer) results.get("spec_review_project_detail");
+            if (detail.isEmpty()) {
+                throw new NavigationException("Could not find information on the project selected.");
+            } 
+            
+            getRequest().setAttribute("projectDetail", detail);
+            
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
     }
 
     /**
@@ -405,6 +443,43 @@ public class ReviewProjectDetail extends Base {
         ret.setProjectId(projectId);
         ret.setReviewerType(reviewerType);
         ret.setReviewerTypeId(reviewerTypeId);
+
+        return ret;
+    }
+    
+    /**
+     * <p>Creates new spec review board application for specified project.</p>
+     *
+     * @param phaseId a <code>int</code> providing the phase ID.
+     * @param levelId a <code>int</code> referencing the project difficulty level.
+     * @param projectId a <code>long</code> providing the ID of a project.
+     * @param prize a <code>float</code> providing the prize amount for contest.
+     * @return a <code>ReviewBoardApplication</code> providing the reviewer payments for the specified project.
+     * @throws Exception if an unexpected error occurs.
+     */
+    @SuppressWarnings("unchecked")
+    protected ReviewBoardApplication makeSpecReviewApp(int phaseId, int levelId, long projectId, float prize) throws Exception {
+        Request r = new Request();
+
+        r.setContentHandle("spec_review_board_payments");
+        r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
+        r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
+
+        Map results = getDataAccess().getData(r);
+        ResultSetContainer detail = (ResultSetContainer) results.get("spec_review_board_payments");
+
+        ReviewBoardApplication ret = null;
+        if (detail.isEmpty()) {
+            // creates default price component
+            // we default num submissions and num passed submissions to 1
+            // dr points is also default to 0
+            ret = new ReviewBoardApplication(phaseId, levelId, 1, 1, prize, 0);
+        } else {
+            // creates custom price component.
+            ret = new ReviewBoardApplication(phaseId, detail.getFloatItem(0, "amount"), 0);
+        }
+
+        ret.setProjectId(projectId);
 
         return ret;
     }
