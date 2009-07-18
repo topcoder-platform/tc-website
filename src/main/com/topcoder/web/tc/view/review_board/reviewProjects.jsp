@@ -46,14 +46,7 @@
 
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
-	    	projectType: <c:out value="${projectType}"/><br/>
-		projectTypeDesc: <c:out value="${projectTypeDesc}"/><br/>
-		handleContext: <c:out value="${handleContext}"/><br/>
-		PROJECT_TYPE_ID: <c:out value="${PROJECT_TYPE_ID}"/><br/>
-		PROJECT_ID: <c:out value="${PROJECT_ID}"/><br/>
-		MODULE_KEY: <c:out value="${MODULE_KEY}"/><br/>
-	
-                <!-- Left Column Begins-->
+	    	<!-- Left Column Begins-->
                 <jsp:include page="reviewGlobalLeft.jsp"/>
                 <!-- Left Column Ends -->
 
@@ -199,8 +192,6 @@
                                             <td class="tableHeader" align="center">Catalog</td>
                                             <td class="tableHeader" width="100%">${projectTypeDesc}</td>
                                             <td class="tableHeader" align="right">Reviewer<br>Payment</td>
-                                            <td class="tableHeader" align="center">Submissions</td>
-                                            <td class="tableHeader" align="center">Opens<br>On</td>
                                             <td class="tableHeader" align="center">Review<br>Start</td>
                                             <td class="tableHeader" align="center">Review<br>End</td>
                                             <td class="tableHeader" align="center">Positions<br>Available</td>
@@ -210,7 +201,7 @@
                                         <c:set var="i" value="0"/>
                                         <c:forEach items="${specificationReviewList}" var="resultRow">
                                             <tr>
-                                                <td class="statDk" align="center">${projectTypeDesc}</td>
+                                                <td class="statDk" align="center">Spec Review</td>
                                                 <td class="statDk" align="center">${projectTypeDesc}</td>
                                                 <td class="statDk">
                                                     ${resultRow.map["component_name"]}
@@ -221,10 +212,6 @@
                                                         value="${specificationReviewPrices[i].primaryReviewPrice}"
                                                         pattern="#,###.00"/>
                                                 </td>
-                                                <td class="statDk" align="center">
-                                                    ${resultRow.map["submission_count"]}
-                                                </td>
-                                                <td class="statDk" align="center"><i>open</i></td>
                                                 <td class="statDk" align="center">
                                                     <fmt:formatDate value="${resultRow.map['review_start']}"
                                                                 pattern="MM.dd.yyyy"/>
