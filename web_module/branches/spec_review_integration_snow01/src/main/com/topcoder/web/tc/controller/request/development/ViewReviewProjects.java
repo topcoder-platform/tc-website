@@ -85,7 +85,8 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      *
      * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
      */
-    protected void developmentProcessing() throws TCWebException {
+    @SuppressWarnings("unchecked")
+	protected void developmentProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
 		System.out.println("ViewReviewProjects.developmentProcessing: " + projectTypeId);
         // don't include specification review project types in the validation
@@ -93,7 +94,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
 
-        int phase_id = (Integer.parseInt(projectTypeId) + 111);
+        int phase_id = (Integer.parseInt(projectTypeId) + (int)Constants.GENERAL_PHASE_OFFSET);
         getRequest().setAttribute("phase_id", new Integer(phase_id));
 
         Request r = new Request();
@@ -153,10 +154,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             //             get("tournament_review_projects"));
 
             // process specification review positions
-            int specificationReviewProjectTypeId = Integer.parseInt(projectTypeId)
-                    + Constants.SPECIFICATION_COMPETITION_OFFSET;
-            getRequest().setAttribute("specificationReviewProjectTypeId", specificationReviewProjectTypeId);
-            //processSpecificationReviewPositions(specificationReviewProjectTypeId);
+            processSpecificationReviewPositions(projectTypeId);
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
@@ -164,6 +162,54 @@ public class ViewReviewProjects extends ReviewProjectDetail {
         }
         setNextPage(getReviewOpportunitiesView(projectTypeId));
         setIsNextPageInContext(true);
+    }
+
+    /**
+     * <p>Private helper method to process specification review positions for the specified project type id.</p>
+     *
+     * <p>This method will get information from query tool and return an <code>ArrayList<SoftwareComponent></code>
+     * after processing it.</p>
+     *
+     * @param projectTypeId the project type id to process
+     * @throws TCWebException if any error occurs during the process
+     *
+     * @since 1.0.7
+     */
+    @SuppressWarnings("unchecked")
+	private void processSpecificationReviewPositions(String projectTypeId) throws TCWebException {
+    	// don't include specification review project types in the validation
+        if (!isProjectTypeSupported(projectTypeId, false)) {
+            throw new TCWebException("Invalid project type specified " + projectTypeId);
+        }
+
+        Request r = new Request();
+        r.setContentHandle("spec_review_projects");
+        r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
+
+        try {
+            ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("spec_review_projects");
+            getRequest().setAttribute("specificationReviewList", rsc);
+
+            ResultSetContainer.ResultSetRow rsr = null;
+
+            ArrayList prices = new ArrayList();
+
+            for (Iterator it = rsc.iterator(); it.hasNext();) {
+                rsr = (ResultSetContainer.ResultSetRow) it.next();
+                //default to 1 submission, dr points is not applicable so default to zero.
+                prices.add(makeApp("", 1, 1, rsr.getIntItem("phase_id"), rsr.getIntItem("level_id"),
+                                   rsr.getLongItem("project_id"), 0, rsr.getFloatItem("prize"),
+                                   0).getComponent());
+            }
+
+            getRequest().setAttribute("specificationReviewPrices", prices);
+            getRequest().setAttribute("specificationReviewProjectTypeId", Integer.toString(Integer.parseInt(projectTypeId) 
+            		+ Constants.SPECIFICATION_COMPETITION_OFFSET));
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
     }
 
     /**

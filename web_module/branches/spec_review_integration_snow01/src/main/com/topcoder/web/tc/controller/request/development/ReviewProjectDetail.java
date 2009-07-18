@@ -92,7 +92,8 @@ public class ReviewProjectDetail extends Base {
      *
      * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
      */
-    protected void developmentProcessing() throws TCWebException {
+    @SuppressWarnings("unchecked")
+	protected void developmentProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
         // include specification review project types in the validation
         if (!isProjectTypeSupported(projectTypeId, true)) {
@@ -332,7 +333,8 @@ public class ReviewProjectDetail extends Base {
      * @return a <code>ReviewBoardApplication</code> providing the reviewer payments for the specified project.
      * @throws Exception if an unexpected error occurs.
      */
-    @Deprecated
+    @SuppressWarnings("unchecked")
+	@Deprecated
     protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed,
                                              int phaseId, int levelId, long projectId, int reviewerTypeId)
         throws Exception {
@@ -380,7 +382,8 @@ public class ReviewProjectDetail extends Base {
      * @return a <code>ReviewBoardApplication</code> providing the reviewer payments for the specified project.
      * @throws Exception if an unexpected error occurs.
      */
-    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed,
+    @SuppressWarnings("unchecked")
+	protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed,
                                              int phaseId, int levelId, long projectId, int reviewerTypeId, float prize,
                                              float drPoints) throws Exception {
         Request r = new Request();
