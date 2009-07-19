@@ -37,10 +37,15 @@ import java.util.Map;
  *     <li>The project type requested by client is provided as parameter to <code>review_project_detail</code> query to
  *         filter the retrieved projects based on provided type.</li>
  *   </ol>
+ *   
+ *   Version 1.0.3 (Specification Review Integration 1.0) Change notes:
+ *   <ol>
+ *     <li>Added apply logic to handle apply for specification review positions</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, isv
- * @version 1.0.2
+ * @author dok, pulky, isv, TCSASSEMBLER
+ * @version 1.0.3
  */
 public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
@@ -52,6 +57,19 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
     public ProjectReviewTermsAgree() {
     }
 
+    /**
+     * Handles the application processing on review terms agree.
+     * 
+     * It validates that user has agreed for T&C, user has entered matching captcha input. And then proceeds for review board apply.
+     * 
+     * Updated for Specification Review Integration 1.0 
+     *  as posted here: http://forums.topcoder.com/?module=Thread&threadID=646746&start=0
+     *  load captcha does not work in VM, so commented that out till FF.
+     * 
+     * @param opensOn the time at which review is opened.
+     * @param reviewTypeId the type of review.
+     * @throws Exception on any application error.
+     */
     protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws Exception {
         if ("POST".equals(getRequest().getMethod())) {
             if (!"on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
@@ -100,6 +118,21 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         }
     }
 
+    /**
+     * Does the apply to the review.
+     * 
+     * It adds database entry to add user for the project review.
+     * It additionally sends email to PM.
+     * 
+     * Updated for Specification Review Integration 1.0
+     *      - Now handles the logic for apply to specification review positions too.
+     *      - Specification Review Positions has phase id or project id +1000 than normal phase id or project id, respectively.
+     *        This logic is used to identify the case and then differently handle the apply.
+     * 
+     * @param opensOn the time at which review opens
+     * @param reviewTypeId the type of reviewer
+     * @throws Exception if any error occurs during apply.
+     */
     @SuppressWarnings("unchecked")
     private void apply(Timestamp opensOn, int reviewTypeId) throws Exception {
         String primary = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG));

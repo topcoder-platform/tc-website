@@ -82,6 +82,9 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      *
      * <p>Looks up for the list of active review projects of requested project type, binds it to request and forwards
      * to the corresponding JSP depending on requested project type.</p>
+     * 
+     * Updated for Specification Review Integration 1.0
+     *      - specification review projects are also processed/fetched. 
      *
      * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
      */
@@ -89,8 +92,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
 	protected void developmentProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
 
-        // don't include specification review project types in the validation
-        if (!isProjectTypeSupported(projectTypeId, false)) {
+        if (!isProjectTypeSupported(projectTypeId)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
 
@@ -220,7 +222,6 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      * @since TCS Release 2.2.0 (TCS-54)
      */
     private String getReviewOpportunitiesView(String projectType) {
-		System.out.println("ViewReviewProjects.getReviewOpportunitiesView: " + projectType);
         if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
             return Constants.REVIEW_PROJECTS;
         } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {

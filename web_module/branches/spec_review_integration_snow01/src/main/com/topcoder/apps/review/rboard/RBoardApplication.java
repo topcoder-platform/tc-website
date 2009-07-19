@@ -28,10 +28,15 @@ import java.sql.Timestamp;
  *     <li>Added {@link #validateUserWithoutCatalog(String, int, long, int)} method to validate the Assembly reviewer
  *     permissions without taking any catalog into consideration.</li>
  *   </ol>
- * </p>
  *
- * @author dok, pulky, ivern, isv
- * @version 1.0.3
+ *   Version 1.0.4 (Specification Review Integration 1.0) Change notes:
+ *   <ol>
+ *     <li>Added new method createSpecReviewRBoardApplication to apply for spec reviews.</li>
+ *   </ol>
+ * </p> 
+ *
+ * @author dok, pulky, ivern, isv, TCSASSEMBLER
+ * @version 1.0.4
  */
 public interface RBoardApplication extends EJBObject {
 
@@ -79,6 +84,10 @@ public interface RBoardApplication extends EJBObject {
      * @param opensOn timestamp when the positions opens on
      * @param reviewTypeId the type of the review
      * @param primary true if the reviewer is signing up for primary reviewer position
+	 * @throws RBoardRegistrationException if an unexpected error occurs.
+     * @throws RemoteException if an error occurs while calling EJB method remotely.
+	 *
+	 * @since 1.0.4
      */
     public void createSpecReviewRBoardApplication(String dataSource, long userId,
                                         long projectId, int reviewRespId, int phaseId, Timestamp opensOn,
