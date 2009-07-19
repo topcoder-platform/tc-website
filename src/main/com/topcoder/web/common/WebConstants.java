@@ -141,6 +141,12 @@ public interface WebConstants {
     public static final char[] UNACTIVE_STATI = {'2', 'U'};
     public static final char[] ACTIVE_STATI = {'1', 'A'};
     public static final int EMAIL_ACTIVE_STATUS = 1;
+    
+    /**
+     * Represents the name for specification reviewer type.
+     * @since 1.3
+     */
+    public static final String SPECIFICATION_REVIEWER_TYPE = "Specification Reviewer";
 
     /**
      * The constant used to indicate a version is in the collaboration phase
