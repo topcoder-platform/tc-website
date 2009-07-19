@@ -173,11 +173,12 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      * @since 1.0.7
      */
     @SuppressWarnings("unchecked")
-	private void processSpecificationReviewPositions(String projectTypeId) throws TCWebException {
-    	String specificationReviewProjectTypeId = Integer.toString(Integer.parseInt(projectTypeId) + Constants.SPECIFICATION_COMPETITION_OFFSET);
+    private void processSpecificationReviewPositions(String projectTypeId) throws TCWebException {
+        String specificationReviewProjectTypeId = Integer.toString(Integer.parseInt(projectTypeId)
+                + Constants.SPECIFICATION_COMPETITION_OFFSET);
         if (!isProjectTypeSupported(specificationReviewProjectTypeId, true)) {
             // simply return from here.
-        	return;
+            return;
         }
 
         Request r = new Request();
@@ -194,9 +195,10 @@ public class ViewReviewProjects extends ReviewProjectDetail {
 
             for (Iterator it = rsc.iterator(); it.hasNext();) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
-                //default to 1 submission, dr points is not applicable so default to zero.
+                // default to 1 submission, dr points is not applicable so default to zero.
                 prices.add(makeSpecReviewApp(rsr.getIntItem("phase_id"), rsr.getIntItem("level_id"),
-                                   rsr.getLongItem("project_id"), rsr.getFloatItem("prize")).getComponent());
+                        rsr.getLongItem("project_id"), rsr.getFloatItem("prize"), 0,
+                        Constants.SPECIFICATION_REVIEWER_TYPE).getComponent());
             }
 
             getRequest().setAttribute("specificationReviewPrices", prices);

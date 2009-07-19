@@ -259,7 +259,8 @@ public class ReviewProjectDetail extends Base {
             ArrayList reviewerList = new ArrayList(1);
 
             ReviewBoardApplication app = makeSpecReviewApp(detail.getIntItem(0, "phase_id"), detail.getIntItem(0,
-                    "level_id"), detail.getLongItem(0, "project_id"), detail.getFloatItem(0, "prize"));
+                    "level_id"), detail.getLongItem(0, "project_id"), detail.getFloatItem(0, "prize"), detail
+                    .getIntItem(0, "reviewer_type_id"), Constants.SPECIFICATION_REVIEWER_TYPE);
             app.setPrimary(true);
             reviewerList.add(app);
 
@@ -463,11 +464,12 @@ public class ReviewProjectDetail extends Base {
      * @param levelId a <code>int</code> referencing the project difficulty level.
      * @param projectId a <code>long</code> providing the ID of a project.
      * @param prize a <code>float</code> providing the prize amount for contest.
+     * @param reviewTypeId the id of the reviewer type.
      * @return a <code>ReviewBoardApplication</code> providing the reviewer payments for the specified project.
      * @throws Exception if an unexpected error occurs.
      */
     @SuppressWarnings("unchecked")
-    protected ReviewBoardApplication makeSpecReviewApp(int phaseId, int levelId, long projectId, float prize) throws Exception {
+    protected ReviewBoardApplication makeSpecReviewApp(int phaseId, int levelId, long projectId, float prize, int reviewerTypeId, String reviewerType) throws Exception {
         Request r = new Request();
 
         r.setContentHandle("spec_review_board_payments");
@@ -489,6 +491,8 @@ public class ReviewProjectDetail extends Base {
         }
 
         ret.setProjectId(projectId);
+        ret.setReviewerType(reviewerType);
+        ret.setReviewerTypeId(reviewerTypeId);
 
         return ret;
     }
