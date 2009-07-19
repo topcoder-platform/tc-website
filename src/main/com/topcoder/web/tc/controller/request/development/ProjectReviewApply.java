@@ -201,7 +201,9 @@ public class ProjectReviewApply extends Base {
 
         setDefault(Constants.TERMS_AGREE, String.valueOf(agreed));
 
-        loadCaptcha();
+        // as posted here: http://forums.topcoder.com/?module=Thread&threadID=646746&start=0
+        // this does not work in VM, so commenting it out till FF...
+        //loadCaptcha();
         setNextPage(getReviewTermsView(this.projectTypeId));
         setIsNextPageInContext(true);
     }
