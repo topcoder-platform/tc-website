@@ -132,6 +132,7 @@ public class ProjectReviewApply extends Base {
                     r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
                     results = getDataAccess().getData(r);
                     detail = (ResultSetContainer) results.get("spec_review_project_detail");
+                    catalog = detail.getIntItem(0, "category_id");
                 } else {
                     r.setContentHandle("review_project_detail");
                     r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
@@ -281,6 +282,15 @@ public class ProjectReviewApply extends Base {
             projectTypeId != WebConstants.TEST_SCENARIOS_PROJECT_TYPE &&
             projectTypeId != WebConstants.UI_PROTOTYPE_PROJECT_TYPE &&
             projectTypeId != WebConstants.RIA_BUILD_PROJECT_TYPE &&
-            projectTypeId != WebConstants.RIA_COMPONENT_PROJECT_TYPE;
+            projectTypeId != WebConstants.RIA_COMPONENT_PROJECT_TYPE &&
+            projectTypeId != WebConstants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.TEST_SUITES_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.TEST_SCENARIOS_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.UI_PROTOTYPE_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.RIA_BUILD_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE;
     }
 }
