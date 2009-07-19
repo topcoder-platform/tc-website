@@ -106,9 +106,14 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
         log.info("processing application for " + getUser().getUserName() + " phase " + phaseId +
                 " primary " + primary + " type " + reviewTypeId + " project " + projectId);
-
-        rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
-                reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
+        
+        if (this.phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
+            rBoardApplication.createSpecReviewRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
+                    reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
+        } else {
+            rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
+                    reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
+        }
 
         ResultSetContainer detail = null;
         Map results = null;
