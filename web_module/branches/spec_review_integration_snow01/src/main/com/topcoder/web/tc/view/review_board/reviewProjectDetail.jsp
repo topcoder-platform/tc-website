@@ -30,7 +30,6 @@
 <c:set var="projectDetailRow" value="${projectDetail[0]}"/>
 <c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>" scope="request"/>
 <c:set var="projectType" value="${param[PROJECT_TYPE_ID]}" scope="request"/>
-<!--<c:set var="projectType" value="${projectDetailRow.map['project_category_id']}" scope="request"/>-->
 <c:set var="now" value="<%=new TCTimestampResult(new Timestamp(System.currentTimeMillis()))%>" scope="request"/>
 <c:set var="PRIMARY_FLAG" value="<%=Constants.PRIMARY_FLAG%>" scope="request"/>
 <c:set var="REVIEWER_TYPE_ID" value="<%=Constants.REVIEWER_TYPE_ID%>" scope="request"/>
@@ -52,6 +51,9 @@
 
     <body>
         <jsp:include page="reviewTop.jsp"/>
+        
+        Project Type: <c:out value="${projectType}"/>
+    	isSpecificationReview: <c:out value="${isSpecificationReview}"/>
 
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
            <tr valign="top">
