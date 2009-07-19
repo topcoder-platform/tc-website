@@ -190,7 +190,7 @@
                                         <tr>
                                             <td class="tableHeader" align="center">Type</td>
                                             <td class="tableHeader" align="center">Catalog</td>
-                                            <td class="tableHeader" width="100%">${projectTypeDesc}</td>
+                                            <td class="tableHeader" align="center" width="100%">${projectTypeDesc}</td>
                                             <td class="tableHeader" align="right">Reviewer<br>Payment</td>
                                             <td class="tableHeader" align="center">Review<br>Start</td>
                                             <td class="tableHeader" align="center">Review<br>End</td>
@@ -203,7 +203,7 @@
                                             <tr>
                                                 <td class="statDk" align="center">Specification Review</td>
                                                 <td class="statDk" align="center">${projectTypeDesc}</td>
-                                                <td class="statDk">
+                                                <td class="statDk" align="center" >
                                                     ${resultRow.map["component_name"]}
                                                     ${resultRow.map["version"]}
                                                 </td>
