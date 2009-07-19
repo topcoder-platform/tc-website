@@ -22,8 +22,7 @@ package com.topcoder.web.common;
  * </p>
  *
  * <p>
- *   Version 1.3 (Specification Review Integration,
- *					copied from Specification Review Signup Pages 1.0) Change notes:
+ *   Version 1.3 (Specification Review Integration 1.0) Change notes:
  *   <ol>
  *     <li>Added several constants to support Specification Review projects.</li>
  *   </ol>
@@ -277,7 +276,7 @@ public interface WebConstants {
 	/**
      * <p>An <code>long</code> representing design specification project category id.</p>
      *
-     * @since 1.1
+     * @since 1.3
      */
     public static final long DESIGN_SPECIFICATION_PROJECT_TYPE =
         DESIGN_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
@@ -285,7 +284,7 @@ public interface WebConstants {
     /**
      * <p>An <code>long</code> representing development specification project category id.</p>
      *
-     * @since 1.1
+     * @since 1.3
      */
     public static final long DEVELOPMENT_SPECIFICATION_PROJECT_TYPE =
         DEVELOPMENT_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
@@ -293,7 +292,7 @@ public interface WebConstants {
     /**
      * <p>An <code>long</code> representing conceptualization specification project category id.</p>
      *
-     * @since 1.1
+     * @since 1.3
      */
     public static final long CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE =
         CONCEPTUALIZATION_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
@@ -301,7 +300,7 @@ public interface WebConstants {
     /**
      * <p>An <code>long</code> representing specification specification project category id.</p>
      *
-     * @since 1.1
+     * @since 1.3
      */
     public static final long SPECIFICATION_SPECIFICATION_PROJECT_TYPE =
         SPECIFICATION_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
@@ -309,7 +308,7 @@ public interface WebConstants {
     /**
      * <p>An <code>long</code> representing architecture specification project category id.</p>
      *
-     * @since 1.1
+     * @since 1.3
      */
     public static final long ARCHITECTURE_SPECIFICATION_PROJECT_TYPE =
         ARCHITECTURE_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
@@ -317,7 +316,7 @@ public interface WebConstants {
     /**
      * <p>An <code>long</code> representing assembly specification project category id.</p>
      *
-     * @since 1.1
+     * @since 1.3
      */
     public static final long ASSEMBLY_SPECIFICATION_PROJECT_TYPE =
         ASSEMBLY_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;

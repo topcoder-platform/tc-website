@@ -261,6 +261,17 @@ public class ReviewProjectDetail extends Base {
             ReviewBoardApplication app = makeSpecReviewApp(detail.getIntItem(0, "phase_id"), detail.getIntItem(0,
                     "level_id"), detail.getLongItem(0, "project_id"), detail.getFloatItem(0, "prize"), detail
                     .getIntItem(0, "reviewer_type_id"), Constants.SPECIFICATION_REVIEWER_TYPE);
+            
+            String reviewUserHandle = detail.getStringItem(0, "review_user_handle");
+            if (reviewUserHandle != null && !reviewUserHandle.equals("")) {
+                app.setHandle(reviewUserHandle);
+            }
+            
+            long reviewUserId = detail.getLongItem(0, "review_user_id");
+            if (reviewUserId > 0) {
+                app.setUserId(reviewUserId);
+            }
+            
             app.setPrimary(true);
             reviewerList.add(app);
 

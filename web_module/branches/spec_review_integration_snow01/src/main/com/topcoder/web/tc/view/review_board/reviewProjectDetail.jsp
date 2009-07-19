@@ -52,9 +52,6 @@
     <body>
         <jsp:include page="reviewTop.jsp"/>
         
-        Project Type: <c:out value="${projectType}"/>
-    	isSpecificationReview: <c:out value="${isSpecificationReview}"/>
-
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
            <tr valign="top">
                 <!-- Left Column Begins-->
@@ -91,9 +88,6 @@
                                     <c:when test="${projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE ||
                                         projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
                                         ${projectDetailRow.map['catalog']}
-                                    </c:when>
-                                    <c:when test="{isSpecificationReview}">
-                                    	Specification Review
                                     </c:when>
                                     <c:otherwise>
                                         ${projectTypeDesc}
