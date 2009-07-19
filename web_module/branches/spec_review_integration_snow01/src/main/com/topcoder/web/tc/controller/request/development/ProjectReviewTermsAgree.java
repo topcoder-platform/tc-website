@@ -111,6 +111,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                 reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
 
         ResultSetContainer detail = null;
+        Map results = null;
         
         // send email
         Request r = new Request();
@@ -119,7 +120,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
             r.setContentHandle("spec_review_project_detail");
             
             r.setProperty(Constants.PROJECT_ID, projectId);
-            Map results = getDataAccess().getData(r);
+            results = getDataAccess().getData(r);
             detail = (ResultSetContainer) results.get("spec_review_project_detail");
         } else {
             r.setContentHandle("review_project_detail");
@@ -128,7 +129,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
             r.setProperty(Constants.PROJECT_ID, projectId);
             r.setProperty(Constants.PHASE_ID, phaseIdStr);
             r.setProperty(Constants.PROJECT_TYPE_ID, this.projectTypeId);
-            Map results = getDataAccess().getData(r);
+            results = getDataAccess().getData(r);
             detail = (ResultSetContainer) results.get("review_project_detail");
         }
         
