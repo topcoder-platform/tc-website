@@ -89,6 +89,9 @@
                                         projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
                                         ${projectDetailRow.map['catalog']}
                                     </c:when>
+                                    <c:when test="isSpecificationReview">
+                                    	Specification Review
+                                    </c:when>
                                     <c:otherwise>
                                         ${projectTypeDesc}
                                     </c:otherwise>
@@ -223,15 +226,14 @@
                                 </td>
                                 <td class="projectCells" align="center" nowrap>
                                     <c:choose>
-                                        <c:when test="${now < projectDetailRow.map['opens_on'] &&
-                                            !isSpecificationReview}">
+                                        <c:when test="${!isSpecificationReview && now < projectDetailRow.map['opens_on']}">
                                             <i>Not open yet ***</i>
                                         </c:when>
                                         <c:when test="${reviewer.spotFilled}">
                                             <tc-webtag:handle coderId="${reviewer.userId}"
                                                 context="${handleContext}"/>
                                         </c:when>
-                                        <c:when test="${waitingToReview && !isSpecificationReview}">
+                                        <c:when test="${!isSpecificationReview && waitingToReview}">
                                             <i>Waiting until <fmt:formatDate value="${waitingUntil}"
                                                 pattern="MM.dd.yyyy hh:mm a"/> ****</i>
                                         </c:when>
