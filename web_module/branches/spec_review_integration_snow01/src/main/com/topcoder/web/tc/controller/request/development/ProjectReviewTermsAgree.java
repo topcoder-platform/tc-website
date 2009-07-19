@@ -132,9 +132,6 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
             detail = (ResultSetContainer) results.get("review_project_detail");
         }
         
-        Map results = getDataAccess(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, false).getData(r);
-        detail = (ResultSetContainer) results.get("review_project_detail");
-
         String component_name = detail.getStringItem(0, "component_name");
         String phase = detail.getStringItem(0, "phase_desc");
         String version = detail.getStringItem(0, "version_text");
