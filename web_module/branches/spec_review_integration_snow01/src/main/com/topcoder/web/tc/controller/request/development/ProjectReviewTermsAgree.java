@@ -58,14 +58,18 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                 addError(Constants.TERMS_AGREE, "You must agree to the terms in order to review a component.");
             }
 
-            if (!answeredCaptchaCorrectly()) {
-                addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
-            }
+            // as posted here: http://forums.topcoder.com/?module=Thread&threadID=646746&start=0
+            // this does not work in VM, so commenting it out till FF...
+            //if (!answeredCaptchaCorrectly()) {
+            //    addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
+            //}
 
             if (hasErrors()) {
                 setDefault(Constants.TERMS_AGREE,
                         "on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE)));
-                loadCaptcha();
+                // as posted here: http://forums.topcoder.com/?module=Thread&threadID=646746&start=0
+                // this does not work in VM, so commenting it out till FF...
+                //loadCaptcha();
                 setNextPage(Constants.REVIEWER_TERMS);
                 setIsNextPageInContext(true);
             } else {
