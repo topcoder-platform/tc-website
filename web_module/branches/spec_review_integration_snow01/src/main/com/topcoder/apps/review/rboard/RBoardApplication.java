@@ -63,4 +63,24 @@ public interface RBoardApplication extends EJBObject {
      */
     void validateUserWithoutCatalog(String dataSource, int reviewTypeId, long userId, int projectTypeId)
         throws RBoardRegistrationException, RemoteException;
+    
+    /**
+     * Creates the spec review rboard_application. 
+     * 
+     * Unlike normal rboard_application, 
+     *  - it inserts a new entry in spec_review_reviewer_xref
+     *  - update the status in spec_review table to REVIEWER_ASSIGNED (i.e id 5)
+     *
+     * @param dataSource the datasource being used
+     * @param userId the user id to insert
+     * @param projectId the project id to insert
+     * @param reviewRespId the review responsibility id to insert
+     * @param phaseId the phase id
+     * @param opensOn timestamp when the positions opens on
+     * @param reviewTypeId the type of the review
+     * @param primary true if the reviewer is signing up for primary reviewer position
+     */
+    public void createSpecReviewRBoardApplication(String dataSource, long userId,
+                                        long projectId, int reviewRespId, int phaseId, Timestamp opensOn,
+                                        int reviewTypeId, boolean primary) throws RBoardRegistrationException;
 }
