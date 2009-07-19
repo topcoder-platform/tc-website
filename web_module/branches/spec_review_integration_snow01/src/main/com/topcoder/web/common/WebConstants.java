@@ -391,88 +391,88 @@ public interface WebConstants {
      */
     public static final long PHASE_TEST_SCENARIOS = TEST_SCENARIOS_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
 
-//    /**
-//     * <p>An <code>long</code> representing design specification phase id.</p>
-//     *
-//     * @since 1.3
-//     */
-//    public static final long PHASE_DESIGN_SPECIFICATION = PHASE_DESIGN + SPECIFICATION_COMPETITION_OFFSET;
-//
-//    /**
-//     * <p>An <code>long</code> representing development specification phase id.</p>
-//     *
-//     * @since 1.3
-//     */
-//    public static final long PHASE_DEVELOPMENT_SPECIFICATION = PHASE_DEVELOPMENT + SPECIFICATION_COMPETITION_OFFSET;
-//
-//    /**
-//     * <p>An <code>long</code> representing conceptualization specification phase id.</p>
-//     *
-//     * @since 1.3
-//     */
-//    public static final long PHASE_CONCEPTUALIZATION_SPECIFICATION =
-//        PHASE_CONCEPTUALIZATION + SPECIFICATION_COMPETITION_OFFSET;
-//
-//    /**
-//     * <p>An <code>long</code> representing specification specification phase id.</p>
-//     *
-//     * @since 1.3
-//     */
-//    public static final long PHASE_SPECIFICATION_SPECIFICATION =
-//        PHASE_SPECIFICATION + SPECIFICATION_COMPETITION_OFFSET;
-//
-//    /**
-//     * <p>An <code>long</code> representing architecture specification phase id.</p>
-//     *
-//     * @since 1.3
-//     */
-//    public static final long PHASE_ARCHITECTURE_SPECIFICATION = PHASE_ARCHITECTURE + SPECIFICATION_COMPETITION_OFFSET;
-//
-//    /**
-//     * <p>An <code>long</code> representing assembly specification phase id.</p>
-//     *
-//     * @since 1.3
-//     */
-//    public static final long PHASE_ASSEMBLY_SPECIFICATION =  PHASE_ASSEMBLY + SPECIFICATION_COMPETITION_OFFSET;
-//
-//    /**
-//     * <p>An <code>long</code> representing test suite competition specification phase id.</p>
-//     *
-//     * @since 1.3
-//     */
-//    public static final long PHASE_TEST_SUITES_SPECIFICATION =
-//        PHASE_TEST_SUITES + SPECIFICATION_COMPETITION_OFFSET;
-//		
-//	/**
-//     * <p>An <code>long</code> representing test scenarios competition specification phase id.</p>
-//     *
-//     * @since 1.3
-//     */
-//    public static final long PHASE_TEST_SCENARIOS_SPECIFICATION =
-//        PHASE_TEST_SCENARIOS + SPECIFICATION_COMPETITION_OFFSET;
-//        
-//    /**
-//     * <p>An <code>long</code> representing ui prototype competition specification phase id.</p>
-//     *
-//     * @since 1.3
-//     */
-//    public static final long PHASE_UI_PROTOTYPE_SPECIFICATION =
-//        PHASE_UI_PROTOTYPE + SPECIFICATION_COMPETITION_OFFSET;
-//        
-//    /**
-//     * <p>An <code>long</code> representing ria build competition specification phase id.</p>
-//     *
-//     * @since 1.3
-//     */
-//    public static final long PHASE_RIA_BUILD_SPECIFICATION =
-//        PHASE_RIA_BUILD + SPECIFICATION_COMPETITION_OFFSET;
-//        
-//    /**
-//     * <p>An <code>long</code> representing ria component competition specification phase id.</p>
-//     *
-//     * @since 1.3
-//     */
-//    public static final long PHASE_RIA_COMPONENT_SPECIFICATION =
-//        PHASE_RIA_COMPONENT + SPECIFICATION_COMPETITION_OFFSET;
+    /**
+     * <p>An <code>long</code> representing design specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public static final long PHASE_DESIGN_SPECIFICATION = PHASE_DESIGN + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing development specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public static final long PHASE_DEVELOPMENT_SPECIFICATION = PHASE_DEVELOPMENT + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing conceptualization specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public static final long PHASE_CONCEPTUALIZATION_SPECIFICATION =
+        PHASE_CONCEPTUALIZATION + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing specification specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public static final long PHASE_SPECIFICATION_SPECIFICATION =
+        PHASE_SPECIFICATION + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing architecture specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public static final long PHASE_ARCHITECTURE_SPECIFICATION = PHASE_ARCHITECTURE + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing assembly specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public static final long PHASE_ASSEMBLY_SPECIFICATION =  PHASE_ASSEMBLY + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing test suite competition specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public static final long PHASE_TEST_SUITES_SPECIFICATION =
+        PHASE_TEST_SUITES + SPECIFICATION_COMPETITION_OFFSET;
+		
+	/**
+     * <p>An <code>long</code> representing test scenarios competition specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public static final long PHASE_TEST_SCENARIOS_SPECIFICATION =
+        PHASE_TEST_SCENARIOS + SPECIFICATION_COMPETITION_OFFSET;
+        
+    /**
+     * <p>An <code>long</code> representing ui prototype competition specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public static final long PHASE_UI_PROTOTYPE_SPECIFICATION =
+        PHASE_UI_PROTOTYPE + SPECIFICATION_COMPETITION_OFFSET;
+        
+    /**
+     * <p>An <code>long</code> representing ria build competition specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public static final long PHASE_RIA_BUILD_SPECIFICATION =
+        PHASE_RIA_BUILD + SPECIFICATION_COMPETITION_OFFSET;
+        
+    /**
+     * <p>An <code>long</code> representing ria component competition specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public static final long PHASE_RIA_COMPONENT_SPECIFICATION =
+        PHASE_RIA_COMPONENT + SPECIFICATION_COMPETITION_OFFSET;
 
 }
